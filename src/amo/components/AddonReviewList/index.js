@@ -32,9 +32,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { UsersStateType } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type {
-  ReactRouterLocation, ReactRouterType,
-} from 'core/types/router';
+import type { ReactRouterLocation, ReactRouterType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -65,9 +63,7 @@ export class AddonReviewListBase extends React.Component<Props> {
   loadDataIfNeeded(nextProps?: Props) {
     const lastAddon = this.props.addon;
     const nextAddon = nextProps && nextProps.addon;
-    const {
-      addon, dispatch, errorHandler, params, reviews,
-    } = {
+    const { addon, dispatch, errorHandler, params, reviews } = {
       ...this.props,
       ...nextProps,
     };
@@ -98,11 +94,13 @@ export class AddonReviewListBase extends React.Component<Props> {
     }
 
     if (!reviews || locationChanged) {
-      dispatch(fetchReviews({
-        addonSlug: params.addonSlug,
-        errorHandlerId: errorHandler.id,
-        page: location.query.page,
-      }));
+      dispatch(
+        fetchReviews({
+          addonSlug: params.addonSlug,
+          errorHandlerId: errorHandler.id,
+          page: location.query.page,
+        }),
+      );
     }
   }
 
@@ -134,11 +132,16 @@ export class AddonReviewListBase extends React.Component<Props> {
         query: { page: 1 },
       });
     }
-  }
+  };
 
   render() {
     const {
-      addon, errorHandler, location, i18n, reviewCount, reviews,
+      addon,
+      errorHandler,
+      location,
+      i18n,
+      reviewCount,
+      reviews,
     } = this.props;
 
     if (errorHandler.hasError()) {
@@ -151,9 +154,10 @@ export class AddonReviewListBase extends React.Component<Props> {
       //
       // 401 and 403 are for an add-on lookup is made to look like a 404 on purpose.
       // See https://github.com/mozilla/addons-frontend/issues/3061
-      if (errorHandler.capturedError.responseStatusCode === 401 ||
-          errorHandler.capturedError.responseStatusCode === 403 ||
-          errorHandler.capturedError.responseStatusCode === 404
+      if (
+        errorHandler.capturedError.responseStatusCode === 401 ||
+        errorHandler.capturedError.responseStatusCode === 403 ||
+        errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFound />;
       }
@@ -164,19 +168,24 @@ export class AddonReviewListBase extends React.Component<Props> {
     const allReviews = reviews || Array(4).fill(null);
     const iconUrl = getAddonIconUrl(addon);
     const iconImage = (
-      <img className="AddonReviewList-header-icon-image" src={iconUrl} alt={i18n.gettext('Add-on icon')} />
+      <img
+        className="AddonReviewList-header-icon-image"
+        src={iconUrl}
+        alt={i18n.gettext('Add-on icon')}
+      />
     );
 
     let header;
     if (addon) {
-      header = i18n.sprintf(
-        i18n.gettext('Reviews for %(addonName)s'), { addonName: addon.name });
+      header = i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
+        addonName: addon.name,
+      });
     } else {
       header = <LoadingText />;
     }
 
-    const addonRatingCount = addon && addon.ratings ?
-      addon.ratings.text_count : null;
+    const addonRatingCount =
+      addon && addon.ratings ? addon.ratings.text_count : null;
     let addonName;
     let reviewCountHTML;
     if (addon) {
@@ -185,8 +194,9 @@ export class AddonReviewListBase extends React.Component<Props> {
         i18n.ngettext(
           '%(total)s review for this add-on',
           '%(total)s reviews for this add-on',
-          addonRatingCount
-        ), {
+          addonRatingCount,
+        ),
+        {
           total: i18n.formatNumber(addonRatingCount),
         },
       );
@@ -210,10 +220,11 @@ export class AddonReviewListBase extends React.Component<Props> {
       });
       const title = i18n.sprintf(
         // translators: Example: by The Author, The Next Author
-        i18n.gettext('by %(authorList)s'), {
+        i18n.gettext('by %(authorList)s'),
+        {
           addonName: addon.name,
           authorList: authorList.join(', '),
-        }
+        },
       );
       authorProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
     } else {
@@ -225,14 +236,15 @@ export class AddonReviewListBase extends React.Component<Props> {
     );
     /* eslint-enable jsx-a11y/heading-has-content */
 
-    const paginator = (addon && reviewCount) ? (
-      <Paginate
-        LinkComponent={Link}
-        count={reviewCount}
-        currentPage={this.getCurrentPage()}
-        pathname={this.url()}
-      />
-    ) : null;
+    const paginator =
+      addon && reviewCount ? (
+        <Paginate
+          LinkComponent={Link}
+          count={reviewCount}
+          currentPage={this.getCurrentPage()}
+          pathname={this.url()}
+        />
+      ) : null;
 
     return (
       <div className="AddonReviewList">
@@ -247,13 +259,15 @@ export class AddonReviewListBase extends React.Component<Props> {
         <Card className="AddonReviewList-addon">
           <div className="AddonReviewList-header">
             <div className="AddonReviewList-header-icon">
-              {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}
+              {addon ? (
+                <Link to={this.addonURL()}>{iconImage}</Link>
+              ) : (
+                iconImage
+              )}
             </div>
             <div className="AddonReviewList-header-text">
               <h1 className="visually-hidden">{header}</h1>
-              <h2 className="AddonReviewList-header-addonName">
-                {addonName}
-              </h2>
+              <h2 className="AddonReviewList-header-addonName">{addonName}</h2>
               {authorsHTML}
             </div>
           </div>
@@ -311,10 +325,12 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     clientApp: state.api.clientApp,
     lang: state.api.lang,
     reviewCount: reviewData && reviewData.reviewCount,
-    reviews: reviewData && expandReviewObjects({
-      state: state.reviews,
-      reviews: reviewData.reviews,
-    }),
+    reviews:
+      reviewData &&
+      expandReviewObjects({
+        state: state.reviews,
+        reviews: reviewData.reviews,
+      }),
   };
 }
 

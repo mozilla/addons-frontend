@@ -19,9 +19,15 @@ type Props = {|
   styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
 |};
 
-
 export const UserRatingBase = (props: Props) => {
-  const { className, isOwner, readOnly, onSelectRating, review, styleSize } = props;
+  const {
+    className,
+    isOwner,
+    readOnly,
+    onSelectRating,
+    review,
+    styleSize,
+  } = props;
 
   return (
     <Rating
@@ -37,7 +43,7 @@ export const UserRatingBase = (props: Props) => {
 
 const mapStateToProps = (
   state: {| users: UsersStateType |},
-  ownProps: Props
+  ownProps: Props,
 ) => {
   const { review } = ownProps;
   const siteUser = getCurrentUser(state.users);
@@ -46,7 +52,7 @@ const mapStateToProps = (
 
 const UserRating: React.ComponentType<Props> = compose(
   translate(),
-  connect(mapStateToProps)
+  connect(mapStateToProps),
 )(UserRatingBase);
 
 export default UserRating;

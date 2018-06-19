@@ -16,7 +16,6 @@ import { SET_AUTH_TOKEN } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
 // This saga is not triggered by the UI but on the server side, hence do not
 // have a `errorHandler`. We do not want to miss any error because it would
 // mean no ways for the users to log in, so we let the errors bubble up.
@@ -36,13 +35,7 @@ export function* fetchCurrentUserAccount({ payload }) {
 }
 
 export function* editUserAccount({
-  payload: {
-    errorHandlerId,
-    notifications,
-    picture,
-    userFields,
-    userId,
-  },
+  payload: { errorHandlerId, notifications, picture, userFields, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -67,10 +60,12 @@ export function* editUserAccount({
         userId,
       });
 
-      yield put(loadUserNotifications({
-        notifications: allNotifications,
-        username: user.username,
-      }));
+      yield put(
+        loadUserNotifications({
+          notifications: allNotifications,
+          username: user.username,
+        }),
+      );
     }
   } catch (error) {
     log.warn(`Could not edit user account: ${error}`);
@@ -80,12 +75,7 @@ export function* editUserAccount({
   }
 }
 
-export function* fetchUserAccount({
-  payload: {
-    errorHandlerId,
-    username,
-  },
-}) {
+export function* fetchUserAccount({ payload: { errorHandlerId, username } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -106,10 +96,7 @@ export function* fetchUserAccount({
 }
 
 export function* fetchUserNotifications({
-  payload: {
-    errorHandlerId,
-    username,
-  },
+  payload: { errorHandlerId, username },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -130,12 +117,7 @@ export function* fetchUserNotifications({
   }
 }
 
-export function* deleteUserPicture({
-  payload: {
-    errorHandlerId,
-    userId,
-  },
-}) {
+export function* deleteUserPicture({ payload: { errorHandlerId, userId } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -155,12 +137,7 @@ export function* deleteUserPicture({
   }
 }
 
-export function* deleteUserAccount({
-  payload: {
-    errorHandlerId,
-    userId,
-  },
-}) {
+export function* deleteUserAccount({ payload: { errorHandlerId, userId } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());

@@ -1,14 +1,14 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api';
-import addonsReducer, {
-  LOAD_ADDONS, fetchAddon,
-} from 'core/reducers/addons';
+import addonsReducer, { LOAD_ADDONS, fetchAddon } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
 import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
-import { createFetchAddonResult, createStubErrorHandler } from 'tests/unit/helpers';
-
+import {
+  createFetchAddonResult,
+  createStubErrorHandler,
+} from 'tests/unit/helpers';
 
 describe('core/sagas/addons', () => {
   let apiState;
@@ -29,11 +29,13 @@ describe('core/sagas/addons', () => {
   });
 
   function _fetchAddon(params = {}) {
-    sagaTester.dispatch(fetchAddon({
-      errorHandler,
-      slug: fakeAddon.slug,
-      ...params,
-    }));
+    sagaTester.dispatch(
+      fetchAddon({
+        errorHandler,
+        slug: fakeAddon.slug,
+        ...params,
+      }),
+    );
   }
 
   it('fetches an addon from the API', async () => {
@@ -58,8 +60,9 @@ describe('core/sagas/addons', () => {
     _fetchAddon();
 
     await sagaTester.waitFor(LOAD_ADDONS);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    expect(sagaTester.getCalledActions()[1]).toEqual(
+      errorHandler.createClearingAction(),
+    );
   });
 
   it('dispatches an error', async () => {

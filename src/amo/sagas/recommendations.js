@@ -9,10 +9,7 @@ import * as api from 'amo/api/recommendations';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetRecommendationsParams } from 'amo/api/recommendations';
-import type {
-  FetchRecommendationsAction,
-} from 'amo/reducers/recommendations';
-
+import type { FetchRecommendationsAction } from 'amo/reducers/recommendations';
 
 export function* fetchRecommendations({
   payload: { errorHandlerId, guid, recommended },
@@ -24,18 +21,25 @@ export function* fetchRecommendations({
     const state = yield select(getState);
 
     const params: GetRecommendationsParams = {
-      api: state.api, guid, recommended,
+      api: state.api,
+      guid,
+      recommended,
     };
     const recommendations = yield call(api.getRecommendations, params);
-    const { fallback_reason: fallbackReason, outcome, results: addons }
-      = recommendations;
-
-    yield put(loadRecommendations({
-      addons,
-      fallbackReason,
-      guid,
+    const {
+      fallback_reason: fallbackReason,
       outcome,
-    }));
+      results: addons,
+    } = recommendations;
+
+    yield put(
+      loadRecommendations({
+        addons,
+        fallbackReason,
+        guid,
+        outcome,
+      }),
+    );
   } catch (error) {
     log.warn(`Failed to recommendations: ${error}`);
     yield put(errorHandler.createErrorAction(error));

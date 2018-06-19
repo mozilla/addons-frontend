@@ -3,7 +3,6 @@ import { getRecommendations } from 'amo/api/recommendations';
 import { createApiResponse } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   it('calls the recommendations API', async () => {
     const mockApi = sinon.mock(api);
@@ -18,8 +17,7 @@ describe(__filename, () => {
       .expects('callApi')
       .withArgs({
         auth: true,
-        endpoint:
-          'addons/recommendations/',
+        endpoint: 'addons/recommendations/',
         params,
         state: apiState,
       })

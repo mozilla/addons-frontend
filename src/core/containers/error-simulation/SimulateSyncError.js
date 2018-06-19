@@ -12,6 +12,6 @@ export class SimulateSyncErrorBase extends React.Component {
   }
 }
 
-export default compose(
-  render404IfConfigKeyIsFalse('allowErrorSimulation'),
-)(SimulateSyncErrorBase);
+export default compose(render404IfConfigKeyIsFalse('allowErrorSimulation'))(
+  SimulateSyncErrorBase,
+);

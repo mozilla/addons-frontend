@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import Select from 'ui/components/Select';
 
-
 describe(__filename, () => {
   it('renders a custom class name', () => {
     const root = shallow(<Select className="my-select" />);
@@ -16,7 +15,7 @@ describe(__filename, () => {
     const root = shallow(
       <Select>
         <option>Some option</option>
-      </Select>
+      </Select>,
     );
 
     expect(root.find('option')).toHaveLength(1);

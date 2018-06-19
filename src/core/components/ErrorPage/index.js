@@ -9,7 +9,6 @@ import { loadErrorPage } from 'core/reducers/errorPage';
 import type { ErrorPageState } from 'core/reducers/errorPage';
 import type { DispatchFunc } from 'core/types/redux';
 
-
 type Props = {|
   children: React.Node,
   getErrorComponent: typeof getErrorComponentDefault,
@@ -26,7 +25,7 @@ export class ErrorPageBase extends React.Component<InternalProps> {
   static defaultProps = {
     errorPage: {},
     getErrorComponent: getErrorComponentDefault,
-  }
+  };
 
   componentDidCatch(error: Error, info: Object) {
     const { dispatch } = this.props;
@@ -53,8 +52,8 @@ export const mapStateToProps = (state: {| errorPage: ErrorPageState |}) => ({
   errorPage: state.errorPage,
 });
 
-const ErrorPage: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
-)(ErrorPageBase);
+const ErrorPage: React.ComponentType<Props> = compose(connect(mapStateToProps))(
+  ErrorPageBase,
+);
 
 export default ErrorPage;

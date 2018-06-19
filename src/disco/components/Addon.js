@@ -33,13 +33,10 @@ import { getAddonByGUID } from 'core/reducers/addons';
 import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
-import {
-  getClientCompatibility as _getClientCompatibility,
-} from 'core/utils/compatibility';
+import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
 
 import 'disco/css/Addon.scss';
-
 
 export class AddonBase extends React.Component {
   static propTypes = {
@@ -69,7 +66,7 @@ export class AddonBase extends React.Component {
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     _tracking: PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
@@ -78,7 +75,7 @@ export class AddonBase extends React.Component {
     // Defaults themeAction to the imported func.
     themeAction,
     _tracking: tracking,
-  }
+  };
 
   getError() {
     const { error, i18n, status } = this.props;
@@ -87,11 +84,7 @@ export class AddonBase extends React.Component {
         <p className="message">{this.errorMessage()}</p>
         {error && !error.startsWith('FATAL') ? (
           // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
-          <a
-            className="close"
-            href="#"
-            onClick={this.closeError}
-          >
+          <a className="close" href="#" onClick={this.closeError}>
             {i18n.gettext('Close')}
           </a>
         ) : null}
@@ -110,7 +103,11 @@ export class AddonBase extends React.Component {
   getLogo() {
     const { iconUrl } = this.props;
     if (this.props.type === ADDON_TYPE_EXTENSION) {
-      return <div className="logo"><img src={iconUrl} alt="" /></div>;
+      return (
+        <div className="logo">
+          <img src={iconUrl} alt="" />
+        </div>
+      );
     }
     return null;
   }
@@ -134,7 +131,10 @@ export class AddonBase extends React.Component {
           >
             <img
               src={previewURL}
-              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })}
+              alt={sprintf(
+                i18n.gettext('Hover to preview or click to install %(name)s'),
+                { name },
+              )}
             />
           </a>
         </HoverIntent>
@@ -156,9 +156,11 @@ export class AddonBase extends React.Component {
     return (
       <div
         className="editorial-description"
-        dangerouslySetInnerHTML={
-          sanitizeHTMLWithExternalLinks(description, ['a', 'blockquote', 'cite'])
-        }
+        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(description, [
+          'a',
+          'blockquote',
+          'cite',
+        ])}
       />
     );
   }
@@ -167,7 +169,7 @@ export class AddonBase extends React.Component {
     event.preventDefault();
     const { addon, installTheme, status } = this.props;
     installTheme(event.currentTarget, { ...addon, status });
-  }
+  };
 
   errorMessage() {
     const { error, i18n } = this.props;
@@ -177,9 +179,13 @@ export class AddonBase extends React.Component {
       case DOWNLOAD_FAILED:
         return i18n.gettext('Download failed. Please check your connection.');
       case FATAL_INSTALL_ERROR:
-        return i18n.gettext('An unexpected error occurred during installation.');
+        return i18n.gettext(
+          'An unexpected error occurred during installation.',
+        );
       case FATAL_UNINSTALL_ERROR:
-        return i18n.gettext('An unexpected error occurred during uninstallation.');
+        return i18n.gettext(
+          'An unexpected error occurred during uninstallation.',
+        );
       case FATAL_ERROR:
       default:
         return i18n.gettext('An unexpected error occurred.');
@@ -190,7 +196,9 @@ export class AddonBase extends React.Component {
     const { status, i18n } = this.props;
     switch (status) {
       case UNINSTALLING:
-        return i18n.gettext('This add-on will be uninstalled after you restart Firefox.');
+        return i18n.gettext(
+          'This add-on will be uninstalled after you restart Firefox.',
+        );
       default:
         return i18n.gettext('Please restart Firefox to use this add-on.');
     }
@@ -199,7 +207,7 @@ export class AddonBase extends React.Component {
   closeError = (e) => {
     e.preventDefault();
     this.props.setCurrentStatus();
-  }
+  };
 
   clickHeadingLink = (e) => {
     const { type, name, _tracking } = this.props;
@@ -211,15 +219,15 @@ export class AddonBase extends React.Component {
         label: name,
       });
     }
-  }
+  };
 
   previewTheme = (e) => {
     this.props.previewTheme(e.currentTarget);
-  }
+  };
 
   resetThemePreview = (e) => {
     this.props.resetThemePreview(e.currentTarget);
-  }
+  };
 
   render() {
     const {
@@ -254,7 +262,10 @@ export class AddonBase extends React.Component {
     }
 
     const { compatible, minVersion, reason } = getClientCompatibility({
-      addon, clientApp, userAgentInfo });
+      addon,
+      clientApp,
+      userAgentInfo,
+    });
 
     return (
       // Disabling this is fine since the onClick is just being used to delegate
@@ -277,9 +288,10 @@ export class AddonBase extends React.Component {
             <h2
               onClick={this.clickHeadingLink}
               className="heading"
-              dangerouslySetInnerHTML={
-                sanitizeHTMLWithExternalLinks(heading, ['a', 'span'])
-              }
+              dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(heading, [
+                'a',
+                'span',
+              ])}
             />
             {this.getDescription()}
           </div>
@@ -292,10 +304,7 @@ export class AddonBase extends React.Component {
           />
         </div>
         {!compatible ? (
-          <AddonCompatibilityError
-            minVersion={minVersion}
-            reason={reason}
-          />
+          <AddonCompatibilityError minVersion={minVersion} reason={reason} />
         ) : null}
       </div>
       // eslint-disable-next-line max-len
@@ -323,6 +332,11 @@ export function mapStateToProps(state, ownProps) {
 export default compose(
   withRouter,
   translate({ withRef: true }),
-  connect(mapStateToProps, undefined, undefined, { withRef: true }),
+  connect(
+    mapStateToProps,
+    undefined,
+    undefined,
+    { withRef: true },
+  ),
   withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
 )(AddonBase);

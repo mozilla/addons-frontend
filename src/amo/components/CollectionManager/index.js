@@ -24,7 +24,8 @@ import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import Notice from 'ui/components/Notice';
 import type {
-  SearchFilters, SuggestionType,
+  SearchFilters,
+  SuggestionType,
 } from 'amo/components/AutoSearchInput';
 import type {
   CollectionsState,
@@ -43,10 +44,10 @@ import './styles.scss';
 export const MESSAGE_RESET_TIME = 5000;
 const MESSAGE_FADEOUT_TIME = 450;
 
-export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING'
-  = 'ADDON_ADDED_STATUS_PENDING';
-export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS'
-  = 'ADDON_ADDED_STATUS_SUCCESS';
+export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING' =
+  'ADDON_ADDED_STATUS_PENDING';
+export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS' =
+  'ADDON_ADDED_STATUS_SUCCESS';
 
 export type AddonAddedStatusType =
   | typeof ADDON_ADDED_STATUS_PENDING
@@ -82,10 +83,17 @@ type State = {|
   slug?: string | null,
 |};
 
-export class CollectionManagerBase extends React.Component<InternalProps, State> {
+export class CollectionManagerBase extends React.Component<
+  InternalProps,
+  State,
+> {
   static defaultProps = {
-    setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
-    clearTimeout: typeof window !== 'undefined' ? window.clearTimeout.bind(window) : () => {},
+    setTimeout:
+      typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
+    clearTimeout:
+      typeof window !== 'undefined'
+        ? window.clearTimeout.bind(window)
+        : () => {},
   };
 
   constructor(props: InternalProps) {
@@ -105,8 +113,9 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
     }
     if (hasAddonBeenAdded !== hasAddonBeenAddedNew) {
       this.setState({
-        addonAddedStatus: props.hasAddonBeenAdded ?
-          ADDON_ADDED_STATUS_SUCCESS : null,
+        addonAddedStatus: props.hasAddonBeenAdded
+          ? ADDON_ADDED_STATUS_SUCCESS
+          : null,
       });
     }
 
@@ -114,7 +123,7 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
       invariant(this.props.setTimeout, 'setTimeout() is undefined');
       this.timeout = this.props.setTimeout(
         this.resetMessageStatus,
-        MESSAGE_RESET_TIME
+        MESSAGE_RESET_TIME,
       );
     }
   }
@@ -128,7 +137,12 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
 
   onCancel = (event: SyntheticEvent<any>) => {
     const {
-      clientApp, collection, creating, errorHandler, router, siteLang,
+      clientApp,
+      collection,
+      creating,
+      errorHandler,
+      router,
+      siteLang,
     } = this.props;
     event.preventDefault();
     event.stopPropagation();
@@ -137,12 +151,9 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
       router.goBack();
     }
 
-    invariant(collection,
-      'A collection must be loaded before you can cancel');
-    invariant(clientApp,
-      'A clientApp must be loaded before you can cancel');
-    invariant(siteLang,
-      'A siteLang must be loaded before you can cancel');
+    invariant(collection, 'A collection must be loaded before you can cancel');
+    invariant(clientApp, 'A clientApp must be loaded before you can cancel');
+    invariant(siteLang, 'A siteLang must be loaded before you can cancel');
 
     // Reset form state to the original collection object.
     this.setState(this.propsToState(this.props));
@@ -150,7 +161,7 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
 
     const { authorUsername, slug } = collection;
     router.push(
-      `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`
+      `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`,
     );
   };
 
@@ -171,12 +182,9 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
     name = name && name.trim();
     slug = slug && slug.trim();
 
-    invariant(siteLang,
-      'The form cannot be submitted without a site language');
-    invariant(name,
-      'The form cannot be submitted without a name');
-    invariant(slug,
-      'The form cannot be submitted without a slug');
+    invariant(siteLang, 'The form cannot be submitted without a site language');
+    invariant(name, 'The form cannot be submitted without a name');
+    invariant(slug, 'The form cannot be submitted without a slug');
 
     const payload = {
       description: { [siteLang]: this.state.description },
@@ -186,25 +194,31 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
     };
 
     if (creating) {
-      dispatch(createCollection({
-        ...payload,
-        defaultLocale: siteLang,
-        username: currentUsername,
-      }));
+      dispatch(
+        createCollection({
+          ...payload,
+          defaultLocale: siteLang,
+          username: currentUsername,
+        }),
+      );
     } else {
-      invariant(collection,
-        'The form cannot be submitted without a collection');
-      dispatch(updateCollection({
-        ...payload,
-        collectionSlug: collection.slug,
-        defaultLocale: collection.defaultLocale,
-        username: collection.authorUsername,
-      }));
+      invariant(
+        collection,
+        'The form cannot be submitted without a collection',
+      );
+      dispatch(
+        updateCollection({
+          ...payload,
+          collectionSlug: collection.slug,
+          defaultLocale: collection.defaultLocale,
+          username: collection.authorUsername,
+        }),
+      );
     }
   };
 
   onTextInput = (
-    event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -218,7 +232,10 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
 
     if (creating && name === 'name' && !this.state.customSlug) {
       this.setState({
-        slug: trimmedValue.split(/[^A-Za-z0-9]/).filter((s) => s !== '').join('-'),
+        slug: trimmedValue
+          .split(/[^A-Za-z0-9]/)
+          .filter((s) => s !== '')
+          .join('-'),
         [name]: value,
       });
     } else if (creating && name === 'slug' && trimmedValue !== '') {
@@ -239,25 +256,35 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
 
   onAddonSelected = (suggestion: SuggestionType) => {
     const {
-      collection, currentUsername, dispatch, errorHandler, page,
+      collection,
+      currentUsername,
+      dispatch,
+      errorHandler,
+      page,
     } = this.props;
     const { addonId } = suggestion;
 
     invariant(addonId, 'addonId cannot be empty');
-    invariant(collection,
-      'A collection must be loaded before you can add an add-on to it');
-    invariant(currentUsername,
-      'Cannot add to collection because you are not signed in');
+    invariant(
+      collection,
+      'A collection must be loaded before you can add an add-on to it',
+    );
+    invariant(
+      currentUsername,
+      'Cannot add to collection because you are not signed in',
+    );
 
-    dispatch(addAddonToCollection({
-      addonId,
-      collectionId: collection.id,
-      slug: collection.slug,
-      editing: true,
-      errorHandlerId: errorHandler.id,
-      page: page || 1,
-      username: currentUsername,
-    }));
+    dispatch(
+      addAddonToCollection({
+        addonId,
+        collectionId: collection.id,
+        slug: collection.slug,
+        editing: true,
+        errorHandlerId: errorHandler.id,
+        page: page || 1,
+        username: currentUsername,
+      }),
+    );
     this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };
 
@@ -274,8 +301,8 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
     return {
       addonAddedStatus: null,
       customSlug: false,
-      description: props.collection &&
-        decodeHtmlEntities(props.collection.description),
+      description:
+        props.collection && decodeHtmlEntities(props.collection.description),
       name: props.collection && decodeHtmlEntities(props.collection.name),
       slug: props.collection && props.collection.slug,
     };
@@ -294,23 +321,22 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
     } = this.props;
     const { name, slug } = this.state;
 
-    const collectionUrlPrefix =
-      oneLineTrim`${config.get('apiHost')}/${siteLang}/firefox/collections/
+    const collectionUrlPrefix = oneLineTrim`${config.get(
+      'apiHost',
+    )}/${siteLang}/firefox/collections/
        ${(collection && collection.authorUsername) || currentUsername}/`;
 
-    const formIsDisabled = (!collection && !creating) ||
-                           isCollectionBeingModified;
+    const formIsDisabled =
+      (!collection && !creating) || isCollectionBeingModified;
     const isNameBlank = !(name && name.trim().length);
     const isSlugBlank = !(slug && slug.trim().length);
     const isSubmitDisabled = formIsDisabled || isNameBlank || isSlugBlank;
-    const buttonText = creating ?
-      i18n.gettext('Create collection') : i18n.gettext('Save collection');
+    const buttonText = creating
+      ? i18n.gettext('Create collection')
+      : i18n.gettext('Save collection');
 
     return (
-      <form
-        className="CollectionManager"
-        onSubmit={this.onSubmit}
-      >
+      <form className="CollectionManager" onSubmit={this.onSubmit}>
         {errorHandler.renderErrorIfPresent()}
         <label
           className="CollectionManager-collectionName"
@@ -326,7 +352,9 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
             type="text"
             value={this.state.name}
           />
-        ) : <LoadingText minWidth={60} />}
+        ) : (
+          <LoadingText minWidth={60} />
+        )}
         <label htmlFor="collectionDescription">
           {i18n.gettext('Description')}
         </label>
@@ -337,10 +365,10 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
             name="description"
             onChange={this.onTextInput}
           />
-        ) : <LoadingText minWidth={60} />}
-        <label htmlFor="collectionSlug">
-          {i18n.gettext('Custom URL')}
-        </label>
+        ) : (
+          <LoadingText minWidth={60} />
+        )}
+        <label htmlFor="collectionSlug">{i18n.gettext('Custom URL')}</label>
         <div className="CollectionManager-slug">
           <div
             id="collectionUrlPrefix"
@@ -378,18 +406,18 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
           )}
         </ReactCSSTransitionGroup>
 
-        {!creating &&
+        {!creating && (
           <AutoSearchInput
             inputName="collection-addon-query"
-            inputPlaceholder={
-              i18n.gettext('Find an add-on to include in this collection')
-            }
+            inputPlaceholder={i18n.gettext(
+              'Find an add-on to include in this collection',
+            )}
             location={router.location}
             onSearch={this.onSearchAddon}
             onSuggestionSelected={this.onAddonSelected}
             selectSuggestionText={i18n.gettext('Add to collection')}
           />
-        }
+        )}
         <footer className="CollectionManager-footer">
           {/*
             type=button is necessary to override the default
@@ -425,13 +453,11 @@ export const extractId = (ownProps: Props) => {
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (
-  state: {|
-    api: ApiStateType,
-    collections: CollectionsState,
-    users: UsersStateType,
-  |}
-) => {
+export const mapStateToProps = (state: {|
+  api: ApiStateType,
+  collections: CollectionsState,
+  users: UsersStateType,
+|}) => {
   const currentUser = getCurrentUser(state.users);
   return {
     hasAddonBeenAdded: state.collections.hasAddonBeenAdded,

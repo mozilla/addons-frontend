@@ -3,14 +3,13 @@ import * as React from 'react';
 import Autosuggest from 'react-autosuggest';
 
 import AutoSearchInput, {
-  extractId, AutoSearchInputBase, SEARCH_TERM_MIN_LENGTH, SEARCH_TERM_MAX_LENGTH,
+  extractId,
+  AutoSearchInputBase,
+  SEARCH_TERM_MIN_LENGTH,
+  SEARCH_TERM_MAX_LENGTH,
 } from 'amo/components/AutoSearchInput';
 import SearchSuggestion from 'amo/components/SearchSuggestion';
-import {
-  ADDON_TYPE_EXTENSION,
-  OS_LINUX,
-  OS_WINDOWS,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, OS_LINUX, OS_WINDOWS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
   autocompleteCancel,
@@ -33,7 +32,8 @@ import ErrorList from 'ui/components/ErrorList';
 
 describe(__filename, () => {
   const getProps = ({
-    store = dispatchClientMetadata().store, ...customProps
+    store = dispatchClientMetadata().store,
+    ...customProps
   } = {}) => {
     return {
       // This simulates debounce() without any debouncing.
@@ -52,7 +52,8 @@ describe(__filename, () => {
   const render = (customProps) => {
     const props = getProps(customProps);
     return shallowUntilTarget(
-      <AutoSearchInput {...props} />, AutoSearchInputBase
+      <AutoSearchInput {...props} />,
+      AutoSearchInputBase,
     );
   };
 
@@ -63,15 +64,15 @@ describe(__filename, () => {
 
   const simulateAutosuggestCallback = (props = {}) => {
     return simulateComponentCallback({
-      Component: Autosuggest, ...props,
+      Component: Autosuggest,
+      ...props,
     });
   };
 
-  const fetchSuggestions = (
-    { root, query, reason = 'input-changed' }
-  ) => {
+  const fetchSuggestions = ({ root, query, reason = 'input-changed' }) => {
     const onSuggestionsFetchRequested = simulateAutosuggestCallback({
-      root, propName: 'onSuggestionsFetchRequested',
+      root,
+      propName: 'onSuggestionsFetchRequested',
     });
     onSuggestionsFetchRequested({ value: query, reason });
   };
@@ -85,7 +86,8 @@ describe(__filename, () => {
       expect(typeof onChange).toEqual('function');
 
       onChange(createFakeEvent(), {
-        newValue: searchQuery, method: 'type',
+        newValue: searchQuery,
+        method: 'type',
       });
 
       // Since the component might call setState() and that would happen
@@ -177,24 +179,28 @@ describe(__filename, () => {
       const query = 'panda themes';
       inputSearchQuery(root, query);
 
-      root.find('.AutoSearchInput-submit-button')
+      root
+        .find('.AutoSearchInput-submit-button')
         .simulate('click', createFakeEvent());
 
       sinon.assert.calledWith(onSearch, {
-        query, operatingSystem: OS_WINDOWS,
+        query,
+        operatingSystem: OS_WINDOWS,
       });
     });
 
     it('blurs the input when submitting a search', () => {
       const root = renderAndMount();
       const blurSpy = sinon.spy(
-        root.find(Autosuggest).instance().input, 'blur'
+        root.find(Autosuggest).instance().input,
+        'blur',
       );
 
       const query = 'panda themes';
       inputSearchQuery(root, query);
 
-      root.find('.AutoSearchInput-submit-button')
+      root
+        .find('.AutoSearchInput-submit-button')
         .simulate('click', createFakeEvent());
 
       sinon.assert.called(blurSpy);
@@ -203,23 +209,26 @@ describe(__filename, () => {
     it('shows the input label by default', () => {
       const root = render();
 
-      expect(root.find('.AutoSearchInput-label'))
-        .not.toHaveClassName('visually-hidden');
+      expect(root.find('.AutoSearchInput-label')).not.toHaveClassName(
+        'visually-hidden',
+      );
     });
 
     it('lets you hide the input label', () => {
       const root = render({ showInputLabel: false });
 
-      expect(root.find('.AutoSearchInput-label'))
-        .toHaveClassName('visually-hidden');
+      expect(root.find('.AutoSearchInput-label')).toHaveClassName(
+        'visually-hidden',
+      );
     });
 
     it('lets you configure the input label text', () => {
       const inputLabelText = 'Search for add-ons';
       const root = render({ inputLabelText });
 
-      expect(root.find('.AutoSearchInput-label').text())
-        .toContain(inputLabelText);
+      expect(root.find('.AutoSearchInput-label').text()).toContain(
+        inputLabelText,
+      );
     });
   });
 
@@ -232,28 +241,35 @@ describe(__filename, () => {
       const query = 'ad blocker';
       fetchSuggestions({ root, query });
 
-      sinon.assert.calledWith(dispatchSpy, autocompleteStart({
-        errorHandlerId: root.instance().props.errorHandler.id,
-        filters: { query, operatingSystem: OS_WINDOWS },
-      }));
+      sinon.assert.calledWith(
+        dispatchSpy,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: { query, operatingSystem: OS_WINDOWS },
+        }),
+      );
     });
 
     it('fetches suggestions without a page', () => {
       const { store } = dispatchClientMetadata();
       const dispatchSpy = sinon.stub(store, 'dispatch');
       const root = render({
-        store, location: fakeRouterLocation({ query: { page: 3 } }),
+        store,
+        location: fakeRouterLocation({ query: { page: 3 } }),
       });
 
       fetchSuggestions({ root, query: 'ad blocker' });
 
-      sinon.assert.calledWith(dispatchSpy, autocompleteStart({
-        errorHandlerId: root.instance().props.errorHandler.id,
-        filters: sinon.match(
-          // Make sure the search is executed without a page parameter.
-          (filters) => typeof filters.page === 'undefined'
-        ),
-      }));
+      sinon.assert.calledWith(
+        dispatchSpy,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: sinon.match(
+            // Make sure the search is executed without a page parameter.
+            (filters) => typeof filters.page === 'undefined',
+          ),
+        }),
+      );
     });
 
     it('preserves existing search filters on the query string', () => {
@@ -261,20 +277,24 @@ describe(__filename, () => {
       const dispatch = sinon.spy(store, 'dispatch');
       const locationQuery = { type: ADDON_TYPE_EXTENSION };
       const root = render({
-        store, location: fakeRouterLocation({ query: locationQuery }),
+        store,
+        location: fakeRouterLocation({ query: locationQuery }),
       });
 
       const query = 'ad blocker';
       fetchSuggestions({ root, query });
 
-      sinon.assert.calledWith(dispatch, autocompleteStart({
-        errorHandlerId: root.instance().props.errorHandler.id,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          operatingSystem: OS_WINDOWS,
-          query,
-        },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: {
+            addonType: ADDON_TYPE_EXTENSION,
+            operatingSystem: OS_WINDOWS,
+            query,
+          },
+        }),
+      );
     });
 
     it('lets you override the default operating system', () => {
@@ -282,19 +302,23 @@ describe(__filename, () => {
       const dispatch = sinon.spy(store, 'dispatch');
       const locationQuery = { platform: OS_LINUX };
       const root = render({
-        store, location: fakeRouterLocation({ query: locationQuery }),
+        store,
+        location: fakeRouterLocation({ query: locationQuery }),
       });
 
       const query = 'ad blocker';
       fetchSuggestions({ root, query });
 
-      sinon.assert.calledWith(dispatch, autocompleteStart({
-        errorHandlerId: root.instance().props.errorHandler.id,
-        filters: {
-          operatingSystem: OS_LINUX,
-          query,
-        },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: {
+            operatingSystem: OS_LINUX,
+            query,
+          },
+        }),
+      );
     });
 
     it('does not fetch suggestions with an empty value', () => {
@@ -313,7 +337,8 @@ describe(__filename, () => {
       const root = render({ store });
 
       fetchSuggestions({
-        root, query: 't'.repeat(SEARCH_TERM_MIN_LENGTH - 1),
+        root,
+        query: 't'.repeat(SEARCH_TERM_MIN_LENGTH - 1),
       });
 
       sinon.assert.calledWith(dispatchSpy, autocompleteCancel());
@@ -326,7 +351,8 @@ describe(__filename, () => {
       const root = render({ store });
 
       fetchSuggestions({
-        root, query: 't'.repeat(SEARCH_TERM_MAX_LENGTH + 1),
+        root,
+        query: 't'.repeat(SEARCH_TERM_MAX_LENGTH + 1),
       });
 
       sinon.assert.calledWith(dispatchSpy, autocompleteCancel());
@@ -353,7 +379,9 @@ describe(__filename, () => {
       const root = render({ store });
 
       fetchSuggestions({
-        root, query: 'a theme', reason: 'input-focused',
+        root,
+        query: 'a theme',
+        reason: 'input-focused',
       });
 
       expect(root).toHaveClassName('AutoSearchInput--autocompleteIsOpen');
@@ -363,7 +391,8 @@ describe(__filename, () => {
   describe('clearing search suggestions', () => {
     const clearSuggestions = (root) => {
       const onSuggestionsClearRequested = simulateAutosuggestCallback({
-        root, propName: 'onSuggestionsClearRequested',
+        root,
+        propName: 'onSuggestionsClearRequested',
       });
       onSuggestionsClearRequested();
     };
@@ -378,9 +407,7 @@ describe(__filename, () => {
 
       clearSuggestions(root);
 
-      expect(root).not.toHaveClassName(
-        'AutoSearchInput--autocompleteIsOpen'
-      );
+      expect(root).not.toHaveClassName('AutoSearchInput--autocompleteIsOpen');
     });
 
     it('cancels pending requests on autosuggest cancel', () => {
@@ -397,7 +424,8 @@ describe(__filename, () => {
   describe('selecting search suggestions', () => {
     const selectSuggestion = ({ root, suggestion }) => {
       const onSuggestionSelected = simulateAutosuggestCallback({
-        root, propName: 'onSuggestionSelected',
+        root,
+        propName: 'onSuggestionSelected',
       });
       onSuggestionSelected(createFakeEvent(), { suggestion });
     };
@@ -407,7 +435,7 @@ describe(__filename, () => {
       const root = render({ onSuggestionSelected });
 
       const suggestion = createInternalSuggestion(
-        createFakeAutocompleteResult({ name: 'uBlock Origin' })
+        createFakeAutocompleteResult({ name: 'uBlock Origin' }),
       );
 
       selectSuggestion({ root, suggestion });
@@ -417,16 +445,18 @@ describe(__filename, () => {
 
     it('does not execute callback when selecting a placeholder', () => {
       const { store } = dispatchClientMetadata();
-      store.dispatch(autocompleteStart({
-        errorHandlerId: 'some-error-handler',
-        filters: { query: 'ad blockers' },
-      }));
+      store.dispatch(
+        autocompleteStart({
+          errorHandlerId: 'some-error-handler',
+          filters: { query: 'ad blockers' },
+        }),
+      );
 
       const onSuggestionSelected = sinon.stub();
       const root = render({ store, onSuggestionSelected });
 
       const suggestion = createInternalSuggestion(
-        createFakeAutocompleteResult({ name: 'uBlock Origin' })
+        createFakeAutocompleteResult({ name: 'uBlock Origin' }),
       );
 
       selectSuggestion({ root, suggestion });
@@ -446,16 +476,14 @@ describe(__filename, () => {
       const suggestion = createInternalSuggestion(externalSuggestion);
       selectSuggestion({ root, suggestion });
 
-      expect(root).not.toHaveClassName(
-        'AutoSearchInput--autocompleteIsOpen'
-      );
+      expect(root).not.toHaveClassName('AutoSearchInput--autocompleteIsOpen');
     });
 
     it('resets the search query when selecting a suggestion', () => {
       const root = render({ query: 'panda themes' });
 
       const suggestion = createInternalSuggestion(
-        createFakeAutocompleteResult()
+        createFakeAutocompleteResult(),
       );
       selectSuggestion({ root, suggestion });
 
@@ -470,12 +498,11 @@ describe(__filename, () => {
   describe('suggestion result', () => {
     const renderSuggestion = ({
       root = render(),
-      suggestionData = createInternalSuggestion(
-        createFakeAutocompleteResult()
-      ),
+      suggestionData = createInternalSuggestion(createFakeAutocompleteResult()),
     } = {}) => {
       const _renderSuggestion = simulateAutosuggestCallback({
-        root, propName: 'renderSuggestion',
+        root,
+        propName: 'renderSuggestion',
       });
       const suggestion = _renderSuggestion(suggestionData);
       return shallow(<div>{suggestion}</div>).find(SearchSuggestion);
@@ -484,12 +511,13 @@ describe(__filename, () => {
     it('converts a suggestion result into a value', () => {
       const name = 'uBlock Origin';
       const suggestion = createInternalSuggestion(
-        createFakeAutocompleteResult({ name })
+        createFakeAutocompleteResult({ name }),
       );
 
       const root = render();
       const getSuggestionValue = simulateAutosuggestCallback({
-        root, propName: 'getSuggestionValue',
+        root,
+        propName: 'getSuggestionValue',
       });
       const value = getSuggestionValue(suggestion);
 
@@ -499,7 +527,7 @@ describe(__filename, () => {
     it('renders a suggestion', () => {
       const name = 'uBlock Origin';
       const suggestionData = createInternalSuggestion(
-        createFakeAutocompleteResult({ name })
+        createFakeAutocompleteResult({ name }),
       );
       const suggestion = renderSuggestion({ suggestionData });
 
@@ -509,14 +537,16 @@ describe(__filename, () => {
 
     it('renders search suggestion in a loading state', () => {
       const { store } = dispatchClientMetadata();
-      store.dispatch(autocompleteStart({
-        errorHandlerId: 'some-error-handler',
-        filters: { query: 'ad blockers' },
-      }));
+      store.dispatch(
+        autocompleteStart({
+          errorHandlerId: 'some-error-handler',
+          filters: { query: 'ad blockers' },
+        }),
+      );
 
       const root = render({ store });
       const suggestionData = createInternalSuggestion(
-        createFakeAutocompleteResult()
+        createFakeAutocompleteResult(),
       );
       const suggestion = renderSuggestion({ root, suggestionData });
 
@@ -549,23 +579,26 @@ describe(__filename, () => {
       const root = render({ store });
       const suggestions = getSuggestions(root);
 
-      expect(suggestions[0]).toMatchObject(
-        { name: firstResult.name, addonId: firstResult.id }
-      );
-      expect(suggestions[1]).toMatchObject(
-        { name: secondResult.name, addonId: secondResult.id }
-      );
+      expect(suggestions[0]).toMatchObject({
+        name: firstResult.name,
+        addonId: firstResult.id,
+      });
+      expect(suggestions[1]).toMatchObject({
+        name: secondResult.name,
+        addonId: secondResult.id,
+      });
 
-      expect(suggestions)
-        .toEqual(root.find(Autosuggest).prop('suggestions'));
+      expect(suggestions).toEqual(root.find(Autosuggest).prop('suggestions'));
     });
 
     it('configures search suggestions in a loading state', () => {
       const { store } = dispatchClientMetadata();
-      store.dispatch(autocompleteStart({
-        errorHandlerId: 'some-error-handler',
-        filters: { query: 'ad blockers' },
-      }));
+      store.dispatch(
+        autocompleteStart({
+          errorHandlerId: 'some-error-handler',
+          filters: { query: 'ad blockers' },
+        }),
+      );
 
       const root = render({ store });
       const suggestions = getSuggestions(root);

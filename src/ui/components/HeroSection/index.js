@@ -8,7 +8,6 @@ import { addQueryParams } from 'core/utils';
 
 import './styles.scss';
 
-
 type Props = {|
   children?: any,
   linkTo?: Object | string,
@@ -18,7 +17,7 @@ type Props = {|
 export default class HeroSection extends React.Component<Props> {
   static defaultProps = {
     styleName: 'default',
-  }
+  };
 
   render() {
     const { children, linkTo, styleName } = this.props;
@@ -35,15 +34,11 @@ export default class HeroSection extends React.Component<Props> {
             className="HeroSection-link-wrapper"
             to={addQueryParams(linkTo, { src: INSTALL_SOURCE_HERO_PROMO })}
           >
-            <div className="HeroSection-content">
-              {children}
-            </div>
+            <div className="HeroSection-content">{children}</div>
           </Link>
         ) : (
           <div className="HeroSection-wrapper">
-            <div className="HeroSection-content">
-              {children}
-            </div>
+            <div className="HeroSection-content">{children}</div>
           </div>
         )}
       </div>

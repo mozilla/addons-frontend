@@ -13,20 +13,21 @@ import {
   setReviewReply,
 } from 'amo/actions/reviews';
 import {
-  FETCH_REVIEWS, SEND_REPLY_TO_REVIEW, SEND_REVIEW_FLAG,
+  FETCH_REVIEWS,
+  SEND_REPLY_TO_REVIEW,
+  SEND_REVIEW_FLAG,
 } from 'amo/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
-  FetchReviewsAction, FlagReviewAction, SendReplyToReviewAction,
+  FetchReviewsAction,
+  FlagReviewAction,
+  SendReplyToReviewAction,
 } from 'amo/actions/reviews';
 
-
-function* fetchReviews(
-  {
-    payload: { errorHandlerId, addonSlug, page },
-  }: FetchReviewsAction
-): Generator<any, any, any> {
+function* fetchReviews({
+  payload: { errorHandlerId, addonSlug, page },
+}: FetchReviewsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
@@ -37,21 +38,22 @@ function* fetchReviews(
       filter: 'without_empty_body',
       page,
     });
-    yield put(setAddonReviews({
-      addonSlug, reviews: response.results, reviewCount: response.count,
-    }));
+    yield put(
+      setAddonReviews({
+        addonSlug,
+        reviews: response.results,
+        reviewCount: response.count,
+      }),
+    );
   } catch (error) {
-    log.warn(
-      `Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
+    log.warn(`Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }
 
-function* handleReplyToReview(
-  {
-    payload: { errorHandlerId, originalReviewId, body, title },
-  }: SendReplyToReviewAction
-): Generator<any, any, any> {
+function* handleReplyToReview({
+  payload: { errorHandlerId, originalReviewId, body, title },
+}: SendReplyToReviewAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -69,17 +71,14 @@ function* handleReplyToReview(
 
     yield put(hideReplyToReviewForm({ reviewId: originalReviewId }));
   } catch (error) {
-    log.warn(
-      `Failed to send reply to review ID ${originalReviewId}: ${error}`);
+    log.warn(`Failed to send reply to review ID ${originalReviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }
 
-function* handleFlagReview(
-  {
-    payload: { errorHandlerId, note, reason, reviewId },
-  }: FlagReviewAction
-): Generator<any, any, any> {
+function* handleFlagReview({
+  payload: { errorHandlerId, note, reason, reviewId },
+}: FlagReviewAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());

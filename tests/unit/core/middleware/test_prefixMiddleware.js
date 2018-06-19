@@ -1,6 +1,5 @@
 import { prefixMiddleware } from 'core/middleware';
 
-
 describe('Prefix Middleware', () => {
   let fakeRes;
   let fakeNext;
@@ -18,8 +17,11 @@ describe('Prefix Middleware', () => {
     fakeConfig = new Map();
     fakeConfig.set('validClientApplications', ['firefox', 'android']);
     fakeConfig.set('validLocaleUrlExceptions', ['downloads']);
-    fakeConfig.set(
-      'validClientAppUrlExceptions', ['about', 'developers', 'validprefix']);
+    fakeConfig.set('validClientAppUrlExceptions', [
+      'about',
+      'developers',
+      'validprefix',
+    ]);
     fakeConfig.set('clientAppRoutes', ['about']);
     fakeConfig.set('validTrailingSlashUrlExceptions', ['about']);
   });
@@ -69,7 +71,11 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/validprefix/whatever');
+    sinon.assert.calledWith(
+      fakeRes.redirect,
+      302,
+      '/en-US/validprefix/whatever',
+    );
     sinon.assert.notCalled(fakeRes.vary);
   });
 
@@ -90,8 +96,11 @@ describe('Prefix Middleware', () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
 
-    sinon.assert.calledWith(fakeRes.redirect, 302,
-      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi');
+    sinon.assert.calledWith(
+      fakeRes.redirect,
+      302,
+      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
+    );
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
@@ -102,8 +111,11 @@ describe('Prefix Middleware', () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
 
-    sinon.assert.calledWith(fakeRes.redirect, 302,
-      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi');
+    sinon.assert.calledWith(
+      fakeRes.redirect,
+      302,
+      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
+    );
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
@@ -175,7 +187,8 @@ describe('Prefix Middleware', () => {
     const fakeReq = {
       originalUrl: '/en-US/whatever',
       headers: {
-        'user-agent': 'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
+        'user-agent':
+          'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
@@ -222,7 +235,10 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302,
-      '/en-US/firefox/foo/bar?test=1&bar=2');
+    sinon.assert.calledWith(
+      fakeRes.redirect,
+      302,
+      '/en-US/firefox/foo/bar?test=1&bar=2',
+    );
   });
 });

@@ -4,7 +4,6 @@ import * as React from 'react';
 import PaginatorLink from 'core/components/PaginatorLink';
 import Button from 'ui/components/Button';
 
-
 describe(__filename, () => {
   function render(customProps = {}) {
     const props = {
@@ -19,23 +18,27 @@ describe(__filename, () => {
   }
 
   it('requires currentPage', () => {
-    expect(() => render({ currentPage: undefined }))
-      .toThrowError(/currentPage .* cannot be undefined/);
+    expect(() => render({ currentPage: undefined })).toThrowError(
+      /currentPage .* cannot be undefined/,
+    );
   });
 
   it('requires pathname', () => {
-    expect(() => render({ pathname: undefined }))
-      .toThrowError(/pathname .* cannot be undefined/);
+    expect(() => render({ pathname: undefined })).toThrowError(
+      /pathname .* cannot be undefined/,
+    );
   });
 
   it('requires a page', () => {
-    expect(() => render({ page: undefined }))
-      .toThrowError(/page .* cannot be undefined/);
+    expect(() => render({ page: undefined })).toThrowError(
+      /page .* cannot be undefined/,
+    );
   });
 
   it('requires pageCount', () => {
-    expect(() => render({ pageCount: undefined }))
-      .toThrowError(/pageCount .* cannot be undefined/);
+    expect(() => render({ pageCount: undefined })).toThrowError(
+      /pageCount .* cannot be undefined/,
+    );
   });
 
   it('renders a PaginatorLink', () => {
@@ -62,7 +65,9 @@ describe(__filename, () => {
 
     it('uses the provided text', () => {
       const item = render({
-        currentPage: 3, page: 3, text: 'go to page',
+        currentPage: 3,
+        page: 3,
+        text: 'go to page',
       });
 
       expect(item.find(Button)).toHaveProp('children', 'go to page');
@@ -83,15 +88,17 @@ describe(__filename, () => {
     it('uses the pathname', () => {
       const link = render({ page: 3, pathname: '/search/' });
 
-      expect(link.find(Button).prop('to'))
-        .toMatchObject({ pathname: '/search/' });
+      expect(link.find(Button).prop('to')).toMatchObject({
+        pathname: '/search/',
+      });
     });
 
     it('uses the page', () => {
       const link = render({ page: 3, pathname: '/search/' });
 
-      expect(link.find(Button).prop('to'))
-        .toMatchObject({ query: { page: 3 } });
+      expect(link.find(Button).prop('to')).toMatchObject({
+        query: { page: 3 },
+      });
     });
 
     it('uses the provided text', () => {

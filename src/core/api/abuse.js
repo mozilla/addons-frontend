@@ -2,7 +2,6 @@
 import { callApi } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 
-
 /*
  * A reporter object, returned by Abuse Report APIs
  *
@@ -53,9 +52,11 @@ export type ReportUserResponse = {|
   |},
 |};
 
-export function reportUser(
-  { api, message, userId }: ReportUserParams
-): Promise<ReportUserResponse> {
+export function reportUser({
+  api,
+  message,
+  userId,
+}: ReportUserParams): Promise<ReportUserResponse> {
   return callApi({
     auth: true,
     endpoint: 'abuse/report/user',

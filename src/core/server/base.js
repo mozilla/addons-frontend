@@ -40,20 +40,22 @@ import I18nProvider from 'core/i18n/Provider';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
-
 export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
   const appName = config.get('appName');
   const isDeployed = config.get('isDeployed');
 
   // Get SRI for deployed services only.
-  const sriData = (isDeployed) ? JSON.parse(
-    fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
-  ) : {};
+  const sriData = isDeployed
+    ? JSON.parse(
+        fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json')),
+      )
+    : {};
 
   // Check the lang supplied by res.locals.lang for validity
   // or fall-back to the default.
-  const lang = isValidLang(res.locals.lang) ?
-    res.locals.lang : config.get('defaultLang');
+  const lang = isValidLang(res.locals.lang)
+    ? res.locals.lang
+    : config.get('defaultLang');
   const dir = getDirection(lang);
   store.dispatch(setLang(lang));
   if (res.locals.clientApp) {
@@ -78,10 +80,10 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
     noScriptStyles,
     sriData,
     store,
-    trackingEnabled: (
+    // A DNT header set to "1" means Do Not Track
+    trackingEnabled:
       convertBoolean(config.get('trackingEnabled')) &&
-      req.header('dnt') !== '1' // A DNT header set to "1" means Do Not Track
-    ),
+      req.header('dnt') !== '1',
   };
 }
 
@@ -104,14 +106,16 @@ function showErrorPage({ createStore, error = {}, req, res, status, config }) {
   store.dispatch(loadErrorPage({ error: apiError }));
 
   const HTML = renderHTML({ pageProps });
-  return res.status(adjustedStatus)
+  return res
+    .status(adjustedStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
     .end();
 }
 
 function sendHTML({ res, html }) {
   const componentDeclaredStatus = NestedStatus.rewind();
-  return res.status(componentDeclaredStatus)
+  return res
+    .status(componentDeclaredStatus)
     .send(`<!DOCTYPE html>\n${html}`)
     .end();
 }
@@ -123,13 +127,13 @@ function hydrateOnClient({ res, props = {}, pageProps }) {
   });
 }
 
-function baseServer(routes, createStore, {
-  appSagas,
-  appInstanceName = null,
-  config = defaultConfig,
-  _HotShots,
-} = {}) {
-  const appName = appInstanceName !== null ? appInstanceName : config.get('appName');
+function baseServer(
+  routes,
+  createStore,
+  { appSagas, appInstanceName = null, config = defaultConfig, _HotShots } = {},
+) {
+  const appName =
+    appInstanceName !== null ? appInstanceName : config.get('appName');
 
   const app = new Express();
   app.disable('x-powered-by');
@@ -141,7 +145,9 @@ function baseServer(routes, createStore, {
     log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
     // The error handler is defined below.
   } else {
-    log.warn('Sentry reporting is disabled; Set config.sentryDsn to enable it.');
+    log.warn(
+      'Sentry reporting is disabled; Set config.sentryDsn to enable it.',
+    );
   }
 
   if (config.get('useDatadog') && config.get('datadogHost')) {
@@ -205,14 +211,18 @@ function baseServer(routes, createStore, {
     const defaultVersion = '57.0';
 
     app.get('/', (req, res) => {
-      res.redirect(302,
-        `/en-US/firefox/discovery/pane/${defaultVersion}/Darwin/normal`);
+      res.redirect(
+        302,
+        `/en-US/firefox/discovery/pane/${defaultVersion}/Darwin/normal`,
+      );
     });
 
     app.get('/:version/', (req, res) => {
       const version = req.params.version || defaultVersion;
-      res.redirect(302,
-        `/en-US/firefox/discovery/pane/${version}/Darwin/normal`);
+      res.redirect(
+        302,
+        `/en-US/firefox/discovery/pane/${version}/Darwin/normal`,
+      );
     });
   }
 
@@ -257,110 +267,113 @@ function baseServer(routes, createStore, {
     });
     const history = syncHistoryWithStore(memoryHistory, store);
 
-    match({ history, location: req.url, routes }, async (
-      matchError, redirectLocation, renderProps
-    ) => {
-      if (matchError) {
-        log.info(`match() returned an error for ${req.url}: ${matchError}`);
-        return next(matchError);
-      }
-
-      if (!renderProps) {
-        log.info(`match() did not return renderProps for ${req.url}`);
-        return showErrorPage({ createStore, status: 404, req, res, config });
-      }
-
-      let pageProps;
-      let runningSagas;
-
-      try {
-        cookie.plugToRequest(req, res);
-
-        let sagas = appSagas;
-        if (!sagas) {
-          // eslint-disable-next-line global-require, import/no-dynamic-require
-          sagas = require(`${appName}/sagas`).default;
-        }
-        runningSagas = sagaMiddleware.run(sagas);
-
-        const token = cookie.load(config.get('cookieName'));
-        if (token) {
-          store.dispatch(setAuthToken(token));
+    match(
+      { history, location: req.url, routes },
+      async (matchError, redirectLocation, renderProps) => {
+        if (matchError) {
+          log.info(`match() returned an error for ${req.url}: ${matchError}`);
+          return next(matchError);
         }
 
-        pageProps = getPageProps({ noScriptStyles, store, req, res, config });
-
-        if (config.get('disableSSR') === true) {
-          // This stops all running sagas.
-          store.dispatch(END);
-
-          await runningSagas.done;
-          log.warn('Server side rendering is disabled.');
-
-          return hydrateOnClient({ res, pageProps });
+        if (!renderProps) {
+          log.info(`match() did not return renderProps for ${req.url}`);
+          return showErrorPage({ createStore, status: 404, req, res, config });
         }
-      } catch (preLoadError) {
-        log.info(oneLine`Caught an error in match() before rendering:
+
+        let pageProps;
+        let runningSagas;
+
+        try {
+          cookie.plugToRequest(req, res);
+
+          let sagas = appSagas;
+          if (!sagas) {
+            // eslint-disable-next-line global-require, import/no-dynamic-require
+            sagas = require(`${appName}/sagas`).default;
+          }
+          runningSagas = sagaMiddleware.run(sagas);
+
+          const token = cookie.load(config.get('cookieName'));
+          if (token) {
+            store.dispatch(setAuthToken(token));
+          }
+
+          pageProps = getPageProps({ noScriptStyles, store, req, res, config });
+
+          if (config.get('disableSSR') === true) {
+            // This stops all running sagas.
+            store.dispatch(END);
+
+            await runningSagas.done;
+            log.warn('Server side rendering is disabled.');
+
+            return hydrateOnClient({ res, pageProps });
+          }
+        } catch (preLoadError) {
+          log.info(oneLine`Caught an error in match() before rendering:
           ${preLoadError}`);
-        return next(preLoadError);
-      }
-
-      let i18nData = {};
-      const { htmlLang } = pageProps;
-      const locale = langToLocale(htmlLang);
-
-      try {
-        if (locale !== langToLocale(config.get('defaultLang'))) {
-          // eslint-disable-next-line global-require, import/no-dynamic-require
-          i18nData = require(`../../locale/${locale}/${appName}.js`);
+          return next(preLoadError);
         }
-      } catch (e) {
-        log.info(`Locale JSON not found or required for locale: "${locale}"`);
-        log.info(`Falling back to default lang: "${config.get('defaultLang')}"`);
-      }
 
-      const i18n = makeI18n(i18nData, htmlLang);
+        let i18nData = {};
+        const { htmlLang } = pageProps;
+        const locale = langToLocale(htmlLang);
 
-      const InitialComponent = (
-        <I18nProvider i18n={i18n}>
-          <Provider store={store} key="provider">
-            <RouterContext {...renderProps} />
-          </Provider>
-        </I18nProvider>
-      );
+        try {
+          if (locale !== langToLocale(config.get('defaultLang'))) {
+            // eslint-disable-next-line global-require, import/no-dynamic-require
+            i18nData = require(`../../locale/${locale}/${appName}.js`);
+          }
+        } catch (e) {
+          log.info(`Locale JSON not found or required for locale: "${locale}"`);
+          log.info(
+            `Falling back to default lang: "${config.get('defaultLang')}"`,
+          );
+        }
 
-      const props = { component: InitialComponent };
+        const i18n = makeI18n(i18nData, htmlLang);
 
-      // We need to render once because it will force components to
-      // dispatch data loading actions which get processed by sagas.
-      log.info('First component render to dispatch loading actions');
-      renderHTML({ props, pageProps });
+        const InitialComponent = (
+          <I18nProvider i18n={i18n}>
+            <Provider store={store} key="provider">
+              <RouterContext {...renderProps} />
+            </Provider>
+          </I18nProvider>
+        );
 
-      // Send the redux-saga END action to stop sagas from running
-      // indefinitely. This is only done for server-side rendering.
-      store.dispatch(END);
+        const props = { component: InitialComponent };
 
-      try {
-        // Once all sagas have completed, we load the page.
-        await runningSagas.done;
-        log.info('Second component render after sagas have finished');
+        // We need to render once because it will force components to
+        // dispatch data loading actions which get processed by sagas.
+        log.info('First component render to dispatch loading actions');
+        renderHTML({ props, pageProps });
 
-        const finalHTML = renderHTML({ props, pageProps });
+        // Send the redux-saga END action to stop sagas from running
+        // indefinitely. This is only done for server-side rendering.
+        store.dispatch(END);
 
-        // A redirection has been requested, let's do it.
-        const { redirectTo } = store.getState();
-        if (redirectTo && redirectTo.url) {
-          log.info(oneLine`Redirection requested:
+        try {
+          // Once all sagas have completed, we load the page.
+          await runningSagas.done;
+          log.info('Second component render after sagas have finished');
+
+          const finalHTML = renderHTML({ props, pageProps });
+
+          // A redirection has been requested, let's do it.
+          const { redirectTo } = store.getState();
+          if (redirectTo && redirectTo.url) {
+            log.info(oneLine`Redirection requested:
             url=${redirectTo.url} status=${redirectTo.status}`);
-          return res.redirect(redirectTo.status, redirectTo.url);
-        }
+            return res.redirect(redirectTo.status, redirectTo.url);
+          }
 
-        return sendHTML({ res, html: finalHTML });
-      } catch (error) {
-        log.error(`Caught error during rendering: ${error}`);
-        return next(error);
-      }
-    });
+          return sendHTML({ res, html: finalHTML });
+        } catch (error) {
+          log.error(`Caught error during rendering: ${error}`);
+          return next(error);
+        }
+      },
+    );
   });
 
   // Error handlers:
@@ -395,11 +408,15 @@ export function runServer({
 
   const useHttpsForDev = process.env.USE_HTTPS_FOR_DEV;
 
-  const isoMorphicServer = new WebpackIsomorphicTools(WebpackIsomorphicToolsConfig);
+  const isoMorphicServer = new WebpackIsomorphicTools(
+    WebpackIsomorphicToolsConfig,
+  );
 
   return new Promise((resolve) => {
     if (!appName) {
-      throw new Error(`Please specify a valid appName from ${config.get('validAppNames')}`);
+      throw new Error(
+        `Please specify a valid appName from ${config.get('validAppNames')}`,
+      );
     }
     resolve();
   })
@@ -413,21 +430,29 @@ export function runServer({
         const routes = require(`${appName}/routes`).default;
         const createStore = require(`${appName}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        let server = baseServer(
-          routes, createStore, { appInstanceName: appName });
+        let server = baseServer(routes, createStore, {
+          appInstanceName: appName,
+        });
         if (listen === true) {
           if (useHttpsForDev) {
             if (host === 'example.com') {
               const options = {
-                key: fs.readFileSync('bin/local-dev-server-certs/example.com.key.pem'),
-                cert: fs.readFileSync('bin/local-dev-server-certs/example.com.crt.pem'),
-                ca: fs.readFileSync('bin/local-dev-server-certs/example.com.ca.crt.pem'),
+                key: fs.readFileSync(
+                  'bin/local-dev-server-certs/example.com.key.pem',
+                ),
+                cert: fs.readFileSync(
+                  'bin/local-dev-server-certs/example.com.crt.pem',
+                ),
+                ca: fs.readFileSync(
+                  'bin/local-dev-server-certs/example.com.ca.crt.pem',
+                ),
                 passphrase: '',
               };
               server = https.createServer(options, server);
             } else {
               log.info(
-                `To use the HTTPS server you must serve the site at example.com (host was "${host}")`);
+                `To use the HTTPS server you must serve the site at example.com (host was "${host}")`,
+              );
             }
           }
           server.listen(port, host, (err) => {
@@ -436,24 +461,31 @@ export function runServer({
             }
             const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
             // Not using oneLine here since it seems to change '  ' to ' '.
-            log.info([
-              `🔥  Addons-frontend server is running`,
-              `[ENV:${config.util.getEnv('NODE_ENV')}]`,
-              `[APP:${appName}]`,
-              `[isDevelopment:${config.get('isDevelopment')}]`,
-              `[isDeployed:${config.get('isDeployed')}]`,
-              `[apiHost:${config.get('apiHost')}]`,
-              `[apiPath:${config.get('apiPath')}]`,
-            ].join(' '));
+            log.info(
+              [
+                `🔥  Addons-frontend server is running`,
+                `[ENV:${config.util.getEnv('NODE_ENV')}]`,
+                `[APP:${appName}]`,
+                `[isDevelopment:${config.get('isDevelopment')}]`,
+                `[isDeployed:${config.get('isDeployed')}]`,
+                `[apiHost:${config.get('apiHost')}]`,
+                `[apiPath:${config.get('apiPath')}]`,
+              ].join(' '),
+            );
             if (proxyEnabled) {
               const proxyPort = config.get('proxyPort');
               log.info(
-                `🚦  Proxy detected, frontend running at http://${host}:${port}.`);
+                `🚦  Proxy detected, frontend running at http://${host}:${port}.`,
+              );
               log.info(
-                `👁  Open your browser at http://localhost:${proxyPort} to view it.`);
+                `👁  Open your browser at http://localhost:${proxyPort} to view it.`,
+              );
             } else {
               log.info(
-                `👁  Open your browser at http${useHttpsForDev ? 's' : ''}://${host}:${port} to view it.`);
+                `👁  Open your browser at http${
+                  useHttpsForDev ? 's' : ''
+                }://${host}:${port} to view it.`,
+              );
             }
             return resolve(server);
           });

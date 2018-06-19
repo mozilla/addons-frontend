@@ -20,7 +20,6 @@ import Notice from 'ui/components/Notice';
 
 import './style.scss';
 
-
 export class AddonCompatibilityErrorBase extends React.Component {
   static propTypes = {
     downloadUrl: PropTypes.string,
@@ -29,22 +28,16 @@ export class AddonCompatibilityErrorBase extends React.Component {
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     downloadUrl: 'https://www.mozilla.org/firefox/new/',
     log: _log,
     userAgentInfo: {},
-  }
+  };
 
   render() {
-    const {
-      i18n,
-      log,
-      minVersion,
-      reason,
-      userAgentInfo,
-    } = this.props;
+    const { i18n, log, minVersion, reason, userAgentInfo } = this.props;
 
     const downloadUrl = `${this.props.downloadUrl}${makeQueryStringWithUTM({
       utm_content: 'install-addon-button',
@@ -59,47 +52,56 @@ export class AddonCompatibilityErrorBase extends React.Component {
 
     let message;
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
-      message = i18n.sprintf(i18n.gettext(`You need to
+      message = i18n.sprintf(
+        i18n.gettext(`You need to
         <a href="%(downloadUrl)s">download Firefox</a> to install this
-        add-on.`
-      ), { downloadUrl });
+        add-on.`),
+        { downloadUrl },
+      );
     } else if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
       message = i18n.gettext(`This add-on is not compatible with your
         version of Firefox.`);
     } else if (reason === INCOMPATIBLE_NO_OPENSEARCH) {
       message = i18n.gettext(
-        'Your version of Firefox does not support search plugins.');
+        'Your version of Firefox does not support search plugins.',
+      );
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
-        'Firefox for iOS does not currently support add-ons.');
+        'Firefox for iOS does not currently support add-ons.',
+      );
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
-      message = i18n.gettext(
-        'This add-on is not available on your platform.');
+      message = i18n.gettext('This add-on is not available on your platform.');
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
-      message = i18n.sprintf(i18n.gettext(`This add-on requires a
+      message = i18n.sprintf(
+        i18n.gettext(`This add-on requires a
         <a href="%(downloadUrl)s">newer version of Firefox</a> (at least
-        version %(minVersion)s). You are using Firefox %(yourVersion)s.`
-      ), {
-        downloadUrl,
-        minVersion,
-        yourVersion: userAgentInfo.browser.version,
-      });
+        version %(minVersion)s). You are using Firefox %(yourVersion)s.`),
+        {
+          downloadUrl,
+          minVersion,
+          yourVersion: userAgentInfo.browser.version,
+        },
+      );
     } else {
       // This is an unknown reason code and a custom error message should
       // be added.
       log.warn(
-        'Unknown reason code supplied to AddonCompatibilityError', reason);
+        'Unknown reason code supplied to AddonCompatibilityError',
+        reason,
+      );
 
-      message = i18n.sprintf(i18n.gettext(`Your browser does not
+      message = i18n.sprintf(
+        i18n.gettext(`Your browser does not
         support add-ons. You can <a href="%(downloadUrl)s">download Firefox</a>
-        to install this add-on.`
-      ), { downloadUrl });
+        to install this add-on.`),
+        { downloadUrl },
+      );
     }
 
     // Make the "you should download firefox" error message less scary than
     // the rest of them: https://github.com/mozilla/addons-frontend/issues/4547
-    const noticeType = reason === INCOMPATIBLE_NOT_FIREFOX ?
-      'firefox' : 'error';
+    const noticeType =
+      reason === INCOMPATIBLE_NOT_FIREFOX ? 'firefox' : 'error';
 
     return (
       <Notice type={noticeType} className="AddonCompatibilityError">

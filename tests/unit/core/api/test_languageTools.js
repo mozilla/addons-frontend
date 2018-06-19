@@ -1,14 +1,8 @@
 import * as api from 'core/api';
 import { languageTools } from 'core/api/languageTools';
 import { CLIENT_APP_ANDROID } from 'core/constants';
-import {
-  dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
-import {
-  createApiResponse,
-  createFakeLanguageTool,
-} from 'tests/unit/helpers';
-
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { createApiResponse, createFakeLanguageTool } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let mockApi;

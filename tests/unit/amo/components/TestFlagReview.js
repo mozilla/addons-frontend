@@ -1,16 +1,17 @@
 import * as React from 'react';
 
 import {
-  denormalizeReview, flagReview, setReviewWasFlagged,
+  denormalizeReview,
+  flagReview,
+  setReviewWasFlagged,
 } from 'amo/actions/reviews';
 import {
-  REVIEW_FLAG_REASON_BUG_SUPPORT, REVIEW_FLAG_REASON_SPAM,
+  REVIEW_FLAG_REASON_BUG_SUPPORT,
+  REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import FlagReview, { FlagReviewBase } from 'amo/components/FlagReview';
 import { ErrorHandler } from 'core/errorHandler';
-import {
-  dispatchSignInActions, fakeReview,
-} from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   createStubErrorHandler,
@@ -19,7 +20,6 @@ import {
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
-
 
 describe(__filename, () => {
   let store;
@@ -50,11 +50,14 @@ describe(__filename, () => {
     const event = createFakeEvent();
     root.find('.FlagReview-button').simulate('click', event);
 
-    sinon.assert.calledWith(fakeDispatch, flagReview({
-      errorHandlerId: root.instance().props.errorHandler.id,
-      reason,
-      reviewId: review.id,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      flagReview({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        reason,
+        reviewId: review.id,
+      }),
+    );
 
     sinon.assert.called(event.preventDefault);
   });
@@ -62,11 +65,13 @@ describe(__filename, () => {
   it('renders loading text while in progress', () => {
     const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
     const review = denormalizeReview(fakeReview);
-    store.dispatch(flagReview({
-      errorHandlerId: createStubErrorHandler().id,
-      reason,
-      reviewId: review.id,
-    }));
+    store.dispatch(
+      flagReview({
+        errorHandlerId: createStubErrorHandler().id,
+        reason,
+        reviewId: review.id,
+      }),
+    );
     const root = render({ reason, review });
 
     expect(root.find(LoadingText)).toHaveLength(1);
@@ -83,10 +88,12 @@ describe(__filename, () => {
     const wasFlaggedText = 'The review was flagged';
     const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
     const review = denormalizeReview(fakeReview);
-    store.dispatch(setReviewWasFlagged({
-      reason,
-      reviewId: review.id,
-    }));
+    store.dispatch(
+      setReviewWasFlagged({
+        reason,
+        reviewId: review.id,
+      }),
+    );
 
     const root = render({ wasFlaggedText, reason, review });
 
@@ -102,11 +109,13 @@ describe(__filename, () => {
     // The user flags a review:
     const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
     const review = denormalizeReview(fakeReview);
-    store.dispatch(flagReview({
-      errorHandlerId: errorHandler.id,
-      reason,
-      reviewId: review.id,
-    }));
+    store.dispatch(
+      flagReview({
+        errorHandlerId: errorHandler.id,
+        reason,
+        reviewId: review.id,
+      }),
+    );
 
     // The user triggers an error:
     errorHandler.handle(new Error('Unexpected API error'));

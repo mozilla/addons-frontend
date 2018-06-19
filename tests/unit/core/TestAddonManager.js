@@ -7,7 +7,6 @@ import {
 } from 'core/constants';
 import { unexpectedSuccess } from 'tests/unit/helpers';
 
-
 describe('addonManager', () => {
   let fakeAddon;
   let fakeCallback;
@@ -38,7 +37,9 @@ describe('addonManager', () => {
 
   describe('hasAddonManager', () => {
     it('is true if mozAddonManager is in navigator', () => {
-      expect(addonManager.hasAddonManager({ navigator: { mozAddonManager: {} } })).toBeTruthy();
+      expect(
+        addonManager.hasAddonManager({ navigator: { mozAddonManager: {} } }),
+      ).toBeTruthy();
     });
 
     it('is false if mozAddonManager is not in navigator', () => {
@@ -46,7 +47,9 @@ describe('addonManager', () => {
     });
 
     it('is undefined if there is no window', () => {
-      expect(addonManager.hasAddonManager({ hasWindow: () => false })).toEqual(undefined);
+      expect(addonManager.hasAddonManager({ hasWindow: () => false })).toEqual(
+        undefined,
+      );
     });
   });
 
@@ -56,140 +59,185 @@ describe('addonManager', () => {
     });
 
     it('is undefined if permissionPromptsEnabled is undefined', () => {
-      expect(addonManager.hasPermissionPromptsEnabled({
-        navigator: {
-          mozAddonManager: {},
-        },
-      })).toEqual(undefined);
+      expect(
+        addonManager.hasPermissionPromptsEnabled({
+          navigator: {
+            mozAddonManager: {},
+          },
+        }),
+      ).toEqual(undefined);
     });
 
     it('is false if hasPermissionPromptsEnabled is false', () => {
-      expect(addonManager.hasPermissionPromptsEnabled({
-        navigator: {
-          mozAddonManager: {
-            permissionPromptsEnabled: false,
+      expect(
+        addonManager.hasPermissionPromptsEnabled({
+          navigator: {
+            mozAddonManager: {
+              permissionPromptsEnabled: false,
+            },
           },
-        },
-      })).toEqual(false);
+        }),
+      ).toEqual(false);
     });
 
     it('is true if hasPermissionPromptsEnabled is true', () => {
-      expect(addonManager.hasPermissionPromptsEnabled({
-        navigator: {
-          mozAddonManager: {
-            permissionPromptsEnabled: true,
+      expect(
+        addonManager.hasPermissionPromptsEnabled({
+          navigator: {
+            mozAddonManager: {
+              permissionPromptsEnabled: true,
+            },
           },
-        },
-      })).toEqual(true);
+        }),
+      ).toEqual(true);
     });
   });
 
   describe('getAddon()', () => {
     it('should call mozAddonManager.getAddonByID() with id', () => {
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
-      return addonManager.getAddon('test-id', { _mozAddonManager: fakeMozAddonManager })
+      return addonManager
+        .getAddon('test-id', { _mozAddonManager: fakeMozAddonManager })
         .then(() => {
-          expect(fakeMozAddonManager.getAddonByID.calledWith('test-id')).toBeTruthy();
+          expect(
+            fakeMozAddonManager.getAddonByID.calledWith('test-id'),
+          ).toBeTruthy();
         });
     });
 
     it('should reject if mozAddonManager.getAddonByID() resolves with falsey addon', () => {
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(false));
-      return addonManager.getAddon('test-id', { _mozAddonManager: fakeMozAddonManager })
-        .then(unexpectedSuccess,
-          (err) => expect(err.message).toEqual('Addon not found'));
+      return addonManager
+        .getAddon('test-id', { _mozAddonManager: fakeMozAddonManager })
+        .then(unexpectedSuccess, (err) =>
+          expect(err.message).toEqual('Addon not found'),
+        );
     });
 
     it('rejects if thre is no addon manager', () => {
       sinon.stub(addonManager, 'hasAddonManager').returns(false);
-      return addonManager.getAddon('foo')
-        .then(unexpectedSuccess, (err) => expect(err.message).toEqual('Cannot check add-on status'));
+      return addonManager
+        .getAddon('foo')
+        .then(unexpectedSuccess, (err) =>
+          expect(err.message).toEqual('Cannot check add-on status'),
+        );
     });
   });
 
   describe('install()', () => {
-    it(
-      'should call mozAddonManager.createInstall() with url',
-      () => addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
+    it('should call mozAddonManager.createInstall() with url', () =>
+      addonManager
+        .install(fakeInstallUrl, fakeCallback, {
+          _mozAddonManager: fakeMozAddonManager,
+          src: 'home',
+        })
         .then(() => {
-          expect(fakeMozAddonManager.createInstall.calledWith(
-            { url: `${fakeInstallUrl}?src=home` })).toBeTruthy();
+          expect(
+            fakeMozAddonManager.createInstall.calledWith({
+              url: `${fakeInstallUrl}?src=home`,
+            }),
+          ).toBeTruthy();
         }));
 
-    it(
-      'should call installObj.addEventListener to setup events',
-      () => addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
+    it('should call installObj.addEventListener to setup events', () =>
+      addonManager
+        .install(fakeInstallUrl, fakeCallback, {
+          _mozAddonManager: fakeMozAddonManager,
+          src: 'home',
+        })
         .then(() => {
           // It registers an extra onInstallFailed and onInstallEnded listener.
-          expect(fakeInstallObj.addEventListener.callCount).toEqual(INSTALL_EVENT_LIST.length + 2);
+          expect(fakeInstallObj.addEventListener.callCount).toEqual(
+            INSTALL_EVENT_LIST.length + 2,
+          );
         }));
 
-    it('should call installObj.install()', () => addonManager.install(
-      fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
-      .then(() => {
-        expect(fakeInstallObj.install.called).toBeTruthy();
-      }));
+    it('should call installObj.install()', () =>
+      addonManager
+        .install(fakeInstallUrl, fakeCallback, {
+          _mozAddonManager: fakeMozAddonManager,
+          src: 'home',
+        })
+        .then(() => {
+          expect(fakeInstallObj.install.called).toBeTruthy();
+        }));
 
     it('rejects if the install fails', () => {
       fakeInstallObj.install = sinon.spy(function install() {
         this.onInstallFailedListener();
       });
-      return addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
-        .then(
-          unexpectedSuccess,
-          () => expect(fakeInstallObj.install.called).toBeTruthy());
+      return addonManager
+        .install(fakeInstallUrl, fakeCallback, {
+          _mozAddonManager: fakeMozAddonManager,
+          src: 'home',
+        })
+        .then(unexpectedSuccess, () =>
+          expect(fakeInstallObj.install.called).toBeTruthy(),
+        );
     });
 
     it('passes the installObj, the event and the id to the callback', () => {
       const fakeEvent = { type: 'fakeEvent' };
-      return addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
+      return addonManager
+        .install(fakeInstallUrl, fakeCallback, {
+          _mozAddonManager: fakeMozAddonManager,
+          src: 'home',
+        })
         .then(() => {
           fakeInstallObj.onDownloadProgressListener(fakeEvent);
-          expect(fakeCallback.calledWith(fakeInstallObj, fakeEvent)).toBeTruthy();
+          expect(
+            fakeCallback.calledWith(fakeInstallObj, fakeEvent),
+          ).toBeTruthy();
         });
     });
 
-    it('requires a src', () => (
-      addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
-        .then(unexpectedSuccess,
-          (e) => expect(e.message).toEqual('No src for add-on install'))
-    ));
+    it('requires a src', () =>
+      addonManager
+        .install(fakeInstallUrl, fakeCallback, {
+          _mozAddonManager: fakeMozAddonManager,
+        })
+        .then(unexpectedSuccess, (e) =>
+          expect(e.message).toEqual('No src for add-on install'),
+        ));
   });
 
   describe('uninstall()', () => {
     it('should reject if getAddonByID resolves with falsey value', () => {
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(false));
       // If the code doesn't resolve this will blow up.
-      return addonManager.uninstall('test-id', { _mozAddonManager: fakeMozAddonManager })
-        .then(unexpectedSuccess,
-          (err) => expect(err.message).toEqual('Addon not found'));
+      return addonManager
+        .uninstall('test-id', { _mozAddonManager: fakeMozAddonManager })
+        .then(unexpectedSuccess, (err) =>
+          expect(err.message).toEqual('Addon not found'),
+        );
     });
 
     it('should reject if addon.uninstall resolves with false', () => {
       fakeAddon.uninstall.returns(Promise.resolve(false));
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
-      return addonManager.uninstall('test-id', { _mozAddonManager: fakeMozAddonManager })
-        .then(unexpectedSuccess,
-          (err) => expect(err.message).toEqual('Uninstall failed'));
+      return addonManager
+        .uninstall('test-id', { _mozAddonManager: fakeMozAddonManager })
+        .then(unexpectedSuccess, (err) =>
+          expect(err.message).toEqual('Uninstall failed'),
+        );
     });
 
     it('should resolve if addon.uninstall resolves with true', () => {
       fakeAddon.uninstall.returns(Promise.resolve(true));
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
       // If the code doesn't resolve this will blow up.
-      return addonManager.uninstall('test-id', { _mozAddonManager: fakeMozAddonManager });
+      return addonManager.uninstall('test-id', {
+        _mozAddonManager: fakeMozAddonManager,
+      });
     });
 
     it('should resolve if addon.uninstall just resolves', () => {
       fakeAddon.uninstall.returns(Promise.resolve());
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
       // If the code doesn't resolve this will blow up.
-      return addonManager.uninstall('test-id', { _mozAddonManager: fakeMozAddonManager });
+      return addonManager.uninstall('test-id', {
+        _mozAddonManager: fakeMozAddonManager,
+      });
     });
   });
 
@@ -199,8 +247,10 @@ describe('addonManager', () => {
       addEventListener: sinon.stub(),
     };
 
-    const handleChangeEvent =
-      addonManager.addChangeListeners(fakeEventCallback, fakeMozAddonManager);
+    const handleChangeEvent = addonManager.addChangeListeners(
+      fakeEventCallback,
+      fakeMozAddonManager,
+    );
 
     GLOBAL_EVENTS.forEach((event) => {
       const status = GLOBAL_EVENT_STATUS_MAP[event];
@@ -208,7 +258,9 @@ describe('addonManager', () => {
         const id = 'foo@whatever';
         const needsRestart = false;
         handleChangeEvent({ id, needsRestart, type: event });
-        expect(fakeEventCallback.calledWith({ guid: id, needsRestart, status })).toBeTruthy();
+        expect(
+          fakeEventCallback.calledWith({ guid: id, needsRestart, status }),
+        ).toBeTruthy();
       });
     });
 
@@ -225,7 +277,8 @@ describe('addonManager', () => {
         setEnabled: sinon.stub(),
       };
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
-      return addonManager.enable('whatever', { _mozAddonManager: fakeMozAddonManager })
+      return addonManager
+        .enable('whatever', { _mozAddonManager: fakeMozAddonManager })
         .then(() => {
           expect(fakeAddon.setEnabled.calledWith(true)).toBeTruthy();
         });
@@ -234,7 +287,8 @@ describe('addonManager', () => {
     it('should throw if addon.setEnable does not exist', () => {
       fakeAddon = {};
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
-      return addonManager.enable('whatevs', { _mozAddonManager: fakeMozAddonManager })
+      return addonManager
+        .enable('whatevs', { _mozAddonManager: fakeMozAddonManager })
         .then(unexpectedSuccess, (err) => {
           expect(err.message).toEqual(SET_ENABLE_NOT_AVAILABLE);
         });

@@ -1,10 +1,11 @@
 import * as React from 'react';
 
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import HomeHeroBanner, { HomeHeroBannerBase } from 'amo/components/HomeHeroBanner';
+import HomeHeroBanner, {
+  HomeHeroBannerBase,
+} from 'amo/components/HomeHeroBanner';
 import Hero from 'ui/components/Hero';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-
 
 describe(__filename, () => {
   const defaultProps = {
@@ -15,7 +16,7 @@ describe(__filename, () => {
   function shallowRender(props) {
     return shallowUntilTarget(
       <HomeHeroBanner {...defaultProps} {...props} />,
-      HomeHeroBannerBase
+      HomeHeroBannerBase,
     );
   }
 

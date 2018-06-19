@@ -5,11 +5,8 @@ import Link from 'amo/components/Link';
 import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import HeroSection from 'ui/components/HeroSection';
 
-
 describe(__filename, () => {
-  function shallowRender({
-    ...props
-  } = {}) {
+  function shallowRender({ ...props } = {}) {
     return shallow(<HeroSection {...props} />);
   }
 
@@ -22,8 +19,7 @@ describe(__filename, () => {
   it('renders a className for the styleName', () => {
     const root = shallowRender({ styleName: 'Home-privacy-matters' });
 
-    expect(root)
-      .toHaveClassName('HeroSection-styleName--Home-privacy-matters');
+    expect(root).toHaveClassName('HeroSection-styleName--Home-privacy-matters');
   });
 
   it('renders default styleName className if styleName is undefined', () => {
@@ -37,8 +33,10 @@ describe(__filename, () => {
     const link = root.find(Link);
 
     expect(link).toHaveProp('className', 'HeroSection-link-wrapper');
-    expect(link)
-      .toHaveProp('to', `/whatever/?src=${INSTALL_SOURCE_HERO_PROMO}`);
+    expect(link).toHaveProp(
+      'to',
+      `/whatever/?src=${INSTALL_SOURCE_HERO_PROMO}`,
+    );
     expect(root.find('.HeroSection-wrapper')).toHaveLength(0);
   });
 
@@ -46,8 +44,10 @@ describe(__filename, () => {
     const root = shallowRender({ children: 'hello!', linkTo: '/homepage/' });
 
     expect(root.find(Link)).toHaveLength(1);
-    expect(root.find(Link).find('.HeroSection-content'))
-      .toHaveProp('children', 'hello!');
+    expect(root.find(Link).find('.HeroSection-content')).toHaveProp(
+      'children',
+      'hello!',
+    );
   });
 
   it('renders a div if linkTo prop is not supplied', () => {
@@ -61,7 +61,7 @@ describe(__filename, () => {
     const root = shallowRender({ children: 'hello!' });
 
     expect(
-      root.find('.HeroSection-wrapper').find('.HeroSection-content')
+      root.find('.HeroSection-wrapper').find('.HeroSection-content'),
     ).toHaveText('hello!');
   });
 });

@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import ReviewGuide, { ReviewGuideBase } from 'amo/components/StaticPages/ReviewGuide';
+import ReviewGuide, {
+  ReviewGuideBase,
+} from 'amo/components/StaticPages/ReviewGuide';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-
 
 describe('ReviewGuide', () => {
   function render() {
@@ -18,4 +19,3 @@ describe('ReviewGuide', () => {
     expect(root.find('#review-guide')).toExist();
   });
 });
-

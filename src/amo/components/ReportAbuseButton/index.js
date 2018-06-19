@@ -26,7 +26,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type Props = {|
   addon: AddonType,
 |};
@@ -36,7 +35,7 @@ type InjectedProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  loading: bool,
+  loading: boolean,
 |};
 
 type InternalProps = { ...Props, ...InjectedProps };
@@ -51,12 +50,13 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
     if (loading) {
       log.debug(
-        "Ignoring dismiss click because we're submitting the abuse report");
+        "Ignoring dismiss click because we're submitting the abuse report",
+      );
       return;
     }
 
     dispatch(hideAddonAbuseReportUI({ addon }));
-  }
+  };
 
   sendReport = (event: SyntheticEvent<any>) => {
     event.preventDefault();
@@ -71,12 +71,14 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
     const { addon, dispatch, errorHandler } = this.props;
 
-    dispatch(sendAddonAbuseReport({
-      addonSlug: addon.slug,
-      errorHandlerId: errorHandler.id,
-      message: this.textarea.value,
-    }));
-  }
+    dispatch(
+      sendAddonAbuseReport({
+        addonSlug: addon.slug,
+        errorHandlerId: errorHandler.id,
+        message: this.textarea.value,
+      }),
+    );
+  };
 
   showReportUI = (event: SyntheticEvent<any>) => {
     event.preventDefault();
@@ -85,7 +87,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
     dispatch(showAddonAbuseReportUI({ addon }));
     this.textarea.focus();
-  }
+  };
 
   textareaChange = () => {
     const { abuseReport, addon, dispatch } = this.props;
@@ -98,7 +100,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     } else if (!this.textarea.value.trim().length) {
       dispatch(disableAbuseButtonUI({ addon }));
     }
-  }
+  };
 
   render() {
     const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
@@ -117,14 +119,14 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
           <p className="ReportAbuseButton-first-paragraph">
             {i18n.gettext(
               `We have received your report. Thanks for letting us know about
-              your concerns with this add-on.`
+              your concerns with this add-on.`,
             )}
           </p>
 
           <p>
             {i18n.gettext(
               `We can't respond to every abuse report but we'll look into
-              this issue.`
+              this issue.`,
             )}
           </p>
         </div>
@@ -133,15 +135,19 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
     const sendButtonIsDisabled = loading || !abuseReport.buttonEnabled;
 
-    const prefaceText = i18n.sprintf(i18n.gettext(
-      `If you think this add-on violates
+    const prefaceText = i18n.sprintf(
+      i18n.gettext(
+        `If you think this add-on violates
       %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has
       security or privacy issues, please report these issues to Mozilla using
-      this form.`
-    ), {
-      linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
-      linkTagEnd: '</a>',
-    });
+      this form.`,
+      ),
+      {
+        linkTagStart:
+          '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
+        linkTagEnd: '</a>',
+      },
+    );
 
     // The button prompt mentions abuse to make it clear that you can't
     // use it to report general issues (like bugs) about the add-on.
@@ -178,7 +184,8 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
             {i18n.gettext(
               `Please don't use this form to report bugs or request add-on
               features; this report will be sent to Mozilla and not to the
-              add-on developer.`)}
+              add-on developer.`,
+            )}
           </p>
 
           {errorHandler.renderErrorIfPresent()}
@@ -186,10 +193,12 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
           <Textarea
             className="ReportAbuseButton-textarea"
             disabled={loading}
-            inputRef={(ref) => { this.textarea = ref; }}
+            inputRef={(ref) => {
+              this.textarea = ref;
+            }}
             onChange={this.textareaChange}
             placeholder={i18n.gettext(
-              'Explain how this add-on is violating our policies.'
+              'Explain how this add-on is violating our policies.',
             )}
           />
 
@@ -210,9 +219,9 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
               onClick={this.sendReport}
               micro
             >
-              {loading ?
-                i18n.gettext('Sending abuse report') :
-                i18n.gettext('Send abuse report')}
+              {loading
+                ? i18n.gettext('Sending abuse report')
+                : i18n.gettext('Send abuse report')}
             </Button>
           </div>
         </div>
@@ -223,13 +232,16 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 }
 
 export const mapStateToProps = (
-  state: {| abuse: AbuseState |}, ownProps: Props
+  state: {| abuse: AbuseState |},
+  ownProps: Props,
 ) => {
   const { addon } = ownProps;
 
   return {
-    abuseReport: addon && state.abuse.bySlug[addon.slug] ?
-      state.abuse.bySlug[addon.slug] : {},
+    abuseReport:
+      addon && state.abuse.bySlug[addon.slug]
+        ? state.abuse.bySlug[addon.slug]
+        : {},
     loading: state.abuse.loading,
   };
 };

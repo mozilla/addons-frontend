@@ -59,12 +59,7 @@ import type {
 } from 'amo/reducers/collections';
 
 export function* fetchCurrentCollection({
-  payload: {
-    errorHandlerId,
-    page,
-    slug,
-    username,
-  },
+  payload: { errorHandlerId, page, slug, username },
 }: FetchCurrentCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -101,12 +96,7 @@ export function* fetchCurrentCollection({
 }
 
 export function* fetchCurrentCollectionPage({
-  payload: {
-    errorHandlerId,
-    page,
-    slug,
-    username,
-  },
+  payload: { errorHandlerId, page, slug, username },
 }: FetchCurrentCollectionPageAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -123,10 +113,12 @@ export function* fetchCurrentCollectionPage({
     };
     const addons = yield call(api.getCollectionAddons, params);
 
-    yield put(loadCurrentCollectionPage({
-      addons: addons.results,
-      numberOfAddons: addons.count,
-    }));
+    yield put(
+      loadCurrentCollectionPage({
+        addons: addons.results,
+        numberOfAddons: addons.count,
+      }),
+    );
   } catch (error) {
     log.warn(`Collection page failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -144,7 +136,8 @@ export function* fetchUserCollections({
     const state = yield select(getState);
 
     const params: GetAllUserCollectionsParams = {
-      api: state.api, username,
+      api: state.api,
+      username,
     };
     const collections = yield call(api.getAllUserCollections, params);
 
@@ -158,7 +151,14 @@ export function* fetchUserCollections({
 
 export function* addAddonToCollection({
   payload: {
-    addonId, collectionId, editing, errorHandlerId, notes, page, slug, username,
+    addonId,
+    collectionId,
+    editing,
+    errorHandlerId,
+    notes,
+    page,
+    slug,
+    username,
   },
 }: AddAddonToCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -179,16 +179,22 @@ export function* addAddonToCollection({
     if (editing) {
       invariant(page, 'A page parameter is required when editing');
 
-      yield put(fetchCurrentCollectionPageAction({
-        page,
-        errorHandlerId: errorHandler.id,
-        slug,
-        username,
-      }));
+      yield put(
+        fetchCurrentCollectionPageAction({
+          page,
+          errorHandlerId: errorHandler.id,
+          slug,
+          username,
+        }),
+      );
     }
-    yield put(addonAddedToCollection({
-      addonId, username, collectionId,
-    }));
+    yield put(
+      addonAddedToCollection({
+        addonId,
+        username,
+        collectionId,
+      }),
+    );
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -197,7 +203,7 @@ export function* addAddonToCollection({
 }
 
 export function* modifyCollection(
-  action: CreateCollectionAction | UpdateCollectionAction
+  action: CreateCollectionAction | UpdateCollectionAction,
 ): Generator<any, any, any> {
   const { type, payload } = action;
   const creating = type === CREATE_COLLECTION;
@@ -242,8 +248,7 @@ export function* modifyCollection(
       };
       response = yield call(api.createCollection, apiParams);
     } else {
-      invariant(collectionSlug,
-        'collectionSlug cannot be empty when updating');
+      invariant(collectionSlug, 'collectionSlug cannot be empty when updating');
       const apiParams: $Shape<UpdateCollectionParams> = {
         collectionSlug,
         name,
@@ -255,16 +260,17 @@ export function* modifyCollection(
 
     const { lang, clientApp } = state.api;
     const effectiveSlug = slug || collectionSlug;
-    invariant(effectiveSlug,
-      'Both slug and collectionSlug cannot be empty');
-    const newLocation =
-      `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
+    invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
+    const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
 
     if (creating) {
       invariant(response, 'response is required when creating');
       // If a new collection was just created, load it so that it will
       // be available when the user arrives at the collection edit screen.
-      const localizedDetail = localizeCollectionDetail({ detail: response, lang });
+      const localizedDetail = localizeCollectionDetail({
+        detail: response,
+        lang,
+      });
       yield put(loadCurrentCollection({ addons: [], detail: localizedDetail }));
       yield put(pushLocation(`${newLocation}edit/`));
     } else {
@@ -293,9 +299,7 @@ export function* modifyCollection(
 }
 
 export function* removeAddonFromCollection({
-  payload: {
-    addonId, errorHandlerId, page, slug, username,
-  },
+  payload: { addonId, errorHandlerId, page, slug, username },
 }: RemoveAddonFromCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -311,12 +315,14 @@ export function* removeAddonFromCollection({
     };
     yield call(api.removeAddonFromCollection, params);
 
-    yield put(fetchCurrentCollectionPageAction({
-      page,
-      errorHandlerId: errorHandler.id,
-      slug,
-      username,
-    }));
+    yield put(
+      fetchCurrentCollectionPageAction({
+        page,
+        errorHandlerId: errorHandler.id,
+        slug,
+        username,
+      }),
+    );
   } catch (error) {
     log.warn(`Failed to remove add-on from collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -324,9 +330,7 @@ export function* removeAddonFromCollection({
 }
 
 export function* deleteCollection({
-  payload: {
-    errorHandlerId, slug, username,
-  },
+  payload: { errorHandlerId, slug, username },
 }: DeleteCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -346,10 +350,12 @@ export function* deleteCollection({
     // Unload the collection from state.
     yield put(unloadCollectionBySlug(slug));
 
-    yield put(fetchUserCollectionsAction({
-      errorHandlerId: errorHandler.id,
-      username,
-    }));
+    yield put(
+      fetchUserCollectionsAction({
+        errorHandlerId: errorHandler.id,
+        username,
+      }),
+    );
     // Eventually we will redirect to the user's list of collections,
     // but for now we'll just redirect to the home page.
     // See: https://github.com/mozilla/addons-frontend/issues/3142
@@ -361,9 +367,7 @@ export function* deleteCollection({
 }
 
 export function* updateCollectionAddon({
-  payload: {
-    addonId, errorHandlerId, notes, page, slug, username,
-  },
+  payload: { addonId, errorHandlerId, notes, page, slug, username },
 }: UpdateCollectionAddonAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -380,12 +384,14 @@ export function* updateCollectionAddon({
     };
     yield call(api.updateCollectionAddon, params);
 
-    yield put(fetchCurrentCollectionPageAction({
-      page,
-      errorHandlerId: errorHandler.id,
-      slug,
-      username,
-    }));
+    yield put(
+      fetchCurrentCollectionPageAction({
+        page,
+        errorHandlerId: errorHandler.id,
+        slug,
+        username,
+      }),
+    );
   } catch (error) {
     log.warn(`Failed to update add-on in collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -397,9 +403,7 @@ export default function* collectionsSaga(): Generator<any, any, any> {
   yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
   yield takeLatest(DELETE_COLLECTION, deleteCollection);
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
-  yield takeLatest(
-    FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
-  );
+  yield takeLatest(FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage);
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
   yield takeLatest(REMOVE_ADDON_FROM_COLLECTION, removeAddonFromCollection);
   yield takeLatest(

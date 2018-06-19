@@ -1,7 +1,6 @@
 import * as actions from 'core/actions/categories';
 import { CATEGORIES_FETCH, CATEGORIES_LOAD } from 'core/constants';
 
-
 describe('CATEGORIES_FETCH', () => {
   function _categoriesFetch({ errorHandlerId = 'some-handler-id' } = {}) {
     return actions.categoriesFetch({ errorHandlerId });
@@ -12,13 +11,16 @@ describe('CATEGORIES_FETCH', () => {
   });
 
   it('requires an error handler ID', () => {
-    expect(() => actions.categoriesFetch()).toThrow(/errorHandlerId is required/);
+    expect(() => actions.categoriesFetch()).toThrow(
+      /errorHandlerId is required/,
+    );
   });
 
   it('puts the error handler ID in the payload', () => {
     const errorHandlerId = 'some-custom-id';
-    expect(_categoriesFetch({ errorHandlerId }).payload.errorHandlerId)
-      .toEqual(errorHandlerId);
+    expect(_categoriesFetch({ errorHandlerId }).payload.errorHandlerId).toEqual(
+      errorHandlerId,
+    );
   });
 });
 

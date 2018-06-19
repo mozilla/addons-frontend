@@ -20,7 +20,9 @@ export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
   }
 
   return createApiError({
-    response, jsonResponse: data, apiURL: '/some/url/',
+    response,
+    jsonResponse: data,
+    apiURL: '/some/url/',
   });
 }
 
@@ -54,10 +56,12 @@ describe(__filename, () => {
 
   it('preserves existing errors', () => {
     const action1 = setError({
-      id: 'action1', error: createFakeApiError({ nonFieldErrors: ['action1'] }),
+      id: 'action1',
+      error: createFakeApiError({ nonFieldErrors: ['action1'] }),
     });
     const action2 = setError({
-      id: 'action2', error: createFakeApiError({ nonFieldErrors: ['action2'] }),
+      id: 'action2',
+      error: createFakeApiError({ nonFieldErrors: ['action2'] }),
     });
 
     let state;
@@ -79,14 +83,20 @@ describe(__filename, () => {
 
   it('only clears a single error', () => {
     let state;
-    state = errors(state, setError({
-      id: 'action1',
-      error: createFakeApiError({ nonFieldErrors: ['action1'] }),
-    }));
-    state = errors(state, setError({
-      id: 'action2',
-      error: createFakeApiError({ nonFieldErrors: ['action2'] }),
-    }));
+    state = errors(
+      state,
+      setError({
+        id: 'action1',
+        error: createFakeApiError({ nonFieldErrors: ['action1'] }),
+      }),
+    );
+    state = errors(
+      state,
+      setError({
+        id: 'action2',
+        error: createFakeApiError({ nonFieldErrors: ['action2'] }),
+      }),
+    );
     state = errors(state, clearError('action1'));
 
     // Make sure the other error was not cleared.
@@ -107,7 +117,7 @@ describe(__filename, () => {
       'some other message',
     ];
     const reducedError = getReducedError(
-      createFakeApiError({ nonFieldErrors })
+      createFakeApiError({ nonFieldErrors }),
     );
     expect(reducedError.messages).toEqual(nonFieldErrors);
   });
@@ -227,12 +237,20 @@ describe(__filename, () => {
   it('handles setting multiple messages', () => {
     const id = 'some-id';
 
-    let state = errors(undefined, setErrorMessage({
-      id, message: 'first',
-    }));
-    state = errors(state, setErrorMessage({
-      id, message: 'second',
-    }));
+    let state = errors(
+      undefined,
+      setErrorMessage({
+        id,
+        message: 'first',
+      }),
+    );
+    state = errors(
+      state,
+      setErrorMessage({
+        id,
+        message: 'second',
+      }),
+    );
 
     expect(state[id].messages).toEqual(['first', 'second']);
   });

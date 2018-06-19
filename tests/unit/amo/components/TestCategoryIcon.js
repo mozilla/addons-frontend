@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import CategoryIcon from 'amo/components/CategoryIcon';
 import Icon from 'ui/components/Icon';
 
-
 describe(__filename, () => {
   it('renders an Icon and sets CSS classes', () => {
     const root = shallow(<CategoryIcon name="foo" color="1" />);
@@ -16,9 +15,7 @@ describe(__filename, () => {
   });
 
   it('allows a custom className', () => {
-    const root = shallow(
-      <CategoryIcon name="bar" color="1" className="sup" />
-    );
+    const root = shallow(<CategoryIcon name="bar" color="1" className="sup" />);
     const icon = root.find(Icon);
 
     expect(icon).toHaveClassName('CategoryIcon');
@@ -27,17 +24,13 @@ describe(__filename, () => {
   });
 
   it('passes alt-text to the Icon', () => {
-    const root = shallow(
-      <CategoryIcon name="bar" color="1" alt="Alt text!" />
-    );
+    const root = shallow(<CategoryIcon name="bar" color="1" alt="Alt text!" />);
 
     expect(root.find(Icon)).toHaveProp('alt', 'Alt text!');
   });
 
   it('passes name to the Icon', () => {
-    const root = shallow(
-      <CategoryIcon name="bar" color="1" alt="Alt text!" />
-    );
+    const root = shallow(<CategoryIcon name="bar" color="1" alt="Alt text!" />);
 
     expect(root.find(Icon)).toHaveProp('name', 'bar');
   });

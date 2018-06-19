@@ -24,11 +24,17 @@ export class PermissionUtils {
     this.permissionStrings = {
       bookmarks: i18n.gettext('Read and modify bookmarks'),
       browserSettings: i18n.gettext('Read and modify browser settings'),
-      browsingData: i18n.gettext('Clear recent browsing history, cookies, and related data'),
+      browsingData: i18n.gettext(
+        'Clear recent browsing history, cookies, and related data',
+      ),
       clipboardRead: i18n.gettext('Get data from the clipboard'),
       clipboardWrite: i18n.gettext('Input data to the clipboard'),
-      devtools: i18n.gettext('Extend developer tools to access your data in open tabs'),
-      downloads: i18n.gettext('Download files and read and modify the browser’s download history'),
+      devtools: i18n.gettext(
+        'Extend developer tools to access your data in open tabs',
+      ),
+      downloads: i18n.gettext(
+        'Download files and read and modify the browser’s download history',
+      ),
       'downloads.open': i18n.gettext('Open files downloaded to your computer'),
       find: i18n.gettext('Read the text of all open tabs'),
       geolocation: i18n.gettext('Access your location'),
@@ -36,7 +42,9 @@ export class PermissionUtils {
       management: i18n.gettext('Monitor extension usage and manage themes'),
       // In Firefox the following message replaces the name "Firefox" with the
       // current brand name, e.g., "Nightly", but we do not need to do that.
-      nativeMessaging: i18n.gettext('Exchange messages with programs other than Firefox'),
+      nativeMessaging: i18n.gettext(
+        'Exchange messages with programs other than Firefox',
+      ),
       notifications: i18n.gettext('Display notifications to you'),
       pkcs11: i18n.gettext('Provide cryptographic authentication services'),
       proxy: i18n.gettext('Control browser proxy settings'),
@@ -45,7 +53,9 @@ export class PermissionUtils {
       tabs: i18n.gettext('Access browser tabs'),
       tabHide: i18n.gettext('Hide and show browser tabs'),
       topSites: i18n.gettext('Access browsing history'),
-      unlimitedStorage: i18n.gettext('Store unlimited amount of client-side data'),
+      unlimitedStorage: i18n.gettext(
+        'Store unlimited amount of client-side data',
+      ),
       webNavigation: i18n.gettext('Access browser activity during navigation'),
     };
   }
@@ -53,7 +63,7 @@ export class PermissionUtils {
   // Get a list of permissions from the correct platform file.
   getCurrentPermissions(
     addon: AddonType,
-    userAgentInfo: UserAgentInfoType
+    userAgentInfo: UserAgentInfoType,
   ): Array<string> {
     const agentOsName =
       userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
@@ -68,8 +78,11 @@ export class PermissionUtils {
     const file = addon.platformFiles[platform] || addon.platformFiles[OS_ALL];
 
     if (!file) {
-      log.debug(oneLine`No file exists for platform "${agentOsName}"
-        (mapped to "${platform}"); platform files:`, addon.platformFiles);
+      log.debug(
+        oneLine`No file exists for platform "${agentOsName}"
+        (mapped to "${platform}"); platform files:`,
+        addon.platformFiles,
+      );
       return [];
     }
     return file.permissions || [];
@@ -89,7 +102,7 @@ export class PermissionUtils {
 
   // Format and sequence all the Permission components.
   formatPermissions(
-    addonPermissions: Array<string>
+    addonPermissions: Array<string>,
   ): Array<React.Element<typeof HostPermissions | typeof Permission>> {
     const permissionsToDisplay = [];
     const permissions = { hosts: [], permissions: [] };
@@ -103,7 +116,7 @@ export class PermissionUtils {
     // Add the host permissions.
     if (permissions.hosts.length) {
       permissionsToDisplay.push(
-        <HostPermissions permissions={permissions.hosts} />
+        <HostPermissions permissions={permissions.hosts} />,
       );
     }
 
@@ -115,7 +128,7 @@ export class PermissionUtils {
           type={nativeMessagingPermission}
           description={this.permissionStrings[nativeMessagingPermission]}
           key={nativeMessagingPermission}
-        />
+        />,
       );
     }
 
@@ -135,7 +148,7 @@ export class PermissionUtils {
             type={permission}
             description={this.permissionStrings[permission]}
             key={permission}
-          />
+          />,
         );
       }
     }

@@ -79,23 +79,26 @@ describe(__filename, () => {
 
   function render({ children = [], ...customProps } = {}) {
     const props = renderProps(customProps);
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={props.store}>
-        <I18nProvider i18n={props.i18n}>
-          <AppBase
-            FooterComponent={FakeFooterComponent}
-            InfoDialogComponent={FakeInfoDialogComponent}
-            HeaderComponent={FakeHeaderComponent}
-            SearchFormComponent={FakeSearchFormComponent}
-            ErrorPage={FakeErrorPageComponent}
-            setUserAgent={sinon.stub()}
-            {...props}
-          >
-            {children}
-          </AppBase>
-        </I18nProvider>
-      </Provider>
-    ), AppBase);
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={props.store}>
+          <I18nProvider i18n={props.i18n}>
+            <AppBase
+              FooterComponent={FakeFooterComponent}
+              InfoDialogComponent={FakeInfoDialogComponent}
+              HeaderComponent={FakeHeaderComponent}
+              SearchFormComponent={FakeSearchFormComponent}
+              ErrorPage={FakeErrorPageComponent}
+              setUserAgent={sinon.stub()}
+              {...props}
+            >
+              {children}
+            </AppBase>
+          </I18nProvider>
+        </Provider>,
+      ),
+      AppBase,
+    );
   }
 
   const shallowRender = ({ ...props }) => {
@@ -134,7 +137,10 @@ describe(__filename, () => {
     };
 
     const root = render();
-    root.onViewDesktop(fakeEvent, { _window: fakeWindow, _cookie: fakeCookieLib });
+    root.onViewDesktop(fakeEvent, {
+      _window: fakeWindow,
+      _cookie: fakeCookieLib,
+    });
     expect(fakeEvent.preventDefault.called).toBeTruthy();
     expect(fakeCookieLib.save.calledWith('mamo', 'off')).toBeTruthy();
     expect(fakeWindow.location.reload.called).toBeTruthy();
@@ -300,9 +306,12 @@ describe(__filename, () => {
 
     it('ignores malformed timestamps', () => {
       const authTokenValidFor = 10; // seconds
-      const authToken = userAuthToken({}, {
-        tokenCreatedAt: 'bogus-timestamp',
-      });
+      const authToken = userAuthToken(
+        {},
+        {
+          tokenCreatedAt: 'bogus-timestamp',
+        },
+      );
       const logOutUser = sinon.stub();
 
       render({ authToken, authTokenValidFor, logOutUser });
@@ -334,7 +343,7 @@ describe(__filename, () => {
     });
 
     it('does not set a timeout for expirations too far in the future', () => {
-      const authTokenValidFor = (maximumSetTimeoutDelay / 1000) + 1;
+      const authTokenValidFor = maximumSetTimeoutDelay / 1000 + 1;
       const logOutUser = sinon.stub();
 
       renderAppWithAuth({ authTokenValidFor, logOutUser });

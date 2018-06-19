@@ -25,9 +25,10 @@ export function createFetchDiscoveryResult(results) {
  *  };
  *  type AddonResultsType = Array<AddonResultType>;
  */
-export function loadDiscoResultsIntoState(addonResults, {
-  store = createStore().store,
-} = {}) {
+export function loadDiscoResultsIntoState(
+  addonResults,
+  { store = createStore().store } = {},
+) {
   const { entities, result } = createFetchDiscoveryResult(addonResults);
   store.dispatch(loadAddons(entities));
   store.dispatch(loadDiscoResults({ entities, result }));

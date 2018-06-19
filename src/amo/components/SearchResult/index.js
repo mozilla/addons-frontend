@@ -6,7 +6,12 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
-import { addQueryParams, isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
+import {
+  addQueryParams,
+  isAllowedOrigin,
+  nl2br,
+  sanitizeHTML,
+} from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -52,15 +57,19 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let imageURL = iconURL;
 
     if (isTheme) {
-      let themeURL = addon && addon.previews &&
+      let themeURL =
+        addon &&
+        addon.previews &&
         addon.previews.length > 0 &&
-        isAllowedOrigin(addon.previews[0].image_url) ?
-        addon.previews[0].image_url : null;
+        isAllowedOrigin(addon.previews[0].image_url)
+          ? addon.previews[0].image_url
+          : null;
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
-        themeURL = addon.themeData
-          && isAllowedOrigin(addon.themeData.previewURL)
-          ? addon.themeData.previewURL : null;
+        themeURL =
+          addon.themeData && isAllowedOrigin(addon.themeData.previewURL)
+            ? addon.themeData.previewURL
+            : null;
       }
 
       imageURL = themeURL;
@@ -68,14 +77,12 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     // Sets classes to handle fallback if theme preview is not available.
     const iconWrapperClassnames = makeClassName('SearchResult-icon-wrapper', {
-      'SearchResult-icon-wrapper--no-theme-image': (
-        isTheme && imageURL === null
-      ),
+      'SearchResult-icon-wrapper--no-theme-image': isTheme && imageURL === null,
     });
 
     let addonAuthors = null;
-    const addonAuthorsData = addon && addon.authors && addon.authors.length ?
-      addon.authors : null;
+    const addonAuthorsData =
+      addon && addon.authors && addon.authors.length ? addon.authors : null;
     if (!addon || addonAuthorsData) {
       // TODO: list all authors.
       // https://github.com/mozilla/addons-frontend/issues/4461
@@ -130,30 +137,39 @@ export class SearchResultBase extends React.Component<InternalProps> {
             </div>
           ) : null}
 
-          {addon && addon.notes && (
-            <div className="SearchResult-note">
-              <h4 className="SearchResult-note-header">
-                <Icon name="comments-blue" />
-                {i18n.gettext('Add-on note')}
-              </h4>
-              <p
-                className="SearchResult-note-content"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={
-                  sanitizeHTML(nl2br(addon.notes), ['br'])
-                }
-              />
-            </div>
-          )}
+          {addon &&
+            addon.notes && (
+              <div className="SearchResult-note">
+                <h4 className="SearchResult-note-header">
+                  <Icon name="comments-blue" />
+                  {i18n.gettext('Add-on note')}
+                </h4>
+                <p
+                  className="SearchResult-note-content"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.notes), [
+                    'br',
+                  ])}
+                />
+              </div>
+            )}
         </div>
 
         <h3 className="SearchResult-users SearchResult--meta-section">
           <Icon className="SearchResult-users-icon" name="user-fill" />
           <span className="SearchResult-users-text">
-            {addon ? i18n.sprintf(i18n.ngettext(
-              '%(total)s user', '%(total)s users', averageDailyUsers),
-            { total: i18n.formatNumber(averageDailyUsers) },
-            ) : <LoadingText width={90} />}
+            {addon ? (
+              i18n.sprintf(
+                i18n.ngettext(
+                  '%(total)s user',
+                  '%(total)s users',
+                  averageDailyUsers,
+                ),
+                { total: i18n.formatNumber(averageDailyUsers) },
+              )
+            ) : (
+              <LoadingText width={90} />
+            )}
           </span>
         </h3>
       </div>
@@ -183,9 +199,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       );
     }
 
-    return (
-      <li className={resultClassnames}>{item}</li>
-    );
+    return <li className={resultClassnames}>{item}</li>;
   }
 }
 

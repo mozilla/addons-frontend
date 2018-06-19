@@ -6,11 +6,8 @@ import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import { ShowMoreCardBase, MAX_HEIGHT } from 'ui/components/ShowMoreCard';
 import { fakeI18n } from 'tests/unit/helpers';
 
-
 function render(props) {
-  return renderIntoDocument(
-    <ShowMoreCardBase i18n={fakeI18n()} {...props} />
-  );
+  return renderIntoDocument(<ShowMoreCardBase i18n={fakeI18n()} {...props} />);
 }
 
 describe(__filename, () => {
@@ -23,7 +20,9 @@ describe(__filename, () => {
     root.setState({ expanded: false });
     expect(rootNode.className).not.toContain('.ShowMoreCard--expanded');
     expect(root.state.expanded).toEqual(false);
-    expect(rootNode.querySelector('.Card-footer-link').textContent).toEqual('Expand to Read more');
+    expect(rootNode.querySelector('.Card-footer-link').textContent).toEqual(
+      'Expand to Read more',
+    );
 
     Simulate.click(rootNode.querySelector('.Card-footer-link a'));
 
@@ -73,9 +72,9 @@ describe(__filename, () => {
   it('expands if new child content is smaller', () => {
     const root = mount(
       <ShowMoreCardBase i18n={fakeI18n()}>
-        This would be very long content, but we cannot get `clientHeight` in
-        the tests, so this will be forced below (via setState()).
-      </ShowMoreCardBase>
+        This would be very long content, but we cannot get `clientHeight` in the
+        tests, so this will be forced below (via setState()).
+      </ShowMoreCardBase>,
     );
 
     // We have to manually set the expanded flag to false because we don't have

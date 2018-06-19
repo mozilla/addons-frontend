@@ -7,7 +7,6 @@ import {
 } from 'core/searchUtils';
 import type { ApiStateType } from 'core/reducers/api';
 
-
 export type SearchParams = {|
   api: ApiStateType,
   auth: boolean,
@@ -18,7 +17,7 @@ export type SearchParams = {|
     author?: string,
     clientApp?: string,
     category?: string,
-    compatibleWithVersion?: number|string,
+    compatibleWithVersion?: number | string,
     featured?: boolean,
     operatingSystem?: string,
     page?: number,
@@ -28,9 +27,7 @@ export type SearchParams = {|
   |},
 |};
 
-export function search(
-  { api, auth = false, filters = {} }: SearchParams
-) {
+export function search({ api, auth = false, filters = {} }: SearchParams) {
   const newFilters = addVersionCompatibilityToFilters({
     filters: fixFiltersForAndroidThemes({ api, filters }),
     userAgentInfo: api.userAgentInfo,

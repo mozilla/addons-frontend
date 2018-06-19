@@ -8,7 +8,6 @@ import {
   DISCO_DATA_UNKNOWN,
 } from 'disco/constants';
 
-
 export default function getInstallData({ _window = window } = {}) {
   const count = {
     themes: 0,
@@ -17,7 +16,9 @@ export default function getInstallData({ _window = window } = {}) {
   let jsonData = null;
   if (_window && _window.location && _window.location.hash) {
     try {
-      const hash = _window.decodeURIComponent(_window.location.hash).replace(/^#/, '');
+      const hash = _window
+        .decodeURIComponent(_window.location.hash)
+        .replace(/^#/, '');
       jsonData = JSON.parse(hash);
     } catch (e) {
       log.error(e);

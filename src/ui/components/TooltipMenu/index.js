@@ -20,7 +20,11 @@ export default class TooltipMenu extends React.Component<Props> {
 
   render() {
     const {
-      idPrefix, items, openerClass, openerText, openerTitle,
+      idPrefix,
+      items,
+      openerClass,
+      openerText,
+      openerTitle,
     } = this.props;
 
     // This will tell a screen reader to read the menu when focusing
@@ -28,17 +32,17 @@ export default class TooltipMenu extends React.Component<Props> {
     const describedBy = `${idPrefix || ''}TooltipMenu`;
 
     return (
-      <div ref={(ref) => { this.container = ref; }}>
+      <div
+        ref={(ref) => {
+          this.container = ref;
+        }}
+      >
         <RCTooltip
           align={{ offset: [0, 6] }}
           getTooltipContainer={() => this.container}
           destroyTooltipOnHide
           id={describedBy}
-          overlay={
-            <ul className="TooltipMenu-list">
-              {items}
-            </ul>
-          }
+          overlay={<ul className="TooltipMenu-list">{items}</ul>}
           placement="bottom"
           prefixCls="TooltipMenu"
           trigger={['click']}

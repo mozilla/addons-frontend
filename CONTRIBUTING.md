@@ -8,6 +8,7 @@ Before contributing, please note:
 * You agree to license your contributions under the [license].
 * Please file issues or ask on the [dev-addons mailing list] before submitting pull-requests for new features or large changes that are not related to existing issues.
 * Please write tests for each patch to maintain test coverage.
+* Please run [Prettier] to format your code.
 * Please read the [README] for instructions on how to use the repo.
 
 Ready to get started? Follow [these steps].
@@ -24,3 +25,4 @@ If you come across a potential `good first bug` for contributors, please tag it 
   [README]: https://github.com/mozilla/addons-frontend/blob/master/README.md
   [these steps]: https://wiki.mozilla.org/Add-ons/Contribute/Code
   [triages]: https://wiki.mozilla.org/Add-ons/Contribute/Goodfirstbugs_triage
+  [Prettier]: https://github.com/mozilla/addons-frontend/blob/master/README.md#Prettier

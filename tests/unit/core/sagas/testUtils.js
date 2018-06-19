@@ -10,16 +10,18 @@ import apiReducer from 'core/reducers/api';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
-
 describe('Saga utils', () => {
   it('does not allow usage of dispatch from a saga', () => {
     const fakeLog = { error: sinon.stub() };
     const errorHandler = createErrorHandler('some-error-handler', {
-      log: fakeLog });
+      log: fakeLog,
+    });
     errorHandler.dispatch('ANYTHING');
 
-    sinon.assert.calledWith(fakeLog.error,
-      'ErrorHandler cannot dispatch from a saga');
+    sinon.assert.calledWith(
+      fakeLog.error,
+      'ErrorHandler cannot dispatch from a saga',
+    );
   });
 
   it('should return entire state', async () => {

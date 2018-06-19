@@ -16,13 +16,8 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { SendUserAbuseReportAction } from 'amo/reducers/userAbuseReports';
 import type { ReportUserParams } from 'core/api/abuse';
 
-
 export function* reportUser({
-  payload: {
-    errorHandlerId,
-    message,
-    userId,
-  },
+  payload: { errorHandlerId, message, userId },
 }: SendUserAbuseReportAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -34,11 +29,13 @@ export function* reportUser({
     const params: ReportUserParams = { api: state.api, message, userId };
     const response = yield call(reportUserApi, params);
 
-    yield put(loadUserAbuseReport({
-      message: response.message,
-      reporter: response.reporter,
-      userId,
-    }));
+    yield put(
+      loadUserAbuseReport({
+        message: response.message,
+        reporter: response.reporter,
+        userId,
+      }),
+    );
   } catch (error) {
     log.warn(`Reporting user for abuse failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));

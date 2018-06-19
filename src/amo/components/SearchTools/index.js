@@ -4,13 +4,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Search from 'amo/components/Search';
-import {
-  ADDON_TYPE_OPENSEARCH,
-  SEARCH_SORT_RELEVANCE,
-} from 'core/constants';
+import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { SearchFilters } from 'amo/components/AutoSearchInput';
-
 
 type Props = {|
   filters: SearchFilters,

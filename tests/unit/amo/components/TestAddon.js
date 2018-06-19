@@ -30,7 +30,9 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import {
-  createInternalAddon, fetchAddon as fetchAddonAction, loadAddons,
+  createInternalAddon,
+  fetchAddon as fetchAddonAction,
+  loadAddons,
 } from 'core/reducers/addons';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -79,7 +81,6 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Button from 'ui/components/Button';
 
-
 function renderProps({
   addon = createInternalAddon(fakeAddon),
   params,
@@ -109,13 +110,16 @@ function renderProps({
 function render(...args) {
   const { store, i18n, ...props } = renderProps(...args);
   props.i18n = i18n;
-  return findRenderedComponentWithType(renderIntoDocument(
-    <Provider store={store}>
-      <I18nProvider i18n={i18n}>
-        <AddonBase store={store} {...props} />
-      </I18nProvider>
-    </Provider>
-  ), AddonBase);
+  return findRenderedComponentWithType(
+    renderIntoDocument(
+      <Provider store={store}>
+        <I18nProvider i18n={i18n}>
+          <AddonBase store={store} {...props} />
+        </I18nProvider>
+      </Provider>,
+    ),
+    AddonBase,
+  );
 }
 
 function renderAsDOMNode(...args) {
@@ -172,15 +176,16 @@ describe(__filename, () => {
       addon: createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
     });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_THEME));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_THEME));
   });
 
   it('dispatches setViewContext when updating with new addon', () => {
     const fakeDispatch = sinon.stub();
     // Start with a null addon
     const root = shallowRender({
-      addon: null, dispatch: fakeDispatch, params: { slug: 'some-slug' },
+      addon: null,
+      dispatch: fakeDispatch,
+      params: { slug: 'some-slug' },
     });
     fakeDispatch.resetHistory();
     // Update with a new addon
@@ -251,7 +256,9 @@ describe(__filename, () => {
 
     // Since there's no add-on, it should be fetched on load.
     sinon.assert.calledWith(
-      fakeDispatch, fetchAddonAction({ errorHandler, slug: slugParam }));
+      fakeDispatch,
+      fetchAddonAction({ errorHandler, slug: slugParam }),
+    );
 
     // These should be empty:
     expect(root.find(InstallButton)).toHaveLength(0);
@@ -259,14 +266,20 @@ describe(__filename, () => {
     expect(root.find(RatingManager)).toHaveLength(0);
 
     // These should show LoadingText
-    expect(root.find('.AddonDescription').prop('header'))
-      .toEqual(<LoadingText minWidth={20} range={60} width={40} />);
-    expect(root.find('.AddonDescription-contents').find(LoadingText))
-      .toHaveLength(1);
+    expect(root.find('.AddonDescription').prop('header')).toEqual(
+      <LoadingText minWidth={20} range={60} width={40} />,
+    );
+    expect(
+      root.find('.AddonDescription-contents').find(LoadingText),
+    ).toHaveLength(1);
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
     expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
-    expect(root.find('.Addon-overall-rating').shallow().find(LoadingText))
-      .toHaveLength(1);
+    expect(
+      root
+        .find('.Addon-overall-rating')
+        .shallow()
+        .find(LoadingText),
+    ).toHaveLength(1);
 
     // These should render with an empty addon (they will show their own
     // loading state).
@@ -301,10 +314,13 @@ describe(__filename, () => {
     // Update with a new slug.
     root.setProps({ params: { slug } });
 
-    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({
-      errorHandler,
-      slug,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchAddonAction({
+        errorHandler,
+        slug,
+      }),
+    );
   });
 
   it('renders an error if there is one', () => {
@@ -329,7 +345,9 @@ describe(__filename, () => {
 
     // Set up an error handler from state like withErrorHandler().
     const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
+      id,
+      dispatch: sinon.stub(),
+      capturedError,
     });
 
     const root = shallowRender({ errorHandler });
@@ -342,10 +360,13 @@ describe(__filename, () => {
     const error = createApiError({
       response: { status: 401 },
       apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Authentication credentials were not provided.' },
+      jsonResponse: {
+        message: 'Authentication credentials were not provided.',
+      },
     });
     const errorHandler = new ErrorHandler({
-      id: 'some-id', dispatch: store.dispatch,
+      id: 'some-id',
+      dispatch: store.dispatch,
     });
     errorHandler.handle(error);
 
@@ -362,7 +383,8 @@ describe(__filename, () => {
       jsonResponse: { message: 'You do not have permission.' },
     });
     const errorHandler = new ErrorHandler({
-      id: 'some-id', dispatch: store.dispatch,
+      id: 'some-id',
+      dispatch: store.dispatch,
     });
     errorHandler.handle(error);
 
@@ -380,7 +402,8 @@ describe(__filename, () => {
       jsonResponse: { code: errorCode, message: 'Some error' },
     });
     const errorHandler = new ErrorHandler({
-      id: 'some-id', dispatch: store.dispatch,
+      id: 'some-id',
+      dispatch: store.dispatch,
     });
     errorHandler.handle(error);
 
@@ -393,10 +416,12 @@ describe(__filename, () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
-        authors: [{
-          name: 'Krupa',
-          url: authorUrl,
-        }],
+        authors: [
+          {
+            name: 'Krupa',
+            url: authorUrl,
+          },
+        ],
       }),
     });
     expect(root.find('.Addon-title').html()).toContain('Krupa');
@@ -407,13 +432,16 @@ describe(__filename, () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
-        authors: [{
-          name: 'Krupa',
-          url: 'http://olympia.test/en-US/firefox/user/krupa/',
-        }, {
-          name: 'Fligtar',
-          url: 'http://olympia.test/en-US/firefox/user/fligtar/',
-        }],
+        authors: [
+          {
+            name: 'Krupa',
+            url: 'http://olympia.test/en-US/firefox/user/krupa/',
+          },
+          {
+            name: 'Fligtar',
+            url: 'http://olympia.test/en-US/firefox/user/fligtar/',
+          },
+        ],
       }),
     });
     expect(root.find('h1').html()).toContain('Krupa');
@@ -424,14 +452,21 @@ describe(__filename, () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
-        authors: [{
-          name: 'Krupa',
-          url: null,
-        }],
+        authors: [
+          {
+            name: 'Krupa',
+            url: null,
+          },
+        ],
       }),
     });
     expect(root.find('.Addon-title').html()).toContain('Krupa');
-    expect(root.find('.Addon-title').render().find('a')).toHaveLength(0);
+    expect(
+      root
+        .find('.Addon-title')
+        .render()
+        .find('a'),
+    ).toHaveLength(0);
   });
 
   it('dispatches a server redirect when slug is a numeric ID', () => {
@@ -443,13 +478,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
       // We set the numeric `id` as slug.
-      params: { slug: addon.id }, store,
+      params: { slug: addon.id },
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 301,
-      url: `/en-US/${clientApp}/addon/${addon.slug}/`,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -462,13 +501,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
       // We set the numeric `id` as slug, casted as a string.
-      params: { slug: `${addon.id}` }, store,
+      params: { slug: `${addon.id}` },
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 301,
-      url: `/en-US/${clientApp}/addon/${addon.slug}/`,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -485,7 +528,8 @@ describe(__filename, () => {
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
-      params: { slug: addon.slug }, store,
+      params: { slug: addon.slug },
+      store,
     });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
@@ -528,7 +572,12 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find('.Addon-summary').render().find('br')).toHaveLength(1);
+    expect(
+      root
+        .find('.Addon-summary')
+        .render()
+        .find('br'),
+    ).toHaveLength(1);
   });
 
   it('sanitizes bad description HTML', () => {
@@ -542,18 +591,21 @@ describe(__filename, () => {
     // Make sure an actual script tag was not created.
     expect(root.querySelector('.AddonDescription script')).toEqual(null);
     // Make sure the script has been removed.
-    expect(root.querySelector('.AddonDescription').innerHTML)
-      .not.toContain('<script>');
+    expect(root.querySelector('.AddonDescription').innerHTML).not.toContain(
+      '<script>',
+    );
   });
 
   it('allows certain HTML tags in the title', () => {
     const rootNode = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
-        authors: [{
-          name: 'Krupa',
-          url: 'http://olympia.test/en-US/firefox/user/krupa/',
-        }],
+        authors: [
+          {
+            name: 'Krupa',
+            url: 'http://olympia.test/en-US/firefox/user/krupa/',
+          },
+        ],
       }),
     });
     // Make sure these tags were whitelisted.
@@ -575,8 +627,9 @@ describe(__filename, () => {
 
   it('sets a title for the description of an extension', () => {
     const root = shallowRender();
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this extension');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this extension',
+    );
   });
 
   it('sets a title for the description of a lightweight theme', () => {
@@ -586,8 +639,9 @@ describe(__filename, () => {
         type: ADDON_TYPE_THEME,
       }),
     });
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this theme');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this theme',
+    );
   });
 
   it('sets a title for the description of a static theme', () => {
@@ -597,8 +651,9 @@ describe(__filename, () => {
         type: ADDON_TYPE_STATIC_THEME,
       }),
     });
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this theme');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this theme',
+    );
   });
 
   it('sets a title for the description of a dictionary', () => {
@@ -608,8 +663,9 @@ describe(__filename, () => {
         type: ADDON_TYPE_DICT,
       }),
     });
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this dictionary');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this dictionary',
+    );
   });
 
   it('sets a title for the description of a language pack', () => {
@@ -619,8 +675,9 @@ describe(__filename, () => {
         type: ADDON_TYPE_LANG,
       }),
     });
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this language pack');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this language pack',
+    );
   });
 
   it('sets a title for the description of a search plugin', () => {
@@ -630,8 +687,9 @@ describe(__filename, () => {
         type: ADDON_TYPE_OPENSEARCH,
       }),
     });
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this search plugin');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this search plugin',
+    );
   });
 
   it('sets a title for the description of a generic add-on', () => {
@@ -641,31 +699,40 @@ describe(__filename, () => {
         type: ADDON_TYPE_COMPLETE_THEME,
       }),
     });
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this add-on');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this add-on',
+    );
   });
 
   it('uses the summary as the description if no description exists', () => {
     const addon = createInternalAddon({
-      ...fakeAddon, summary: 'short text',
+      ...fakeAddon,
+      summary: 'short text',
     });
     delete addon.description;
     const rootNode = renderAsDOMNode({ addon });
-    expect(rootNode.querySelector('.AddonDescription-contents').textContent)
-      .toEqual(addon.summary);
+    expect(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+    ).toEqual(addon.summary);
   });
 
   it('uses the summary as the description if description is blank', () => {
     const addon = createInternalAddon({
-      ...fakeAddon, description: '', summary: 'short text',
+      ...fakeAddon,
+      description: '',
+      summary: 'short text',
     });
     const rootNode = renderAsDOMNode({ addon });
-    expect(rootNode.querySelector('.AddonDescription-contents').textContent).toEqual(addon.summary);
+    expect(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+    ).toEqual(addon.summary);
   });
 
   it('hides the description if description and summary are null', () => {
     const addon = createInternalAddon({
-      ...fakeAddon, description: null, summary: null,
+      ...fakeAddon,
+      description: null,
+      summary: null,
     });
     const rootNode = renderAsDOMNode({ addon });
     expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
@@ -673,7 +740,9 @@ describe(__filename, () => {
 
   it('hides the description if description and summary are blank', () => {
     const addon = createInternalAddon({
-      ...fakeAddon, description: '', summary: '',
+      ...fakeAddon,
+      description: '',
+      summary: '',
     });
     const rootNode = renderAsDOMNode({ addon });
     expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
@@ -698,7 +767,7 @@ describe(__filename, () => {
     });
     const contents = root.find('.AddonDescription-contents');
     expect(contents.html()).toMatch(
-      new RegExp('<b>super</b> <i>cool</i> add-on')
+      new RegExp('<b>super</b> <i>cool</i> add-on'),
     );
   });
 
@@ -718,8 +787,7 @@ describe(__filename, () => {
   it('configures the overall ratings section', () => {
     const location = fakeRouterLocation();
     const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon, location })
-      .find(RatingManagerWithI18n);
+    const root = shallowRender({ addon, location }).find(RatingManagerWithI18n);
     expect(root.prop('addon')).toEqual(addon);
     expect(root.prop('location')).toEqual(location);
   });
@@ -747,9 +815,13 @@ describe(__filename, () => {
         summary: '<a href="http://foo.com/">my website</a>',
       }),
     });
-    expect(rootNode.querySelector('.Addon-summary').textContent).toContain('my website');
+    expect(rootNode.querySelector('.Addon-summary').textContent).toContain(
+      'my website',
+    );
     expect(rootNode.querySelectorAll('.Addon-summary a').length).toEqual(1);
-    expect(rootNode.querySelector('.Addon-summary a').href).toEqual('http://foo.com/');
+    expect(rootNode.querySelector('.Addon-summary a').href).toEqual(
+      'http://foo.com/',
+    );
   });
 
   it('renders an amo CDN icon image', () => {
@@ -806,7 +878,9 @@ describe(__filename, () => {
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
     expect(image).toHaveClassName('Addon-theme-header-image');
-    expect(image.prop('src')).toEqual('https://addons.cdn.mozilla.net/123/image.png');
+    expect(image.prop('src')).toEqual(
+      'https://addons.cdn.mozilla.net/123/image.png',
+    );
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
 
@@ -820,7 +894,9 @@ describe(__filename, () => {
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
     expect(image).toHaveClassName('Addon-theme-header-image');
-    expect(image.prop('src')).toEqual('https://addons.cdn.mozilla.net/123/image.png');
+    expect(image.prop('src')).toEqual(
+      'https://addons.cdn.mozilla.net/123/image.png',
+    );
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
 
@@ -912,8 +988,9 @@ describe(__filename, () => {
         reason: INCOMPATIBLE_UNDER_MIN_VERSION,
       }),
     });
-    expect(root.find(AddonCompatibilityError).prop('downloadUrl'))
-      .toEqual('https://www.seamonkey-project.org');
+    expect(root.find(AddonCompatibilityError).prop('downloadUrl')).toEqual(
+      'https://www.seamonkey-project.org',
+    );
   });
 
   it('hides banner on non firefox clients and displays firefox download button', () => {
@@ -926,7 +1003,8 @@ describe(__filename, () => {
 
   it('passes installStatus to installButton, not add-on status', () => {
     const root = shallowRender({
-      addon: createInternalAddon(fakeAddon), installStatus: UNKNOWN,
+      addon: createInternalAddon(fakeAddon),
+      installStatus: UNKNOWN,
     });
 
     const button = root.find(InstallButton);
@@ -939,13 +1017,16 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(_loadAddons({ addon }));
     const root = renderComponent({
-      params: { slug: addon.slug }, store,
+      params: { slug: addon.slug },
+      store,
     });
 
     const button = root.find(InstallButton);
     // This value is passed to <Addon/> by the withInstallHelpers() HOC.
-    expect(button)
-      .toHaveProp('defaultInstallSource', INSTALL_SOURCE_DETAIL_PAGE);
+    expect(button).toHaveProp(
+      'defaultInstallSource',
+      INSTALL_SOURCE_DETAIL_PAGE,
+    );
   });
 
   it('enables a theme preview for non-enabled add-ons', () => {
@@ -1110,8 +1191,9 @@ describe(__filename, () => {
 
       const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('No reviews yet');
-      expect(root.querySelector('footer').className)
-        .toEqual('Card-footer Card-footer-text');
+      expect(root.querySelector('footer').className).toEqual(
+        'Card-footer Card-footer-text',
+      );
     });
 
     it('prompts you to read one review', () => {
@@ -1121,16 +1203,16 @@ describe(__filename, () => {
 
       const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('Read 1 review');
-      expect(root.querySelector('footer').className)
-        .toEqual('Card-footer Card-footer-link');
+      expect(root.querySelector('footer').className).toEqual(
+        'Card-footer Card-footer-link',
+      );
     });
 
     it('prompts you to read many reviews', () => {
       const root = reviewFooterDOM({
         ratingsCount: 5,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('Read all 5 reviews');
     });
 
@@ -1138,8 +1220,7 @@ describe(__filename, () => {
       const root = reviewFooterDOM({
         ratingsCount: 10000,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toContain('10,000');
     });
 
@@ -1153,9 +1234,9 @@ describe(__filename, () => {
           },
         }),
       });
-      const allLinks = scryRenderedComponentsWithType(root, Link)
-        .filter((component) =>
-          component.props.className === 'Addon-all-reviews-link');
+      const allLinks = scryRenderedComponentsWithType(root, Link).filter(
+        (component) => component.props.className === 'Addon-all-reviews-link',
+      );
       expect(allLinks.length).toEqual(1);
 
       const link = allLinks[0];
@@ -1197,22 +1278,19 @@ describe(__filename, () => {
 
     it('is hidden when an add-on has not loaded yet', () => {
       const root = shallowRender({ addon: undefined });
-      expect(root.find('.AddonDescription-version-notes div'))
-        .toHaveLength(0);
+      expect(root.find('.AddonDescription-version-notes div')).toHaveLength(0);
     });
 
     it('is hidden when the add-on does not have a current version', () => {
       const root = shallowRender({ addon: addonWithVersion(null) });
-      expect(root.find('.AddonDescription-version-notes div'))
-        .toHaveLength(0);
+      expect(root.find('.AddonDescription-version-notes div')).toHaveLength(0);
     });
 
     it('is hidden when the current version does not have release notes', () => {
       const root = shallowRender({
         addon: addonWithVersion({ release_notes: null }),
       });
-      expect(root.find('.AddonDescription-version-notes div'))
-        .toHaveLength(0);
+      expect(root.find('.AddonDescription-version-notes div')).toHaveLength(0);
     });
 
     it('shows the version string', () => {
@@ -1240,7 +1318,7 @@ describe(__filename, () => {
         release_notes: '<b>lots</b> <i>of</i> <blink>bug fixes</blink>',
       });
       expect(root.html()).toMatch(
-        new RegExp('<b>lots</b> <i>of</i> bug fixes')
+        new RegExp('<b>lots</b> <i>of</i> bug fixes'),
       );
     });
 
@@ -1249,7 +1327,7 @@ describe(__filename, () => {
         release_notes: '<b>The List</b><ul><li>one</li><li>two</li></ul>',
       });
       expect(root.html()).toMatch(
-        new RegExp('<b>The List</b><ul><li>one</li><li>two</li></ul>')
+        new RegExp('<b>The List</b><ul><li>one</li><li>two</li></ul>'),
       );
     });
   });
@@ -1283,8 +1361,9 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root.find('.Addon-main-content').find(AddonsByAuthorsCard))
-        .toHaveLength(1);
+      expect(
+        root.find('.Addon-main-content').find(AddonsByAuthorsCard),
+      ).toHaveLength(1);
     });
 
     it('puts "add-ons by author" outside main if type is not theme', () => {
@@ -1296,23 +1375,22 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root.find('.Addon-main-content').find(AddonsByAuthorsCard))
-        .toHaveLength(0);
+      expect(
+        root.find('.Addon-main-content').find(AddonsByAuthorsCard),
+      ).toHaveLength(0);
       expect(root.find(AddonsByAuthorsCard)).toHaveLength(1);
     });
 
     it('is hidden when an add-on has not loaded yet', () => {
       // We use shallowRender because we cannot dispatch a `undefined` add-on.
       const root = shallowRender({ addon: undefined });
-      expect(root.find('.AddonDescription-more-addons'))
-        .toHaveLength(0);
+      expect(root.find('.AddonDescription-more-addons')).toHaveLength(0);
     });
 
     it('is hidden when other addons are not loaded yet', () => {
       // We use shallowRender because we cannot dispatch a `undefined` add-on.
       const root = shallowRender({ addonsByAuthors: undefined });
-      expect(root.find('.AddonDescription-more-addons'))
-        .toHaveLength(0);
+      expect(root.find('.AddonDescription-more-addons')).toHaveLength(0);
     });
 
     it('is hidden when add-on has no authors', () => {
@@ -1322,8 +1400,7 @@ describe(__filename, () => {
           authors: [],
         }),
       });
-      expect(root.find('.AddonDescription-more-addons'))
-        .toHaveLength(0);
+      expect(root.find('.AddonDescription-more-addons')).toHaveLength(0);
     });
 
     it('displays more add-ons by authors', () => {
@@ -1340,8 +1417,9 @@ describe(__filename, () => {
       const root = renderMoreAddons({ addon, addonsByAuthors });
 
       expect(root).toHaveClassName('.Addon-MoreAddonsCard');
-      expect(root).toHaveProp('authorUsernames',
-        addon.authors.map((author) => (author.username))
+      expect(root).toHaveProp(
+        'authorUsernames',
+        addon.authors.map((author) => author.username),
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
@@ -1362,8 +1440,9 @@ describe(__filename, () => {
       const root = renderMoreAddons({ addon, addonsByAuthors });
 
       expect(root).toHaveClassName('.Addon-MoreAddonsCard');
-      expect(root).toHaveProp('authorUsernames',
-        addon.authors.map((author) => (author.username))
+      expect(root).toHaveProp(
+        'authorUsernames',
+        addon.authors.map((author) => author.username),
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
@@ -1478,11 +1557,13 @@ describe('mapStateToProps', () => {
   it('sets installStatus to INSTALLED when add-on is installed', () => {
     signIn();
     fetchAddon();
-    store.dispatch(setInstallState({
-      ...fakeInstalledAddon,
-      guid: fakeAddon.guid,
-      status: INSTALLED,
-    }));
+    store.dispatch(
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid: fakeAddon.guid,
+        status: INSTALLED,
+      }),
+    );
     const { installStatus } = _mapStateToProps();
 
     expect(installStatus).toEqual(INSTALLED);
@@ -1510,11 +1591,13 @@ describe('mapStateToProps', () => {
   it('must convert all installed addon props to component props', () => {
     signIn();
     fetchAddon();
-    store.dispatch(setInstallState({
-      ...fakeInstalledAddon,
-      guid: fakeAddon.guid,
-      status: INSTALLED,
-    }));
+    store.dispatch(
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid: fakeAddon.guid,
+        status: INSTALLED,
+      }),
+    );
     const { needsRestart } = _mapStateToProps();
 
     // Make sure a random installedAddon prop gets passed as a component prop

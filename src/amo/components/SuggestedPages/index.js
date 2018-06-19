@@ -10,7 +10,7 @@ import { visibleAddonType } from 'core/utils';
 export class SuggestedPagesBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { i18n } = this.props;
@@ -31,9 +31,7 @@ export class SuggestedPagesBase extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to="/">
-              {i18n.gettext('Add-ons Home Page')}
-            </Link>
+            <Link to="/">{i18n.gettext('Add-ons Home Page')}</Link>
           </li>
         </ul>
       </section>
@@ -41,6 +39,4 @@ export class SuggestedPagesBase extends React.Component {
   }
 }
 
-export default compose(
-  translate(),
-)(SuggestedPagesBase);
+export default compose(translate())(SuggestedPagesBase);

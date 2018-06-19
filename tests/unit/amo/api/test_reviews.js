@@ -1,5 +1,6 @@
 import {
-  REVIEW_FLAG_REASON_OTHER, REVIEW_FLAG_REASON_SPAM,
+  REVIEW_FLAG_REASON_OTHER,
+  REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import {
   flagReview,
@@ -10,7 +11,9 @@ import {
 } from 'amo/api/reviews';
 import * as api from 'core/api';
 import {
-  apiResponsePage, createStubErrorHandler, unexpectedSuccess,
+  apiResponsePage,
+  createStubErrorHandler,
+  unexpectedSuccess,
 } from 'tests/unit/helpers';
 import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 
@@ -23,9 +26,7 @@ describe(__filename, () => {
     signedInApiState = dispatchSignInActions().state.api;
   });
 
-  const getReviewsResponse = ({
-    reviews = [{ ...fakeReview }],
-  } = {}) => {
+  const getReviewsResponse = ({ reviews = [{ ...fakeReview }] } = {}) => {
     return apiResponsePage({ results: reviews });
   };
 
@@ -54,10 +55,9 @@ describe(__filename, () => {
 
       // This needs to be a promise chain because of
       // https://github.com/facebook/jest/issues/3601
-      await submitReview(params)
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/addonId is required/);
-        });
+      await submitReview(params).then(unexpectedSuccess, (error) => {
+        expect(error.message).toMatch(/addonId is required/);
+      });
     });
 
     it('posts a new add-on review', async () => {
@@ -105,7 +105,8 @@ describe(__filename, () => {
         .withArgs({
           endpoint: `reviews/review/${params.reviewId}`,
           body: {
-            ...defaultParams, body: params.body,
+            ...defaultParams,
+            body: params.body,
           },
           method: 'PATCH',
           auth: true,
@@ -132,7 +133,9 @@ describe(__filename, () => {
           endpoint: `reviews/review/${params.reviewId}`,
           body: {
             // Make sure that version is not passed in.
-            ...defaultParams, body: params.body, version: undefined,
+            ...defaultParams,
+            body: params.body,
+            version: undefined,
           },
           method: 'PATCH',
           auth: true,
@@ -148,7 +151,9 @@ describe(__filename, () => {
   describe('getReviews', () => {
     it('allows you to fetch reviews with filters', async () => {
       const params = {
-        user: 123, addon: 321, show_grouped_ratings: 1,
+        user: 123,
+        addon: 321,
+        show_grouped_ratings: 1,
       };
       const fakeResponse = getReviewsResponse({ reviews: [fakeReview] });
       mockApi
@@ -179,20 +184,18 @@ describe(__filename, () => {
         .returns(Promise.resolve(getReviewsResponse()));
 
       await getReviews({
-        ...params, apiState: signedInApiState,
+        ...params,
+        apiState: signedInApiState,
       });
       mockApi.verify();
     });
 
     it('requires a user or addon', async () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve(getReviewsResponse()));
+      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
 
-      await getReviews()
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/user or addon must be specified/);
-        });
+      await getReviews().then(unexpectedSuccess, (error) => {
+        expect(error.message).toMatch(/user or addon must be specified/);
+      });
     });
   });
 
@@ -213,9 +216,13 @@ describe(__filename, () => {
           },
           state: undefined,
         })
-        .returns(Promise.resolve(getReviewsResponse({
-          reviews: [expectedReview],
-        })));
+        .returns(
+          Promise.resolve(
+            getReviewsResponse({
+              reviews: [expectedReview],
+            }),
+          ),
+        );
 
       const review = await getLatestUserReview(params);
       mockApi.verify();
@@ -223,22 +230,22 @@ describe(__filename, () => {
     });
 
     it('throws an error if multple reviews are received', async () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve(getReviewsResponse({
-          // In real life, the API should never return multiple reviews like this.
-          reviews: [
-            { ...fakeReview, id: 1 },
-            { ...fakeReview, id: 2 },
-          ],
-        })));
+      mockApi.expects('callApi').returns(
+        Promise.resolve(
+          getReviewsResponse({
+            // In real life, the API should never return multiple reviews like this.
+            reviews: [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }],
+          }),
+        ),
+      );
 
       await getLatestUserReview({
-        user: 123, addon: fakeReview.addon.id, version: fakeReview.version.id,
-      })
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/received multiple review objects/);
-        });
+        user: 123,
+        addon: fakeReview.addon.id,
+        version: fakeReview.version.id,
+      }).then(unexpectedSuccess, (error) => {
+        expect(error.message).toMatch(/received multiple review objects/);
+      });
     });
 
     it('returns latest review as null when there are no reviews at all', () => {
@@ -246,43 +253,47 @@ describe(__filename, () => {
         .expects('callApi')
         .returns(Promise.resolve(getReviewsResponse({ reviews: [] })));
 
-      return getLatestUserReview({ user: 123, addon: 321, version: 456 })
-        .then((review) => {
+      return getLatestUserReview({ user: 123, addon: 321, version: 456 }).then(
+        (review) => {
           expect(review).toBe(null);
-        });
+        },
+      );
     });
 
     it('requires user, addon, and version', () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve(getReviewsResponse()));
+      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
 
-      return getLatestUserReview()
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/user, addon, and version must be specified/);
-        });
+      return getLatestUserReview().then(unexpectedSuccess, (error) => {
+        expect(error.message).toMatch(
+          /user, addon, and version must be specified/,
+        );
+      });
     });
 
     it('requires addon and version', () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve(getReviewsResponse()));
+      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
 
-      return getLatestUserReview({ user: 123 })
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/user, addon, and version must be specified/);
-        });
+      return getLatestUserReview({ user: 123 }).then(
+        unexpectedSuccess,
+        (error) => {
+          expect(error.message).toMatch(
+            /user, addon, and version must be specified/,
+          );
+        },
+      );
     });
 
     it('requires a version', () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve(getReviewsResponse()));
+      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
 
-      return getLatestUserReview({ addon: 321, user: 123 })
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/user, addon, and version must be specified/);
-        });
+      return getLatestUserReview({ addon: 321, user: 123 }).then(
+        unexpectedSuccess,
+        (error) => {
+          expect(error.message).toMatch(
+            /user, addon, and version must be specified/,
+          );
+        },
+      );
     });
   });
 
@@ -366,10 +377,9 @@ describe(__filename, () => {
 
       mockApi.expects('callApi').returns(Promise.resolve());
 
-      await flagReview(params)
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/reviewId parameter is required/);
-        });
+      await flagReview(params).then(unexpectedSuccess, (error) => {
+        expect(error.message).toMatch(/reviewId parameter is required/);
+      });
     });
 
     it('requires a reason', async () => {
@@ -378,10 +388,9 @@ describe(__filename, () => {
 
       mockApi.expects('callApi').returns(Promise.resolve());
 
-      await flagReview(params)
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/reason parameter is required/);
-        });
+      await flagReview(params).then(unexpectedSuccess, (error) => {
+        expect(error.message).toMatch(/reason parameter is required/);
+      });
     });
 
     it('requires a note when the reason is other', async () => {
@@ -393,10 +402,9 @@ describe(__filename, () => {
 
       mockApi.expects('callApi').returns(Promise.resolve());
 
-      await flagReview(params)
-        .then(unexpectedSuccess, (error) => {
-          expect(error.message).toMatch(/note parameter is required/);
-        });
+      await flagReview(params).then(unexpectedSuccess, (error) => {
+        expect(error.message).toMatch(/note parameter is required/);
+      });
     });
   });
 });

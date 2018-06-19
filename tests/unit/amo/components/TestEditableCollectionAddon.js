@@ -34,7 +34,7 @@ describe(__filename, () => {
         store={dispatchClientMetadata().store}
         {...props}
       />,
-      EditableCollectionAddonBase
+      EditableCollectionAddonBase,
     );
   }
 
@@ -47,8 +47,10 @@ describe(__filename, () => {
   it("renders the add-on's icon", () => {
     const addon = createInternalAddon(fakeAddon);
     const root = render({ addon });
-    expect(root.find('.EditableCollectionAddon-icon'))
-      .toHaveProp('src', addon.icon_url);
+    expect(root.find('.EditableCollectionAddon-icon')).toHaveProp(
+      'src',
+      addon.icon_url,
+    );
   });
 
   it('renders the fallback icon if the origin is not allowed', () => {
@@ -57,8 +59,10 @@ describe(__filename, () => {
       icon_url: 'http://foo.com/hax.png',
     });
     const root = render({ addon });
-    expect(root.find('.EditableCollectionAddon-icon'))
-      .toHaveProp('src', fallbackIcon);
+    expect(root.find('.EditableCollectionAddon-icon')).toHaveProp(
+      'src',
+      fallbackIcon,
+    );
   });
 
   it('renders the comments icon', () => {
@@ -102,15 +106,20 @@ describe(__filename, () => {
       const notesArea = root.find('.EditableCollectionAddon-notes');
       expect(notesArea).toHaveLength(1);
       expect(notesArea.find(Icon)).toHaveProp('name', 'comments-blue');
-      expect(root.find('.EditableCollectionAddon-notes-read-only'))
-        .toHaveLength(1);
+      expect(
+        root.find('.EditableCollectionAddon-notes-read-only'),
+      ).toHaveLength(1);
 
-      const expectedHTML = '<span class="EditableCollectionAddon-notes-content">Some notes.</span>';
-      expect(notesArea.find('.EditableCollectionAddon-notes-content'))
-        .toHaveHTML(expectedHTML);
+      const expectedHTML =
+        '<span class="EditableCollectionAddon-notes-content">Some notes.</span>';
+      expect(
+        notesArea.find('.EditableCollectionAddon-notes-content'),
+      ).toHaveHTML(expectedHTML);
 
       const editButton = notesArea.find(Button);
-      expect(editButton).toHaveClassName('EditableCollectionAddon-notes-edit-button');
+      expect(editButton).toHaveClassName(
+        'EditableCollectionAddon-notes-edit-button',
+      );
       expect(editButton).toHaveProp('buttonType', 'action');
       expect(editButton).toHaveProp('micro', true);
       expect(editButton).toHaveProp('onClick', root.instance().onEditNote);
@@ -126,8 +135,9 @@ describe(__filename, () => {
 
       const expectedHTML =
         '<span class="EditableCollectionAddon-notes-content">Some<br>notes.</span>';
-      expect(root.find('.EditableCollectionAddon-notes-content'))
-        .toHaveHTML(expectedHTML);
+      expect(root.find('.EditableCollectionAddon-notes-content')).toHaveHTML(
+        expectedHTML,
+      );
     });
 
     it('shows an empty notes form when the comment icon is clicked', () => {
@@ -144,15 +154,22 @@ describe(__filename, () => {
       expect(notesForm).toHaveLength(1);
       expect(notesForm).toHaveProp('microButtons', true);
       expect(notesForm).toHaveProp('onDelete', null);
-      expect(notesForm).toHaveProp('onDismiss', root.instance().onDismissNoteForm);
+      expect(notesForm).toHaveProp(
+        'onDismiss',
+        root.instance().onDismissNoteForm,
+      );
       expect(notesForm).toHaveProp('onSubmit', root.instance().onSaveNote);
-      expect(notesForm).toHaveProp('placeholder', 'Add a comment about this add-on.');
+      expect(notesForm).toHaveProp(
+        'placeholder',
+        'Add a comment about this add-on.',
+      );
       expect(notesForm).toHaveProp('submitButtonText', 'Save');
       expect(notesForm).toHaveProp('text', null);
 
       // The read-only portion should not be shown.
-      expect(root.find('.EditableCollectionAddon-notes-read-only'))
-        .toHaveLength(0);
+      expect(
+        root.find('.EditableCollectionAddon-notes-read-only'),
+      ).toHaveLength(0);
     });
 
     it('shows a populated notes form when the edit button icon is clicked', () => {
@@ -160,13 +177,16 @@ describe(__filename, () => {
 
       const root = render({ notes });
       expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find('.EditableCollectionAddon-notes-edit-button');
+      const editButton = root.find(
+        '.EditableCollectionAddon-notes-edit-button',
+      );
       editButton.simulate('click', createFakeEvent());
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(1);
       // The read-only portion should not be shown.
-      expect(root.find('.EditableCollectionAddon-notes-read-only'))
-        .toHaveLength(0);
+      expect(
+        root.find('.EditableCollectionAddon-notes-read-only'),
+      ).toHaveLength(0);
       expect(notesForm).toHaveProp('text', notes);
     });
 
@@ -175,7 +195,9 @@ describe(__filename, () => {
 
       let root = render({ notes });
       expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find('.EditableCollectionAddon-notes-edit-button');
+      const editButton = root.find(
+        '.EditableCollectionAddon-notes-edit-button',
+      );
       editButton.simulate('click', createFakeEvent());
       let notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(1);
@@ -202,7 +224,9 @@ describe(__filename, () => {
       const root = render({ addon, deleteNote, errorHandler });
 
       expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find('.EditableCollectionAddon-notes-edit-button');
+      const editButton = root.find(
+        '.EditableCollectionAddon-notes-edit-button',
+      );
       editButton.simulate('click', createFakeEvent());
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
 
@@ -226,7 +250,9 @@ describe(__filename, () => {
       const root = render({ addon, errorHandler, saveNote });
 
       expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find('.EditableCollectionAddon-notes-edit-button');
+      const editButton = root.find(
+        '.EditableCollectionAddon-notes-edit-button',
+      );
       editButton.simulate('click', createFakeEvent());
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
 
@@ -242,8 +268,9 @@ describe(__filename, () => {
   describe('errorHandler - extractId', () => {
     it('returns a unique ID with an add-on', () => {
       const addon = fakeAddon;
-      expect(extractId({ addon }))
-        .toEqual(`editable-collection-addon-${addon.id}`);
+      expect(extractId({ addon })).toEqual(
+        `editable-collection-addon-${addon.id}`,
+      );
     });
   });
 });

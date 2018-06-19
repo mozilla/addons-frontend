@@ -7,7 +7,6 @@ import parse from 'content-security-policy-parser';
 import log from 'core/logger';
 import { csp, getNoScriptStyles } from 'core/middleware';
 
-
 describe('CSP Middleware', () => {
   const existingNodeEnv = process.env.NODE_ENV;
 
@@ -40,18 +39,29 @@ describe('CSP Middleware', () => {
     expect(policy['media-src']).toEqual(["'none'"]);
     expect(policy['form-action']).toEqual(["'self'"]);
     expect(policy['base-uri']).toEqual(["'self'"]);
-    expect(policy['img-src']).toEqual(expect.arrayContaining([
-      "'self'",
-      'data:',
+    expect(policy['img-src']).toEqual(
+      expect.arrayContaining([
+        "'self'",
+        'data:',
+        cdnHost,
+        'https://addons.cdn.mozilla.net',
+        'https://www.google-analytics.com',
+      ]),
+    );
+    expect(policy['script-src']).toEqual([
       cdnHost,
-      'https://addons.cdn.mozilla.net',
-      'https://www.google-analytics.com',
-    ]));
-    expect(policy['script-src']).toEqual([cdnHost, 'https://www.google-analytics.com/analytics.js']);
+      'https://www.google-analytics.com/analytics.js',
+    ]);
     expect(policy['script-src']).not.toContain("'self'");
     expect(policy['connect-src']).not.toContain("'self'");
-    expect(policy['connect-src']).toEqual(['https://addons.mozilla.org', 'https://sentry.prod.mozaws.net']);
-    expect(policy['style-src']).toEqual([cdnHost, "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='"]);
+    expect(policy['connect-src']).toEqual([
+      'https://addons.mozilla.org',
+      'https://sentry.prod.mozaws.net',
+    ]);
+    expect(policy['style-src']).toEqual([
+      cdnHost,
+      "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='",
+    ]);
     expect(nextSpy.calledOnce).toEqual(true);
   });
 
@@ -100,18 +110,29 @@ describe('CSP Middleware', () => {
     expect(policy['base-uri']).toEqual(["'self'"]);
     expect(policy['frame-src']).toEqual(["'none'"]);
     expect(policy['form-action']).toEqual(["'none'"]);
-    expect(policy['img-src']).toEqual(expect.arrayContaining([
-      "'self'",
-      'data:',
+    expect(policy['img-src']).toEqual(
+      expect.arrayContaining([
+        "'self'",
+        'data:',
+        cdnHost,
+        'https://addons.cdn.mozilla.net',
+        'https://www.google-analytics.com',
+      ]),
+    );
+    expect(policy['script-src']).toEqual([
       cdnHost,
-      'https://addons.cdn.mozilla.net',
-      'https://www.google-analytics.com',
-    ]));
-    expect(policy['script-src']).toEqual([cdnHost, 'https://www.google-analytics.com/analytics.js']);
+      'https://www.google-analytics.com/analytics.js',
+    ]);
     expect(policy['script-src']).not.toContain("'self'");
     expect(policy['connect-src']).not.toContain("'self'");
-    expect(policy['connect-src']).toEqual(['https://addons.mozilla.org', 'https://sentry.prod.mozaws.net']);
-    expect(policy['style-src']).toEqual([cdnHost, "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='"]);
+    expect(policy['connect-src']).toEqual([
+      'https://addons.mozilla.org',
+      'https://sentry.prod.mozaws.net',
+    ]);
+    expect(policy['style-src']).toEqual([
+      cdnHost,
+      "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='",
+    ]);
     expect(policy['media-src']).toEqual([cdnHost]);
     expect(nextSpy.calledOnce).toEqual(true);
   });
@@ -123,7 +144,10 @@ describe('CSP Middleware', () => {
     const warnStub = sinon.stub();
     const middleware = csp({
       _config: {
-        get: sinon.stub().withArgs('CSP').returns('false'),
+        get: sinon
+          .stub()
+          .withArgs('CSP')
+          .returns('false'),
       },
       _log: {
         warn: warnStub,
@@ -133,9 +157,9 @@ describe('CSP Middleware', () => {
     const req = new MockExpressRequest();
     const res = new MockExpressResponse();
     middleware(req, res, nextSpy);
-    expect(
-      warnStub.calledWith('CSP has been disabled from the config')
-    ).toBe(true);
+    expect(warnStub.calledWith('CSP has been disabled from the config')).toBe(
+      true,
+    );
     expect(nextSpy.calledOnce).toEqual(true);
   });
 
@@ -143,7 +167,10 @@ describe('CSP Middleware', () => {
     const warnStub = sinon.stub();
     const middleware = csp({
       _config: {
-        get: sinon.stub().withArgs('CSP').returns(false),
+        get: sinon
+          .stub()
+          .withArgs('CSP')
+          .returns(false),
       },
       _log: {
         warn: warnStub,
@@ -153,7 +180,9 @@ describe('CSP Middleware', () => {
     const req = new MockExpressRequest();
     const res = new MockExpressResponse();
     middleware(req, res, nextSpy);
-    expect(warnStub.calledWith('CSP has been disabled from the config')).toBe(true);
+    expect(warnStub.calledWith('CSP has been disabled from the config')).toBe(
+      true,
+    );
     expect(nextSpy.calledOnce).toEqual(true);
   });
 
@@ -180,6 +209,9 @@ describe('noScriptStyles', () => {
       message: 'soz',
     });
     getNoScriptStyles('disco');
-    sinon.assert.calledWithMatch(logStub, /noscript styles could not be parsed from/);
+    sinon.assert.calledWithMatch(
+      logStub,
+      /noscript styles could not be parsed from/,
+    );
   });
 });

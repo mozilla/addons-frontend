@@ -11,7 +11,6 @@ import log from 'core/logger';
 import { abortSearch } from 'core/reducers/search';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
 export function* fetchSearchResults({ payload }) {
   const { errorHandlerId } = payload;
   const errorHandler = createErrorHandler(errorHandlerId);

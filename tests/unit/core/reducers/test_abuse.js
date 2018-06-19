@@ -11,7 +11,6 @@ import abuseReducer, {
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { createFakeAddonAbuseReport } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
@@ -22,16 +21,24 @@ describe(__filename, () => {
     it('allows abuse reports for multiple add-ons', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(loadAddonAbuseReport(createFakeAddonAbuseReport({
-        addon: { ...fakeAddon, slug: 'some-addon' },
-        message: 'This add-on is malwaré.',
-        reporter: null,
-      })));
-      store.dispatch(loadAddonAbuseReport(createFakeAddonAbuseReport({
-        addon: { ...fakeAddon, slug: 'another-addon' },
-        message: 'The add-on is boring',
-        reporter: null,
-      })));
+      store.dispatch(
+        loadAddonAbuseReport(
+          createFakeAddonAbuseReport({
+            addon: { ...fakeAddon, slug: 'some-addon' },
+            message: 'This add-on is malwaré.',
+            reporter: null,
+          }),
+        ),
+      );
+      store.dispatch(
+        loadAddonAbuseReport(
+          createFakeAddonAbuseReport({
+            addon: { ...fakeAddon, slug: 'another-addon' },
+            message: 'The add-on is boring',
+            reporter: null,
+          }),
+        ),
+      );
 
       expect(store.getState().abuse).toMatchObject({
         bySlug: {
@@ -48,7 +55,9 @@ describe(__filename, () => {
     describe('disableAbuseButtonUI', () => {
       it('sets the buttonEnabled state to false', () => {
         const state = abuseReducer(
-          initialState, disableAbuseButtonUI({ addon: fakeAddon }));
+          initialState,
+          disableAbuseButtonUI({ addon: fakeAddon }),
+        );
 
         expect(state).toEqual({
           bySlug: {
@@ -68,7 +77,9 @@ describe(__filename, () => {
     describe('enableAbuseButtonUI', () => {
       it('sets the buttonEnabled state to true', () => {
         const state = abuseReducer(
-          initialState, enableAbuseButtonUI({ addon: fakeAddon }));
+          initialState,
+          enableAbuseButtonUI({ addon: fakeAddon }),
+        );
 
         expect(state).toEqual({
           bySlug: {
@@ -88,7 +99,9 @@ describe(__filename, () => {
     describe('hideAddonAbuseReportUI', () => {
       it('sets the uiVisible state to false', () => {
         const state = abuseReducer(
-          initialState, hideAddonAbuseReportUI({ addon: fakeAddon }));
+          initialState,
+          hideAddonAbuseReportUI({ addon: fakeAddon }),
+        );
 
         expect(state).toEqual({
           bySlug: {
@@ -108,7 +121,9 @@ describe(__filename, () => {
     describe('showAddonAbuseReportUI', () => {
       it('sets the uiVisible state to true', () => {
         const state = abuseReducer(
-          initialState, showAddonAbuseReportUI({ addon: fakeAddon }));
+          initialState,
+          showAddonAbuseReportUI({ addon: fakeAddon }),
+        );
 
         expect(state).toEqual({
           bySlug: {
@@ -183,7 +198,9 @@ describe(__filename, () => {
 
       it('saves the abuse report response to the reducer', () => {
         const state = abuseReducer(
-          initialState, loadAddonAbuseReport(response));
+          initialState,
+          loadAddonAbuseReport(response),
+        );
 
         expect(state.bySlug.Ego.message).toEqual('I am Groot!');
       });

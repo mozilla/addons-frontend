@@ -2,7 +2,6 @@ import { getFeatured, loadFeatured } from 'amo/actions/featured';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
-
 describe('amo/actions/featured/getFeatured', () => {
   function getActionArgs(args = {}) {
     const errorHandler = createStubErrorHandler();
@@ -14,10 +13,12 @@ describe('amo/actions/featured/getFeatured', () => {
   }
 
   it('sets the filters', () => {
-    const action = getFeatured(getActionArgs({
-      errorHandlerId: 'some-id',
-      addonType: ADDON_TYPE_THEME,
-    }));
+    const action = getFeatured(
+      getActionArgs({
+        errorHandlerId: 'some-id',
+        addonType: ADDON_TYPE_THEME,
+      }),
+    );
     expect(action.payload).toEqual({
       addonType: ADDON_TYPE_THEME,
       errorHandlerId: 'some-id',

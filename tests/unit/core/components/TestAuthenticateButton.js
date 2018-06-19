@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {
-  Simulate, findRenderedComponentWithType, renderIntoDocument,
+  Simulate,
+  findRenderedComponentWithType,
+  renderIntoDocument,
 } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -27,7 +29,6 @@ import {
 } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 
-
 describe(__filename, () => {
   function renderTree(customProps = {}) {
     const { store } = dispatchSignInActions();
@@ -37,11 +38,14 @@ describe(__filename, () => {
       ...customProps,
     };
 
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <AuthenticateButtonBase {...props} />
-      </Provider>
-    ), AuthenticateButtonBase);
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={store}>
+          <AuthenticateButtonBase {...props} />
+        </Provider>,
+      ),
+      AuthenticateButtonBase,
+    );
   }
 
   const render = (props) => findDOMNode(renderTree(props));
@@ -59,8 +63,9 @@ describe(__filename, () => {
 
   it('lets you hide the Icon', () => {
     const root = renderTree({ noIcon: true });
-    expect(() => findRenderedComponentWithType(root, Icon))
-      .toThrowError(/Did not find exactly one match/);
+    expect(() => findRenderedComponentWithType(root, Icon)).toThrowError(
+      /Did not find exactly one match/,
+    );
   });
 
   it('lets you customize the log in text', () => {
@@ -100,9 +105,12 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions();
     const _window = { location: '/foo' };
     const location = fakeRouterLocation({
-      pathname: '/bar', query: { q: 'wat' },
+      pathname: '/bar',
+      query: { q: 'wat' },
     });
-    const startLoginUrlStub = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
+    const startLoginUrlStub = sinon
+      .stub(api, 'startLoginUrl')
+      .returns('https://a.m.org/login');
 
     const { handleLogIn } = mapStateToProps(store.getState());
     handleLogIn(location, { _window });
@@ -155,11 +163,10 @@ describe(__filename, () => {
       // This makes sure the state contains a token because user is logged in.
       expect(apiState.token).toBeTruthy();
 
-      return handleLogOut({ api: apiState })
-        .then(() => {
-          sinon.assert.calledWith(api.logOutFromServer, { api: apiState });
-          sinon.assert.calledWith(dispatchSpy, logOutUser());
-        });
+      return handleLogOut({ api: apiState }).then(() => {
+        sinon.assert.calledWith(api.logOutFromServer, { api: apiState });
+        sinon.assert.calledWith(dispatchSpy, logOutUser());
+      });
     });
   });
 });

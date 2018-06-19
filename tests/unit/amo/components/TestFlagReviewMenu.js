@@ -7,7 +7,9 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import {
-  denormalizeReview, setReviewWasFlagged, showReplyToReviewForm,
+  denormalizeReview,
+  setReviewWasFlagged,
+  showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import FlagReview from 'amo/components/FlagReview';
 import FlagReviewMenu, {
@@ -15,9 +17,7 @@ import FlagReviewMenu, {
 } from 'amo/components/FlagReviewMenu';
 import { logOutUser } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import {
-  dispatchSignInActions, fakeReview,
-} from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 import {
   fakeI18n,
   fakeRouterLocation,
@@ -25,7 +25,6 @@ import {
 } from 'tests/unit/helpers';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
-
 
 describe(__filename, () => {
   let store;
@@ -43,7 +42,8 @@ describe(__filename, () => {
       ...customProps,
     };
     return shallowUntilTarget(
-      <FlagReviewMenu {...props} />, FlagReviewMenuBase,
+      <FlagReviewMenu {...props} />,
+      FlagReviewMenuBase,
     );
   };
 
@@ -86,8 +86,9 @@ describe(__filename, () => {
 
       const authButton = menu.find(AuthenticateButton);
       expect(authButton).toHaveProp('logInText');
-      expect(authButton.prop('logInText'))
-        .toEqual('Log in to flag this review');
+      expect(authButton.prop('logInText')).toEqual(
+        'Log in to flag this review',
+      );
     });
 
     it('prompts you to flag a developer response after login', () => {
@@ -96,8 +97,9 @@ describe(__filename, () => {
 
       const authButton = menu.find(AuthenticateButton);
       expect(authButton).toHaveProp('logInText');
-      expect(authButton.prop('logInText'))
-        .toEqual('Log in to flag this response');
+      expect(authButton.prop('logInText')).toEqual(
+        'Log in to flag this response',
+      );
     });
 
     it('does not let you flag your own review', () => {
@@ -107,9 +109,7 @@ describe(__filename, () => {
 
       const items = menu.find(ListItem);
       expect(items).toHaveLength(1);
-      expect(items.at(0).html()).toContain(
-        'You cannot flag your own review'
-      );
+      expect(items.at(0).html()).toContain('You cannot flag your own review');
     });
 
     it('does not let you flag your own response', () => {
@@ -119,9 +119,7 @@ describe(__filename, () => {
 
       const items = menu.find(ListItem);
       expect(items).toHaveLength(1);
-      expect(items.at(0).html()).toContain(
-        'You cannot flag your own response'
-      );
+      expect(items.at(0).html()).toContain('You cannot flag your own response');
     });
   });
 
@@ -129,23 +127,26 @@ describe(__filename, () => {
     it('provides a tooltip to flag reviews', () => {
       const root = render();
 
-      expect(root.find(TooltipMenu))
-        .toHaveProp('openerTitle', 'Flag this review');
+      expect(root.find(TooltipMenu)).toHaveProp(
+        'openerTitle',
+        'Flag this review',
+      );
     });
 
     it('provides a tooltip to flag developer responses', () => {
       const root = render({ isDeveloperReply: true });
 
-      expect(root.find(TooltipMenu))
-        .toHaveProp('openerTitle', 'Flag this developer response');
+      expect(root.find(TooltipMenu)).toHaveProp(
+        'openerTitle',
+        'Flag this developer response',
+      );
     });
 
     it('configures FlagReview to flag as spam', () => {
       const review = denormalizeReview(fakeReview);
       const { menu } = renderMenu({ review });
 
-      const flag = menu.find('.FlagReviewMenu-flag-spam-item')
-        .find(FlagReview);
+      const flag = menu.find('.FlagReviewMenu-flag-spam-item').find(FlagReview);
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_SPAM);
       expect(flag).toHaveProp('wasFlaggedText');
@@ -156,7 +157,8 @@ describe(__filename, () => {
       const review = denormalizeReview(fakeReview);
       const { menu } = renderMenu({ review });
 
-      const flag = menu.find('.FlagReviewMenu-flag-language-item')
+      const flag = menu
+        .find('.FlagReviewMenu-flag-language-item')
         .find(FlagReview);
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_LANGUAGE);
@@ -168,7 +170,8 @@ describe(__filename, () => {
       const review = denormalizeReview(fakeReview);
       const { menu } = renderMenu({ review });
 
-      const flag = menu.find('.FlagReviewMenu-flag-bug-support-item')
+      const flag = menu
+        .find('.FlagReviewMenu-flag-bug-support-item')
         .find(FlagReview);
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_BUG_SUPPORT);
@@ -179,16 +182,19 @@ describe(__filename, () => {
     it('does not prompt you to flag a response as a bug/support', () => {
       const { menu } = renderMenu({ isDeveloperReply: true });
 
-      expect(menu.find('.FlagReviewMenu-flag-bug-support-item'))
-        .toHaveLength(0);
+      expect(menu.find('.FlagReviewMenu-flag-bug-support-item')).toHaveLength(
+        0,
+      );
     });
 
     it('changes prompt after review has been flagged', () => {
       const review = denormalizeReview(fakeReview);
-      store.dispatch(setReviewWasFlagged({
-        reason: REVIEW_FLAG_REASON_SPAM,
-        reviewId: review.id,
-      }));
+      store.dispatch(
+        setReviewWasFlagged({
+          reason: REVIEW_FLAG_REASON_SPAM,
+          reviewId: review.id,
+        }),
+      );
 
       const root = render({ review });
 

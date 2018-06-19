@@ -15,12 +15,12 @@ import {
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 
-
 // HACK: This is the GUID for the Facebook Container
 // add-on, which has a special-cased download URL supplied.
 // See: https://github.com/mozilla/addons-server/issues/7982
 export const FACEBOOK_CONTAINER_ADDON_GUID = '@contain-facebook';
-export const FACEBOOK_CONTAINER_DOWNLOAD_URL = 'https://www.mozilla.org/firefox/facebookcontainer/';
+export const FACEBOOK_CONTAINER_DOWNLOAD_URL =
+  'https://www.mozilla.org/firefox/facebookcontainer/';
 
 export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
@@ -31,7 +31,8 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
 
   if (addon) {
     if (
-      addon.current_version && addon.current_version.compatibility[clientApp]
+      addon.current_version &&
+      addon.current_version.compatibility[clientApp]
     ) {
       supportsClientApp = true;
       maxVersion = addon.current_version.compatibility[clientApp].max;
@@ -146,13 +147,18 @@ export function getClientCompatibility({
   _window = typeof window !== 'undefined' ? window : {},
 } = {}) {
   // Check compatibility with client app.
-  const {
-    supportsClientApp, maxVersion, minVersion,
-  } = getCompatibleVersions({ addon, clientApp });
+  const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
+    addon,
+    clientApp,
+  });
 
   // Check compatibility with user agent.
   const agent = isCompatibleWithUserAgent({
-    addon, maxVersion, minVersion, userAgentInfo, _window,
+    addon,
+    maxVersion,
+    minVersion,
+    userAgentInfo,
+    _window,
   });
 
   let reason;

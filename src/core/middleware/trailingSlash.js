@@ -1,15 +1,14 @@
 import config from 'config';
 
-import {
-  isValidClientApp,
-  isValidTrailingSlashUrlException,
-} from 'core/utils';
+import { isValidClientApp, isValidTrailingSlashUrlException } from 'core/utils';
 import { isValidLang } from 'core/i18n/utils';
 import log from 'core/logger';
 
-
 export function trailingSlashesMiddleware(
-  req, res, next, { _config = config } = {}
+  req,
+  res,
+  next,
+  { _config = config } = {},
 ) {
   const UrlParts = req.originalUrl.split('?');
   const UrlSlashSeparated = UrlParts[0].replace(/^\//, '').split('/');
@@ -40,7 +39,8 @@ export function trailingSlashesMiddleware(
   } else if (isValidTrailingSlashUrlException(urlToCheck, { _config })) {
     log.info(
       'Not adding a trailing slash; validTrailingSlashUrlException found',
-      urlToCheck);
+      urlToCheck,
+    );
   }
 
   return next();

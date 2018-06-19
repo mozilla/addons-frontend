@@ -1,10 +1,7 @@
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import Home, {
-  COLLECTIONS_TO_FETCH,
-  HomeBase,
-} from 'amo/components/Home';
+import Home, { COLLECTIONS_TO_FETCH, HomeBase } from 'amo/components/Home';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
@@ -30,7 +27,6 @@ import {
   fakeAddon,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
-
 
 describe(__filename, () => {
   const getProps = () => {
@@ -66,10 +62,12 @@ describe(__filename, () => {
     const shelf = shelves.find('.Home-FeaturedCollection').at(0);
 
     expect(shelf).toHaveProp('header', 'Translation tools');
-    expect(shelf).toHaveProp('footerText',
-      'See more translation tools');
-    expect(shelf).toHaveProp('footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[0].username}/${COLLECTIONS_TO_FETCH[0].slug}/`
+    expect(shelf).toHaveProp('footerText', 'See more translation tools');
+    expect(shelf).toHaveProp(
+      'footerLink',
+      `/collections/${COLLECTIONS_TO_FETCH[0].username}/${
+        COLLECTIONS_TO_FETCH[0].slug
+      }/`,
     );
     expect(shelf).toHaveProp('loading', true);
   });
@@ -81,10 +79,12 @@ describe(__filename, () => {
     const shelf = shelves.find('.Home-FeaturedCollection').at(1);
 
     expect(shelf).toHaveProp('header', 'Privacy matters');
-    expect(shelf).toHaveProp('footerText',
-      'See more privacy extensions');
-    expect(shelf).toHaveProp('footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[1].username}/${COLLECTIONS_TO_FETCH[1].slug}/`
+    expect(shelf).toHaveProp('footerText', 'See more privacy extensions');
+    expect(shelf).toHaveProp(
+      'footerLink',
+      `/collections/${COLLECTIONS_TO_FETCH[1].username}/${
+        COLLECTIONS_TO_FETCH[1].slug
+      }/`,
     );
     expect(shelf).toHaveProp('loading', true);
   });
@@ -97,8 +97,11 @@ describe(__filename, () => {
 
     expect(shelf).toHaveProp('header', 'Tame your tabs');
     expect(shelf).toHaveProp('footerText', 'See more tab extensions');
-    expect(shelf).toHaveProp('footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[2].username}/${COLLECTIONS_TO_FETCH[2].slug}/`
+    expect(shelf).toHaveProp(
+      'footerLink',
+      `/collections/${COLLECTIONS_TO_FETCH[2].username}/${
+        COLLECTIONS_TO_FETCH[2].slug
+      }/`,
     );
     expect(shelf).toHaveProp('loading', true);
   });
@@ -134,11 +137,13 @@ describe(__filename, () => {
 
     const shelf = root.find('.Home-CuratedCollections');
     expect(shelf.find('.Home-SubjectShelf-text-wrapper')).toHaveLength(1);
-    expect(shelf.find('.Home-SubjectShelf-list-item'))
-      .toHaveLength(expectedCollections.length);
+    expect(shelf.find('.Home-SubjectShelf-list-item')).toHaveLength(
+      expectedCollections.length,
+    );
     expectedCollections.forEach((collectionSlug) => {
-      expect(shelf.find({ to: `/collections/mozilla/${collectionSlug}/` }))
-        .toHaveLength(1);
+      expect(
+        shelf.find({ to: `/collections/mozilla/${collectionSlug}/` }),
+      ).toHaveLength(1);
     });
   });
 
@@ -173,8 +178,9 @@ describe(__filename, () => {
 
     const shelf = root.find('.Home-CuratedThemes');
     expect(shelf.find('.Home-SubjectShelf-text-wrapper')).toHaveLength(1);
-    expect(shelf.find('.Home-SubjectShelf-list-item'))
-      .toHaveLength(expectedThemes.length);
+    expect(shelf.find('.Home-SubjectShelf-list-item')).toHaveLength(
+      expectedThemes.length,
+    );
     expectedThemes.forEach((slug) => {
       expect(shelf.find({ to: `/themes/${slug}/` })).toHaveLength(1);
     });
@@ -182,8 +188,9 @@ describe(__filename, () => {
 
   it('renders a comment for monitoring', () => {
     const root = render();
-    expect(root.find('.do-not-remove').html())
-      .toContain('<!-- Godzilla of browsers -->');
+    expect(root.find('.do-not-remove').html()).toContain(
+      '<!-- Godzilla of browsers -->',
+    );
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {
@@ -195,10 +202,13 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 2);
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
-    sinon.assert.calledWith(fakeDispatch, fetchHomeAddons({
-      errorHandlerId: errorHandler.id,
-      collectionsToFetch: COLLECTIONS_TO_FETCH,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchHomeAddons({
+        errorHandlerId: errorHandler.id,
+        collectionsToFetch: COLLECTIONS_TO_FETCH,
+      }),
+    );
   });
 
   it('does not fetch the add-ons when results are already loaded', () => {
@@ -216,11 +226,13 @@ describe(__filename, () => {
     const featuredExtensions = createAddonsApiResult(addons);
     const featuredThemes = createAddonsApiResult(themes);
 
-    store.dispatch(loadHomeAddons({
-      collections,
-      featuredExtensions,
-      featuredThemes,
-    }));
+    store.dispatch(
+      loadHomeAddons({
+        collections,
+        featuredExtensions,
+        featuredThemes,
+      }),
+    );
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ store });
@@ -231,42 +243,42 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     expect(shelves).toHaveLength(5);
 
-    const firstCollectionShelf = shelves.find('.Home-FeaturedCollection')
-      .at(0);
+    const firstCollectionShelf = shelves.find('.Home-FeaturedCollection').at(0);
     expect(firstCollectionShelf).toHaveProp('loading', false);
-    expect(firstCollectionShelf)
-      .toHaveProp(
-        'addons',
-        collectionAddons.map((addon) => createInternalAddon(addon.addon)),
-      );
+    expect(firstCollectionShelf).toHaveProp(
+      'addons',
+      collectionAddons.map((addon) => createInternalAddon(addon.addon)),
+    );
 
-    const secondCollectionShelf = shelves.find('.Home-FeaturedCollection')
+    const secondCollectionShelf = shelves
+      .find('.Home-FeaturedCollection')
       .at(1);
     expect(secondCollectionShelf).toHaveProp('loading', false);
-    expect(secondCollectionShelf)
-      .toHaveProp(
-        'addons',
-        collectionAddons.map((addon) => createInternalAddon(addon.addon)),
-      );
+    expect(secondCollectionShelf).toHaveProp(
+      'addons',
+      collectionAddons.map((addon) => createInternalAddon(addon.addon)),
+    );
 
-    const thirdCollectionShelf = shelves.find('.Home-FeaturedCollection')
-      .at(2);
+    const thirdCollectionShelf = shelves.find('.Home-FeaturedCollection').at(2);
     expect(thirdCollectionShelf).toHaveProp('loading', false);
-    expect(thirdCollectionShelf)
-      .toHaveProp(
-        'addons',
-        collectionAddons.map((addon) => createInternalAddon(addon.addon)),
-      );
+    expect(thirdCollectionShelf).toHaveProp(
+      'addons',
+      collectionAddons.map((addon) => createInternalAddon(addon.addon)),
+    );
 
     const featuredExtensionsShelf = shelves.find('.Home-FeaturedExtensions');
     expect(featuredExtensionsShelf).toHaveProp('loading', false);
-    expect(featuredExtensionsShelf)
-      .toHaveProp('addons', addons.map((addon) => createInternalAddon(addon)));
+    expect(featuredExtensionsShelf).toHaveProp(
+      'addons',
+      addons.map((addon) => createInternalAddon(addon)),
+    );
 
     const featuredThemesShelf = shelves.find('.Home-FeaturedThemes');
     expect(featuredThemesShelf).toHaveProp('loading', false);
-    expect(featuredThemesShelf)
-      .toHaveProp('addons', themes.map((theme) => createInternalAddon(theme)));
+    expect(featuredThemesShelf).toHaveProp(
+      'addons',
+      themes.map((theme) => createInternalAddon(theme)),
+    );
   });
 
   it('does not display a collection shelf if there is no collection in state', () => {
@@ -279,11 +291,13 @@ describe(__filename, () => {
     const featuredExtensions = createAddonsApiResult(addons);
     const featuredThemes = createAddonsApiResult(themes);
 
-    store.dispatch(loadHomeAddons({
-      collections,
-      featuredExtensions,
-      featuredThemes,
-    }));
+    store.dispatch(
+      loadHomeAddons({
+        collections,
+        featuredExtensions,
+        featuredThemes,
+      }),
+    );
 
     const root = render({ store });
 
@@ -301,11 +315,13 @@ describe(__filename, () => {
       id: 'some-error-handler-id',
       dispatch: store.dispatch,
     });
-    errorHandler.handle(createApiError({
-      response: { status: 500 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Nope.' },
-    }));
+    errorHandler.handle(
+      createApiError({
+        response: { status: 500 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Nope.' },
+      }),
+    );
 
     const root = render({ errorHandler, store });
     expect(root.find(ErrorList)).toHaveLength(1);

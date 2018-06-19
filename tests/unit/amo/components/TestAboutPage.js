@@ -3,13 +3,9 @@ import * as React from 'react';
 import About, { AboutBase } from 'amo/components/StaticPages/About';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe('About', () => {
   function render() {
-    return shallowUntilTarget(
-      <About i18n={fakeI18n()} />,
-      AboutBase,
-    );
+    return shallowUntilTarget(<About i18n={fakeI18n()} />, AboutBase);
   }
 
   it('outputs an about page', () => {
@@ -18,4 +14,3 @@ describe('About', () => {
     expect(root.find('#about')).toExist();
   });
 });
-

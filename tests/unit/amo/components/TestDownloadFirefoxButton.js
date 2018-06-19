@@ -4,23 +4,14 @@ import DownloadFirefoxButton, {
   DownloadFirefoxButtonBase,
 } from 'amo/components/DownloadFirefoxButton';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import {
-  fakeI18n,
-  shallowUntilTarget,
-  userAgents,
-} from 'tests/unit/helpers';
-
+import { fakeI18n, shallowUntilTarget, userAgents } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(props = {}) {
     const { store } = dispatchClientMetadata();
 
     return shallowUntilTarget(
-      <DownloadFirefoxButton
-        i18n={fakeI18n()}
-        store={store}
-        {...props}
-      />,
+      <DownloadFirefoxButton i18n={fakeI18n()} store={store} {...props} />,
       DownloadFirefoxButtonBase,
     );
   }
@@ -59,12 +50,15 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root).toHaveClassName('DownloadFirefoxButton');
-    expect(root).toHaveProp('href', [
-      'https://www.mozilla.org/firefox/new/',
-      '?utm_source=addons.mozilla.org',
-      '&utm_medium=referral',
-      '&utm_campaign=non-fx-button',
-      '&utm_content=header-download-button',
-    ].join(''));
+    expect(root).toHaveProp(
+      'href',
+      [
+        'https://www.mozilla.org/firefox/new/',
+        '?utm_source=addons.mozilla.org',
+        '&utm_medium=referral',
+        '&utm_campaign=non-fx-button',
+        '&utm_content=header-download-button',
+      ].join(''),
+    );
   });
 });

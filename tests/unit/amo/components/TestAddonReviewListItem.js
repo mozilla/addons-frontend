@@ -18,7 +18,10 @@ import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
-  dispatchClientMetadata, dispatchSignInActions, fakeAddon, fakeReview,
+  dispatchClientMetadata,
+  dispatchSignInActions,
+  fakeAddon,
+  fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
@@ -30,7 +33,6 @@ import ErrorList from 'ui/components/ErrorList';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
-
 
 describe(__filename, () => {
   let store;
@@ -47,7 +49,8 @@ describe(__filename, () => {
       ...customProps,
     };
     return shallowUntilTarget(
-      <AddonReviewListItem {...props} />, AddonReviewListItemBase
+      <AddonReviewListItem {...props} />,
+      AddonReviewListItemBase,
     );
   };
 
@@ -118,10 +121,12 @@ describe(__filename, () => {
 
     const addon = createInternalAddon({
       ...fakeAddon,
-      authors: [{
-        ...fakeAddon.authors[0],
-        id: developerUserId,
-      }],
+      authors: [
+        {
+          ...fakeAddon.authors[0],
+          id: developerUserId,
+        },
+      ],
     });
 
     return { addon };
@@ -129,15 +134,19 @@ describe(__filename, () => {
 
   it('renders a review', () => {
     const review = _setReview({
-      ...fakeReview, id: 1, rating: 2,
+      ...fakeReview,
+      id: 1,
+      rating: 2,
     });
     const root = render({ review });
 
-    expect(root.find('.AddonReviewListItem-body').html())
-      .toContain(fakeReview.body);
+    expect(root.find('.AddonReviewListItem-body').html()).toContain(
+      fakeReview.body,
+    );
 
-    expect(root.find('.AddonReviewListItem-byline'))
-      .toIncludeText(fakeReview.user.name);
+    expect(root.find('.AddonReviewListItem-byline')).toIncludeText(
+      fakeReview.user.name,
+    );
 
     const rating = root.find(UserRating);
     expect(rating).toHaveProp('readOnly', true);
@@ -154,17 +163,29 @@ describe(__filename, () => {
       review: _setReview(fakeReviewWithNewLine),
     });
 
-    expect(root.find('p').render().find('br'))
-      .toHaveLength(1);
+    expect(
+      root
+        .find('p')
+        .render()
+        .find('br'),
+    ).toHaveLength(1);
   });
 
   it('renders loading text for falsy reviews', () => {
     const root = render({ review: null });
 
-    expect(root.find('p').at(0).find(LoadingText))
-      .toHaveLength(1);
-    expect(root.find('.AddonReviewListItem-byline').at(0)
-      .find(LoadingText)).toHaveLength(1);
+    expect(
+      root
+        .find('p')
+        .at(0)
+        .find(LoadingText),
+    ).toHaveLength(1);
+    expect(
+      root
+        .find('.AddonReviewListItem-byline')
+        .at(0)
+        .find(LoadingText),
+    ).toHaveLength(1);
   });
 
   it('does not render an edit link when no review exists', () => {
@@ -185,7 +206,8 @@ describe(__filename, () => {
 
   it('does not render edit link when review belongs to another user', () => {
     const review = signInAndDispatchSavedReview({
-      siteUserId: 123, reviewUserId: 987,
+      siteUserId: 123,
+      reviewUserId: 987,
     });
     const root = render({ review });
 
@@ -202,9 +224,12 @@ describe(__filename, () => {
     editButton.simulate('click', clickEvent);
 
     sinon.assert.called(clickEvent.preventDefault);
-    sinon.assert.calledWith(dispatchSpy, showEditReviewForm({
-      reviewId: review.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      showEditReviewForm({
+        reviewId: review.id,
+      }),
+    );
   });
 
   it('configures the edit-review form', () => {
@@ -262,9 +287,12 @@ describe(__filename, () => {
     editButton.simulate('click', clickEvent);
 
     sinon.assert.called(clickEvent.preventDefault);
-    sinon.assert.calledWith(fakeDispatch, showReplyToReviewForm({
-      reviewId: review.id,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      showReplyToReviewForm({
+        reviewId: review.id,
+      }),
+    );
   });
 
   it('lets an admin reply to a review', () => {
@@ -354,12 +382,12 @@ describe(__filename, () => {
 
     const textForm = root.find('.AddonReviewListItem-reply-form');
     expect(textForm).toHaveLength(1);
-    expect(textForm)
-      .toHaveProp('placeholder', 'Write a reply to this review.');
-    expect(textForm)
-      .toHaveProp('submitButtonText', 'Publish reply');
-    expect(textForm)
-      .toHaveProp('submitButtonInProgressText', 'Publishing reply');
+    expect(textForm).toHaveProp('placeholder', 'Write a reply to this review.');
+    expect(textForm).toHaveProp('submitButtonText', 'Publish reply');
+    expect(textForm).toHaveProp(
+      'submitButtonInProgressText',
+      'Publishing reply',
+    );
   });
 
   it('configures a reply-to-review text form when editing', () => {
@@ -372,10 +400,8 @@ describe(__filename, () => {
     const textForm = root.find('.AddonReviewListItem-reply-form');
     expect(textForm).toHaveLength(1);
     expect(textForm).toHaveProp('text', replyBody);
-    expect(textForm)
-      .toHaveProp('submitButtonText', 'Update reply');
-    expect(textForm)
-      .toHaveProp('submitButtonInProgressText', 'Updating reply');
+    expect(textForm).toHaveProp('submitButtonText', 'Update reply');
+    expect(textForm).toHaveProp('submitButtonInProgressText', 'Updating reply');
   });
 
   it('configures reply form with null text when no reply exists', () => {
@@ -401,9 +427,12 @@ describe(__filename, () => {
     const onDismiss = textForm.prop('onDismiss');
     onDismiss();
 
-    sinon.assert.calledWith(fakeDispatch, hideReplyToReviewForm({
-      reviewId: review.id,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      hideReplyToReviewForm({
+        reviewId: review.id,
+      }),
+    );
   });
 
   it('submits the reply-to-review form', () => {
@@ -421,22 +450,27 @@ describe(__filename, () => {
     const replyBody = 'Body of the review';
     onSubmit({ text: replyBody });
 
-    sinon.assert.calledWith(fakeDispatch, sendReplyToReview({
-      errorHandlerId: errorHandler.id,
-      originalReviewId: review.id,
-      body: replyBody,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendReplyToReview({
+        errorHandlerId: errorHandler.id,
+        originalReviewId: review.id,
+        body: replyBody,
+      }),
+    );
   });
 
   it('sets the reply form state when submitting', () => {
     const review = _setReview(fakeReview);
 
     store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-    store.dispatch(sendReplyToReview({
-      body: 'A developer reply',
-      errorHandlerId: 'some-id',
-      originalReviewId: review.id,
-    }));
+    store.dispatch(
+      sendReplyToReview({
+        body: 'A developer reply',
+        errorHandlerId: 'some-id',
+        originalReviewId: review.id,
+      }),
+    );
 
     const root = render({ review });
 
@@ -458,14 +492,17 @@ describe(__filename, () => {
     // Simulate submitting a reply that will result in an error.
     const review = _setReview(fakeReview);
     store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-    store.dispatch(sendReplyToReview({
-      body: 'A developer reply',
-      errorHandlerId: 'some-id',
-      originalReviewId: review.id,
-    }));
+    store.dispatch(
+      sendReplyToReview({
+        body: 'A developer reply',
+        errorHandlerId: 'some-id',
+        originalReviewId: review.id,
+      }),
+    );
 
     const errorHandler = new ErrorHandler({
-      id: 'some-id', dispatch: store.dispatch,
+      id: 'some-id',
+      dispatch: store.dispatch,
     });
     errorHandler.handle(new Error('some unexpected error'));
 
@@ -505,14 +542,16 @@ describe(__filename, () => {
       },
     });
 
-    store.dispatch(setReviewReply({
-      originalReviewId: reviewId,
-      reply: {
-        ...fakeReview,
-        id: 431,
-        body: 'Some reply to the review',
-      },
-    }));
+    store.dispatch(
+      setReviewReply({
+        originalReviewId: reviewId,
+        reply: {
+          ...fakeReview,
+          id: 431,
+          body: 'Some reply to the review',
+        },
+      }),
+    );
     const review = getReviewFromState(reviewId);
 
     const root = render({ addon, review });
@@ -545,9 +584,12 @@ describe(__filename, () => {
     // Simulate escaping the review.
     onEscapeOverlay();
 
-    sinon.assert.calledWith(dispatchSpy, hideEditReviewForm({
-      reviewId: review.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      hideEditReviewForm({
+        reviewId: review.id,
+      }),
+    );
   });
 
   it('cannot escape a review edit form without a review', () => {
@@ -572,9 +614,12 @@ describe(__filename, () => {
     // Simulate submitting the review.
     onReviewSubmitted();
 
-    sinon.assert.calledWith(dispatchSpy, hideEditReviewForm({
-      reviewId: review.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      hideEditReviewForm({
+        reviewId: review.id,
+      }),
+    );
   });
 
   it('cannot handle submitting a review form without a review', () => {
@@ -646,15 +691,17 @@ describe(__filename, () => {
       const { reply } = _setReviewReply();
       const root = renderReply({ reply });
 
-      expect(root.find('.AddonReviewListItem-byline'))
-        .not.toIncludeText(reply.userName);
+      expect(root.find('.AddonReviewListItem-byline')).not.toIncludeText(
+        reply.userName,
+      );
     });
 
     it('shows a form to edit your reply', () => {
       const originalReviewId = 543;
       const developerUserId = 321;
       const review = signInAndDispatchSavedReview({
-        siteUserId: developerUserId, reviewUserId: developerUserId,
+        siteUserId: developerUserId,
+        reviewUserId: developerUserId,
       });
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const root = renderReply({ originalReviewId, reply: review });
@@ -664,9 +711,12 @@ describe(__filename, () => {
       expect(editButton).toHaveLength(1);
       editButton.simulate('click', createFakeEvent());
 
-      sinon.assert.calledWith(dispatchSpy, showReplyToReviewForm({
-        reviewId: originalReviewId,
-      }));
+      sinon.assert.calledWith(
+        dispatchSpy,
+        showReplyToReviewForm({
+          reviewId: originalReviewId,
+        }),
+      );
     });
 
     it('adds a developer response header to reply forms', () => {
@@ -678,14 +728,15 @@ describe(__filename, () => {
       const formContainer = root.find('.AddonReviewListItem-reply');
       expect(formContainer).toHaveLength(1);
       expect(
-        formContainer.find('.AddonReviewListItem-reply-header')
+        formContainer.find('.AddonReviewListItem-reply-header'),
       ).toHaveLength(1);
 
       const icon = formContainer.find(Icon);
       expect(icon).toHaveProp('name', 'reply-arrow');
 
-      expect(formContainer.find('.AddonReviewListItem-reply-form'))
-        .toHaveLength(1);
+      expect(
+        formContainer.find('.AddonReviewListItem-reply-form'),
+      ).toHaveLength(1);
     });
   });
 });

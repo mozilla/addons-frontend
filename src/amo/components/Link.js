@@ -7,7 +7,6 @@ import { Link } from 'react-router';
 
 import Icon from 'ui/components/Icon';
 
-
 export class LinkBase extends React.Component {
   static propTypes = {
     className: PropTypes.string,
@@ -21,14 +20,14 @@ export class LinkBase extends React.Component {
     prependClientApp: PropTypes.bool,
     prependLang: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  }
+  };
 
   static defaultProps = {
     external: false,
     externalDark: false,
     prependClientApp: true,
     prependLang: true,
-  }
+  };
 
   urlPrefix({ clientApp, lang, prependClientApp, prependLang } = {}) {
     const prefix = [];
@@ -62,23 +61,28 @@ export class LinkBase extends React.Component {
       ...customProps
     } = this.props;
     const urlPrefix = this.urlPrefix({
-      clientApp, lang, prependClientApp, prependLang });
+      clientApp,
+      lang,
+      prependClientApp,
+      prependLang,
+    });
     const needsExternalIcon = externalDark || external;
     const iconName = externalDark ? 'external-dark' : 'external';
 
     if (typeof href === 'string' && typeof to !== 'undefined') {
       throw new Error(
-        'Cannot use "href" prop and "to" prop in the same Link component');
+        'Cannot use "href" prop and "to" prop in the same Link component',
+      );
     }
 
     if (
-      typeof to !== 'undefined' && (
-        (typeof to === 'string' && !to.startsWith('/')) ||
-        (to && to.pathname && !to.pathname.startsWith('/'))
-      )
+      typeof to !== 'undefined' &&
+      ((typeof to === 'string' && !to.startsWith('/')) ||
+        (to && to.pathname && !to.pathname.startsWith('/')))
     ) {
       throw new Error(
-        '"to" prop cannot contain a relative path; it must start with a "/".');
+        '"to" prop cannot contain a relative path; it must start with a "/".',
+      );
     }
 
     if (typeof href === 'string') {
@@ -97,8 +101,9 @@ export class LinkBase extends React.Component {
     } else if (to && to.pathname) {
       linkTo = {
         ...to,
-        pathname: urlPrefix ?
-          joinUrl.pathname(urlPrefix, to.pathname) : to.pathname,
+        pathname: urlPrefix
+          ? joinUrl.pathname(urlPrefix, to.pathname)
+          : to.pathname,
       };
     }
 
@@ -115,6 +120,4 @@ export function mapStateToProps(state) {
   return { clientApp: state.api.clientApp, lang: state.api.lang };
 }
 
-export default compose(
-  connect(mapStateToProps),
-)(LinkBase);
+export default compose(connect(mapStateToProps))(LinkBase);

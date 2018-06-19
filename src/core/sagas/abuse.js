@@ -12,13 +12,8 @@ import {
 } from 'core/reducers/abuse';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
 export function* reportAddon({
-  payload: {
-    addonSlug,
-    errorHandlerId,
-    message,
-  },
+  payload: { addonSlug, errorHandlerId, message },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -33,11 +28,13 @@ export function* reportAddon({
       message,
     });
 
-    yield put(loadAddonAbuseReport({
-      addon: response.addon,
-      message: response.message,
-      reporter: response.reporter,
-    }));
+    yield put(
+      loadAddonAbuseReport({
+        addon: response.addon,
+        message: response.message,
+        reporter: response.reporter,
+      }),
+    );
   } catch (error) {
     log.warn(`Reporting add-on for abuse failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));

@@ -20,9 +20,7 @@ import {
 import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import {
-  COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION,
-} from 'core/constants';
+import { COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION } from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
@@ -47,7 +45,6 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
-
 export type Props = {|
   _config: typeof config,
   collection: CollectionType | null,
@@ -68,10 +65,13 @@ export type Props = {|
 
 export type RemoveCollectionAddonFunc = (addonId: number) => void;
 export type DeleteAddonNoteFunc = (
-  addonId: number, errorHandler: ErrorHandlerType
+  addonId: number,
+  errorHandler: ErrorHandlerType,
 ) => void;
 export type SaveAddonNoteFunc = (
-  addonId: number, errorHandler: ErrorHandlerType, notes: string
+  addonId: number,
+  errorHandler: ErrorHandlerType,
+  notes: string,
 ) => void;
 
 export class CollectionBase extends React.Component<Props> {
@@ -96,20 +96,19 @@ export class CollectionBase extends React.Component<Props> {
 
     invariant(collection, 'collection is required');
 
-    const {
-      slug,
-      authorUsername: username,
-    } = collection;
+    const { slug, authorUsername: username } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    dispatch(deleteCollection({
-      errorHandlerId: errorHandler.id,
-      slug,
-      username,
-    }));
-  }
+    dispatch(
+      deleteCollection({
+        errorHandlerId: errorHandler.id,
+        slug,
+        username,
+      }),
+    );
+  };
 
   loadDataIfNeeded(nextProps?: Props) {
     const { collection, creating, errorHandler, loading, params } = {
@@ -144,31 +143,37 @@ export class CollectionBase extends React.Component<Props> {
       }
     }
 
-    if (collection && (
-      collection.slug !== params.slug ||
-      collection.authorUsername.toLowerCase() !== params.username.toLowerCase()
-    )) {
+    if (
+      collection &&
+      (collection.slug !== params.slug ||
+        collection.authorUsername.toLowerCase() !==
+          params.username.toLowerCase())
+    ) {
       collectionChanged = true;
     }
 
     if (!collection || collectionChanged) {
-      this.props.dispatch(fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
-        page: location.query.page,
-        slug: params.slug,
-        username: params.username,
-      }));
+      this.props.dispatch(
+        fetchCurrentCollection({
+          errorHandlerId: errorHandler.id,
+          page: location.query.page,
+          slug: params.slug,
+          username: params.username,
+        }),
+      );
 
       return;
     }
 
     if (collection && addonsPageChanged && collection.numberOfAddons) {
-      this.props.dispatch(fetchCurrentCollectionPage({
-        errorHandlerId: errorHandler.id,
-        page: location.query.page || 1,
-        slug: params.slug,
-        username: params.username,
-      }));
+      this.props.dispatch(
+        fetchCurrentCollectionPage({
+          errorHandlerId: errorHandler.id,
+          page: location.query.page || 1,
+          slug: params.slug,
+          username: params.username,
+        }),
+      );
     }
   }
 
@@ -186,8 +191,9 @@ export class CollectionBase extends React.Component<Props> {
     const { _config, i18n, location } = this.props;
     const props = {};
 
-    const pageQueryParam =
-      location.query.page ? `?page=${location.query.page}` : '';
+    const pageQueryParam = location.query.page
+      ? `?page=${location.query.page}`
+      : '';
     const editUrl = `${this.editUrl()}${pageQueryParam}`;
 
     if (_config.get('enableNewCollectionsUI')) {
@@ -220,90 +226,88 @@ export class CollectionBase extends React.Component<Props> {
 
     invariant(collection, 'collection is required');
 
-    const {
-      slug,
-      authorUsername: username,
-    } = collection;
+    const { slug, authorUsername: username } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    dispatch(removeAddonFromCollection({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      page: query.page || 1,
-      slug,
-      username,
-    }));
+    dispatch(
+      removeAddonFromCollection({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        page: query.page || 1,
+        slug,
+        username,
+      }),
+    );
   };
 
   deleteNote: DeleteAddonNoteFunc = (
-    addonId: number, errorHandler: ErrorHandlerType
+    addonId: number,
+    errorHandler: ErrorHandlerType,
   ) => {
-    const {
-      collection,
-      dispatch,
-      location,
-    } = this.props;
+    const { collection, dispatch, location } = this.props;
 
     invariant(collection, 'collection is required');
 
-    const {
-      slug,
-      authorUsername: username,
-    } = collection;
+    const { slug, authorUsername: username } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    dispatch(deleteCollectionAddonNotes({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      page: location.query.page || 1,
-      slug,
-      username,
-    }));
+    dispatch(
+      deleteCollectionAddonNotes({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        page: location.query.page || 1,
+        slug,
+        username,
+      }),
+    );
   };
 
   saveNote: SaveAddonNoteFunc = (
-    addonId: number, errorHandler: ErrorHandlerType, notes: string
+    addonId: number,
+    errorHandler: ErrorHandlerType,
+    notes: string,
   ) => {
-    const {
-      collection,
-      dispatch,
-      location,
-    } = this.props;
+    const { collection, dispatch, location } = this.props;
 
     invariant(collection, 'collection is required');
 
-    const {
-      slug,
-      authorUsername: username,
-    } = collection;
+    const { slug, authorUsername: username } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    dispatch(updateCollectionAddon({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      notes,
-      page: location.query.page || 1,
-      slug,
-      username,
-    }));
+    dispatch(
+      updateCollectionAddon({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        notes,
+        page: location.query.page || 1,
+        slug,
+        username,
+      }),
+    );
   };
 
   renderCardContents() {
     const {
-      collection, creating, editing, hasEditPermission, i18n, isLoggedIn, location,
+      collection,
+      creating,
+      editing,
+      hasEditPermission,
+      i18n,
+      isLoggedIn,
+      location,
     } = this.props;
 
     if (creating || editing) {
       if (!isLoggedIn) {
-        const logInText = creating ?
-          i18n.gettext('Log in to create a collection') :
-          i18n.gettext('Log in to edit this collection');
+        const logInText = creating
+          ? i18n.gettext('Log in to create a collection')
+          : i18n.gettext('Log in to edit this collection');
 
         return (
           <AuthenticateButton
@@ -333,7 +337,9 @@ export class CollectionBase extends React.Component<Props> {
             <span
               dangerouslySetInnerHTML={sanitizeHTML(collection.description)}
             />
-          ) : <LoadingText />}
+          ) : (
+            <LoadingText />
+          )}
         </p>
         <MetadataCard
           metadata={[
@@ -346,9 +352,9 @@ export class CollectionBase extends React.Component<Props> {
               title: i18n.gettext('Creator'),
             },
             {
-              content: collection ?
-                i18n.moment(collection.lastUpdatedDate).format('ll') :
-                null,
+              content: collection
+                ? i18n.moment(collection.lastUpdatedDate).format('ll')
+                : null,
               title: i18n.gettext('Last updated'),
             },
           ]}
@@ -392,24 +398,25 @@ export class CollectionBase extends React.Component<Props> {
     const addons: Array<CollectionAddonType> =
       (collection && collection.addons) || [];
 
-    const paginator = (collection && collection.numberOfAddons > 0) ? (
-      <Paginate
-        LinkComponent={Link}
-        count={collection.numberOfAddons}
-        currentPage={location.query.page}
-        pathname={editing ? this.editUrl() : this.url()}
-      />
-    ) : null;
+    const paginator =
+      collection && collection.numberOfAddons > 0 ? (
+        <Paginate
+          LinkComponent={Link}
+          count={collection.numberOfAddons}
+          currentPage={location.query.page}
+          pathname={editing ? this.editUrl() : this.url()}
+        />
+      ) : null;
 
     let placeholderText;
     if (isLoggedIn && (creating || (!loading && addons.length === 0))) {
-      placeholderText = creating ?
-        i18n.gettext(
-          'First, create your collection. Then you can add extensions and themes.'
-        ) :
-        i18n.gettext(
-          'Search for extensions and themes to add to your collection.'
-        );
+      placeholderText = creating
+        ? i18n.gettext(
+            'First, create your collection. Then you can add extensions and themes.',
+          )
+        : i18n.gettext(
+            'Search for extensions and themes to add to your collection.',
+          );
     }
 
     return (
@@ -419,7 +426,7 @@ export class CollectionBase extends React.Component<Props> {
           {this.renderDeleteButton()}
         </Card>
         <div className="Collection-items">
-          {!creating &&
+          {!creating && (
             <AddonsCard
               addonInstallSource={INSTALL_SOURCE_COLLECTION}
               addons={addons}
@@ -430,10 +437,10 @@ export class CollectionBase extends React.Component<Props> {
               removeAddon={this.removeAddon}
               saveNote={this.saveNote}
             />
-          }
-          {placeholderText &&
+          )}
+          {placeholderText && (
             <p className="Collection-placeholder">{placeholderText}</p>
-          }
+          )}
         </div>
       </div>
     );
@@ -466,9 +473,10 @@ export class CollectionBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (
-  state: {| collections: CollectionsState, users: UsersStateType |}
-) => {
+export const mapStateToProps = (state: {|
+  collections: CollectionsState,
+  users: UsersStateType,
+|}) => {
   const { loading } = state.collections.current;
 
   const currentUser = getCurrentUser(state.users);
@@ -476,7 +484,8 @@ export const mapStateToProps = (
 
   const collection = getCurrentCollection(state.collections);
   if (collection && currentUser) {
-    hasEditPermission = collection.authorId === currentUser.id ||
+    hasEditPermission =
+      collection.authorId === currentUser.id ||
       hasPermission(state, COLLECTIONS_EDIT);
   }
 

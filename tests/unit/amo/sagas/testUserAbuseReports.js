@@ -16,7 +16,6 @@ import {
   createUserAccountResponse,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
@@ -37,12 +36,14 @@ describe(__filename, () => {
   });
 
   function _sendUserAbuseReport(params) {
-    sagaTester.dispatch(sendUserAbuseReport({
-      errorHandlerId: errorHandler.id,
-      message: 'Testing',
-      userId: createUserAccountResponse().id,
-      ...params,
-    }));
+    sagaTester.dispatch(
+      sendUserAbuseReport({
+        errorHandlerId: errorHandler.id,
+        message: 'Testing',
+        userId: createUserAccountResponse().id,
+        ...params,
+      }),
+    );
   }
 
   it('calls the API for abuse', async () => {
@@ -106,9 +107,7 @@ describe(__filename, () => {
 
   it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('reportUser')
-      .returns(Promise.reject(error));
+    mockApi.expects('reportUser').returns(Promise.reject(error));
 
     _sendUserAbuseReport();
 
@@ -120,9 +119,7 @@ describe(__filename, () => {
   it('resets the state when an error occurs', async () => {
     const userId = createUserAccountResponse({ id: 501 }).id;
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('reportUser')
-      .returns(Promise.reject(error));
+    mockApi.expects('reportUser').returns(Promise.reject(error));
 
     _sendUserAbuseReport({ userId });
 

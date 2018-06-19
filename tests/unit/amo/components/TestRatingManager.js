@@ -23,10 +23,14 @@ import * as reviewsApi from 'amo/api/reviews';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
-  mapDispatchToProps, mapStateToProps, RatingManagerBase,
+  mapDispatchToProps,
+  mapStateToProps,
+  RatingManagerBase,
 } from 'amo/components/RatingManager';
 import {
-  fakeAddon, fakeReview, signedInApiState,
+  fakeAddon,
+  fakeReview,
+  signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
   createUserAccountResponse,
@@ -34,7 +38,6 @@ import {
   fakeRouterLocation,
   userAuthToken,
 } from 'tests/unit/helpers';
-
 
 describe('RatingManager', () => {
   let store;
@@ -60,13 +63,16 @@ describe('RatingManager', () => {
       ...customProps,
     };
     const RatingManager = translate({ withRef: true })(RatingManagerBase);
-    const root = findRenderedComponentWithType(renderIntoDocument(
-      <I18nProvider i18n={fakeI18n()}>
-        <Provider store={props.store}>
-          <RatingManager {...props} />
-        </Provider>
-      </I18nProvider>
-    ), RatingManager);
+    const root = findRenderedComponentWithType(
+      renderIntoDocument(
+        <I18nProvider i18n={fakeI18n()}>
+          <Provider store={props.store}>
+            <RatingManager {...props} />
+          </Provider>
+        </I18nProvider>,
+      ),
+      RatingManager,
+    );
 
     return root.getWrappedInstance();
   }
@@ -88,7 +94,11 @@ describe('RatingManager', () => {
     const loadSavedReview = sinon.spy();
 
     render({
-      apiState: signedInApiState, userId, addon, version, loadSavedReview,
+      apiState: signedInApiState,
+      userId,
+      addon,
+      version,
+      loadSavedReview,
     });
 
     expect(loadSavedReview.called).toEqual(true);
@@ -110,20 +120,21 @@ describe('RatingManager', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addon: createInternalAddon({
-        ...fakeAddon, id: 12345, slug: 'some-slug',
+        ...fakeAddon,
+        id: 12345,
+        slug: 'some-slug',
       }),
     });
-    return root.onSelectRating(5)
-      .then(() => {
-        expect(submitReview.called).toEqual(true);
+    return root.onSelectRating(5).then(() => {
+      expect(submitReview.called).toEqual(true);
 
-        const call = submitReview.firstCall.args[0];
-        expect(call.versionId).toEqual(321);
-        expect(call.apiState.token).toEqual('new-token');
-        expect(call.addonId).toEqual(12345);
-        expect(call.errorHandler).toEqual(errorHandler);
-        expect(call.reviewId).toBe(undefined);
-      });
+      const call = submitReview.firstCall.args[0];
+      expect(call.versionId).toEqual(321);
+      expect(call.apiState.token).toEqual('new-token');
+      expect(call.addonId).toEqual(12345);
+      expect(call.errorHandler).toEqual(errorHandler);
+      expect(call.reviewId).toBe(undefined);
+    });
   });
 
   it('updates a rating with the review ID', () => {
@@ -135,15 +146,14 @@ describe('RatingManager', () => {
       userId: 92345,
       userReview: setReview(fakeReview).payload,
     });
-    return root.onSelectRating(5)
-      .then(() => {
-        expect(submitReview.called).toBeTruthy();
+    return root.onSelectRating(5).then(() => {
+      expect(submitReview.called).toBeTruthy();
 
-        const call = submitReview.firstCall.args[0];
-        expect(call.reviewId).toBeTruthy();
-        expect(call.reviewId).toEqual(fakeReview.id);
-        expect(call.versionId).toEqual(fakeReview.version.id);
-      });
+      const call = submitReview.firstCall.args[0];
+      expect(call.reviewId).toBeTruthy();
+      expect(call.reviewId).toEqual(fakeReview.id);
+      expect(call.versionId).toEqual(fakeReview.version.id);
+    });
   });
 
   it('does not update an existing review if its version does not match', () => {
@@ -160,7 +170,8 @@ describe('RatingManager', () => {
       },
     };
     const addon = createInternalAddon({
-      ...fakeAddon, id: newReview.addon.id,
+      ...fakeAddon,
+      id: newReview.addon.id,
     });
 
     const root = render({
@@ -171,18 +182,17 @@ describe('RatingManager', () => {
       submitReview,
       addon,
     });
-    return root.onSelectRating(newReview.rating)
-      .then(() => {
-        expect(submitReview.called).toBeTruthy();
+    return root.onSelectRating(newReview.rating).then(() => {
+      expect(submitReview.called).toBeTruthy();
 
-        // Make sure the review is submitted in a way where it will be
-        // newly created against the current version.
-        const call = submitReview.firstCall.args[0];
-        expect(call.reviewId).toEqual(undefined);
-        expect(call.versionId).toEqual(addon.current_version.id);
-        expect(call.rating).toEqual(newReview.rating);
-        expect(call.addonId).toEqual(newReview.addon.id);
-      });
+      // Make sure the review is submitted in a way where it will be
+      // newly created against the current version.
+      const call = submitReview.firstCall.args[0];
+      expect(call.reviewId).toEqual(undefined);
+      expect(call.versionId).toEqual(addon.current_version.id);
+      expect(call.rating).toEqual(newReview.rating);
+      expect(call.addonId).toEqual(newReview.addon.id);
+    });
   });
 
   it('renders and configures AddonReview after submitting a rating', () => {
@@ -192,20 +202,19 @@ describe('RatingManager', () => {
 
     expect(FakeAddonReview.called).toEqual(false);
 
-    return root.onSelectRating(5)
-      .then(() => {
-        sinon.assert.called(FakeAddonReview);
+    return root.onSelectRating(5).then(() => {
+      sinon.assert.called(FakeAddonReview);
 
-        const props = FakeAddonReview.firstCall.args[0];
-        expect(props.review).toEqual(userReview);
+      const props = FakeAddonReview.firstCall.args[0];
+      expect(props.review).toEqual(userReview);
 
-        // Now make sure the callback is configured.
-        expect(root.state.showTextEntry).toEqual(true);
-        // Trigger the callback just like AddonReview would
-        // after completion.
-        props.onReviewSubmitted();
-        expect(root.state.showTextEntry).toEqual(false);
-      });
+      // Now make sure the callback is configured.
+      expect(root.state.showTextEntry).toEqual(true);
+      // Trigger the callback just like AddonReview would
+      // after completion.
+      props.onReviewSubmitted();
+      expect(root.state.showTextEntry).toEqual(false);
+    });
   });
 
   it('calls back to the parent component after submitting a review', () => {
@@ -219,17 +228,16 @@ describe('RatingManager', () => {
     });
 
     // Select a rating to open the submit review UI.
-    return root.onSelectRating(5)
-      .then(() => {
-        sinon.assert.called(FakeAddonReview);
-        const props = FakeAddonReview.firstCall.args[0];
+    return root.onSelectRating(5).then(() => {
+      sinon.assert.called(FakeAddonReview);
+      const props = FakeAddonReview.firstCall.args[0];
 
-        // Simulate pressing submit in the review UI.
-        props.onReviewSubmitted();
+      // Simulate pressing submit in the review UI.
+      props.onReviewSubmitted();
 
-        // Make sure the parent's callback was executed.
-        sinon.assert.called(parentOnReviewSubmitted);
-      });
+      // Make sure the parent's callback was executed.
+      sinon.assert.called(parentOnReviewSubmitted);
+    });
   });
 
   it('does not render an AddonReview when logged out', () => {
@@ -240,15 +248,14 @@ describe('RatingManager', () => {
 
     expect(FakeAddonReview.called).toEqual(false);
 
-    return root.onSelectRating(5)
-      .then(() => {
-        expect(FakeAddonReview.called).toBeFalsy();
-      });
+    return root.onSelectRating(5).then(() => {
+      expect(FakeAddonReview.called).toBeFalsy();
+    });
   });
 
   it('configures a rating component', () => {
     const userReview = setReview(fakeReview).payload;
-    const UserRatingStub = sinon.spy(() => (<div />));
+    const UserRatingStub = sinon.spy(() => <div />);
 
     const root = render({ UserRating: UserRatingStub, userReview });
 
@@ -259,7 +266,7 @@ describe('RatingManager', () => {
   });
 
   it('sets a blank rating when there is no saved review', () => {
-    const UserRatingStub = sinon.spy(() => (<div />));
+    const UserRatingStub = sinon.spy(() => <div />);
 
     render({ UserRating: UserRatingStub, userReview: null });
 
@@ -352,7 +359,7 @@ describe('RatingManager', () => {
       // but we haven't given it a custom prompt yet.
       const prompt = root.getLogInPrompt(
         { addonType: 'banana' },
-        { validAddonTypes: ['banana'] }
+        { validAddonTypes: ['banana'] },
       );
       // The prompt should just call it an add-on:
       expect(prompt).toContain('add-on');
@@ -384,13 +391,12 @@ describe('RatingManager', () => {
           .withArgs(params)
           .returns(Promise.resolve({ ...fakeReview, ...params }));
 
-        return actions.submitReview(params)
-          .then(() => {
-            expect(dispatch.called).toEqual(true);
-            const action = dispatch.firstCall.args[0];
-            expect(action).toEqual(setReview(fakeReview));
-            mockApi.verify();
-          });
+        return actions.submitReview(params).then(() => {
+          expect(dispatch.called).toEqual(true);
+          const action = dispatch.firstCall.args[0];
+          expect(action).toEqual(setReview(fakeReview));
+          mockApi.verify();
+        });
       });
     });
 
@@ -409,9 +415,13 @@ describe('RatingManager', () => {
           })
           .returns(Promise.resolve(fakeReview));
 
-        return actions.loadSavedReview({
-          apiState: signedInApiState, userId, addonId, versionId,
-        })
+        return actions
+          .loadSavedReview({
+            apiState: signedInApiState,
+            userId,
+            addonId,
+            versionId,
+          })
           .then(() => {
             mockApi.verify();
             expect(dispatch.called).toEqual(true);
@@ -423,9 +433,12 @@ describe('RatingManager', () => {
         const addonId = 8765;
         mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
-        return actions.loadSavedReview({
-          apiState: initialApiState, userId: 123, addonId,
-        })
+        return actions
+          .loadSavedReview({
+            apiState: initialApiState,
+            userId: 123,
+            addonId,
+          })
           .then(() => {
             expect(dispatch.called).toEqual(false);
           });
@@ -446,9 +459,11 @@ describe('RatingManager', () => {
 
     function signIn({ userId = 98765 } = {}) {
       store.dispatch(setAuthToken(userAuthToken()));
-      store.dispatch(loadCurrentUserAccount({
-        user: createUserAccountResponse({ id: userId }),
-      }));
+      store.dispatch(
+        loadCurrentUserAccount({
+          user: createUserAccountResponse({ id: userId }),
+        }),
+      );
     }
 
     it('copies api state to props', () => {
@@ -499,15 +514,17 @@ describe('RatingManager', () => {
       signIn({ userId: userIdOne });
 
       // Save a review for user two.
-      store.dispatch(setReview({
-        ...fakeReview,
-        is_latest: true,
-        user: {
-          ...fakeReview.user,
-          id: userIdTwo,
-        },
-        rating: savedRating,
-      }));
+      store.dispatch(
+        setReview({
+          ...fakeReview,
+          is_latest: true,
+          user: {
+            ...fakeReview.user,
+            id: userIdTwo,
+          },
+          rating: savedRating,
+        }),
+      );
 
       expect(getMappedProps().userReview).toBe(undefined);
     });
@@ -515,10 +532,12 @@ describe('RatingManager', () => {
     it('ignores reviews for another add-on', () => {
       signIn({ userId: fakeReview.user.id });
 
-      store.dispatch(setReview(fakeReview, {
-        isLatest: true,
-        addonId: 554433, // this is a review for an unrelated add-on
-      }));
+      store.dispatch(
+        setReview(fakeReview, {
+          isLatest: true,
+          addonId: 554433, // this is a review for an unrelated add-on
+        }),
+      );
 
       expect(getMappedProps().userReview).toBe(undefined);
     });

@@ -21,15 +21,16 @@ export class SimulateClientErrorBase extends React.Component {
     setTimeout(() => this.setState({ buttonClicked: false }), 3000);
 
     throw new Error('This is a simulated client error');
-  }
+  };
 
   throwRenderError = () => {
     this.setState({ throwRenderError: true });
-  }
+  };
 
   render() {
-    const prompt = this.state.buttonClicked ?
-      'Nice! Check Sentry' : '💣 Go ahead, trigger an error';
+    const prompt = this.state.buttonClicked
+      ? 'Nice! Check Sentry'
+      : '💣 Go ahead, trigger an error';
 
     if (this.state.throwRenderError) {
       throw new Error('This is a simulated client render error');
@@ -44,24 +45,23 @@ export class SimulateClientErrorBase extends React.Component {
             DSN), the errors produced by clicking the buttons should appear in
             the interface.
           </p>
-          <p>
-            There are two available behaviors:
-          </p>
+          <p>There are two available behaviors:</p>
 
           <ul>
             <li>
-              The grey button allows to throw an error in the button handler
-              (<code>onClick()</code>) and can be used multiple times. It
-              throws unhandled errors, which should be automatically logged by
-              Sentry.
+              The grey button allows to throw an error in the button handler{' '}
+              {/* prettier-ignore */}
+              (<code>onClick()</code>) and can be used multiple times. It throws
+              unhandled errors, which should be automatically logged by Sentry.
             </li>
             <li>
-              The red button allows to throw an error in
-              the <code>render()</code> method and is not recoverable because
-              the error will be handled in the <code>ErrorPage</code> component,
+              The red button allows to throw an error in the{' '}
+              <code>render()</code> method and is not recoverable because the
+              error will be handled in the <code>ErrorPage</code> component,
               which should log the error with <code>log.error()</code>. On the
-              client, <code>log.error</code> is bound to <code>console.error</code>,
-              which should automatically send errors to Sentry.
+              client, <code>log.error</code> is bound to{' '}
+              <code>console.error</code>, which should automatically send errors
+              to Sentry.
             </li>
           </ul>
         </div>
@@ -88,6 +88,6 @@ export class SimulateClientErrorBase extends React.Component {
   }
 }
 
-export default compose(
-  render404IfConfigKeyIsFalse('allowErrorSimulation'),
-)(SimulateClientErrorBase);
+export default compose(render404IfConfigKeyIsFalse('allowErrorSimulation'))(
+  SimulateClientErrorBase,
+);

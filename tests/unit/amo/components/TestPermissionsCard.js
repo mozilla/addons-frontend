@@ -14,7 +14,6 @@ import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
 import Permission from 'ui/components/Permission';
 
-
 describe(__filename, () => {
   let store;
 
@@ -23,12 +22,16 @@ describe(__filename, () => {
   });
 
   const createAddonWithPermissions = (permissions) => {
-    return createInternalAddon(createFakeAddon({
-      files: [{
-        ...fakePlatformFile,
-        permissions,
-      }],
-    }));
+    return createInternalAddon(
+      createFakeAddon({
+        files: [
+          {
+            ...fakePlatformFile,
+            permissions,
+          },
+        ],
+      }),
+    );
   };
 
   function render(props = {}) {
@@ -39,7 +42,7 @@ describe(__filename, () => {
         store={store}
         {...props}
       />,
-      PermissionsCardBase
+      PermissionsCardBase,
     );
   }
 

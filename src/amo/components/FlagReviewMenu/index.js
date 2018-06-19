@@ -20,7 +20,6 @@ import type { UsersStateType, UserType } from 'amo/reducers/users';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReactRouterLocation } from 'core/types/router';
 
-
 type Props = {|
   isDeveloperReply?: boolean,
   location: ReactRouterLocation,
@@ -59,9 +58,10 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
           <AuthenticateButton
             noIcon
             location={location}
-            logInText={isDeveloperReply ?
-              i18n.gettext('Log in to flag this response') :
-              i18n.gettext('Log in to flag this review')
+            logInText={
+              isDeveloperReply
+                ? i18n.gettext('Log in to flag this response')
+                : i18n.gettext('Log in to flag this review')
             }
           />
         </ListItem>,
@@ -69,18 +69,14 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
     } else if (siteUser.id === review.userId) {
       items = [
         <ListItem key="flagging-not-allowed">
-          {isDeveloperReply ?
-            i18n.gettext('You cannot flag your own response') :
-            i18n.gettext('You cannot flag your own review')
-          }
+          {isDeveloperReply
+            ? i18n.gettext('You cannot flag your own response')
+            : i18n.gettext('You cannot flag your own review')}
         </ListItem>,
       ];
     } else {
       items = [
-        <ListItem
-          className="FlagReviewMenu-flag-spam-item"
-          key="flag-spam"
-        >
+        <ListItem className="FlagReviewMenu-flag-spam-item" key="flag-spam">
           <FlagReview
             reason={REVIEW_FLAG_REASON_SPAM}
             review={review}
@@ -95,12 +91,8 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
           <FlagReview
             reason={REVIEW_FLAG_REASON_LANGUAGE}
             review={review}
-            buttonText={i18n.gettext(
-              'This contains inappropriate language'
-            )}
-            wasFlaggedText={i18n.gettext(
-              'Flagged for inappropriate language'
-            )}
+            buttonText={i18n.gettext('This contains inappropriate language')}
+            wasFlaggedText={i18n.gettext('Flagged for inappropriate language')}
           />
         </ListItem>,
         // Only reviews (not developer responses) can be flagged as
@@ -114,10 +106,10 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
               reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
               review={review}
               buttonText={i18n.gettext(
-                'This is a bug report or support request'
+                'This is a bug report or support request',
               )}
               wasFlaggedText={i18n.gettext(
-                'Flagged as a bug report or support request'
+                'Flagged as a bug report or support request',
               )}
             />
           </ListItem>
@@ -130,12 +122,11 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         idPrefix="flag-review-"
         items={items}
         openerClass={openerClass}
-        openerText={wasFlagged ?
-          i18n.gettext('Flagged') : i18n.gettext('Flag')
-        }
-        openerTitle={isDeveloperReply ?
-          i18n.gettext('Flag this developer response') :
-          i18n.gettext('Flag this review')
+        openerText={wasFlagged ? i18n.gettext('Flagged') : i18n.gettext('Flag')}
+        openerTitle={
+          isDeveloperReply
+            ? i18n.gettext('Flag this developer response')
+            : i18n.gettext('Flag this review')
         }
       />
     );

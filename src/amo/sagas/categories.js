@@ -10,7 +10,6 @@ import { CATEGORIES_FETCH } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
 export function* fetchCategories({ payload: { errorHandlerId } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {

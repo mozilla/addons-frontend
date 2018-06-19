@@ -11,7 +11,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import 'amo/components/ErrorPage/ErrorPage.scss';
 
-
 type Props = {|
   i18n: I18nType,
 |};
@@ -20,11 +19,13 @@ export class NotAuthorizedBase extends React.Component<Props> {
   render() {
     const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.sprintf(i18n.gettext(`
+    const fileAnIssueText = i18n.sprintf(
+      i18n.gettext(`
       If you are signed in and think this message is an error, please
       <a href="%(url)s">file an issue</a>. Tell us where you came from
       and what you were trying to access, and we'll fix the issue.`),
-    { url: 'https://github.com/mozilla/addons-frontend/issues/new/' });
+      { url: 'https://github.com/mozilla/addons-frontend/issues/new/' },
+    );
 
     // TODO: Check for signed in state and offer different messages.
     // TODO: Offer a sign in link/button inside the error page.

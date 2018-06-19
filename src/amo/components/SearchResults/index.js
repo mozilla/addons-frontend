@@ -8,7 +8,6 @@ import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
 import type { I18nType } from 'core/types/i18n';
 
-
 type Props = {|
   count: number,
   filters: Object,
@@ -23,7 +22,7 @@ export class SearchResultsBase extends React.Component<Props> {
     count: 0,
     filters: {},
     results: [],
-  }
+  };
 
   render() {
     const { count, filters, i18n, loading, paginator, results } = this.props;
@@ -34,15 +33,13 @@ export class SearchResultsBase extends React.Component<Props> {
 
     if (loading) {
       loadingMessage = (
-        <div className="visually-hidden">
-          {i18n.gettext('Searching…')}
-        </div>
+        <div className="visually-hidden">{i18n.gettext('Searching…')}</div>
       );
     } else if (count === 0 && hasSearchFilters(filters)) {
       if (query) {
-        messageText = i18n.sprintf(i18n.gettext(
-          'No results were found for "%(query)s".'),
-        { query }
+        messageText = i18n.sprintf(
+          i18n.gettext('No results were found for "%(query)s".'),
+          { query },
         );
       } else {
         // TODO: Add the extension type, if available, so it says
@@ -51,7 +48,7 @@ export class SearchResultsBase extends React.Component<Props> {
       }
     } else if (!hasSearchFilters(filters)) {
       messageText = i18n.gettext(
-        'Please enter a search term to search Firefox Add-ons.'
+        'Please enter a search term to search Firefox Add-ons.',
       );
     }
 
@@ -66,9 +63,7 @@ export class SearchResultsBase extends React.Component<Props> {
           loading={loading}
         >
           {messageText ? (
-            <p className="SearchResults-message">
-              {messageText}
-            </p>
+            <p className="SearchResults-message">{messageText}</p>
           ) : null}
         </AddonsCard>
       </div>
@@ -76,8 +71,8 @@ export class SearchResultsBase extends React.Component<Props> {
   }
 }
 
-const SearchResults: React.ComponentType<Props> = compose(
-  translate(),
-)(SearchResultsBase);
+const SearchResults: React.ComponentType<Props> = compose(translate())(
+  SearchResultsBase,
+);
 
 export default SearchResults;

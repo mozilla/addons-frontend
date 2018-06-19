@@ -23,7 +23,6 @@ import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 
 import './styles.scss';
 
-
 type Props = {|
   className?: string,
   user?: UserType | null,
@@ -32,10 +31,10 @@ type Props = {|
 type InjectedProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  hasSubmitted: bool,
+  hasSubmitted: boolean,
   i18n: I18nType,
-  isSubmitting: bool,
-  uiVisible: bool,
+  isSubmitting: boolean,
+  uiVisible: boolean,
 |};
 
 type InternalProps = { ...Props, ...InjectedProps };
@@ -47,19 +46,21 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     if (user) {
       dispatch(hideUserAbuseReportUI({ userId: user.id }));
     }
-  }
+  };
 
   sendReport = (reportData: OnSubmitParams) => {
     const { dispatch, errorHandler, user } = this.props;
 
     if (user) {
-      dispatch(sendUserAbuseReport({
-        errorHandlerId: errorHandler.id,
-        message: reportData.text,
-        userId: user.id,
-      }));
+      dispatch(
+        sendUserAbuseReport({
+          errorHandlerId: errorHandler.id,
+          message: reportData.text,
+          userId: user.id,
+        }),
+      );
     }
-  }
+  };
 
   showReportUI = () => {
     const { dispatch, user } = this.props;
@@ -67,7 +68,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     if (user) {
       dispatch(showUserAbuseReportUI({ userId: user.id }));
     }
-  }
+  };
 
   render() {
     const {
@@ -88,19 +89,20 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
       >
         {errorHandler.renderErrorIfPresent()}
 
-        {(!uiVisible && !hasSubmitted) && (
-          <Button
-            buttonType="neutral"
-            className="ReportUserAbuse-show-more"
-            disabled={!user}
-            onClick={this.showReportUI}
-            puffy
-          >
-            {i18n.gettext('Report this user for abuse')}
-          </Button>
-        )}
+        {!uiVisible &&
+          !hasSubmitted && (
+            <Button
+              buttonType="neutral"
+              className="ReportUserAbuse-show-more"
+              disabled={!user}
+              onClick={this.showReportUI}
+              puffy
+            >
+              {i18n.gettext('Report this user for abuse')}
+            </Button>
+          )}
 
-        {(!hasSubmitted) && (
+        {!hasSubmitted && (
           <div className="ReportUserAbuse-form">
             <h2 className="ReportUserAbuse-header">
               {i18n.gettext('Report this user for abuse')}
@@ -109,15 +111,19 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             <p
               /* eslint-disable react/no-danger */
               dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(i18n.gettext(
-                  `If you think this user is violating
+                i18n.sprintf(
+                  i18n.gettext(
+                    `If you think this user is violating
                   %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s,
-                  please report this user to Mozilla.`
-                ), {
-                  linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
-                  linkTagEnd: '</a>',
-                }),
-                ['a']
+                  please report this user to Mozilla.`,
+                  ),
+                  {
+                    linkTagStart:
+                      '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
+                    linkTagEnd: '</a>',
+                  },
+                ),
+                ['a'],
               )}
               /* eslint-enable react/no-danger */
             />
@@ -125,7 +131,8 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
               {i18n.gettext(
                 `Please don't use this form to report bugs or contact this
                 user; your report will only be sent to Mozilla and not
-                to this user.`)}
+                to this user.`,
+              )}
             </p>
 
             <DismissibleTextForm
@@ -133,7 +140,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
               onDismiss={this.hideReportUI}
               onSubmit={this.sendReport}
               placeholder={i18n.gettext(
-                'Explain how this user is violating our policies.'
+                'Explain how this user is violating our policies.',
               )}
               submitButtonText={i18n.gettext('Send abuse report')}
               submitButtonInProgressText={i18n.gettext('Sending abuse report')}
@@ -141,7 +148,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
           </div>
         )}
 
-        {(hasSubmitted) && (
+        {hasSubmitted && (
           <div className="ReportUserAbuse--report-sent">
             <h3 className="ReportUserAbuse-header">
               {i18n.gettext('You reported this user for abuse')}
@@ -150,14 +157,14 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             <p>
               {i18n.gettext(
                 `We have received your report. Thanks for letting us know about
-                your concerns with this user.`
+                your concerns with this user.`,
               )}
             </p>
 
             <p>
               {i18n.gettext(
                 `We can't respond to every abuse report but we'll look into
-                this issue.`
+                this issue.`,
               )}
             </p>
           </div>
@@ -171,9 +178,10 @@ export const mapStateToProps = (
   state: {| userAbuseReports: UserAbuseReportsState |},
   ownProps: Props,
 ) => {
-  const abuseReport = (
+  const abuseReport =
     ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
-  ) ? state.userAbuseReports.byUserId[ownProps.user.id] : {};
+      ? state.userAbuseReports.byUserId[ownProps.user.id]
+      : {};
 
   return {
     hasSubmitted: abuseReport.hasSubmitted || false,

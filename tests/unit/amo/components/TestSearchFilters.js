@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import SearchFilters, {
-  SearchFiltersBase,
-} from 'amo/components/SearchFilters';
+import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
 import { searchStart } from 'core/actions/search';
 import { ADDON_TYPE_EXTENSION, OS_LINUX } from 'core/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -14,15 +12,10 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let fakeRouter;
 
-  function render({
-    filters = {},
-    pathname = '/search/',
-    ...props
-  } = {}) {
+  function render({ filters = {}, pathname = '/search/', ...props } = {}) {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
@@ -36,7 +29,7 @@ describe(__filename, () => {
         store={store}
         {...props}
       />,
-      SearchFiltersBase
+      SearchFiltersBase,
     );
   }
 

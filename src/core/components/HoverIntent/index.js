@@ -16,12 +16,12 @@ export default class HoverIntent extends React.Component {
     onHoverIntent: PropTypes.func.isRequired,
     onHoverIntentEnd: PropTypes.func.isRequired,
     children: PropTypes.element.isRequired,
-  }
+  };
 
   static defaultProps = {
     sensitivity: 5,
     interval: 100,
-  }
+  };
 
   componentWillUnmount() {
     this.isHoverIntended = false;
@@ -31,7 +31,7 @@ export default class HoverIntent extends React.Component {
   onMouseOver = (e) => {
     const detector = this.createHoverIntentDetector(e);
     this.interval = setInterval(detector, this.props.interval);
-  }
+  };
 
   onMouseOut = (e) => {
     this.clearHoverIntentDetection();
@@ -39,11 +39,11 @@ export default class HoverIntent extends React.Component {
       this.isHoverIntended = false;
       this.props.onHoverIntentEnd(e);
     }
-  }
+  };
 
   onMouseMove = (e) => {
     this.currentMousePosition = { x: e.clientX, y: e.clientY };
-  }
+  };
 
   createHoverIntentDetector = (e) => {
     // persist the event so that when we call our callback below, React hasn't
@@ -59,8 +59,10 @@ export default class HoverIntent extends React.Component {
 
     return () => {
       const currentPosition = this.currentMousePosition;
-      if (distanceSquared(initialPosition, currentPosition) > sensitivitySq &&
-        distanceSquared(previousPosition, currentPosition) < sensitivitySq) {
+      if (
+        distanceSquared(initialPosition, currentPosition) > sensitivitySq &&
+        distanceSquared(previousPosition, currentPosition) < sensitivitySq
+      ) {
         this.clearHoverIntentDetection();
         this.isHoverIntended = true;
 
@@ -71,7 +73,7 @@ export default class HoverIntent extends React.Component {
 
       previousPosition = currentPosition;
     };
-  }
+  };
 
   clearHoverIntentDetection() {
     clearInterval(this.interval);
@@ -84,7 +86,9 @@ export default class HoverIntent extends React.Component {
     const newProps = {};
     propOverrides.forEach((propName) => {
       if (child.props[propName]) {
-        throw new Error(`Cannot provide the prop [${propName}] on HoverIntent child`);
+        throw new Error(
+          `Cannot provide the prop [${propName}] on HoverIntent child`,
+        );
       }
       newProps[propName] = this[propName];
     });

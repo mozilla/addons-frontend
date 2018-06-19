@@ -34,7 +34,7 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <ContributeCard {...allProps} />,
-      ContributeCardBase
+      ContributeCardBase,
     );
   };
 
@@ -57,7 +57,12 @@ describe(__filename, () => {
     const root = render();
     expect(root.find(Button)).toHaveLength(1);
     expect(root.find(Button)).toHaveProp('href', 'https://paypal.me/babar');
-    expect(root.find(Button).children().at(1)).toHaveText('Contribute now');
+    expect(
+      root
+        .find(Button)
+        .children()
+        .at(1),
+    ).toHaveText('Contribute now');
     expect(root.find(Button)).toHaveProp('target', '_blank');
     expect(root.find(Button)).toHaveProp('rel', 'noopener noreferrer');
   });
@@ -77,8 +82,9 @@ describe(__filename, () => {
       }),
     });
     expect(root.find(Card)).toHaveProp('header', 'Support these developers');
-    expect(root.find('.ContributeCard-content').text())
-      .toMatch(/The developers of this extension ask /);
+    expect(root.find('.ContributeCard-content').text()).toMatch(
+      /The developers of this extension ask /,
+    );
   });
 
   it('displays content for a theme artist', () => {
@@ -97,8 +103,9 @@ describe(__filename, () => {
       }),
     });
     expect(root.find(Card)).toHaveProp('header', 'Support these artists');
-    expect(root.find('.ContributeCard-content').text())
-      .toMatch(/The artists of this theme ask /);
+    expect(root.find('.ContributeCard-content').text()).toMatch(
+      /The artists of this theme ask /,
+    );
   });
 
   it('displays content for a add-on author', () => {
@@ -117,7 +124,8 @@ describe(__filename, () => {
       }),
     });
     expect(root.find(Card)).toHaveProp('header', 'Support these authors');
-    expect(root.find('.ContributeCard-content').text())
-      .toMatch(/The authors of this add-on ask /);
+    expect(root.find('.ContributeCard-content').text()).toMatch(
+      /The authors of this add-on ask /,
+    );
   });
 });

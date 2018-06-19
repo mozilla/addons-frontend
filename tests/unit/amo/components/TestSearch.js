@@ -65,14 +65,16 @@ describe(__filename, () => {
     expect(results.prop('loading')).toEqual(props.loading);
     expect(results.prop('pathname')).toEqual(props.pathname);
     expect(results.prop('results')).toEqual(props.results);
-    expect(Object.keys(results.props()).sort()).toEqual([
-      'count',
-      'filters',
-      'loading',
-      'paginator',
-      'pathname',
-      'results',
-    ].sort());
+    expect(Object.keys(results.props()).sort()).toEqual(
+      [
+        'count',
+        'filters',
+        'loading',
+        'paginator',
+        'pathname',
+        'results',
+      ].sort(),
+    );
   });
 
   it('passes a Paginate component to the SearchResults component', () => {
@@ -119,19 +121,25 @@ describe(__filename, () => {
   it('dispatches the search on mount', () => {
     render();
 
-    sinon.assert.calledWith(props.dispatch, searchStart({
-      errorHandlerId: props.errorHandler.id,
-      filters: props.filters,
-    }));
+    sinon.assert.calledWith(
+      props.dispatch,
+      searchStart({
+        errorHandlerId: props.errorHandler.id,
+        filters: props.filters,
+      }),
+    );
   });
 
   it('does not dispatch on mount if filters/results are loaded', () => {
     render({ filtersUsedForResults: props.filters });
 
-    sinon.assert.neverCalledWith(props.dispatch, searchStart({
-      errorHandlerId: props.errorHandler.id,
-      filters: props.filters,
-    }));
+    sinon.assert.neverCalledWith(
+      props.dispatch,
+      searchStart({
+        errorHandlerId: props.errorHandler.id,
+        filters: props.filters,
+      }),
+    );
   });
 
   it('dispatches the search on props change', () => {
@@ -140,10 +148,13 @@ describe(__filename, () => {
     const newFilters = { query: 'I am a new query', page: 1 };
     root.setProps({ filters: newFilters });
 
-    sinon.assert.calledWith(props.dispatch, searchStart({
-      errorHandlerId: props.errorHandler.id,
-      filters: newFilters,
-    }));
+    sinon.assert.calledWith(
+      props.dispatch,
+      searchStart({
+        errorHandlerId: props.errorHandler.id,
+        filters: newFilters,
+      }),
+    );
   });
 
   it('dispatches a SEARCH_RESET when filters become empty', () => {
@@ -160,13 +171,12 @@ describe(__filename, () => {
 
     render({ count: 0, dispatch: fakeDispatch, filters });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
 
   it('should render an error', () => {
     const errorHandler = createStubErrorHandler(
-      new Error('example of an error')
+      new Error('example of an error'),
     );
     const root = render({ errorHandler });
 
@@ -281,8 +291,7 @@ describe(__filename, () => {
   it('renders an HTML title for search query', () => {
     const filters = { query: 'some terms' };
     const wrapper = render({ filters });
-    expect(wrapper.find('title'))
-      .toHaveText('Search results for "some terms"');
+    expect(wrapper.find('title')).toHaveText('Search results for "some terms"');
   });
 
   it('sets the viewContext to exploring if viewContext has changed', () => {
@@ -291,8 +300,7 @@ describe(__filename, () => {
 
     render({ context: ADDON_TYPE_EXTENSION, dispatch: fakeDispatch, filters });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 
   it('does not set the viewContext if already set to exploring', () => {
@@ -301,8 +309,7 @@ describe(__filename, () => {
 
     render({ context: ADDON_TYPE_EXTENSION, dispatch: fakeDispatch, filters });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 
   it('returns a Not Found page when error is 404', () => {
@@ -312,15 +319,17 @@ describe(__filename, () => {
       id: 'some-error-handler-id',
       dispatch: store.dispatch,
     });
-    errorHandler.handle(createApiError({
-      response: { status: 404 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Nope.' },
-    }));
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Nope.' },
+      }),
+    );
 
     const wrapper = shallowUntilTarget(
       <Search {...{ ...props, errorHandler, store }} />,
-      SearchBase
+      SearchBase,
     );
     expect(wrapper.find(NotFound)).toHaveLength(1);
   });

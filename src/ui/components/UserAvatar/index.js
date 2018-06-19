@@ -5,7 +5,6 @@ import makeClassName from 'classnames';
 import Icon from 'ui/components/Icon';
 import type { UserType } from 'amo/reducers/users';
 
-
 type Props = {|
   altText?: string | null,
   className?: string,
@@ -25,14 +24,10 @@ const UserAvatar = ({ altText, className, preview, user }: Props) => {
   return (
     <div className={_className}>
       {image ? (
-        <img
-          alt={altText}
-          className="UserAvatar-image"
-          src={image}
-        />
+        <img alt={altText} className="UserAvatar-image" src={image} />
       ) : (
         <Icon name="anonymous-user" />
-      ) }
+      )}
     </div>
   );
 };

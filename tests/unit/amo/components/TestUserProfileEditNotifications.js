@@ -4,10 +4,7 @@ import UserProfileEditNotifications, {
   getLabelText,
   UserProfileEditNotificationsBase,
 } from 'amo/components/UserProfileEditNotifications';
-import {
-  getCurrentUser,
-  loadUserNotifications,
-} from 'amo/reducers/users';
+import { getCurrentUser, loadUserNotifications } from 'amo/reducers/users';
 import LoadingText from 'ui/components/LoadingText';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import {
@@ -15,7 +12,6 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   const render = ({ i18n = fakeI18n(), ...props } = {}) => {
@@ -76,8 +72,9 @@ describe(__filename, () => {
 
     const root = render({ onChange, user });
 
-    expect(root.find('.UserProfileEditNotification'))
-      .toHaveLength(notifications.length);
+    expect(root.find('.UserProfileEditNotification')).toHaveLength(
+      notifications.length,
+    );
     expect(root.find(LoadingText)).toHaveLength(0);
 
     const i18n = fakeI18n();
@@ -91,14 +88,13 @@ describe(__filename, () => {
       expect(input).toHaveProp('onChange', onChange);
 
       const label = input.parent();
-      expect(label.shallow()).toHaveText(
-        getLabelText(i18n, notification.name)
-      );
+      expect(label.shallow()).toHaveText(getLabelText(i18n, notification.name));
 
       const p = input.closest('p');
       expect(p).toHaveClassName('UserProfileEditNotification');
-      expect(p.hasClass('UserProfileEditNotification--disabled'))
-        .toEqual(notification.mandatory);
+      expect(p.hasClass('UserProfileEditNotification--disabled')).toEqual(
+        notification.mandatory,
+      );
     });
   });
 

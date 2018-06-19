@@ -10,7 +10,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
@@ -20,8 +19,8 @@ export class AddonMetaBase extends React.Component<Props> {
   render() {
     const { addon, i18n } = this.props;
     const averageRating = addon && addon.ratings ? addon.ratings.average : null;
-    const addonRatingCount = addon && addon.ratings ?
-      addon.ratings.count : null;
+    const addonRatingCount =
+      addon && addon.ratings ? addon.ratings.count : null;
     const averageDailyUsers = addon ? addon.average_daily_users : null;
 
     let userCount = '';
@@ -79,8 +78,8 @@ export class AddonMetaBase extends React.Component<Props> {
   }
 }
 
-const AddonMeta: React.ComponentType<Props> = compose(
-  translate(),
-)(AddonMetaBase);
+const AddonMeta: React.ComponentType<Props> = compose(translate())(
+  AddonMetaBase,
+);
 
 export default AddonMeta;

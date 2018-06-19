@@ -12,7 +12,6 @@ import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import Badge from 'ui/components/Badge';
 
-
 describe(__filename, () => {
   function shallowRender(props) {
     const allProps = {
@@ -20,10 +19,7 @@ describe(__filename, () => {
       ...props,
     };
 
-    return shallowUntilTarget(
-      <AddonBadges {...allProps} />,
-      AddonBadgesBase
-    );
+    return shallowUntilTarget(<AddonBadges {...allProps} />, AddonBadgesBase);
   }
 
   it('returns null when there is no add-on', () => {
@@ -85,9 +81,11 @@ describe(__filename, () => {
   });
 
   it('displays a badge when the addon needs restart', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      files: [{ is_restart_required: true }],
-    }));
+    const addon = createInternalAddon(
+      createFakeAddon({
+        files: [{ is_restart_required: true }],
+      }),
+    );
     const root = shallowRender({ addon });
 
     expect(root.find(Badge)).toHaveProp('type', 'restart-required');
@@ -95,9 +93,11 @@ describe(__filename, () => {
   });
 
   it('does not display the "restart required" badge when addon does not need restart', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      files: [{ is_restart_required: false }],
-    }));
+    const addon = createInternalAddon(
+      createFakeAddon({
+        files: [{ is_restart_required: false }],
+      }),
+    );
     const root = shallowRender({ addon });
 
     expect(root.find(Badge)).toHaveLength(0);
@@ -110,9 +110,11 @@ describe(__filename, () => {
   });
 
   it('displays a badge when the addon is experimental', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      is_experimental: true,
-    }));
+    const addon = createInternalAddon(
+      createFakeAddon({
+        is_experimental: true,
+      }),
+    );
     const root = shallowRender({ addon });
 
     expect(root.find(Badge)).toHaveProp('type', 'experimental');
@@ -120,9 +122,11 @@ describe(__filename, () => {
   });
 
   it('does not display a badge when the addon is not experimental', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      is_experimental: false,
-    }));
+    const addon = createInternalAddon(
+      createFakeAddon({
+        is_experimental: false,
+      }),
+    );
     const root = shallowRender({ addon });
 
     expect(root.find(Badge).find({ type: 'experimental' })).toHaveLength(0);
@@ -130,18 +134,22 @@ describe(__filename, () => {
 
   describe('Quantum compatible badge', () => {
     it('does not display a badge when add-on is compatible with Quantum', () => {
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{
-          is_webextension: true,
-        }],
-        compatibility: {
-          [CLIENT_APP_FIREFOX]: {
-            max: '*',
-            min: '53.0',
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [
+            {
+              is_webextension: true,
+            },
+          ],
+          compatibility: {
+            [CLIENT_APP_FIREFOX]: {
+              max: '*',
+              min: '53.0',
+            },
           },
-        },
-        is_strict_compatibility_enabled: false,
-      }));
+          is_strict_compatibility_enabled: false,
+        }),
+      );
 
       const root = shallowRender({ addon });
 
@@ -149,42 +157,52 @@ describe(__filename, () => {
     });
 
     it('displays a badge when the addon is not compatible with Quantum', () => {
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{
-          is_mozilla_signed_extension: false,
-          is_webextension: false,
-        }],
-        compatibility: {
-          [CLIENT_APP_FIREFOX]: {
-            max: '56.*',
-            min: '30.0a1',
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [
+            {
+              is_mozilla_signed_extension: false,
+              is_webextension: false,
+            },
+          ],
+          compatibility: {
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '30.0a1',
+            },
           },
-        },
-        is_strict_compatibility_enabled: true,
-      }));
+          is_strict_compatibility_enabled: true,
+        }),
+      );
 
       const root = shallowRender({ addon });
 
       expect(root.find(Badge)).toHaveLength(1);
       expect(root.find(Badge)).toHaveProp('type', 'not-compatible');
-      expect(root.find(Badge))
-        .toHaveProp('label', 'Not compatible with Firefox Quantum');
+      expect(root.find(Badge)).toHaveProp(
+        'label',
+        'Not compatible with Firefox Quantum',
+      );
     });
 
     it('does not display a badge for add-ons that are not extensions', () => {
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{
-          is_webextension: false,
-        }],
-        type: ADDON_TYPE_THEME,
-        compatibility: {
-          [CLIENT_APP_FIREFOX]: {
-            max: '56.*',
-            min: '30.0a1',
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [
+            {
+              is_webextension: false,
+            },
+          ],
+          type: ADDON_TYPE_THEME,
+          compatibility: {
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '30.0a1',
+            },
           },
-        },
-        is_strict_compatibility_enabled: true,
-      }));
+          is_strict_compatibility_enabled: true,
+        }),
+      );
 
       const root = shallowRender({ addon });
 
@@ -193,20 +211,26 @@ describe(__filename, () => {
   });
 
   it('displays a badge when the addon requires payment', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      requires_payment: true,
-    }));
+    const addon = createInternalAddon(
+      createFakeAddon({
+        requires_payment: true,
+      }),
+    );
     const root = shallowRender({ addon });
 
     expect(root.find(Badge)).toHaveProp('type', 'requires-payment');
-    expect(root.find(Badge))
-      .toHaveProp('label', 'Some features may require payment');
+    expect(root.find(Badge)).toHaveProp(
+      'label',
+      'Some features may require payment',
+    );
   });
 
   it('does not display a badge when the addon does not require payment', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      requires_payment: false,
-    }));
+    const addon = createInternalAddon(
+      createFakeAddon({
+        requires_payment: false,
+      }),
+    );
     const root = shallowRender({ addon });
 
     expect(root.find(Badge).find({ type: 'requires-payment' })).toHaveLength(0);

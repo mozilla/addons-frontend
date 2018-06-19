@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import ListItem from 'ui/components/ListItem';
 
-
 describe(__filename, () => {
   const render = ({ children = <span />, ...customProps } = {}) => {
     const props = {

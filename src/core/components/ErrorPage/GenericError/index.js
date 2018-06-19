@@ -5,16 +5,15 @@ import NestedStatus from 'react-nested-status';
 
 import translate from 'core/i18n/translate';
 
-
 export class GenericErrorBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     status: PropTypes.number,
-  }
+  };
 
   static defaultProps = {
     status: 500,
-  }
+  };
 
   render() {
     const { i18n, status } = this.props;
@@ -39,6 +38,4 @@ export class GenericErrorBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(GenericErrorBase);
+export default compose(translate({ withRef: true }))(GenericErrorBase);

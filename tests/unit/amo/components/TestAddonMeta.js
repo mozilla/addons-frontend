@@ -2,13 +2,9 @@ import * as React from 'react';
 
 import AddonMeta, { AddonMetaBase } from 'amo/components/AddonMeta';
 import { createInternalAddon } from 'core/reducers/addons';
-import {
-  dispatchClientMetadata,
-  fakeAddon,
-} from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
-
 
 describe(__filename, () => {
   function render({
@@ -17,13 +13,8 @@ describe(__filename, () => {
     ...props
   } = {}) {
     return shallowUntilTarget(
-      <AddonMeta
-        addon={addon}
-        i18n={fakeI18n()}
-        store={store}
-        {...props}
-      />,
-      AddonMetaBase
+      <AddonMeta addon={addon} i18n={fakeI18n()} store={store} {...props} />,
+      AddonMetaBase,
     );
   }
 

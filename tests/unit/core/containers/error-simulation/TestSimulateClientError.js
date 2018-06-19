@@ -5,7 +5,6 @@ import SimulateClientError, {
 } from 'core/containers/error-simulation/SimulateClientError';
 import { shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let clock;
 
@@ -20,7 +19,7 @@ describe(__filename, () => {
   function render(props = {}) {
     return shallowUntilTarget(
       <SimulateClientError {...props} />,
-      SimulateClientErrorBase
+      SimulateClientErrorBase,
     );
   }
 
@@ -36,23 +35,26 @@ describe(__filename, () => {
     const root = render();
 
     const triggerPrompt = '💣 Go ahead, trigger an error';
-    expect(root.find('.SimulateClientError-error').children())
-      .toHaveText(triggerPrompt);
+    expect(root.find('.SimulateClientError-error').children()).toHaveText(
+      triggerPrompt,
+    );
 
     expect(() => {
       root.find('.SimulateClientError-error').simulate('click');
     }).toThrow();
 
     root.update();
-    expect(root.find('.SimulateClientError-error').children())
-      .toHaveText('Nice! Check Sentry');
+    expect(root.find('.SimulateClientError-error').children()).toHaveText(
+      'Nice! Check Sentry',
+    );
 
     // Trigger the setTimeout() callback:
     clock.tick(3000);
     root.update();
 
-    expect(root.find('.SimulateClientError-error').children())
-      .toHaveText(triggerPrompt);
+    expect(root.find('.SimulateClientError-error').children()).toHaveText(
+      triggerPrompt,
+    );
   });
 
   it('can throw a render error', () => {

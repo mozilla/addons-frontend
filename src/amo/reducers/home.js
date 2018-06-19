@@ -92,21 +92,19 @@ export const loadHomeAddons = ({
   };
 };
 
-type Action =
-  | FetchHomeAddonsAction
-  | LoadHomeAddonsAction;
+type Action = FetchHomeAddonsAction | LoadHomeAddonsAction;
 
 const createInternalAddons = (
-  response: ApiAddonsResponse
+  response: ApiAddonsResponse,
 ): Array<AddonType> => {
-  return response.result.results.map((slug) => (
-    createInternalAddon(response.entities.addons[slug])
-  ));
+  return response.result.results.map((slug) =>
+    createInternalAddon(response.entities.addons[slug]),
+  );
 };
 
 const reducer = (
   state: HomeState = initialState,
-  action: Action
+  action: Action,
 ): HomeState => {
   switch (action.type) {
     case FETCH_HOME_ADDONS:

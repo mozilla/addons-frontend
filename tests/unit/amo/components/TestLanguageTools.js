@@ -19,7 +19,6 @@ import {
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
-
 describe(__filename, () => {
   const languageTools = [
     createFakeLanguageTool({
@@ -85,7 +84,7 @@ describe(__filename, () => {
   } = {}) {
     return shallowUntilTarget(
       <LanguageTools i18n={i18n} store={store} {...props} />,
-      LanguageToolsBase
+      LanguageToolsBase,
     );
   }
 
@@ -111,20 +110,21 @@ describe(__filename, () => {
     const root = renderShallow({ store });
 
     const dictionary = root.find(
-      `.LanguageTools-in-your-locale-list-item--${ADDON_TYPE_DICT}`
+      `.LanguageTools-in-your-locale-list-item--${ADDON_TYPE_DICT}`,
     );
     const langPack = root.find(
-      `.LanguageTools-in-your-locale-list-item--${ADDON_TYPE_LANG}`
+      `.LanguageTools-in-your-locale-list-item--${ADDON_TYPE_LANG}`,
     );
 
     expect(root.find(LoadingText)).toHaveLength(0);
     expect(root.find('.LanguageTools-in-your-locale')).toHaveLength(1);
     expect(dictionary).toHaveLength(1);
-    expect(dictionary.find(Link))
-      .toHaveProp('children', 'le French Dictionary');
+    expect(dictionary.find(Link)).toHaveProp(
+      'children',
+      'le French Dictionary',
+    );
     expect(langPack).toHaveLength(1);
-    expect(langPack.find(Link))
-      .toHaveProp('children', 'French Language Pack');
+    expect(langPack.find(Link)).toHaveProp('children', 'French Language Pack');
   });
 
   it('omits "language tools in your locale" section if none available', () => {
@@ -186,9 +186,11 @@ describe(__filename, () => {
 
       const allLanguageTools = getAllLanguageTools(store.getState());
 
-      const languageToolsInYourLocale = allLanguageTools.filter((languageTool) => {
-        return languageTool.target_locale === store.getState().api.lang;
-      });
+      const languageToolsInYourLocale = allLanguageTools.filter(
+        (languageTool) => {
+          return languageTool.target_locale === store.getState().api.lang;
+        },
+      );
       const dictionaries = languageToolsInYourLocale.filter((languageTool) => {
         return languageTool.type === ADDON_TYPE_DICT;
       });
@@ -197,16 +199,16 @@ describe(__filename, () => {
       });
 
       const dictionaryList = shallow(
-        <LanguageToolList languageTools={dictionaries} />
+        <LanguageToolList languageTools={dictionaries} />,
       );
       const languagePackList = shallow(
-        <LanguageToolList languageTools={languagePacks} />
+        <LanguageToolList languageTools={languagePacks} />,
       );
 
-      expect(dictionaryList.find('.LanguageTools-addon-list'))
-        .toHaveLength(1);
-      expect(languagePackList.find('.LanguageTools-addon-list'))
-        .toHaveLength(1);
+      expect(dictionaryList.find('.LanguageTools-addon-list')).toHaveLength(1);
+      expect(languagePackList.find('.LanguageTools-addon-list')).toHaveLength(
+        1,
+      );
       expect(dictionaryList.find('li')).toHaveLength(1);
       expect(languagePackList.find('li')).toHaveLength(2);
     });

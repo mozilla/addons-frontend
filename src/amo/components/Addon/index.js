@@ -24,11 +24,7 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import {
-  fetchAddon,
-  getAddonByID,
-  getAddonBySlug,
-} from 'core/reducers/addons';
+import { fetchAddon, getAddonByID, getAddonBySlug } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
@@ -46,14 +42,8 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
-import {
-  nl2br,
-  sanitizeHTML,
-  sanitizeUserHTML,
-} from 'core/utils';
-import {
-  getClientCompatibility as _getClientCompatibility,
-} from 'core/utils/compatibility';
+import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
+import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -64,7 +54,6 @@ import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 import './styles.scss';
-
 
 // Find out if slug converts to a positive number/ID.
 const slugIsPositiveID = (slug) => {
@@ -98,14 +87,14 @@ export class AddonBase extends React.Component {
     toggleThemePreview: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     addonsByAuthors: PropTypes.array.isRequired,
-  }
+  };
 
   static defaultProps = {
     config: defaultConfig,
     RatingManager: DefaultRatingManager,
     platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
-  }
+  };
 
   componentWillMount() {
     const {
@@ -128,10 +117,12 @@ export class AddonBase extends React.Component {
         if (slugIsPositiveID(slug)) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
-          dispatch(sendServerRedirect({
-            status: 301,
-            url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
-          }));
+          dispatch(
+            sendServerRedirect({
+              status: 301,
+              url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
+            }),
+          );
           return;
         }
 
@@ -169,7 +160,7 @@ export class AddonBase extends React.Component {
 
   onClick = (event) => {
     this.props.toggleThemePreview(event.currentTarget);
-  }
+  };
 
   addonIsTheme() {
     const { addon } = this.props;
@@ -187,23 +178,29 @@ export class AddonBase extends React.Component {
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     if (this.addonIsTheme()) {
-      let previewURL = addon.previews.length > 0 &&
-        addon.previews[0].image_url ? addon.previews[0].image_url : null;
+      let previewURL =
+        addon.previews.length > 0 && addon.previews[0].image_url
+          ? addon.previews[0].image_url
+          : null;
 
-      let label = i18n.sprintf(
-        i18n.gettext('Preview of %(title)s'),
-        { title: addon.name }
-      );
+      let label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+        title: addon.name,
+      });
 
       if (!previewURL && type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
-        label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
+        label = isPreviewingTheme
+          ? i18n.gettext('Cancel preview')
+          : i18n.gettext('Tap to preview');
       }
 
       const imageClassName = 'Addon-theme-header-image';
-      const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
+      const headerImage = (
+        <img alt={label} className={imageClassName} src={previewURL} />
+      );
 
-      const unInstalledTheme = installStatus !== ENABLED && type === ADDON_TYPE_THEME;
+      const unInstalledTheme =
+        installStatus !== ENABLED && type === ADDON_TYPE_THEME;
 
       return (
         <div
@@ -263,7 +260,11 @@ export class AddonBase extends React.Component {
     if (addon && addon.ratings.text_count) {
       const count = addon.ratings.text_count;
       const linkText = i18n.sprintf(
-        i18n.ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
+        i18n.ngettext(
+          'Read %(count)s review',
+          'Read all %(count)s reviews',
+          count,
+        ),
         { count: i18n.formatNumber(count) },
       );
 
@@ -284,7 +285,8 @@ export class AddonBase extends React.Component {
 
     const props = {
       [footerPropName]: (
-        <div className="Addon-read-reviews-footer">{content}</div>),
+        <div className="Addon-read-reviews-footer">{content}</div>
+      ),
     };
     return (
       <Card
@@ -336,13 +338,12 @@ export class AddonBase extends React.Component {
     }
 
     return (
-      <ShowMoreCard
-        header={title}
-        className="AddonDescription"
-      >
+      <ShowMoreCard header={title} className="AddonDescription">
         <div
           className="AddonDescription-contents"
-          ref={(ref) => { this.addonDescription = ref; }}
+          ref={(ref) => {
+            this.addonDescription = ref;
+          }}
           {...descriptionProps}
         />
       </ShowMoreCard>
@@ -362,7 +363,7 @@ export class AddonBase extends React.Component {
 
     const header = i18n.sprintf(
       i18n.gettext('Release notes for %(addonVersion)s'),
-      { addonVersion: currentVersion.version }
+      { addonVersion: currentVersion.version },
     );
     const releaseNotes = sanitizeUserHTML(currentVersion.release_notes);
 
@@ -420,9 +421,10 @@ export class AddonBase extends React.Component {
 
       // 401 and 403 are made to look like a 404 on purpose.
       // See: https://github.com/mozilla/addons-frontend/issues/3061.
-      if (errorHandler.capturedError.responseStatusCode === 401 ||
-          errorHandler.capturedError.responseStatusCode === 403 ||
-          errorHandler.capturedError.responseStatusCode === 404
+      if (
+        errorHandler.capturedError.responseStatusCode === 401 ||
+        errorHandler.capturedError.responseStatusCode === 403 ||
+        errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFound errorCode={errorHandler.capturedError.code} />;
       }
@@ -441,8 +443,10 @@ export class AddonBase extends React.Component {
       const summary = addon.summary ? addon.summary : addon.description;
 
       if (summary && summary.length) {
-        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(
-          nl2br(summary), ['a', 'br']);
+        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(nl2br(summary), [
+          'a',
+          'br',
+        ]);
         showSummary = true;
       }
     } else {
@@ -461,12 +465,13 @@ export class AddonBase extends React.Component {
       });
       const title = i18n.sprintf(
         // translators: Example: The Add-On <span>by The Author</span>
-        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
+        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'),
+        {
           addonName: addon.name,
           authorList: authorList.join(', '),
           startSpan: '<span class="Addon-author">',
           endSpan: '</span>',
-        }
+        },
       );
       titleProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
     } else {
@@ -479,18 +484,25 @@ export class AddonBase extends React.Component {
     let compatibility;
     if (addon) {
       compatibility = getClientCompatibility({
-        addon, clientApp, userAgentInfo,
+        addon,
+        clientApp,
+        userAgentInfo,
       });
       isCompatible = compatibility.compatible;
     }
 
-    const numberOfAddonsByAuthors = addonsByAuthors ? addonsByAuthors.length : 0;
+    const numberOfAddonsByAuthors = addonsByAuthors
+      ? addonsByAuthors.length
+      : 0;
 
-    const downloadUrl = `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM({
-      utm_content: 'install-addon-button',
-    })}`;
+    const downloadUrl = `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
+      {
+        utm_content: 'install-addon-button',
+      },
+    )}`;
 
-    const isFireFox = compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
+    const isFireFox =
+      compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
     const enableAddonRecommendations =
       config.get('enableAddonRecommendations') &&
       addonType === ADDON_TYPE_EXTENSION;
@@ -530,29 +542,34 @@ export class AddonBase extends React.Component {
               <AddonBadges addon={addon} />
 
               <div className="Addon-summary-and-install-button-wrapper">
-                {showSummary ?
-                  <p className="Addon-summary" {...summaryProps} /> : null}
+                {showSummary ? (
+                  <p className="Addon-summary" {...summaryProps} />
+                ) : null}
 
-                {addon && isFireFox &&
-                  <InstallButton
-                    {...this.props}
-                    disabled={!isCompatible}
-                    ref={(ref) => { this.installButton = ref; }}
-                    defaultInstallSource={defaultInstallSource}
-                    status={installStatus}
-                    useButton
-                  />
-                }
-                {addon && !isFireFox &&
-                  <Button
-                    buttonType="confirm"
-                    href={downloadUrl}
-                    puffy
-                    className="Button--get-firefox"
-                  >
-                    {i18n.gettext('Only with Firefox—Get Firefox Now')}
-                  </Button>
-                }
+                {addon &&
+                  isFireFox && (
+                    <InstallButton
+                      {...this.props}
+                      disabled={!isCompatible}
+                      ref={(ref) => {
+                        this.installButton = ref;
+                      }}
+                      defaultInstallSource={defaultInstallSource}
+                      status={installStatus}
+                      useButton
+                    />
+                  )}
+                {addon &&
+                  !isFireFox && (
+                    <Button
+                      buttonType="confirm"
+                      href={downloadUrl}
+                      puffy
+                      className="Button--get-firefox"
+                    >
+                      {i18n.gettext('Only with Firefox—Get Firefox Now')}
+                    </Button>
+                  )}
               </div>
 
               <h2 className="visually-hidden">

@@ -12,7 +12,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 export const getLabelText = (i18n: I18nType, name: string): string | null => {
   switch (name) {
     case 'announcements':
@@ -101,34 +100,35 @@ export const UserProfileEditNotificationsBase = ({
   i18n,
   onChange,
   user,
-}: { ...Props, ...InjectedProps }) => {
+}: {
+  ...Props,
+  ...InjectedProps,
+}) => {
   let notifications = [];
   if (!user || !user.notifications) {
     for (let i = 0; i < 2; i++) {
       const name = `loading-notification-${i}`;
 
-      notifications.push(createNotification({
-        name,
-        mandatory: true,
-        enabled: false,
-        label: <LoadingText />,
-      }));
+      notifications.push(
+        createNotification({
+          name,
+          mandatory: true,
+          enabled: false,
+          label: <LoadingText />,
+        }),
+      );
     }
   } else {
-    notifications = user.notifications.map(
-      (notification) => createNotification({
+    notifications = user.notifications.map((notification) =>
+      createNotification({
         ...notification,
         label: getLabelText(i18n, notification.name),
         onChange,
-      })
+      }),
     );
   }
 
-  return (
-    <div className="UserProfileEditNotifications">
-      {notifications}
-    </div>
-  );
+  return <div className="UserProfileEditNotifications">{notifications}</div>;
 };
 
 const UserProfileEditNotifications: React.ComponentType<Props> = compose(

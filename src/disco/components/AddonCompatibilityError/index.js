@@ -13,7 +13,6 @@ import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 
 import './style.scss';
 
-
 // Messages in the disco pane are a bit less specific as we don't care about
 // non-Firefox clients and the copy space is limited.
 export class AddonCompatibilityErrorBase extends React.Component {
@@ -21,14 +20,10 @@ export class AddonCompatibilityErrorBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
-  }
+  };
 
   render() {
-    const {
-      i18n,
-      minVersion,
-      reason,
-    } = this.props;
+    const { i18n, minVersion, reason } = this.props;
     let message;
 
     if (typeof reason === 'undefined') {
@@ -40,10 +35,12 @@ export class AddonCompatibilityErrorBase extends React.Component {
 
     if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
-        'Firefox for iOS does not currently support add-ons.');
+        'Firefox for iOS does not currently support add-ons.',
+      );
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
       message = i18n.gettext(
-        'This add-on does not support your version of Firefox.');
+        'This add-on does not support your version of Firefox.',
+      );
     } else {
       // Unknown reasons are fine on the Disco Pane because we don't
       // care about non-FF clients.

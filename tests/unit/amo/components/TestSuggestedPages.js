@@ -12,7 +12,7 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <SuggestedPages {...allProps} />,
-      SuggestedPagesBase
+      SuggestedPagesBase,
     );
   };
 

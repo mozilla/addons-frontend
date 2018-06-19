@@ -8,11 +8,13 @@ import 'react-photoswipe/lib/photoswipe.css';
 
 import './styles.scss';
 
-type ThumbBounds = false | {|
-  w: number,
-  x: number,
-  y: number,
-|};
+type ThumbBounds =
+  | false
+  | {|
+      w: number,
+      x: number,
+      y: number,
+    |};
 
 type GetThumbBoundsExtraParams = {|
   _document: typeof document | null,
@@ -30,11 +32,14 @@ export const PHOTO_SWIPE_OPTIONS = {
   preloaderEl: true,
   // Overload getThumbBoundsFn as workaround to
   // https://github.com/minhtranite/react-photoswipe/issues/23
-  getThumbBoundsFn: (index: number, {
-    // $FLOW_FIXME: see https://github.com/facebook/flow/issues/183
-    _document = typeof document !== 'undefined' ? document : null,
-    _window = typeof window !== 'undefined' ? window : null,
-  }: GetThumbBoundsExtraParams = {}): ThumbBounds => {
+  getThumbBoundsFn: (
+    index: number,
+    {
+      // $FLOW_FIXME: see https://github.com/facebook/flow/issues/183
+      _document = typeof document !== 'undefined' ? document : null,
+      _window = typeof window !== 'undefined' ? window : null,
+    }: GetThumbBoundsExtraParams = {},
+  ): ThumbBounds => {
     if (!_document || !_window) {
       return false;
     }
@@ -43,9 +48,9 @@ export const PHOTO_SWIPE_OPTIONS = {
 
     if (thumbnail && thumbnail.getElementsByTagName) {
       const img = thumbnail.getElementsByTagName('img')[0];
-      const pageYScroll = _window.pageYOffset || (
-        _document.documentElement ? _document.documentElement.scrollTop : 0
-      );
+      const pageYScroll =
+        _window.pageYOffset ||
+        (_document.documentElement ? _document.documentElement.scrollTop : 0);
       const rect = img.getBoundingClientRect();
 
       return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
@@ -73,7 +78,7 @@ type Preview = {|
   w: number,
 |};
 
-const formatPreviews = (previews: Array<ExternalPreview>): Array<Preview> => (
+const formatPreviews = (previews: Array<ExternalPreview>): Array<Preview> =>
   previews.map((preview) => ({
     h: preview.image_size[1],
     src: preview.image_url,
@@ -82,8 +87,7 @@ const formatPreviews = (previews: Array<ExternalPreview>): Array<Preview> => (
     thumbnail_w: preview.thumbnail_size[0],
     title: preview.caption,
     w: preview.image_size[0],
-  }))
-);
+  }));
 
 export const thumbnailContent = (item: Preview): React.Node => (
   <img
@@ -113,7 +117,7 @@ export default class ScreenShots extends React.Component<Props> {
     const currentItem = list.children[index];
     const offset = currentItem.getBoundingClientRect().left;
     list.scrollLeft += offset - list.getBoundingClientRect().left;
-  }
+  };
 
   viewport: HTMLElement | null;
 
@@ -124,7 +128,9 @@ export default class ScreenShots extends React.Component<Props> {
       <div className="ScreenShots">
         <div
           className="ScreenShots-viewport"
-          ref={(el) => { this.viewport = el; }}
+          ref={(el) => {
+            this.viewport = el;
+          }}
         >
           <PhotoSwipeGallery
             className="ScreenShots-list"

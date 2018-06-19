@@ -88,14 +88,16 @@ export function submitReview({
       review.addon = addonId;
     }
 
-    resolve(callApi({
-      endpoint,
-      body: review,
-      method,
-      auth: true,
-      state: apiState,
-      ...apiCallParams,
-    }));
+    resolve(
+      callApi({
+        endpoint,
+        body: review,
+        method,
+        auth: true,
+        state: apiState,
+        ...apiCallParams,
+      }),
+    );
   });
 }
 
@@ -117,17 +119,19 @@ export const replyToReview = ({
   return new Promise((resolve) => {
     const endpoint = `reviews/review/${originalReviewId}/reply/`;
 
-    resolve(callApi({
-      auth: true,
-      body: {
-        body,
-        title,
-      },
-      endpoint,
-      errorHandler,
-      method: 'POST',
-      state: apiState,
-    }));
+    resolve(
+      callApi({
+        auth: true,
+        body: {
+          body,
+          title,
+        },
+        endpoint,
+        errorHandler,
+        method: 'POST',
+        state: apiState,
+      }),
+    );
   });
 };
 
@@ -145,19 +149,24 @@ type GetReviewsParams = {|
 
 type GetReviewsApiResponse = PaginatedApiResponse<ExternalReviewType>;
 
-export function getReviews(
-  { apiState, user, addon, ...params }: GetReviewsParams = {}
-): Promise<GetReviewsApiResponse> {
+export function getReviews({
+  apiState,
+  user,
+  addon,
+  ...params
+}: GetReviewsParams = {}): Promise<GetReviewsApiResponse> {
   return new Promise((resolve) => {
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
     }
-    resolve(callApi({
-      auth: true,
-      endpoint: 'reviews/review',
-      params: { user, addon, ...params },
-      state: apiState,
-    }));
+    resolve(
+      callApi({
+        auth: true,
+        endpoint: 'reviews/review',
+        params: { user, addon, ...params },
+        state: apiState,
+      }),
+    );
   });
 }
 
@@ -168,9 +177,12 @@ export type GetLatestReviewParams = {|
   version: number,
 |};
 
-export function getLatestUserReview(
-  { apiState, user, addon, version }: GetLatestReviewParams = {}
-): Promise<null | ExternalReviewType> {
+export function getLatestUserReview({
+  apiState,
+  user,
+  addon,
+  version,
+}: GetLatestReviewParams = {}): Promise<null | ExternalReviewType> {
   return new Promise((resolve) => {
     if (!user || !addon || !version) {
       throw new Error('user, addon, and version must be specified');
@@ -178,17 +190,16 @@ export function getLatestUserReview(
     // The API will only return the latest user review for this add-on
     // and version.
     resolve(getReviews({ apiState, user, addon, version }));
-  })
-    .then((response) => {
-      const reviews = response.results;
-      if (reviews.length === 1) {
-        return reviews[0];
-      } else if (reviews.length === 0) {
-        return null;
-      }
-      throw new Error(oneLine`Unexpectedly received multiple review objects:
+  }).then((response) => {
+    const reviews = response.results;
+    if (reviews.length === 1) {
+      return reviews[0];
+    } else if (reviews.length === 0) {
+      return null;
+    }
+    throw new Error(oneLine`Unexpectedly received multiple review objects:
         ${JSON.stringify(reviews)}`);
-    });
+  });
 }
 
 type FlagReviewParams = {|
@@ -199,9 +210,13 @@ type FlagReviewParams = {|
   reviewId: number,
 |};
 
-export const flagReview = (
-  { apiState, errorHandler, note, reason, reviewId }: FlagReviewParams = {}
-): Promise<void> => {
+export const flagReview = ({
+  apiState,
+  errorHandler,
+  note,
+  reason,
+  reviewId,
+}: FlagReviewParams = {}): Promise<void> => {
   return new Promise((resolve) => {
     if (!reviewId) {
       throw new Error('The reviewId parameter is required');
@@ -211,19 +226,21 @@ export const flagReview = (
     }
     if (reason === REVIEW_FLAG_REASON_OTHER && !note) {
       throw new Error(
-        `When reason is ${reason}, the note parameter is required`
+        `When reason is ${reason}, the note parameter is required`,
       );
     }
-    resolve(callApi({
-      auth: true,
-      body: {
-        flag: reason,
-        note,
-      },
-      endpoint: `reviews/review/${reviewId}/flag`,
-      errorHandler,
-      method: 'POST',
-      state: apiState,
-    }));
+    resolve(
+      callApi({
+        auth: true,
+        body: {
+          flag: reason,
+          note,
+        },
+        endpoint: `reviews/review/${reviewId}/flag`,
+        errorHandler,
+        method: 'POST',
+        state: apiState,
+      }),
+    );
   });
 };

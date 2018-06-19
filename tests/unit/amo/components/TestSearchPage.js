@@ -5,17 +5,10 @@ import SearchPage, {
   SearchPageBase,
   mapStateToProps,
 } from 'amo/components/SearchPage';
-import {
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
-  OS_MAC,
-} from 'core/constants';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX, OS_MAC } from 'core/constants';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import {
-  fakeRouterLocation, shallowUntilTarget,
-} from 'tests/unit/helpers';
-
+import { fakeRouterLocation, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
@@ -103,13 +96,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 1 } }), store,
+      location: fakeRouterLocation({ query: { atype: 1 } }),
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 302,
-      url: '/en-US/android/search/?type=extension',
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 302,
+        url: '/en-US/android/search/?type=extension',
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -117,13 +114,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 3 } }), store,
+      location: fakeRouterLocation({ query: { atype: 3 } }),
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 302,
-      url: '/en-US/android/search/?type=dictionary',
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 302,
+        url: '/en-US/android/search/?type=dictionary',
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -131,13 +132,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 4 } }), store,
+      location: fakeRouterLocation({ query: { atype: 4 } }),
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 302,
-      url: '/en-US/android/search/?type=search',
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 302,
+        url: '/en-US/android/search/?type=search',
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -145,13 +150,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 5 } }), store,
+      location: fakeRouterLocation({ query: { atype: 5 } }),
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 302,
-      url: '/en-US/android/search/?type=language',
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 302,
+        url: '/en-US/android/search/?type=language',
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -159,13 +168,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 9 } }), store,
+      location: fakeRouterLocation({ query: { atype: 9 } }),
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 302,
-      url: '/en-US/android/search/?type=persona',
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 302,
+        url: '/en-US/android/search/?type=persona',
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -174,7 +187,8 @@ describe(__filename, () => {
 
     // The `atype` value has no corresponding `addonType`.
     render({
-      location: fakeRouterLocation({ query: { atype: 123 } }), store,
+      location: fakeRouterLocation({ query: { atype: 123 } }),
+      store,
     });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -184,13 +198,17 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { platform: 'all' } }), store,
+      location: fakeRouterLocation({ query: { platform: 'all' } }),
+      store,
     });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 302,
-      url: '/en-US/android/search/',
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 302,
+        url: '/en-US/android/search/',
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -198,7 +216,8 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { platform: OS_MAC } }), store,
+      location: fakeRouterLocation({ query: { platform: OS_MAC } }),
+      store,
     });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -210,10 +229,13 @@ describe(__filename, () => {
 
     render({ location: fakeRouterLocation({ query }), store });
 
-    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
-      status: 302,
-      url: '/en-US/android/search/?page=123',
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 302,
+        url: '/en-US/android/search/?page=123',
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 1);
   });
 

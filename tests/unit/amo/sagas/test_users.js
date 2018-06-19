@@ -25,7 +25,6 @@ import {
   userAuthToken,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
@@ -94,10 +93,12 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(user));
 
-      sagaTester.dispatch(fetchUserAccount({
-        errorHandlerId: errorHandler.id,
-        username: 'tofumatt',
-      }));
+      sagaTester.dispatch(
+        fetchUserAccount({
+          errorHandlerId: errorHandler.id,
+          username: 'tofumatt',
+        }),
+      );
 
       const expectedCalledAction = loadUserAccount({ user });
 
@@ -110,14 +111,14 @@ describe(__filename, () => {
 
     it('dispatches an error', async () => {
       const error = new Error('a bad API error');
-      mockApi
-        .expects('userAccount')
-        .returns(Promise.reject(error));
+      mockApi.expects('userAccount').returns(Promise.reject(error));
 
-      sagaTester.dispatch(fetchUserAccount({
-        errorHandlerId: errorHandler.id,
-        username: 'tofumatt',
-      }));
+      sagaTester.dispatch(
+        fetchUserAccount({
+          errorHandlerId: errorHandler.id,
+          username: 'tofumatt',
+        }),
+      );
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
@@ -138,13 +139,15 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve({ ...user, ...userFields }));
 
-      sagaTester.dispatch(editUserAccount({
-        errorHandlerId: errorHandler.id,
-        notifications: {},
-        picture: null,
-        userFields,
-        userId: user.id,
-      }));
+      sagaTester.dispatch(
+        editUserAccount({
+          errorHandlerId: errorHandler.id,
+          notifications: {},
+          picture: null,
+          userFields,
+          userId: user.id,
+        }),
+      );
 
       const expectedCalledAction = loadUserAccount({
         user: { ...user, ...userFields },
@@ -152,7 +155,8 @@ describe(__filename, () => {
 
       const expectedErrorClearingAction = errorHandler.createClearingAction();
       const errorClearingAction = await sagaTester.waitFor(
-        expectedErrorClearingAction.type);
+        expectedErrorClearingAction.type,
+      );
       expect(errorClearingAction).toEqual(expectedErrorClearingAction);
 
       const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
@@ -188,13 +192,15 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve({ ...user, ...userFields }));
 
-      sagaTester.dispatch(editUserAccount({
-        errorHandlerId: errorHandler.id,
-        notifications: {},
-        picture,
-        userFields,
-        userId: user.id,
-      }));
+      sagaTester.dispatch(
+        editUserAccount({
+          errorHandlerId: errorHandler.id,
+          notifications: {},
+          picture,
+          userFields,
+          userId: user.id,
+        }),
+      );
 
       const expectedCalledAction = loadUserAccount({
         user: { ...user, ...userFields },
@@ -244,13 +250,15 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(allNotifications));
 
-      sagaTester.dispatch(editUserAccount({
-        errorHandlerId: errorHandler.id,
-        notifications,
-        picture: null,
-        userFields,
-        userId: user.id,
-      }));
+      sagaTester.dispatch(
+        editUserAccount({
+          errorHandlerId: errorHandler.id,
+          notifications,
+          picture: null,
+          userFields,
+          userId: user.id,
+        }),
+      );
 
       const expectedCalledAction = loadUserNotifications({
         notifications: allNotifications,
@@ -271,17 +279,17 @@ describe(__filename, () => {
       };
       const error = new Error('a bad API error');
 
-      mockApi
-        .expects('editUserAccount')
-        .returns(Promise.reject(error));
+      mockApi.expects('editUserAccount').returns(Promise.reject(error));
 
-      sagaTester.dispatch(editUserAccount({
-        errorHandlerId: errorHandler.id,
-        notifications: {},
-        picture: null,
-        userFields,
-        userId: user.id,
-      }));
+      sagaTester.dispatch(
+        editUserAccount({
+          errorHandlerId: errorHandler.id,
+          notifications: {},
+          picture: null,
+          userFields,
+          userId: user.id,
+        }),
+      );
 
       const finishAction = finishEditUserAccount();
 
@@ -308,10 +316,12 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(user));
 
-      sagaTester.dispatch(deleteUserPicture({
-        errorHandlerId: errorHandler.id,
-        userId: user.id,
-      }));
+      sagaTester.dispatch(
+        deleteUserPicture({
+          errorHandlerId: errorHandler.id,
+          userId: user.id,
+        }),
+      );
 
       const expectedCalledAction = loadUserAccount({ user });
 
@@ -323,14 +333,14 @@ describe(__filename, () => {
 
     it('dispatches an error', async () => {
       const error = new Error('a bad API error');
-      mockApi
-        .expects('deleteUserPicture')
-        .returns(Promise.reject(error));
+      mockApi.expects('deleteUserPicture').returns(Promise.reject(error));
 
-      sagaTester.dispatch(deleteUserPicture({
-        errorHandlerId: errorHandler.id,
-        userId: 123,
-      }));
+      sagaTester.dispatch(
+        deleteUserPicture({
+          errorHandlerId: errorHandler.id,
+          userId: 123,
+        }),
+      );
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
@@ -352,10 +362,12 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(notifications));
 
-      sagaTester.dispatch(fetchUserNotifications({
-        errorHandlerId: errorHandler.id,
-        username,
-      }));
+      sagaTester.dispatch(
+        fetchUserNotifications({
+          errorHandlerId: errorHandler.id,
+          username,
+        }),
+      );
 
       const expectedCalledAction = loadUserNotifications({
         notifications,
@@ -370,14 +382,14 @@ describe(__filename, () => {
 
     it('dispatches an error', async () => {
       const error = new Error('a bad API error');
-      mockApi
-        .expects('userNotifications')
-        .returns(Promise.reject(error));
+      mockApi.expects('userNotifications').returns(Promise.reject(error));
 
-      sagaTester.dispatch(fetchUserNotifications({
-        errorHandlerId: errorHandler.id,
-        username: 'tofumatt',
-      }));
+      sagaTester.dispatch(
+        fetchUserNotifications({
+          errorHandlerId: errorHandler.id,
+          username: 'tofumatt',
+        }),
+      );
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
@@ -399,10 +411,12 @@ describe(__filename, () => {
         })
         .returns(createApiResponse());
 
-      sagaTester.dispatch(deleteUserAccount({
-        errorHandlerId: errorHandler.id,
-        userId,
-      }));
+      sagaTester.dispatch(
+        deleteUserAccount({
+          errorHandlerId: errorHandler.id,
+          userId,
+        }),
+      );
 
       const expectedCalledAction = unloadUserAccount({ userId });
 
@@ -414,14 +428,14 @@ describe(__filename, () => {
 
     it('dispatches an error', async () => {
       const error = new Error('a bad API error');
-      mockApi
-        .expects('deleteUserAccount')
-        .returns(Promise.reject(error));
+      mockApi.expects('deleteUserAccount').returns(Promise.reject(error));
 
-      sagaTester.dispatch(deleteUserAccount({
-        errorHandlerId: errorHandler.id,
-        userId: 123,
-      }));
+      sagaTester.dispatch(
+        deleteUserAccount({
+          errorHandlerId: errorHandler.id,
+          userId: 123,
+        }),
+      );
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);

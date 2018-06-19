@@ -8,10 +8,11 @@ import {
 } from 'core/reducers/formOverlay';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent, fakeI18n, shallowUntilTarget,
+  createFakeEvent,
+  fakeI18n,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 import FormOverlay, { FormOverlayBase } from 'ui/components/FormOverlay';
-
 
 describe(__filename, () => {
   let store;
@@ -28,9 +29,7 @@ describe(__filename, () => {
       store,
       ...customProps,
     };
-    return shallowUntilTarget(
-      <FormOverlay {...props} />, FormOverlayBase
-    );
+    return shallowUntilTarget(<FormOverlay {...props} />, FormOverlayBase);
   };
 
   const renderOpen = (customProps = {}) => {
@@ -88,8 +87,7 @@ describe(__filename, () => {
     const id = 'some-id';
     sinon.spy(store, 'dispatch');
     const root = renderOpen({ id });
-    root.find('.FormOverlay-close-button')
-      .simulate('click', createFakeEvent());
+    root.find('.FormOverlay-close-button').simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(store.dispatch, closeFormOverlay(id));
   });

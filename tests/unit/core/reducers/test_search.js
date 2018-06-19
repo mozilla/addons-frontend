@@ -7,7 +7,6 @@ import search, {
 } from 'core/reducers/search';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   it('defaults to an set of filters', () => {
     const { filters } = search(undefined, { type: 'unrelated' });
@@ -26,10 +25,13 @@ describe(__filename, () => {
 
   describe('SEARCH_ABORTED', () => {
     it('resets the results and loading flag', () => {
-      const state = search(initialState, searchStart({
-        errorHandlerId: 'foo',
-        filters: { query: 'foo' },
-      }));
+      const state = search(
+        initialState,
+        searchStart({
+          errorHandlerId: 'foo',
+          filters: { query: 'foo' },
+        }),
+      );
       expect(state.filters).toEqual({ query: 'foo' });
       expect(state.loading).toBe(true);
       expect(state.results).toEqual([]);
@@ -44,10 +46,13 @@ describe(__filename, () => {
 
   describe('SEARCH_STARTED', () => {
     it('sets the filters and loading', () => {
-      const state = search(initialState, searchStart({
-        errorHandlerId: 'foo',
-        filters: { query: 'foo' },
-      }));
+      const state = search(
+        initialState,
+        searchStart({
+          errorHandlerId: 'foo',
+          filters: { query: 'foo' },
+        }),
+      );
       expect(state.filters).toEqual({ query: 'foo' });
       expect(state.loading).toBe(true);
       expect(state.results).toEqual([]);
@@ -78,10 +83,13 @@ describe(__filename, () => {
     });
 
     function getNextState() {
-      return search(initialLoadedState, searchLoad({
-        entities: response.entities,
-        result: response.result,
-      }));
+      return search(
+        initialLoadedState,
+        searchLoad({
+          entities: response.entities,
+          result: response.result,
+        }),
+      );
     }
 
     it('sets loading', () => {
@@ -109,10 +117,13 @@ describe(__filename, () => {
 
   describe('SEARCH_RESET', () => {
     it('resets the state to its initial state', () => {
-      const state = search(initialState, searchStart({
-        errorHandlerId: 'foo',
-        filters: { query: 'foo' },
-      }));
+      const state = search(
+        initialState,
+        searchStart({
+          errorHandlerId: 'foo',
+          filters: { query: 'foo' },
+        }),
+      );
       expect(state).not.toEqual(initialState);
 
       const newState = search(state, resetSearch());

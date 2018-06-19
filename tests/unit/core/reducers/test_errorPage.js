@@ -7,7 +7,6 @@ import errorPage, {
   loadErrorPage,
 } from 'core/reducers/errorPage';
 
-
 function getErrorPageState(store) {
   return store.getState().errorPage;
 }

@@ -6,14 +6,8 @@ import UserProfileEditPicture, {
 import { getCurrentUser } from 'amo/reducers/users';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import UserAvatar from 'ui/components/UserAvatar';
-import {
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import {
-  fakeI18n,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
-
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ i18n = fakeI18n(), ...props } = {}) => {
@@ -36,11 +30,12 @@ describe(__filename, () => {
     const root = render({ name, user: null });
 
     expect(root.find('.UserProfileEditPicture')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit--label'))
-      .toHaveText('Profile photo');
+    expect(root.find('.UserProfileEdit--label')).toHaveText('Profile photo');
     expect(root.find('.UserProfileEditPicture-file')).toHaveLength(1);
-    expect(root.find('.UserProfileEditPicture-file-input'))
-      .toHaveProp('name', name);
+    expect(root.find('.UserProfileEditPicture-file-input')).toHaveProp(
+      'name',
+      name,
+    );
     expect(root.find('.UserProfileEditPicture-delete-button')).toHaveLength(0);
   });
 
@@ -61,8 +56,10 @@ describe(__filename, () => {
     const userAvatar = root.find(UserAvatar);
 
     expect(userAvatar).toHaveLength(1);
-    expect(userAvatar)
-      .toHaveProp('altText', `Profile picture for ${user.name}`);
+    expect(userAvatar).toHaveProp(
+      'altText',
+      `Profile picture for ${user.name}`,
+    );
     expect(userAvatar).toHaveProp('preview', preview);
     expect(userAvatar).toHaveProp('user', user);
   });
@@ -70,10 +67,13 @@ describe(__filename, () => {
   it('disables the input file and select button when there is no user', () => {
     const root = render();
 
-    expect(root.find('.UserProfileEditPicture-file-input'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEditPicture-select-button'))
-      .toHaveClassName('Button--disabled');
+    expect(root.find('.UserProfileEditPicture-file-input')).toHaveProp(
+      'disabled',
+      true,
+    );
+    expect(root.find('.UserProfileEditPicture-select-button')).toHaveClassName(
+      'Button--disabled',
+    );
   });
 
   it('enables the input file and select button when a user is supplied', () => {
@@ -82,10 +82,13 @@ describe(__filename, () => {
 
     const root = render({ user });
 
-    expect(root.find('.UserProfileEditPicture-file-input'))
-      .toHaveProp('disabled', false);
-    expect(root.find('.UserProfileEditPicture-select-button'))
-      .not.toHaveClassName('Button--disabled');
+    expect(root.find('.UserProfileEditPicture-file-input')).toHaveProp(
+      'disabled',
+      false,
+    );
+    expect(
+      root.find('.UserProfileEditPicture-select-button'),
+    ).not.toHaveClassName('Button--disabled');
   });
 
   it('calls the onSelect() prop when a user selects a picture file', () => {
@@ -114,14 +117,17 @@ describe(__filename, () => {
     const root = render({ user, onDelete });
 
     expect(root.find(ConfirmButton)).toHaveLength(1);
-    expect(root.find(ConfirmButton))
-      .toHaveClassName('UserProfileEditPicture-delete-button');
-    expect(root.find(ConfirmButton))
-      .toHaveProp('message', 'Do you really want to delete this picture?');
-    expect(root.find(ConfirmButton))
-      .toHaveProp('onConfirm', onDelete);
-    expect(root.find(ConfirmButton).children())
-      .toHaveText('Delete this picture');
+    expect(root.find(ConfirmButton)).toHaveClassName(
+      'UserProfileEditPicture-delete-button',
+    );
+    expect(root.find(ConfirmButton)).toHaveProp(
+      'message',
+      'Do you really want to delete this picture?',
+    );
+    expect(root.find(ConfirmButton)).toHaveProp('onConfirm', onDelete);
+    expect(root.find(ConfirmButton).children()).toHaveText(
+      'Delete this picture',
+    );
   });
 
   it('does not render a "delete" ConfirmButton when user has no picture URL', () => {

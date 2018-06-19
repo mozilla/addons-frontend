@@ -8,8 +8,15 @@ import config from 'config';
  * This module loader is loaded when importing 'core/logger' in the client.
  */
 
-export function bindConsoleMethod(consoleMethodName, { _consoleObj = window.console,
-  _function = Function, _noop = () => {}, _config = config } = {}) {
+export function bindConsoleMethod(
+  consoleMethodName,
+  {
+    _consoleObj = window.console,
+    _function = Function,
+    _noop = () => {},
+    _config = config,
+  } = {},
+) {
   if (typeof _consoleObj[consoleMethodName] === 'undefined') {
     throw new Error(`console method "${consoleMethodName}" does not exist`);
   }
@@ -25,11 +32,19 @@ export function bindConsoleMethod(consoleMethodName, { _consoleObj = window.cons
   const app = `[${appName}]`;
 
   if (_function.prototype.bind) {
-    consoleFunc = _function.prototype.bind.call(consoleMethod, _consoleObj, app);
+    consoleFunc = _function.prototype.bind.call(
+      consoleMethod,
+      _consoleObj,
+      app,
+    );
   } else {
     // Fallback for IE < 10;
     consoleFunc = function fallbackConsoleFunc(...args) {
-      return _function.prototype.apply.apply(consoleMethod, [_consoleObj, app, ...args]);
+      return _function.prototype.apply.apply(consoleMethod, [
+        _consoleObj,
+        app,
+        ...args,
+      ]);
     };
   }
   return consoleFunc;

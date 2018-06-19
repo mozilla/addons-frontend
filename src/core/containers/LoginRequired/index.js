@@ -6,14 +6,13 @@ import { compose } from 'redux';
 import LoginPage from 'core/components/LoginPage';
 import { getCurrentUser } from 'amo/reducers/users';
 
-
 // This class is exported for testing outside of redux.
 export class LoginRequiredBase extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
     children: PropTypes.node,
     location: PropTypes.object,
-  }
+  };
 
   render() {
     const { authenticated, children, location } = this.props;
@@ -30,6 +29,4 @@ export function mapStateToProps(state) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-)(LoginRequiredBase);
+export default compose(connect(mapStateToProps))(LoginRequiredBase);

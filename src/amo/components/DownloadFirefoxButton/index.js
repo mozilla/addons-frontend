@@ -43,7 +43,7 @@ export const DownloadFirefoxButtonBase = ({
 
 type StateType = {|
   api: ApiStateType,
-|}
+|};
 
 export function mapStateToProps(state: StateType) {
   return {

@@ -74,9 +74,10 @@ import {
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
 
-
 export function installTheme(
-  node, addon, { _themeAction = themeAction, _tracking = tracking } = {},
+  node,
+  addon,
+  { _themeAction = themeAction, _tracking = tracking } = {},
 ) {
   const { name, status, type } = addon;
   if (
@@ -102,7 +103,9 @@ export function makeProgressHandler(dispatch, guid) {
   return (addonInstall, event) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
-        (100 * addonInstall.progress) / addonInstall.maxProgress, 10);
+        (100 * addonInstall.progress) / addonInstall.maxProgress,
+        10,
+      );
       dispatch({
         type: DOWNLOAD_PROGRESS,
         payload: { guid, downloadProgress },
@@ -162,18 +165,22 @@ export function mapStateToProps(state, ownProps) {
       }
       if (theme && theme.status === ENABLED) {
         _log.info(
-          `Theme ${guid} is already enabled! Previewing is not necessary.`);
+          `Theme ${guid} is already enabled! Previewing is not necessary.`,
+        );
       }
     },
   };
 }
 
 export function makeMapDispatchToProps({
-  WrappedComponent, defaultInstallSource,
+  WrappedComponent,
+  defaultInstallSource,
 }) {
   return function mapDispatchToProps(dispatch, ownProps) {
     const mappedProps = {
-      dispatch, defaultInstallSource, WrappedComponent,
+      dispatch,
+      defaultInstallSource,
+      WrappedComponent,
     };
 
     if (config.get('server')) {
@@ -268,7 +275,8 @@ export const findInstallURL = ({
   if (appendSource) {
     if (!location) {
       throw new Error(
-        'The location parameter is required when appendSource is true');
+        'The location parameter is required when appendSource is true',
+      );
     }
     source = location.query.src || defaultInstallSource;
   }
@@ -289,8 +297,11 @@ export const findInstallURL = ({
 
   if (!installURL) {
     // This could happen for themes which do not have version files.
-    log.debug(oneLine`No install URL exists for platform "${agentOsName}"
-      (mapped to "${platform}"); platform files:`, platformFiles);
+    log.debug(
+      oneLine`No install URL exists for platform "${agentOsName}"
+      (mapped to "${platform}"); platform files:`,
+      platformFiles,
+    );
     return undefined;
   }
 
@@ -327,14 +338,14 @@ export class WithInstallHelpers extends React.Component {
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
-  }
+  };
 
   static defaultProps = {
     _addonManager: addonManager,
     _tracking: tracking,
     hasAddonManager: addonManager.hasAddonManager(),
     installTheme,
-  }
+  };
 
   componentDidMount() {
     this.setCurrentStatus(this.props);
@@ -360,7 +371,10 @@ export class WithInstallHelpers extends React.Component {
       userAgentInfo,
     } = this.props;
     const installURL = findInstallURL({
-      defaultInstallSource, location, platformFiles, userAgentInfo,
+      defaultInstallSource,
+      location,
+      platformFiles,
+      userAgentInfo,
     });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
@@ -371,31 +385,40 @@ export class WithInstallHelpers extends React.Component {
     const payload = { guid, url: installURL };
 
     log.info('Setting add-on status');
-    return _addonManager.getAddon(guid)
-      .then((addon) => {
-        const status = addon.isActive && addon.isEnabled ?
-          ENABLED : DISABLED;
+    return _addonManager
+      .getAddon(guid)
+      .then(
+        (addon) => {
+          const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
 
-        dispatch(setInstallState({ ...payload, status }));
-      }, (error) => {
-        log.info(
-          oneLine`Add-on "${guid}" not found so setting status to
-          UNINSTALLED; exact error: ${error}`);
-        dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
-      })
+          dispatch(setInstallState({ ...payload, status }));
+        },
+        (error) => {
+          log.info(
+            oneLine`Add-on "${guid}" not found so setting status to
+          UNINSTALLED; exact error: ${error}`,
+          );
+          dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
+        },
+      )
       .catch((error) => {
         log.error(`Caught error from addonManager: ${error}`);
         // Dispatch a generic error should the success/error functions
         // throw.
-        dispatch(setInstallState({
-          guid, status: ERROR, error: FATAL_ERROR,
-        }));
+        dispatch(
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          }),
+        );
       });
   }
 
   enable({ _showInfo = this.showInfo } = {}) {
     const { _addonManager, dispatch, guid, iconUrl, name } = this.props;
-    return _addonManager.enable(guid)
+    return _addonManager
+      .enable(guid)
       .then(() => {
         if (!_addonManager.hasPermissionPromptsEnabled()) {
           _showInfo({ name, iconUrl });
@@ -403,13 +426,16 @@ export class WithInstallHelpers extends React.Component {
       })
       .catch((err) => {
         if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-          log.info(
-            `addon.setEnabled not available. Unable to enable ${guid}`);
+          log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
         } else {
           log.error(err);
-          dispatch(setInstallState({
-            guid, status: ERROR, error: FATAL_ERROR,
-          }));
+          dispatch(
+            setInstallState({
+              guid,
+              status: ERROR,
+              error: FATAL_ERROR,
+            }),
+          );
         }
       });
   }
@@ -437,7 +463,10 @@ export class WithInstallHelpers extends React.Component {
       });
 
       const installURL = findInstallURL({
-        defaultInstallSource, location, platformFiles, userAgentInfo,
+        defaultInstallSource,
+        location,
+        platformFiles,
+        userAgentInfo,
       });
 
       resolve(installURL);
@@ -461,9 +490,13 @@ export class WithInstallHelpers extends React.Component {
       })
       .catch((error) => {
         log.error(`Install error: ${error}`);
-        dispatch(setInstallState({
-          guid, status: ERROR, error: FATAL_INSTALL_ERROR,
-        }));
+        dispatch(
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_INSTALL_ERROR,
+          }),
+        );
       });
   }
 
@@ -509,7 +542,8 @@ export class WithInstallHelpers extends React.Component {
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
 
     const action = getAction(type);
-    return _addonManager.uninstall(guid)
+    return _addonManager
+      .uninstall(guid)
       .then(() => {
         _tracking.sendEvent({
           action,
@@ -519,9 +553,13 @@ export class WithInstallHelpers extends React.Component {
       })
       .catch((err) => {
         log.error(err);
-        dispatch(setInstallState({
-          guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
-        }));
+        dispatch(
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_UNINSTALL_ERROR,
+          }),
+        );
       });
   }
 
@@ -543,16 +581,17 @@ export class WithInstallHelpers extends React.Component {
 }
 
 export function withInstallHelpers({
-  _makeMapDispatchToProps = makeMapDispatchToProps, defaultInstallSource,
+  _makeMapDispatchToProps = makeMapDispatchToProps,
+  defaultInstallSource,
 }) {
   if (typeof defaultInstallSource === 'undefined') {
-    throw new Error(
-      'defaultInstallSource is required for withInstallHelpers');
+    throw new Error('defaultInstallSource is required for withInstallHelpers');
   }
-  return (WrappedComponent) => compose(
-    connect(
-      mapStateToProps,
-      _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
-    ),
-  )(WithInstallHelpers);
+  return (WrappedComponent) =>
+    compose(
+      connect(
+        mapStateToProps,
+        _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
+      ),
+    )(WithInstallHelpers);
 }

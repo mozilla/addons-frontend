@@ -47,7 +47,6 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
-
 type Props = {|
   _window: typeof window | Object,
   clientApp: string,
@@ -115,17 +114,21 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (!user && username) {
-      dispatch(fetchUserAccount({
-        errorHandlerId: errorHandler.id,
-        username,
-      }));
+      dispatch(
+        fetchUserAccount({
+          errorHandlerId: errorHandler.id,
+          username,
+        }),
+      );
     }
 
     if ((!user && username) || (user && !user.notifications)) {
-      dispatch(fetchUserNotifications({
-        errorHandlerId: errorHandler.id,
-        username,
-      }));
+      dispatch(
+        fetchUserNotifications({
+          errorHandlerId: errorHandler.id,
+          username,
+        }),
+      );
     }
   }
 
@@ -151,17 +154,21 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (oldUsername !== newUsername) {
       if (!newUser && newUsername) {
-        dispatch(fetchUserAccount({
-          errorHandlerId: errorHandler.id,
-          username: newUsername,
-        }));
+        dispatch(
+          fetchUserAccount({
+            errorHandlerId: errorHandler.id,
+            username: newUsername,
+          }),
+        );
       }
 
       if ((!newUser && newUsername) || (newUser && !newUser.notifications)) {
-        dispatch(fetchUserNotifications({
-          errorHandlerId: errorHandler.id,
-          username: newUser ? newUser.username : newUsername,
-        }));
+        dispatch(
+          fetchUserNotifications({
+            errorHandlerId: errorHandler.id,
+            username: newUser ? newUser.username : newUsername,
+          }),
+        );
       }
 
       this.setState({
@@ -169,7 +176,12 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         pictureData: null,
         successMessage: null,
       });
-    } else if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
+    } else if (
+      oldUser &&
+      oldUser.picture_url &&
+      newUser &&
+      !newUser.picture_url
+    ) {
       this.setState({
         picture: null,
         pictureData: null,
@@ -189,8 +201,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
   componentDidUpdate(prevProps: Props, prevState: State) {
     if (
-      (!prevProps.errorHandler.hasError() && this.props.errorHandler.hasError())
-      || (!prevState.successMessage && this.state.successMessage)
+      (!prevProps.errorHandler.hasError() &&
+        this.props.errorHandler.hasError()) ||
+      (!prevState.successMessage && this.state.successMessage)
     ) {
       this.props._window.scroll(0, 0);
     }
@@ -204,13 +217,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     e.preventDefault();
 
     this.setState({ showProfileDeletionModal: true });
-  }
+  };
 
   onCancelProfileDeletion = (e: SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     this.setState({ showProfileDeletionModal: false });
-  }
+  };
 
   onConfirmProfileDeletion = (e: SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -228,21 +241,23 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     invariant(currentUser, 'currentUser is required');
     invariant(user, 'user is required');
 
-    dispatch(deleteUserAccount({
-      errorHandlerId: errorHandler.id,
-      userId: user.id,
-    }));
+    dispatch(
+      deleteUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId: user.id,
+      }),
+    );
 
     if (currentUser.id === user.id) {
       dispatch(logOutUser());
     }
 
     router.push(`/${lang}/${clientApp}`);
-  }
+  };
 
   onPictureLoaded = (e: FileReaderEvent) => {
     this.setState({ pictureData: e.target.result });
-  }
+  };
 
   onPictureChange = (event: SyntheticEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -259,7 +274,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         successMessage: null,
       });
     }
-  }
+  };
 
   onNotificationChange = (event: SyntheticEvent<HTMLInputElement>) => {
     event.stopPropagation();
@@ -273,7 +288,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       },
       successMessage: null,
     }));
-  }
+  };
 
   onPictureDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -282,11 +297,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     invariant(user, 'user is required');
 
-    dispatch(deleteUserPicture({
-      errorHandlerId: errorHandler.id,
-      userId: user.id,
-    }));
-  }
+    dispatch(
+      deleteUserPicture({
+        errorHandlerId: errorHandler.id,
+        userId: user.id,
+      }),
+    );
+  };
 
   onFieldChange = (event: SyntheticEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -297,7 +314,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       [name]: value,
       successMessage: null,
     });
-  }
+  };
 
   onSubmit = (event: SyntheticEvent<any>) => {
     event.preventDefault();
@@ -316,21 +333,23 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     invariant(user, 'user is required');
 
-    dispatch(editUserAccount({
-      errorHandlerId: errorHandler.id,
-      notifications,
-      picture,
-      userFields: {
-        biography,
-        display_name: displayName,
-        homepage,
-        location,
-        occupation,
-        username,
-      },
-      userId: user.id,
-    }));
-  }
+    dispatch(
+      editUserAccount({
+        errorHandlerId: errorHandler.id,
+        notifications,
+        picture,
+        userFields: {
+          biography,
+          display_name: displayName,
+          homepage,
+          location,
+          occupation,
+          username,
+        },
+        userId: user.id,
+      }),
+    );
+  };
 
   getFormValues(user: UserType | null): FormValues {
     const defaultFormValues = {
@@ -372,14 +391,15 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     const reader = new FileReader();
     reader.onload = this.onPictureLoaded;
     reader.readAsDataURL(picture);
-  }
+  };
 
   preventSubmit() {
     const { user, isUpdating } = this.props;
     const { username } = this.state;
 
-    return !user || isUpdating || !username || (username &&
-      username.trim() === '');
+    return (
+      !user || isUpdating || !username || (username && username.trim() === '')
+    );
   }
 
   render() {
@@ -423,18 +443,17 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       return <NotFound />;
     }
 
-    const isEditingCurrentUser = currentUser && user ? currentUser.id ===
-      user.id : false;
+    const isEditingCurrentUser =
+      currentUser && user ? currentUser.id === user.id : false;
 
     return (
       <div className="UserProfileEdit">
         {user && (
           <Helmet>
             <title>
-              {i18n.sprintf(
-                i18n.gettext('User Profile for %(user)s'),
-                { user: user.name }
-              )}
+              {i18n.sprintf(i18n.gettext('User Profile for %(user)s'), {
+                user: user.name,
+              })}
             </title>
           </Helmet>
         )}
@@ -443,17 +462,15 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           <ul>
             <li>
               <Link to={`/user/${username}/`}>
-                {isEditingCurrentUser ?
-                  i18n.gettext('View My Profile') :
-                  i18n.gettext(`View user's profile`)
-                }
+                {isEditingCurrentUser
+                  ? i18n.gettext('View My Profile')
+                  : i18n.gettext(`View user's profile`)}
               </Link>
             </li>
             <li>
-              {isEditingCurrentUser ?
-                i18n.gettext('Edit My Profile') :
-                i18n.gettext(`Edit user's profile`)
-              }
+              {isEditingCurrentUser
+                ? i18n.gettext('Edit My Profile')
+                : i18n.gettext(`Edit user's profile`)}
             </li>
           </ul>
         </Card>
@@ -463,19 +480,19 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             {errorMessage}
 
             {this.state.successMessage && (
-              <Notice type="success">
-                {this.state.successMessage}
-              </Notice>
+              <Notice type="success">{this.state.successMessage}</Notice>
             )}
           </div>
           <div>
             <Card
               className="UserProfileEdit--Card"
-              header={isEditingCurrentUser ? i18n.gettext('Account') : (
-                i18n.sprintf(i18n.gettext('Account for %(username)s'), {
-                  username,
-                })
-              )}
+              header={
+                isEditingCurrentUser
+                  ? i18n.gettext('Account')
+                  : i18n.sprintf(i18n.gettext('Account for %(username)s'), {
+                      username,
+                    })
+              }
             >
               <label className="UserProfileEdit--label" htmlFor="username">
                 {i18n.gettext('Username')}
@@ -504,18 +521,18 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                   <p
                     className="UserProfileEdit-email--help"
                     // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={
-                      sanitizeHTML(
-                        i18n.sprintf(
-                          i18n.gettext(`You can change your email address on
-                            Firefox Accounts. %(startLink)sNeed help?%(endLink)s`
-                          ),
-                          {
-                            startLink: '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
-                            endLink: '</a>',
-                          }
-                        ), ['a'])
-                    }
+                    dangerouslySetInnerHTML={sanitizeHTML(
+                      i18n.sprintf(
+                        i18n.gettext(`You can change your email address on
+                            Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
+                        {
+                          startLink:
+                            '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
+                          endLink: '</a>',
+                        },
+                      ),
+                      ['a'],
+                    )}
                   />
                 )}
               </div>
@@ -526,17 +543,20 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={i18n.gettext('Profile')}
             >
               <p className="UserProfileEdit-profile-aside">
-                {isEditingCurrentUser ? i18n.gettext(
-                  `Tell users a bit more information about yourself. These
+                {isEditingCurrentUser
+                  ? i18n.gettext(
+                      `Tell users a bit more information about yourself. These
                   fields are optional, but they'll help other users get to know
-                  you better.`
-                ) : i18n.sprintf(
-                  i18n.gettext(
-                    `Tell users a bit more information about this user. These
+                  you better.`,
+                    )
+                  : i18n.sprintf(
+                      i18n.gettext(
+                        `Tell users a bit more information about this user. These
                     fields are optional, but they'll help other users get to
-                    know %(username)s better.`
-                  ), { username }
-                )}
+                    know %(username)s better.`,
+                      ),
+                      { username },
+                    )}
               </p>
 
               <label className="UserProfileEdit--label" htmlFor="displayName">
@@ -614,12 +634,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={i18n.gettext('Biography')}
             >
               <label className="UserProfileEdit--label" htmlFor="biography">
-                {isEditingCurrentUser ? i18n.gettext(
-                  `Introduce yourself to the community if you like`
-                ) : i18n.sprintf(
-                  i18n.gettext(`Introduce %(username)s to the community`),
-                  { username }
-                )}
+                {isEditingCurrentUser
+                  ? i18n.gettext(
+                      `Introduce yourself to the community if you like`,
+                    )
+                  : i18n.sprintf(
+                      i18n.gettext(`Introduce %(username)s to the community`),
+                      { username },
+                    )}
               </label>
               <Textarea
                 className="UserProfileEdit-biography"
@@ -630,23 +652,26 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 value={this.state.biography || ''}
               />
               <p className="UserProfileEdit-biography--help">
-                {i18n.sprintf(i18n.gettext(
-                  `Some HTML supported: %(htmlTags)s. Links are forbidden.`
-                ), {
-                  htmlTags: [
-                    '<abbr title>',
-                    '<acronym title>',
-                    '<b>',
-                    '<blockquote>',
-                    '<code>',
-                    '<em>',
-                    '<i>',
-                    '<li>',
-                    '<ol>',
-                    '<strong>',
-                    '<ul>',
-                  ].join(' '),
-                })}
+                {i18n.sprintf(
+                  i18n.gettext(
+                    `Some HTML supported: %(htmlTags)s. Links are forbidden.`,
+                  ),
+                  {
+                    htmlTags: [
+                      '<abbr title>',
+                      '<acronym title>',
+                      '<b>',
+                      '<blockquote>',
+                      '<code>',
+                      '<em>',
+                      '<i>',
+                      '<li>',
+                      '<ol>',
+                      '<strong>',
+                      '<ul>',
+                    ].join(' '),
+                  },
+                )}
               </p>
             </Card>
 
@@ -655,15 +680,17 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={i18n.gettext('Notifications')}
             >
               <p className="UserProfileEdit-notifications-aside">
-                {isEditingCurrentUser ? i18n.gettext(
-                  `From time to time, Mozilla may send you email about upcoming
+                {isEditingCurrentUser
+                  ? i18n.gettext(
+                      `From time to time, Mozilla may send you email about upcoming
                   releases and add-on events. Please select the topics you are
-                  interested in.`
-                ) : i18n.gettext(
-                  `From time to time, Mozilla may send this user email about
+                  interested in.`,
+                    )
+                  : i18n.gettext(
+                      `From time to time, Mozilla may send this user email about
                   upcoming releases and add-on events. Please select the
-                  topics this user may be interested in.`
-                )}
+                  topics this user may be interested in.`,
+                    )}
               </p>
 
               <UserProfileEditNotifications
@@ -671,13 +698,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 user={user}
               />
 
-              {(isEditingCurrentUser && isDeveloper(user)) && (
-                <p className="UserProfileEdit-notifications--help">
-                  {i18n.gettext(`Mozilla reserves the right to contact you
+              {isEditingCurrentUser &&
+                isDeveloper(user) && (
+                  <p className="UserProfileEdit-notifications--help">
+                    {i18n.gettext(`Mozilla reserves the right to contact you
                     individually about specific concerns with your hosted
                     add-ons.`)}
-                </p>
-              )}
+                  </p>
+                )}
             </Card>
 
             <div className="UserProfileEdit-buttons-wrapper">
@@ -689,13 +717,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 type="submit"
               >
                 {/* eslint-disable-next-line no-nested-ternary */}
-                {isEditingCurrentUser ? (
-                  isUpdating ? i18n.gettext('Updating your profile…') :
-                    i18n.gettext('Update my profile')
-                ) : (
-                  isUpdating ? i18n.gettext("Updating user's profile…") :
-                    i18n.gettext("Update user's profile")
-                )}
+                {isEditingCurrentUser
+                  ? isUpdating
+                    ? i18n.gettext('Updating your profile…')
+                    : i18n.gettext('Update my profile')
+                  : isUpdating
+                    ? i18n.gettext("Updating user's profile…")
+                    : i18n.gettext("Update user's profile")}
               </Button>
               <Button
                 buttonType="neutral"
@@ -705,9 +733,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 puffy
                 type="button"
               >
-                {isEditingCurrentUser ?
-                    i18n.gettext('Delete my profile') :
-                    i18n.gettext(`Delete user's profile`)}
+                {isEditingCurrentUser
+                  ? i18n.gettext('Delete my profile')
+                  : i18n.gettext(`Delete user's profile`)}
               </Button>
             </div>
           </div>
@@ -716,41 +744,44 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         {this.state.showProfileDeletionModal && (
           <OverlayCard
             className="UserProfileEdit-deletion-modal"
-            header={isEditingCurrentUser ? i18n.gettext(
-              `Attention: You are about to delete your profile. Are you sure?`
-            ) : i18n.gettext(
-              `Attention: You are about to delete a profile. Are you sure?`
-            )}
+            header={
+              isEditingCurrentUser
+                ? i18n.gettext(
+                    `Attention: You are about to delete your profile. Are you sure?`,
+                  )
+                : i18n.gettext(
+                    `Attention: You are about to delete a profile. Are you sure?`,
+                  )
+            }
             onEscapeOverlay={this.onCancelProfileDeletion}
             visibleOnLoad
           >
             <p
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={
-                sanitizeHTML(i18n.sprintf(
+              dangerouslySetInnerHTML={sanitizeHTML(
+                i18n.sprintf(
                   i18n.gettext(`If you confirm this
                     %(startStrong)sirreversible action%(endStrong)s, the
                     following data will be removed: profile picture,
                     profile details (including username, email, display
                     name, location, home page, biography, occupation) and
                     notification preferences. Other data such as ratings
-                    and reviews will be anonymized.`
-                  ), {
+                    and reviews will be anonymized.`),
+                  {
                     startStrong: '<strong>',
                     endStrong: '</strong>',
-                  }
-                ), ['strong'])
-              }
+                  },
+                ),
+                ['strong'],
+              )}
             />
             <p>
-              {isEditingCurrentUser ? (
-                i18n.gettext(`Important: if you own add-ons, you have to
+              {isEditingCurrentUser
+                ? i18n.gettext(`Important: if you own add-ons, you have to
                   transfer them to other users or to delete them before you
                   can delete your profile.`)
-              ) : (
-                i18n.gettext(`Important: a user profile can only be deleted if
-                  the user does not own any add-ons.`)
-              )}
+                : i18n.gettext(`Important: a user profile can only be deleted if
+                  the user does not own any add-ons.`)}
             </p>
             <div className="UserProfileEdit-buttons-wrapper">
               <Button
@@ -760,9 +791,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 onClick={this.onConfirmProfileDeletion}
                 puffy
               >
-                {isEditingCurrentUser ?
-                    i18n.gettext('Yes, delete my profile') :
-                    i18n.gettext('Yes, delete this profile')}
+                {isEditingCurrentUser
+                  ? i18n.gettext('Yes, delete my profile')
+                  : i18n.gettext('Yes, delete this profile')}
               </Button>
               <Button
                 buttonType="cancel"
@@ -789,8 +820,9 @@ export function mapStateToProps(
   const { clientApp, lang } = state.api;
 
   const currentUser = getCurrentUser(state.users);
-  const user = ownProps.params.username ?
-    getUserByUsername(state.users, ownProps.params.username) : currentUser;
+  const user = ownProps.params.username
+    ? getUserByUsername(state.users, ownProps.params.username)
+    : currentUser;
 
   let hasEditPermission = currentUser && user && currentUser.id === user.id;
   if (currentUser && hasPermission(state, USERS_EDIT)) {

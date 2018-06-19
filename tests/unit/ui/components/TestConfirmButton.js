@@ -8,7 +8,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   const render = ({ children, i18n = fakeI18n(), ...props } = {}) => {
     return shallowUntilTarget(
@@ -20,7 +19,7 @@ describe(__filename, () => {
       >
         {children || 'the default text of this button'}
       </ConfirmButton>,
-      ConfirmButtonBase
+      ConfirmButtonBase,
     );
   };
 
@@ -81,10 +80,13 @@ describe(__filename, () => {
     // Show the confirmation panel.
     root.find(Button).simulate('click', createFakeEvent());
 
-    expect(root.find('.ConfirmButton-confirm-button'))
-      .toHaveProp('buttonType', confirmButtonType);
-    expect(root.find('.ConfirmButton-confirm-button').children())
-      .toHaveText(confirmButtonText);
+    expect(root.find('.ConfirmButton-confirm-button')).toHaveProp(
+      'buttonType',
+      confirmButtonType,
+    );
+    expect(root.find('.ConfirmButton-confirm-button').children()).toHaveText(
+      confirmButtonText,
+    );
   });
 
   it('passes props to the cancel button in the confirmation panel', () => {
@@ -95,10 +97,13 @@ describe(__filename, () => {
     // Show the confirmation panel.
     root.find(Button).simulate('click', createFakeEvent());
 
-    expect(root.find('.ConfirmButton-cancel-button'))
-      .toHaveProp('buttonType', cancelButtonType);
-    expect(root.find('.ConfirmButton-cancel-button').children())
-      .toHaveText(cancelButtonText);
+    expect(root.find('.ConfirmButton-cancel-button')).toHaveProp(
+      'buttonType',
+      cancelButtonType,
+    );
+    expect(root.find('.ConfirmButton-cancel-button').children()).toHaveText(
+      cancelButtonText,
+    );
   });
 
   it('closes the confirmation panel on cancel ', () => {
@@ -113,10 +118,9 @@ describe(__filename, () => {
     expect(root).toHaveClassName('ConfirmButton--show-confirmation');
     sinon.assert.notCalled(onConfirmSpy);
 
-    root.find('.ConfirmButton-cancel-button').simulate(
-      'click',
-      createFakeEvent()
-    );
+    root
+      .find('.ConfirmButton-cancel-button')
+      .simulate('click', createFakeEvent());
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
     sinon.assert.notCalled(onConfirmSpy);

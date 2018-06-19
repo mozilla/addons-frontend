@@ -8,7 +8,6 @@ import log from 'core/logger';
 
 import './styles.scss';
 
-
 const BUTTON_TYPES = [
   'neutral',
   'light',
@@ -29,14 +28,14 @@ export default class Button extends React.Component {
     micro: PropTypes.bool,
     puffy: PropTypes.bool,
     to: PropTypes.string,
-  }
+  };
 
   static defaultProps = {
     buttonType: 'none',
     disabled: false,
     micro: false,
     puffy: false,
-  }
+  };
 
   render() {
     const {
@@ -58,7 +57,11 @@ export default class Button extends React.Component {
 
     const setClassName = (...classConfig) => {
       return makeClassName(
-        'Button', `Button--${buttonType}`, className, ...classConfig, {
+        'Button',
+        `Button--${buttonType}`,
+        className,
+        ...classConfig,
+        {
           'Button--disabled': props.disabled,
           'Button--micro': micro,
           'Button--puffy': puffy,
@@ -90,6 +93,10 @@ export default class Button extends React.Component {
       return <Link {...props}>{children}</Link>;
     }
 
-    return <button className={setClassName()} {...props}>{children}</button>;
+    return (
+      <button className={setClassName()} {...props}>
+        {children}
+      </button>
+    );
   }
 }

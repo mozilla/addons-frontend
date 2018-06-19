@@ -23,7 +23,7 @@ export const fakeSRIData = {
 export default class FakeApp extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-  }
+  };
 
   render() {
     const { children } = this.props;

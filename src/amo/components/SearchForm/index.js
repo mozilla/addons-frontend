@@ -9,7 +9,8 @@ import AutoSearchInput from 'amo/components/AutoSearchInput';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import translate from 'core/i18n/translate';
 import type {
-  SearchFilters, SuggestionType,
+  SearchFilters,
+  SuggestionType,
 } from 'amo/components/AutoSearchInput';
 import type { ApiStateType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
@@ -31,11 +32,11 @@ export class SearchFormBase extends React.Component<Props> {
       pathname: this.baseSearchURL(),
       query: convertFiltersToQueryParams(filters),
     });
-  }
+  };
 
   onSuggestionSelected = (suggestion: SuggestionType) => {
     this.props.router.push(suggestion.url);
-  }
+  };
 
   baseSearchURL() {
     const { apiLang, clientApp, pathname } = this.props;
@@ -66,9 +67,7 @@ export class SearchFormBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(
-  state: {| api: ApiStateType |}
-): $Shape<Props> {
+export function mapStateToProps(state: {| api: ApiStateType |}): $Shape<Props> {
   const { api } = state;
 
   return { apiLang: api.lang, clientApp: api.clientApp };

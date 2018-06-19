@@ -5,7 +5,6 @@ import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
 
-
 type Props = {|
   metadata: Array<Object>,
 |};

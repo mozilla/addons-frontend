@@ -5,14 +5,15 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
 import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_ANDROID,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
 } from 'core/constants';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
-
 
 describe('<Categories />', () => {
   let store;
@@ -32,7 +33,7 @@ describe('<Categories />', () => {
         i18n={fakeI18n()}
         {...mapStateToProps(store.getState())}
         {...props}
-      />
+      />,
     );
   }
 
@@ -40,18 +41,25 @@ describe('<Categories />', () => {
     const dispatch = sinon.stub();
     const errorHandler = createStubErrorHandler();
     render({
-      addonType: ADDON_TYPE_EXTENSION, dispatch, errorHandler,
+      addonType: ADDON_TYPE_EXTENSION,
+      dispatch,
+      errorHandler,
     });
 
-    sinon.assert.calledWith(dispatch, categoriesFetch({
-      errorHandlerId: errorHandler.id,
-    }));
+    sinon.assert.calledWith(
+      dispatch,
+      categoriesFetch({
+        errorHandlerId: errorHandler.id,
+      }),
+    );
   });
 
   it('does not fetch categories if already loading them', () => {
-    store.dispatch(categoriesFetch({
-      errorHandlerId: createStubErrorHandler().id,
-    }));
+    store.dispatch(
+      categoriesFetch({
+        errorHandlerId: createStubErrorHandler().id,
+      }),
+    );
     const dispatch = sinon.stub();
     render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
 
@@ -121,8 +129,9 @@ describe('<Categories />', () => {
       loading: true,
     });
 
-    expect(root.find('.Categories-loading-info'))
-      .toIncludeText('Loading categories.');
+    expect(root.find('.Categories-loading-info')).toIncludeText(
+      'Loading categories.',
+    );
   });
 
   it('renders LoadingText components when loading', () => {
@@ -131,8 +140,9 @@ describe('<Categories />', () => {
       loading: true,
     });
 
-    expect(root.find('.Categories-loading-text').find(LoadingText))
-      .toHaveLength(8);
+    expect(
+      root.find('.Categories-loading-text').find(LoadingText),
+    ).toHaveLength(8);
   });
 
   it('renders categories if they exist', () => {
@@ -161,10 +171,18 @@ describe('<Categories />', () => {
       addonType: ADDON_TYPE_EXTENSION,
     });
 
-    expect(root.find('.Categories-list').childAt(0).find(Button))
-      .toHaveProp('children', 'Games');
-    expect(root.find('.Categories-list').childAt(1).find(Button))
-      .toHaveProp('children', 'Travel');
+    expect(
+      root
+        .find('.Categories-list')
+        .childAt(0)
+        .find(Button),
+    ).toHaveProp('children', 'Games');
+    expect(
+      root
+        .find('.Categories-list')
+        .childAt(1)
+        .find(Button),
+    ).toHaveProp('children', 'Travel');
   });
 
   it('sorts and renders the sorted categories', () => {
@@ -207,14 +225,30 @@ describe('<Categories />', () => {
       addonType: ADDON_TYPE_EXTENSION,
     });
 
-    expect(root.find('.Categories-list').childAt(0).find(Button))
-      .toHaveProp('children', 'Games');
-    expect(root.find('.Categories-list').childAt(1).find(Button))
-      .toHaveProp('children', 'Music');
-    expect(root.find('.Categories-list').childAt(2).find(Button))
-      .toHaveProp('children', 'Nature');
-    expect(root.find('.Categories-list').childAt(3).find(Button))
-      .toHaveProp('children', 'Travel');
+    expect(
+      root
+        .find('.Categories-list')
+        .childAt(0)
+        .find(Button),
+    ).toHaveProp('children', 'Games');
+    expect(
+      root
+        .find('.Categories-list')
+        .childAt(1)
+        .find(Button),
+    ).toHaveProp('children', 'Music');
+    expect(
+      root
+        .find('.Categories-list')
+        .childAt(2)
+        .find(Button),
+    ).toHaveProp('children', 'Nature');
+    expect(
+      root
+        .find('.Categories-list')
+        .childAt(3)
+        .find(Button),
+    ).toHaveProp('children', 'Travel');
   });
 
   it('renders a no categories found message', () => {
@@ -222,13 +256,14 @@ describe('<Categories />', () => {
     store.dispatch(categoriesLoad(categoriesResponse));
     const root = render();
 
-    expect(root.find('.Categories-none-loaded-message'))
-      .toIncludeText('No categories found.');
+    expect(root.find('.Categories-none-loaded-message')).toIncludeText(
+      'No categories found.',
+    );
   });
 
   it('reports errors', () => {
     const errorHandler = createStubErrorHandler(
-      new Error('example of an error')
+      new Error('example of an error'),
     );
     const root = render({ errorHandler });
 

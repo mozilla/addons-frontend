@@ -10,13 +10,12 @@ import { sanitizeHTML } from 'core/utils';
 
 import './styles.scss';
 
-
 export class FooterBase extends React.Component {
   static propTypes = {
     handleViewDesktop: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { handleViewDesktop, i18n, location } = this.props;
@@ -40,48 +39,56 @@ export class FooterBase extends React.Component {
           </div>
 
           <section className="Footer-amo-links">
-            <h4 className="Footer-links-header"><Link href="/">{i18n.gettext('Add-ons')}</Link></h4>
+            <h4 className="Footer-links-header">
+              <Link href="/">{i18n.gettext('Add-ons')}</Link>
+            </h4>
             <ul className="Footer-links">
               <li>
-                <Link
-                  to="/about"
-                  prependClientApp={false}
-                >
+                <Link to="/about" prependClientApp={false}>
                   {i18n.gettext('About')}
                 </Link>
               </li>
               <li>
-                <a href="https://blog.mozilla.com/addons">{i18n.gettext('Blog')}</a>
+                <a href="https://blog.mozilla.com/addons">
+                  {i18n.gettext('Blog')}
+                </a>
               </li>
               <li>
-                <Link
-                  href="/developers/"
-                  prependClientApp={false}
-                >
+                <Link href="/developers/" prependClientApp={false}>
                   {i18n.gettext('Developer Hub')}
                 </Link>
               </li>
               <li>
-                <a href="https://discourse.mozilla-community.org/c/add-ons">{i18n.gettext('Forum')}</a>
+                <a href="https://discourse.mozilla-community.org/c/add-ons">
+                  {i18n.gettext('Forum')}
+                </a>
               </li>
               <li>
-                <a className="Footer-bug-report-link" href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact">{i18n.gettext('Report a bug')}</a>
-              </li>
-              <li>
-                <Link
-                  to="/review_guide"
-                  prependClientApp={false}
+                <a
+                  className="Footer-bug-report-link"
+                  href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact"
                 >
+                  {i18n.gettext('Report a bug')}
+                </a>
+              </li>
+              <li>
+                <Link to="/review_guide" prependClientApp={false}>
                   {i18n.gettext('Review Guide')}
                 </Link>
               </li>
-              <li><a href="https://status.mozilla.org/">{i18n.gettext('Site Status')}</a></li>
+              <li>
+                <a href="https://status.mozilla.org/">
+                  {i18n.gettext('Site Status')}
+                </a>
+              </li>
               <li>
                 <a
                   href="#desktop"
                   className="Footer-link Footer-desktop"
                   onClick={handleViewDesktop}
-                  ref={(ref) => { this.desktopLink = ref; }}
+                  ref={(ref) => {
+                    this.desktopLink = ref;
+                  }}
                 >
                   {i18n.gettext('View classic desktop site')}
                 </a>
@@ -90,7 +97,9 @@ export class FooterBase extends React.Component {
           </section>
 
           <section className="Footer-firefox-links">
-            <h4 className="Footer-links-header"><a href="https://www.mozilla.org/firefox/">Firefox</a></h4>
+            <h4 className="Footer-links-header">
+              <a href="https://www.mozilla.org/firefox/">Firefox</a>
+            </h4>
             <ul className="Footer-links">
               <li>
                 <a href="https://www.mozilla.org/firefox/new/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
@@ -143,33 +152,67 @@ export class FooterBase extends React.Component {
           </section>
 
           <ul className="Footer-legal-links">
-            <li><a className="Footer-privacy-link" href="https://www.mozilla.org/privacy/websites/">{i18n.gettext('Privacy')}</a></li>
-            <li><a className="Footer-cookies-link" href="https://www.mozilla.org/privacy/websites/#cookies">{i18n.gettext('Cookies')}</a></li>
-            <li><a className="Footer-legal-link" href="https://www.mozilla.org/about/legal/">{i18n.gettext('Legal')}</a></li>
-            <li><a className="Footer-trademark-abuse-link" href="https://www.mozilla.org/about/legal/fraud-report/">{i18n.gettext('Report Trademark Abuse')}</a></li>
+            <li>
+              <a
+                className="Footer-privacy-link"
+                href="https://www.mozilla.org/privacy/websites/"
+              >
+                {i18n.gettext('Privacy')}
+              </a>
+            </li>
+            <li>
+              <a
+                className="Footer-cookies-link"
+                href="https://www.mozilla.org/privacy/websites/#cookies"
+              >
+                {i18n.gettext('Cookies')}
+              </a>
+            </li>
+            <li>
+              <a
+                className="Footer-legal-link"
+                href="https://www.mozilla.org/about/legal/"
+              >
+                {i18n.gettext('Legal')}
+              </a>
+            </li>
+            <li>
+              <a
+                className="Footer-trademark-abuse-link"
+                href="https://www.mozilla.org/about/legal/fraud-report/"
+              >
+                {i18n.gettext('Report Trademark Abuse')}
+              </a>
+            </li>
           </ul>
 
           <p
             className="Footer-copyright"
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={
-              sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`Except where otherwise %(startNotedLink)snoted%(endNotedLink)s,
+            dangerouslySetInnerHTML={sanitizeHTML(
+              i18n.sprintf(
+                i18n.gettext(`Except where otherwise %(startNotedLink)snoted%(endNotedLink)s,
                   content on this site is licensed under the %(startLicenseLink)sCreative Commons
                   Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version.`),
-                  { startNotedLink: '<a href="https://www.mozilla.org/en-US/about/legal/">',
-                    endNotedLink: '</a>',
-                    startLicenseLink: '<a href="https://creativecommons.org/licenses/by-sa/3.0/">',
-                    endLicenseLink: '</a>' }
-                ), ['a'])
-            }
+                {
+                  startNotedLink:
+                    '<a href="https://www.mozilla.org/en-US/about/legal/">',
+                  endNotedLink: '</a>',
+                  startLicenseLink:
+                    '<a href="https://creativecommons.org/licenses/by-sa/3.0/">',
+                  endLicenseLink: '</a>',
+                },
+              ),
+              ['a'],
+            )}
           />
 
           <div className="Footer-language-picker">
             <LanguagePicker
               location={location}
-              ref={(ref) => { this.languagePicker = ref; }}
+              ref={(ref) => {
+                this.languagePicker = ref;
+              }}
             />
           </div>
         </div>
@@ -178,6 +221,4 @@ export class FooterBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(FooterBase);
+export default compose(translate({ withRef: true }))(FooterBase);

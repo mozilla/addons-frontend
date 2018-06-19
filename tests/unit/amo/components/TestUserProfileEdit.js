@@ -22,10 +22,7 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
-import {
-  CLIENT_APP_FIREFOX,
-  USERS_EDIT,
-} from 'core/constants';
+import { CLIENT_APP_FIREFOX, USERS_EDIT } from 'core/constants';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
@@ -43,7 +40,6 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   let fakeRouter;
@@ -96,7 +92,7 @@ describe(__filename, () => {
         store={store}
         {...props}
       />,
-      UserProfileEditBase
+      UserProfileEditBase,
     );
   }
 
@@ -108,13 +104,15 @@ describe(__filename, () => {
     userId = 'user-id',
     errorHandlerId = createStubErrorHandler().id,
   }) {
-    store.dispatch(editUserAccount({
-      errorHandlerId,
-      notifications,
-      picture,
-      userFields,
-      userId,
-    }));
+    store.dispatch(
+      editUserAccount({
+        errorHandlerId,
+        notifications,
+        picture,
+        userFields,
+        userId,
+      }),
+    );
   }
 
   it('renders user profile page for current logged-in user', () => {
@@ -123,14 +121,16 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit')).toHaveLength(1);
     expect(root.find(Notice)).toHaveLength(0);
 
-    expect(root.find('.UserProfileEdit--Card').first())
-      .toHaveProp('header', 'Account');
+    expect(root.find('.UserProfileEdit--Card').first()).toHaveProp(
+      'header',
+      'Account',
+    );
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
       users a bit more information about yourself. These fields are optional,
-      but they'll help other users get to know you better.`
+      but they'll help other users get to know you better.`);
+    expect(root.find({ htmlFor: 'biography' })).toHaveText(
+      'Introduce yourself to the community if you like',
     );
-    expect(root.find({ htmlFor: 'biography' }))
-      .toHaveText('Introduce yourself to the community if you like');
     expect(root.find(UserProfileEditPicture)).toHaveLength(1);
 
     expect(root.find('.UserProfileEdit-notifications-aside'))
@@ -150,14 +150,20 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params: { username }, store });
 
     sinon.assert.callCount(dispatchSpy, 2);
-    sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
-      errorHandlerId: root.instance().props.errorHandler.id,
-      username,
-    }));
-    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
-      errorHandlerId: root.instance().props.errorHandler.id,
-      username,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        username,
+      }),
+    );
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserNotifications({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        username,
+      }),
+    );
   });
 
   it('dispatches fetchUserNotifications and not fetchUserAccount when the current logged-in user is being edited', () => {
@@ -176,10 +182,13 @@ describe(__filename, () => {
     renderUserProfileEdit({ errorHandler, params: {}, store });
 
     sinon.assert.calledOnce(dispatchSpy);
-    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
-      errorHandlerId: errorHandler.id,
-      username,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserNotifications({
+        errorHandlerId: errorHandler.id,
+        username,
+      }),
+    );
   });
 
   it('does not dispatch any actions if the current logged-in user is being edited and the notifications are loaded', () => {
@@ -188,10 +197,12 @@ describe(__filename, () => {
     const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadUserNotifications({
-      username,
-      notifications: createUserNotificationsResponse(),
-    }));
+    store.dispatch(
+      loadUserNotifications({
+        username,
+        notifications: createUserNotificationsResponse(),
+      }),
+    );
 
     dispatchSpy.resetHistory();
 
@@ -219,14 +230,20 @@ describe(__filename, () => {
     root.setProps({ username: 'killmonger', user: null });
 
     sinon.assert.callCount(dispatchSpy, 2);
-    sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
-      errorHandlerId: errorHandler.id,
-      username: 'killmonger',
-    }));
-    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
-      errorHandlerId: errorHandler.id,
-      username: 'killmonger',
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: errorHandler.id,
+        username: 'killmonger',
+      }),
+    );
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserNotifications({
+        errorHandlerId: errorHandler.id,
+        username: 'killmonger',
+      }),
+    );
 
     expect(root.find('.UserProfileEdit-location')).toHaveProp('value', '');
   });
@@ -241,10 +258,12 @@ describe(__filename, () => {
     // We load user notifications here because the purpose of this test case is
     // not to check that part but to make sure `fetchUserAccount()` is not
     // called.
-    store.dispatch(loadUserNotifications({
-      username,
-      notifications: createUserNotificationsResponse(),
-    }));
+    store.dispatch(
+      loadUserNotifications({
+        username,
+        notifications: createUserNotificationsResponse(),
+      }),
+    );
 
     const root = renderUserProfileEdit({ errorHandler, store });
     const user = getCurrentUser(store.getState().users);
@@ -276,10 +295,13 @@ describe(__filename, () => {
     // present in the store.
     root.setProps({ username: 'killmonger', user });
 
-    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
-      errorHandlerId: errorHandler.id,
-      username,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserNotifications({
+        errorHandlerId: errorHandler.id,
+        username,
+      }),
+    );
   });
 
   it('does not dispatch fetchUserAccount if username does not change', () => {
@@ -309,8 +331,10 @@ describe(__filename, () => {
     });
 
     expect(root.find('.UserProfileEdit-username')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-username'))
-      .toHaveProp('value', username);
+    expect(root.find('.UserProfileEdit-username')).toHaveProp(
+      'value',
+      username,
+    );
   });
 
   it('renders disabled input fields when user to edit is not loaded', () => {
@@ -319,18 +343,21 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ store, params: { username } });
 
-    expect(root.find('.UserProfileEdit-username'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-displayName'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-homepage'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-location'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-occupation'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-biography'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-username')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-displayName')).toHaveProp(
+      'disabled',
+      true,
+    );
+    expect(root.find('.UserProfileEdit-homepage')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-location')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-occupation')).toHaveProp(
+      'disabled',
+      true,
+    );
+    expect(root.find('.UserProfileEdit-biography')).toHaveProp(
+      'disabled',
+      true,
+    );
   });
 
   it('always renders a disabled "email" input field', () => {
@@ -349,17 +376,17 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-email--help')).toHaveHTML(
       oneLine`<p class="UserProfileEdit-email--help">You can change your email
       address on Firefox Accounts.
-      <a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">Need help?</a></p>`
+      <a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">Need help?</a></p>`,
     );
 
     expect(root.find('.UserProfileEdit-homepage--help')).toHaveText(
-      `This URL will only be visible for users who are developers.`
+      `This URL will only be visible for users who are developers.`,
     );
 
     expect(root.find('.UserProfileEdit-biography--help')).toHaveText(
       oneLine`Some HTML supported: <abbr title> <acronym title> <b>
       <blockquote> <code> <em> <i> <li> <ol> <strong> <ul>. Links are
-      forbidden.`
+      forbidden.`,
     );
 
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
@@ -375,7 +402,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
       oneLine`Mozilla reserves the right to contact you individually about
-      specific concerns with your hosted add-ons.`
+      specific concerns with your hosted add-ons.`,
     );
   });
 
@@ -389,7 +416,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
       oneLine`Mozilla reserves the right to contact you individually about
-      specific concerns with your hosted add-ons.`
+      specific concerns with your hosted add-ons.`,
     );
   });
 
@@ -403,8 +430,10 @@ describe(__filename, () => {
     });
 
     expect(root.find('.UserProfileEdit-displayName')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-displayName'))
-      .toHaveProp('value', displayName);
+    expect(root.find('.UserProfileEdit-displayName')).toHaveProp(
+      'value',
+      displayName,
+    );
   });
 
   it('renders a homepage input field', () => {
@@ -417,8 +446,10 @@ describe(__filename, () => {
     });
 
     expect(root.find('.UserProfileEdit-homepage')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-homepage'))
-      .toHaveProp('value', homepage);
+    expect(root.find('.UserProfileEdit-homepage')).toHaveProp(
+      'value',
+      homepage,
+    );
   });
 
   it('renders a location input field', () => {
@@ -431,8 +462,10 @@ describe(__filename, () => {
     });
 
     expect(root.find('.UserProfileEdit-location')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-location'))
-      .toHaveProp('value', location);
+    expect(root.find('.UserProfileEdit-location')).toHaveProp(
+      'value',
+      location,
+    );
   });
 
   it('renders a occupation input field', () => {
@@ -445,8 +478,10 @@ describe(__filename, () => {
     });
 
     expect(root.find('.UserProfileEdit-occupation')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-occupation'))
-      .toHaveProp('value', occupation);
+    expect(root.find('.UserProfileEdit-occupation')).toHaveProp(
+      'value',
+      occupation,
+    );
   });
 
   it('renders a biography input field', () => {
@@ -459,8 +494,10 @@ describe(__filename, () => {
     });
 
     expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-biography'))
-      .toHaveProp('value', biography);
+    expect(root.find('.UserProfileEdit-biography')).toHaveProp(
+      'value',
+      biography,
+    );
   });
 
   // See: https://github.com/mozilla/addons-frontend/issues/5212
@@ -498,10 +535,12 @@ describe(__filename, () => {
         createFakeEventChange({
           name: field,
           value: newValue,
-        })
+        }),
       );
-      expect(root.find(`.UserProfileEdit-${field}`))
-        .toHaveProp('value', newValue);
+      expect(root.find(`.UserProfileEdit-${field}`)).toHaveProp(
+        'value',
+        newValue,
+      );
     });
   });
 
@@ -515,20 +554,23 @@ describe(__filename, () => {
 
     root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
 
-    sinon.assert.calledWith(dispatchSpy, editUserAccount({
-      errorHandlerId: errorHandler.id,
-      notifications: {},
-      picture: null,
-      userFields: {
-        biography: user.biography,
-        display_name: user.display_name,
-        homepage: user.homepage,
-        location: user.location,
-        occupation: user.occupation,
-        username: user.username,
-      },
-      userId: user.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      editUserAccount({
+        errorHandlerId: errorHandler.id,
+        notifications: {},
+        picture: null,
+        userFields: {
+          biography: user.biography,
+          display_name: user.display_name,
+          homepage: user.homepage,
+          location: user.location,
+          occupation: user.occupation,
+          username: user.username,
+        },
+        userId: user.id,
+      }),
+    );
   });
 
   it('renders a submit button', () => {
@@ -555,8 +597,9 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ params, store });
 
-    expect(root.find('.UserProfileEdit-submit-button').dive())
-      .toHaveText(`Update user's profile`);
+    expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
+      `Update user's profile`,
+    );
   });
 
   it('renders a delete button with a different text when user is not the logged-in user', () => {
@@ -565,8 +608,9 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ params, store });
 
-    expect(root.find('.UserProfileEdit-delete-button').dive())
-      .toHaveText(`Delete user's profile`);
+    expect(root.find('.UserProfileEdit-delete-button').dive()).toHaveText(
+      `Delete user's profile`,
+    );
   });
 
   it('renders a submit button with a different text when editing', () => {
@@ -576,8 +620,9 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ store });
 
-    expect(root.find('.UserProfileEdit-submit-button').dive())
-      .toHaveText('Updating your profile…');
+    expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
+      'Updating your profile…',
+    );
   });
 
   it('renders a submit button with a different text when user is not the logged-in user and editing', () => {
@@ -588,8 +633,9 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ params, store });
 
-    expect(root.find('.UserProfileEdit-submit-button').dive())
-      .toHaveText(`Updating user's profile…`);
+    expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
+      `Updating user's profile…`,
+    );
   });
 
   it('disables the submit button when username is empty', () => {
@@ -600,11 +646,13 @@ describe(__filename, () => {
       createFakeEventChange({
         name: 'username',
         value: '',
-      })
+      }),
     );
 
-    expect(root.find('.UserProfileEdit-submit-button'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+      'disabled',
+      true,
+    );
   });
 
   it('dispatches editUserAccount action with new field values on submit', () => {
@@ -623,24 +671,27 @@ describe(__filename, () => {
       createFakeEventChange({
         name: 'location',
         value: location,
-      })
+      }),
     );
     root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
 
-    sinon.assert.calledWith(dispatchSpy, editUserAccount({
-      errorHandlerId: errorHandler.id,
-      notifications: {},
-      picture: null,
-      userFields: {
-        biography: user.biography,
-        display_name: user.display_name,
-        homepage: user.homepage,
-        location,
-        occupation: user.occupation,
-        username: user.username,
-      },
-      userId: user.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      editUserAccount({
+        errorHandlerId: errorHandler.id,
+        notifications: {},
+        picture: null,
+        userFields: {
+          biography: user.biography,
+          display_name: user.display_name,
+          homepage: user.homepage,
+          location,
+          occupation: user.occupation,
+          username: user.username,
+        },
+        userId: user.id,
+      }),
+    );
   });
 
   it('dispatches editUserAccount action with updated notifications on submit', () => {
@@ -655,33 +706,38 @@ describe(__filename, () => {
     const onChange = root.find(UserProfileEditNotifications).prop('onChange');
     const stopPropagationSpy = sinon.spy();
 
-    onChange(createFakeEvent({
-      currentTarget: {
-        name: 'reply',
-        checked: false,
-      },
-      stopPropagation: stopPropagationSpy,
-    }));
+    onChange(
+      createFakeEvent({
+        currentTarget: {
+          name: 'reply',
+          checked: false,
+        },
+        stopPropagation: stopPropagationSpy,
+      }),
+    );
 
     // The user clicks the "update" button.
     root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
 
-    sinon.assert.calledWith(dispatchSpy, editUserAccount({
-      errorHandlerId: errorHandler.id,
-      notifications: {
-        reply: false,
-      },
-      picture: null,
-      userFields: {
-        biography: user.biography,
-        display_name: user.display_name,
-        homepage: user.homepage,
-        location: user.location,
-        occupation: user.occupation,
-        username: user.username,
-      },
-      userId: user.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      editUserAccount({
+        errorHandlerId: errorHandler.id,
+        notifications: {
+          reply: false,
+        },
+        picture: null,
+        userFields: {
+          biography: user.biography,
+          display_name: user.display_name,
+          homepage: user.homepage,
+          location: user.location,
+          occupation: user.occupation,
+          username: user.username,
+        },
+        userId: user.id,
+      }),
+    );
   });
 
   it('redirects to user profile page when user profile has been updated', () => {
@@ -711,8 +767,10 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ store });
 
     expect(root.find(Notice)).toHaveLength(0);
-    expect(root.find('.UserProfileEdit-submit-button'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+      'disabled',
+      true,
+    );
 
     // The user profile has been updated.
     store.dispatch(finishEditUserAccount());
@@ -720,12 +778,14 @@ describe(__filename, () => {
     const { isUpdating } = store.getState().users;
     root.setProps({ isUpdating });
 
-    expect(root.find('.UserProfileEdit-submit-button'))
-      .toHaveProp('disabled', false);
+    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+      'disabled',
+      false,
+    );
 
     sinon.assert.calledWith(
       fakeRouter.push,
-      `/${lang}/${clientApp}/user/${username}/`
+      `/${lang}/${clientApp}/user/${username}/`,
     );
   });
 
@@ -776,7 +836,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeRouter.push,
-      `/${lang}/${clientApp}/user/${newUsername}/edit/`
+      `/${lang}/${clientApp}/user/${newUsername}/edit/`,
     );
   });
 
@@ -818,8 +878,10 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ errorHandler, store });
 
     expect(root.find(Notice)).toHaveLength(0);
-    expect(root.find('.UserProfileEdit-submit-button'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+      'disabled',
+      true,
+    );
 
     // An error occured while updating the user profile.
     errorHandler.handle(new Error('unexpected error'));
@@ -830,8 +892,10 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(0);
 
-    expect(root.find('.UserProfileEdit-submit-button'))
-      .toHaveProp('disabled', false);
+    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+      'disabled',
+      false,
+    );
   });
 
   it('renders a Not Found page when logged-in user cannot edit another user', () => {
@@ -874,16 +938,22 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find(NotFound)).toHaveLength(0);
-    expect(root.find('.UserProfileEdit-username'))
-      .toHaveProp('value', user.username);
+    expect(root.find('.UserProfileEdit-username')).toHaveProp(
+      'value',
+      user.username,
+    );
 
     const linkItems = root.find('.UserProfileEdit-user-links li');
-    expect(linkItems.at(0).find(Link))
-      .toHaveProp('children', "View user's profile");
+    expect(linkItems.at(0).find(Link)).toHaveProp(
+      'children',
+      "View user's profile",
+    );
     expect(linkItems.at(1).children()).toHaveText("Edit user's profile");
 
-    expect(root.find('.UserProfileEdit--Card').first())
-      .toHaveProp('header', 'Account for willdurand');
+    expect(root.find('.UserProfileEdit--Card').first()).toHaveProp(
+      'header',
+      'Account for willdurand',
+    );
 
     // We do not display these help messages when current logged-in user edits
     // another user.
@@ -892,11 +962,11 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
       users a bit more information about this user. These fields are optional,
-      but they'll help other users get to know willdurand better.`
-    );
+      but they'll help other users get to know willdurand better.`);
 
-    expect(root.find({ htmlFor: 'biography' }))
-      .toHaveText('Introduce willdurand to the community');
+    expect(root.find({ htmlFor: 'biography' })).toHaveText(
+      'Introduce willdurand to the community',
+    );
 
     expect(root.find('.UserProfileEdit-notifications-aside'))
       .toHaveText(oneLine`From time to time, Mozilla may send this user email
@@ -936,8 +1006,10 @@ describe(__filename, () => {
     });
 
     expect(root.find(AuthenticateButton)).toHaveLength(1);
-    expect(root.find(AuthenticateButton))
-      .toHaveProp('logInText', 'Log in to edit the profile');
+    expect(root.find(AuthenticateButton)).toHaveProp(
+      'logInText',
+      'Log in to edit the profile',
+    );
   });
 
   it('displays an AuthenticateButton if current user is not logged-in and loads a user edit page', () => {
@@ -1011,11 +1083,13 @@ describe(__filename, () => {
       id: 'some-error-handler-id',
       dispatch: store.dispatch,
     });
-    errorHandler.handle(createApiError({
-      response: { status: 404 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'not found' },
-    }));
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'not found' },
+      }),
+    );
 
     const root = renderUserProfileEdit({ errorHandler, store });
 
@@ -1056,10 +1130,13 @@ describe(__filename, () => {
 
     onDelete(createFakeEvent());
 
-    sinon.assert.calledWith(dispatchSpy, deleteUserPicture({
-      errorHandlerId: errorHandler.id,
-      userId: user.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      deleteUserPicture({
+        errorHandlerId: errorHandler.id,
+        userId: user.id,
+      }),
+    );
   });
 
   it('stores the picture file selected by the user', () => {
@@ -1075,11 +1152,13 @@ describe(__filename, () => {
 
     sinon.assert.notCalled(loadPictureSpy);
 
-    onSelect(createFakeEvent({
-      currentTarget: {
-        files: [selectedFile],
-      },
-    }));
+    onSelect(
+      createFakeEvent({
+        currentTarget: {
+          files: [selectedFile],
+        },
+      }),
+    );
 
     expect(root).toHaveState('picture', selectedFile);
     expect(root).toHaveState('successMessage', null);
@@ -1093,11 +1172,13 @@ describe(__filename, () => {
 
     const result = 'some-data-uri-content';
 
-    root.instance().onPictureLoaded(createFakeEvent({
-      target: {
-        result,
-      },
-    }));
+    root.instance().onPictureLoaded(
+      createFakeEvent({
+        target: {
+          result,
+        },
+      }),
+    );
 
     expect(root).toHaveState('pictureData', result);
   });
@@ -1127,8 +1208,10 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice)).toHaveProp('type', 'success');
-    expect(root.find(Notice))
-      .toHaveProp('children', 'Picture successfully deleted');
+    expect(root.find(Notice)).toHaveProp(
+      'children',
+      'Picture successfully deleted',
+    );
 
     expect(root).toHaveState('picture', null);
     expect(root).toHaveState('pictureData', null);
@@ -1143,10 +1226,12 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
 
-    root.find('.UserProfileEdit-delete-button').simulate(
-      'click',
-      createFakeEvent({ preventDefault: preventDefaultSpy })
-    );
+    root
+      .find('.UserProfileEdit-delete-button')
+      .simulate(
+        'click',
+        createFakeEvent({ preventDefault: preventDefaultSpy }),
+      );
 
     sinon.assert.called(preventDefaultSpy);
 
@@ -1155,7 +1240,7 @@ describe(__filename, () => {
     expect(modal).toHaveLength(1);
     expect(modal).toHaveProp(
       'header',
-      'Attention: You are about to delete your profile. Are you sure?'
+      'Attention: You are about to delete your profile. Are you sure?',
     );
     expect(modal).toHaveProp('visibleOnLoad', true);
 
@@ -1172,10 +1257,13 @@ describe(__filename, () => {
       before you can delete your profile.`);
 
     expect(root.find('.UserProfileEdit-confirm-button')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-confirm-button').children())
-      .toHaveText('Yes, delete my profile');
-    expect(root.find('.UserProfileEdit-confirm-button'))
-      .toHaveProp('disabled', false);
+    expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
+      'Yes, delete my profile',
+    );
+    expect(root.find('.UserProfileEdit-confirm-button')).toHaveProp(
+      'disabled',
+      false,
+    );
     expect(root.find('.UserProfileEdit-cancel-button')).toHaveLength(1);
   });
 
@@ -1190,13 +1278,14 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ store });
 
     // Open the modal.
-    root.find('.UserProfileEdit-delete-button').simulate(
-      'click',
-      createFakeEvent()
-    );
+    root
+      .find('.UserProfileEdit-delete-button')
+      .simulate('click', createFakeEvent());
 
-    expect(root.find('.UserProfileEdit-confirm-button'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-confirm-button')).toHaveProp(
+      'disabled',
+      true,
+    );
   });
 
   it('renders different information in the modal when user to be deleted is not the current logged-in user', () => {
@@ -1205,20 +1294,26 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ params, store });
 
-    root.find('.UserProfileEdit-delete-button')
+    root
+      .find('.UserProfileEdit-delete-button')
       .simulate('click', createFakeEvent());
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveProp(
       'header',
-      'Attention: You are about to delete a profile. Are you sure?'
+      'Attention: You are about to delete a profile. Are you sure?',
     );
 
-    expect(root.find('.UserProfileEdit-deletion-modal').find('p').at(1))
-      .toHaveText(oneLine`Important: a user profile can only be deleted if the
+    expect(
+      root
+        .find('.UserProfileEdit-deletion-modal')
+        .find('p')
+        .at(1),
+    ).toHaveText(oneLine`Important: a user profile can only be deleted if the
         user does not own any add-ons.`);
 
-    expect(root.find('.UserProfileEdit-confirm-button').children())
-      .toHaveText('Yes, delete this profile');
+    expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
+      'Yes, delete this profile',
+    );
   });
 
   it('closes the modal when user clicks the cancel button', () => {
@@ -1229,19 +1324,20 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
 
-    root.find('.UserProfileEdit-delete-button').simulate(
-      'click',
-      createFakeEvent()
-    );
+    root
+      .find('.UserProfileEdit-delete-button')
+      .simulate('click', createFakeEvent());
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(1);
 
     sinon.assert.notCalled(preventDefaultSpy);
 
-    root.find('.UserProfileEdit-cancel-button').simulate(
-      'click',
-      createFakeEvent({ preventDefault: preventDefaultSpy })
-    );
+    root
+      .find('.UserProfileEdit-cancel-button')
+      .simulate(
+        'click',
+        createFakeEvent({ preventDefault: preventDefaultSpy }),
+      );
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
 
@@ -1275,25 +1371,29 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     // User opens the modal.
-    root.find('.UserProfileEdit-delete-button').simulate(
-      'click',
-      createFakeEvent()
-    );
+    root
+      .find('.UserProfileEdit-delete-button')
+      .simulate('click', createFakeEvent());
 
     sinon.assert.notCalled(dispatchSpy);
     sinon.assert.notCalled(preventDefaultSpy);
 
     // User confirms account deletion.
-    root.find('.UserProfileEdit-confirm-button').simulate(
-      'click',
-      createFakeEvent({ preventDefault: preventDefaultSpy })
-    );
+    root
+      .find('.UserProfileEdit-confirm-button')
+      .simulate(
+        'click',
+        createFakeEvent({ preventDefault: preventDefaultSpy }),
+      );
 
     sinon.assert.callCount(dispatchSpy, 2);
-    sinon.assert.calledWith(dispatchSpy, deleteUserAccount({
-      errorHandlerId: errorHandler.id,
-      userId,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      deleteUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId,
+      }),
+    );
     sinon.assert.calledWith(dispatchSpy, logOutUser());
 
     sinon.assert.calledWith(fakeRouter.push, `/${lang}/${clientApp}`);
@@ -1326,24 +1426,25 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     // User opens the modal.
-    root.find('.UserProfileEdit-delete-button').simulate(
-      'click',
-      createFakeEvent()
-    );
+    root
+      .find('.UserProfileEdit-delete-button')
+      .simulate('click', createFakeEvent());
 
     sinon.assert.notCalled(dispatchSpy);
 
     // User confirms account deletion.
-    root.find('.UserProfileEdit-confirm-button').simulate(
-      'click',
-      createFakeEvent()
-    );
+    root
+      .find('.UserProfileEdit-confirm-button')
+      .simulate('click', createFakeEvent());
 
     sinon.assert.callCount(dispatchSpy, 1);
-    sinon.assert.calledWith(dispatchSpy, deleteUserAccount({
-      errorHandlerId: errorHandler.id,
-      userId: user.id,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      deleteUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId: user.id,
+      }),
+    );
   });
 
   describe('errorHandler - extractId', () => {
@@ -1364,37 +1465,43 @@ describe(__filename, () => {
     const onChange = root.find(UserProfileEditNotifications).prop('onChange');
     const stopPropagationSpy = sinon.spy();
 
-    onChange(createFakeEvent({
-      currentTarget: {
-        name: 'reply',
-        checked: false,
-      },
-      stopPropagation: stopPropagationSpy,
-    }));
+    onChange(
+      createFakeEvent({
+        currentTarget: {
+          name: 'reply',
+          checked: false,
+        },
+        stopPropagation: stopPropagationSpy,
+      }),
+    );
 
     sinon.assert.called(stopPropagationSpy);
 
     expect(root).toHaveState('notifications', { reply: false });
     expect(root).toHaveState('successMessage', null);
 
-    onChange(createFakeEvent({
-      currentTarget: {
-        name: 'new_features',
-        checked: false,
-      },
-    }));
+    onChange(
+      createFakeEvent({
+        currentTarget: {
+          name: 'new_features',
+          checked: false,
+        },
+      }),
+    );
 
     expect(root).toHaveState('notifications', {
       new_features: false,
       reply: false,
     });
 
-    onChange(createFakeEvent({
-      currentTarget: {
-        name: 'reply',
-        checked: true,
-      },
-    }));
+    onChange(
+      createFakeEvent({
+        currentTarget: {
+          name: 'reply',
+          checked: true,
+        },
+      }),
+    );
 
     expect(root).toHaveState('notifications', {
       new_features: false,
@@ -1436,7 +1543,7 @@ describe(__filename, () => {
       createFakeEventChange({
         name: 'biography',
         value: 'a new bio',
-      })
+      }),
     );
 
     sinon.assert.notCalled(_window.scroll);
@@ -1476,7 +1583,7 @@ describe(__filename, () => {
       createFakeEventChange({
         name: 'biography',
         value: 'a new bio',
-      })
+      }),
     );
 
     sinon.assert.notCalled(_window.scroll);

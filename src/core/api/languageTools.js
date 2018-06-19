@@ -2,7 +2,6 @@
 import { callApi } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 
-
 export type LanguageToolsParams = {|
   api: ApiStateType,
 |};

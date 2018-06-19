@@ -4,7 +4,6 @@ import * as React from 'react';
 import { createFakeEvent } from 'tests/unit/helpers';
 import Notice from 'ui/components/Notice';
 
-
 const render = ({ children, ...customProps } = {}) => {
   const props = { type: 'success', ...customProps };
   return shallow(<Notice {...props}>{children}</Notice>);

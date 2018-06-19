@@ -20,7 +20,6 @@ import {
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   const fakeConfig = getFakeConfig({
     restrictSearchResultsToAppVersion: true,

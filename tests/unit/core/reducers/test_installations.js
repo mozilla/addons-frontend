@@ -32,12 +32,17 @@ describe('installations reducer', () => {
 
   it('adds an add-on to state', () => {
     const guid = 'my-addon@me.com';
-    expect(installations(undefined, setInstallState({
-      ...fakeInstalledAddon,
-      guid,
-      url: 'https://cdn.amo/download/my-addon.xpi',
-      status: UNINSTALLED,
-    }))).toEqual({
+    expect(
+      installations(
+        undefined,
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid,
+          url: 'https://cdn.amo/download/my-addon.xpi',
+          status: UNINSTALLED,
+        }),
+      ),
+    ).toEqual({
       [guid]: {
         downloadProgress: 0,
         error: undefined,
@@ -51,9 +56,16 @@ describe('installations reducer', () => {
 
   it('passes down needsRestart=true', () => {
     const guid = 'my-addon@me.com';
-    expect(installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, needsRestart: true,
-    }))).toMatchObject({
+    expect(
+      installations(
+        undefined,
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid,
+          needsRestart: true,
+        }),
+      ),
+    ).toMatchObject({
       [guid]: {
         needsRestart: true,
       },
@@ -62,9 +74,16 @@ describe('installations reducer', () => {
 
   it('handles ENABLED add-ons', () => {
     const guid = 'my-addon@me.com';
-    expect(installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: ENABLED,
-    }))).toMatchObject({
+    expect(
+      installations(
+        undefined,
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid,
+          status: ENABLED,
+        }),
+      ),
+    ).toMatchObject({
       [guid]: {
         status: ENABLED,
       },
@@ -73,9 +92,16 @@ describe('installations reducer', () => {
 
   it('handles DISABLED add-ons', () => {
     const guid = 'my-addon@me.com';
-    expect(installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: DISABLED,
-    }))).toMatchObject({
+    expect(
+      installations(
+        undefined,
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid,
+          status: DISABLED,
+        }),
+      ),
+    ).toMatchObject({
       [guid]: {
         status: DISABLED,
       },
@@ -84,9 +110,16 @@ describe('installations reducer', () => {
 
   it('uses the add-ons status', () => {
     const guid = 'an-addon@me.com';
-    expect(installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: INSTALLED,
-    }))).toMatchObject({
+    expect(
+      installations(
+        undefined,
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid,
+          status: INSTALLED,
+        }),
+      ),
+    ).toMatchObject({
       [guid]: {
         status: INSTALLED,
       },
@@ -95,14 +128,21 @@ describe('installations reducer', () => {
 
   it('marks an add-on as installing on START_DOWNLOAD', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: UNINSTALLED,
-    }));
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid,
+        status: UNINSTALLED,
+      }),
+    );
 
-    expect(installations(state, {
-      type: START_DOWNLOAD,
-      payload: { guid },
-    })).toMatchObject({
+    expect(
+      installations(state, {
+        type: START_DOWNLOAD,
+        payload: { guid },
+      }),
+    ).toMatchObject({
       [guid]: {
         status: DOWNLOADING,
       },
@@ -111,14 +151,21 @@ describe('installations reducer', () => {
 
   it('updates the downloadProgress on DOWNLOAD_PROGRESS', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: DOWNLOADING,
-    }));
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid,
+        status: DOWNLOADING,
+      }),
+    );
 
-    expect(installations(state, {
-      type: DOWNLOAD_PROGRESS,
-      payload: { guid, downloadProgress: 25 },
-    })).toMatchObject({
+    expect(
+      installations(state, {
+        type: DOWNLOAD_PROGRESS,
+        payload: { guid, downloadProgress: 25 },
+      }),
+    ).toMatchObject({
       [guid]: {
         downloadProgress: 25,
       },
@@ -127,14 +174,21 @@ describe('installations reducer', () => {
 
   it('updates the status on INSTALL_COMPLETE', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: INSTALLING,
-    }));
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid,
+        status: INSTALLING,
+      }),
+    );
 
-    expect(installations(state, {
-      type: INSTALL_COMPLETE,
-      payload: { guid },
-    })).toMatchObject({
+    expect(
+      installations(state, {
+        type: INSTALL_COMPLETE,
+        payload: { guid },
+      }),
+    ).toMatchObject({
       [guid]: {
         status: INSTALLED,
       },
@@ -143,14 +197,21 @@ describe('installations reducer', () => {
 
   it('updates the status on INSTALL_CANCELLED', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: DOWNLOAD_PROGRESS,
-    }));
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid,
+        status: DOWNLOAD_PROGRESS,
+      }),
+    );
 
-    expect(installations(state, {
-      type: INSTALL_CANCELLED,
-      payload: { guid },
-    })).toMatchObject({
+    expect(
+      installations(state, {
+        type: INSTALL_CANCELLED,
+        payload: { guid },
+      }),
+    ).toMatchObject({
       [guid]: {
         downloadProgress: 0,
         status: UNINSTALLED,
@@ -160,14 +221,21 @@ describe('installations reducer', () => {
 
   it('updates the status on UNINSTALL_COMPLETE', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: UNINSTALLING,
-    }));
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid,
+        status: UNINSTALLING,
+      }),
+    );
 
-    expect(installations(state, {
-      type: UNINSTALL_COMPLETE,
-      payload: { guid },
-    })).toMatchObject({
+    expect(
+      installations(state, {
+        type: UNINSTALL_COMPLETE,
+        payload: { guid },
+      }),
+    ).toMatchObject({
       [guid]: {
         status: UNINSTALLED,
       },
@@ -176,14 +244,21 @@ describe('installations reducer', () => {
 
   it('sets an error on INSTALL_ERROR', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid, status: DOWNLOADING,
-    }));
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid,
+        status: DOWNLOADING,
+      }),
+    );
 
-    expect(installations(state, {
-      type: INSTALL_ERROR,
-      payload: { guid, error: 'an-error' },
-    })).toMatchObject({
+    expect(
+      installations(state, {
+        type: INSTALL_ERROR,
+        payload: { guid, error: 'an-error' },
+      }),
+    ).toMatchObject({
       [guid]: {
         status: ERROR,
         error: 'an-error',
@@ -193,17 +268,23 @@ describe('installations reducer', () => {
 
   it('sets isPreviewingTheme and themePreviewNode', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid,
-    }));
-
-    expect(installations(state, {
-      type: THEME_PREVIEW,
-      payload: {
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
         guid,
-        themePreviewNode: 'preview-theme-node',
-      },
-    })).toMatchObject({
+      }),
+    );
+
+    expect(
+      installations(state, {
+        type: THEME_PREVIEW,
+        payload: {
+          guid,
+          themePreviewNode: 'preview-theme-node',
+        },
+      }),
+    ).toMatchObject({
       [guid]: {
         themePreviewNode: 'preview-theme-node',
         isPreviewingTheme: true,
@@ -213,14 +294,20 @@ describe('installations reducer', () => {
 
   it('unsets isPreviewingTheme', () => {
     const guid = 'my-addon@me.com';
-    const state = installations(undefined, setInstallState({
-      ...fakeInstalledAddon, guid,
-    }));
+    const state = installations(
+      undefined,
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid,
+      }),
+    );
 
-    expect(installations(state, {
-      type: THEME_RESET_PREVIEW,
-      payload: { guid },
-    })).toMatchObject({
+    expect(
+      installations(state, {
+        type: THEME_RESET_PREVIEW,
+        payload: { guid },
+      }),
+    ).toMatchObject({
       [guid]: {
         isPreviewingTheme: false,
       },
@@ -228,12 +315,17 @@ describe('installations reducer', () => {
   });
 
   it('cannot update a non-existant add-on', () => {
-    expect(() => installations({}, {
-      type: INSTALL_ERROR,
-      payload: {
-        guid: 'my-addon@me.com',
-        error: 'an-error',
-      },
-    })).toThrowError(/no add-on with guid my-addon@me.com found/);
+    expect(() =>
+      installations(
+        {},
+        {
+          type: INSTALL_ERROR,
+          payload: {
+            guid: 'my-addon@me.com',
+            error: 'an-error',
+          },
+        },
+      ),
+    ).toThrowError(/no add-on with guid my-addon@me.com found/);
   });
 });

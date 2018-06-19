@@ -1,10 +1,6 @@
 import require from 'require-uncached';
 
-const deployedEnvs = [
-  'dev',
-  'production',
-  'stage',
-];
+const deployedEnvs = ['dev', 'production', 'stage'];
 
 const cdnHosts = {
   dev: 'https://addons-dev-cdn.allizom.org',
@@ -17,7 +13,6 @@ const apiHosts = {
   stage: 'https://addons.allizom.org',
   production: 'https://addons.mozilla.org',
 };
-
 
 describe('CSP Config Defaults', () => {
   const existingNodeEnv = process.env.NODE_ENV;

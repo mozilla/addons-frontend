@@ -11,7 +11,6 @@ import { loadDiscoResults } from 'disco/actions';
 import { GET_DISCO_RESULTS } from 'disco/constants';
 import { getDiscoveryAddons } from 'disco/api';
 
-
 export function* fetchDiscoveryAddons({
   payload: { errorHandlerId, taarParams },
 }) {
@@ -19,7 +18,8 @@ export function* fetchDiscoveryAddons({
   try {
     const state = yield select(getState);
     const { entities, result } = yield call(getDiscoveryAddons, {
-      api: state.api, taarParams,
+      api: state.api,
+      taarParams,
     });
 
     yield put(loadAddons(entities));

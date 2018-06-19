@@ -24,7 +24,6 @@ import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import purify from 'core/purify';
 
-
 export function gettext(str) {
   return str;
 }
@@ -120,8 +119,9 @@ export function sanitizeUserHTML(text) {
 }
 
 export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
-  return fetchAddon({ slug: addonSlug, api: apiState })
-    .then(({ entities }) => dispatch(loadAddons(entities)));
+  return fetchAddon({ slug: addonSlug, api: apiState }).then(({ entities }) =>
+    dispatch(loadAddons(entities)),
+  );
 }
 
 export function isAddonAuthor({ addon, userId }) {
@@ -134,9 +134,10 @@ export function isAddonAuthor({ addon, userId }) {
   });
 }
 
-export function isAllowedOrigin(urlString, {
-  allowedOrigins = [config.get('amoCDN')],
-} = {}) {
+export function isAllowedOrigin(
+  urlString,
+  { allowedOrigins = [config.get('amoCDN')] } = {},
+) {
   let parsedURL;
   try {
     parsedURL = url.parse(urlString);
@@ -164,24 +165,30 @@ export function addQueryParams(urlString, queryParams = {}) {
 
 export function apiAddonTypeIsValid(addonType) {
   return Object.prototype.hasOwnProperty.call(
-    API_ADDON_TYPES_MAPPING, addonType
+    API_ADDON_TYPES_MAPPING,
+    addonType,
   );
 }
 
 export function apiAddonType(addonType) {
   if (!apiAddonTypeIsValid(addonType)) {
     throw new AddonTypeNotFound(
-      `"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
+      `"${addonType}" not found in API_ADDON_TYPES_MAPPING`,
+    );
   }
   return API_ADDON_TYPES_MAPPING[addonType];
 }
 
 export function visibleAddonType(addonType) {
-  if (!Object.prototype.hasOwnProperty.call(
-    VISIBLE_ADDON_TYPES_MAPPING, addonType
-  )) {
+  if (
+    !Object.prototype.hasOwnProperty.call(
+      VISIBLE_ADDON_TYPES_MAPPING,
+      addonType,
+    )
+  ) {
     throw new AddonTypeNotFound(
-      `"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
+      `"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`,
+    );
   }
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
 }
@@ -211,7 +218,8 @@ export function isValidClientAppUrlException(value, { _config = config } = {}) {
 }
 
 export function isValidTrailingSlashUrlException(
-  value, { _config = config } = {}
+  value,
+  { _config = config } = {},
 ) {
   return _config.get('validTrailingSlashUrlExceptions').includes(value);
 }
@@ -259,7 +267,8 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
  * )(MyComponent);
  */
 export function render404IfConfigKeyIsFalse(
-  configKey, { _config = config } = {}
+  configKey,
+  { _config = config } = {},
 ) {
   if (!configKey) {
     throw new TypeError('configKey cannot be empty');
@@ -282,7 +291,8 @@ export function getCategoryColor(category) {
 
   if (!maxColors) {
     throw new Error(
-      `addonType "${category.type}" not found in CATEGORY_COLORS.`);
+      `addonType "${category.type}" not found in CATEGORY_COLORS.`,
+    );
   }
 
   if (category.id > maxColors) {

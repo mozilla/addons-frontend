@@ -6,7 +6,6 @@ import Icon from 'ui/components/Icon';
 import UserAvatar from 'ui/components/UserAvatar';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   function renderUserAvatar({ ...props } = {}) {
     return shallow(<UserAvatar {...props} />);
@@ -24,7 +23,9 @@ describe(__filename, () => {
 
     expect(root.find('.UserAvatar-image')).toHaveLength(1);
     expect(root.find('.UserAvatar-image')).toHaveProp(
-      'src', 'http://tofumatt.com/photo.jpg');
+      'src',
+      'http://tofumatt.com/photo.jpg',
+    );
   });
 
   it('renders extra classNames while rendering user avatar', () => {
@@ -51,15 +52,19 @@ describe(__filename, () => {
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ user });
 
-    expect(root.find('.UserAvatar').find(Icon))
-      .toHaveProp('name', 'anonymous-user');
+    expect(root.find('.UserAvatar').find(Icon)).toHaveProp(
+      'name',
+      'anonymous-user',
+    );
   });
 
   it('renders an anonymous icon if there is no user', () => {
     const root = renderUserAvatar({ user: undefined });
 
-    expect(root.find('.UserAvatar').find(Icon))
-      .toHaveProp('name', 'anonymous-user');
+    expect(root.find('.UserAvatar').find(Icon)).toHaveProp(
+      'name',
+      'anonymous-user',
+    );
   });
 
   it('renders a preview image when supplied', () => {

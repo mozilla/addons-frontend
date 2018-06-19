@@ -15,10 +15,6 @@ type Props = {|
 export default class ListItem extends React.Component<Props> {
   render() {
     const { children, className } = this.props;
-    return (
-      <li className={makeClassName('ListItem', className)}>
-        {children}
-      </li>
-    );
+    return <li className={makeClassName('ListItem', className)}>{children}</li>;
   }
 }

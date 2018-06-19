@@ -3,14 +3,14 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
 
-import {
-  clearError, setError, setErrorMessage,
-} from 'core/actions/errors';
+import { clearError, setError, setErrorMessage } from 'core/actions/errors';
 import log from 'core/logger';
 import ErrorList from 'ui/components/ErrorList';
 
 function generateHandlerId({ name = '' } = {}) {
-  return `${name}-${Math.random().toString(36).substr(2, 9)}`;
+  return `${name}-${Math.random()
+    .toString(36)
+    .substr(2, 9)}`;
 }
 
 // We need this function to retrieve a relative path based on `__filename` on
@@ -85,8 +85,7 @@ export class ErrorHandler {
 
   dispatchAction(action) {
     if (!this.dispatch) {
-      throw new Error(
-        'A dispatch function has not been configured');
+      throw new Error('A dispatch function has not been configured');
     }
     this.dispatch(action);
   }
@@ -131,7 +130,7 @@ export function withErrorHandler({ name, id, extractId = null }) {
 
   if (extractId && typeof extractId !== 'function') {
     throw new Error(
-      '`extractId` must be a function taking `ownProps` as unique argument.'
+      '`extractId` must be a function taking `ownProps` as unique argument.',
     );
   }
 
@@ -158,8 +157,9 @@ export function withErrorHandler({ name, id, extractId = null }) {
             ${defaultErrorId}`);
         }
 
-        const errorId = ownProps.errorHandler ?
-          ownProps.errorHandler.id : defaultErrorId;
+        const errorId = ownProps.errorHandler
+          ? ownProps.errorHandler.id
+          : defaultErrorId;
 
         return {
           error: state.errors[errorId],
@@ -169,9 +169,11 @@ export function withErrorHandler({ name, id, extractId = null }) {
     };
 
     const mergeProps = (stateProps, dispatchProps, ownProps) => {
-      const errorHandler = ownProps.errorHandler || new ErrorHandler({
-        id: stateProps.errorId,
-      });
+      const errorHandler =
+        ownProps.errorHandler ||
+        new ErrorHandler({
+          id: stateProps.errorId,
+        });
       errorHandler.setDispatch(dispatchProps.dispatch);
       if (stateProps.error) {
         errorHandler.captureError(stateProps.error);
@@ -181,7 +183,11 @@ export function withErrorHandler({ name, id, extractId = null }) {
     };
 
     return compose(
-      connect(mapStateToProps, undefined, mergeProps),
+      connect(
+        mapStateToProps,
+        undefined,
+        mergeProps,
+      ),
     )(WrappedComponent);
   };
 }
@@ -252,8 +258,6 @@ export function withRenderedErrorHandler({ name, id } = {}) {
       return <WrappedComponent {...props} />;
     }
 
-    return compose(
-      withErrorHandler({ name, id }),
-    )(ErrorBanner);
+    return compose(withErrorHandler({ name, id }))(ErrorBanner);
   };
 }

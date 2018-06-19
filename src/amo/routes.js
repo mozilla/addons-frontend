@@ -21,12 +21,9 @@ import SearchPage from 'amo/components/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/components/UserProfile';
 import UserProfileEdit from 'amo/components/UserProfileEdit';
-import SimulateAsyncError from
-  'core/containers/error-simulation/SimulateAsyncError';
-import SimulateClientError from
-  'core/containers/error-simulation/SimulateClientError';
-import SimulateSyncError from
-  'core/containers/error-simulation/SimulateSyncError';
+import SimulateAsyncError from 'core/containers/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'core/containers/error-simulation/SimulateClientError';
+import SimulateSyncError from 'core/containers/error-simulation/SimulateSyncError';
 
 // If you add a new route here, check that the nginx rules maintained by ops
 // are in sync. See:
@@ -35,7 +32,7 @@ export default (
   <React.Fragment>
     <Route path="/:lang" component={App}>
       <Route path="about" component={About} />
-      { /* TODO: Post launch update this URL and redirect see #3374/ */ }
+      {/* TODO: Post launch update this URL and redirect see #3374/ */}
       <Route path="review_guide" component={ReviewGuide} />
     </Route>
     <Route path="/:lang/:application" component={App}>

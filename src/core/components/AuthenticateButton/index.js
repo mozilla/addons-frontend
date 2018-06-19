@@ -17,9 +17,9 @@ import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
-
 type HandleLogInFunc = (
-  location: ReactRouterLocation, options?: {| _window: typeof window |}
+  location: ReactRouterLocation,
+  options?: {| _window: typeof window |},
 ) => void;
 
 type HandleLogOutFunction = ({| api: ApiStateType |}) => Promise<void>;
@@ -47,18 +47,12 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
     buttonType: 'action',
     noIcon: false,
-  }
+  };
 
   onClick = (event: Event) => {
     event.preventDefault();
     event.stopPropagation();
-    const {
-      api,
-      handleLogIn,
-      handleLogOut,
-      location,
-      siteUser,
-    } = this.props;
+    const { api, handleLogIn, handleLogOut, location, siteUser } = this.props;
 
     invariant(handleLogOut, 'handleLogOut() is undefined');
 
@@ -67,7 +61,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
     } else {
       handleLogIn(location);
     }
-  }
+  };
 
   render() {
     const {
@@ -80,9 +74,9 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
       siteUser,
     } = this.props;
 
-    const buttonText = siteUser ?
-      logOutText || i18n.gettext('Log out') :
-      logInText || i18n.gettext('Register or Log in');
+    const buttonText = siteUser
+      ? logOutText || i18n.gettext('Log out')
+      : logInText || i18n.gettext('Register or Log in');
 
     // The `href` is required because a <button> element with a :hover effect
     // and/or focus effect (that is not part of a form) that changes its
@@ -110,12 +104,10 @@ type StateMappedProps = {|
   siteUser: UserType | null,
 |};
 
-export const mapStateToProps = (
-  state: {|
-    api: ApiStateType,
-    users: UsersStateType,
-  |}
-): StateMappedProps => ({
+export const mapStateToProps = (state: {|
+  api: ApiStateType,
+  users: UsersStateType,
+|}): StateMappedProps => ({
   api: state.api,
   handleLogIn(location, { _window = window } = {}) {
     // eslint-disable-next-line no-param-reassign
@@ -129,7 +121,7 @@ type DispatchMappedProps = {|
 |};
 
 export const createHandleLogOutFunction = (
-  dispatch: DispatchFunc
+  dispatch: DispatchFunc,
 ): HandleLogOutFunction => {
   return ({ api }) => {
     return logOutFromServer({ api }).then(() => dispatch(logOutUser()));
@@ -138,13 +130,16 @@ export const createHandleLogOutFunction = (
 
 export const mapDispatchToProps = (
   dispatch: DispatchFunc,
-  ownProps: Props
+  ownProps: Props,
 ): DispatchMappedProps => ({
   handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
 });
 
 const AuthenticateButton: React.ComponentType<Props> = compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
   translate(),
 )(AuthenticateButtonBase);
 

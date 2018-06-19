@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import './styles.scss';
 
-
 type Props = {|
   className?: string,
   width?: number,
@@ -16,7 +15,7 @@ export default class LoadingText extends React.Component<Props> {
   static defaultProps = {
     minWidth: 20,
     range: 60,
-  }
+  };
 
   render() {
     const { className, minWidth, range, width } = this.props;

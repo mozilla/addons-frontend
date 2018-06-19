@@ -20,7 +20,6 @@ import {
 } from 'tests/unit/helpers';
 import DropdownMenu from 'ui/components/DropdownMenu';
 
-
 describe(__filename, () => {
   let _store;
 
@@ -52,80 +51,101 @@ describe(__filename, () => {
   it('renders a link to the Language Tools page', () => {
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
-    expect(root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-      return element.prop('to') === '/language-tools/';
-    })).toHaveProp('children', 'Dictionaries & Language Packs');
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('to') === '/language-tools/';
+      }),
+    ).toHaveProp('children', 'Dictionaries & Language Packs');
   });
 
   it('renders a link to the Search Tools page', () => {
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
-    expect(root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-      return element.prop('to') === '/search-tools/';
-    })).toHaveProp('children', 'Search Tools');
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('to') === '/search-tools/';
+      }),
+    ).toHaveProp('children', 'Search Tools');
   });
 
   it('renders Explore active on homepage', () => {
     _store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
     const root = render();
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Explore');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Explore',
+    );
   });
 
   it('renders Explore active when exploring', () => {
     const root = render({ viewContext: VIEW_CONTEXT_HOME });
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Explore');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Explore',
+    );
   });
 
   it('renders Extensions active when addonType is extensions', () => {
     _store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
     const root = render();
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Extensions');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Extensions',
+    );
   });
 
   it('renders Themes active when addonType is themes', () => {
     _store.dispatch(setViewContext(ADDON_TYPE_THEME));
     const root = render();
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Themes');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Themes',
+    );
   });
 
   it('renders Language Tools active when viewContext is languageTools', () => {
     _store.dispatch(setViewContext(VIEW_CONTEXT_LANGUAGE_TOOLS));
     const root = render();
 
-    expect(root.find('.SectionLinks-dropdownlink--active').children())
-      .toIncludeText('Dictionaries & Language Packs');
+    expect(
+      root.find('.SectionLinks-dropdownlink--active').children(),
+    ).toIncludeText('Dictionaries & Language Packs');
   });
 
   it('shows Firefox name and hides link in header on Desktop', () => {
     _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
     const root = render();
 
-    expect(root.find('.SectionLinks-subheader').at(0).children())
-      .toIncludeText('for Firefox');
-    expect(root.find(`.SectionLinks-clientApp-${CLIENT_APP_ANDROID}`))
-      .toHaveLength(1);
-    expect(root.find(`.SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`))
-      .toHaveLength(0);
+    expect(
+      root
+        .find('.SectionLinks-subheader')
+        .at(0)
+        .children(),
+    ).toIncludeText('for Firefox');
+    expect(
+      root.find(`.SectionLinks-clientApp-${CLIENT_APP_ANDROID}`),
+    ).toHaveLength(1);
+    expect(
+      root.find(`.SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`),
+    ).toHaveLength(0);
   });
 
   it('shows Android name and hides link in header on Android', () => {
     _store.dispatch(setClientApp(CLIENT_APP_ANDROID));
     const root = render();
 
-    expect(root.find('.SectionLinks-subheader').at(0).children())
-      .toIncludeText('for Android');
-    expect(root.find(`.SectionLinks-clientApp-${CLIENT_APP_ANDROID}`))
-      .toHaveLength(0);
-    expect(root.find(`.SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`))
-      .toHaveLength(1);
+    expect(
+      root
+        .find('.SectionLinks-subheader')
+        .at(0)
+        .children(),
+    ).toIncludeText('for Android');
+    expect(
+      root.find(`.SectionLinks-clientApp-${CLIENT_APP_ANDROID}`),
+    ).toHaveLength(0);
+    expect(
+      root.find(`.SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`),
+    ).toHaveLength(1);
   });
 
   it('changes clientApp when different site link clicked', () => {
@@ -149,8 +169,7 @@ describe(__filename, () => {
     _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
     const root = render({ router: fakeRouter });
 
-    root.find(`.SectionLinks-clientApp-android`)
-      .simulate('click', fakeEvent);
+    root.find(`.SectionLinks-clientApp-android`).simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);
     sinon.assert.calledWith(getAttributeSpy, 'data-clientapp');

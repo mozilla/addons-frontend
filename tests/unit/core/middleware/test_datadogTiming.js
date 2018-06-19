@@ -55,7 +55,9 @@ describe(__filename, () => {
         datadogHost: 'localhost',
         datadogPort: 1111,
       });
-      await testClient({ config }).get('/').end();
+      await testClient({ config })
+        .get('/')
+        .end();
 
       sinon.assert.notCalled(hotShotsClient.timing);
     });
@@ -66,48 +68,61 @@ describe(__filename, () => {
         datadogHost: null,
         datadogPort: null,
       });
-      await testClient({ config }).get('/').end();
+      await testClient({ config })
+        .get('/')
+        .end();
 
       sinon.assert.notCalled(hotShotsClient.timing);
     });
 
     it('records timing for GET responses', async () => {
-      await testClient().get('/').end();
+      await testClient()
+        .get('/')
+        .end();
 
       sinon.assert.calledWith(
-        hotShotsClient.timing, 'response.GET.time', sinon.match.number,
+        hotShotsClient.timing,
+        'response.GET.time',
+        sinon.match.number,
       );
     });
 
     it('records timing for POST responses', async () => {
-      await testClient().post('/en-US/firefox/something/', {}).end();
+      await testClient()
+        .post('/en-US/firefox/something/', {})
+        .end();
 
       sinon.assert.calledWith(
-        hotShotsClient.timing, 'response.POST.time', sinon.match.number,
+        hotShotsClient.timing,
+        'response.POST.time',
+        sinon.match.number,
       );
     });
 
     it('increments counts for GET responses', async () => {
-      await testClient().get('/').end();
+      await testClient()
+        .get('/')
+        .end();
 
-      sinon.assert.calledWith(
-        hotShotsClient.increment, 'response.GET.count',
-      );
+      sinon.assert.calledWith(hotShotsClient.increment, 'response.GET.count');
     });
 
     it('increments counts for POST responses', async () => {
-      await testClient().post('/en-US/firefox/something/', {}).end();
+      await testClient()
+        .post('/en-US/firefox/something/', {})
+        .end();
 
-      sinon.assert.calledWith(
-        hotShotsClient.increment, 'response.POST.count',
-      );
+      sinon.assert.calledWith(hotShotsClient.increment, 'response.POST.count');
     });
 
     it('increments response status counts', async () => {
-      await testClient().get('/').end();
+      await testClient()
+        .get('/')
+        .end();
 
       sinon.assert.calledWith(
-        hotShotsClient.increment, 'response_code.302.count',
+        hotShotsClient.increment,
+        'response_code.302.count',
       );
     });
   });

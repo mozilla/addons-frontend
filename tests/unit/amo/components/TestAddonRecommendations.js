@@ -31,7 +31,6 @@ import {
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
-
 const fakeCookie = (returnValue) => {
   return {
     load: sinon.stub().returns(returnValue),
@@ -97,7 +96,7 @@ describe(__filename, () => {
         tracking={fakeTracking}
         {...props}
       />,
-      AddonRecommendationsBase
+      AddonRecommendationsBase,
     );
   }
 
@@ -110,17 +109,21 @@ describe(__filename, () => {
     const apiAddons = [fakeAddon];
     const addons = [createInternalAddon(fakeAddon)];
     const outcome = OUTCOME_RECOMMENDED;
-    store.dispatch(doLoadRecommendations({
-      addons: apiAddons,
-      outcome,
-    }));
+    store.dispatch(
+      doLoadRecommendations({
+        addons: apiAddons,
+        outcome,
+      }),
+    );
 
     const root = render({}).find(AddonsCard);
     expect(root).toHaveClassName('AddonRecommendations');
     expect(root).toHaveProp('addonInstallSource', outcome);
     expect(root).toHaveProp('addons', addons);
-    expect(root).toHaveProp('header',
-      'Other users with this extension also installed');
+    expect(root).toHaveProp(
+      'header',
+      'Other users with this extension also installed',
+    );
     expect(root).toHaveProp('loading', false);
     expect(root).toHaveProp('placeholderCount', 4);
     expect(root).toHaveProp('showMetadata', true);
@@ -140,9 +143,11 @@ describe(__filename, () => {
 
   it('renders the expected header and source for the curated outcome', () => {
     const outcome = OUTCOME_CURATED;
-    store.dispatch(doLoadRecommendations({
-      outcome,
-    }));
+    store.dispatch(
+      doLoadRecommendations({
+        outcome,
+      }),
+    );
 
     const root = render({});
     expect(root).toHaveProp('addonInstallSource', outcome);
@@ -151,9 +156,11 @@ describe(__filename, () => {
 
   it('renders the expected header and source for the recommended_fallback outcome', () => {
     const outcome = OUTCOME_RECOMMENDED_FALLBACK;
-    store.dispatch(doLoadRecommendations({
-      outcome,
-    }));
+    store.dispatch(
+      doLoadRecommendations({
+        outcome,
+      }),
+    );
 
     const root = render({});
     expect(root).toHaveProp('addonInstallSource', outcome);
@@ -166,8 +173,12 @@ describe(__filename, () => {
 
     render({ cookie, randomizer });
 
-    sinon.assert.calledWith(cookie.save,
-      TAAR_COHORT_COOKIE_NAME, TAAR_COHORT_INCLUDED, { path: '/' });
+    sinon.assert.calledWith(
+      cookie.save,
+      TAAR_COHORT_COOKIE_NAME,
+      TAAR_COHORT_INCLUDED,
+      { path: '/' },
+    );
   });
 
   it('uses the randomizer to set the cohort cookie to excluded', () => {
@@ -176,8 +187,12 @@ describe(__filename, () => {
 
     render({ cookie, randomizer });
 
-    sinon.assert.calledWith(cookie.save,
-      TAAR_COHORT_COOKIE_NAME, TAAR_COHORT_EXCLUDED, { path: '/' });
+    sinon.assert.calledWith(
+      cookie.save,
+      TAAR_COHORT_COOKIE_NAME,
+      TAAR_COHORT_EXCLUDED,
+      { path: '/' },
+    );
   });
 
   it('should dispatch a fetch action if no recommendations exist', () => {
@@ -188,11 +203,14 @@ describe(__filename, () => {
 
     render({ addon, errorHandler, randomizer });
 
-    sinon.assert.calledWith(dispatchSpy, fetchRecommendations({
-      errorHandlerId: errorHandler.id,
-      guid: addon.guid,
-      recommended: true,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchRecommendations({
+        errorHandlerId: errorHandler.id,
+        guid: addon.guid,
+        recommended: true,
+      }),
+    );
   });
 
   it('should not dispatch a fetch action if addon is null', () => {
@@ -220,11 +238,14 @@ describe(__filename, () => {
 
     root.setProps({ addon: newAddon });
 
-    sinon.assert.calledWith(dispatchSpy, fetchRecommendations({
-      errorHandlerId: errorHandler.id,
-      guid: newAddon.guid,
-      recommended: true,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchRecommendations({
+        errorHandlerId: errorHandler.id,
+        guid: newAddon.guid,
+        recommended: true,
+      }),
+    );
   });
 
   it('should not dispatch a fetch if the addon is updated but not changed', () => {

@@ -4,9 +4,7 @@ import { oneLine } from 'common-tags';
 
 import * as utils from 'core/i18n/utils';
 
-
 const defaultLang = config.get('defaultLang');
-
 
 describe('i18n utils', () => {
   describe('normalizeLang()', () => {
@@ -312,23 +310,32 @@ describe('i18n utils', () => {
 
   describe('utils.getLangFromHeader()', () => {
     it('should find an exact language match for Punjabi', () => {
-      const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
+      const acceptLanguage =
+        'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, {
+        _supportedLangs: supportedLangs,
+      });
       expect(result).toEqual('pa');
     });
 
     it('should find an exact language match for Punjabi India', () => {
-      const acceptLanguage = 'pa-in,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
+      const acceptLanguage =
+        'pa-in,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, {
+        _supportedLangs: supportedLangs,
+      });
       expect(result).toEqual('pa');
     });
 
     it('should not extend into region unless exact match is found', () => {
-      const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
+      const acceptLanguage =
+        'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa-IN'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, {
+        _supportedLangs: supportedLangs,
+      });
       expect(result).toEqual('en-US');
     });
 
@@ -341,7 +348,9 @@ describe('i18n utils', () => {
         q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, {
+        _supportedLangs: supportedLangs,
+      });
       expect(result).toEqual('en-US');
     });
 
@@ -354,7 +363,9 @@ describe('i18n utils', () => {
         q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi', 'fil-PH'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, {
+        _supportedLangs: supportedLangs,
+      });
       expect(result).toEqual('fil-PH');
     });
 
@@ -367,14 +378,18 @@ describe('i18n utils', () => {
         q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi', 'fil'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, {
+        _supportedLangs: supportedLangs,
+      });
       expect(result).toEqual('fil');
     });
 
     it('should return undefined language for no match', () => {
       const acceptLanguage = 'whatever';
       const supportedLangs = ['af', 'en-US', 'pa'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, {
+        _supportedLangs: supportedLangs,
+      });
       expect(result).toEqual(undefined);
     });
 

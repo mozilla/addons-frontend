@@ -1,13 +1,10 @@
 import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import SearchResults, {
-  SearchResultsBase,
-} from 'amo/components/SearchResults';
+import SearchResults, { SearchResultsBase } from 'amo/components/SearchResults';
 import Paginate from 'core/components/Paginate';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   function render(props = {}) {
@@ -20,15 +17,16 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <SearchResults {...allProps} />,
-      SearchResultsBase
+      SearchResultsBase,
     );
   }
 
   it('renders empty search results container', () => {
     const root = render();
 
-    expect(root.find('.SearchResults-message'))
-      .toHaveText('Please enter a search term to search Firefox Add-ons.');
+    expect(root.find('.SearchResults-message')).toHaveText(
+      'Please enter a search term to search Firefox Add-ons.',
+    );
   });
 
   it('renders no results when searched but nothing is found', () => {
@@ -39,15 +37,17 @@ describe(__filename, () => {
       results: [],
     });
 
-    expect(root.find('.SearchResults-message'))
-      .toHaveText('No results were found.');
+    expect(root.find('.SearchResults-message')).toHaveText(
+      'No results were found.',
+    );
   });
 
   it('renders error when no search params exist', () => {
     const root = render({ filters: {} });
 
-    expect(root.find('.SearchResults-message'))
-      .toHaveText('Please enter a search term to search Firefox Add-ons.');
+    expect(root.find('.SearchResults-message')).toHaveText(
+      'Please enter a search term to search Firefox Add-ons.',
+    );
     expect(root.find(AddonsCard)).toHaveProp('addons', null);
   });
 
@@ -58,8 +58,9 @@ describe(__filename, () => {
       results: [],
     });
 
-    expect(root.find('.SearchResults-message'))
-      .toHaveText('No results were found for "test".');
+    expect(root.find('.SearchResults-message')).toHaveText(
+      'No results were found for "test".',
+    );
   });
 
   it('renders searching text during search', () => {

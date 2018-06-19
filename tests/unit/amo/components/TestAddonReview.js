@@ -8,13 +8,21 @@ import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import * as coreUtils from 'core/utils';
 import AddonReview, {
-  mapDispatchToProps, mapStateToProps, AddonReviewBase,
+  mapDispatchToProps,
+  mapStateToProps,
+  AddonReviewBase,
 } from 'amo/components/AddonReview';
 import {
-  dispatchClientMetadata, fakeAddon, fakeReview, signedInApiState,
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeReview,
+  signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent, createStubErrorHandler, fakeI18n, shallowUntilTarget,
+  createFakeEvent,
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 import OverlayCard from 'ui/components/OverlayCard';
 import UserRating from 'ui/components/UserRating';
@@ -59,9 +67,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = renderProps(customProps);
-    return shallowUntilTarget(
-      <AddonReview {...props} />, AddonReviewBase
-    );
+    return shallowUntilTarget(<AddonReview {...props} />, AddonReviewBase);
   };
 
   const mountRender = (customProps = {}) => {
@@ -72,7 +78,7 @@ describe(__filename, () => {
           <AddonReview {...props} />
         </Provider>
       </I18nProvider>,
-      { context: props }
+      { context: props },
     );
   };
 
@@ -89,18 +95,27 @@ describe(__filename, () => {
       errorHandler,
     });
 
-    root.find('.AddonReview-textarea').simulate('input', createFakeEvent({
-      target: { value: 'some review' },
-    }));
+    root.find('.AddonReview-textarea').simulate(
+      'input',
+      createFakeEvent({
+        target: { value: 'some review' },
+      }),
+    );
 
     const event = createFakeEvent();
-    return root.instance().onSubmit(event)
+    return root
+      .instance()
+      .onSubmit(event)
       .then(() => {
         sinon.assert.called(event.preventDefault);
 
-        sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
-          ...defaultReview, body: 'some review',
-        }));
+        sinon.assert.calledWith(
+          fakeDispatch,
+          setDenormalizedReview({
+            ...defaultReview,
+            body: 'some review',
+          }),
+        );
 
         sinon.assert.called(updateReviewText);
         const params = updateReviewText.firstCall.args[0];
@@ -130,16 +145,17 @@ describe(__filename, () => {
     const root = mountRender();
     // This checks that reviewTextarea.focus() was called.
     expect(
-      root.find('.AddonReview-textarea')
-        .matchesElement(document.activeElement)
+      root.find('.AddonReview-textarea').matchesElement(document.activeElement),
     ).toEqual(true);
   });
 
   it('it passes onEscapeOverlay to OverlayCard', () => {
     const onEscapeOverlay = sinon.stub();
     const root = render({ onEscapeOverlay });
-    expect(root.find(OverlayCard))
-      .toHaveProp('onEscapeOverlay', onEscapeOverlay);
+    expect(root.find(OverlayCard)).toHaveProp(
+      'onEscapeOverlay',
+      onEscapeOverlay,
+    );
   });
 
   it('updates review state from a new review property', () => {
@@ -156,9 +172,11 @@ describe(__filename, () => {
 
   it('looks for state in a local store at initialization', () => {
     const localState = fakeLocalState({
-      load: sinon.spy(() => Promise.resolve({
-        reviewBody: 'stored body',
-      })),
+      load: sinon.spy(() =>
+        Promise.resolve({
+          reviewBody: 'stored body',
+        }),
+      ),
     });
     render({ createLocalState: () => localState });
     sinon.assert.called(localState.load);
@@ -166,12 +184,16 @@ describe(__filename, () => {
 
   it('looks for state in a local store and loads it', () => {
     const localState = fakeLocalState({
-      load: sinon.spy(() => Promise.resolve({
-        reviewBody: 'stored body',
-      })),
+      load: sinon.spy(() =>
+        Promise.resolve({
+          reviewBody: 'stored body',
+        }),
+      ),
     });
     const root = render({ createLocalState: () => localState });
-    return root.instance().checkForStoredState()
+    return root
+      .instance()
+      .checkForStoredState()
       .then(() => {
         expect(root.state('reviewBody')).toEqual('stored body');
       });
@@ -188,7 +210,9 @@ describe(__filename, () => {
         body: 'Existing body',
       },
     });
-    return root.instance().checkForStoredState()
+    return root
+      .instance()
+      .checkForStoredState()
       .then(() => {
         expect(root.state('reviewBody')).toEqual('Existing body');
       });
@@ -196,9 +220,11 @@ describe(__filename, () => {
 
   it('overrides existing text with locally stored text', () => {
     const localState = fakeLocalState({
-      load: sinon.spy(() => Promise.resolve({
-        reviewBody: 'Stored text',
-      })),
+      load: sinon.spy(() =>
+        Promise.resolve({
+          reviewBody: 'Stored text',
+        }),
+      ),
     });
     const root = render({
       createLocalState: () => localState,
@@ -207,7 +233,9 @@ describe(__filename, () => {
         body: 'Existing text',
       },
     });
-    return root.instance().checkForStoredState()
+    return root
+      .instance()
+      .checkForStoredState()
       .then(() => {
         expect(root.state('reviewBody')).toEqual('Stored text');
       });
@@ -222,9 +250,12 @@ describe(__filename, () => {
       debounce: (callback) => (...args) => callback(...args),
     });
 
-    root.find('.AddonReview-textarea').simulate('input', createFakeEvent({
-      target: { value: 'some review' },
-    }));
+    root.find('.AddonReview-textarea').simulate(
+      'input',
+      createFakeEvent({
+        target: { value: 'some review' },
+      }),
+    );
 
     sinon.assert.called(localState.save);
     expect(localState.save.firstCall.args[0]).toEqual({
@@ -240,11 +271,16 @@ describe(__filename, () => {
       createLocalState: () => localState,
     });
 
-    root.find('.AddonReview-textarea').simulate('input', createFakeEvent({
-      target: { value: 'some review' },
-    }));
+    root.find('.AddonReview-textarea').simulate(
+      'input',
+      createFakeEvent({
+        target: { value: 'some review' },
+      }),
+    );
 
-    return root.instance().onSubmit(createFakeEvent())
+    return root
+      .instance()
+      .onSubmit(createFakeEvent())
       .then(() => {
         sinon.assert.called(localState.clear);
       });
@@ -252,18 +288,22 @@ describe(__filename, () => {
 
   it('prompts you appropriately when you are happy', () => {
     const root = render({ review: { ...defaultReview, rating: 4 } });
-    expect(root.find('.AddonReview-prompt').html())
-      .toMatch(/Tell the world why you think this extension is fantastic!/);
-    expect(root.find('.AddonReview-textarea').prop('placeholder'))
-      .toMatch(/Tell us what you love/);
+    expect(root.find('.AddonReview-prompt').html()).toMatch(
+      /Tell the world why you think this extension is fantastic!/,
+    );
+    expect(root.find('.AddonReview-textarea').prop('placeholder')).toMatch(
+      /Tell us what you love/,
+    );
   });
 
   it('prompts you appropriately when you are unhappy', () => {
     const root = render({ review: { ...defaultReview, rating: 3 } });
-    expect(root.find('.AddonReview-prompt').html())
-      .toMatch(/Tell the world about this extension/);
-    expect(root.find('.AddonReview-textarea').prop('placeholder'))
-      .toMatch(/Tell us about your experience/);
+    expect(root.find('.AddonReview-prompt').html()).toMatch(
+      /Tell the world about this extension/,
+    );
+    expect(root.find('.AddonReview-textarea').prop('placeholder')).toMatch(
+      /Tell us about your experience/,
+    );
   });
 
   // Due to L10n constraints, the HTML for the link is duplicated
@@ -271,9 +311,11 @@ describe(__filename, () => {
   [1, 5].forEach((rating) => {
     it(`rating=${rating} adds a link to the review guide`, () => {
       const root = render({ review: { ...defaultReview, rating } });
-      expect(root.find('.AddonReview-prompt').html()).toMatch(new RegExp(
-        'Please follow our <a href="/review_guide">review guidelines</a>'
-      ));
+      expect(root.find('.AddonReview-prompt').html()).toMatch(
+        new RegExp(
+          'Please follow our <a href="/review_guide">review guidelines</a>',
+        ),
+      );
     });
   });
 
@@ -287,17 +329,17 @@ describe(__filename, () => {
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const root = render({ updateReviewText });
     const onSubmit = root.find('.AddonReview-form').prop('onSubmit');
-    return onSubmit(createFakeEvent())
-      .then(() => {
-        // Just make sure the submit handler is hooked up.
-        sinon.assert.called(updateReviewText);
-      });
+    return onSubmit(createFakeEvent()).then(() => {
+      // Just make sure the submit handler is hooked up.
+      sinon.assert.called(updateReviewText);
+    });
   });
 
   it('requires a review object', () => {
     const review = { nope: 'not even close' };
-    expect(() => render({ review }))
-      .toThrow(/Unexpected review property: {"nope".*/);
+    expect(() => render({ review })).toThrow(
+      /Unexpected review property: {"nope".*/,
+    );
   });
 
   it('lets you change the star rating', () => {
@@ -310,10 +352,13 @@ describe(__filename, () => {
     const newRating = 1;
     onSelectRating(newRating);
 
-    sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
-      ...review,
-      rating: newRating,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      setDenormalizedReview({
+        ...review,
+        rating: newRating,
+      }),
+    );
   });
 
   it('preserves inputted text when you change the star rating', () => {
@@ -322,20 +367,26 @@ describe(__filename, () => {
     const root = render({ review });
 
     const enteredReviewText = 'some text';
-    root.find('.AddonReview-textarea').simulate('input', createFakeEvent({
-      target: { value: enteredReviewText },
-    }));
+    root.find('.AddonReview-textarea').simulate(
+      'input',
+      createFakeEvent({
+        target: { value: enteredReviewText },
+      }),
+    );
 
     const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
     const newRating = 1;
     onSelectRating(newRating);
 
-    sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
-      ...review,
-      body: enteredReviewText,
-      rating: newRating,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      setDenormalizedReview({
+        ...review,
+        body: enteredReviewText,
+        rating: newRating,
+      }),
+    );
   });
 
   describe('mapStateToProps', () => {
@@ -372,11 +423,10 @@ describe(__filename, () => {
           .withArgs(params)
           .returns(Promise.resolve(fakeReview));
 
-        return actions.updateReviewText({ ...params })
-          .then(() => {
-            mockApi.verify();
-            sinon.assert.calledWith(dispatch, setReview(fakeReview));
-          });
+        return actions.updateReviewText({ ...params }).then(() => {
+          mockApi.verify();
+          sinon.assert.calledWith(dispatch, setReview(fakeReview));
+        });
       });
     });
 
@@ -389,7 +439,8 @@ describe(__filename, () => {
           .withArgs({ addonSlug: 'some-slug', apiState, dispatch })
           .returns(Promise.resolve());
 
-        return actions.refreshAddon({ addonSlug: 'some-slug', apiState })
+        return actions
+          .refreshAddon({ addonSlug: 'some-slug', apiState })
           .then(() => mockUtils.verify());
       });
     });

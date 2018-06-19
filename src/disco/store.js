@@ -13,9 +13,9 @@ import installations from 'core/reducers/installations';
 import discoResults from 'disco/reducers/discoResults';
 import redirectTo from 'core/reducers/redirectTo';
 
-
 export default function createStore({
-  history = browserHistory, initialState = {},
+  history = browserHistory,
+  initialState = {},
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(

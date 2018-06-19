@@ -16,9 +16,10 @@ import {
 import Notice from 'ui/components/Notice';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
-  fakeI18n, shallowUntilTarget, userAgentsByPlatform,
+  fakeI18n,
+  shallowUntilTarget,
+  userAgentsByPlatform,
 } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   let store;
@@ -46,7 +47,7 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <AddonCompatibilityError {...defaultProps} {...props} />,
-      AddonCompatibilityErrorBase
+      AddonCompatibilityErrorBase,
     );
   }
 
@@ -57,13 +58,19 @@ describe(__filename, () => {
     const root = render({ reason: INCOMPATIBLE_NOT_FIREFOX });
 
     expect(
-      root.find('.AddonCompatibilityError').render().find('a').attr('href')
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .find('a')
+        .attr('href'),
     ).toEqual(oneLineTrim`https://www.mozilla.org/firefox/new/
       ?utm_source=addons.mozilla.org&utm_medium=referral
-      &utm_campaign=non-fx-button&utm_content=install-addon-button`
-    );
+      &utm_campaign=non-fx-button&utm_content=install-addon-button`);
     expect(
-      root.find('.AddonCompatibilityError').render().text()
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text(),
     ).toContain('You need to download Firefox to install this add-on.');
   });
 
@@ -77,13 +84,19 @@ describe(__filename, () => {
     });
 
     expect(
-      root.find('.AddonCompatibilityError').render().find('a').attr('href')
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .find('a')
+        .attr('href'),
     ).toEqual(oneLineTrim`http://waterfoxproject.org/
       ?utm_source=addons.mozilla.org&utm_medium=referral
-      &utm_campaign=non-fx-button&utm_content=install-addon-button`
-    );
+      &utm_campaign=non-fx-button&utm_content=install-addon-button`);
     expect(
-      root.find('.AddonCompatibilityError').render().text()
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text(),
     ).toContain('You need to download Firefox to install this add-on.');
   });
 
@@ -94,7 +107,9 @@ describe(__filename, () => {
     const root = render({ reason: INCOMPATIBLE_NOT_FIREFOX });
 
     expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
-      'type', 'firefox');
+      'type',
+      'firefox',
+    );
   });
 
   it('renders an error notice for other reasons than non-Firefox', () => {
@@ -104,7 +119,9 @@ describe(__filename, () => {
     const root = render({ reason: INCOMPATIBLE_OVER_MAX_VERSION });
 
     expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
-      'type', 'error');
+      'type',
+      'error',
+    );
   });
 
   it('renders a notice if add-on is over maxVersion/compat is strict', () => {
@@ -114,7 +131,10 @@ describe(__filename, () => {
     const root = render({ reason: INCOMPATIBLE_OVER_MAX_VERSION });
 
     expect(
-      root.find('.AddonCompatibilityError').render().text()
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text(),
     ).toContain('This add-on is not compatible with your version of Firefox');
   });
 
@@ -127,13 +147,19 @@ describe(__filename, () => {
       reason: INCOMPATIBLE_UNDER_MIN_VERSION,
     });
 
-    const text = root.find('.AddonCompatibilityError').render().text();
+    const text = root
+      .find('.AddonCompatibilityError')
+      .render()
+      .text();
 
     expect(
-      root.find('.AddonCompatibilityError').render().find('a').attr('href')
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .find('a')
+        .attr('href'),
     ).toMatch(new RegExp('https://www.mozilla.org/firefox/new/'));
-    expect(text).toContain(
-      'This add-on requires a newer version of Firefox');
+    expect(text).toContain('This add-on requires a newer version of Firefox');
     expect(text).toContain('(at least version 34.0)');
     expect(text).toContain('You are using Firefox 33.0');
   });
@@ -144,16 +170,24 @@ describe(__filename, () => {
     });
     const root = render({ reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
 
-    expect(root.find('.AddonCompatibilityError').render().text())
-      .toContain('Firefox for iOS does not currently support add-ons.');
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text(),
+    ).toContain('Firefox for iOS does not currently support add-ons.');
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
     _dispatchClientMetadata();
     const root = render({ reason: INCOMPATIBLE_NO_OPENSEARCH });
 
-    expect(root.find('.AddonCompatibilityError').render().text())
-      .toContain('Your version of Firefox does not support search plugins.');
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text(),
+    ).toContain('Your version of Firefox does not support search plugins.');
   });
 
   it('renders a notice if add-on is incompatible with the platform', () => {
@@ -161,7 +195,10 @@ describe(__filename, () => {
     const root = render({ reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM });
 
     expect(
-      root.find('.AddonCompatibilityError').render().text()
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text(),
     ).toContain('This add-on is not available on your platform.');
   });
 
@@ -178,8 +215,12 @@ describe(__filename, () => {
       'Unknown reason code supplied to AddonCompatibilityError',
       'fake reason',
     );
-    expect(root.find('.AddonCompatibilityError').render().text())
-      .toContain('Your browser does not support add-ons.');
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text(),
+    ).toContain('Your browser does not support add-ons.');
   });
 
   it('throws an error if no reason is supplied', () => {

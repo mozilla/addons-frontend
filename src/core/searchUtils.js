@@ -8,7 +8,6 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 
-
 export const operatingSystems = {
   Linux: 'linux',
   'Mac OS': 'mac',
@@ -82,8 +81,11 @@ export function addVersionCompatibilityToFilters({
 // our filter keys and back again.
 export function convertFiltersToQueryParams(filters) {
   return Object.keys(paramsToFilter).reduce((object, key) => {
-    if (filters && typeof filters[paramsToFilter[key]] !== 'undefined' &&
-      filters[paramsToFilter[key]] !== '') {
+    if (
+      filters &&
+      typeof filters[paramsToFilter[key]] !== 'undefined' &&
+      filters[paramsToFilter[key]] !== ''
+    ) {
       return { ...object, [key]: filters[paramsToFilter[key]] };
     }
     return object;
@@ -105,7 +107,8 @@ export function convertOSToFilterValue(name) {
   }
 
   log.info(
-    `operatingSystem "${name}" not recognized so falling back to no OS.`);
+    `operatingSystem "${name}" not recognized so falling back to no OS.`,
+  );
 
   return undefined;
 }
@@ -124,7 +127,8 @@ export const fixFiltersForAndroidThemes = ({ api, filters }) => {
 
   if (!newFilters.clientApp && api.clientApp) {
     log.debug(
-      `No clientApp found in filters; using api.clientApp (${api.clientApp})`);
+      `No clientApp found in filters; using api.clientApp (${api.clientApp})`,
+    );
     newFilters.clientApp = api.clientApp;
   }
 

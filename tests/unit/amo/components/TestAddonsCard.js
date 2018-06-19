@@ -9,7 +9,6 @@ import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import CardList from 'ui/components/CardList';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let addons;
 
@@ -47,8 +46,10 @@ describe(__filename, () => {
     const list = root.childAt(0);
 
     expect(list.type()).toEqual('ul');
-    expect(list.children().map((c) => c.type()))
-      .toEqual([SearchResult, SearchResult]);
+    expect(list.children().map((c) => c.type())).toEqual([
+      SearchResult,
+      SearchResult,
+    ]);
     expect(list.children().map((c) => c.prop('addon'))).toEqual(addons);
   });
 
@@ -57,8 +58,10 @@ describe(__filename, () => {
     const list = root.childAt(0);
 
     expect(list.type()).toEqual('ul');
-    expect(list.children().map((c) => c.type()))
-      .toEqual([EditableCollectionAddon, EditableCollectionAddon]);
+    expect(list.children().map((c) => c.type())).toEqual([
+      EditableCollectionAddon,
+      EditableCollectionAddon,
+    ]);
     expect(list.children().map((c) => c.prop('addon'))).toEqual(addons);
   });
 
@@ -67,7 +70,11 @@ describe(__filename, () => {
     const removeAddon = sinon.stub();
     const saveNote = sinon.stub();
     const root = render({
-      addons, deleteNote, editing: true, removeAddon, saveNote,
+      addons,
+      deleteNote,
+      editing: true,
+      removeAddon,
+      saveNote,
     });
     const list = root.childAt(0);
 
@@ -80,7 +87,7 @@ describe(__filename, () => {
   });
 
   it('renders children', () => {
-    const root = render({ addons, children: (<div>I am content</div>) });
+    const root = render({ addons, children: <div>I am content</div> });
     expect(root.childAt(0).type()).toEqual('div');
     expect(root.childAt(1).type()).toEqual('ul');
   });
@@ -100,7 +107,9 @@ describe(__filename, () => {
 
   it('allows you configure the number of placeholders', () => {
     const root = render({
-      addons: null, loading: true, placeholderCount: 2,
+      addons: null,
+      loading: true,
+      placeholderCount: 2,
     });
     expect(root.find(SearchResult)).toHaveLength(2);
   });
@@ -117,8 +126,7 @@ describe(__filename, () => {
     const root = render({ addons: [fakeAddon], addonInstallSource });
 
     const results = root.find(SearchResult);
-    expect(results.at(0))
-      .toHaveProp('addonInstallSource', addonInstallSource);
+    expect(results.at(0)).toHaveProp('addonInstallSource', addonInstallSource);
   });
 
   it('hides summary for a static theme', () => {

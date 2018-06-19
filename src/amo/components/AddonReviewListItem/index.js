@@ -63,71 +63,69 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       dispatch(showReplyToReviewForm({ reviewId: isReplyToReviewId }));
     } else {
       if (!review) {
-        log.debug(
-          'Cannot edit a review because no review has been loaded.');
+        log.debug('Cannot edit a review because no review has been loaded.');
         return;
       }
       dispatch(showEditReviewForm({ reviewId: review.id }));
     }
-  }
+  };
 
   onEscapeReviewOverlay = () => {
     const { dispatch, review } = this.props;
     if (!review) {
-      log.debug(
-        'Cannot hide review form because no review has been loaded.');
+      log.debug('Cannot hide review form because no review has been loaded.');
       return;
     }
     // Even though an escaped overlay will be hidden, we still have to
     // synchronize our show/hide state otherwise we won't be able to
     // show the overlay after it has been escaped.
     dispatch(hideEditReviewForm({ reviewId: review.id }));
-  }
+  };
 
   onReviewSubmitted = () => {
     const { dispatch, review } = this.props;
     if (!review) {
-      log.debug(
-        'Cannot hide review form because no review has been loaded.');
+      log.debug('Cannot hide review form because no review has been loaded.');
       return;
     }
     dispatch(hideEditReviewForm({ reviewId: review.id }));
-  }
+  };
 
   onClickToBeginReviewReply = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     const { dispatch, review } = this.props;
     if (!review) {
-      log.debug(
-        'Cannot show review form because no review has been loaded.');
+      log.debug('Cannot show review form because no review has been loaded.');
       return;
     }
     dispatch(showReplyToReviewForm({ reviewId: review.id }));
-  }
+  };
 
   onDismissReviewReply = () => {
     const { dispatch, review } = this.props;
     if (!review) {
-      log.debug(
-        'Cannot hide review form because no review has been loaded.');
+      log.debug('Cannot hide review form because no review has been loaded.');
       return;
     }
     dispatch(hideReplyToReviewForm({ reviewId: review.id }));
-  }
+  };
 
   onSubmitReviewReply = (reviewData: OnSubmitParams) => {
     const { dispatch, errorHandler, review } = this.props;
     if (!review) {
       throw new Error(
-        'The review property cannot be empty when replying to a review');
+        'The review property cannot be empty when replying to a review',
+      );
     }
 
-    dispatch(sendReplyToReview({
-      errorHandlerId: errorHandler.id,
-      originalReviewId: review.id,
-      body: reviewData.text,
-    }));
-  }
+    dispatch(
+      sendReplyToReview({
+        errorHandlerId: errorHandler.id,
+        originalReviewId: review.id,
+        body: reviewData.text,
+      }),
+    );
+  };
 
   renderReply() {
     const {
@@ -158,14 +156,14 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
             onSubmit={this.onSubmitReviewReply}
             placeholder={i18n.gettext('Write a reply to this review.')}
             submitButtonText={
-              review.reply ?
-                i18n.gettext('Update reply') :
-                i18n.gettext('Publish reply')
+              review.reply
+                ? i18n.gettext('Update reply')
+                : i18n.gettext('Publish reply')
             }
             submitButtonInProgressText={
-              review.reply ?
-                i18n.gettext('Updating reply') :
-                i18n.gettext('Publishing reply')
+              review.reply
+                ? i18n.gettext('Updating reply')
+                : i18n.gettext('Publishing reply')
             }
             text={review.reply && review.reply.body}
           />
@@ -204,18 +202,18 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       const timestamp = i18n.moment(review.created).fromNow();
       if (isReply) {
         // translators: Example in English: "posted last week"
-        byline = i18n.sprintf(
-          i18n.gettext('posted %(timestamp)s'), { timestamp });
+        byline = i18n.sprintf(i18n.gettext('posted %(timestamp)s'), {
+          timestamp,
+        });
       } else {
         // translators: Example in English: "from UserName123, last week"
         byline = i18n.sprintf(
           i18n.gettext('by %(authorName)s, %(timestamp)s'),
-          { authorName: review.userName, timestamp });
+          { authorName: review.userName, timestamp },
+        );
       }
 
-      const reviewBodySanitized = sanitizeHTML(
-        nl2br(review.body), ['br']
-      );
+      const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
       /* eslint-disable react/no-danger */
       reviewBody = (
         <p
@@ -226,65 +224,60 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       /* eslint-enable react/no-danger */
     } else {
       byline = <LoadingText />;
-      reviewBody = <p className={reviewBodyClass}><LoadingText /></p>;
+      reviewBody = (
+        <p className={reviewBodyClass}>
+          <LoadingText />
+        </p>
+      );
     }
 
     return (
       <div className="AddonReviewListItem">
         {reviewBody}
         <div className="AddonReviewListItem-byline">
-          {review && !isReply ?
-            <UserRating
-              styleSize="small"
-              review={review}
-              readOnly
-            />
-            : null
-          }
+          {review && !isReply ? (
+            <UserRating styleSize="small" review={review} readOnly />
+          ) : null}
           {byline}
-          {
-            siteUser && review &&
-            review.userId === siteUser.id ?
-              (
-                <div>
-                  {/* This will render an overlay to edit the review */}
-                  {editingReview ?
-                    <AddonReview
-                      onEscapeOverlay={this.onEscapeReviewOverlay}
-                      onReviewSubmitted={this.onReviewSubmitted}
-                      review={review}
-                    />
-                    : null
-                  }
-                  <a
-                    href="#edit"
-                    onClick={this.onClickToEditReview}
-                    className="AddonReviewListItem-edit AddonReviewListItem-control"
-                  >
-                    {isReply ?
-                      i18n.gettext('Edit my reply') :
-                      i18n.gettext('Edit my review')
-                    }
-                  </a>
-                </div>
-              ) : null
-          }
-          {
-            review && addon && siteUser &&
-            !replyingToReview && !review.reply && !isReply &&
-            (isAddonAuthor({ addon, userId: siteUser.id }) || siteUserHasReplyPerm) &&
-            review.userId !== siteUser.id ?
-              (
-                <a
-                  href="#reply"
-                  onClick={this.onClickToBeginReviewReply}
-                  className="AddonReviewListItem-begin-reply AddonReviewListItem-control"
-                >
-                  <Icon name="reply-arrow" />
-                  {i18n.gettext('Reply to this review')}
-                </a>
-              ) : null
-          }
+          {siteUser && review && review.userId === siteUser.id ? (
+            <div>
+              {/* This will render an overlay to edit the review */}
+              {editingReview ? (
+                <AddonReview
+                  onEscapeOverlay={this.onEscapeReviewOverlay}
+                  onReviewSubmitted={this.onReviewSubmitted}
+                  review={review}
+                />
+              ) : null}
+              <a
+                href="#edit"
+                onClick={this.onClickToEditReview}
+                className="AddonReviewListItem-edit AddonReviewListItem-control"
+              >
+                {isReply
+                  ? i18n.gettext('Edit my reply')
+                  : i18n.gettext('Edit my review')}
+              </a>
+            </div>
+          ) : null}
+          {review &&
+          addon &&
+          siteUser &&
+          !replyingToReview &&
+          !review.reply &&
+          !isReply &&
+          (isAddonAuthor({ addon, userId: siteUser.id }) ||
+            siteUserHasReplyPerm) &&
+          review.userId !== siteUser.id ? (
+            <a
+              href="#reply"
+              onClick={this.onClickToBeginReviewReply}
+              className="AddonReviewListItem-begin-reply AddonReviewListItem-control"
+            >
+              <Icon name="reply-arrow" />
+              {i18n.gettext('Reply to this review')}
+            </a>
+          ) : null}
           {review ? (
             <FlagReviewMenu
               isDeveloperReply={isReply}

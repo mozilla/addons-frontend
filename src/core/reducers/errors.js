@@ -63,8 +63,7 @@ function getMessagesFromError(error) {
         // the user will see some kind of error.
         errorData.messages.push(value);
       } else {
-        log.warn(
-          `Ignoring key "${key}": "${value}" in data of error response`);
+        log.warn(`Ignoring key "${key}": "${value}" in data of error response`);
       }
     });
   }
@@ -96,15 +95,15 @@ export default function errors(state = initialState, action) {
         [action.payload.id]: null,
       };
     case SET_ERROR: {
-      const { code, messages } =
-        getMessagesFromError(action.payload.error);
+      const { code, messages } = getMessagesFromError(action.payload.error);
       return {
         ...state,
         [action.payload.id]: {
           code,
           messages,
-          responseStatusCode: action.payload.error.response ?
-            action.payload.error.response.status : null,
+          responseStatusCode: action.payload.error.response
+            ? action.payload.error.response.status
+            : null,
         },
       };
     }

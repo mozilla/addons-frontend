@@ -8,7 +8,6 @@ import translate from 'core/i18n/translate';
 
 import './styles.scss';
 
-
 export const RATING_STYLE_SIZE_TYPES = { small: '', large: '' };
 const RATING_STYLE_SIZES = Object.keys(RATING_STYLE_SIZE_TYPES);
 
@@ -21,14 +20,14 @@ export class RatingBase extends React.Component {
     rating: PropTypes.number,
     readOnly: PropTypes.bool,
     styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
-  }
+  };
 
   static defaultProps = {
     className: '',
     readOnly: false,
     styleSize: 'large',
     isOwner: false,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -44,10 +43,11 @@ export class RatingBase extends React.Component {
 
     if (!this.props.onSelectRating) {
       throw new Error(
-        'onSelectRating was empty. Did you mean to set readOnly=true?');
+        'onSelectRating was empty. Did you mean to set readOnly=true?',
+      );
     }
     this.props.onSelectRating(rating);
-  }
+  };
 
   // Helper function used to render title attributes
   // for each individual star, as well as the wrapper
@@ -57,20 +57,25 @@ export class RatingBase extends React.Component {
 
     if (readOnly) {
       if (rating) {
-        return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
-          { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
+        return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'), {
+          rating: i18n.formatNumber(parseFloat(rating).toFixed(1)),
+        });
       }
       return i18n.gettext('There are no ratings yet');
     }
 
     if (rating) {
-      return i18n.sprintf(i18n.gettext(
-        `Update your rating to %(starRating)s out of 5`), { starRating });
+      return i18n.sprintf(
+        i18n.gettext(`Update your rating to %(starRating)s out of 5`),
+        { starRating },
+      );
     }
 
-    return i18n.sprintf(i18n.gettext(
-      `Rate this add-on %(starRating)s out of 5`), { starRating });
-  }
+    return i18n.sprintf(
+      i18n.gettext(`Rate this add-on %(starRating)s out of 5`),
+      { starRating },
+    );
+  };
 
   renderRatings() {
     const { readOnly } = this.props;
@@ -81,12 +86,14 @@ export class RatingBase extends React.Component {
       const props = {
         className: makeClassName('Rating-choice', {
           'Rating-selected-star': thisRating - rating <= 0.25,
-          'Rating-half-star': thisRating - rating > 0.25 &&
-            thisRating - rating <= 0.75,
+          'Rating-half-star':
+            thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
-        ref: (ref) => { this.ratingElements[thisRating] = ref; },
+        ref: (ref) => {
+          this.ratingElements[thisRating] = ref;
+        },
         title: this.renderTitle(rating, readOnly, thisRating),
       };
 
@@ -96,11 +103,7 @@ export class RatingBase extends React.Component {
 
       return (
         // eslint-disable-next-line react/jsx-key
-        <button
-          onClick={this.onSelectRating}
-          value={thisRating}
-          {...props}
-        />
+        <button onClick={this.onSelectRating} value={thisRating} {...props} />
       );
     });
   }
@@ -110,23 +113,32 @@ export class RatingBase extends React.Component {
     if (!RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         `styleSize=${styleSize} is not a valid value; ` +
-        `possible values: ${RATING_STYLE_SIZES.join(', ')}`);
+          `possible values: ${RATING_STYLE_SIZES.join(', ')}`,
+      );
     }
 
     // Wrap read only ratings with a description to maintain functionality
     // for the "Average rating of developer’s add-ons" tooltip.
-    const description = readOnly ? this.renderTitle(rating, readOnly, null) : null;
+    const description = readOnly
+      ? this.renderTitle(rating, readOnly, null)
+      : null;
 
     const allClassNames = makeClassName(
-      'Rating', `Rating--${styleSize}`, className, {
-        'Rating--editable': !readOnly, 'Rating--by-owner': isOwner,
-      }
+      'Rating',
+      `Rating--${styleSize}`,
+      className,
+      {
+        'Rating--editable': !readOnly,
+        'Rating--by-owner': isOwner,
+      },
     );
 
     return (
       <div
         className={allClassNames}
-        ref={(ref) => { this.element = ref; }}
+        ref={(ref) => {
+          this.element = ref;
+        }}
         title={description}
       >
         <span className="Rating-star-group">
@@ -138,6 +150,4 @@ export class RatingBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(RatingBase);
+export default compose(translate({ withRef: true }))(RatingBase);

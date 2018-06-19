@@ -26,13 +26,17 @@ import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import { loadedAddons } from 'disco/containers/DiscoPane';
 import createStore from 'disco/store';
 import {
-  createFakeEvent, fakeI18n, signedInApiState,
+  createFakeEvent,
+  fakeI18n,
+  signedInApiState,
 } from 'tests/unit/helpers';
 import {
-  dispatchClientMetadata, fakeInstalledAddon,
+  dispatchClientMetadata,
+  fakeInstalledAddon,
 } from 'tests/unit/amo/helpers';
 import {
-  fakeDiscoAddon, loadDiscoResultsIntoState,
+  fakeDiscoAddon,
+  loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
@@ -50,16 +54,18 @@ function renderAddon(customProps = {}) {
 
 describe(__filename, () => {
   let fakeEvent;
-  const _state = loadDiscoResultsIntoState([{
-    heading: 'test-heading',
-    description: 'test-editorial-description',
-    addon: {
-      ...fakeDiscoAddon,
-      id: 'test-id',
-      type: ADDON_TYPE_EXTENSION,
-      slug: 'test-slug',
+  const _state = loadDiscoResultsIntoState([
+    {
+      heading: 'test-heading',
+      description: 'test-editorial-description',
+      addon: {
+        ...fakeDiscoAddon,
+        id: 'test-id',
+        type: ADDON_TYPE_EXTENSION,
+        slug: 'test-slug',
+      },
     },
-  }]);
+  ]);
   const result = loadedAddons(_state)[0];
 
   beforeEach(() => {
@@ -85,8 +91,7 @@ describe(__filename, () => {
       const data = { ...result, status: ERROR, setCurrentStatus: sinon.stub() };
       const root = renderAddon({ addon: data, ...data });
       const error = root.find('.notification.error');
-      expect(error.find('p').html())
-        .toContain('An unexpected error occurred.');
+      expect(error.find('p').html()).toContain('An unexpected error occurred.');
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -99,8 +104,7 @@ describe(__filename, () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = root.find('.notification.error');
-      expect(error.find('p').html())
-        .toContain('An unexpected error occurred.');
+      expect(error.find('p').html()).toContain('An unexpected error occurred.');
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -113,8 +117,9 @@ describe(__filename, () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = root.find('.notification.error');
-      expect(error.find('p').html())
-        .toContain('An unexpected error occurred during installation.');
+      expect(error.find('p').html()).toContain(
+        'An unexpected error occurred during installation.',
+      );
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -127,31 +132,40 @@ describe(__filename, () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = root.find('.notification.error');
-      expect(error.find('p').html())
-        .toContain('An unexpected error occurred during uninstallation.');
+      expect(error.find('p').html()).toContain(
+        'An unexpected error occurred during uninstallation.',
+      );
       expect(error.find('.close')).toHaveLength(0);
     });
 
     it('renders an install error overlay', () => {
       const data = {
-        ...result, status: ERROR, error: INSTALL_FAILED, setCurrentStatus: sinon.stub(),
+        ...result,
+        status: ERROR,
+        error: INSTALL_FAILED,
+        setCurrentStatus: sinon.stub(),
       };
       const root = renderAddon({ addon: data, ...data });
       const error = root.find('.notification.error');
-      expect(error.find('p').html())
-        .toContain('Installation failed. Please try again.');
+      expect(error.find('p').html()).toContain(
+        'Installation failed. Please try again.',
+      );
       error.find('.close').simulate('click', fakeEvent);
       sinon.assert.called(data.setCurrentStatus);
     });
 
     it('renders an error overlay', () => {
       const data = {
-        ...result, status: ERROR, error: DOWNLOAD_FAILED, setCurrentStatus: sinon.stub(),
+        ...result,
+        status: ERROR,
+        error: DOWNLOAD_FAILED,
+        setCurrentStatus: sinon.stub(),
       };
       const root = renderAddon({ addon: data, ...data });
       const error = root.find('.notification.error');
-      expect(error.find('p').html())
-        .toContain('Download failed. Please check your connection.');
+      expect(error.find('p').html()).toContain(
+        'Download failed. Please check your connection.',
+      );
       error.find('.close').simulate('click', fakeEvent);
       sinon.assert.called(data.setCurrentStatus);
     });
@@ -165,8 +179,9 @@ describe(__filename, () => {
       const data = { ...result, needsRestart: true };
       const root = renderAddon({ addon: data, ...data });
       const restartNotice = root.find('.notification.restart p');
-      expect(restartNotice.html())
-        .toContain('Please restart Firefox to use this add-on.');
+      expect(restartNotice.html()).toContain(
+        'Please restart Firefox to use this add-on.',
+      );
     });
 
     it('renders a uninstallation restart notification', () => {
@@ -175,7 +190,8 @@ describe(__filename, () => {
       const restartNotice = root.find('.notification.restart p');
 
       expect(restartNotice.html()).toContain(
-        'This add-on will be uninstalled after you restart Firefox.');
+        'This add-on will be uninstalled after you restart Firefox.',
+      );
     });
 
     it('does not normally render a restart notification', () => {
@@ -193,25 +209,29 @@ describe(__filename, () => {
     it('renders the editorial description', () => {
       const root = renderAddon({ addon: result, ...result });
 
-      expect(root.find('.editorial-description').html())
-        .toContain('test-editorial-description');
+      expect(root.find('.editorial-description').html()).toContain(
+        'test-editorial-description',
+      );
     });
 
     it('purifies the heading', () => {
       const data = {
         ...result,
-        heading: '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
+        heading:
+          '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
       };
       const root = renderAddon({ addon: data, ...data });
 
-      expect(root.find('.heading').html())
-        .toContain('Hey! This is <span>an add-on</span>');
+      expect(root.find('.heading').html()).toContain(
+        'Hey! This is <span>an add-on</span>',
+      );
     });
 
     it('purifies the heading with a link and adds link attrs', () => {
       const data = {
         ...result,
-        heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
+        heading:
+          'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
       };
       const root = renderAddon({ addon: data, ...data });
       const headingHtml = root.find('.heading').html();
@@ -223,7 +243,8 @@ describe(__filename, () => {
     it('purifies the heading with a bad link', () => {
       const data = {
         ...result,
-        heading: 'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>',
+        heading:
+          'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>',
       };
       const root = renderAddon({ addon: data, ...data });
       const link = root.find('.heading');
@@ -237,13 +258,14 @@ describe(__filename, () => {
     it('purifies the editorial description', () => {
       const data = {
         ...result,
-        description: '<script>foo</script><blockquote>This is an add-on!</blockquote> ' +
-                     '<i>Reviewed by <cite>a person</cite></i>',
+        description:
+          '<script>foo</script><blockquote>This is an add-on!</blockquote> ' +
+          '<i>Reviewed by <cite>a person</cite></i>',
       };
       const root = renderAddon({ addon: data, ...data });
 
       expect(root.find('.editorial-description').html()).toContain(
-        '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>'
+        '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>',
       );
     });
 
@@ -255,7 +277,7 @@ describe(__filename, () => {
       const root = renderAddon({ addon: data, ...data });
       expect(root.find('.editorial-description').html()).toContain(
         oneLine`<div class="editorial-description">This is a <a target="_blank"
-          rel="noopener noreferrer">description</a></div>`
+          rel="noopener noreferrer">description</a></div>`,
       );
     });
 
@@ -268,7 +290,7 @@ describe(__filename, () => {
       expect(root.find('.editorial-description').html()).toContain(
         oneLine`<div class="editorial-description">This is a <a
           href="https://mozilla.org/" target="_blank"
-          rel="noopener noreferrer">description</a></div>`
+          rel="noopener noreferrer">description</a></div>`,
       );
     });
 
@@ -302,16 +324,20 @@ describe(__filename, () => {
         ...result,
         _tracking: fakeTracking,
         name: 'foo',
-        heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
+        heading:
+          'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
         type: ADDON_TYPE_EXTENSION,
       };
       const root = renderAddon({ addon: data, ...data });
       const heading = root.find('.heading');
       // We click the heading providing the link nodeName to emulate
       // bubbling.
-      heading.simulate('click', createFakeEvent({
-        target: { nodeName: 'A' },
-      }));
+      heading.simulate(
+        'click',
+        createFakeEvent({
+          target: { nodeName: 'A' },
+        }),
+      );
 
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         action: TRACKING_TYPE_EXTENSION,
@@ -327,12 +353,13 @@ describe(__filename, () => {
         type: ADDON_TYPE_EXTENSION,
       };
       const root = renderAddon({
-        addon: data, ...data, defaultInstallSource,
+        addon: data,
+        ...data,
+        defaultInstallSource,
       });
 
       const button = root.find(InstallButton);
-      expect(button)
-        .toHaveProp('defaultInstallSource', defaultInstallSource);
+      expect(button).toHaveProp('defaultInstallSource', defaultInstallSource);
     });
 
     it('disables incompatible add-ons', () => {
@@ -360,7 +387,6 @@ describe(__filename, () => {
     });
   });
 
-
   describe('<Addon type="theme"/>', () => {
     let root;
 
@@ -377,7 +403,6 @@ describe(__filename, () => {
       expect(root.find('.logo')).toHaveLength(0);
     });
   });
-
 
   describe('Theme Previews', () => {
     let root;
@@ -442,8 +467,10 @@ describe(__filename, () => {
       // without status informataion, install doesn't
       // work property.
       // See: https://github.com/mozilla/addons-frontend/issues/4999
-      sinon.assert.calledWith(installTheme,
-        themeImage, { ...addon, status: UNINSTALLED });
+      sinon.assert.calledWith(installTheme, themeImage, {
+        ...addon,
+        status: UNINSTALLED,
+      });
     });
   });
 
@@ -466,21 +493,26 @@ describe(__filename, () => {
         guid,
         id: addonId,
       };
-      loadDiscoResultsIntoState([{
-        heading: 'Discovery Addon 1',
-        description: 'informative text',
-        addon,
-      }], { store });
-
-      store.dispatch(setInstallState({
-        ...fakeInstalledAddon,
-        status: ENABLED,
-        guid,
-      }));
-
-      const props = mapStateToProps(
-        store.getState(), { guid }
+      loadDiscoResultsIntoState(
+        [
+          {
+            heading: 'Discovery Addon 1',
+            description: 'informative text',
+            addon,
+          },
+        ],
+        { store },
       );
+
+      store.dispatch(
+        setInstallState({
+          ...fakeInstalledAddon,
+          status: ENABLED,
+          guid,
+        }),
+      );
+
+      const props = mapStateToProps(store.getState(), { guid });
 
       expect(props).toMatchObject({
         // Check that `addon` and its properties are spread.
@@ -501,9 +533,9 @@ describe(__filename, () => {
     });
 
     it('handles missing data', () => {
-      const props = mapStateToProps(
-        store.getState(), { guid: 'not-loaded-yet@addon' },
-      );
+      const props = mapStateToProps(store.getState(), {
+        guid: 'not-loaded-yet@addon',
+      });
 
       expect(props.addon).toEqual(null);
       expect(props.platformFiles).toEqual({});

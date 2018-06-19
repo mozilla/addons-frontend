@@ -52,10 +52,7 @@ import {
 import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon, loadAddons } from 'core/reducers/addons';
-import {
-  fakeAddon,
-  signedInApiState,
-} from 'tests/unit/amo/helpers';
+import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   fakeI18n,
@@ -63,7 +60,6 @@ import {
   unexpectedSuccess,
   userAgents,
 } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   describe('addonHasVersionHistory', () => {
@@ -171,7 +167,6 @@ describe(__filename, () => {
     });
   });
 
-
   describe('convertBoolean', () => {
     it('should see "false" as false', () => {
       expect(convertBoolean('false')).toEqual(false);
@@ -259,7 +254,8 @@ describe(__filename, () => {
 
     it('should return "android" for lowercase UA string', () => {
       // This UA string has android, not Android.
-      const ua = 'mozilla/5.0 (android; mobile; rv:40.0) gecko/40.0 firefox/40.0';
+      const ua =
+        'mozilla/5.0 (android; mobile; rv:40.0) gecko/40.0 firefox/40.0';
       expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
     });
   });
@@ -309,15 +305,17 @@ describe(__filename, () => {
     it('returns false if add-on has no authors', () => {
       const partialAddon = { ...addon, authors: [] };
 
-      expect(isAddonAuthor({ addon: partialAddon, userId: null }))
-        .toEqual(false);
+      expect(isAddonAuthor({ addon: partialAddon, userId: null })).toEqual(
+        false,
+      );
     });
 
     it('returns false if add-on has a null value for authors', () => {
       const partialAddon = { ...addon, authors: null };
 
-      expect(isAddonAuthor({ addon: partialAddon, userId: null }))
-        .toEqual(false);
+      expect(isAddonAuthor({ addon: partialAddon, userId: null })).toEqual(
+        false,
+      );
     });
   });
 
@@ -360,12 +358,11 @@ describe(__filename, () => {
         .withArgs({ slug: addonSlug, api: apiState })
         .returns(Promise.resolve({ entities }));
 
-      return refreshAddon({ addonSlug, apiState, dispatch })
-        .then(() => {
-          expect(dispatch.called).toBeTruthy();
-          expect(dispatch.firstCall.args[0]).toEqual(loadAddons(entities));
-          mockApi.verify();
-        });
+      return refreshAddon({ addonSlug, apiState, dispatch }).then(() => {
+        expect(dispatch.called).toBeTruthy();
+        expect(dispatch.firstCall.args[0]).toEqual(loadAddons(entities));
+        mockApi.verify();
+      });
     });
 
     it('handles 404s when loading the add-on', () => {
@@ -374,11 +371,12 @@ describe(__filename, () => {
         .once()
         .withArgs({ slug: addonSlug, api: signedInApiState })
         .returns(Promise.reject(new Error('Error accessing API')));
-      return refreshAddon({ addonSlug, apiState, dispatch })
-        .then(unexpectedSuccess,
-          () => {
-            expect(dispatch.called).toEqual(false);
-          });
+      return refreshAddon({ addonSlug, apiState, dispatch }).then(
+        unexpectedSuccess,
+        () => {
+          expect(dispatch.called).toEqual(false);
+        },
+      );
     });
   });
 
@@ -427,8 +425,12 @@ describe(__filename, () => {
 
     it('accepts overriding the allowed origins', () => {
       const allowedOrigins = ['http://foo.com', 'https://foo.com'];
-      expect(isAllowedOrigin('http://foo.com', { allowedOrigins })).toEqual(true);
-      expect(isAllowedOrigin('https://foo.com', { allowedOrigins })).toEqual(true);
+      expect(isAllowedOrigin('http://foo.com', { allowedOrigins })).toEqual(
+        true,
+      );
+      expect(isAllowedOrigin('https://foo.com', { allowedOrigins })).toEqual(
+        true,
+      );
     });
   });
 
@@ -439,37 +441,50 @@ describe(__filename, () => {
     });
 
     it('adds more than one query param to a plain url', () => {
-      const output = addQueryParams('http://whatever.com/', { foo: 'bar', test: 1 });
+      const output = addQueryParams('http://whatever.com/', {
+        foo: 'bar',
+        test: 1,
+      });
       expect(url.parse(output, true).query).toEqual({ foo: 'bar', test: '1' });
     });
 
     it('overrides an existing parameter', () => {
-      const output = addQueryParams('http://whatever.com/?foo=1', { foo: 'bar' });
+      const output = addQueryParams('http://whatever.com/?foo=1', {
+        foo: 'bar',
+      });
       expect(url.parse(output, true).query).toEqual({ foo: 'bar' });
     });
 
     it('overrides multiple existing parameters', () => {
-      const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { foo: 'bar', bar: 'baz' });
+      const output = addQueryParams('http://whatever.com/?foo=1&bar=2', {
+        foo: 'bar',
+        bar: 'baz',
+      });
       expect(url.parse(output, true).query).toEqual({ foo: 'bar', bar: 'baz' });
     });
 
     it('leaves other params intact', () => {
-      const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { bar: 'updated' });
-      expect(url.parse(output, true).query).toEqual({ foo: '1', bar: 'updated' });
+      const output = addQueryParams('http://whatever.com/?foo=1&bar=2', {
+        bar: 'updated',
+      });
+      expect(url.parse(output, true).query).toEqual({
+        foo: '1',
+        bar: 'updated',
+      });
     });
 
     it('handles relative URLs', () => {
       const output = addQueryParams('/relative/path/?one=1', { two: '2' });
       expect(output).toMatch(/^\/relative\/path\//);
-      expect(url.parse(output, true).query)
-        .toEqual({ one: '1', two: '2' });
+      expect(url.parse(output, true).query).toEqual({ one: '1', two: '2' });
     });
   });
 
   describe('ngettext', () => {
     function fileCount(count) {
-      return sprintf(ngettext('%(count)s file', '%(count)s files', count),
-        { count });
+      return sprintf(ngettext('%(count)s file', '%(count)s files', count), {
+        count,
+      });
     }
 
     it('outputs singular when count is one', () => {
@@ -503,7 +518,9 @@ describe(__filename, () => {
     it('does not return a false positive on a method', () => {
       expect(() => {
         visibleAddonType('hasOwnProperty');
-      }).toThrowError('"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
+      }).toThrowError(
+        '"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING',
+      );
     });
   });
 
@@ -545,7 +562,9 @@ describe(__filename, () => {
     });
 
     it('works with HTTPS URLs', () => {
-      expect(trimAndAddProtocolToUrl('https://test.com')).toEqual('https://test.com');
+      expect(trimAndAddProtocolToUrl('https://test.com')).toEqual(
+        'https://test.com',
+      );
     });
   });
 
@@ -556,7 +575,7 @@ describe(__filename, () => {
         configKey = 'someConfigKey',
         _config = { get: () => true },
         SomeComponent = () => <div />,
-      } = {}
+      } = {},
     ) {
       const WrappedComponent = compose(
         render404IfConfigKeyIsFalse(configKey, { _config }),
@@ -565,12 +584,14 @@ describe(__filename, () => {
       return renderIntoDocument(
         <I18nProvider i18n={fakeI18n()}>
           <WrappedComponent {...props} />
-        </I18nProvider>
+        </I18nProvider>,
       );
     }
 
     it('requires a config key', () => {
-      expect(() => render404IfConfigKeyIsFalse()).toThrowError(/configKey cannot be empty/);
+      expect(() => render404IfConfigKeyIsFalse()).toThrowError(
+        /configKey cannot be empty/,
+      );
     });
 
     it('returns a 404 when disabled by the config', () => {
@@ -619,7 +640,8 @@ describe(__filename, () => {
       expect(() => {
         getCategoryColor({ id: 5, type: 'NOT_A_REAL_TYPE' });
       }).toThrowError(
-        'addonType "NOT_A_REAL_TYPE" not found in CATEGORY_COLORS');
+        'addonType "NOT_A_REAL_TYPE" not found in CATEGORY_COLORS',
+      );
     });
 
     it('deals with high category IDs', () => {
@@ -627,8 +649,9 @@ describe(__filename, () => {
         const category = { id: i, type: ADDON_TYPE_THEME };
         const categoryColor = getCategoryColor(category);
 
-        expect(categoryColor)
-          .toBeLessThanOrEqual(CATEGORY_COLORS[ADDON_TYPE_THEME]);
+        expect(categoryColor).toBeLessThanOrEqual(
+          CATEGORY_COLORS[ADDON_TYPE_THEME],
+        );
         expect(categoryColor).toBeLessThanOrEqual(12);
         expect(categoryColor).toBeGreaterThanOrEqual(1);
       }
@@ -646,10 +669,12 @@ describe(__filename, () => {
     const sanitize = (...args) => sanitizeUserHTML(...args).__html;
 
     it('converts new lines to breaks', () => {
-      expect(sanitize(`
+      expect(
+        sanitize(`
       first
       second
-    `).trim()).toEqual('<br>      first<br>      second<br>');
+    `).trim(),
+      ).toEqual('<br>      first<br>      second<br>');
     });
 
     it('allows some tags', () => {
@@ -659,8 +684,9 @@ describe(__filename, () => {
     });
 
     it('does not allow certain tags', () => {
-      expect(sanitize('<b>my add-on</b> <script>alert("does XSS")</script>'))
-        .toEqual('<b>my add-on</b> ');
+      expect(
+        sanitize('<b>my add-on</b> <script>alert("does XSS")</script>'),
+      ).toEqual('<b>my add-on</b> ');
     });
 
     it('does nothing to null values', () => {
@@ -687,8 +713,9 @@ describe(__filename, () => {
 
   describe('decodeHtmlEntities', () => {
     it('decodes entities', () => {
-      expect(decodeHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;'))
-        .toEqual('<>"&©®');
+      expect(decodeHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;')).toEqual(
+        '<>"&©®',
+      );
     });
 
     it('passes through anything else', () => {
@@ -713,26 +740,46 @@ describe(__filename, () => {
   describe('getAddonTypeFilter', () => {
     it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a lightweight theme', () => {
       const fakeConfig = getFakeConfig({ enableStaticThemes: true });
-      const addon = createInternalAddon({ type: ADDON_TYPE_THEME, config: fakeConfig });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEMES_FILTER);
+      const addon = createInternalAddon({
+        type: ADDON_TYPE_THEME,
+        config: fakeConfig,
+      });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+        ADDON_TYPE_THEMES_FILTER,
+      );
     });
 
     it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a static theme', () => {
       const fakeConfig = getFakeConfig({ enableStaticThemes: true });
-      const addon = createInternalAddon({ type: ADDON_TYPE_STATIC_THEME, config: fakeConfig });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEMES_FILTER);
+      const addon = createInternalAddon({
+        type: ADDON_TYPE_STATIC_THEME,
+        config: fakeConfig,
+      });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+        ADDON_TYPE_THEMES_FILTER,
+      );
     });
 
     it('returns ADDON_TYPE_THEME when enabledStaticThemes is set to false', () => {
       const fakeConfig = getFakeConfig({ enableStaticThemes: false });
-      const addon = createInternalAddon({ type: ADDON_TYPE_THEME, config: fakeConfig });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEME);
+      const addon = createInternalAddon({
+        type: ADDON_TYPE_THEME,
+        config: fakeConfig,
+      });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+        ADDON_TYPE_THEME,
+      );
     });
 
     it('returns ADDON_TYPE_EXTENSION when enabledStaticThemes is set to true and add-on type is an extension', () => {
       const fakeConfig = getFakeConfig({ enableStaticThemes: true });
-      const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION, config: fakeConfig });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_EXTENSION);
+      const addon = createInternalAddon({
+        type: ADDON_TYPE_EXTENSION,
+        config: fakeConfig,
+      });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+        ADDON_TYPE_EXTENSION,
+      );
     });
   });
 });

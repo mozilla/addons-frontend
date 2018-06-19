@@ -83,10 +83,12 @@ describe(__filename, () => {
   });
 
   it('scrolls to the active item on close', () => {
-    const onePixelImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
-    const newPreviews = previews.map((preview) => (
-      { ...preview, image_url: onePixelImage }
-    ));
+    const onePixelImage =
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+    const newPreviews = previews.map((preview) => ({
+      ...preview,
+      image_url: onePixelImage,
+    }));
 
     const root = mount(<ScreenShots previews={newPreviews} />);
     const item = { getBoundingClientRect: () => ({ left: 500 }) };

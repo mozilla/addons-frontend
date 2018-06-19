@@ -15,7 +15,6 @@ import I18nProvider from 'core/i18n/Provider';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { fakeI18n } from 'tests/unit/helpers';
 
-
 class MyComponent extends React.Component {
   render() {
     return <p>The component</p>;
@@ -33,15 +32,18 @@ function renderProps(customProps = {}) {
 
 function renderApp(customProps = {}) {
   const props = renderProps(customProps);
-  const root = findRenderedComponentWithType(renderIntoDocument(
-    <Provider store={props.store}>
-      <I18nProvider i18n={props.i18n}>
-        <AppBase {...props}>
-          <MyComponent />
-        </AppBase>
-      </I18nProvider>
-    </Provider>
-  ), AppBase);
+  const root = findRenderedComponentWithType(
+    renderIntoDocument(
+      <Provider store={props.store}>
+        <I18nProvider i18n={props.i18n}>
+          <AppBase {...props}>
+            <MyComponent />
+          </AppBase>
+        </I18nProvider>
+      </Provider>,
+    ),
+    AppBase,
+  );
   return findDOMNode(root);
 }
 
@@ -119,6 +121,8 @@ describe('mapStateToProps', () => {
   };
 
   it('returns browserVersion', () => {
-    expect(mapStateToProps(null, fakeRouterParams).browserVersion).toEqual('49.0');
+    expect(mapStateToProps(null, fakeRouterParams).browserVersion).toEqual(
+      '49.0',
+    );
   });
 });

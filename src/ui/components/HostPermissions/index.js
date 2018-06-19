@@ -39,7 +39,9 @@ type InternalProps = { ...Props, ...InjectedProps };
 
 export class HostPermissionsBase extends React.Component<InternalProps> {
   getPermissionString({
-    messageType, param, multiple = false,
+    messageType,
+    param,
+    multiple = false,
   }: GetPermissionStringParams): string {
     const { i18n } = this.props;
     // These should be kept in sync with Firefox's strings for webextention
@@ -50,31 +52,36 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
         return i18n.gettext('Access your data for all websites');
       case domainMessageType:
         if (multiple) {
-          return i18n.sprintf(i18n.ngettext(
-            'Access your data in %(param)s other domain',
-            'Access your data in %(param)s other domains',
-            param), { param: i18n.formatNumber(param) }
+          return i18n.sprintf(
+            i18n.ngettext(
+              'Access your data in %(param)s other domain',
+              'Access your data in %(param)s other domains',
+              param,
+            ),
+            { param: i18n.formatNumber(param) },
           );
         }
         return i18n.sprintf(
           i18n.gettext('Access your data for sites in the %(param)s domain'),
-          { param }
+          { param },
         );
       case siteMessageType:
         if (multiple) {
-          return i18n.sprintf(i18n.ngettext(
-            'Access your data on %(param)s other site',
-            'Access your data on %(param)s other sites',
-            param), { param: i18n.formatNumber(param) }
+          return i18n.sprintf(
+            i18n.ngettext(
+              'Access your data on %(param)s other site',
+              'Access your data on %(param)s other sites',
+              param,
+            ),
+            { param: i18n.formatNumber(param) },
           );
         }
-        return i18n.sprintf(
-          i18n.gettext('Access your data for %(param)s'),
-          { param }
-        );
+        return i18n.sprintf(i18n.gettext('Access your data for %(param)s'), {
+          param,
+        });
       default:
         throw new Error(
-          `No matching string found for messageType: ${messageType}`
+          `No matching string found for messageType: ${messageType}`,
         );
     }
   }
@@ -85,7 +92,8 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
   // fewer, display them all, otherwise display the first 3 followed by an item
   // that says "...plus N others".
   generateHostPermissions({
-    permissions, messageType,
+    permissions,
+    messageType,
   }: GenerateHostPermissionsParams): Array<React.Element<typeof Permission>> {
     const hostPermissions = [];
     for (const item of permissions.slice(0, 4)) {
@@ -95,7 +103,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
           type="hostPermission"
           description={this.getPermissionString({ messageType, param: item })}
           key={item}
-        />
+        />,
       );
     }
     if (permissions.length > 4) {
@@ -103,9 +111,11 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
       hostPermissions[3] = (
         <Permission
           type="hostPermission"
-          description={this.getPermissionString(
-            { messageType, param: permissions.length - 3, multiple: true }
-          )}
+          description={this.getPermissionString({
+            messageType,
+            param: permissions.length - 3,
+            multiple: true,
+          })}
           key={messageType}
         />
       );
@@ -133,7 +143,9 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
       }
       const match = /^[a-z*]+:\/\/([^/]+)\//.exec(permission);
       if (!match) {
-        log.debug(`Host permission string "${permission}" appears to be invalid.`);
+        log.debug(
+          `Host permission string "${permission}" appears to be invalid.`,
+        );
         continue;
       }
       if (match[1] === '*') {
@@ -155,28 +167,32 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
       hostPermissions.push(
         <Permission
           type="hostPermission"
-          description={this.getPermissionString({ messageType: allUrlsMessageType })}
+          description={this.getPermissionString({
+            messageType: allUrlsMessageType,
+          })}
           key="allUrls"
-        />
+        />,
       );
     } else {
-      hostPermissions.push(...this.generateHostPermissions({
-        permissions: uniqueWildcards, messageType: domainMessageType,
-      }));
-      hostPermissions.push(...this.generateHostPermissions({
-        permissions: uniqueSites, messageType: siteMessageType,
-      }));
+      hostPermissions.push(
+        ...this.generateHostPermissions({
+          permissions: uniqueWildcards,
+          messageType: domainMessageType,
+        }),
+      );
+      hostPermissions.push(
+        ...this.generateHostPermissions({
+          permissions: uniqueSites,
+          messageType: siteMessageType,
+        }),
+      );
     }
-    return (
-      <React.Fragment>
-        {hostPermissions}
-      </React.Fragment>
-    );
+    return <React.Fragment>{hostPermissions}</React.Fragment>;
   }
 }
 
-const HostPermissions: React.ComponentType<Props> = compose(
-  translate(),
-)(HostPermissionsBase);
+const HostPermissions: React.ComponentType<Props> = compose(translate())(
+  HostPermissionsBase,
+);
 
 export default HostPermissions;

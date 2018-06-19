@@ -9,7 +9,6 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { getAddonTypeFilter } from 'core/utils';
 
-
 export function* fetchAddonsByAuthors({ payload }) {
   const {
     addonType,
@@ -45,14 +44,16 @@ export function* fetchAddonsByAuthors({ payload }) {
     const addons = Object.values(response.entities.addons || {});
     const { count } = response.result;
 
-    yield put(loadAddonsByAuthors({
-      addonType,
-      addons,
-      authorUsernames,
-      count,
-      forAddonSlug,
-      pageSize,
-    }));
+    yield put(
+      loadAddonsByAuthors({
+        addonType,
+        addons,
+        authorUsernames,
+        count,
+        forAddonSlug,
+        pageSize,
+      }),
+    );
   } catch (error) {
     log.warn(`Search for addons by authors results failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));

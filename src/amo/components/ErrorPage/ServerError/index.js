@@ -10,11 +10,10 @@ import Card from 'ui/components/Card';
 
 import 'amo/components/ErrorPage/ErrorPage.scss';
 
-
 export class ServerErrorBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { i18n } = this.props;
@@ -49,6 +48,4 @@ export class ServerErrorBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(ServerErrorBase);
+export default compose(translate({ withRef: true }))(ServerErrorBase);

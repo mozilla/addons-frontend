@@ -32,7 +32,6 @@ import Button from 'ui/components/Button';
 
 import './styles.scss';
 
-
 export class LandingPageBase extends React.Component {
   static propTypes = {
     // This is a bug; addonTypeOfResults is used in
@@ -55,7 +54,7 @@ export class LandingPageBase extends React.Component {
     // This is a bug; resultsLoaded is used in `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
     resultsLoaded: PropTypes.bool.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { params } = this.props;
@@ -97,12 +96,17 @@ export class LandingPageBase extends React.Component {
 
     const requestedAddonType = apiAddonType(params.visibleAddonType);
 
-    if (!loading && !errorHandler.hasError() &&
-        (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
-      dispatch(getLanding({
-        addonType: requestedAddonType,
-        errorHandlerId: errorHandler.id,
-      }));
+    if (
+      !loading &&
+      !errorHandler.hasError() &&
+      (!resultsLoaded || addonTypeOfResults !== requestedAddonType)
+    ) {
+      dispatch(
+        getLanding({
+          addonType: requestedAddonType,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
     }
   }
 
@@ -133,7 +137,10 @@ export class LandingPageBase extends React.Component {
         trendingHeader: i18n.gettext('Trending extensions'),
         trendingFooterLink: {
           pathname: '/search/',
-          query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },
+          query: {
+            addonType: ADDON_TYPE_EXTENSION,
+            sort: SEARCH_SORT_TRENDING,
+          },
         },
         trendingFooterText: i18n.gettext('See more trending extensions'),
         highlyRatedHeader: i18n.gettext('Top rated extensions'),
@@ -172,7 +179,7 @@ export class LandingPageBase extends React.Component {
     };
 
     return { addonType, html: contentForTypes[addonType] };
-  }
+  };
 
   renderIfNotEmpty(addons, component) {
     if (addons.length === 0 && !this.props.loading) {
@@ -212,7 +219,9 @@ export class LandingPageBase extends React.Component {
     };
 
     return (
-      <div className={makeClassName('LandingPage', `LandingPage--${addonType}`)}>
+      <div
+        className={makeClassName('LandingPage', `LandingPage--${addonType}`)}
+      >
         <Helmet>
           <title>{headingText[addonType]}</title>
         </Helmet>
@@ -248,7 +257,7 @@ export class LandingPageBase extends React.Component {
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
             loading={loading}
-          />
+          />,
         )}
         {this.renderIfNotEmpty(
           highlyRatedAddons,
@@ -260,7 +269,7 @@ export class LandingPageBase extends React.Component {
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
             loading={loading}
-          />
+          />,
         )}
         {this.renderIfNotEmpty(
           trendingAddons,
@@ -272,7 +281,7 @@ export class LandingPageBase extends React.Component {
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
             loading={loading}
-          />
+          />,
         )}
       </div>
     );

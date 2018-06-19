@@ -14,7 +14,6 @@ import {
   ADDON_TYPE_THEME,
 } from 'core/constants';
 
-
 export function isDoNotTrackEnabled({
   _log = log,
   _navigator = typeof navigator !== 'undefined' ? navigator : null,
@@ -71,7 +70,12 @@ export class Tracking {
     if (this.enabled) {
       /* eslint-disable */
       // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
-      window.ga = window.ga || function() {(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      window.ga =
+        window.ga ||
+        function() {
+          (ga.q = ga.q || []).push(arguments);
+        };
+      ga.l = +new Date();
       /* eslint-enable */
       ga('create', this.id, 'auto');
       if (convertBoolean(_config.get('trackingSendInitPageView'))) {
@@ -152,10 +156,12 @@ export class Tracking {
 }
 
 export function getAction(type) {
-  return {
-    [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
-    [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
-  }[type] || TRACKING_TYPE_INVALID;
+  return (
+    {
+      [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
+    }[type] || TRACKING_TYPE_INVALID
+  );
 }
 
 export default new Tracking();

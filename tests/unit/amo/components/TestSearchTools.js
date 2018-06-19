@@ -2,23 +2,16 @@ import * as React from 'react';
 
 import SearchTools, { SearchToolsBase } from 'amo/components/SearchTools';
 import Search from 'amo/components/Search';
-import {
-  ADDON_TYPE_OPENSEARCH,
-  SEARCH_SORT_RELEVANCE,
-} from 'core/constants';
+import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { shallowUntilTarget } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   let store;
 
   function render({ ...props } = {}) {
     return shallowUntilTarget(
-      <SearchTools
-        store={store}
-        {...props}
-      />,
+      <SearchTools store={store} {...props} />,
       SearchToolsBase,
     );
   }
@@ -40,4 +33,3 @@ describe(__filename, () => {
     });
   });
 });
-

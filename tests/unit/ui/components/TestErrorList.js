@@ -31,8 +31,9 @@ describe(__filename, () => {
 
   it('renders a generic message for errors without a message', () => {
     const root = render({ messages: [] });
-    expect(root.find('Notice').html())
-      .toContain('An unexpected error occurred');
+    expect(root.find('Notice').html()).toContain(
+      'An unexpected error occurred',
+    );
   });
 
   it('renders all messages', () => {
@@ -48,8 +49,12 @@ describe(__filename, () => {
   it('renders object messages', () => {
     const objectMessage = { thisIsNot: 'a string' };
     const root = render({ messages: [objectMessage] });
-    expect(root.find('Notice').childAt(0).text())
-      .toEqual(JSON.stringify(objectMessage));
+    expect(
+      root
+        .find('Notice')
+        .childAt(0)
+        .text(),
+    ).toEqual(JSON.stringify(objectMessage));
   });
 
   it('renders a reload button for signature expired errors', () => {

@@ -27,11 +27,8 @@ describe('SearchContextCard', () => {
     };
 
     return shallowUntilTarget(
-      <SearchContextCard
-        i18n={fakeI18n()}
-        {...props}
-      />,
-      SearchContextCardBase
+      <SearchContextCard i18n={fakeI18n()} {...props} />,
+      SearchContextCardBase,
     );
   }
 
@@ -53,32 +50,36 @@ describe('SearchContextCard', () => {
     _searchStart({ filters: {} });
     const root = render();
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('Loading add-ons');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      'Loading add-ons',
+    );
   });
 
   it('should render during a search that is loading', () => {
     _searchStart({ filters: { query: 'test' } });
     const root = render();
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('Searching for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      'Searching for "test"',
+    );
   });
 
   it('should render search results', () => {
     const { store } = dispatchSearchResults();
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('2 results for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 results for "test"',
+    );
   });
 
   it('should render results that lack a query', () => {
     const { store } = dispatchSearchResults({ filters: {} });
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('2 add-ons found');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 add-ons found',
+    );
   });
 
   it('should use singular form when only one result is found', () => {
@@ -87,8 +88,9 @@ describe('SearchContextCard', () => {
     });
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('1 result for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 result for "test"',
+    );
   });
 
   it('should use singular form without query when only one result', () => {
@@ -98,16 +100,18 @@ describe('SearchContextCard', () => {
     });
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('1 add-on found');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 add-on found',
+    );
   });
 
   it('should render empty results', () => {
     const { store } = dispatchSearchResults({ addons: [], filters: {} });
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('No add-ons found');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      'No add-ons found',
+    );
   });
 
   it('should render singular form when only one result is found with addonType ADDON_TYPE_THEME', () => {
@@ -121,8 +125,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('1 theme found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 theme found for "test"',
+    );
   });
 
   it('should render plural form when multiple results are found with addonType ADDON_TYPE_THEME', () => {
@@ -135,8 +140,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('2 themes found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 themes found for "test"',
+    );
   });
 
   it('should render singular form when only one result is found with addonType ADDON_TYPE_DICT', () => {
@@ -150,8 +156,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('1 dictionary found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 dictionary found for "test"',
+    );
   });
 
   it('should render plural form when multiple results are found with addonType ADDON_TYPE_DICT', () => {
@@ -164,8 +171,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('2 dictionaries found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 dictionaries found for "test"',
+    );
   });
 
   it('should render singular form when only one result is found with addonType ADDON_TYPE_EXTENSION', () => {
@@ -179,8 +187,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('1 extension found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 extension found for "test"',
+    );
   });
 
   it('should render plural form when multiple results are found with addonType ADDON_TYPE_EXTENSION', () => {
@@ -193,8 +202,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('2 extensions found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 extensions found for "test"',
+    );
   });
 
   it('should render singular form when only one result is found with addonType ADDON_TYPE_LANG', () => {
@@ -208,8 +218,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('1 language pack found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 language pack found for "test"',
+    );
   });
 
   it('should render plural form when multiple results are found with addonType ADDON_TYPE_LANG', () => {
@@ -222,8 +233,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('2 language packs found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 language packs found for "test"',
+    );
   });
 
   it('should render singular form when only one result is found with addonType theme', () => {
@@ -237,8 +249,9 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('1 result found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 result found for "test"',
+    );
   });
 
   it('should render plural form when multiple results are found with addonType theme', () => {
@@ -251,8 +264,8 @@ describe('SearchContextCard', () => {
 
     const root = render({ store });
 
-    expect(root.find('.SearchContextCard-header'))
-      .toIncludeText('2 results found for "test"');
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 results found for "test"',
+    );
   });
 });
-

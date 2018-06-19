@@ -8,15 +8,11 @@ import abuseReducer, {
 } from 'core/reducers/abuse';
 import apiReducer from 'core/reducers/api';
 import abuseSaga from 'core/sagas/abuse';
-import {
-  dispatchSignInActions,
-  fakeAddon,
-} from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeAddonAbuseReport,
   createStubErrorHandler,
 } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   let errorHandler;
@@ -38,12 +34,14 @@ describe(__filename, () => {
   });
 
   function _sendAddonAbuseReport(params) {
-    sagaTester.dispatch(sendAddonAbuseReport({
-      addonSlug: fakeAddon.slug,
-      errorHandlerId: errorHandler.id,
-      message: 'Testing',
-      ...params,
-    }));
+    sagaTester.dispatch(
+      sendAddonAbuseReport({
+        addonSlug: fakeAddon.slug,
+        errorHandlerId: errorHandler.id,
+        message: 'Testing',
+        ...params,
+      }),
+    );
   }
 
   it('calls the API for abuse', async () => {
@@ -75,15 +73,14 @@ describe(__filename, () => {
     _sendAddonAbuseReport();
 
     await sagaTester.waitFor(CLEAR_ERROR);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    expect(sagaTester.getCalledActions()[1]).toEqual(
+      errorHandler.createClearingAction(),
+    );
   });
 
   it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('reportAddon')
-      .returns(Promise.reject(error));
+    mockApi.expects('reportAddon').returns(Promise.reject(error));
 
     _sendAddonAbuseReport();
 
@@ -106,7 +103,8 @@ describe(__filename, () => {
     });
 
     await sagaTester.waitFor(SET_ERROR);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    expect(sagaTester.getCalledActions()[1]).toEqual(
+      errorHandler.createClearingAction(),
+    );
   });
 });

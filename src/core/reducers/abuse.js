@@ -11,9 +11,9 @@ export const SHOW_ADDON_ABUSE_REPORT_UI = 'SHOW_ADDON_ABUSE_REPORT_UI';
 
 type DisableAddonAbuseButtonUIType = {| addon: AddonType |};
 
-export function disableAbuseButtonUI(
-  { addon }: DisableAddonAbuseButtonUIType = {}
-) {
+export function disableAbuseButtonUI({
+  addon,
+}: DisableAddonAbuseButtonUIType = {}) {
   if (!addon) {
     throw new Error('addon is required');
   }
@@ -26,9 +26,9 @@ export function disableAbuseButtonUI(
 
 type EnableAddonAbuseButtonUIType = { addon: AddonType };
 
-export function enableAbuseButtonUI(
-  { addon }: EnableAddonAbuseButtonUIType = {}
-) {
+export function enableAbuseButtonUI({
+  addon,
+}: EnableAddonAbuseButtonUIType = {}) {
   if (!addon) {
     throw new Error('addon is required');
   }
@@ -41,9 +41,9 @@ export function enableAbuseButtonUI(
 
 type HideAddonAbuseReportUIType = { addon: AddonType };
 
-export function hideAddonAbuseReportUI(
-  { addon }: HideAddonAbuseReportUIType = {}
-) {
+export function hideAddonAbuseReportUI({
+  addon,
+}: HideAddonAbuseReportUIType = {}) {
   if (!addon) {
     throw new Error('addon is required');
   }
@@ -64,9 +64,11 @@ type LoadAddonAbuseReportType = {
   reporter: AbuseReporter | null,
 };
 
-export function loadAddonAbuseReport(
-  { addon, message, reporter }: LoadAddonAbuseReportType = {}
-) {
+export function loadAddonAbuseReport({
+  addon,
+  message,
+  reporter,
+}: LoadAddonAbuseReportType = {}) {
   if (!addon) {
     throw new Error('addon is required');
   }
@@ -89,9 +91,11 @@ type SendAddonAbuseReportAction = {|
   message: string,
 |};
 
-export function sendAddonAbuseReport(
-  { addonSlug, errorHandlerId, message }: SendAddonAbuseReportAction = {}
-) {
+export function sendAddonAbuseReport({
+  addonSlug,
+  errorHandlerId,
+  message,
+}: SendAddonAbuseReportAction = {}) {
   if (!addonSlug) {
     throw new Error('addonSlug is required');
   }
@@ -110,9 +114,9 @@ export function sendAddonAbuseReport(
 
 type ShowAddonAbuseReportUIType = { addon: AddonType };
 
-export function showAddonAbuseReportUI(
-  { addon }: ShowAddonAbuseReportUIType = {}
-) {
+export function showAddonAbuseReportUI({
+  addon,
+}: ShowAddonAbuseReportUIType = {}) {
   if (!addon) {
     throw new Error('addon is required');
   }
@@ -129,22 +133,22 @@ export const initialState = {
 };
 
 export type AddonAbuseState = {|
-  buttonEnabled?: bool,
+  buttonEnabled?: boolean,
   message: string,
   reporter: AbuseReporter | null,
   uiVisible?: boolean,
-|}
+|};
 
 export type AbuseState = {|
   bySlug: {
     [addonSlug: string]: AddonAbuseState,
   },
-  loading: bool,
+  loading: boolean,
 |};
 
 export default function abuseReducer(
   state: AbuseState = initialState,
-  action: Object
+  action: Object,
 ) {
   switch (action.type) {
     case DISABLE_ADDON_ABUSE_BUTTON_UI: {

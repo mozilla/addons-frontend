@@ -42,7 +42,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type Props = {|
   currentUser: UserType | null,
   dispatch: DispatchFunc,
@@ -64,10 +63,12 @@ export class UserProfileBase extends React.Component<Props> {
     }
 
     if (!user) {
-      dispatch(fetchUserAccount({
-        errorHandlerId: errorHandler.id,
-        username: params.username,
-      }));
+      dispatch(
+        fetchUserAccount({
+          errorHandlerId: errorHandler.id,
+          username: params.username,
+        }),
+      );
     }
   }
 
@@ -75,10 +76,12 @@ export class UserProfileBase extends React.Component<Props> {
     const { dispatch, errorHandler, params: oldParams } = this.props;
 
     if (oldParams.username !== newParams.username) {
-      dispatch(fetchUserAccount({
-        errorHandlerId: errorHandler.id,
-        username: newParams.username,
-      }));
+      dispatch(
+        fetchUserAccount({
+          errorHandlerId: errorHandler.id,
+          username: newParams.username,
+        }),
+      );
     }
   }
 
@@ -120,22 +123,23 @@ export class UserProfileBase extends React.Component<Props> {
       <div className="UserProfile-header">
         <UserAvatar className="UserProfile-avatar" user={user} />
 
-        {user && isDeveloper(user) && (
-          <div className="UserProfile-tags">
-            {user.is_addon_developer && (
-              <p className="UserProfile-developer">
-                {i18n.gettext('Add-ons developer')}
-                <Icon name="developer" />
-              </p>
-            )}
-            {user.is_artist && (
-              <p className="UserProfile-artist">
-                {i18n.gettext('Theme artist')}
-                <Icon name="artist" />
-              </p>
-            )}
-          </div>
-        )}
+        {user &&
+          isDeveloper(user) && (
+            <div className="UserProfile-tags">
+              {user.is_addon_developer && (
+                <p className="UserProfile-developer">
+                  {i18n.gettext('Add-ons developer')}
+                  <Icon name="developer" />
+                </p>
+              )}
+              {user.is_artist && (
+                <p className="UserProfile-artist">
+                  {i18n.gettext('Theme artist')}
+                  <Icon name="artist" />
+                </p>
+              )}
+            </div>
+          )}
 
         <h1 className="UserProfile-name">
           {user ? user.name : <LoadingText />}
@@ -143,9 +147,10 @@ export class UserProfileBase extends React.Component<Props> {
       </div>
     );
     const userProfileTitle = i18n.sprintf(
-      i18n.gettext('User Profile for %(user)s'), {
+      i18n.gettext('User Profile for %(user)s'),
+      {
         user: user ? user.name : params.username,
-      }
+      },
     );
 
     return (
@@ -157,10 +162,7 @@ export class UserProfileBase extends React.Component<Props> {
         {errorMessage}
 
         <div className="UserProfile-wrapper">
-          <Card
-            className="UserProfile-user-info"
-            header={userProfileHeader}
-          >
+          <Card className="UserProfile-user-info" header={userProfileHeader}>
             <DefinitionList className="UserProfile-dl">
               {user && user.homepage ? (
                 <Definition
@@ -192,8 +194,11 @@ export class UserProfileBase extends React.Component<Props> {
                 className="UserProfile-user-since"
                 term={i18n.gettext('User since')}
               >
-                {user ? i18n.moment(user.created).format('ll')
-                      : <LoadingText />}
+                {user ? (
+                  i18n.moment(user.created).format('ll')
+                ) : (
+                  <LoadingText />
+                )}
               </Definition>
               <Definition
                 className="UserProfile-number-of-addons"
@@ -211,7 +216,9 @@ export class UserProfileBase extends React.Component<Props> {
                     readOnly
                     styleName="small"
                   />
-                ) : <LoadingText />}
+                ) : (
+                  <LoadingText />
+                )}
               </Definition>
               {user && user.biography && user.biography.length ? (
                 <Definition
@@ -245,27 +252,28 @@ export class UserProfileBase extends React.Component<Props> {
             ) : null}
           </Card>
 
-          {user && user.username && (
-            <div className="UserProfile-addons-by-author">
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_EXTENSION}
-                authorDisplayName={user.name}
-                authorUsernames={[user.username]}
-                numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
-                showSummary
-                type="vertical"
-                showMore={false}
-              />
+          {user &&
+            user.username && (
+              <div className="UserProfile-addons-by-author">
+                <AddonsByAuthorsCard
+                  addonType={ADDON_TYPE_EXTENSION}
+                  authorDisplayName={user.name}
+                  authorUsernames={[user.username]}
+                  numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
+                  showSummary
+                  type="vertical"
+                  showMore={false}
+                />
 
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_THEME}
-                authorDisplayName={user.name}
-                authorUsernames={[user.username]}
-                numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
-                showMore={false}
-              />
-            </div>
-          )}
+                <AddonsByAuthorsCard
+                  addonType={ADDON_TYPE_THEME}
+                  authorDisplayName={user.name}
+                  authorUsernames={[user.username]}
+                  numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
+                  showMore={false}
+                />
+              </div>
+            )}
         </div>
       </div>
     );
@@ -280,7 +288,9 @@ export function mapStateToProps(
   const user = getUserByUsername(state.users, ownProps.params.username);
   const isOwner = currentUser && user && currentUser.id === user.id;
 
-  const canEditProfile = currentUser && user &&
+  const canEditProfile =
+    currentUser &&
+    user &&
     (currentUser.id === user.id || hasPermission(state, USERS_EDIT));
 
   return {

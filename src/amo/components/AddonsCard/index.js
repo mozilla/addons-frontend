@@ -17,7 +17,6 @@ import type { AddonType, CollectionAddonType } from 'core/types/addons';
 
 import './styles.scss';
 
-
 type Props = {|
   addonInstallSource?: string,
   addons?: $ReadOnlyArray<AddonType | CollectionAddonType> | null,
@@ -49,7 +48,7 @@ export default class AddonsCard extends React.Component<Props> {
     editing: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
-  }
+  };
 
   render() {
     const {
@@ -88,7 +87,7 @@ export default class AddonsCard extends React.Component<Props> {
               key={addon.slug}
               removeAddon={removeAddon}
               saveNote={saveNote}
-            />
+            />,
           );
         } else {
           addonElements.push(
@@ -98,27 +97,26 @@ export default class AddonsCard extends React.Component<Props> {
               key={addon.slug}
               showMetadata={showMetadata}
               showSummary={!isTheme ? showSummary : false}
-            />
+            />,
           );
         }
       });
     } else if (loading) {
       for (let count = 0; count < placeholderCount; count++) {
-        addonElements.push(
-          <SearchResult key={count} />
-        );
+        addonElements.push(<SearchResult key={count} />);
       }
     }
 
-    const allClassNames = makeClassName('AddonsCard', className,
-      type && `AddonsCard--${type}`);
+    const allClassNames = makeClassName(
+      'AddonsCard',
+      className,
+      type && `AddonsCard--${type}`,
+    );
     return (
       <CardList {...otherProps} className={allClassNames}>
         {children}
         {addonElements.length ? (
-          <ul className="AddonsCard-list">
-            {addonElements}
-          </ul>
+          <ul className="AddonsCard-list">{addonElements}</ul>
         ) : null}
       </CardList>
     );

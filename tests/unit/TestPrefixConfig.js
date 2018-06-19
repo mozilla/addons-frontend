@@ -19,6 +19,8 @@ describe('AMO Prefix config', () => {
     const conf = require('config');
     const clientAppExceptions = conf.get('validClientAppUrlExceptions');
     const clientAppRoutes = conf.get('clientAppRoutes');
-    expect(clientAppExceptions).toEqual(expect.arrayContaining(clientAppRoutes));
+    expect(clientAppExceptions).toEqual(
+      expect.arrayContaining(clientAppRoutes),
+    );
   });
 });

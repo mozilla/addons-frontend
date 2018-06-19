@@ -27,7 +27,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type Props = {|
   className?: string,
   clientApp: string,
@@ -47,12 +46,13 @@ export class SectionLinksBase extends React.Component<Props> {
 
     dispatch(setClientApp(clientApp));
     router.push(event.currentTarget.getAttribute('href'));
-  }
+  };
 
   render() {
     const { className, clientApp, i18n, viewContext } = this.props;
-    const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME]
-      .includes(viewContext);
+    const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
+      viewContext,
+    );
 
     let forBrowserNameText;
     if (clientApp === CLIENT_APP_FIREFOX) {
@@ -65,9 +65,13 @@ export class SectionLinksBase extends React.Component<Props> {
       <ul className={makeClassName('SectionLinks', className)}>
         <li>
           <Link
-            className={makeClassName('SectionLinks-link', 'SectionLinks-explore', {
-              'SectionLinks-link--active': isExploring,
-            })}
+            className={makeClassName(
+              'SectionLinks-link',
+              'SectionLinks-explore',
+              {
+                'SectionLinks-link--active': isExploring,
+              },
+            )}
             to="/"
           >
             {i18n.gettext('Explore')}
@@ -76,8 +80,7 @@ export class SectionLinksBase extends React.Component<Props> {
         <li>
           <Link
             className={makeClassName('SectionLinks-link', {
-              'SectionLinks-link--active': viewContext ===
-                ADDON_TYPE_EXTENSION,
+              'SectionLinks-link--active': viewContext === ADDON_TYPE_EXTENSION,
             })}
             to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
           >
@@ -105,8 +108,8 @@ export class SectionLinksBase extends React.Component<Props> {
             <DropdownMenuItem>
               <Link
                 className={makeClassName('SectionLinks-dropdownlink', {
-                  'SectionLinks-dropdownlink--active': viewContext ===
-                    VIEW_CONTEXT_LANGUAGE_TOOLS,
+                  'SectionLinks-dropdownlink--active':
+                    viewContext === VIEW_CONTEXT_LANGUAGE_TOOLS,
                 })}
                 to="/language-tools/"
               >
@@ -114,10 +117,7 @@ export class SectionLinksBase extends React.Component<Props> {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link
-                className="SectionLinks-dropdownlink"
-                to="/search-tools/"
-              >
+              <Link className="SectionLinks-dropdownlink" to="/search-tools/">
                 {i18n.gettext('Search Tools')}
               </Link>
             </DropdownMenuItem>
@@ -158,12 +158,10 @@ export class SectionLinksBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(
-  state: {
-    api: ApiStateType,
-    viewContext: ViewContextType,
-  }
-) {
+export function mapStateToProps(state: {
+  api: ApiStateType,
+  viewContext: ViewContextType,
+}) {
   return {
     clientApp: state.api.clientApp,
     viewContext: state.viewContext.context,

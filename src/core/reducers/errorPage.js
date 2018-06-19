@@ -34,9 +34,9 @@ type LoadErrorPageAction = {|
   payload: LoadErrorPageParams,
 |};
 
-export const loadErrorPage = (
-  { error }: LoadErrorPageParams = {}
-): LoadErrorPageAction => {
+export const loadErrorPage = ({
+  error,
+}: LoadErrorPageParams = {}): LoadErrorPageAction => {
   if (!error) {
     throw new Error('error is required');
   }
@@ -47,12 +47,11 @@ export const loadErrorPage = (
   };
 };
 
-type Action =
-  | LoadErrorPageAction;
+type Action = LoadErrorPageAction;
 
 export default function errorPage(
   state: ErrorPageState = initialState,
-  action: Action
+  action: Action,
 ) {
   const { payload } = action;
 
@@ -72,7 +71,9 @@ export default function errorPage(
       // response. See:
       // github.com/mozilla/addons-frontend/pull/1685#discussion_r99243105
       let statusCode = 500;
-      if (payload.error && payload.error.response &&
+      if (
+        payload.error &&
+        payload.error.response &&
         payload.error.response.status
       ) {
         statusCode = payload.error.response.status;

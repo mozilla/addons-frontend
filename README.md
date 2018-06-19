@@ -56,6 +56,8 @@ Here are some commands you can run:
 | yarn stylelint              | Lint the SCSS |
 | yarn lint                   | Run all the JS + SCSS linters |
 | yarn nsp-check              | Run [nsp][] to detect dependencies with known vulnerabilities |
+| yarn prettier               | Run [Prettier][] to automatically format the code |
+| yarn prettier-ci            | Run [Prettier][] and fail if some code has been changed |
 | yarn version-check          | Check you have the required dependencies |
 | yarn test                   | Run all tests (Enters [jest][] in `--watch` mode) |
 | yarn test-coverage          | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
@@ -168,6 +170,12 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
 * If you're stumped on why some Flow annotations aren't working, try using
   the `yarn flow type-at-pos ...` command to trace which types are being applied
   to the code. See `yarn flow -- --help type-at-pos` for details.
+
+### Prettier
+
+We Use [Prettier][] to automatically format our JavaScript code and stop all the
+on-going debates over styles. As a developer, you have to run it (with `yarn
+prettier`) before submitting a Pull Request.
 
 ### Code coverage
 
@@ -434,3 +442,4 @@ still can.
 
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
 [nsp]: https://github.com/nodesecurity/nsp
+[Prettier]: https://prettier.io/
