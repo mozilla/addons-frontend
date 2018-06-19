@@ -194,15 +194,18 @@ export class UserProfileBase extends React.Component<Props> {
                   />
                 ) : <LoadingText />}
               </Definition>
+              {user && user.biography && user.biography.length ? (
+                <Definition
+                  className="UserProfile-biography"
+                  term={i18n.gettext('Biography')}
+                >
+                  <p
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
+                  />
+                </Definition>
+              ) : null}
             </DefinitionList>
-
-            {user && user.biography && user.biography.length ? (
-              <div
-                className="UserProfile-biography"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
-              />
-            ) : null}
 
             {!isOwner && (
               <ReportUserAbuse
