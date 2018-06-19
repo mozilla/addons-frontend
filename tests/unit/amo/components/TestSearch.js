@@ -69,29 +69,30 @@ describe(__filename, () => {
       'count',
       'filters',
       'loading',
+      'paginator',
       'pathname',
       'results',
     ].sort());
   });
 
-  it('renders a Paginate', () => {
+  it('passes a Paginate component to the SearchResults component', () => {
     const root = render();
-    const paginator = root.find(Paginate);
+    const paginator = shallow(root.find(SearchResults).prop('paginator'));
+
+    expect(paginator.instance()).toBeInstanceOf(Paginate);
     expect(paginator.prop('count')).toEqual(80);
     expect(paginator.prop('currentPage')).toEqual(3);
     expect(paginator.prop('pathname')).toEqual('/search/');
     expect(paginator.prop('queryParams')).toEqual({ page: 3, q: 'foo' });
   });
 
-  it('does not render a Paginate when there is no search term', () => {
+  it('does not pass a Paginate component to SearchResults when there is no search term', () => {
     const { store } = dispatchSearchResults({
       addons: {},
       filters: { query: null },
     });
     const root = render(mapStateToProps(store.getState()));
-    const paginators = root.find(Paginate);
-
-    expect(paginators.length).toEqual(0);
+    expect(root.find(SearchResults).prop('paginator')).toEqual(null);
   });
 
   it('renders SearchFilters when there are filters and results', () => {

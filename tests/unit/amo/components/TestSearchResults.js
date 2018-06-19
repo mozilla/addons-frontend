@@ -1,87 +1,85 @@
 import * as React from 'react';
-import {
-  renderIntoDocument as render,
-  findRenderedComponentWithType,
-} from 'react-dom/test-utils';
-import { Provider } from 'react-redux';
 
-import createStore from 'amo/store';
 import AddonsCard from 'amo/components/AddonsCard';
-import SearchResults from 'amo/components/SearchResults';
-import I18nProvider from 'core/i18n/Provider';
-import { fakeAddon } from 'tests/unit/amo/helpers';
-import { fakeI18n } from 'tests/unit/helpers';
+import SearchResults, {
+  SearchResultsBase,
+} from 'amo/components/SearchResults';
+import Paginate from 'core/components/Paginate';
+import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
-describe('<SearchResults />', () => {
-  function renderResults(props) {
-    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-    const { store } = createStore({ initialState });
+describe(__filename, () => {
+  function render(props = {}) {
+    const allProps = {
+      i18n: fakeI18n(),
+      paginator: null,
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
 
-    return findRenderedComponentWithType(render(
-      <Provider store={store}>
-        <I18nProvider i18n={fakeI18n()}>
-          <SearchResults {...props} />
-        </I18nProvider>
-      </Provider>
-    ), SearchResults).getWrappedInstance();
+    return shallowUntilTarget(
+      <SearchResults {...allProps} />,
+      SearchResultsBase
+    );
   }
 
   it('renders empty search results container', () => {
-    const root = renderResults();
+    const root = render();
 
-    expect(root.message.textContent).toContain('enter a search term');
+    expect(root.find('.SearchResults-message'))
+      .toHaveText('Please enter a search term to search Firefox Add-ons.');
   });
 
   it('renders no results when searched but nothing is found', () => {
-    const root = renderResults({
+    const root = render({
       count: 0,
       filters: { category: 'big-papa' },
       loading: false,
       results: [],
     });
 
-    expect(root.message.textContent).toContain('No results were found.');
+    expect(root.find('.SearchResults-message'))
+      .toHaveText('No results were found.');
   });
 
   it('renders error when no search params exist', () => {
-    const root = renderResults({ filters: {} });
-    const addonsCard = findRenderedComponentWithType(root, AddonsCard);
+    const root = render({ filters: {} });
 
-    expect(root.message.textContent).toContain('enter a search term');
-    expect(addonsCard.props.addons).toEqual(null);
+    expect(root.find('.SearchResults-message'))
+      .toHaveText('Please enter a search term to search Firefox Add-ons.');
+    expect(root.find(AddonsCard)).toHaveProp('addons', null);
   });
 
   it('renders error when no results and valid query', () => {
-    const root = renderResults({
+    const root = render({
       count: 0,
       filters: { query: 'test' },
       results: [],
     });
 
-    expect(root.message.firstChild.textContent).toContain(
-      'No results were found');
+    expect(root.find('.SearchResults-message'))
+      .toHaveText('No results were found for "test".');
   });
 
   it('renders searching text during search', () => {
-    const root = renderResults({
+    const root = render({
       filters: { query: 'test' },
       loading: true,
     });
 
-    expect(root.loadingText.textContent).toEqual('Searching…');
+    expect(root).toIncludeText('Searching…');
   });
 
   it('renders search result placeholders while loading', () => {
-    const root = renderResults({
+    const root = render({
       filters: { query: 'test' },
       loading: true,
     });
-    const addonsCard = findRenderedComponentWithType(root, AddonsCard);
 
     // Make sure it just renders AddonsCard in a loading state.
-    expect(addonsCard.props.addons).toEqual([]);
-    expect(addonsCard.props.loading).toEqual(true);
+    expect(root.find(AddonsCard)).toHaveProp('addons', []);
+    expect(root.find(AddonsCard)).toHaveProp('loading', true);
   });
 
   it('renders results', () => {
@@ -89,14 +87,20 @@ describe('<SearchResults />', () => {
       fakeAddon,
       { ...fakeAddon, id: 3753735, slug: 'new-slug' },
     ];
-    const root = renderResults({
+    const root = render({
       filters: { query: 'test' },
       loading: false,
       results,
     });
-    const addonsCard = findRenderedComponentWithType(root, AddonsCard);
 
-    expect(addonsCard.props.addons).toEqual(results);
-    expect(addonsCard.props.loading).toEqual(false);
+    expect(root.find(AddonsCard)).toHaveProp('addons', results);
+    expect(root.find(AddonsCard)).toHaveProp('loading', false);
+  });
+
+  it('passes a paginator as footer prop to the AddonsCard if supplied', () => {
+    const paginator = <Paginate />;
+    const root = render({ paginator });
+
+    expect(root.find(AddonsCard)).toHaveProp('footer', paginator);
   });
 });

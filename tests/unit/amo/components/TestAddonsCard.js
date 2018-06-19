@@ -6,6 +6,7 @@ import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
+import CardList from 'ui/components/CardList';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
@@ -134,5 +135,29 @@ describe(__filename, () => {
     const results = root.find(SearchResult);
     expect(results).toHaveLength(1);
     expect(results.at(0)).toHaveProp('showSummary', false);
+  });
+
+  it('passes the footer prop through to Card', () => {
+    const footer = 'some footer';
+    const root = render({ footer });
+    expect(root.find(CardList)).toHaveProp('footer', footer);
+  });
+
+  it('passes the footerText prop through to Card', () => {
+    const footerText = 'some footer text';
+    const root = render({ footerText });
+    expect(root.find(CardList)).toHaveProp('footerText', footerText);
+  });
+
+  it('passes the footerLink prop through to Card', () => {
+    const footerLink = 'some footer link';
+    const root = render({ footerLink });
+    expect(root.find(CardList)).toHaveProp('footerLink', footerLink);
+  });
+
+  it('passes the header prop through to Card', () => {
+    const header = 'some header';
+    const root = render({ header });
+    expect(root.find(CardList)).toHaveProp('header', header);
   });
 });

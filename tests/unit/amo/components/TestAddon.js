@@ -1102,20 +1102,22 @@ describe(__filename, () => {
       const root = reviewFooterDOM({
         ratingsCount: 0,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('No reviews yet');
-      expect(root.querySelector('footer').className).toEqual('Card-footer-text');
+      expect(root.querySelector('footer').className)
+        .toEqual('Card-footer Card-footer-text');
     });
 
     it('prompts you to read one review', () => {
       const root = reviewFooterDOM({
         ratingsCount: 1,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('Read 1 review');
-      expect(root.querySelector('footer').className).toEqual('Card-footer-link');
+      expect(root.querySelector('footer').className)
+        .toEqual('Card-footer Card-footer-link');
     });
 
     it('prompts you to read many reviews', () => {

@@ -45,8 +45,7 @@ $footer-padding: 10px;
   }
 }
 
-.Card-footer-link,
-.Card-footer-text {
+.Card-footer {
   @include addonSection();
 
   border-bottom-left-radius: $border-radius-default;
@@ -55,7 +54,10 @@ $footer-padding: 10px;
   overflow: inherit;
   padding: 0;
   text-align: center;
+}
 
+.Card-footer-link,
+.Card-footer-text {
   a,
   a:active,
   a:hover,

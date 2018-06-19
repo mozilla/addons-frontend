@@ -26,8 +26,6 @@ type Props = {|
 |};
 
 export class SearchResultBase extends React.Component<Props> {
-  name: React.ElementRef<any> | null;
-
   static defaultProps = {
     showMetadata: true,
     showSummary: true,
@@ -175,11 +173,7 @@ export class SearchResultBase extends React.Component<Props> {
         linkTo = addQueryParams(linkTo, { src: addonInstallSource });
       }
       item = (
-        <Link
-          to={linkTo}
-          className="SearchResult-link"
-          ref={(el) => { this.name = el; }}
-        >
+        <Link to={linkTo} className="SearchResult-link">
           {result}
         </Link>
       );

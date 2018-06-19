@@ -40,10 +40,14 @@ export default class PaginatorLink extends React.Component {
     }
 
     if (currentPage === page || page < 1 || page > pageCount) {
+      const classNames = makeClassName('Paginate-item', className, {
+        'Paginate-item--current-page': currentPage === page,
+      });
+
       return (
         <Button
-          buttonType="light"
-          className={makeClassName('Paginate-item', className)}
+          buttonType="cancel"
+          className={classNames}
           disabled
           key={page}
         >
@@ -54,7 +58,7 @@ export default class PaginatorLink extends React.Component {
 
     return (
       <Button
-        buttonType="light"
+        buttonType="cancel"
         className={makeClassName('Paginate-item', className)}
         to={{ pathname, query: { ...queryParams, page } }}
       >
