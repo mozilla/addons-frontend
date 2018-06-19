@@ -1,25 +1,29 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import * as React from 'react';
-import { renderIntoDocument } from 'react-dom/test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
 import ScreenShots, {
-  HEIGHT,
-  WIDTH,
   thumbnailContent,
 } from 'amo/components/ScreenShots';
 
-describe('<ScreenShots />', () => {
+const HEIGHT = 400;
+const WIDTH = 200;
+
+describe(__filename, () => {
   const previews = [
     {
       caption: 'A screenshot',
       image_url: 'http://img.com/one',
       thumbnail_url: 'http://img.com/1',
+      image_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH, HEIGHT],
     },
     {
       caption: 'Another screenshot',
       image_url: 'http://img.com/two',
       thumbnail_url: 'http://img.com/2',
+      image_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH, HEIGHT],
     },
   ];
 
@@ -49,14 +53,17 @@ describe('<ScreenShots />', () => {
   });
 
   it('renders custom thumbnail', () => {
-    const item = { src: 'https://foo.com/img.png', title: 'test title' };
+    const h = 123;
+    const w = 1234;
+
+    const item = { src: 'https://foo.com/img.png', title: 'test title', h, w };
     const thumbnail = shallow(thumbnailContent(item));
 
     expect(thumbnail.type()).toEqual('img');
     expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
-    expect(thumbnail.prop('height')).toEqual(HEIGHT);
-    expect(thumbnail.prop('width')).toEqual(WIDTH);
-    expect(thumbnail.prop('alt')).toEqual('');
+    expect(thumbnail.prop('height')).toEqual(h);
+    expect(thumbnail.prop('width')).toEqual(w);
+    expect(thumbnail.prop('alt')).toEqual('test title');
     expect(thumbnail.prop('title')).toEqual('test title');
   });
 
@@ -65,16 +72,17 @@ describe('<ScreenShots />', () => {
     const newPreviews = previews.map((preview) => (
       { ...preview, image_url: onePixelImage }
     ));
-    const root = renderIntoDocument(<ScreenShots previews={newPreviews} />);
+
+    const root = mount(<ScreenShots previews={newPreviews} />);
     const item = { getBoundingClientRect: () => ({ x: 500 }) };
     const list = {
       children: [null, item],
       getBoundingClientRect: () => ({ x: 55 }),
       scrollLeft: 0,
     };
-    sinon.stub(root.viewport, 'querySelector').returns(list);
+    sinon.stub(root.instance().viewport, 'querySelector').returns(list);
     const photoswipe = { getCurrentIndex: () => 1 };
-    root.onClose(photoswipe);
+    root.instance().onClose(photoswipe);
     // 0 += 500 - 55
     expect(list.scrollLeft).toEqual(445);
   });

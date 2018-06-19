@@ -8,8 +8,6 @@ import 'react-photoswipe/lib/photoswipe.css';
 
 import 'amo/css/ScreenShots.scss';
 
-export const HEIGHT = 1024;
-export const WIDTH = 1366; // This is the same as our $max-content-width;
 const PHOTO_SWIPE_OPTIONS = {
   closeEl: true,
   captionEl: true,
@@ -37,14 +35,21 @@ const formatPreviews = (previews) => (
   previews.map((preview) => ({
     src: preview.image_url,
     thumbnail_src: preview.thumbnail_url,
-    h: HEIGHT,
-    w: WIDTH,
+    h: preview.image_size[1],
+    w: preview.image_size[0],
     title: preview.caption,
   }))
 );
 
 export const thumbnailContent = (item) => (
-  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" title={item.title} />
+  <img
+    alt={item.title}
+    className="ScreenShots-image"
+    height={item.h}
+    src={item.src}
+    title={item.title}
+    width={item.w}
+  />
 );
 
 export default class ScreenShots extends React.Component {
