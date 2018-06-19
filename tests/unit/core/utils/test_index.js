@@ -113,10 +113,10 @@ describe(__filename, () => {
       expect(addonHasVersionHistory(addon)).toEqual(false);
     });
 
-    it('returns false for static theme', () => {
+    it('returns true for static theme', () => {
       const addon = createAddonWithType(ADDON_TYPE_STATIC_THEME);
 
-      expect(addonHasVersionHistory(addon)).toEqual(false);
+      expect(addonHasVersionHistory(addon)).toEqual(true);
     });
   });
 
