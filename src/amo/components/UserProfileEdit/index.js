@@ -189,6 +189,15 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
   }
 
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    if (
+      (!prevProps.errorHandler.hasError() && this.props.errorHandler.hasError())
+      || (!prevState.successMessage && this.state.successMessage)
+    ) {
+      this.props._window.scroll(0, 0);
+    }
+  }
+
   onDeleteProfile = (e: SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
@@ -373,7 +382,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
   render() {
     const {
-      _window,
       currentUser,
       errorHandler,
       hasEditPermission,
@@ -407,10 +415,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       }
 
       errorMessage = errorHandler.renderError();
-    }
-
-    if (errorHandler.hasError() || this.state.successMessage) {
-      _window.scroll(0, 0);
     }
 
     if (user && !hasEditPermission) {
