@@ -1,4 +1,8 @@
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 import reducer, {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -19,15 +23,17 @@ describe(__filename, () => {
   const fakeAuthorTwo = { ...fakeAuthor, username: 'test2', id: 61 };
   const fakeAuthorThree = { ...fakeAuthor, username: 'test3', id: 71 };
 
-  function fakeAddons() {
+  function fakeAddons(type = ADDON_TYPE_EXTENSION) {
     const firstAddon = {
       ...fakeAddon,
+      type,
       slug: 'first-addon',
       id: 6,
       authors: [fakeAuthorOne, fakeAuthorTwo],
     };
     const secondAddon = {
       ...fakeAddon,
+      type,
       slug: 'second-addon',
       id: 7,
       authors: [fakeAuthorTwo],
@@ -518,6 +524,61 @@ describe(__filename, () => {
       expect(getAddonsForUsernames(
         state, authorUsernames, ADDON_TYPE_EXTENSION, addons.firstAddon.slug
       )).toEqual([
+        createInternalAddon(addons.secondAddon),
+        createInternalAddon(addons.thirdAddon),
+      ]);
+    });
+
+    it("displays lightweight theme types when filtering for authors' themes", () => {
+      const addons = fakeAddons(ADDON_TYPE_THEME);
+
+      const authorUsernames = ['test', 'test2', 'test3'];
+      const state = reducer(undefined, loadAddonsByAuthors({
+        addons: Object.values(addons),
+        addonType: ADDON_TYPE_THEME,
+        authorUsernames,
+      }));
+
+      expect(getAddonsForUsernames(
+        state, authorUsernames, ADDON_TYPE_THEME
+      )).toEqual([
+        createInternalAddon(addons.firstAddon),
+        createInternalAddon(addons.secondAddon),
+      ]);
+    });
+
+    it("displays static theme types when filtering for authors' themes ", () => {
+      const addons = fakeAddons(ADDON_TYPE_STATIC_THEME);
+
+      const authorUsernames = ['test', 'test2', 'test3'];
+      const state = reducer(undefined, loadAddonsByAuthors({
+        addons: Object.values(addons),
+        addonType: ADDON_TYPE_STATIC_THEME,
+        authorUsernames,
+      }));
+
+      expect(getAddonsForUsernames(
+        state, authorUsernames, ADDON_TYPE_STATIC_THEME
+      )).toEqual([
+        createInternalAddon(addons.firstAddon),
+        createInternalAddon(addons.secondAddon),
+      ]);
+    });
+
+    it("displays extension types when filtering for authors' extensions", () => {
+      const addons = fakeAddons();
+
+      const authorUsernames = ['test', 'test2', 'test3'];
+      const state = reducer(undefined, loadAddonsByAuthors({
+        addons: Object.values(addons),
+        addonType: ADDON_TYPE_EXTENSION,
+        authorUsernames,
+      }));
+
+      expect(getAddonsForUsernames(
+        state, authorUsernames, ADDON_TYPE_EXTENSION
+      )).toEqual([
+        createInternalAddon(addons.firstAddon),
         createInternalAddon(addons.secondAddon),
         createInternalAddon(addons.thirdAddon),
       ]);

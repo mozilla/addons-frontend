@@ -154,6 +154,7 @@ export const getAddonsForUsernames = (
       return state.byAddonId[id];
     })
     .filter((addon) => {
+      // return addonType ? addon.type === addonType : true;
       const addonTypeFilter = getAddonTypeFilter(addonType);
       return addonType ? addonTypeFilter.includes(addon.type) : true;
     })
