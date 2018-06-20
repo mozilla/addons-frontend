@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-20 22:10+0000\n"
+"PO-Revision-Date: 2018-06-20 22:15+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1393,7 +1393,7 @@ msgstr "Temmliḍ aseqdac-agi ɣef yir asemres"
 
 #: src/amo/components/ReportUserAbuse/index.js:148
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "Nermes-d aneqqis-ik. Tanemmirt imi i aɣ-d-mliḍ ugur akked useqdac-a."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults/index.js:65
 msgid "Search results"
@@ -1621,7 +1621,7 @@ msgstr "Tteki deg %(startLink)sanmager%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Eǧǧ-d tikti ɣef uzegrir-ik anurif. Imeskaren n uzegrir beqqun ad snernin azegrir-nsen daɣen ad arun wiyaḍ ticki ẓran d akken axeddim-nsen ḥemmlent medden."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
@@ -1633,7 +1633,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Awi tallelt"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1661,7 +1661,7 @@ msgstr "Seqdec AMO akken ad d-tafeḍ izegrar i Mozilla %(startTBLink)sThunderbi
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Tabaɛt n yimenulfuyen"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1707,7 +1707,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Tixbula i tira n uceggir yelhan"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1719,7 +1719,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Ḍmen d akken asenqed-ik adyeqqim meẓẓi daɣen fessus i wugzay."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
@@ -1849,11 +1849,11 @@ msgstr "Amaɣnu n useqdac i %(user)s"
 
 #: src/amo/components/UserProfile/index.js:178 src/amo/components/UserProfileEdit/index.js:576
 msgid "Location"
-msgstr ""
+msgstr "Tansa"
 
 #: src/amo/components/UserProfile/index.js:186 src/amo/components/UserProfileEdit/index.js:588
 msgid "Occupation"
-msgstr ""
+msgstr "Axeddim"
 
 #: src/amo/components/UserProfile/index.js:193
 msgid "User since"
@@ -1877,7 +1877,7 @@ msgstr "Ẓreg amaɣnu"
 
 #: src/amo/components/UserProfileEdit/index.js:176
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Tawlaft tettwakkes akken iwata"
 
 #: src/amo/components/UserProfileEdit/index.js:400
 msgid "Log in to edit the profile"
@@ -1905,11 +1905,11 @@ msgstr "Aseqdac"
 
 #: src/amo/components/UserProfileEdit/index.js:488
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Tansa imayl ur tezmir ara ad tettwabeddel dagi"
 
 #: src/amo/components/UserProfileEdit/index.js:490
 msgid "Email Address"
-msgstr ""
+msgstr "Tansa imayl"
 
 #: src/amo/components/UserProfileEdit/index.js:506
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
