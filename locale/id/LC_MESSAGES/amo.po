@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -2184,11 +2184,11 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Menaikkan peringkat menjadi %(rating)s dari 5"
+msgstr "Menaikkan peringkat menjadi %(starRating)s dari 5"
 
 #: src/ui/components/Rating/index.js:71
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Memberi pengaya ini peringkat %(rating)s dari 5"
+msgstr "Memberi pengaya ini peringkat %(starRating)s dari 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
