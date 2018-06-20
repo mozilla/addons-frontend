@@ -523,19 +523,21 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               className="UserProfileEdit--Card"
               header={i18n.gettext('Profile')}
             >
-              <p className="UserProfileEdit-profile-aside">
-                {isEditingCurrentUser ? i18n.gettext(
-                  `Tell users a bit more information about yourself. These
-                  fields are optional, but they'll help other users get to know
-                  you better.`
-                ) : i18n.sprintf(
-                  i18n.gettext(
-                    `Tell users a bit more information about this user. These
-                    fields are optional, but they'll help other users get to
-                    know %(username)s better.`
-                  ), { username }
-                )}
-              </p>
+              {isDeveloper(user) && (
+                <p className="UserProfileEdit-profile-aside">
+                  {isEditingCurrentUser ? i18n.gettext(
+                    `Tell users a bit more information about yourself. These
+                    fields are optional, but they'll help other users get to know
+                    you better.`
+                  ) : i18n.sprintf(
+                    i18n.gettext(
+                      `Tell users a bit more information about this user. These
+                      fields are optional, but they'll help other users get to
+                      know %(username)s better.`
+                    ), { username }
+                  )}
+                </p>
+              )}
 
               <label className="UserProfileEdit--label" htmlFor="displayName">
                 {i18n.gettext('Display Name')}
@@ -549,104 +551,102 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 value={this.state.displayName}
               />
 
-              {/*
-                TODO: Don't show these to users who don't have a public-facing
-                user profile page (eg are developers). It's just noise and may
-                encourage them to enter a lot of text (especially the bio) which
-                no one will see. It also gets in the way of settings,
-                like notifications, below.
-                See: https://github.com/mozilla/addons-frontend/issues/4964
-              */}
-              <label className="UserProfileEdit--label" htmlFor="homepage">
-                {i18n.gettext('Homepage')}
-              </label>
-              <input
-                className="UserProfileEdit-homepage"
-                disabled={!user}
-                id="homepage"
-                name="homepage"
-                onChange={this.onFieldChange}
-                type="url"
-                value={this.state.homepage}
-              />
-              <p className="UserProfileEdit-homepage--help">
-                {i18n.gettext(`This URL will only be visible for users who are
-                  developers.`)}
-              </p>
+              {isDeveloper(user) && (
+                <React.Fragment>
+                  <label className="UserProfileEdit--label" htmlFor="homepage">
+                    {i18n.gettext('Homepage')}
+                  </label>
+                  <input
+                    className="UserProfileEdit-homepage"
+                    disabled={!user}
+                    id="homepage"
+                    name="homepage"
+                    onChange={this.onFieldChange}
+                    type="url"
+                    value={this.state.homepage}
+                  />
+                  <p className="UserProfileEdit-homepage--help">
+                    {i18n.gettext(`This URL will only be visible for users who are
+                      developers.`)}
+                  </p>
 
-              <label className="UserProfileEdit--label" htmlFor="location">
-                {i18n.gettext('Location')}
-              </label>
-              <input
-                className="UserProfileEdit-location"
-                disabled={!user}
-                id="location"
-                name="location"
-                onChange={this.onFieldChange}
-                value={this.state.location}
-              />
+                  <label className="UserProfileEdit--label" htmlFor="location">
+                    {i18n.gettext('Location')}
+                  </label>
+                  <input
+                    className="UserProfileEdit-location"
+                    disabled={!user}
+                    id="location"
+                    name="location"
+                    onChange={this.onFieldChange}
+                    value={this.state.location}
+                  />
 
-              <label className="UserProfileEdit--label" htmlFor="occupation">
-                {i18n.gettext('Occupation')}
-              </label>
-              <input
-                className="UserProfileEdit-occupation"
-                disabled={!user}
-                id="occupation"
-                name="occupation"
-                onChange={this.onFieldChange}
-                value={this.state.occupation}
-              />
+                  <label className="UserProfileEdit--label" htmlFor="occupation">
+                    {i18n.gettext('Occupation')}
+                  </label>
+                  <input
+                    className="UserProfileEdit-occupation"
+                    disabled={!user}
+                    id="occupation"
+                    name="occupation"
+                    onChange={this.onFieldChange}
+                    value={this.state.occupation}
+                  />
 
-              <UserProfileEditPicture
-                name="picture"
-                onDelete={this.onPictureDelete}
-                onSelect={this.onPictureChange}
-                preview={this.state.pictureData}
-                user={user}
-              />
+                  <UserProfileEditPicture
+                    name="picture"
+                    onDelete={this.onPictureDelete}
+                    onSelect={this.onPictureChange}
+                    preview={this.state.pictureData}
+                    user={user}
+                  />
+                </React.Fragment>
+              )}
             </Card>
 
-            <Card
-              className="UserProfileEdit--Card"
-              header={i18n.gettext('Biography')}
-            >
-              <label className="UserProfileEdit--label" htmlFor="biography">
-                {isEditingCurrentUser ? i18n.gettext(
-                  `Introduce yourself to the community if you like`
-                ) : i18n.sprintf(
-                  i18n.gettext(`Introduce %(username)s to the community`),
-                  { username }
-                )}
-              </label>
-              <Textarea
-                className="UserProfileEdit-biography"
-                disabled={!user}
-                id="biography"
-                name="biography"
-                onChange={this.onFieldChange}
-                value={this.state.biography || ''}
-              />
-              <p className="UserProfileEdit-biography--help">
-                {i18n.sprintf(i18n.gettext(
-                  `Some HTML supported: %(htmlTags)s. Links are forbidden.`
-                ), {
-                  htmlTags: [
-                    '<abbr title>',
-                    '<acronym title>',
-                    '<b>',
-                    '<blockquote>',
-                    '<code>',
-                    '<em>',
-                    '<i>',
-                    '<li>',
-                    '<ol>',
-                    '<strong>',
-                    '<ul>',
-                  ].join(' '),
-                })}
-              </p>
-            </Card>
+            {isDeveloper(user) && (
+              <Card
+                className="UserProfileEdit--Card"
+                header={i18n.gettext('Biography')}
+              >
+                <label className="UserProfileEdit--label" htmlFor="biography">
+                  {isEditingCurrentUser ? i18n.gettext(
+                    `Introduce yourself to the community if you like`
+                  ) : i18n.sprintf(
+                    i18n.gettext(`Introduce %(username)s to the community`),
+                    { username }
+                  )}
+                </label>
+                <Textarea
+                  className="UserProfileEdit-biography"
+                  disabled={!user}
+                  id="biography"
+                  name="biography"
+                  onChange={this.onFieldChange}
+                  value={this.state.biography || ''}
+                />
+                <p className="UserProfileEdit-biography--help">
+                  {i18n.sprintf(i18n.gettext(
+                    `Some HTML supported: %(htmlTags)s. Links are forbidden.`
+                  ), {
+                    htmlTags: [
+                      '<abbr title>',
+                      '<acronym title>',
+                      '<b>',
+                      '<blockquote>',
+                      '<code>',
+                      '<em>',
+                      '<i>',
+                      '<li>',
+                      '<ol>',
+                      '<strong>',
+                      '<ul>',
+                    ].join(' '),
+                  })}
+                </p>
+              </Card>
+            )}
 
             <Card
               className="UserProfileEdit--Card"
