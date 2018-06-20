@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-20 09:39+0000\n"
+"PO-Revision-Date: 2018-06-20 10:10+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1209,7 +1209,7 @@ msgstr "Awi isefka yellan ɣef afus"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Sers isefka ɣef afus"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
@@ -2043,7 +2043,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
-msgstr ""
+msgstr "Kkes tugna-agi"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2123,7 +2123,7 @@ msgstr "IH!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Sentem"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
@@ -2155,7 +2155,7 @@ msgstr "Ldi/Mdel igburen"
 
 #: src/ui/components/HostPermissions/index.js:43
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Kcem ɣer isefka-inek deg ismal web meṛṛa"
 
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
