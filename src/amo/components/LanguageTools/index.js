@@ -253,8 +253,10 @@ export const mapStateToProps = (
   };
 };
 
-export default compose(
+const LanguageTools: React.ComponentType<Props> = compose(
   withErrorHandler({ name: 'LanguageTools' }),
   connect(mapStateToProps),
   translate(),
 )(LanguageToolsBase);
+
+export default LanguageTools;

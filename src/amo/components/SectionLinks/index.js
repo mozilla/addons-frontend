@@ -170,8 +170,10 @@ export function mapStateToProps(
   };
 }
 
-export default compose(
+const SectionLinks: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
 )(SectionLinksBase);
+
+export default SectionLinks;

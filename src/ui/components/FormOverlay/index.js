@@ -170,7 +170,9 @@ const mapStateToProps = (
   };
 };
 
-export default compose(
+const FormOverlay: React.ComponentType<Props> = compose(
   translate(),
   connect(mapStateToProps)
 )(FormOverlayBase);
+
+export default FormOverlay;

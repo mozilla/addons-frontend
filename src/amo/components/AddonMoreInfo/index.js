@@ -252,7 +252,9 @@ export const mapStateToProps = (state: {| users: UsersStateType |}) => {
   };
 };
 
-export default compose(
+const AddonMoreInfo: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
 )(AddonMoreInfoBase);
+
+export default AddonMoreInfo;

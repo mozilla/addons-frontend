@@ -79,6 +79,8 @@ export class AddonMetaBase extends React.Component<Props> {
   }
 }
 
-export default compose(
+const AddonMeta: React.ComponentType<Props> = compose(
   translate(),
 )(AddonMetaBase);
+
+export default AddonMeta;

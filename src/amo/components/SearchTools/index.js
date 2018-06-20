@@ -42,6 +42,8 @@ export function mapStateToProps() {
   return { filters };
 }
 
-export default compose(
+const SearchTools: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
 )(SearchToolsBase);
+
+export default SearchTools;

@@ -12,7 +12,7 @@ import type { UsersStateType } from 'amo/reducers/users';
 type Props = {|
   className?: string,
   isOwner?: boolean,
-  onSelectRating?: (SyntheticEvent<any>) => void,
+  onSelectRating?: (rating: number) => any,
   readOnly?: boolean,
   review?: UserReviewType,
   // eslint-disable-next-line no-undef
@@ -44,7 +44,9 @@ const mapStateToProps = (
   return { isOwner: !!(siteUser && review && review.userId === siteUser.id) };
 };
 
-export default compose(
+const UserRating: React.ComponentType<Props> = compose(
   translate(),
   connect(mapStateToProps)
 )(UserRatingBase);
+
+export default UserRating;
