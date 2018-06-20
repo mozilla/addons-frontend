@@ -16,14 +16,14 @@ describe(__filename, () => {
       image_url: 'http://img.com/one',
       thumbnail_url: 'http://img.com/1',
       image_size: [WIDTH, HEIGHT],
-      thumbnail_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH - 100, HEIGHT - 100],
     },
     {
       caption: 'Another screenshot',
       image_url: 'http://img.com/two',
       thumbnail_url: 'http://img.com/2',
       image_size: [WIDTH, HEIGHT],
-      thumbnail_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH - 100, HEIGHT - 100],
     },
   ];
 
@@ -33,6 +33,8 @@ describe(__filename, () => {
         title: 'A screenshot',
         src: 'http://img.com/one',
         thumbnail_src: 'http://img.com/1',
+        thumbnail_w: WIDTH - 100,
+        thumbnail_h: HEIGHT - 100,
         h: HEIGHT,
         w: WIDTH,
       },
@@ -40,6 +42,8 @@ describe(__filename, () => {
         title: 'Another screenshot',
         src: 'http://img.com/two',
         thumbnail_src: 'http://img.com/2',
+        thumbnail_w: WIDTH - 100,
+        thumbnail_h: HEIGHT - 100,
         h: HEIGHT,
         w: WIDTH,
       },
@@ -53,16 +57,26 @@ describe(__filename, () => {
   });
 
   it('renders custom thumbnail', () => {
-    const h = 123;
-    const w = 1234;
+    const thumbnailSrc = 'http://example.com/thumbnail.png';
+    const thumbnailHeight = 123;
+    const thumbnailWidth = 200;
 
-    const item = { src: 'https://foo.com/img.png', title: 'test title', h, w };
+    const item = {
+      src: 'https://foo.com/img.png',
+      title: 'test title',
+      h: HEIGHT,
+      w: WIDTH,
+      thumbnail_src: thumbnailSrc,
+      thumbnail_h: thumbnailHeight,
+      thumbnail_w: thumbnailWidth,
+    };
+
     const thumbnail = shallow(thumbnailContent(item));
 
     expect(thumbnail.type()).toEqual('img');
-    expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
-    expect(thumbnail.prop('height')).toEqual(h);
-    expect(thumbnail.prop('width')).toEqual(w);
+    expect(thumbnail.prop('src')).toEqual(thumbnailSrc);
+    expect(thumbnail.prop('height')).toEqual(thumbnailHeight);
+    expect(thumbnail.prop('width')).toEqual(thumbnailWidth);
     expect(thumbnail.prop('alt')).toEqual('test title');
     expect(thumbnail.prop('title')).toEqual('test title');
   });
@@ -74,10 +88,10 @@ describe(__filename, () => {
     ));
 
     const root = mount(<ScreenShots previews={newPreviews} />);
-    const item = { getBoundingClientRect: () => ({ x: 500 }) };
+    const item = { getBoundingClientRect: () => ({ left: 500 }) };
     const list = {
       children: [null, item],
-      getBoundingClientRect: () => ({ x: 55 }),
+      getBoundingClientRect: () => ({ left: 55 }),
       scrollLeft: 0,
     };
     sinon.stub(root.instance().viewport, 'querySelector').returns(list);
