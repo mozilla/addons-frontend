@@ -1481,4 +1481,30 @@ describe(__filename, () => {
 
     sinon.assert.notCalled(_window.scroll);
   });
+
+  it('does not show any message when navigating to a new user profile', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        picture_url: 'https://example.org/some-picture.png',
+      },
+    });
+
+    // Create a user with another username.
+    const username = 'willdurand';
+    const user = createUserAccountResponse({
+      username,
+      picture_url: null,
+    });
+    store.dispatch(loadUserAccount({ user }));
+
+    const root = renderUserProfileEdit({ store });
+
+    root.setProps({
+      user,
+      username,
+    });
+
+    expect(root.find(Notice)).toHaveLength(0);
+  });
 });

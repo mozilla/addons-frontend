@@ -169,19 +169,17 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         pictureData: null,
         successMessage: null,
       });
-    }
-
-    if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      router.push(`/${lang}/${clientApp}/user/${newUsername}/`);
-      return;
-    }
-
-    if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
+    } else if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
       this.setState({
         picture: null,
         pictureData: null,
         successMessage: i18n.gettext('Picture successfully deleted'),
       });
+    }
+
+    if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
+      router.push(`/${lang}/${clientApp}/user/${newUsername}/`);
+      return;
     }
 
     if (params.username && oldUsername !== newUsername) {
