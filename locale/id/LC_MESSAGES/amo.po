@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-20 13:29+0000\n"
+"PO-Revision-Date: 2018-06-20 13:34+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2025,9 +2025,8 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Mencari \"%(query)s\""
+msgstr "Gambar profil untuk %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
 msgid "Profile photo"
@@ -2098,9 +2097,8 @@ msgid "Install state for %(name)s is unknown."
 msgstr "Keadaan pemasangan dari %(name)s tak diketahui."
 
 #: src/core/components/Paginate/index.js:100
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "tangkapan layar %(imageNumber)s dari %(totalImages)s"
+msgstr "Laman %(pageNumber)s dari %(totalPages)s"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
@@ -2127,18 +2125,16 @@ msgid "Confirm"
 msgstr "Konfirmasi"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
-#, fuzzy
 msgid "Enter text."
-msgstr "Enter"
+msgstr "Masukkan teks."
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Submit"
 msgstr "Kirim"
 
 #: src/ui/components/DismissibleTextForm/index.js:98
-#, fuzzy
 msgid "Submitting"
-msgstr "Kirim"
+msgstr "Mengajukan"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
@@ -2179,23 +2175,20 @@ msgid "Access your data for %(param)s"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:60
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Peringkat %(rating)s dari 5"
+msgstr "Diberi peringkat %(rating)s dari 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Peringkat %(rating)s dari 5"
+msgstr "Menaikkan peringkat menjadi %(rating)s dari 5"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Peringkat %(rating)s dari 5"
+msgstr "Memberi pengaya ini peringkat %(rating)s dari 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
