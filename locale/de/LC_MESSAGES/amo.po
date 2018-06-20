@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-20 19:11+0000\n"
+"PO-Revision-Date: 2018-06-20 19:14+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1041,23 +1041,23 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Genießen Sie eine schöne neue Seite mit anpassbaren Hintergründen, lokalen Wetterinfos und mehr"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Fügt eine „Teilen“-Schaltfläche für soziale Medien in die Firefox-Symbolleiste ein"
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Eine umfangreiche Möglichkeit, archivierte Versionen älterer Webseiten zu finden"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Black Menu for Google"
@@ -1096,9 +1096,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Ihre Lieblingsinhalte im Internet ausschneiden, speichern und ordnen"
+msgstr "Visuelle Lesezeichen für Ihre Lieblingsplätze im Internet"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1125,13 +1124,12 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "Markieren Sie Text auf einer Webseite um ein praktisches Suchmenü zu öffnen"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Erhöht die Download-Geschwindigkeit durch Unterstützung von Multithreading"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1566,9 +1564,8 @@ msgid "No theme preview available"
 msgstr "Keine Theme-Vorschau verfügbar"
 
 #: src/amo/components/SearchResult/index.js:133
-#, fuzzy
 msgid "Add-on note"
-msgstr "Add-on-Symbol"
+msgstr "Add-on-Notiz"
 
 #: src/amo/components/SearchResult/index.js:149
 msgid "%(total)s user"
@@ -1867,14 +1864,12 @@ msgid "Add-ons Home Page"
 msgstr "Startseite der Add-ons"
 
 #: src/amo/components/UserProfile/index.js:127
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Add-ons von diesen Entwicklern"
+msgstr "Add-on-Entwickler"
 
 #: src/amo/components/UserProfile/index.js:133
-#, fuzzy
 msgid "Theme artist"
-msgstr "Themes von diesen Künstlern"
+msgstr "Theme-Künstler"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
@@ -2175,9 +2170,8 @@ msgid "Next"
 msgstr "Nächste"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Seite %(pageNumber)s von %(totalPages)s"
+msgstr "Seite %(currentPage)s von %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2209,7 +2203,7 @@ msgstr "Wird übermittelt..."
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
