@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-20 11:59+0000\n"
+"PO-Revision-Date: 2018-06-20 13:29+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1323,9 +1323,8 @@ msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on polici
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:144
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Menuju laman pengaya"
+msgstr "Melaporkan pengaya ini atas penyalahgunaan"
 
 #: src/amo/components/ReportAbuseButton/index.js:173
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1348,9 +1347,8 @@ msgid "Send abuse report"
 msgstr "Kirimkan laporan penyalahgunaan"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Menuju laman pengaya"
+msgstr "Laporkan pengguna ini atas penyalahgunaan"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1365,9 +1363,8 @@ msgid "Explain how this user is violating our policies."
 msgstr "Jelaskan bagaimana pengguna ini melanggar ketentuan kami."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Masuk untuk menilai pengaya ini"
+msgstr "Anda telah melaporkan pengguna ini atas penyalahgunaan"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1378,19 +1375,16 @@ msgid "Search results"
 msgstr "Hasil pencarian"
 
 #: src/amo/components/Search/index.js:116
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Pengaya Pilihan"
+msgstr "Pengaya unggulan"
 
 #: src/amo/components/Search/index.js:129
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Memuat pengaya"
+msgstr "Pengaya yang sedang tren"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Ekstensi peringkat teratas"
+msgstr "Pengaya peringkat teratas"
 
 #: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -1409,34 +1403,29 @@ msgid "Search results for \"%(query)s\""
 msgstr "Hasil pencarian untuk \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s hasil untuk \"%(query)s\""
+msgstr[0] "%(count)s ekstensi ditemukan untuk \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s hasil untuk \"%(query)s\""
+msgstr[0] "%(count)s kamus ditemukan untuk \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s hasil untuk \"%(query)s\""
+msgstr[0] "%(count)s paket bahasa ditemukan untuk \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s hasil untuk \"%(query)s\""
+msgstr[0] "%(count)s tema ditemukan untuk \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s hasil untuk \"%(query)s\""
+msgstr[0] "%(count)s hasil ditemukan untuk \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
@@ -1465,17 +1454,14 @@ msgid "All"
 msgstr "Semua"
 
 #: src/amo/components/SearchFilters/index.js:105
-#, fuzzy
 msgid "Extension"
 msgstr "Ekstensi"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
-msgstr "Hasil pencarian"
+msgstr "Alat Pencari"
 
 #: src/amo/components/SearchFilters/index.js:107
-#, fuzzy
 msgid "Theme"
 msgstr "Tema"
 
@@ -1512,14 +1498,12 @@ msgid "Trending"
 msgstr "Trending"
 
 #: src/amo/components/SearchFilters/index.js:140
-#, fuzzy
 msgid "Filter results"
-msgstr "Hasil pencarian"
+msgstr "Saring hasil"
 
 #: src/amo/components/SearchFilters/index.js:147
-#, fuzzy
 msgid "Sort by"
-msgstr "Urut"
+msgstr "Urut berdasarkan"
 
 #: src/amo/components/SearchFilters/index.js:169
 msgid "Add-on Type"
@@ -1530,9 +1514,8 @@ msgid "Operating System"
 msgstr "Sistem Operasi"
 
 #: src/amo/components/SearchFilters/index.js:215
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Pengaya Pilihan"
+msgstr "Hanya pengaya unggulan"
 
 #: src/amo/components/SearchForm/index.js:60
 msgid "Go to the add-on page"
@@ -1572,9 +1555,8 @@ msgid "Dictionaries & Language Packs"
 msgstr "Kamus & Paket Bahasa"
 
 #: src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Search Tools"
-msgstr "Hasil pencarian"
+msgstr "Alat Pencarian"
 
 #: src/amo/components/SectionLinks/index.js:126
 msgid "Other Browser Sites"
@@ -1729,9 +1711,8 @@ msgid "Was it easy to use?"
 msgstr "Apakah mudah digunakan?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Masuk untuk menilai pengaya ini"
+msgstr "Apakah Anda ingin tetap menggunakan pengaya ini?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1826,9 +1807,8 @@ msgid "Add-ons Home Page"
 msgstr "Beranda Pengaya"
 
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Mencari \"%(query)s\""
+msgstr "Profil Pengguna untuk %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
 msgid "Location"
@@ -1843,9 +1823,8 @@ msgid "User since"
 msgstr "Pengguna sejak"
 
 #: src/amo/components/UserProfile/index.js:181
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Memuat pengaya"
+msgstr "Jumlah pengaya"
 
 #: src/amo/components/UserProfile/index.js:187
 msgid "Average rating of developer’s add-ons"
@@ -1864,9 +1843,8 @@ msgid "Picture successfully deleted"
 msgstr "Gambar berhasil dihapus"
 
 #: src/amo/components/UserProfileEdit/index.js:395
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Jelajahi semua ekstensi"
+msgstr "Masuk untuk menyunting profil"
 
 #: src/amo/components/UserProfileEdit/index.js:439
 msgid "View user's profile"
@@ -1881,9 +1859,8 @@ msgid "Account"
 msgstr "Akun"
 
 #: src/amo/components/UserProfileEdit/index.js:466
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "%(count)s hasil untuk \"%(query)s\""
+msgstr "Akun untuk %(username)s"
 
 #: src/amo/components/UserProfileEdit/index.js:472
 msgid "Username"
@@ -1914,9 +1891,8 @@ msgid "Tell users a bit more information about this user. These fields are optio
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:534
-#, fuzzy
 msgid "Display Name"
-msgstr "Mainkan permainan"
+msgstr "Nama Tampilan"
 
 #: src/amo/components/UserProfileEdit/index.js:566
 msgid "This URL will only be visible for users who are developers."
