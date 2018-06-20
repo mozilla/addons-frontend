@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-20 10:51+0000\n"
+"PO-Revision-Date: 2018-06-20 10:52+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1023,7 +1023,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:113
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
@@ -1031,7 +1031,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
@@ -1039,7 +1039,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
@@ -1054,9 +1054,8 @@ msgid "For moments on the internet when you need to fire lasers out of a cat"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:162
-#, fuzzy
 msgid "Download Manager (S3)"
-msgstr "Γίνεται λήψη του %(name)s."
+msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
@@ -1072,7 +1071,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Page Translate"
-msgstr "Μετάφραση σελίδας"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
@@ -1080,7 +1079,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Image Search Options"
-msgstr "Επιλογές αναζήτησης εικόνων"
+msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -1088,7 +1087,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Make Firefox forget website data like cookies & local storage"
@@ -1120,7 +1119,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
@@ -1128,7 +1127,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
@@ -1136,7 +1135,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Web Security"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
@@ -1144,7 +1143,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
