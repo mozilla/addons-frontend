@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-20 10:10+0000\n"
+"PO-Revision-Date: 2018-06-20 10:14+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -997,7 +997,7 @@ msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:113
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Semgired gar timagiyin-ik deg We (amahil, tudert tudmawant, atg) s useqdec n yiccaren umniḍen s yini"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
@@ -1917,7 +1917,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
-msgstr ""
+msgstr "Ilɣa"
 
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2160,22 +2160,22 @@ msgstr "Kcem ɣer isefka-inek deg ismal web meṛṛa"
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kcem ar isefka-ik di %(param)s n taɣult-nniḍen"
+msgstr[1] "Kcem ar isefka-ik di %(param)s n tɣula-nniḍen"
 
 #: src/ui/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Kcem ɣer yisefka-ik n i yismal di %(param)s n taɣult"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kcem ɣer yisefka-ik n i yismal di %(param)s n tɣula"
+msgstr[1] "Kcem ar isefka-ik di %(param)s n usmel-nniḍen"
 
 #: src/ui/components/HostPermissions/index.js:65
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Kcem ɣer isefka-ik i %S"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
@@ -2183,7 +2183,7 @@ msgstr "Yettwasezmel %(rating)s ɣef 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Ulac tazmilt akka tura"
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
