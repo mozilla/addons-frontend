@@ -95,6 +95,8 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
   );
 };
 
-export default compose(
+const ContributeCard: React.ComponentType<Props> = compose(
   translate()
 )(ContributeCardBase);
+
+export default ContributeCard;

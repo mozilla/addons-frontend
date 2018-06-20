@@ -264,7 +264,9 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
   };
 }
 
-export default compose(
+const App: React.ComponentType<Props> = compose(
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(AppBase);
+
+export default App;

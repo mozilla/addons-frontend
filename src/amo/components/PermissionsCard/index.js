@@ -73,7 +73,9 @@ export const mapStateToProps = (state: {| api: ApiStateType |}) => {
   };
 };
 
-export default compose(
+const PermissionsCard: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
 )(PermissionsCardBase);
+
+export default PermissionsCard;

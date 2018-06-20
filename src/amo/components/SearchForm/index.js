@@ -73,8 +73,10 @@ export function mapStateToProps(
   return { apiLang: api.lang, clientApp: api.clientApp };
 }
 
-export default compose(
+const SearchForm: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
 )(SearchFormBase);
+
+export default SearchForm;

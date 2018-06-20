@@ -52,6 +52,8 @@ export class NotAuthorizedBase extends React.Component<Props> {
   }
 }
 
-export default compose(
+const NotAuthorized: React.ComponentType<Props> = compose(
   translate({ withRef: true }),
 )(NotAuthorizedBase);
+
+export default NotAuthorized;

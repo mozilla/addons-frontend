@@ -258,6 +258,8 @@ export class HomeHeroBannerBase extends React.Component<Props> {
   }
 }
 
-export default compose(
+const HomeHeroBanner: React.ComponentType<Props> = compose(
   translate(),
 )(HomeHeroBannerBase);
+
+export default HomeHeroBanner;

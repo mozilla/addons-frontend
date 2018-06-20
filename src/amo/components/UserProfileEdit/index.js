@@ -808,9 +808,11 @@ export const extractId = (ownProps: Props) => {
   return ownProps.params.username;
 };
 
-export default compose(
+const UserProfileEdit: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(UserProfileEditBase);
+
+export default UserProfileEdit;

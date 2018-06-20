@@ -89,16 +89,19 @@ const createNotification = ({
 };
 
 type Props = {|
-  i18n: I18nType,
   onChange: Function,
   user: UserType | null,
+|};
+
+type InjectedProps = {|
+  i18n: I18nType,
 |};
 
 export const UserProfileEditNotificationsBase = ({
   i18n,
   onChange,
   user,
-}: Props) => {
+}: { ...Props, ...InjectedProps }) => {
   let notifications = [];
   if (!user || !user.notifications) {
     for (let i = 0; i < 2; i++) {
@@ -128,6 +131,8 @@ export const UserProfileEditNotificationsBase = ({
   );
 };
 
-export default compose(
+const UserProfileEditNotifications: React.ComponentType<Props> = compose(
   translate(),
 )(UserProfileEditNotificationsBase);
+
+export default UserProfileEditNotifications;

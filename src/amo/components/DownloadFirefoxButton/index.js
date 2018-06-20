@@ -51,7 +51,9 @@ export function mapStateToProps(state: StateType) {
   };
 }
 
-export default compose(
+const DownloadFirefoxButton: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
 )(DownloadFirefoxButtonBase);
+
+export default DownloadFirefoxButton;

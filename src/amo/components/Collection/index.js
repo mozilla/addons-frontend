@@ -496,8 +496,10 @@ export const extractId = (ownProps: Props) => {
   ].join('/');
 };
 
-export default compose(
+const Collection: React.ComponentType<Props> = compose(
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),
 )(CollectionBase);
+
+export default Collection;

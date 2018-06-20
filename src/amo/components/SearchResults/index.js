@@ -76,6 +76,8 @@ export class SearchResultsBase extends React.Component<Props> {
   }
 }
 
-export default compose(
+const SearchResults: React.ComponentType<Props> = compose(
   translate(),
 )(SearchResultsBase);
+
+export default SearchResults;

@@ -74,6 +74,8 @@ export const AddonBadgesBase = (props: Props) => {
   );
 };
 
-export default compose(
+const AddonBadges: React.ComponentType<Props> = compose(
   translate(),
 )(AddonBadgesBase);
+
+export default AddonBadges;

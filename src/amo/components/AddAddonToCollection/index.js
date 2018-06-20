@@ -320,8 +320,10 @@ export const extractId = (ownProps: Props) => {
   return `${addon ? addon.id : ''}-${currentUsername || ''}`;
 };
 
-export default compose(
+const AddAddonToCollection: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddAddonToCollectionBase);
+
+export default AddAddonToCollection;

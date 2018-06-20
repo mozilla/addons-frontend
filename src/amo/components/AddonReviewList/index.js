@@ -324,9 +324,11 @@ export const extractId = (ownProps: Props) => {
   return `${params.addonSlug}-${location.query.page || ''}`;
 };
 
-export default compose(
+const AddonReviewList: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonReviewListBase);
+
+export default AddonReviewList;

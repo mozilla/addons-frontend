@@ -129,6 +129,8 @@ export function mapStateToProps(state: any, ownProps: Props) {
   };
 }
 
-export default compose(
+const SearchPage: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
 )(SearchPageBase);
+
+export default SearchPage;

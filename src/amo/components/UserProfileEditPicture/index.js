@@ -13,12 +13,15 @@ import './styles.scss';
 
 
 type Props = {|
-  i18n: I18nType,
   name: string,
   onDelete: Function,
   onSelect: Function,
   preview: string | null,
   user: UserType | null,
+|};
+
+type InjectedProps = {|
+  i18n: I18nType,
 |};
 
 export const UserProfileEditPictureBase = ({
@@ -28,7 +31,7 @@ export const UserProfileEditPictureBase = ({
   onSelect,
   preview,
   user,
-}: Props) => {
+}: { ...Props, ...InjectedProps }) => {
   const altText = user ? i18n.sprintf(
     i18n.gettext('Profile picture for %(name)s'), { name: user.name }
   ) : null;
@@ -81,6 +84,8 @@ export const UserProfileEditPictureBase = ({
   );
 };
 
-export default compose(
+const UserProfileEditPicture: React.ComponentType<Props> = compose(
   translate(),
 )(UserProfileEditPictureBase);
+
+export default UserProfileEditPicture;

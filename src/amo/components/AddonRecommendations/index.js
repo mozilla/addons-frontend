@@ -192,8 +192,10 @@ const mapStateToProps = (
   return { recommendations };
 };
 
-export default compose(
+const AddonRecommendations: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ name: 'AddonRecommendations' }),
 )(AddonRecommendationsBase);
+
+export default AddonRecommendations;

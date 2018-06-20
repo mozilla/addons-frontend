@@ -295,8 +295,10 @@ export const extractId = (ownProps: Props) => {
   return ownProps.params.username;
 };
 
-export default compose(
+const UserProfile: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(UserProfileBase);
+
+export default UserProfile;

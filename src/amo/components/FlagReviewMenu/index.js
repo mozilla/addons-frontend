@@ -22,16 +22,21 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 
 type Props = {|
-  i18n: I18nType,
   isDeveloperReply?: boolean,
   location: ReactRouterLocation,
   openerClass?: string,
   review: UserReviewType,
+|};
+
+type InjectedProps = {|
+  i18n: I18nType,
   siteUser: UserType | null,
   wasFlagged: boolean,
 |};
 
-export class FlagReviewMenuBase extends React.Component<Props> {
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class FlagReviewMenuBase extends React.Component<InternalProps> {
   static defaultProps = {
     isDeveloperReply: false,
   };
@@ -154,7 +159,9 @@ const mapStateToProps = (
   };
 };
 
-export default compose(
+const FlagReviewMenu: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
 )(FlagReviewMenuBase);
+
+export default FlagReviewMenu;
