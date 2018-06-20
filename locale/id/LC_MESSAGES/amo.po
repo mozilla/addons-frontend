@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-20 13:34+0000\n"
+"PO-Revision-Date: 2018-06-20 14:30+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1021,9 +1021,8 @@ msgid "For moments on the internet when you need to fire lasers out of a cat"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:162
-#, fuzzy
 msgid "Download Manager (S3)"
-msgstr "Mengunduh %(name)s."
+msgstr "Pengelola Unduhan (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
@@ -1178,9 +1177,8 @@ msgid "Dictionaries"
 msgstr "Kamus"
 
 #: src/amo/components/PermissionsCard/index.js:47
-#, fuzzy
 msgid "Permissions"
-msgstr "Versi"
+msgstr "Perizinan"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
@@ -1684,19 +1682,19 @@ msgstr "Lakukan:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Menulislah seperti sedang menyampaikan pada teman mengenai pengalaman dengan pengaya."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Pertahankan agar tinjauan ringkas dan mudah dipahami."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Berikan rincian yang spesifik dan membantu. Misalnya:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Apakah pengaya telah berfungsi sebagaimana yang Anda harapkan?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
@@ -1748,25 +1746,27 @@ msgstr "Memasukkan HTML, tautan, kode sumber atau potongan kode. Tinjauan dimaks
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Membuat pernyataan yang salah, meremehkan penulis pengaya atau secara pribadi menghina mereka."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Masukkan alamat surel Anda atau orang lain, nomor telepon, atau rincian pribadi lainnya."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Mengirimkan ulasan untuk pengaya yang Anda atau organisasi Anda tulis atau wakili."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:67
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Beri masukan pada pengaya sesuai dengan apa tujuannya. Misalnya, meninggalkan tinjauan negatif untuk sebuah pengaya karena menampilkan iklan atau meminta pengumpulan data, sementara itu adalah "
+"tujuan keberadaan pengaya itu, atau pengaya meminta pengumpulan data agar bisa berfungsi."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Pertanyaan yang Sering Ditanyakan mengenai Tinjauan"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:78
 msgid "How can I report a problematic review?"
@@ -1777,6 +1777,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Harap laporkan atau tandai tinjauan apa saja yang patut dipertanyakan dengan mengeklik \"Laporkan tinjauan ini\" sehingga akan dikirimkan kembali ke situs untuk dimoderasi. Tim moderasi kami akan "
+"menggunakan Panduan Peninjauan untuk mengevaluasi apakah tinjauan tersebut perlu dihapus atau tidak, atau mengembalikannya ke situs."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:85
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -1828,7 +1830,7 @@ msgstr "Jumlah pengaya"
 
 #: src/amo/components/UserProfile/index.js:187
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Rerata peringkat untuk pengembang pengaya"
 
 #: src/amo/components/UserProfile/index.js:221
 msgid "Edit profile"
@@ -1876,7 +1878,7 @@ msgstr "Alamat Surel"
 
 #: src/amo/components/UserProfileEdit/index.js:501
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Anda dapat mengubah alamat surel Anda di Firefox Accounts. %(startLink)sPerlu bantuan?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:517
 msgid "Profile"
@@ -1904,11 +1906,11 @@ msgstr "Biografi"
 
 #: src/amo/components/UserProfileEdit/index.js:608
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Perkenalkan diri Anda pada komunitas, jika Anda berkenan"
 
 #: src/amo/components/UserProfileEdit/index.js:611
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Perkenalkan %(username)s pada komunitas"
 
 #: src/amo/components/UserProfileEdit/index.js:624
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -1956,11 +1958,11 @@ msgstr "Hapus profil pengguna"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Perhatian: Anda akan menghapus profil Anda. Yakin?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "Perhatian: Anda akan menghapus profil. Yakin?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
