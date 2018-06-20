@@ -14,6 +14,11 @@ type ThumbBounds = false | {|
   y: number,
 |};
 
+type GetThumbBoundsExtraParams = {|
+  _document: typeof document | null,
+  _window: typeof window | null,
+|};
+
 export const PHOTO_SWIPE_OPTIONS = {
   closeEl: true,
   captionEl: true,
@@ -25,11 +30,15 @@ export const PHOTO_SWIPE_OPTIONS = {
   preloaderEl: true,
   // Overload getThumbBoundsFn as workaround to
   // https://github.com/minhtranite/react-photoswipe/issues/23
-  getThumbBoundsFn: (
-    index: number,
-    _document: typeof document = document,
-    _window: typeof window = window
-  ): ThumbBounds => {
+  getThumbBoundsFn: (index: number, {
+    // $FLOW_FIXME: see https://github.com/facebook/flow/issues/183
+    _document = typeof document !== 'undefined' ? document : null,
+    _window = typeof window !== 'undefined' ? window : null,
+  }: GetThumbBoundsExtraParams = {}): ThumbBounds => {
+    if (!_document || !_window) {
+      return false;
+    }
+
     const thumbnail = _document.querySelectorAll('.pswp-thumbnails')[index];
 
     if (thumbnail && thumbnail.getElementsByTagName) {

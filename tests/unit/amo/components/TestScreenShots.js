@@ -133,6 +133,21 @@ describe(__filename, () => {
       expect(bounds).toEqual(false);
     });
 
+    it('returns false if _document is null', () => {
+      const bounds = getThumbBoundsFn(0, { _document: null });
+
+      expect(bounds).toEqual(false);
+    });
+
+    it('returns false if _window is null', () => {
+      const bounds = getThumbBoundsFn(0, {
+        _document: getFakeDocument({ left: 1, top: 2, width: 3 }),
+        _window: null,
+      });
+
+      expect(bounds).toEqual(false);
+    });
+
     it('returns an object with x, y and w values', () => {
       const left = 123;
       const top = 124;
@@ -140,9 +155,8 @@ describe(__filename, () => {
 
       const fakeDocument = getFakeDocument({ left, top, width });
 
-      const bounds = getThumbBoundsFn(0, fakeDocument);
+      const bounds = getThumbBoundsFn(0, { _document: fakeDocument });
 
-      expect(bounds).toBeInstanceOf(Object);
       expect(bounds).toEqual({
         w: width,
         x: left,
@@ -161,7 +175,10 @@ describe(__filename, () => {
         pageYOffset: 20,
       };
 
-      const bounds = getThumbBoundsFn(0, fakeDocument, fakeWindow);
+      const bounds = getThumbBoundsFn(0, {
+        _document: fakeDocument,
+        _window: fakeWindow,
+      });
 
       expect(bounds).toEqual({
         w: width,
@@ -181,7 +198,7 @@ describe(__filename, () => {
         scrollTop,
       };
 
-      const bounds = getThumbBoundsFn(0, fakeDocument);
+      const bounds = getThumbBoundsFn(0, { _document: fakeDocument });
 
       expect(bounds).toEqual({
         w: width,
