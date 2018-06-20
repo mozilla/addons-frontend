@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-20 20:11+0000\n"
+"PO-Revision-Date: 2018-06-20 20:22+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -692,22 +692,20 @@ msgid "Remove"
 msgstr "הסרה"
 
 #: src/amo/components/EditableCollectionAddon/index.js:116
-#, fuzzy
 msgid "User comment"
-msgstr "משתמש מאז"
+msgstr "תגובת משתמש"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "על אודות תוספת זו"
+msgstr "הוספת תגובה על תוספת זו."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
-msgstr ""
+msgstr "שמירה"
 
 #: src/amo/components/EditableCollectionAddon/index.js:149
 msgid "Edit"
-msgstr ""
+msgstr "עריכה"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -979,9 +977,8 @@ msgid "Privacy matters"
 msgstr "כלי פרטיות"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "הצגת הרחבות לשוניות נוספות"
+msgstr "הצגת הרחבות פרטיות נוספות"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
@@ -1037,7 +1034,7 @@ msgstr "זוכה אתגר הרחבות Quantum! האזנה לרדיו בשידו
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Tabliss"
-msgstr ""
+msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
@@ -1045,7 +1042,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
@@ -1053,7 +1050,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
@@ -1124,13 +1121,12 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "הדגשת טקסט בכל דף אינטרנט כדי להקפיץ תפריט חיפוש שימושי"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "הגדלת מהירות ההורדות עם תמיכה בריבוי תהליכונים"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1852,14 +1848,12 @@ msgid "Add-ons Home Page"
 msgstr "דף הבית של התוספות"
 
 #: src/amo/components/UserProfile/index.js:127
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "תוספות מאת המפתחים האלה"
+msgstr "מפתח תוספות"
 
 #: src/amo/components/UserProfile/index.js:133
-#, fuzzy
 msgid "Theme artist"
-msgstr "ערכות נושא מאת האמנים האלה"
+msgstr "אמן ערכת נושא"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
@@ -2156,9 +2150,8 @@ msgid "Next"
 msgstr "הבא"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "עמוד %(pageNumber)s מתוך %(totalPages)s"
+msgstr "עמוד %(currentPage)s מתוך %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2190,7 +2183,7 @@ msgstr "מתבצעת שליחה"
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "מחיקה"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
