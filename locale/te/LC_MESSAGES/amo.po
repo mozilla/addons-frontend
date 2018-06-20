@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-19 13:39+0000\n"
+"PO-Revision-Date: 2018-06-20 10:53+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -888,14 +888,12 @@ msgid "View My Collections"
 msgstr "నా సేకరణలను చూడు"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
-#, fuzzy
 msgid "View My Profile"
-msgstr "ప్రొఫైల్‌ను వీక్షించు"
+msgstr "నా ప్రొఫైలును చూడు"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "ప్రొఫైల్‌ను సవరించు"
+msgstr "ప్రొఫైలును సవరించు"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
