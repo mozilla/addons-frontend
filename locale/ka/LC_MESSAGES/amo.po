@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-05 18:57+0000\n"
+"POT-Creation-Date: 2018-06-20 17:05+0000\n"
 "PO-Revision-Date: 2018-06-06 15:38+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,8 @@ msgstr "დაემატა %(collectionName)s კრებულში"
 msgid "Add to…"
 msgstr "დამატება…"
 
-#: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+#: src/amo/components/AddAddonToCollection/index.js:255
+#: src/amo/components/CollectionManager/index.js:381
 msgid "Add to collection"
 msgstr "კრებულში დამატება"
 
@@ -57,7 +58,8 @@ msgstr "შეთვალიერების გაუქმება"
 
 #: src/amo/components/Addon/index.js:257
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "დამატების შეფასება შეუძლებელია, რადგან არცერთი ვერსია არ გამოქვეყნებულა."
+msgstr ""
+"დამატების შეფასება შეუძლებელია, რადგან არცერთი ვერსია არ გამოქვეყნებულა."
 
 #: src/amo/components/Addon/index.js:266
 msgid "Read %(count)s review"
@@ -147,8 +149,12 @@ msgid "Some features may require payment"
 msgstr "ზოგიერთი შესაძლებლობა, თანხის გადახდას საჭიროებს"
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "თქვენ გესაჭიროებათ <a href=\"%(downloadUrl)s\">Firefox-ის ჩამოტვირთვა,</a> ამ დამატების დასაყენებლად."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"თქვენ გესაჭიროებათ <a href=\"%(downloadUrl)s\">Firefox-ის ჩამოტვირთვა,</a> "
+"ამ დამატების დასაყენებლად."
 
 #: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "This add-on is not compatible with your version of Firefox."
@@ -167,12 +173,20 @@ msgid "This add-on is not available on your platform."
 msgstr "ეს დამატება არაა ხელმისაწვდომი თქვენს სისტემაზე."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "დამატება საჭიროებს <a href=\"%(downloadUrl)s\">Firefox-ის ახალ ვერსიას</a> (არანაკლებ %(minVersion)s). თქვენ იყენებთ Firefox %(yourVersion)s-ს."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"დამატება საჭიროებს <a href=\"%(downloadUrl)s\">Firefox-ის ახალ ვერსიას</a> "
+"(არანაკლებ %(minVersion)s). თქვენ იყენებთ Firefox %(yourVersion)s-ს."
 
 #: src/amo/components/AddonCompatibilityError/index.js:93
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "თქვენს ბრაუზერზე არაა მხარდაჭერილი დამატებები. შეგიძლიათ <a href=\"%(downloadUrl)s\">ჩამოტვირთოთ Firefox</a>, ამ დამატების გამოსაყენებლად."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"თქვენს ბრაუზერზე არაა მხარდაჭერილი დამატებები. შეგიძლიათ <a href="
+"\"%(downloadUrl)s\">ჩამოტვირთოთ Firefox</a>, ამ დამატების გამოსაყენებლად."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -234,7 +248,8 @@ msgstr "დამატების ბმულები"
 msgid "Version"
 msgstr "ვერსია"
 
-#: src/amo/components/AddonMoreInfo/index.js:184 src/amo/components/Collection/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:184
+#: src/amo/components/Collection/index.js:352
 msgid "Last updated"
 msgstr "ბოლო განახლება"
 
@@ -262,7 +277,9 @@ msgstr "გამოყენების სტატისტიკა"
 msgid "More information"
 msgstr "დამატებითი მონაცემები"
 
-#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+#: src/amo/components/AddonMoreInfo/index.js:46
+#: src/amo/components/UserProfile/index.js:168
+#: src/amo/components/UserProfileEdit/index.js:559
 msgid "Homepage"
 msgstr "მთავარი გვერდი"
 
@@ -287,20 +304,33 @@ msgid "Other popular extensions"
 msgstr "სხვა სასურველი გაფართოებები"
 
 #: src/amo/components/AddonReview/index.js:169
-msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "აცნობეთ მსოფლიოს, რატომ მიგაჩნიათ ეს გაფართოება საუკეთესოდ! გთხოვთ, ისარგებლოთ ჩვენი %(linkStart)sმიმოხილვის სახელმძღვანელოთი%(linkEnd)s."
+msgid ""
+"Tell the world why you think this extension is fantastic! Please follow our "
+"%(linkStart)sreview guidelines%(linkEnd)s."
+msgstr ""
+"აცნობეთ მსოფლიოს, რატომ მიგაჩნიათ ეს გაფართოება საუკეთესოდ! გთხოვთ, "
+"ისარგებლოთ ჩვენი %(linkStart)sმიმოხილვის სახელმძღვანელოთი%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "მოგვახსენეთ, ყველაზე მეტად რა მოგწონთ ამ გაფართოებაში. სასურველია აზრი იყოს გადმოცემული გარკვევით, მოკლედ და მკაფიოდ."
+msgstr ""
+"მოგვახსენეთ, ყველაზე მეტად რა მოგწონთ ამ გაფართოებაში. სასურველია აზრი იყოს "
+"გადმოცემული გარკვევით, მოკლედ და მკაფიოდ."
 
 #: src/amo/components/AddonReview/index.js:177
-msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "გააცანით მსოფლიოს, თქვენი მოსაზრება ამ გაფართოების შესახებ. გთხოვთ, ისარგებლოთ ჩვენი %(linkStart)sმიმოხილვის სახელმძღვანელოთი%(linkEnd)s."
+msgid ""
+"Tell the world about this extension. Please follow our %(linkStart)sreview "
+"guidelines%(linkEnd)s."
+msgstr ""
+"გააცანით მსოფლიოს, თქვენი მოსაზრება ამ გაფართოების შესახებ. გთხოვთ, "
+"ისარგებლოთ ჩვენი %(linkStart)sმიმოხილვის სახელმძღვანელოთი%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:181
-msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "მოგვახსენეთ, თქვენი გამოცდილება ამ გაფართოებასთან დაკავშირებით. სასურველია აზრი იყოს გადმოცემული გარკვევით, მოკლედ და მკაფიოდ."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"მოგვახსენეთ, თქვენი გამოცდილება ამ გაფართოებასთან დაკავშირებით. სასურველია "
+"აზრი იყოს გადმოცემული გარკვევით, მოკლედ და მკაფიოდ."
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
@@ -456,7 +486,8 @@ msgstr "%(author)s ავტორის დამატებები"
 msgid "Add-ons by these developers"
 msgstr "ამ შემმუშავებლების დამატებები"
 
-#: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
+#: src/amo/components/App/index.js:203
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "Firefox-ის დამატებები"
 
@@ -464,7 +495,8 @@ msgstr "Firefox-ის დამატებები"
 msgid "%s – Add-ons for Firefox"
 msgstr "%s - Firefox-ის დამატებები"
 
-#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:137
+#: src/amo/components/App/index.js:207
+#: src/amo/components/SectionLinks/index.js:137
 msgid "Add-ons for Android"
 msgstr "დამატებები Android-ისთვის"
 
@@ -481,7 +513,8 @@ msgstr "იტვირთება"
 msgid "Find add-ons"
 msgstr "დამატებების მოძიება"
 
-#: src/amo/components/AutoSearchInput/index.js:312 src/amo/components/AutoSearchInput/index.js:345
+#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:345
 msgid "Search"
 msgstr "ძიება"
 
@@ -497,59 +530,85 @@ msgstr "კატეგორიის ჩატვირთვა."
 msgid "No categories found."
 msgstr "კატეგორიები ვერ მოიძებნა."
 
-#: src/amo/components/Category/index.js:131 src/amo/components/LandingPage/index.js:205 src/amo/components/SectionLinks/index.js:84
+#: src/amo/components/Category/index.js:131
+#: src/amo/components/LandingPage/index.js:205
+#: src/amo/components/SectionLinks/index.js:84
 msgid "Extensions"
 msgstr "გაფართოებები"
 
-#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:200 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132
+#: src/amo/components/Home/index.js:202
+#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "რჩეული გაფართოებები"
 
-#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:201 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141
+#: src/amo/components/Home/index.js:203
+#: src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "სხვა რჩეული გაფართოებები"
 
-#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142
+#: src/amo/components/LandingPage/index.js:133
+#: src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "ხშირად ჩამოტვირთული გაფართოებები"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151
+#: src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "სხვა ხშირად ჩამოტვირთული გაფართოებები"
 
-#: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
+#: src/amo/components/Category/index.js:152
+#: src/amo/components/LandingPage/index.js:139
+#: src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
 msgstr "საუკეთესოდ შეფასებული გაფართოებები"
 
-#: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
+#: src/amo/components/Category/index.js:161
+#: src/amo/components/LandingPage/index.js:147
 msgid "See more top rated extensions"
 msgstr "სხვა საუკეთესოდ შეფასებული გაფართოებები"
 
-#: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
+#: src/amo/components/Category/index.js:164
+#: src/amo/components/LandingPage/index.js:204
+#: src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
 msgstr "თემები"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:229 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165
+#: src/amo/components/Home/index.js:230
+#: src/amo/components/LandingPage/index.js:150
+#: src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "გამორჩეული თემები"
 
-#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:230 src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174
+#: src/amo/components/Home/index.js:231
+#: src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "სხვა გამორჩეული თემები"
 
-#: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
+#: src/amo/components/Category/index.js:175
+#: src/amo/components/LandingPage/index.js:159
+#: src/amo/components/Search/index.js:126
 msgid "Trending themes"
 msgstr "ფართოდ გავრცელებული თემები"
 
-#: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
+#: src/amo/components/Category/index.js:184
+#: src/amo/components/LandingPage/index.js:164
 msgid "See more trending themes"
 msgstr "სხვა ფართოდ გავრცელებული თემები"
 
-#: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
+#: src/amo/components/Category/index.js:185
+#: src/amo/components/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:138
 msgid "Top rated themes"
 msgstr "საუკეთესოდ შეფასებული თემები"
 
-#: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
+#: src/amo/components/Category/index.js:194
+#: src/amo/components/LandingPage/index.js:170
 msgid "See more top rated themes"
 msgstr "სხვა საუკეთესოდ შეფასებული თემები"
 
@@ -565,64 +624,80 @@ msgstr "ამ კატეგორიის ყველა გაფართ
 msgid "Browse all themes in this category."
 msgstr "ამ კატეგორიის ყველა თემის ნახვა."
 
-#: src/amo/components/Collection/index.js:173
+#: src/amo/components/Collection/index.js:208
 msgid "Edit this collection"
 msgstr "კრებულის ჩასწორება"
 
-#: src/amo/components/Collection/index.js:217
+#: src/amo/components/Collection/index.js:305
+msgid "Log in to create a collection"
+msgstr "შედით ანგარიშზე კრებულის შესაქმნელად"
+
+#: src/amo/components/Collection/index.js:306
 msgid "Log in to edit this collection"
 msgstr "შედით ანგარიშზე კრებულის ჩასასწორებლად"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Collection/index.js:246 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:342
+#: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "დამატებები"
 
-#: src/amo/components/Collection/index.js:250
+#: src/amo/components/Collection/index.js:346
 msgid "Creator"
 msgstr "შემქმნელი"
 
-#: src/amo/components/Collection/index.js:291
+#: src/amo/components/Collection/index.js:373
+#, fuzzy
+msgid "Do you really want to delete this collection?"
+msgstr "ნამდვილად გსურთ ამ სურათის წაშლა?"
+
+#: src/amo/components/Collection/index.js:376
+#, fuzzy
+msgid "Delete this collection"
+msgstr "კრებულის ჩასწორება"
+
+#: src/amo/components/Collection/index.js:407
+msgid "First, create your collection. Then you can add extensions and themes."
+msgstr ""
+"გთხოვთ, ჯერ შექმნათ თქვენი კრებული. ამის შემდეგ შეგეძლებათ დამატებების "
+"შეტანა."
+
+#: src/amo/components/Collection/index.js:410
 msgid "Search for extensions and themes to add to your collection."
 msgstr "მოიძიეთ გაფართოებები და თემები, თქვენს კრებულში დასამატებლად."
 
-#: src/amo/components/CollectionList/index.js:38
-msgid "Log in to create a collection"
-msgstr "შედით ანგარიშზე კრებულის შესაქმნელად"
-
-#: src/amo/components/CollectionList/index.js:58
-msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "გთხოვთ, ჯერ შექმნათ თქვენი კრებული. ამის შემდეგ შეგეძლებათ დამატებების შეტანა."
-
-#: src/amo/components/CollectionManager/index.js:289
+#: src/amo/components/CollectionManager/index.js:299
 msgid "Save collection"
 msgstr "კრებულის შენახვა"
 
-#: src/amo/components/CollectionManager/index.js:289
+#: src/amo/components/CollectionManager/index.js:299
 msgid "Create collection"
 msgstr "ახალი კრებულის შექმნა"
 
-#: src/amo/components/CollectionManager/index.js:301
+#: src/amo/components/CollectionManager/index.js:311
 msgid "Collection name"
 msgstr "კრებულის დასახელება"
 
-#: src/amo/components/CollectionManager/index.js:313
+#: src/amo/components/CollectionManager/index.js:323
 msgid "Description"
 msgstr "აღწერილობა"
 
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:334
 msgid "Custom URL"
 msgstr "შერჩეული URL ბმული"
 
-#: src/amo/components/CollectionManager/index.js:358
+#: src/amo/components/CollectionManager/index.js:368
 msgid "Added to collection"
 msgstr "კრებულში დამატება"
 
-#: src/amo/components/CollectionManager/index.js:367
+#: src/amo/components/CollectionManager/index.js:377
 msgid "Find an add-on to include in this collection"
 msgstr "დამატების მონახვა ამ კრებულში ჩასამატებლად"
 
-#: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+#: src/amo/components/CollectionManager/index.js:397
+#: src/amo/components/UserProfileEdit/index.js:768
+#: src/ui/components/ConfirmButton/index.js:99
+#: src/ui/components/DismissibleTextForm/index.js:142
 msgid "Cancel"
 msgstr "გაუქმება"
 
@@ -635,12 +710,20 @@ msgid "Support these developers"
 msgstr "ამ შემმუშავებლების მხარდაჭერა"
 
 #: src/amo/components/ContributeCard/index.js:41
-msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "ამ დამატების შემქმნელი, პროგრამის მომავალი განვითარებისთვის, გთხოვთ მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
+msgid ""
+"The developer of this extension asks that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"ამ დამატების შემქმნელი, პროგრამის მომავალი განვითარებისთვის, გთხოვთ "
+"მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
 
 #: src/amo/components/ContributeCard/index.js:43
-msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "ამ დამატების შემქმნელები, პროგრამის მომავალი განვითარებისთვის, გთხოვთ მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
+msgid ""
+"The developers of this extension ask that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"ამ დამატების შემქმნელები, პროგრამის მომავალი განვითარებისთვის, გთხოვთ "
+"მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "Support this artist"
@@ -651,12 +734,20 @@ msgid "Support these artists"
 msgstr "ამ მხატვრების მხარდაჭერა"
 
 #: src/amo/components/ContributeCard/index.js:55
-msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr "ამ თემის მხატვარი, შემოქმედებითი საქმიანობის განვითარებისთვის, გთხოვთ მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
+msgid ""
+"The artist of this theme asks that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+"ამ თემის მხატვარი, შემოქმედებითი საქმიანობის განვითარებისთვის, გთხოვთ "
+"მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
 
 #: src/amo/components/ContributeCard/index.js:57
-msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr "ამ თემის მხატვრები, შემოქმედებითი საქმიანობის განვითარებისთვის, გთხოვთ მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
+msgid ""
+"The artists of this theme ask that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+"ამ თემის მხატვრები, შემოქმედებითი საქმიანობის განვითარებისთვის, გთხოვთ "
+"მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "Support this author"
@@ -667,42 +758,84 @@ msgid "Support these authors"
 msgstr "ამ ავტორების მხარდაჭერა"
 
 #: src/amo/components/ContributeCard/index.js:69
-msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr "ამ დამატების შემქმნელი, პროგრამის მომავალი განვითარებისთვის, გთხოვთ მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
+msgid ""
+"The author of this add-on asks that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+"ამ დამატების შემქმნელი, პროგრამის მომავალი განვითარებისთვის, გთხოვთ "
+"მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
 
 #: src/amo/components/ContributeCard/index.js:71
-msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr "ამ დამატების შემქმნელები, პროგრამის მომავალი განვითარებისთვის, გთხოვთ მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
+msgid ""
+"The authors of this add-on ask that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+"ამ დამატების შემქმნელები, პროგრამის მომავალი განვითარებისთვის, გთხოვთ "
+"მხარდაჭერას, მცირეოდენი შემოწირულობის სახით."
 
 #: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
 msgstr "შემოწირულობის გაღება"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
+#: src/amo/components/DownloadFirefoxButton/index.js:39
+#: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "ჩამოტვირთეთ Firefox"
 
-#: src/amo/components/EditableCollectionAddon/index.js:56
+#: src/amo/components/EditableCollectionAddon/index.js:109
 msgid "Remove"
 msgstr "ამოშლა"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+#: src/amo/components/EditableCollectionAddon/index.js:116
+#, fuzzy
+msgid "User comment"
+msgstr "გაწევრიანების თარიღი:"
+
+#: src/amo/components/EditableCollectionAddon/index.js:128
+#, fuzzy
+msgid "Add a comment about this add-on."
+msgstr "დამატების შესახებ"
+
+#: src/amo/components/EditableCollectionAddon/index.js:129
+msgid "Save"
 msgstr ""
-"თუ შესული ხართ ანგარიშზე და ფიქრობთ, რომ ეს შეტყობინება შეცდომით მიიღეთ, გთხოვთ <a href=\"%(url)s\">მოგვახსენოთ ხარვეზის შესახებ</a>. გვაცნობეთ, საიდან გადმოხვედით ამ ბმულზე, რის ნახვას ცდილობდით და"
-" ჩვენ აუცილებლად გამოვასწორებთ."
+
+#: src/amo/components/EditableCollectionAddon/index.js:149
+msgid "Edit"
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:23
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
+msgstr ""
+"თუ შესული ხართ ანგარიშზე და ფიქრობთ, რომ ეს შეტყობინება შეცდომით მიიღეთ, "
+"გთხოვთ <a href=\"%(url)s\">მოგვახსენოთ ხარვეზის შესახებ</a>. გვაცნობეთ, "
+"საიდან გადმოხვედით ამ ბმულზე, რის ნახვას ცდილობდით და ჩვენ აუცილებლად "
+"გამოვასწორებთ."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
 msgstr "არ ხართ შესული ანგარიშზე"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "ვწუხვართ, მაგრამ ამ გვერდის ნახვის უფლება არ გაქვთ. თუ არ ხართ ანგარიშზე შესული, გამოიყენეთ გვერდის დასაწყისში არსებული ბმული, შესასვლელად."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"ვწუხვართ, მაგრამ ამ გვერდის ნახვის უფლება არ გაქვთ. თუ არ ხართ ანგარიშზე "
+"შესული, გამოიყენეთ გვერდის დასაწყისში არსებული ბმული, შესასვლელად."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "თუ ბმულს გამოჰყევით, გთხოვთ <a href=\"%(url)s\">მოგვახსენოთ ხარვეზის შესახებ</a>. გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას ეძებდით და აუცილებლად გავასწორებთ."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+"თუ ბმულს გამოჰყევით, გთხოვთ <a href=\"%(url)s\">მოგვახსენოთ ხარვეზის "
+"შესახებ</a>. გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას ეძებდით და "
+"აუცილებლად გავასწორებთ."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
@@ -716,81 +849,91 @@ msgstr "ეს დამატება შეზღუდულია ადმ
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ მისამართზე, ვერაფერი მოიძებნა."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
+#: src/amo/components/ErrorPage/NotFound/index.js:49
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "გვერდი ვერ მოიძებნა"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"თუ გაქვთ დამატებითი ინფორმაცია, რაც შეიძლება დაგვეხმაროს, შეგიძლიათ <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">მოგვახსენოთ ამის შესახებ</a>. გვაცნობეთ, რა ნაბიჯები გადადგით, "
-"სანამ ხარვეზს წააწყდებოდით და აუცილებლად შევეცდებით მის გამოსწორებას."
+"თუ გაქვთ დამატებითი ინფორმაცია, რაც შეიძლება დაგვეხმაროს, შეგიძლიათ <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">მოგვახსენოთ ამის "
+"შესახებ</a>. გვაცნობეთ, რა ნაბიჯები გადადგით, სანამ ხარვეზს წააწყდებოდით და "
+"აუცილებლად შევეცდებით მის გამოსწორებას."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "შეცდომა სერვერზე"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "ვწუხვართ, მაგრამ სერვერზე მოხდა შეცდომა და თქვენი მოთხოვნის შესრულება ვერ მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"ვწუხვართ, მაგრამ სერვერზე მოხდა შეცდომა და თქვენი მოთხოვნის შესრულება ვერ "
+"მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
 
-#: src/amo/components/FlagReviewMenu/index.js:111
+#: src/amo/components/FlagReviewMenu/index.js:101
+msgid "Flagged for inappropriate language"
+msgstr "საჩივარი შეუფერებელ ლექსიკაზე"
+
+#: src/amo/components/FlagReviewMenu/index.js:116
 msgid "This is a bug report or support request"
 msgstr "მოხსენება ხარვეზის შესახებ ან მხარდაჭერის მოთხოვნა"
 
-#: src/amo/components/FlagReviewMenu/index.js:114
+#: src/amo/components/FlagReviewMenu/index.js:119
 msgid "Flagged as a bug report or support request"
 msgstr "მონიშნულია როგორც მოხსენება ხარვეზის შესახებ ან მხარდაჭერის მოთხოვნა"
 
-#: src/amo/components/FlagReviewMenu/index.js:129
+#: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flagged"
 msgstr "გასაჩივრებულია"
 
-#: src/amo/components/FlagReviewMenu/index.js:129
+#: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag"
 msgstr "საჩივარი"
 
-#: src/amo/components/FlagReviewMenu/index.js:132
+#: src/amo/components/FlagReviewMenu/index.js:137
 msgid "Flag this developer response"
 msgstr "შემმუშავებლის პასუხის გასაჩივრება"
 
-#: src/amo/components/FlagReviewMenu/index.js:133
+#: src/amo/components/FlagReviewMenu/index.js:138
 msgid "Flag this review"
 msgstr "მიმოხილვის გასაჩივრება"
 
-#: src/amo/components/FlagReviewMenu/index.js:58
+#: src/amo/components/FlagReviewMenu/index.js:63
 msgid "Log in to flag this response"
 msgstr "შედით ანგარიშზე პასუხის გასაჩივრებისთვის"
 
-#: src/amo/components/FlagReviewMenu/index.js:59
+#: src/amo/components/FlagReviewMenu/index.js:64
 msgid "Log in to flag this review"
 msgstr "შედით ანგარიშზე გასაჩივრებისთვის"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:73
 msgid "You cannot flag your own response"
 msgstr "საკუთარი პასუხის გასაჩივრება, შეუძლებელია"
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:74
 msgid "You cannot flag your own review"
 msgstr "საკუთარი მიმოხილვის გასაჩივრება, შეუძლებელია"
 
-#: src/amo/components/FlagReviewMenu/index.js:82
+#: src/amo/components/FlagReviewMenu/index.js:87
 msgid "This is spam"
 msgstr "სარეკლამო ხასიათისაა"
 
-#: src/amo/components/FlagReviewMenu/index.js:83
+#: src/amo/components/FlagReviewMenu/index.js:88
 msgid "Flagged as spam"
 msgstr "საჩივარი სარეკლამო შიგთავსზე"
 
-#: src/amo/components/FlagReviewMenu/index.js:93
+#: src/amo/components/FlagReviewMenu/index.js:98
 msgid "This contains inappropriate language"
 msgstr "შეიცავს შეუფერებელ ლექსიკას"
-
-#: src/amo/components/FlagReviewMenu/index.js:96
-msgid "Flagged for inappropriate language"
-msgstr "საჩივარი შეუფერებელ ლექსიკაზე"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -830,11 +973,13 @@ msgstr "მოხსენება სავაჭრო ნიშნები�
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
-" or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
-"გარდა მოცემული %(startNotedLink)sშენიშვნებისა%(endNotedLink)s, ამ საიტზე არსებული შიგთავსი ვრცელდება %(startLicenseLink)sCreative Commons Attribution Share-Alike v3.0 ლიცენზიით%(endLicenseLink)s ან "
-"უფრო ახალი ვერსიით."
+"გარდა მოცემული %(startNotedLink)sშენიშვნებისა%(endNotedLink)s, ამ საიტზე "
+"არსებული შიგთავსი ვრცელდება %(startLicenseLink)sCreative Commons Attribution "
+"Share-Alike v3.0 ლიცენზიით%(endLicenseLink)s ან უფრო ახალი ვერსიით."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -880,11 +1025,13 @@ msgstr "ჩემი ანგარიში"
 msgid "View My Collections"
 msgstr "ჩემი კრებულების ნახვა"
 
-#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
+#: src/amo/components/Header/index.js:116
+#: src/amo/components/UserProfileEdit/index.js:443
 msgid "View My Profile"
 msgstr "პროფილის ნახვა"
 
-#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+#: src/amo/components/Header/index.js:124
+#: src/amo/components/UserProfileEdit/index.js:450
 msgid "Edit My Profile"
 msgstr "პროფილის ჩასწორება"
 
@@ -904,7 +1051,8 @@ msgstr "ახალი თემის წარდგენა"
 msgid "Reviewer Tools"
 msgstr "მიმოხილვის ხელსაწყოები"
 
-#: src/amo/components/Header/index.js:162 src/core/components/AuthenticateButton/index.js:76
+#: src/amo/components/Header/index.js:162
+#: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "გასვლა"
 
@@ -939,35 +1087,38 @@ msgstr "სეზონური"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "მოარგეთ Firefox თქვენს მოთხოვნილებებს, გაფართოებების საშუალებით. იხილეთ…"
+msgstr ""
+"მოარგეთ Firefox თქვენს მოთხოვნილებებს, გაფართოებების საშუალებით. იხილეთ…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "გააფორმეთ Firefox თქვენი გემოვნებით."
 
-#: src/amo/components/Home/index.js:215
-msgid "Tame your tabs"
-msgstr "მოათვინიერეთ თქვენი ჩანართები"
-
-#: src/amo/components/Home/index.js:217
-msgid "See more tab extensions"
-msgstr "სხვა გაფართოებები ჩანართებისთვის"
-
-#: src/amo/components/Home/index.js:244
-msgid "Essential extensions"
-msgstr "მნიშვნელოვანი გაფართოებები"
-
-#: src/amo/components/Home/index.js:245
-msgid "See more essential extensions"
-msgstr "სხვა მნიშვნელოვანი გაფართოებები"
-
-#: src/amo/components/Home/index.js:255
+#: src/amo/components/Home/index.js:218
 msgid "Translation tools"
 msgstr "თარგმნის ხელსაწყოები"
 
-#: src/amo/components/Home/index.js:256
+#: src/amo/components/Home/index.js:219
 msgid "See more translation tools"
 msgstr "თარგმნის სხვა ხელსაწყოები"
+
+#: src/amo/components/Home/index.js:246
+#, fuzzy
+msgid "Privacy matters"
+msgstr "პირადი მონაცემების დაცვის ხელსაწყოები"
+
+#: src/amo/components/Home/index.js:247
+#, fuzzy
+msgid "See more privacy extensions"
+msgstr "სხვა გაფართოებები ჩანართებისთვის"
+
+#: src/amo/components/Home/index.js:258
+msgid "Tame your tabs"
+msgstr "მოათვინიერეთ თქვენი ჩანართები"
+
+#: src/amo/components/Home/index.js:260
+msgid "See more tab extensions"
+msgstr "სხვა გაფართოებები ჩანართებისთვის"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -995,93 +1146,109 @@ msgstr "ვიდეოები"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "ცნობილი გაფართოება თვალთვალის ასარიდებლად, რეკლამების შეზღუდვის შესაძლებლობით"
+msgstr ""
+"ცნობილი გაფართოება თვალთვალის ასარიდებლად, რეკლამების შეზღუდვის შესაძლებლობით"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:113
-msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "განაცალკევეთ თქვენი სხვადასხვა საქმიანობა ინტერნეტში—სამუშაო, პირადი და ა.შ.—გამოყავით, ფერადი ჩანართების საშუალებით"
+msgid ""
+"Keep different parts of your online life—work, personal, etc.—separated by "
+"color-coded tabs"
+msgstr ""
+"განაცალკევეთ თქვენი სხვადასხვა საქმიანობა ინტერნეტში—სამუშაო, პირადი და ა.შ.—"
+"გამოყავით, ფერადი ჩანართების საშუალებით"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
 msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
-msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr "Quantum-გაფართოებების შეჯიბრების გამარჯვებული! მოუსმინეთ რადიოს მთელი მსოფლიოდან"
+msgid ""
+"Quantum Extensions Challenge winner! Listen to live radio from around the "
+"world"
+msgstr ""
+"Quantum-გაფართოებების შეჯიბრების გამარჯვებული! მოუსმინეთ რადიოს მთელი "
+"მსოფლიოდან"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
-msgid "Envify"
-msgstr "Envify"
+msgid "Tabliss"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:139
-msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr "Quantum-გაფართოებების შეჯიბრების გამარჯვებული! განსხვავებული ფერის ჩანართები, სხვადასხვა სამუშაო გარემოსთვის"
+msgid ""
+"Enjoy a gorgeous new tab page with customizable backgrounds, local weather & "
+"more"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:149
-msgid "Laser Cat"
-msgstr "Laser Cat"
+msgid "Share Backported"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:152
-msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr "იმ შემთხვევებისთვის, როცა დაგჭირდებათ კატის მწველი მზერა"
+msgid "Put a social media ‘Share’ button into Firefox toolbar"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:162
-msgid "Download Manager (S3)"
-msgstr "ჩამოტვირთვების მმართველი (S3)"
+msgid "View Page Archive & Cache"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:164
-msgid "Manage downloads from a tidy status bar"
-msgstr "ჩამოტვირთვების მართვა მცირე, მოსახერხებელი ზოლიდან"
+#: src/amo/components/HomeHeroBanner/index.js:165
+msgid "A powerful way to find archived versions of older web pages"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:172
+#: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Black Menu for Google"
 msgstr "Black Menu for Google"
 
-#: src/amo/components/HomeHeroBanner/index.js:175
+#: src/amo/components/HomeHeroBanner/index.js:178
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr "ჩამოსაშლელი მენიუ Google-ის ძიების, თარგმნისა და სხვა სახის მომსახურებებთან მარტივი წვდომისთვის"
+msgstr ""
+"ჩამოსაშლელი მენიუ Google-ის ძიების, თარგმნისა და სხვა სახის მომსახურებებთან "
+"მარტივი წვდომისთვის"
 
-#: src/amo/components/HomeHeroBanner/index.js:185
+#: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Page Translate"
 msgstr "გვერდის გადათარგმნა"
 
-#: src/amo/components/HomeHeroBanner/index.js:188
+#: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Translate an entire web page with a couple clicks"
 msgstr "გადათარგმნეთ ვებგვერდი სრულად, ერთი-ორი დაწკაპებით"
 
-#: src/amo/components/HomeHeroBanner/index.js:197
+#: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Image Search Options"
 msgstr "Image Search Options"
 
-#: src/amo/components/HomeHeroBanner/index.js:200
+#: src/amo/components/HomeHeroBanner/index.js:203
 msgid "Access reverse image search options in a context menu"
 msgstr "სურათის ინტერნეტში მოძიების პარამეტრები კონტექსტურ მენიუში"
 
-#: src/amo/components/HomeHeroBanner/index.js:209
+#: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Forget Me Not"
 msgstr "Forget Me Not"
 
-#: src/amo/components/HomeHeroBanner/index.js:212
+#: src/amo/components/HomeHeroBanner/index.js:215
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr "Firefox-ში საიტების მონაცემთა დავიწყება, როგორიცაა ფუნთუშები და შენახული ინფორმაცია"
-
-#: src/amo/components/HomeHeroBanner/index.js:222
-msgid "FoxyGestures"
-msgstr "FoxyGestures"
+msgstr ""
+"Firefox-ში საიტების მონაცემთა დავიწყება, როგორიცაა ფუნთუშები და შენახული "
+"ინფორმაცია"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
-msgid "Customized mouse gestures"
-msgstr "მორგებული ჟესტები, თაგვის გამოყენებისას"
+msgid "Group Speed Dial"
+msgstr "Group Speed Dial"
 
-#: src/amo/components/HomeHeroBanner/index.js:234
+#: src/amo/components/HomeHeroBanner/index.js:228
+#, fuzzy
+msgid "Visual bookmarks for your favorite places on the web"
+msgstr "ჩაინიშნეთ, შეინახეთ და დაალაგეთ თქვენთვის საჭირო მასალები"
+
+#: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
 msgstr "PrivacyBadger"
 
-#: src/amo/components/HomeHeroBanner/index.js:237
+#: src/amo/components/HomeHeroBanner/index.js:241
 msgid "Block sneaky spying ads and trackers"
 msgstr "გაიძვერა, მოთვალთვალე რეკლამებისა და მეთვალყურეების შეზღუდვა"
 
@@ -1099,15 +1266,18 @@ msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr "ნებისმიერ ვებგვერდზე მონიშნული ტექსტის, მყისიერად მოძიება სხვადასხვა სისტემებში"
+msgstr ""
+"ნებისმიერ ვებგვერდზე მონიშნული ტექსტის, მყისიერად მოძიება სხვადასხვა "
+"სისტემებში"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-msgid "Session Sync"
-msgstr "Session Sync"
+#, fuzzy
+msgid "Turbo Download Manager"
+msgstr "ჩამოტვირთვების მმართველი (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
-msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr "Quantum-გაფართოებების შეჯიბრების გამარჯვებული! შეინახეთ გახსნილი გვერდები სანიშნების სახით და გააზიარეთ სხვადასხვა მოწყობილობაზე"
+msgid "Increase download speeds with multi-threading support"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1138,12 +1308,20 @@ msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/LandingPage/index.js:208
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "შეუცვალეთ თქვენს ბრაუზერს იერსახე. შეარჩიეთ რომელიმე, ათასობით თემიდან, Firefox-ის სურვილისამებრ გასაფორმებლად."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"შეუცვალეთ თქვენს ბრაუზერს იერსახე. შეარჩიეთ რომელიმე, ათასობით თემიდან, "
+"Firefox-ის სურვილისამებრ გასაფორმებლად."
 
 #: src/amo/components/LandingPage/index.js:210
-msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "მოიძიეთ მძლავრი ხელსაწყოები, შემატეთ ბრაუზერს ახალი შესაძლებლობები და მოარგეთ Firefox თქვენს მოთხოვნილებებს."
+msgid ""
+"Explore powerful tools and features to customize Firefox and make the "
+"browser all your own."
+msgstr ""
+"მოიძიეთ მძლავრი ხელსაწყოები, შემატეთ ბრაუზერს ახალი შესაძლებლობები და "
+"მოარგეთ Firefox თქვენს მოთხოვნილებებს."
 
 #: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
@@ -1162,12 +1340,21 @@ msgid "Dictionaries and Language Packs"
 msgstr "ლექსიკონები და ენის პაკეტები"
 
 #: src/amo/components/LanguageTools/index.js:157
-msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "ლექსიკონის დამატების ჩადგმით, თქვენი Firefox-ის მართლწერის შემმოწმებელს დაემატება ახალი ენა, რომელიც შეამოწმებს ვებგვერდებზე არსებულ ველებში შეყვანილ ტექსტს."
+msgid ""
+"Installing a dictionary add-on will add a new language option to your spell-"
+"checker, which checks your spelling as you type in Firefox."
+msgstr ""
+"ლექსიკონის დამატების ჩადგმით, თქვენი Firefox-ის მართლწერის შემმოწმებელს "
+"დაემატება ახალი ენა, რომელიც შეამოწმებს ვებგვერდებზე არსებულ ველებში "
+"შეყვანილ ტექსტს."
 
 #: src/amo/components/LanguageTools/index.js:162
-msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr "ენის პაკეტის დამატება კი მთლიანად შეცვლის პროგრამის ენას, მათ შორის, მენიუს ელემენტებისა და პარამეტრების."
+msgid ""
+"Language packs change your browser's interface language, including menu "
+"options and settings."
+msgstr ""
+"ენის პაკეტის დამატება კი მთლიანად შეცვლის პროგრამის ენას, მათ შორის, მენიუს "
+"ელემენტებისა და პარამეტრების."
 
 #: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
@@ -1207,7 +1394,8 @@ msgstr "ბრაუზერის პარამეტრების ნა�
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "ბოლოს შენახული ისტორიის, ფუნთუშების და მასთან დაკავშირებული მონაცემების წაშლა"
+msgstr ""
+"ბოლოს შენახული ისტორიის, ფუნთუშების და მასთან დაკავშირებული მონაცემების წაშლა"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
@@ -1219,7 +1407,9 @@ msgstr "დაკოპირებულ მონაცემებში ი�
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "შემმუშავებლის ხელსაწყოების გამოყენება, გახსნილ ჩანართებზე თქვენს მონაცემებთან წვდომისთვის"
+msgstr ""
+"შემმუშავებლის ხელსაწყოების გამოყენება, გახსნილ ჩანართებზე თქვენს "
+"მონაცემებთან წვდომისთვის"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
@@ -1237,7 +1427,8 @@ msgstr "ტექსტის წაკითხვა ყველა გახ
 msgid "Access your location"
 msgstr "მდებარეობის მონაცემებზე წვდომა"
 
-#: src/amo/components/PermissionsCard/permissions.js:35 src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
 msgstr "მონახულებული გვერდების ისტორიაზე წვდომა"
 
@@ -1285,31 +1476,31 @@ msgstr "განუსაზღვრელი მოცულობის მ�
 msgid "Access browser activity during navigation"
 msgstr "გვერდებზე გადაადგილებისას, ბრაუზერის მოქმედებებზე წვდომა"
 
-#: src/amo/components/RatingManager/index.js:139
+#: src/amo/components/RatingManager/index.js:140
 msgid "Log in to rate this dictionary"
 msgstr "შედით ანგარიშზე ლექსიკონის შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:141
+#: src/amo/components/RatingManager/index.js:142
 msgid "Log in to rate this language pack"
 msgstr "შედით ანგარიშზე, ენის პაკეტის შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:143
+#: src/amo/components/RatingManager/index.js:144
 msgid "Log in to rate this search plugin"
 msgstr "შედით ანგარიშზე საძიებო სისტემის შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:145
+#: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this theme"
 msgstr "შედით ანგარიშზე თემის შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:147
+#: src/amo/components/RatingManager/index.js:149
 msgid "Log in to rate this extension"
 msgstr "შედით ანგარიშზე გაფართოების შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:153
+#: src/amo/components/RatingManager/index.js:154
 msgid "Log in to rate this add-on"
 msgstr "შედით ანგარიშზე დამატების შესაფასებლად"
 
-#: src/amo/components/RatingManager/index.js:192
+#: src/amo/components/RatingManager/index.js:194
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "როგორ მოგეწონათ %(addonName)s?"
 
@@ -1318,28 +1509,42 @@ msgid "You reported this add-on for abuse"
 msgstr "თქვენ გამოგზავნეთ მოხსენება დარღვევაზე, ამ დამატებასთან დაკავშირებით"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
-msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი დამოკიდებულების შესახებ, ამ დამატების მიმართ."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+"ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი "
+"დამოკიდებულების შესახებ, ამ დამატების მიმართ."
 
-#: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:154
+#: src/amo/components/ReportAbuseButton/index.js:120
+#: src/amo/components/ReportUserAbuse/index.js:155
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "ჩვენ ვერ შევძლებთ დარღვევების ყველა მოხსენებაზე გამოხმაურებას, მაგრამ თითოეულ მათგანს შევისწავლით."
+msgstr ""
+"ჩვენ ვერ შევძლებთ დარღვევების ყველა მოხსენებაზე გამოხმაურებას, მაგრამ "
+"თითოეულ მათგანს შევისწავლით."
 
 #: src/amo/components/ReportAbuseButton/index.js:131
-msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
+msgid ""
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
+"%(linkTagEnd)s or has security or privacy issues, please report these issues "
+"to Mozilla using this form."
 msgstr ""
-"თუ მიგაჩნიათ, რომ ეს დამატება არღვევს %(linkTagStart)sMozilla-ს დამატებების დებულებებს%(linkTagEnd)s ან ხარვეზები აქვს უსაფრთხოებასა და პირადი მონაცემების დაცვაში, გთხოვთ მოგვახსენოთ, მოცემული ველის"
-" საშუალებით."
+"თუ მიგაჩნიათ, რომ ეს დამატება არღვევს %(linkTagStart)sMozilla-ს დამატებების "
+"დებულებებს%(linkTagEnd)s ან ხარვეზები აქვს უსაფრთხოებასა და პირადი "
+"მონაცემების დაცვაში, გთხოვთ მოგვახსენოთ, მოცემული ველის საშუალებით."
 
 #: src/amo/components/ReportAbuseButton/index.js:144
 msgid "Report this add-on for abuse"
 msgstr "მოხსენება დარღვევის შესახებ ამ დამატებასთან დაკავშირებით"
 
 #: src/amo/components/ReportAbuseButton/index.js:173
-msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+msgid ""
+"Please don't use this form to report bugs or request add-on features; this "
+"report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
-"გთხოვთ, არ გამოიყენოთ ეს ველი დამატების ხარვეზების შესახებ მოსაზრებების ან მის შესაძლებლობებთან დაკავშირებით, მოთხოვნების გამოსაგზავნად; ეს მოხსენება ეგზავნება Mozilla-ს და არა დამატების "
-"შემმუშავებელს."
+"გთხოვთ, არ გამოიყენოთ ეს ველი დამატების ხარვეზების შესახებ მოსაზრებების ან "
+"მის შესაძლებლობებთან დაკავშირებით, მოთხოვნების გამოსაგზავნად; ეს მოხსენება "
+"ეგზავნება Mozilla-ს და არა დამატების შემმუშავებელს."
 
 #: src/amo/components/ReportAbuseButton/index.js:186
 msgid "Explain how this add-on is violating our policies."
@@ -1349,39 +1554,56 @@ msgstr "განმარტეთ, როგორ არღვევს ე�
 msgid "Dismiss"
 msgstr "დახურვა"
 
-#: src/amo/components/ReportAbuseButton/index.js:209 src/amo/components/ReportUserAbuse/index.js:135
+#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportUserAbuse/index.js:136
 msgid "Sending abuse report"
 msgstr "მოხსენება დარღვევის შესახებ იგზავნება"
 
-#: src/amo/components/ReportAbuseButton/index.js:210 src/amo/components/ReportUserAbuse/index.js:134
+#: src/amo/components/ReportAbuseButton/index.js:210
+#: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Send abuse report"
 msgstr "დარღვევის შესახებ მოხსენების გაგზავნა"
 
-#: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
+#: src/amo/components/ReportUserAbuse/index.js:103
+#: src/amo/components/ReportUserAbuse/index.js:96
 msgid "Report this user for abuse"
 msgstr "მოხსენება ამ მომხმარებლის მიერ დარღვევის შესახებ"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "თუ მიგაჩნიათ, რომ ეს მომხმარებელი არღვევს %(linkTagStart)sMozilla-ს დამატებების დებულებებს%(linkTagEnd)s, გთხოვთ მოახსენოთ მის შესახებ Mozilla-ს."
+msgid ""
+"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
+"%(linkTagEnd)s, please report this user to Mozilla."
+msgstr ""
+"თუ მიგაჩნიათ, რომ ეს მომხმარებელი არღვევს %(linkTagStart)sMozilla-ს "
+"დამატებების დებულებებს%(linkTagEnd)s, გთხოვთ მოახსენოთ მის შესახებ Mozilla-ს."
 
-#: src/amo/components/ReportUserAbuse/index.js:121
-msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "გთხოვთ, არ გამოიყენოთ ეს ველი დამატების ხარვეზების აღნიშვნის ან ამ მომხმარებელთან დაკავშირების მიზნით; თქვენი მოხსენება ეგზავნება Mozilla-ს და არა დამატების შემმუშავებელს."
+#: src/amo/components/ReportUserAbuse/index.js:122
+msgid ""
+"Please don't use this form to report bugs or contact this user; your report "
+"will only be sent to Mozilla and not to this user."
+msgstr ""
+"გთხოვთ, არ გამოიყენოთ ეს ველი დამატების ხარვეზების აღნიშვნის ან ამ "
+"მომხმარებელთან დაკავშირების მიზნით; თქვენი მოხსენება ეგზავნება Mozilla-ს და "
+"არა დამატების შემმუშავებელს."
 
-#: src/amo/components/ReportUserAbuse/index.js:131
+#: src/amo/components/ReportUserAbuse/index.js:132
 msgid "Explain how this user is violating our policies."
 msgstr "განმარტეთ, როგორ არღვევს ეს მომხმარებელი ჩვენს დებულებებს."
 
-#: src/amo/components/ReportUserAbuse/index.js:143
+#: src/amo/components/ReportUserAbuse/index.js:144
 msgid "You reported this user for abuse"
 msgstr "თქვენ გაგზავნეთ მოხსენება, ამ მომხმარებლის მიერ დარღვევის შესახებ"
 
-#: src/amo/components/ReportUserAbuse/index.js:147
-msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი დამოკიდებულების შესახებ, ამ მომხმარებლის თაობაზე."
+#: src/amo/components/ReportUserAbuse/index.js:148
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this user."
+msgstr ""
+"ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი "
+"დამოკიდებულების შესახებ, ამ მომხმარებლის თაობაზე."
 
-#: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
+#: src/amo/components/Search/index.js:105
+#: src/amo/components/SearchResults/index.js:65
 msgid "Search results"
 msgstr "ძიების შედეგები"
 
@@ -1468,7 +1690,8 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "ნაპოვნია %(count)s დამატება"
 msgstr[1] "ნაპოვნია %(count)s დამატება"
 
-#: src/amo/components/SearchFilters/index.js:104 src/amo/components/SearchFilters/index.js:115
+#: src/amo/components/SearchFilters/index.js:104
+#: src/amo/components/SearchFilters/index.js:115
 msgid "All"
 msgstr "ყველა"
 
@@ -1541,29 +1764,34 @@ msgstr "მხოლოდ რჩეული დამატებები"
 msgid "Go to the add-on page"
 msgstr "დამატების მთავარ გვერდზე გადასვლა"
 
-#: src/amo/components/SearchResult/index.js:107
+#: src/amo/components/SearchResult/index.js:105
 msgid "No theme preview available"
 msgstr "თემის წინასწარი შეთვალიერება შეუძლებელია"
 
-#: src/amo/components/SearchResult/index.js:135
+#: src/amo/components/SearchResult/index.js:133
+#, fuzzy
+msgid "Add-on note"
+msgstr "დამატების ხატულა"
+
+#: src/amo/components/SearchResult/index.js:149
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s მომხმარებელი"
 msgstr[1] "%(total)s მომხმარებელი"
 
-#: src/amo/components/SearchResults.js:39
+#: src/amo/components/SearchResults/index.js:38
 msgid "Searching…"
 msgstr "ძიება…"
 
-#: src/amo/components/SearchResults.js:45
+#: src/amo/components/SearchResults/index.js:43
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\" ფრაზისთვის შედეგები ვერ მოიძებნა."
 
-#: src/amo/components/SearchResults.js:49
+#: src/amo/components/SearchResults/index.js:50
 msgid "No results were found."
 msgstr "შედეგები ვერ მოიძებნა."
 
-#: src/amo/components/SearchResults.js:52
+#: src/amo/components/SearchResults/index.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "გთხოვთ შეიყვანოთ საძიებო ფრაზა, Firefox დამატებების მოსაძებნად."
 
@@ -1596,28 +1824,43 @@ msgid "Explore"
 msgstr "დათვალიერება"
 
 #: src/amo/components/StaticPages/About.js:110
-msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "თუ გსურთ წვლილის შეტანა, მაგრამ არ გაქვთ საკმარისი ტექნიკური ცოდნა, არის სხვა გზებიც დასახმარებლად:"
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"თუ გსურთ წვლილის შეტანა, მაგრამ არ გაქვთ საკმარისი ტექნიკური ცოდნა, არის "
+"სხვა გზებიც დასახმარებლად:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "მიიღეთ მონაწილეობა ჩვენს %(startLink)sფორუმში%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
-msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
 msgstr ""
-"დატოვეთ გამოხმაურება თქვენს რჩეულ დამატებებზე. დამატების ავტორები უფრო მეტად მონდომებულად შეეცდებიან გააუმჯობესონ და დახვეწონ თავიანთი ნამუშევრები, როცა ეცოდინებათ, რომ ხალხი სათანადოდ დაუფასებს მათ"
-" შრომას."
+"დატოვეთ გამოხმაურება თქვენს რჩეულ დამატებებზე. დამატების ავტორები უფრო მეტად "
+"მონდომებულად შეეცდებიან გააუმჯობესონ და დახვეწონ თავიანთი ნამუშევრები, როცა "
+"ეცოდინებათ, რომ ხალხი სათანადოდ დაუფასებს მათ შრომას."
 
 #: src/amo/components/StaticPages/About.js:129
-msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
 msgstr ""
-"მოუყევით თქვენს მეგობრებსა და ოჯახის წევრებს, რომ Firefox არის სწრაფი, უსაფრთხო ბრაუზერი, რომელიც დაიცავს მათ პირადულობას, ხოლო დამატებების საშუალებით შეეძლებათ მისი საკუთარი გემოვნებით და "
-"სურვილისამებრ მოწყობა!"
+"მოუყევით თქვენს მეგობრებსა და ოჯახის წევრებს, რომ Firefox არის სწრაფი, "
+"უსაფრთხო ბრაუზერი, რომელიც დაიცავს მათ პირადულობას, ხოლო დამატებების "
+"საშუალებით შეეძლებათ მისი საკუთარი გემოვნებით და სურვილისამებრ მოწყობა!"
 
 #: src/amo/components/StaticPages/About.js:138
-msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr "სხვადასხვა გზების მოსაძიებლად, დამატებების ერთობაში წვლილის შეტანის შესახებ, ეწვიეთ ჩვენს %(startLink)swiki%(endLink)s გვერდს"
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s"
+msgstr ""
+"სხვადასხვა გზების მოსაძიებლად, დამატებების ერთობაში წვლილის შეტანის შესახებ, "
+"ეწვიეთ ჩვენს %(startLink)swiki%(endLink)s გვერდს"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -1625,32 +1868,52 @@ msgstr "მხარდაჭერის მიღება"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
-"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"ვრცლად, Firefox-ში დამატებების მართვის შესახებ, ან Firefox-თან დაკავშირებით, ზოგადი ინფორმაციის მისაღებად, ეწვიეთ Mozilla %(startSUMOLink)sმხარდაჭერის%(endSUMOLink)s გვერდს. თუ მანდ პასუხს ვერ "
-"იპოვით, შეგიძლიათ %(startForumLink)sკითხვა დასვათ ჩვენს ფორუმზე%(endForumLink)s."
+"ვრცლად, Firefox-ში დამატებების მართვის შესახებ, ან Firefox-თან დაკავშირებით, "
+"ზოგადი ინფორმაციის მისაღებად, ეწვიეთ Mozilla %(startSUMOLink)sმხარდაჭერის"
+"%(endSUMOLink)s გვერდს. თუ მანდ პასუხს ვერ იპოვით, შეგიძლიათ "
+"%(startForumLink)sკითხვა დასვათ ჩვენს ფორუმზე%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
-msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr "%(startLink)sMozilla-ს დამატებებთან მომუშავე გუნდთან დასაკავშირებლად, გადადით ამ ბმულზე%(endLink)s."
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sMozilla-ს დამატებებთან მომუშავე გუნდთან დასაკავშირებლად, "
+"გადადით ამ ბმულზე%(endLink)s."
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
+#: src/amo/components/StaticPages/About.js:24
+#: src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
 msgstr "Firefox დამატებების შესახებ"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
-"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO), არის Mozilla-ს ოფიციალური საიტი, Firefox ბრაუზერისთვის დამატებების მოსაძიებლად და დასაყენებლად. დამატებები დაგეხმარებათ ბრაუზერის შეცვლასა და გარდაქმნაში, Firefox-ისთვის "
-"ახალი შესაძლებლობების შემატებით, ვებშიგთავსთან მუშაობის გაუმჯობესებით და იერსახის ცვლილებებით."
+"Addons.mozilla.org (AMO), არის Mozilla-ს ოფიციალური საიტი, Firefox "
+"ბრაუზერისთვის დამატებების მოსაძიებლად და დასაყენებლად. დამატებები "
+"დაგეხმარებათ ბრაუზერის შეცვლასა და გარდაქმნაში, Firefox-ისთვის ახალი "
+"შესაძლებლობების შემატებით, ვებშიგთავსთან მუშაობის გაუმჯობესებით და იერსახის "
+"ცვლილებებით."
 
 #: src/amo/components/StaticPages/About.js:44
-msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr "ამასთან, AMO საიტზე შეგიძლიათ Mozilla %(startTBLink)sThunderbird%(endTBLink)s-ისა და %(startSMLink)sSeaMonkey%(endSMLink)s-ის დამატებების მოძიებაც."
+msgid ""
+"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
+"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr ""
+"ამასთან, AMO საიტზე შეგიძლიათ Mozilla %(startTBLink)sThunderbird"
+"%(endTBLink)s-ისა და %(startSMLink)sSeaMonkey%(endSMLink)s-ის დამატებების "
+"მოძიებაც."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
@@ -1658,11 +1921,16 @@ msgstr "შემქმნელების ერთობა"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
-"been automatically published and may be subject to review by a team of editors once publically listed."
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publically "
+"listed."
 msgstr ""
-"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებით, დამთავრებული დიდი ორგანიზაციებით. ზოგიერთი დამატება AMO "
-"საიტზე ავტომატურად ქვეყნდება და შეიძლება ექვემდებარებოდეს მიმომხილველთა გუნდის მიერ შემოწმებას."
+"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის "
+"მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებით, "
+"დამთავრებული დიდი ორგანიზაციებით. ზოგიერთი დამატება AMO საიტზე ავტომატურად "
+"ქვეყნდება და შეიძლება ექვემდებარებოდეს მიმომხილველთა გუნდის მიერ შემოწმებას."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1670,46 +1938,70 @@ msgstr "შემოგვიერთდით"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
-"the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
 msgstr ""
-"Mozilla არის არამომგებიანი მებრძოლი ერთობა, ინტერნეტის სადარაჯოზე, ჩვენ ვქმნით Firefox-ს მისი სიჯანსაღის, გახსნილობისა და ხელმისაწვდომობის შესანარჩუნებლად. დამატებები უზრუნველყოფენ მომხმარებლების "
-"თავისუფალი არჩევანის შესაძლებლობას, Firefox-ის საკუთარ საჭიროებებზე მორგების კუთხით, ამაში კი თქვენც შეგიძლიათ წვლილის შეტანა:"
+"Mozilla არის არამომგებიანი მებრძოლი ერთობა, ინტერნეტის სადარაჯოზე, ჩვენ "
+"ვქმნით Firefox-ს მისი სიჯანსაღის, გახსნილობისა და ხელმისაწვდომობის "
+"შესანარჩუნებლად. დამატებები უზრუნველყოფენ მომხმარებლების თავისუფალი "
+"არჩევანის შესაძლებლობას, Firefox-ის საკუთარ საჭიროებებზე მორგების კუთხით, "
+"ამაში კი თქვენც შეგიძლიათ წვლილის შეტანა:"
 
 #: src/amo/components/StaticPages/About.js:80
-msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
 msgstr ""
-"%(startLink)sშექმენით საკუთარი დამატება%(endLink)s. ჩვენ გთავაზობთ უფასო ადგილს განსათავსებლად და მომსახურებებს, მარტივად განახლებისთვის, რაც დაგეხმარებათ თქვენი ნამუშევრის, ფართო საზოგადოებისთვის "
-"მიწოდებაში."
+"%(startLink)sშექმენით საკუთარი დამატება%(endLink)s. ჩვენ გთავაზობთ უფასო "
+"ადგილს განსათავსებლად და მომსახურებებს, მარტივად განახლებისთვის, რაც "
+"დაგეხმარებათ თქვენი ნამუშევრის, ფართო საზოგადოებისთვის მიწოდებაში."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
-"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
+"Help improve this website. It's open source, and you can file bugs and "
+"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
+"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
+"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
+"Github."
 msgstr ""
-"გააუმჯობესეთ ეს ვებსაიტი. მას გააჩნია ღია წყარო, ასე რომ შეგიძლიათ მონახოთ ხარვეზები და შემოგვთავაზოთ მათი გადაწყვეტის გზები. შეგიძლიათ დაიწყოთ %(startGoodFirstBugLink)sპირველი მოხსენების "
-"გაკეთებით%(endGoodFirstBugLink)s, ან იხილოთ, უკვე გახსნილი თემები, AMO საიტის %(startAddonsServerRepoLink)sსერვერისა%(endAddonsServerRepoLink)s და "
-"%(startAddonsFrontendRepoLink)sკლიენტის%(endAddonsFrontendRepoLink)s მხარეს არსებული ხარვეზების შესახებ, Github-ზე."
+"გააუმჯობესეთ ეს ვებსაიტი. მას გააჩნია ღია წყარო, ასე რომ შეგიძლიათ მონახოთ "
+"ხარვეზები და შემოგვთავაზოთ მათი გადაწყვეტის გზები. შეგიძლიათ დაიწყოთ "
+"%(startGoodFirstBugLink)sპირველი მოხსენების გაკეთებით"
+"%(endGoodFirstBugLink)s, ან იხილოთ, უკვე გახსნილი თემები, AMO საიტის "
+"%(startAddonsServerRepoLink)sსერვერისა%(endAddonsServerRepoLink)s და "
+"%(startAddonsFrontendRepoLink)sკლიენტის%(endAddonsFrontendRepoLink)s მხარეს "
+"არსებული ხარვეზების შესახებ, Github-ზე."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:100
 msgid ""
-"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
-"valid due to a new release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines "
+"outlined above, you can click \"Report this review\" and have it moderated. "
+"If a review included a complaint that is no longer valid due to a new "
+"release of your add-on, we may consider deleting the review."
 msgstr ""
-"ზოგადად, არა. მაგრამ თუ მიმოხილვა არ შეესაბამება ჩვენი მიმოხილვის სახელმძღვანელოში მოცემულ წესებს, შეგიძლიათ დააწკაპოთ ბმულზე \"მოხსენება ამ მიმოხილვაზე\" და გაუგზავნოთ შემსწორებელთა გუნდს. თუ "
-"მოხსენება შეიცავს უკმაყოფილებას იმ საკითხზე, რაც უკვე გამოსწორებულია ახალ ვერსიაში, ჩვენ შეიძლება წავშალოთ ასეთი მიმოხილვა."
+"ზოგადად, არა. მაგრამ თუ მიმოხილვა არ შეესაბამება ჩვენი მიმოხილვის "
+"სახელმძღვანელოში მოცემულ წესებს, შეგიძლიათ დააწკაპოთ ბმულზე \"მოხსენება ამ "
+"მიმოხილვაზე\" და გაუგზავნოთ შემსწორებელთა გუნდს. თუ მოხსენება შეიცავს "
+"უკმაყოფილებას იმ საკითხზე, რაც უკვე გამოსწორებულია ახალ ვერსიაში, ჩვენ "
+"შეიძლება წავშალოთ ასეთი მიმოხილვა."
 
-#: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
+#: src/amo/components/StaticPages/ReviewGuide.js:24
+#: src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
 msgstr "მითითებები მიმოხილვის გასაკეთებლად"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
-" with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons "
+"you’ve installed and used. Our review moderation team reserves the right to "
+"refuse or remove any review that does not comply with these guidelines."
 msgstr ""
-"დამატების მიმოხილვები არის საშუალება, დამატების შესახებ, თქვენი მოსაზრების სხვებისთვის გაზიარებისთვის. ჩვენი შემსწორებელთა გუნდი იტოვებს უფლებას უარყოს, ან წაშალოს ნებისმიერი მიმოხილვა, რომელიც "
-"ეწინააღმდეგება ჩვენს წესდებას."
+"დამატების მიმოხილვები არის საშუალება, დამატების შესახებ, თქვენი მოსაზრების "
+"სხვებისთვის გაზიარებისთვის. ჩვენი შემსწორებელთა გუნდი იტოვებს უფლებას "
+"უარყოს, ან წაშალოს ნებისმიერი მიმოხილვა, რომელიც ეწინააღმდეგება ჩვენს "
+"წესდებას."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1720,8 +2012,11 @@ msgid "Do:"
 msgstr "სასურველია:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "დაწეროთ ისე, თითქოს თქვენს მეგობარს უამბობთ თქვენი გამოცდილების შესახებ, დამატებით სარგებლობასთან დაკავშირებით."
+msgid ""
+"Write like you are telling a friend about your experience with the add-on."
+msgstr ""
+"დაწეროთ ისე, თითქოს თქვენს მეგობარს უამბობთ თქვენი გამოცდილების შესახებ, "
+"დამატებით სარგებლობასთან დაკავშირებით."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1752,8 +2047,10 @@ msgid "Will you continue to use this add-on?"
 msgstr "მომავალშიც განაგრძობთ მის გამოყენებას?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
-msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr "გადაავლოთ თვალი თქვენს მიმოხილვას წარდგენამდე, მართლწერის შესამოწმებლად."
+msgid ""
+"Take a moment to read your review before submitting it to minimize typos."
+msgstr ""
+"გადაავლოთ თვალი თქვენს მიმოხილვას წარდგენამდე, მართლწერის შესამოწმებლად."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1761,35 +2058,53 @@ msgstr "არაა სასურველი:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "ერთსიტყვიანი მიმოხილვის გაგზავნა, როგორიცაა \"მშვენიერია!\", \"საოცარია\", ან \"ცუდია\"."
+msgstr ""
+"ერთსიტყვიანი მიმოხილვის გაგზავნა, როგორიცაა \"მშვენიერია!\", \"საოცარია\", "
+"ან \"ცუდია\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
-" on the add-on's detail page."
+"Post technical issues, support requests, or feature suggestions. Use the "
+"available support options for each add-on, if available. You can find them "
+"in the \"More information\" section in the sidebar on the add-on's detail "
+"page."
 msgstr ""
-"ტექნიკური ხარვეზების აღნიშვნა, მხარდაჭერის შესახებ მოთხოვნები და ახალი შესაძლებლობების შესახებ, შეთავაზებების გაკეთება. ამისთვის, შეგიძლიათ გამოიყენოთ დამატების მხარდასაჭერი ბმულები, არსებობის "
-"შემთხვევაში. მათი პოვნა, დამატების მთავარი გვერდის მარცხნივ არსებულ სვეტში შეიძლება."
+"ტექნიკური ხარვეზების აღნიშვნა, მხარდაჭერის შესახებ მოთხოვნები და ახალი "
+"შესაძლებლობების შესახებ, შეთავაზებების გაკეთება. ამისთვის, შეგიძლიათ "
+"გამოიყენოთ დამატების მხარდასაჭერი ბმულები, არსებობის შემთხვევაში. მათი "
+"პოვნა, დამატების მთავარი გვერდის მარცხნივ არსებულ სვეტში შეიძლება."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "იმ დამატებებზე მიმოხილვის გაკეთება, რომელიც თავად არ გამოგიყენებიათ."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
-msgid "Use profanity, sexual language or language that can be construed as hateful."
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
 msgstr "უპატივცემლო, უხამსი მიმართვა, ან სიძულვილის ენის გამოყენება."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
-msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr "HTML კოდების, ბმულების, სკრიპტების დართვა. მიმოხილვები უნდა შედგებოდეს მხოლოდ ტექსტისგან."
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"HTML კოდების, ბმულების, სკრიპტების დართვა. მიმოხილვები უნდა შედგებოდეს "
+"მხოლოდ ტექსტისგან."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
-msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr "მცდარი მოსაზრებების წარმოდგენა, დამატების ავტორების დამცირება, ან მათთვის პირადი შეურაცხყოფის მიყენება."
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"მცდარი მოსაზრებების წარმოდგენა, დამატების ავტორების დამცირება, ან მათთვის "
+"პირადი შეურაცხყოფის მიყენება."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
-msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr "თქვენი საკუთარი ან სხვისი ელფოსტის მისამართის, ტელეფონის ნომრის, ან სხვა პირადი მონაცემების მითითება."
+msgid ""
+"Include your own or anyone else’s email, phone number, or other personal "
+"details."
+msgstr ""
+"თქვენი საკუთარი ან სხვისი ელფოსტის მისამართის, ტელეფონის ნომრის, ან სხვა "
+"პირადი მონაცემების მითითება."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid "Post reviews for an add-on you or your organization wrote or represent."
@@ -1797,11 +2112,15 @@ msgstr "მიმოხილვებში საკუთარი თავ�
 
 #: src/amo/components/StaticPages/ReviewGuide.js:67
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
-"add-on, or the add-on requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving "
+"a negative review of an add-on for displaying ads or requiring data "
+"gathering, when that is the intended purpose of the add-on, or the add-on "
+"requires gathering data to function."
 msgstr ""
-"კრიტიკა დამატების იმ მხარეების, რაც წინასწარვე იყო განსაზღვრული. მაგალითად, უარყოფითი მიმოხილვის დატოვება, დამატებაში რეკლამების ჩვენების ან ინფორმაციის შეგროვების შესახებ, მაშინ როცა ეს ყველაფერი "
-"დამატების დანიშნულებას წარმოადგენს ან მისი მუშაობისთვისაა აუცილებელი."
+"კრიტიკა დამატების იმ მხარეების, რაც წინასწარვე იყო განსაზღვრული. მაგალითად, "
+"უარყოფითი მიმოხილვის დატოვება, დამატებაში რეკლამების ჩვენების ან ინფორმაციის "
+"შეგროვების შესახებ, მაშინ როცა ეს ყველაფერი დამატების დანიშნულებას "
+"წარმოადგენს ან მისი მუშაობისთვისაა აუცილებელი."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "Frequently Asked Questions about Reviews"
@@ -1813,23 +2132,36 @@ msgstr "როგორ გავგზავნო მოხსენება,
 
 #: src/amo/components/StaticPages/ReviewGuide.js:79
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
-"evaluate whether or not to delete the review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this "
+"review\" and it will be submitted to the site for moderation. Our moderation "
+"team will use the Review Guidelines to evaluate whether or not to delete the "
+"review or restore it back to the site."
 msgstr ""
-"ნებისმიერი სადავო მიმოხილვის შესახებ მოხსენების გამოსაგზავნად, გთხოვთ დააწკაპოთ ღილაკზე \"მოხსენება ამ მიმოხილვაზე\", რის შედეგადაც გადაეგზავნება საიტის წარმომადგენლობას ჩასასწორებლად. ჩვენი "
-"შემსწორებელთა გუნდი, მიმოხილვის სახელმძღვანელოს მიხედვით გადაწყვეტს, წაიშალოს თუ არა მოცემული მიმოხილვა, ან დაბრუნდეს თუ არა საიტზე."
+"ნებისმიერი სადავო მიმოხილვის შესახებ მოხსენების გამოსაგზავნად, გთხოვთ "
+"დააწკაპოთ ღილაკზე \"მოხსენება ამ მიმოხილვაზე\", რის შედეგადაც გადაეგზავნება "
+"საიტის წარმომადგენლობას ჩასასწორებლად. ჩვენი შემსწორებელთა გუნდი, მიმოხილვის "
+"სახელმძღვანელოს მიხედვით გადაწყვეტს, წაიშალოს თუ არა მოცემული მიმოხილვა, ან "
+"დაბრუნდეს თუ არა საიტზე."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:85
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "მე ვარ დამატების ავტორი, შემიძლია მიმოხილვაზე გამოხმაურება?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:91
-msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "დიახ, დამატების ავტორს, თითოეულ მიმოხილვაზე პასუხის გაცემა შეუძლია ერთხელ. დამატებითი განხილვისთვის კი შეგიძლიათ თემა გახსნათ ჩვენს %(startLink)sფორუმზე%(endLink)s."
+msgid ""
+"Yes, add-on authors can provide a single response to a review. You can set "
+"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
+"additional discussion or follow-up."
+msgstr ""
+"დიახ, დამატების ავტორს, თითოეულ მიმოხილვაზე პასუხის გაცემა შეუძლია ერთხელ. "
+"დამატებითი განხილვისთვის კი შეგიძლიათ თემა გახსნათ ჩვენს %(startLink)sფორუმზე"
+"%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr "მე ვარ დამატების ავტორი, შემიძლია თუ არა, არასასურველი მიმოხილვების ან შეფასებების წაშლა?"
+msgstr ""
+"მე ვარ დამატების ავტორი, შემიძლია თუ არა, არასასურველი მიმოხილვების ან "
+"შეფასებების წაშლა?"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -1847,190 +2179,250 @@ msgstr "ყველა თემის ნახვა"
 msgid "Add-ons Home Page"
 msgstr "დამატების მთავარი გვერდი"
 
-#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
+#: src/amo/components/UserProfile/index.js:127
+#, fuzzy
+msgid "Add-ons developer"
+msgstr "ამ შემმუშავებლების დამატებები"
+
+#: src/amo/components/UserProfile/index.js:133
+#, fuzzy
+msgid "Theme artist"
+msgstr "ამ მხატვრების თემები"
+
+#: src/amo/components/UserProfile/index.js:146
+#: src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
 msgstr "მომხმარებლის პროფილი %(user)s"
 
-#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
+#: src/amo/components/UserProfile/index.js:178
+#: src/amo/components/UserProfileEdit/index.js:576
 msgid "Location"
 msgstr "მდებარეობა"
 
-#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+#: src/amo/components/UserProfile/index.js:186
+#: src/amo/components/UserProfileEdit/index.js:588
 msgid "Occupation"
 msgstr "საქმიანობა"
 
-#: src/amo/components/UserProfile/index.js:174
+#: src/amo/components/UserProfile/index.js:193
 msgid "User since"
 msgstr "გაწევრიანების თარიღი:"
 
-#: src/amo/components/UserProfile/index.js:181
+#: src/amo/components/UserProfile/index.js:200
 msgid "Number of add-ons"
 msgstr "დამატებების რაოდენობა"
 
-#: src/amo/components/UserProfile/index.js:187
+#: src/amo/components/UserProfile/index.js:206
 msgid "Average rating of developer’s add-ons"
 msgstr "შემმუშავებლის დამატებების საშუალო შეფასება"
 
-#: src/amo/components/UserProfile/index.js:221
-msgid "Edit profile"
-msgstr "პროფილის ჩასწორება"
-
-#: src/amo/components/UserProfileEdit/index.js:177
-msgid "Profile successfully updated"
-msgstr "პროფილი წარმატებით განახლდა"
-
-#: src/amo/components/UserProfileEdit/index.js:185
-msgid "Picture successfully deleted"
-msgstr "სურათი წარმატებით წაიშალა"
-
-#: src/amo/components/UserProfileEdit/index.js:395
-msgid "Log in to edit the profile"
-msgstr "შედით ანგარიშზე პროფილის ჩასასწორებლად"
-
-#: src/amo/components/UserProfileEdit/index.js:439
-msgid "View user's profile"
-msgstr "მომხმარებლის პროფილის ნახვა"
-
-#: src/amo/components/UserProfileEdit/index.js:446
-msgid "Edit user's profile"
-msgstr "მომხმარებლის პროფილის ჩასწორება"
-
-#: src/amo/components/UserProfileEdit/index.js:465
-msgid "Account"
-msgstr "ანგარიში"
-
-#: src/amo/components/UserProfileEdit/index.js:466
-msgid "Account for %(username)s"
-msgstr "%(username)s მომხმარებლის ანგარიში"
-
-#: src/amo/components/UserProfileEdit/index.js:472
-msgid "Username"
-msgstr "მომხმარებელი"
-
-#: src/amo/components/UserProfileEdit/index.js:483
-msgid "Email address cannot be changed here"
-msgstr "ელფოსტის აქედან შეცვლა, შეუძლებელია"
-
-#: src/amo/components/UserProfileEdit/index.js:485
-msgid "Email Address"
-msgstr "ელფოსტის მისამართი"
-
-#: src/amo/components/UserProfileEdit/index.js:501
-msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "ელფოსტის მისამართის შეცვლა შეგიძლიათ Firefox ანგარიშებიდან. %(startLink)sდახმარება გესაჭიროებათ?%(endLink)s"
-
-#: src/amo/components/UserProfileEdit/index.js:517
-msgid "Profile"
-msgstr "პროფილი"
-
-#: src/amo/components/UserProfileEdit/index.js:520
-msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr "მიაწოდეთ მომხმარებლებს ცოტა უფრო მეტი ინფორმაცია თქვენზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვებს, უკეთ გაგიცნონ."
-
-#: src/amo/components/UserProfileEdit/index.js:525
-msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr "მიაწოდეთ ხალხს ცოტა უფრო მეტი ინფორმაცია ამ მომხმარებელზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვა მომხმარებლებს, უკეთ გაიცნონ %(username)s."
-
-#: src/amo/components/UserProfileEdit/index.js:534
-msgid "Display Name"
-msgstr "გამოსაჩენი სახელი"
-
-#: src/amo/components/UserProfileEdit/index.js:566
-msgid "This URL will only be visible for users who are developers."
-msgstr "ეს URL ბმული მხოლოდ იმ მომხმარებლებისთვის იქნება ხილული, რომლებიც შემმუშავებლები არიან."
-
-#: src/amo/components/UserProfileEdit/index.js:605
+#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfileEdit/index.js:610
 msgid "Biography"
 msgstr "ბიოგრაფია"
 
-#: src/amo/components/UserProfileEdit/index.js:608
+#: src/amo/components/UserProfile/index.js:243
+msgid "Edit profile"
+msgstr "პროფილის ჩასწორება"
+
+#: src/amo/components/UserProfileEdit/index.js:176
+msgid "Picture successfully deleted"
+msgstr "სურათი წარმატებით წაიშალა"
+
+#: src/amo/components/UserProfileEdit/index.js:400
+msgid "Log in to edit the profile"
+msgstr "შედით ანგარიშზე პროფილის ჩასასწორებლად"
+
+#: src/amo/components/UserProfileEdit/index.js:444
+msgid "View user's profile"
+msgstr "მომხმარებლის პროფილის ნახვა"
+
+#: src/amo/components/UserProfileEdit/index.js:451
+msgid "Edit user's profile"
+msgstr "მომხმარებლის პროფილის ჩასწორება"
+
+#: src/amo/components/UserProfileEdit/index.js:470
+msgid "Account"
+msgstr "ანგარიში"
+
+#: src/amo/components/UserProfileEdit/index.js:471
+msgid "Account for %(username)s"
+msgstr "%(username)s მომხმარებლის ანგარიში"
+
+#: src/amo/components/UserProfileEdit/index.js:477
+msgid "Username"
+msgstr "მომხმარებელი"
+
+#: src/amo/components/UserProfileEdit/index.js:488
+msgid "Email address cannot be changed here"
+msgstr "ელფოსტის აქედან შეცვლა, შეუძლებელია"
+
+#: src/amo/components/UserProfileEdit/index.js:490
+msgid "Email Address"
+msgstr "ელფოსტის მისამართი"
+
+#: src/amo/components/UserProfileEdit/index.js:506
+msgid ""
+"You can change your email address on Firefox Accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+"ელფოსტის მისამართის შეცვლა შეგიძლიათ Firefox ანგარიშებიდან. "
+"%(startLink)sდახმარება გესაჭიროებათ?%(endLink)s"
+
+#: src/amo/components/UserProfileEdit/index.js:522
+msgid "Profile"
+msgstr "პროფილი"
+
+#: src/amo/components/UserProfileEdit/index.js:525
+msgid ""
+"Tell users a bit more information about yourself. These fields are optional, "
+"but they'll help other users get to know you better."
+msgstr ""
+"მიაწოდეთ მომხმარებლებს ცოტა უფრო მეტი ინფორმაცია თქვენზე. ყველა ამ ველის "
+"შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვებს, უკეთ გაგიცნონ."
+
+#: src/amo/components/UserProfileEdit/index.js:530
+msgid ""
+"Tell users a bit more information about this user. These fields are "
+"optional, but they'll help other users get to know %(username)s better."
+msgstr ""
+"მიაწოდეთ ხალხს ცოტა უფრო მეტი ინფორმაცია ამ მომხმარებელზე. ყველა ამ ველის "
+"შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვა მომხმარებლებს, უკეთ გაიცნონ "
+"%(username)s."
+
+#: src/amo/components/UserProfileEdit/index.js:539
+msgid "Display Name"
+msgstr "გამოსაჩენი სახელი"
+
+#: src/amo/components/UserProfileEdit/index.js:571
+msgid "This URL will only be visible for users who are developers."
+msgstr ""
+"ეს URL ბმული მხოლოდ იმ მომხმარებლებისთვის იქნება ხილული, რომლებიც "
+"შემმუშავებლები არიან."
+
+#: src/amo/components/UserProfileEdit/index.js:613
 msgid "Introduce yourself to the community if you like"
 msgstr "წარუდგინეთ თავი ჩვენს ერთობას, თუ სურვილი გაქვთ"
 
-#: src/amo/components/UserProfileEdit/index.js:611
+#: src/amo/components/UserProfileEdit/index.js:616
 msgid "Introduce %(username)s to the community"
 msgstr "წარუდგინეთ %(username)s ჩვენს ერთობას"
 
-#: src/amo/components/UserProfileEdit/index.js:624
+#: src/amo/components/UserProfileEdit/index.js:629
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr "მხარდაჭერილია ზოგიერთი HTML ელემენტი: %(htmlTags)s. ბმულის დადება არაა დაშვებული."
+msgstr ""
+"მხარდაჭერილია ზოგიერთი HTML ელემენტი: %(htmlTags)s. ბმულის დადება არაა "
+"დაშვებული."
 
-#: src/amo/components/UserProfileEdit/index.js:646
+#: src/amo/components/UserProfileEdit/index.js:651
 msgid "Notifications"
 msgstr "შეტყობინებები"
 
-#: src/amo/components/UserProfileEdit/index.js:649
-msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "დროდადრო, Mozilla-მ შესაძლოა გამოგიგზავნოთ ელფოსტაზე სამომავლო გამოშვებებისა და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, რომლებიც გაინტერესებთ."
-
-#: src/amo/components/UserProfileEdit/index.js:653
-msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+#: src/amo/components/UserProfileEdit/index.js:654
+msgid ""
+"From time to time, Mozilla may send you email about upcoming releases and "
+"add-on events. Please select the topics you are interested in."
 msgstr ""
-"დროდადრო, Mozilla-მ შესაძლოა გაუგზავნოს ამ მომხმარებელს ელფოსტაზე სამომავლო გამოშვებებისა და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, რომლებიც ამ მომხმარებელს შეიძლება აინტერესებდეს."
+"დროდადრო, Mozilla-მ შესაძლოა გამოგიგზავნოთ ელფოსტაზე სამომავლო გამოშვებებისა "
+"და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, რომლებიც "
+"გაინტერესებთ."
 
-#: src/amo/components/UserProfileEdit/index.js:667
-msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr "Mozilla იტოვებს უფლებას, საჭიროებისამებრ პირადად გამოგეხმაუროთ, თქვენს დამატებებთან დაკავშირებულ საკითხებზე."
+#: src/amo/components/UserProfileEdit/index.js:658
+msgid ""
+"From time to time, Mozilla may send this user email about upcoming releases "
+"and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+"დროდადრო, Mozilla-მ შესაძლოა გაუგზავნოს ამ მომხმარებელს ელფოსტაზე სამომავლო "
+"გამოშვებებისა და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, "
+"რომლებიც ამ მომხმარებელს შეიძლება აინტერესებდეს."
 
-#: src/amo/components/UserProfileEdit/index.js:684
+#: src/amo/components/UserProfileEdit/index.js:672
+msgid ""
+"Mozilla reserves the right to contact you individually about specific "
+"concerns with your hosted add-ons."
+msgstr ""
+"Mozilla იტოვებს უფლებას, საჭიროებისამებრ პირადად გამოგეხმაუროთ, თქვენს "
+"დამატებებთან დაკავშირებულ საკითხებზე."
+
+#: src/amo/components/UserProfileEdit/index.js:689
 msgid "Updating your profile…"
 msgstr "პროფილი ახლდება…"
 
-#: src/amo/components/UserProfileEdit/index.js:685
+#: src/amo/components/UserProfileEdit/index.js:690
 msgid "Update my profile"
 msgstr "პროფილის განახლება"
 
-#: src/amo/components/UserProfileEdit/index.js:687
+#: src/amo/components/UserProfileEdit/index.js:692
 msgid "Updating user's profile…"
 msgstr "მომხმარებლის პროფილი ახლდება…"
 
-#: src/amo/components/UserProfileEdit/index.js:688
+#: src/amo/components/UserProfileEdit/index.js:693
 msgid "Update user's profile"
 msgstr "მომხმარებლის პროფილის განახლება"
 
-#: src/amo/components/UserProfileEdit/index.js:700
+#: src/amo/components/UserProfileEdit/index.js:705
 msgid "Delete my profile"
 msgstr "პროფილის წაშლა"
 
-#: src/amo/components/UserProfileEdit/index.js:701
+#: src/amo/components/UserProfileEdit/index.js:706
 msgid "Delete user's profile"
 msgstr "მომხმარებლის პროფილის წაშლა"
 
-#: src/amo/components/UserProfileEdit/index.js:710
+#: src/amo/components/UserProfileEdit/index.js:715
 msgid "Attention: You are about to delete your profile. Are you sure?"
 msgstr "ყურადღება: თქვენ აპირებთ საკუთარი პროფილის წაშლას. დარწმუნებული ხართ?"
 
-#: src/amo/components/UserProfileEdit/index.js:712
+#: src/amo/components/UserProfileEdit/index.js:717
 msgid "Attention: You are about to delete a profile. Are you sure?"
 msgstr "ყურადღება: თქვენ აპირებთ პროფილის წაშლას. დარწმუნებული ხართ?"
 
-#: src/amo/components/UserProfileEdit/index.js:722
+#: src/amo/components/UserProfileEdit/index.js:727
 msgid ""
-"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
-"page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
+"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the "
+"following data will be removed: profile picture, profile details (including "
+"username, email, display name, location, home page, biography, occupation) "
+"and notification preferences. Other data such as ratings and reviews will be "
+"anonymized."
 msgstr ""
-"თუ თანახმა ხართ ეს %(startStrong)sშეუქცევადი ქმედება%(endStrong)s განხორციელდეს, წაიშლება შემდეგი მონაცემები: პროფილის სურათი, პროფილის ცალკეული მონაცემები (მომხმარებლის სახელი, ელფოსტა, გამოსაჩენი "
-"სახელი, ადგილმდებარეობა, მთავარი გვერდი, ბიოგრაფია, საქმიანობა) და შეტყობინებების პარამეტრები. სხვა სახის მონაცემებზე, როგორიცაა დატოვებული შეფასებები და მიმოხილვები, აღარ იქნება აღნიშნული ვინაობა."
+"თუ თანახმა ხართ ეს %(startStrong)sშეუქცევადი ქმედება%(endStrong)s "
+"განხორციელდეს, წაიშლება შემდეგი მონაცემები: პროფილის სურათი, პროფილის "
+"ცალკეული მონაცემები (მომხმარებლის სახელი, ელფოსტა, გამოსაჩენი სახელი, "
+"ადგილმდებარეობა, მთავარი გვერდი, ბიოგრაფია, საქმიანობა) და შეტყობინებების "
+"პარამეტრები. სხვა სახის მონაცემებზე, როგორიცაა დატოვებული შეფასებები და "
+"მიმოხილვები, აღარ იქნება აღნიშნული ვინაობა."
 
-#: src/amo/components/UserProfileEdit/index.js:738
-msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr "მნიშვნელოვანია: თუ ფლობთ დამატებებს, საჭიროა წინასწარ გადასცეთ სხვა მომხმარებლებს ან წაშალოთ, რომ შეძლოთ პროფილის გაუქმება."
+#: src/amo/components/UserProfileEdit/index.js:743
+msgid ""
+"Important: if you own add-ons, you have to transfer them to other users or "
+"to delete them before you can delete your profile."
+msgstr ""
+"მნიშვნელოვანია: თუ ფლობთ დამატებებს, საჭიროა წინასწარ გადასცეთ სხვა "
+"მომხმარებლებს ან წაშალოთ, რომ შეძლოთ პროფილის გაუქმება."
 
-#: src/amo/components/UserProfileEdit/index.js:742
-msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr "მნიშვნელოვანია: მომხმარებელს მხოლოდ იმ შემთხვევაში შეუძლია პროფილის წაშლა, თუ არ ფლობს არცერთ დამატებას."
+#: src/amo/components/UserProfileEdit/index.js:747
+msgid ""
+"Important: a user profile can only be deleted if the user does not own any "
+"add-ons."
+msgstr ""
+"მნიშვნელოვანია: მომხმარებელს მხოლოდ იმ შემთხვევაში შეუძლია პროფილის წაშლა, "
+"თუ არ ფლობს არცერთ დამატებას."
 
-#: src/amo/components/UserProfileEdit/index.js:754
+#: src/amo/components/UserProfileEdit/index.js:760
 msgid "Yes, delete my profile"
 msgstr "დიახ, წაიშალოს ჩემი პროფილი"
 
-#: src/amo/components/UserProfileEdit/index.js:755
+#: src/amo/components/UserProfileEdit/index.js:761
 msgid "Yes, delete this profile"
 msgstr "დიახ, წაიშალოს ეს პროფილი"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
-msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr "გაეცანით სიახლეებსა და დამატებების შემმუშავებლებთან დაკავშირებული ღონისძიებების შესახებ ინფორმაციას (მათ შორის about:addons-ის საინფორმაციო ცნობებს)"
+msgid ""
+"stay up-to-date with news and events relevant to add-on developers "
+"(including the about:addons newsletter)"
+msgstr ""
+"გაეცანით სიახლეებსა და დამატებების შემმუშავებლებთან დაკავშირებული "
+"ღონისძიებების შესახებ ინფორმაციას (მათ შორის about:addons-ის საინფორმაციო "
+"ცნობებს)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -2068,23 +2460,23 @@ msgstr "ჩემი დამატების თავსებადობ�
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ჩემი დამატების თავსებადობა განახლდა წარმატებით"
 
-#: src/amo/components/UserProfileEditPicture/index.js:33
+#: src/amo/components/UserProfileEditPicture/index.js:36
 msgid "Profile picture for %(name)s"
 msgstr "%(name)s პროფილის სურათი"
 
-#: src/amo/components/UserProfileEditPicture/index.js:47
+#: src/amo/components/UserProfileEditPicture/index.js:50
 msgid "Profile photo"
 msgstr "პროფილის სურათი"
 
-#: src/amo/components/UserProfileEditPicture/index.js:66
+#: src/amo/components/UserProfileEditPicture/index.js:69
 msgid "Choose photo..."
 msgstr "სურათის არჩევა..."
 
-#: src/amo/components/UserProfileEditPicture/index.js:74
+#: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Do you really want to delete this picture?"
 msgstr "ნამდვილად გსურთ ამ სურათის წაშლა?"
 
-#: src/amo/components/UserProfileEditPicture/index.js:77
+#: src/amo/components/UserProfileEditPicture/index.js:80
 msgid "Delete this picture"
 msgstr "სურათის წაშლა"
 
@@ -2093,10 +2485,15 @@ msgid "Register or Log in"
 msgstr "რეგისტრაცია ან შესვლა"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ "
+"მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "შეცდომის კოდი: %(status)s."
 
@@ -2104,11 +2501,13 @@ msgstr "შეცდომის კოდი: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ URL მისამართზე, არაფერია."
 
-#: src/core/components/InstallButton/index.js:236 src/core/components/InstallButton/index.js:275
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
-#: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+#: src/core/components/InstallButton/index.js:262
+#: src/core/components/InstallButton/index.js:275
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -2140,17 +2539,18 @@ msgstr "%(name)s წაშლილია. დააწკაპეთ დას
 msgid "Install state for %(name)s is unknown."
 msgstr "დაყენების მდგომარეობა %(name)s-ის შესახებ, დაუდგენელია."
 
-#: src/core/components/Paginate/index.js:100
-msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "%(pageNumber)s გვერდი %(totalPages)s-დან"
-
-#: src/core/components/Paginate/index.js:109
+#: src/core/components/Paginate/index.js:118
 msgid "Previous"
 msgstr "წინა"
 
-#: src/core/components/Paginate/index.js:122
+#: src/core/components/Paginate/index.js:131
 msgid "Next"
 msgstr "შემდეგი"
+
+#: src/core/components/Paginate/index.js:136
+#, fuzzy
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "%(pageNumber)s გვერდი %(totalPages)s-დან"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2168,17 +2568,21 @@ msgstr "კარგი!"
 msgid "Confirm"
 msgstr "თანხმობა"
 
-#: src/ui/components/DismissibleTextForm/index.js:95
+#: src/ui/components/DismissibleTextForm/index.js:112
 msgid "Enter text."
 msgstr "ტექსტის შეყვანა."
 
-#: src/ui/components/DismissibleTextForm/index.js:96
+#: src/ui/components/DismissibleTextForm/index.js:113
 msgid "Submit"
 msgstr "გაგზავნა"
 
-#: src/ui/components/DismissibleTextForm/index.js:98
+#: src/ui/components/DismissibleTextForm/index.js:115
 msgid "Submitting"
 msgstr "იგზავნება"
+
+#: src/ui/components/DismissibleTextForm/index.js:154
+msgid "Delete"
+msgstr ""
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
@@ -2240,8 +2644,50 @@ msgstr "დამატების %(starRating)s შეფასება 5-�
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრცლად"
 
-#~ msgid "Privacy tools"
-#~ msgstr "პირადი მონაცემების დაცვის ხელსაწყოები"
+#~ msgid "Essential extensions"
+#~ msgstr "მნიშვნელოვანი გაფართოებები"
+
+#~ msgid "See more essential extensions"
+#~ msgstr "სხვა მნიშვნელოვანი გაფართოებები"
+
+#~ msgid "Envify"
+#~ msgstr "Envify"
+
+#~ msgid ""
+#~ "Quantum Extensions Challenge winner! Different tab colors for different "
+#~ "dev environments"
+#~ msgstr ""
+#~ "Quantum-გაფართოებების შეჯიბრების გამარჯვებული! განსხვავებული ფერის "
+#~ "ჩანართები, სხვადასხვა სამუშაო გარემოსთვის"
+
+#~ msgid "Laser Cat"
+#~ msgstr "Laser Cat"
+
+#~ msgid ""
+#~ "For moments on the internet when you need to fire lasers out of a cat"
+#~ msgstr "იმ შემთხვევებისთვის, როცა დაგჭირდებათ კატის მწველი მზერა"
+
+#~ msgid "Manage downloads from a tidy status bar"
+#~ msgstr "ჩამოტვირთვების მართვა მცირე, მოსახერხებელი ზოლიდან"
+
+#~ msgid "FoxyGestures"
+#~ msgstr "FoxyGestures"
+
+#~ msgid "Customized mouse gestures"
+#~ msgstr "მორგებული ჟესტები, თაგვის გამოყენებისას"
+
+#~ msgid "Session Sync"
+#~ msgstr "Session Sync"
+
+#~ msgid ""
+#~ "Quantum Extensions Challenge winner! Save sessions as bookmarks and "
+#~ "access them across devices"
+#~ msgstr ""
+#~ "Quantum-გაფართოებების შეჯიბრების გამარჯვებული! შეინახეთ გახსნილი გვერდები "
+#~ "სანიშნების სახით და გააზიარეთ სხვადასხვა მოწყობილობაზე"
+
+#~ msgid "Profile successfully updated"
+#~ msgstr "პროფილი წარმატებით განახლდა"
 
 #~ msgid "Top-rated themes"
 #~ msgstr "საუკეთესოდ შეფასებული თემები"
@@ -2284,9 +2730,6 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 
 #~ msgid "Notebook Web Clipper"
 #~ msgstr "Notebook Web Clipper"
-
-#~ msgid "Clip, save & organize your favorite stuff on the web"
-#~ msgstr "ჩაინიშნეთ, შეინახეთ და დაალაგეთ თქვენთვის საჭირო მასალები"
 
 #~ msgid "Flagfox"
 #~ msgstr "Flagfox"
@@ -2388,7 +2831,8 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgstr "OneTab"
 
 #~ msgid "Convert your open tabs into a list and save precious memory"
-#~ msgstr "წარმოადგინეთ გახსნილი ჩანართები სიის სახით და დაზოგეთ ძვირფასი მეხსიერება"
+#~ msgstr ""
+#~ "წარმოადგინეთ გახსნილი ჩანართები სიის სახით და დაზოგეთ ძვირფასი მეხსიერება"
 
 #~ msgid "Push to Kindle"
 #~ msgstr "Push to Kindle"
@@ -2427,11 +2871,18 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "SearchPreview"
 #~ msgstr "SearchPreview"
 
-#~ msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-#~ msgstr "უკეთ მოიძიეთ შედეგები, მათი წინასწარი შეთვალიერებით, შეფასებებისა და მოთხოვნის მიხედვით დალაგებით და ა.შ."
+#~ msgid ""
+#~ "Enhance search results with thumbnail previews, popularity ranks & more."
+#~ msgstr ""
+#~ "უკეთ მოიძიეთ შედეგები, მათი წინასწარი შეთვალიერებით, შეფასებებისა და "
+#~ "მოთხოვნის მიხედვით დალაგებით და ა.შ."
 
-#~ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-#~ msgstr "მონაცემების ავტომატური გასუფთავება (ფუნთუშები, საცავი დისკზე და ა.შ.) ყველა მონახულებულ საიტზე, გარდა თქვენ მიერ მითითებული გამონაკლისებისა."
+#~ msgid ""
+#~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
+#~ "visit except those on your whitelist."
+#~ msgstr ""
+#~ "მონაცემების ავტომატური გასუფთავება (ფუნთუშები, საცავი დისკზე და ა.შ.) "
+#~ "ყველა მონახულებულ საიტზე, გარდა თქვენ მიერ მითითებული გამონაკლისებისა."
 
 #~ msgid "Zoom for Firefox"
 #~ msgstr "Zoom for Firefox"
@@ -2448,8 +2899,12 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "Momentum"
 #~ msgstr "Momentum"
 
-#~ msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-#~ msgstr "ჩაანაცვლეთ თქვენი ახალი ჩანართი, მორგებული პირადი გვერდით—ჩანიშნული დავალებები, ამინდის პროგნოზი და ა.შ."
+#~ msgid ""
+#~ "Replace your new tab with a personal dashboard—to-do lists, weather "
+#~ "forecasts and more."
+#~ msgstr ""
+#~ "ჩაანაცვლეთ თქვენი ახალი ჩანართი, მორგებული პირადი გვერდით—ჩანიშნული "
+#~ "დავალებები, ამინდის პროგნოზი და ა.შ."
 
 #~ msgid "Kimetrak"
 #~ msgstr "Kimetrak"
@@ -2496,17 +2951,25 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "Grammarly"
 #~ msgstr "Grammarly"
 
-#~ msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-#~ msgstr "შეამოწმეთ მართლწერა ყველგან, სადაც აკრეფთ ტექსტს—სოციალურ ქსელში, ელფოსტაზე, დოკუმენტებში და ა.შ."
+#~ msgid ""
+#~ "Get grammar help anywhere you write on the web—social media, email, docs "
+#~ "and more."
+#~ msgstr ""
+#~ "შეამოწმეთ მართლწერა ყველგან, სადაც აკრეფთ ტექსტს—სოციალურ ქსელში, "
+#~ "ელფოსტაზე, დოკუმენტებში და ა.შ."
 
 #~ msgid "Remove ads, promoted content, and other clutter from your feed."
-#~ msgstr "მოაცილეთ რეკლამები, დაფინანსებული გზავნილები და სხვა არასასურველი შიგთავსი, თქვენი სიახლეების გვერდიდან."
+#~ msgstr ""
+#~ "მოაცილეთ რეკლამები, დაფინანსებული გზავნილები და სხვა არასასურველი "
+#~ "შიგთავსი, თქვენი სიახლეების გვერდიდან."
 
 #~ msgid "LastPass Password Manager"
 #~ msgstr "LastPass პაროლების მმართველი"
 
 #~ msgid "Easily manage all your passwords for all devices from one spot"
-#~ msgstr "მარტივად მართეთ თქვენი ყველა პაროლი, თქვენს ყველა მოწყობილობაზე, ერთი წერტილიდან"
+#~ msgstr ""
+#~ "მარტივად მართეთ თქვენი ყველა პაროლი, თქვენს ყველა მოწყობილობაზე, ერთი "
+#~ "წერტილიდან"
 
 #~ msgid "Top-rated Themes"
 #~ msgstr "საუკეთესოდ შეფასებული თემები"
@@ -2520,17 +2983,19 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "სხვა დამატებები, პირადულობის დაცვისთვის"
 
-#~ msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
-#~ msgstr "თარგმნეთ სიტყვები, ფრაზები და მთლიანი გვერდებიც. 100-ზე მეტი ენაა მხარდაჭერილი."
-
-#~ msgid "Group Speed Dial"
-#~ msgstr "Group Speed Dial"
+#~ msgid ""
+#~ "Translate a word, phrase, even an entire page. Supports 100+ languages."
+#~ msgstr ""
+#~ "თარგმნეთ სიტყვები, ფრაზები და მთლიანი გვერდებიც. 100-ზე მეტი ენაა "
+#~ "მხარდაჭერილი."
 
 #~ msgid "Search by Image"
 #~ msgstr "სურათით ძიება"
 
 #~ msgid "Reverse image search using various search engines."
-#~ msgstr "სურათების წყაროებისა და ასლების მონახვა, მრავალი საძიებო სისტემის საშუალებით."
+#~ msgstr ""
+#~ "სურათების წყაროებისა და ასლების მონახვა, მრავალი საძიებო სისტემის "
+#~ "საშუალებით."
 
 #~ msgid "FireShot"
 #~ msgstr "FireShot"
@@ -2544,8 +3009,12 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "Decentraleyes"
 #~ msgstr "Decentraleyes"
 
-#~ msgid "Tracking protection against third-party sites aiming to mark your every online move."
-#~ msgstr "საიტებზე, ცალკეული თვალყურისმდევნელი ნაწილების შეზღუდვა, რომელიც ყველა თქვენს მოქმედებას აღრიცხავს."
+#~ msgid ""
+#~ "Tracking protection against third-party sites aiming to mark your every "
+#~ "online move."
+#~ msgstr ""
+#~ "საიტებზე, ცალკეული თვალყურისმდევნელი ნაწილების შეზღუდვა, რომელიც ყველა "
+#~ "თქვენს მოქმედებას აღრიცხავს."
 
 #~ msgid "Top privacy extensions"
 #~ msgstr "საუკეთესო გაფართოებები პირადულობისთვის"
@@ -2557,7 +3026,9 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgstr "YouTube მაღალი გარჩევადობით"
 
 #~ msgid "Play videos in HD, turn off annotations, change player size & more"
-#~ msgstr "ვიდეოების გაშვება HD ხარისხით, ანოტაციების გამორთვა, დამკვრელის ზომის ცვლილება და ა.შ."
+#~ msgstr ""
+#~ "ვიდეოების გაშვება HD ხარისხით, ანოტაციების გამორთვა, დამკვრელის ზომის "
+#~ "ცვლილება და ა.შ."
 
 #~ msgid "Productivity extensions"
 #~ msgstr "სასარგებლო გაფართოებები"
@@ -2571,8 +3042,12 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "Block ads"
 #~ msgstr "შეზღუდეთ რეკლამები"
 
-#~ msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-#~ msgstr "რეკლამების შემზღუდველიდან დაწყებული, მოთვალთვალე ელემენტების ამკრძალავის ჩათვლით, პირადი მონაცემების დასაცავად, უამრავი დამატება შეგიძლიათ მოიძიოთ"
+#~ msgid ""
+#~ "From ad blockers to anti-trackers, here are some impressive privacy "
+#~ "extensions"
+#~ msgstr ""
+#~ "რეკლამების შემზღუდველიდან დაწყებული, მოთვალთვალე ელემენტების ამკრძალავის "
+#~ "ჩათვლით, პირადი მონაცემების დასაცავად, უამრავი დამატება შეგიძლიათ მოიძიოთ"
 
 #~ msgid "An extremely powerful ad blocker that’s simple to use"
 #~ msgstr "რეკლამების მძლავრი შემზღუდველი, მარტივად გამოსაყენებელი"
@@ -2610,8 +3085,14 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "Addons"
 #~ msgstr "დამატებები"
 
-#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-#~ msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ მისამართზე, არაფერი მოიძებნა. თუ რომელიმე დამატების ბმულს მიჰყევით, შესაძლოა ეგ დამატება წაშლილი იყოს ავტორის მიერ."
+#~ msgid ""
+#~ "Sorry, but we can't find anything at the address you entered. If you "
+#~ "followed a link to an add-on, it's possible that add-on has been removed "
+#~ "by its author."
+#~ msgstr ""
+#~ "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ მისამართზე, არაფერი მოიძებნა. თუ "
+#~ "რომელიმე დამატების ბმულს მიჰყევით, შესაძლოა ეგ დამატება წაშლილი იყოს "
+#~ "ავტორის მიერ."
 
 #~ msgid "Manage API Keys"
 #~ msgstr "API გასაღებების მართვა"
@@ -2619,8 +3100,12 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "Themes change how Firefox looks"
 #~ msgstr "თემებს შეუძლია სრულად შეცვალოს, Firefox-ის იერსახე"
 
-#~ msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-#~ msgstr "ეს ID გამოსადეგია თქვენი დამატების გასამართად და ამოსაცნობად, საიტის ადმინისტრატორებისთვის."
+#~ msgid ""
+#~ "This ID is useful for debugging and identifying your add-on to site "
+#~ "administrators."
+#~ msgstr ""
+#~ "ეს ID გამოსადეგია თქვენი დამატების გასამართად და ამოსაცნობად, საიტის "
+#~ "ადმინისტრატორებისთვის."
 
 #~ msgid "Site Identifier"
 #~ msgstr "გვერდის იდენტიფიკატორი"
@@ -2661,8 +3146,13 @@ msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრც�
 #~ msgid "…or what it looks like"
 #~ msgstr "…ან როგორ უნდა გამოიყურებოდეს"
 
-#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-#~ msgstr "დაამატეთ მძლავრი ხელსაწყოები ბრაუზერს, სისწრაფისა და უსაფრთხოების გასაუმჯობესებლად, დამატებები ბრაუზერს გახდის თქვენს მოთხოვნილებებზე მეტად მორგებულს."
+#~ msgid ""
+#~ "Install powerful tools that make browsing faster and safer, add-ons make "
+#~ "your browser yours."
+#~ msgstr ""
+#~ "დაამატეთ მძლავრი ხელსაწყოები ბრაუზერს, სისწრაფისა და უსაფრთხოების "
+#~ "გასაუმჯობესებლად, დამატებები ბრაუზერს გახდის თქვენს მოთხოვნილებებზე მეტად "
+#~ "მორგებულს."
 
 #~ msgid "Legal notices"
 #~ msgstr "სამართლებრივი შენიშვნები"
