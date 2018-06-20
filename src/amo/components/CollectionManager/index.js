@@ -55,6 +55,7 @@ export type AddonAddedStatusType =
 type Props = {|
   hasAddonBeenAdded: boolean,
   collection: CollectionType | null,
+  clearTimeout: Function,
   clientApp: ?string,
   creating: boolean,
   currentUsername: string,
@@ -79,6 +80,7 @@ type State = {|
 export class CollectionManagerBase extends React.Component<Props, State> {
   static defaultProps = {
     setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
+    clearTimeout: typeof window !== 'undefined' ? window.clearTimeout.bind(window) : () => {},
   };
 
   constructor(props: Props) {
@@ -104,10 +106,16 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
 
     if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
-      this.props.setTimeout(
+      this.timeout = this.props.setTimeout(
         this.resetMessageStatus,
         MESSAGE_RESET_TIME
       );
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timeout) {
+      this.props.clearTimeout(this.timeout);
     }
   }
 
@@ -245,6 +253,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }));
     this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };
+
+  timeout: TimeoutID;
 
   resetMessageStatus = () => {
     this.setState({
