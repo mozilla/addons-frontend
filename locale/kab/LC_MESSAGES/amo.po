@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 00:21+0000\n"
+"PO-Revision-Date: 2018-06-20 09:31+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -45,7 +45,7 @@ msgstr "Rnu ar tegrumma"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Taskant n %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -279,7 +279,7 @@ msgstr "Rzu ar tfelwit n usenqed n tidaddanin"
 
 #: src/amo/components/AddonRecommendations/index.js:161
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "ISeqdacen-nniden n usiɣzef sbedden daɣen"
 
 #: src/amo/components/AddonRecommendations/index.js:162
 msgid "Other popular extensions"
@@ -581,7 +581,7 @@ msgstr "Yerna-t"
 
 #: src/amo/components/Collection/index.js:291
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Nadi isiɣzaf akked isental ara ternuḍ ar tegrumma-ik."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -589,7 +589,7 @@ msgstr "Qqen akken ad terniḍ tagrumma"
 
 #: src/amo/components/CollectionList/index.js:58
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Di tazwara, rnu tagrumma-ik, sakin ad tizmireḍ ad ternuḍ isiɣzaf akked isental."
 
 #: src/amo/components/CollectionManager/index.js:289
 msgid "Save collection"
@@ -617,7 +617,7 @@ msgstr "Yerna ar tegrumma"
 
 #: src/amo/components/CollectionManager/index.js:367
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Nadi azegrir ara tsedduḍ di tagrumma-agi"
 
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
@@ -828,6 +828,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Ala %(startNotedLink)s ma yettwammel akken-nniḍen%(endNotedLink)s, agbur n usmel-agi yella ddaw n turagt %(startLicenseLink)sCreative Commons Attribution Share-Alike v3.0%(endLicenseLink)s neɣ "
+"ileqman imaynuten."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -931,7 +933,7 @@ msgstr "Asemhuyan"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Mudd udem i tiddin n Firefox s useqdec n yizegrir. Ahat tḥemmleḍ…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
@@ -955,7 +957,7 @@ msgstr "Wali ugar n yisiɣzaf imeqqranen"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
-msgstr ""
+msgstr "Ifecka n tsuqilt"
 
 #: src/amo/components/Home/index.js:256
 msgid "See more translation tools"
@@ -975,7 +977,7 @@ msgstr "Imsewḥal n udellel"
 
 #: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Tiɣin srid"
 
 #: src/amo/components/Home/index.js:76
 msgid "Productivity"
@@ -987,11 +989,11 @@ msgstr "Wali tividyutin"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr ""
+msgstr "Asiɣzef aɣerfan n usewḥel n ineḍfaṛen ad yeǧǧ sya d afella ad tesweḥleḍ adellel"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:113
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
@@ -999,7 +1001,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
@@ -1007,7 +1009,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
@@ -1015,7 +1017,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "For moments on the internet when you need to fire lasers out of a cat"
@@ -1031,7 +1033,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Umuɣ aberkan i Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Easy drop-down menu access to Google services like Search and Translate"
@@ -1039,7 +1041,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Page Translate"
-msgstr ""
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
@@ -1055,7 +1057,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Make Firefox forget website data like cookies & local storage"
@@ -1095,7 +1097,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
-msgstr ""
+msgstr "Tiɣimit Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
