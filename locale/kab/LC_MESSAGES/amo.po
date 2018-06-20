@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-20 21:48+0000\n"
+"PO-Revision-Date: 2018-06-20 22:10+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1053,7 +1053,7 @@ msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Abrid uzmir akken ad tafeḍ ileqman yettwaskelsen n yisebtar web iqbuṛen"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Black Menu for Google"
@@ -1077,7 +1077,7 @@ msgstr "Iɣewwaṛen n unadi n tugna"
 
 #: src/amo/components/HomeHeroBanner/index.js:203
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Kcem ar yiɣewwaṛen n unadi n tugna yettin deg umuɣ umniḍ"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Forget Me Not"
@@ -1085,15 +1085,15 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:215
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Err Firefox ad yettu isefla n usmel am inagan n tuqqna & usekles adigan"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "Ticraḍ n yisebtar i d-yettbanen i yimeḍqan-ik inuraf di Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1125,7 +1125,7 @@ msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Sali arured n usider s usefrek n wagetikalan"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1133,15 +1133,15 @@ msgstr "Taɣellist Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Ammesten mgal yir iseɣzanen akked takerḍa n yisefka"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Suddes accaren-ik s wudem ubdid"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
@@ -1149,7 +1149,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Efficient, powerful ad blocker"
-msgstr ""
+msgstr "Amsewḥal n udellel ufrin & uzmir"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Ghostery"
@@ -1161,7 +1161,7 @@ msgstr "Snifel udem n iminig-ik. Fren seg agimen n isental akken ad tmudded udem
 
 #: src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Wali ifecka ifazen akked timahil akken ad tmuddeḍ i Firefox am akken i tebɣiḍ-t."
 
 #: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
@@ -1185,7 +1185,7 @@ msgstr "Asebeddi n uzegrir n umawal, ad yernu afran n tutlayt tamaynut ar yimse�
 
 #: src/amo/components/LanguageTools/index.js:162
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Ikemmusen utlayanen ttbeddilen tutlayt n ugrudem n yiminig, ayen igebren daɣen iɣewwaṛen n wumuɣen akked isefran."
 
 #: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
@@ -1237,11 +1237,11 @@ msgstr "Sers isefka ɣef afus"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Ldi ifeccka n tneflit akken ad tkecmeḍ ar isefka-ik deg iccaren yeldin"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Sider-d ifuyla, ɣeṛ daɣen beddel amazray n usider deg iminig"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
@@ -1277,7 +1277,7 @@ msgstr "Ittak-d imeẓla n usesteb awgelhan"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Senqed iγewwaṛen n upṛuksi n yiminig"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
@@ -1337,15 +1337,15 @@ msgstr "Tuzneḍ-d yir aseqdec n uzegrir-agi"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Nermes-d aneqqis-ik. Tanemmirt imi i aɣ-d-mliḍ ugur s uzegrir-a."
 
 #: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:155
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Ur nezmir ara ad d-nerr i tummliwin meṛṛa, acu kan, ad nali ugur-a."
 
 #: src/amo/components/ReportAbuseButton/index.js:131
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr ""
+msgstr "Ma tɣileḍ azizgrir-a yeṛza  %(linkTagStart)sMozilla's tasertit n yizegrar%(linkTagEnd)s  neɣ ɣur-s ugur n tɣellist neɣ n tbaḍnit, azen-d ma ulac aɣlif ugur ar Mozilla s useqdec n tfelwit-a."
 
 #: src/amo/components/ReportAbuseButton/index.js:144
 msgid "Report this add-on for abuse"
@@ -1353,11 +1353,11 @@ msgstr "Azen yir aseqdec n uzegrir-agi"
 
 #: src/amo/components/ReportAbuseButton/index.js:173
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Ur seqdac ara tafelwit-a akken ad tazneḍ ibugen neɣ asuter n tmahilin n uzegrir; aneqqis-a ad yettwazen i Mozilla, mačči i uneflay n uzegrir."
 
 #: src/amo/components/ReportAbuseButton/index.js:186
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Segzi-d amek azegrir-a yettṛuzu tasertit-nneɣ."
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
@@ -1377,15 +1377,15 @@ msgstr "Mmel-d aseqdec-agi ɣef yir asemres"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "MA tɣileḍ aseqdac-a yerẓa %(linkTagStart)s tasertit n yizegrar n Mozilla%(linkTagEnd)s. Azen-d aneqqis ɣef useqdac-a i Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:122
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "Ur seqdac ara tafelwit-a akken ad tazneḍ ibugen neɣ ad tnermseḍ aseqdac; aneqqis-a ad yettwazen i Mozilla, mačči i useqdac-a."
 
 #: src/amo/components/ReportUserAbuse/index.js:132
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Segzi-d amek aseqdac-a yettṛuzu tasertit-nneɣ."
 
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "You reported this user for abuse"
