@@ -395,7 +395,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     if (!currentUser) {
       return (
         <div className="UserProfileEdit">
-          <Card className="UserProfileEdit-user-links">
+          <Card className="UserProfileEdit-authenticate">
             <AuthenticateButton
               noIcon
               location={router.location}

@@ -13,6 +13,7 @@ $font-size-aside: 10px;
   }
 }
 
+.UserProfileEdit-authenticate,
 .UserProfileEdit-user-links {
   display: none;
 
@@ -35,6 +36,10 @@ $font-size-aside: 10px;
       list-style-type: none;
     }
   }
+}
+
+.UserProfileEdit-authenticate {
+  display: block;
 }
 
 .UserProfileEdit-form-messages .Notice,
