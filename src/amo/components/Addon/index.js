@@ -507,6 +507,10 @@ export class AddonBase extends React.Component {
         {addon && (
           <Helmet>
             <title>{addon.name}</title>
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content={addon.name || ''} />
+            <meta name="twitter:description" content={addon.summary || ''} />
+            <meta name="twitter:image" content={addon.icon_url || ''} />
           </Helmet>
         )}
 
