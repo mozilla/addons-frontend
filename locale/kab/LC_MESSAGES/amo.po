@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-20 09:31+0000\n"
+"PO-Revision-Date: 2018-06-20 09:39+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1029,7 +1029,7 @@ msgstr " (Asefrek n usider (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Sefrek isidar seg ufeggag n waddad yulse asuddes"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Black Menu for Google"
@@ -1065,7 +1065,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
-msgstr ""
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Customized mouse gestures"
@@ -1089,7 +1089,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
@@ -1105,7 +1105,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Taɣellist Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
@@ -1121,7 +1121,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Efficient, powerful ad blocker"
@@ -1129,7 +1129,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1193,19 +1193,19 @@ msgstr "ɣer ugar ɣef tsurag"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Ɣer sakin beddel ticraḍ n yisebtar"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Γer sakin beddel iɣewwaṛen n yiminig"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Sfeḍ amazray aneggaru n tunigin, inagan n tuqqna, akked yisefka icudden ɣur-s"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Awi isefka yellan ɣef afus"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
@@ -1221,15 +1221,15 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Ldi ifayluifuyla ittwasidren deg uselkim-ik"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Γer aḍris n waccaren akk yeldin"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
-msgstr ""
+msgstr "Kcem ɣer wadig-ik"
 
 #: src/amo/components/PermissionsCard/permissions.js:35 src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
@@ -1237,19 +1237,19 @@ msgstr "Kcem ar umazray n tunigin"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Ɛas aseqdec n usiɣzef n ugdil daɣen sefrek isental"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Asemmeskel n yeznan s wahilen baxlaf Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Ad k-d-isken ilɣa"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Ittak-d imeẓla n usesteb awgelhan"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Control browser proxy settings"
@@ -1257,27 +1257,27 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Γɣer u snifel iɣewwaṛen n tbaḍnit"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Kcem ɣer wacarren ittwamedlen melmi kan"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Kcem γer icarren n iminig"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Sken-d neγ ffer iccaren n iminig"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Sekles isefka war tilas si tama n umsaɣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Kcem ɣer urmud n yiminig mi ara tettinigeḍ"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1983,7 +1983,7 @@ msgstr "Ih, Kkes amaɣnu-iw"
 
 #: src/amo/components/UserProfileEdit/index.js:755
 msgid "Yes, delete this profile"
-msgstr ""
+msgstr "Ih, Kkes amaɣnu-agi"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -1991,39 +1991,39 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla yesra a yid-inermes ɣef uzegrir inu udmawan"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "izegrar neɣ timahilin timaynutin n Firefox llant"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "yella win yuran acegger ɣef uzegrir inu"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "aneflay n uzegrir yerra-d i ucegger inu"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "azegrir-inu yettucegger sɣuṛ yiwen n umaẓrag"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "amṣada n uzegrir inu s useqdec n sdk ur yettwalqem ara"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "amṣada n uzegrir inu s useqdec n sdk yettwalqem akken iwata"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "amṣada n uzegrir-inu ur yettwalqem ara"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "amṣda n uzegrir-inu yettwalqem akken iwata"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
@@ -2035,7 +2035,7 @@ msgstr "Tawlaft n umaɣnu"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
-msgstr ""
+msgstr "Fren tawlaft"
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
