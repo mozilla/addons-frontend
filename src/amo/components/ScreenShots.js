@@ -8,7 +8,13 @@ import 'react-photoswipe/lib/photoswipe.css';
 
 import 'amo/css/ScreenShots.scss';
 
-const PHOTO_SWIPE_OPTIONS = {
+type ThumbBounds = false | {|
+  w: number,
+  x: number,
+  y: number,
+|};
+
+export const PHOTO_SWIPE_OPTIONS = {
   closeEl: true,
   captionEl: true,
   fullscreenEl: false,
@@ -17,15 +23,19 @@ const PHOTO_SWIPE_OPTIONS = {
   counterEl: true,
   arrowEl: true,
   preloaderEl: true,
-  // Overload getThumbsBoundsFn as workaround to
+  // Overload getThumbBoundsFn as workaround to
   // https://github.com/minhtranite/react-photoswipe/issues/23
-  getThumbBoundsFn: function getThumbBoundsFn(index) {
-    const thumbnail = document.querySelectorAll('.pswp-thumbnails')[index];
+  getThumbBoundsFn: (
+    index: number,
+    _document: typeof document = document,
+    _window: typeof window = window
+  ): ThumbBounds => {
+    const thumbnail = _document.querySelectorAll('.pswp-thumbnails')[index];
 
     if (thumbnail && thumbnail.getElementsByTagName) {
       const img = thumbnail.getElementsByTagName('img')[0];
-      const pageYScroll = window.pageYOffset || (
-        document.documentElement ? document.documentElement.scrollTop : 0
+      const pageYScroll = _window.pageYOffset || (
+        _document.documentElement ? _document.documentElement.scrollTop : 0
       );
       const rect = img.getBoundingClientRect();
 

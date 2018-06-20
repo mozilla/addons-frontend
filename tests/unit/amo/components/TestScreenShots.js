@@ -3,6 +3,7 @@ import * as React from 'react';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
 import ScreenShots, {
+  PHOTO_SWIPE_OPTIONS,
   thumbnailContent,
 } from 'amo/components/ScreenShots';
 
@@ -95,9 +96,98 @@ describe(__filename, () => {
       scrollLeft: 0,
     };
     sinon.stub(root.instance().viewport, 'querySelector').returns(list);
+
     const photoswipe = { getCurrentIndex: () => 1 };
     root.instance().onClose(photoswipe);
     // 0 += 500 - 55
     expect(list.scrollLeft).toEqual(445);
+  });
+
+  describe('PHOTO_SWIPE_OPTIONS.getThumbBoundsFn', () => {
+    const { getThumbBoundsFn } = PHOTO_SWIPE_OPTIONS;
+
+    const getFakeDocument = ({ left, top, width }) => {
+      const fakeImg = {
+        getBoundingClientRect: () => ({
+          height: 123,
+          left,
+          top,
+          width,
+        }),
+      };
+
+      const fakeThumbnail = {
+        getElementsByTagName: () => [fakeImg],
+      };
+
+      const fakeDocument = {
+        querySelectorAll: () => [fakeThumbnail],
+      };
+
+      return fakeDocument;
+    };
+
+    it('returns false if thumbnail does not exist', () => {
+      const bounds = getThumbBoundsFn(0);
+
+      expect(bounds).toEqual(false);
+    });
+
+    it('returns an object with x, y and w values', () => {
+      const left = 123;
+      const top = 124;
+      const width = 100;
+
+      const fakeDocument = getFakeDocument({ left, top, width });
+
+      const bounds = getThumbBoundsFn(0, fakeDocument);
+
+      expect(bounds).toBeInstanceOf(Object);
+      expect(bounds).toEqual({
+        w: width,
+        x: left,
+        y: top,
+      });
+    });
+
+    it('uses window.pageYOffset to compute `y` if available', () => {
+      const left = 123;
+      const top = 124;
+      const width = 100;
+
+      const fakeDocument = getFakeDocument({ left, top, width });
+
+      const fakeWindow = {
+        pageYOffset: 20,
+      };
+
+      const bounds = getThumbBoundsFn(0, fakeDocument, fakeWindow);
+
+      expect(bounds).toEqual({
+        w: width,
+        x: left,
+        y: top + fakeWindow.pageYOffset,
+      });
+    });
+
+    it('uses document.documentElement.scrollTop to compute `y` if available', () => {
+      const left = 123;
+      const top = 124;
+      const width = 100;
+      const scrollTop = 30;
+
+      const fakeDocument = getFakeDocument({ left, top, width });
+      fakeDocument.documentElement = {
+        scrollTop,
+      };
+
+      const bounds = getThumbBoundsFn(0, fakeDocument);
+
+      expect(bounds).toEqual({
+        w: width,
+        x: left,
+        y: top + scrollTop,
+      });
+    });
   });
 });
