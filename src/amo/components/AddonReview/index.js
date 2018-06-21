@@ -78,7 +78,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     this.state = {
       reviewBody: props.review.body,
     };
-    invariant(props.createLocalState, 'props.createLocalState() was undefined');
+    invariant(props.createLocalState, 'props.createLocalState() is undefined');
     this.localState = props.createLocalState(`AddonReview:${props.review.id}`);
     this.checkForStoredState();
   }
@@ -117,10 +117,10 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
       setDenormalizedReview,
       updateReviewText,
     } = this.props;
-    invariant(refreshAddon, 'props.refreshAddon() was undefined');
-    invariant(updateReviewText, 'props.updateReviewText() was undefined');
+    invariant(refreshAddon, 'props.refreshAddon() is undefined');
+    invariant(updateReviewText, 'props.updateReviewText() is undefined');
     invariant(setDenormalizedReview,
-      'props.setDenormalizedReview() was undefined');
+      'props.setDenormalizedReview() is undefined');
 
     const { reviewBody } = this.state;
     event.preventDefault();
@@ -159,7 +159,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
   }
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
-    invariant(this.props.debounce, 'props.debounce() was undefined');
+    invariant(this.props.debounce, 'props.debounce() is undefined');
     const saveState = this.props.debounce((state) => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.
@@ -175,7 +175,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     // Update the review object with a new rating but don't submit it
     // to the API yet.
     invariant(this.props.setDenormalizedReview,
-      'props.setDenormalizedReview() was undefined');
+      'props.setDenormalizedReview() is undefined');
     this.props.setDenormalizedReview({
       ...this.props.review,
       body: this.state.reviewBody || undefined,

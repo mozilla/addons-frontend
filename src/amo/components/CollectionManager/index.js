@@ -111,7 +111,7 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
     }
 
     if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
-      invariant(this.props.setTimeout, 'props.setTimeout was undefined');
+      invariant(this.props.setTimeout, 'props.setTimeout is undefined');
       this.timeout = this.props.setTimeout(
         this.resetMessageStatus,
         MESSAGE_RESET_TIME
@@ -121,7 +121,7 @@ export class CollectionManagerBase extends React.Component<InternalProps, State>
 
   componentWillUnmount() {
     if (this.timeout) {
-      invariant(this.props.clearTimeout, 'props.clearTimeout was undefined');
+      invariant(this.props.clearTimeout, 'props.clearTimeout is undefined');
       this.props.clearTimeout(this.timeout);
     }
   }

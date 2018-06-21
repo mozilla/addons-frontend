@@ -79,9 +79,9 @@ export default class AddonsCard extends React.Component<Props> {
         // any summary or description.
         const isTheme = ADDON_TYPE_THEMES.includes(addon.type);
         if (editing) {
-          invariant(deleteNote, 'props.deleteNote was undefined');
-          invariant(removeAddon, 'props.removeAddon was undefined');
-          invariant(saveNote, 'props.saveNote was undefined');
+          invariant(deleteNote, 'props.deleteNote is undefined');
+          invariant(removeAddon, 'props.removeAddon is undefined');
+          invariant(saveNote, 'props.saveNote is undefined');
           addonElements.push(
             <EditableCollectionAddon
               addon={addon}
