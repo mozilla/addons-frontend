@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-20 23:43+0000\n"
+"PO-Revision-Date: 2018-06-21 00:01+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1872,7 +1872,7 @@ msgstr "Autor dodatków"
 
 #: src/amo/components/UserProfile/index.js:133
 msgid "Theme artist"
-msgstr "Twórca motywu"
+msgstr "Twórca motywów"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
