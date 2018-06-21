@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 08:31+0000\n"
+"PO-Revision-Date: 2018-06-21 08:39+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1978,7 +1978,7 @@ msgstr "Sewaktu-waktu, Mozilla akan mengirimi pengguna ini surel mengenai rilis 
 
 #: src/amo/components/UserProfileEdit/index.js:672
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla memiliki hak untuk menghubungi Anda secara langsung tentang pertimbangan tertentu untuk pengaya yang diinangi di sini."
 
 #: src/amo/components/UserProfileEdit/index.js:689
 msgid "Updating your profile…"
@@ -2017,14 +2017,16 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Jika Anda menyetujui %(startStrong)stindakan yang tak dapat dibalik ini%(endStrong)s, data berikut akan dihapus: gambar profil, rincian profil (termasuk nama pengguna, surel, tampilan nama, lokasi, "
+"beranda, biografi, pekerjaan) dan preferensi notifikasi. Data lainnya misalnya peringkat dan tinjauan akan disamarkan."
 
 #: src/amo/components/UserProfileEdit/index.js:743
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Penting: jika Anda memiliki pengaya, Anda harus mengalihkannya pada pengguna lain atau menghapusnya sebelum Anda bisa menghapus profil Anda."
 
 #: src/amo/components/UserProfileEdit/index.js:747
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Penting: profil pengguna hanya dapat dihapus jika pengguna tidak memiliki pengaya apapun."
 
 #: src/amo/components/UserProfileEdit/index.js:760
 msgid "Yes, delete my profile"
@@ -2036,11 +2038,11 @@ msgstr "Ya, hapus profil ini"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "tetaplah mengetahui kabar dan acara yang relevan dengan pengembang pengaya (termasuk tentang:nawala pengaya)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla perlu mengontak saya tentang pengaya pribadi saya"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
