@@ -8,8 +8,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { submitReview } from 'amo/api/reviews';
-import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
-import { refreshAddon, sanitizeHTML } from 'core/utils';
+import {
+  setDenormalizedReview as _setDenormalizedReview, setReview,
+} from 'amo/actions/reviews';
+import { refreshAddon as _refreshAddon, sanitizeHTML } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import defaultLocalStateCreator, { LocalState } from 'core/localState';
@@ -269,10 +271,10 @@ export const mapDispatchToProps = (
   // The mapped properties that allow overrides do so for testing purposes.
   return {
     refreshAddon: ownProps.refreshAddon || (({ addonSlug, apiState }) => {
-      return refreshAddon({ addonSlug, apiState, dispatch });
+      return _refreshAddon({ addonSlug, apiState, dispatch });
     }),
     setDenormalizedReview: (review) => {
-      dispatch(setDenormalizedReview(review));
+      dispatch(_setDenormalizedReview(review));
     },
     updateReviewText: ownProps.updateReviewText || ((params) => {
       return submitReview(params)
