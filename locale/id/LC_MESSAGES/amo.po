@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 07:52+0000\n"
+"PO-Revision-Date: 2018-06-21 08:31+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1938,11 +1938,11 @@ msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:525
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Berikan pengguna informasi lebih banyak mengenai Anda. Bidang-bidang ini tidak wajib, namun akan membantu pengguna lainnya mengenal Anda lebih baik."
 
 #: src/amo/components/UserProfileEdit/index.js:530
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Berikan pengguna informasi lebih banyak mengenai Anda. Bidang-bidang ini tidak wajib, namun akan membantu pengguna lainnya mengenal %(username)s lebih baik."
 
 #: src/amo/components/UserProfileEdit/index.js:539
 msgid "Display Name"
@@ -1950,7 +1950,7 @@ msgstr "Nama Tampilan"
 
 #: src/amo/components/UserProfileEdit/index.js:571
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "URL ini hanya terlihat oleh pengguna yang adalah pengembang."
 
 #: src/amo/components/UserProfileEdit/index.js:613
 msgid "Introduce yourself to the community if you like"
@@ -1962,7 +1962,7 @@ msgstr "Perkenalkan %(username)s pada komunitas"
 
 #: src/amo/components/UserProfileEdit/index.js:629
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Sebagian HTML didukung: %(htmlTags)s. Tautan ini terlarang."
 
 #: src/amo/components/UserProfileEdit/index.js:651
 msgid "Notifications"
@@ -1970,11 +1970,11 @@ msgstr "Notifikasi"
 
 #: src/amo/components/UserProfileEdit/index.js:654
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Sewaktu-waktu, Mozilla akan mengirimi Anda surel mengenai rilis yang akan datang dan acara pengaya. Silakan memilih topik yang Anda minati."
 
 #: src/amo/components/UserProfileEdit/index.js:658
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Sewaktu-waktu, Mozilla akan mengirimi pengguna ini surel mengenai rilis yang akan datang dan acara pengaya. Silakan memilih topik yang mungkin diminati pengguna ini."
 
 #: src/amo/components/UserProfileEdit/index.js:672
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
