@@ -1223,6 +1223,12 @@ babel-plugin-check-es2015-constants@^6.22.0:
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-dynamic-import-node@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-1.2.0.tgz#f91631e703e0595e47d4beafbb088576c87fbeee"
+  dependencies:
+    babel-plugin-syntax-dynamic-import "^6.18.0"
+
 babel-plugin-istanbul@^4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/babel-plugin-istanbul/-/babel-plugin-istanbul-4.1.6.tgz#36c59b2192efce81c5b378321b74175add1c9a45"
@@ -7715,6 +7721,10 @@ move-concurrently@^1.0.1:
     mkdirp "^0.5.1"
     rimraf "^2.5.4"
     run-queue "^1.0.3"
+
+mozilla-hybrid-content-telemetry@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/mozilla-hybrid-content-telemetry/-/mozilla-hybrid-content-telemetry-1.1.1.tgz#a277c5c307688a7e0e764d8884d820574dcc14c6"
 
 mozilla-version-comparator@1.0.2:
   version "1.0.2"

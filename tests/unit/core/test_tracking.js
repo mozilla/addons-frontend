@@ -1,7 +1,10 @@
 /* global window */
+import hct from 'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib';
+
 import {
   Tracking,
   isDoNotTrackEnabled,
+  filterIdentifier,
   getAddonEventCategory,
   getAddonTypeForTracking,
 } from 'core/tracking';
@@ -15,6 +18,7 @@ import {
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
+  CLICK_CATEGORY,
   INSTALL_ACTION,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
@@ -36,25 +40,25 @@ import {
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
 
+function stubConfig(overrides = {}) {
+  const config = {
+    trackingEnabled: true,
+    trackingId: 'sample-tracking-id',
+    ...overrides,
+  };
+  return { get: sinon.spy((key) => config[key]) };
+}
+
+function createTracking(overrides = {}) {
+  return new Tracking({
+    _isDoNotTrackEnabled: () => false,
+    _config: stubConfig(),
+    ...overrides,
+  });
+}
+
 describe(__filename, () => {
   describe('Tracking', () => {
-    function stubConfig(overrides = {}) {
-      const config = {
-        trackingEnabled: true,
-        trackingId: 'sample-tracking-id',
-        ...overrides,
-      };
-      return { get: sinon.spy((key) => config[key]) };
-    }
-
-    function createTracking(overrides = {}) {
-      return new Tracking({
-        _isDoNotTrackEnabled: () => false,
-        _config: stubConfig(),
-        ...overrides,
-      });
-    }
-
     beforeEach(() => {
       window.ga = sinon.stub();
     });
@@ -423,6 +427,196 @@ describe(__filename, () => {
       });
 
       sinon.assert.calledWith(fakeLog.info, 'Do Not Track is enabled');
+    });
+  });
+
+  describe('Hybrid Content Telemetry filterIdentifier()', () => {
+    it('should return content up to the default max length', () => {
+      expect(filterIdentifier('abcdefghijklmnopqrstuvwxyz').length).toEqual(20);
+    });
+
+    it('should return content up to the supplie max length', () => {
+      expect(
+        filterIdentifier('abcdefghijklmnopqrstuvwxyz', { maxLen: 10 }).length,
+      ).toEqual(10);
+    });
+
+    it('should return content filtered for telemetry', () => {
+      expect(filterIdentifier('a/bcde/-#/._fgh', { maxLen: 10 })).toEqual(
+        'abcde_fgh',
+      );
+    });
+  });
+
+  describe('Tracking constants should not be changed or it risks breaking tracking stats', () => {
+    it('should not change the tracking constant for invalid', () => {
+      expect(TRACKING_TYPE_INVALID).toEqual('invalid');
+    });
+
+    it('should not change the tracking constant for an extension', () => {
+      expect(TRACKING_TYPE_EXTENSION).toEqual('addon');
+    });
+
+    it('should not change the tracking constant for theme', () => {
+      expect(TRACKING_TYPE_THEME).toEqual('theme');
+    });
+
+    it('should not change the tracking constant for static theme', () => {
+      expect(TRACKING_TYPE_STATIC_THEME).toEqual('statictheme');
+    });
+
+    it('should not change the tracking category constants for theme installs', () => {
+      expect(INSTALL_THEME_CATEGORY).toEqual('AMO Theme Installs');
+    });
+
+    it('should not change the tracking category constants for extension installs', () => {
+      expect(INSTALL_EXTENSION_CATEGORY).toEqual('AMO Addon Installs');
+    });
+
+    it('should not change the tracking category constants for starting theme installs', () => {
+      expect(INSTALL_STARTED_THEME_CATEGORY).toEqual(
+        'AMO Theme Installs Started',
+      );
+    });
+
+    it('should not change the tracking category constants for starting extension installs', () => {
+      expect(INSTALL_STARTED_EXTENSION_CATEGORY).toEqual(
+        'AMO Addon Installs Started',
+      );
+    });
+
+    it('should not change the tracking category constants for theme uninstalls', () => {
+      expect(UNINSTALL_THEME_CATEGORY).toEqual('AMO Theme Uninstalls');
+    });
+
+    it('should not change the tracking category constants for extension uninstalls', () => {
+      expect(UNINSTALL_EXTENSION_CATEGORY).toEqual('AMO Addon Uninstalls');
+    });
+
+    it('should not change the tracking category constants for clicks', () => {
+      expect(CLICK_CATEGORY).toEqual('AMO Addon / Theme Clicks');
+    });
+  });
+
+  describe('Hybrid Content Telemetry', () => {
+    let importStub;
+    let registerEventsSpy;
+
+    beforeEach(() => {
+      importStub = sinon.stub(hct, 'initPromise').callsFake(() => {
+        return Promise.resolve(hct);
+      });
+      registerEventsSpy = sinon.spy(hct, 'registerEvents');
+    });
+
+    afterEach(() => {
+      importStub.restore();
+      registerEventsSpy.restore();
+    });
+
+    it('should return null from the init promise if hctEnabled is false', async () => {
+      const tracking = createTracking({
+        _config: stubConfig({ hctEnabled: false }),
+      });
+      const hctLib = await tracking.hctInitPromise;
+      expect(hctLib).toEqual(null);
+    });
+
+    it('should return hct object from the init promise if hctEnabled is true', async () => {
+      const tracking = createTracking({
+        _config: stubConfig({ hctEnabled: true }),
+      });
+      const hctLib = await tracking.hctInitPromise;
+      expect(hctLib).toHaveProperty('canUpload');
+      expect(hctLib).toHaveProperty('initPromise');
+      expect(hctLib).toHaveProperty('recordEvent');
+      expect(hctLib).toHaveProperty('registerEvents');
+    });
+
+    it('should call registerEvents if hctEnabled is true', async () => {
+      const tracking = createTracking({
+        _config: stubConfig({ hctEnabled: true }),
+      });
+      await tracking.hctInitPromise;
+      sinon.assert.calledOnce(registerEventsSpy);
+    });
+  });
+
+  describe('Hybrid Content Telemetry Events', () => {
+    let importStub;
+    let canUploadStub;
+    let recordEventSpy;
+    const trackingData = {
+      method: INSTALL_EXTENSION_CATEGORY,
+      object: TRACKING_TYPE_EXTENSION,
+      value: 'value',
+    };
+
+    beforeEach(() => {
+      importStub = sinon.stub(hct, 'initPromise').callsFake(() => {
+        return Promise.resolve(hct);
+      });
+      canUploadStub = sinon.stub(hct, 'canUpload');
+      recordEventSpy = sinon.spy(hct, 'recordEvent');
+    });
+
+    afterEach(() => {
+      importStub.restore();
+      canUploadStub.restore();
+      recordEventSpy.restore();
+    });
+
+    it('should not call recordEvent if canUpload returns false', async () => {
+      canUploadStub.callsFake(() => false);
+      const tracking = createTracking({
+        _config: stubConfig({ hctEnabled: true }),
+      });
+
+      await tracking._hct(trackingData);
+      sinon.assert.notCalled(recordEventSpy);
+    });
+
+    it('should call recordEvent if canUpload is true', async () => {
+      canUploadStub.callsFake(() => true);
+      const tracking = createTracking({
+        _config: stubConfig({ hctEnabled: true }),
+      });
+
+      await tracking._hct(trackingData);
+      sinon.assert.calledOnce(recordEventSpy);
+      sinon.assert.calledWith(
+        recordEventSpy,
+        'disco.interaction',
+        filterIdentifier(INSTALL_EXTENSION_CATEGORY),
+        filterIdentifier(TRACKING_TYPE_EXTENSION),
+        'value',
+      );
+    });
+
+    it('should throw if unregistered method is used', () => {
+      canUploadStub.callsFake(() => true);
+      const tracking = createTracking({
+        _config: stubConfig({ hctEnabled: true }),
+      });
+      const badTrackingData = Object.assign({}, trackingData, {
+        method: 'failMethod',
+      });
+      return expect(tracking._hct(badTrackingData)).rejects.toThrow(
+        /Method "failmethod" must be one of the registered values/,
+      );
+    });
+
+    it('should throw if unregistered object is used', () => {
+      canUploadStub.callsFake(() => true);
+      const tracking = createTracking({
+        _config: stubConfig({ hctEnabled: true }),
+      });
+      const badTrackingData = Object.assign({}, trackingData, {
+        object: 'failObject',
+      });
+      return expect(tracking._hct(badTrackingData)).rejects.toThrow(
+        /Object "failobject" must be one of the registered values/,
+      );
     });
   });
 });

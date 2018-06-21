@@ -8,5 +8,12 @@
     "transform-class-properties",
     "transform-es2015-modules-commonjs",
     "transform-flow-strip-types"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "babel-plugin-dynamic-import-node"
+      ]
+    }
+  }
 }

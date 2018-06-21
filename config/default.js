@@ -110,6 +110,7 @@ module.exports = {
     'enableStaticThemes',
     'experiments',
     'fxaConfig',
+    'hctEnabled',
     'isDeployed',
     'isDevelopment',
     'langMap',
@@ -255,6 +256,9 @@ module.exports = {
   trackingId: null,
   // send a page view on initialization.
   trackingSendInitPageView: true,
+
+  // Hybrid Content Telemetry, off by default.
+  hctEnabled: false,
 
   enablePostCssLoader: true,
 
