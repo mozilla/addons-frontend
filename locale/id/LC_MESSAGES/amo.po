@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 02:17+0000\n"
+"PO-Revision-Date: 2018-06-21 02:51+0000\n"
 "Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -851,8 +851,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
-"Kecuali di mana sebaliknya %(startNotedLink)syangtercatat%(endNotedLink)s, konten dari situs ini dilisensikan di bawah %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
-"v3.0%(endLicenseLink)s atau versi selanjutnya."
+"Terkecuali saat %(startNotedLink)sdicatat%(endNotedLink)s berbeda, konten dalam situs ini dilisensikan di bawah %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s atau versi lain yang lebih baru."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -1036,7 +1036,7 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr "Nikmati laman tab baru nan luar biasa dengan latar belakang yang dapat diubahsuai, info cuaca lokal dan masih banyak lagi"
+msgstr "Nikmati laman tab baru nan cantik dengan latar belakang yang dapat diubahsuai, info cuaca lokal dan masih banyak lagi"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
@@ -1060,7 +1060,7 @@ msgstr "Menu Hitam untuk Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:178
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr "Menu tarik-turun yang memudahkan akses ke layanan Google seperti Search dan Translate"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Page Translate"
@@ -1345,6 +1345,8 @@ msgstr "Kami tidak dapat menanggapi setiap laporan penyalahgunaan namun kami tet
 #: src/amo/components/ReportAbuseButton/index.js:131
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Jika Anda pikir pengaya ini melanggar %(linkTagStart)skebijakan pengaya Mozilla%(linkTagEnd)s atau memiliki masalah keamanan atau privasi, silakan laporkan masalah ini kepada Mozilla menggunakan "
+"formulir berikut."
 
 #: src/amo/components/ReportAbuseButton/index.js:144
 msgid "Report this add-on for abuse"
@@ -1376,7 +1378,7 @@ msgstr "Laporkan pengguna ini atas penyalahgunaan"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "Jika Anda pikir pengguna ini melanggar %(linkTagStart)sKebijakan Pengaya Mozilla%(linkTagEnd)s, silakan laporan pengguna ini kepada Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:122
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
@@ -1392,7 +1394,7 @@ msgstr "Anda telah melaporkan pengguna ini atas penyalahgunaan"
 
 #: src/amo/components/ReportUserAbuse/index.js:148
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "Kami telah menerima laporan Anda. Terima kasih telah memberitahu kami tentang keluhan Anda dengan pengguna ini."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults/index.js:65
 msgid "Search results"
@@ -1604,7 +1606,7 @@ msgstr "Jelajahi"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Jika Anda ingin berkontribusi namun tidak terlalu teknis, masih ada banyak cara untuk membantu:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1613,6 +1615,8 @@ msgstr "Berpartisipasilah di %(startLink)sforum%(endLink)s kami."
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
 msgstr ""
+"Berikan umpan balik untuk pengaya favorit Anda. Besar kemungkinan penyusun pengaya meningkatkan pengaya mereka dan menciptakan pengaya baru di saat mereka tahu banyak orang mengapresiasi hasil "
+"kerjanya."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
