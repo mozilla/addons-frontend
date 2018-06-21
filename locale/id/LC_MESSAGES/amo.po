@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -2158,7 +2158,7 @@ msgstr "Selanjutnya"
 
 #: src/core/components/Paginate/index.js:136
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Laman %(pageNumber)s dari %(totalPages)s"
+msgstr "Laman %(currentPage)s dari %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
