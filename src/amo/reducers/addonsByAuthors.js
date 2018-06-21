@@ -2,12 +2,13 @@
 import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEMES } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type {
   ExternalAddonType,
   SearchResultAddonType,
 } from 'core/types/addons';
+import { getAddonTypeFilter } from 'core/utils';
 
 
 type AddonId = number;
@@ -153,7 +154,8 @@ export const getAddonsForUsernames = (
       return state.byAddonId[id];
     })
     .filter((addon) => {
-      return addonType ? addon.type === addonType : true;
+      const addonTypeFilter = getAddonTypeFilter(addonType);
+      return addonType ? addonTypeFilter.includes(addon.type) : true;
     })
     .filter((addon) => {
       return addon.slug !== excludeSlug;
@@ -172,29 +174,33 @@ const reducer = (
   switch (action.type) {
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
+      const { addonType, authorUsernames, forAddonSlug } = action.payload;
 
-      if (action.payload.forAddonSlug) {
+      if (forAddonSlug) {
         newState.byAddonSlug = {
           ...newState.byAddonSlug,
-          [action.payload.forAddonSlug]: undefined,
+          [forAddonSlug]: undefined,
         };
       }
 
       newState.loadingFor[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType)] = true;
+        authorUsernames, addonType)] = true;
+
       newState.byAuthorNamesAndAddonType[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType)] = null;
+        authorUsernames, addonType)] = null;
 
       return newState;
     }
     case LOAD_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
-      const pageSize = action.payload.addonType === ADDON_TYPE_THEME ?
+      const { addonType, authorUsernames, forAddonSlug } = action.payload;
+
+      const pageSize = ADDON_TYPE_THEMES.includes(addonType) ?
         THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
-      if (action.payload.forAddonSlug) {
+      if (forAddonSlug) {
         newState.byAddonSlug = {
-          [action.payload.forAddonSlug]: action.payload.addons
+          [forAddonSlug]: action.payload.addons
             .slice(0, pageSize)
             .map((addon) => addon.id),
         };
@@ -204,7 +210,7 @@ const reducer = (
         .map((addon) => createInternalAddon(addon));
 
       const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType);
+        authorUsernames, addonType);
 
       newState.byAuthorNamesAndAddonType[authorNamesWithAddonType] = [];
       newState.loadingFor[authorNamesWithAddonType] = false;
