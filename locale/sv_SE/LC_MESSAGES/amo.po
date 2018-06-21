@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 03:32+0000\n"
+"PO-Revision-Date: 2018-06-21 03:38+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -692,22 +692,20 @@ msgid "Remove"
 msgstr "Ta bort"
 
 #: src/amo/components/EditableCollectionAddon/index.js:116
-#, fuzzy
 msgid "User comment"
-msgstr "Användare sedan"
+msgstr "Användarkommentar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Om detta tillägg"
+msgstr "Lägg till en kommentar om den här tillägget."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: src/amo/components/EditableCollectionAddon/index.js:149
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -978,14 +976,12 @@ msgid "See more translation tools"
 msgstr "Se fler översättningsverktyg"
 
 #: src/amo/components/Home/index.js:246
-#, fuzzy
 msgid "Privacy matters"
 msgstr "Sekretessverktyg"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Se fler flikutökningar"
+msgstr "Se fler sekretessutökningar"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
@@ -1041,27 +1037,27 @@ msgstr "Vinnare av Quantum Extensions Challenge! Lyssna på live-radio från hel
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Tabliss"
-msgstr ""
+msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Njut av en underbar ny fliksida med anpassningsbara bakgrunder, lokalt väder och mer"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Lägg till en social ‘Dela’-knapp i Firefox verktygsfält"
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Ett kraftfullt sätt att hitta arkiverade versioner av äldre webbsidor"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Black Menu for Google"
@@ -1100,9 +1096,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Klipp ut, spara och organisera dina favoritsaker på webben"
+msgstr "Visuella bokmärken för dina favoritplatser på webben"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1129,13 +1124,12 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "Markera text på vilken webbsida som helst för att dra upp en användbar sökmeny"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Öka nedladdningshastigheten med multi-threading stöd"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1570,9 +1564,8 @@ msgid "No theme preview available"
 msgstr "Ingen förhandsgranskning för tema är tillgänglig"
 
 #: src/amo/components/SearchResult/index.js:133
-#, fuzzy
 msgid "Add-on note"
-msgstr "Ikon för tillägg"
+msgstr "Tilläggsanteckning"
 
 #: src/amo/components/SearchResult/index.js:149
 msgid "%(total)s user"
@@ -1868,14 +1861,12 @@ msgid "Add-ons Home Page"
 msgstr "Hemsida för tillägg"
 
 #: src/amo/components/UserProfile/index.js:127
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Tillägg av dessa utvecklare"
+msgstr "Utvecklare av tillägg"
 
 #: src/amo/components/UserProfile/index.js:133
-#, fuzzy
 msgid "Theme artist"
-msgstr "Teman av dessa artister"
+msgstr "Konstnär för tema"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
@@ -2174,9 +2165,8 @@ msgid "Next"
 msgstr "Nästa"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Sida %(pageNumber)s av %(totalPages)s"
+msgstr "Sida %(currentPage)s av %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2208,7 +2198,7 @@ msgstr "Skickar in"
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "Ta bort"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
