@@ -6,7 +6,7 @@ import * as React from 'react';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import 'react-photoswipe/lib/photoswipe.css';
 
-import 'amo/css/ScreenShots.scss';
+import './styles.scss';
 
 type ThumbBounds = false | {|
   w: number,
