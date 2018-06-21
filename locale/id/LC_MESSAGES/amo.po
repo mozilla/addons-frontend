@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 01:11+0000\n"
+"PO-Revision-Date: 2018-06-21 01:12+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -697,11 +697,11 @@ msgstr "Tambahkan komentar tentang pengaya ini"
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: src/amo/components/EditableCollectionAddon/index.js:149
 msgid "Edit"
-msgstr ""
+msgstr "Sunting"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1551,9 +1551,8 @@ msgid "No theme preview available"
 msgstr "Pratampil tema tak tersedia"
 
 #: src/amo/components/SearchResult/index.js:133
-#, fuzzy
 msgid "Add-on note"
-msgstr "Ikon pengaya"
+msgstr "Catatan pengaya"
 
 #: src/amo/components/SearchResult/index.js:149
 msgid "%(total)s user"
@@ -1841,9 +1840,8 @@ msgid "Add-ons Home Page"
 msgstr "Beranda Pengaya"
 
 #: src/amo/components/UserProfile/index.js:127
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Pengaya oleh pengembang ini"
+msgstr "Pengembang pengaya"
 
 #: src/amo/components/UserProfile/index.js:133
 #, fuzzy
@@ -2145,7 +2143,6 @@ msgid "Next"
 msgstr "Selanjutnya"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Laman %(pageNumber)s dari %(totalPages)s"
 
