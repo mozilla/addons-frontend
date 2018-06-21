@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 06:49+0000\n"
+"PO-Revision-Date: 2018-06-21 07:08+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1635,10 +1635,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Jika Anda ingin mengetahui lebih lanjut tentang bagaimana mengelola pengaya di Firefox, atau perlu menemukan dukungan Firefox, silakan mengunjungi %(startSUMOLink)sDukungan%(endSUMOLink)s Mozilla. "
+"Jika Anda tidak menemukan jawaba di sana, Anda dapat %(startForumLink)sbertanya di forum komunitas kami%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sInformasi mengenai cara menghubungi tim pengaya Mozilla dapat ditemukan di sini%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1649,6 +1651,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), adalah situs resmi Mozilla untuk menemukan dan memasang pengaya untuk peramban Firefox. Pengaya membantu ANda mengubah dan menjadikan pengalaman penjelajahan Anda menjadi "
+"lebih personal dengan menambahkan fitur baru untuk Firefox, meningkatkan interaksi Anda dengan konten Web, dan mengubah tampilan peramban Anda."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
@@ -1675,10 +1679,12 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla adalah pejuang nirlaba di Internet, kami membangun Firefox untuk membantu Internet tetap sehat, terbuka dan bisa diakses siapa saja. Pengaya mendukung pilihan pengguna dan pengubahsuaian di "
+"Firefox, dan Anda dapat berkontribusi dengan berbagai cara berikut:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sBuat pengaya Anda sendiri%(endLink)s. Kami menyediakan fasilitas hosting gratis dan layanan yang diperbarui dan dapat membantu Anda menjangkau pengguna dalam jumlah besar."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
