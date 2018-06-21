@@ -13,14 +13,19 @@ import './styles.scss';
 
 
 type Props = {|
-  dispatch: DispatchFunc,
-  heroBanners: Object,
   name: string,
   random?: boolean,
-  sections: Array<HeroSection>,
+  sections: Array<React.Element<typeof HeroSection>>,
 |};
 
-export class HeroBase extends React.Component<Props> {
+type InjectedProps = {|
+  dispatch: DispatchFunc,
+  heroBanners: Object,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class HeroBase extends React.Component<InternalProps> {
   componentWillMount() {
     const {
       dispatch,
@@ -56,6 +61,8 @@ export const mapStateToProps = (state: Object) => {
   return { heroBanners: state.heroBanners };
 };
 
-export default compose(
+const Hero: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
 )(HeroBase);
+
+export default Hero;

@@ -28,15 +28,20 @@ import './styles.scss';
 
 
 type Props = {|
-  abuseReport: AddonAbuseState,
   addon: AddonType,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  loading: bool,
-  i18n: I18nType,
 |};
 
-export class ReportAbuseButtonBase extends React.Component<Props> {
+type InjectedProps = {|
+  abuseReport: AddonAbuseState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+  loading: bool,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   textarea: React.ElementRef<typeof Textarea>;
 
   dismissReportUI = (event: SyntheticEvent<any>) => {
@@ -229,8 +234,10 @@ export const mapStateToProps = (
   };
 };
 
-export default compose(
+const ReportAbuseButton: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ name: 'ReportAbuseButton' }),
 )(ReportAbuseButtonBase);
+
+export default ReportAbuseButton;

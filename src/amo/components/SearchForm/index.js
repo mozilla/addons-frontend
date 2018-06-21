@@ -43,7 +43,7 @@ export class SearchFormBase extends React.Component<Props> {
   }
 
   render() {
-    const { className, i18n, query } = this.props;
+    const { className, i18n, query, router } = this.props;
 
     return (
       <form
@@ -54,6 +54,7 @@ export class SearchFormBase extends React.Component<Props> {
       >
         <AutoSearchInput
           inputName="q"
+          location={router.location}
           onSearch={this.onSearch}
           onSuggestionSelected={this.onSuggestionSelected}
           query={query}

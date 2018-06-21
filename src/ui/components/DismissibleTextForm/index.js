@@ -1,6 +1,7 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import Textarea from 'react-textarea-autosize';
@@ -25,18 +26,23 @@ export type OnSubmitParams = {|
 
 type Props = {|
   className?: string,
-  onDelete: () => void,
+  onDelete?: null | () => void,
   onDismiss: () => void,
   onSubmit: (params: OnSubmitParams) => void,
-  i18n: I18nType,
   isSubmitting?: boolean,
   microButtons?: boolean,
   placeholder?: string,
   submitButtonClassName?: string,
   submitButtonText?: string,
   submitButtonInProgressText?: string,
-  text?: string,
+  text?: null | string,
 |};
+
+type InjectedProps = {|
+  i18n: I18nType,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
 
 /*
  * This renders a form with an auto-resizing textarea,
@@ -48,14 +54,14 @@ type Props = {|
  * be shown and hidden, controlled by some other button but
  * the parent must do the showing and hiding.
  */
-export class DismissibleTextFormBase extends React.Component<Props, State> {
+export class DismissibleTextFormBase extends React.Component<InternalProps, State> {
   textarea: React.ElementRef<typeof Textarea>;
 
   static defaultProps = {
     isSubmitting: false,
   }
 
-  constructor(props: Props) {
+  constructor(props: InternalProps) {
     super(props);
     const initialText = props.text || '';
     this.state = { initialText, text: initialText };
@@ -70,6 +76,7 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
   onDelete = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
+    invariant(this.props.onDelete, 'props.onDelete() was not defined');
     this.props.onDelete();
   }
 
@@ -176,6 +183,8 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
   }
 }
 
-export default compose(
+const DismissibleTextForm: React.ComponentType<Props> = compose(
   translate(),
 )(DismissibleTextFormBase);
+
+export default DismissibleTextForm;

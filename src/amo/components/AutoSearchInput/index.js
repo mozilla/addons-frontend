@@ -47,15 +47,11 @@ export type SuggestionType = {|
 export type SearchFilters = Object;
 
 type Props = {|
-  errorHandler: ErrorHandlerType,
-  debounce: typeof defaultDebounce,
-  dispatch: DispatchFunc,
-  i18n: I18nType,
+  debounce?: typeof defaultDebounce,
   inputLabelText?: string,
   // This is the name property of the <input> tag.
   inputName: string,
   inputPlaceholder?: string,
-  loadingSuggestions: boolean,
   location: ReactRouterLocation,
   onSearch: (SearchFilters) => void,
   onSuggestionSelected: (SuggestionType) => void,
@@ -63,9 +59,22 @@ type Props = {|
   // This is accessibility text for what selecting a suggestion will do.
   selectSuggestionText: string,
   showInputLabel?: boolean,
+|};
+
+type MappedProps = {|
   suggestions: Array<SuggestionType>,
+  loadingSuggestions: boolean,
   userAgentInfo: UserAgentInfoType,
 |};
+
+type InjectedProps = {|
+  ...MappedProps,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   autocompleteIsOpen: boolean,
@@ -95,15 +104,15 @@ type OnSearchChangeParams = {|
     | 'type'
 |};
 
-export class AutoSearchInputBase extends React.Component<Props, State> {
+export class AutoSearchInputBase extends React.Component<InternalProps, State> {
+  dispatchAutocompleteStart: (filters: Object) => void;
   searchInput: React.ElementRef<'input'> | null;
 
   static defaultProps = {
-    debounce: defaultDebounce,
     showInputLabel: true,
   };
 
-  constructor(props: Props) {
+  constructor(props: InternalProps) {
     super(props);
     invariant(props.inputName, 'The inputName property is required');
     invariant(props.onSearch, 'The onSearch property is required');
@@ -112,13 +121,23 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
     invariant(props.selectSuggestionText,
       'The selectSuggestionText property is required');
 
+    const debounce = props.debounce || defaultDebounce;
+    this.dispatchAutocompleteStart = debounce(({ filters }) => {
+      const { dispatch, errorHandler } = this.props;
+
+      dispatch(autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters,
+      }));
+    }, 200, { trailing: true });
+
     this.state = {
       autocompleteIsOpen: false,
       searchValue: props.query || '',
     };
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: InternalProps) {
     const { query } = nextProps;
 
     if (this.props.query !== query) {
@@ -140,15 +159,6 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
       query,
     };
   }
-
-  dispatchAutocompleteStart = this.props.debounce(({ filters }) => {
-    const { dispatch, errorHandler } = this.props;
-
-    dispatch(autocompleteStart({
-      errorHandlerId: errorHandler.id,
-      filters,
-    }));
-  }, 200, { trailing: true })
 
   handleSuggestionsClearRequested = () => {
     this.setState({ autocompleteIsOpen: false });
@@ -357,7 +367,7 @@ type AutocompleteState = Object;
 
 const mapStateToProps = (
   state: {| api: ApiStateType, autocomplete: AutocompleteState |}
-): $Shape<Props> => {
+): MappedProps => {
   return {
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
@@ -367,9 +377,11 @@ const mapStateToProps = (
 
 export const extractId = (ownProps: Props): string => ownProps.inputName;
 
-export default compose(
+const AutoSearchInput: React.ComponentType<Props> = compose(
   withRouter,
   withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),
   translate(),
 )(AutoSearchInputBase);
+
+export default AutoSearchInput;

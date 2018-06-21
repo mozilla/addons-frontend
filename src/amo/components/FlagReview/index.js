@@ -14,16 +14,21 @@ import type { DispatchFunc } from 'core/types/redux';
 
 
 type Props = {|
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
   buttonText: string,
   reason: FlagReviewReasonType,
   review: UserReviewType,
-  flagState: FlagState,
   wasFlaggedText: string,
 |};
 
-export class FlagReviewBase extends React.Component<Props> {
+type InjectedProps = {|
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  flagState: FlagState,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class FlagReviewBase extends React.Component<InternalProps> {
   onClick = (event: SyntheticEvent<any>) => {
     const { errorHandler, dispatch, review, reason } = this.props;
     event.preventDefault();
@@ -85,7 +90,9 @@ const mapStateToProps = (
   };
 };
 
-export default compose(
+const FlagReview: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   withErrorHandler({ name: 'FlagReview' }),
 )(FlagReviewBase);
+
+export default FlagReview;

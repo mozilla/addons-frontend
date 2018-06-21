@@ -31,25 +31,30 @@ import './styles.scss';
 
 
 type Props = {|
-  addons?: Array<AddonType>,
   addonType?: string,
   authorDisplayName: string,
   authorUsernames: Array<string>,
   className?: string,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
   forAddonSlug?: string,
-  i18n: I18nType,
-  loading?: boolean,
   numberOfAddons: number,
   showMore?: boolean,
 
-  // AddonCards prop this component also accepts
+  // AddonsCard accepts these props which are drilled in.
   showSummary?: boolean,
   type?: 'horizontal' | 'vertical',
 |};
 
-export class AddonsByAuthorsCardBase extends React.Component<Props> {
+type InjectedProps = {|
+  addons?: Array<AddonType>,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+  loading?: boolean,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     showSummary: false,
     type: 'horizontal',
@@ -66,7 +71,7 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
     addonType: newAddonType,
     authorUsernames: newAuthorNames,
     forAddonSlug: newForAddonSlug,
-  }: Props) {
+  }: InternalProps) {
     const {
       addonType: oldAddonType,
       authorUsernames: oldAuthorNames,
@@ -237,8 +242,10 @@ export const mapStateToProps = (
   return { addons, loading };
 };
 
-export default compose(
+const AddonsByAuthorsCard: React.ComponentType<Props> = compose(
   translate(),
   connect(mapStateToProps),
   withErrorHandler({ name: 'AddonsByAuthorsCard' }),
 )(AddonsByAuthorsCardBase);
+
+export default AddonsByAuthorsCard;

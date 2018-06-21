@@ -36,21 +36,26 @@ import type { ReactRouterLocation } from 'core/types/router';
 import './styles.scss';
 
 type Props = {|
-  addon?: AddonType,
-  editingReview: boolean,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  siteUserHasReplyPerm: boolean,
+  addon?: AddonType | null,
   isReplyToReviewId?: number,
-  i18n: I18nType,
   location: ReactRouterLocation,
-  review?: UserReviewType,
+  review?: UserReviewType | null,
+|};
+
+type InjectedProps = {|
+  dispatch: DispatchFunc,
+  editingReview: boolean,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
   replyingToReview: boolean,
   siteUser: UserType | null,
+  siteUserHasReplyPerm: boolean,
   submittingReply: boolean,
 |};
 
-export class AddonReviewListItemBase extends React.Component<Props> {
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class AddonReviewListItemBase extends React.Component<InternalProps> {
   onClickToEditReview = (event: SyntheticEvent<any>) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
@@ -130,6 +135,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
       addon,
       errorHandler,
       i18n,
+      location,
       replyingToReview,
       review,
       submittingReply,
@@ -168,6 +174,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
           <AddonReviewListItem
             addon={addon}
             isReplyToReviewId={review.id}
+            location={location}
             review={review.reply}
           />
         )}
@@ -319,7 +326,7 @@ export function mapStateToProps(
   };
 }
 
-const AddonReviewListItem = compose(
+const AddonReviewListItem: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   withErrorHandler({ name: 'AddonReviewListItem' }),
   translate({ withRef: true }),
