@@ -90,8 +90,9 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
     this.props.dispatch(fetchAddonsByAuthors({
       addonType,
       authorUsernames,
-      forAddonSlug,
       errorHandlerId: this.props.errorHandler.id,
+      forAddonSlug,
+      pageSize: this.props.numberOfAddons,
     }));
   }
 
