@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 03:13+0000\n"
+"PO-Revision-Date: 2018-06-21 04:29+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -693,9 +693,8 @@ msgid "User comment"
 msgstr "Komen pengguna"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Perihal add-on ini"
+msgstr "Tambah komen perihal add-on ini."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
@@ -975,14 +974,12 @@ msgid "See more translation tools"
 msgstr "Lihat selanjutnya ekstensi penterjemahan"
 
 #: src/amo/components/Home/index.js:246
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Alatan privasi"
+msgstr "Perihal privasi"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Lihat selanjutnya ekstensi tab"
+msgstr "Lihat ekstensi privasi selanjutnya"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
@@ -1097,9 +1094,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Klip, simpan & susun kegemaran anda dalam laman web"
+msgstr "Tandabuku visual untuk meletakkan web kegemaran anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1126,9 +1122,8 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "Serlahkan teks dalam halaman web untuk memaparkan menu carian"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Pengurus Muat turun (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
@@ -1562,9 +1557,8 @@ msgid "No theme preview available"
 msgstr "Tiada previu tema tersedia"
 
 #: src/amo/components/SearchResult/index.js:133
-#, fuzzy
 msgid "Add-on note"
-msgstr "Ikon add-on"
+msgstr "Nota add-on"
 
 #: src/amo/components/SearchResult/index.js:149
 msgid "%(total)s user"
@@ -1866,14 +1860,12 @@ msgid "Add-ons Home Page"
 msgstr "Halaman Utama Add-on"
 
 #: src/amo/components/UserProfile/index.js:127
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Add-ons oleh para pembangun ini"
+msgstr "Pembangun add-ons"
 
 #: src/amo/components/UserProfile/index.js:133
-#, fuzzy
 msgid "Theme artist"
-msgstr "Tema oleh para artis ini"
+msgstr "Artis tema"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
@@ -2172,9 +2164,8 @@ msgid "Next"
 msgstr "Berikut"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Halaman %(pageNumber)s daripada %(totalPages)s"
+msgstr "Halaman %(currentPage)s daripada %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
