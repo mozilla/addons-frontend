@@ -168,7 +168,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
   renderLogInToRate() {
     const { AuthenticateButton, addon, location } = this.props;
-    invariant(AuthenticateButton, 'props.AuthenticateButton is undefined');
+    invariant(AuthenticateButton, 'AuthenticateButton() is undefined');
     return (
       <div className="RatingManager-log-in-to-rate">
         <AuthenticateButton
@@ -205,9 +205,9 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName: addon.name });
 
-    invariant(AddonReview, 'props.AddonReview is undefined');
-    invariant(UserRating, 'props.UserRating is undefined');
-    invariant(ReportAbuseButton, 'props.ReportAbuseButton is undefined');
+    invariant(AddonReview, 'AddonReview() is undefined');
+    invariant(UserRating, 'UserRating() is undefined');
+    invariant(ReportAbuseButton, 'ReportAbuseButton() is undefined');
 
     return (
       <div className="RatingManager">

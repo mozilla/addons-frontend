@@ -61,7 +61,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
     const {
       addonType, categoriesState, dispatch, errorHandler, loading,
     } = this.props;
-    invariant(addonType, 'props.addonType is undefined');
+    invariant(addonType, 'addonType is undefined');
 
     if (!loading && !categoriesState) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
@@ -88,7 +88,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
       i18n,
       loading,
     } = this.props;
-    invariant(addonType, 'props.addonType is undefined');
+    invariant(addonType, 'addonType is undefined');
 
     let categories = [];
     if (

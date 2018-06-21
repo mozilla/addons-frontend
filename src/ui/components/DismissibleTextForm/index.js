@@ -76,7 +76,7 @@ export class DismissibleTextFormBase extends React.Component<InternalProps, Stat
   onDelete = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
-    invariant(this.props.onDelete, 'props.onDelete() is not defined');
+    invariant(this.props.onDelete, 'onDelete() is not defined');
     this.props.onDelete();
   }
 
