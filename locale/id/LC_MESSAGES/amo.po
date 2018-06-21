@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 07:08+0000\n"
+"PO-Revision-Date: 2018-06-21 07:52+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1691,6 +1691,8 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Bantu memperbaiki situs ini. Sumbernya terbuka dan Anda dapat melaporkan bug dan mengajukan perbaikan. Anda bisa memulai dengan %(startGoodFirstBugLink)sbug pertama%(endGoodFirstBugLink)s atau "
+"melihat semua isu terbuka untuk %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s AMO dan %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s di Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:100
 msgid ""
@@ -1822,11 +1824,13 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:85
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Saya adalah kreator pengaya, bisakah saya menanggapi tinjauan?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:91
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Ya, pencipta pengaya dapat memberikan satu tanggapan pada sebuah tinjauan. Anda dapat memulai sebuah topik diskusi dalam %(startLink)sforum%(endLink)s kami untuk terlibat dalam diskusi lanjutan atau"
+" tambahan."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
