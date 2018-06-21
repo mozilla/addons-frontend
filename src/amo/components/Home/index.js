@@ -17,6 +17,7 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import { getAddonTypeFilter } from 'core/utils';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 
@@ -229,7 +230,7 @@ export class HomeBase extends React.Component {
           footerLink={{
             pathname: '/search/',
             query: {
-              addonType: ADDON_TYPE_THEME,
+              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
               featured: true,
             },
           }}

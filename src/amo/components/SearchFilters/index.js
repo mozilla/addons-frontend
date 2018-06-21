@@ -22,6 +22,7 @@ import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
+import { getAddonTypeFilter } from 'core/utils';
 import ExpandableCard from 'ui/components/ExpandableCard';
 import Select from 'ui/components/Select';
 
@@ -103,7 +104,7 @@ export class SearchFiltersBase extends React.Component {
       { children: i18n.gettext('All'), value: NO_FILTER },
       { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
       { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
-      { children: i18n.gettext('Theme'), value: ADDON_TYPE_THEME },
+      { children: i18n.gettext('Theme'), value: getAddonTypeFilter(ADDON_TYPE_THEME) },
     ];
   }
 
