@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 06:31+0000\n"
+"PO-Revision-Date: 2018-06-21 06:42+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -584,14 +584,12 @@ msgid "Creator"
 msgstr "Auteur"
 
 #: src/amo/components/Collection/index.js:373
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Wilt u deze afbeelding echt verwijderen?"
+msgstr "Wilt u deze collectie echt verwijderen?"
 
 #: src/amo/components/Collection/index.js:376
-#, fuzzy
 msgid "Delete this collection"
-msgstr "Deze collectie bewerken"
+msgstr "Deze collectie verwijderen"
 
 #: src/amo/components/Collection/index.js:407
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -694,14 +692,12 @@ msgid "Remove"
 msgstr "Verwijderen"
 
 #: src/amo/components/EditableCollectionAddon/index.js:116
-#, fuzzy
 msgid "User comment"
-msgstr "Gebruiker sinds"
+msgstr "Gebruikersopmerking"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Over deze add-on"
+msgstr "Een opmerking over deze add-on toevoegen."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
@@ -977,14 +973,12 @@ msgid "See more translation tools"
 msgstr "Meer vertaalhulpmiddelen bekijken"
 
 #: src/amo/components/Home/index.js:246
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Privacyhulpmiddelen"
+msgstr "Privacyzaken"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Meer tabbladextensies bekijken"
+msgstr "Meer privacyextensies bekijken"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
@@ -1060,7 +1054,7 @@ msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Een krachtige manier om gearchiveerde versies van oudere webpagina’s te vinden"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Black Menu for Google"
@@ -1099,9 +1093,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Knip, bewaar en organiseer uw favoriete zaken op het internet"
+msgstr "Visuele bladwijzers voor uw favoriete plekken op het internet"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1128,13 +1121,12 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "Accentueer tekst op webpagina’s om een handig zoekmenu te tonen"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Verhoog downloadsnelheden met ondersteuning voor multithreading"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1569,9 +1561,8 @@ msgid "No theme preview available"
 msgstr "Geen themavoorbeeld beschikbaar"
 
 #: src/amo/components/SearchResult/index.js:133
-#, fuzzy
 msgid "Add-on note"
-msgstr "Add-onpictogram"
+msgstr "Add-onnotitie"
 
 #: src/amo/components/SearchResult/index.js:149
 msgid "%(total)s user"
@@ -1868,14 +1859,12 @@ msgid "Add-ons Home Page"
 msgstr "Add-ons-startpagina"
 
 #: src/amo/components/UserProfile/index.js:127
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Add-ons van deze ontwikkelaars"
+msgstr "Add-onsontwikkelaar"
 
 #: src/amo/components/UserProfile/index.js:133
-#, fuzzy
 msgid "Theme artist"
-msgstr "Thema’s van deze kunstenaars"
+msgstr "Thema-kunstenaar"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
@@ -2174,9 +2163,8 @@ msgid "Next"
 msgstr "Volgende"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Pagina %(pageNumber)s van %(totalPages)s"
+msgstr "Pagina %(currentPage)s van %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2208,7 +2196,7 @@ msgstr "Indienen"
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "Verwijderen"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
