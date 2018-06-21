@@ -32,7 +32,10 @@ import createStore from 'amo/store';
 import {
   createInternalAddon, fetchAddon as fetchAddonAction, loadAddons,
 } from 'core/reducers/addons';
-import { loadAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
+import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  loadAddonsByAuthors,
+} from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
@@ -148,7 +151,9 @@ describe(__filename, () => {
     return loadAddonsByAuthors({
       addons: addonsByAuthors,
       authorUsernames: ['foo'],
+      count: addonsByAuthors.length,
       forAddonSlug: addon.slug,
+      pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
     });
   };
 
