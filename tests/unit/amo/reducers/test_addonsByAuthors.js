@@ -16,7 +16,7 @@ import reducer, {
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeAuthor } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeAuthor, fakeTheme } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const fakeAuthorOne = { ...fakeAuthor, username: 'test', id: 51 };
@@ -207,6 +207,124 @@ describe(__filename, () => {
       // It should keep the add-ons by username so they can be added to
       // as is done on the UserProfile page.
       expect(state.byUsername).toMatchObject(firstState.byUsername);
+    });
+
+    it('does not remove the previously loaded add-ons for authorUsernames when type is different', () => {
+      const { id: userId, username } = fakeTheme.authors[0];
+
+      const prevState = reducer(
+        undefined,
+        loadAddonsByAuthors({
+          addonType: ADDON_TYPE_THEME,
+          addons: [fakeTheme],
+          authorUsernames: [username],
+          count: 1,
+          pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
+        }),
+      );
+
+      expect(prevState.byAddonId).toEqual({
+        [fakeTheme.id]: createInternalAddon(fakeTheme),
+      });
+
+      const state = reducer(
+        prevState,
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          authorUsernames: [username],
+          errorHandlerId: 'error-handler-id',
+          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+        }),
+      );
+
+      expect(state.byAddonId).toEqual({
+        [fakeTheme.id]: createInternalAddon(fakeTheme),
+      });
+      expect(state.byUsername).toEqual({
+        [username]: [fakeTheme.id],
+      });
+      expect(state.byUserId).toEqual({
+        [userId]: [fakeTheme.id],
+      });
+    });
+
+    it('does not remove the previously loaded add-ons for authorUsernames when forAddonSlug is specified', () => {
+      const { slug: forAddonSlug } = fakeAddon;
+      const { id: userId, username } = fakeAddon.authors[0];
+
+      const prevState = reducer(
+        undefined,
+        loadAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          addons: [fakeAddon],
+          authorUsernames: [username],
+          count: 1,
+          forAddonSlug,
+          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+        }),
+      );
+
+      expect(prevState.byAddonId).toEqual({
+        [fakeAddon.id]: createInternalAddon(fakeAddon),
+      });
+
+      const state = reducer(
+        prevState,
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          authorUsernames: [username],
+          errorHandlerId: 'error-handler-id',
+          forAddonSlug,
+          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+        }),
+      );
+
+      expect(state.byAddonId).toEqual({
+        [fakeAddon.id]: createInternalAddon(fakeAddon),
+      });
+      expect(state.byUsername).toEqual({
+        [username]: [fakeAddon.id],
+      });
+      expect(state.byUserId).toEqual({
+        [userId]: [fakeAddon.id],
+      });
+    });
+
+    it('removes the previously loaded add-ons for authorUsernames', () => {
+      const { id: userId, username } = fakeAddon.authors[0];
+
+      const prevState = reducer(
+        undefined,
+        loadAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          addons: [fakeAddon],
+          authorUsernames: [username],
+          count: 1,
+          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+        }),
+      );
+
+      expect(prevState.byAddonId).toEqual({
+        [fakeAddon.id]: createInternalAddon(fakeAddon),
+      });
+
+      const state = reducer(
+        prevState,
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          authorUsernames: [username],
+          errorHandlerId: 'error-handler-id',
+          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+        }),
+      );
+
+      expect(state.byAddonId).toEqual({});
+      expect(state.byUserId).toEqual({
+        [userId]: [],
+      });
+      expect(state.byUsername).toEqual({
+        [username]: [],
+      });
     });
 
     it('sets the loading state for authorUsernames on fetch', () => {

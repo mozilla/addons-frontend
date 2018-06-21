@@ -1,14 +1,17 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
 import AddonsByAuthorsCard, {
   AddonsByAuthorsCardBase,
 } from 'amo/components/AddonsByAuthorsCard';
+import AddonsCard from 'amo/components/AddonsCard';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
+import Paginate from 'core/components/Paginate';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   ADDON_TYPE_EXTENSION,
@@ -17,8 +20,8 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  SEARCH_SORT_POPULAR,
 } from 'core/constants';
-import AddonsCard from 'amo/components/AddonsCard';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -27,6 +30,7 @@ import {
 import {
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -81,15 +85,20 @@ describe(__filename, () => {
     ];
   }
 
-  function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
+  function addonsWithAuthorsOfType({
+    addonType,
+    multipleAuthors = false,
+    count = null,
+  }) {
     const pageSize =
       addonType === ADDON_TYPE_THEME
         ? THEMES_BY_AUTHORS_PAGE_SIZE
         : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
     const addons = [];
+    const nbAddons = count || pageSize;
 
-    for (let i = 0; i < pageSize; i++) {
+    for (let i = 0; i < nbAddons; i++) {
       addons.push({
         ...fakeAddon,
         id: i + 1,
@@ -113,8 +122,9 @@ describe(__filename, () => {
   function render(customProps = {}) {
     const props = {
       authorDisplayName: fakeAuthorOne.name,
-      numberOfAddons: 4,
       i18n: fakeI18n(),
+      location: fakeRouterLocation(),
+      numberOfAddons: 4,
       store: dispatchClientMetadata().store,
       ...customProps,
     };
@@ -130,13 +140,22 @@ describe(__filename, () => {
     showMore,
     multipleAuthors = false,
     numberOfAddons = 6,
+    count = null,
+    ...otherProps
   } = {}) {
     const authorUsernames = multipleAuthors
       ? [fakeAuthorOne.username, fakeAuthorTwo.username]
       : [fakeAuthorOne.username];
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({ addonType, multipleAuthors }));
+
+    store.dispatch(
+      addonsWithAuthorsOfType({
+        addonType,
+        count,
+        multipleAuthors,
+      }),
+    );
 
     return render({
       addonType,
@@ -145,6 +164,7 @@ describe(__filename, () => {
       errorHandler,
       numberOfAddons,
       store,
+      ...otherProps,
     });
   }
 
@@ -323,8 +343,8 @@ describe(__filename, () => {
       }),
     );
 
-    // Make sure an authorUsernames update even with the same addonType dispatches
-    // a fetch action.
+    // Make sure an authorUsernames update even with the same addonType
+    // dispatches a fetch action.
     dispatchSpy.resetHistory();
 
     root.setProps({
@@ -765,5 +785,187 @@ describe(__filename, () => {
       'header',
       'Add-ons by these developers',
     );
+  });
+
+  describe('with pagination', () => {
+    const renderWithPagination = (props) =>
+      renderAddonsWithType({
+        paginate: true,
+        pathname: '/some/link',
+        ...props,
+      });
+
+    it('shows a paginator when `count` is greater than the number of add-ons to display', () => {
+      const count = 4;
+      const location = fakeRouterLocation();
+      const numberOfAddons = 1;
+      const pathname = '/some/pathname';
+
+      const root = renderWithPagination({
+        count,
+        location,
+        numberOfAddons,
+        pathname,
+      });
+
+      const paginator = shallow(root.find(AddonsCard).prop('footer'));
+
+      expect(paginator.instance()).toBeInstanceOf(Paginate);
+      expect(paginator).toHaveProp('count', count);
+      expect(paginator).toHaveProp('currentPage', 1);
+      expect(paginator).toHaveProp('pageParam', 'page');
+      expect(paginator).toHaveProp('pathname', pathname);
+      expect(paginator).toHaveProp('perPage', numberOfAddons);
+      expect(paginator).toHaveProp('queryParams', location.query);
+    });
+
+    it('does not show a paginator when `count` is less than the number of add-ons to display', () => {
+      const root = renderWithPagination({
+        count: 4,
+        numberOfAddons: 10,
+      });
+
+      expect(root.find(AddonsCard).prop('footer')).toEqual(null);
+    });
+
+    it('passes all the query parameters to the Paginate component', () => {
+      const location = fakeRouterLocation({
+        query: {
+          page: 2,
+          other: 'param',
+        },
+      });
+
+      const root = renderWithPagination({ location });
+
+      expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
+        'currentPage',
+        2,
+      );
+      expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
+        'queryParams',
+        location.query,
+      );
+    });
+
+    it('sets the current page based on the `pageParam`', () => {
+      const pageParam = 'my-page-parameter';
+      const location = fakeRouterLocation({
+        query: { [pageParam]: 123 },
+      });
+
+      const root = renderWithPagination({ location, pageParam });
+
+      expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
+        'currentPage',
+        123,
+      );
+    });
+
+    it('sets the current page to 1 when there is no query parameter', () => {
+      const location = fakeRouterLocation({
+        query: {},
+      });
+
+      const root = renderWithPagination({ location });
+
+      expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
+        'currentPage',
+        1,
+      );
+    });
+
+    it('sets the current page to 1 when query parameter has an incorrect value', () => {
+      const location = fakeRouterLocation({
+        query: { page: 'invalid' },
+      });
+
+      const root = renderWithPagination({ location });
+
+      expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
+        'currentPage',
+        1,
+      );
+    });
+
+    it('sets the current page to 1 when query parameter has a negative value', () => {
+      const location = fakeRouterLocation({
+        query: { page: -11 },
+      });
+
+      const root = renderWithPagination({ location });
+
+      expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
+        'currentPage',
+        1,
+      );
+    });
+
+    it('should dispatch a fetch action with `page` and `sort` parameters', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      const authorUsernames = ['test2'];
+      const numberOfAddons = 4;
+
+      renderWithPagination({
+        addonType: ADDON_TYPE_EXTENSION,
+        authorUsernames,
+        errorHandler,
+        numberOfAddons,
+        store,
+      });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          authorUsernames,
+          errorHandlerId: errorHandler.id,
+          page: 1,
+          pageSize: numberOfAddons,
+          sort: SEARCH_SORT_POPULAR,
+        }),
+      );
+    });
+
+    it('should dispatch a fetch action if page changes', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      const authorUsernames = ['test2'];
+      const numberOfAddons = 4;
+      const location = fakeRouterLocation({ query: { page: 1 } });
+
+      const root = renderWithPagination({
+        addonType: ADDON_TYPE_EXTENSION,
+        authorUsernames,
+        errorHandler,
+        location,
+        numberOfAddons,
+        store,
+      });
+
+      dispatchSpy.resetHistory();
+
+      const newPage = 2;
+      root.setProps({
+        location: fakeRouterLocation({ query: { page: newPage } }),
+      });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          authorUsernames,
+          errorHandlerId: errorHandler.id,
+          page: newPage,
+          pageSize: numberOfAddons,
+          sort: SEARCH_SORT_POPULAR,
+        }),
+      );
+    });
   });
 });

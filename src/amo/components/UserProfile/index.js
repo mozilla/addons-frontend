@@ -85,6 +85,14 @@ export class UserProfileBase extends React.Component<Props> {
     }
   }
 
+  getURL() {
+    const { user } = this.props;
+
+    invariant(user, 'user is required');
+
+    return `/user/${user.username}/`;
+  }
+
   getEditURL() {
     const { currentUser, user } = this.props;
 
@@ -260,9 +268,12 @@ export class UserProfileBase extends React.Component<Props> {
                   authorDisplayName={user.name}
                   authorUsernames={[user.username]}
                   numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
+                  pageParam="page_e"
+                  paginate
+                  pathname={this.getURL()}
+                  showMore={false}
                   showSummary
                   type="vertical"
-                  showMore={false}
                 />
 
                 <AddonsByAuthorsCard
@@ -270,6 +281,9 @@ export class UserProfileBase extends React.Component<Props> {
                   authorDisplayName={user.name}
                   authorUsernames={[user.username]}
                   numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
+                  pageParam="page_t"
+                  paginate
+                  pathname={this.getURL()}
                   showMore={false}
                 />
               </div>

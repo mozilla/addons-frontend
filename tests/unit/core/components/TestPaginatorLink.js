@@ -53,6 +53,21 @@ describe(__filename, () => {
     expect(link.find('.my-cool-class')).toHaveLength(1);
   });
 
+  it('uses the `pageParam` to configure the `page` query parameter', () => {
+    const page = 3;
+    const pathname = '/some/link';
+
+    const link = render({
+      page,
+      pageParam: 'p',
+      pathname,
+    });
+
+    expect(link.find(Button).prop('to')).toHaveProperty('query', {
+      p: page,
+    });
+  });
+
   describe('when the link is to the current page', () => {
     it('does not contain a link and is disabled', () => {
       const item = render({ currentPage: 3, page: 3 });

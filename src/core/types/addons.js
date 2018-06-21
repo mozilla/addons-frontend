@@ -182,6 +182,6 @@ export type CollectionAddonType = {|
 
 export type SearchResultAddonType = {|
   ...AddonType,
-  authors?: PartialAddonAuthorType,
+  authors?: Array<PartialAddonAuthorType>,
   current_version?: PartialAddonVersionType,
 |};

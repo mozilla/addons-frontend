@@ -218,10 +218,11 @@ describe(__filename, () => {
 
     const firstLink = root.find(PaginatorLink).first();
     // Just do a quick sanity check on the first link.
-    expect(firstLink).toHaveProp('queryParams', queryParams);
     expect(firstLink).toHaveProp('currentPage', currentPage);
-    expect(firstLink).toHaveProp('pathname', pathname);
     expect(firstLink).toHaveProp('pageCount', pageCount);
+    expect(firstLink).toHaveProp('pageParam', 'page');
+    expect(firstLink).toHaveProp('pathname', pathname);
+    expect(firstLink).toHaveProp('queryParams', queryParams);
   });
 
   it('defaults currentPage to 1', () => {
@@ -250,5 +251,13 @@ describe(__filename, () => {
 
     const firstLink = root.find(PaginatorLink).first();
     expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('passes `pageParam` to paginator links if supplied', () => {
+    const pageParam = 'my-page-filter';
+    const root = renderPaginate({ count: 50, pageParam });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('pageParam', pageParam);
   });
 });

@@ -22,6 +22,7 @@ export class PaginateBase extends React.Component {
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number,
     i18n: PropTypes.object.isRequired,
+    pageParam: PropTypes.string,
     pathname: PropTypes.string.isRequired,
     perPage: PropTypes.number,
     queryParams: PropTypes.object,
@@ -29,6 +30,7 @@ export class PaginateBase extends React.Component {
   };
 
   static defaultProps = {
+    pageParam: 'page',
     perPage: DEFAULT_API_PAGE_SIZE,
     showPages: 7,
   };
@@ -77,7 +79,14 @@ export class PaginateBase extends React.Component {
   }
 
   render() {
-    const { LinkComponent, count, i18n, pathname, queryParams } = this.props;
+    const {
+      LinkComponent,
+      count,
+      i18n,
+      pageParam,
+      pathname,
+      queryParams,
+    } = this.props;
 
     const pageCount = this.pageCount();
     const currentPage = this.getCurrentPage();
@@ -95,8 +104,8 @@ export class PaginateBase extends React.Component {
     const linkParams = {
       LinkComponent,
       currentPage,
-      pathname,
       pageCount,
+      pathname,
       queryParams,
     };
 
@@ -108,15 +117,22 @@ export class PaginateBase extends React.Component {
             {...linkParams}
             className="Paginate-item--previous"
             page={currentPage - 1}
+            pageParam={pageParam}
             text={i18n.gettext('Previous')}
           />
           {this.visiblePages({ pageCount }).map((page) => (
-            <PaginatorLink {...linkParams} key={`page-${page}`} page={page} />
+            <PaginatorLink
+              {...linkParams}
+              key={`page-${page}`}
+              page={page}
+              pageParam={pageParam}
+            />
           ))}
           <PaginatorLink
             {...linkParams}
             className="Paginate-item--next"
             page={currentPage + 1}
+            pageParam={pageParam}
             text={i18n.gettext('Next')}
           />
         </div>

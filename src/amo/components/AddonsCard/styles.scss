@@ -8,12 +8,16 @@
 
     .Card-contents {
       background: $white;
-      border-bottom-left-radius: $border-radius-default;
-      border-bottom-right-radius: $border-radius-default;
       padding: 12px 6px;
+
+      .Card-footer-text ~ &,
+      .Card-footer-link ~ & {
+        border-bottom-left-radius: $border-radius-default;
+        border-bottom-right-radius: $border-radius-default;
+      }
     }
 
-    .Card-footer,
+    .Card-footer-text,
     .Card-footer-link {
       @include end(0);
       @include text-align-end();
