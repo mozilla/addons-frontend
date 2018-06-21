@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 03:42+0000\n"
+"PO-Revision-Date: 2018-06-21 03:55+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1160,7 +1160,7 @@ msgstr "Ubah tampilan peramban Anda. Pilih dari ribuan tema untuk mengubah tampi
 
 #: src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "Jelajahi alat dan fitur tangkas untuk mengubahsuai Firefox dan menjadi peramban sepenuhnya milik Anda."
+msgstr "Jelajahi alat dan fitur ampuh untuk mengubahsuai Firefox dan menjadikannya peramban Anda sepenuhnya."
 
 #: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
@@ -2194,7 +2194,7 @@ msgstr "Muat Ulang Untuk Melanjutkan"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Alihkan konten"
 
 #: src/ui/components/HostPermissions/index.js:43
 msgid "Access your data for all websites"
