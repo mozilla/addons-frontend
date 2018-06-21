@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 02:11+0000\n"
+"PO-Revision-Date: 2018-06-21 02:17+0000\n"
 "Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1124,7 +1124,7 @@ msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Tingkatkan kecepatan mengunduh dengan dukungan multi-threading"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1132,19 +1132,19 @@ msgstr "Keamanan Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Perlindungan terhadap malware dan penipuan phising data"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Atur tab secara vertikal nan indah"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Efficient, powerful ad blocker"
@@ -1152,7 +1152,7 @@ msgstr "Pemblokir iklan yang kuat dan efisien"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1160,7 +1160,7 @@ msgstr "Ubah tampilan peramban Anda. Pilih dari ribuan tema untuk mengubah tampi
 
 #: src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Jelajahi alat dan fitur tangkas untuk mengubahsuai Firefox dan menjadi peramban sepenuhnya milik Anda."
 
 #: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
@@ -1180,11 +1180,11 @@ msgstr "Kamus dan Paket Bahasa"
 
 #: src/amo/components/LanguageTools/index.js:157
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Memasang pengaya kamus akan menambahkan opsi bahasa baru pada pemeriksa-ejaan yang bekerja ketika Anda mengetik di Firefox."
 
 #: src/amo/components/LanguageTools/index.js:162
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Paket bahasa mengubah bahasa antarmuka peramban Anda, termasuk opsi menu dan setelan."
 
 #: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
@@ -1236,11 +1236,11 @@ msgstr "Memasukkan data ke papan klip"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Perpanjang akses alat pengembang ke data Anda di dalam tab terbuka"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Unduh berkas dan baca serta ubah riwayat unduhan peramban"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
@@ -1340,7 +1340,7 @@ msgstr "Kami telah menerima laporan Anda. Terima kasih untuk memberitahu kami te
 
 #: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:155
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Kami tidak dapat menanggapi setiap laporan penyalahgunaan namun kami tetap memeriksanya."
 
 #: src/amo/components/ReportAbuseButton/index.js:131
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
