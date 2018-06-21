@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 03:11+0000\n"
+"PO-Revision-Date: 2018-06-21 03:13+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -689,9 +689,8 @@ msgid "Remove"
 msgstr "Buang"
 
 #: src/amo/components/EditableCollectionAddon/index.js:116
-#, fuzzy
 msgid "User comment"
-msgstr "Pengguna semenjak"
+msgstr "Komen pengguna"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
 #, fuzzy
