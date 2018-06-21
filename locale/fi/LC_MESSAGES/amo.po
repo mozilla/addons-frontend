@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 15:24+0000\n"
+"PO-Revision-Date: 2018-06-09 19:07+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -103,7 +103,7 @@ msgstr "Version %(addonVersion)s julkaisutiedot"
 
 #: src/amo/components/Addon/index.js:464
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s tehnyt %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)stehnyt %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
@@ -2132,11 +2132,11 @@ msgstr "Asennetaan %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s on asennettu ja käytössä. Poista se napsauttamalla."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s ei ole käytössä. Ota se käyttöön napsauttamalla."
 
 #: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
@@ -2144,7 +2144,7 @@ msgstr "Poistetaan %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s on poistettu. Asenna se napsauttamalla."
 
 #: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
@@ -2205,7 +2205,7 @@ msgstr "Tapahtui odottamaton virhe"
 
 #: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Päivitä jatkaaksesi"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
@@ -2213,7 +2213,7 @@ msgstr ""
 
 #: src/ui/components/HostPermissions/index.js:43
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Pääsy tietoihin kaikilla verkkosivuilla"
 
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
@@ -2237,19 +2237,19 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Arvioitu %(rating)s/5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Ei vielä arvioita"
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Päivitä arvioksesi %(starRating)s/5"
 
 #: src/ui/components/Rating/index.js:71
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Arvioi tämä lisäosa %(starRating)s/5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
