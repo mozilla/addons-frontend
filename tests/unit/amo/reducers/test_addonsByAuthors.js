@@ -23,7 +23,7 @@ describe(__filename, () => {
   const fakeAuthorTwo = { ...fakeAuthor, username: 'test2', id: 61 };
   const fakeAuthorThree = { ...fakeAuthor, username: 'test3', id: 71 };
 
-  function fakeAddons(type = ADDON_TYPE_EXTENSION) {
+  function fakeAddons({ type = ADDON_TYPE_EXTENSION } = {}) {
     const firstAddon = {
       ...fakeAddon,
       type,
@@ -529,8 +529,8 @@ describe(__filename, () => {
       ]);
     });
 
-    it("displays lightweight theme types when filtering for authors' themes", () => {
-      const addons = fakeAddons(ADDON_TYPE_THEME);
+    it("returns lightweight themes when filtering for authors' themes", () => {
+      const addons = fakeAddons({ type: ADDON_TYPE_THEME });
 
       const authorUsernames = ['test', 'test2', 'test3'];
       const state = reducer(undefined, loadAddonsByAuthors({
@@ -547,8 +547,8 @@ describe(__filename, () => {
       ]);
     });
 
-    it("displays static theme types when filtering for authors' themes ", () => {
-      const addons = fakeAddons(ADDON_TYPE_STATIC_THEME);
+    it("returns static themes when filtering for authors' themes ", () => {
+      const addons = fakeAddons({ type: ADDON_TYPE_STATIC_THEME });
 
       const authorUsernames = ['test', 'test2', 'test3'];
       const state = reducer(undefined, loadAddonsByAuthors({
@@ -565,7 +565,7 @@ describe(__filename, () => {
       ]);
     });
 
-    it("displays extension types when filtering for authors' extensions", () => {
+    it("returns extensions when filtering for authors' extensions", () => {
       const addons = fakeAddons();
 
       const authorUsernames = ['test', 'test2', 'test3'];
