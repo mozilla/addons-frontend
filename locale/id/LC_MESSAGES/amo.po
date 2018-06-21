@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 02:51+0000\n"
-"Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
+"PO-Revision-Date: 2018-06-21 02:54+0000\n"
+"Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -1060,7 +1060,7 @@ msgstr "Menu Hitam untuk Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:178
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Menu tarik-turun yang memudahkan akses ke layanan Google seperti Telusuri dan Terjemahkan"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Page Translate"
@@ -1068,7 +1068,7 @@ msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Translate an entire web page with a couple clicks"
-msgstr "Terjemahkan seluruh laman web dengan beberapa klik saja"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Image Search Options"
@@ -1620,11 +1620,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Beritahu teman dan keluarga Anda bahwa Firefox itu peramban cepat dan aman yang melindungi privasi mereka dan mereka dapat menggunakan pengaya untuk menjadikan peramban itu khas miliknya!"
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Untuk melihat berbagai cara bagi Anda berkontribusi pada komunitas pengaya, silakan kunjungi %(startLink)swiki%(endLink)s kami."
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -2178,7 +2178,7 @@ msgstr "Mengajukan"
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "Hapus"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
@@ -2203,7 +2203,7 @@ msgstr "Mengakses data Anda pada semua situs"
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
+msgstr[0] "Akses data Anda di %(param)s domain lainnya"
 
 #: src/ui/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
@@ -2212,7 +2212,7 @@ msgstr "Mengakses data Anda untuk situs pada domain %(param)s"
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
+msgstr[0] "Akses data Anda di %(param)s situs lainnya"
 
 #: src/ui/components/HostPermissions/index.js:65
 msgid "Access your data for %(param)s"
@@ -2224,7 +2224,7 @@ msgstr "Diberi peringkat %(rating)s dari 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Belum ada peringkat"
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
