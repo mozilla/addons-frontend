@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 12:09+0000\n"
-"Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
+"PO-Revision-Date: 2018-06-21 09:26+0000\n"
+"Last-Translator: Elio <elio.gi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -586,9 +586,8 @@ msgid "Creator"
 msgstr "Autore"
 
 #: src/amo/components/Collection/index.js:373
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Eliminare l’immagine?"
+msgstr ""
 
 #: src/amo/components/Collection/index.js:376
 #, fuzzy
@@ -696,22 +695,20 @@ msgid "Remove"
 msgstr "Elimina"
 
 #: src/amo/components/EditableCollectionAddon/index.js:116
-#, fuzzy
 msgid "User comment"
-msgstr "Utente da"
+msgstr "Commento utente"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Informazioni sul componente aggiuntivo"
+msgstr "Aggiungi un commento sul componente aggiuntivo."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: src/amo/components/EditableCollectionAddon/index.js:149
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -982,12 +979,10 @@ msgid "See more translation tools"
 msgstr "Visualizza altri strumenti per la traduzione"
 
 #: src/amo/components/Home/index.js:246
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Strumenti per la privacy"
+msgstr ""
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
 msgstr "Visualizza altre estensioni per le schede"
 
@@ -1045,7 +1040,7 @@ msgstr "Vincitore del Concorso Estensioni Quantum! Ascolta le radio live di tutt
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Tabliss"
-msgstr ""
+msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
@@ -1053,7 +1048,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
@@ -1061,7 +1056,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
@@ -1104,9 +1099,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Taglia, salva e organizza i tuoi contenuti preferiti sul Web"
+msgstr "Segnalibri bene in vista per i tuoi siti preferiti sul Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1133,13 +1127,12 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "Evidenzia il testo di qualsiasi pagina web per aprire un menu di ricerca rapido"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Aumenta la velocità di download con il supporto multi-threading"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -2187,9 +2180,8 @@ msgid "Next"
 msgstr "Successiva"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Pagina %(pageNumber)s di %(totalPages)s"
+msgstr "Pagina %(currentPage)s di %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2221,7 +2213,7 @@ msgstr "Invio"
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
