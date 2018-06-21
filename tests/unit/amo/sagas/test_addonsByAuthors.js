@@ -43,6 +43,7 @@ describe(__filename, () => {
   function _fetchAddonsByAuthors(params) {
     sagaTester.dispatch(fetchAddonsByAuthors({
       errorHandlerId: errorHandler.id,
+      pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
       ...params,
     }));
   }
@@ -139,7 +140,6 @@ describe(__filename, () => {
     _fetchAddonsByAuthors({
       authorUsernames: [],
       forAddonSlug: fakeAddon.slug,
-      pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
     });
 
     const expectedAction = errorHandler.createClearingAction();
@@ -159,7 +159,6 @@ describe(__filename, () => {
     _fetchAddonsByAuthors({
       authorUsernames: [],
       forAddonSlug: fakeAddon.slug,
-      pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
     });
 
     const errorAction = errorHandler.createErrorAction(error);

@@ -229,7 +229,6 @@ describe(__filename, () => {
       const params = getParams({
         addons: [multiAuthorAddon],
         authorUsernames,
-        count: 1,
       });
 
       const newState = reducer(undefined, loadAddonsByAuthors(params));
@@ -245,7 +244,6 @@ describe(__filename, () => {
       const params = getParams({
         addons: Object.values(addons),
         authorUsernames: ['fakeUsername'],
-        count: Object.values(addons).length,
         forAddonSlug: undefined,
       });
 
@@ -267,7 +265,6 @@ describe(__filename, () => {
       const params = getParams({
         addons: Object.values(addons),
         authorUsernames: ['test', 'test2', 'test3'],
-        count: Object.values(addons).length,
         forAddonSlug: undefined,
       });
 
@@ -293,7 +290,6 @@ describe(__filename, () => {
       const params = getParams({
         addons: [fakeAddon],
         forAddonSlug: fakeAddon.slug,
-        count: 1,
         pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
       });
 
@@ -309,8 +305,6 @@ describe(__filename, () => {
       const firstParams = getParams({
         addons: [addons.firstAddon, addons.secondAddon],
         forAddonSlug: undefined,
-        count: 2,
-        pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
       });
 
       let state = reducer(undefined, loadAddonsByAuthors(firstParams));
@@ -318,8 +312,6 @@ describe(__filename, () => {
       const secondParams = getParams({
         addons: [addons.thirdAddon],
         forAddonSlug: undefined,
-        count: 1,
-        pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
       });
 
       state = reducer(state, loadAddonsByAuthors(secondParams));
@@ -337,8 +329,6 @@ describe(__filename, () => {
       const firstParams = getParams({
         addons: [addons.firstAddon, addons.secondAddon],
         forAddonSlug: undefined,
-        count: 2,
-        pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
       });
 
       let state = reducer(undefined, loadAddonsByAuthors(firstParams));
@@ -351,8 +341,6 @@ describe(__filename, () => {
       const secondParams = getParams({
         addons: [addons.thirdAddon],
         forAddonSlug: undefined,
-        count: 1,
-        pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
       });
 
       state = reducer(state, loadAddonsByAuthors(secondParams));
@@ -674,7 +662,10 @@ describe(__filename, () => {
     });
 
     it('returns null when there is no match', () => {
-      const state = reducer(undefined, fetchAddonsByAuthors(params));
+      const state = reducer(undefined, fetchAddonsByAuthors({
+        ...params,
+        authorUsernames: ['someOtherAuthor'],
+      }));
 
       expect(getLoadingForAuthorNames(state, ['author2'])).toEqual(null);
     });
