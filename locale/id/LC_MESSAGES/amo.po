@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 01:12+0000\n"
-"Last-Translator: alamanda <dian.ina@gmail.com>\n"
+"PO-Revision-Date: 2018-06-21 02:11+0000\n"
+"Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -851,6 +851,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Kecuali di mana sebaliknya %(startNotedLink)syangtercatat%(endNotedLink)s, konten dari situs ini dilisensikan di bawah %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s atau versi selanjutnya."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -969,18 +971,16 @@ msgid "See more translation tools"
 msgstr "Lihat lebih banyak alat penerjemahan"
 
 #: src/amo/components/Home/index.js:246
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Kebijakan Privasi"
+msgstr "Privasi penting"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Lihat lebih banyak ekstensi tab"
+msgstr "Lihat lebih banyak ekstensi privasi"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
-msgstr ""
+msgstr "Jinakkan tab Anda"
 
 #: src/amo/components/Home/index.js:260
 msgid "See more tab extensions"
@@ -1028,31 +1028,31 @@ msgstr "Radio Seluruh Dunia"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr ""
+msgstr "Pemenang Quantum Extensions Challenge! Dengarkan siaran langsung radio dari berbagai belahan dunia"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Tabliss"
-msgstr ""
+msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Nikmati laman tab baru nan luar biasa dengan latar belakang yang dapat diubahsuai, info cuaca lokal dan masih banyak lagi"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Pasang tombol ‘Bagikan’ dari media sosial ke dalam bilah alat Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Cara ampuh untuk mencari versi terarsip dari laman web lawas"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Black Menu for Google"
@@ -1060,15 +1060,15 @@ msgstr "Menu Hitam untuk Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:178
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Menu tarik-turun yang memudahkan akses ke layanan Google seperti Search dan Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Page Translate"
-msgstr ""
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "Terjemahkan seluruh laman web dengan beberapa klik saja"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Image Search Options"
@@ -1076,23 +1076,23 @@ msgstr "Pilihan Pencarian Gambar"
 
 #: src/amo/components/HomeHeroBanner/index.js:203
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Akses opsi pencarian gambar terbalik di dalam menu konteks"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:215
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Buat Firefox lupakan data situs web seperti kuki & penyimpanan lokal"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "Markah visual untuk tempat favorit Anda di web"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1100,7 +1100,7 @@ msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:241
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Blokir iklan dan pelacak yang mengintip dan menyelinap"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
@@ -1108,20 +1108,19 @@ msgstr "Kontainer Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Mencegah Facebook untuk melacak Anda sepanjang web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Sorot teks dari laman web manapun untuk memunculkan menu pencarian yang mudah dipakai"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Pengelola Unduhan (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
@@ -1844,9 +1843,8 @@ msgid "Add-ons developer"
 msgstr "Pengembang pengaya"
 
 #: src/amo/components/UserProfile/index.js:133
-#, fuzzy
 msgid "Theme artist"
-msgstr "Tema oleh para kreator ini"
+msgstr "Seniman tema"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
