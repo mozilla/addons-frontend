@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 14:49+0000\n"
+"PO-Revision-Date: 2018-06-21 15:12+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -718,27 +718,29 @@ msgstr "Jos olet sisäänkirjautunut ja uskot tämän viestin olevan virhe, <a h
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
-msgstr ""
+msgstr "Ei valtuutettu"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Valitettavasti valtuutesi eivät riitä tämän sivun näkemiseen. Jos et ole kirjautunut sisään, kirjaudu sisään sivun yläosassa olevan kirjautumislinkin kautta."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
+"Jos päädyit tänne seuraamalla linkkiä joltain toiselta sivulta, <a href=\"%(url)s\">ilmoita ongelmasta</a>. Kerro miltä sivulta tulit tänne ja mitä etsit, niin me teemme parhaamme korjataksemme "
+"asian."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Tämän lisäosan tekijä on poistanut lisäosan."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "Ylläpitäjä on poistanut tämän lisäosan."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr ""
+msgstr "Valitettavasti kirjoittamastasi osoitteesta ei löytynyt mitään."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -756,65 +758,63 @@ msgstr "Palvelinvirhe"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Valitettavasti palvelimellamme tapahtui virhe, emmekä voineet täyttää pyyntöäsi. Tallensimme tämän virheen ja tutkimme asiaa."
 
 #: src/amo/components/FlagReviewMenu/index.js:101
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Merkitty sisältävän epäasiallista kielenkäyttöä"
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Tämä on vikailmoitus tai tukipyyntö"
 
 #: src/amo/components/FlagReviewMenu/index.js:119
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Merkitty vikailmoitukseksi tai tukipyynnöksi"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flagged"
-msgstr ""
+msgstr "Merkitty"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag"
-msgstr ""
+msgstr "Merkitse"
 
 #: src/amo/components/FlagReviewMenu/index.js:137
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Merkitse tämä kehittäjän vastaus"
 
 #: src/amo/components/FlagReviewMenu/index.js:138
-#, fuzzy
 msgid "Flag this review"
-msgstr "Esikatsele koskettamalla"
+msgstr "Merkitse tämä arvio"
 
 #: src/amo/components/FlagReviewMenu/index.js:63
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Merkitse tämä lisäosa kirjautumalla"
 
 #: src/amo/components/FlagReviewMenu/index.js:64
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Esikatsele koskettamalla"
+msgstr "Merkitse tämä arvio kirjautumalla"
 
 #: src/amo/components/FlagReviewMenu/index.js:73
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Et voi merkitä omaa vastaustasi"
 
 #: src/amo/components/FlagReviewMenu/index.js:74
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Et voi merkitä omaa arviotasi"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "This is spam"
-msgstr ""
+msgstr "Tämä on roskapostia"
 
 #: src/amo/components/FlagReviewMenu/index.js:88
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Merkitty roskapostiksi"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Sisältää sopimatonta kielenkäyttöä"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -830,7 +830,7 @@ msgstr "Focus-selain"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Työpöytäversio"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
@@ -857,10 +857,12 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Jos ei erikseen %(startNotedLink)smainita%(endNotedLink)s, tämän sivuston sisällön kattaa lisenssi %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s tai "
+"mikä tahansa uudempi versio."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Siirry Mozillan verkkosivustolle"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
@@ -1026,7 +1028,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:113
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Pidä eri osat verkkoelämästäsi — työ, henkilökohtainen jne — erillään toisistaan väritetyin välilehdin"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
@@ -1066,7 +1068,7 @@ msgstr "Musta valikko Googlelle"
 
 #: src/amo/components/HomeHeroBanner/index.js:178
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Pudotusvalikko Googlen eri palveluihin, kuten hakuun ja kääntäjään"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Page Translate"
@@ -1082,15 +1084,15 @@ msgstr "Kuvahaun valinnat"
 
 #: src/amo/components/HomeHeroBanner/index.js:203
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Käänteiset kuvahakuvalinnat kontekstivalikossa"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:215
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Aseta Firefox unohtamaan verkkosivujen tietoja, kuten evästeet tai paikallinen tallennustila"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Group Speed Dial"
@@ -1118,11 +1120,11 @@ msgstr "Estä Facebookia seuraamasta sinua eri sivustoilla"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Näe kätevä hakuvalikko millä tahansa verkkosivulla korostamalla teksti"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 #, fuzzy
@@ -1139,27 +1141,27 @@ msgstr "Verkon tietoturva"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Suojaus haittaohjelmia ja tietojen kalasteluyrityksiä vastaan"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Järjestä välilehdet pystysuunnassa"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Efficient, powerful ad blocker"
-msgstr ""
+msgstr "Tehokas mainosten estäjä"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1179,7 +1181,7 @@ msgstr "Vaihda kieltä"
 
 #: src/amo/components/LanguageTools/index.js:107
 msgid "Available for your locale"
-msgstr ""
+msgstr "Saatavilla omalla kielelläsi"
 
 #: src/amo/components/LanguageTools/index.js:143
 msgid "Dictionaries and Language Packs"
@@ -1195,11 +1197,11 @@ msgstr "Kielipaketit muuttavat selaimesi käyttöliittymän kieltä, mukaan luki
 
 #: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
-msgstr ""
+msgstr "Kaikki kielivaihtoehdot"
 
 #: src/amo/components/LanguageTools/index.js:174
 msgid "Locale Name"
-msgstr ""
+msgstr "Kieli"
 
 #: src/amo/components/LanguageTools/index.js:177
 msgid "Language Packs"
@@ -1231,7 +1233,7 @@ msgstr "Lue ja muokkaa selaimen asetuksia"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Tyhjennä selaushistoria, evästeet ja muut liittyvät tiedot"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
@@ -1247,7 +1249,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Lataa tiedostoja, sekä lue ja muokkaa selaimen lataushistoriaa"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
@@ -1259,7 +1261,7 @@ msgstr "Lue tekstiä avoinna olevilta välilehdiltä"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
-msgstr ""
+msgstr "Pääsy sijaintitietoosi"
 
 #: src/amo/components/PermissionsCard/permissions.js:35 src/amo/components/PermissionsCard/permissions.js:47
 #, fuzzy
