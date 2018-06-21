@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 07:59+0000\n"
+"PO-Revision-Date: 2018-06-21 08:27+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1047,23 +1047,23 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Čudovita stran novega zavihka s prilagodljivimi ozadji, lokalnimi podatki o vremenu …"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Dodajte gumb za deljenje prek družbenih omrežij v orodno vrstico Firefoxa"
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Priročna možnost za iskanje arhiviranih različic starejših spletnih strani"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Black Menu for Google"
@@ -1102,9 +1102,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Zajemite, shranite in organizirajte svojo priljubljeno vsebino na spletu"
+msgstr "Ploščice zaznamkov za vaša priljubljena spletna mesta"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1136,7 +1135,7 @@ msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Pospešite prenose s podporo za večnitni način"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
