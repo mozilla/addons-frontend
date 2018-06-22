@@ -29,12 +29,17 @@ import Icon from 'ui/components/Icon';
 
 
 describe(__filename, () => {
-  function renderTree(props) {
+  function renderTree(customProps = {}) {
     const { store } = dispatchSignInActions();
+    const props = {
+      handleLogOut: sinon.stub(),
+      i18n: fakeI18n(),
+      ...customProps,
+    };
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <AuthenticateButtonBase i18n={fakeI18n()} {...props} />
+        <AuthenticateButtonBase {...props} />
       </Provider>
     ), AuthenticateButtonBase);
   }
