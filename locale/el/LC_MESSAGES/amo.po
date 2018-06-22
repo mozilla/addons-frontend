@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 18:31+0000\n"
+"PO-Revision-Date: 2018-06-22 18:35+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -363,7 +363,6 @@ msgid "posted %(timestamp)s"
 msgstr "από %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:206
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "από %(authorName)s, %(timestamp)s"
 
@@ -987,9 +986,8 @@ msgid "Translation tools"
 msgstr "Εργαλεία μετάφρασης"
 
 #: src/amo/components/Home/index.js:219
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Αναζήτηση επεκτάσεων"
+msgstr "Δείτε περισσότερα εργαλεία μετάφρασης"
 
 #: src/amo/components/Home/index.js:246
 #, fuzzy
@@ -1410,7 +1408,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:132
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Εξηγήστε γιατί αυτός ο χρήστης παραβιάζει τις πολιτικές μας."
 
 #: src/amo/components/ReportUserAbuse/index.js:144
 #, fuzzy
@@ -1643,7 +1641,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Συμμετάσχετε στο %(startLink)sφόρουμ%(endLink)s μας."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1697,7 +1695,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Συνεισφορά"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1723,7 +1721,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Οδηγίες αξιολόγησης"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1876,11 +1874,11 @@ msgstr "Προφίλ για το χρήστη %(user)s"
 
 #: src/amo/components/UserProfile/index.js:178 src/amo/components/UserProfileEdit/index.js:576
 msgid "Location"
-msgstr ""
+msgstr "Τοποθεσία"
 
 #: src/amo/components/UserProfile/index.js:186 src/amo/components/UserProfileEdit/index.js:588
 msgid "Occupation"
-msgstr ""
+msgstr "Επάγγελμα"
 
 #: src/amo/components/UserProfile/index.js:193
 msgid "User since"
@@ -1904,12 +1902,11 @@ msgstr "Επεξεργασία προφίλ"
 
 #: src/amo/components/UserProfileEdit/index.js:176
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Επιτυχής διαγραφή εικόνας"
 
 #: src/amo/components/UserProfileEdit/index.js:400
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Συνδεθείτε για επεξεργασία προφίλ"
 
 #: src/amo/components/UserProfileEdit/index.js:444
 msgid "View user's profile"
@@ -1933,7 +1930,7 @@ msgstr "Όνομα χρήστη"
 
 #: src/amo/components/UserProfileEdit/index.js:488
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Η διεύθυνση email δεν μπορεί να αλλαχθεί εδώ"
 
 #: src/amo/components/UserProfileEdit/index.js:490
 msgid "Email Address"
@@ -1941,7 +1938,7 @@ msgstr "Διεύθυνση email"
 
 #: src/amo/components/UserProfileEdit/index.js:506
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Μπορείτε να αλλάξετε τη διεύθυνση email σας στους Λογαριασμούς Firefox. %(startLink)sΧρειάζεστε βοήθεια;%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:522
 msgid "Profile"
@@ -2000,9 +1997,8 @@ msgid "Update my profile"
 msgstr "Ενημέρωση προφίλ"
 
 #: src/amo/components/UserProfileEdit/index.js:692
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "Γίνεται ενημέρωση της απάντησης"
+msgstr "Ενημέρωση προφίλ χρήστη…"
 
 #: src/amo/components/UserProfileEdit/index.js:693
 msgid "Update user's profile"
