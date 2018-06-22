@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 08:29+0000\n"
+"PO-Revision-Date: 2018-06-22 08:37+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -49,7 +49,7 @@ msgstr "Taskant n %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
-msgstr "Senned akken ad tsekned"
+msgstr "Senned akken ad tsekneḍ"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Cancel preview"
@@ -71,7 +71,7 @@ msgstr "Ulac iceggiren tura"
 
 #: src/amo/components/Addon/index.js:291
 msgid "Rate your experience"
-msgstr "Sezmel tarmit inek"
+msgstr "Sezmel tarmit-ik"
 
 #: src/amo/components/Addon/index.js:309
 msgid "About this dictionary"
@@ -139,7 +139,7 @@ msgstr "Armitan"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr "Ur imṣada ara d Firefox Quantum"
+msgstr "Ur imsada ara d Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
@@ -151,7 +151,7 @@ msgstr "Tesrid <a href=\"%(downloadUrl)s\">asider n Firefox</a> akken ad tesbedd
 
 #: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr "Asentel agi ur imṣada ara kked lqem inek n Firefox"
+msgstr "Asentel-agi ur imsada ara akked ulqem-inek n Firefox."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support search plugins."
@@ -381,7 +381,7 @@ msgstr "Ugar n imawalen sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:125
 msgid "More dictionaries by these translators"
-msgstr "Ugar n imawalen sɣur imsuqal-agi"
+msgstr "Ugar n yimawalen sɣur imsuqal-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "Dictionaries by %(author)s"
