@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 13:24+0000\n"
+"PO-Revision-Date: 2018-06-22 14:42+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1683,13 +1683,15 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sSnefli azegrir-inek%(endLink)s. Nettmuddu amezlu n tnezduɣt akked uleqqem baṭel, daɣen nezmer ad ak-d-nefk tallelt akken ad tawḍeḍ ddeqs n yemdanen."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Tekki deg usnerni n usmel web. Yeldi daɣen tzemreḍ ad teldiḍ ibugen, neɣ ad tazneḍ aseɣti. Tzemreḍ ad tebduḍ s %(startGoodFirstBugLink)ss ubug meẓẓiyen%(endGoodFirstBugLink)s neɣ ad twaliḍ uguren n "
+"AMO ama %(startAddonsServerRepoLink)sd aqeddac%(endAddonsServerRepoLink)s neɣ l’%(startAddonsFrontendRepoLink)s d agrudem %(endAddonsFrontendRepoLink)s di GitHub."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:100
 msgid ""
@@ -1785,11 +1787,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Mmel-d tansa-ik imayl neɣ tin n wid-nniḍen, uṭṭun n tiliɣri neɣ talɣut-nniḍen tudmawant."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Azen aceggir ɣef uzegrir i terirniḍ neq win terna tkebbaniy-ik."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:67
 msgid ""
@@ -1917,7 +1919,7 @@ msgstr "Tansa imayl"
 
 #: src/amo/components/UserProfileEdit/index.js:506
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Tzemreḍ ad tbeddleḍ tansa-ik n yimayl di Firefox Accounts. %(startLink)s Teriḍ tallelt? %(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:522
 msgid "Profile"
@@ -1925,11 +1927,11 @@ msgstr "Amɣnu"
 
 #: src/amo/components/UserProfileEdit/index.js:525
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Meslay i yiseqdacen cwiṭ fell-ak. Akk urtan-a zemren ad ilin, acu kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar."
 
 #: src/amo/components/UserProfileEdit/index.js:530
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Meslay i yiseqdacen cwiṭ ɣef useqdac-agi. Akk urtan-a zemren ad ilin, acu kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar %(username)s."
 
 #: src/amo/components/UserProfileEdit/index.js:539
 msgid "Display Name"
@@ -1937,19 +1939,19 @@ msgstr "Isem n uskan"
 
 #: src/amo/components/UserProfileEdit/index.js:571
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Tansa-agi URL ad d-ban kan i yiseqdacen ineflayen."
 
 #: src/amo/components/UserProfileEdit/index.js:613
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Qeddem iman-ik ar terbaɛt i tebɣiḍ"
 
 #: src/amo/components/UserProfileEdit/index.js:616
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Qeddem %(username)s ar terbaɛt"
 
 #: src/amo/components/UserProfileEdit/index.js:629
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Kra n yiferdisen HTML ttwasefraken: %(htmlTags)s. Iseɣwan ttwagedlen."
 
 #: src/amo/components/UserProfileEdit/index.js:651
 msgid "Notifications"
@@ -1965,7 +1967,7 @@ msgstr "Si sya ar da, Mozilla tezmer ak-d-azen i useqdac-a imayl ɣef tuffɣiwin
 
 #: src/amo/components/UserProfileEdit/index.js:672
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla ad k-id-inermes ɣef uguren icudden ar izegrar inek izedɣen ɣur-s."
 
 #: src/amo/components/UserProfileEdit/index.js:689
 msgid "Updating your profile…"
