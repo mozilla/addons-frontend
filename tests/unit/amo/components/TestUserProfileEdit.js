@@ -49,7 +49,6 @@ describe(__filename, () => {
   let fakeRouter;
 
   const defaultUserProps = {
-    _window: {},
     biography: 'Saved the world, too many times.',
     display_name: 'Matt MacTofu',
     homepage: 'https://example.org',
@@ -58,6 +57,11 @@ describe(__filename, () => {
     occupation: 'Superman',
     userId: 500,
     username: 'tofumatt',
+  };
+
+  const defaultDeveloperProps = {
+    ...defaultUserProps,
+    is_addon_developer: true,
   };
 
   function createFakeEventChange({ name, value }) {
@@ -72,6 +76,12 @@ describe(__filename, () => {
   function signInUserWithUsername(username) {
     return dispatchSignInActions({
       userProps: { ...defaultUserProps, username },
+    });
+  }
+
+  function signInDeveloperWithUsername(username) {
+    return dispatchSignInActions({
+      userProps: { ...defaultDeveloperProps, username },
     });
   }
 
@@ -117,8 +127,10 @@ describe(__filename, () => {
     }));
   }
 
-  it('renders user profile page for current logged-in user', () => {
-    const root = renderUserProfileEdit();
+  it('renders user profile page for current logged-in user (developer)', () => {
+    const root = renderUserProfileEdit({
+      userProps: defaultDeveloperProps,
+    });
 
     expect(root.find('.UserProfileEdit')).toHaveLength(1);
     expect(root.find(Notice)).toHaveLength(0);
@@ -141,6 +153,31 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
   });
+
+  it('renders user profile page for current logged-in user (non-developer)', () => {
+    const root = renderUserProfileEdit();
+
+    expect(root.find('.UserProfileEdit')).toHaveLength(1);
+    expect(root.find(Notice)).toHaveLength(0);
+
+    expect(root.find('.UserProfileEdit--Card').first())
+      .toHaveProp('header', 'Account');
+    expect(root.find('.UserProfileEdit-profile-aside')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-biography')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-homepage')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-location')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-occupation')).toHaveLength(0);
+    expect(root.find(UserProfileEditPicture)).toHaveLength(0);
+
+    expect(root.find('.UserProfileEdit-notifications-aside'))
+      .toHaveText(oneLine`From time to time, Mozilla may send you email about
+        upcoming releases and add-on events. Please select the topics you are
+        interested in.`);
+    expect(root.find(UserProfileEditNotifications)).toHaveLength(1);
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+  });
+
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if username is not found', () => {
     const { store } = signInUserWithUsername('tofumatt');
@@ -228,7 +265,7 @@ describe(__filename, () => {
       username: 'killmonger',
     }));
 
-    expect(root.find('.UserProfileEdit-location')).toHaveProp('value', '');
+    expect(root.find('.UserProfileEdit-displayName')).toHaveProp('value', '');
   });
 
   it('does not fetchUserAccount action if user data are available', () => {
@@ -323,14 +360,19 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
     expect(root.find('.UserProfileEdit-displayName'))
       .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-homepage'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-location'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-occupation'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.UserProfileEdit-biography'))
-      .toHaveProp('disabled', true);
+  });
+
+  it('hides some inputs when user is not loaded', () => {
+    const { store } = signInUserWithUsername('current-logged-in-user');
+    const username = 'user-not-in-users-state';
+
+    const root = renderUserProfileEdit({ store, params: { username } });
+
+    expect(root.find('.UserProfileEdit-homepage')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-location')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-occupation')).toHaveLength(0);
+    expect(root.find(UserProfileEditPicture)).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-biography')).toHaveLength(0);
   });
 
   it('always renders a disabled "email" input field', () => {
@@ -352,17 +394,24 @@ describe(__filename, () => {
       <a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">Need help?</a></p>`
     );
 
+    expect(root.find('.UserProfileEdit-homepage--help')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-biography--help')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
+  });
+
+  it('renders more help sections when user is a developer', () => {
+    const root = renderUserProfileEdit({
+      userProps: defaultDeveloperProps,
+    });
+
     expect(root.find('.UserProfileEdit-homepage--help')).toHaveText(
       `This URL will only be visible for users who are developers.`
     );
-
     expect(root.find('.UserProfileEdit-biography--help')).toHaveText(
       oneLine`Some HTML supported: <abbr title> <acronym title> <b>
       <blockquote> <code> <em> <i> <li> <ol> <strong> <ul>. Links are
       forbidden.`
     );
-
-    expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
   });
 
   it('renders a help text about add-on notifications for users who are developers', () => {
@@ -411,7 +460,7 @@ describe(__filename, () => {
     const homepage = 'https://example.org';
     const root = renderUserProfileEdit({
       userProps: {
-        ...defaultUserProps,
+        ...defaultDeveloperProps,
         homepage,
       },
     });
@@ -425,7 +474,7 @@ describe(__filename, () => {
     const location = 'Freiburg, Germany';
     const root = renderUserProfileEdit({
       userProps: {
-        ...defaultUserProps,
+        ...defaultDeveloperProps,
         location,
       },
     });
@@ -439,7 +488,7 @@ describe(__filename, () => {
     const occupation = 'Bilboquet.';
     const root = renderUserProfileEdit({
       userProps: {
-        ...defaultUserProps,
+        ...defaultDeveloperProps,
         occupation,
       },
     });
@@ -453,7 +502,7 @@ describe(__filename, () => {
     const biography = 'This is a biography.';
     const root = renderUserProfileEdit({
       userProps: {
-        ...defaultUserProps,
+        ...defaultDeveloperProps,
         biography,
       },
     });
@@ -468,7 +517,7 @@ describe(__filename, () => {
     const biography = null;
     const root = renderUserProfileEdit({
       userProps: {
-        ...defaultUserProps,
+        ...defaultDeveloperProps,
         biography,
       },
     });
@@ -487,7 +536,9 @@ describe(__filename, () => {
       'username',
     ];
 
-    const root = renderUserProfileEdit();
+    const root = renderUserProfileEdit({
+      userProps: defaultDeveloperProps,
+    });
 
     expect.assertions(fields.length);
     fields.forEach((field) => {
@@ -608,7 +659,7 @@ describe(__filename, () => {
   });
 
   it('dispatches editUserAccount action with new field values on submit', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { store } = signInDeveloperWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -865,8 +916,11 @@ describe(__filename, () => {
       },
     });
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user who is a developer with another username.
+    const user = createUserAccountResponse({
+      is_addon_developer: true,
+      username: 'willdurand',
+    });
     store.dispatch(loadUserAccount({ user }));
 
     // Try to edit this user with another username.
@@ -1040,7 +1094,7 @@ describe(__filename, () => {
   });
 
   it('dispatches a deleteUserPicture action when user deletes their profile picture', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { store } = signInDeveloperWithUsername('tofumatt');
     const user = getCurrentUser(store.getState().users);
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -1065,7 +1119,7 @@ describe(__filename, () => {
   it('stores the picture file selected by the user', () => {
     const selectedFile = new File([], 'image.png');
 
-    const { store } = signInUserWithUsername('tofumatt');
+    const { store } = signInDeveloperWithUsername('tofumatt');
     const root = renderUserProfileEdit({ store });
 
     expect(root).toHaveState('picture', null);
@@ -1431,11 +1485,11 @@ describe(__filename, () => {
     _window.scroll.resetHistory();
 
     // This update will trigger a re-render.
-    root.find(`.UserProfileEdit-biography`).simulate(
+    root.find(`.UserProfileEdit-displayName`).simulate(
       'change',
       createFakeEventChange({
-        name: 'biography',
-        value: 'a new bio',
+        name: 'displayName',
+        value: 'a new display name',
       })
     );
 
@@ -1445,7 +1499,7 @@ describe(__filename, () => {
   it('does not scroll if we already scrolled because of a success message', () => {
     const { store } = dispatchSignInActions({
       userProps: {
-        ...defaultUserProps,
+        ...defaultDeveloperProps,
         picture_url: 'https://example.org/pp.png',
       },
     });
