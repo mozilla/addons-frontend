@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 11:48+0000\n"
+"PO-Revision-Date: 2018-06-22 13:24+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1749,7 +1749,7 @@ msgstr "Ad tkemleḍ aseqdec n uzegrir-agi?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Awi kra n wakud akken ad teɣreḍ acegger-ik send tuzna-is i kra n yibeddile."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1757,13 +1757,15 @@ msgstr "Ur teg ara:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Azen iceggiren n yowawen n wawal am \"Igerrez!\", \" d afellaq\",  neɣ \"dir-it\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Ur seqdac ara asenqed akken ad temmleḍ ugir atiknikan, suter tallelt neɣ sumer timahilin. Seqdec timahilin yettwagen deg yal azegrir, ma llant. Ad tafeḍ deg tgezmi \"Ugar n yisallen\", def ugalis "
+"adisan n usebter n teqayt n uzegrir."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Write reviews for add-ons which you have not personally used."
