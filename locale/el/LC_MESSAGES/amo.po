@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 17:29+0000\n"
+"PO-Revision-Date: 2018-06-22 18:31+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -296,7 +296,7 @@ msgstr "Πείτε μας τι σάς αρέσει σε αυτή την επέκ
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Μιλήστε στον κόσμο για αυτή την επέκταση. Παρακαλούμε ακολουθήστε τις %(linkStart)sοδηγίες αξιολόγησης%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -603,11 +603,11 @@ msgstr "Διαγραφή συλλογής"
 
 #: src/amo/components/Collection/index.js:407
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Πρώτα, δημιουργήστε τη συλλογή σας. Έπειτα, μπορείτε να προσθέσετε επεκτάσεις και θέματα."
 
 #: src/amo/components/Collection/index.js:410
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Αναζητήστε επεκτάσεις και θέματα για να προσθέσετε στη συλλογή σας."
 
 #: src/amo/components/CollectionManager/index.js:299
 msgid "Save collection"
@@ -635,7 +635,7 @@ msgstr "Προστέθηκε σε συλλογή"
 
 #: src/amo/components/CollectionManager/index.js:377
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Βρείτε ένα πρόσθετο για να συμπεριλάβετε σε αυτή τη συλλογή"
 
 #: src/amo/components/CollectionManager/index.js:397 src/amo/components/UserProfileEdit/index.js:768 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:142
 msgid "Cancel"
@@ -1361,7 +1361,7 @@ msgstr "Αναφέρατε αυτό το πρόσθετο για κατάχρη�
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Λάβαμε την αναφορά σας. Ευχαριστούμε που μάς ενημερώσατε σχετικά με τις ανησυχίες σας για αυτό το πρόσθετο."
 
 #: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:155
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1381,7 +1381,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:186
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Εξηγήστε γιατί αυτό το πρόσθετο παραβιάζει τις πολιτικές μας."
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
@@ -1937,7 +1937,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:490
 msgid "Email Address"
-msgstr ""
+msgstr "Διεύθυνση email"
 
 #: src/amo/components/UserProfileEdit/index.js:506
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
