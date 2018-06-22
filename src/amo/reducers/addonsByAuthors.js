@@ -242,8 +242,6 @@ const reducer = (
 
         if (addonsToRemove) {
           for (const addonToRemove of addonsToRemove) {
-            newState.byAddonId[addonToRemove.id] = undefined;
-
             if (addonToRemove.authors) {
               for (const author of addonToRemove.authors) {
                 newState.byUsername[author.username] = newState.byUsername[

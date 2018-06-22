@@ -96,9 +96,9 @@ describe(__filename, () => {
         : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
     const addons = [];
-    const nbAddons = count || pageSize;
+    const totalAddons = typeof count === 'number' ? count : pageSize;
 
-    for (let i = 0; i < nbAddons; i++) {
+    for (let i = 0; i < totalAddons; i++) {
       addons.push({
         ...fakeAddon,
         id: i + 1,

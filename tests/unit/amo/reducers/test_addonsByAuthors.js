@@ -307,6 +307,12 @@ describe(__filename, () => {
       expect(prevState.byAddonId).toEqual({
         [fakeAddon.id]: createInternalAddon(fakeAddon),
       });
+      expect(prevState.byUserId).toEqual({
+        [userId]: [fakeAddon.id],
+      });
+      expect(prevState.byUsername).toEqual({
+        [username]: [fakeAddon.id],
+      });
 
       const state = reducer(
         prevState,
@@ -318,7 +324,9 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byAddonId).toEqual({});
+      expect(prevState.byAddonId).toEqual({
+        [fakeAddon.id]: createInternalAddon(fakeAddon),
+      });
       expect(state.byUserId).toEqual({
         [userId]: [],
       });
