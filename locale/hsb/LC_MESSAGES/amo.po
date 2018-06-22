@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 18:20+0000\n"
+"PO-Revision-Date: 2018-06-22 20:52+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -592,14 +592,12 @@ msgid "Creator"
 msgstr "Wuwiwar"
 
 #: src/amo/components/Collection/index.js:373
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Chceće woprawdźe tutón wobraz zhašeć?"
+msgstr "Chceće woprawdźe tutu zběrku zhašeć?"
 
 #: src/amo/components/Collection/index.js:376
-#, fuzzy
 msgid "Delete this collection"
-msgstr "Tutu zběrku wobdźěłać"
+msgstr "Tutu zběrku zhašeć"
 
 #: src/amo/components/Collection/index.js:407
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -702,14 +700,12 @@ msgid "Remove"
 msgstr "Wotstronić"
 
 #: src/amo/components/EditableCollectionAddon/index.js:116
-#, fuzzy
 msgid "User comment"
-msgstr "Wužiwar wot"
+msgstr "Wužiwarski komentar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Wo tutym přidatku"
+msgstr "Wo tutym přidatku komentar přidać."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
@@ -988,14 +984,12 @@ msgid "See more translation tools"
 msgstr "Dalše přełožowanske nastroje pokazać"
 
 #: src/amo/components/Home/index.js:246
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Nastroje priwatnosće"
+msgstr "Priwatnosć je wažna"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Dalše rajtarkowe rozšěrjenja pokazać"
+msgstr "Dalše rozšěrjenja za priwatnosć pokazać"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
@@ -1110,9 +1104,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Waš najlubši material w interneće wutřihać, składować a organizować"
+msgstr "Wizuelne zapołožki za waše najlubše městna w interneće"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "PrivacyBadger"
@@ -1139,9 +1132,8 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "Wuzběhńće tekst na webstronje, zo byšće praktiski pytanski meni wočinił"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
@@ -1594,9 +1586,8 @@ msgid "No theme preview available"
 msgstr "Přehlad drasty k dispoziciji njeje"
 
 #: src/amo/components/SearchResult/index.js:133
-#, fuzzy
 msgid "Add-on note"
-msgstr "Přidatkowy symbol"
+msgstr "Přidatkowa notica"
 
 #: src/amo/components/SearchResult/index.js:149
 msgid "%(total)s user"
@@ -1896,14 +1887,12 @@ msgid "Add-ons Home Page"
 msgstr "Startowa strona přidatkow"
 
 #: src/amo/components/UserProfile/index.js:127
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Přidatki wot tutych wuwiwarjow"
+msgstr "Přidatkowy wuwiwar"
 
 #: src/amo/components/UserProfile/index.js:133
-#, fuzzy
 msgid "Theme artist"
-msgstr "Drasty wot tutych wuměłcow"
+msgstr "Drastowy wuměłc"
 
 #: src/amo/components/UserProfile/index.js:146 src/amo/components/UserProfileEdit/index.js:431
 msgid "User Profile for %(user)s"
@@ -2202,9 +2191,8 @@ msgid "Next"
 msgstr "Přichodne"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Strona %(pageNumber)s z %(totalPages)s"
+msgstr "Strona %(currentPage)s z %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
