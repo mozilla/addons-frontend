@@ -196,6 +196,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
   }
 
+  componentWillUnmount() {
+    this.props.errorHandler.clear();
+  }
+
   onDeleteProfile = (e: SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
 

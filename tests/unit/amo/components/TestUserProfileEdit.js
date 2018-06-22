@@ -1507,4 +1507,18 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(0);
   });
+
+  it('clears the error handler when unmounting', () => {
+    const { store } = signInUserWithUsername('babar');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+
+    dispatchSpy.resetHistory();
+
+    root.unmount();
+
+    sinon.assert.calledWith(dispatchSpy, errorHandler.createClearingAction());
+  });
 });
