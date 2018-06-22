@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 14:42+0000\n"
+"PO-Revision-Date: 2018-06-22 17:40+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1871,11 +1871,11 @@ msgstr "Amḍan n yizegrar"
 
 #: src/amo/components/UserProfile/index.js:206
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Talemmast n tezmilin n yizegrar n uneflay"
 
 #: src/amo/components/UserProfile/index.js:219 src/amo/components/UserProfileEdit/index.js:610
 msgid "Biography"
-msgstr ""
+msgstr "Tabyugrafit"
 
 #: src/amo/components/UserProfile/index.js:243
 msgid "Edit profile"
