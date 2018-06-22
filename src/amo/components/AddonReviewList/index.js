@@ -1,5 +1,5 @@
 /* @flow */
-/* eslint-disable react/sort-comp, react/no-unused-prop-types */
+/* eslint-disable react/no-unused-prop-types */
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import Helmet from 'react-helmet';

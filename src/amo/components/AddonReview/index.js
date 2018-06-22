@@ -1,5 +1,4 @@
 /* @flow */
-/* eslint-disable react/sort-comp */
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import defaultDebounce from 'lodash.debounce';

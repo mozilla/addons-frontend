@@ -2,12 +2,12 @@
 import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
-import { ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type {
   ExternalAddonType,
   SearchResultAddonType,
 } from 'core/types/addons';
+import { getAddonTypeFilter } from 'core/utils';
 
 
 type AddonId = number;
@@ -22,7 +22,7 @@ export type AddonsByAuthorsState = {|
   byAddonSlug: { [string]: Array<AddonId> },
   byUserId: { [number]: Array<AddonId> },
   byUsername: { [string]: Array<AddonId> },
-  byAuthorNamesAndAddonType: { [string]: Array<AddonId> | null },
+  countFor: { [string]: number },
   loadingFor: { [string]: boolean },
 |};
 
@@ -31,7 +31,7 @@ export const initialState: AddonsByAuthorsState = {
   byAddonSlug: {},
   byUserId: {},
   byUsername: {},
-  byAuthorNamesAndAddonType: {},
+  countFor: {},
   loadingFor: {},
 };
 
@@ -50,6 +50,9 @@ type FetchAddonsByAuthorsParams = {|
   authorUsernames: Array<string>,
   errorHandlerId: string,
   forAddonSlug?: string,
+  page?: number,
+  pageSize: number,
+  sort?: string,
 |};
 
 type FetchAddonsByAuthorsAction = {|
@@ -57,13 +60,20 @@ type FetchAddonsByAuthorsAction = {|
   payload: FetchAddonsByAuthorsParams,
 |};
 
-export const fetchAddonsByAuthors = (
-  { addonType, authorUsernames, errorHandlerId, forAddonSlug }: FetchAddonsByAuthorsParams
-): FetchAddonsByAuthorsAction => {
+export const fetchAddonsByAuthors = ({
+  addonType,
+  authorUsernames,
+  errorHandlerId,
+  forAddonSlug,
+  page,
+  pageSize,
+  sort,
+}: FetchAddonsByAuthorsParams): FetchAddonsByAuthorsAction => {
   invariant(errorHandlerId, 'An errorHandlerId is required');
   invariant(authorUsernames, 'authorUsernames are required.');
   invariant(Array.isArray(authorUsernames),
     'The authorUsernames parameter must be an array.');
+  invariant(pageSize, 'pageSize is required.');
 
   return {
     type: FETCH_ADDONS_BY_AUTHORS,
@@ -72,15 +82,20 @@ export const fetchAddonsByAuthors = (
       authorUsernames,
       errorHandlerId,
       forAddonSlug,
+      page,
+      pageSize,
+      sort,
     },
   };
 };
 
 type LoadAddonsByAuthorsParams = {|
-  addons: Array<ExternalAddonType>,
   addonType?: string,
+  addons: Array<ExternalAddonType>,
   authorUsernames: Array<string>,
+  count: number,
   forAddonSlug?: string,
+  pageSize: number,
 |};
 
 type LoadAddonsByAuthorsAction = {|
@@ -88,15 +103,29 @@ type LoadAddonsByAuthorsAction = {|
   payload: LoadAddonsByAuthorsParams,
 |};
 
-export const loadAddonsByAuthors = (
-  { addons, addonType, authorUsernames, forAddonSlug }: LoadAddonsByAuthorsParams
-): LoadAddonsByAuthorsAction => {
+export const loadAddonsByAuthors = ({
+  addonType,
+  addons,
+  authorUsernames,
+  count,
+  forAddonSlug,
+  pageSize,
+}: LoadAddonsByAuthorsParams): LoadAddonsByAuthorsAction => {
   invariant(addons, 'A set of add-ons is required.');
   invariant(authorUsernames, 'A list of authorUsernames is required.');
+  invariant(typeof count === 'number', 'count is required.');
+  invariant(pageSize, 'pageSize is required.');
 
   return {
     type: LOAD_ADDONS_BY_AUTHORS,
-    payload: { addons, addonType, authorUsernames, forAddonSlug },
+    payload: {
+      addonType,
+      addons,
+      authorUsernames,
+      count,
+      forAddonSlug,
+      pageSize,
+    },
   };
 };
 
@@ -107,10 +136,21 @@ export const joinAuthorNamesAndAddonType = (
 };
 
 export const getLoadingForAuthorNames = (
+  state: AddonsByAuthorsState,
+  authorUsernames: Array<string>,
+  addonType?: string
+): boolean | null => {
+  return (
+    state.loadingFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
+    null
+  );
+};
+
+export const getCountForAuthorNames = (
   state: AddonsByAuthorsState, authorUsernames: Array<string>, addonType?: string
 ) => {
   return (
-    state.loadingFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
+    state.countFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
     null
   );
 };
@@ -153,7 +193,8 @@ export const getAddonsForUsernames = (
       return state.byAddonId[id];
     })
     .filter((addon) => {
-      return addonType ? addon.type === addonType : true;
+      const addonTypeFilter = getAddonTypeFilter(addonType);
+      return addonType ? addonTypeFilter.includes(addon.type) : true;
     })
     .filter((addon) => {
       return addon.slug !== excludeSlug;
@@ -173,52 +214,67 @@ const reducer = (
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
 
-      if (action.payload.forAddonSlug) {
+      const {
+        addonType,
+        authorUsernames,
+        forAddonSlug,
+      } = action.payload;
+
+      if (forAddonSlug) {
         newState.byAddonSlug = {
           ...newState.byAddonSlug,
-          [action.payload.forAddonSlug]: undefined,
+          [forAddonSlug]: undefined,
         };
       }
 
-      newState.loadingFor[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType)] = true;
-      newState.byAuthorNamesAndAddonType[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType)] = null;
+      const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
+        authorUsernames,
+        addonType
+      );
+
+      newState.loadingFor[authorNamesWithAddonType] = true;
+      newState.countFor[authorNamesWithAddonType] = null;
 
       return newState;
     }
     case LOAD_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
-      const pageSize = action.payload.addonType === ADDON_TYPE_THEME ?
-        THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
-      if (action.payload.forAddonSlug) {
+      const {
+        addonType,
+        addons,
+        authorUsernames,
+        count,
+        forAddonSlug,
+        pageSize,
+      } = action.payload;
+
+      if (forAddonSlug) {
         newState.byAddonSlug = {
-          [action.payload.forAddonSlug]: action.payload.addons
-            .slice(0, pageSize)
-            .map((addon) => addon.id),
+          ...newState.byAddonSlug,
+          [forAddonSlug]: addons.slice(0, pageSize).map((addon) => addon.id),
         };
       }
 
-      const addons = action.payload.addons
-        .map((addon) => createInternalAddon(addon));
-
       const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType);
+        authorUsernames,
+        addonType
+      );
 
-      newState.byAuthorNamesAndAddonType[authorNamesWithAddonType] = [];
+      newState.countFor[authorNamesWithAddonType] = count;
       newState.loadingFor[authorNamesWithAddonType] = false;
 
-      for (const addon of addons) {
+      const internalAddons = addons.map((addon) => createInternalAddon(addon));
+
+      for (const addon of internalAddons) {
         newState.byAddonId[addon.id] = addon;
-        newState.byAuthorNamesAndAddonType[authorNamesWithAddonType]
-          .push(addon.id);
 
         if (addon.authors) {
           for (const author of addon.authors) {
             if (!newState.byUserId[author.id]) {
               newState.byUserId[author.id] = [];
             }
+
             if (!newState.byUsername[author.username]) {
               newState.byUsername[author.username] = [];
             }

@@ -98,6 +98,7 @@ module.exports = {
     'enableNewCollectionsUI',
     'enableUserProfile',
     'enableAddonRecommendations',
+    'enableStaticThemes',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -294,4 +295,7 @@ module.exports = {
 
   // Enable the TAAR Lite A/B test.
   enableAddonRecommendations: false,
+
+  // Enable static themes.
+  enableStaticThemes: false,
 };

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 19:01+0000\n"
-"PO-Revision-Date: 2018-06-07 09:35+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2018-06-09 19:09+0000\n"
+"Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Sivua ei löytynyt"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Olemme pahoillamme, mutta emme löytäneet syöttämästäsi osoitteesta mitään."
 
 #: src/core/components/InstallButton/index.js:236 src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
@@ -56,7 +56,7 @@ msgstr "%(name)s on asennettu ja käytössä. Poista se napsauttamalla."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s on pois käytöstä. Ota käyttöön napsauttamalla."
 
 #: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
@@ -64,7 +64,7 @@ msgstr "Poistetaan %(name)s asennus."
 
 #: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s on poistettu. Asenna napsauttamalla."
 
 #: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
@@ -76,7 +76,7 @@ msgstr "Lisäosasi on valmis"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "%(name)s on nyt käytettävissäsi työkalupalkista."
 
 #: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
@@ -151,7 +151,7 @@ msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Firefoxille on tuhansia ilmaisia lisäosia, joita tekevät kehittäjät ympäri maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia on hauskoista teemoista tehokkaisiin "
+"Firefoxille on tuhansia ilmaisia lisäosia, joita kehittävät ihmiset ympäri maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia on hauskoista teemoista tehokkaisiin "
 "työkaluihin, jotka tekevät selaamisesta nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
 
 #: src/disco/containers/DiscoPane.js:147

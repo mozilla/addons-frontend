@@ -3,6 +3,7 @@ import * as React from 'react';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
 import ScreenShots, {
+  PHOTO_SWIPE_OPTIONS,
   thumbnailContent,
 } from 'amo/components/ScreenShots';
 
@@ -16,14 +17,14 @@ describe(__filename, () => {
       image_url: 'http://img.com/one',
       thumbnail_url: 'http://img.com/1',
       image_size: [WIDTH, HEIGHT],
-      thumbnail_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH - 100, HEIGHT - 100],
     },
     {
       caption: 'Another screenshot',
       image_url: 'http://img.com/two',
       thumbnail_url: 'http://img.com/2',
       image_size: [WIDTH, HEIGHT],
-      thumbnail_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH - 100, HEIGHT - 100],
     },
   ];
 
@@ -33,6 +34,8 @@ describe(__filename, () => {
         title: 'A screenshot',
         src: 'http://img.com/one',
         thumbnail_src: 'http://img.com/1',
+        thumbnail_w: WIDTH - 100,
+        thumbnail_h: HEIGHT - 100,
         h: HEIGHT,
         w: WIDTH,
       },
@@ -40,6 +43,8 @@ describe(__filename, () => {
         title: 'Another screenshot',
         src: 'http://img.com/two',
         thumbnail_src: 'http://img.com/2',
+        thumbnail_w: WIDTH - 100,
+        thumbnail_h: HEIGHT - 100,
         h: HEIGHT,
         w: WIDTH,
       },
@@ -53,16 +58,26 @@ describe(__filename, () => {
   });
 
   it('renders custom thumbnail', () => {
-    const h = 123;
-    const w = 1234;
+    const thumbnailSrc = 'http://example.com/thumbnail.png';
+    const thumbnailHeight = 123;
+    const thumbnailWidth = 200;
 
-    const item = { src: 'https://foo.com/img.png', title: 'test title', h, w };
+    const item = {
+      src: 'https://foo.com/img.png',
+      title: 'test title',
+      h: HEIGHT,
+      w: WIDTH,
+      thumbnail_src: thumbnailSrc,
+      thumbnail_h: thumbnailHeight,
+      thumbnail_w: thumbnailWidth,
+    };
+
     const thumbnail = shallow(thumbnailContent(item));
 
     expect(thumbnail.type()).toEqual('img');
-    expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
-    expect(thumbnail.prop('height')).toEqual(h);
-    expect(thumbnail.prop('width')).toEqual(w);
+    expect(thumbnail.prop('src')).toEqual(thumbnailSrc);
+    expect(thumbnail.prop('height')).toEqual(thumbnailHeight);
+    expect(thumbnail.prop('width')).toEqual(thumbnailWidth);
     expect(thumbnail.prop('alt')).toEqual('test title');
     expect(thumbnail.prop('title')).toEqual('test title');
   });
@@ -74,16 +89,122 @@ describe(__filename, () => {
     ));
 
     const root = mount(<ScreenShots previews={newPreviews} />);
-    const item = { getBoundingClientRect: () => ({ x: 500 }) };
+    const item = { getBoundingClientRect: () => ({ left: 500 }) };
     const list = {
       children: [null, item],
-      getBoundingClientRect: () => ({ x: 55 }),
+      getBoundingClientRect: () => ({ left: 55 }),
       scrollLeft: 0,
     };
     sinon.stub(root.instance().viewport, 'querySelector').returns(list);
+
     const photoswipe = { getCurrentIndex: () => 1 };
     root.instance().onClose(photoswipe);
     // 0 += 500 - 55
     expect(list.scrollLeft).toEqual(445);
+  });
+
+  describe('PHOTO_SWIPE_OPTIONS.getThumbBoundsFn', () => {
+    const { getThumbBoundsFn } = PHOTO_SWIPE_OPTIONS;
+
+    const getFakeDocument = ({ left, top, width }) => {
+      const fakeImg = {
+        getBoundingClientRect: () => ({
+          height: 123,
+          left,
+          top,
+          width,
+        }),
+      };
+
+      const fakeThumbnail = {
+        getElementsByTagName: () => [fakeImg],
+      };
+
+      const fakeDocument = {
+        querySelectorAll: () => [fakeThumbnail],
+      };
+
+      return fakeDocument;
+    };
+
+    it('returns false if thumbnail does not exist', () => {
+      const bounds = getThumbBoundsFn(0);
+
+      expect(bounds).toEqual(false);
+    });
+
+    it('returns false if _document is null', () => {
+      const bounds = getThumbBoundsFn(0, { _document: null });
+
+      expect(bounds).toEqual(false);
+    });
+
+    it('returns false if _window is null', () => {
+      const bounds = getThumbBoundsFn(0, {
+        _document: getFakeDocument({ left: 1, top: 2, width: 3 }),
+        _window: null,
+      });
+
+      expect(bounds).toEqual(false);
+    });
+
+    it('returns an object with x, y and w values', () => {
+      const left = 123;
+      const top = 124;
+      const width = 100;
+
+      const fakeDocument = getFakeDocument({ left, top, width });
+
+      const bounds = getThumbBoundsFn(0, { _document: fakeDocument });
+
+      expect(bounds).toEqual({
+        w: width,
+        x: left,
+        y: top,
+      });
+    });
+
+    it('uses window.pageYOffset to compute `y` if available', () => {
+      const left = 123;
+      const top = 124;
+      const width = 100;
+
+      const fakeDocument = getFakeDocument({ left, top, width });
+
+      const fakeWindow = {
+        pageYOffset: 20,
+      };
+
+      const bounds = getThumbBoundsFn(0, {
+        _document: fakeDocument,
+        _window: fakeWindow,
+      });
+
+      expect(bounds).toEqual({
+        w: width,
+        x: left,
+        y: top + fakeWindow.pageYOffset,
+      });
+    });
+
+    it('uses document.documentElement.scrollTop to compute `y` if available', () => {
+      const left = 123;
+      const top = 124;
+      const width = 100;
+      const scrollTop = 30;
+
+      const fakeDocument = getFakeDocument({ left, top, width });
+      fakeDocument.documentElement = {
+        scrollTop,
+      };
+
+      const bounds = getThumbBoundsFn(0, { _document: fakeDocument });
+
+      expect(bounds).toEqual({
+        w: width,
+        x: left,
+        y: top + scrollTop,
+      });
+    });
   });
 });

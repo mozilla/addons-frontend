@@ -1,5 +1,4 @@
 /* @flow */
-/* eslint-disable react/sort-comp */
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';

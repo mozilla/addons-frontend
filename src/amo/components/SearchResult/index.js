@@ -1,5 +1,4 @@
 /* @flow */
-/* eslint-disable react/sort-comp */
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';

@@ -9,8 +9,8 @@
   @include respond-to(large) {
     background-color: $grey-10;
     border-radius: $border-radius-default;
+    display: inline-block;
     margin: 0 auto;
-    max-width: 360px;
   }
 }
 

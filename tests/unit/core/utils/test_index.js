@@ -18,6 +18,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
   CATEGORY_COLORS,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -29,6 +30,7 @@ import {
   addonHasVersionHistory,
   apiAddonType,
   convertBoolean,
+  getAddonTypeFilter,
   getCategoryColor,
   getClientApp,
   getClientConfig,
@@ -57,6 +59,7 @@ import {
 import {
   createFetchAddonResult,
   fakeI18n,
+  getFakeConfig,
   unexpectedSuccess,
   userAgents,
 } from 'tests/unit/helpers';
@@ -704,6 +707,32 @@ describe(__filename, () => {
 
     it('removes // from URL', () => {
       expect(removeProtocolFromURL('//test.com/')).toEqual('test.com/');
+    });
+  });
+
+  describe('getAddonTypeFilter', () => {
+    it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a lightweight theme', () => {
+      const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+      const addon = createInternalAddon({ type: ADDON_TYPE_THEME, config: fakeConfig });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEMES_FILTER);
+    });
+
+    it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a static theme', () => {
+      const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+      const addon = createInternalAddon({ type: ADDON_TYPE_STATIC_THEME, config: fakeConfig });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEMES_FILTER);
+    });
+
+    it('returns ADDON_TYPE_THEME when enabledStaticThemes is set to false', () => {
+      const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+      const addon = createInternalAddon({ type: ADDON_TYPE_THEME, config: fakeConfig });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEME);
+    });
+
+    it('returns ADDON_TYPE_EXTENSION when enabledStaticThemes is set to true and add-on type is an extension', () => {
+      const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+      const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION, config: fakeConfig });
+      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_EXTENSION);
     });
   });
 });

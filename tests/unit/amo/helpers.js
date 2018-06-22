@@ -273,7 +273,12 @@ export function dispatchSearchResults({
 export function createAddonsApiResult(results) {
   // Return a normalized add-ons response just like many utility functions do.
   // For example: core.api.featured(), core.api.search()...
-  return normalize({ results }, { results: [addonSchema] });
+  return normalize({
+    count: results.length,
+    results,
+  }, {
+    results: [addonSchema],
+  });
 }
 
 export function createFakeAutocompleteResult({
