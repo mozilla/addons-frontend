@@ -1,5 +1,7 @@
 /* @flow */
 /* global Event, window */
+/* eslint-disable react/sort-comp */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -23,20 +25,25 @@ type HandleLogInFunc = (
 type HandleLogOutFunction = ({| api: ApiStateType |}) => Promise<void>;
 
 type Props = {|
-  api: ApiStateType,
   buttonType?: string,
   className?: string,
-  handleLogIn: HandleLogInFunc,
-  handleLogOut: HandleLogOutFunction,
-  i18n: I18nType,
+  handleLogOut?: HandleLogOutFunction,
   location: ReactRouterLocation,
   logInText?: string,
   logOutText?: string,
   noIcon: boolean,
+|};
+
+type InjectedProps = {|
+  api: ApiStateType,
+  handleLogIn: HandleLogInFunc,
+  i18n: I18nType,
   siteUser: UserType | null,
 |};
 
-export class AuthenticateButtonBase extends React.Component<Props> {
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class AuthenticateButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
     buttonType: 'action',
     noIcon: false,
@@ -52,6 +59,8 @@ export class AuthenticateButtonBase extends React.Component<Props> {
       location,
       siteUser,
     } = this.props;
+
+    invariant(handleLogOut, 'handleLogOut() is undefined');
 
     if (siteUser) {
       handleLogOut({ api });
@@ -134,7 +143,9 @@ export const mapDispatchToProps = (
   handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
 });
 
-export default compose(
+const AuthenticateButton: React.ComponentType<Props> = compose(
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(AuthenticateButtonBase);
+
+export default AuthenticateButton;

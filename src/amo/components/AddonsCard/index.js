@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
@@ -77,6 +78,9 @@ export default class AddonsCard extends React.Component<Props> {
         // any summary or description.
         const isTheme = ADDON_TYPE_THEMES.includes(addon.type);
         if (editing) {
+          invariant(deleteNote, 'deleteNote() is undefined');
+          invariant(removeAddon, 'removeAddon() is undefined');
+          invariant(saveNote, 'saveNote() is undefined');
           addonElements.push(
             <EditableCollectionAddon
               addon={addon}

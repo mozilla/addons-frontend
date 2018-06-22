@@ -26,18 +26,21 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
+  user?: UserType | null,
+|};
+
+type InjectedProps = {|
   dispatch: DispatchFunc,
-  hasSubmitted: bool,
   errorHandler: ErrorHandlerType,
+  hasSubmitted: bool,
   i18n: I18nType,
   isSubmitting: bool,
   uiVisible: bool,
-  user?: UserType,
 |};
 
-export class ReportUserAbuseBase extends React.Component<Props> {
-  props: Props;
+type InternalProps = { ...Props, ...InjectedProps };
 
+export class ReportUserAbuseBase extends React.Component<InternalProps> {
   hideReportUI = () => {
     const { dispatch, user } = this.props;
 
@@ -179,8 +182,10 @@ export const mapStateToProps = (
   };
 };
 
-export default compose(
+const ReportUserAbuse: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ name: 'ReportUserAbuse' }),
 )(ReportUserAbuseBase);
+
+export default ReportUserAbuse;

@@ -13,7 +13,13 @@ import { fakeAddon } from 'tests/unit/amo/helpers';
 describe(__filename, () => {
   let addons;
 
-  function render(props = {}) {
+  function render(customProps = {}) {
+    const props = {
+      deleteNote: sinon.stub(),
+      removeAddon: sinon.stub(),
+      saveNote: sinon.stub(),
+      ...customProps,
+    };
     return shallow(<AddonsCard {...props} />);
   }
 

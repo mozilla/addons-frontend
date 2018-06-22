@@ -11,23 +11,28 @@ import './styles.scss';
 
 
 type Props = {|
-  buttonType: string,
-  cancelButtonText: string,
-  cancelButtonType: string,
+  buttonType?: string,
+  cancelButtonText?: string | null,
+  cancelButtonType?: string,
   children: React.Element<any>,
   className?: string,
-  confirmButtonText: string,
-  confirmButtonType: string,
-  i18n: I18nType,
+  confirmButtonText?: string | null,
+  confirmButtonType?: string,
   message: string,
   onConfirm: Function,
+|};
+
+type InjectedProps = {|
+  i18n: I18nType,
 |};
 
 type State = {|
   showConfirmation: boolean,
 |};
 
-export class ConfirmButtonBase extends React.Component<Props, State> {
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class ConfirmButtonBase extends React.Component<InternalProps, State> {
   static defaultProps = {
     buttonType: 'neutral',
     cancelButtonText: null,
@@ -36,7 +41,7 @@ export class ConfirmButtonBase extends React.Component<Props, State> {
     confirmButtonType: 'alert',
   };
 
-  constructor(props: Props) {
+  constructor(props: InternalProps) {
     super(props);
 
     this.state = {
@@ -117,6 +122,8 @@ export class ConfirmButtonBase extends React.Component<Props, State> {
   }
 }
 
-export default compose(
+const ConfirmButton: React.ComponentType<Props> = compose(
   translate(),
 )(ConfirmButtonBase);
+
+export default ConfirmButton;

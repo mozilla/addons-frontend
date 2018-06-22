@@ -1,5 +1,6 @@
 /* @flow */
 import classnames from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -41,20 +42,26 @@ type CategoriesStateType = {|
 
 type Props = {
   addonType: string,
-  className: string,
+  className?: string,
+}
+
+type InjectedProps = {|
+  categoriesState: $PropertyType<CategoriesStateType, 'categories'>,
   clientApp: string,
-  categoriesState?: $PropertyType<CategoriesStateType, 'categories'>,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   loading: boolean,
-}
+|};
 
-export class CategoriesBase extends React.Component<Props> {
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class CategoriesBase extends React.Component<InternalProps> {
   componentWillMount() {
     const {
       addonType, categoriesState, dispatch, errorHandler, loading,
     } = this.props;
+    invariant(addonType, 'addonType is undefined');
 
     if (!loading && !categoriesState) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
@@ -63,9 +70,9 @@ export class CategoriesBase extends React.Component<Props> {
     dispatch(setViewContext(addonType));
   }
 
-  componentWillReceiveProps({ addonType: newAddonType }: Props) {
+  componentWillReceiveProps({ addonType: newAddonType }: InternalProps) {
     const { addonType: oldAddonType, dispatch } = this.props;
-    if (oldAddonType !== newAddonType) {
+    if (newAddonType && oldAddonType !== newAddonType) {
       dispatch(setViewContext(newAddonType));
     }
   }
@@ -81,6 +88,7 @@ export class CategoriesBase extends React.Component<Props> {
       i18n,
       loading,
     } = this.props;
+    invariant(addonType, 'addonType is undefined');
 
     let categories = [];
     if (
@@ -158,8 +166,10 @@ export function mapStateToProps(
   };
 }
 
-export default compose(
+const Categories: React.ComponentType<Props> = compose(
   withErrorHandler({ name: 'Categories' }),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(CategoriesBase);
+
+export default Categories;

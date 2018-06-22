@@ -16,10 +16,15 @@ import 'amo/components/ErrorPage/ErrorPage.scss';
 
 type Props = {|
   errorCode?: string,
+|};
+
+type InjectedProps = {|
   i18n: I18nType,
 |};
 
-export class NotFoundBase extends React.Component<Props> {
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class NotFoundBase extends React.Component<InternalProps> {
   render() {
     const { errorCode, i18n } = this.props;
 
@@ -65,6 +70,8 @@ export class NotFoundBase extends React.Component<Props> {
   }
 }
 
-export default compose(
+const NotFound: React.ComponentType<Props> = compose(
   translate({ withRef: true }),
 )(NotFoundBase);
+
+export default NotFound;

@@ -1,6 +1,7 @@
 /* @flow */
 /* global Node */
-/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/sort-comp, react/no-unused-prop-types */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -49,28 +50,37 @@ type LoadSavedReviewFunc = ({|
 type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
 type Props = {|
-  AddonReview: typeof DefaultAddonReview,
-  AuthenticateButton: typeof DefaultAuthenticateButton,
-  UserRating: typeof DefaultUserRating,
-  ReportAbuseButton: typeof DefaultReportAbuseButton,
+  AddonReview?: typeof DefaultAddonReview,
+  AuthenticateButton?: typeof DefaultAuthenticateButton,
+  UserRating?: typeof DefaultUserRating,
+  ReportAbuseButton?: typeof DefaultReportAbuseButton,
   addon: AddonType,
+  location: ReactRouterLocation,
+  onReviewSubmitted?: () => void,
+  version: AddonVersionType,
+|};
+
+type DispatchMappedProps = {|
+  loadSavedReview: LoadSavedReviewFunc,
+  submitReview: SubmitReviewFunc,
+|}
+
+type InjectedProps = {|
+  ...DispatchMappedProps,
   apiState: ApiStateType,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  loadSavedReview: LoadSavedReviewFunc,
-  location: ReactRouterLocation,
-  onReviewSubmitted?: () => void,
-  submitReview: SubmitReviewFunc,
   userId: number,
   userReview: UserReviewType,
-  version: AddonVersionType,
 |};
+
+type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   showTextEntry: boolean,
 |};
 
-export class RatingManagerBase extends React.Component<Props, State> {
+export class RatingManagerBase extends React.Component<InternalProps, State> {
   ratingLegend: React.ElementRef<'legend'> | null;
 
   static defaultProps = {
@@ -80,7 +90,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
     ReportAbuseButton: DefaultReportAbuseButton,
   }
 
-  constructor(props: Props) {
+  constructor(props: InternalProps) {
     super(props);
     const { apiState, loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
@@ -158,6 +168,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
 
   renderLogInToRate() {
     const { AuthenticateButton, addon, location } = this.props;
+    invariant(AuthenticateButton, 'AuthenticateButton() is undefined');
     return (
       <div className="RatingManager-log-in-to-rate">
         <AuthenticateButton
@@ -193,6 +204,10 @@ export class RatingManagerBase extends React.Component<Props, State> {
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName: addon.name });
+
+    invariant(AddonReview, 'AddonReview() is undefined');
+    invariant(UserRating, 'UserRating() is undefined');
+    invariant(ReportAbuseButton, 'ReportAbuseButton() is undefined');
 
     return (
       <div className="RatingManager">
@@ -252,11 +267,6 @@ export const mapStateToProps = (
   };
 };
 
-type DispatchMappedProps = {|
-  loadSavedReview: LoadSavedReviewFunc,
-  submitReview: SubmitReviewFunc,
-|}
-
 export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
@@ -284,7 +294,9 @@ export const RatingManagerWithI18n = compose(
   translate({ withRef: true }),
 )(RatingManagerBase);
 
-export default compose(
+const RatingManager: React.ComponentType<Props> = compose(
   withRenderedErrorHandler({ name: 'RatingManager' }),
   connect(mapStateToProps, mapDispatchToProps),
 )(RatingManagerWithI18n);
+
+export default RatingManager;

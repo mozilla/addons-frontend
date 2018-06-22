@@ -12,12 +12,17 @@ import type { DispatchFunc } from 'core/types/redux';
 
 type Props = {|
   children: React.Node,
-  dispatch: DispatchFunc,
-  errorPage: ErrorPageState,
   getErrorComponent: typeof getErrorComponentDefault,
 |};
 
-export class ErrorPageBase extends React.Component<Props> {
+type InjectedProps = {|
+  dispatch: DispatchFunc,
+  errorPage: ErrorPageState,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class ErrorPageBase extends React.Component<InternalProps> {
   static defaultProps = {
     errorPage: {},
     getErrorComponent: getErrorComponentDefault,
@@ -48,6 +53,8 @@ export const mapStateToProps = (state: {| errorPage: ErrorPageState |}) => ({
   errorPage: state.errorPage,
 });
 
-export default compose(
+const ErrorPage: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
 )(ErrorPageBase);
+
+export default ErrorPage;

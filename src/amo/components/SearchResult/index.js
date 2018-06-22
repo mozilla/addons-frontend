@@ -17,14 +17,19 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  addon: AddonType | CollectionAddonType,
+  addon?: AddonType | CollectionAddonType,
   addonInstallSource?: string,
-  i18n: I18nType,
   showMetadata?: boolean,
   showSummary?: boolean,
 |};
 
-export class SearchResultBase extends React.Component<Props> {
+type InjectedProps = {|
+  i18n: I18nType,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
     showMetadata: true,
     showSummary: true,
@@ -47,12 +52,12 @@ export class SearchResultBase extends React.Component<Props> {
     let imageURL = iconURL;
 
     if (isTheme) {
-      let themeURL = addon.previews &&
+      let themeURL = addon && addon.previews &&
         addon.previews.length > 0 &&
         isAllowedOrigin(addon.previews[0].image_url) ?
         addon.previews[0].image_url : null;
 
-      if (!themeURL && addon.type === ADDON_TYPE_THEME) {
+      if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL = addon.themeData
           && isAllowedOrigin(addon.themeData.previewURL)
           ? addon.themeData.previewURL : null;
@@ -184,6 +189,8 @@ export class SearchResultBase extends React.Component<Props> {
   }
 }
 
-export default compose(
+const SearchResult: React.ComponentType<Props> = compose(
   translate({ withRef: true }),
 )(SearchResultBase);
+
+export default SearchResult;

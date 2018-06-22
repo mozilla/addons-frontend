@@ -9,8 +9,11 @@ import Permission from 'ui/components/Permission';
 
 /* eslint-disable no-continue */
 type Props = {|
-  i18n: I18nType,
   permissions: Array<string>,
+|};
+
+type InjectedProps = {|
+  i18n: I18nType,
 |};
 
 const domainMessageType: 'domainMessageType' = 'domainMessageType';
@@ -32,8 +35,12 @@ type GenerateHostPermissionsParams = {|
   messageType: HostPermissionMessageType,
 |};
 
-export class HostPermissionsBase extends React.Component<Props> {
-  getPermissionString({ messageType, param, multiple = false }: GetPermissionStringParams): string {
+type InternalProps = { ...Props, ...InjectedProps };
+
+export class HostPermissionsBase extends React.Component<InternalProps> {
+  getPermissionString({
+    messageType, param, multiple = false,
+  }: GetPermissionStringParams): string {
     const { i18n } = this.props;
     // These should be kept in sync with Firefox's strings for webextention
     // host permissions which can be found in
@@ -168,6 +175,8 @@ export class HostPermissionsBase extends React.Component<Props> {
   }
 }
 
-export default compose(
+const HostPermissions: React.ComponentType<Props> = compose(
   translate(),
 )(HostPermissionsBase);
+
+export default HostPermissions;

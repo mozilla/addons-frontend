@@ -53,21 +53,26 @@ export type AddonAddedStatusType =
   | typeof ADDON_ADDED_STATUS_SUCCESS;
 
 type Props = {|
-  hasAddonBeenAdded: boolean,
   collection: CollectionType | null,
-  clearTimeout: Function,
-  clientApp: ?string,
+  clearTimeout?: Function,
   creating: boolean,
+  page: number | null,
+  setTimeout?: Function,
+|};
+
+type InjectedProps = {|
+  clientApp: ?string,
   currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  hasAddonBeenAdded: boolean,
   i18n: I18nType,
   isCollectionBeingModified: boolean,
-  page: number | null,
   router: ReactRouterType,
-  setTimeout: Function,
   siteLang: ?string,
 |};
+
+type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   addonAddedStatus: AddonAddedStatusType | null,
@@ -77,18 +82,18 @@ type State = {|
   slug?: string | null,
 |};
 
-export class CollectionManagerBase extends React.Component<Props, State> {
+export class CollectionManagerBase extends React.Component<InternalProps, State> {
   static defaultProps = {
     setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
     clearTimeout: typeof window !== 'undefined' ? window.clearTimeout.bind(window) : () => {},
   };
 
-  constructor(props: Props) {
+  constructor(props: InternalProps) {
     super(props);
     this.state = this.propsToState(props);
   }
 
-  componentWillReceiveProps(props: Props) {
+  componentWillReceiveProps(props: InternalProps) {
     const existingId = this.props.collection && this.props.collection.id;
     const { hasAddonBeenAdded: hasAddonBeenAddedNew } = props;
     const { hasAddonBeenAdded } = this.props;
@@ -106,6 +111,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
 
     if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
+      invariant(this.props.setTimeout, 'setTimeout() is undefined');
       this.timeout = this.props.setTimeout(
         this.resetMessageStatus,
         MESSAGE_RESET_TIME
@@ -115,6 +121,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   componentWillUnmount() {
     if (this.timeout) {
+      invariant(this.props.clearTimeout, 'clearTimeout() is undefined');
       this.props.clearTimeout(this.timeout);
     }
   }
@@ -262,7 +269,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     });
   };
 
-  propsToState(props: Props) {
+  propsToState(props: InternalProps) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
       addonAddedStatus: null,
@@ -282,6 +289,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       errorHandler,
       i18n,
       isCollectionBeingModified,
+      router,
       siteLang,
     } = this.props;
     const { name, slug } = this.state;
@@ -376,6 +384,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             inputPlaceholder={
               i18n.gettext('Find an add-on to include in this collection')
             }
+            location={router.location}
             onSearch={this.onSearchAddon}
             onSuggestionSelected={this.onAddonSelected}
             selectSuggestionText={i18n.gettext('Add to collection')}
@@ -433,9 +442,11 @@ export const mapStateToProps = (
   };
 };
 
-export default compose(
+const CollectionManager: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),
 )(CollectionManagerBase);
+
+export default CollectionManager;

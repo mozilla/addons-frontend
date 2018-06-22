@@ -249,7 +249,7 @@ export class UserProfileBase extends React.Component<Props> {
             <div className="UserProfile-addons-by-author">
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_EXTENSION}
-                authorDisplayName={[user.name]}
+                authorDisplayName={user.name}
                 authorUsernames={[user.username]}
                 numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
                 showSummary
@@ -259,7 +259,7 @@ export class UserProfileBase extends React.Component<Props> {
 
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_THEME}
-                authorDisplayName={[user.name]}
+                authorDisplayName={user.name}
                 authorUsernames={[user.username]}
                 numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
                 showMore={false}

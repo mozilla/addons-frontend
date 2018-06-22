@@ -20,8 +20,6 @@ export default class HeroSection extends React.Component<Props> {
     styleName: 'default',
   }
 
-  props: Props;
-
   render() {
     const { children, linkTo, styleName } = this.props;
 

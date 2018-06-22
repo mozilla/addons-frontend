@@ -17,28 +17,33 @@ import type {
   SaveAddonNoteFunc,
 } from 'amo/components/Collection';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { CollectionAddonType } from 'core/types/addons';
+import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 
 import './styles.scss';
 
 type Props = {|
-  addon: CollectionAddonType,
+  addon: AddonType | CollectionAddonType,
   className?: string,
   deleteNote: DeleteAddonNoteFunc,
-  errorHandler: ErrorHandlerType,
-  i18n: I18nType,
   removeAddon: RemoveCollectionAddonFunc,
   saveNote: SaveAddonNoteFunc,
 |};
+
+type InjectedProps = {|
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+|};
+
+type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   editingNote: boolean,
 |};
 
-export class EditableCollectionAddonBase extends React.Component<Props, State> {
-  constructor(props: Props) {
+export class EditableCollectionAddonBase extends React.Component<InternalProps, State> {
+  constructor(props: InternalProps) {
     super(props);
     this.state = {
       editingNote: false,
@@ -122,12 +127,12 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
                 <DismissibleTextForm
                   className="EditableCollectionAddon-notes-form"
                   microButtons
-                  onDelete={addon.notes && this.onDeleteNote}
+                  onDelete={addon.notes ? this.onDeleteNote : null}
                   onDismiss={this.onDismissNoteForm}
                   onSubmit={this.onSaveNote}
                   placeholder={i18n.gettext('Add a comment about this add-on.')}
                   submitButtonText={i18n.gettext('Save')}
-                  text={addon.notes}
+                  text={addon.notes || null}
                 />
               </React.Fragment>
             ) : (
@@ -136,7 +141,7 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
                   className="EditableCollectionAddon-notes-content"
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={
-                    sanitizeHTML(nl2br(addon.notes), ['br'])
+                    sanitizeHTML(nl2br(addon.notes || ''), ['br'])
                   }
                 />
                 <div className="EditableCollectionAddon-notes-buttons">
@@ -163,7 +168,9 @@ export const extractId = (ownProps: Props) => {
   return `editable-collection-addon-${addon.id}`;
 };
 
-export default compose(
+const EditableCollectionAddon: React.ComponentType<Props> = compose(
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(EditableCollectionAddonBase);
+
+export default EditableCollectionAddon;
