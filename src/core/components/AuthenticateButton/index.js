@@ -1,6 +1,5 @@
 /* @flow */
 /* global Event, window */
-/* eslint-disable react/sort-comp */
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';

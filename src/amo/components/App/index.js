@@ -1,5 +1,4 @@
 /* @flow */
-/* eslint-disable react/sort-comp */
 /* global Event, Navigator, Node, navigator, window */
 import config from 'config';
 import { oneLine } from 'common-tags';
