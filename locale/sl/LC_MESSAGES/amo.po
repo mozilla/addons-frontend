@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 08:27+0000\n"
-"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
+"PO-Revision-Date: 2018-01-27 13:44+0000\n"
+"Last-Translator: Peter Klofutar <peter_klofutar@telemach.net>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -641,11 +641,11 @@ msgstr "Prekliči"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
-msgstr "Podpri tega razvijalca"
+msgstr "Podprite tega razvijalca"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "Support these developers"
-msgstr "Podpri te razvijalce"
+msgstr "Podprite te razvijalce"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -657,7 +657,7 @@ msgstr "Razvijalci te razširitve vas vabijo, da podprete nadaljnji razvoj s skr
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "Support this artist"
-msgstr "Podpri tega ustvarjalca"
+msgstr "Podprite tega ustvarjalca"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "Support these artists"
@@ -673,7 +673,7 @@ msgstr "Ustvarjalci te teme vas vabijo, da podprete nadaljnji razvoj s skromnim 
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "Support this author"
-msgstr "Podpri tega avtorja"
+msgstr "Podprite tega avtorja"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "Support these authors"
