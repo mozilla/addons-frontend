@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 09:20+0000\n"
+"PO-Revision-Date: 2018-06-22 11:48+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1640,10 +1640,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Ma tebɣiḍ ad tissineḍ ugar ɣef usefrek n yizegrar di Firefox, neɣ tesriḍ ad tafeḍ tallelt tamatut n Firefox, rzu ma ulac aɣilif ar  %(startSUMOLink)sTallelt%(endSUMOLink)s n Mozilla. Ma yella ur "
+"tufiḍ ara tiririt din-a, Tzemreḍ  ad %(startForumLink)stesteqsiḍ deg unmager n terbaɛt-nneɣ%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)s Talɣut n unermes n terbaɛt n yizegrar n Mozilla ad tettwaf dagi %(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1723,7 +1725,7 @@ msgstr "Ḍmen d akken asenqed-ik adyeqqim meẓẓi daɣen fessus i wugzay."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Mudd-d talqayt ilaqen, leqqayen. Amedya :"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
@@ -1953,11 +1955,11 @@ msgstr "Ilɣa"
 
 #: src/amo/components/UserProfileEdit/index.js:654
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Si sya ar da, Mozilla tezmer ak-d-azen imayl ɣef tuffɣiwin d-iteddun neɣ tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
 
 #: src/amo/components/UserProfileEdit/index.js:658
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Si sya ar da, Mozilla tezmer ak-d-azen i useqdac-a imayl ɣef tuffɣiwin d-iteddun neɣ tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
 
 #: src/amo/components/UserProfileEdit/index.js:672
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -1989,11 +1991,11 @@ msgstr "Kkes amaɣnu n useqdac"
 
 #: src/amo/components/UserProfileEdit/index.js:715
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Ɣur-k: Aql-ak tettedduḍ ad tekkseḍ amaɣnu-ik. S tidet?"
 
 #: src/amo/components/UserProfileEdit/index.js:717
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "Ɣur-k: Aql-ak tettedduḍ ad tekkseḍ amaɣnu. S tidet?"
 
 #: src/amo/components/UserProfileEdit/index.js:727
 msgid ""
@@ -2019,7 +2021,7 @@ msgstr "Ih, Kkes amaɣnu-agi"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "Qqim d yisallen ɣef tidyanin icudden ar ineflayen n yizegrar (rmes daɣen tabratt n yisallen about:addons newsletter)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
