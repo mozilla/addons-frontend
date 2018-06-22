@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-21 08:02+0000\n"
-"Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
+"PO-Revision-Date: 2018-06-22 08:29+0000\n"
+"Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "Tizmilin n tuffɣa n %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:464
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)ssɣuṛ %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)s sɣuṛ %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
@@ -2107,11 +2107,11 @@ msgstr "Assali n %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
-msgstr "Asbed n %(name)s."
+msgstr "Asbeddi n %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s ittwasbed u yttwarmed . senned i wakken ad tekseḍ-t."
+msgstr "%(name)s ittwasbedd u yttwarmed . senned i wakken ad tekseḍ-t."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
@@ -2119,7 +2119,7 @@ msgstr "%(name)s ittwarurmed.Senned i wakken ad ittwarmed."
 
 #: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
-msgstr "Asbed n %(name)s."
+msgstr "Asbeddi n %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
@@ -2143,7 +2143,7 @@ msgstr "Asebter %(currentPage)s seg %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr "Azegrir inek ihegga"
+msgstr "Azegrir-ik ihegga"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
