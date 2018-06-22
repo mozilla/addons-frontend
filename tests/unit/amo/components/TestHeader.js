@@ -98,6 +98,7 @@ describe(__filename, () => {
     const link = wrapper.find('.Header-user-menu-collections-link');
 
     expect(link).toHaveLength(1);
+    expect(link.prop('href')).toEqual('/collections/');
     expect(link.prop('children')).toEqual('View My Collections');
   });
 

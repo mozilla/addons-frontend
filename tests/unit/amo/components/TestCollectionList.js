@@ -3,8 +3,10 @@ import * as React from 'react';
 
 import CollectionList, {
   CollectionListBase,
+  extractId,
 } from 'amo/components/CollectionList';
 import {
+  createInternalCollection,
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
@@ -20,6 +22,7 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
+import UserCollection from 'ui/components/UserCollection';
 
 describe(__filename, () => {
   const getProps = () => ({
@@ -36,10 +39,9 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <CollectionList {...allProps} />,
-      CollectionListBase
+      CollectionListBase,
     );
   };
-
 
   it('dispatches fetchUserCollections as expected', () => {
     const username = 'some-username';
@@ -51,10 +53,13 @@ describe(__filename, () => {
     renderComponent({ errorHandler, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchUserCollections({
-      errorHandlerId: errorHandler.id,
-      username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchUserCollections({
+        errorHandlerId: errorHandler.id,
+        username,
+      }),
+    );
   });
 
   it('does not dispatch fetchUserCollections if there is no user', () => {
@@ -73,10 +78,12 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
 
-    store.dispatch(fetchUserCollections({
-      errorHandlerId: errorHandler.id,
-      username,
-    }));
+    store.dispatch(
+      fetchUserCollections({
+        errorHandlerId: errorHandler.id,
+        username,
+      }),
+    );
 
     fakeDispatch.resetHistory();
 
@@ -90,10 +97,12 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userProps: { username } });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadUserCollections({
-      collections: [createFakeCollectionDetail()],
-      username,
-    }));
+    store.dispatch(
+      loadUserCollections({
+        collections: [createFakeCollectionDetail()],
+        username,
+      }),
+    );
 
     fakeDispatch.resetHistory();
 
@@ -123,8 +132,10 @@ describe(__filename, () => {
     const root = renderComponent({ store });
 
     expect(root.find('.CollectionList-info')).toHaveLength(1);
-    expect(root.find('.CollectionList-info'))
-      .toHaveProp('header', 'My Collections');
+    expect(root.find('.CollectionList-info')).toHaveProp(
+      'header',
+      'My Collections',
+    );
     expect(root.find('.CollectionList-info-text'))
       .toHaveText(oneLineTrim`Collections make it easy to keep track of 
       favorite add-ons and share your perfectly customized browser with 
@@ -138,24 +149,58 @@ describe(__filename, () => {
     expect(button.childAt(0)).toHaveText('Create a collection');
   });
 
-  it('renders an empty list if there are no collections', () => {
+  it('renders placeholder text if the user has no collections', () => {
     const username = 'some-username';
     const { store } = dispatchSignInActions({ userProps: { username } });
-    const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadUserCollections({
-      collections: [],
-      username,
-    }));
-
-    fakeDispatch.resetHistory();
+    store.dispatch(
+      loadUserCollections({
+        collections: [],
+        username,
+      }),
+    );
 
     const root = renderComponent({ store });
 
     expect(root.find('.CollectionList-list')).toHaveLength(1);
-    expect(root.find('.CollectionList-list'))
-      .toHaveProp('header', 'My Collections');
+    expect(root.find('.CollectionList-list')).toHaveProp(
+      'header',
+      'My Collections',
+    );
+    expect(root.find('.CollectionList-list')).toHaveProp(
+      'footer',
+      'You do not have any collections.',
+    );
     expect(root.find('.CollectionList-listing')).toHaveLength(0);
+  });
+
+  it('renders loading UserCollection objects if collections are loading', () => {
+    const username = 'some-username';
+    const { store } = dispatchSignInActions({ userProps: { username } });
+
+    store.dispatch(
+      fetchUserCollections({
+        errorHandlerId: createStubErrorHandler().id,
+        username,
+      }),
+    );
+
+    const root = renderComponent({ store });
+
+    expect(root.find('.CollectionList-list')).toHaveLength(1);
+    expect(root.find('.CollectionList-list')).toHaveProp(
+      'header',
+      'My Collections',
+    );
+    expect(root.find('.CollectionList-list')).toHaveProp('footer', null);
+    expect(root.find('.CollectionList-listing')).toHaveLength(1);
+
+    const userCollections = root.find(UserCollection);
+    expect(userCollections).toHaveLength(4);
+    for (let count = 0; count < 4; count++) {
+      expect(userCollections.at(count)).toHaveProp('id', count);
+      expect(userCollections.at(count)).toHaveProp('loading', true);
+    }
   });
 
   it('renders a list of collections', () => {
@@ -164,38 +209,58 @@ describe(__filename, () => {
       createFakeCollectionDetail({
         addon_count: 1,
         authorUsername: username,
+        id: 1,
+        name: 'collection1',
+        slug: 'collection-1',
       }),
       createFakeCollectionDetail({
         addon_count: 2,
         authorUsername: username,
+        id: 2,
+        name: 'collection2',
+        slug: 'collection-2',
       }),
     ];
     const { store } = dispatchSignInActions({ userProps: { username } });
-    const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadUserCollections({
-      collections,
-      username,
-    }));
-
-    fakeDispatch.resetHistory();
+    store.dispatch(
+      loadUserCollections({
+        collections,
+        username,
+      }),
+    );
 
     const root = renderComponent({ store });
 
     expect(root.find('.CollectionList-listing')).toHaveLength(1);
-    root.find('.CollectionList-collection').forEach((collection, index) => {
-      const expectedCollection = collections[index];
-      expect(collection).toHaveLength(1);
-      expect(collection.find('.CollectionList-collection-link'))
-        .toHaveProp(
-          'href',
-          oneLineTrim`/collections/${expectedCollection.author.username}/
-          ${expectedCollection.slug}/`
-        );
-      expect(collection.find('.CollectionList-collection-name').childAt(0))
-        .toHaveText(expectedCollection.name);
-      expect(collection.find('.CollectionList-collection-number').childAt(0))
-        .toHaveText(index === 0 ? '1 add-on' : '2 add-ons');
+
+    const userCollections = root.find(UserCollection);
+    expect(userCollections).toHaveLength(2);
+    for (let count = 0; count < 2; count++) {
+      const expected = createInternalCollection({ detail: collections[count] });
+      expect(userCollections.at(count)).toHaveProp(
+        'authorUsername',
+        expected.authorUsername,
+      );
+      expect(userCollections.at(count)).toHaveProp('id', expected.id);
+      expect(userCollections.at(count)).toHaveProp('name', expected.name);
+      expect(userCollections.at(count)).toHaveProp(
+        'numberOfAddons',
+        expected.numberOfAddons,
+      );
+      expect(userCollections.at(count)).toHaveProp('slug', expected.slug);
+    }
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('returns a unique ID based on currentUsername', () => {
+      const currentUsername = 'some-username';
+
+      expect(extractId({ currentUsername })).toEqual(currentUsername);
+    });
+
+    it('returns a blank ID with no currentUsername', () => {
+      expect(extractId({})).toEqual('');
     });
   });
 });

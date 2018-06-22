@@ -929,11 +929,11 @@ export const localizeCollectionDetail = ({
 
 export const expandCollections = (
   collections: CollectionsState,
-  meta?: { collections: Array<CollectionId> | null }
+  meta?: { collections: Array<CollectionId> | null },
 ): Array<CollectionType> | null => {
-  return meta && meta.collections ?
-    meta.collections.map((id) => collections.byId[id]) :
-    null;
+  return meta && meta.collections
+    ? meta.collections.map((id) => collections.byId[id])
+    : null;
 };
 
 type Action =

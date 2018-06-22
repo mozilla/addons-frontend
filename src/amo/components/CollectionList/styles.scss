@@ -21,6 +21,10 @@
     grid-gap: 0 $padding-page-l;
     grid-template-columns: minmax(300px, 35%) 1fr;
     margin: 10px 0 0;
+
+    .CollectionList-list.CardList {
+      margin: 0;
+    }
   }
 }
 
@@ -29,7 +33,7 @@
   width: 100%;
 }
 
-ul.CollectionList-listing {
+.CollectionList-listing {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0;
@@ -43,14 +47,17 @@ ul.CollectionList-listing {
     text-decoration: none;
 
     .CollectionList-collection-name {
+      @include font-bold();
+
       color: $black;
       font-size: $font-size-default;
-      font-weight: 600;
       margin-bottom: 0;
     }
   }
 
   .CollectionList-collection-number {
+    @include font-light();
+
     color: $grey-50;
     font-size: $font-size-m-smaller;
     margin-top: 0;
