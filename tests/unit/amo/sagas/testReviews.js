@@ -3,13 +3,15 @@ import SagaTester from 'redux-saga-tester';
 import * as reviewsApi from 'amo/api/reviews';
 import {
   fetchReviews,
+  fetchUserReviews,
   flagReview,
   hideReplyToReviewForm,
-  setAddonReviews,
   sendReplyToReview,
+  setAddonReviews,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
+  setUserReviews,
 } from 'amo/actions/reviews';
 import {
   REVIEW_FLAG_REASON_OTHER,
@@ -286,6 +288,61 @@ describe(__filename, () => {
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions.slice(-1).pop()).toEqual(errorAction);
       mockApi.verify();
+    });
+  });
+
+  describe('fetchUserReviews', () => {
+    function _fetchUserReviews(params = {}) {
+      sagaTester.dispatch(
+        fetchUserReviews({
+          errorHandlerId: errorHandler.id,
+          userId: 123,
+          ...params,
+        }),
+      );
+    }
+
+    it('fetches reviews from the API', async () => {
+      const userId = 123;
+      const reviews = [fakeReview];
+
+      mockApi
+        .expects('getReviews')
+        .once()
+        .withArgs({
+          api: apiState,
+          filter: 'without_empty_body',
+          page: 1,
+          user: userId,
+        })
+        .returns(Promise.resolve(apiResponsePage({ results: reviews })));
+
+      _fetchUserReviews();
+
+      const expectedAction = setUserReviews({
+        reviewCount: 1,
+        reviews,
+        userId,
+      });
+
+      await sagaTester.waitFor(expectedAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions[1]).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('getReviews').returns(Promise.reject(error));
+
+      _fetchUserReviews();
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
     });
   });
 });

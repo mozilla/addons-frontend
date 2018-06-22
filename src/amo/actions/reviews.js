@@ -1,12 +1,16 @@
 /* @flow */
+import invariant from 'invariant';
+
 import {
   CLEAR_ADDON_REVIEWS,
   FETCH_REVIEWS,
+  FETCH_USER_REVIEWS,
   HIDE_EDIT_REVIEW_FORM,
   HIDE_REPLY_TO_REVIEW_FORM,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
+  SET_USER_REVIEWS,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -126,6 +130,76 @@ export function fetchReviews({
     payload: { addonSlug, errorHandlerId, page },
   };
 }
+
+type FetchUserReviewsParams = {|
+  errorHandlerId: string,
+  page?: number,
+  userId: number,
+|};
+
+export type FetchUserReviewsAction = {|
+  type: typeof FETCH_USER_REVIEWS,
+  payload: {|
+    errorHandlerId: string,
+    page: number,
+    userId: number,
+  |},
+|};
+
+export function fetchUserReviews({
+  errorHandlerId,
+  userId,
+  page = 1,
+}: FetchUserReviewsParams): FetchUserReviewsAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(userId, 'userId is required');
+
+  return {
+    type: FETCH_USER_REVIEWS,
+    payload: {
+      errorHandlerId,
+      page,
+      userId,
+    },
+  };
+}
+
+type SetUserReviewsParams = {|
+  reviewCount: number,
+  reviews: Array<ExternalReviewType>,
+  userId: number,
+|};
+
+export type SetUserReviewsAction = {|
+  type: typeof SET_USER_REVIEWS,
+  payload: {|
+    reviewCount: number,
+    reviews: Array<UserReviewType>,
+    userId: number,
+  |},
+|};
+
+export const setUserReviews = ({
+  reviewCount,
+  reviews,
+  userId,
+}: SetUserReviewsParams): SetUserReviewsAction => {
+  invariant(typeof reviewCount === 'number', 'reviewCount is required');
+  invariant(
+    Array.isArray(reviews),
+    'reviews are required and must be an array',
+  );
+  invariant(userId, 'userId is required');
+
+  return {
+    type: SET_USER_REVIEWS,
+    payload: {
+      reviewCount,
+      reviews: reviews.map((review) => denormalizeReview(review)),
+      userId,
+    },
+  };
+};
 
 export const setDenormalizedReview = (
   review: UserReviewType,

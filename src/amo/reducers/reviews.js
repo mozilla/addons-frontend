@@ -6,6 +6,7 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
+  SET_USER_REVIEWS,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -42,6 +43,13 @@ type ReviewsByAddon = {
   |},
 };
 
+type ReviewsByUserId = {
+  [userId: number]: {|
+    reviewCount: number,
+    reviews: Array<number>,
+  |},
+};
+
 export type FlagState = {
   reason: FlagReviewReasonType,
   inProgress: boolean,
@@ -58,6 +66,7 @@ type ViewStateByReviewId = {|
 export type ReviewState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
+  byUserId: ReviewsByUserId,
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
@@ -81,6 +90,7 @@ export type ReviewState = {|
 export const initialState: ReviewState = {
   byAddon: {},
   byId: {},
+  byUserId: {},
   // This stores review-related UI state.
   view: {},
 };
@@ -174,6 +184,21 @@ export const changeViewState = ({
       },
     },
   };
+};
+
+export const getReviewsByUserId = (
+  state: ReviewState,
+  userId: number,
+): {|
+  reviewCount: number,
+  reviews: Array<UserReviewType>,
+|} | null => {
+  return state.byUserId[userId]
+    ? {
+        reviewCount: state.byUserId[userId].reviewCount,
+        reviews: state.byUserId[userId].reviews.map((id) => state.byId[id]),
+      }
+    : null;
 };
 
 type ReviewActionType =
@@ -306,6 +331,21 @@ export default function reviewsReducer(
         byAddon: {
           ...state.byAddon,
           [payload.addonSlug]: {
+            reviewCount: payload.reviewCount,
+            reviews: payload.reviews.map((review) => review.id),
+          },
+        },
+      };
+    }
+    case SET_USER_REVIEWS: {
+      const { payload } = action;
+
+      return {
+        ...state,
+        byId: storeReviewObjects({ state, reviews: payload.reviews }),
+        byUserId: {
+          ...state.byUserId,
+          [payload.userId]: {
             reviewCount: payload.reviewCount,
             reviews: payload.reviews.map((review) => review.id),
           },

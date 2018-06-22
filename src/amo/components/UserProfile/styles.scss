@@ -93,7 +93,7 @@ $avatar-size: 64px;
   width: 100%;
 }
 
-.UserProfile-addons-by-author {
+.UserProfile-addons-and-reviews {
   @include margin(12px, 0, 0, 0);
 
   width: 100%;
@@ -115,4 +115,8 @@ $avatar-size: 64px;
   & > p {
     margin-top: 0;
   }
+}
+
+.UserProfile-reviews {
+  margin-top: 0;
 }

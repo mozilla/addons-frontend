@@ -1,19 +1,26 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
+import {
+  denormalizeReview,
+  fetchUserReviews,
+  setUserReviews,
+} from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import UserProfile, {
   extractId,
   UserProfileBase,
 } from 'amo/components/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import Link from 'amo/components/Link';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   fetchUserAccount,
   getCurrentUser,
   loadUserAccount,
 } from 'amo/reducers/users';
-import { createApiError } from 'core/api';
+import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
+import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -25,13 +32,17 @@ import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
+import UserRating from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
+  fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
+  createStubErrorHandler,
   createUserAccountResponse,
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -45,7 +56,7 @@ describe(__filename, () => {
     };
   }
 
-  function syncPropsAndParamsUsername(username) {
+  function signInUserWithUsername(username) {
     return {
       params: { username },
       store: dispatchSignInActions({
@@ -56,16 +67,32 @@ describe(__filename, () => {
 
   function renderUserProfile({
     i18n = fakeI18n(),
+    location = fakeRouterLocation(),
     params = { username: 'tofumatt' },
     store = dispatchSignInActions({
       userProps: defaultUserProps(),
     }).store,
     ...props
-    // eslint-disable-next-line padded-blocks
   } = {}) {
     return shallowUntilTarget(
-      <UserProfile i18n={i18n} params={params} store={store} {...props} />,
+      <UserProfile
+        i18n={i18n}
+        location={location}
+        params={params}
+        store={store}
+        {...props}
+      />,
       UserProfileBase,
+    );
+  }
+
+  function _loadUserReviews({ store, userId, reviews = [fakeReview] }) {
+    store.dispatch(
+      setUserReviews({
+        reviewCount: reviews.length,
+        reviews,
+        userId,
+      }),
     );
   }
 
@@ -81,7 +108,7 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchUserAccount action if username is not found', () => {
-    const { store } = syncPropsAndParamsUsername('tofumatt');
+    const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const username = 'i-am-not-tofumatt';
 
@@ -97,7 +124,7 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchUserAccount action if username param changes', () => {
-    const { params, store } = syncPropsAndParamsUsername('black-panther');
+    const { params, store } = signInUserWithUsername('black-panther');
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = renderUserProfile({ params, store });
@@ -116,8 +143,11 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserAccount if username does not change', () => {
-    const { params, store } = syncPropsAndParamsUsername('black-panther');
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
     const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    _loadUserReviews({ store, userId: user.id });
 
     const root = renderUserProfile({ params, store });
 
@@ -129,7 +159,7 @@ describe(__filename, () => {
   });
 
   it('renders the user avatar', () => {
-    const { params, store } = syncPropsAndParamsUsername('black-panther');
+    const { params, store } = signInUserWithUsername('black-panther');
     const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
@@ -631,6 +661,157 @@ describe(__filename, () => {
     renderUserProfile({ errorHandler, store });
 
     sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('fetches reviews if not loaded and username does not change', () => {
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfile({ errorHandler, params, store });
+
+    dispatchSpy.resetHistory();
+
+    root.setProps({ params });
+
+    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserReviews({
+        errorHandlerId: errorHandler.id,
+        page: 1,
+        userId: user.id,
+      }),
+    );
+  });
+
+  it('fetches reviews if page has changed and username does not change', () => {
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    _loadUserReviews({ store, userId: user.id });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+    const location = fakeRouterLocation({ query: { page: 1 } });
+
+    const root = renderUserProfile({
+      errorHandler,
+      location,
+      params,
+      store,
+    });
+
+    dispatchSpy.resetHistory();
+
+    const newPage = 2;
+
+    root.setProps({
+      location: fakeRouterLocation({ query: { page: newPage } }),
+      params,
+    });
+
+    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserReviews({
+        errorHandlerId: errorHandler.id,
+        page: newPage,
+        userId: user.id,
+      }),
+    );
+  });
+
+  it('fetches reviews if user is loaded', () => {
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const page = 123;
+    const location = fakeRouterLocation({ query: { page } });
+
+    renderUserProfile({ errorHandler, location, params, store });
+
+    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserReviews({
+        errorHandlerId: errorHandler.id,
+        page,
+        userId: user.id,
+      }),
+    );
+  });
+
+  it(`displays the user's reviews`, () => {
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    const reviews = [fakeReview];
+    _loadUserReviews({ store, userId: user.id, reviews });
+
+    const location = fakeRouterLocation({ query: { foo: 'bar' } });
+
+    const root = renderUserProfile({ location, params, store });
+
+    expect(root.find('.UserProfile-reviews')).toHaveLength(1);
+    expect(root.find('.UserProfile-reviews')).toHaveProp(
+      'header',
+      'My reviews',
+    );
+    expect(root.find('.UserProfile-reviews')).toHaveProp('footer', null);
+
+    expect(root.find('.AddonReviewListItem')).toHaveLength(reviews.length);
+
+    const firstReview = root.find('.AddonReviewListItem');
+
+    expect(firstReview.find('.AddonReviewListItem-body').html()).toContain(
+      fakeReview.body,
+    );
+
+    expect(firstReview.find(Link)).toHaveLength(1);
+    expect(firstReview.find(Link)).toHaveProp(
+      'title',
+      'Browse the reviews for this add-on',
+    );
+    expect(firstReview.find(Link)).toHaveProp(
+      'to',
+      `/addon/${fakeReview.addon.slug}/reviews/`,
+    );
+    expect(firstReview.find(Link).children()).toHaveText('a year ago');
+
+    expect(firstReview.find(UserRating)).toHaveLength(1);
+    expect(firstReview.find(UserRating)).toHaveProp(
+      'review',
+      denormalizeReview(fakeReview),
+    );
+  });
+
+  it(`displays the user's reviews with pagination when there are more reviews than the default API page size`, () => {
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    const reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview);
+    _loadUserReviews({ store, userId: user.id, reviews });
+
+    const location = fakeRouterLocation({ query: { foo: 'bar' } });
+
+    const root = renderUserProfile({ location, params, store });
+
+    const paginator = shallow(root.find('.UserProfile-reviews').prop('footer'));
+    expect(paginator.instance()).toBeInstanceOf(Paginate);
+    expect(paginator).toHaveProp('count', DEFAULT_API_PAGE_SIZE + 2);
+    expect(paginator).toHaveProp('currentPage', 1);
+    expect(paginator).toHaveProp('pathname', '/user/black-panther/');
+    expect(paginator).toHaveProp('queryParams', location.query);
+
+    expect(root.find('.AddonReviewListItem')).toHaveLength(
+      DEFAULT_API_PAGE_SIZE,
+    );
   });
 
   describe('errorHandler - extractId', () => {
