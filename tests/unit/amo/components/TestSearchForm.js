@@ -16,7 +16,6 @@ import {
   simulateComponentCallback,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let fakeRouter;
 
@@ -41,7 +40,8 @@ describe(__filename, () => {
 
   const simulateAutoSearchCallback = (props = {}) => {
     return simulateComponentCallback({
-      Component: AutoSearchInput, ...props,
+      Component: AutoSearchInput,
+      ...props,
     });
   };
 
@@ -72,15 +72,18 @@ describe(__filename, () => {
     });
     const root = render({ store, pathname: '/find-stuff/' });
 
-    expect(root.instance().baseSearchURL())
-      .toEqual(`/en-GB/${CLIENT_APP_FIREFOX}/find-stuff/`);
+    expect(root.instance().baseSearchURL()).toEqual(
+      `/en-GB/${CLIENT_APP_FIREFOX}/find-stuff/`,
+    );
   });
 
   it('sets the form action URL', () => {
     const root = render();
 
-    expect(root.find('form'))
-      .toHaveProp('action', root.instance().baseSearchURL());
+    expect(root.find('form')).toHaveProp(
+      'action',
+      root.instance().baseSearchURL(),
+    );
   });
 
   it('changes the URL on search', () => {
@@ -88,7 +91,8 @@ describe(__filename, () => {
 
     const filters = { query: 'panda themes' };
     const onSearch = simulateAutoSearchCallback({
-      root, propName: 'onSearch',
+      root,
+      propName: 'onSearch',
     });
     onSearch(filters);
 
@@ -103,10 +107,11 @@ describe(__filename, () => {
 
     const url = '/url/to/extension/detail/page';
     const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ url, name: 'uBlock Origin' })
+      createFakeAutocompleteResult({ url, name: 'uBlock Origin' }),
     );
     const onSuggestionSelected = simulateAutoSearchCallback({
-      root, propName: 'onSuggestionSelected',
+      root,
+      propName: 'onSuggestionSelected',
     });
     onSuggestionSelected(suggestion);
 

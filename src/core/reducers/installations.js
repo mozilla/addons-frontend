@@ -52,14 +52,16 @@ type InstallationState = {
 };
 
 export default function installations(
-  state: InstallationState = {}, { type, payload }: InstallationAction,
+  state: InstallationState = {},
+  { type, payload }: InstallationAction,
 ) {
   function updateAddon(newProps: Object): InstalledAddon {
     const { guid } = payload;
     const addon = state[guid];
     if (!addon) {
       throw new Error(
-        `Cannot reduce type ${type}; no add-on with guid ${guid} found.`);
+        `Cannot reduce type ${type}; no add-on with guid ${guid} found.`,
+      );
     }
     return {
       ...addon,

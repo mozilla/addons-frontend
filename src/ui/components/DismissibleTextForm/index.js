@@ -12,7 +12,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type State = {|
   initialText: string,
   text: string,
@@ -25,7 +24,7 @@ export type OnSubmitParams = {|
 
 type Props = {|
   className?: string,
-  onDelete?: null | () => void,
+  onDelete?: null | (() => void),
   onDismiss: () => void,
   onSubmit: (params: OnSubmitParams) => void,
   isSubmitting?: boolean,
@@ -53,12 +52,15 @@ type InternalProps = { ...Props, ...InjectedProps };
  * be shown and hidden, controlled by some other button but
  * the parent must do the showing and hiding.
  */
-export class DismissibleTextFormBase extends React.Component<InternalProps, State> {
+export class DismissibleTextFormBase extends React.Component<
+  InternalProps,
+  State,
+> {
   textarea: React.ElementRef<typeof Textarea>;
 
   static defaultProps = {
     isSubmitting: false,
-  }
+  };
 
   constructor(props: InternalProps) {
     super(props);
@@ -77,23 +79,23 @@ export class DismissibleTextFormBase extends React.Component<InternalProps, Stat
 
     invariant(this.props.onDelete, 'onDelete() is not defined');
     this.props.onDelete();
-  }
+  };
 
   onDismiss = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     this.props.onDismiss();
-  }
+  };
 
   onSubmit = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.props.onSubmit({ event, text: this.state.text });
-  }
+  };
 
   onTextChange = (event: ElementEvent<HTMLInputElement>) => {
     event.preventDefault();
     this.setState({ text: event.target.value });
-  }
+  };
 
   render() {
     const {
@@ -122,14 +124,14 @@ export class DismissibleTextFormBase extends React.Component<InternalProps, Stat
     };
 
     return (
-      <form
-        className={makeClassName('DismissibleTextForm-form', className)}
-      >
+      <form className={makeClassName('DismissibleTextForm-form', className)}>
         <Textarea
           defaultValue={this.state.text}
           disabled={isSubmitting}
           className="DismissibleTextForm-textarea"
-          inputRef={(ref) => { this.textarea = ref; }}
+          inputRef={(ref) => {
+            this.textarea = ref;
+          }}
           onChange={this.onTextChange}
           placeholder={text.placeholder}
         />
@@ -171,9 +173,9 @@ export class DismissibleTextFormBase extends React.Component<InternalProps, Stat
               onClick={this.onSubmit}
               micro={microButtons}
             >
-              {isSubmitting ?
-                text.submitButtonInProgressText : text.submitButtonText
-              }
+              {isSubmitting
+                ? text.submitButtonInProgressText
+                : text.submitButtonText}
             </Button>
           </span>
         </div>
@@ -182,8 +184,8 @@ export class DismissibleTextFormBase extends React.Component<InternalProps, Stat
   }
 }
 
-const DismissibleTextForm: React.ComponentType<Props> = compose(
-  translate(),
-)(DismissibleTextFormBase);
+const DismissibleTextForm: React.ComponentType<Props> = compose(translate())(
+  DismissibleTextFormBase,
+);
 
 export default DismissibleTextForm;

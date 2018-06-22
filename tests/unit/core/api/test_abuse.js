@@ -1,16 +1,12 @@
 import * as api from 'core/api';
 import { reportAddon, reportUser } from 'core/api/abuse';
-import {
-  dispatchClientMetadata,
-  fakeAddon,
-} from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
   createFakeAddonAbuseReport,
   createFakeUserAbuseReport,
   createUserAccountResponse,
 } from 'tests/unit/helpers';
-
 
 describe(__filename, () => {
   let mockApi;
@@ -40,10 +36,12 @@ describe(__filename, () => {
           state: apiState,
         })
         .once()
-        .returns(mockResponse({
-          addon: { ...fakeAddon, slug: 'cool-addon' },
-          message,
-        }));
+        .returns(
+          mockResponse({
+            addon: { ...fakeAddon, slug: 'cool-addon' },
+            message,
+          }),
+        );
 
       await reportAddon({
         addonSlug: 'cool-addon',

@@ -1,9 +1,5 @@
-import {
-  SEARCH_STARTED,
-  SEARCH_LOADED,
-} from 'core/constants';
+import { SEARCH_STARTED, SEARCH_LOADED } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-
 
 const SEARCH_ABORTED = 'SEARCH_ABORTED';
 const SEARCH_RESET = 'SEARCH_RESET';
@@ -39,9 +35,9 @@ export default function search(state = initialState, action) {
         ...state,
         count: payload.result.count,
         loading: false,
-        results: payload.result.results.map((slug) => (
-          createInternalAddon(payload.entities.addons[slug])
-        )),
+        results: payload.result.results.map((slug) =>
+          createInternalAddon(payload.entities.addons[slug]),
+        ),
       };
     case SEARCH_ABORTED:
       return {

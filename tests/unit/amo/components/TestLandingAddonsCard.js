@@ -7,11 +7,11 @@ import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   function render(customProps = {}) {
-    const addons = Array(LANDING_PAGE_ADDON_COUNT)
-      .fill(createInternalAddon(fakeAddon));
+    const addons = Array(LANDING_PAGE_ADDON_COUNT).fill(
+      createInternalAddon(fakeAddon),
+    );
 
     const props = {
       addons,
@@ -38,10 +38,12 @@ describe(__filename, () => {
   });
 
   it('passes addons to AddonsCard', () => {
-    const addons = [createInternalAddon({
-      ...fakeAddon,
-      slug: 'custom-addon',
-    })];
+    const addons = [
+      createInternalAddon({
+        ...fakeAddon,
+        slug: 'custom-addon',
+      }),
+    ];
     const root = render({ addons });
     expect(root.find(AddonsCard)).toHaveProp('addons', addons);
   });
@@ -51,8 +53,10 @@ describe(__filename, () => {
     const addons = [createInternalAddon(fakeAddon)];
     const root = render({ addons, addonInstallSource });
 
-    expect(root.find(AddonsCard))
-      .toHaveProp('addonInstallSource', addonInstallSource);
+    expect(root.find(AddonsCard)).toHaveProp(
+      'addonInstallSource',
+      addonInstallSource,
+    );
   });
 
   it('sets the number of placeholders to render while loading', () => {
@@ -61,10 +65,12 @@ describe(__filename, () => {
   });
 
   it('hides the footer link when less add-ons than placeholderCount', () => {
-    const addons = [createInternalAddon({
-      ...fakeAddon,
-      slug: 'custom-addon',
-    })];
+    const addons = [
+      createInternalAddon({
+        ...fakeAddon,
+        slug: 'custom-addon',
+      }),
+    ];
     const root = render({ addons, placeholderCount: 2 });
     expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
   });
@@ -72,6 +78,8 @@ describe(__filename, () => {
   it('accepts a string for the footer link', () => {
     const linkString = '/some/link/';
     const root = render({ footerLink: linkString });
-    expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(linkString);
+    expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(
+      linkString,
+    );
   });
 });

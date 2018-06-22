@@ -14,9 +14,10 @@ function render(customProps = {}) {
     i18n: fakeI18n(),
     ...customProps,
   };
-  return findRenderedComponentWithType(renderIntoDocument(
-    <Rating {...props} />
-  ), RatingBase);
+  return findRenderedComponentWithType(
+    renderIntoDocument(<Rating {...props} />),
+    RatingBase,
+  );
 }
 
 function makeFakeEvent() {
@@ -55,8 +56,9 @@ describe(__filename, () => {
   });
 
   it('throws an error for invalid styleSize', () => {
-    expect(() => render({ styleSize: 'x-large' }))
-      .toThrowError(/styleSize=x-large is not a valid value; possible values: small,/);
+    expect(() => render({ styleSize: 'x-large' })).toThrowError(
+      /styleSize=x-large is not a valid value; possible values: small,/,
+    );
   });
 
   it('lets you select a one star rating', () => {
@@ -103,7 +105,9 @@ describe(__filename, () => {
     const verifyRating = (root) => {
       // Make sure only the first 3 stars are selected.
       [1, 2, 3].forEach((rating) => {
-        expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+        expect(root.ratingElements[rating].className).toEqual(
+          'Rating-choice Rating-selected-star',
+        );
       });
       [4, 5].forEach((rating) => {
         expect(root.ratingElements[rating].className).toEqual('Rating-choice');
@@ -127,10 +131,14 @@ describe(__filename, () => {
     const verifyRating = (root) => {
       // The first three stars are fully highlighted.
       [1, 2, 3].forEach((rating) => {
-        expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+        expect(root.ratingElements[rating].className).toEqual(
+          'Rating-choice Rating-selected-star',
+        );
       });
       // The fourth star is a half-star.
-      expect(root.ratingElements[4].className).toEqual('Rating-choice Rating-half-star');
+      expect(root.ratingElements[4].className).toEqual(
+        'Rating-choice Rating-half-star',
+      );
       expect(root.ratingElements[5].className).toEqual('Rating-choice');
     };
 
@@ -173,7 +181,9 @@ describe(__filename, () => {
     const root = render({ rating: null });
 
     [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5`);
+      expect(root.ratingElements[rating].title).toEqual(
+        `Rate this add-on ${rating} out of 5`,
+      );
     });
   });
 
@@ -181,7 +191,9 @@ describe(__filename, () => {
     const root = render({ rating: 0 });
 
     [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5`);
+      expect(root.ratingElements[rating].title).toEqual(
+        `Rate this add-on ${rating} out of 5`,
+      );
     });
   });
 
@@ -189,7 +201,9 @@ describe(__filename, () => {
     const root = render({ rating: 3 });
 
     [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5`);
+      expect(root.ratingElements[rating].title).toEqual(
+        `Update your rating to ${rating} out of 5`,
+      );
     });
   });
 
@@ -208,8 +222,9 @@ describe(__filename, () => {
     const root = render({ onSelectRating: null });
 
     const button = root.ratingElements[4];
-    expect(() => Simulate.click(button, makeFakeEvent()))
-      .toThrowError(/onSelectRating was empty/);
+    expect(() => Simulate.click(button, makeFakeEvent())).toThrowError(
+      /onSelectRating was empty/,
+    );
   });
 
   describe('readOnly=true', () => {
@@ -275,7 +290,8 @@ describe(__filename, () => {
       // Make sure only the first 3 stars are selected.
       [1, 2, 3].forEach((rating) => {
         expect(root.ratingElements[rating].className).toEqual(
-          'Rating-choice Rating-selected-star');
+          'Rating-choice Rating-selected-star',
+        );
       });
       [4, 5].forEach((rating) => {
         expect(root.ratingElements[rating].className).toEqual('Rating-choice');
@@ -295,7 +311,9 @@ describe(__filename, () => {
     const getRating = (props = {}) => findDOMNode(render(props)).textContent;
 
     it('renders the average rating', () => {
-      expect(getRating({ rating: 3.5, readOnly: true })).toEqual('Rated 3.5 out of 5');
+      expect(getRating({ rating: 3.5, readOnly: true })).toEqual(
+        'Rated 3.5 out of 5',
+      );
     });
 
     it('localizes average rating', () => {
@@ -305,7 +323,8 @@ describe(__filename, () => {
 
     it('renders empty ratings', () => {
       expect(getRating({ rating: null, readOnly: true })).toEqual(
-        'There are no ratings yet');
+        'There are no ratings yet',
+      );
     });
   });
 });

@@ -2,10 +2,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
@@ -14,7 +11,6 @@ import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
-
 
 type Props = {|
   addon: AddonType | null,
@@ -35,42 +31,42 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
       header = i18n.ngettext(
         i18n.gettext('Support this developer'),
         i18n.gettext('Support these developers'),
-        numberOfAuthors
+        numberOfAuthors,
       );
       content = i18n.ngettext(
         i18n.gettext(`The developer of this extension asks that you help support
           its continued development by making a small contribution.`),
         i18n.gettext(`The developers of this extension ask that you help
           support its continued development by making a small contribution.`),
-        numberOfAuthors
+        numberOfAuthors,
       );
       break;
     case ADDON_TYPE_THEME:
       header = i18n.ngettext(
         i18n.gettext('Support this artist'),
         i18n.gettext('Support these artists'),
-        numberOfAuthors
+        numberOfAuthors,
       );
       content = i18n.ngettext(
         i18n.gettext(`The artist of this theme asks that you help support
           its continued creation by making a small contribution.`),
         i18n.gettext(`The artists of this theme ask that you help support
           its continued creation by making a small contribution.`),
-        numberOfAuthors
+        numberOfAuthors,
       );
       break;
     default:
       header = i18n.ngettext(
         i18n.gettext('Support this author'),
         i18n.gettext('Support these authors'),
-        numberOfAuthors
+        numberOfAuthors,
       );
       content = i18n.ngettext(
         i18n.gettext(`The author of this add-on asks that you help support
           its continued work by making a small contribution.`),
         i18n.gettext(`The authors of this add-on ask that you help support
           its continued work by making a small contribution.`),
-        numberOfAuthors
+        numberOfAuthors,
       );
       break;
   }
@@ -95,8 +91,8 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
   );
 };
 
-const ContributeCard: React.ComponentType<Props> = compose(
-  translate()
-)(ContributeCardBase);
+const ContributeCard: React.ComponentType<Props> = compose(translate())(
+  ContributeCardBase,
+);
 
 export default ContributeCard;

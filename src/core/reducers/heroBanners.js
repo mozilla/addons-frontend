@@ -1,6 +1,5 @@
 import { knuthShuffle } from 'knuth-shuffle';
 
-
 // Hero banners have three items max, all the time :-)
 const MAX_ITEMS = 3;
 export const SET_HERO_BANNER_ORDER = 'SET_HERO_BANNER_ORDER';

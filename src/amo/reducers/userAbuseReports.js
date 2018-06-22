@@ -14,7 +14,6 @@ export const SEND_USER_ABUSE_REPORT: 'SEND_USER_ABUSE_REPORT' =
 export const SHOW_USER_ABUSE_REPORT_UI: 'SHOW_USER_ABUSE_REPORT_UI' =
   'SHOW_USER_ABUSE_REPORT_UI';
 
-
 type AbortUserAbuseReportParams = {|
   userId: number,
 |};
@@ -24,9 +23,9 @@ type AbortUserAbuseReportAction = {|
   payload: AbortUserAbuseReportParams,
 |};
 
-export function abortUserAbuseReport(
-  { userId }: AbortUserAbuseReportParams = {}
-): AbortUserAbuseReportAction {
+export function abortUserAbuseReport({
+  userId,
+}: AbortUserAbuseReportParams = {}): AbortUserAbuseReportAction {
   invariant(userId, 'userId is required');
 
   return {
@@ -44,9 +43,9 @@ type HideUserAbuseReportUIAction = {|
   payload: HideUserAbuseReportUIParams,
 |};
 
-export function hideUserAbuseReportUI(
-  { userId }: HideUserAbuseReportUIParams = {}
-): HideUserAbuseReportUIAction {
+export function hideUserAbuseReportUI({
+  userId,
+}: HideUserAbuseReportUIParams = {}): HideUserAbuseReportUIAction {
   invariant(userId, 'userId is required');
 
   return {
@@ -70,9 +69,11 @@ type LoadUserAbuseReportAction = {|
   |},
 |};
 
-export function loadUserAbuseReport(
-  { message, reporter, userId }: LoadUserAbuseReportParams = {}
-): LoadUserAbuseReportAction {
+export function loadUserAbuseReport({
+  message,
+  reporter,
+  userId,
+}: LoadUserAbuseReportParams = {}): LoadUserAbuseReportAction {
   invariant(message, 'message is required');
   invariant(reporter !== undefined, 'reporter cannot be undefined');
   invariant(userId, 'userId is required');
@@ -96,9 +97,11 @@ export type SendUserAbuseReportAction = {|
   payload: SendUserAbuseReportParams,
 |};
 
-export function sendUserAbuseReport(
-  { errorHandlerId, message, userId }: SendUserAbuseReportParams = {}
-): SendUserAbuseReportAction {
+export function sendUserAbuseReport({
+  errorHandlerId,
+  message,
+  userId,
+}: SendUserAbuseReportParams = {}): SendUserAbuseReportAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(message, 'message is required');
   invariant(userId, 'userId is required');
@@ -118,9 +121,9 @@ type ShowUserAbuseReportUIActions = {|
   payload: ShowUserAbuseReportUIParams,
 |};
 
-export function showUserAbuseReportUI(
-  { userId }: ShowUserAbuseReportUIParams = {}
-): ShowUserAbuseReportUIActions {
+export function showUserAbuseReportUI({
+  userId,
+}: ShowUserAbuseReportUIParams = {}): ShowUserAbuseReportUIActions {
   invariant(userId, 'userId is required');
 
   return {
@@ -134,12 +137,12 @@ export const initialState = {
 };
 
 export type UserAbuseReportState = {|
-  hasSubmitted?: bool,
-  isSubmitting: bool,
+  hasSubmitted?: boolean,
+  isSubmitting: boolean,
   message?: string,
   reportedByUserId: number | null,
   uiVisible?: boolean,
-|}
+|};
 
 export type UserAbuseReportsState = {|
   byUserId: {

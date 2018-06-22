@@ -26,15 +26,17 @@ describe(__filename, () => {
     it('requires a truthy add-on slug', () => {
       const params = { ...defaultParams };
       delete params.addonSlug;
-      expect(() => fetchReviews(params))
-        .toThrowError(/addonSlug cannot be empty/);
+      expect(() => fetchReviews(params)).toThrowError(
+        /addonSlug cannot be empty/,
+      );
     });
 
     it('requires a truthy error handler ID', () => {
       const params = { ...defaultParams };
       delete params.errorHandlerId;
-      expect(() => fetchReviews(params))
-        .toThrowError(/errorHandlerId cannot be empty/);
+      expect(() => fetchReviews(params)).toThrowError(
+        /errorHandlerId cannot be empty/,
+      );
     });
 
     it('defaults to page 1', () => {
@@ -72,22 +74,26 @@ describe(__filename, () => {
       const params = defaultParams();
       delete params.originalReviewId;
 
-      expect(() => setReviewReply(params))
-        .toThrow(/originalReviewId parameter is required/);
+      expect(() => setReviewReply(params)).toThrow(
+        /originalReviewId parameter is required/,
+      );
     });
 
     it('requires a reply', () => {
       const params = defaultParams();
       delete params.reply;
 
-      expect(() => setReviewReply(params))
-        .toThrow(/reply parameter is required/);
+      expect(() => setReviewReply(params)).toThrow(
+        /reply parameter is required/,
+      );
     });
   });
 
   describe('setDenormalizedReview', () => {
     it('requires a truthy review', () => {
-      expect(() => setDenormalizedReview()).toThrowError(/review cannot be empty/);
+      expect(() => setDenormalizedReview()).toThrowError(
+        /review cannot be empty/,
+      );
     });
 
     it('creates an action with the exact review object', () => {
@@ -112,19 +118,25 @@ describe(__filename, () => {
     it('requires an addonSlug', () => {
       const params = { ...defaultParams };
       delete params.addonSlug;
-      expect(() => setAddonReviews(params)).toThrowError(/addonSlug cannot be empty/);
+      expect(() => setAddonReviews(params)).toThrowError(
+        /addonSlug cannot be empty/,
+      );
     });
 
     it('requires a list of reviews', () => {
       const params = { ...defaultParams };
       delete params.reviews;
-      expect(() => setAddonReviews(params)).toThrowError(/reviews must be an Array/);
+      expect(() => setAddonReviews(params)).toThrowError(
+        /reviews must be an Array/,
+      );
     });
 
     it('requires a count of reviews', () => {
       const params = { ...defaultParams };
       delete params.reviewCount;
-      expect(() => setAddonReviews(params)).toThrowError(/reviewCount must be set/);
+      expect(() => setAddonReviews(params)).toThrowError(
+        /reviewCount must be set/,
+      );
     });
   });
 
@@ -140,24 +152,27 @@ describe(__filename, () => {
       const params = defaultParams();
       delete params.errorHandlerId;
 
-      expect(() => sendReplyToReview(params))
-        .toThrow(/errorHandlerId parameter is required/);
+      expect(() => sendReplyToReview(params)).toThrow(
+        /errorHandlerId parameter is required/,
+      );
     });
 
     it('requires an originalReviewId', () => {
       const params = defaultParams();
       delete params.originalReviewId;
 
-      expect(() => sendReplyToReview(params))
-        .toThrow(/originalReviewId parameter is required/);
+      expect(() => sendReplyToReview(params)).toThrow(
+        /originalReviewId parameter is required/,
+      );
     });
 
     it('requires a body', () => {
       const params = defaultParams();
       delete params.body;
 
-      expect(() => sendReplyToReview(params))
-        .toThrow(/body parameter is required/);
+      expect(() => sendReplyToReview(params)).toThrow(
+        /body parameter is required/,
+      );
     });
   });
 
@@ -172,8 +187,9 @@ describe(__filename, () => {
     });
 
     it('requires a reviewId', () => {
-      expect(() => reviewIdAction({ type: 'SOME_TYPE' }))
-        .toThrow(/reviewId parameter is required/);
+      expect(() => reviewIdAction({ type: 'SOME_TYPE' })).toThrow(
+        /reviewId parameter is required/,
+      );
     });
   });
 
@@ -190,24 +206,25 @@ describe(__filename, () => {
       const params = defaultParams();
       delete params.errorHandlerId;
 
-      expect(() => flagReview(params))
-        .toThrow(/errorHandlerId parameter is required/);
+      expect(() => flagReview(params)).toThrow(
+        /errorHandlerId parameter is required/,
+      );
     });
 
     it('requires a reason', () => {
       const params = defaultParams();
       delete params.reason;
 
-      expect(() => flagReview(params))
-        .toThrow(/reason parameter is required/);
+      expect(() => flagReview(params)).toThrow(/reason parameter is required/);
     });
 
     it('requires a reviewId', () => {
       const params = defaultParams();
       delete params.reviewId;
 
-      expect(() => flagReview(params))
-        .toThrow(/reviewId parameter is required/);
+      expect(() => flagReview(params)).toThrow(
+        /reviewId parameter is required/,
+      );
     });
   });
 
@@ -223,16 +240,18 @@ describe(__filename, () => {
       const params = defaultParams();
       delete params.reason;
 
-      expect(() => setReviewWasFlagged(params))
-        .toThrow(/reason parameter is required/);
+      expect(() => setReviewWasFlagged(params)).toThrow(
+        /reason parameter is required/,
+      );
     });
 
     it('requires a reviewId', () => {
       const params = defaultParams();
       delete params.reviewId;
 
-      expect(() => setReviewWasFlagged(params))
-        .toThrow(/reviewId parameter is required/);
+      expect(() => setReviewWasFlagged(params)).toThrow(
+        /reviewId parameter is required/,
+      );
     });
   });
 
@@ -247,8 +266,9 @@ describe(__filename, () => {
       const params = defaultParams();
       delete params.addonSlug;
 
-      expect(() => clearAddonReviews(params))
-        .toThrow(/addonSlug parameter is required/);
+      expect(() => clearAddonReviews(params)).toThrow(
+        /addonSlug parameter is required/,
+      );
     });
   });
 });

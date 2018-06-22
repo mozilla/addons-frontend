@@ -15,7 +15,9 @@ describe('client-config module', () => {
   });
 
   it('has the right methods', () => {
-    expect(Object.keys(new ClientConfig({}))).toEqual(expect.arrayContaining(['get', 'has']));
+    expect(Object.keys(new ClientConfig({}))).toEqual(
+      expect.arrayContaining(['get', 'has']),
+    );
   });
 
   describe('ClientConfig.get()', () => {

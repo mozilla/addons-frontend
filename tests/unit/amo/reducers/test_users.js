@@ -34,7 +34,6 @@ import {
   createUserNotificationsResponse,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
@@ -44,34 +43,46 @@ describe(__filename, () => {
     });
 
     it('ignores unrelated actions', () => {
-      const state = reducer(undefined, loadUserAccount({
-        user: createUserAccountResponse({ id: 12345, username: 'john' }),
-      }));
+      const state = reducer(
+        undefined,
+        loadUserAccount({
+          user: createUserAccountResponse({ id: 12345, username: 'john' }),
+        }),
+      );
       const newState = reducer(state, { type: 'UNRELATED' });
       expect(newState).toEqual(state);
     });
 
     it('handles LOG_OUT_USER', () => {
-      const state = reducer(initialState, loadCurrentUserAccount({
-        user: createUserAccountResponse({ id: 12345, username: 'john' }),
-      }));
+      const state = reducer(
+        initialState,
+        loadCurrentUserAccount({
+          user: createUserAccountResponse({ id: 12345, username: 'john' }),
+        }),
+      );
       const { currentUserID } = reducer(state, logOutUser());
 
       expect(currentUserID).toEqual(null);
     });
 
     it('stores a loaded user ID by username in lowercase', () => {
-      const state = reducer(initialState, loadUserAccount({
-        user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
-      }));
+      const state = reducer(
+        initialState,
+        loadUserAccount({
+          user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
+        }),
+      );
 
       expect(state.byUsername).toHaveProperty('john', 12345);
     });
 
     it('stores the current user ID by username in lowercase', () => {
-      const state = reducer(initialState, loadCurrentUserAccount({
-        user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
-      }));
+      const state = reducer(
+        initialState,
+        loadCurrentUserAccount({
+          user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
+        }),
+      );
 
       expect(state.byUsername).toHaveProperty('john', 12345);
     });
@@ -82,13 +93,16 @@ describe(__filename, () => {
       const user = createUserAccountResponse();
       const userFields = { biography: 'Punk rock music fan' };
 
-      let state = reducer(initialState, editUserAccount({
-        errorHandlerId: 'fake-error-id',
-        notifications: {},
-        picture: null,
-        userFields,
-        userId: user.id,
-      }));
+      let state = reducer(
+        initialState,
+        editUserAccount({
+          errorHandlerId: 'fake-error-id',
+          notifications: {},
+          picture: null,
+          userFields,
+          userId: user.id,
+        }),
+      );
       state = reducer(state, finishEditUserAccount());
 
       expect(state.isUpdating).toEqual(false);
@@ -100,13 +114,16 @@ describe(__filename, () => {
       const user = createUserAccountResponse();
       const userFields = { biography: 'Punk rock music fan' };
 
-      const state = reducer(initialState, editUserAccount({
-        errorHandlerId: 'fake-error-id',
-        notifications: {},
-        picture: null,
-        userFields,
-        userId: user.id,
-      }));
+      const state = reducer(
+        initialState,
+        editUserAccount({
+          errorHandlerId: 'fake-error-id',
+          notifications: {},
+          picture: null,
+          userFields,
+          userId: user.id,
+        }),
+      );
 
       expect(state.isUpdating).toEqual(true);
     });
@@ -136,7 +153,7 @@ describe(__filename, () => {
         // 1. load the user
         reducer(initialState, loadUserAccount({ user })),
         // 2. load their notifications
-        loadUserNotifications({ notifications, username: user.username })
+        loadUserNotifications({ notifications, username: user.username }),
       );
 
       expect(prevState.byID[user.id]).toEqual({
@@ -186,10 +203,13 @@ describe(__filename, () => {
         notifications: null,
       });
 
-      const state = reducer(prevState, loadUserNotifications({
-        notifications,
-        username: user.username,
-      }));
+      const state = reducer(
+        prevState,
+        loadUserNotifications({
+          notifications,
+          username: user.username,
+        }),
+      );
 
       expect(state.byID[userId]).toEqual({
         ...user,
@@ -244,8 +264,9 @@ describe(__filename, () => {
     it('returns a user when user is authenticated', () => {
       const { state } = dispatchSignInActions();
 
-      expect(getCurrentUser(state.users))
-        .toEqual(state.users.byID[state.users.currentUserID]);
+      expect(getCurrentUser(state.users)).toEqual(
+        state.users.byID[state.users.currentUserID],
+      );
     });
 
     it('returns null when user is not authenticated', () => {
@@ -367,8 +388,9 @@ describe(__filename, () => {
         userProps: { id: 500, username: 'Tupac' },
       });
 
-      expect(getUserByUsername(state.users, 'Tupac'))
-        .toEqual(state.users.byID[500]);
+      expect(getUserByUsername(state.users, 'Tupac')).toEqual(
+        state.users.byID[500],
+      );
     });
 
     it('returns undefined if no user is found', () => {
@@ -384,8 +406,9 @@ describe(__filename, () => {
         userProps: { id: 500, username: 'Tupac' },
       });
 
-      expect(getUserByUsername(state.users, 'tupac'))
-        .toEqual(state.users.byID[500]);
+      expect(getUserByUsername(state.users, 'tupac')).toEqual(
+        state.users.byID[500],
+      );
     });
   });
 

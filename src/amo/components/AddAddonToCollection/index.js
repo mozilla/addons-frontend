@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import {
-  addAddonToCollection, fetchUserCollections,
+  addAddonToCollection,
+  fetchUserCollections,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -20,13 +21,14 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
-  CollectionId, CollectionsState, CollectionType,
+  CollectionId,
+  CollectionsState,
+  CollectionType,
 } from 'amo/reducers/collections';
 import type { UsersStateType } from 'amo/reducers/users';
 import type { ElementEvent } from 'core/types/dom';
 
 import './styles.scss';
-
 
 type Props = {|
   _window: typeof window | Object,
@@ -91,9 +93,12 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     }
 
     if (currentUsername && !loadingUserCollections && !userCollections) {
-      dispatch(fetchUserCollections({
-        errorHandlerId: errorHandler.id, username: currentUsername,
-      }));
+      dispatch(
+        fetchUserCollections({
+          errorHandlerId: errorHandler.id,
+          username: currentUsername,
+        }),
+      );
     }
   }
 
@@ -106,45 +111,47 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     } else {
       log.warn(`No handler for option: "${key}"`);
     }
-  }
+  };
 
   addToCollection(collection: CollectionType) {
     const { addon, currentUsername, dispatch, errorHandler } = this.props;
     if (!addon) {
       throw new Error(
-        'Cannot add to collection because no add-on has been loaded');
+        'Cannot add to collection because no add-on has been loaded',
+      );
     }
     if (!currentUsername) {
-      throw new Error(
-        'Cannot add to collection because you are not signed in');
+      throw new Error('Cannot add to collection because you are not signed in');
     }
 
-    dispatch(addAddonToCollection({
-      addonId: addon.id,
-      collectionId: collection.id,
-      slug: collection.slug,
-      errorHandlerId: errorHandler.id,
-      username: currentUsername,
-    }));
+    dispatch(
+      addAddonToCollection({
+        addonId: addon.id,
+        collectionId: collection.id,
+        slug: collection.slug,
+        errorHandlerId: errorHandler.id,
+        username: currentUsername,
+      }),
+    );
   }
 
-  createOption(
-    {
-      text, key, onSelect,
-    }: {
-      // eslint-disable-next-line react/no-unused-prop-types
-      text: string, key: string, onSelect?: OnSelectOptionType,
-    }
-  ) {
+  createOption({
+    text,
+    key,
+    onSelect,
+  }: {
+    // eslint-disable-next-line react/no-unused-prop-types
+    text: string,
+    // eslint-disable-next-line react/no-unused-prop-types
+    key: string,
+    // eslint-disable-next-line react/no-unused-prop-types
+    onSelect?: OnSelectOptionType,
+  }) {
     if (onSelect) {
       this.optionSelectHandlers[key] = onSelect;
     }
     return (
-      <option
-        className="AddAddonToCollection-option"
-        key={key}
-        value={key}
-      >
+      <option className="AddAddonToCollection-option" key={key} value={key}>
         {text}
       </option>
     );
@@ -171,7 +178,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     if (progressMessage) {
       // Create a disabled select box with a single option.
       actionOptions.push(
-        this.createOption({ text: progressMessage, key: 'default' })
+        this.createOption({ text: progressMessage, key: 'default' }),
       );
       return {
         disabled: true,
@@ -182,21 +189,24 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
     actionOptions.push(
       this.createOption({
-        text: i18n.gettext('Select a collection…'), key: 'default',
-      })
+        text: i18n.gettext('Select a collection…'),
+        key: 'default',
+      }),
     );
 
-    actionOptions.push(this.createOption({
-      text: i18n.gettext('Create new collection'),
-      key: 'create-new-collection',
-      onSelect: () => {
-        // TODO: show create collection overlay when it's implemented.
-        // See
-        // https://github.com/mozilla/addons-frontend/issues/4003
-        // https://github.com/mozilla/addons-frontend/issues/3993
-        _window.location = '/collections/add';
-      },
-    }));
+    actionOptions.push(
+      this.createOption({
+        text: i18n.gettext('Create new collection'),
+        key: 'create-new-collection',
+        onSelect: () => {
+          // TODO: show create collection overlay when it's implemented.
+          // See
+          // https://github.com/mozilla/addons-frontend/issues/4003
+          // https://github.com/mozilla/addons-frontend/issues/3993
+          _window.location = '/collections/add';
+        },
+      }),
+    );
 
     if (userCollections && userCollections.length) {
       userCollections
@@ -205,13 +215,15 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
           // Make an option for adding the add-on to this collection.
           // If the user selects a collection that the add-on already
           // belongs to, they will see an error.
-          collectionOptions.push(this.createOption({
-            text: collection.name,
-            key: `collection-${collection.id}`,
-            onSelect: () => {
-              this.addToCollection(collection);
-            },
-          }));
+          collectionOptions.push(
+            this.createOption({
+              text: collection.name,
+              key: `collection-${collection.id}`,
+              onSelect: () => {
+                this.addToCollection(collection);
+              },
+            }),
+          );
         });
     }
 
@@ -219,19 +231,15 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   render() {
-    const {
-      className, errorHandler, i18n, addonInCollections,
-    } = this.props;
-    const {
-      actionOptions, collectionOptions, disabled,
-    } = this.getSelectData();
+    const { className, errorHandler, i18n, addonInCollections } = this.props;
+    const { actionOptions, collectionOptions, disabled } = this.getSelectData();
 
     let addedNotices = [];
     if (addonInCollections) {
       addedNotices = addonInCollections.map((collection) => {
         const notice = i18n.sprintf(
           i18n.gettext('Added to %(collectionName)s'),
-          { collectionName: collection.name }
+          { collectionName: collection.name },
         );
         return (
           <Notice
@@ -262,9 +270,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
         >
           {actionOptions}
           {collectionOptions.length ? (
-            <optgroup label={collectionOptLabel}>
-              {collectionOptions}
-            </optgroup>
+            <optgroup label={collectionOptLabel}>{collectionOptions}</optgroup>
           ) : null}
         </Select>
       </Card>
@@ -274,16 +280,16 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
 const expandCollections = (
   collections: CollectionsState,
-  meta?: { collections: Array<CollectionId> | null }
+  meta?: { collections: Array<CollectionId> | null },
 ): Array<CollectionType> | null => {
-  return meta && meta.collections ?
-    meta.collections.map((id) => collections.byId[id]) :
-    null;
+  return meta && meta.collections
+    ? meta.collections.map((id) => collections.byId[id])
+    : null;
 };
 
 export const mapStateToProps = (
   state: {| collections: CollectionsState, users: UsersStateType |},
-  ownProps: Props
+  ownProps: Props,
 ) => {
   const { collections, users } = state;
   const currentUser = getCurrentUser(users);
@@ -302,15 +308,13 @@ export const mapStateToProps = (
     }
   }
   return {
-    addonInCollections:
-      expandCollections(collections, addonInCollections),
+    addonInCollections: expandCollections(collections, addonInCollections),
     currentUsername,
-    loadingAddonsInCollections:
-      addonInCollections ? addonInCollections.loading : false,
-    loadingUserCollections:
-      userCollections ? userCollections.loading : false,
-    userCollections:
-      expandCollections(collections, userCollections),
+    loadingAddonsInCollections: addonInCollections
+      ? addonInCollections.loading
+      : false,
+    loadingUserCollections: userCollections ? userCollections.loading : false,
+    userCollections: expandCollections(collections, userCollections),
   };
 };
 

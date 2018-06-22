@@ -7,13 +7,18 @@ import config from 'config';
 
 import log from 'core/logger';
 
-
 export function frameguard({ _config = config } = {}) {
   return helmet.frameguard(_config.get('frameGuard'));
 }
 
-export function getNoScriptStyles(appName, { _config = config, _log = log } = {}) {
-  const cssPath = path.join(_config.get('basePath'), `src/${appName}/noscript.css`);
+export function getNoScriptStyles(
+  appName,
+  { _config = config, _log = log } = {},
+) {
+  const cssPath = path.join(
+    _config.get('basePath'),
+    `src/${appName}/noscript.css`,
+  );
   try {
     return fs.readFileSync(cssPath);
   } catch (e) {
@@ -31,7 +36,10 @@ export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
 
   if (cspConfig) {
     if (noScriptStyles) {
-      const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
+      const hash = crypto
+        .createHash('sha256')
+        .update(noScriptStyles)
+        .digest('base64');
       const cspValue = `'sha256-${hash}'`;
       if (
         cspConfig.directives &&

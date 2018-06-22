@@ -1,6 +1,5 @@
 import { getAddonIconUrl } from 'core/imageUtils';
 
-
 export const AUTOCOMPLETE_LOADED = 'AUTOCOMPLETE_LOADED';
 export const AUTOCOMPLETE_STARTED = 'AUTOCOMPLETE_STARTED';
 export const AUTOCOMPLETE_CANCELLED = 'AUTOCOMPLETE_CANCELLED';
@@ -64,8 +63,7 @@ export default function reducer(state = initialState, action = {}) {
         ...initialState,
         loading: true,
       };
-    case AUTOCOMPLETE_LOADED:
-    {
+    case AUTOCOMPLETE_LOADED: {
       const suggestions = payload.results
         // TODO: Remove this when `null` names are not returned. See:
         // https://github.com/mozilla/addons-server/issues/6189

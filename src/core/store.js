@@ -3,7 +3,6 @@ import config from 'config';
 import { applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 
-
 /*
  * Enhance a redux store with common middleware.
  *
@@ -11,7 +10,8 @@ import { createLogger } from 'redux-logger';
  * and returns a new `createStore` function.
  */
 export function middleware({
-  _config = config, _createLogger = createLogger,
+  _config = config,
+  _createLogger = createLogger,
   _window = typeof window !== 'undefined' ? window : null,
   sagaMiddleware = null,
   routerMiddleware = null,
@@ -33,7 +33,8 @@ export function middleware({
 
   return compose(
     applyMiddleware(...callbacks),
-    isDev && _window && _window.devToolsExtension ?
-      _window.devToolsExtension() : (createStore) => createStore
+    isDev && _window && _window.devToolsExtension
+      ? _window.devToolsExtension()
+      : (createStore) => createStore,
   );
 }

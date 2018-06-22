@@ -27,7 +27,6 @@ import Select from 'ui/components/Select';
 
 import './styles.scss';
 
-
 const NO_FILTER = '';
 
 export class SearchFiltersBase extends React.Component {
@@ -38,7 +37,7 @@ export class SearchFiltersBase extends React.Component {
     lang: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
     router: PropTypes.object.isRequired,
-  }
+  };
 
   onSelectElementChange = (event) => {
     event.preventDefault();
@@ -64,7 +63,7 @@ export class SearchFiltersBase extends React.Component {
     this.doSearch({ newFilters });
 
     return false;
-  }
+  };
 
   onChangeCheckbox = () => {
     const { filters } = this.props;
@@ -80,7 +79,7 @@ export class SearchFiltersBase extends React.Component {
     }
 
     this.doSearch({ newFilters });
-  }
+  };
 
   doSearch({ newFilters }) {
     const { clientApp, lang, pathname, router } = this.props;
@@ -124,7 +123,10 @@ export class SearchFiltersBase extends React.Component {
 
     return [
       { children: i18n.gettext('Relevance'), value: SEARCH_SORT_RELEVANCE },
-      { children: i18n.gettext('Recently Updated'), value: SEARCH_SORT_UPDATED },
+      {
+        children: i18n.gettext('Recently Updated'),
+        value: SEARCH_SORT_UPDATED,
+      },
       { children: i18n.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
       { children: i18n.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
       { children: i18n.gettext('Trending'), value: SEARCH_SORT_TRENDING },
@@ -140,10 +142,7 @@ export class SearchFiltersBase extends React.Component {
         header={i18n.gettext('Filter results')}
       >
         <form autoComplete="off">
-          <label
-            className="SearchFilters-label"
-            htmlFor="SearchFilters-Sort"
-          >
+          <label className="SearchFilters-label" htmlFor="SearchFilters-Sort">
             {i18n.gettext('Sort by')}
           </label>
           <Select

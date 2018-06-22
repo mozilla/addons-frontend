@@ -5,7 +5,9 @@ import responseTime from 'response-time';
 import log from 'core/logger';
 
 export const datadogTiming = ({
-  _config = config, _log = log, _HotShots = HotShots,
+  _config = config,
+  _log = log,
+  _HotShots = HotShots,
 } = {}) => {
   // We aren't adding any global DataDog tags here because we already
   // get a few automatically. They are configured at the EC2 instance

@@ -12,10 +12,7 @@ import {
 } from 'core/reducers/languageTools';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
-export function* fetchLanguageTools({
-  payload: { errorHandlerId },
-}) {
+export function* fetchLanguageTools({ payload: { errorHandlerId } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());

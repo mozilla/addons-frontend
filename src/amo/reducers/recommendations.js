@@ -4,15 +4,16 @@ import invariant from 'invariant';
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
-export const ABORT_FETCH_RECOMMENDATIONS: 'ABORT_FETCH_RECOMMENDATIONS'
-  = 'ABORT_FETCH_RECOMMENDATIONS';
-export const FETCH_RECOMMENDATIONS: 'FETCH_RECOMMENDATIONS'
-  = 'FETCH_RECOMMENDATIONS';
-export const LOAD_RECOMMENDATIONS: 'LOAD_RECOMMENDATIONS'
-  = 'LOAD_RECOMMENDATIONS';
+export const ABORT_FETCH_RECOMMENDATIONS: 'ABORT_FETCH_RECOMMENDATIONS' =
+  'ABORT_FETCH_RECOMMENDATIONS';
+export const FETCH_RECOMMENDATIONS: 'FETCH_RECOMMENDATIONS' =
+  'FETCH_RECOMMENDATIONS';
+export const LOAD_RECOMMENDATIONS: 'LOAD_RECOMMENDATIONS' =
+  'LOAD_RECOMMENDATIONS';
 export const OUTCOME_CURATED: 'curated' = 'curated';
 export const OUTCOME_RECOMMENDED: 'recommended' = 'recommended';
-export const OUTCOME_RECOMMENDED_FALLBACK: 'recommended_fallback' = 'recommended_fallback';
+export const OUTCOME_RECOMMENDED_FALLBACK: 'recommended_fallback' =
+  'recommended_fallback';
 
 export type FallbackReasonType = 'no_results' | 'timeout' | 'invalid_results';
 export type OutcomeType =
@@ -115,9 +116,10 @@ type GetRecommendationsByGuidParams = {|
   state: RecommendationsState,
 |};
 
-export const getRecommendationsByGuid = (
-  { guid, state }: GetRecommendationsByGuidParams
-): Recommendations | null => {
+export const getRecommendationsByGuid = ({
+  guid,
+  state,
+}: GetRecommendationsByGuidParams): Recommendations | null => {
   invariant(guid, 'guid is required');
   invariant(state, 'state is required');
 
@@ -131,7 +133,7 @@ type Action =
 
 const reducer = (
   state: RecommendationsState = initialState,
-  action: Action
+  action: Action,
 ): RecommendationsState => {
   switch (action.type) {
     case ABORT_FETCH_RECOMMENDATIONS:
@@ -165,8 +167,9 @@ const reducer = (
     case LOAD_RECOMMENDATIONS: {
       const { fallbackReason, guid, outcome } = action.payload;
 
-      const addons = action.payload.addons
-        .map((addon) => createInternalAddon(addon));
+      const addons = action.payload.addons.map((addon) =>
+        createInternalAddon(addon),
+      );
 
       return {
         ...state,

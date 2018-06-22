@@ -17,10 +17,9 @@ import {
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
-export function* fetchLandingAddons(
-  { payload: { addonType, category, errorHandlerId } }
-) {
+export function* fetchLandingAddons({
+  payload: { addonType, category, errorHandlerId },
+}) {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
@@ -56,9 +55,14 @@ export function* fetchLandingAddons(
       }),
     ]);
 
-    yield put(loadLanding({
-      addonType, featured, highlyRated, trending,
-    }));
+    yield put(
+      loadLanding({
+        addonType,
+        featured,
+        highlyRated,
+        trending,
+      }),
+    );
   } catch (error) {
     log.warn(oneLine`Failed to fetch landing page add-ons for
       addonType ${addonType}: ${error}`);

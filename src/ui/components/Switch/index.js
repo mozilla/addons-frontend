@@ -15,13 +15,13 @@ export default class Switch extends React.Component {
     onClick: PropTypes.func,
     progress: PropTypes.number,
     success: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     checked: false,
     disabled: false,
     success: false,
-  }
+  };
 
   getProgress() {
     const { progress } = this.props;
@@ -35,14 +35,23 @@ export default class Switch extends React.Component {
 
   render() {
     const {
-      checked, className, disabled, label, name, onChange, onClick, progress, success,
+      checked,
+      className,
+      disabled,
+      label,
+      name,
+      onChange,
+      onClick,
+      progress,
+      success,
     } = this.props;
     const identifier = `install-button-${name}`;
     const hasProgress = progress !== undefined;
     const classes = makeClassName('Switch', className, {
       'Switch--indefinite': progress === Infinity,
       'Switch--indefinite-reverse': progress === -Infinity,
-      'Switch--progress': hasProgress && progress !== Infinity && progress !== -Infinity,
+      'Switch--progress':
+        hasProgress && progress !== Infinity && progress !== -Infinity,
       'Switch--success': success,
     });
 

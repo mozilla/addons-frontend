@@ -48,6 +48,9 @@ jobs:
     - stage:
       <<: *node-prod
       env: COMMAND=nsp-check
+    - stage:
+      <<: *node-prod
+      env: COMMAND=prettier-ci
     # Run the functional tests.
     - stage:
       <<: *tox

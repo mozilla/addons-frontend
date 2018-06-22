@@ -27,9 +27,7 @@ describe('SriDataPlugin', () => {
     tempDir.removeCallback();
   });
 
-  function compile({
-    entry = {}, includeSriPlugin = true,
-  } = {}) {
+  function compile({ entry = {}, includeSriPlugin = true } = {}) {
     const sriFile = path.join(distDir, 'sri.json');
 
     const plugins = [];
@@ -52,20 +50,22 @@ describe('SriDataPlugin', () => {
       plugins,
     });
 
-    return new Promise((resolve, reject) => compiler.run((error, stats) => {
-      if (error) {
-        return reject(error);
-      }
-      if (stats.compilation.errors && stats.compilation.errors.length) {
-        return reject(new Error(
-          `Webpack errors: ${stats.compilation.errors.join('; ')}`
-        ));
-      }
-      return resolve({
-        stats,
-        sriData: JSON.parse(fs.readFileSync(sriFile)),
-      });
-    }));
+    return new Promise((resolve, reject) =>
+      compiler.run((error, stats) => {
+        if (error) {
+          return reject(error);
+        }
+        if (stats.compilation.errors && stats.compilation.errors.length) {
+          return reject(
+            new Error(`Webpack errors: ${stats.compilation.errors.join('; ')}`),
+          );
+        }
+        return resolve({
+          stats,
+          sriData: JSON.parse(fs.readFileSync(sriFile)),
+        });
+      }),
+    );
   }
 
   it('handles a single asset file', () => {
@@ -73,10 +73,9 @@ describe('SriDataPlugin', () => {
       entry: {
         app: path.join(srcDir, 'app'),
       },
-    })
-      .then(({ sriData }) => {
-        expect(sriData['app.js']).toMatch(/^sha512-.*/);
-      });
+    }).then(({ sriData }) => {
+      expect(sriData['app.js']).toMatch(/^sha512-.*/);
+    });
   });
 
   it('handles multiple asset files', () => {
@@ -85,11 +84,10 @@ describe('SriDataPlugin', () => {
         app: path.join(srcDir, 'app'),
         app2: path.join(srcDir, 'app'),
       },
-    })
-      .then(({ sriData }) => {
-        expect(sriData['app.js']).toMatch(/^sha512-.*/);
-        expect(sriData['app2.js']).toMatch(/^sha512-.*/);
-      });
+    }).then(({ sriData }) => {
+      expect(sriData['app.js']).toMatch(/^sha512-.*/);
+      expect(sriData['app2.js']).toMatch(/^sha512-.*/);
+    });
   });
 
   it('requires the SriPlugin', () => {
@@ -98,16 +96,19 @@ describe('SriDataPlugin', () => {
         app: path.join(srcDir, 'app'),
       },
       includeSriPlugin: false,
-    })
-      .then(
-        () => expect(false).toBe(true),
-        (error) => {
-          expect(error.message).toMatch(/The integrity property is falsey for asset app\.js/);
-        }
-      );
+    }).then(
+      () => expect(false).toBe(true),
+      (error) => {
+        expect(error.message).toMatch(
+          /The integrity property is falsey for asset app\.js/,
+        );
+      },
+    );
   });
 
   it('requires a saveAs parameter', () => {
-    expect(() => new SriDataPlugin()).toThrowError(/saveAs parameter cannot be empty/);
+    expect(() => new SriDataPlugin()).toThrowError(
+      /saveAs parameter cannot be empty/,
+    );
   });
 });

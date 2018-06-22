@@ -32,7 +32,6 @@ import {
   userAuthToken,
 } from 'tests/unit/helpers';
 
-
 export const fakePlatformFile = Object.freeze({
   created: '2014-11-22T10:09:01Z',
   hash: 'a1b2c3d4',
@@ -90,14 +89,16 @@ export const fakeAddon = Object.freeze({
   is_source_public: true,
   last_updated: '2014-11-22T10:09:01Z',
   name: 'Chill Out',
-  previews: [{
-    id: 1234778,
-    caption: 'Chill out control panel',
-    image_url: 'https://addons.cdn.mozilla.net/123/image.png',
-    thumbnail_url: 'https://addons.cdn.mozilla.net/7123/image.png',
-    image_size: [400, 200],
-    thumbnail_size: [200, 100],
-  }],
+  previews: [
+    {
+      id: 1234778,
+      caption: 'Chill out control panel',
+      image_url: 'https://addons.cdn.mozilla.net/123/image.png',
+      thumbnail_url: 'https://addons.cdn.mozilla.net/7123/image.png',
+      image_size: [400, 200],
+      thumbnail_size: [200, 100],
+    },
+  ],
   public_stats: true,
   ratings: {
     average: 3.5,
@@ -119,11 +120,13 @@ export const fakeAddon = Object.freeze({
 
 export const fakeTheme = Object.freeze({
   ...fakeAddon,
-  authors: [{
-    name: 'MaDonna',
-    url: 'http://olympia.test/en-US/firefox/user/madonna/',
-    username: 'MaDonna',
-  }],
+  authors: [
+    {
+      name: 'MaDonna',
+      url: 'http://olympia.test/en-US/firefox/user/madonna/',
+      username: 'MaDonna',
+    },
+  ],
   current_version: {
     ...fakeAddon.current_version,
     compatibility: {},
@@ -237,9 +240,11 @@ export function dispatchSignInActions({
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
-  store.dispatch(loadCurrentUserAccount({
-    user: createUserAccountResponse({ id: userId, ...userProps }),
-  }));
+  store.dispatch(
+    loadCurrentUserAccount({
+      user: createUserAccountResponse({ id: userId, ...userProps }),
+    }),
+  );
 
   return {
     store,
@@ -255,17 +260,21 @@ export function dispatchSearchResults({
   filters = { query: 'test' },
   store = dispatchClientMetadata().store,
 } = {}) {
-  store.dispatch(searchStart({
-    errorHandlerId: createStubErrorHandler().id,
-    filters,
-  }));
-  store.dispatch(searchLoad({
-    entities: { addons },
-    result: {
-      count: Object.keys(addons).length,
-      results: Object.keys(addons),
-    },
-  }));
+  store.dispatch(
+    searchStart({
+      errorHandlerId: createStubErrorHandler().id,
+      filters,
+    }),
+  );
+  store.dispatch(
+    searchLoad({
+      entities: { addons },
+      result: {
+        count: Object.keys(addons).length,
+        results: Object.keys(addons),
+      },
+    }),
+  );
 
   return { store };
 }
@@ -273,16 +282,20 @@ export function dispatchSearchResults({
 export function createAddonsApiResult(results) {
   // Return a normalized add-ons response just like many utility functions do.
   // For example: core.api.featured(), core.api.search()...
-  return normalize({
-    count: results.length,
-    results,
-  }, {
-    results: [addonSchema],
-  });
+  return normalize(
+    {
+      count: results.length,
+      results,
+    },
+    {
+      results: [addonSchema],
+    },
+  );
 }
 
 export function createFakeAutocompleteResult({
-  name = 'suggestion-result', ...props
+  name = 'suggestion-result',
+  ...props
 } = {}) {
   return {
     id: randomId(),
@@ -297,7 +310,8 @@ export function createFakeAddon({
   files = [...fakeAddon.current_version.files],
   compatibility = { ...fakeAddon.current_version.compatibility },
   // eslint-disable-next-line camelcase
-  is_strict_compatibility_enabled = fakeAddon.current_version.is_strict_compatibility_enabled,
+  is_strict_compatibility_enabled = fakeAddon.current_version
+    .is_strict_compatibility_enabled,
   ...overrides
 } = {}) {
   return {
@@ -322,10 +336,12 @@ export function dispatchAutocompleteResults({
   store = dispatchClientMetadata().store,
   results = [],
 } = {}) {
-  store.dispatch(autocompleteStart({
-    errorHandlerId: createStubErrorHandler().id,
-    filters,
-  }));
+  store.dispatch(
+    autocompleteStart({
+      errorHandlerId: createStubErrorHandler().id,
+      filters,
+    }),
+  );
   store.dispatch(autocompleteLoad({ results }));
 
   return { store };
@@ -361,7 +377,8 @@ export const createFakeCollectionDetail = ({
 };
 
 export function createFakeCollectionAddon({
-  addon = fakeAddon, notes = null,
+  addon = fakeAddon,
+  notes = null,
 } = {}) {
   return { addon, notes };
 }
@@ -376,9 +393,9 @@ export const createFakeCollectionAddons = ({
   }));
 };
 
-export const createFakeCollectionAddonsListResponse = (
-  { addons = [createFakeCollectionAddon()] } = {}
-) => {
+export const createFakeCollectionAddonsListResponse = ({
+  addons = [createFakeCollectionAddon()],
+} = {}) => {
   return {
     count: addons.length,
     results: createFakeCollectionAddons({ addons }),

@@ -28,9 +28,9 @@ import redirectTo from 'core/reducers/redirectTo';
 import search from 'core/reducers/search';
 import { middleware } from 'core/store';
 
-
 export default function createStore({
-  history = browserHistory, initialState = {},
+  history = browserHistory,
+  initialState = {},
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(

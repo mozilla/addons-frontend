@@ -3,7 +3,6 @@
 import getInstallData from 'disco/tracking';
 import { DISCO_DATA_UNKNOWN } from 'disco/constants';
 
-
 describe('disco pane install tracking data', () => {
   function getFakeWindow(hash) {
     return {
@@ -31,7 +30,9 @@ describe('disco pane install tracking data', () => {
   });
 
   it('ignores the default theme', () => {
-    const _window = getFakeWindow('{"{972ce4c6-7e08-4474-a285-3208198ce6fd}": {"type": "theme"}}');
+    const _window = getFakeWindow(
+      '{"{972ce4c6-7e08-4474-a285-3208198ce6fd}": {"type": "theme"}}',
+    );
     expect(getInstallData({ _window })).toEqual({
       hasExtensions: false,
       hasThemes: false,
@@ -39,7 +40,9 @@ describe('disco pane install tracking data', () => {
   });
 
   it('ignores built in extensions', () => {
-    const _window = getFakeWindow('{"firefox@getpocket.com": {"type": "extension"}}');
+    const _window = getFakeWindow(
+      '{"firefox@getpocket.com": {"type": "extension"}}',
+    );
     expect(getInstallData({ _window })).toEqual({
       hasExtensions: false,
       hasThemes: false,
@@ -70,4 +73,3 @@ describe('disco pane install tracking data', () => {
     });
   });
 });
-

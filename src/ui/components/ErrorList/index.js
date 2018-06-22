@@ -11,7 +11,6 @@ import Notice from 'ui/components/Notice';
 
 import './styles.scss';
 
-
 export class ErrorListBase extends React.Component {
   static propTypes = {
     _window: PropTypes.object,
@@ -19,7 +18,7 @@ export class ErrorListBase extends React.Component {
     className: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
-  }
+  };
 
   static defaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
@@ -62,40 +61,32 @@ export class ErrorListBase extends React.Component {
         // There will never be more than one message but if there is, log a message
         // to help someone debug the problem.
         log.warn(
-          'The API unexpectedly returned multiple signature expired errors'
+          'The API unexpectedly returned multiple signature expired errors',
         );
       }
     }
 
     return (
       <ul className={makeClassName('ErrorList', className)}>
-        {
-          items.map((item, index) => {
-            return (
-              <li
-                className="ErrorList-item"
-                // We don't have message IDs but it's safe to rely on
-                // array indices since they are returned from the API
-                // in a predictable order.
-                // eslint-disable-next-line react/no-array-index-key
-                key={`erroritem-${index}`}
-              >
-                <Notice
-                  type="error"
-                  action={action}
-                  actionText={actionText}
-                >
-                  {item}
-                </Notice>
-              </li>
-            );
-          })
-        }
+        {items.map((item, index) => {
+          return (
+            <li
+              className="ErrorList-item"
+              // We don't have message IDs but it's safe to rely on
+              // array indices since they are returned from the API
+              // in a predictable order.
+              // eslint-disable-next-line react/no-array-index-key
+              key={`erroritem-${index}`}
+            >
+              <Notice type="error" action={action} actionText={actionText}>
+                {item}
+              </Notice>
+            </li>
+          );
+        })}
       </ul>
     );
   }
 }
 
-export default compose(
-  translate(),
-)(ErrorListBase);
+export default compose(translate())(ErrorListBase);

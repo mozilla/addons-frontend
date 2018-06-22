@@ -15,7 +15,8 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import {
-  convertOSToFilterValue, convertQueryParamsToFilters,
+  convertOSToFilterValue,
+  convertQueryParamsToFilters,
 } from 'core/searchUtils';
 import translate from 'core/i18n/translate';
 import {
@@ -89,19 +90,13 @@ type OnSuggestionsFetchRequestedParams = {|
     | 'input-focused'
     | 'escape-pressed'
     | 'suggestions-revealed'
-    | 'suggestion-selected'
+    | 'suggestion-selected',
 |};
 
 // See https://github.com/moroshko/react-autosuggest#inputpropsonchange-required
 type OnSearchChangeParams = {|
   newValue: string,
-  method:
-    | 'down'
-    | 'up'
-    | 'escape'
-    | 'enter'
-    | 'click'
-    | 'type'
+  method: 'down' | 'up' | 'escape' | 'enter' | 'click' | 'type',
 |};
 
 export class AutoSearchInputBase extends React.Component<InternalProps, State> {
@@ -116,20 +111,30 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     super(props);
     invariant(props.inputName, 'The inputName property is required');
     invariant(props.onSearch, 'The onSearch property is required');
-    invariant(props.onSuggestionSelected,
-      'The onSuggestionSelected property is required');
-    invariant(props.selectSuggestionText,
-      'The selectSuggestionText property is required');
+    invariant(
+      props.onSuggestionSelected,
+      'The onSuggestionSelected property is required',
+    );
+    invariant(
+      props.selectSuggestionText,
+      'The selectSuggestionText property is required',
+    );
 
     const debounce = props.debounce || defaultDebounce;
-    this.dispatchAutocompleteStart = debounce(({ filters }) => {
-      const { dispatch, errorHandler } = this.props;
+    this.dispatchAutocompleteStart = debounce(
+      ({ filters }) => {
+        const { dispatch, errorHandler } = this.props;
 
-      dispatch(autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters,
-      }));
-    }, 200, { trailing: true });
+        dispatch(
+          autocompleteStart({
+            errorHandlerId: errorHandler.id,
+            filters,
+          }),
+        );
+      },
+      200,
+      { trailing: true },
+    );
 
     this.state = {
       autocompleteIsOpen: false,
@@ -148,8 +153,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   createFiltersFromQuery(query: string) {
     const { location, userAgentInfo } = this.props;
     // Preserve any existing search filters.
-    const filtersFromLocation =
-      convertQueryParamsToFilters(location.query);
+    const filtersFromLocation = convertQueryParamsToFilters(location.query);
     // Do not preserve page. New searches should always start on page 1.
     delete filtersFromLocation.page;
 
@@ -163,11 +167,11 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   handleSuggestionsClearRequested = () => {
     this.setState({ autocompleteIsOpen: false });
     this.props.dispatch(autocompleteCancel());
-  }
+  };
 
-  handleSuggestionsFetchRequested = (
-    { value }: OnSuggestionsFetchRequestedParams
-  ) => {
+  handleSuggestionsFetchRequested = ({
+    value,
+  }: OnSuggestionsFetchRequestedParams) => {
     if (!value) {
       log.debug(oneLine`Ignoring suggestions fetch requested because
         value is not supplied: ${value}`);
@@ -184,8 +188,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
     if (value.length > SEARCH_TERM_MAX_LENGTH) {
       log.debug(oneLine`Ignoring suggestions fetch because query
-        exceeds max length (${SEARCH_TERM_MAX_LENGTH})`
-      );
+        exceeds max length (${SEARCH_TERM_MAX_LENGTH})`);
 
       this.props.dispatch(autocompleteCancel());
       return;
@@ -196,7 +199,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     this.setState({ autocompleteIsOpen: true });
 
     this.dispatchAutocompleteStart({ filters });
-  }
+  };
 
   getSuggestions(): Array<SuggestionType> {
     if (this.props.loadingSuggestions) {
@@ -231,21 +234,21 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
     const filters = this.createFiltersFromQuery(this.state.searchValue);
     this.props.onSearch(filters);
-  }
+  };
 
   handleSearchChange = (
     event: SyntheticEvent<HTMLInputElement>,
-    { newValue }: OnSearchChangeParams
+    { newValue }: OnSearchChangeParams,
   ) => {
     const searchValue = newValue || '';
     if (searchValue.trim().length <= SEARCH_TERM_MAX_LENGTH) {
       this.setState({ searchValue });
     }
-  }
+  };
 
   handleSuggestionSelected = (
     event: SyntheticEvent<any>,
-    { suggestion }: {| suggestion: SuggestionType |}
+    { suggestion }: {| suggestion: SuggestionType |},
   ) => {
     event.preventDefault();
 
@@ -256,7 +259,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
     this.setState({ autocompleteIsOpen: false, searchValue: '' });
     this.props.onSuggestionSelected(suggestion);
-  }
+  };
 
   renderSuggestion = (suggestion: SuggestionType) => {
     const { loadingSuggestions, selectSuggestionText } = this.props;
@@ -270,7 +273,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
         arrowAlt={selectSuggestionText}
       />
     );
-  }
+  };
 
   render() {
     const {
@@ -282,7 +285,8 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       showInputLabel,
     } = this.props;
 
-    const autocompleteIsOpen = this.state.autocompleteIsOpen &&
+    const autocompleteIsOpen =
+      this.state.autocompleteIsOpen &&
       // This prevents the input to look like Autosuggest is open when
       // there are no results coming from the API.
       this.getSuggestions().length > 0;
@@ -302,8 +306,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       suggestionContainer: 'AutoSearchInput-suggestions',
       suggestionsList: 'AutoSearchInput-suggestions-list',
       suggestion: 'AutoSearchInput-suggestions-item',
-      suggestionHighlighted:
-        'AutoSearchInput-suggestions-item--highlighted',
+      suggestionHighlighted: 'AutoSearchInput-suggestions-item--highlighted',
     };
 
     return (
@@ -330,12 +333,8 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
             focusInputOnSuggestionClick={false}
             getSuggestionValue={(suggestion) => suggestion.name}
             inputProps={inputProps}
-            onSuggestionsClearRequested={
-              this.handleSuggestionsClearRequested
-            }
-            onSuggestionsFetchRequested={
-              this.handleSuggestionsFetchRequested
-            }
+            onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
+            onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
             onSuggestionSelected={this.handleSuggestionSelected}
             ref={(autosuggest) => {
               if (autosuggest) {
@@ -351,9 +350,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
             onClick={this.handleSearch}
             type="submit"
           >
-            <span className="visually-hidden">
-              {i18n.gettext('Search')}
-            </span>
+            <span className="visually-hidden">{i18n.gettext('Search')}</span>
             <Icon name="arrow" />
           </button>
         </div>
@@ -365,9 +362,10 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 // TODO: port reducers/autocomplete.js to Flow
 type AutocompleteState = Object;
 
-const mapStateToProps = (
-  state: {| api: ApiStateType, autocomplete: AutocompleteState |}
-): MappedProps => {
+const mapStateToProps = (state: {|
+  api: ApiStateType,
+  autocomplete: AutocompleteState,
+|}): MappedProps => {
   return {
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,

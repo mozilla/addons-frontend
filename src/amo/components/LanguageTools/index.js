@@ -30,24 +30,22 @@ import type { LanguageToolType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
 
-
 import './styles.scss';
-
 
 type LanguageToolListProps = {|
   languageTools: Array<LanguageToolType>,
 |};
 
-
 // Get languages into a list of objects sorted by the english name.
-const sortedLanguages = Object.keys(unfilteredLanguages).map((langKey) => {
-  return {
-    english: unfilteredLanguages[langKey].English,
-    locale: langKey,
-    native: unfilteredLanguages[langKey].native,
-  };
-}).sort((a, b) => a.english.localeCompare(b.english));
-
+const sortedLanguages = Object.keys(unfilteredLanguages)
+  .map((langKey) => {
+    return {
+      english: unfilteredLanguages[langKey].English,
+      locale: langKey,
+      native: unfilteredLanguages[langKey].native,
+    };
+  })
+  .sort((a, b) => a.english.localeCompare(b.english));
 
 export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
   if (!languageTools || !languageTools.length) {
@@ -59,9 +57,7 @@ export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
       {languageTools.map((addon: LanguageToolType) => {
         return (
           <li key={addon.slug}>
-            <Link to={`/addon/${addon.slug}/`}>
-              {addon.name}
-            </Link>
+            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
           </li>
         );
       })}
@@ -116,9 +112,9 @@ export class LanguageToolsBase extends React.Component<Props> {
                   key={languageTool.slug}
                 >
                   <Link
-                    className={
-                      `LanguageTools-in-your-locale-list-item--${languageTool.type}`
-                    }
+                    className={`LanguageTools-in-your-locale-list-item--${
+                      languageTool.type
+                    }`}
                     to={`/addon/${languageTool.slug}/`}
                   >
                     {languageTool.name}
@@ -129,8 +125,12 @@ export class LanguageToolsBase extends React.Component<Props> {
           </ul>
         ) : (
           <ul>
-            <li><LoadingText width={20} /></li>
-            <li><LoadingText width={20} /></li>
+            <li>
+              <LoadingText width={20} />
+            </li>
+            <li>
+              <LoadingText width={20} />
+            </li>
           </ul>
         )}
       </div>
@@ -143,10 +143,7 @@ export class LanguageToolsBase extends React.Component<Props> {
     const header = i18n.gettext('Dictionaries and Language Packs');
 
     return (
-      <Card
-        className="LanguageTools"
-        header={header}
-      >
+      <Card className="LanguageTools" header={header}>
         <Helmet>
           <title>{header}</title>
         </Helmet>
@@ -182,58 +179,75 @@ export class LanguageToolsBase extends React.Component<Props> {
             </Tr>
           </Thead>
           <Tbody>
-            {languageTools.length ? sortedLanguages.map((language) => {
-              const toolsInLocale = languageTools.filter((addon) => {
-                return addon.target_locale === language.locale;
-              });
+            {languageTools.length
+              ? sortedLanguages.map((language) => {
+                  const toolsInLocale = languageTools.filter((addon) => {
+                    return addon.target_locale === language.locale;
+                  });
 
-              // This means there are no language tools available in this
-              // known locale.
-              if (!toolsInLocale || !toolsInLocale.length) {
-                return null;
-              }
+                  // This means there are no language tools available in this
+                  // known locale.
+                  if (!toolsInLocale || !toolsInLocale.length) {
+                    return null;
+                  }
 
-              const dictionaries = toolsInLocale.filter((addon) => {
-                return addon.type === ADDON_TYPE_DICT;
-              });
+                  const dictionaries = toolsInLocale.filter((addon) => {
+                    return addon.type === ADDON_TYPE_DICT;
+                  });
 
-              const languagePacks = toolsInLocale.filter((addon) => {
-                return addon.type === ADDON_TYPE_LANG;
-              });
+                  const languagePacks = toolsInLocale.filter((addon) => {
+                    return addon.type === ADDON_TYPE_LANG;
+                  });
 
-              return (
-                // Required to preserve space between strong and span.
-                /* eslint-disable react/jsx-closing-tag-location */
-                <Tr
-                  className={makeClassName(
-                    'LanguageTools-table-row',
-                    `LanguageTools-lang-${language.locale}`,
-                  )}
-                  key={language.locale}
-                >
-                  <Td>
-                    <strong>
-                      {language.english}
-                    </strong> <span lang={language.locale}>
-                      {language.native}
-                    </span>
-                  </Td>
-                  <Td className={`LanguageTools-lang-${language.locale}-languagePacks`}>
-                    {languagePacks.length ?
-                      <LanguageToolList languageTools={languagePacks} /> : null}
-                  </Td>
-                  <Td className={`LanguageTools-lang-${language.locale}-dictionaries`}>
-                    {dictionaries.length ?
-                      <LanguageToolList languageTools={dictionaries} /> : null}
-                  </Td>
-                </Tr>
-              );
-            }) : Array(50).fill(
-              <Tr>
-                <Td><LoadingText /></Td>
-                <Td><LoadingText /></Td>
-                <Td><LoadingText /></Td>
-              </Tr>)}
+                  return (
+                    // Required to preserve space between strong and span.
+                    /* eslint-disable react/jsx-closing-tag-location */
+                    <Tr
+                      className={makeClassName(
+                        'LanguageTools-table-row',
+                        `LanguageTools-lang-${language.locale}`,
+                      )}
+                      key={language.locale}
+                    >
+                      <Td>
+                        <strong>{language.english}</strong>{' '}
+                        <span lang={language.locale}>{language.native}</span>
+                      </Td>
+                      <Td
+                        className={`LanguageTools-lang-${
+                          language.locale
+                        }-languagePacks`}
+                      >
+                        {languagePacks.length ? (
+                          <LanguageToolList languageTools={languagePacks} />
+                        ) : null}
+                      </Td>
+                      <Td
+                        className={`LanguageTools-lang-${
+                          language.locale
+                        }-dictionaries`}
+                      >
+                        {dictionaries.length ? (
+                          <LanguageToolList languageTools={dictionaries} />
+                        ) : null}
+                      </Td>
+                    </Tr>
+                  );
+                })
+              : Array(50).fill(
+                  // eslint-disable-next-line react/jsx-indent
+                  <Tr>
+                    <Td>
+                      <LoadingText />
+                    </Td>
+                    <Td>
+                      <LoadingText />
+                    </Td>
+                    <Td>
+                      <LoadingText />
+                    </Td>
+                  </Tr>,
+                )}
           </Tbody>
         </Table>
       </Card>
@@ -241,12 +255,10 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (
-  state: {|
-    languageTools: LanguageToolsState,
-    api: ApiStateType,
-  |}
-) => {
+export const mapStateToProps = (state: {|
+  languageTools: LanguageToolsState,
+  api: ApiStateType,
+|}) => {
   return {
     languageTools: getAllLanguageTools(state),
     lang: state.api.lang,

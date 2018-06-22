@@ -3,10 +3,7 @@ import { oneLine } from 'common-tags';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { getCollectionAddons } from 'amo/api/collections';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
-import {
-  FETCH_HOME_ADDONS,
-  loadHomeAddons,
-} from 'amo/reducers/home';
+import { FETCH_HOME_ADDONS, loadHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -16,12 +13,8 @@ import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
 export function* fetchHomeAddons({
-  payload: {
-    errorHandlerId,
-    collectionsToFetch,
-  },
+  payload: { errorHandlerId, collectionsToFetch },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -42,7 +35,8 @@ export function* fetchHomeAddons({
     } catch (error) {
       log.warn(
         oneLine`Home collection: ${collection.username}/${collection.slug}
-          failed to load: ${error}`);
+          failed to load: ${error}`,
+      );
       if ([401, 404].includes(error.response.status)) {
         // The collection was not found or is marked private.
         collections.push(null);
@@ -81,11 +75,13 @@ export function* fetchHomeAddons({
     yield put(errorHandler.createErrorAction(error));
   }
 
-  yield put(loadHomeAddons({
-    collections,
-    featuredExtensions: homeAddons.featuredExtensions,
-    featuredThemes: homeAddons.featuredThemes,
-  }));
+  yield put(
+    loadHomeAddons({
+      collections,
+      featuredExtensions: homeAddons.featuredExtensions,
+      featuredThemes: homeAddons.featuredThemes,
+    }),
+  );
 }
 
 export default function* homeSaga() {

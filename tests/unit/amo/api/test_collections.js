@@ -23,14 +23,11 @@ import {
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let mockApi;
   let apiState;
 
-  const getParams = ({
-    ...otherParams
-  } = {}) => {
+  const getParams = ({ ...otherParams } = {}) => {
     return {
       api: apiState,
       slug: 'some-slug',
@@ -108,8 +105,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint:
-            'accounts/account/some-user/collections/some-slug/addons',
+          endpoint: 'accounts/account/some-user/collections/some-slug/addons',
           params: queryParams,
           state: apiState,
         })
@@ -127,8 +123,8 @@ describe(__filename, () => {
       const slug = 'example-collection-slug';
       const addonResults = createFakeCollectionAddonsListResponse().results;
 
-      const _getCollectionAddons = sinon.spy(
-        () => Promise.resolve(apiResponsePage({ results: addonResults }))
+      const _getCollectionAddons = sinon.spy(() =>
+        Promise.resolve(apiResponsePage({ results: addonResults })),
       );
 
       const nextURL = 'the-endpoint?page=2';
@@ -145,7 +141,10 @@ describe(__filename, () => {
       expect(addons).toEqual(addonResults);
       sinon.assert.called(_getCollectionAddons);
       expect(_getCollectionAddons.firstCall.args[0]).toEqual({
-        api: apiState, username, slug, nextURL,
+        api: apiState,
+        username,
+        slug,
+        nextURL,
       });
     });
   });
@@ -163,8 +162,9 @@ describe(__filename, () => {
       const params = getListParams();
       delete params.username;
 
-      expect(() => listCollections(params))
-        .toThrow(/username parameter is required/);
+      expect(() => listCollections(params)).toThrow(
+        /username parameter is required/,
+      );
     });
 
     it('calls the list collections API', async () => {
@@ -190,27 +190,28 @@ describe(__filename, () => {
     it('returns collections from multiple pages', async () => {
       const username = 'some-user';
 
-      const collectionResults = [
-        createFakeCollectionDetail({ slug: 'first' }),
-      ];
+      const collectionResults = [createFakeCollectionDetail({ slug: 'first' })];
 
-      const _listCollections = sinon.spy(
-        () => Promise.resolve(
-          apiResponsePage({ results: collectionResults })
-        )
+      const _listCollections = sinon.spy(() =>
+        Promise.resolve(apiResponsePage({ results: collectionResults })),
       );
 
       const nextURL = 'the-endpoint?page=2';
       const _allPages = sinon.spy((nextPage) => nextPage(nextURL));
 
       const collections = await getAllUserCollections({
-        api: apiState, username, _allPages, _listCollections,
+        api: apiState,
+        username,
+        _allPages,
+        _listCollections,
       });
 
       expect(collections).toEqual(collectionResults);
       sinon.assert.called(_listCollections);
       expect(_listCollections.firstCall.args[0]).toEqual({
-        api: apiState, username, nextURL,
+        api: apiState,
+        username,
+        nextURL,
       });
     });
   });
@@ -261,8 +262,7 @@ describe(__filename, () => {
     it('makes a POST request to the API for create', async () => {
       const params = defaultParams({ slug });
 
-      const endpoint =
-        `accounts/account/${params.username}/collections/`;
+      const endpoint = `accounts/account/${params.username}/collections/`;
       mockApi
         .expects('callApi')
         .withArgs({
@@ -288,8 +288,9 @@ describe(__filename, () => {
     it('makes a PATCH request to the API for update', async () => {
       const params = defaultParams({ collectionSlug: slug });
 
-      const endpoint =
-        `accounts/account/${params.username}/collections/${slug}`;
+      const endpoint = `accounts/account/${
+        params.username
+      }/collections/${slug}`;
       mockApi
         .expects('callApi')
         .withArgs({
@@ -413,11 +414,13 @@ describe(__filename, () => {
       `;
       mockApi
         .expects('callApi')
-        .withArgs(sinon.match({
-          body: { addon: params.addonId, notes },
-          endpoint,
-          method: 'POST',
-        }))
+        .withArgs(
+          sinon.match({
+            body: { addon: params.addonId, notes },
+            endpoint,
+            method: 'POST',
+          }),
+        )
         .returns(Promise.resolve());
 
       await modifyCollectionAddon(params);
@@ -466,11 +469,13 @@ describe(__filename, () => {
       `;
       mockApi
         .expects('callApi')
-        .withArgs(sinon.match({
-          body: { notes },
-          endpoint,
-          method: 'PATCH',
-        }))
+        .withArgs(
+          sinon.match({
+            body: { notes },
+            endpoint,
+            method: 'PATCH',
+          }),
+        )
         .returns(Promise.resolve());
 
       await modifyCollectionAddon(params);
@@ -492,7 +497,8 @@ describe(__filename, () => {
       const modifier = sinon.spy(() => Promise.resolve());
 
       await createCollectionAddon({
-        _modifyCollectionAddon: modifier, ...params,
+        _modifyCollectionAddon: modifier,
+        ...params,
       });
 
       sinon.assert.calledWith(modifier, { action: 'create', ...params });
@@ -512,7 +518,8 @@ describe(__filename, () => {
       const modifier = sinon.spy(() => Promise.resolve());
 
       await updateCollectionAddon({
-        _modifyCollectionAddon: modifier, ...params,
+        _modifyCollectionAddon: modifier,
+        ...params,
       });
 
       sinon.assert.calledWith(modifier, { action: 'update', ...params });

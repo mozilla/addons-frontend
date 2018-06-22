@@ -12,11 +12,11 @@ export class NotFoundBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     status: PropTypes.number,
-  }
+  };
 
   static defaultProps = {
     status: 404,
-  }
+  };
 
   render() {
     const { i18n, status } = this.props;
@@ -26,7 +26,9 @@ export class NotFoundBase extends React.Component {
         <div className="ErrorPage NotFound">
           <h1>{i18n.gettext('Page not found')}</h1>
           <p>
-            {i18n.gettext("Sorry, but we can't find anything at the URL you entered.")}
+            {i18n.gettext(
+              "Sorry, but we can't find anything at the URL you entered.",
+            )}
           </p>
 
           <p>
@@ -38,6 +40,4 @@ export class NotFoundBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(NotFoundBase);
+export default compose(translate({ withRef: true }))(NotFoundBase);

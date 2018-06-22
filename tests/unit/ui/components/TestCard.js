@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import Card from 'ui/components/Card';
 
-
 describe(__filename, () => {
   function render(props = {}) {
     return shallow(<Card {...props} />);

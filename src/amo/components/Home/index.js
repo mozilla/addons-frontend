@@ -22,7 +22,6 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
 export const COLLECTIONS_TO_FETCH = [
   { slug: 'translation-tools', username: 'mozilla' },
   { slug: 'privacy-matters', username: 'mozilla' },
@@ -46,10 +45,12 @@ export class HomeBase extends React.Component {
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
     if (!resultsLoaded) {
-      dispatch(fetchHomeAddons({
-        errorHandlerId: errorHandler.id,
-        collectionsToFetch: COLLECTIONS_TO_FETCH,
-      }));
+      dispatch(
+        fetchHomeAddons({
+          errorHandlerId: errorHandler.id,
+          collectionsToFetch: COLLECTIONS_TO_FETCH,
+        }),
+      );
     }
   }
 
@@ -85,10 +86,7 @@ export class HomeBase extends React.Component {
     return (
       <ul className="Home-SubjectShelf-list">
         {curatedMozillaCollections.map(({ collectionSlug, title }) => (
-          <li
-            className="Home-SubjectShelf-list-item"
-            key={collectionSlug}
-          >
+          <li className="Home-SubjectShelf-list-item" key={collectionSlug}>
             <Link
               to={`/collections/mozilla/${collectionSlug}/`}
               className="Home-SubjectShelf-link"
@@ -187,9 +185,7 @@ export class HomeBase extends React.Component {
           header={extensionsHeader}
         >
           <div className="Home-SubjectShelf-text-wrapper">
-            <h2 className="Home-SubjectShelf-subheading">
-              {extensionsHeader}
-            </h2>
+            <h2 className="Home-SubjectShelf-subheading">{extensionsHeader}</h2>
           </div>
 
           {this.renderCuratedCollections()}
@@ -211,17 +207,18 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[0]) &&
-        <LandingAddonsCard
-          addons={collections[0]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Translation tools')}
-          footerText={i18n.gettext('See more translation tools')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[0].username}/${COLLECTIONS_TO_FETCH[0].slug}/`
-          }
-          loading={loading}
-        />}
+        {(loading || collections[0]) && (
+          <LandingAddonsCard
+            addons={collections[0]}
+            className="Home-FeaturedCollection"
+            header={i18n.gettext('Translation tools')}
+            footerText={i18n.gettext('See more translation tools')}
+            footerLink={`/collections/${COLLECTIONS_TO_FETCH[0].username}/${
+              COLLECTIONS_TO_FETCH[0].slug
+            }/`}
+            loading={loading}
+          />
+        )}
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
@@ -239,40 +236,38 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[1]) &&
-        <LandingAddonsCard
-          addons={collections[1]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Privacy matters')}
-          footerText={i18n.gettext('See more privacy extensions')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[1].username}/${COLLECTIONS_TO_FETCH[1].slug}/`
-          }
-          loading={loading}
-        />}
+        {(loading || collections[1]) && (
+          <LandingAddonsCard
+            addons={collections[1]}
+            className="Home-FeaturedCollection"
+            header={i18n.gettext('Privacy matters')}
+            footerText={i18n.gettext('See more privacy extensions')}
+            footerLink={`/collections/${COLLECTIONS_TO_FETCH[1].username}/${
+              COLLECTIONS_TO_FETCH[1].slug
+            }/`}
+            loading={loading}
+          />
+        )}
 
-        {(loading || collections[2]) &&
-        <LandingAddonsCard
-          addons={collections[2]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Tame your tabs')}
-          footerText={
-            i18n.gettext('See more tab extensions')
-          }
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[2].username}/${COLLECTIONS_TO_FETCH[2].slug}/`
-          }
-          loading={loading}
-        />}
+        {(loading || collections[2]) && (
+          <LandingAddonsCard
+            addons={collections[2]}
+            className="Home-FeaturedCollection"
+            header={i18n.gettext('Tame your tabs')}
+            footerText={i18n.gettext('See more tab extensions')}
+            footerLink={`/collections/${COLLECTIONS_TO_FETCH[2].username}/${
+              COLLECTIONS_TO_FETCH[2].slug
+            }/`}
+            loading={loading}
+          />
+        )}
 
         <Card
           className="Home-SubjectShelf Home-CuratedThemes"
           header={themesHeader}
         >
           <div className="Home-SubjectShelf-text-wrapper">
-            <h2 className="Home-SubjectShelf-subheading">
-              {themesHeader}
-            </h2>
+            <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
           </div>
 
           {this.renderCuratedThemes()}

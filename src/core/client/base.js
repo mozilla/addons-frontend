@@ -16,10 +16,7 @@ import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 import log from 'core/logger';
 
-
-export default function makeClient(
-  routes, createStore, { sagas = null } = {},
-) {
+export default function makeClient(routes, createStore, { sagas = null } = {}) {
   // This code needs to come before anything else so we get logs/errors
   // if anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
@@ -52,7 +49,8 @@ export default function makeClient(
     }
 
     const { sagaMiddleware, store } = createStore({
-      history: browserHistory, initialState,
+      history: browserHistory,
+      initialState,
     });
     const history = syncHistoryWithStore(browserHistory, store);
 
@@ -62,9 +60,7 @@ export default function makeClient(
       log.warn(`sagas not found for this app (src/${appName}/sagas)`);
     }
 
-    const middleware = applyRouterMiddleware(
-      useScroll(),
-    );
+    const middleware = applyRouterMiddleware(useScroll());
 
     render(
       <I18nProvider i18n={i18n}>
@@ -74,15 +70,16 @@ export default function makeClient(
           </Router>
         </Provider>
       </I18nProvider>,
-      document.getElementById('react-view')
+      document.getElementById('react-view'),
     );
   }
-
 
   try {
     if (locale !== langToLocale(config.get('defaultLang'))) {
       // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
+      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(
+        renderApp,
+      );
     } else {
       renderApp({});
     }

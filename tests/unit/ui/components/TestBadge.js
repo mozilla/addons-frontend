@@ -4,7 +4,6 @@ import * as React from 'react';
 import Badge from 'ui/components/Badge';
 import Icon from 'ui/components/Icon';
 
-
 describe(__filename, () => {
   it('renders a badge', () => {
     const badge = shallow(<Badge label="super badge" />);
@@ -26,7 +25,9 @@ describe(__filename, () => {
   });
 
   it('displays the restart icon for type `restart-required`', () => {
-    const badge = shallow(<Badge type="restart-required" label="restart required" />);
+    const badge = shallow(
+      <Badge type="restart-required" label="restart required" />,
+    );
 
     expect(badge).toHaveClassName('Badge');
     expect(badge).toHaveClassName('Badge-restart-required');
@@ -47,9 +48,7 @@ describe(__filename, () => {
   });
 
   it('displays the payment required badge icon for type `requires-payment`', () => {
-    const badge = shallow(
-      <Badge type="requires-payment" label="label text" />
-    );
+    const badge = shallow(<Badge type="requires-payment" label="label text" />);
 
     expect(badge).toHaveClassName('Badge-requires-payment');
     expect(badge.find(Icon)).toHaveProp('name', 'requires-payment');

@@ -14,7 +14,10 @@ import {
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
 import reviewsReducer, {
-  changeViewState, expandReviewObjects, initialState, storeReviewObjects,
+  changeViewState,
+  expandReviewObjects,
+  initialState,
+  storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
@@ -24,8 +27,8 @@ describe(__filename, () => {
     addonId = fakeReview.addon.id,
     reply = null,
     versionId = fakeReview.version.id,
-    ...overrides } = {}
-  ) {
+    ...overrides
+  } = {}) {
     return setReview({
       ...fakeReview,
       user: {
@@ -36,10 +39,12 @@ describe(__filename, () => {
         ...fakeReview.addon,
         id: addonId,
       },
-      reply: reply ? {
-        ...fakeReview,
-        ...reply,
-      } : null,
+      reply: reply
+        ? {
+            ...fakeReview,
+            ...reply,
+          }
+        : null,
       version: {
         ...fakeReview.version,
         id: versionId,
@@ -49,7 +54,9 @@ describe(__filename, () => {
   }
 
   it('defaults to an empty object', () => {
-    expect(reviewsReducer(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(initialState);
+    expect(reviewsReducer(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(
+      initialState,
+    );
   });
 
   it('stores a user review', () => {
@@ -101,50 +108,64 @@ describe(__filename, () => {
     const state = reviewsReducer(undefined, setReview(review));
 
     const reply = { ...review, id: 2, body: 'A developer reply' };
-    const newState = reviewsReducer(state, setReviewReply({
-      originalReviewId: review.id, reply,
-    }));
+    const newState = reviewsReducer(
+      state,
+      setReviewReply({
+        originalReviewId: review.id,
+        reply,
+      }),
+    );
 
-    expect(newState.byId[review.id].body)
-      .toEqual('Original review body');
-    expect(newState.byId[review.id].reply.body)
-      .toEqual('A developer reply');
-    expect(newState.byId[review.id].reply)
-      .toEqual(denormalizeReview(reply));
+    expect(newState.byId[review.id].body).toEqual('Original review body');
+    expect(newState.byId[review.id].reply.body).toEqual('A developer reply');
+    expect(newState.byId[review.id].reply).toEqual(denormalizeReview(reply));
   });
 
   it('cannot store a reply to a non-existant review', () => {
     const reply = { ...fakeReview, body: 'A developer reply' };
     expect(() => {
-      reviewsReducer(undefined, setReviewReply({
-        originalReviewId: 3, reply,
-      }));
+      reviewsReducer(
+        undefined,
+        setReviewReply({
+          originalReviewId: 3,
+          reply,
+        }),
+      );
     }).toThrow(/review ID 3 .* does not exist/);
   });
 
   it('preserves existing user rating data', () => {
     let state;
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 1,
-      userId: 1,
-      addonId: 1,
-      rating: 1,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 1,
+        userId: 1,
+        addonId: 1,
+        rating: 1,
+      }),
+    );
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 2,
-      userId: 1,
-      addonId: 2,
-      rating: 5,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 2,
+        userId: 1,
+        addonId: 2,
+        rating: 5,
+      }),
+    );
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 3,
-      userId: 2,
-      addonId: 2,
-      rating: 4,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 3,
+        userId: 2,
+        addonId: 2,
+        rating: 4,
+      }),
+    );
 
     // Make sure all reviews co-exist by userId, addonId, review ID.
     expect(state[1][1][1].rating).toEqual(1);
@@ -157,20 +178,29 @@ describe(__filename, () => {
     const userId = fakeReview.user.id;
     const addonId = fakeReview.addon.id;
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 1,
-      versionId: 1,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 1,
+        versionId: 1,
+      }),
+    );
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 2,
-      versionId: 2,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 2,
+        versionId: 2,
+      }),
+    );
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 3,
-      versionId: 3,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 3,
+        versionId: 3,
+      }),
+    );
 
     // Make sure all reviews co-exist by userId, addonId, review ID.
     expect(state[userId][addonId][1].id).toEqual(1);
@@ -189,20 +219,29 @@ describe(__filename, () => {
     const userId = fakeReview.user.id;
     let state;
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 1,
-      is_latest: true,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 1,
+        is_latest: true,
+      }),
+    );
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 2,
-      is_latest: true,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 2,
+        is_latest: true,
+      }),
+    );
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 3,
-      is_latest: true,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 3,
+        is_latest: true,
+      }),
+    );
 
     // Make sure only the newest submitted one is the latest:
     expect(state[userId][addonId][1].isLatest).toEqual(false);
@@ -215,15 +254,21 @@ describe(__filename, () => {
     const userId = fakeReview.user.id;
     let state;
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 1,
-      is_latest: true,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 1,
+        is_latest: true,
+      }),
+    );
 
-    state = reviewsReducer(state, setFakeReview({
-      id: 2,
-      is_latest: false,
-    }));
+    state = reviewsReducer(
+      state,
+      setFakeReview({
+        id: 2,
+        is_latest: false,
+      }),
+    );
 
     expect(state[userId][addonId][1].isLatest).toEqual(true);
     expect(state[userId][addonId][2].isLatest).toEqual(false);
@@ -234,7 +279,9 @@ describe(__filename, () => {
       const review1 = fakeReview;
       const review2 = { ...fakeReview, id: 3 };
       const action = setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews: [review1, review2], reviewCount: 2,
+        addonSlug: fakeAddon.slug,
+        reviews: [review1, review2],
+        reviewCount: 2,
       });
       const state = reviewsReducer(undefined, action);
       const storedReviews = state.byAddon[fakeAddon.slug].reviews;
@@ -251,12 +298,22 @@ describe(__filename, () => {
       const review3 = { ...fakeReview, id: 4 };
 
       let state;
-      state = reviewsReducer(state, setAddonReviews({
-        addonSlug: addon1.slug, reviews: [review1], reviewCount: 1,
-      }));
-      state = reviewsReducer(state, setAddonReviews({
-        addonSlug: addon2.slug, reviews: [review2, review3], reviewCount: 2,
-      }));
+      state = reviewsReducer(
+        state,
+        setAddonReviews({
+          addonSlug: addon1.slug,
+          reviews: [review1],
+          reviewCount: 1,
+        }),
+      );
+      state = reviewsReducer(
+        state,
+        setAddonReviews({
+          addonSlug: addon2.slug,
+          reviews: [review2, review3],
+          reviewCount: 2,
+        }),
+      );
 
       expect(state.byAddon[addon1.slug].reviews[0]).toEqual(review1.id);
       expect(state.byAddon[addon2.slug].reviews[0]).toEqual(review2.id);
@@ -267,7 +324,9 @@ describe(__filename, () => {
       const review1 = fakeReview;
       const review2 = { ...fakeReview, id: 3 };
       const action = setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews: [review1, review2], reviewCount: 2,
+        addonSlug: fakeAddon.slug,
+        reviews: [review1, review2],
+        reviewCount: 2,
       });
       const state = reviewsReducer(undefined, action);
       expect(state.byId[review1.id]).toEqual(denormalizeReview(review1));
@@ -275,12 +334,22 @@ describe(__filename, () => {
     });
 
     it('stores review counts', () => {
-      const state = reviewsReducer(undefined, setAddonReviews({
-        addonSlug: 'slug1', reviews: [fakeReview], reviewCount: 1,
-      }));
-      const newState = reviewsReducer(state, setAddonReviews({
-        addonSlug: 'slug2', reviews: [fakeReview, fakeReview], reviewCount: 2,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        setAddonReviews({
+          addonSlug: 'slug1',
+          reviews: [fakeReview],
+          reviewCount: 1,
+        }),
+      );
+      const newState = reviewsReducer(
+        state,
+        setAddonReviews({
+          addonSlug: 'slug2',
+          reviews: [fakeReview, fakeReview],
+          reviewCount: 2,
+        }),
+      );
 
       expect(newState.byAddon.slug1.reviewCount).toEqual(1);
       expect(newState.byAddon.slug2.reviewCount).toEqual(2);
@@ -292,13 +361,13 @@ describe(__filename, () => {
       const addonSlug = 'some-slug';
 
       const action = setAddonReviews({
-        addonSlug, reviews: [fakeReview], reviewCount: 1,
+        addonSlug,
+        reviews: [fakeReview],
+        reviewCount: 1,
       });
 
       const state = reviewsReducer(undefined, action);
-      const newState = reviewsReducer(
-        state, clearAddonReviews({ addonSlug })
-      );
+      const newState = reviewsReducer(state, clearAddonReviews({ addonSlug }));
 
       expect(newState.byAddon[addonSlug]).toBeUndefined();
     });
@@ -309,12 +378,15 @@ describe(__filename, () => {
 
       const review = { ...fakeReview, id: 1 };
       const action = setAddonReviews({
-        addonSlug: firstSlug, reviews: [review], reviewCount: 1,
+        addonSlug: firstSlug,
+        reviews: [review],
+        reviewCount: 1,
       });
 
       const state = reviewsReducer(undefined, action);
       const newState = reviewsReducer(
-        state, clearAddonReviews({ addonSlug: secondSlug })
+        state,
+        clearAddonReviews({ addonSlug: secondSlug }),
       );
 
       const storedReviews = newState.byAddon[firstSlug].reviews;
@@ -347,7 +419,8 @@ describe(__filename, () => {
       const nonExistantIds = [99678];
       expect(() => {
         expandReviewObjects({
-          state: initialState, reviews: nonExistantIds,
+          state: initialState,
+          reviews: nonExistantIds,
         });
       }).toThrow(/No stored review exists for ID 99678/);
     });
@@ -359,11 +432,10 @@ describe(__filename, () => {
         denormalizeReview({ ...fakeReview, id: 1 }),
         denormalizeReview({ ...fakeReview, id: 2 }),
       ];
-      expect(storeReviewObjects({ state: initialState, reviews }))
-        .toEqual({
-          [reviews[0].id]: reviews[0],
-          [reviews[1].id]: reviews[1],
-        });
+      expect(storeReviewObjects({ state: initialState, reviews })).toEqual({
+        [reviews[0].id]: reviews[0],
+        [reviews[1].id]: reviews[1],
+      });
     });
 
     it('preserves existing reviews', () => {
@@ -373,19 +445,19 @@ describe(__filename, () => {
       const state = initialState;
       const byId = storeReviewObjects({ state, reviews: [review1] });
 
-      expect(storeReviewObjects({
-        state: { ...state, byId },
-        reviews: [review2],
-      })).toEqual({
+      expect(
+        storeReviewObjects({
+          state: { ...state, byId },
+          reviews: [review2],
+        }),
+      ).toEqual({
         [review1.id]: review1,
         [review2.id]: review2,
       });
     });
 
     it('throws an error for falsy IDs', () => {
-      const reviews = [
-        denormalizeReview({ ...fakeReview, id: undefined }),
-      ];
+      const reviews = [denormalizeReview({ ...fakeReview, id: undefined })];
       expect(() => {
         storeReviewObjects({ state: initialState, reviews });
       }).toThrow(/Cannot store review because review.id is falsy/);
@@ -396,9 +468,12 @@ describe(__filename, () => {
     it('stores view state about showing an edit review form', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, showEditReviewForm({
-        reviewId: review.id,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        showEditReviewForm({
+          reviewId: review.id,
+        }),
+      );
 
       expect(state.view[review.id].editingReview).toEqual(true);
     });
@@ -408,9 +483,12 @@ describe(__filename, () => {
     it('stores view state about showing a reply form', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, showReplyToReviewForm({
-        reviewId: review.id,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        showReplyToReviewForm({
+          reviewId: review.id,
+        }),
+      );
 
       expect(state.view[review.id].replyingToReview).toEqual(true);
     });
@@ -420,9 +498,12 @@ describe(__filename, () => {
     it('stores view state about hiding an edit review form', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, hideEditReviewForm({
-        reviewId: review.id,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        hideEditReviewForm({
+          reviewId: review.id,
+        }),
+      );
 
       expect(state.view[review.id].editingReview).toEqual(false);
     });
@@ -432,9 +513,12 @@ describe(__filename, () => {
     it('stores view state about hiding a reply', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, hideReplyToReviewForm({
-        reviewId: review.id,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        hideReplyToReviewForm({
+          reviewId: review.id,
+        }),
+      );
 
       expect(state.view[review.id].replyingToReview).toEqual(false);
     });
@@ -442,14 +526,20 @@ describe(__filename, () => {
     it('unsets the submittingReply flag', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, sendReplyToReview({
-        errorHandlerId: 'some-id',
-        originalReviewId: review.id,
-        body: 'a reply',
-      }));
-      const newState = reviewsReducer(state, hideReplyToReviewForm({
-        reviewId: review.id,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        sendReplyToReview({
+          errorHandlerId: 'some-id',
+          originalReviewId: review.id,
+          body: 'a reply',
+        }),
+      );
+      const newState = reviewsReducer(
+        state,
+        hideReplyToReviewForm({
+          reviewId: review.id,
+        }),
+      );
 
       expect(newState.view[review.id].submittingReply).toEqual(false);
     });
@@ -459,11 +549,14 @@ describe(__filename, () => {
     it('stores view state about submitting a reply', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, sendReplyToReview({
-        errorHandlerId: 'some-id',
-        originalReviewId: review.id,
-        body: 'a reply',
-      }));
+      const state = reviewsReducer(
+        undefined,
+        sendReplyToReview({
+          errorHandlerId: 'some-id',
+          originalReviewId: review.id,
+          body: 'a reply',
+        }),
+      );
 
       expect(state.view[review.id].submittingReply).toEqual(true);
     });
@@ -473,11 +566,14 @@ describe(__filename, () => {
     it('stores view state about flagging a review', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, flagReview({
-        errorHandlerId: 'some-id',
-        reason: REVIEW_FLAG_REASON_SPAM,
-        reviewId: review.id,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        flagReview({
+          errorHandlerId: 'some-id',
+          reason: REVIEW_FLAG_REASON_SPAM,
+          reviewId: review.id,
+        }),
+      );
 
       expect(state.view[review.id].flag).toMatchObject({
         reason: REVIEW_FLAG_REASON_SPAM,
@@ -489,10 +585,13 @@ describe(__filename, () => {
     it('stores view state about a flagged review', () => {
       const review = { ...fakeReview, id: 837 };
 
-      const state = reviewsReducer(undefined, setReviewWasFlagged({
-        reason: REVIEW_FLAG_REASON_SPAM,
-        reviewId: review.id,
-      }));
+      const state = reviewsReducer(
+        undefined,
+        setReviewWasFlagged({
+          reason: REVIEW_FLAG_REASON_SPAM,
+          reviewId: review.id,
+        }),
+      );
 
       expect(state.view[review.id].flag).toMatchObject({
         reason: REVIEW_FLAG_REASON_SPAM,

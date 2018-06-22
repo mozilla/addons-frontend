@@ -42,9 +42,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import {
-  createFakeAddon, fakeAddon, fakeTheme,
-} from 'tests/unit/amo/helpers';
+import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   fakeRouterLocation,
   getFakeAddonManagerWrapper,
@@ -71,12 +69,12 @@ class BaseComponent extends React.Component {
   }
 }
 
-function componentWithInstallHelpers({ defaultInstallSource = 'some-src' } = {}) {
+function componentWithInstallHelpers({
+  defaultInstallSource = 'some-src',
+} = {}) {
   // This simulates how a component would typically apply
   // the withInstallHelpers() HOC wrapper.
-  return compose(
-    withInstallHelpers({ defaultInstallSource })
-  )(BaseComponent);
+  return compose(withInstallHelpers({ defaultInstallSource }))(BaseComponent);
 }
 
 const defaultProps = (overrides = {}) => {
@@ -106,12 +104,13 @@ function render(Component, props) {
     // If we do not disable these methods, `componentDidMount()` will be called
     // but in most cases we do not have a complete fakeAddonManager.
     // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
-    { shallowOptions: { disableLifecycleMethods: true } }
+    { shallowOptions: { disableLifecycleMethods: true } },
   );
 }
 
 function renderWithInstallHelpers({
-  defaultInstallSource, ...customProps
+  defaultInstallSource,
+  ...customProps
 } = {}) {
   const Component = componentWithInstallHelpers({ defaultInstallSource });
 
@@ -127,11 +126,13 @@ describe(__filename, () => {
     const WrappedComponent = sinon.stub();
 
     withInstallHelpers({
-      defaultInstallSource: 'Howdy', _makeMapDispatchToProps,
+      defaultInstallSource: 'Howdy',
+      _makeMapDispatchToProps,
     })(WrappedComponent);
 
     sinon.assert.calledWith(_makeMapDispatchToProps, {
-      WrappedComponent, defaultInstallSource: 'Howdy',
+      WrappedComponent,
+      defaultInstallSource: 'Howdy',
     });
   });
 
@@ -139,7 +140,8 @@ describe(__filename, () => {
     const _makeMapDispatchToProps = sinon.spy();
 
     const Component = withInstallHelpers({
-      defaultInstallSource: 'Howdy', _makeMapDispatchToProps,
+      defaultInstallSource: 'Howdy',
+      _makeMapDispatchToProps,
     })(() => {});
 
     const { store } = createStore();
@@ -181,12 +183,11 @@ describe(__filename, () => {
     });
 
     const props = defaultProps({ _addonManager });
-    const root = mount(
-      <Component {...props} />
-    );
+    const root = mount(<Component {...props} />);
 
     const newAddon = createInternalAddon({
-      ...fakeAddon, guid: '@new-guid',
+      ...fakeAddon,
+      guid: '@new-guid',
     });
     // Use a spread to simulate how Addon and other components
     // do it in mapStateToProps().
@@ -239,12 +240,7 @@ describe(__filename, () => {
     });
 
     const props = defaultProps({ _addonManager });
-    mount(
-      <WithInstallHelpers
-        {...props}
-        WrappedComponent={() => <div />}
-      />
-    );
+    mount(<WithInstallHelpers {...props} WrappedComponent={() => <div />} />);
     sinon.assert.called(_addonManager.getAddon);
   });
 
@@ -252,14 +248,10 @@ describe(__filename, () => {
     const _addonManager = getFakeAddonManagerWrapper();
 
     const props = defaultProps({
-      hasAddonManager: false, _addonManager,
+      hasAddonManager: false,
+      _addonManager,
     });
-    mount(
-      <WithInstallHelpers
-        {...props}
-        WrappedComponent={() => <div />}
-      />
-    );
+    mount(<WithInstallHelpers {...props} WrappedComponent={() => <div />} />);
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
@@ -270,9 +262,13 @@ describe(__filename, () => {
       userAgent = userAgentsByPlatform.windows.firefox40,
       ...params
     } = {}) => {
-      const addon = addonFiles && createInternalAddon(createFakeAddon({
-        files: addonFiles,
-      }));
+      const addon =
+        addonFiles &&
+        createInternalAddon(
+          createFakeAddon({
+            files: addonFiles,
+          }),
+        );
       const userAgentInfo = userAgent && UAParser(userAgent);
 
       return installAddon.findInstallURL({
@@ -284,256 +280,276 @@ describe(__filename, () => {
     };
 
     it('finds a Windows install URL', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            platform: OS_MAC,
-            url: 'https://a.m.o/files/mac.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.windows.firefox40,
-      }))
-        .toEqual('https://a.m.o/files/windows.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              platform: OS_MAC,
+              url: 'https://a.m.o/files/mac.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.windows.firefox40,
+        }),
+      ).toEqual('https://a.m.o/files/windows.xpi');
     });
 
     it('finds a Mac OS install URL', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            platform: OS_MAC,
-            url: 'https://a.m.o/files/mac.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.mac.firefox33,
-      }))
-        .toEqual('https://a.m.o/files/mac.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              platform: OS_MAC,
+              url: 'https://a.m.o/files/mac.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.mac.firefox33,
+        }),
+      ).toEqual('https://a.m.o/files/mac.xpi');
     });
 
     it('finds a Linux install URL', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            platform: OS_LINUX,
-            url: 'https://a.m.o/files/linux.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.linux.firefox10,
-      }))
-        .toEqual('https://a.m.o/files/linux.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              platform: OS_LINUX,
+              url: 'https://a.m.o/files/linux.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.linux.firefox10,
+        }),
+      ).toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('finds a Linux Ubuntu install URL', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_LINUX,
-            url: 'https://a.m.o/files/linux.xpi',
-          },
-        ],
-        // This parses to the name Ubuntu instead of Linux.
-        userAgent: userAgentsByPlatform.linux.firefox57Ubuntu,
-      }))
-        .toEqual('https://a.m.o/files/linux.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_LINUX,
+              url: 'https://a.m.o/files/linux.xpi',
+            },
+          ],
+          // This parses to the name Ubuntu instead of Linux.
+          userAgent: userAgentsByPlatform.linux.firefox57Ubuntu,
+        }),
+      ).toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('gives a Linux install URL to Unix platforms', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_LINUX,
-            url: 'https://a.m.o/files/linux.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.unix.firefox51,
-      }))
-        .toEqual('https://a.m.o/files/linux.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_LINUX,
+              url: 'https://a.m.o/files/linux.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.unix.firefox51,
+        }),
+      ).toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('gives a Linux install URL to BSD platforms', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_LINUX,
-            url: 'https://a.m.o/files/linux.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.bsd.firefox40FreeBSD,
-      }))
-        .toEqual('https://a.m.o/files/linux.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_LINUX,
+              url: 'https://a.m.o/files/linux.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.bsd.firefox40FreeBSD,
+        }),
+      ).toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('finds an Android mobile install URL', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            platform: OS_ANDROID,
-            url: 'https://a.m.o/files/android.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.android.firefox40Mobile,
-      }))
-        .toEqual('https://a.m.o/files/android.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              platform: OS_ANDROID,
+              url: 'https://a.m.o/files/android.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.android.firefox40Mobile,
+        }),
+      ).toEqual('https://a.m.o/files/android.xpi');
     });
 
     it('finds an Android tablet install URL', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            platform: OS_ANDROID,
-            url: 'https://a.m.o/files/android.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.android.firefox40Tablet,
-      }))
-        .toEqual('https://a.m.o/files/android.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              platform: OS_ANDROID,
+              url: 'https://a.m.o/files/android.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.android.firefox40Tablet,
+        }),
+      ).toEqual('https://a.m.o/files/android.xpi');
     });
 
     it('returns an all-platform URL for unsupported platforms', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            platform: OS_ALL,
-            url: 'https://a.m.o/files/all.xpi',
-          },
-        ],
-        // This platform is unsupported.
-        userAgent: userAgentsByPlatform.firefoxOS.firefox26,
-      }))
-        .toEqual('https://a.m.o/files/all.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              platform: OS_ALL,
+              url: 'https://a.m.o/files/all.xpi',
+            },
+          ],
+          // This platform is unsupported.
+          userAgent: userAgentsByPlatform.firefoxOS.firefox26,
+        }),
+      ).toEqual('https://a.m.o/files/all.xpi');
     });
 
     it('gives preference to a specific platform URL', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            // Make sure the all-platform file doesn't win.
-            platform: OS_ALL,
-            url: 'https://a.m.o/files/all.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.windows.firefox40,
-      }))
-        .toEqual('https://a.m.o/files/windows.xpi');
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              // Make sure the all-platform file doesn't win.
+              platform: OS_ALL,
+              url: 'https://a.m.o/files/all.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.windows.firefox40,
+        }),
+      ).toEqual('https://a.m.o/files/windows.xpi');
     });
 
     it('returns undefined when nothing else matches', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/files/windows.xpi',
-          },
-          {
-            platform: OS_MAC,
-            url: 'https://a.m.o/files/mac.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.android.firefox40Tablet,
-      }))
-        .toEqual(undefined);
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_WINDOWS,
+              url: 'https://a.m.o/files/windows.xpi',
+            },
+            {
+              platform: OS_MAC,
+              url: 'https://a.m.o/files/mac.xpi',
+            },
+          ],
+          userAgent: userAgentsByPlatform.android.firefox40Tablet,
+        }),
+      ).toEqual(undefined);
     });
 
     it('returns undefined for user agents with an unknown platform', () => {
-      expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_LINUX,
-            url: 'https://a.m.o/files/linux.xpi',
-          },
-        ],
-        userAgent: 'some-completely-wacko-user-agent-string',
-      }))
-        .toEqual(undefined);
+      expect(
+        _findInstallURL({
+          addonFiles: [
+            {
+              platform: OS_LINUX,
+              url: 'https://a.m.o/files/linux.xpi',
+            },
+          ],
+          userAgent: 'some-completely-wacko-user-agent-string',
+        }),
+      ).toEqual(undefined);
     });
 
     it('returns undefined when no files exist', () => {
-      expect(_findInstallURL({
-        addonFiles: [],
-        userAgent: userAgentsByPlatform.windows.firefox40,
-      }))
-        .toEqual(undefined);
+      expect(
+        _findInstallURL({
+          addonFiles: [],
+          userAgent: userAgentsByPlatform.windows.firefox40,
+        }),
+      ).toEqual(undefined);
     });
 
     it('requires platformFiles', () => {
-      expect(() => _findInstallURL({ addonFiles: null }))
-        .toThrow(/platformFiles parameter is required/);
+      expect(() => _findInstallURL({ addonFiles: null })).toThrow(
+        /platformFiles parameter is required/,
+      );
     });
 
     it('requires userAgentInfo', () => {
-      expect(() => _findInstallURL({ userAgent: null }))
-        .toThrow(/userAgentInfo parameter is required/);
+      expect(() => _findInstallURL({ userAgent: null })).toThrow(
+        /userAgentInfo parameter is required/,
+      );
     });
 
     it('adds a default source to the install URL', () => {
       const baseURL = 'https://a.m.o/files/addon.xpi';
-      expect(_findInstallURL({
-        addonFiles: [{ platform: OS_ALL, url: baseURL }],
-        defaultInstallSource: 'homepage',
-      }))
-        .toEqual(`${baseURL}?src=homepage`);
+      expect(
+        _findInstallURL({
+          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+          defaultInstallSource: 'homepage',
+        }),
+      ).toEqual(`${baseURL}?src=homepage`);
     });
 
     it('only adds a source to the URL when defined', () => {
       const baseURL = 'https://a.m.o/files/addon.xpi';
-      expect(_findInstallURL({
-        addonFiles: [{ platform: OS_ALL, url: baseURL }],
-        defaultInstallSource: null,
-      }))
-        .toEqual(baseURL);
+      expect(
+        _findInstallURL({
+          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+          defaultInstallSource: null,
+        }),
+      ).toEqual(baseURL);
     });
 
     it('prefers an external source over the default', () => {
       const baseURL = 'https://a.m.o/files/addon.xpi';
       const externalSource = 'my-reddit-post';
-      expect(_findInstallURL({
-        addonFiles: [{ platform: OS_ALL, url: baseURL }],
-        location: fakeRouterLocation({ query: { src: externalSource } }),
-        defaultInstallSource: 'default-source',
-      }))
-        .toEqual(`${baseURL}?src=${externalSource}`);
+      expect(
+        _findInstallURL({
+          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+          location: fakeRouterLocation({ query: { src: externalSource } }),
+          defaultInstallSource: 'default-source',
+        }),
+      ).toEqual(`${baseURL}?src=${externalSource}`);
     });
 
     it('requires a location when appending a source', () => {
-      expect(() => _findInstallURL({ location: null }))
-        .toThrow(/location parameter is required/);
+      expect(() => _findInstallURL({ location: null })).toThrow(
+        /location parameter is required/,
+      );
     });
 
     it('allows undefined locations when not appending a source', () => {
       const baseURL = 'https://a.m.o/files/addon.xpi';
-      expect(_findInstallURL({
-        appendSource: false,
-        location: null,
-        addonFiles: [{ platform: OS_ALL, url: baseURL }],
-      }))
-        .toEqual(baseURL);
+      expect(
+        _findInstallURL({
+          appendSource: false,
+          location: null,
+          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+        }),
+      ).toEqual(baseURL);
     });
 
     it('preserves the install URL query string', () => {
@@ -560,75 +576,88 @@ describe(`${__filename}: withInstallHelpers`, () => {
   let mapDispatchToProps;
 
   function getMapStateToProps({
-    _tracking, installations = {}, state = {} } = {}
-  ) {
-    return mapStateToProps(
-      { installations, addons: {} }, state, { _tracking }
-    );
+    _tracking,
+    installations = {},
+    state = {},
+  } = {}) {
+    return mapStateToProps({ installations, addons: {} }, state, { _tracking });
   }
 
   beforeAll(() => {
     mapDispatchToProps = makeMapDispatchToProps({
-      WrappedComponent, defaultInstallSource,
+      WrappedComponent,
+      defaultInstallSource,
     });
   });
 
   beforeEach(() => {
-    configStub = sinon.stub(config, 'get')
-      .withArgs('server').returns(false);
+    configStub = sinon
+      .stub(config, 'get')
+      .withArgs('server')
+      .returns(false);
   });
 
   describe('setCurrentStatus', () => {
     it('sets the status to ENABLED when an enabled add-on found', () => {
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, defaultInstallSource: null,
+        ...addon,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: ENABLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ENABLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('lets you pass custom props to setCurrentStatus', () => {
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, defaultInstallSource: null,
+        ...addon,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
       dispatch.resetHistory();
-      return setCurrentStatus(addon)
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: ENABLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus(addon).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ENABLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('sets the status to DISABLED when a disabled add-on found', () => {
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -643,22 +672,25 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: DISABLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('sets the status to DISABLED when an inactive add-on found', () => {
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -673,25 +705,32 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: DISABLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('sets the status to ENABLED when an enabled theme is found', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({ type: ADDON_TYPE_THEME, isActive: true, isEnabled: true }),
+        getAddon: Promise.resolve({
+          type: ADDON_TYPE_THEME,
+          isActive: true,
+          isEnabled: true,
+        }),
       });
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -700,15 +739,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: ENABLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ENABLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('sets the status to DISABLED when an inactive theme is found', () => {
@@ -720,9 +760,11 @@ describe(`${__filename}: withInstallHelpers`, () => {
         }),
       });
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -731,15 +773,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: DISABLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('sets the status to DISABLED when a disabled theme is found', () => {
@@ -751,9 +794,11 @@ describe(`${__filename}: withInstallHelpers`, () => {
         }),
       });
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -762,15 +807,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: DISABLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('sets the status to UNINSTALLED when not found', () => {
@@ -778,9 +824,11 @@ describe(`${__filename}: withInstallHelpers`, () => {
         getAddon: Promise.reject(),
       });
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -789,15 +837,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: UNINSTALLED, url: installURL,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: UNINSTALLED,
+            url: installURL,
+          }),
+        );
+      });
     });
 
     it('dispatches error when setCurrentStatus gets exception', () => {
@@ -808,26 +857,30 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const addon = createInternalAddon(fakeAddon);
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: ERROR, error: FATAL_ERROR,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          }),
+        );
+      });
     });
 
     it('adds defaultInstallSource to the URL', () => {
       const installURL = 'http://the.url/';
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -835,17 +888,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid,
-              status: ENABLED,
-              url: `${installURL}?src=${defaultInstallSource}`,
-            }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ENABLED,
+            url: `${installURL}?src=${defaultInstallSource}`,
+          }),
+        );
+      });
     });
   });
 
@@ -877,9 +929,13 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadEnded' });
-      sinon.assert.calledWith(dispatch, setInstallState({
-        guid, status: INSTALLING,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        setInstallState({
+          guid,
+          status: INSTALLING,
+        }),
+      );
     });
 
     it('resets status to uninstalled on onInstallCancelled', () => {
@@ -926,16 +982,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
         icon_url: iconUrl,
       });
       const { root } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
       const fakeShowInfo = sinon.stub();
-      return enable({ _showInfo: fakeShowInfo })
-        .then(() => {
-          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
-        });
+      return enable({ _showInfo: fakeShowInfo }).then(() => {
+        sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
+        sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
+      });
     });
 
     it('calls addonManager.enable() without content notification', () => {
@@ -950,16 +1006,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
         icon_url: iconUrl,
       });
       const { root } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
       const fakeShowInfo = sinon.stub();
-      return enable({ _showInfo: fakeShowInfo })
-        .then(() => {
-          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
-        });
+      return enable({ _showInfo: fakeShowInfo }).then(() => {
+        sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
+        sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
+      });
     });
 
     it('dispatches a FATAL_ERROR', () => {
@@ -968,36 +1024,37 @@ describe(`${__filename}: withInstallHelpers`, () => {
       };
       const addon = createInternalAddon(fakeAddon);
       const { dispatch, root } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
-      return enable()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid, status: ERROR, error: FATAL_ERROR,
-            }),
-          );
-        });
+      return enable().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          }),
+        );
+      });
     });
 
     it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
       const fakeAddonManager = {
-        enable: sinon.stub().returns(Promise.reject(
-          new Error(SET_ENABLE_NOT_AVAILABLE)
-        )),
+        enable: sinon
+          .stub()
+          .returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
       };
       const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
-      return enable()
-        .then(() => {
-          sinon.assert.notCalled(dispatch);
-        });
+      return enable().then(() => {
+        sinon.assert.notCalled(dispatch);
+      });
     });
   });
 
@@ -1005,24 +1062,27 @@ describe(`${__filename}: withInstallHelpers`, () => {
     const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.install()', () => {
-      const addon = createInternalAddon(createFakeAddon({
-        files: [{ platform: OS_ALL, url: installURL }],
-      }));
+      const addon = createInternalAddon(
+        createFakeAddon({
+          files: [{ platform: OS_ALL, url: installURL }],
+        }),
+      );
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const { root } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager, defaultInstallSource,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource,
       });
       const { install } = root.instance().props;
 
-      return install(addon)
-        .then(() => {
-          sinon.assert.calledWith(
-            fakeAddonManager.install,
-            `${installURL}?src=${defaultInstallSource}`,
-            sinon.match.func,
-            { src: defaultInstallSource }
-          );
-        });
+      return install(addon).then(() => {
+        sinon.assert.calledWith(
+          fakeAddonManager.install,
+          `${installURL}?src=${defaultInstallSource}`,
+          sinon.match.func,
+          { src: defaultInstallSource },
+        );
+      });
     });
 
     it('tracks the start of an addon install', () => {
@@ -1035,24 +1095,24 @@ describe(`${__filename}: withInstallHelpers`, () => {
         _addonManager: getFakeAddonManagerWrapper({
           // Make the install fail so that we can be sure only
           // the 'start' event gets tracked.
-          install: sinon.stub()
+          install: sinon
+            .stub()
             .returns(Promise.reject(new Error('install error'))),
         }),
         _tracking: fakeTracking,
       });
       const { install } = root.instance().props;
 
-      return install(addon)
-        .then(() => {
-          // Even though the install() promise fails, it gets caught
-          // and resolved successfully.
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: TRACKING_TYPE_EXTENSION,
-            category: INSTALL_STARTED_CATEGORY,
-            label: addon.name,
-          });
-          sinon.assert.calledOnce(fakeTracking.sendEvent);
+      return install(addon).then(() => {
+        // Even though the install() promise fails, it gets caught
+        // and resolved successfully.
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: TRACKING_TYPE_EXTENSION,
+          category: INSTALL_STARTED_CATEGORY,
+          label: addon.name,
         });
+        sinon.assert.calledOnce(fakeTracking.sendEvent);
+      });
     });
 
     it('tracks an addon install', () => {
@@ -1066,14 +1126,13 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { install } = root.instance().props;
 
-      return install(addon)
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: TRACKING_TYPE_EXTENSION,
-            category: INSTALL_CATEGORY,
-            label: addon.name,
-          });
+      return install(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: TRACKING_TYPE_EXTENSION,
+          category: INSTALL_CATEGORY,
+          label: addon.name,
         });
+      });
     });
 
     it('should dispatch START_DOWNLOAD', () => {
@@ -1081,19 +1140,19 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const { root, dispatch } = renderWithInstallHelpers(addon);
       const { install } = root.instance().props;
 
-      return install(addon)
-        .then(() => {
-          sinon.assert.calledWith(dispatch, {
-            type: START_DOWNLOAD,
-            payload: { guid: addon.guid },
-          });
+      return install(addon).then(() => {
+        sinon.assert.calledWith(dispatch, {
+          type: START_DOWNLOAD,
+          payload: { guid: addon.guid },
         });
+      });
     });
 
     it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
       const iconUrl = 'some-icon-url';
       const addon = createInternalAddon({
-        ...fakeAddon, icon_url: iconUrl,
+        ...fakeAddon,
+        icon_url: iconUrl,
       });
       const props = {
         ...addon,
@@ -1104,34 +1163,34 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const { root, dispatch } = renderWithInstallHelpers(props);
       const { install } = root.instance().props;
 
-      return install(addon)
-        .then(() => {
-          sinon.assert.calledWith(dispatch, {
-            type: SHOW_INFO,
-            payload: {
-              addonName: addon.name,
-              imageURL: iconUrl,
-              closeAction: sinon.match.func,
-            },
-          });
-
-          const arg = dispatch.secondCall.args[0];
-          // Prove we're looking at the SHOW_INFO dispatch.
-          expect(arg.type).toEqual(SHOW_INFO);
-
-          // Test that close action dispatches.
-          dispatch.resetHistory();
-          arg.payload.closeAction();
-          sinon.assert.calledWith(dispatch, {
-            type: CLOSE_INFO,
-          });
+      return install(addon).then(() => {
+        sinon.assert.calledWith(dispatch, {
+          type: SHOW_INFO,
+          payload: {
+            addonName: addon.name,
+            imageURL: iconUrl,
+            closeAction: sinon.match.func,
+          },
         });
+
+        const arg = dispatch.secondCall.args[0];
+        // Prove we're looking at the SHOW_INFO dispatch.
+        expect(arg.type).toEqual(SHOW_INFO);
+
+        // Test that close action dispatches.
+        dispatch.resetHistory();
+        arg.payload.closeAction();
+        sinon.assert.calledWith(dispatch, {
+          type: CLOSE_INFO,
+        });
+      });
     });
 
     it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
       const iconUrl = 'some-icon-url';
       const addon = createInternalAddon({
-        ...fakeAddon, icon_url: iconUrl,
+        ...fakeAddon,
+        icon_url: iconUrl,
       });
       const props = {
         ...addon,
@@ -1142,17 +1201,16 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const { root, dispatch } = renderWithInstallHelpers(props);
       const { install } = root.instance().props;
 
-      return install(addon)
-        .then(() => {
-          sinon.assert.neverCalledWith(dispatch, {
-            type: SHOW_INFO,
-            payload: {
-              addonName: addon.name,
-              imageURL: iconUrl,
-              closeAction: sinon.match.func,
-            },
-          });
+      return install(addon).then(() => {
+        sinon.assert.neverCalledWith(dispatch, {
+          type: SHOW_INFO,
+          payload: {
+            addonName: addon.name,
+            imageURL: iconUrl,
+            closeAction: sinon.match.func,
+          },
         });
+      });
     });
 
     it('dispatches error when addonManager.install throws', () => {
@@ -1161,21 +1219,21 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       const addon = createInternalAddon(fakeAddon);
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
       });
       const { install } = root.instance().props;
 
-      return install(addon)
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid,
-              status: ERROR,
-              error: FATAL_INSTALL_ERROR,
-            }),
-          );
-        });
+      return install(addon).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ERROR,
+            error: FATAL_INSTALL_ERROR,
+          }),
+        );
+      });
     });
   });
 
@@ -1189,21 +1247,20 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { uninstall } = root.instance().props;
 
-      return uninstall(addon)
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid: addon.guid, status: UNINSTALLING }),
-          );
-          sinon.assert.calledWith(fakeAddonManager.uninstall, addon.guid);
-        });
+      return uninstall(addon).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+        );
+        sinon.assert.calledWith(fakeAddonManager.uninstall, addon.guid);
+      });
     });
 
     it('dispatches error when addonManager.uninstall throws', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
-      fakeAddonManager.uninstall = sinon.stub().returns(
-        Promise.reject(new Error('Add-on Manager uninstall error'))
-      );
+      fakeAddonManager.uninstall = sinon
+        .stub()
+        .returns(Promise.reject(new Error('Add-on Manager uninstall error')));
       const addon = createInternalAddon(fakeAddon);
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
@@ -1211,21 +1268,20 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { uninstall } = root.instance().props;
 
-      return uninstall(addon)
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid: addon.guid, status: UNINSTALLING }),
-          );
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid: addon.guid,
-              status: ERROR,
-              error: FATAL_UNINSTALL_ERROR,
-            }),
-          );
-        });
+      return uninstall(addon).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+        );
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid: addon.guid,
+            status: ERROR,
+            error: FATAL_UNINSTALL_ERROR,
+          }),
+        );
+      });
     });
 
     it('tracks an addon uninstall', () => {
@@ -1241,14 +1297,13 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { uninstall } = root.instance().props;
 
-      return uninstall(addon)
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: TRACKING_TYPE_EXTENSION,
-            category: UNINSTALL_CATEGORY,
-            label: addon.name,
-          });
+      return uninstall(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: TRACKING_TYPE_EXTENSION,
+          category: UNINSTALL_CATEGORY,
+          label: addon.name,
         });
+      });
     });
 
     it('tracks a theme uninstall', () => {
@@ -1264,14 +1319,13 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { uninstall } = root.instance().props;
 
-      return uninstall(addon)
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: TRACKING_TYPE_THEME,
-            category: UNINSTALL_CATEGORY,
-            label: addon.name,
-          });
+      return uninstall(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: TRACKING_TYPE_THEME,
+          category: UNINSTALL_CATEGORY,
+          label: addon.name,
         });
+      });
     });
 
     it('tracks a unknown type uninstall', () => {
@@ -1280,7 +1334,8 @@ describe(`${__filename}: withInstallHelpers`, () => {
         sendEvent: sinon.spy(),
       };
       const addon = createInternalAddon({
-        ...fakeAddon, type: 'not-a-real-type',
+        ...fakeAddon,
+        type: 'not-a-real-type',
       });
       const { root } = renderWithInstallHelpers({
         ...addon,
@@ -1289,14 +1344,13 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { uninstall } = root.instance().props;
 
-      return uninstall(addon)
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: 'invalid',
-            category: UNINSTALL_CATEGORY,
-            label: addon.name,
-          });
+      return uninstall(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: 'invalid',
+          category: UNINSTALL_CATEGORY,
+          label: addon.name,
         });
+      });
     });
   });
 
@@ -1309,13 +1363,15 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
     it('still maps props on the server', () => {
       sinon.restore();
-      configStub = sinon.stub(config, 'get').withArgs('server').returns(true);
-      expect(mapDispatchToProps(fakeDispatch))
-        .toEqual({
-          dispatch: fakeDispatch,
-          defaultInstallSource,
-          WrappedComponent,
-        });
+      configStub = sinon
+        .stub(config, 'get')
+        .withArgs('server')
+        .returns(true);
+      expect(mapDispatchToProps(fakeDispatch)).toEqual({
+        dispatch: fakeDispatch,
+        defaultInstallSource,
+        WrappedComponent,
+      });
       sinon.assert.calledWith(configStub, 'server');
     });
 
@@ -1468,16 +1524,19 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: UNINSTALLED,
-            guid,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: UNINSTALLED,
+              guid,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        },
+      );
       props.previewTheme = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
       expect(props.previewTheme.calledWith(node, themeAction)).toBeTruthy();
@@ -1490,20 +1549,25 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: UNINSTALLED,
-            isPreviewingTheme: true,
-            guid,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: UNINSTALLED,
+              isPreviewingTheme: true,
+              guid,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        },
+      );
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(props.resetThemePreview.calledWith(node, themeAction)).toBeTruthy();
+      expect(
+        props.resetThemePreview.calledWith(node, themeAction),
+      ).toBeTruthy();
     });
 
     it('logs if theme is not available', () => {
@@ -1513,19 +1577,24 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: UNINSTALLED,
-            isPreviewingTheme: true,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: UNINSTALLED,
+              isPreviewingTheme: true,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        },
+      );
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(fakeLog.info.calledWith('Theme foo@bar.com could not be found')).toBeTruthy();
+      expect(
+        fakeLog.info.calledWith('Theme foo@bar.com could not be found'),
+      ).toBeTruthy();
     });
 
     it('logs if theme is already enabled', () => {
@@ -1535,21 +1604,26 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: ENABLED,
-            isPreviewingTheme: true,
-            guid,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: ENABLED,
+              isPreviewingTheme: true,
+              guid,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        },
+      );
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
       expect(
-        fakeLog.info.calledWith(sinon.match('Theme foo@bar.com is already enabled'))
+        fakeLog.info.calledWith(
+          sinon.match('Theme foo@bar.com is already enabled'),
+        ),
       ).toBeTruthy();
     });
   });

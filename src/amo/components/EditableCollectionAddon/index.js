@@ -42,7 +42,10 @@ type State = {|
   editingNote: boolean,
 |};
 
-export class EditableCollectionAddonBase extends React.Component<InternalProps, State> {
+export class EditableCollectionAddonBase extends React.Component<
+  InternalProps,
+  State,
+> {
   constructor(props: InternalProps) {
     super(props);
     this.state = {
@@ -56,7 +59,11 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps, 
   };
 
   onDeleteNote = () => {
-    const { addon: { id: addonId }, deleteNote, errorHandler } = this.props;
+    const {
+      addon: { id: addonId },
+      deleteNote,
+      errorHandler,
+    } = this.props;
 
     deleteNote(addonId, errorHandler);
   };
@@ -66,7 +73,10 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps, 
   };
 
   onRemoveAddon = (event: SyntheticEvent<HTMLButtonElement>) => {
-    const { addon: { id: addonId }, removeAddon } = this.props;
+    const {
+      addon: { id: addonId },
+      removeAddon,
+    } = this.props;
 
     event.preventDefault();
     event.stopPropagation();
@@ -77,12 +87,16 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps, 
   };
 
   onSaveNote = (notes: OnSubmitParams) => {
-    const { addon: { id: addonId }, errorHandler, saveNote } = this.props;
+    const {
+      addon: { id: addonId },
+      errorHandler,
+      saveNote,
+    } = this.props;
 
     invariant(addonId, 'addonId is required');
 
     saveNote(addonId, errorHandler, notes.text);
-  }
+  };
 
   render() {
     const { addon, className, errorHandler, i18n } = this.props;
@@ -92,9 +106,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps, 
     return (
       <li className={makeClassName('EditableCollectionAddon', className)}>
         <img className="EditableCollectionAddon-icon" src={iconURL} alt="" />
-        <h2 className="EditableCollectionAddon-name">
-          {addon.name}
-        </h2>
+        <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
         <div className="EditableCollectionAddon-comments-icon">
           <a
             href="#editComment"
@@ -140,9 +152,10 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps, 
                 <span
                   className="EditableCollectionAddon-notes-content"
                   // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={
-                    sanitizeHTML(nl2br(addon.notes || ''), ['br'])
-                  }
+                  dangerouslySetInnerHTML={sanitizeHTML(
+                    nl2br(addon.notes || ''),
+                    ['br'],
+                  )}
                 />
                 <div className="EditableCollectionAddon-notes-buttons">
                   <Button

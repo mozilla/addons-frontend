@@ -13,7 +13,6 @@ import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import categories, { initialState } from 'core/reducers/categories';
 import { fakeCategory } from 'tests/unit/amo/helpers';
 
-
 describe('categories reducer', () => {
   it('defaults to an empty set of categories', () => {
     const state = categories(undefined, { type: 'unrelated' });
@@ -27,8 +26,10 @@ describe('categories reducer', () => {
 
   describe('CATEGORIES_FETCH', () => {
     it('sets loading', () => {
-      const state = categories(initialState,
-        categoriesFetch({ errorHandlerId: 'some-handler' }));
+      const state = categories(
+        initialState,
+        categoriesFetch({ errorHandlerId: 'some-handler' }),
+      );
       expect(state.categories).toEqual(null);
       expect(state.loading).toEqual(true);
     });

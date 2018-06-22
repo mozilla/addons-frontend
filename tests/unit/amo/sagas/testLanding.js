@@ -1,10 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as searchApi from 'core/api/search';
-import {
-  getLanding,
-  loadLanding,
-} from 'amo/actions/landing';
+import { getLanding, loadLanding } from 'amo/actions/landing';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import landingReducer from 'amo/reducers/landing';
 import landingSaga from 'amo/sagas/landing';
@@ -48,23 +45,29 @@ describe(__filename, () => {
     });
 
     function _getLanding(overrides = {}) {
-      sagaTester.dispatch(getLanding({
-        addonType: ADDON_TYPE_EXTENSION,
-        errorHandlerId: errorHandler.id,
-        ...overrides,
-      }));
+      sagaTester.dispatch(
+        getLanding({
+          addonType: ADDON_TYPE_EXTENSION,
+          errorHandlerId: errorHandler.id,
+          ...overrides,
+        }),
+      );
     }
 
     it('fetches landing page addons from the API', async () => {
       const addonType = ADDON_TYPE_EXTENSION;
       const baseArgs = { api: apiState };
       const baseFilters = {
-        addonType, page_size: LANDING_PAGE_ADDON_COUNT,
+        addonType,
+        page_size: LANDING_PAGE_ADDON_COUNT,
       };
 
-      const featured = createAddonsApiResult([{
-        ...fakeAddon, slug: 'featured-addon',
-      }]);
+      const featured = createAddonsApiResult([
+        {
+          ...fakeAddon,
+          slug: 'featured-addon',
+        },
+      ]);
       mockSearchApi
         .expects('search')
         .withArgs({
@@ -78,29 +81,37 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(featured));
 
-      const highlyRated = createAddonsApiResult([{
-        ...fakeAddon, slug: 'highly-rated-addon',
-      }]);
+      const highlyRated = createAddonsApiResult([
+        {
+          ...fakeAddon,
+          slug: 'highly-rated-addon',
+        },
+      ]);
       mockSearchApi
         .expects('search')
         .withArgs({
           ...baseArgs,
           filters: {
-            ...baseFilters, sort: SEARCH_SORT_TOP_RATED,
+            ...baseFilters,
+            sort: SEARCH_SORT_TOP_RATED,
           },
           page: 1,
         })
         .returns(Promise.resolve(highlyRated));
 
-      const trending = createAddonsApiResult([{
-        ...fakeAddon, slug: 'trending-addon',
-      }]);
+      const trending = createAddonsApiResult([
+        {
+          ...fakeAddon,
+          slug: 'trending-addon',
+        },
+      ]);
       mockSearchApi
         .expects('search')
         .withArgs({
           ...baseArgs,
           filters: {
-            ...baseFilters, sort: SEARCH_SORT_TRENDING,
+            ...baseFilters,
+            sort: SEARCH_SORT_TRENDING,
           },
           page: 1,
         })
@@ -112,9 +123,14 @@ describe(__filename, () => {
       mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(loadLanding({
-        addonType, featured, highlyRated, trending,
-      }));
+      expect(calledActions[1]).toEqual(
+        loadLanding({
+          addonType,
+          featured,
+          highlyRated,
+          trending,
+        }),
+      );
     });
 
     it('dispatches an error', async () => {
@@ -195,9 +211,14 @@ describe(__filename, () => {
       mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(loadLanding({
-        addonType, featured, highlyRated, trending,
-      }));
+      expect(calledActions[1]).toEqual(
+        loadLanding({
+          addonType,
+          featured,
+          highlyRated,
+          trending,
+        }),
+      );
     });
 
     it('does not add a falsy category to the filters', async () => {
@@ -260,9 +281,14 @@ describe(__filename, () => {
       mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(loadLanding({
-        addonType, featured, highlyRated, trending,
-      }));
+      expect(calledActions[1]).toEqual(
+        loadLanding({
+          addonType,
+          featured,
+          highlyRated,
+          trending,
+        }),
+      );
     });
   });
 });

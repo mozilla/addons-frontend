@@ -7,7 +7,6 @@ import {
   TRACKING_TYPE_THEME,
 } from 'core/constants';
 
-
 describe('Tracking', () => {
   function stubConfig(overrides = {}) {
     const config = {
@@ -167,36 +166,48 @@ describe('getAction', () => {
 
 describe('Do Not Track', () => {
   it('should respect DNT when enabled', () => {
-    expect(isDoNotTrackEnabled({
-      _navigator: { doNotTrack: '1' },
-      _window: {},
-    })).toBe(true);
-    expect(isDoNotTrackEnabled({
-      _navigator: {},
-      _window: { doNotTrack: '1' },
-    })).toBe(true);
+    expect(
+      isDoNotTrackEnabled({
+        _navigator: { doNotTrack: '1' },
+        _window: {},
+      }),
+    ).toBe(true);
+    expect(
+      isDoNotTrackEnabled({
+        _navigator: {},
+        _window: { doNotTrack: '1' },
+      }),
+    ).toBe(true);
   });
 
   it('should respect not enabled DNT', () => {
-    expect(isDoNotTrackEnabled({
-      _navigator: { doNotTrack: '0' },
-      _window: {},
-    })).toBe(false);
-    expect(isDoNotTrackEnabled({
-      _navigator: {},
-      _window: { doNotTrack: '0' },
-    })).toBe(false);
+    expect(
+      isDoNotTrackEnabled({
+        _navigator: { doNotTrack: '0' },
+        _window: {},
+      }),
+    ).toBe(false);
+    expect(
+      isDoNotTrackEnabled({
+        _navigator: {},
+        _window: { doNotTrack: '0' },
+      }),
+    ).toBe(false);
   });
 
   it('should treat unknown values as no DNT', () => {
-    expect(isDoNotTrackEnabled({
-      _navigator: { doNotTrack: 'leave me alone' },
-      _window: {},
-    })).toBe(false);
-    expect(isDoNotTrackEnabled({
-      _navigator: {},
-      _window: { doNotTrack: 'leave me alone' },
-    })).toBe(false);
+    expect(
+      isDoNotTrackEnabled({
+        _navigator: { doNotTrack: 'leave me alone' },
+        _window: {},
+      }),
+    ).toBe(false);
+    expect(
+      isDoNotTrackEnabled({
+        _navigator: {},
+        _window: { doNotTrack: 'leave me alone' },
+      }),
+    ).toBe(false);
   });
 
   it('should handle missing navigator and window', () => {

@@ -31,7 +31,8 @@ export class PermissionsCardBase extends React.Component<Props> {
     const permissionUtils = new PermissionUtils(i18n);
 
     const addonPermissions = permissionUtils.getCurrentPermissions(
-      addon, userAgentInfo,
+      addon,
+      userAgentInfo,
     );
     if (!addonPermissions.length) {
       return null;
@@ -43,14 +44,11 @@ export class PermissionsCardBase extends React.Component<Props> {
     }
 
     return (
-      <Card
-        header={i18n.gettext('Permissions')}
-        className="PermissionsCard"
-      >
-        <p className="PermissionsCard-subhead">{i18n.gettext('This add-on can:')}</p>
-        <ul className="PermissionsCard-list">
-          {content}
-        </ul>
+      <Card header={i18n.gettext('Permissions')} className="PermissionsCard">
+        <p className="PermissionsCard-subhead">
+          {i18n.gettext('This add-on can:')}
+        </p>
+        <ul className="PermissionsCard-list">{content}</ul>
         <Button
           buttonType="neutral"
           className="PermissionCard-learn-more"

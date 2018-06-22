@@ -9,7 +9,6 @@ import type {
 } from 'core/types/addons';
 import { getAddonTypeFilter } from 'core/utils';
 
-
 type AddonId = number;
 
 export type AddonsByAuthorsState = {|
@@ -40,10 +39,10 @@ export const THEMES_BY_AUTHORS_PAGE_SIZE = 12;
 
 // For further information about this notation, see:
 // https://github.com/mozilla/addons-frontend/pull/3027#discussion_r137661289
-export const FETCH_ADDONS_BY_AUTHORS: 'FETCH_ADDONS_BY_AUTHORS'
-  = 'FETCH_ADDONS_BY_AUTHORS';
-export const LOAD_ADDONS_BY_AUTHORS: 'LOAD_ADDONS_BY_AUTHORS'
-  = 'LOAD_ADDONS_BY_AUTHORS';
+export const FETCH_ADDONS_BY_AUTHORS: 'FETCH_ADDONS_BY_AUTHORS' =
+  'FETCH_ADDONS_BY_AUTHORS';
+export const LOAD_ADDONS_BY_AUTHORS: 'LOAD_ADDONS_BY_AUTHORS' =
+  'LOAD_ADDONS_BY_AUTHORS';
 
 type FetchAddonsByAuthorsParams = {|
   addonType?: string,
@@ -71,8 +70,10 @@ export const fetchAddonsByAuthors = ({
 }: FetchAddonsByAuthorsParams): FetchAddonsByAuthorsAction => {
   invariant(errorHandlerId, 'An errorHandlerId is required');
   invariant(authorUsernames, 'authorUsernames are required.');
-  invariant(Array.isArray(authorUsernames),
-    'The authorUsernames parameter must be an array.');
+  invariant(
+    Array.isArray(authorUsernames),
+    'The authorUsernames parameter must be an array.',
+  );
   invariant(pageSize, 'pageSize is required.');
 
   return {
@@ -130,7 +131,8 @@ export const loadAddonsByAuthors = ({
 };
 
 export const joinAuthorNamesAndAddonType = (
-  authorUsernames: Array<string>, addonType?: string
+  authorUsernames: Array<string>,
+  addonType?: string,
 ) => {
   return authorUsernames.sort().join('-') + (addonType ? `-${addonType}` : '');
 };
@@ -138,7 +140,7 @@ export const joinAuthorNamesAndAddonType = (
 export const getLoadingForAuthorNames = (
   state: AddonsByAuthorsState,
   authorUsernames: Array<string>,
-  addonType?: string
+  addonType?: string,
 ): boolean | null => {
   return (
     state.loadingFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
@@ -147,7 +149,9 @@ export const getLoadingForAuthorNames = (
 };
 
 export const getCountForAuthorNames = (
-  state: AddonsByAuthorsState, authorUsernames: Array<string>, addonType?: string
+  state: AddonsByAuthorsState,
+  authorUsernames: Array<string>,
+  addonType?: string,
 ) => {
   return (
     state.countFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
@@ -161,9 +165,11 @@ export const getAddonsForSlug = (
 ): Array<SearchResultAddonType> | null => {
   const ids = state.byAddonSlug[slug];
 
-  return ids ? ids.map((id) => {
-    return state.byAddonId[id];
-  }) : null;
+  return ids
+    ? ids.map((id) => {
+        return state.byAddonId[id];
+      })
+    : null;
 };
 
 export const getAddonsForUsernames = (
@@ -174,51 +180,48 @@ export const getAddonsForUsernames = (
 ): Array<SearchResultAddonType> | null => {
   invariant(usernames && usernames.length, 'At least one username is required');
 
-  const ids = usernames.map((username) => {
-    return state.byUsername[username];
-  }).reduce((array, addonIds) => {
-    if (addonIds) {
-      for (const addonId of addonIds) {
-        if (!array.includes(addonId)) {
-          array.push(addonId);
+  const ids = usernames
+    .map((username) => {
+      return state.byUsername[username];
+    })
+    .reduce((array, addonIds) => {
+      if (addonIds) {
+        for (const addonId of addonIds) {
+          if (!array.includes(addonId)) {
+            array.push(addonId);
+          }
         }
       }
-    }
 
-    return array;
-  }, []);
+      return array;
+    }, []);
 
-  return ids.length ? (ids
-    .map((id) => {
-      return state.byAddonId[id];
-    })
-    .filter((addon) => {
-      const addonTypeFilter = getAddonTypeFilter(addonType);
-      return addonType ? addonTypeFilter.includes(addon.type) : true;
-    })
-    .filter((addon) => {
-      return addon.slug !== excludeSlug;
-    })
-  ) : null;
+  return ids.length
+    ? ids
+        .map((id) => {
+          return state.byAddonId[id];
+        })
+        .filter((addon) => {
+          const addonTypeFilter = getAddonTypeFilter(addonType);
+          return addonType ? addonTypeFilter.includes(addon.type) : true;
+        })
+        .filter((addon) => {
+          return addon.slug !== excludeSlug;
+        })
+    : null;
 };
 
-type Action =
-  | FetchAddonsByAuthorsAction
-  | LoadAddonsByAuthorsAction;
+type Action = FetchAddonsByAuthorsAction | LoadAddonsByAuthorsAction;
 
 const reducer = (
   state: AddonsByAuthorsState = initialState,
-  action: Action
+  action: Action,
 ): AddonsByAuthorsState => {
   switch (action.type) {
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
 
-      const {
-        addonType,
-        authorUsernames,
-        forAddonSlug,
-      } = action.payload;
+      const { addonType, authorUsernames, forAddonSlug } = action.payload;
 
       if (forAddonSlug) {
         newState.byAddonSlug = {
@@ -229,7 +232,7 @@ const reducer = (
 
       const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
         authorUsernames,
-        addonType
+        addonType,
       );
 
       newState.loadingFor[authorNamesWithAddonType] = true;
@@ -258,7 +261,7 @@ const reducer = (
 
       const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
         authorUsernames,
-        addonType
+        addonType,
       );
 
       newState.countFor[authorNamesWithAddonType] = count;

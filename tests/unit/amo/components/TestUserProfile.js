@@ -35,7 +35,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   function defaultUserProps(props = {}) {
     return {
@@ -62,9 +61,8 @@ describe(__filename, () => {
       userProps: defaultUserProps(),
     }).store,
     ...props
-  // eslint-disable-next-line padded-blocks
+    // eslint-disable-next-line padded-blocks
   } = {}) {
-
     return shallowUntilTarget(
       <UserProfile i18n={i18n} params={params} store={store} {...props} />,
       UserProfileBase,
@@ -89,10 +87,13 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ params: { username }, store });
 
-    sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
-      errorHandlerId: root.instance().props.errorHandler.id,
-      username,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        username,
+      }),
+    );
   });
 
   it('dispatches fetchUserAccount action if username param changes', () => {
@@ -105,10 +106,13 @@ describe(__filename, () => {
 
     root.setProps({ params: { username: 'killmonger' } });
 
-    sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
-      errorHandlerId: root.instance().props.errorHandler.id,
-      username: 'killmonger',
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        username: 'killmonger',
+      }),
+    );
   });
 
   it('does not dispatch fetchUserAccount if username does not change', () => {
@@ -129,8 +133,10 @@ describe(__filename, () => {
     const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
-    expect(header.find(UserAvatar))
-      .toHaveProp('user', getCurrentUser(store.getState().users));
+    expect(header.find(UserAvatar)).toHaveProp(
+      'user',
+      getCurrentUser(store.getState().users),
+    );
   });
 
   it('still passes user prop to avatar while loading', () => {
@@ -170,8 +176,9 @@ describe(__filename, () => {
     expect(header.find('.UserProfile-tags')).toHaveLength(1);
 
     expect(header.find('.UserProfile-developer')).toHaveLength(1);
-    expect(header.find('.UserProfile-developer'))
-      .toIncludeText('Add-ons developer');
+    expect(header.find('.UserProfile-developer')).toIncludeText(
+      'Add-ons developer',
+    );
     expect(header.find(Icon)).toHaveLength(1);
     expect(header.find(Icon)).toHaveProp('name', 'developer');
   });
@@ -195,8 +202,7 @@ describe(__filename, () => {
     const root = renderUserProfile({ params: { username: 'not-ready' } });
     const header = getHeaderPropComponent(root);
 
-    expect(header.find('.UserProfile-name').find(LoadingText))
-      .toHaveLength(1);
+    expect(header.find('.UserProfile-name').find(LoadingText)).toHaveLength(1);
   });
 
   it("renders the user's username if no display name exists", () => {
@@ -222,8 +228,9 @@ describe(__filename, () => {
     const root = renderUserProfile({ store });
 
     expect(root.find('.UserProfile-homepage')).toHaveLength(1);
-    expect(root.find('.UserProfile-homepage').children())
-      .toHaveText('hamsterdance.com/');
+    expect(root.find('.UserProfile-homepage').children()).toHaveText(
+      'hamsterdance.com/',
+    );
   });
 
   it("omits homepage if the user doesn't have one set", () => {
@@ -250,8 +257,9 @@ describe(__filename, () => {
     const root = renderUserProfile({ store });
 
     expect(root.find('.UserProfile-occupation')).toHaveLength(1);
-    expect(root.find('.UserProfile-occupation').children())
-      .toHaveText(occupation);
+    expect(root.find('.UserProfile-occupation').children()).toHaveText(
+      occupation,
+    );
   });
 
   it("omits occupation if the user doesn't have one set", () => {
@@ -303,16 +311,18 @@ describe(__filename, () => {
     const root = renderUserProfile({ store });
 
     expect(root.find('.UserProfile-user-since')).toHaveLength(1);
-    expect(root.find('.UserProfile-user-since').children())
-      .toHaveText('Aug 15, 2000');
+    expect(root.find('.UserProfile-user-since').children()).toHaveText(
+      'Aug 15, 2000',
+    );
   });
 
   it('renders LoadingText for account creation date while loading', () => {
     const root = renderUserProfile({ params: { username: 'not-tofu' } });
 
     expect(root.find('.UserProfile-user-since')).toHaveLength(1);
-    expect(root.find('.UserProfile-user-since').find(LoadingText))
-      .toHaveLength(1);
+    expect(root.find('.UserProfile-user-since').find(LoadingText)).toHaveLength(
+      1,
+    );
   });
 
   it("renders the user's number of add-ons", () => {
@@ -325,16 +335,18 @@ describe(__filename, () => {
     const root = renderUserProfile({ store });
 
     expect(root.find('.UserProfile-number-of-addons')).toHaveLength(1);
-    expect(root.find('.UserProfile-number-of-addons').children())
-      .toHaveText('70');
+    expect(root.find('.UserProfile-number-of-addons').children()).toHaveText(
+      '70',
+    );
   });
 
   it('renders LoadingText for number of add-ons while loading', () => {
     const root = renderUserProfile({ params: { username: 'not-tofu' } });
 
     expect(root.find('.UserProfile-number-of-addons')).toHaveLength(1);
-    expect(root.find('.UserProfile-number-of-addons').find(LoadingText))
-      .toHaveLength(1);
+    expect(
+      root.find('.UserProfile-number-of-addons').find(LoadingText),
+    ).toHaveLength(1);
   });
 
   it("renders the user's average add-on rating", () => {
@@ -347,16 +359,19 @@ describe(__filename, () => {
     const root = renderUserProfile({ store });
 
     expect(root.find('.UserProfile-rating-average')).toHaveLength(1);
-    expect(root.find('.UserProfile-rating-average').find(Rating))
-      .toHaveProp('rating', 4.1);
+    expect(root.find('.UserProfile-rating-average').find(Rating)).toHaveProp(
+      'rating',
+      4.1,
+    );
   });
 
   it('renders LoadingText for average add-on rating while loading', () => {
     const root = renderUserProfile({ params: { username: 'not-tofu' } });
 
     expect(root.find('.UserProfile-rating-average')).toHaveLength(1);
-    expect(root.find('.UserProfile-rating-average').find(LoadingText))
-      .toHaveLength(1);
+    expect(
+      root.find('.UserProfile-rating-average').find(LoadingText),
+    ).toHaveLength(1);
   });
 
   it("renders the user's biography", () => {
@@ -369,10 +384,13 @@ describe(__filename, () => {
     const root = renderUserProfile({ store });
 
     expect(root.find('.UserProfile-biography')).toHaveLength(1);
-    expect(root.find('.UserProfile-biography'))
-      .toHaveProp('term', 'Biography');
-    expect(root.find('.UserProfile-biography').find('p').html())
-      .toContain('Not even vegan!');
+    expect(root.find('.UserProfile-biography')).toHaveProp('term', 'Biography');
+    expect(
+      root
+        .find('.UserProfile-biography')
+        .find('p')
+        .html(),
+    ).toContain('Not even vegan!');
   });
 
   it('omits a null biography', () => {
@@ -448,15 +466,19 @@ describe(__filename, () => {
   it('renders AddonsByAuthorsCard for extensions', () => {
     const root = renderUserProfile();
 
-    expect(root.find(AddonsByAuthorsCard).at(0))
-      .toHaveProp('addonType', ADDON_TYPE_EXTENSION);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'addonType',
+      ADDON_TYPE_EXTENSION,
+    );
   });
 
   it('renders AddonsByAuthorsCard for themes', () => {
     const root = renderUserProfile();
 
-    expect(root.find(AddonsByAuthorsCard).at(1))
-      .toHaveProp('addonType', ADDON_TYPE_THEME);
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'addonType',
+      ADDON_TYPE_THEME,
+    );
   });
 
   it('renders no AddonsByAuthorsCard if no user found', () => {
@@ -471,11 +493,13 @@ describe(__filename, () => {
       id: 'some-error-handler-id',
       dispatch: store.dispatch,
     });
-    errorHandler.handle(createApiError({
-      response: { status: 404 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'not found' },
-    }));
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'not found' },
+      }),
+    );
 
     const root = renderUserProfile({ errorHandler, store });
 
@@ -499,10 +523,10 @@ describe(__filename, () => {
     const root = renderUserProfile();
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(1);
-    expect(root.find('.UserProfile-edit-link'))
-      .toHaveProp('to', `/users/edit`);
-    expect(root.find('.UserProfile-edit-link').children())
-      .toHaveText('Edit profile');
+    expect(root.find('.UserProfile-edit-link')).toHaveProp('to', `/users/edit`);
+    expect(root.find('.UserProfile-edit-link').children()).toHaveText(
+      'Edit profile',
+    );
   });
 
   it('does not render an edit link if no user found', () => {
@@ -529,8 +553,10 @@ describe(__filename, () => {
     const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(1);
-    expect(root.find('.UserProfile-edit-link'))
-      .toHaveProp('to', `/user/${user.username}/edit/`);
+    expect(root.find('.UserProfile-edit-link')).toHaveProp(
+      'to',
+      `/user/${user.username}/edit/`,
+    );
   });
 
   it('does not render an edit link if user is not allowed to edit other users', () => {

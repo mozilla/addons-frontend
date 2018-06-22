@@ -24,7 +24,6 @@ import {
   fakeTheme,
 } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let errorHandler;
   let mockCollectionsApi;
@@ -47,11 +46,13 @@ describe(__filename, () => {
 
   describe('fetchHomeAddons', () => {
     function _fetchHomeAddons(params) {
-      sagaTester.dispatch(fetchHomeAddons({
-        errorHandlerId: errorHandler.id,
-        collectionsToFetch: [{ slug: 'some-slug', user: 'some-user' }],
-        ...params,
-      }));
+      sagaTester.dispatch(
+        fetchHomeAddons({
+          errorHandlerId: errorHandler.id,
+          collectionsToFetch: [{ slug: 'some-slug', user: 'some-user' }],
+          ...params,
+        }),
+      );
     }
 
     it('calls the API to fetch the add-ons to display on home', async () => {
@@ -209,7 +210,7 @@ describe(__filename, () => {
         const calledActions = sagaTester.getCalledActions();
         const loadAction = calledActions[2];
         expect(loadAction).toEqual(expectedLoadAction);
-      }
+      },
     );
 
     it('clears the error handler', async () => {
@@ -218,8 +219,9 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createClearingAction();
 
       await sagaTester.waitFor(expectedAction.type);
-      expect(sagaTester.getCalledActions()[1])
-        .toEqual(errorHandler.createClearingAction());
+      expect(sagaTester.getCalledActions()[1]).toEqual(
+        errorHandler.createClearingAction(),
+      );
     });
 
     it('dispatches an error for a failed collection fetch', async () => {

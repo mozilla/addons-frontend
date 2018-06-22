@@ -1,8 +1,4 @@
-import {
-  SEARCH_STARTED,
-  SEARCH_LOADED,
-} from 'core/constants';
-
+import { SEARCH_STARTED, SEARCH_LOADED } from 'core/constants';
 
 export function searchStart({ errorHandlerId, filters }) {
   if (!errorHandlerId) {

@@ -21,7 +21,7 @@ export class ShowMoreCardBase extends React.Component {
     className: PropTypes.string,
     header: PropTypes.node,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ export class ShowMoreCardBase extends React.Component {
   onClick = (event) => {
     event.preventDefault();
     this.setState({ expanded: true });
-  }
+  };
 
   truncateToMaxHeight = (contents) => {
     // If the contents are short enough they don't need a "show more" link; the
@@ -45,7 +45,7 @@ export class ShowMoreCardBase extends React.Component {
     } else {
       this.setState({ expanded: true });
     }
-  }
+  };
 
   render() {
     const { children, className, header, i18n } = this.props;
@@ -61,21 +61,26 @@ export class ShowMoreCardBase extends React.Component {
             // l10n: The "Expand to" text is for screenreaders so the link
             // makes sense out of context. The HTML makes it hidden from
             // non-screenreaders and must stay.
-            '<span class="visually-hidden">Expand to</span> Read more'
-          ), ['span']
+            '<span class="visually-hidden">Expand to</span> Read more',
+          ),
+          ['span'],
         )}
       />
     );
 
     return (
       <Card
-        className={makeClassName('ShowMoreCard', className, { 'ShowMoreCard--expanded': expanded })}
+        className={makeClassName('ShowMoreCard', className, {
+          'ShowMoreCard--expanded': expanded,
+        })}
         header={header}
         footerLink={expanded ? null : readMoreLink}
       >
         <div
           className="ShowMoreCard-contents"
-          ref={(ref) => { this.contents = ref; }}
+          ref={(ref) => {
+            this.contents = ref;
+          }}
         >
           {children}
         </div>
@@ -84,6 +89,4 @@ export class ShowMoreCardBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(ShowMoreCardBase);
+export default compose(translate({ withRef: true }))(ShowMoreCardBase);

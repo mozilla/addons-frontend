@@ -21,7 +21,6 @@ import {
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let mockApi;
 
@@ -29,15 +28,17 @@ describe(__filename, () => {
     mockApi = sinon.mock(api);
   });
 
-  const mockResponse = (userParams = {}) => createApiResponse({
-    jsonData: createUserAccountResponse(userParams),
-  });
+  const mockResponse = (userParams = {}) =>
+    createApiResponse({
+      jsonData: createUserAccountResponse(userParams),
+    });
 
   describe('currentUserAccount', () => {
     it('fetches the current user profile', async () => {
       const state = dispatchClientMetadata().store.getState();
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           endpoint: 'accounts/profile',
@@ -69,7 +70,8 @@ describe(__filename, () => {
       };
       const params = getParams(editableFields);
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           body: editableFields,
@@ -94,13 +96,16 @@ describe(__filename, () => {
       expectedBody.set('biography', editableFields.biography);
       expectedBody.set('picture_upload', picture);
 
-      mockApi.expects('callApi')
-        .withArgs(sinon.match(({ body }) => {
-          return deepEqual(
-            Array.from(body.entries()),
-            Array.from(expectedBody.entries())
-          );
-        }))
+      mockApi
+        .expects('callApi')
+        .withArgs(
+          sinon.match(({ body }) => {
+            return deepEqual(
+              Array.from(body.entries()),
+              Array.from(expectedBody.entries()),
+            );
+          }),
+        )
         .returns(mockResponse());
 
       await editUserAccount(params);
@@ -120,13 +125,16 @@ describe(__filename, () => {
       expectedBody.set('location', editableFields.location);
       expectedBody.set('picture_upload', picture);
 
-      mockApi.expects('callApi')
-        .withArgs(sinon.match(({ body }) => {
-          return deepEqual(
-            Array.from(body.entries()),
-            Array.from(expectedBody.entries())
-          );
-        }))
+      mockApi
+        .expects('callApi')
+        .withArgs(
+          sinon.match(({ body }) => {
+            return deepEqual(
+              Array.from(body.entries()),
+              Array.from(expectedBody.entries()),
+            );
+          }),
+        )
         .returns(mockResponse());
 
       await editUserAccount(params);
@@ -140,7 +148,8 @@ describe(__filename, () => {
       const username = 'tofumatt';
       const params = { api: state.api, username };
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           endpoint: `accounts/account/${params.username}`,
@@ -162,7 +171,8 @@ describe(__filename, () => {
         jsonData: createUserNotificationsResponse(),
       });
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           endpoint: `accounts/account/${params.username}/notifications`,
@@ -181,7 +191,8 @@ describe(__filename, () => {
       const userId = getCurrentUser(state.users).id;
       const params = { api: state.api, userId };
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           endpoint: `accounts/account/${params.userId}/picture`,
@@ -201,7 +212,8 @@ describe(__filename, () => {
       const userId = getCurrentUser(state.users).id;
       const params = { api: state.api, userId };
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           credentials: true,
@@ -228,7 +240,8 @@ describe(__filename, () => {
         jsonData: createUserNotificationsResponse(),
       });
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           body: params.notifications,

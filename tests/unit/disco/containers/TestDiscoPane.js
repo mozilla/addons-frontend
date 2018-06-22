@@ -18,10 +18,7 @@ import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon } from 'core/reducers/addons';
 import { getDiscoResults } from 'disco/actions';
 import createStore from 'disco/store';
-import {
-  NAVIGATION_CATEGORY,
-  VIDEO_CATEGORY,
-} from 'disco/constants';
+import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import {
   createFakeEvent,
@@ -40,7 +37,6 @@ import ErrorList from 'ui/components/ErrorList';
 // Use DiscoPane that isn't wrapped in asyncConnect.
 const { DiscoPaneBase } = helpers;
 
-
 describe(__filename, () => {
   let fakeEvent;
   let fakeVideo;
@@ -57,14 +53,18 @@ describe(__filename, () => {
 
     let results;
     if (typeof customProps.results === 'undefined') {
-      const mappedProps = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'Discovery Addon 1',
-        description: 'informative text',
-        addon: {
-          ...fakeDiscoAddon,
-          guid: 'foo',
-        },
-      }]));
+      const mappedProps = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'Discovery Addon 1',
+            description: 'informative text',
+            addon: {
+              ...fakeDiscoAddon,
+              guid: 'foo',
+            },
+          },
+        ]),
+      );
       results = mappedProps.results;
     }
 
@@ -96,7 +96,7 @@ describe(__filename, () => {
         <I18nProvider i18n={props.i18n}>
           <DiscoPaneBase {...props} />
         </I18nProvider>
-      </Provider>
+      </Provider>,
     );
   }
 
@@ -139,29 +139,35 @@ describe(__filename, () => {
     it('sets extension results', () => {
       const addon = { ...fakeDiscoAddon };
 
-      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'The Add-on',
-        description: 'editorial text',
-        addon,
-      }]));
+      const props = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'The Add-on',
+            description: 'editorial text',
+            addon,
+          },
+        ]),
+      );
 
-      expect(props.results).toEqual([{
-        ...addon,
-        addon: addon.guid,
-        description: 'editorial text',
-        heading: 'The Add-on',
-        iconUrl: addon.icon_url,
-        platformFiles: {
-          [OS_ALL]: fakeDiscoAddon.current_version.files[0],
-          [OS_ANDROID]: undefined,
-          [OS_LINUX]: undefined,
-          [OS_MAC]: undefined,
-          [OS_WINDOWS]: undefined,
+      expect(props.results).toEqual([
+        {
+          ...addon,
+          addon: addon.guid,
+          description: 'editorial text',
+          heading: 'The Add-on',
+          iconUrl: addon.icon_url,
+          platformFiles: {
+            [OS_ALL]: fakeDiscoAddon.current_version.files[0],
+            [OS_ANDROID]: undefined,
+            [OS_LINUX]: undefined,
+            [OS_MAC]: undefined,
+            [OS_WINDOWS]: undefined,
+          },
+          isMozillaSignedExtension: false,
+          isRestartRequired: false,
+          isWebExtension: true,
         },
-        isMozillaSignedExtension: false,
-        isRestartRequired: false,
-        isWebExtension: true,
-      }]);
+      ]);
     });
 
     it('sets theme results', () => {
@@ -171,29 +177,38 @@ describe(__filename, () => {
         type: ADDON_TYPE_THEME,
       };
 
-      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'The Theme',
-        description: 'editorial text',
-        addon,
-      }]));
+      const props = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'The Theme',
+            description: 'editorial text',
+            addon,
+          },
+        ]),
+      );
 
       // Adjust the theme guid to match how Firefox code does it internally.
       const guid = '1234@personas.mozilla.org';
 
-      expect(props.results).toEqual([{
-        ...createInternalAddon(addon),
-        addon: guid,
-        description: 'editorial text',
-        guid,
-        heading: 'The Theme',
-      }]);
+      expect(props.results).toEqual([
+        {
+          ...createInternalAddon(addon),
+          addon: guid,
+          description: 'editorial text',
+          guid,
+          heading: 'The Theme',
+        },
+      ]);
     });
   });
 
   describe('mapDispatchToProps', () => {
     it('calls dispatch when handleGlobalEvent is called with data', () => {
       const dispatch = sinon.spy();
-      sinon.stub(config, 'get').withArgs('server').returns(false);
+      sinon
+        .stub(config, 'get')
+        .withArgs('server')
+        .returns(false);
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
       const payload = { id: 'whatever' };
       handleGlobalEvent(payload);
@@ -204,8 +219,9 @@ describe(__filename, () => {
       const dispatch = sinon.stub();
       const configSource = { server: true };
       const configStub = { get: (key) => configSource[key] };
-      expect(helpers.mapDispatchToProps(dispatch, { _config: configStub }))
-        .toEqual({ dispatch });
+      expect(
+        helpers.mapDispatchToProps(dispatch, { _config: configStub }),
+      ).toEqual({ dispatch });
     });
   });
 
@@ -217,10 +233,13 @@ describe(__filename, () => {
 
       render({ errorHandler, dispatch, ...props });
 
-      sinon.assert.calledWith(dispatch, getDiscoResults({
-        errorHandlerId: errorHandler.id,
-        taarParams: { platform: 'Darwin' },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: errorHandler.id,
+          taarParams: { platform: 'Darwin' },
+        }),
+      );
     });
 
     it('sends a telemetry client ID if there is one', () => {
@@ -236,13 +255,16 @@ describe(__filename, () => {
 
       render({ errorHandler, dispatch, location, ...props });
 
-      sinon.assert.calledWith(dispatch, getDiscoResults({
-        errorHandlerId: errorHandler.id,
-        taarParams: {
-          clientId: location.query.clientId,
-          platform: 'Darwin',
-        },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: errorHandler.id,
+          taarParams: {
+            clientId: location.query.clientId,
+            platform: 'Darwin',
+          },
+        }),
+      );
     });
 
     it('dispatches all query params', () => {
@@ -260,15 +282,18 @@ describe(__filename, () => {
 
       render({ errorHandler, dispatch, location, ...props });
 
-      sinon.assert.calledWith(dispatch, getDiscoResults({
-        errorHandlerId: errorHandler.id,
-        taarParams: {
-          branch: 'foo',
-          clientId: location.query.clientId,
-          platform: 'Darwin',
-          study: 'bar',
-        },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: errorHandler.id,
+          taarParams: {
+            branch: 'foo',
+            clientId: location.query.clientId,
+            platform: 'Darwin',
+            study: 'bar',
+          },
+        }),
+      );
     });
 
     it('does not allow platform to be overriden', () => {
@@ -284,23 +309,30 @@ describe(__filename, () => {
 
       render({ errorHandler, dispatch, location, ...props });
 
-      sinon.assert.calledWith(dispatch, getDiscoResults({
-        errorHandlerId: errorHandler.id,
-        taarParams: { platform: 'Darwin' },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: errorHandler.id,
+          taarParams: { platform: 'Darwin' },
+        }),
+      );
     });
 
     it('does not get discovery results when results are loaded', () => {
       const dispatch = sinon.stub();
-      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'Discovery Addon 1',
-        description: 'informative text',
-        addon: {
-          ...fakeDiscoAddon,
-          guid: '@guid1',
-          slug: 'discovery-addon-1',
-        },
-      }]));
+      const props = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'Discovery Addon 1',
+            description: 'informative text',
+            addon: {
+              ...fakeDiscoAddon,
+              guid: '@guid1',
+              slug: 'discovery-addon-1',
+            },
+          },
+        ]),
+      );
 
       render({ dispatch, ...props });
 
@@ -328,7 +360,9 @@ describe(__filename, () => {
         addEventListener: sinon.stub(),
       };
       renderAndMount({ mozAddonManager: fakeMozAddonManager });
-      expect(fakeMozAddonManager.addEventListener.callCount).toEqual(GLOBAL_EVENTS.length);
+      expect(fakeMozAddonManager.addEventListener.callCount).toEqual(
+        GLOBAL_EVENTS.length,
+      );
     });
   });
 
@@ -345,7 +379,10 @@ describe(__filename, () => {
     it('tracks see more addons link being clicked', () => {
       const root = render();
 
-      root.find('.amo-link').find(Button).simulate('click');
+      root
+        .find('.amo-link')
+        .find(Button)
+        .simulate('click');
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: NAVIGATION_CATEGORY,
         action: 'click',

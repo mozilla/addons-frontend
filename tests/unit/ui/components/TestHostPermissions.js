@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import {
-  fakeI18n, shallowUntilTarget,
-} from 'tests/unit/helpers';
-import HostPermissions, { HostPermissionsBase } from 'ui/components/HostPermissions';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import HostPermissions, {
+  HostPermissionsBase,
+} from 'ui/components/HostPermissions';
 import Permission from 'ui/components/Permission';
-
 
 describe(__filename, () => {
   const render = (customProps = {}) => {
@@ -15,7 +14,8 @@ describe(__filename, () => {
       ...customProps,
     };
     return shallowUntilTarget(
-      <HostPermissions {...props} />, HostPermissionsBase
+      <HostPermissions {...props} />,
+      HostPermissionsBase,
     );
   };
 
@@ -35,14 +35,19 @@ describe(__filename, () => {
     ];
     const root = render({ permissions });
     expect(root.find(Permission)).toHaveLength(4);
-    expectPermission(root.childAt(0),
-      'Access your data for sites in the mozilla.org domain');
-    expectPermission(root.childAt(1),
-      'Access your data for sites in the mozilla.com domain');
-    expectPermission(root.childAt(2),
-      'Access your data for sites in the mozilla.ca domain');
-    expectPermission(root.childAt(3),
-      'Access your data in 3 other domains');
+    expectPermission(
+      root.childAt(0),
+      'Access your data for sites in the mozilla.org domain',
+    );
+    expectPermission(
+      root.childAt(1),
+      'Access your data for sites in the mozilla.com domain',
+    );
+    expectPermission(
+      root.childAt(2),
+      'Access your data for sites in the mozilla.ca domain',
+    );
+    expectPermission(root.childAt(3), 'Access your data in 3 other domains');
   });
 
   it('formats site permissions', () => {
@@ -55,25 +60,23 @@ describe(__filename, () => {
     ];
     const root = render({ permissions });
     expect(root.find(Permission)).toHaveLength(4);
-    expectPermission(root.childAt(0),
-      'Access your data for developer.mozilla.org');
-    expectPermission(root.childAt(1),
-      'Access your data for addons.mozilla.org');
+    expectPermission(
+      root.childAt(0),
+      'Access your data for developer.mozilla.org',
+    );
+    expectPermission(
+      root.childAt(1),
+      'Access your data for addons.mozilla.org',
+    );
     expectPermission(root.childAt(2), 'Access your data for www.mozilla.org');
     expectPermission(root.childAt(3), 'Access your data on 2 other sites');
   });
 
   it('returns a single host permission for all urls', () => {
-    const permissions = [
-      '*://*.mozilla.com/*',
-      '*://developer.mozilla.org/*',
-    ];
+    const permissions = ['*://*.mozilla.com/*', '*://developer.mozilla.org/*'];
     for (const allUrlsPermission of ['<all_urls>', '*://*/']) {
       const root = render({
-        permissions: [
-          ...permissions,
-          allUrlsPermission,
-        ],
+        permissions: [...permissions, allUrlsPermission],
       });
       expect(root.find(Permission)).toHaveLength(1);
       expectPermission(root.childAt(0), 'Access your data for all websites');
@@ -109,15 +112,19 @@ describe(__filename, () => {
     ];
     const root = render({ permissions });
     expect(root.find(Permission)).toHaveLength(5);
-    expectPermission(root.childAt(0),
-      'Access your data for sites in the okta.com domain');
-    expectPermission(root.childAt(1),
-      'Access your data for sites in the mozilla.org domain');
-    expectPermission(root.childAt(2),
-      'Access your data for sites in the mozilla.com domain');
-    expectPermission(root.childAt(3),
-      'Access your data in 4 other domains');
-    expectPermission(root.childAt(4),
-      'Access your data for trishulgoel.com');
+    expectPermission(
+      root.childAt(0),
+      'Access your data for sites in the okta.com domain',
+    );
+    expectPermission(
+      root.childAt(1),
+      'Access your data for sites in the mozilla.org domain',
+    );
+    expectPermission(
+      root.childAt(2),
+      'Access your data for sites in the mozilla.com domain',
+    );
+    expectPermission(root.childAt(3), 'Access your data in 4 other domains');
+    expectPermission(root.childAt(4), 'Access your data for trishulgoel.com');
   });
 });

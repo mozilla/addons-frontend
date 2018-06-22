@@ -23,14 +23,11 @@ import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import tracking from 'core/tracking';
-import {
-  getClientCompatibility as _getClientCompatibility,
-} from 'core/utils/compatibility';
+import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 
 import './styles.scss';
-
 
 export const getFileHash = ({ addon, installURL } = {}) => {
   if (!addon) {
@@ -104,23 +101,23 @@ export class InstallButtonBase extends React.Component {
     _log: PropTypes.object,
     _tracking: PropTypes.object,
     _window: PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
     useButton: false,
-    _InstallTrigger: typeof InstallTrigger !== 'undefined' ?
-      InstallTrigger : null,
+    _InstallTrigger:
+      typeof InstallTrigger !== 'undefined' ? InstallTrigger : null,
     _log: log,
     _tracking: tracking,
     _window: typeof window !== 'undefined' ? window : {},
-  }
+  };
 
   installTheme = (event) => {
     event.preventDefault();
     const { addon, status, installTheme } = this.props;
     installTheme(event.currentTarget, { ...addon, status });
-  }
+  };
 
   installExtension = ({ installURL, event }) => {
     const { addon, _InstallTrigger } = this.props;
@@ -144,26 +141,29 @@ export class InstallButtonBase extends React.Component {
     // https://developer.mozilla.org/en-US/docs/Web/API/InstallTrigger/install
     // https://github.com/mozilla/addons-server/blob/98c97f3ebce7f82b8c32f271df3034eae3245f1f/static/js/zamboni/buttons.js#L310
     //
-    _InstallTrigger.install({
-      [addon.name]: {
-        Hash: getFileHash({ addon, installURL }),
-        IconURL: getAddonIconUrl(addon),
-        URL: installURL,
-        // The old AMO did this so, hey, why not?
-        toString: () => installURL,
+    _InstallTrigger.install(
+      {
+        [addon.name]: {
+          Hash: getFileHash({ addon, installURL }),
+          IconURL: getAddonIconUrl(addon),
+          URL: installURL,
+          // The old AMO did this so, hey, why not?
+          toString: () => installURL,
+        },
       },
-    }, (xpiURL, status) => {
-      log.debug(oneLine`InstallTrigger completed for "${xpiURL}";
+      (xpiURL, status) => {
+        log.debug(oneLine`InstallTrigger completed for "${xpiURL}";
         status=${status}`);
 
-      if (status === 0) {
-        // The extension was installed successfully.
-        this.trackInstallSucceeded({ addonName: addon.name });
-      }
-    });
+        if (status === 0) {
+          // The extension was installed successfully.
+          this.trackInstallSucceeded({ addonName: addon.name });
+        }
+      },
+    );
 
     return false;
-  }
+  };
 
   trackInstallStarted({ addonName }) {
     const { _tracking } = this.props;
@@ -202,18 +202,26 @@ export class InstallButtonBase extends React.Component {
 
     // OpenSearch plugins display their own prompt so using the "Add to
     // Firefox" button regardless on mozAddonManager support is a better UX.
-    const useButton = (hasAddonManager !== undefined && !hasAddonManager) ||
-      addon.type === ADDON_TYPE_OPENSEARCH || this.props.useButton;
+    const useButton =
+      (hasAddonManager !== undefined && !hasAddonManager) ||
+      addon.type === ADDON_TYPE_OPENSEARCH ||
+      this.props.useButton;
     let button;
 
     const { compatible } = getClientCompatibility({
-      addon, clientApp, userAgentInfo });
+      addon,
+      clientApp,
+      userAgentInfo,
+    });
 
     const buttonIsDisabled = !compatible;
     const buttonClass = makeClassName(
-      'InstallButton-button', 'Button--action', className, {
+      'InstallButton-button',
+      'Button--action',
+      className,
+      {
         'InstallButton-button--disabled': buttonIsDisabled,
-      }
+      },
     );
     const installURL = findInstallURL({
       defaultInstallSource,
@@ -237,16 +245,18 @@ export class InstallButtonBase extends React.Component {
         </Button>
       );
     } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-      const onClick = buttonIsDisabled ? null : (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+      const onClick = buttonIsDisabled
+        ? null
+        : (event) => {
+            event.preventDefault();
+            event.stopPropagation();
 
-        _log.info('Adding OpenSearch Provider', { addon });
-        _window.external.AddSearchProvider(installURL);
-        this.trackInstallStarted({ addonName: addon.name });
+            _log.info('Adding OpenSearch Provider', { addon });
+            _window.external.AddSearchProvider(installURL);
+            this.trackInstallStarted({ addonName: addon.name });
 
-        return false;
-      };
+            return false;
+          };
       button = (
         <Button
           buttonType="action"
@@ -263,16 +273,19 @@ export class InstallButtonBase extends React.Component {
         </Button>
       );
     } else {
-      const onClick = buttonIsDisabled ? (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
-      } : (event) => {
-        this.installExtension({ event, installURL });
-      };
+      const onClick = buttonIsDisabled
+        ? (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+          }
+        : (event) => {
+            this.installExtension({ event, installURL });
+          };
 
       const buttonText = ADDON_TYPE_THEMES.includes(addon.type)
-        ? i18n.gettext('Install Theme') : i18n.gettext('Add to Firefox');
+        ? i18n.gettext('Install Theme')
+        : i18n.gettext('Add to Firefox');
 
       button = (
         <Button

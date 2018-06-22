@@ -13,7 +13,6 @@ import { loadErrorPage } from 'core/reducers/errorPage';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   function render({ ...props }) {
     const { store } = dispatchSignInActions();
@@ -23,18 +22,25 @@ describe(__filename, () => {
     });
     store.dispatch(loadErrorPage({ error }));
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={fakeI18n()}>
-          <ServerError {...props} />
-        </I18nProvider>
-      </Provider>
-    ), ServerError));
+    return findDOMNode(
+      findRenderedComponentWithType(
+        renderIntoDocument(
+          <Provider store={store}>
+            <I18nProvider i18n={fakeI18n()}>
+              <ServerError {...props} />
+            </I18nProvider>
+          </Provider>,
+        ),
+        ServerError,
+      ),
+    );
   }
 
   it('renders a server error', () => {
     const rootNode = render();
 
-    expect(rootNode.textContent).toContain('but there was an error with our server and');
+    expect(rootNode.textContent).toContain(
+      'but there was an error with our server and',
+    );
   });
 });

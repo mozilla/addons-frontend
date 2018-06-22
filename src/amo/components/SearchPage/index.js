@@ -21,7 +21,6 @@ import {
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 
-
 type Props = {|
   clientApp: string,
   dispatch: DispatchFunc,
@@ -80,13 +79,15 @@ export class SearchPageBase extends React.Component<Props> {
 
     if (shouldRedirect) {
       const queryString = makeQueryString(
-        convertFiltersToQueryParams(newFilters)
+        convertFiltersToQueryParams(newFilters),
       );
 
-      this.props.dispatch(sendServerRedirect({
-        status: 302,
-        url: `/${lang}/${clientApp}/search/${queryString}`,
-      }));
+      this.props.dispatch(
+        sendServerRedirect({
+          status: 302,
+          url: `/${lang}/${clientApp}/search/${queryString}`,
+        }),
+      );
     }
   }
 

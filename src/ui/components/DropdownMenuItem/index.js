@@ -6,7 +6,6 @@ import Link from 'amo/components/Link';
 
 import './styles.scss';
 
-
 type Props = {|
   children?: string | Link,
   className?: string,
@@ -14,23 +13,26 @@ type Props = {|
   onClick?: Function,
 |};
 
-const DropdownMenuItem = (
-  { children, className, onClick, detached = false }: Props
-) => {
+const DropdownMenuItem = ({
+  children,
+  className,
+  onClick,
+  detached = false,
+}: Props) => {
   const childIsComponent = typeof children === 'object';
-  const _classNames = makeClassName('DropdownMenuItem', {
-    'DropdownMenuItem-section': !childIsComponent && !onClick,
-    'DropdownMenuItem-link': childIsComponent || onClick,
-    'DropdownMenuItem--detached': detached,
-  }, className);
+  const _classNames = makeClassName(
+    'DropdownMenuItem',
+    {
+      'DropdownMenuItem-section': !childIsComponent && !onClick,
+      'DropdownMenuItem-link': childIsComponent || onClick,
+      'DropdownMenuItem--detached': detached,
+    },
+    className,
+  );
 
   return (
     <li className={_classNames}>
-      {onClick ? (
-        <button onClick={onClick}>{children}</button>
-      ) : (
-        children
-      )}
+      {onClick ? <button onClick={onClick}>{children}</button> : children}
     </li>
   );
 };

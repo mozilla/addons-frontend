@@ -25,14 +25,10 @@ import {
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
-
 describe(__filename, () => {
   let store;
 
-  function renderProps({
-    _store = store,
-    ...otherProps
-  } = {}) {
+  function renderProps({ _store = store, ...otherProps } = {}) {
     return {
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
@@ -45,7 +41,7 @@ describe(__filename, () => {
   function render(props = {}) {
     return shallowUntilTarget(
       <LandingPage {...renderProps(props)} />,
-      LandingPageBase
+      LandingPageBase,
     );
   }
 
@@ -54,17 +50,21 @@ describe(__filename, () => {
     errorHandler = createStubErrorHandler(),
     ...otherParams
   } = {}) => {
-    store.dispatch(landingActions.getLanding({
-      addonType,
-      errorHandlerId: errorHandler.id,
-    }));
-    store.dispatch(landingActions.loadLanding({
-      addonType,
-      featured: createAddonsApiResult([]),
-      highlyRated: createAddonsApiResult([]),
-      trending: createAddonsApiResult([]),
-      ...otherParams,
-    }));
+    store.dispatch(
+      landingActions.getLanding({
+        addonType,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType,
+        featured: createAddonsApiResult([]),
+        highlyRated: createAddonsApiResult([]),
+        trending: createAddonsApiResult([]),
+        ...otherParams,
+      }),
+    );
   };
 
   beforeEach(() => {
@@ -91,10 +91,13 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({ errorHandler, store });
 
-    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
-      addonType: ADDON_TYPE_EXTENSION,
-      errorHandlerId: errorHandler.id,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      landingActions.getLanding({
+        addonType: ADDON_TYPE_EXTENSION,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
   });
 
   it('dispatches getLanding when addon type changes', () => {
@@ -119,10 +122,13 @@ describe(__filename, () => {
       params: { visibleAddonType: visibleAddonType(addonType) },
     });
 
-    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
-      addonType,
-      errorHandlerId: errorHandler.id,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      landingActions.getLanding({
+        addonType,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
     sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
     sinon.assert.callCount(fakeDispatch, 2);
   });
@@ -151,10 +157,12 @@ describe(__filename, () => {
   it('does not dispatch getLanding while loading', () => {
     const errorHandler = createStubErrorHandler();
 
-    store.dispatch(landingActions.getLanding({
-      addonType: ADDON_TYPE_EXTENSION,
-      errorHandlerId: errorHandler.id,
-    }));
+    store.dispatch(
+      landingActions.getLanding({
+        addonType: ADDON_TYPE_EXTENSION,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({ errorHandler, store });
@@ -200,23 +208,27 @@ describe(__filename, () => {
     };
     const root = render({ params: fakeParams });
 
-    expect(root.find('.LandingPage-button'))
-      .toHaveProp('children', 'Explore all categories');
+    expect(root.find('.LandingPage-button')).toHaveProp(
+      'children',
+      'Explore all categories',
+    );
   });
 
   it('sets the links in each footer for extensions', () => {
-    store.dispatch(landingActions.loadLanding({
-      addonType: ADDON_TYPE_EXTENSION,
-      featured: createAddonsApiResult([
-        { ...fakeAddon, name: 'Featured', slug: 'featured' },
-      ]),
-      highlyRated: createAddonsApiResult([
-        { ...fakeAddon, name: 'High', slug: 'high' },
-      ]),
-      trending: createAddonsApiResult([
-        { ...fakeAddon, name: 'Trending', slug: 'trending' },
-      ]),
-    }));
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType: ADDON_TYPE_EXTENSION,
+        featured: createAddonsApiResult([
+          { ...fakeAddon, name: 'Featured', slug: 'featured' },
+        ]),
+        highlyRated: createAddonsApiResult([
+          { ...fakeAddon, name: 'High', slug: 'high' },
+        ]),
+        trending: createAddonsApiResult([
+          { ...fakeAddon, name: 'Trending', slug: 'trending' },
+        ]),
+      }),
+    );
 
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
@@ -239,18 +251,20 @@ describe(__filename, () => {
   });
 
   it('sets the links in each footer for themes', () => {
-    store.dispatch(landingActions.loadLanding({
-      addonType: ADDON_TYPE_THEME,
-      featured: createAddonsApiResult([
-        { ...fakeAddon, name: 'Featured', slug: 'featured' },
-      ]),
-      highlyRated: createAddonsApiResult([
-        { ...fakeAddon, name: 'High', slug: 'high' },
-      ]),
-      trending: createAddonsApiResult([
-        { ...fakeAddon, name: 'Trending', slug: 'trending' },
-      ]),
-    }));
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType: ADDON_TYPE_THEME,
+        featured: createAddonsApiResult([
+          { ...fakeAddon, name: 'Featured', slug: 'featured' },
+        ]),
+        highlyRated: createAddonsApiResult([
+          { ...fakeAddon, name: 'High', slug: 'high' },
+        ]),
+        trending: createAddonsApiResult([
+          { ...fakeAddon, name: 'Trending', slug: 'trending' },
+        ]),
+      }),
+    );
 
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
@@ -281,23 +295,25 @@ describe(__filename, () => {
   });
 
   it('renders each add-on when set', () => {
-    store.dispatch(landingActions.loadLanding({
-      addonType: ADDON_TYPE_THEME,
-      featured: createAddonsApiResult([
-        { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
-        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
-        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
-        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
-      ]),
-      highlyRated: createAddonsApiResult([
-        { ...fakeAddon, name: 'High', slug: 'high' },
-        { ...fakeAddon, name: 'High again', slug: 'high-again' },
-      ]),
-      trending: createAddonsApiResult([
-        { ...fakeAddon, name: 'Pop', slug: 'pop' },
-        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
-      ]),
-    }));
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType: ADDON_TYPE_THEME,
+        featured: createAddonsApiResult([
+          { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
+          { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+          { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+          { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+        ]),
+        highlyRated: createAddonsApiResult([
+          { ...fakeAddon, name: 'High', slug: 'high' },
+          { ...fakeAddon, name: 'High again', slug: 'high-again' },
+        ]),
+        trending: createAddonsApiResult([
+          { ...fakeAddon, name: 'Pop', slug: 'pop' },
+          { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+        ]),
+      }),
+    );
 
     const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
@@ -306,17 +322,31 @@ describe(__filename, () => {
     const landingShelves = root.find(LandingAddonsCard);
 
     // featured
-    expect(landingShelves.at(0).prop('addons').map((addon) => addon.name))
-      .toEqual(['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2']);
+    expect(
+      landingShelves
+        .at(0)
+        .prop('addons')
+        .map((addon) => addon.name),
+    ).toEqual(['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2']);
     // highly rated
-    expect(landingShelves.at(1).prop('addons').map((addon) => addon.name))
-      .toEqual(['High', 'High again']);
+    expect(
+      landingShelves
+        .at(1)
+        .prop('addons')
+        .map((addon) => addon.name),
+    ).toEqual(['High', 'High again']);
     // trending
-    expect(landingShelves.at(2).prop('addons').map((addon) => addon.name))
-      .toEqual(['Pop', 'Pop again']);
+    expect(
+      landingShelves
+        .at(2)
+        .prop('addons')
+        .map((addon) => addon.name),
+    ).toEqual(['Pop', 'Pop again']);
 
-    expect(landingShelves.at(0))
-      .toHaveProp('footerText', 'See more featured themes');
+    expect(landingShelves.at(0)).toHaveProp(
+      'footerText',
+      'See more featured themes',
+    );
   });
 
   it('renders not found if add-on type is not supported', () => {
@@ -338,26 +368,33 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
 
     // This loads a set of add-ons for a category.
-    store.dispatch(landingActions.getLanding({
-      addonType,
-      category: 'some-category',
-      errorHandlerId: errorHandler.id,
-    }));
-    store.dispatch(landingActions.loadLanding({
-      addonType,
-      featured: createAddonsApiResult([]),
-      highlyRated: createAddonsApiResult([]),
-      trending: createAddonsApiResult([]),
-    }));
+    store.dispatch(
+      landingActions.getLanding({
+        addonType,
+        category: 'some-category',
+        errorHandlerId: errorHandler.id,
+      }),
+    );
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType,
+        featured: createAddonsApiResult([]),
+        highlyRated: createAddonsApiResult([]),
+        trending: createAddonsApiResult([]),
+      }),
+    );
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({ errorHandler, store });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
-      addonType,
-      errorHandlerId: errorHandler.id,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      landingActions.getLanding({
+        addonType,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
     sinon.assert.callCount(fakeDispatch, 2);
   });
 
@@ -366,10 +403,12 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const params = { visibleAddonType: visibleAddonType(addonType) };
 
-    store.dispatch(landingActions.getLanding({
-      addonType,
-      errorHandlerId: errorHandler.id,
-    }));
+    store.dispatch(
+      landingActions.getLanding({
+        addonType,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
     store.dispatch(setViewContext(addonType));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -386,10 +425,12 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const params = { visibleAddonType: visibleAddonType(addonType) };
 
-    store.dispatch(landingActions.getLanding({
-      addonType,
-      errorHandlerId: errorHandler.id,
-    }));
+    store.dispatch(
+      landingActions.getLanding({
+        addonType,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
     store.dispatch(setViewContext(addonType));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -420,19 +461,21 @@ describe(__filename, () => {
   });
 
   it('hides the trending shelf when there are no add-ons for it', () => {
-    store.dispatch(landingActions.loadLanding({
-      addonType: ADDON_TYPE_THEME,
-      featured: createAddonsApiResult([
-        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
-        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
-        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
-      ]),
-      highlyRated: createAddonsApiResult([
-        { ...fakeAddon, name: 'High', slug: 'high' },
-        { ...fakeAddon, name: 'High again', slug: 'high-again' },
-      ]),
-      trending: createAddonsApiResult([]),
-    }));
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType: ADDON_TYPE_THEME,
+        featured: createAddonsApiResult([
+          { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+          { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+          { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+        ]),
+        highlyRated: createAddonsApiResult([
+          { ...fakeAddon, name: 'High', slug: 'high' },
+          { ...fakeAddon, name: 'High again', slug: 'high-again' },
+        ]),
+        trending: createAddonsApiResult([]),
+      }),
+    );
 
     const root = render();
     const landingShelves = root.find(LandingAddonsCard);
@@ -443,18 +486,20 @@ describe(__filename, () => {
   });
 
   it('hides the featured shelf when there are no add-ons for it', () => {
-    store.dispatch(landingActions.loadLanding({
-      addonType: ADDON_TYPE_THEME,
-      featured: createAddonsApiResult([]),
-      highlyRated: createAddonsApiResult([
-        { ...fakeAddon, name: 'High', slug: 'high' },
-        { ...fakeAddon, name: 'High again', slug: 'high-again' },
-      ]),
-      trending: createAddonsApiResult([
-        { ...fakeAddon, name: 'Pop', slug: 'pop' },
-        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
-      ]),
-    }));
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType: ADDON_TYPE_THEME,
+        featured: createAddonsApiResult([]),
+        highlyRated: createAddonsApiResult([
+          { ...fakeAddon, name: 'High', slug: 'high' },
+          { ...fakeAddon, name: 'High again', slug: 'high-again' },
+        ]),
+        trending: createAddonsApiResult([
+          { ...fakeAddon, name: 'Pop', slug: 'pop' },
+          { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+        ]),
+      }),
+    );
 
     const root = render();
     const landingShelves = root.find(LandingAddonsCard);
@@ -465,19 +510,21 @@ describe(__filename, () => {
   });
 
   it('hides the highly rated shelf when there are no add-ons for it', () => {
-    store.dispatch(landingActions.loadLanding({
-      addonType: ADDON_TYPE_THEME,
-      featured: createAddonsApiResult([
-        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
-        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
-        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
-      ]),
-      highlyRated: createAddonsApiResult([]),
-      trending: createAddonsApiResult([
-        { ...fakeAddon, name: 'Pop', slug: 'pop' },
-        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
-      ]),
-    }));
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType: ADDON_TYPE_THEME,
+        featured: createAddonsApiResult([
+          { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+          { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+          { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+        ]),
+        highlyRated: createAddonsApiResult([]),
+        trending: createAddonsApiResult([
+          { ...fakeAddon, name: 'Pop', slug: 'pop' },
+          { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+        ]),
+      }),
+    );
 
     const root = render();
     const landingShelves = root.find(LandingAddonsCard);

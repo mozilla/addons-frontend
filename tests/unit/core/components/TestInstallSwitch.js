@@ -2,9 +2,7 @@ import * as React from 'react';
 import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
-import {
-  InstallSwitchBase,
-} from 'core/components/InstallSwitch';
+import { InstallSwitchBase } from 'core/components/InstallSwitch';
 import {
   DISABLED,
   DISABLING,
@@ -21,7 +19,6 @@ import { createInternalAddon } from 'core/reducers/addons';
 import { fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   function renderButton(props = {}) {
     const renderProps = {
@@ -36,8 +33,7 @@ describe(__filename, () => {
       ...props,
     };
 
-    return renderIntoDocument(
-      <InstallSwitchBase {...renderProps} />);
+    return renderIntoDocument(<InstallSwitchBase {...renderProps} />);
   }
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {
@@ -73,7 +69,9 @@ describe(__filename, () => {
     const button = renderButton({ status: ENABLED });
     const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
-    expect(switchEl.props.label).toContain('test-addon is installed and enabled');
+    expect(switchEl.props.label).toContain(
+      'test-addon is installed and enabled',
+    );
     expect(switchEl.props.label).toContain('Click to uninstall');
     expect(switchEl.props.success).toEqual(true);
   });
@@ -117,8 +115,12 @@ describe(__filename, () => {
   it('should associate the label and input with id and for attributes', () => {
     const button = renderButton({ status: UNINSTALLED, slug: 'foo' });
     const root = findDOMNode(button);
-    expect(root.querySelector('input').getAttribute('id')).toEqual('install-button-foo');
-    expect(root.querySelector('label').getAttribute('for')).toEqual('install-button-foo');
+    expect(root.querySelector('input').getAttribute('id')).toEqual(
+      'install-button-foo',
+    );
+    expect(root.querySelector('label').getAttribute('for')).toEqual(
+      'install-button-foo',
+    );
   });
 
   it('should throw on bogus status', () => {
@@ -153,8 +155,9 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(installTheme);
     const themeDataEl = installTheme.firstCall.args[0];
-    expect(JSON.parse(themeDataEl.getAttribute('data-browsertheme')))
-      .toEqual(addon.themeData);
+    expect(JSON.parse(themeDataEl.getAttribute('data-browsertheme'))).toEqual(
+      addon.themeData,
+    );
   });
 
   it('should call install function on click when uninstalled', () => {
@@ -163,7 +166,14 @@ describe(__filename, () => {
     const install = sinon.spy();
     const i18n = fakeI18n();
     const installURL = 'https://my.url/download';
-    const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
+    const button = renderButton({
+      guid,
+      i18n,
+      install,
+      installURL,
+      name,
+      status: UNINSTALLED,
+    });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     expect(install.calledWith()).toBeTruthy();
@@ -175,7 +185,14 @@ describe(__filename, () => {
     const enable = sinon.spy();
     const i18n = fakeI18n();
     const installURL = 'https://my.url/download';
-    const button = renderButton({ guid, i18n, enable, installURL, name, status: DISABLED });
+    const button = renderButton({
+      guid,
+      i18n,
+      enable,
+      installURL,
+      name,
+      status: DISABLED,
+    });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     expect(enable.calledWith()).toBeTruthy();
@@ -187,7 +204,14 @@ describe(__filename, () => {
     const name = 'hai';
     const type = 'whatevs';
     const uninstall = sinon.spy();
-    const button = renderButton({ guid, installURL, name, status: INSTALLED, type, uninstall });
+    const button = renderButton({
+      guid,
+      installURL,
+      name,
+      status: INSTALLED,
+      type,
+      uninstall,
+    });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     expect(uninstall.calledWith({ guid, installURL, name, type })).toBeTruthy();

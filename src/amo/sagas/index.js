@@ -19,7 +19,6 @@ import languageTools from 'core/sagas/languageTools';
 import userAbuseReports from 'amo/sagas/userAbuseReports';
 import users from 'amo/sagas/users';
 
-
 // Export all sagas for this app so runSaga can consume them.
 export default function* rootSaga() {
   yield all([

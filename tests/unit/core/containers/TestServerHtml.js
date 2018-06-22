@@ -8,7 +8,8 @@ import {
 
 import ServerHtml from 'core/containers/ServerHtml';
 import FakeApp, {
-  fakeAssets, fakeSRIData,
+  fakeAssets,
+  fakeSRIData,
 } from 'tests/unit/core/server/fakeApp';
 import { getFakeConfig } from 'tests/unit/helpers';
 
@@ -43,7 +44,9 @@ describe('<ServerHtml />', () => {
 
   it('renders html attrs provided', () => {
     const html = findRenderedDOMComponentWithTag(
-      render({ htmlLang: 'ar', htmlDir: 'rtl' }), 'html');
+      render({ htmlLang: 'ar', htmlDir: 'rtl' }),
+      'html',
+    );
     expect(html.getAttribute('lang')).toEqual('ar');
     expect(html.getAttribute('dir')).toEqual('rtl');
   });
@@ -56,16 +59,24 @@ describe('<ServerHtml />', () => {
 
   it('renders GA script when trackingEnabled is true', () => {
     const html = findRenderedDOMComponentWithTag(
-      render({ trackingEnabled: true }), 'html');
-    const ga = html.querySelectorAll('script[src="https://www.google-analytics.com/analytics.js"]');
+      render({ trackingEnabled: true }),
+      'html',
+    );
+    const ga = html.querySelectorAll(
+      'script[src="https://www.google-analytics.com/analytics.js"]',
+    );
     expect(ga.length).toEqual(1);
     expect(ga[0].hasAttribute('async')).toEqual(true);
   });
 
   it("doesn't render GA script when trackingEnabled is false", () => {
     const html = findRenderedDOMComponentWithTag(
-      render({ trackingEnabled: false }), 'html');
-    const ga = html.querySelectorAll('script[src="https://www.google-analytics.com/analytics.js"]');
+      render({ trackingEnabled: false }),
+      'html',
+    );
+    const ga = html.querySelectorAll(
+      'script[src="https://www.google-analytics.com/analytics.js"]',
+    );
     expect(ga.length).toEqual(0);
   });
 
@@ -117,7 +128,8 @@ describe('<ServerHtml />', () => {
     const html = findRenderedDOMComponentWithTag(render({ _config }), 'html');
     const favicon = html.querySelector('link[rel="shortcut icon"]');
     expect(favicon.getAttribute('href')).toEqual(
-      `${amoCDN}/favicon.ico?v=${_config.get('faviconVersion')}`);
+      `${amoCDN}/favicon.ico?v=${_config.get('faviconVersion')}`,
+    );
   });
 
   it('renders title', () => {
@@ -147,7 +159,10 @@ describe('<ServerHtml />', () => {
 
   it('renders noscript styles when provided', () => {
     const noScriptStyles = '.MyComponent { display: none; }';
-    const html = findRenderedDOMComponentWithTag(render({ noScriptStyles }), 'html');
+    const html = findRenderedDOMComponentWithTag(
+      render({ noScriptStyles }),
+      'html',
+    );
     const noScript = html.querySelector('noscript');
     expect(noScript).toBeTruthy();
     expect(noScript.children.length).toEqual(1);

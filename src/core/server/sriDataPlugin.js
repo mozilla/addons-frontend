@@ -22,7 +22,8 @@ export default class SriDataPlugin {
             throw new Error(
               oneLine`The integrity property is falsey for
               asset ${baseName}; Is the webpack-subresource-integrity
-              plugin installed and enabled?`);
+              plugin installed and enabled?`,
+            );
           }
           sriStats[baseName] = asset.integrity;
         });

@@ -26,7 +26,9 @@ describe(__filename, () => {
     themeAction(fakeNode, THEME_PREVIEW, fakeDoc);
 
     expect(fakeDoc.createEvent.calledWith('Events')).toBeTruthy();
-    expect(fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false)).toBeTruthy();
+    expect(
+      fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false),
+    ).toBeTruthy();
     expect(fakeNode.dispatchEvent.calledWith(fakeEvent)).toBeTruthy();
   });
 
@@ -63,8 +65,6 @@ describe(__filename, () => {
     expect(getThemeData(addon)).toEqual(addon.themeData);
 
     // Make sure an unknown key is not added to the output.
-    expect(getThemeData({ ...themeData, badKey: true }))
-      .toEqual(themeData);
+    expect(getThemeData({ ...themeData, badKey: true })).toEqual(themeData);
   });
 });
-

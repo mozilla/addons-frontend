@@ -7,7 +7,6 @@ import reducer, {
 import { createFakeLanguageTool } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   it('initializes properly', () => {
     const state = reducer(undefined, {});
@@ -17,9 +16,12 @@ describe(__filename, () => {
 
   it('stores language tools', () => {
     const language = createFakeLanguageTool();
-    const state = reducer(undefined, loadLanguageTools({
-      languageTools: [language],
-    }));
+    const state = reducer(
+      undefined,
+      loadLanguageTools({
+        languageTools: [language],
+      }),
+    );
 
     expect(state).toEqual({
       byID: {
@@ -30,12 +32,16 @@ describe(__filename, () => {
 
   it('ignores unrelated actions', () => {
     const language = createFakeLanguageTool();
-    const firstState = reducer(undefined, loadLanguageTools({
-      languageTools: [language],
-    }));
+    const firstState = reducer(
+      undefined,
+      loadLanguageTools({
+        languageTools: [language],
+      }),
+    );
 
-    expect(reducer(firstState, { type: 'UNRELATED_ACTION' }))
-      .toEqual(firstState);
+    expect(reducer(firstState, { type: 'UNRELATED_ACTION' })).toEqual(
+      firstState,
+    );
   });
 
   describe('fetchLanguageTools', () => {

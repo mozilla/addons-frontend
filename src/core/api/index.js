@@ -20,7 +20,6 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocation } from 'core/types/router';
 
-
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 const { Entity } = normalizrSchema;
 
@@ -48,9 +47,11 @@ type CreateApiErrorParams = {|
   jsonResponse?: Object,
 |};
 
-export function createApiError(
-  { apiURL, response, jsonResponse }: CreateApiErrorParams
-) {
+export function createApiError({
+  apiURL,
+  response,
+  jsonResponse,
+}: CreateApiErrorParams) {
   let urlId = '[unknown URL]';
   if (apiURL) {
     // Strip the host since we already know that.
@@ -59,7 +60,7 @@ export function createApiError(
     urlId = urlId.split('?')[0];
   }
   const apiError = new Error(
-    `Error calling: ${urlId} (status: ${response.status})`
+    `Error calling: ${urlId} (status: ${response.status})`,
   );
   // $FLOW_FIXME: turn Error into a custom ApiError class.
   apiError.response = {
@@ -97,7 +98,7 @@ export function callApi({
 }: CallApiParams): Promise<any> {
   if (!endpoint) {
     return Promise.reject(
-      new Error(`endpoint URL cannot be falsy: "${endpoint}"`)
+      new Error(`endpoint URL cannot be falsy: "${endpoint}"`),
     );
   }
   if (errorHandler) {
@@ -109,12 +110,11 @@ export function callApi({
   if (!parsedUrl.host) {
     // If it's a relative URL, add the API prefix.
     const slash = !adjustedEndpoint.startsWith('/') ? '/' : '';
-    adjustedEndpoint =
-      `${config.get('apiPath')}${slash}${adjustedEndpoint}`;
+    adjustedEndpoint = `${config.get('apiPath')}${slash}${adjustedEndpoint}`;
   } else if (!adjustedEndpoint.startsWith(config.get('apiPath'))) {
     // If it's an absolute URL, it must have the correct prefix.
     return Promise.reject(
-      new Error(`Absolute URL "${endpoint}" has an unexpected prefix.`)
+      new Error(`Absolute URL "${endpoint}" has an unexpected prefix.`),
     );
   }
 
@@ -156,10 +156,10 @@ export function callApi({
     }
   }
 
-  adjustedEndpoint = adjustedEndpoint.endsWith('/') ?
-    adjustedEndpoint : `${adjustedEndpoint}/`;
-  let apiURL =
-    `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
+  adjustedEndpoint = adjustedEndpoint.endsWith('/')
+    ? adjustedEndpoint
+    : `${adjustedEndpoint}/`;
+  let apiURL = `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
   if (_config.get('server')) {
     log.debug('Encoding `apiURL` in UTF8 before fetch().');
     // Workaround for https://github.com/bitinn/node-fetch/issues/245
@@ -178,37 +178,44 @@ export function callApi({
       // If the JSON parsing fails; we log the error and return an "unknown
       // error".
       if (contentType === 'application/json') {
-        return response.json()
+        return response
+          .json()
           .then((jsonResponse) => ({ response, jsonResponse }));
       }
 
-      log.warn(oneLine`Response from API was not JSON (was Content-Type:
-        ${contentType})`, response);
+      log.warn(
+        oneLine`Response from API was not JSON (was Content-Type:
+        ${contentType})`,
+        response,
+      );
       return response.text().then(() => {
         // jsonResponse should be an empty object in this case.
         // Otherwise, its keys could be treated as generic API errors.
         return { jsonResponse: {}, response };
       });
     })
-    .then(({ response, jsonResponse }) => {
-      if (response.ok) {
-        return jsonResponse;
-      }
+    .then(
+      ({ response, jsonResponse }) => {
+        if (response.ok) {
+          return jsonResponse;
+        }
 
-      // If response is not ok we'll throw an error.
-      const apiError = createApiError({ apiURL, response, jsonResponse });
-      if (errorHandler) {
-        errorHandler.handle(apiError);
-      }
-      throw apiError;
-    }, (fetchError) => {
-      // This actually handles the case when the call to fetch() is
-      // rejected, say, for a network connection error, etc.
-      if (errorHandler) {
-        errorHandler.handle(fetchError);
-      }
-      throw fetchError;
-    })
+        // If response is not ok we'll throw an error.
+        const apiError = createApiError({ apiURL, response, jsonResponse });
+        if (errorHandler) {
+          errorHandler.handle(apiError);
+        }
+        throw apiError;
+      },
+      (fetchError) => {
+        // This actually handles the case when the call to fetch() is
+        // rejected, say, for a network connection error, etc.
+        if (errorHandler) {
+          errorHandler.handle(fetchError);
+        }
+        throw fetchError;
+      },
+    )
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
@@ -226,9 +233,11 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
   });
 }
 
-export function startLoginUrl(
-  { location }: {| location: ReactRouterLocation |},
-) {
+export function startLoginUrl({
+  location,
+}: {|
+  location: ReactRouterLocation,
+|}) {
   const configName = config.get('fxaConfig');
   const params = {
     config: undefined,
@@ -283,8 +292,9 @@ export function autocomplete({ api, filters }: AutocompleteParams) {
   });
 }
 
-type GetNextResponseType =
-  (nextURL?: string) => Promise<PaginatedApiResponse<any>>;
+type GetNextResponseType = (
+  nextURL?: string,
+) => Promise<PaginatedApiResponse<any>>;
 
 type AllPagesOptions = {| pageLimit: number |};
 
@@ -323,8 +333,7 @@ export const allPages = async (
 
 export const validateLocalizedString = (localizedString: LocalizedString) => {
   if (typeof localizedString !== 'object') {
-    throw new Error(
-      `Expected an object type, got "${typeof localizedString}"`);
+    throw new Error(`Expected an object type, got "${typeof localizedString}"`);
   }
   Object.keys(localizedString).forEach((localeKey) => {
     if (typeof languages[localeKey] === 'undefined') {

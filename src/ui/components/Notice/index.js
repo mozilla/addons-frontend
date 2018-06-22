@@ -17,7 +17,7 @@ type Props = {
   actionText?: string,
   children?: React.Node,
   className?: string,
-  type: typeof errorType | typeof successType;
+  type: typeof errorType | typeof successType,
 };
 
 /*
@@ -25,9 +25,7 @@ type Props = {
  *
  * See https://design.firefox.com/photon/components/message-bars.html
  */
-const Notice = ({
-  action, actionText, children, className, type,
-}: Props) => {
+const Notice = ({ action, actionText, children, className, type }: Props) => {
   if (!validTypes.includes(type)) {
     throw new Error(`Unknown type: ${type}`);
   }
@@ -35,11 +33,7 @@ const Notice = ({
   let actionButton;
   if (action && actionText) {
     actionButton = (
-      <Button
-        className="Notice-button"
-        onClick={action}
-        micro
-      >
+      <Button className="Notice-button" onClick={action} micro>
         {actionText}
       </Button>
     );
@@ -51,9 +45,7 @@ const Notice = ({
       <div className="Notice-icon" />
       <div className="Notice-column">
         <div>
-          <p className="Notice-text">
-            {children}
-          </p>
+          <p className="Notice-text">{children}</p>
           {actionButton}
         </div>
       </div>

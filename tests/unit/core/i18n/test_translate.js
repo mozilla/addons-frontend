@@ -10,11 +10,10 @@ import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
 import { fakeI18n } from 'tests/unit/helpers';
 
-
 class OuterComponent extends React.Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
-  }
+  };
   render() {
     const { children } = this.props;
     return <div>{children}</div>;
@@ -24,7 +23,7 @@ class OuterComponent extends React.Component {
 class InnerComponent extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-  }
+  };
   render() {
     const { i18n } = this.props;
     return <div>{i18n.gettext('hai')}</div>;
@@ -42,7 +41,7 @@ describe('translate()', () => {
         <OuterComponent>
           <Component {...componentProps} />
         </OuterComponent>
-      </I18nProvider>
+      </I18nProvider>,
     );
   }
 

@@ -12,12 +12,11 @@ import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
 
-
 export class CategoryHeaderBase extends React.Component {
   static propTypes = {
     category: PropTypes.object,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { category, i18n } = this.props;
@@ -40,16 +39,19 @@ export class CategoryHeaderBase extends React.Component {
     // or lacks a description) we'll show this generic message.
     if (category && !category.description) {
       category.description = i18n.gettext(
-        'Browse all add-ons in this category.');
+        'Browse all add-ons in this category.',
+      );
 
       if (category.type === ADDON_TYPE_EXTENSION) {
         category.description = i18n.gettext(
-          'Browse all extensions in this category.');
+          'Browse all extensions in this category.',
+        );
       }
 
       if (category.type === ADDON_TYPE_THEME) {
         category.description = i18n.gettext(
-          'Browse all themes in this category.');
+          'Browse all themes in this category.',
+        );
       }
     }
 
@@ -90,6 +92,4 @@ export class CategoryHeaderBase extends React.Component {
   }
 }
 
-export default compose(
-  translate(),
-)(CategoryHeaderBase);
+export default compose(translate())(CategoryHeaderBase);

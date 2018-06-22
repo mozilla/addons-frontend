@@ -11,7 +11,6 @@ import {
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe('AddonCompatibilityError', () => {
   function render({ ...props }) {
     const { store } = dispatchClientMetadata();
@@ -23,7 +22,7 @@ describe('AddonCompatibilityError', () => {
         minVersion={null}
         {...props}
       />,
-      AddonCompatibilityErrorBase
+      AddonCompatibilityErrorBase,
     );
   }
 
@@ -36,7 +35,8 @@ describe('AddonCompatibilityError', () => {
     const content = root.find('.AddonCompatibilityError').render();
 
     expect(content.text()).toEqual(
-      'This add-on does not support your version of Firefox.');
+      'This add-on does not support your version of Firefox.',
+    );
   });
 
   it('renders a notice for iOS users', () => {
@@ -47,7 +47,8 @@ describe('AddonCompatibilityError', () => {
     const content = root.find('.AddonCompatibilityError').render();
 
     expect(content.text()).toContain(
-      'Firefox for iOS does not currently support add-ons.');
+      'Firefox for iOS does not currently support add-ons.',
+    );
   });
 
   it('renders a generic message when reason code not known', () => {
@@ -55,7 +56,8 @@ describe('AddonCompatibilityError', () => {
     const content = root.find('.AddonCompatibilityError').render();
 
     expect(content.text()).toContain(
-      'This add-on does not support your browser.');
+      'This add-on does not support your browser.',
+    );
   });
 
   it('throws an error if no reason is supplied', () => {

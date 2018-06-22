@@ -22,20 +22,23 @@ describe(__filename, () => {
     it('handles AUTOCOMPLETE_CANCELLED', () => {
       const results = [createFakeAutocompleteResult({ name: 'foo' })];
       const previousState = reducer(undefined, autocompleteLoad({ results }));
-      const {
-        loading,
-        suggestions,
-      } = reducer(previousState, autocompleteCancel());
+      const { loading, suggestions } = reducer(
+        previousState,
+        autocompleteCancel(),
+      );
 
       expect(loading).toEqual(false);
       expect(suggestions).toEqual([]);
     });
 
     it('handles AUTOCOMPLETE_STARTED', () => {
-      const { loading, suggestions } = reducer(undefined, autocompleteStart({
-        errorHandlerId: 'any-error-handler-id',
-        filters: { q: 'search string' },
-      }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteStart({
+          errorHandlerId: 'any-error-handler-id',
+          filters: { q: 'search string' },
+        }),
+      );
       expect(loading).toEqual(true);
       expect(suggestions).toEqual([]);
     });
@@ -47,10 +50,10 @@ describe(__filename, () => {
         createFakeAutocompleteResult({ name: 'baz' }),
       ];
 
-      const {
-        loading,
-        suggestions,
-      } = reducer(undefined, autocompleteLoad({ results }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results }),
+      );
 
       expect(loading).toBe(false);
       expect(suggestions).toHaveLength(3);
@@ -63,7 +66,10 @@ describe(__filename, () => {
       const result = createFakeAutocompleteResult({ name: 'baz' });
       const results = [result];
 
-      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results }),
+      );
       expect(loading).toEqual(false);
       expect(suggestions).toEqual([
         {
@@ -82,7 +88,10 @@ describe(__filename, () => {
         createFakeAutocompleteResult({ name: 'baz' }),
       ];
 
-      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results }),
+      );
       expect(loading).toEqual(false);
       expect(suggestions).toHaveLength(2);
     });

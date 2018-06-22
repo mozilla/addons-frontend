@@ -11,14 +11,16 @@ import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'core/components/AuthenticateButton';
-import { getCurrentUser, hasAnyReviewerRelatedPermission } from 'amo/reducers/users';
+import {
+  getCurrentUser,
+  hasAnyReviewerRelatedPermission,
+} from 'amo/reducers/users';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 
 import './styles.scss';
-
 
 export class HeaderBase extends React.Component {
   static propTypes = {
@@ -30,18 +32,18 @@ export class HeaderBase extends React.Component {
     query: PropTypes.string,
     siteUser: PropTypes.object,
     isReviewer: PropTypes.bool.isRequired,
-  }
+  };
 
   static defaultProps = {
     isHomePage: false,
     query: '',
-  }
+  };
 
   handleLogOut = (event) => {
     event.preventDefault();
 
     this.props.handleLogOut({ api: this.props.api });
-  }
+  };
 
   render() {
     const {
@@ -56,27 +58,29 @@ export class HeaderBase extends React.Component {
     const headerLink = (
       <Link className="Header-title" to="/">
         <span className="visually-hidden">
-          {
-            // translators: "Firefox" should not be translated. :-)
-            i18n.gettext('Firefox Add-ons')
-          }
+          {// translators: "Firefox" should not be translated. :-)
+          i18n.gettext('Firefox Add-ons')}
         </span>
       </Link>
     );
 
     const viewProfileURL = siteUser ? `/user/${siteUser.username}/` : null;
-    const viewProfileLinkProps = config.get('enableUserProfile') ?
-      { to: viewProfileURL } : { href: viewProfileURL };
+    const viewProfileLinkProps = config.get('enableUserProfile')
+      ? { to: viewProfileURL }
+      : { href: viewProfileURL };
     const editProfileURL = siteUser ? '/users/edit' : null;
-    const editProfileLinkProps = config.get('enableUserProfile') ?
-      { to: editProfileURL } : { href: editProfileURL };
+    const editProfileLinkProps = config.get('enableUserProfile')
+      ? { to: editProfileURL }
+      : { href: editProfileURL };
 
     return (
       <header className="Header">
         <div className="Header-content">
-          {isHomePage
-            ? <h1 className="Header-title-wrapper">{headerLink}</h1>
-            : headerLink}
+          {isHomePage ? (
+            <h1 className="Header-title-wrapper">{headerLink}</h1>
+          ) : (
+            headerLink
+          )}
         </div>
 
         <SectionLinks className="Header-SectionLinks" location={location} />
@@ -90,9 +94,7 @@ export class HeaderBase extends React.Component {
           >
             {i18n.gettext('Developer Hub')}
           </Link>
-          <DownloadFirefoxButton
-            className="Header-download-button Header-button"
-          />
+          <DownloadFirefoxButton className="Header-download-button Header-button" />
 
           {siteUser ? (
             <DropdownMenu
@@ -135,14 +137,11 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link
-                  href="/developers/theme/submit"
-                  prependClientApp={false}
-                >
+                <Link href="/developers/theme/submit" prependClientApp={false}>
                   {i18n.gettext('Submit a New Theme')}
                 </Link>
               </DropdownMenuItem>
-              {isReviewer &&
+              {isReviewer && (
                 <DropdownMenuItem>
                   <Link
                     className="Header-user-menu-reviewer-tools-link"
@@ -152,7 +151,7 @@ export class HeaderBase extends React.Component {
                     {i18n.gettext('Reviewer Tools')}
                   </Link>
                 </DropdownMenuItem>
-              }
+              )}
 
               <DropdownMenuItem
                 className="Header-logout-button"
@@ -190,12 +189,14 @@ export const mapStateToProps = (state) => {
   };
 };
 
-
 export const mapDispatchToProps = (dispatch, ownProps) => ({
   handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
 });
 
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
   translate(),
 )(HeaderBase);

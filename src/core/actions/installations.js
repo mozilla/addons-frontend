@@ -1,7 +1,8 @@
 /* @flow */
 import { INSTALL_STATE } from 'core/constants';
 import type {
-  InstalledAddon, InstallationAction,
+  InstalledAddon,
+  InstallationAction,
 } from 'core/reducers/installations';
 
 export function setInstallState(

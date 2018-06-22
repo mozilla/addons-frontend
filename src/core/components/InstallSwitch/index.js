@@ -21,7 +21,6 @@ import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import Switch from 'ui/components/Switch';
 
-
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
     accentcolor: PropTypes.string,
@@ -54,13 +53,13 @@ export class InstallSwitchBase extends React.Component {
     uninstall: PropTypes.func.isRequired,
     updateURL: PropTypes.string,
     version: PropTypes.string,
-  }
+  };
 
   static defaultProps = {
     disabled: false,
     status: UNKNOWN,
     downloadProgress: 0,
-  }
+  };
 
   getLabel() {
     const { i18n, name, status } = this.props;
@@ -74,7 +73,9 @@ export class InstallSwitchBase extends React.Component {
         break;
       case ENABLED:
       case INSTALLED:
-        label = i18n.gettext('%(name)s is installed and enabled. Click to uninstall.');
+        label = i18n.gettext(
+          '%(name)s is installed and enabled. Click to uninstall.',
+        );
         break;
       case DISABLED:
         label = i18n.gettext('%(name)s is disabled. Click to enable.');
@@ -122,7 +123,8 @@ export class InstallSwitchBase extends React.Component {
 
     if (disabled) {
       log.info(
-        'handleClick for InstallSwitch disabled; disabled prop set to true.');
+        'handleClick for InstallSwitch disabled; disabled prop set to true.',
+      );
       return;
     }
 
@@ -135,39 +137,48 @@ export class InstallSwitchBase extends React.Component {
     } else if ([INSTALLED, ENABLED].includes(status)) {
       uninstall({ guid, installURL, name, type });
     }
-  }
+  };
 
   render() {
-    const browsertheme = JSON.stringify(getThemeData({
-      accentcolor: this.props.accentcolor,
-      author: this.props.author,
-      category: this.props.category,
-      description: this.props.description,
-      detailURL: this.props.detailURL,
-      footer: this.props.footer,
-      footerURL: this.props.footerURL,
-      header: this.props.header,
-      headerURL: this.props.headerURL,
-      iconURL: this.props.iconURL,
-      id: this.props.id,
-      name: this.props.name,
-      previewURL: this.props.previewURL,
-      textcolor: this.props.textcolor,
-      updateURL: this.props.updateURL,
-      version: this.props.version,
-    }));
+    const browsertheme = JSON.stringify(
+      getThemeData({
+        accentcolor: this.props.accentcolor,
+        author: this.props.author,
+        category: this.props.category,
+        description: this.props.description,
+        detailURL: this.props.detailURL,
+        footer: this.props.footer,
+        footerURL: this.props.footerURL,
+        header: this.props.header,
+        headerURL: this.props.headerURL,
+        iconURL: this.props.iconURL,
+        id: this.props.id,
+        name: this.props.name,
+        previewURL: this.props.previewURL,
+        textcolor: this.props.textcolor,
+        updateURL: this.props.updateURL,
+        version: this.props.version,
+      }),
+    );
     const { disabled, handleChange, slug, status, ...otherProps } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error(`Invalid add-on status ${status}`);
     }
 
-    const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
+    const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(
+      status,
+    );
     const isDisabled = disabled || status === UNKNOWN;
     const isSuccess = [ENABLED, INSTALLED].includes(status);
 
     return (
-      <div data-browsertheme={browsertheme} ref={(el) => { this.themeData = el; }}>
+      <div
+        data-browsertheme={browsertheme}
+        ref={(el) => {
+          this.themeData = el;
+        }}
+      >
         <Switch
           {...otherProps}
           checked={isChecked}
@@ -178,13 +189,13 @@ export class InstallSwitchBase extends React.Component {
           onClick={this.handleClick}
           progress={this.getDownloadProgress()}
           success={isSuccess}
-          ref={(el) => { this.switchEl = el; }}
+          ref={(el) => {
+            this.switchEl = el;
+          }}
         />
       </div>
     );
   }
 }
 
-export default compose(
-  translate(),
-)(InstallSwitchBase);
+export default compose(translate())(InstallSwitchBase);

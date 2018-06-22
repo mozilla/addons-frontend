@@ -45,9 +45,7 @@ class LocalStorageMock {
 }
 global.localStorage = new LocalStorageMock();
 
-const localesMyAppSupports = [
-  'de', 'fr',
-];
+const localesMyAppSupports = ['de', 'fr'];
 
 if (global.Intl) {
   // Determine if the built-in `Intl` has the locale data we need.

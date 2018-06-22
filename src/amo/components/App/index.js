@@ -37,9 +37,8 @@ import 'core/fonts/fira.scss';
 import 'core/fonts/opensans.scss';
 import './styles.scss';
 
-
 interface MozNavigator extends Navigator {
-  mozAddonManager?: Object,
+  mozAddonManager?: Object;
 }
 
 type Props = {|
@@ -61,7 +60,7 @@ type Props = {|
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   setUserAgent: (userAgent: string) => void,
   userAgent: string,
-|}
+|};
 
 export class AppBase extends React.Component<Props> {
   header: React.ElementRef<typeof Header>;
@@ -73,12 +72,13 @@ export class AppBase extends React.Component<Props> {
     InfoDialogComponent: InfoDialog,
     HeaderComponent: Header,
     _addChangeListeners: addChangeListeners,
-    _navigator: (typeof navigator !== 'undefined' ? navigator : null),
+    _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
-    mozAddonManager:
-      config.get('server') ? {} : (navigator: MozNavigator).mozAddonManager,
+    mozAddonManager: config.get('server')
+      ? {}
+      : (navigator: MozNavigator).mozAddonManager,
     userAgent: null,
-  }
+  };
 
   componentDidMount() {
     const {
@@ -99,7 +99,8 @@ export class AppBase extends React.Component<Props> {
     // case we try to load them from navigator.
     if (!userAgent && _navigator && _navigator.userAgent) {
       log.info(
-        'userAgent not in state on App load; using navigator.userAgent.');
+        'userAgent not in state on App load; using navigator.userAgent.',
+      );
       setUserAgent(_navigator.userAgent);
     }
 
@@ -133,7 +134,8 @@ export class AppBase extends React.Component<Props> {
       createdAt = base62.decode(encodedTimestamp);
     } catch (base62Error) {
       log.error(
-        `Auth token "${encodedTimestamp}" triggered this base62 error: "${base62Error}"`);
+        `Auth token "${encodedTimestamp}" triggered this base62 error: "${base62Error}"`,
+      );
       return;
     }
     // If the encoded timestamp was malformed it will be 0 or negative.
@@ -148,9 +150,10 @@ export class AppBase extends React.Component<Props> {
     // Get the current UTC Unix timestamp.
     const now = Date.now() / 1000;
     // Set the expiration time in seconds.
-    const expirationTime = (createdAt + expiresAt) - now;
-    const readableExpiration =
-      new Date((now + expirationTime) * 1000).toString();
+    const expirationTime = createdAt + expiresAt - now;
+    const readableExpiration = new Date(
+      (now + expirationTime) * 1000,
+    ).toString();
     log.debug(`Auth token expires at ${readableExpiration}`);
 
     const setTimeoutDelay = expirationTime * 1000;
@@ -172,17 +175,19 @@ export class AppBase extends React.Component<Props> {
   onViewDesktop = (
     event: Event,
     {
-      _window = window, _cookie = cookie,
+      _window = window,
+      _cookie = cookie,
     }: {|
-      _window: typeof window, _cookie: typeof cookie,
-    |} = {}
+      _window: typeof window,
+      _cookie: typeof cookie,
+    |} = {},
   ) => {
     event.preventDefault();
     if (_window && _window.location) {
       _cookie.save('mamo', 'off', { path: '/' });
       _window.location.reload();
     }
-  }
+  };
 
   render() {
     const {
@@ -210,17 +215,16 @@ export class AppBase extends React.Component<Props> {
     return (
       <NestedStatus code={200}>
         <div className="amo">
-          <Helmet
-            defaultTitle={defaultTitle}
-            titleTemplate={titleTemplate}
-          />
+          <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
           <InfoDialogComponent />
           <HeaderComponent
             SearchFormComponent={SearchForm}
             isHomePage={isHomePage}
             location={location}
             query={query}
-            ref={(ref) => { this.header = ref; }}
+            ref={(ref) => {
+              this.header = ref;
+            }}
           />
           <div className="App-content">
             <div className="App-content-wrapper">
@@ -264,7 +268,10 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 }
 
 const App: React.ComponentType<Props> = compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
   translate(),
 )(AppBase);
 

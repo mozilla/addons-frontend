@@ -12,7 +12,6 @@ import { setClientApp, setLang } from 'core/actions';
 import Icon from 'ui/components/Icon';
 import { shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let store;
 
@@ -22,10 +21,7 @@ describe(__filename, () => {
   }
 
   function shallowRender(props) {
-    return shallowUntilTarget(
-      <Link store={store} {...props} />,
-      LinkBase
-    );
+    return shallowUntilTarget(<Link store={store} {...props} />, LinkBase);
   }
 
   beforeEach(() => {
@@ -45,35 +41,39 @@ describe(__filename, () => {
     const root = render({ to: { pathname: '/categories' } });
 
     expect(
-      findRenderedComponentWithType(root, ReactRouterLink).props.to
+      findRenderedComponentWithType(root, ReactRouterLink).props.to,
     ).toEqual({ pathname: '/fr/android/categories' });
   });
 
   it('passes other `to` types through to link', () => {
     const root = render({ base: null, to: null });
 
-    expect(findRenderedComponentWithType(root, ReactRouterLink).props.to).toEqual(null);
+    expect(
+      findRenderedComponentWithType(root, ReactRouterLink).props.to,
+    ).toEqual(null);
   });
 
   it('passes `to` without leading slash without base', () => {
     expect(() => {
       render({ to: 'test' });
     }).toThrow(
-      '"to" prop cannot contain a relative path; it must start with a "/".');
+      '"to" prop cannot contain a relative path; it must start with a "/".',
+    );
   });
 
   it('passes `to.pathname` without leading slash without base', () => {
     expect(() => {
       render({ to: { pathname: 'test' } });
     }).toThrow(
-      '"to" prop cannot contain a relative path; it must start with a "/".');
+      '"to" prop cannot contain a relative path; it must start with a "/".',
+    );
   });
 
   it('prefixes the `to` prop', () => {
     const root = render({ to: '/test' });
 
     expect(
-      findRenderedComponentWithType(root, ReactRouterLink).props.to
+      findRenderedComponentWithType(root, ReactRouterLink).props.to,
     ).toEqual('/fr/android/test');
   });
 
@@ -81,7 +81,7 @@ describe(__filename, () => {
     const root = render({ to: { pathname: '/test' } });
 
     expect(
-      findRenderedComponentWithType(root, ReactRouterLink).props.to
+      findRenderedComponentWithType(root, ReactRouterLink).props.to,
     ).toEqual({ pathname: '/fr/android/test' });
   });
 
@@ -155,8 +155,8 @@ describe(__filename, () => {
       prependLang: false,
     });
 
-    const toProp = findRenderedComponentWithType(
-      root, ReactRouterLink).props.to;
+    const toProp = findRenderedComponentWithType(root, ReactRouterLink).props
+      .to;
 
     expect(toProp).toContain('/test');
     expect(toProp).not.toContain('/fr/test');
@@ -171,8 +171,8 @@ describe(__filename, () => {
       prependLang: false,
     });
 
-    const toProp = findRenderedComponentWithType(
-      root, ReactRouterLink).props.to;
+    const toProp = findRenderedComponentWithType(root, ReactRouterLink).props
+      .to;
 
     expect(toProp.pathname).toContain('/test');
     expect(toProp.pathname).not.toContain('/fr/test');
@@ -204,7 +204,8 @@ describe(__filename, () => {
     expect(() => {
       render({ href: '/test', to: '/test' });
     }).toThrowError(
-      'Cannot use "href" prop and "to" prop in the same Link component');
+      'Cannot use "href" prop and "to" prop in the same Link component',
+    );
   });
 
   it('creates an Icon with the correct name for `external`', () => {
@@ -220,7 +221,11 @@ describe(__filename, () => {
   });
 
   it('creates an Icon with the correct name for `external` and `externalDark`', () => {
-    const root = shallowRender({ to: '/test', external: true, externalDark: true });
+    const root = shallowRender({
+      to: '/test',
+      external: true,
+      externalDark: true,
+    });
 
     expect(root.find(Icon)).toHaveProp('name', `external-dark`);
   });

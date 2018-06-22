@@ -5,10 +5,13 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
 type Props = {|
   label: string,
-  type?: 'experimental' | 'featured' | 'restart-required' | 'not-compatible'
+  type?:
+    | 'experimental'
+    | 'featured'
+    | 'restart-required'
+    | 'not-compatible'
     | 'requires-payment',
 |};
 
@@ -25,13 +28,16 @@ const getIconNameForType = (type) => {
 };
 
 const Badge = ({ label, type }: Props) => {
-  if (type && ![
-    'not-compatible',
-    'experimental',
-    'featured',
-    'restart-required',
-    'requires-payment',
-  ].includes(type)) {
+  if (
+    type &&
+    ![
+      'not-compatible',
+      'experimental',
+      'featured',
+      'restart-required',
+      'requires-payment',
+    ].includes(type)
+  ) {
     throw new Error(`Invalid badge type given: "${type}"`);
   }
 

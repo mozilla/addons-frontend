@@ -8,7 +8,6 @@ import translate from 'core/i18n/translate';
 
 import './styles.scss';
 
-
 function makePageNumbers({ start, end }) {
   const pages = [];
   for (let i = start; i <= end; i++) {
@@ -27,12 +26,12 @@ export class PaginateBase extends React.Component {
     perPage: PropTypes.number,
     queryParams: PropTypes.object,
     showPages: PropTypes.number,
-  }
+  };
 
   static defaultProps = {
     perPage: DEFAULT_API_PAGE_SIZE,
     showPages: 7,
-  }
+  };
 
   getCurrentPage() {
     const currentPage = parseInt(this.props.currentPage, 10);
@@ -62,14 +61,14 @@ export class PaginateBase extends React.Component {
     // If we can show all of the pages, show them all.
     if (pageCount <= showPages) {
       return makePageNumbers({ start: 1, end: pageCount });
-    // If we are showing less on the right than we should, define the start by
-    // the end.
+      // If we are showing less on the right than we should, define the start by
+      // the end.
     } else if (end - currentPage < showExtra) {
-      return makePageNumbers({ start: (end - showPages) + 1, end });
-    // If we are showing less on the left than we should, define the end by the
-    // start.
+      return makePageNumbers({ start: end - showPages + 1, end });
+      // If we are showing less on the left than we should, define the end by the
+      // start.
     } else if (currentPage - start < showExtra) {
-      return makePageNumbers({ start, end: (start + showPages) - 1 });
+      return makePageNumbers({ start, end: start + showPages - 1 });
     }
 
     // We're showing the maximum number of pages on each side, start and end
@@ -78,13 +77,7 @@ export class PaginateBase extends React.Component {
   }
 
   render() {
-    const {
-      LinkComponent,
-      count,
-      i18n,
-      pathname,
-      queryParams,
-    } = this.props;
+    const { LinkComponent, count, i18n, pathname, queryParams } = this.props;
 
     const pageCount = this.pageCount();
     const currentPage = this.getCurrentPage();
@@ -118,11 +111,7 @@ export class PaginateBase extends React.Component {
             text={i18n.gettext('Previous')}
           />
           {this.visiblePages({ pageCount }).map((page) => (
-            <PaginatorLink
-              {...linkParams}
-              key={`page-${page}`}
-              page={page}
-            />
+            <PaginatorLink {...linkParams} key={`page-${page}`} page={page} />
           ))}
           <PaginatorLink
             {...linkParams}
@@ -134,7 +123,7 @@ export class PaginateBase extends React.Component {
         <div className="Paginate-page-number">
           {i18n.sprintf(
             i18n.gettext('Page %(currentPage)s of %(totalPages)s'),
-            { currentPage, totalPages: this.pageCount() }
+            { currentPage, totalPages: this.pageCount() },
           )}
         </div>
       </div>
@@ -142,6 +131,4 @@ export class PaginateBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(PaginateBase);
+export default compose(translate({ withRef: true }))(PaginateBase);

@@ -20,7 +20,9 @@ import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga from 'amo/sagas/reviews';
 import apiReducer from 'core/reducers/api';
 import {
-  dispatchSignInActions, fakeAddon, fakeReview,
+  dispatchSignInActions,
+  fakeAddon,
+  fakeReview,
 } from 'tests/unit/amo/helpers';
 import { apiResponsePage, createStubErrorHandler } from 'tests/unit/helpers';
 
@@ -46,11 +48,13 @@ describe(__filename, () => {
 
   describe('fetchReviews', () => {
     function _fetchReviews(params = {}) {
-      sagaTester.dispatch(fetchReviews({
-        errorHandlerId: errorHandler.id,
-        addonSlug: fakeAddon.slug,
-        ...params,
-      }));
+      sagaTester.dispatch(
+        fetchReviews({
+          errorHandlerId: errorHandler.id,
+          addonSlug: fakeAddon.slug,
+          ...params,
+        }),
+      );
     }
 
     it('fetches reviews from the API', async () => {
@@ -72,9 +76,13 @@ describe(__filename, () => {
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews, reviewCount: 1,
-      }));
+      expect(calledActions[1]).toEqual(
+        setAddonReviews({
+          addonSlug: fakeAddon.slug,
+          reviews,
+          reviewCount: 1,
+        }),
+      );
     });
 
     it('dispatches an error', async () => {
@@ -92,12 +100,14 @@ describe(__filename, () => {
 
   describe('handleReplyToReview', () => {
     const _sendReplyToReview = (params = {}) => {
-      sagaTester.dispatch(sendReplyToReview({
-        errorHandlerId: errorHandler.id,
-        originalReviewId: fakeReview.id,
-        body: 'A reply to the review',
-        ...params,
-      }));
+      sagaTester.dispatch(
+        sendReplyToReview({
+          errorHandlerId: errorHandler.id,
+          originalReviewId: fakeReview.id,
+          body: 'A reply to the review',
+          ...params,
+        }),
+      );
     };
 
     const _setFakeReview = (params = {}) => {
@@ -106,9 +116,10 @@ describe(__filename, () => {
       return review;
     };
 
-    const createReplyToReviewResponse = (
-      { reply = {}, review = { ...fakeReview, id: 1 } } = {}
-    ) => {
+    const createReplyToReviewResponse = ({
+      reply = {},
+      review = { ...fakeReview, id: 1 },
+    } = {}) => {
       return {
         ...review,
         reply: {
@@ -136,9 +147,13 @@ describe(__filename, () => {
           originalReviewId,
           title,
         })
-        .returns(Promise.resolve(createReplyToReviewResponse({
-          review,
-        })));
+        .returns(
+          Promise.resolve(
+            createReplyToReviewResponse({
+              review,
+            }),
+          ),
+        );
 
       _sendReplyToReview({ originalReviewId, body, title });
       const lastExpectedAction = hideReplyToReviewForm({
@@ -160,7 +175,8 @@ describe(__filename, () => {
       const title = 'Title of the Reply';
 
       const reviewFromResponse = createReplyToReviewResponse({
-        review, reply: { body, title },
+        review,
+        reply: { body, title },
       });
 
       mockApi
@@ -207,20 +223,23 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createClearingAction();
 
       await sagaTester.waitFor(expectedAction.type);
-      expect(sagaTester.getCalledActions()[2])
-        .toEqual(errorHandler.createClearingAction());
+      expect(sagaTester.getCalledActions()[2]).toEqual(
+        errorHandler.createClearingAction(),
+      );
       mockApi.verify();
     });
   });
 
   describe('handleFlagReview', () => {
     const _flagReview = (params = {}) => {
-      sagaTester.dispatch(flagReview({
-        errorHandlerId: errorHandler.id,
-        reason: REVIEW_FLAG_REASON_SPAM,
-        reviewId: fakeReview.id,
-        ...params,
-      }));
+      sagaTester.dispatch(
+        flagReview({
+          errorHandlerId: errorHandler.id,
+          reason: REVIEW_FLAG_REASON_SPAM,
+          reviewId: fakeReview.id,
+          ...params,
+        }),
+      );
     };
 
     it('clears the error handler', async () => {
@@ -257,9 +276,7 @@ describe(__filename, () => {
 
     it('handles API errors', async () => {
       const error = new Error('some API error');
-      mockApi
-        .expects('flagReview')
-        .returns(Promise.reject(error));
+      mockApi.expects('flagReview').returns(Promise.reject(error));
 
       _flagReview();
 

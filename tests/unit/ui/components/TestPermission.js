@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import Icon from 'ui/components/Icon';
 import Permission from 'ui/components/Permission';
 
-
 describe(__filename, () => {
   const defaultProps = {
     type: 'my-type',
@@ -38,7 +37,6 @@ describe(__filename, () => {
     const description = 'It can access your bookmarks';
     const root = render({ description });
 
-    expect(root.find('.Permission-description').text())
-      .toEqual(description);
+    expect(root.find('.Permission-description').text()).toEqual(description);
   });
 });

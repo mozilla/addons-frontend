@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 
-
 describe(__filename, () => {
   describe('DefinitionList component', () => {
     function render(props = {}) {
@@ -20,17 +19,31 @@ describe(__filename, () => {
       const root = render({
         children: (
           <React.Fragment>
-            <Definition className="cool" title="cool">Snow</Definition>
-            <Definition className="hot" title="Hot">Beach</Definition>
+            <Definition className="cool" title="cool">
+              Snow
+            </Definition>
+            <Definition className="hot" title="Hot">
+              Beach
+            </Definition>
           </React.Fragment>
         ),
       });
 
       expect(root.find('.DefinitionList').find(Definition)).toHaveLength(2);
-      expect(root.find('.DefinitionList').find(Definition).at(0).children())
-        .toHaveText('Snow');
-      expect(root.find('.DefinitionList').find(Definition).at(1).children())
-        .toHaveText('Beach');
+      expect(
+        root
+          .find('.DefinitionList')
+          .find(Definition)
+          .at(0)
+          .children(),
+      ).toHaveText('Snow');
+      expect(
+        root
+          .find('.DefinitionList')
+          .find(Definition)
+          .at(1)
+          .children(),
+      ).toHaveText('Beach');
     });
   });
 

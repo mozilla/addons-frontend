@@ -8,7 +8,8 @@ import { compose } from 'redux';
 
 import { submitReview } from 'amo/api/reviews';
 import {
-  setDenormalizedReview as _setDenormalizedReview, setReview,
+  setDenormalizedReview as _setDenormalizedReview,
+  setReview,
 } from 'amo/actions/reviews';
 import { refreshAddon as _refreshAddon, sanitizeHTML } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
@@ -29,12 +30,14 @@ import './styles.scss';
 
 type SetDenormalizedReviewFunction = (review: $Shape<UserReviewType>) => void;
 
-type RefreshAddonFunction = (
-  params: {| addonSlug: string, apiState: ApiStateType |}
-) => Promise<void>;
+type RefreshAddonFunction = (params: {|
+  addonSlug: string,
+  apiState: ApiStateType,
+|}) => Promise<void>;
 
-type UpdateReviewTextFunction =
-  (review: $Shape<SubmitReviewParams>) => Promise<void>;
+type UpdateReviewTextFunction = (
+  review: $Shape<SubmitReviewParams>,
+) => Promise<void>;
 
 type DispatchMappedProps = {|
   refreshAddon?: RefreshAddonFunction,
@@ -96,14 +99,16 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
   }
 
   checkForStoredState() {
-    return this.localState.load()
-      .then((storedState) => {
-        if (storedState) {
-          log.debug(oneLine`Initializing AddonReview state from LocalState
-            ${this.localState.id}`, storedState);
-          this.setState(storedState);
-        }
-      });
+    return this.localState.load().then((storedState) => {
+      if (storedState) {
+        log.debug(
+          oneLine`Initializing AddonReview state from LocalState
+            ${this.localState.id}`,
+          storedState,
+        );
+        this.setState(storedState);
+      }
+    });
   }
 
   onSubmit = (event: SyntheticEvent<any>) => {
@@ -144,8 +149,8 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     setDenormalizedReview(updatedReview);
 
     // Next, update the review with an actual API request.
-    return updateReviewText(params)
-      .then(() => Promise.all([
+    return updateReviewText(params).then(() =>
+      Promise.all([
         // Give the parent a callback saying that the review has been
         // submitted. Example: this might close the review entry overlay.
         onReviewSubmitted(),
@@ -153,8 +158,9 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
         // the API now.
         this.localState.clear(),
         refreshAddon({ addonSlug: review.addonSlug, apiState }),
-      ]));
-  }
+      ]),
+    );
+  };
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
     invariant(this.props.debounce, 'debounce() is undefined');
@@ -167,19 +173,21 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     const newState = { reviewBody: event.target.value };
     saveState(newState);
     this.setState(newState);
-  }
+  };
 
   onSelectRating = (rating: number) => {
     // Update the review object with a new rating but don't submit it
     // to the API yet.
-    invariant(this.props.setDenormalizedReview,
-      'setDenormalizedReview() is undefined');
+    invariant(
+      this.props.setDenormalizedReview,
+      'setDenormalizedReview() is undefined',
+    );
     this.props.setDenormalizedReview({
       ...this.props.review,
       body: this.state.reviewBody || undefined,
       rating,
     });
-  }
+  };
 
   render() {
     const { errorHandler, i18n, review } = this.props;
@@ -193,24 +201,25 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     if (review.rating && review.rating > 3) {
       promptText = i18n.gettext(
         `Tell the world why you think this extension is fantastic!
-        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`
+        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`,
       );
       placeholder = i18n.gettext(
-        'Tell us what you love about this extension. Be specific and concise.'
+        'Tell us what you love about this extension. Be specific and concise.',
       );
     } else {
       promptText = i18n.gettext(
         `Tell the world about this extension.
-        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`
+        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`,
       );
       placeholder = i18n.gettext(
         'Tell us about your experience with this extension. ' +
-        'Be specific and concise.'
+          'Be specific and concise.',
       );
     }
 
     const prompt = i18n.sprintf(promptText, {
-      linkStart: '<a href="/review_guide">', linkEnd: '</a>',
+      linkStart: '<a href="/review_guide">',
+      linkEnd: '</a>',
     });
 
     return (
@@ -239,7 +248,9 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
             </label>
             <textarea
               id="AddonReview-textarea"
-              ref={(ref) => { this.reviewTextarea = ref; }}
+              ref={(ref) => {
+                this.reviewTextarea = ref;
+              }}
               className="AddonReview-textarea"
               onInput={this.onBodyInput}
               name="review"
@@ -264,26 +275,34 @@ export const mapStateToProps = (state: {| api: ApiStateType |}) => ({
 
 export const mapDispatchToProps = (
   dispatch: DispatchFunc,
-  ownProps: Props
+  ownProps: Props,
 ): DispatchMappedProps => {
   // The mapped properties that allow overrides do so for testing purposes.
   return {
-    refreshAddon: ownProps.refreshAddon || (({ addonSlug, apiState }) => {
-      return _refreshAddon({ addonSlug, apiState, dispatch });
-    }),
+    refreshAddon:
+      ownProps.refreshAddon ||
+      (({ addonSlug, apiState }) => {
+        return _refreshAddon({ addonSlug, apiState, dispatch });
+      }),
     setDenormalizedReview: (review) => {
       dispatch(_setDenormalizedReview(review));
     },
-    updateReviewText: ownProps.updateReviewText || ((params) => {
-      return submitReview(params)
-        .then((review) => dispatch(setReview(review)));
-    }),
+    updateReviewText:
+      ownProps.updateReviewText ||
+      ((params) => {
+        return submitReview(params).then((review) =>
+          dispatch(setReview(review)),
+        );
+      }),
   };
 };
 
 const AddonReview: React.ComponentType<Props> = compose(
   withErrorHandler({ name: 'AddonReview' }),
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
   translate({ withRef: true }),
 )(AddonReviewBase);
 

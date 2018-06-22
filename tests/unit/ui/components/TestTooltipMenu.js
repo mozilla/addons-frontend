@@ -5,7 +5,6 @@ import RCTooltip from 'rc-tooltip';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 
-
 describe(__filename, () => {
   const renderProps = (customProps = {}) => {
     return {
@@ -41,8 +40,7 @@ describe(__filename, () => {
     const openerTitle = 'Open the tooltip menu. Thanks.';
     const root = render({ openerTitle });
 
-    expect(root.find('.TooltipMenu-opener'))
-      .toHaveProp('title', openerTitle);
+    expect(root.find('.TooltipMenu-opener')).toHaveProp('title', openerTitle);
   });
 
   it('can create an aria-describedby ID with a prefix', () => {

@@ -20,16 +20,22 @@ describe('<LoginPage />', () => {
 
   it('has a default message', () => {
     const root = render({ location });
-    expect(root.querySelector('.login-message').textContent).toEqual('You must be logged in to access this page.');
+    expect(root.querySelector('.login-message').textContent).toEqual(
+      'You must be logged in to access this page.',
+    );
   });
 
   it('can accept a message', () => {
     const root = render({ location, message: 'My custom login message.' });
-    expect(root.querySelector('.login-message').textContent).toEqual('My custom login message.');
+    expect(root.querySelector('.login-message').textContent).toEqual(
+      'My custom login message.',
+    );
   });
 
   it('has a button to the login URL', () => {
-    const startLoginUrl = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login/start/');
+    const startLoginUrl = sinon
+      .stub(api, 'startLoginUrl')
+      .returns('https://a.m.org/login/start/');
     const root = render({ location });
     const loginLink = root.querySelector('a');
     expect(loginLink.href).toEqual('https://a.m.org/login/start/');

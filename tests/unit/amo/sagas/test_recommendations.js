@@ -9,11 +9,7 @@ import recommendationsReducer, {
 import recommendationsSaga from 'amo/sagas/recommendations';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
-import {
-  fakeAddon,
-  dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
-
+import { fakeAddon, dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   let errorHandler;
@@ -38,10 +34,12 @@ describe(__filename, () => {
   const recommended = true;
 
   function _fetchRecommendations(params) {
-    sagaTester.dispatch(fetchRecommendations({
-      errorHandlerId: errorHandler.id,
-      ...params,
-    }));
+    sagaTester.dispatch(
+      fetchRecommendations({
+        errorHandlerId: errorHandler.id,
+        ...params,
+      }),
+    );
   }
 
   it('calls the API to fetch recommendations', async () => {
@@ -99,6 +97,8 @@ describe(__filename, () => {
     const expectedAction = errorHandler.createErrorAction(error);
     const action = await sagaTester.waitFor(expectedAction.type);
     expect(expectedAction).toEqual(action);
-    expect(sagaTester.getCalledActions()[3]).toEqual(abortFetchRecommendations({ guid }));
+    expect(sagaTester.getCalledActions()[3]).toEqual(
+      abortFetchRecommendations({ guid }),
+    );
   });
 });

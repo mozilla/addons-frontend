@@ -5,7 +5,6 @@ import redirectToReducer, {
   sendServerRedirect,
 } from 'core/reducers/redirectTo';
 
-
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
@@ -25,7 +24,8 @@ describe(__filename, () => {
         url: '/some/url',
       };
       const state = redirectToReducer(
-        undefined, sendServerRedirect(redirectTo)
+        undefined,
+        sendServerRedirect(redirectTo),
       );
       expect(state).toEqual(redirectTo);
     });

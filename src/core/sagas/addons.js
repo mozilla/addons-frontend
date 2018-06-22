@@ -13,10 +13,9 @@ import type { FetchAddonAction } from 'core/reducers/addons';
 
 import { createErrorHandler, getState } from './utils';
 
-
-export function* fetchAddon(
-  { payload: { errorHandlerId, slug } }: FetchAddonAction
-): Generator<any, any, any> {
+export function* fetchAddon({
+  payload: { errorHandlerId, slug },
+}: FetchAddonAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
   try {

@@ -9,7 +9,7 @@ export default class LoginPage extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
     message: PropTypes.string,
-  }
+  };
 
   render() {
     const title = _('Login Required');

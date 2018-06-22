@@ -18,7 +18,11 @@ describe('logger.bindConsoleMethod()', () => {
   });
 
   function getAlias(method = 'info', opts = {}) {
-    return bindConsoleMethod(method, { _consoleObj: fakeConsole, _config: fakeConfig, ...opts });
+    return bindConsoleMethod(method, {
+      _consoleObj: fakeConsole,
+      _config: fakeConfig,
+      ...opts,
+    });
   }
 
   it('aliases as expected', () => {

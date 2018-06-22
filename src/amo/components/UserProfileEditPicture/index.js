@@ -11,7 +11,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type Props = {|
   name: string,
   onDelete: Function,
@@ -31,17 +30,22 @@ export const UserProfileEditPictureBase = ({
   onSelect,
   preview,
   user,
-}: { ...Props, ...InjectedProps }) => {
-  const altText = user ? i18n.sprintf(
-    i18n.gettext('Profile picture for %(name)s'), { name: user.name }
-  ) : null;
+}: {
+  ...Props,
+  ...InjectedProps,
+}) => {
+  const altText = user
+    ? i18n.sprintf(i18n.gettext('Profile picture for %(name)s'), {
+        name: user.name,
+      })
+    : null;
 
   const buttonClass = makeClassName(
     'UserProfileEditPicture-select-button',
     'Button Button--action Button--puffy',
     {
       'Button--disabled': !user,
-    }
+    },
   );
 
   return (
@@ -50,11 +54,7 @@ export const UserProfileEditPictureBase = ({
         {i18n.gettext('Profile photo')}
       </label>
 
-      <UserAvatar
-        altText={altText}
-        preview={preview}
-        user={user}
-      />
+      <UserAvatar altText={altText} preview={preview} user={user} />
 
       {/* eslint-disable-next-line jsx-a11y/label-has-for */}
       <label className="UserProfileEditPicture-file">
@@ -65,27 +65,26 @@ export const UserProfileEditPictureBase = ({
           onChange={onSelect}
           type="file"
         />
-        <span className={buttonClass}>
-          {i18n.gettext('Choose photo...')}
-        </span>
+        <span className={buttonClass}>{i18n.gettext('Choose photo...')}</span>
       </label>
 
-      {(user && user.picture_url) && (
-        <ConfirmButton
-          buttonType="cancel"
-          className="UserProfileEditPicture-delete-button"
-          message={i18n.gettext('Do you really want to delete this picture?')}
-          onConfirm={onDelete}
-        >
-          {i18n.gettext('Delete this picture')}
-        </ConfirmButton>
-      )}
+      {user &&
+        user.picture_url && (
+          <ConfirmButton
+            buttonType="cancel"
+            className="UserProfileEditPicture-delete-button"
+            message={i18n.gettext('Do you really want to delete this picture?')}
+            onConfirm={onDelete}
+          >
+            {i18n.gettext('Delete this picture')}
+          </ConfirmButton>
+        )}
     </section>
   );
 };
 
-const UserProfileEditPicture: React.ComponentType<Props> = compose(
-  translate(),
-)(UserProfileEditPictureBase);
+const UserProfileEditPicture: React.ComponentType<Props> = compose(translate())(
+  UserProfileEditPictureBase,
+);
 
 export default UserProfileEditPicture;

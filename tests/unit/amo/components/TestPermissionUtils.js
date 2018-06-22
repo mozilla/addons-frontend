@@ -2,19 +2,9 @@ import UAParser from 'ua-parser-js';
 
 import { PermissionUtils } from 'amo/components/PermissionsCard/permissions';
 import { createInternalAddon } from 'core/reducers/addons';
-import {
-  OS_ALL,
-  OS_MAC,
-} from 'core/constants';
-import {
-  fakeI18n,
-  userAgentsByPlatform,
-} from 'tests/unit/helpers';
-import {
-  createFakeAddon,
-  fakePlatformFile,
-} from 'tests/unit/amo/helpers';
-
+import { OS_ALL, OS_MAC } from 'core/constants';
+import { fakeI18n, userAgentsByPlatform } from 'tests/unit/helpers';
+import { createFakeAddon, fakePlatformFile } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   let permissionUtils;
@@ -31,41 +21,43 @@ describe(__filename, () => {
     const createAddon = (platforms = [OS_MAC, OS_ALL]) => {
       const files = [];
       for (const platform of platforms) {
-        files.push(
-          {
-            ...fakePlatformFile,
-            platform,
-            permissions: permissionsForOSs[platform],
-          },
-        );
+        files.push({
+          ...fakePlatformFile,
+          platform,
+          permissions: permissionsForOSs[platform],
+        });
       }
       return createInternalAddon(createFakeAddon({ files }));
     };
 
     it('gets permissions for a specific os', () => {
       const result = permissionUtils.getCurrentPermissions(
-        createAddon(), UAParser(userAgentsByPlatform.mac.firefox57)
+        createAddon(),
+        UAParser(userAgentsByPlatform.mac.firefox57),
       );
       expect(result).toEqual(permissionsForOSs[OS_MAC]);
     });
 
     it('gets permissions for a all_os if the specific platform is not found', () => {
       const result = permissionUtils.getCurrentPermissions(
-        createAddon(), UAParser(userAgentsByPlatform.windows.firefox40)
+        createAddon(),
+        UAParser(userAgentsByPlatform.windows.firefox40),
       );
       expect(result).toEqual(permissionsForOSs[OS_ALL]);
     });
 
     it('returns an empty array if all_os does not exist and the platform is not found', () => {
       const result = permissionUtils.getCurrentPermissions(
-        createAddon([OS_MAC]), UAParser(userAgentsByPlatform.windows.firefox40)
+        createAddon([OS_MAC]),
+        UAParser(userAgentsByPlatform.windows.firefox40),
       );
       expect(result).toHaveLength(0);
     });
 
     it('returns an empty array if no platform is found for the user agent OS', () => {
       const result = permissionUtils.getCurrentPermissions(
-        createAddon([OS_MAC]), { os: { name: 'invalid OS name' } }
+        createAddon([OS_MAC]),
+        { os: { name: 'invalid OS name' } },
       );
       expect(result).toHaveLength(0);
     });
@@ -125,10 +117,15 @@ describe(__filename, () => {
       // HostPermissions component.
       expect(result[0].props.permissions).toHaveLength(2);
       expect(result[0].props.permissions).toEqual([
-        hostPermissionA, hostPermissionB,
+        hostPermissionA,
+        hostPermissionB,
       ]);
       // Native messaging next.
-      expectPermission(result[1], 'nativeMessaging', 'Exchange messages with programs other than Firefox');
+      expectPermission(
+        result[1],
+        'nativeMessaging',
+        'Exchange messages with programs other than Firefox',
+      );
       // Named permissions in alphabetical order.
       expectPermission(result[2], 'bookmarks', 'Read and modify bookmarks');
       expectPermission(result[3], 'tabs', 'Access browser tabs');

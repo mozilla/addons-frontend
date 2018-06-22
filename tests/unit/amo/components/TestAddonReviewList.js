@@ -3,7 +3,9 @@ import * as React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import {
-  clearAddonReviews, fetchReviews, setAddonReviews,
+  clearAddonReviews,
+  fetchReviews,
+  setAddonReviews,
 } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
@@ -21,11 +23,15 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import {
-  fetchAddon, createInternalAddon, loadAddons,
+  fetchAddon,
+  createInternalAddon,
+  loadAddons,
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import {
-  dispatchClientMetadata, fakeAddon, fakeReview,
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
@@ -38,7 +44,6 @@ import { setError } from 'core/actions/errors';
 import { createApiError } from 'core/api/index';
 import LoadingText from 'ui/components/LoadingText';
 
-
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   const lang = 'en-US';
@@ -49,7 +54,10 @@ describe(__filename, () => {
   });
 
   const getProps = ({
-    location = fakeRouterLocation(), params, router, ...customProps
+    location = fakeRouterLocation(),
+    params,
+    router,
+    ...customProps
   } = {}) => {
     return {
       i18n: fakeI18n(),
@@ -72,7 +80,8 @@ describe(__filename, () => {
     const props = getProps(customProps);
 
     return shallowUntilTarget(
-      <AddonReviewList {...props} />, AddonReviewListBase
+      <AddonReviewList {...props} />,
+      AddonReviewListBase,
     );
   };
 
@@ -81,47 +90,55 @@ describe(__filename, () => {
   };
 
   const dispatchAddonReviews = ({
-    addon = fakeAddon, reviews = [{ ...fakeReview, id: 1 }],
+    addon = fakeAddon,
+    reviews = [{ ...fakeReview, id: 1 }],
   } = {}) => {
     const action = setAddonReviews({
-      addonSlug: addon.slug, reviews, reviewCount: reviews.length,
+      addonSlug: addon.slug,
+      reviews,
+      reviewCount: reviews.length,
     });
     store.dispatch(action);
   };
 
   describe('<AddonReviewList/>', () => {
     it('requires location params', () => {
-      expect(() => render({ router: { params: null } }))
-        .toThrowError(/component had a falsey params\.addonSlug/);
+      expect(() => render({ router: { params: null } })).toThrowError(
+        /component had a falsey params\.addonSlug/,
+      );
     });
 
     it('requires an addonSlug param', () => {
-      expect(() => render({ router: { params: {} } }))
-        .toThrowError(/component had a falsey params\.addonSlug/);
+      expect(() => render({ router: { params: {} } })).toThrowError(
+        /component had a falsey params\.addonSlug/,
+      );
     });
 
     it('requires a non-empty addonSlug param', () => {
-      expect(() => render({ router: { params: { addonSlug: null } } }))
-        .toThrowError(/component had a falsey params\.addonSlug/);
+      expect(() =>
+        render({ router: { params: { addonSlug: null } } }),
+      ).toThrowError(/component had a falsey params\.addonSlug/);
     });
 
     it('waits for an addon and reviews to load', () => {
       const location = fakeRouterLocation();
       const root = render({ addon: null, location });
-      expect(root.find('.AddonReviewList-header-icon img').prop('src'))
-        .toEqual(fallbackIcon);
-      expect(root.find('.AddonReviewList-header-text').find(LoadingText))
-        .toHaveLength(3);
+      expect(root.find('.AddonReviewList-header-icon img').prop('src')).toEqual(
+        fallbackIcon,
+      );
+      expect(
+        root.find('.AddonReviewList-header-text').find(LoadingText),
+      ).toHaveLength(3);
 
       // Make sure four review placeholders were rendered.
       expect(root.find(AddonReviewListItem)).toHaveLength(4);
       // Do a sanity check on the first placeholder;
-      expect(root.find(AddonReviewListItem).at(0))
-        .toHaveProp('addon', null);
-      expect(root.find(AddonReviewListItem).at(0))
-        .toHaveProp('location', location);
-      expect(root.find(AddonReviewListItem).at(0))
-        .toHaveProp('review', null);
+      expect(root.find(AddonReviewListItem).at(0)).toHaveProp('addon', null);
+      expect(root.find(AddonReviewListItem).at(0)).toHaveProp(
+        'location',
+        location,
+      );
+      expect(root.find(AddonReviewListItem).at(0)).toHaveProp('review', null);
     });
 
     it('does not paginate before reviews have loaded', () => {
@@ -137,12 +154,18 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
 
       render({
-        addon: null, errorHandler, params: { addonSlug },
+        addon: null,
+        errorHandler,
+        params: { addonSlug },
       });
 
-      sinon.assert.calledWith(dispatch, fetchAddon({
-        slug: addonSlug, errorHandler,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchAddon({
+          slug: addonSlug,
+          errorHandler,
+        }),
+      );
     });
 
     it('ignores other add-ons', () => {
@@ -165,15 +188,19 @@ describe(__filename, () => {
         params: { addonSlug: addon.slug },
       });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug: addon.slug,
-        errorHandlerId: errorHandler.id,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
     });
 
     it('fetches reviews if needed during an update', () => {
       const addon = createInternalAddon({
-        ...fakeAddon, slug: 'some-other-slug',
+        ...fakeAddon,
+        slug: 'some-other-slug',
       });
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
@@ -189,10 +216,13 @@ describe(__filename, () => {
       // Simulate how a redux state change will introduce an addon.
       root.setProps({ addon });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug: addon.slug,
-        errorHandlerId: errorHandler.id,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
     });
 
     it('fetches reviews by page', () => {
@@ -208,11 +238,14 @@ describe(__filename, () => {
         params: { addonSlug },
       });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug,
-        errorHandlerId: errorHandler.id,
-        page,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug,
+          errorHandlerId: errorHandler.id,
+          page,
+        }),
+      );
     });
 
     it('dispatches fetchReviews with an invalid page variable', () => {
@@ -228,11 +261,14 @@ describe(__filename, () => {
         params: { addonSlug },
       });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug,
-        errorHandlerId: errorHandler.id,
-        page,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug,
+          errorHandlerId: errorHandler.id,
+          page,
+        }),
+      );
     });
 
     it('fetches reviews when the page changes', () => {
@@ -250,11 +286,14 @@ describe(__filename, () => {
         location: fakeRouterLocation({ query: { page: 3 } }),
       });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug,
-        errorHandlerId: errorHandler.id,
-        page: 3,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug,
+          errorHandlerId: errorHandler.id,
+          page: 3,
+        }),
+      );
     });
 
     it('does not fetch an addon if there is an error', () => {
@@ -430,7 +469,8 @@ describe(__filename, () => {
 
     it('renders the fallback icon if the origin is not allowed', () => {
       dispatchAddon({
-        ...fakeAddon, icon_url: 'http://foo.com/hax.png',
+        ...fakeAddon,
+        icon_url: 'http://foo.com/hax.png',
       });
       const root = render();
       const img = root.find('.AddonReviewList-header-icon img');
@@ -449,20 +489,29 @@ describe(__filename, () => {
     it('produces an addon URL', () => {
       const addon = fakeAddon;
       dispatchAddon(addon);
-      expect(render().instance().addonURL())
-        .toEqual(`/addon/${addon.slug}/`);
+      expect(
+        render()
+          .instance()
+          .addonURL(),
+      ).toEqual(`/addon/${addon.slug}/`);
     });
 
     it('produces a URL to itself', () => {
       const addon = fakeAddon;
       dispatchAddon(addon);
-      expect(render().instance().url())
-        .toEqual(`/addon/${addon.slug}/reviews/`);
+      expect(
+        render()
+          .instance()
+          .url(),
+      ).toEqual(`/addon/${addon.slug}/reviews/`);
     });
 
     it('requires an addon prop to produce a URL', () => {
-      expect(() => render({ addon: null }).instance().addonURL())
-        .toThrowError(/cannot access addonURL/);
+      expect(() =>
+        render({ addon: null })
+          .instance()
+          .addonURL(),
+      ).toThrowError(/cannot access addonURL/);
     });
 
     it('renders author names without links if no URLs', () => {
@@ -523,8 +572,7 @@ describe(__filename, () => {
 
       const cardList = root.find('.AddonReviewList-reviews');
       expect(cardList).toHaveProp('header');
-      expect(cardList.prop('header'))
-        .toContain('1 review for this add-on');
+      expect(cardList.prop('header')).toContain('1 review for this add-on');
     });
 
     it('configures a paginator with the right URL', () => {
@@ -612,8 +660,10 @@ describe(__filename, () => {
       const instanceProps = root.instance().props;
       expect(manager).toHaveProp('addon', instanceProps.addon);
       expect(manager).toHaveProp('location', location);
-      expect(manager)
-        .toHaveProp('version', instanceProps.addon.current_version);
+      expect(manager).toHaveProp(
+        'version',
+        instanceProps.addon.current_version,
+      );
       expect(manager).toHaveProp('onReviewSubmitted');
     });
 
@@ -637,9 +687,7 @@ describe(__filename, () => {
       // Simulate a review submission.
       onReviewSubmitted();
 
-      sinon.assert.calledWith(
-        dispatchSpy, clearAddonReviews({ addonSlug })
-      );
+      sinon.assert.calledWith(dispatchSpy, clearAddonReviews({ addonSlug }));
     });
 
     it('resets the page after submitting a review', () => {

@@ -14,7 +14,6 @@ import {
   fakeTheme,
 } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
@@ -30,23 +29,25 @@ describe(__filename, () => {
     it('loads the add-ons to display on homepage', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(loadHomeAddons({
-        collections: [createFakeCollectionAddonsListResponse({
-          addons: Array(10).fill(createFakeCollectionAddon()),
-        })],
-        featuredExtensions: createAddonsApiResult([fakeAddon]),
-        featuredThemes: createAddonsApiResult([fakeTheme]),
-      }));
+      store.dispatch(
+        loadHomeAddons({
+          collections: [
+            createFakeCollectionAddonsListResponse({
+              addons: Array(10).fill(createFakeCollectionAddon()),
+            }),
+          ],
+          featuredExtensions: createAddonsApiResult([fakeAddon]),
+          featuredThemes: createAddonsApiResult([fakeTheme]),
+        }),
+      );
 
       const homeState = store.getState().home;
 
       expect(homeState.resultsLoaded).toEqual(true);
-      expect(homeState.collections)
-        .toHaveLength(1);
-      expect(homeState.collections[0])
-        .toHaveLength(LANDING_PAGE_ADDON_COUNT);
+      expect(homeState.collections).toHaveLength(1);
+      expect(homeState.collections[0]).toHaveLength(LANDING_PAGE_ADDON_COUNT);
       expect(homeState.collections[0]).toEqual(
-        Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
+        Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon)),
       );
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
@@ -59,11 +60,13 @@ describe(__filename, () => {
     it('loads a null for a missing collection', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(loadHomeAddons({
-        collections: [null],
-        featuredExtensions: createAddonsApiResult([fakeAddon]),
-        featuredThemes: createAddonsApiResult([fakeTheme]),
-      }));
+      store.dispatch(
+        loadHomeAddons({
+          collections: [null],
+          featuredExtensions: createAddonsApiResult([fakeAddon]),
+          featuredThemes: createAddonsApiResult([fakeTheme]),
+        }),
+      );
 
       const homeState = store.getState().home;
 
@@ -81,10 +84,13 @@ describe(__filename, () => {
     it('sets `resultsLoaded` to `false` when fetching home add-ons', () => {
       const loadedState = { ...initialState, resultsLoaded: true };
 
-      const state = homeReducer(loadedState, fetchHomeAddons({
-        errorHandlerId: 'some-error-handler-id',
-        collectionsToFetch: [],
-      }));
+      const state = homeReducer(
+        loadedState,
+        fetchHomeAddons({
+          errorHandlerId: 'some-error-handler-id',
+          collectionsToFetch: [],
+        }),
+      );
 
       expect(state.resultsLoaded).toEqual(false);
     });

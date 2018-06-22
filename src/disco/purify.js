@@ -2,7 +2,6 @@ import createDOMPurify from 'dompurify';
 
 import universalWindow from 'core/window';
 
-
 const discoPurify = createDOMPurify(universalWindow);
 
 discoPurify.addHook('afterSanitizeAttributes', (node) => {

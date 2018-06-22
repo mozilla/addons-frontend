@@ -6,7 +6,6 @@ import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 import Icon from 'ui/components/Icon';
 import { createFakeEvent, shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   const renderComponent = (componentInstance) => {
     return shallowUntilTarget(componentInstance, DropdownMenuBase, {
@@ -30,7 +29,7 @@ describe(__filename, () => {
     const menu = renderComponent(
       <DropdownMenu text="Menu">
         <DropdownMenuItem>A section</DropdownMenuItem>
-      </DropdownMenu>
+      </DropdownMenu>,
     );
 
     expect(menu.find('.DropdownMenu-items')).toHaveLength(1);
@@ -57,14 +56,19 @@ describe(__filename, () => {
     const getMenu = () => root.find('.DropdownMenu');
 
     // User clicks the menu main button.
-    getMenu().find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    getMenu()
+      .find('.DropdownMenu-button')
+      .simulate('click', createFakeEvent());
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
 
     // User clicks somewhere else.
     // The first `instance()` call is Enzyme API, the second `getInstance()`
     // call is react-onclickoutside API. See:
     // https://github.com/Pomax/react-onclickoutside#but-how-can-i-access-my-component-it-has-an-api-that-i-rely-on
-    root.instance().getInstance().handleClickOutside();
+    root
+      .instance()
+      .getInstance()
+      .handleClickOutside();
     // When using `mount`, Enzyme 3+ requires to `.update()` when we manually
     // make changes, like above.
     root.update();
@@ -77,18 +81,24 @@ describe(__filename, () => {
     const root = mount(
       <DropdownMenu text="Menu">
         <DropdownMenuItem>
-          <a className="TestLink" href="/test-link/">Test!</a>
+          <a className="TestLink" href="/test-link/">
+            Test!
+          </a>
         </DropdownMenuItem>
-      </DropdownMenu>
+      </DropdownMenu>,
     );
     const getMenu = () => root.find('.DropdownMenu');
 
     // User clicks the menu main button to open it.
-    getMenu().find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    getMenu()
+      .find('.DropdownMenu-button')
+      .simulate('click', createFakeEvent());
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
 
     // User clicks a link.
-    getMenu().find('.TestLink').simulate('click', createFakeEvent());
+    getMenu()
+      .find('.TestLink')
+      .simulate('click', createFakeEvent());
     expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
   });
 
@@ -116,7 +126,9 @@ describe(__filename, () => {
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
 
     // User clicks the menu's main button once, which should not hide it.
-    getMenu().find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    getMenu()
+      .find('.DropdownMenu-button')
+      .simulate('click', createFakeEvent());
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
   });
 
@@ -129,14 +141,18 @@ describe(__filename, () => {
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
 
     // User clicks the menu's main button twice, which will dismiss it.
-    getMenu().find('.DropdownMenu-button').simulate('click', createFakeEvent());
-    getMenu().find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    getMenu()
+      .find('.DropdownMenu-button')
+      .simulate('click', createFakeEvent());
+    getMenu()
+      .find('.DropdownMenu-button')
+      .simulate('click', createFakeEvent());
     expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
   });
 
   it('optionally takes a class name', () => {
     const menu = renderComponent(
-      <DropdownMenu text="Menu" className="my-class" />
+      <DropdownMenu text="Menu" className="my-class" />,
     );
 
     expect(menu).toHaveClassName('DropdownMenu');

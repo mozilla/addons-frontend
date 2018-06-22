@@ -10,7 +10,6 @@ import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 
 import './styles.scss';
 
-
 type Props = {|
   text: string,
   children?: React.ChildrenArray<React.Element<typeof DropdownMenuItem>>,
@@ -40,7 +39,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     this.setState((previousState) => ({
       buttonIsActive: !previousState.buttonIsActive,
     }));
-  }
+  };
 
   handleOnClickForLinks = (event: SyntheticInputEvent<any>) => {
     // If a link inside the menu is clicked, we should close the dropdown.
@@ -50,19 +49,19 @@ export class DropdownMenuBase extends React.Component<Props, State> {
         false, because a link inside the menu was clicked.`);
       this.setState({ buttonIsActive: false, setByHover: false });
     }
-  }
+  };
 
   handleClickOutside = () => {
     this.setState({ buttonIsActive: false, setByHover: false });
-  }
+  };
 
   handleOnMouseEnter = () => {
     this.setState({ buttonIsActive: true, setByHover: true });
-  }
+  };
 
   handleOnMouseLeave = () => {
     this.setState({ buttonIsActive: false, setByHover: false });
-  }
+  };
 
   render() {
     const { children, className, text } = this.props;
@@ -88,14 +87,16 @@ export class DropdownMenuBase extends React.Component<Props, State> {
           title={text}
           aria-haspopup="true"
         >
-          <span className="DropdownMenu-button-text">
-            {text}
-          </span>
+          <span className="DropdownMenu-button-text">{text}</span>
           <Icon name="inverted-caret" />
         </button>
 
         {children && (
-          <ul className="DropdownMenu-items" aria-hidden={!this.state.buttonIsActive} aria-label="submenu">
+          <ul
+            className="DropdownMenu-items"
+            aria-hidden={!this.state.buttonIsActive}
+            aria-label="submenu"
+          >
             {children}
           </ul>
         )}

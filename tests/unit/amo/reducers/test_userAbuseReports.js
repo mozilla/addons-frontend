@@ -12,12 +12,12 @@ import {
   createUserAccountResponse,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
-      const state = userAbuseReportsReducer(
-        initialState, { type: 'UNRELATED_ACTION' });
+      const state = userAbuseReportsReducer(initialState, {
+        type: 'UNRELATED_ACTION',
+      });
       expect(state).toEqual(initialState);
     });
 
@@ -25,14 +25,25 @@ describe(__filename, () => {
       it('resets the state of this abuse report', () => {
         const userId = createUserAccountResponse({ id: 501 }).id;
         let state = userAbuseReportsReducer(
-          initialState, showUserAbuseReportUI({ userId }));
-        state = userAbuseReportsReducer(state, showUserAbuseReportUI({ userId }));
-        state = userAbuseReportsReducer(state, sendUserAbuseReport({
-          errorHandlerId: 'some-error-handler',
-          message: 'foo',
-          userId,
-        }));
-        state = userAbuseReportsReducer(state, abortUserAbuseReport({ userId }));
+          initialState,
+          showUserAbuseReportUI({ userId }),
+        );
+        state = userAbuseReportsReducer(
+          state,
+          showUserAbuseReportUI({ userId }),
+        );
+        state = userAbuseReportsReducer(
+          state,
+          sendUserAbuseReport({
+            errorHandlerId: 'some-error-handler',
+            message: 'foo',
+            userId,
+          }),
+        );
+        state = userAbuseReportsReducer(
+          state,
+          abortUserAbuseReport({ userId }),
+        );
 
         expect(state).toMatchObject({
           byUserId: {
@@ -50,7 +61,9 @@ describe(__filename, () => {
       it('sets the uiVisible state to false', () => {
         const userId = createUserAccountResponse();
         const state = userAbuseReportsReducer(
-          initialState, hideUserAbuseReportUI({ userId }));
+          initialState,
+          hideUserAbuseReportUI({ userId }),
+        );
 
         expect(state).toMatchObject({
           byUserId: {
@@ -64,7 +77,9 @@ describe(__filename, () => {
       it('sets the uiVisible state to true', () => {
         const userId = createUserAccountResponse().id;
         const state = userAbuseReportsReducer(
-          initialState, showUserAbuseReportUI({ userId }));
+          initialState,
+          showUserAbuseReportUI({ userId }),
+        );
 
         expect(state).toMatchObject({
           byUserId: {
@@ -105,14 +120,17 @@ describe(__filename, () => {
       it('saves the abuse report response to the reducer', () => {
         const abuseReport = abuseReportResponse();
         const state = userAbuseReportsReducer(
-          initialState, loadUserAbuseReport({
+          initialState,
+          loadUserAbuseReport({
             message: abuseReport.message,
             reporter: abuseReport.reporter,
             userId: abuseReport.user.id,
-          }));
+          }),
+        );
 
-        expect(state.byUserId[abuseReport.user.id].message)
-          .toEqual('I am Groot!');
+        expect(state.byUserId[abuseReport.user.id].message).toEqual(
+          'I am Groot!',
+        );
       });
 
       it('allows abuse reports for multiple users', () => {
@@ -127,16 +145,22 @@ describe(__filename, () => {
           user: createUserAccountResponse({ id: 51 }),
         });
 
-        let state = userAbuseReportsReducer(initialState, loadUserAbuseReport({
-          message: firstReport.message,
-          reporter: firstReport.reporter,
-          userId: firstReport.user.id,
-        }));
-        state = userAbuseReportsReducer(state, loadUserAbuseReport({
-          message: secondReport.message,
-          reporter: secondReport.reporter,
-          userId: secondReport.user.id,
-        }));
+        let state = userAbuseReportsReducer(
+          initialState,
+          loadUserAbuseReport({
+            message: firstReport.message,
+            reporter: firstReport.reporter,
+            userId: firstReport.user.id,
+          }),
+        );
+        state = userAbuseReportsReducer(
+          state,
+          loadUserAbuseReport({
+            message: secondReport.message,
+            reporter: secondReport.reporter,
+            userId: secondReport.user.id,
+          }),
+        );
 
         expect(state).toMatchObject({
           byUserId: {

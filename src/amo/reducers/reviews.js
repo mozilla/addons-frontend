@@ -31,17 +31,16 @@ import type {
 } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 
-
 type ReviewsById = {
   [id: number]: UserReviewType,
-}
+};
 
 type ReviewsByAddon = {
   [slug: string]: {|
     reviewCount: number,
     reviews: Array<number>,
   |},
-}
+};
 
 export type FlagState = {
   reason: FlagReviewReasonType,
@@ -91,9 +90,10 @@ type ExpandReviewObjectsParams = {|
   reviews: Array<number>,
 |};
 
-export const expandReviewObjects = (
-  { state, reviews }: ExpandReviewObjectsParams
-): Array<UserReviewType> => {
+export const expandReviewObjects = ({
+  state,
+  reviews,
+}: ExpandReviewObjectsParams): Array<UserReviewType> => {
   return reviews.map((id) => {
     const review = state.byId[id];
     if (!review) {
@@ -126,9 +126,10 @@ type StoreReviewObjectsParams = {|
   reviews: Array<UserReviewType>,
 |};
 
-export const storeReviewObjects = (
-  { state, reviews }: StoreReviewObjectsParams
-): ReviewsById => {
+export const storeReviewObjects = ({
+  state,
+  reviews,
+}: StoreReviewObjectsParams): ReviewsById => {
   const byId = { ...state.byId };
 
   reviews.forEach((review) => {
@@ -147,13 +148,14 @@ type ChangeViewStateParams = {|
   stateChange: $Shape<ViewStateByReviewId>,
 |};
 
-export const changeViewState = (
-  { state, reviewId, stateChange }: ChangeViewStateParams = {}
-): $Shape<ReviewState> => {
+export const changeViewState = ({
+  state,
+  reviewId,
+  stateChange,
+}: ChangeViewStateParams = {}): $Shape<ReviewState> => {
   const change = { ...stateChange };
 
-  const existingFlag = state.view[reviewId] ?
-    state.view[reviewId].flag : {};
+  const existingFlag = state.view[reviewId] ? state.view[reviewId].flag : {};
 
   return {
     ...state,
@@ -227,8 +229,9 @@ export default function reviewsReducer(
       });
     case SET_REVIEW: {
       const { payload } = action;
-      const existingReviews =
-        state[payload.userId] ? state[payload.userId][payload.addonId] : {};
+      const existingReviews = state[payload.userId]
+        ? state[payload.userId][payload.addonId]
+        : {};
       const latestReview = payload;
       return {
         ...state,

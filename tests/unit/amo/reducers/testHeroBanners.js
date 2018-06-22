@@ -5,7 +5,6 @@ import heroBannerOrderReducer, {
   setHeroBannerOrder,
 } from 'core/reducers/heroBanners';
 
-
 describe(__filename, () => {
   const defaultParams = { name: 'MegaHero', sections: ['1', '2', '3'] };
 
@@ -17,10 +16,13 @@ describe(__filename, () => {
 
   it('creates a new key if one is not found', () => {
     const knuthShuffleSpy = sinon.spy(knuthShuffle, 'knuthShuffle');
-    const state = heroBannerOrderReducer(initialState, setHeroBannerOrder({
-      name: 'NotAKnownKey1234',
-      sections: [1, 2, 3],
-    }));
+    const state = heroBannerOrderReducer(
+      initialState,
+      setHeroBannerOrder({
+        name: 'NotAKnownKey1234',
+        sections: [1, 2, 3],
+      }),
+    );
 
     sinon.assert.notCalled(knuthShuffleSpy);
     expect(state).toMatchObject({
@@ -30,11 +32,14 @@ describe(__filename, () => {
 
   it('randomizes the order if random prop is passed', () => {
     const knuthShuffleSpy = sinon.spy(knuthShuffle, 'knuthShuffle');
-    const state = heroBannerOrderReducer(initialState, setHeroBannerOrder({
-      name: 'CoolPage',
-      random: true,
-      sections: [1, 2, 3],
-    }));
+    const state = heroBannerOrderReducer(
+      initialState,
+      setHeroBannerOrder({
+        name: 'CoolPage',
+        random: true,
+        sections: [1, 2, 3],
+      }),
+    );
 
     sinon.assert.called(knuthShuffleSpy);
     expect(state).toMatchObject({
@@ -45,21 +50,27 @@ describe(__filename, () => {
   it('does not modify the original sections data', () => {
     const knuthShuffleSpy = sinon.spy(knuthShuffle, 'knuthShuffle');
     const sections = [1, 2, 3, 5];
-    heroBannerOrderReducer(initialState, setHeroBannerOrder({
-      name: 'CoolPage',
-      random: true,
-      sections,
-    }));
+    heroBannerOrderReducer(
+      initialState,
+      setHeroBannerOrder({
+        name: 'CoolPage',
+        random: true,
+        sections,
+      }),
+    );
 
     sinon.assert.called(knuthShuffleSpy);
     expect(sections).toEqual([1, 2, 3, 5]);
   });
 
   it('limits the number of sections to three', () => {
-    const state = heroBannerOrderReducer(initialState, setHeroBannerOrder({
-      name: 'CoolPage',
-      sections: [1, 2, 3, 4, 5],
-    }));
+    const state = heroBannerOrderReducer(
+      initialState,
+      setHeroBannerOrder({
+        name: 'CoolPage',
+        sections: [1, 2, 3, 4, 5],
+      }),
+    );
 
     expect(state).toMatchObject({
       CoolPage: { order: expect.arrayContaining([0, 1, 2]) },
@@ -67,10 +78,13 @@ describe(__filename, () => {
   });
 
   it('accepts fewer than three sections', () => {
-    const state = heroBannerOrderReducer(initialState, setHeroBannerOrder({
-      name: 'CoolPage',
-      sections: [1, 2],
-    }));
+    const state = heroBannerOrderReducer(
+      initialState,
+      setHeroBannerOrder({
+        name: 'CoolPage',
+        sections: [1, 2],
+      }),
+    );
 
     expect(state).toMatchObject({
       CoolPage: { order: expect.arrayContaining([0, 1]) },
@@ -86,11 +100,14 @@ describe(__filename, () => {
         return sectionsToSort.reverse();
       });
 
-    const state = heroBannerOrderReducer(initialState, setHeroBannerOrder({
-      name: 'CoolPage',
-      random: true,
-      sections,
-    }));
+    const state = heroBannerOrderReducer(
+      initialState,
+      setHeroBannerOrder({
+        name: 'CoolPage',
+        random: true,
+        sections,
+      }),
+    );
 
     sinon.assert.called(knuthShuffleSpy);
     expect(state).toMatchObject({

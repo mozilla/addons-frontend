@@ -43,17 +43,17 @@ export class FormOverlayBase extends React.Component<Props> {
 
   onClickBackground = (event: SyntheticEvent<any>) => {
     this.closeOverlay(event);
-  }
+  };
 
   onClickExIcon = (event: SyntheticEvent<any>) => {
     this.closeOverlay(event);
-  }
+  };
 
   onClickOverlay = (event: SyntheticEvent<any>) => {
     // Prevent the click event from propagating to parent elements.
     // This stops the overlay from closing when clicking inside it.
     event.stopPropagation();
-  }
+  };
 
   onCancel = (event: SyntheticEvent<any>) => {
     const { onCancel } = this.props;
@@ -61,7 +61,7 @@ export class FormOverlayBase extends React.Component<Props> {
       onCancel();
     }
     this.closeOverlay(event);
-  }
+  };
 
   onSubmit = (event: SyntheticEvent<any>) => {
     const { onSubmit } = this.props;
@@ -70,7 +70,7 @@ export class FormOverlayBase extends React.Component<Props> {
     if (onSubmit) {
       onSubmit();
     }
-  }
+  };
 
   render() {
     const {
@@ -119,9 +119,7 @@ export class FormOverlayBase extends React.Component<Props> {
             </div>
             <h3 className="FormOverlay-h3">{title}</h3>
           </header>
-          <section className="FormOverlay-content">
-            {children}
-          </section>
+          <section className="FormOverlay-content">{children}</section>
           <footer className="FormOverlay-footer">
             {/*
               type=button is necessary to override the default
@@ -155,7 +153,8 @@ export class FormOverlayBase extends React.Component<Props> {
 }
 
 const mapStateToProps = (
-  state: {| formOverlay: FormOverlayState |}, ownProps: Props
+  state: {| formOverlay: FormOverlayState |},
+  ownProps: Props,
 ): $Shape<Props> => {
   const overlayState = state.formOverlay[ownProps.id];
 
@@ -171,7 +170,7 @@ const mapStateToProps = (
 
 const FormOverlay: React.ComponentType<Props> = compose(
   translate(),
-  connect(mapStateToProps)
+  connect(mapStateToProps),
 )(FormOverlayBase);
 
 export default FormOverlay;

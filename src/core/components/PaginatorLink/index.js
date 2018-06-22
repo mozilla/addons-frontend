@@ -13,7 +13,7 @@ export default class PaginatorLink extends React.Component {
     pageCount: PropTypes.number.isRequired,
     queryParams: PropTypes.object,
     text: PropTypes.string,
-  }
+  };
 
   render() {
     const {
@@ -45,12 +45,7 @@ export default class PaginatorLink extends React.Component {
       });
 
       return (
-        <Button
-          buttonType="cancel"
-          className={classNames}
-          disabled
-          key={page}
-        >
+        <Button buttonType="cancel" className={classNames} disabled key={page}>
           {text || page}
         </Button>
       );

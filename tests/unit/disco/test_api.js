@@ -6,7 +6,6 @@ import * as coreApi from 'core/api';
 import { getFakeConfig } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let apiState;
   let callApiMock;

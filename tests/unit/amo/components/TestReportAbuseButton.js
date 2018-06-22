@@ -22,7 +22,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   const defaultRenderProps = {
     addon: { ...fakeAddon, slug: 'my-addon' },
@@ -35,14 +34,14 @@ describe(__filename, () => {
     return mount(
       <I18nProvider i18n={props.i18n || defaultRenderProps.i18n}>
         <ReportAbuseButton {...defaultRenderProps} {...props} />
-      </I18nProvider>
+      </I18nProvider>,
     );
   }
 
   function renderShallow({ ...props } = {}) {
     return shallowUntilTarget(
       <ReportAbuseButton {...defaultRenderProps} {...props} />,
-      ReportAbuseButtonBase
+      ReportAbuseButtonBase,
     );
   }
 
@@ -56,10 +55,12 @@ describe(__filename, () => {
     const root = renderShallow();
 
     expect(root.find('.ReportAbuseButton')).toHaveLength(1);
-    expect(root.find('.ReportAbuseButton-show-more').prop('children'))
-      .toEqual('Report this add-on for abuse');
-    expect(root.find('.ReportAbuseButton-send-report').prop('children'))
-      .toEqual('Send abuse report');
+    expect(root.find('.ReportAbuseButton-show-more').prop('children')).toEqual(
+      'Report this add-on for abuse',
+    );
+    expect(
+      root.find('.ReportAbuseButton-send-report').prop('children'),
+    ).toEqual('Send abuse report');
   });
 
   it('renders a textarea with placeholder for the add-on message', () => {
@@ -67,7 +68,9 @@ describe(__filename, () => {
 
     expect(root.find('.ReportAbuseButton-textarea')).toHaveLength(1);
     expect(root.find('.ReportAbuseButton-textarea')).toHaveProp(
-      'placeholder', 'Explain how this add-on is violating our policies.');
+      'placeholder',
+      'Explain how this add-on is violating our policies.',
+    );
   });
 
   it('shows the preview content when first rendered', () => {
@@ -82,7 +85,8 @@ describe(__filename, () => {
     // this case, the textarea.)
     const root = renderMount();
 
-    root.find('button.ReportAbuseButton-show-more')
+    root
+      .find('button.ReportAbuseButton-show-more')
       .simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);
@@ -95,11 +99,11 @@ describe(__filename, () => {
     // this case, the textarea.)
     const root = renderMount();
 
-    root.find('button.ReportAbuseButton-show-more')
+    root
+      .find('button.ReportAbuseButton-show-more')
       .simulate('click', fakeEvent);
 
-    root.find('.ReportAbuseButton-dismiss-report')
-      .simulate('click', fakeEvent);
+    root.find('.ReportAbuseButton-dismiss-report').simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(0);
@@ -108,8 +112,9 @@ describe(__filename, () => {
   it('disables the submit button if there is no abuse report', () => {
     const root = renderShallow();
 
-    expect(root.find('.ReportAbuseButton-send-report').first())
-      .toHaveProp('disabled');
+    expect(root.find('.ReportAbuseButton-send-report').first()).toHaveProp(
+      'disabled',
+    );
   });
 
   it('disables the submit button if text in the textarea is removed', () => {
@@ -120,38 +125,50 @@ describe(__filename, () => {
     textarea.instance().value = 'add-on ate my homework!';
     textarea.simulate('change');
 
-    expect(root.find('.ReportAbuseButton-send-report').first().prop('disabled'))
-      .toEqual(false);
+    expect(
+      root
+        .find('.ReportAbuseButton-send-report')
+        .first()
+        .prop('disabled'),
+    ).toEqual(false);
 
     textarea.instance().value = '';
     textarea.simulate('change');
 
-    expect(root.find('.ReportAbuseButton-send-report').first().prop('disabled'))
-      .toEqual(true);
+    expect(
+      root
+        .find('.ReportAbuseButton-send-report')
+        .first()
+        .prop('disabled'),
+    ).toEqual(true);
   });
 
   it('disables the buttons while sending the abuse report', () => {
     const addon = { ...fakeAddon, slug: 'bank-machine-skimmer' };
     const fakeEvent = createFakeEvent();
     const { store } = dispatchClientMetadata();
-    store.dispatch(sendAddonAbuseReport({
-      addonSlug: addon.slug,
-      errorHandlerId: 'my-error',
-      message: 'All my money is gone',
-    }));
+    store.dispatch(
+      sendAddonAbuseReport({
+        addonSlug: addon.slug,
+        errorHandlerId: 'my-error',
+        message: 'All my money is gone',
+      }),
+    );
     const root = renderMount({ addon, store });
 
     // Expand the view so we can test that it wasn't contracted when
     // clicking on the disabled "dismiss" link.
-    root.find('button.ReportAbuseButton-show-more')
+    root
+      .find('button.ReportAbuseButton-show-more')
       .simulate('click', fakeEvent);
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(1);
 
     const dismissButton = root.find('.ReportAbuseButton-dismiss-report');
     const sendButton = root.find('button.ReportAbuseButton-send-report');
 
-    expect(dismissButton)
-      .toHaveClassName('ReportAbuseButton-dismiss-report--disabled');
+    expect(dismissButton).toHaveClassName(
+      'ReportAbuseButton-dismiss-report--disabled',
+    );
     expect(sendButton.prop('disabled')).toEqual(true);
     expect(sendButton.prop('children')).toEqual('Sending abuse report');
 
@@ -187,12 +204,17 @@ describe(__filename, () => {
     textarea.instance().value = 'Opera did it first!';
     textarea.simulate('change');
 
-    root.find('button.ReportAbuseButton-send-report').simulate('click', fakeEvent);
-    sinon.assert.calledWith(dispatchSpy, sendAddonAbuseReport({
-      addonSlug: addon.slug,
-      errorHandlerId: 'create-stub-error-handler-id',
-      message: 'Opera did it first!',
-    }));
+    root
+      .find('button.ReportAbuseButton-send-report')
+      .simulate('click', fakeEvent);
+    sinon.assert.calledWith(
+      dispatchSpy,
+      sendAddonAbuseReport({
+        addonSlug: addon.slug,
+        errorHandlerId: 'create-stub-error-handler-id',
+        message: 'Opera did it first!',
+      }),
+    );
     sinon.assert.called(fakeEvent.preventDefault);
   });
 
@@ -203,8 +225,9 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // Make sure it's disabled by default.
-    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
-      .toEqual(true);
+    expect(
+      root.find('button.ReportAbuseButton-send-report').prop('disabled'),
+    ).toEqual(true);
 
     // This simulates entering text into the textarea.
     const textarea = root.find('.ReportAbuseButton-textarea > textarea');
@@ -212,8 +235,9 @@ describe(__filename, () => {
     textarea.simulate('change');
 
     sinon.assert.calledWith(dispatchSpy, enableAbuseButtonUI({ addon }));
-    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
-      .toEqual(false);
+    expect(
+      root.find('button.ReportAbuseButton-send-report').prop('disabled'),
+    ).toEqual(false);
   });
 
   it('does not dispatch enableAbuseButtonUI if button already enabled', () => {
@@ -251,8 +275,9 @@ describe(__filename, () => {
     textarea.simulate('change');
 
     sinon.assert.neverCalledWith(dispatchSpy, enableAbuseButtonUI({ addon }));
-    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
-      .toEqual(true);
+    expect(
+      root.find('button.ReportAbuseButton-send-report').prop('disabled'),
+    ).toEqual(true);
   });
 
   it('disables the submit button if there is no text in the textarea', () => {
@@ -270,8 +295,9 @@ describe(__filename, () => {
     textarea.simulate('change');
 
     sinon.assert.calledWith(dispatchSpy, disableAbuseButtonUI({ addon }));
-    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
-      .toEqual(true);
+    expect(
+      root.find('button.ReportAbuseButton-send-report').prop('disabled'),
+    ).toEqual(true);
   });
 
   it('disables the submit button if there is empty text in the textarea', () => {
@@ -289,8 +315,9 @@ describe(__filename, () => {
     textarea.simulate('change');
 
     sinon.assert.calledWith(dispatchSpy, disableAbuseButtonUI({ addon }));
-    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
-      .toEqual(true);
+    expect(
+      root.find('button.ReportAbuseButton-send-report').prop('disabled'),
+    ).toEqual(true);
   });
 
   // This is a bit of a belt-and-braces approach, as the button that
@@ -310,9 +337,14 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // Make sure the button isn't disabled.
-    expect(root.find('.ReportAbuseButton-send-report').first().prop('disabled'))
-      .toEqual(false);
-    root.find('button.ReportAbuseButton-send-report')
+    expect(
+      root
+        .find('.ReportAbuseButton-send-report')
+        .first()
+        .prop('disabled'),
+    ).toEqual(false);
+    root
+      .find('button.ReportAbuseButton-send-report')
       .simulate('click', fakeEvent);
 
     sinon.assert.notCalled(dispatchSpy);
@@ -324,10 +356,12 @@ describe(__filename, () => {
   it('renders an error if one exists', () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
-    store.dispatch(setError({
-      error: new Error('something bad'),
-      id: errorHandler.id,
-    }));
+    store.dispatch(
+      setError({
+        error: new Error('something bad'),
+        id: errorHandler.id,
+      }),
+    );
     const root = renderShallow({ errorHandler, store });
 
     expect(root.find(ErrorList)).toHaveLength(1);

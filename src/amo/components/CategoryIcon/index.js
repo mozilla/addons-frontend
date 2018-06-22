@@ -6,7 +6,6 @@ import type { Props as IconProps } from 'ui/components/Icon';
 
 import './styles.scss';
 
-
 type Props = IconProps & {|
   color: string,
 |};
@@ -18,7 +17,7 @@ const CategoryIcon = ({ alt, className, color, name }: Props) => {
       className={makeClassName(
         'CategoryIcon',
         `CategoryIcon-${color}`,
-        className
+        className,
       )}
       name={name}
     />

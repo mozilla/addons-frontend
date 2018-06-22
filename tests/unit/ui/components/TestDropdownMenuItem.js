@@ -6,9 +6,7 @@ import Link from 'amo/components/Link';
 
 describe(__filename, () => {
   it('renders a section when only `children` prop is supplied', () => {
-    const item = shallow(
-      <DropdownMenuItem>A section</DropdownMenuItem>
-    );
+    const item = shallow(<DropdownMenuItem>A section</DropdownMenuItem>);
 
     expect(item).toHaveClassName('DropdownMenuItem');
     expect(item).toHaveClassName('DropdownMenuItem-section');
@@ -19,7 +17,7 @@ describe(__filename, () => {
     const item = shallow(
       <DropdownMenuItem>
         <Link to="/">a link</Link>
-      </DropdownMenuItem>
+      </DropdownMenuItem>,
     );
 
     expect(item).toHaveClassName('DropdownMenuItem');
@@ -31,10 +29,8 @@ describe(__filename, () => {
   it('can visually detach a link item', () => {
     const item = shallow(
       <DropdownMenuItem detached>
-        <Link to="/">
-          a link detached from the rest of the menu
-        </Link>
-      </DropdownMenuItem>
+        <Link to="/">a link detached from the rest of the menu</Link>
+      </DropdownMenuItem>,
     );
 
     expect(item).toHaveClassName('DropdownMenuItem');
@@ -45,9 +41,7 @@ describe(__filename, () => {
   it('renders a `button` when `onClick` prop is supplied', () => {
     const stub = sinon.stub();
     const item = shallow(
-      <DropdownMenuItem onClick={stub}>
-        A button
-      </DropdownMenuItem>
+      <DropdownMenuItem onClick={stub}>A button</DropdownMenuItem>,
     );
 
     expect(item).toHaveClassName('DropdownMenuItem');
@@ -61,7 +55,7 @@ describe(__filename, () => {
     const item = shallow(
       <DropdownMenuItem onClick={stub} detached>
         A button that is detached from the rest of the menu
-      </DropdownMenuItem>
+      </DropdownMenuItem>,
     );
 
     expect(item).toHaveClassName('DropdownMenuItem');
@@ -71,7 +65,7 @@ describe(__filename, () => {
 
   it('optionally takes a class name', () => {
     const item = shallow(
-      <DropdownMenuItem className="custom-class">A section</DropdownMenuItem>
+      <DropdownMenuItem className="custom-class">A section</DropdownMenuItem>,
     );
 
     expect(item).toHaveClassName('DropdownMenuItem');

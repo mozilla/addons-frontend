@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-
 export default class Card extends React.Component {
   static propTypes = {
     children: PropTypes.node,
@@ -15,7 +14,7 @@ export default class Card extends React.Component {
     footerText: PropTypes.node,
     header: PropTypes.node,
     photonStyle: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     // Photon is the name of the new Firefox design language. This flag
@@ -23,7 +22,7 @@ export default class Card extends React.Component {
     // the styles to be in line with the new photon mocks while we migrate the
     // rest of the site over.
     photonStyle: false,
-  }
+  };
 
   render() {
     const {
@@ -64,17 +63,9 @@ export default class Card extends React.Component {
           'Card--no-footer': !footer,
         })}
       >
-        {header ? (
-          <header className="Card-header">
-            {header}
-          </header>
-        ) : null}
+        {header ? <header className="Card-header">{header}</header> : null}
 
-        {children ? (
-          <div className="Card-contents">
-            {children}
-          </div>
-        ) : null}
+        {children ? <div className="Card-contents">{children}</div> : null}
 
         {footer ? (
           <footer className={makeClassName('Card-footer', footerClass)}>

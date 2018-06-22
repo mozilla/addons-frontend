@@ -13,7 +13,6 @@ import {
   createStubErrorHandler,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
@@ -41,9 +40,11 @@ describe(__filename, () => {
       .withArgs({ api: sagaTester.getState().api })
       .returns(Promise.resolve(response));
 
-    sagaTester.dispatch(fetchLanguageTools({
-      errorHandlerId: errorHandler.id,
-    }));
+    sagaTester.dispatch(
+      fetchLanguageTools({
+        errorHandlerId: errorHandler.id,
+      }),
+    );
 
     const expectedLoadAction = loadLanguageTools({
       languageTools: response.results,
@@ -59,24 +60,25 @@ describe(__filename, () => {
   it('clears the error handler', async () => {
     const clearingAction = errorHandler.createClearingAction();
 
-    sagaTester.dispatch(fetchLanguageTools({
-      errorHandlerId: errorHandler.id,
-    }));
+    sagaTester.dispatch(
+      fetchLanguageTools({
+        errorHandlerId: errorHandler.id,
+      }),
+    );
 
     await sagaTester.waitFor(clearingAction.type);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(clearingAction);
+    expect(sagaTester.getCalledActions()[1]).toEqual(clearingAction);
   });
 
   it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('languageTools')
-      .returns(Promise.reject(error));
+    mockApi.expects('languageTools').returns(Promise.reject(error));
 
-    sagaTester.dispatch(fetchLanguageTools({
-      errorHandlerId: errorHandler.id,
-    }));
+    sagaTester.dispatch(
+      fetchLanguageTools({
+        errorHandlerId: errorHandler.id,
+      }),
+    );
 
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);

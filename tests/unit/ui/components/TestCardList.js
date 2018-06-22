@@ -4,7 +4,6 @@ import { renderIntoDocument } from 'react-dom/test-utils';
 
 import CardList from 'ui/components/CardList';
 
-
 function renderToDOM(props) {
   return findDOMNode(renderIntoDocument(<CardList {...props} />));
 }

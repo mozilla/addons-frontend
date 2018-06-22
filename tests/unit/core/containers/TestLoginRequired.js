@@ -9,7 +9,6 @@ import {
 import LoginPage from 'core/components/LoginPage';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   class MyComponent extends React.Component {
     render() {
@@ -21,7 +20,7 @@ describe(__filename, () => {
     const root = shallow(
       <LoginRequiredBase authenticated={false}>
         <MyComponent />
-      </LoginRequiredBase>
+      </LoginRequiredBase>,
     );
     expect(root.type()).toEqual(LoginPage);
   });
@@ -30,7 +29,7 @@ describe(__filename, () => {
     const root = shallow(
       <LoginRequiredBase authenticated>
         <MyComponent />
-      </LoginRequiredBase>
+      </LoginRequiredBase>,
     );
     expect(root.type()).toEqual(MyComponent);
   });
@@ -43,12 +42,16 @@ describe(__filename, () => {
     });
 
     it('sets authenticated to true', () => {
-      expect(mapStateToProps(store.getState())).toEqual({ authenticated: true });
+      expect(mapStateToProps(store.getState())).toEqual({
+        authenticated: true,
+      });
     });
 
     it('sets authenticated to false', () => {
       store.dispatch(logOutUser());
-      expect(mapStateToProps(store.getState())).toEqual({ authenticated: false });
+      expect(mapStateToProps(store.getState())).toEqual({
+        authenticated: false,
+      });
     });
   });
 });

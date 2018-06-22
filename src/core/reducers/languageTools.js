@@ -1,10 +1,9 @@
 /* @flow */
 import type { LanguageToolType } from 'core/types/addons';
 
-export const FETCH_LANGUAGE_TOOLS: 'FETCH_LANGUAGE_TOOLS'
-  = 'FETCH_LANGUAGE_TOOLS';
-export const LOAD_LANGUAGE_TOOLS: 'LOAD_LANGUAGE_TOOLS'
-  = 'LOAD_LANGUAGE_TOOLS';
+export const FETCH_LANGUAGE_TOOLS: 'FETCH_LANGUAGE_TOOLS' =
+  'FETCH_LANGUAGE_TOOLS';
+export const LOAD_LANGUAGE_TOOLS: 'LOAD_LANGUAGE_TOOLS' = 'LOAD_LANGUAGE_TOOLS';
 
 export type LanguageToolsState = {|
   byID: { [id: string]: LanguageToolType },
@@ -23,9 +22,9 @@ type FetchLanguageToolsAction = {|
   payload: FetchLanguageToolsParams,
 |};
 
-export const fetchLanguageTools = (
-  { errorHandlerId }: FetchLanguageToolsParams = {}
-): FetchLanguageToolsAction => {
+export const fetchLanguageTools = ({
+  errorHandlerId,
+}: FetchLanguageToolsParams = {}): FetchLanguageToolsAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
@@ -45,9 +44,9 @@ type LoadLanguageToolsAction = {|
   payload: LoadLanguageToolsParams,
 |};
 
-export const loadLanguageTools = (
-  { languageTools }: LoadLanguageToolsParams = {}
-): LoadLanguageToolsAction => {
+export const loadLanguageTools = ({
+  languageTools,
+}: LoadLanguageToolsParams = {}): LoadLanguageToolsAction => {
   if (!languageTools) {
     throw new Error('languageTools are required');
   }
@@ -58,9 +57,9 @@ export const loadLanguageTools = (
   };
 };
 
-export const getAllLanguageTools = (
-  state: { languageTools: LanguageToolsState }
-): Array<LanguageToolType> => {
+export const getAllLanguageTools = (state: {
+  languageTools: LanguageToolsState,
+}): Array<LanguageToolType> => {
   const { byID } = state.languageTools;
 
   // TODO: one day, Flow will get `Object.values()` right but for now... we
@@ -69,13 +68,11 @@ export const getAllLanguageTools = (
   return Object.keys(byID).map((key) => byID[key]);
 };
 
-type Action =
-  | FetchLanguageToolsAction
-  | LoadLanguageToolsAction;
+type Action = FetchLanguageToolsAction | LoadLanguageToolsAction;
 
 export default function languageToolsReducer(
   state: LanguageToolsState = initialState,
-  action: Action
+  action: Action,
 ): LanguageToolsState {
   switch (action.type) {
     case LOAD_LANGUAGE_TOOLS: {

@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import LoadingText from 'ui/components/LoadingText';
 
-
 describe('<LoadingText />', () => {
   const render = (props = {}) => shallow(<LoadingText {...props} />);
 

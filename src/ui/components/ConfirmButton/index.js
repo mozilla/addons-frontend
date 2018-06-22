@@ -9,7 +9,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type Props = {|
   buttonType?: string,
   cancelButtonText?: string | null,
@@ -52,7 +51,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps, State> {
   onConfirm = (e: SyntheticEvent<HTMLButtonElement>) => {
     this.setState({ showConfirmation: false });
     this.props.onConfirm(e);
-  }
+  };
 
   toggleConfirmation = (e: SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -60,7 +59,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps, State> {
     this.setState((prevState) => ({
       showConfirmation: !prevState.showConfirmation,
     }));
-  }
+  };
 
   render() {
     const {
@@ -84,9 +83,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps, State> {
     if (showConfirmation) {
       return (
         <div className={classNames}>
-          <span className="ConfirmButton-message">
-            {message}
-          </span>
+          <span className="ConfirmButton-message">{message}</span>
 
           <div className="ConfirmButton-buttons">
             <Button
@@ -122,8 +119,8 @@ export class ConfirmButtonBase extends React.Component<InternalProps, State> {
   }
 }
 
-const ConfirmButton: React.ComponentType<Props> = compose(
-  translate(),
-)(ConfirmButtonBase);
+const ConfirmButton: React.ComponentType<Props> = compose(translate())(
+  ConfirmButtonBase,
+);
 
 export default ConfirmButton;

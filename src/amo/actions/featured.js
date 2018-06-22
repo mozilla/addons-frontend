@@ -1,8 +1,4 @@
-import {
-  FEATURED_GET,
-  FEATURED_LOADED,
-} from 'core/constants';
-
+import { FEATURED_GET, FEATURED_LOADED } from 'core/constants';
 
 export function getFeatured({ addonType, errorHandlerId }) {
   if (!addonType) {

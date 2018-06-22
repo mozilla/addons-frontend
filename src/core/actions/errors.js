@@ -1,6 +1,4 @@
-import {
-  CLEAR_ERROR, SET_ERROR, SET_ERROR_MESSAGE,
-} from 'core/constants';
+import { CLEAR_ERROR, SET_ERROR, SET_ERROR_MESSAGE } from 'core/constants';
 
 export function setError({ error, id } = {}) {
   if (!id) {

@@ -12,16 +12,19 @@ import {
   THEMES_REVIEW,
 } from 'core/constants';
 
-
-export const FINISH_EDIT_USER_ACCOUNT: 'FINISH_EDIT_USER_ACCOUNT' = 'FINISH_EDIT_USER_ACCOUNT';
+export const FINISH_EDIT_USER_ACCOUNT: 'FINISH_EDIT_USER_ACCOUNT' =
+  'FINISH_EDIT_USER_ACCOUNT';
 export const EDIT_USER_ACCOUNT: 'EDIT_USER_ACCOUNT' = 'EDIT_USER_ACCOUNT';
 export const LOG_OUT_USER: 'LOG_OUT_USER' = 'LOG_OUT_USER';
-export const LOAD_CURRENT_USER_ACCOUNT: 'LOAD_CURRENT_USER_ACCOUNT' = 'LOAD_CURRENT_USER_ACCOUNT';
+export const LOAD_CURRENT_USER_ACCOUNT: 'LOAD_CURRENT_USER_ACCOUNT' =
+  'LOAD_CURRENT_USER_ACCOUNT';
 export const FETCH_USER_ACCOUNT: 'FETCH_USER_ACCOUNT' = 'FETCH_USER_ACCOUNT';
 export const LOAD_USER_ACCOUNT: 'LOAD_USER_ACCOUNT' = 'LOAD_USER_ACCOUNT';
 export const DELETE_USER_PICTURE: 'DELETE_USER_PICTURE' = 'DELETE_USER_PICTURE';
-export const FETCH_USER_NOTIFICATIONS: 'FETCH_USER_NOTIFICATIONS' = 'FETCH_USER_NOTIFICATIONS';
-export const LOAD_USER_NOTIFICATIONS: 'LOAD_USER_NOTIFICATIONS' = 'LOAD_USER_NOTIFICATIONS';
+export const FETCH_USER_NOTIFICATIONS: 'FETCH_USER_NOTIFICATIONS' =
+  'FETCH_USER_NOTIFICATIONS';
+export const LOAD_USER_NOTIFICATIONS: 'LOAD_USER_NOTIFICATIONS' =
+  'LOAD_USER_NOTIFICATIONS';
 export const DELETE_USER_ACCOUNT: 'DELETE_USER_ACCOUNT' = 'DELETE_USER_ACCOUNT';
 export const UNLOAD_USER_ACCOUNT: 'UNLOAD_USER_ACCOUNT' = 'UNLOAD_USER_ACCOUNT';
 
@@ -157,7 +160,11 @@ type EditUserAccountAction = {|
 |};
 
 export const editUserAccount = ({
-  errorHandlerId, notifications, picture, userFields, userId,
+  errorHandlerId,
+  notifications,
+  picture,
+  userFields,
+  userId,
 }: EditUserAccountParams): EditUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(notifications, 'notifications are required');
@@ -221,9 +228,10 @@ type DeleteUserAccountAction = {|
   payload: DeleteUserAccountParams,
 |};
 
-export const deleteUserAccount = (
-  { errorHandlerId, userId }: DeleteUserAccountParams
-): DeleteUserAccountAction => {
+export const deleteUserAccount = ({
+  errorHandlerId,
+  userId,
+}: DeleteUserAccountParams): DeleteUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
 
@@ -245,9 +253,9 @@ type UnloadUserAccountAction = {|
   payload: UnloadUserAccountParams,
 |};
 
-export const unloadUserAccount = (
-  { userId }: UnloadUserAccountParams
-): UnloadUserAccountAction => {
+export const unloadUserAccount = ({
+  userId,
+}: UnloadUserAccountParams): UnloadUserAccountAction => {
   invariant(userId, 'userId is required');
 
   return {
@@ -278,9 +286,10 @@ type DeleteUserPictureAction = {|
   payload: DeleteUserPictureParams,
 |};
 
-export const deleteUserPicture = (
-  { errorHandlerId, userId }: DeleteUserPictureParams
-): DeleteUserPictureAction => {
+export const deleteUserPicture = ({
+  errorHandlerId,
+  userId,
+}: DeleteUserPictureParams): DeleteUserPictureAction => {
   return {
     type: DELETE_USER_PICTURE,
     payload: {
@@ -353,8 +362,10 @@ export const getCurrentUser = (users: UsersStateType) => {
 
   const currentUser = getUserById(users, users.currentUserID);
 
-  invariant(currentUser,
-    'currentUserID is defined but no matching user found in users state.');
+  invariant(
+    currentUser,
+    'currentUserID is defined but no matching user found in users state.',
+  );
 
   return currentUser;
 };
@@ -368,7 +379,8 @@ export const isDeveloper = (user: UserType | null): boolean => {
 };
 
 export const hasPermission = (
-  state: { users: UsersStateType }, permission: string,
+  state: { users: UsersStateType },
+  permission: string,
 ): boolean => {
   const currentUser = getCurrentUser(state.users);
 
@@ -390,8 +402,9 @@ export const hasPermission = (
   return permissions.includes(permission);
 };
 
-export const hasAnyReviewerRelatedPermission = (
-  state: { users: UsersStateType }): boolean => {
+export const hasAnyReviewerRelatedPermission = (state: {
+  users: UsersStateType,
+}): boolean => {
   const currentUser = getCurrentUser(state.users);
 
   // If the user isn't authenticated, they have no permissions.
@@ -416,10 +429,14 @@ export const hasAnyReviewerRelatedPermission = (
     permissions.includes(RATINGS_MODERATE) ||
     permissions.includes(THEMES_REVIEW) ||
     permissions.includes(ADDONS_REVIEWUNLISTED) ||
-    permissions.includes(ADDONS_EDIT));
+    permissions.includes(ADDONS_EDIT)
+  );
 };
 
-export const addUserToState = ({ state, user } : {
+export const addUserToState = ({
+  state,
+  user,
+}: {
   user: ExternalUserType,
   state: UsersStateType,
 }): {|
@@ -459,7 +476,7 @@ type Action =
 
 const reducer = (
   state: UsersStateType = initialState,
-  action: Action
+  action: Action,
 ): UsersStateType => {
   switch (action.type) {
     case EDIT_USER_ACCOUNT:

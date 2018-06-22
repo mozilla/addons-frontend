@@ -43,7 +43,7 @@ type CategoriesStateType = {|
 type Props = {
   addonType: string,
   className?: string,
-}
+};
 
 type InjectedProps = {|
   categoriesState: $PropertyType<CategoriesStateType, 'categories'>,
@@ -59,7 +59,11 @@ type InternalProps = { ...Props, ...InjectedProps };
 export class CategoriesBase extends React.Component<InternalProps> {
   componentWillMount() {
     const {
-      addonType, categoriesState, dispatch, errorHandler, loading,
+      addonType,
+      categoriesState,
+      dispatch,
+      errorHandler,
+      loading,
     } = this.props;
     invariant(addonType, 'addonType is undefined');
 
@@ -113,22 +117,24 @@ export class CategoriesBase extends React.Component<InternalProps> {
     return (
       <Card className={classNameProp} header={i18n.gettext('Categories')}>
         {errorHandler.renderErrorIfPresent()}
-        {loading ?
+        {loading ? (
           <div className="Categories-loading">
             <span className="Categories-loading-info visually-hidden">
               {i18n.gettext('Loading categories.')}
             </span>
-            {Array(8).fill(0).map((value, index) => {
-              return (
-                <LoadingText
-                  className="Categories-loading-text"
-                  key={`Categories-loading-text-${index}`}
-                  range={3}
-                />
-              );
-            })}
+            {Array(8)
+              .fill(0)
+              .map((value, index) => {
+                return (
+                  <LoadingText
+                    className="Categories-loading-text"
+                    key={`Categories-loading-text-${index}`}
+                    range={3}
+                  />
+                );
+              })}
           </div>
-          :
+        ) : (
           <ul className="Categories-list">
             {categories.map((category) => {
               // Flow cannot figure out CategoryType in this case.
@@ -150,15 +156,16 @@ export class CategoriesBase extends React.Component<InternalProps> {
               );
             })}
           </ul>
-        }
+        )}
       </Card>
     );
   }
 }
 
-export function mapStateToProps(
-  state: {| api: ApiStateType, categories: CategoriesStateType |}
-) {
+export function mapStateToProps(state: {|
+  api: ApiStateType,
+  categories: CategoriesStateType,
+|}) {
   return {
     categoriesState: state.categories.categories,
     clientApp: state.api.clientApp,

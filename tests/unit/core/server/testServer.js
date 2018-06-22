@@ -113,7 +113,9 @@ describe(__filename, () => {
 
   describe('app', () => {
     it('varies on DNT', async () => {
-      const response = await testClient().get('/en-US/firefox/').end();
+      const response = await testClient()
+        .get('/en-US/firefox/')
+        .end();
 
       expect(response.headers).toMatchObject({ vary: 'DNT' });
       expect(response.statusCode).toEqual(200);
@@ -182,7 +184,11 @@ describe(__filename, () => {
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: usersSaga })
+      const response = await testClient({
+        store,
+        sagaMiddleware,
+        appSagas: usersSaga,
+      })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
@@ -204,7 +210,11 @@ describe(__filename, () => {
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: usersSaga })
+      const response = await testClient({
+        store,
+        sagaMiddleware,
+        appSagas: usersSaga,
+      })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
@@ -304,10 +314,12 @@ describe(__filename, () => {
 
       class Redirect extends React.Component {
         componentWillMount() {
-          store.dispatch(sendServerRedirect({
-            status: 301,
-            url: newURL,
-          }));
+          store.dispatch(
+            sendServerRedirect({
+              status: 301,
+              url: newURL,
+            }),
+          );
         }
 
         render() {

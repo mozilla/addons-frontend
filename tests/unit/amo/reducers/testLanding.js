@@ -4,7 +4,6 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   it('defaults to not loading', () => {
     const { loading } = landing(undefined, { type: 'unrelated' });
@@ -33,12 +32,13 @@ describe(__filename, () => {
 
   describe('LANDING_GET', () => {
     it('sets the initialState', () => {
-      const {
-        addonType, featured, highlyRated, loading, trending,
-      } = landing(initialState, getLanding({
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'some-error-handler',
-      }));
+      const { addonType, featured, highlyRated, loading, trending } = landing(
+        initialState,
+        getLanding({
+          addonType: ADDON_TYPE_THEME,
+          errorHandlerId: 'some-error-handler',
+        }),
+      );
 
       expect(addonType).toEqual(ADDON_TYPE_THEME);
       expect(loading).toEqual(true);
@@ -48,10 +48,13 @@ describe(__filename, () => {
     });
 
     it('sets resultsLoaded to false', () => {
-      const state = landing({ ...initialState, resultsLoaded: true }, getLanding({
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'some-error-handler',
-      }));
+      const state = landing(
+        { ...initialState, resultsLoaded: true },
+        getLanding({
+          addonType: ADDON_TYPE_THEME,
+          errorHandlerId: 'some-error-handler',
+        }),
+      );
 
       expect(state.resultsLoaded).toEqual(false);
     });
@@ -64,16 +67,19 @@ describe(__filename, () => {
           food: { ...fakeAddon, slug: 'food' },
         },
       };
-      const state = landing({
-        ...initialState,
-        featured: {
-          entities,
-          result: { count: 2, results: ['foo', 'food'] },
+      const state = landing(
+        {
+          ...initialState,
+          featured: {
+            entities,
+            result: { count: 2, results: ['foo', 'food'] },
+          },
         },
-      }, getLanding({
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'some-error-handler',
-      }));
+        getLanding({
+          addonType: ADDON_TYPE_THEME,
+          errorHandlerId: 'some-error-handler',
+        }),
+      );
 
       expect(state.featured).toEqual(initialState.featured);
       expect(state.highlyRated).toEqual(initialState.highlyRated);
@@ -103,11 +109,10 @@ describe(__filename, () => {
         },
       });
       expect(state.featured.count).toEqual(2);
-      expect(state.featured.results)
-        .toEqual([
-          createInternalAddon({ ...fakeAddon, slug: 'foo' }),
-          createInternalAddon({ ...fakeAddon, slug: 'food' }),
-        ]);
+      expect(state.featured.results).toEqual([
+        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
+        createInternalAddon({ ...fakeAddon, slug: 'food' }),
+      ]);
       expect(state.highlyRated).toEqual({ count: 0, results: [] });
       expect(state.trending).toEqual({ count: 0, results: [] });
       expect(state.resultsLoaded).toEqual(true);
@@ -121,20 +126,23 @@ describe(__filename, () => {
           food: { ...fakeAddon, slug: 'food' },
         },
       };
-      const { highlyRated } = landing({
-        ...initialState,
-        highlyRated: 'hello',
-      }, {
-        type: 'LANDING_LOADED',
-        payload: {
-          addonType: ADDON_TYPE_THEME,
-          featured: {
-            entities,
-            result: { count: 2, results: ['foo', 'food'] },
-          },
-          trending: { entities, result: { count: 0, results: [] } },
+      const { highlyRated } = landing(
+        {
+          ...initialState,
+          highlyRated: 'hello',
         },
-      });
+        {
+          type: 'LANDING_LOADED',
+          payload: {
+            addonType: ADDON_TYPE_THEME,
+            featured: {
+              entities,
+              result: { count: 2, results: ['foo', 'food'] },
+            },
+            trending: { entities, result: { count: 0, results: [] } },
+          },
+        },
+      );
       expect(highlyRated).toEqual('hello');
     });
   });

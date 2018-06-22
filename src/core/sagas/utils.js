@@ -3,13 +3,12 @@ import { ErrorHandler } from 'core/errorHandler';
 import defaultLog from 'core/logger';
 import type { ApiStateType } from 'core/reducers/api';
 
-
 type CreateErrorHandlerType = {| log: typeof defaultLog |};
 type StateType = {| api: ApiStateType, auth: Object |};
 
 export function createErrorHandler(
   id: string,
-  { log = defaultLog }: CreateErrorHandlerType = {}
+  { log = defaultLog }: CreateErrorHandlerType = {},
 ): typeof ErrorHandler {
   return new ErrorHandler({
     id,

@@ -1,6 +1,5 @@
 import { LANDING_GET, LANDING_LOADED } from 'core/constants';
 
-
 export function getLanding({ addonType, errorHandlerId, category = null }) {
   if (!addonType) {
     throw new Error('addonType must be set');

@@ -4,16 +4,13 @@ import makeClassName from 'classnames';
 
 import './styles.scss';
 
-
 type DefinitionProps = {|
   children: React.Node,
   className?: string,
   term: React.Node,
 |};
 
-export const Definition = (
-  { children, className, term }: DefinitionProps
-) => {
+export const Definition = ({ children, className, term }: DefinitionProps) => {
   return (
     <React.Fragment>
       <dt className="Definition-dt">{term}</dt>

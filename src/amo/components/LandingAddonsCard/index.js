@@ -22,7 +22,7 @@ type Props = {|
 export default class LandingAddonsCard extends React.Component<Props> {
   static defaultProps = {
     placeholderCount: LANDING_PAGE_ADDON_COUNT,
-  }
+  };
 
   render() {
     const {

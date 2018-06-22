@@ -19,7 +19,6 @@ import LoadingText from 'ui/components/LoadingText';
 import type { I18nType } from 'core/types/i18n';
 import type { UsersStateType } from 'amo/reducers/users';
 
-
 type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
@@ -77,7 +76,11 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     }
 
     let statsLink = null;
-    if (isAddonAuthor({ addon, userId }) || addon.public_stats || hasStatsPermission) {
+    if (
+      isAddonAuthor({ addon, userId }) ||
+      addon.public_stats ||
+      hasStatsPermission
+    ) {
       statsLink = (
         <Link
           className="AddonMoreInfo-stats-link"
@@ -95,26 +98,30 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       supportUrl,
       supportEmail,
       statsLink,
-      version: currentVersion && addonHasVersionHistory(addon) ?
-        currentVersion.version : null,
+      version:
+        currentVersion && addonHasVersionHistory(addon)
+          ? currentVersion.version
+          : null,
       versionLastUpdated: i18n.sprintf(
         // translators: This will output, in English:
         // "2 months ago (Dec 12 2016)"
-        i18n.gettext('%(timeFromNow)s (%(date)s)'), {
+        i18n.gettext('%(timeFromNow)s (%(date)s)'),
+        {
           timeFromNow: i18n.moment(addon.last_updated).fromNow(),
           date: i18n.moment(addon.last_updated).format('ll'),
-        }
+        },
       ),
-      versionLicenseLink: currentVersion && currentVersion.license ? (
-        <Link
-          className="AddonMoreInfo-license-link"
-          href={currentVersion.license.url}
-          prependClientApp={false}
-          prependLang={false}
-        >
-          {currentVersion.license.name}
-        </Link>
-      ) : null,
+      versionLicenseLink:
+        currentVersion && currentVersion.license ? (
+          <Link
+            className="AddonMoreInfo-license-link"
+            href={currentVersion.license.url}
+            prependClientApp={false}
+            prependLang={false}
+          >
+            {currentVersion.license.name}
+          </Link>
+        ) : null,
       privacyPolicyLink: addon.has_privacy_policy ? (
         <Link
           className="AddonMoreInfo-privacy-policy-link"
@@ -171,7 +178,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             </ul>
           </Definition>
         )}
-        {(version) && (
+        {version && (
           <Definition
             className="AddonMoreInfo-version"
             term={i18n.gettext('Version')}
@@ -185,7 +192,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
         >
           {versionLastUpdated}
         </Definition>
-        {(versionLicenseLink) && (
+        {versionLicenseLink && (
           <Definition
             className="AddonMoreInfo-license"
             term={i18n.gettext('License')}
@@ -193,7 +200,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             {versionLicenseLink}
           </Definition>
         )}
-        {(privacyPolicyLink) && (
+        {privacyPolicyLink && (
           <Definition
             className="AddonMoreInfo-privacy-policy"
             term={i18n.gettext('Privacy Policy')}
@@ -201,7 +208,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             {privacyPolicyLink}
           </Definition>
         )}
-        {(eulaLink) && (
+        {eulaLink && (
           <Definition
             className="AddonMoreInfo-eula"
             term={i18n.gettext('End-User License Agreement')}
@@ -209,7 +216,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             {eulaLink}
           </Definition>
         )}
-        {(versionHistoryLink) && (
+        {versionHistoryLink && (
           <Definition
             className="AddonMoreInfo-version-history"
             term={i18n.gettext('Version History')}
@@ -219,7 +226,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             </ul>
           </Definition>
         )}
-        {(statsLink) && (
+        {statsLink && (
           <Definition
             className="AddonMoreInfo-stats"
             term={i18n.gettext('Usage Statistics')}
@@ -235,10 +242,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     const { i18n } = this.props;
 
     return (
-      <Card
-        className="AddonMoreInfo"
-        header={i18n.gettext('More information')}
-      >
+      <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
         {this.listContent()}
       </Card>
     );

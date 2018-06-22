@@ -5,7 +5,6 @@ import Link from 'amo/components/Link';
 import Button from 'ui/components/Button';
 import { createFakeEvent } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   function render(props = {}) {
     return shallow(<Button {...props} />);
@@ -114,6 +113,7 @@ describe(__filename, () => {
         href: 'https://addons.mozilla.org',
       });
     }).toThrow(
-      /buttonType="not-a-real-type" supplied but that is not a valid button/);
+      /buttonType="not-a-real-type" supplied but that is not a valid button/,
+    );
   });
 });

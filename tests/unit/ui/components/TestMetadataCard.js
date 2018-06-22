@@ -4,7 +4,6 @@ import * as React from 'react';
 import MetadataCard from 'ui/components/MetadataCard';
 import LoadingText from 'ui/components/LoadingText';
 
-
 describe(__filename, () => {
   function renderShallow({ metadata = [], ...props } = {}) {
     return shallow(<MetadataCard metadata={metadata} {...props} />);

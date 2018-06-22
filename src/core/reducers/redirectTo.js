@@ -3,7 +3,6 @@ import config from 'config';
 
 import log from 'core/logger';
 
-
 const SEND_SERVER_REDIRECT: 'SEND_SERVER_REDIRECT' = 'SEND_SERVER_REDIRECT';
 
 type State = {|
@@ -21,16 +20,18 @@ type SendServerRedirectParams = {|
   _config?: Object,
 |};
 
-type SendServerRedirectAction ={|
+type SendServerRedirectAction = {|
   type: typeof SEND_SERVER_REDIRECT,
   payload: {|
     ...State,
   |},
 |};
 
-export const sendServerRedirect = (
-  { status, url, _config = config }: SendServerRedirectParams
-): SendServerRedirectAction => {
+export const sendServerRedirect = ({
+  status,
+  url,
+  _config = config,
+}: SendServerRedirectParams): SendServerRedirectAction => {
   if (!status) {
     throw new Error('status is required');
   }

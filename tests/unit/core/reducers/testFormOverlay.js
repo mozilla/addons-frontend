@@ -16,8 +16,9 @@ describe(__filename, () => {
 
   describe('openFormOverlay', () => {
     it('requires an ID', () => {
-      expect(() => openFormOverlay(undefined))
-        .toThrow(/id parameter is required/);
+      expect(() => openFormOverlay(undefined)).toThrow(
+        /id parameter is required/,
+      );
     });
 
     it('changes open state', () => {
@@ -30,8 +31,9 @@ describe(__filename, () => {
 
   describe('closeFormOverlay', () => {
     it('requires an ID', () => {
-      expect(() => closeFormOverlay(undefined))
-        .toThrow(/id parameter is required/);
+      expect(() => closeFormOverlay(undefined)).toThrow(
+        /id parameter is required/,
+      );
     });
 
     it('changes open state', () => {
@@ -44,8 +46,9 @@ describe(__filename, () => {
 
   describe('beginFormOverlaySubmit', () => {
     it('requires an ID', () => {
-      expect(() => beginFormOverlaySubmit(undefined))
-        .toThrow(/id parameter is required/);
+      expect(() => beginFormOverlaySubmit(undefined)).toThrow(
+        /id parameter is required/,
+      );
     });
 
     it('changes submit state', () => {
@@ -58,8 +61,9 @@ describe(__filename, () => {
 
   describe('finishFormOverlaySubmit', () => {
     it('requires an ID', () => {
-      expect(() => finishFormOverlaySubmit(undefined))
-        .toThrow(/id parameter is required/);
+      expect(() => finishFormOverlaySubmit(undefined)).toThrow(
+        /id parameter is required/,
+      );
     });
 
     it('changes submit state', () => {

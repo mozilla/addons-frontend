@@ -6,12 +6,11 @@ import Card from 'ui/components/Card';
 
 import './styles.scss';
 
-
 export default class CardList extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-  }
+  };
 
   render() {
     const { children, className, ...cardProps } = this.props;

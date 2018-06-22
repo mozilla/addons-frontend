@@ -21,7 +21,6 @@ import {
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
@@ -41,11 +40,13 @@ describe(__filename, () => {
   });
 
   function _fetchAddonsByAuthors(params) {
-    sagaTester.dispatch(fetchAddonsByAuthors({
-      errorHandlerId: errorHandler.id,
-      pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
-      ...params,
-    }));
+    sagaTester.dispatch(
+      fetchAddonsByAuthors({
+        errorHandlerId: errorHandler.id,
+        pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+        ...params,
+      }),
+    );
   }
 
   it('calls the API with addonType if set', async () => {

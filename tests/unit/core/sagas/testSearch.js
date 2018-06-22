@@ -9,7 +9,6 @@ import searchSaga from 'core/sagas/search';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
@@ -27,10 +26,12 @@ describe(__filename, () => {
   });
 
   function _searchStart(params) {
-    sagaTester.dispatch(searchStart({
-      errorHandlerId: 'create-stub-error-handler-id',
-      ...params,
-    }));
+    sagaTester.dispatch(
+      searchStart({
+        errorHandlerId: 'create-stub-error-handler-id',
+        ...params,
+      }),
+    );
   }
 
   it('searches the API for add-ons', async () => {
@@ -55,15 +56,14 @@ describe(__filename, () => {
     _searchStart({ filters: { query: 'foo' } });
 
     await sagaTester.waitFor(CLEAR_ERROR);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    expect(sagaTester.getCalledActions()[1]).toEqual(
+      errorHandler.createClearingAction(),
+    );
   });
 
   it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('search')
-      .returns(Promise.reject(error));
+    mockApi.expects('search').returns(Promise.reject(error));
 
     _searchStart({ filters: {} });
 

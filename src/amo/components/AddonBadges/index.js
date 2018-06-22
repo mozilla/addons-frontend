@@ -11,7 +11,6 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-
 type Props = {|
   addon: AddonType,
   i18n: I18nType,
@@ -35,16 +34,14 @@ export const AddonBadgesBase = (props: Props) => {
     }
   };
 
-  const isIncompatible = addon.type === ADDON_TYPE_EXTENSION &&
+  const isIncompatible =
+    addon.type === ADDON_TYPE_EXTENSION &&
     isQuantumCompatible({ addon }) === false;
 
   return (
     <div className="AddonBadges">
       {addon.is_featured ? (
-        <Badge
-          type="featured"
-          label={getFeaturedText(addon.type)}
-        />
+        <Badge type="featured" label={getFeaturedText(addon.type)} />
       ) : null}
       {addon.isRestartRequired ? (
         <Badge
@@ -53,10 +50,7 @@ export const AddonBadgesBase = (props: Props) => {
         />
       ) : null}
       {addon.is_experimental ? (
-        <Badge
-          type="experimental"
-          label={i18n.gettext('Experimental')}
-        />
+        <Badge type="experimental" label={i18n.gettext('Experimental')} />
       ) : null}
       {isIncompatible ? (
         <Badge
@@ -74,8 +68,8 @@ export const AddonBadgesBase = (props: Props) => {
   );
 };
 
-const AddonBadges: React.ComponentType<Props> = compose(
-  translate(),
-)(AddonBadgesBase);
+const AddonBadges: React.ComponentType<Props> = compose(translate())(
+  AddonBadgesBase,
+);
 
 export default AddonBadges;

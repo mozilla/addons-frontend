@@ -6,7 +6,6 @@ import Paginate, { PaginateBase } from 'core/components/Paginate';
 import PaginatorLink from 'core/components/PaginatorLink';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   const getRenderProps = () => ({
     i18n: fakeI18n(),
@@ -27,13 +26,15 @@ describe(__filename, () => {
   describe('methods', () => {
     describe('validation', () => {
       it('does not allow an undefined count', () => {
-        expect(() => renderPaginate({ count: undefined }))
-          .toThrowError(/count property cannot be undefined/);
+        expect(() => renderPaginate({ count: undefined })).toThrowError(
+          /count property cannot be undefined/,
+        );
       });
 
       it('does not allow an undefined pathname', () => {
-        expect(() => renderPaginate({ pathname: undefined }))
-          .toThrowError(/pathname property cannot be undefined/);
+        expect(() => renderPaginate({ pathname: undefined })).toThrowError(
+          /pathname property cannot be undefined/,
+        );
       });
     });
 
@@ -54,13 +55,15 @@ describe(__filename, () => {
       });
 
       it('does not allow a per page value of zero', () => {
-        expect(() => renderPaginate({ count: 5, perPage: 0 }))
-          .toThrowError(/0 is not allowed/);
+        expect(() => renderPaginate({ count: 5, perPage: 0 })).toThrowError(
+          /0 is not allowed/,
+        );
       });
 
       it('does not allow a negative per page value', () => {
-        expect(() => renderPaginate({ count: 5, perPage: -1 }))
-          .toThrowError(/-1 is not allowed/);
+        expect(() => renderPaginate({ count: 5, perPage: -1 })).toThrowError(
+          /-1 is not allowed/,
+        );
       });
     });
 
@@ -77,8 +80,9 @@ describe(__filename, () => {
         const commonParams = { count: 30, perPage: 3, showPages: 5 };
 
         it('will be 7 by default', () => {
-          expect(getVisiblePages({ count: 30, perPage: 3, currentPage: 1 }))
-            .toEqual([1, 2, 3, 4, 5, 6, 7]);
+          expect(
+            getVisiblePages({ count: 30, perPage: 3, currentPage: 1 }),
+          ).toEqual([1, 2, 3, 4, 5, 6, 7]);
         });
 
         it('will not be less than 0', () => {
@@ -122,7 +126,10 @@ describe(__filename, () => {
 
         it('will not offset near the end', () => {
           const pages = getVisiblePages({
-            count: 128, perPage: DEFAULT_API_PAGE_SIZE, showPages: 9, currentPage: 6,
+            count: 128,
+            perPage: DEFAULT_API_PAGE_SIZE,
+            showPages: 9,
+            currentPage: 6,
           });
           expect(pages).toEqual([1, 2, 3, 4, 5, 6]);
         });
@@ -133,12 +140,20 @@ describe(__filename, () => {
         });
 
         it('will not render when showPages is false-y', () => {
-          const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: 0 });
+          const pages = getVisiblePages({
+            ...commonParams,
+            currentPage: 3,
+            showPages: 0,
+          });
           expect(pages).toEqual([]);
         });
 
         it('will not render when showPages is false', () => {
-          const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: false });
+          const pages = getVisiblePages({
+            ...commonParams,
+            currentPage: 3,
+            showPages: false,
+          });
           expect(pages).toEqual([]);
         });
       });

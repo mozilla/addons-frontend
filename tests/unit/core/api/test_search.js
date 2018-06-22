@@ -14,7 +14,6 @@ import {
   userAgents,
 } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let api;
   let mockWindow;
@@ -54,12 +53,14 @@ describe(__filename, () => {
     const page = 4;
     const query = 'youtube';
 
-    mockWindow.expects('fetch')
+    mockWindow
+      .expects('fetch')
       .withArgs(urlWithTheseParams({ page, q: query }))
       .returns(mockResponse());
 
-    return _search({ filters: { page, query } })
-      .then(() => mockWindow.verify());
+    return _search({ filters: { page, query } }).then(() =>
+      mockWindow.verify(),
+    );
   });
 
   it('sets appversion if Firefox version is 57 or above', () => {
@@ -68,7 +69,8 @@ describe(__filename, () => {
       userAgent: firefox57,
     }).store.getState().api;
 
-    mockWindow.expects('fetch')
+    mockWindow
+      .expects('fetch')
       .withArgs(urlWithTheseParams({ appversion: '57.1' }))
       .returns(mockResponse());
 
@@ -82,11 +84,10 @@ describe(__filename, () => {
       userAgent: firefoxESR52,
     }).store.getState().api;
 
-    mockWindow.expects('fetch')
-      .callsFake((urlString) => {
-        expect(urlString).not.toContain('appversion');
-        return mockResponse();
-      });
+    mockWindow.expects('fetch').callsFake((urlString) => {
+      expect(urlString).not.toContain('appversion');
+      return mockResponse();
+    });
 
     return _search().then(() => mockWindow.verify());
   });
@@ -97,7 +98,8 @@ describe(__filename, () => {
       userAgent: userAgents.firefoxAndroid[4],
     }).store.getState().api;
 
-    mockWindow.expects('fetch')
+    mockWindow
+      .expects('fetch')
       .withArgs(urlWithTheseParams({ appversion: '57.0' }))
       .returns(mockResponse());
 
@@ -110,11 +112,10 @@ describe(__filename, () => {
       userAgent: userAgents.firefoxIOS[3],
     }).store.getState().api;
 
-    mockWindow.expects('fetch')
-      .callsFake((urlString) => {
-        expect(urlString).not.toContain('appversion');
-        return mockResponse();
-      });
+    mockWindow.expects('fetch').callsFake((urlString) => {
+      expect(urlString).not.toContain('appversion');
+      return mockResponse();
+    });
 
     return _search().then(() => mockWindow.verify());
   });
@@ -125,11 +126,10 @@ describe(__filename, () => {
       userAgent: 'Lynx Beta',
     }).store.getState().api;
 
-    mockWindow.expects('fetch')
-      .callsFake((urlString) => {
-        expect(urlString).not.toContain('appversion');
-        return mockResponse();
-      });
+    mockWindow.expects('fetch').callsFake((urlString) => {
+      expect(urlString).not.toContain('appversion');
+      return mockResponse();
+    });
 
     return _search().then(() => mockWindow.verify());
   });
@@ -140,7 +140,8 @@ describe(__filename, () => {
       userAgent: firefox57,
     }).store.getState().api;
 
-    mockWindow.expects('fetch')
+    mockWindow
+      .expects('fetch')
       .withArgs(urlWithTheseParams({ appversion: '57.1' }))
       .returns(mockResponse());
 
@@ -149,8 +150,7 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_EXTENSION,
         query: 'foo',
       },
-    })
-      .then(() => mockWindow.verify());
+    }).then(() => mockWindow.verify());
   });
 
   it('sets appversion if addonType is not set', () => {
@@ -159,7 +159,8 @@ describe(__filename, () => {
       userAgent: firefox57,
     }).store.getState().api;
 
-    mockWindow.expects('fetch')
+    mockWindow
+      .expects('fetch')
       .withArgs(urlWithTheseParams({ appversion: '57.1' }))
       .once()
       .returns(mockResponse());
@@ -168,37 +169,43 @@ describe(__filename, () => {
   });
 
   it('normalizes the response', () => {
-    mockWindow.expects('fetch').once().returns(mockResponse());
+    mockWindow
+      .expects('fetch')
+      .once()
+      .returns(mockResponse());
 
-    return _search({ filters: { query: 'foo' } })
-      .then((results) => {
-        expect(results.result.results).toEqual(['foo', 'food', 'football']);
-        expect(results.entities).toEqual({
-          addons: {
-            foo: { ...fakeAddon, slug: 'foo' },
-            food: { ...fakeAddon, slug: 'food' },
-            football: { ...fakeAddon, slug: 'football' },
-          },
-        });
+    return _search({ filters: { query: 'foo' } }).then((results) => {
+      expect(results.result.results).toEqual(['foo', 'food', 'football']);
+      expect(results.entities).toEqual({
+        addons: {
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
+          football: { ...fakeAddon, slug: 'football' },
+        },
       });
+    });
   });
 
   it('surfaces status and apiURL on Error instance', () => {
-    mockWindow.expects('fetch')
+    mockWindow
+      .expects('fetch')
       .returns(mockResponse({ ok: false, status: 401 }));
 
-    return _search()
-      .then(unexpectedSuccess, (err) => {
-        expect(err.response.status).toEqual(401);
-        expect(err.response.apiURL).toMatch('/api/v3/addons/search/');
-      });
+    return _search().then(unexpectedSuccess, (err) => {
+      expect(err.response.status).toEqual(401);
+      expect(err.response.apiURL).toMatch('/api/v3/addons/search/');
+    });
   });
 
   it('changes theme requests for android to firefox results', async () => {
-    mockWindow.expects('fetch')
-      .withArgs(urlWithTheseParams({
-        app: CLIENT_APP_FIREFOX, type: ADDON_TYPE_THEME,
-      }))
+    mockWindow
+      .expects('fetch')
+      .withArgs(
+        urlWithTheseParams({
+          app: CLIENT_APP_FIREFOX,
+          type: ADDON_TYPE_THEME,
+        }),
+      )
       .returns(mockResponse());
 
     await _search({

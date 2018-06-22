@@ -9,7 +9,6 @@ import { createInternalAddon } from 'core/reducers/addons';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   it('initializes properly', () => {
     const state = reducer(undefined, {});
@@ -23,11 +22,14 @@ describe(__filename, () => {
 
   it('sets the loading flag when fetching recommendations', () => {
     const guid = 'some-guid';
-    const state = reducer(undefined, fetchRecommendations({
-      errorHandlerId: createStubErrorHandler().id,
-      guid,
-      recommended: true,
-    }));
+    const state = reducer(
+      undefined,
+      fetchRecommendations({
+        errorHandlerId: createStubErrorHandler().id,
+        guid,
+        recommended: true,
+      }),
+    );
 
     expect(state.byGuid[guid].loading).toEqual(true);
     expect(state.byGuid[guid].addons).toEqual(null);
@@ -38,12 +40,15 @@ describe(__filename, () => {
     const fallbackReason = 'timeout';
     const guid = 'some-guid';
     const outcome = 'recommended_fallback';
-    const state = reducer(undefined, loadRecommendations({
-      addons,
-      fallbackReason,
-      guid,
-      outcome,
-    }));
+    const state = reducer(
+      undefined,
+      loadRecommendations({
+        addons,
+        fallbackReason,
+        guid,
+        outcome,
+      }),
+    );
 
     const expectedAddons = addons.map((addon) => createInternalAddon(addon));
 
@@ -59,11 +64,14 @@ describe(__filename, () => {
 
   it('resets the loading flag when fetching is aborted', () => {
     const guid = 'some-guid';
-    const state = reducer(undefined, fetchRecommendations({
-      errorHandlerId: createStubErrorHandler().id,
-      guid,
-      recommended: true,
-    }));
+    const state = reducer(
+      undefined,
+      fetchRecommendations({
+        errorHandlerId: createStubErrorHandler().id,
+        guid,
+        recommended: true,
+      }),
+    );
 
     expect(state.byGuid[guid].loading).toEqual(true);
 

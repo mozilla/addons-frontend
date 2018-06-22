@@ -1,12 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {
-  renderIntoDocument,
-} from 'react-dom/test-utils';
+import { renderIntoDocument } from 'react-dom/test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
 import { fakeI18n } from 'tests/unit/helpers';
-
 
 describe('I18nProvider', () => {
   class MyComponent extends React.Component {
@@ -23,7 +20,7 @@ describe('I18nProvider', () => {
     return renderIntoDocument(
       <I18nProvider i18n={i18n}>
         <MyComponent />
-      </I18nProvider>
+      </I18nProvider>,
     );
   }
 

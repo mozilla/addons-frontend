@@ -24,13 +24,9 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import {
-  apiAddonType,
-  apiAddonTypeIsValid,
-} from 'core/utils';
+import { apiAddonType, apiAddonTypeIsValid } from 'core/utils';
 
 import './styles.scss';
-
 
 export class CategoryBase extends React.Component {
   static propTypes = {
@@ -50,7 +46,7 @@ export class CategoryBase extends React.Component {
     }).isRequired,
     trendingAddons: PropTypes.array,
     resultsLoaded: PropTypes.bool.isRequired,
-  }
+  };
 
   componentWillMount() {
     this.loadDataIfNeeded();
@@ -115,11 +111,13 @@ export class CategoryBase extends React.Component {
       addonTypeOfResults !== addonType ||
       categoryOfResults !== params.slug
     ) {
-      dispatch(getLanding({
-        addonType,
-        category: params.slug,
-        errorHandlerId: errorHandler.id,
-      }));
+      dispatch(
+        getLanding({
+          addonType,
+          category: params.slug,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
     }
   }
 
@@ -196,7 +194,7 @@ export class CategoryBase extends React.Component {
     };
 
     return { html: contentForTypes[addonType] };
-  }
+  };
 
   renderIfNotEmpty(addons, component) {
     if (addons.length === 0 && !this.props.loading) {
@@ -261,7 +259,7 @@ export class CategoryBase extends React.Component {
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
             loading={loading}
-          />
+          />,
         )}
         {this.renderIfNotEmpty(
           highlyRatedAddons,
@@ -273,7 +271,7 @@ export class CategoryBase extends React.Component {
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
             loading={loading}
-          />
+          />,
         )}
         {this.renderIfNotEmpty(
           trendingAddons,
@@ -285,7 +283,7 @@ export class CategoryBase extends React.Component {
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
             loading={loading}
-          />
+          />,
         )}
       </div>
     );

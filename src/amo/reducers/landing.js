@@ -1,9 +1,5 @@
-import {
-  LANDING_GET,
-  LANDING_LOADED,
-} from 'core/constants';
+import { LANDING_GET, LANDING_LOADED } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-
 
 export const initialState = {
   addonType: null,
@@ -34,9 +30,9 @@ export default function landing(state = initialState, action) {
         if (payload[key]) {
           newState[key] = {
             count: payload[key].result.count,
-            results: payload[key].result.results.map((slug) => (
-              createInternalAddon(payload[key].entities.addons[slug])
-            )),
+            results: payload[key].result.results.map((slug) =>
+              createInternalAddon(payload[key].entities.addons[slug]),
+            ),
           };
         }
       });

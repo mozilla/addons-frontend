@@ -43,7 +43,6 @@ import {
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   const defaultCollectionDetail = createFakeCollectionDetail();
   const defaultUser = defaultCollectionDetail.author.username;
@@ -81,17 +80,20 @@ describe(__filename, () => {
   it('allows HTML entities in the Collection description', () => {
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: {
-        ...defaultCollectionDetail,
-        description: 'Apples &amp; carrots',
-      },
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: {
+          ...defaultCollectionDetail,
+          description: 'Apples &amp; carrots',
+        },
+      }),
+    );
     const wrapper = renderComponent({ store });
 
-    expect(wrapper.find('.Collection-description').html())
-      .toContain('Apples &amp; carrots');
+    expect(wrapper.find('.Collection-description').html()).toContain(
+      'Apples &amp; carrots',
+    );
   });
 
   it('renders loading indicators when there is no collection', () => {
@@ -102,8 +104,9 @@ describe(__filename, () => {
     // 3 items are rendered by `MetadataCard` though and will render
     // as `LoadingText` if null; so we just make sure it has `null`
     // props for the last three.
-    expect(wrapper.find('.Collection-detail').find(LoadingText))
-      .toHaveLength(2);
+    expect(wrapper.find('.Collection-detail').find(LoadingText)).toHaveLength(
+      2,
+    );
     const contents = wrapper
       .find(MetadataCard)
       .prop('metadata')
@@ -118,16 +121,19 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions();
     const collectionDetail = createFakeCollectionDetail();
 
-    store.dispatch(loadCurrentCollection({
-      addons: [],
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: [],
+        detail: collectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
 
     expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
-    expect(wrapper.find('.Collection-placeholder')
-      .text()).toEqual('Search for extensions and themes to add to your collection.');
+    expect(wrapper.find('.Collection-placeholder').text()).toEqual(
+      'Search for extensions and themes to add to your collection.',
+    );
   });
 
   it('renders placeholder text when creating a collection', () => {
@@ -137,7 +143,8 @@ describe(__filename, () => {
 
     expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
     expect(wrapper.find('.Collection-placeholder').text()).toEqual(
-      'First, create your collection. Then you can add extensions and themes.');
+      'First, create your collection. Then you can add extensions and themes.',
+    );
   });
 
   it('hides placeholder text when creating a collection if not logged in', () => {
@@ -153,10 +160,12 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons();
     const collectionDetail = createFakeCollectionDetail();
 
-    store.dispatch(loadCurrentCollection({
-      addons: collectionAddons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
 
@@ -168,10 +177,12 @@ describe(__filename, () => {
 
     const collectionDetail = createFakeCollectionDetail();
 
-    store.dispatch(loadCurrentCollection({
-      addons: [],
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: [],
+        detail: collectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
 
@@ -189,12 +200,15 @@ describe(__filename, () => {
     renderComponent({ errorHandler, params: { slug, username }, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      errorHandlerId: errorHandler.id,
-      page: undefined,
-      slug,
-      username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollection({
+        errorHandlerId: errorHandler.id,
+        page: undefined,
+        slug,
+        username,
+      }),
+    );
   });
 
   it('does not dispatch any fetches when switching to edit mode', () => {
@@ -202,10 +216,12 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     fakeDispatch.resetHistory();
 
@@ -240,22 +256,27 @@ describe(__filename, () => {
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      errorHandlerId: errorHandler.id,
-      page,
-      slug,
-      username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollection({
+        errorHandlerId: errorHandler.id,
+        page,
+        slug,
+        username,
+      }),
+    );
   });
 
   it('does not dispatch any action when nothing has changed', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
     fakeDispatch.resetHistory();
@@ -270,10 +291,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const location = fakeRouterLocation();
 
@@ -294,11 +317,13 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const username = 'some-user';
 
-    store.dispatch(fetchCurrentCollection({
-      errorHandlerId: errorHandler.id,
-      slug,
-      username,
-    }));
+    store.dispatch(
+      fetchCurrentCollection({
+        errorHandlerId: errorHandler.id,
+        slug,
+        username,
+      }),
+    );
 
     fakeDispatch.resetHistory();
     renderComponent({ store });
@@ -314,12 +339,14 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const username = 'some-user';
 
-    store.dispatch(fetchCurrentCollectionPage({
-      errorHandlerId: errorHandler.id,
-      page: 123,
-      slug,
-      username,
-    }));
+    store.dispatch(
+      fetchCurrentCollectionPage({
+        errorHandlerId: errorHandler.id,
+        page: 123,
+        slug,
+        username,
+      }),
+    );
 
     fakeDispatch.resetHistory();
     renderComponent({ store });
@@ -345,10 +372,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
@@ -381,22 +410,27 @@ describe(__filename, () => {
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      errorHandlerId: errorHandler.id,
-      page,
-      slug: newSlug,
-      username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollection({
+        errorHandlerId: errorHandler.id,
+        page,
+        slug: newSlug,
+        username,
+      }),
+    );
   });
 
   it('dispatches fetchCurrentCollectionPage when page has changed', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const page = 123;
     const location = fakeRouterLocation();
@@ -414,23 +448,28 @@ describe(__filename, () => {
     wrapper.setProps({ location: newLocation });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
-      errorHandlerId: errorHandler.id,
-      page,
-      username: defaultUser,
-      slug: defaultSlug,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollectionPage({
+        errorHandlerId: errorHandler.id,
+        page,
+        username: defaultUser,
+        slug: defaultSlug,
+      }),
+    );
   });
 
   it('defaults to first page when there is no page and collection is loaded', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-      page: 2,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+        page: 2,
+      }),
+    );
 
     // This happens when a user clicks the "back" button in the browser, after
     // having browsed a collection and navigated to the second page.
@@ -451,12 +490,15 @@ describe(__filename, () => {
     wrapper.setProps({ location: newLocation });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
-      errorHandlerId: errorHandler.id,
-      page: 1,
-      username: defaultUser,
-      slug: defaultSlug,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollectionPage({
+        errorHandlerId: errorHandler.id,
+        page: 1,
+        username: defaultUser,
+        slug: defaultSlug,
+      }),
+    );
   });
 
   it('dispatches fetchCurrentCollection when user param has changed', () => {
@@ -464,10 +506,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({
       errorHandler,
@@ -482,11 +526,14 @@ describe(__filename, () => {
     wrapper.setProps({ params: newParams });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      errorHandlerId: errorHandler.id,
-      page: undefined,
-      ...newParams,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollection({
+        errorHandlerId: errorHandler.id,
+        page: undefined,
+        ...newParams,
+      }),
+    );
   });
 
   it('compares username values in lower case', () => {
@@ -494,10 +541,12 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail({ authorUsername: username }),
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({ authorUsername: username }),
+      }),
+    );
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const wrapper = renderComponent({ errorHandler, store });
@@ -515,10 +564,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({
       errorHandler,
@@ -533,11 +584,14 @@ describe(__filename, () => {
     wrapper.setProps({ params: newParams });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      errorHandlerId: errorHandler.id,
-      page: undefined,
-      ...newParams,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollection({
+        errorHandlerId: errorHandler.id,
+        page: undefined,
+        ...newParams,
+      }),
+    );
   });
 
   it('renders a collection', () => {
@@ -545,15 +599,16 @@ describe(__filename, () => {
 
     const pathname = `/collections/${defaultUser}/${defaultSlug}/`;
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
-    expect(wrapper.find(AddonsCard))
-      .toHaveProp('editing', false);
+    expect(wrapper.find(AddonsCard)).toHaveProp('editing', false);
 
     const footer = wrapper.find(AddonsCard).prop('footer');
     const paginator = shallow(footer);
@@ -572,10 +627,12 @@ describe(__filename, () => {
 
     const pathname = `/collections/${defaultUser}/${defaultSlug}/edit/`;
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ editing: true, store });
 
@@ -588,12 +645,18 @@ describe(__filename, () => {
 
     expect(wrapper.find(CollectionManager)).toHaveLength(1);
     expect(wrapper.find(CollectionManager)).toHaveProp('creating', false);
-    expect(wrapper.find(AddonsCard))
-      .toHaveProp('deleteNote', wrapper.instance().deleteNote);
-    expect(wrapper.find(AddonsCard))
-      .toHaveProp('removeAddon', wrapper.instance().removeAddon);
-    expect(wrapper.find(AddonsCard))
-      .toHaveProp('saveNote', wrapper.instance().saveNote);
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'deleteNote',
+      wrapper.instance().deleteNote,
+    );
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'removeAddon',
+      wrapper.instance().removeAddon,
+    );
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'saveNote',
+      wrapper.instance().saveNote,
+    );
 
     // Make sure these were not rendered.
     expect(wrapper.find('.Collection-title')).toHaveLength(0);
@@ -627,10 +690,12 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons({ addons: [] });
     const collectionDetail = createFakeCollectionDetail({ count: 0 });
 
-    store.dispatch(loadCurrentCollection({
-      addons: collectionAddons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(AddonsCard).prop('footer')).toEqual(null);
@@ -644,10 +709,12 @@ describe(__filename, () => {
     const username = defaultUser;
 
     // User loads the collection page.
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({
       errorHandler,
@@ -658,12 +725,14 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', false);
 
     // User clicks on 'next' pagination link.
-    store.dispatch(fetchCurrentCollectionPage({
-      errorHandlerId: errorHandler.id,
-      page: 2,
-      slug,
-      username,
-    }));
+    store.dispatch(
+      fetchCurrentCollectionPage({
+        errorHandlerId: errorHandler.id,
+        page: 2,
+        slug,
+        username,
+      }),
+    );
 
     // This is needed because shallowUntilTarget() does not trigger any
     // lifecycle methods.
@@ -671,8 +740,9 @@ describe(__filename, () => {
 
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
     // We should not update the collection detail card.
-    expect(wrapper.find('.Collection-detail').find(LoadingText))
-      .toHaveLength(0);
+    expect(wrapper.find('.Collection-detail').find(LoadingText)).toHaveLength(
+      0,
+    );
   });
 
   it('renders 404 page for missing collection', () => {
@@ -682,11 +752,13 @@ describe(__filename, () => {
       id: 'some-error-handler-id',
       dispatch: store.dispatch,
     });
-    errorHandler.handle(createApiError({
-      response: { status: 404 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'not found' },
-    }));
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'not found' },
+      }),
+    );
 
     const wrapper = renderComponent({ errorHandler, store });
     expect(wrapper.find(NotFound)).toHaveLength(1);
@@ -699,11 +771,13 @@ describe(__filename, () => {
       id: 'some-error-handler-id',
       dispatch: store.dispatch,
     });
-    errorHandler.handle(createApiError({
-      response: { status: 500 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Nope.' },
-    }));
+    errorHandler.handle(
+      createApiError({
+        response: { status: 500 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Nope.' },
+      }),
+    );
 
     const wrapper = renderComponent({ errorHandler, store });
     expect(wrapper.find(ErrorList)).toHaveLength(1);
@@ -712,10 +786,12 @@ describe(__filename, () => {
   it('renders an HTML title', () => {
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('title')).toHaveText(defaultCollectionDetail.name);
@@ -733,10 +809,12 @@ describe(__filename, () => {
       },
     });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
 
@@ -750,10 +828,12 @@ describe(__filename, () => {
       },
     });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store });
     const { onDelete } = wrapper.instance();
@@ -761,8 +841,10 @@ describe(__filename, () => {
     expect(button).toHaveLength(1);
     expect(button).toHaveClassName('Collection-delete-button');
     expect(button).toHaveProp('buttonType', 'cancel');
-    expect(button)
-      .toHaveProp('message', 'Do you really want to delete this collection?');
+    expect(button).toHaveProp(
+      'message',
+      'Do you really want to delete this collection?',
+    );
     expect(button).toHaveProp('onConfirm', onDelete);
     expect(button.children()).toHaveText('Delete this collection');
   });
@@ -774,17 +856,21 @@ describe(__filename, () => {
       userProps: { permissions: [COLLECTIONS_EDIT] },
     });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
     const editLink = wrapper.find('.Collection-edit-link').find(Button);
     expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp('href',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
+    expect(editLink).toHaveProp(
+      'href',
+      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`,
+    );
   });
 
   it('links internally to a Collection edit page', () => {
@@ -794,17 +880,21 @@ describe(__filename, () => {
       userProps: { permissions: [COLLECTIONS_EDIT] },
     });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
     const editLink = wrapper.find('.Collection-edit-link').find(Button);
     expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp('to',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
+    expect(editLink).toHaveProp(
+      'to',
+      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`,
+    );
   });
 
   it('includes the page number in the edit link', () => {
@@ -815,10 +905,12 @@ describe(__filename, () => {
       userProps: { permissions: [COLLECTIONS_EDIT] },
     });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: defaultCollectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
 
     const wrapper = renderComponent({
       _config: fakeConfig,
@@ -828,20 +920,26 @@ describe(__filename, () => {
 
     const editLink = wrapper.find('.Collection-edit-link').find(Button);
     expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp('to',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/?page=${page}`);
+    expect(editLink).toHaveProp(
+      'to',
+      `/collections/${defaultUser}/${
+        defaultCollectionDetail.slug
+      }/edit/?page=${page}`,
+    );
   });
 
   it('renders an edit link when user is the collection owner', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail({
-        authorId: authorUserId,
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({
+          authorId: authorUserId,
+        }),
       }),
-    }));
+    );
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
@@ -851,12 +949,14 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail({
-        authorId: authorUserId,
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({
+          authorId: authorUserId,
+        }),
       }),
-    }));
+    );
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(ConfirmButton)).toHaveLength(1);
@@ -866,12 +966,14 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail({
-        authorId: 99,
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({
+          authorId: 99,
+        }),
       }),
-    }));
+    );
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(ConfirmButton)).toHaveLength(0);
@@ -885,10 +987,12 @@ describe(__filename, () => {
     });
 
     const collectionDetail = createFakeCollectionDetail();
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({ store, editing: true });
 
     const manager = root.find(CollectionManager);
@@ -904,10 +1008,12 @@ describe(__filename, () => {
     });
 
     const collectionDetail = createFakeCollectionDetail();
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({ store, editing: true });
 
     expect(root.find(AddonsCard)).toHaveProp('editing', true);
@@ -935,8 +1041,7 @@ describe(__filename, () => {
 
     const authButton = root.find(AuthenticateButton);
     expect(authButton).toHaveProp('location', location);
-    expect(authButton)
-      .toHaveProp('logInText', 'Log in to create a collection');
+    expect(authButton).toHaveProp('logInText', 'Log in to create a collection');
 
     // Make sure these were not rendered.
     expect(root.find(CollectionManager)).toHaveLength(0);
@@ -954,8 +1059,10 @@ describe(__filename, () => {
 
     const authButton = root.find(AuthenticateButton);
     expect(authButton).toHaveProp('location', location);
-    expect(authButton)
-      .toHaveProp('logInText', 'Log in to edit this collection');
+    expect(authButton).toHaveProp(
+      'logInText',
+      'Log in to edit this collection',
+    );
 
     // Make sure these were not rendered.
     expect(root.find(CollectionManager)).toHaveLength(0);
@@ -978,10 +1085,12 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
 
-    store.dispatch(loadCurrentCollection({
-      addons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({
       editing: true,
       errorHandler,
@@ -995,13 +1104,16 @@ describe(__filename, () => {
     // EditableCollectionAddon component.
     root.instance().removeAddon(addonId);
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, removeAddonFromCollection({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      page,
-      slug: collectionDetail.slug,
-      username: collectionDetail.author.username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      removeAddonFromCollection({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        page,
+        slug: collectionDetail.slug,
+        username: collectionDetail.author.username,
+      }),
+    );
   });
 
   it('dispatches removeAddonFromCollection when removeAddon is called without a page defined', () => {
@@ -1017,14 +1129,16 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { } }),
+      location: fakeRouterLocation({ query: {} }),
       store,
     });
 
@@ -1034,13 +1148,16 @@ describe(__filename, () => {
     // EditableCollectionAddon component.
     root.instance().removeAddon(addonId);
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, removeAddonFromCollection({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      page: 1,
-      slug: collectionDetail.slug,
-      username: collectionDetail.author.username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      removeAddonFromCollection({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        page: 1,
+        slug: collectionDetail.slug,
+        username: collectionDetail.author.username,
+      }),
+    );
   });
 
   it('dispatches deleteCollection when onDelete is called', () => {
@@ -1049,14 +1166,16 @@ describe(__filename, () => {
     const username = 'some-username';
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(loadCurrentCollection({
-      addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail({
-        authorId: authorUserId,
-        authorUsername: username,
-        slug,
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({
+          authorId: authorUserId,
+          authorUsername: username,
+          slug,
+        }),
       }),
-    }));
+    );
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const preventDefaultSpy = sinon.spy();
@@ -1068,17 +1187,18 @@ describe(__filename, () => {
 
     // This emulates a user clicking the delete button and confirming.
     const onDelete = wrapper.find(ConfirmButton).prop('onConfirm');
-    onDelete(
-      createFakeEvent({ preventDefault: preventDefaultSpy })
-    );
+    onDelete(createFakeEvent({ preventDefault: preventDefaultSpy }));
 
     sinon.assert.calledOnce(preventDefaultSpy);
     sinon.assert.callCount(dispatchSpy, 1);
-    sinon.assert.calledWith(dispatchSpy, deleteCollection({
-      errorHandlerId: errorHandler.id,
-      slug,
-      username,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      deleteCollection({
+        errorHandlerId: errorHandler.id,
+        slug,
+        username,
+      }),
+    );
   });
 
   it('dispatches deleteCollectionAddonNotes when deleteNote is called', () => {
@@ -1095,10 +1215,12 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
 
-    store.dispatch(loadCurrentCollection({
-      addons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({
       editing: true,
       errorHandler,
@@ -1113,13 +1235,16 @@ describe(__filename, () => {
     const deleteNote = root.find(AddonsCard).prop('deleteNote');
     deleteNote(addonId, errorHandler);
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, deleteCollectionAddonNotes({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      page,
-      slug: collectionDetail.slug,
-      username: collectionDetail.author.username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      deleteCollectionAddonNotes({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        page,
+        slug: collectionDetail.slug,
+        username: collectionDetail.author.username,
+      }),
+    );
   });
 
   it('dispatches deleteCollectionAddonNotes when deleteNote is called without a page defined', () => {
@@ -1135,14 +1260,16 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(loadCurrentCollection({
-      addons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { } }),
+      location: fakeRouterLocation({ query: {} }),
       store,
     });
 
@@ -1152,13 +1279,16 @@ describe(__filename, () => {
     // EditableCollectionAddon component's comment form.
     root.instance().deleteNote(addonId, errorHandler);
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, deleteCollectionAddonNotes({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      page: 1,
-      slug: collectionDetail.slug,
-      username: collectionDetail.author.username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      deleteCollectionAddonNotes({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        page: 1,
+        slug: collectionDetail.slug,
+        username: collectionDetail.author.username,
+      }),
+    );
   });
 
   it('dispatches updateCollectionAddon when saveNote is called', () => {
@@ -1176,10 +1306,12 @@ describe(__filename, () => {
     const page = 123;
     const notes = 'These are some notes.';
 
-    store.dispatch(loadCurrentCollection({
-      addons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({
       editing: true,
       errorHandler,
@@ -1193,14 +1325,17 @@ describe(__filename, () => {
     // EditableCollectionAddon component's comment form.
     root.instance().saveNote(addonId, errorHandler, notes);
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, updateCollectionAddon({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      notes,
-      page,
-      slug: collectionDetail.slug,
-      username: collectionDetail.author.username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      updateCollectionAddon({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        notes,
+        page,
+        slug: collectionDetail.slug,
+        username: collectionDetail.author.username,
+      }),
+    );
   });
 
   it('dispatches updateCollectionAddon when saveNote is called without a page defined', () => {
@@ -1217,14 +1352,16 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const notes = 'These are some notes.';
 
-    store.dispatch(loadCurrentCollection({
-      addons,
-      detail: collectionDetail,
-    }));
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail: collectionDetail,
+      }),
+    );
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { } }),
+      location: fakeRouterLocation({ query: {} }),
       store,
     });
 
@@ -1234,14 +1371,17 @@ describe(__filename, () => {
     // EditableCollectionAddon component's comment form.
     root.instance().saveNote(addonId, errorHandler, notes);
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, updateCollectionAddon({
-      addonId,
-      errorHandlerId: errorHandler.id,
-      notes,
-      page: 1,
-      slug: collectionDetail.slug,
-      username: collectionDetail.author.username,
-    }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      updateCollectionAddon({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        notes,
+        page: 1,
+        slug: collectionDetail.slug,
+        username: collectionDetail.author.username,
+      }),
+    );
   });
 
   describe('errorHandler - extractId', () => {

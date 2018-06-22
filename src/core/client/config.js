@@ -24,4 +24,8 @@ export class ClientConfig {
   }
 }
 
-export default new ClientConfig({ ...CLIENT_CONFIG, client: true, server: false });
+export default new ClientConfig({
+  ...CLIENT_CONFIG,
+  client: true,
+  server: false,
+});

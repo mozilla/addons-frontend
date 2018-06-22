@@ -40,7 +40,8 @@ import Notice from 'ui/components/Notice';
 
 const simulateAutoSearchCallback = (props = {}) => {
   return simulateComponentCallback({
-    Component: AutoSearchInput, ...props,
+    Component: AutoSearchInput,
+    ...props,
   });
 };
 
@@ -83,13 +84,13 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = getProps(customProps);
     return shallowUntilTarget(
-      <CollectionManager {...props} />, CollectionManagerBase
+      <CollectionManager {...props} />,
+      CollectionManagerBase,
     );
   };
 
   const simulateCancel = (root) => {
-    root.find('.CollectionManager-cancel')
-      .simulate('click', createFakeEvent());
+    root.find('.CollectionManager-cancel').simulate('click', createFakeEvent());
   };
 
   const simulateSubmit = (root) => {
@@ -100,9 +101,12 @@ describe(__filename, () => {
   const typeInput = ({ root, name, text }) => {
     // Look for input or textarea, etc. Example:
     // <form><input name="description' /></form>
-    root.find(`[name="${name}"]`).simulate('change', createFakeEvent({
-      target: { name, value: text },
-    }));
+    root.find(`[name="${name}"]`).simulate(
+      'change',
+      createFakeEvent({
+        target: { name, value: text },
+      }),
+    );
   };
 
   it('renders loading text before a collection has loaded', () => {
@@ -114,49 +118,52 @@ describe(__filename, () => {
   it('disables the form buttons before a collection has loaded', () => {
     const root = render({ collection: null });
 
-    expect(root.find('.CollectionManager-cancel'))
-      .toHaveProp('disabled', true);
-    expect(root.find('.CollectionManager-submit'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.CollectionManager-cancel')).toHaveProp('disabled', true);
+    expect(root.find('.CollectionManager-submit')).toHaveProp('disabled', true);
   });
 
   it('displays the correct button for create', () => {
     const root = render({ collection: null, creating: true });
 
-    expect(root.find('.CollectionManager-submit').children())
-      .toHaveText('Create collection');
+    expect(root.find('.CollectionManager-submit').children()).toHaveText(
+      'Create collection',
+    );
   });
 
   it('displays the correct button for edit', () => {
     const root = render({ collection: null, creating: false });
 
-    expect(root.find('.CollectionManager-submit').children())
-      .toHaveText('Save collection');
+    expect(root.find('.CollectionManager-submit').children()).toHaveText(
+      'Save collection',
+    );
   });
 
   it('can render an empty form for create', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const newLang = 'de';
     const username = 'testUser';
-    const localStore = dispatchClientMetadata(
-      { clientApp, lang: newLang }
-    ).store;
+    const localStore = dispatchClientMetadata({ clientApp, lang: newLang })
+      .store;
     dispatchSignInActions({
       lang: newLang,
       store: localStore,
       userProps: { username },
     });
 
-    const root = render({ collection: null, creating: true, store: localStore });
+    const root = render({
+      collection: null,
+      creating: true,
+      store: localStore,
+    });
 
-    const expectedUrlPrefix =
-      `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
+    const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
     expect(root.find('#collectionName')).toHaveProp('value', null);
-    expect(root.find('#collectionDescription'))
-      .toHaveProp('value', null);
+    expect(root.find('#collectionDescription')).toHaveProp('value', null);
     expect(root.find('#collectionSlug')).toHaveProp('value', null);
-    expect(root.find('#collectionUrlPrefix'))
-      .toHaveProp('title', expectedUrlPrefix);
+    expect(root.find('#collectionUrlPrefix')).toHaveProp(
+      'title',
+      expectedUrlPrefix,
+    );
     expect(root.find('#collectionUrlPrefix')).toIncludeText(expectedUrlPrefix);
   });
 
@@ -164,9 +171,8 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const newLang = 'de';
     const username = 'testUser';
-    const localStore = dispatchClientMetadata(
-      { clientApp, lang: newLang }
-    ).store;
+    const localStore = dispatchClientMetadata({ clientApp, lang: newLang })
+      .store;
     dispatchSignInActions({
       lang: newLang,
       store: localStore,
@@ -182,16 +188,17 @@ describe(__filename, () => {
     });
     const root = render({ collection, store: localStore });
 
-    const expectedUrlPrefix =
-      `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
-    expect(root.find('#collectionName'))
-      .toHaveProp('value', collection.name);
-    expect(root.find('#collectionDescription'))
-      .toHaveProp('value', collection.description);
-    expect(root.find('#collectionSlug'))
-      .toHaveProp('value', collection.slug);
-    expect(root.find('#collectionUrlPrefix'))
-      .toHaveProp('title', expectedUrlPrefix);
+    const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
+    expect(root.find('#collectionName')).toHaveProp('value', collection.name);
+    expect(root.find('#collectionDescription')).toHaveProp(
+      'value',
+      collection.description,
+    );
+    expect(root.find('#collectionSlug')).toHaveProp('value', collection.slug);
+    expect(root.find('#collectionUrlPrefix')).toHaveProp(
+      'title',
+      expectedUrlPrefix,
+    );
     expect(root.find('#collectionUrlPrefix')).toIncludeText(expectedUrlPrefix);
   });
 
@@ -207,10 +214,14 @@ describe(__filename, () => {
 
     const { description, name } = collection;
 
-    expect(root.find('#collectionName'))
-      .toHaveProp('value', decodeHtmlEntities(name));
-    expect(root.find('#collectionDescription'))
-      .toHaveProp('value', decodeHtmlEntities(description));
+    expect(root.find('#collectionName')).toHaveProp(
+      'value',
+      decodeHtmlEntities(name),
+    );
+    expect(root.find('#collectionDescription')).toHaveProp(
+      'value',
+      decodeHtmlEntities(description),
+    );
   });
 
   it('does not populate form when updating to the same collection', () => {
@@ -238,8 +249,10 @@ describe(__filename, () => {
 
     // Make sure the internal state is preserved.
     expect(root.find('#collectionName')).toHaveProp('value', name);
-    expect(root.find('#collectionDescription'))
-      .toHaveProp('value', description);
+    expect(root.find('#collectionDescription')).toHaveProp(
+      'value',
+      description,
+    );
     expect(root.find('#collectionSlug')).toHaveProp('value', slug);
   });
 
@@ -257,19 +270,30 @@ describe(__filename, () => {
     const descriptionInput = root.find('#collectionDescription');
     const slugInput = root.find('#collectionSlug');
 
-    nameInput.simulate('change', createFakeEvent({
-      target: { name: 'name', value: 'New name' },
-    }));
-    descriptionInput.simulate('change', createFakeEvent({
-      target: { name: 'description', value: 'New description' },
-    }));
-    slugInput.simulate('change', createFakeEvent({
-      target: { name: 'slug', value: 'new-slug' },
-    }));
+    nameInput.simulate(
+      'change',
+      createFakeEvent({
+        target: { name: 'name', value: 'New name' },
+      }),
+    );
+    descriptionInput.simulate(
+      'change',
+      createFakeEvent({
+        target: { name: 'description', value: 'New description' },
+      }),
+    );
+    slugInput.simulate(
+      'change',
+      createFakeEvent({
+        target: { name: 'slug', value: 'new-slug' },
+      }),
+    );
 
     expect(root.find('#collectionName')).toHaveProp('value', 'New name');
-    expect(root.find('#collectionDescription'))
-      .toHaveProp('value', 'New description');
+    expect(root.find('#collectionDescription')).toHaveProp(
+      'value',
+      'New description',
+    );
     expect(root.find('#collectionSlug')).toHaveProp('value', 'new-slug');
   });
 
@@ -296,14 +320,17 @@ describe(__filename, () => {
 
     simulateSubmit(root);
 
-    sinon.assert.calledWith(dispatchSpy, createCollection({
-      defaultLocale: lang,
-      description: { [lang]: description },
-      errorHandlerId: errorHandler.id,
-      name: { [lang]: name },
-      slug,
-      username: signedInUsername,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      createCollection({
+        defaultLocale: lang,
+        description: { [lang]: description },
+        errorHandlerId: errorHandler.id,
+        name: { [lang]: name },
+        slug,
+        username: signedInUsername,
+      }),
+    );
   });
 
   it('updates the collection on submit', () => {
@@ -326,20 +353,23 @@ describe(__filename, () => {
 
     simulateSubmit(root);
 
-    sinon.assert.calledWith(dispatchSpy, updateCollection({
-      collectionSlug: collection.slug,
-      defaultLocale: collection.defaultLocale,
-      description: { [lang]: description },
-      errorHandlerId: errorHandler.id,
-      name: { [lang]: name },
-      slug,
-      username: signedInUsername,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      updateCollection({
+        collectionSlug: collection.slug,
+        defaultLocale: collection.defaultLocale,
+        description: { [lang]: description },
+        errorHandlerId: errorHandler.id,
+        name: { [lang]: name },
+        slug,
+        username: signedInUsername,
+      }),
+    );
   });
 
   it('renders any error', () => {
     const errorHandler = createStubErrorHandler(
-      new Error('Unexpected API error')
+      new Error('Unexpected API error'),
     );
     const root = render({ errorHandler });
 
@@ -352,10 +382,11 @@ describe(__filename, () => {
     // Enter in a blank collection name.
     typeInput({ root, name: 'name', text: '' });
 
-    expect(root.find('.CollectionManager-cancel'))
-      .toHaveProp('disabled', false);
-    expect(root.find('.CollectionManager-submit'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.CollectionManager-cancel')).toHaveProp(
+      'disabled',
+      false,
+    );
+    expect(root.find('.CollectionManager-submit')).toHaveProp('disabled', true);
   });
 
   it('disables submit button when the name is spaces', () => {
@@ -364,10 +395,11 @@ describe(__filename, () => {
     // Enter in a space only collection name.
     typeInput({ root, name: 'name', text: '   ' });
 
-    expect(root.find('.CollectionManager-cancel'))
-      .toHaveProp('disabled', false);
-    expect(root.find('.CollectionManager-submit'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.CollectionManager-cancel')).toHaveProp(
+      'disabled',
+      false,
+    );
+    expect(root.find('.CollectionManager-submit')).toHaveProp('disabled', true);
   });
 
   it('disables submit button when the slug is blank', () => {
@@ -376,10 +408,11 @@ describe(__filename, () => {
     // Enter in a blank collection slug.
     typeInput({ root, name: 'slug', text: '' });
 
-    expect(root.find('.CollectionManager-cancel'))
-      .toHaveProp('disabled', false);
-    expect(root.find('.CollectionManager-submit'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.CollectionManager-cancel')).toHaveProp(
+      'disabled',
+      false,
+    );
+    expect(root.find('.CollectionManager-submit')).toHaveProp('disabled', true);
   });
 
   it('disables submit button when the slug is spaces', () => {
@@ -388,20 +421,25 @@ describe(__filename, () => {
     // Enter in a space only collection slug.
     typeInput({ root, name: 'slug', text: '   ' });
 
-    expect(root.find('.CollectionManager-cancel'))
-      .toHaveProp('disabled', false);
-    expect(root.find('.CollectionManager-submit'))
-      .toHaveProp('disabled', true);
+    expect(root.find('.CollectionManager-cancel')).toHaveProp(
+      'disabled',
+      false,
+    );
+    expect(root.find('.CollectionManager-submit')).toHaveProp('disabled', true);
   });
 
   it('disables and enables form buttons when modification status changes', () => {
     const renderAndCheckButtons = (shouldBeDisabled) => {
       const root = render();
 
-      expect(root.find('.CollectionManager-cancel'))
-        .toHaveProp('disabled', shouldBeDisabled);
-      expect(root.find('.CollectionManager-submit'))
-        .toHaveProp('disabled', shouldBeDisabled);
+      expect(root.find('.CollectionManager-cancel')).toHaveProp(
+        'disabled',
+        shouldBeDisabled,
+      );
+      expect(root.find('.CollectionManager-submit')).toHaveProp(
+        'disabled',
+        shouldBeDisabled,
+      );
     };
 
     // Buttons should be enabled by default.
@@ -417,9 +455,11 @@ describe(__filename, () => {
     const slug = 'trishul';
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail(
-        { authorUsername: signedInUsername, name, slug }
-      ),
+      detail: createFakeCollectionDetail({
+        authorUsername: signedInUsername,
+        name,
+        slug,
+      }),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -432,15 +472,18 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
     simulateSubmit(root);
 
-    sinon.assert.calledWith(dispatchSpy, updateCollection({
-      collectionSlug: slug,
-      defaultLocale: collection.defaultLocale,
-      description: { [lang]: collection.description },
-      errorHandlerId: root.instance().props.errorHandler.id,
-      name: { [lang]: name },
-      slug,
-      username: signedInUsername,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      updateCollection({
+        collectionSlug: slug,
+        defaultLocale: collection.defaultLocale,
+        description: { [lang]: collection.description },
+        errorHandlerId: root.instance().props.errorHandler.id,
+        name: { [lang]: name },
+        slug,
+        username: signedInUsername,
+      }),
+    );
   });
 
   it('autofills slug when name is entered while creating collection', () => {
@@ -515,15 +558,18 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
     simulateSubmit(root);
 
-    sinon.assert.calledWith(dispatchSpy, updateCollection({
-      collectionSlug: collection.slug,
-      defaultLocale: collection.defaultLocale,
-      description: { [lang]: '' },
-      errorHandlerId: root.instance().props.errorHandler.id,
-      name: { [lang]: collection.name },
-      slug: collection.slug,
-      username: signedInUsername,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      updateCollection({
+        collectionSlug: collection.slug,
+        defaultLocale: collection.defaultLocale,
+        description: { [lang]: '' },
+        errorHandlerId: root.instance().props.errorHandler.id,
+        name: { [lang]: collection.name },
+        slug: collection.slug,
+        username: signedInUsername,
+      }),
+    );
   });
 
   it('resets form state on cancel', () => {
@@ -556,15 +602,15 @@ describe(__filename, () => {
   it('redirects to the detail view on cancel when editing', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const newLang = 'de';
-    const localStore = dispatchClientMetadata(
-      { clientApp, lang: newLang }
-    ).store;
+    const localStore = dispatchClientMetadata({ clientApp, lang: newLang })
+      .store;
 
     const slug = 'my-collection';
     const username = 'some-username';
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
-        authorUsername: username, slug,
+        authorUsername: username,
+        slug,
       }),
     });
     const root = render({ collection, store: localStore });
@@ -573,7 +619,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeRouter.push,
-      `/${newLang}/${clientApp}/collections/${username}/${slug}/`
+      `/${newLang}/${clientApp}/collections/${username}/${slug}/`,
     );
   });
 
@@ -633,7 +679,8 @@ describe(__filename, () => {
     const root = render();
 
     const search = simulateAutoSearchCallback({
-      root, propName: 'onSearch',
+      root,
+      propName: 'onSearch',
     });
     search({ query: 'ad blocker' });
     // TODO: test onSearch
@@ -651,22 +698,26 @@ describe(__filename, () => {
     const root = render({ collection, errorHandler, page });
 
     const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
     );
     const selectSuggestion = simulateAutoSearchCallback({
-      root, propName: 'onSuggestionSelected',
+      root,
+      propName: 'onSuggestionSelected',
     });
     selectSuggestion(suggestion);
 
-    sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
-      addonId: suggestion.addonId,
-      collectionId: collection.id,
-      slug: collection.slug,
-      editing: true,
-      errorHandlerId: errorHandler.id,
-      page,
-      username: signedInUsername,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      addAddonToCollection({
+        addonId: suggestion.addonId,
+        collectionId: collection.id,
+        slug: collection.slug,
+        editing: true,
+        errorHandlerId: errorHandler.id,
+        page,
+        username: signedInUsername,
+      }),
+    );
   });
 
   it('dispatches addAddonToCollection with a default page of 1 when selecting an add-on', () => {
@@ -679,22 +730,26 @@ describe(__filename, () => {
     const root = render({ collection, errorHandler, page: undefined });
 
     const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
     );
     const selectSuggestion = simulateAutoSearchCallback({
-      root, propName: 'onSuggestionSelected',
+      root,
+      propName: 'onSuggestionSelected',
     });
     selectSuggestion(suggestion);
 
-    sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
-      addonId: suggestion.addonId,
-      collectionId: collection.id,
-      slug: collection.slug,
-      editing: true,
-      errorHandlerId: errorHandler.id,
-      page: 1,
-      username: signedInUsername,
-    }));
+    sinon.assert.calledWith(
+      dispatchSpy,
+      addAddonToCollection({
+        addonId: suggestion.addonId,
+        collectionId: collection.id,
+        slug: collection.slug,
+        editing: true,
+        errorHandlerId: errorHandler.id,
+        page: 1,
+        username: signedInUsername,
+      }),
+    );
   });
 
   it('sets the addonAddedStatus state to pending when selecting an add-on', () => {
@@ -704,10 +759,11 @@ describe(__filename, () => {
     expect(state.addonAddedStatus).toEqual(null);
 
     const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
     );
     const selectSuggestion = simulateAutoSearchCallback({
-      root, propName: 'onSuggestionSelected',
+      root,
+      propName: 'onSuggestionSelected',
     });
     selectSuggestion(suggestion);
 
@@ -727,7 +783,11 @@ describe(__filename, () => {
     expect(root.find(Notice).children()).toHaveText('Added to collection');
 
     expect(root).toHaveState('addonAddedStatus', ADDON_ADDED_STATUS_SUCCESS);
-    sinon.assert.calledWith(setTimeoutSpy, root.instance().resetMessageStatus, MESSAGE_RESET_TIME);
+    sinon.assert.calledWith(
+      setTimeoutSpy,
+      root.instance().resetMessageStatus,
+      MESSAGE_RESET_TIME,
+    );
 
     // Simulate the setTimeout behavior.
     root.instance().resetMessageStatus();
@@ -772,10 +832,11 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(1);
 
     const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
     );
     const selectSuggestion = simulateAutoSearchCallback({
-      root, propName: 'onSuggestionSelected',
+      root,
+      propName: 'onSuggestionSelected',
     });
     selectSuggestion(suggestion);
 
@@ -784,8 +845,7 @@ describe(__filename, () => {
 
   describe('extractId', () => {
     it('generates an ID without a collection', () => {
-      expect(extractId(getProps({ collection: null })))
-        .toEqual('collection-');
+      expect(extractId(getProps({ collection: null }))).toEqual('collection-');
     });
 
     it('generates an ID with a collection', () => {
@@ -794,8 +854,9 @@ describe(__filename, () => {
           slug: 'some-slug',
         }),
       });
-      expect(extractId(getProps({ collection })))
-        .toEqual('collection-some-slug');
+      expect(extractId(getProps({ collection }))).toEqual(
+        'collection-some-slug',
+      );
     });
   });
 });

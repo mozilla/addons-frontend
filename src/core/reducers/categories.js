@@ -9,17 +9,15 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 
-
 export function emptyCategoryList() {
-  return config.get('validClientApplications')
-    .reduce((object, appName) => {
-      return {
-        ...object,
-        [appName]: validAddonTypes.reduce((appObject, addonType) => {
-          return { ...appObject, [addonType]: [] };
-        }, {}),
-      };
-    }, {});
+  return config.get('validClientApplications').reduce((object, appName) => {
+    return {
+      ...object,
+      [appName]: validAddonTypes.reduce((appObject, addonType) => {
+        return { ...appObject, [addonType]: [] };
+      }, {}),
+    };
+  }, {});
 }
 
 export const initialState = {
@@ -33,14 +31,12 @@ export default function categories(state = initialState, action) {
   switch (action.type) {
     case CATEGORIES_FETCH:
       return { ...initialState, loading: true };
-    case CATEGORIES_LOAD:
-    {
+    case CATEGORIES_LOAD: {
       const categoryList = emptyCategoryList();
       Object.values(payload.result).forEach((category) => {
         // This category has no data, so skip it.
         if (!category || !category.application) {
-          log.warn(
-            'category or category.application was false-y.', category);
+          log.warn('category or category.application was false-y.', category);
           return;
         }
 
@@ -66,9 +62,10 @@ export default function categories(state = initialState, action) {
         Object.keys(categoryList[appName]).forEach((addonType) => {
           categoryList[appName][addonType] = categoryList[appName][addonType]
             .sort((a, b) => a.name.localeCompare(b.name))
-            .reduce((object, value) => (
-              { ...object, [value.slug]: value }
-            ), {});
+            .reduce(
+              (object, value) => ({ ...object, [value.slug]: value }),
+              {},
+            );
         });
       });
 
@@ -81,8 +78,8 @@ export default function categories(state = initialState, action) {
       // https://github.com/mozilla/addons-server/issues/4766 is fixed.
       log.info(oneLine`Replacing Android persona data with Firefox data until
           https://github.com/mozilla/addons-server/issues/4766 is fixed.`);
-      categoryList.android[ADDON_TYPE_THEME] = categoryList
-        .firefox[ADDON_TYPE_THEME];
+      categoryList.android[ADDON_TYPE_THEME] =
+        categoryList.firefox[ADDON_TYPE_THEME];
 
       return {
         ...state,

@@ -4,7 +4,6 @@ import { findDOMNode } from 'react-dom';
 
 import Switch from 'ui/components/Switch';
 
-
 describe('<Switch />', () => {
   function renderButton(props = {}) {
     const renderProps = {
@@ -97,7 +96,11 @@ describe('<Switch />', () => {
   it('associates the label and input with id and for attributes', () => {
     const button = renderButton({ name: 'foo' });
     const root = findDOMNode(button);
-    expect(root.querySelector('input').getAttribute('id')).toEqual('install-button-foo');
-    expect(root.querySelector('label').getAttribute('for')).toEqual('install-button-foo');
+    expect(root.querySelector('input').getAttribute('id')).toEqual(
+      'install-button-foo',
+    );
+    expect(root.querySelector('label').getAttribute('for')).toEqual(
+      'install-button-foo',
+    );
   });
 });

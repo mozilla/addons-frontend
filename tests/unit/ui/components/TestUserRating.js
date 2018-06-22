@@ -9,10 +9,7 @@ import {
   dispatchSignInActions,
   fakeReview,
 } from 'tests/unit/amo/helpers';
-import {
-  fakeI18n,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 let store;
 
@@ -61,7 +58,8 @@ describe(__filename, () => {
 
   it('passes isOwned: true to Rating if you wrote the review', () => {
     const review = signInAndReturnReview({
-      siteUserId: 123, reviewUserId: 123,
+      siteUserId: 123,
+      reviewUserId: 123,
     });
     const root = render({ review });
     expect(root).toHaveProp('isOwner', true);
@@ -69,7 +67,8 @@ describe(__filename, () => {
 
   it('passes isOwned: false to Rating if you did not write the review', () => {
     const review = signInAndReturnReview({
-      siteUserId: 123, reviewUserId: 456,
+      siteUserId: 123,
+      reviewUserId: 456,
     });
     const root = render({ review });
     expect(root).toHaveProp('isOwner', false);
@@ -77,7 +76,8 @@ describe(__filename, () => {
 
   it('passes isOwned: false to Rating if no user is logged in', () => {
     const review = signInAndReturnReview({
-      siteUserId: 123, reviewUserId: 123,
+      siteUserId: 123,
+      reviewUserId: 123,
     });
     store.dispatch(logOutUser());
     const root = render({ review });

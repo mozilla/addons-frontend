@@ -4,16 +4,12 @@ import { Router, Route } from 'react-router';
 
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
-import SimulateAsyncError from
-  'core/containers/error-simulation/SimulateAsyncError';
-import SimulateClientError from
-  'core/containers/error-simulation/SimulateClientError';
-import SimulateSyncError from
-  'core/containers/error-simulation/SimulateSyncError';
+import SimulateAsyncError from 'core/containers/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'core/containers/error-simulation/SimulateClientError';
+import SimulateSyncError from 'core/containers/error-simulation/SimulateSyncError';
 
 import App from './containers/App';
 import DiscoPane from './containers/DiscoPane';
-
 
 export default (
   <Router component={App}>

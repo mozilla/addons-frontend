@@ -82,11 +82,15 @@ export const API_ADDON_TYPES_MAPPING = {
   extensions: ADDON_TYPE_EXTENSION,
   themes: ADDON_TYPE_THEME,
 };
-export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
-  .reduce((object, key) => ({
+export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(
+  API_ADDON_TYPES_MAPPING,
+).reduce(
+  (object, key) => ({
     ...object,
     [API_ADDON_TYPES_MAPPING[key]]: key,
-  }), {});
+  }),
+  {},
+);
 
 // Incompatibility codes for clients that can't install an add-on.
 export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';
@@ -213,8 +217,9 @@ export const GLOBAL_EVENT_STATUS_MAP = {
 
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
-export const GLOBAL_EVENTS: Array<$Keys<typeof GLOBAL_EVENT_STATUS_MAP>>
-  = Object.keys(GLOBAL_EVENT_STATUS_MAP);
+export const GLOBAL_EVENTS: Array<
+  $Keys<typeof GLOBAL_EVENT_STATUS_MAP>,
+> = Object.keys(GLOBAL_EVENT_STATUS_MAP);
 
 // Generic error codes.
 export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';
@@ -225,8 +230,7 @@ export const API_ERROR_INVALID_HEADER = 'ERROR_INVALID_HEADER';
 export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
 // Interpreted error codes.
 export const ERROR_ADDON_DISABLED_BY_DEV = 'ERROR_ADDON_DISABLED_BY_DEV';
-export const ERROR_ADDON_DISABLED_BY_ADMIN =
-  'ERROR_ADDON_DISABLED_BY_ADMIN';
+export const ERROR_ADDON_DISABLED_BY_ADMIN = 'ERROR_ADDON_DISABLED_BY_ADMIN';
 
 // This is the limit in milleseconds for how long a setTimeout delay can be.
 // No setTimeout should be scheduled for this time because it

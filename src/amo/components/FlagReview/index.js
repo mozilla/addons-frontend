@@ -12,7 +12,6 @@ import type { FlagState, ReviewState } from 'amo/reducers/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 
-
 type Props = {|
   buttonText: string,
   reason: FlagReviewReasonType,
@@ -33,17 +32,17 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     const { errorHandler, dispatch, review, reason } = this.props;
     event.preventDefault();
 
-    dispatch(flagReview({
-      errorHandlerId: errorHandler.id,
-      reason,
-      reviewId: review.id,
-    }));
-  }
+    dispatch(
+      flagReview({
+        errorHandlerId: errorHandler.id,
+        reason,
+        reviewId: review.id,
+      }),
+    );
+  };
 
   renderControls() {
-    const {
-      errorHandler, flagState, buttonText, wasFlaggedText,
-    } = this.props;
+    const { errorHandler, flagState, buttonText, wasFlaggedText } = this.props;
 
     if (flagState) {
       if (flagState.inProgress && !errorHandler.hasError()) {
@@ -54,10 +53,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     }
 
     return (
-      <button
-        className="FlagReview-button"
-        onClick={this.onClick}
-      >
+      <button className="FlagReview-button" onClick={this.onClick}>
         {buttonText}
       </button>
     );
@@ -76,7 +72,8 @@ export class FlagReviewBase extends React.Component<InternalProps> {
 }
 
 const mapStateToProps = (
-  state: {| reviews: ReviewState |}, ownProps: Props,
+  state: {| reviews: ReviewState |},
+  ownProps: Props,
 ) => {
   let flagState = {};
   if (ownProps.review) {

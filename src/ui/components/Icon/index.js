@@ -4,7 +4,6 @@ import makeClassName from 'classnames';
 
 import './styles.scss';
 
-
 export type Props = {|
   alt?: string | React.Node,
   className?: string,
@@ -22,7 +21,10 @@ export default class Icon extends React.Component<Props> {
     }
 
     return (
-      <span className={makeClassName('Icon', `Icon-${name}`, className)} {...props}>
+      <span
+        className={makeClassName('Icon', `Icon-${name}`, className)}
+        {...props}
+      >
         {children}
       </span>
     );

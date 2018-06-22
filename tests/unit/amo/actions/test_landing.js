@@ -1,9 +1,5 @@
-import {
-  getLanding,
-  loadLanding,
-} from 'amo/actions/landing';
+import { getLanding, loadLanding } from 'amo/actions/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
-
 
 describe(__filename, () => {
   describe('LANDING_GET', () => {
@@ -34,8 +30,9 @@ describe(__filename, () => {
     it('throws if no errorHandlerId is set', () => {
       const params = getActionParams();
       delete params.errorHandlerId;
-      expect(() => getLanding(params))
-        .toThrowError('errorHandlerId must be set');
+      expect(() => getLanding(params)).toThrowError(
+        'errorHandlerId must be set',
+      );
     });
 
     it('optionally takes a category', () => {
@@ -75,29 +72,33 @@ describe(__filename, () => {
     it('throws an error if addonType is empty', () => {
       const params = defaultParams();
       delete params.addonType;
-      expect(() => loadLanding(params))
-        .toThrow(/addonType parameter cannot be empty/);
+      expect(() => loadLanding(params)).toThrow(
+        /addonType parameter cannot be empty/,
+      );
     });
 
     it('throws an error if featured is empty', () => {
       const params = defaultParams();
       delete params.featured;
-      expect(() => loadLanding(params))
-        .toThrow(/featured parameter cannot be empty/);
+      expect(() => loadLanding(params)).toThrow(
+        /featured parameter cannot be empty/,
+      );
     });
 
     it('throws an error if highlyRated is empty', () => {
       const params = defaultParams();
       delete params.highlyRated;
-      expect(() => loadLanding(params))
-        .toThrow(/highlyRated parameter cannot be empty/);
+      expect(() => loadLanding(params)).toThrow(
+        /highlyRated parameter cannot be empty/,
+      );
     });
 
     it('throws an error if trending is empty', () => {
       const params = defaultParams();
       delete params.trending;
-      expect(() => loadLanding(params))
-        .toThrow(/trending parameter cannot be empty/);
+      expect(() => loadLanding(params)).toThrow(
+        /trending parameter cannot be empty/,
+      );
     });
   });
 });

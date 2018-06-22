@@ -10,7 +10,6 @@ import type {
   ThemeData,
 } from 'core/types/addons';
 
-
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
 export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
@@ -27,9 +26,9 @@ export type LoadAddonsAction = {|
 // TODO: We should remove this method and move all calls to `loadAddonResults`.
 // This function relies on normalizr messing with our response data.
 // See: https://github.com/mozilla/addons-frontend/issues/2917
-export function loadAddons(
-  entities: {| addons?: ExternalAddonMap |}
-): LoadAddonsAction {
+export function loadAddons(entities: {|
+  addons?: ExternalAddonMap,
+|}): LoadAddonsAction {
   if (!entities) {
     throw new Error('the entities parameter cannot be empty');
   }
@@ -56,9 +55,10 @@ export type FetchAddonAction = {|
   |},
 |};
 
-export function fetchAddon(
-  { errorHandler, slug }: FetchAddonParams
-): FetchAddonAction {
+export function fetchAddon({
+  errorHandler,
+  slug,
+}: FetchAddonParams): FetchAddonAction {
   if (!errorHandler) {
     throw new Error('errorHandler cannot be empty');
   }
@@ -73,16 +73,16 @@ export function fetchAddon(
 
 type LoadAddonResultsParams = {|
   addons: ExternalAddonMap,
-|}
+|};
 
 export type LoadAddonResultsAction = {|
   payload: {| addons: ExternalAddonMap |},
   type: string,
 |};
 
-export function loadAddonResults(
-  { addons }: LoadAddonResultsParams = {}
-): LoadAddonResultsAction {
+export function loadAddonResults({
+  addons,
+}: LoadAddonResultsParams = {}): LoadAddonResultsAction {
   if (!addons) {
     throw new Error('addons are required');
   }
@@ -113,7 +113,7 @@ export function removeUndefinedProps(object: Object): Object {
 }
 
 export function createInternalThemeData(
-  apiAddon: ExternalAddonType
+  apiAddon: ExternalAddonType,
 ): ThemeData | null {
   if (!apiAddon.theme_data) {
     return null;
@@ -148,9 +148,7 @@ export function createInternalThemeData(
   };
 }
 
-export function createInternalAddon(
-  apiAddon: ExternalAddonType
-): AddonType {
+export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
@@ -240,16 +238,16 @@ export function createInternalAddon(
       addon.platformFiles[file.platform] = file;
     });
     addon.isRestartRequired = currentVersion.files.some(
-      (file) => !!file.is_restart_required
+      (file) => !!file.is_restart_required,
     );
     // The following checks are a bit fragile since only one file needs
     // to contain the flag. However, it is highly unlikely to create an
     // add-on with mismatched file flags in the current DevHub.
     addon.isWebExtension = currentVersion.files.some(
-      (file) => !!file.is_webextension
+      (file) => !!file.is_webextension,
     );
     addon.isMozillaSignedExtension = currentVersion.files.some(
-      (file) => !!file.is_mozilla_signed_extension
+      (file) => !!file.is_mozilla_signed_extension,
     );
   }
 
@@ -280,13 +278,15 @@ export const initialState: AddonState = {
 };
 
 export const getAddonByID = (
-  state: { addons: AddonState }, id: AddonID
+  state: { addons: AddonState },
+  id: AddonID,
 ): AddonType | null => {
   return state.addons.byID[`${id}`] || null;
 };
 
 export const getAddonBySlug = (
-  state: { addons: AddonState }, slug: string
+  state: { addons: AddonState },
+  slug: string,
 ): AddonType | null => {
   const addonId = state.addons.bySlug[slug];
 
@@ -294,16 +294,17 @@ export const getAddonBySlug = (
 };
 
 export const getAddonByGUID = (
-  state: { addons: AddonState }, guid: string
+  state: { addons: AddonState },
+  guid: string,
 ): AddonType | null => {
   const addonId = state.addons.byGUID[guid];
 
   return getAddonByID(state, addonId);
 };
 
-export const getAllAddons = (
-  state: { addons: AddonState }
-): Array<AddonType> => {
+export const getAllAddons = (state: {
+  addons: AddonState,
+}): Array<AddonType> => {
   const addons = state.addons.byID;
 
   // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.
@@ -312,7 +313,7 @@ export const getAllAddons = (
 
 export default function addonsReducer(
   state: AddonState = initialState,
-  action: LoadAddonsAction
+  action: LoadAddonsAction,
 ) {
   switch (action.type) {
     case LOAD_ADDONS: {

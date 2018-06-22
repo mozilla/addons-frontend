@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import Icon from 'ui/components/Icon';
 
-
 describe('<Icon />', () => {
   it('maps the name to a className', () => {
     const root = shallow(<Icon name="foo" />);
@@ -24,7 +23,7 @@ describe('<Icon />', () => {
     const root = shallow(<Icon alt="Alt text!" name="bar" />);
 
     expect(root.children()).toHaveHTML(
-      '<span class="visually-hidden">Alt text!</span>'
+      '<span class="visually-hidden">Alt text!</span>',
     );
   });
 });

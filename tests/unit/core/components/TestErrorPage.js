@@ -10,7 +10,6 @@ import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let store;
 
@@ -38,7 +37,7 @@ describe(__filename, () => {
         <I18nProvider i18n={props.i18n}>
           <ErrorPage {...props} />
         </I18nProvider>
-      </Provider>
+      </Provider>,
     );
   };
 

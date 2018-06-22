@@ -20,8 +20,9 @@ describe('helpers', () => {
     }
 
     it('requires a componentInstance', () => {
-      expect(() => shallowUntilTarget(undefined, ExampleBase))
-        .toThrow('componentInstance parameter is required');
+      expect(() => shallowUntilTarget(undefined, ExampleBase)).toThrow(
+        'componentInstance parameter is required',
+      );
     });
 
     it('requires a valid component instance', () => {
@@ -31,18 +32,15 @@ describe('helpers', () => {
     });
 
     it('requires a TargetComponent', () => {
-      const Example = compose(
-        wrapper(),
-      )(ExampleBase);
+      const Example = compose(wrapper())(ExampleBase);
 
-      expect(() => shallowUntilTarget(<Example />, undefined))
-        .toThrow('TargetComponent parameter is required');
+      expect(() => shallowUntilTarget(<Example />, undefined)).toThrow(
+        'TargetComponent parameter is required',
+      );
     });
 
     it('lets you unwrap a component one level', () => {
-      const Example = compose(
-        wrapper(),
-      )(ExampleBase);
+      const Example = compose(wrapper())(ExampleBase);
 
       const root = shallowUntilTarget(<Example />, ExampleBase);
       expect(root.text()).toEqual('Example component');
@@ -65,9 +63,7 @@ describe('helpers', () => {
         }
       }
 
-      const Example = compose(
-        wrapper(),
-      )(ReactExampleBase);
+      const Example = compose(wrapper())(ReactExampleBase);
 
       const root = shallowUntilTarget(<Example />, ReactExampleBase);
       expect(root.instance()).toBeInstanceOf(ReactExampleBase);
@@ -96,16 +92,15 @@ describe('helpers', () => {
     it('lets you pass options to shallow()', () => {
       const shallowStub = sinon.spy(shallow);
 
-      const Example = compose(
-        wrapper(),
-      )(ExampleBase);
+      const Example = compose(wrapper())(ExampleBase);
 
       const shallowOptions = {
         lifecycleExperimental: true,
       };
       const instance = <Example />;
       shallowUntilTarget(instance, ExampleBase, {
-        shallowOptions, _shallow: shallowStub,
+        shallowOptions,
+        _shallow: shallowStub,
       });
 
       sinon.assert.calledWith(shallowStub, instance, shallowOptions);
@@ -124,9 +119,7 @@ describe('helpers', () => {
         }
       }
 
-      const Example = compose(
-        wrapper(),
-      )(LifecyleExample);
+      const Example = compose(wrapper())(LifecyleExample);
 
       const root = shallowUntilTarget(<Example />, LifecyleExample, {
         shallowOptions: {

@@ -31,14 +31,16 @@ import './styles.scss';
 export const TAAR_IMPRESSION_CATEGORY = 'AMO Addon / Recommendations Shown';
 export const TAAR_COHORT_COOKIE_NAME = 'taar_cohort';
 export const TAAR_COHORT_DIMENSION = 'dimension4';
-export const TAAR_COHORT_INCLUDED: 'TAAR_COHORT_INCLUDED'
-  = 'TAAR_COHORT_INCLUDED';
-export const TAAR_COHORT_EXCLUDED: 'TAAR_COHORT_EXCLUDED'
-  = 'TAAR_COHORT_EXCLUDED';
+export const TAAR_COHORT_INCLUDED: 'TAAR_COHORT_INCLUDED' =
+  'TAAR_COHORT_INCLUDED';
+export const TAAR_COHORT_EXCLUDED: 'TAAR_COHORT_EXCLUDED' =
+  'TAAR_COHORT_EXCLUDED';
 export const TAAR_EXPERIMENT_PARTICIPANT = 'TAAR-LITE-AB';
 export const TAAR_EXPERIMENT_PARTICIPANT_DIMENSION = 'dimension5';
 
-export type CohortName = typeof TAAR_COHORT_INCLUDED | typeof TAAR_COHORT_EXCLUDED;
+export type CohortName =
+  | typeof TAAR_COHORT_INCLUDED
+  | typeof TAAR_COHORT_EXCLUDED;
 
 type Props = {|
   addon: AddonType | null,
@@ -51,7 +53,6 @@ type Props = {|
   recommendations: Recommendations | null,
   tracking: typeof defaultTracking,
 |};
-
 
 export class AddonRecommendationsBase extends React.Component<Props> {
   static defaultProps = {
@@ -67,8 +68,8 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     // Set a cohort for the experiment.
     this.cohort = cookie.load(TAAR_COHORT_COOKIE_NAME);
     if (this.cohort === undefined) {
-      this.cohort = randomizer() >= 0.5 ?
-        TAAR_COHORT_INCLUDED : TAAR_COHORT_EXCLUDED;
+      this.cohort =
+        randomizer() >= 0.5 ? TAAR_COHORT_INCLUDED : TAAR_COHORT_EXCLUDED;
       cookie.save(TAAR_COHORT_COOKIE_NAME, this.cohort, { path: '/' });
     }
 
@@ -135,11 +136,13 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   cohort: CohortName;
 
   dispatchFetchRecommendations({ guid, recommended }: Object) {
-    this.props.dispatch(fetchRecommendations({
-      errorHandlerId: this.props.errorHandler.id,
-      guid,
-      recommended,
-    }));
+    this.props.dispatch(
+      fetchRecommendations({
+        errorHandlerId: this.props.errorHandler.id,
+        guid,
+        recommended,
+      }),
+    );
   }
 
   render() {
@@ -147,7 +150,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
 
     if (!recommendations) {
       log.debug(
-        'No recommandations, hiding the AddonRecommendations component.'
+        'No recommandations, hiding the AddonRecommendations component.',
       );
       return null;
     }
@@ -157,9 +160,10 @@ export class AddonRecommendationsBase extends React.Component<Props> {
 
     let header = <LoadingText width={100} />;
     if (!loading) {
-      header = outcome === OUTCOME_RECOMMENDED ?
-        i18n.gettext('Other users with this extension also installed') :
-        i18n.gettext('Other popular extensions');
+      header =
+        outcome === OUTCOME_RECOMMENDED
+          ? i18n.gettext('Other users with this extension also installed')
+          : i18n.gettext('Other popular extensions');
     }
 
     return (
@@ -183,12 +187,12 @@ const mapStateToProps = (
   ownProps: Props,
 ) => {
   const { addon } = ownProps;
-  const recommendations = addon ?
-    getRecommendationsByGuid({
-      guid: addon.guid,
-      state: state.recommendations,
-    }) :
-    null;
+  const recommendations = addon
+    ? getRecommendationsByGuid({
+        guid: addon.guid,
+        state: state.recommendations,
+      })
+    : null;
   return { recommendations };
 };
 

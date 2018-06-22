@@ -18,7 +18,8 @@ import { initialApiState } from 'core/reducers/api';
 import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
+export const sampleUserAgent =
+  'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
 
 export const randomId = () => {
@@ -260,7 +261,7 @@ export function createFetchAllAddonsResult(addons) {
     // Simulate an API response that returns an array of addons.
     { results: addons },
     // Simulate how callApi() would apply an add-on schema to results.
-    { results: [coreApi.addon] }
+    { results: [coreApi.addon] },
   );
 }
 
@@ -277,11 +278,11 @@ export function createFetchAllAddonsResult(addons) {
  * The `TargetComponent` parameter is the React class (or function) that
  * you want to retrieve from the component tree.
  */
-export function shallowUntilTarget(componentInstance, TargetComponent, {
-  maxTries = 10,
-  shallowOptions,
-  _shallow = shallow,
-} = {}) {
+export function shallowUntilTarget(
+  componentInstance,
+  TargetComponent,
+  { maxTries = 10, shallowOptions, _shallow = shallow } = {},
+) {
   if (!componentInstance) {
     throw new Error('componentInstance parameter is required');
   }
@@ -294,8 +295,7 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
   if (typeof root.type() === 'string') {
     // If type() is a string then it's a DOM Node.
     // If it were wrapped, it would be a React component.
-    throw new Error(
-      'Cannot unwrap this component because it is not wrapped');
+    throw new Error('Cannot unwrap this component because it is not wrapped');
   }
 
   for (let tries = 1; tries <= maxTries; tries++) {
@@ -308,8 +308,7 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
   }
 
   throw new Error(oneLine`Could not find ${TargetComponent} in rendered
-    instance: ${componentInstance}; gave up after ${maxTries} tries`
-  );
+    instance: ${componentInstance}; gave up after ${maxTries} tries`);
 }
 
 export function createFakeEvent(extraProps = {}) {
@@ -336,17 +335,19 @@ export function createStubErrorHandler(capturedError = null) {
 }
 
 export function generateHeaders(
-  headerData = { 'Content-Type': 'application/json' }
+  headerData = { 'Content-Type': 'application/json' },
 ) {
   const response = new Response();
-  Object.keys(headerData).forEach((key) => (
-    response.headers.append(key, headerData[key])
-  ));
+  Object.keys(headerData).forEach((key) =>
+    response.headers.append(key, headerData[key]),
+  );
   return response.headers;
 }
 
 export function createApiResponse({
-  ok = true, jsonData = {}, ...responseProps
+  ok = true,
+  jsonData = {},
+  ...responseProps
 } = {}) {
   const response = {
     ok,
@@ -356,7 +357,6 @@ export function createApiResponse({
   };
   return Promise.resolve(response);
 }
-
 
 export function createFakeLanguageTool(otherProps = {}) {
   return {
@@ -462,7 +462,8 @@ export const getFakeConfig = (params = {}) => {
       // This will help alert us when a test accidentally relies
       // on an invalid config key.
       throw new Error(
-        `Cannot set a fake value for "${key}"; this key is invalid`);
+        `Cannot set a fake value for "${key}"; this key is invalid`,
+      );
     }
   }
   return Object.assign(configUtil.cloneDeep(config), params);
@@ -511,9 +512,10 @@ export const fakeRouterLocation = (props = {}) => {
  *
  * See ReactRouterType in 'core/types/router';
  */
-export const createFakeRouter = (
-  { location = fakeRouterLocation(), params = {} } = {}
-) => {
+export const createFakeRouter = ({
+  location = fakeRouterLocation(),
+  params = {},
+} = {}) => {
   return {
     location,
     params,
