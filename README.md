@@ -76,6 +76,7 @@ Here are a few tips:
 * If you had typed `a` when you first started then [jest][] will continue to
   run the full suite even when you change specific files. Type `o` to switch
   back to the mode of only running tests related to the files you are changing.
+* Sometimes running tests related to your file changes is slow. In these cases, you can type `p` or `t` to filter tests by name while you working fixing a specific test suite. [More info](https://github.com/jest-community/jest-watch-typeahead).
 * If you see something like `Error watching file for changes: EMFILE` on Mac OS
   then `brew install watchman` might fix it.
   See https://github.com/facebook/jest/issues/1767

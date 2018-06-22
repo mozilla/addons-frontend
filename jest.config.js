@@ -46,5 +46,9 @@ module.exports = {
   transformIgnorePatterns: [
     '<rootDir>/node_modules/',
   ],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
   verbose: false,
 };
