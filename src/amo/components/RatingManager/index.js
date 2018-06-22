@@ -1,6 +1,6 @@
 /* @flow */
 /* global Node */
-/* eslint-disable react/sort-comp, react/no-unused-prop-types */
+/* eslint-disable react/no-unused-prop-types */
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
