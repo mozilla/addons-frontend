@@ -4,12 +4,12 @@
 @import "~ui/css/vars";
 
 .Paginate {
-  display: inline-block;
   padding: $padding-page;
 
   @include respond-to(large) {
     background-color: $grey-10;
     border-radius: $border-radius-default;
+    display: inline-block;
     margin: 0 auto;
   }
 }
