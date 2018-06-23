@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 18:35+0000\n"
+"PO-Revision-Date: 2018-06-23 13:43+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -779,11 +779,11 @@ msgstr "Επισημάνθηκε για ακατάλληλη γλώσσα"
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Αυτό είναι αναφορά σφάλματος ή αίτηση υποστήριξης"
 
 #: src/amo/components/FlagReviewMenu/index.js:119
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Επισημασμένο ως αναφορά σφάλματος ή αίτημα υποστήριξης"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flagged"
@@ -812,11 +812,11 @@ msgstr "Συνδεθείτε για επισήμανση κριτικής"
 
 #: src/amo/components/FlagReviewMenu/index.js:73
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Δεν μπορείτε να επισημάνετε τη δική σας απάντηση"
 
 #: src/amo/components/FlagReviewMenu/index.js:74
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Δεν μπορείτε να επισημάνετε τη δική σας κριτική"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "This is spam"
@@ -848,7 +848,7 @@ msgstr "Πρόγραμμα περιήγησης για υπολογιστές"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
@@ -975,11 +975,11 @@ msgstr "Εποχιακά"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Προσαρμόστε τον τρόπο λειτουργίας του Firefox με επεκτάσεις. Ενδιαφέρεστε για…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Αλλάξτε τον τρόπο εμφάνισης του Firefox με θέματα."
 
 #: src/amo/components/Home/index.js:218
 msgid "Translation tools"
@@ -1183,7 +1183,7 @@ msgstr "Αλλάξτε την εμφάνιση του περιηγητή σας.
 
 #: src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Εξερευνήστε ισχυρά εργαλεία και δυνατότητες για να προσαρμόσετε το Firefox και να το κάνετε ολοκληρωτικά δικό σας."
 
 #: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
@@ -1207,7 +1207,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:162
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Τα πακέτα γλωσσών αλλάζουν τη γλώσσα του περιβάλλοντος χρήσης του προγράμματος περιήγησης, συμπεριλαμβανομένων των επιλογών και των ρυθμίσεων του μενού."
 
 #: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
@@ -1842,7 +1842,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Είμαι συντάκτης προσθέτων, μπορώ να διαγράψω δυσμενείς κριτικές ή βαθμολογίες;"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
