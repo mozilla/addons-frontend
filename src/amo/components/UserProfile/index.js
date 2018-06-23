@@ -74,7 +74,14 @@ type Props = {|
 
 export class UserProfileBase extends React.Component<Props> {
   componentWillMount() {
-    const { dispatch, errorHandler, params, user } = this.props;
+    const {
+      dispatch,
+      errorHandler,
+      isOwner,
+      params,
+      reviews,
+      user,
+    } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
@@ -88,7 +95,7 @@ export class UserProfileBase extends React.Component<Props> {
           username: params.username,
         }),
       );
-    } else {
+    } else if (isOwner && !reviews) {
       dispatch(
         fetchUserReviews({
           errorHandlerId: errorHandler.id,
@@ -100,6 +107,7 @@ export class UserProfileBase extends React.Component<Props> {
   }
 
   componentWillReceiveProps({
+    isOwner,
     location: newLocation,
     params: newParams,
     reviews,
@@ -121,6 +129,7 @@ export class UserProfileBase extends React.Component<Props> {
       );
     } else if (
       user &&
+      isOwner &&
       (oldLocation.query.page !== newLocation.query.page || !reviews)
     ) {
       dispatch(
@@ -163,9 +172,9 @@ export class UserProfileBase extends React.Component<Props> {
   }
 
   renderReviews() {
-    const { location, i18n, reviews, reviewCount } = this.props;
+    const { location, i18n, isOwner, reviews, reviewCount } = this.props;
 
-    if (!reviews || reviews.length < 1) {
+    if (!isOwner || !reviews || reviews.length < 1) {
       return null;
     }
 
@@ -266,6 +275,7 @@ export class UserProfileBase extends React.Component<Props> {
         </h1>
       </div>
     );
+
     const userProfileTitle = i18n.sprintf(
       i18n.gettext('User Profile for %(user)s'),
       {

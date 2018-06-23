@@ -86,7 +86,7 @@ describe(__filename, () => {
     );
   }
 
-  function _loadUserReviews({ store, userId, reviews = [fakeReview] }) {
+  function _setUserReviews({ store, userId, reviews = [fakeReview] }) {
     store.dispatch(
       setUserReviews({
         reviewCount: reviews.length,
@@ -147,7 +147,7 @@ describe(__filename, () => {
     const user = getCurrentUser(store.getState().users);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    _loadUserReviews({ store, userId: user.id });
+    _setUserReviews({ store, userId: user.id });
 
     const root = renderUserProfile({ params, store });
 
@@ -691,7 +691,7 @@ describe(__filename, () => {
     const { params, store } = signInUserWithUsername('black-panther');
     const user = getCurrentUser(store.getState().users);
 
-    _loadUserReviews({ store, userId: user.id });
+    _setUserReviews({ store, userId: user.id });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -747,12 +747,25 @@ describe(__filename, () => {
     );
   });
 
+  it('does not fetch reviews if already loaded', () => {
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    _setUserReviews({ store, userId: user.id });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    renderUserProfile({ params, store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
   it(`displays the user's reviews`, () => {
     const { params, store } = signInUserWithUsername('black-panther');
     const user = getCurrentUser(store.getState().users);
 
     const reviews = [fakeReview];
-    _loadUserReviews({ store, userId: user.id, reviews });
+    _setUserReviews({ store, userId: user.id, reviews });
 
     const location = fakeRouterLocation({ query: { foo: 'bar' } });
 
@@ -796,7 +809,7 @@ describe(__filename, () => {
     const user = getCurrentUser(store.getState().users);
 
     const reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview);
-    _loadUserReviews({ store, userId: user.id, reviews });
+    _setUserReviews({ store, userId: user.id, reviews });
 
     const location = fakeRouterLocation({ query: { foo: 'bar' } });
 
@@ -812,6 +825,65 @@ describe(__filename, () => {
     expect(root.find('.AddonReviewListItem')).toHaveLength(
       DEFAULT_API_PAGE_SIZE,
     );
+  });
+
+  it(`does not display the user's reviews when current user is not the owner`, () => {
+    const username = 'current-logged-in-user';
+    const { store } = signInUserWithUsername(username);
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    _setUserReviews({ store, userId: user.id });
+
+    // See this other user profile page.
+    const params = { username: user.username };
+    const root = renderUserProfile({ params, store });
+
+    expect(root.find('.UserProfile-reviews')).toHaveLength(0);
+  });
+
+  it('does not fetch the reviews when user is loaded but current user is not the owner', () => {
+    const { store } = signInUserWithUsername('black-panther');
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    // See this other user profile page.
+    const params = { username: user.username };
+    renderUserProfile({ params, store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not fetch the reviews when page has changed and username does not change but user is not the owner', () => {
+    const { store } = signInUserWithUsername('black-panther');
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const location = fakeRouterLocation({ query: { page: 1 } });
+
+    // See this other user profile page.
+    const params = { username: user.username };
+    const root = renderUserProfile({ location, params, store });
+
+    dispatchSpy.resetHistory();
+
+    const newPage = 2;
+
+    root.setProps({
+      location: fakeRouterLocation({ query: { page: newPage } }),
+      params,
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   describe('errorHandler - extractId', () => {
