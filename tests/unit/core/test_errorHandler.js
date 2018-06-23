@@ -23,6 +23,7 @@ class SomeComponentBase extends React.Component {
     // eslint-disable-next-line react/no-unused-prop-types
     errorHandler: PropTypes.object,
   };
+
   render() {
     return <div className="SomeComponent">Component text</div>;
   }

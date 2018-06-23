@@ -14,6 +14,7 @@ import Permission from 'ui/components/Permission';
 /* eslint-disable no-continue */
 export class PermissionUtils {
   i18n: I18nType;
+
   permissionStrings: Object;
 
   constructor(i18n: I18nType) {

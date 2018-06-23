@@ -101,6 +101,7 @@ type OnSearchChangeParams = {|
 
 export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   dispatchAutocompleteStart: (filters: Object) => void;
+
   searchInput: React.ElementRef<'input'> | null;
 
   static defaultProps = {
