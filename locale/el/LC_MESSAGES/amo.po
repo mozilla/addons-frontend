@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-23 13:43+0000\n"
+"PO-Revision-Date: 2018-06-23 14:10+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -337,9 +337,8 @@ msgid "Developer response"
 msgstr "Απάντηση προγραμματιστή"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Γράψτε μια κριτική"
+msgstr "Γράψτε μια απάντηση σε αυτή την κριτική."
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
@@ -536,9 +535,8 @@ msgid "Featured themes"
 msgstr "Προτεινόμενα θέματα"
 
 #: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:231 src/amo/components/LandingPage/index.js:158
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Προτεινόμενα θέματα"
+msgstr "Δείτε περισσότερα προτεινόμενα θέματα"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
 msgid "Trending themes"
@@ -575,9 +573,8 @@ msgid "Edit this collection"
 msgstr "Επεξεργασία συλλογής"
 
 #: src/amo/components/Collection/index.js:305
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Συνδεθείτε για δημιουργία συλλογής"
 
 #: src/amo/components/Collection/index.js:306
 msgid "Log in to edit this collection"
@@ -592,9 +589,8 @@ msgid "Creator"
 msgstr "Δημιουργός"
 
 #: src/amo/components/Collection/index.js:373
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Σύνδεση για επεξεργασία συλλογής"
+msgstr "Θέλετε πραγματικά να διαγράψετε αυτή τη συλλογή;"
 
 #: src/amo/components/Collection/index.js:376
 msgid "Delete this collection"
@@ -995,18 +991,16 @@ msgid "Privacy matters"
 msgstr "Πολιτική απορρήτου"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Αναζήτηση επεκτάσεων"
+msgstr "Δείτε περισσότερες επεκτάσεις απορρήτου"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
 msgstr "Δαμάστε τις καρτέλες σας"
 
 #: src/amo/components/Home/index.js:260
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Αναζήτηση επεκτάσεων"
+msgstr "Δείτε περισσότερες επεκτάσεις καρτελών"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1315,7 +1309,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Απόκρυψη και εμφάνιση καρτελών"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
@@ -1731,7 +1725,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Συμβουλές για μια τέλεια κριτική"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -2247,9 +2241,8 @@ msgid "There are no ratings yet"
 msgstr "Δεν υπάρχουν ακόμη βαθμολογίες"
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Βαθμολογία %(rating)s από 5"
+msgstr "Ενημερώστε τη βαθμολογία σας σε %(starRating)s από 5"
 
 #: src/ui/components/Rating/index.js:71
 #, fuzzy
