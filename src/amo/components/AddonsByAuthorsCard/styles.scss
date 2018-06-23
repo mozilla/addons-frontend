@@ -8,10 +8,6 @@
   .Card-contents .AddonsCard-list {
     margin: 0;
     padding: 0;
-
-    .SearchResult-metadata {
-      display: none;
-    }
   }
 
   &.AddonsCard--horizontal {
@@ -20,6 +16,7 @@
     &.AddonsByAuthorsCard--theme {
       .Card-contents .AddonsCard-list {
         display: block;
+
         @include respond-to(medium) {
           display: grid;
         }
@@ -41,12 +38,14 @@
       }
     }
 
-    .Card-contents .AddonsCard-list {
-      background-color: $white;
-      display: grid;
-      grid-auto-flow: initial;
-      grid-gap: 6px;
-      grid-template-columns: repeat(3, minmax(32%, 1fr));
+    @include respond-to(large) {
+      .Card-contents .AddonsCard-list {
+        background-color: $white;
+        display: grid;
+        grid-auto-flow: initial;
+        grid-gap: 6px;
+        grid-template-columns: repeat(3, minmax(32%, 1fr));
+      }
     }
   }
 }
