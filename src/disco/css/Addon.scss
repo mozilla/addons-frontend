@@ -37,6 +37,30 @@ $addon-padding: 20px;
     }
   }
 
+  .content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    position: relative;
+
+    .copy {
+      flex-grow: 1;
+      padding: 20px 20px 15px;
+
+      // Remove the bottom margin of the last element.
+      & :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include respond-to(large) {
+      .copy {
+        padding: 30px 20px;
+      }
+    }
+  }
+
   &.theme {
     display: block;
 
@@ -138,30 +162,6 @@ $addon-padding: 20px;
       a:focus,
       a:hover {
         color: $link-hover-color;
-      }
-    }
-  }
-
-  .content {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    position: relative;
-
-    .copy {
-      flex-grow: 1;
-      padding: 20px 20px 15px;
-
-      // Remove the bottom margin of the last element.
-      & :last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    @include respond-to(large) {
-      .copy {
-        padding: 30px 20px;
       }
     }
   }
