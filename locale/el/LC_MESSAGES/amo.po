@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-24 12:33+0000\n"
+"PO-Revision-Date: 2018-06-24 22:50+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2043,11 +2043,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "νέα πρόσθετα ή λειτουργίες γίνονται διαθέσιμα για το Firefox"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "κάποιος γράφει μια κριτική για το πρόσθετό μου"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
@@ -2067,11 +2067,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "η συμβατότητα του προσθέτου μου δεν μπορεί να αναβαθμιστεί"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "η συμβατότητα του προσθέτου μου αναβαθμίζεται επιτυχώς"
 
 #: src/amo/components/UserProfileEditPicture/index.js:36
 msgid "Profile picture for %(name)s"
