@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-23 14:10+0000\n"
+"PO-Revision-Date: 2018-06-24 12:33+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -543,9 +543,8 @@ msgid "Trending themes"
 msgstr "Δημοφιλή θέματα"
 
 #: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Προτεινόμενα θέματα"
+msgstr "Δείτε περισσότερα δημοφιλή θέματα"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
 msgid "Top rated themes"
@@ -703,9 +702,8 @@ msgid "User comment"
 msgstr "Σχόλιο χρήστη"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Σχετικά με το πρόσθετο"
+msgstr "Προσθέστε ένα σχόλιο για αυτό το πρόσθετο."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
@@ -1760,9 +1758,8 @@ msgid "Was it easy to use?"
 msgstr "Ήταν εύκολο στη χρήση;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Συνδεθείτε για βαθμολόγηση αυτού του προσθέτου"
+msgstr "Θα συνεχίσετε να χρησιμοποιείτε το πρόσθετο αυτό;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
