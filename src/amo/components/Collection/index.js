@@ -1,4 +1,5 @@
 /* @flow */
+import { oneLineTrim } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -20,47 +21,69 @@ import {
 import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import { COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION } from 'core/constants';
+import {
+  COLLECTIONS_EDIT,
+  INSTALL_SOURCE_COLLECTION,
+  COLLECTION_ADDONS_SORT_DATE_ADDED,
+  COLLECTION_ADDONS_SORT_DATE_ADDED_DESCENDING,
+  COLLECTION_ADDONS_SORT_NAME,
+  COLLECTION_ADDONS_SORT_POPULARITY,
+} from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
+import {
+  convertFiltersToQueryParams,
+  convertQueryParamsToFilters,
+} from 'core/searchUtils';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
+import Select from 'ui/components/Select';
 import type {
+  CollectionFilters,
   CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
 import type { UsersStateType } from 'amo/reducers/users';
 import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ApiStateType } from 'core/reducers/api';
 import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocation, ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
 export type Props = {|
-  _config: typeof config,
   collection: CollectionType | null,
   creating: boolean,
-  dispatch: DispatchFunc,
   editing: boolean,
+  filters: CollectionFilters,
+  loading: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  _config: typeof config,
+  clientApp: string,
+  dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
   i18n: I18nType,
   isLoggedIn: boolean,
-  loading: boolean,
+  lang: string,
   location: ReactRouterLocation,
   params: {|
     slug: string,
     username: string,
   |},
+  router: ReactRouterType,
 |};
 
 export type RemoveCollectionAddonFunc = (addonId: number) => void;
@@ -74,7 +97,7 @@ export type SaveAddonNoteFunc = (
   notes: string,
 ) => void;
 
-export class CollectionBase extends React.Component<Props> {
+export class CollectionBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     creating: false,
@@ -85,7 +108,7 @@ export class CollectionBase extends React.Component<Props> {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: InternalProps) {
     this.loadDataIfNeeded(nextProps);
   }
 
@@ -110,7 +133,51 @@ export class CollectionBase extends React.Component<Props> {
     );
   };
 
-  loadDataIfNeeded(nextProps?: Props) {
+  onSortSelect = (event: SyntheticEvent<any>) => {
+    const { clientApp, editing, filters, lang, router } = this.props;
+
+    event.preventDefault();
+
+    const sortValue = event.currentTarget.value;
+    const newFilters = {
+      ...filters,
+      sort: sortValue,
+    };
+
+    const pathname = oneLineTrim`/${lang}/${clientApp}
+      ${editing ? this.editUrl() : this.url()}`;
+    router.push({
+      pathname,
+      query: convertFiltersToQueryParams(newFilters),
+    });
+
+    return false;
+  };
+
+  sortOptions() {
+    const { i18n } = this.props;
+
+    return [
+      {
+        label: i18n.gettext('Newest first'),
+        value: COLLECTION_ADDONS_SORT_DATE_ADDED_DESCENDING,
+      },
+      {
+        label: i18n.gettext('Oldest first'),
+        value: COLLECTION_ADDONS_SORT_DATE_ADDED,
+      },
+      {
+        label: i18n.gettext('Name'),
+        value: COLLECTION_ADDONS_SORT_NAME,
+      },
+      {
+        label: i18n.gettext('Popularity'),
+        value: COLLECTION_ADDONS_SORT_POPULARITY,
+      },
+    ];
+  }
+
+  loadDataIfNeeded(nextProps?: InternalProps) {
     const { collection, creating, errorHandler, loading, params } = {
       ...this.props,
       ...nextProps,
@@ -127,7 +194,7 @@ export class CollectionBase extends React.Component<Props> {
 
     let collectionChanged = false;
     let addonsPageChanged = false;
-    let { location } = this.props;
+    let { filters, location } = this.props;
 
     if (nextProps && nextProps.location) {
       const nextLocation = nextProps.location;
@@ -136,10 +203,17 @@ export class CollectionBase extends React.Component<Props> {
         collectionChanged = true;
         location = nextLocation;
       }
+    }
 
-      if (location.query.page !== nextLocation.query.page) {
+    if (nextProps && nextProps.filters) {
+      const nextFilters = nextProps.filters;
+
+      if (
+        filters.page !== nextFilters.page ||
+        filters.sort !== nextFilters.sort
+      ) {
         addonsPageChanged = true;
-        location = nextLocation;
+        filters = nextFilters;
       }
     }
 
@@ -156,7 +230,7 @@ export class CollectionBase extends React.Component<Props> {
       this.props.dispatch(
         fetchCurrentCollection({
           errorHandlerId: errorHandler.id,
-          page: location.query.page,
+          filters,
           slug: params.slug,
           username: params.username,
         }),
@@ -169,7 +243,7 @@ export class CollectionBase extends React.Component<Props> {
       this.props.dispatch(
         fetchCurrentCollectionPage({
           errorHandlerId: errorHandler.id,
-          page: location.query.page || 1,
+          filters,
           slug: params.slug,
           username: params.username,
         }),
@@ -188,20 +262,18 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   editCollectionLink() {
-    const { _config, i18n, location } = this.props;
+    const { _config, i18n, filters } = this.props;
     const props = {};
-
-    const pageQueryParam = location.query.page
-      ? `?page=${location.query.page}`
-      : '';
-    const editUrl = `${this.editUrl()}${pageQueryParam}`;
 
     if (_config.get('enableNewCollectionsUI')) {
       // TODO: make this a real link when the form is ready for release.
       // https://github.com/mozilla/addons-frontend/issues/4293
-      props.to = editUrl;
+      props.to = {
+        pathname: this.editUrl(),
+        query: convertFiltersToQueryParams(filters),
+      };
     } else {
-      props.href = editUrl;
+      props.href = this.editUrl();
     }
 
     return (
@@ -217,12 +289,7 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   removeAddon: RemoveCollectionAddonFunc = (addonId: number) => {
-    const {
-      collection,
-      dispatch,
-      errorHandler,
-      location: { query },
-    } = this.props;
+    const { collection, dispatch, errorHandler, filters } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -235,7 +302,7 @@ export class CollectionBase extends React.Component<Props> {
       removeAddonFromCollection({
         addonId,
         errorHandlerId: errorHandler.id,
-        page: query.page || 1,
+        filters,
         slug,
         username,
       }),
@@ -246,7 +313,7 @@ export class CollectionBase extends React.Component<Props> {
     addonId: number,
     errorHandler: ErrorHandlerType,
   ) => {
-    const { collection, dispatch, location } = this.props;
+    const { collection, dispatch, filters } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -259,7 +326,7 @@ export class CollectionBase extends React.Component<Props> {
       deleteCollectionAddonNotes({
         addonId,
         errorHandlerId: errorHandler.id,
-        page: location.query.page || 1,
+        filters,
         slug,
         username,
       }),
@@ -271,7 +338,7 @@ export class CollectionBase extends React.Component<Props> {
     errorHandler: ErrorHandlerType,
     notes: string,
   ) => {
-    const { collection, dispatch, location } = this.props;
+    const { collection, dispatch, filters } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -285,7 +352,7 @@ export class CollectionBase extends React.Component<Props> {
         addonId,
         errorHandlerId: errorHandler.id,
         notes,
-        page: location.query.page || 1,
+        filters,
         slug,
         username,
       }),
@@ -297,6 +364,7 @@ export class CollectionBase extends React.Component<Props> {
       collection,
       creating,
       editing,
+      filters,
       hasEditPermission,
       i18n,
       isLoggedIn,
@@ -321,7 +389,7 @@ export class CollectionBase extends React.Component<Props> {
         <CollectionManager
           collection={collection}
           creating={creating}
-          page={location.query.page}
+          filters={filters}
         />
       );
     }
@@ -389,9 +457,9 @@ export class CollectionBase extends React.Component<Props> {
       collection,
       creating,
       editing,
+      filters,
       isLoggedIn,
       loading,
-      location,
       i18n,
     } = this.props;
 
@@ -403,8 +471,9 @@ export class CollectionBase extends React.Component<Props> {
         <Paginate
           LinkComponent={Link}
           count={collection.numberOfAddons}
-          currentPage={location.query.page}
+          currentPage={filters.page}
           pathname={editing ? this.editUrl() : this.url()}
+          queryParams={convertFiltersToQueryParams(filters)}
         />
       ) : null;
 
@@ -421,10 +490,34 @@ export class CollectionBase extends React.Component<Props> {
 
     return (
       <div className="Collection-wrapper">
-        <Card className="Collection-detail">
-          {this.renderCardContents()}
-          {this.renderDeleteButton()}
-        </Card>
+        <div className="Collection-detail-wrapper">
+          <Card className="Collection-detail">
+            {this.renderCardContents()}
+            {this.renderDeleteButton()}
+          </Card>
+          <Card className="Collection-sort">
+            <form>
+              <label className="Sort-label" htmlFor="Sort-Select">
+                {i18n.gettext('Sort add-ons by')}
+              </label>
+              <Select
+                className="Sort-select"
+                defaultValue={filters.sort}
+                id="Sort-Select"
+                name="sort"
+                onChange={this.onSortSelect}
+              >
+                {this.sortOptions().map((option) => {
+                  return (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  );
+                })}
+              </Select>
+            </form>
+          </Card>
+        </div>
         <div className="Collection-items">
           {!creating && (
             <AddonsCard
@@ -473,11 +566,23 @@ export class CollectionBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: {|
-  collections: CollectionsState,
-  users: UsersStateType,
-|}) => {
+export const mapStateToProps = (
+  state: {|
+    api: ApiStateType,
+    collections: CollectionsState,
+    users: UsersStateType,
+  |},
+  ownProps: InternalProps,
+) => {
   const { loading } = state.collections.current;
+  const { location } = ownProps;
+
+  const filtersFromLocation = convertQueryParamsToFilters(location.query);
+  const filters = {
+    page: filtersFromLocation.page || 1,
+    sort:
+      filtersFromLocation.sort || COLLECTION_ADDONS_SORT_DATE_ADDED_DESCENDING,
+  };
 
   const currentUser = getCurrentUser(state.users);
   let hasEditPermission = false;
@@ -490,14 +595,17 @@ export const mapStateToProps = (state: {|
   }
 
   return {
+    clientApp: state.api.clientApp,
     collection,
+    filters,
     isLoggedIn: !!currentUser,
+    lang: state.api.lang,
     loading,
     hasEditPermission,
   };
 };
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: InternalProps) => {
   return [
     ownProps.params.username,
     ownProps.params.slug,

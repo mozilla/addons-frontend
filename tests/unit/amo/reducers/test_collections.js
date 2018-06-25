@@ -32,8 +32,6 @@ import {
 
 describe(__filename, () => {
   describe('reducer', () => {
-    const pageToFetch = 2;
-
     it('initializes properly', () => {
       const state = reducer(undefined, {});
       expect(state).toEqual(initialState);
@@ -63,7 +61,6 @@ describe(__filename, () => {
         undefined,
         fetchCurrentCollectionPage({
           errorHandlerId: createStubErrorHandler().id,
-          page: pageToFetch,
           slug: 'some-collection-slug',
           username: 'some-user',
         }),
@@ -88,7 +85,6 @@ describe(__filename, () => {
         state,
         fetchCurrentCollectionPage({
           errorHandlerId: createStubErrorHandler().id,
-          page: pageToFetch,
           slug: collectionDetail.slug,
           username: 'some-user',
         }),
@@ -166,7 +162,6 @@ describe(__filename, () => {
         state,
         fetchCurrentCollectionPage({
           errorHandlerId: createStubErrorHandler().id,
-          page: pageToFetch,
           slug: 'some-collection-slug',
           username: 'some-user',
         }),
@@ -770,7 +765,6 @@ describe(__filename, () => {
   describe('fetchCurrentCollectionPage()', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
-      page: 123,
       slug: 'some-collection-slug',
       username: 'some-user',
     };
@@ -800,15 +794,6 @@ describe(__filename, () => {
       expect(() => {
         fetchCurrentCollectionPage(partialParams);
       }).toThrow('username is required');
-    });
-
-    it('throws an error when page is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.page;
-
-      expect(() => {
-        fetchCurrentCollectionPage(partialParams);
-      }).toThrow('page is required');
     });
   });
 
