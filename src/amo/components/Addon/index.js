@@ -388,12 +388,14 @@ export class AddonBase extends React.Component {
       return null;
     }
 
-    {/* Adding wrapping divs here seems to address what we think is a
+    {
+      /* Adding wrapping divs here seems to address what we think is a
       reconcillation issue —— which causes the classname to not always get added
       correctly (e.g.: when the page is refreshed and the addon has
       a description).
       See https://github.com/mozilla/addons-frontend/issues/4744
-    */}
+    */
+    }
     return (
       <div>
         <AddonsByAuthorsCard
