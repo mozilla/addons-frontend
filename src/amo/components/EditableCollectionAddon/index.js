@@ -130,7 +130,7 @@ export class EditableCollectionAddonBase extends React.Component<
           <div className="EditableCollectionAddon-notes">
             <h4 className="EditableCollectionAddon-notes-header">
               <Icon name="comments-blue" />
-              {i18n.gettext('User comment')}
+              {i18n.gettext('Add-on note')}
             </h4>
 
             {this.state.editingNote ? (
