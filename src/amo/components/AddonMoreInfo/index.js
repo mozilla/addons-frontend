@@ -92,6 +92,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     }
 
     const currentVersion = addon.current_version;
+    const lastUpdated = addon.last_updated;
 
     return this.renderDefinitions({
       homepage,
@@ -102,15 +103,17 @@ export class AddonMoreInfoBase extends React.Component<Props> {
         currentVersion && addonHasVersionHistory(addon)
           ? currentVersion.version
           : null,
-      versionLastUpdated: i18n.sprintf(
-        // translators: This will output, in English:
-        // "2 months ago (Dec 12 2016)"
-        i18n.gettext('%(timeFromNow)s (%(date)s)'),
-        {
-          timeFromNow: i18n.moment(addon.last_updated).fromNow(),
-          date: i18n.moment(addon.last_updated).format('ll'),
-        },
-      ),
+      versionLastUpdated: lastUpdated
+        ? i18n.sprintf(
+            // translators: This will output, in English:
+            // "2 months ago (Dec 12 2016)"
+            i18n.gettext('%(timeFromNow)s (%(date)s)'),
+            {
+              timeFromNow: i18n.moment(lastUpdated).fromNow(),
+              date: i18n.moment(lastUpdated).format('ll'),
+            },
+          )
+        : null,
       versionLicenseLink:
         currentVersion && currentVersion.license ? (
           <Link
@@ -186,12 +189,14 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             {version}
           </Definition>
         )}
-        <Definition
-          className="AddonMoreInfo-last-updated"
-          term={i18n.gettext('Last updated')}
-        >
-          {versionLastUpdated}
-        </Definition>
+        {versionLastUpdated && (
+          <Definition
+            className="AddonMoreInfo-last-updated"
+            term={i18n.gettext('Last updated')}
+          >
+            {versionLastUpdated}
+          </Definition>
+        )}
         {versionLicenseLink && (
           <Definition
             className="AddonMoreInfo-license"
