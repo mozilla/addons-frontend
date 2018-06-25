@@ -1,4 +1,5 @@
 import * as React from 'react';
+import config from 'config';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -31,6 +32,7 @@ export const COLLECTIONS_TO_FETCH = [
 
 export class HomeBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     collections: PropTypes.array.isRequired,
@@ -38,6 +40,10 @@ export class HomeBase extends React.Component {
     featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
+  };
+
+  static defaultProps = {
+    _config: config,
   };
 
   componentWillMount() {
@@ -230,7 +236,10 @@ export class HomeBase extends React.Component {
           footerLink={{
             pathname: '/search/',
             query: {
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+              addonType: getAddonTypeFilter(
+                ADDON_TYPE_THEME,
+                this.props._config,
+              ),
               featured: true,
             },
           }}

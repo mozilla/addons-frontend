@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 import PropTypes from 'prop-types';
+import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -34,6 +35,7 @@ import './styles.scss';
 
 export class CategoryBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     addonTypeOfResults: PropTypes.string,
     categoryOfResults: PropTypes.string,
     categories: PropTypes.object,
@@ -50,6 +52,10 @@ export class CategoryBase extends React.Component {
     }).isRequired,
     trendingAddons: PropTypes.array,
     resultsLoaded: PropTypes.bool.isRequired,
+  };
+
+  static defaultProps = {
+    _config: config,
   };
 
   componentWillMount() {
@@ -127,7 +133,10 @@ export class CategoryBase extends React.Component {
 
   contentForType = (addonType) => {
     const { i18n, params } = this.props;
-    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME);
+    const themeFilter = getAddonTypeFilter(
+      ADDON_TYPE_THEME,
+      this.props._config,
+    );
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {

@@ -1,4 +1,5 @@
 import { oneLine } from 'common-tags';
+import config from 'config';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -32,12 +33,17 @@ const NO_FILTER = '';
 
 export class SearchFiltersBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     clientApp: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
     router: PropTypes.object.isRequired,
+  };
+
+  static defaultProps = {
+    _config: config,
   };
 
   onSelectElementChange = (event) => {
@@ -106,7 +112,7 @@ export class SearchFiltersBase extends React.Component {
       { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
       {
         children: i18n.gettext('Theme'),
-        value: getAddonTypeFilter(ADDON_TYPE_THEME),
+        value: getAddonTypeFilter(ADDON_TYPE_THEME, this.props._config),
       },
     ];
   }
