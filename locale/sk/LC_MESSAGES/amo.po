@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-05-30 15:13+0000\n"
+"PO-Revision-Date: 2018-06-25 15:52+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -45,7 +45,7 @@ msgstr "Pridať do kolekcie"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Náhľad témy %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -391,14 +391,12 @@ msgid "More dictionaries by these translators"
 msgstr "Ďalšie slovníky od týchto prekladateľov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Ďalšie slovníky od autora %(author)s"
+msgstr "Slovníky od autora %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Ďalšie slovníky od týchto prekladateľov"
+msgstr "Slovníky od týchto prekladateľov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
@@ -409,14 +407,12 @@ msgid "More extensions by these developers"
 msgstr "Ďalšie rozšírenia od týchto vývojárov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Ďalšie rozšírenia od autora %(author)s"
+msgstr "Rozšírenia od autora %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Ďalšie rozšírenia od týchto vývojárov"
+msgstr "Rozšírenia od týchto vývojárov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
@@ -427,14 +423,12 @@ msgid "More language packs by these translators"
 msgstr "Ďalšie jazykové balíky od týchto prekladateľov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Ďalšie jazykové balíky od autora %(author)s"
+msgstr "Jazykové balíky od autora %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "Ďalšie jazykové balíky od týchto prekladateľov"
+msgstr "Jazykové balíky od týchto prekladateľov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:174
 msgid "More themes by %(author)s"
@@ -445,14 +439,12 @@ msgid "More themes by these artists"
 msgstr "Ďalšie témy vzhľadu od týchto umelcov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "Ďalšie témy vzhľadu od autora %(author)s"
+msgstr "Témy vzhľadu od autora %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:184
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Ďalšie témy vzhľadu od týchto umelcov"
+msgstr "Témy vzhľadu od týchto umelcov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by %(author)s"
@@ -463,14 +455,12 @@ msgid "More add-ons by these developers"
 msgstr "Ďalšie doplnky od týchto vývojárov"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "Ďalšie doplnky od autora %(author)s"
+msgstr "Doplnky od autora %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:201
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Ďalšie doplnky od týchto vývojárov"
+msgstr "Doplnky od týchto vývojárov"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -608,14 +598,12 @@ msgid "Creator"
 msgstr "Autor:"
 
 #: src/amo/components/Collection/index.js:373
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Ak chcete upravovať túto kolekciu, musíte sa prihlásiť"
+msgstr "Naozaj chcete odstrániť túto kolekciu?"
 
 #: src/amo/components/Collection/index.js:376
-#, fuzzy
 msgid "Delete this collection"
-msgstr "Upraviť túto kolekciu"
+msgstr "Odstrániť túto kolekciu"
 
 #: src/amo/components/Collection/index.js:407
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -623,7 +611,7 @@ msgstr "Najskôr svoju kolekciu vytvorte. Potom do nej môžete pridávať rozš
 
 #: src/amo/components/Collection/index.js:410
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Nájdite rozšírenia a témy vzhľadu, ktoré si pridáte do svojej kolekcie."
 
 #: src/amo/components/CollectionManager/index.js:299
 msgid "Save collection"
@@ -718,22 +706,20 @@ msgid "Remove"
 msgstr "Odstrániť"
 
 #: src/amo/components/EditableCollectionAddon/index.js:116
-#, fuzzy
 msgid "User comment"
-msgstr "Registrácia"
+msgstr "Používateľský komentár"
 
 #: src/amo/components/EditableCollectionAddon/index.js:128
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "O tomto doplnku"
+msgstr "Okomentujte tento doplnok."
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: src/amo/components/EditableCollectionAddon/index.js:149
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -995,33 +981,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Zmeňte vzhľad Firefoxu prostredníctvom tém."
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "Translation tools"
-msgstr "Translate Man"
+msgstr "Nástroje na prekladanie"
 
 #: src/amo/components/Home/index.js:219
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Hľadať v rozšíreniach"
+msgstr "Ďalšie nástroje na prekladanie"
 
 #: src/amo/components/Home/index.js:246
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Nástroje na ochranu súkromia"
+msgstr "Na súkromí záleží"
 
 #: src/amo/components/Home/index.js:247
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Hľadať v rozšíreniach"
+msgstr "Ďalšie rozšírenia na ochranu súkromia"
 
 #: src/amo/components/Home/index.js:258
 msgid "Tame your tabs"
 msgstr "Skroťte svoje karty"
 
 #: src/amo/components/Home/index.js:260
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Hľadať v rozšíreniach"
+msgstr "Ďalšie rozšírenia týkajúce sa kariet"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1070,7 +1051,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Tabliss"
-msgstr ""
+msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
@@ -1078,7 +1059,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
@@ -1086,7 +1067,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "A powerful way to find archived versions of older web pages"
@@ -1158,9 +1139,8 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Increase download speeds with multi-threading support"
@@ -1597,16 +1577,15 @@ msgstr "Usporiadať podľa"
 
 #: src/amo/components/SearchFilters/index.js:169
 msgid "Add-on Type"
-msgstr ""
+msgstr "Typ doplnku"
 
 #: src/amo/components/SearchFilters/index.js:189
 msgid "Operating System"
 msgstr "Operačný systém"
 
 #: src/amo/components/SearchFilters/index.js:215
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Vybraný doplnok"
+msgstr "Len odporúčané doplnky"
 
 #: src/amo/components/SearchForm/index.js:60
 msgid "Go to the add-on page"
@@ -1918,11 +1897,11 @@ msgstr "Profil používateľa %(user)s"
 
 #: src/amo/components/UserProfile/index.js:178 src/amo/components/UserProfileEdit/index.js:576
 msgid "Location"
-msgstr ""
+msgstr "Umiestnenie"
 
 #: src/amo/components/UserProfile/index.js:186 src/amo/components/UserProfileEdit/index.js:588
 msgid "Occupation"
-msgstr ""
+msgstr "Povolanie"
 
 #: src/amo/components/UserProfile/index.js:193
 msgid "User since"
@@ -1947,7 +1926,7 @@ msgstr "Upraviť profil"
 
 #: src/amo/components/UserProfileEdit/index.js:176
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Fotografia bola úspešne odstránená"
 
 #: src/amo/components/UserProfileEdit/index.js:400
 #, fuzzy
@@ -1979,7 +1958,7 @@ msgstr "Používateľské meno"
 
 #: src/amo/components/UserProfileEdit/index.js:488
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "E-mailovú adresu nemožno zmeniť na tejto stránke"
 
 #: src/amo/components/UserProfileEdit/index.js:490
 msgid "Email Address"
@@ -1987,7 +1966,7 @@ msgstr "E-mailová adresa"
 
 #: src/amo/components/UserProfileEdit/index.js:506
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Svoju e-mailovú adresu môžete zmeniť vo svojom účte Firefox. %(startLink)sPotrebujete pomoc?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:522
 msgid "Profile"
@@ -2023,7 +2002,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:651
 msgid "Notifications"
-msgstr ""
+msgstr "Upozornenia"
 
 #: src/amo/components/UserProfileEdit/index.js:654
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2038,9 +2017,8 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:689
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Aktualizujem odpoveď"
+msgstr "Aktualizujem váš profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:690
 msgid "Update my profile"
@@ -2057,9 +2035,8 @@ msgid "Update user's profile"
 msgstr "Aktualizovať odpoveď"
 
 #: src/amo/components/UserProfileEdit/index.js:705
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Aktualizovať môj profil"
+msgstr "Odstrániť môj profil"
 
 #: src/amo/components/UserProfileEdit/index.js:706
 #, fuzzy
@@ -2068,7 +2045,7 @@ msgstr "Aktualizovať odpoveď"
 
 #: src/amo/components/UserProfileEdit/index.js:715
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Upozornenie: chystáte sa odstrániť svoj profil. Ste si istí, že to chcete urobiť?"
 
 #: src/amo/components/UserProfileEdit/index.js:717
 msgid "Attention: You are about to delete a profile. Are you sure?"
@@ -2089,9 +2066,8 @@ msgid "Important: a user profile can only be deleted if the user does not own an
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:760
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Aktualizovať môj profil"
+msgstr "Áno, odstráňte môj profil"
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "Yes, delete this profile"
@@ -2151,11 +2127,11 @@ msgstr "Vyberte fotografiu..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Naozaj chcete odstrániť túto fotografiu?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:80
 msgid "Delete this picture"
-msgstr ""
+msgstr "Odstrániť fotografiu"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2218,9 +2194,8 @@ msgid "Next"
 msgstr "Ďalšia"
 
 #: src/core/components/Paginate/index.js:136
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Stránka %(pageNumber)s z %(totalPages)s"
+msgstr "Stránka %(currentPage)s z %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2236,7 +2211,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdiť"
 
 #: src/ui/components/DismissibleTextForm/index.js:112
 msgid "Enter text."
@@ -2252,7 +2227,7 @@ msgstr "Odosiela sa"
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "Odstrániť"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
@@ -2272,7 +2247,7 @@ msgstr "Prepnúť obsah"
 
 #: src/ui/components/HostPermissions/index.js:43
 msgid "Access your data for all websites"
-msgstr "Prístup k údajom pre všetky webové stránky"
+msgstr "Pristupovať k údajom pre všetky webové stránky"
 
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
@@ -2294,7 +2269,7 @@ msgstr[2] ""
 
 #: src/ui/components/HostPermissions/index.js:65
 msgid "Access your data for %(param)s"
-msgstr "Prístup k údajom pre %(param)s"
+msgstr "Pristupovať k údajom pre %(param)s"
 
 #: src/ui/components/Rating/index.js:60
 #, fuzzy
@@ -2303,12 +2278,11 @@ msgstr "Hodnotenie: %(rating)s z 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Doplnok zatiaľ nie je ohodnotený"
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Hodnotenie: %(rating)s z 5"
+msgstr "Zmeniť hodnotenie na %(starRating)s z 5"
 
 #: src/ui/components/Rating/index.js:71
 #, fuzzy
