@@ -228,11 +228,11 @@ const reducer = (
           ...newState.byAddonSlug,
           [forAddonSlug]: undefined,
         };
-      } else if (authorUsernames.length) {
+      }
+
+      if (authorUsernames.length) {
         // Potentially remove add-ons loaded for these authors with this add-on
-        // type, so that we can load new add-ons in the UI (pagination). We do
-        // not do it when `forAddonSlug` is defined to avoid re-fetching the
-        // add-ons by authors on an add-on detail page.
+        // type, so that we can load new add-ons in the UI (pagination).
 
         const addonsToRemove = getAddonsForUsernames(
           newState,

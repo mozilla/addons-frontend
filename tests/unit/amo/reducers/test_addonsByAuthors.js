@@ -248,48 +248,6 @@ describe(__filename, () => {
       });
     });
 
-    it('does not remove the previously loaded add-ons for authorUsernames when forAddonSlug is specified', () => {
-      const { slug: forAddonSlug } = fakeAddon;
-      const { id: userId, username } = fakeAddon.authors[0];
-
-      const prevState = reducer(
-        undefined,
-        loadAddonsByAuthors({
-          addonType: ADDON_TYPE_EXTENSION,
-          addons: [fakeAddon],
-          authorUsernames: [username],
-          count: 1,
-          forAddonSlug,
-          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
-        }),
-      );
-
-      expect(prevState.byAddonId).toEqual({
-        [fakeAddon.id]: createInternalAddon(fakeAddon),
-      });
-
-      const state = reducer(
-        prevState,
-        fetchAddonsByAuthors({
-          addonType: ADDON_TYPE_EXTENSION,
-          authorUsernames: [username],
-          errorHandlerId: 'error-handler-id',
-          forAddonSlug,
-          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
-        }),
-      );
-
-      expect(state.byAddonId).toEqual({
-        [fakeAddon.id]: createInternalAddon(fakeAddon),
-      });
-      expect(state.byUsername).toEqual({
-        [username]: [fakeAddon.id],
-      });
-      expect(state.byUserId).toEqual({
-        [userId]: [fakeAddon.id],
-      });
-    });
-
     it('removes the previously loaded add-ons for authorUsernames', () => {
       const { id: userId, username } = fakeAddon.authors[0];
 
