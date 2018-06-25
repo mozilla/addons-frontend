@@ -43,7 +43,7 @@ describe(__filename, () => {
     );
   };
 
-  it('dispatches fetchUserCollections as expected', () => {
+  it('dispatches fetchUserCollections for a logged in user with no collections loaded yet', () => {
     const username = 'some-username';
     const { store } = dispatchSignInActions({ userProps: { username } });
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -134,7 +134,7 @@ describe(__filename, () => {
     expect(root.find('.CollectionList-info')).toHaveLength(1);
     expect(root.find('.CollectionList-info')).toHaveProp(
       'header',
-      'My Collections',
+      'About collections',
     );
     expect(root.find('.CollectionList-info-text'))
       .toHaveText(oneLineTrim`Collections make it easy to keep track of 
@@ -145,7 +145,6 @@ describe(__filename, () => {
     expect(button).toHaveProp('buttonType', 'action');
     expect(button).toHaveProp('puffy', true);
     expect(button).toHaveProp('to', '/collections/add/');
-    expect(button).toHaveProp('type', 'button');
     expect(button.childAt(0)).toHaveText('Create a collection');
   });
 
@@ -165,7 +164,7 @@ describe(__filename, () => {
     expect(root.find('.CollectionList-list')).toHaveLength(1);
     expect(root.find('.CollectionList-list')).toHaveProp(
       'header',
-      'My Collections',
+      'My collections',
     );
     expect(root.find('.CollectionList-list')).toHaveProp(
       'footer',
@@ -188,10 +187,6 @@ describe(__filename, () => {
     const root = renderComponent({ store });
 
     expect(root.find('.CollectionList-list')).toHaveLength(1);
-    expect(root.find('.CollectionList-list')).toHaveProp(
-      'header',
-      'My Collections',
-    );
     expect(root.find('.CollectionList-list')).toHaveProp('footer', null);
     expect(root.find('.CollectionList-listing')).toHaveLength(1);
 
@@ -236,20 +231,14 @@ describe(__filename, () => {
 
     const userCollections = root.find(UserCollection);
     expect(userCollections).toHaveLength(2);
-    for (let count = 0; count < 2; count++) {
-      const expected = createInternalCollection({ detail: collections[count] });
-      expect(userCollections.at(count)).toHaveProp(
-        'authorUsername',
-        expected.authorUsername,
-      );
-      expect(userCollections.at(count)).toHaveProp('id', expected.id);
-      expect(userCollections.at(count)).toHaveProp('name', expected.name);
-      expect(userCollections.at(count)).toHaveProp(
-        'numberOfAddons',
-        expected.numberOfAddons,
-      );
-      expect(userCollections.at(count)).toHaveProp('slug', expected.slug);
-    }
+    userCollections.forEach((collection, index) => {
+      const expected = createInternalCollection({ detail: collections[index] });
+      expect(collection).toHaveProp('authorUsername', expected.authorUsername);
+      expect(collection).toHaveProp('id', expected.id);
+      expect(collection).toHaveProp('name', expected.name);
+      expect(collection).toHaveProp('numberOfAddons', expected.numberOfAddons);
+      expect(collection).toHaveProp('slug', expected.slug);
+    });
   });
 
   describe('errorHandler - extractId', () => {

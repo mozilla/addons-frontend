@@ -1108,6 +1108,7 @@ describe(__filename, () => {
       );
 
       const collections = expandCollections(state, meta);
+      expect(collections.length).toEqual(2);
       expect(collections[0]).toEqual(
         createInternalCollection({ detail: firstCollection }),
       );
@@ -1116,7 +1117,7 @@ describe(__filename, () => {
       );
     });
 
-    it('returns undefined for an unloaded collection', () => {
+    it('skips unloaded collections', () => {
       const firstCollection = createFakeCollectionDetail({ id: 1 });
       const secondCollection = createFakeCollectionDetail({ id: 2 });
       const meta = {
@@ -1132,10 +1133,10 @@ describe(__filename, () => {
       );
 
       const collections = expandCollections(state, meta);
+      expect(collections.length).toEqual(1);
       expect(collections[0]).toEqual(
         createInternalCollection({ detail: firstCollection }),
       );
-      expect(collections[1]).toEqual(undefined);
     });
   });
 });

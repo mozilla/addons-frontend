@@ -14,8 +14,8 @@
   }
 }
 
-@include respond-to(large) {
-  .CollectionList-wrapper {
+.CollectionList-wrapper {
+  @include respond-to(large) {
     display: grid;
     grid-auto-flow: column dense;
     grid-gap: 0 $padding-page-l;
@@ -34,32 +34,11 @@
 }
 
 .CollectionList-listing {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0;
-  padding: 0;
-
-  .CollectionList-collection {
-    list-style-type: none;
-  }
-
-  a:link {
-    text-decoration: none;
-
-    .CollectionList-collection-name {
-      @include font-bold();
-
-      color: $black;
-      font-size: $font-size-default;
-      margin-bottom: 0;
-    }
-  }
-
-  .CollectionList-collection-number {
-    @include font-light();
-
-    color: $grey-50;
-    font-size: $font-size-m-smaller;
-    margin-top: 0;
+  @include respond-to(large) {
+    display: grid;
+    grid-auto-flow: initial;
+    grid-template-columns: repeat(2, 50%);
+    margin: 0;
+    padding: 0;
   }
 }

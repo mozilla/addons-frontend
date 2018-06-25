@@ -1,5 +1,4 @@
 /* @flow */
-import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -14,6 +13,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+import CardList from 'ui/components/CardList';
 import UserCollection from 'ui/components/UserCollection';
 import type {
   CollectionsState,
@@ -58,7 +58,7 @@ export class CollectionListBase extends React.Component<Props> {
     }
   }
 
-  renderCollections(header: string) {
+  renderCollections() {
     const { i18n, collections } = this.props;
     const noCollectionsText = i18n.gettext('You do not have any collections.');
 
@@ -87,26 +87,28 @@ export class CollectionListBase extends React.Component<Props> {
     const footer = collectionElements.length ? null : noCollectionsText;
 
     return (
-      <Card
-        className={makeClassName('CardList', 'CollectionList-list')}
+      <CardList
+        className="CollectionList-list"
         footer={footer}
-        header={header}
+        header={i18n.gettext('My collections')}
       >
         {collectionElements.length && (
           <ul className="CollectionList-listing">{collectionElements}</ul>
         )}
-      </Card>
+      </CardList>
     );
   }
 
   render() {
     const { i18n, isLoggedIn, location } = this.props;
-    const myCollectionsHeader = i18n.gettext('My Collections');
 
     return (
       <div className="CollectionList">
         <div className="CollectionList-wrapper">
-          <Card className="CollectionList-info" header={myCollectionsHeader}>
+          <Card
+            className="CollectionList-info"
+            header={i18n.gettext('About collections')}
+          >
             {!isLoggedIn ? (
               <AuthenticateButton
                 noIcon
@@ -124,14 +126,13 @@ export class CollectionListBase extends React.Component<Props> {
                   className="CollectionList-create"
                   puffy
                   to="/collections/add/"
-                  type="button"
                 >
                   {i18n.gettext('Create a collection')}
                 </Button>
               </React.Fragment>
             )}
           </Card>
-          {isLoggedIn ? this.renderCollections(myCollectionsHeader) : null}
+          {isLoggedIn ? this.renderCollections() : null}
         </div>
       </div>
     );

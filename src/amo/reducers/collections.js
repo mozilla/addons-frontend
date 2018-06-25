@@ -932,7 +932,13 @@ export const expandCollections = (
   meta?: { collections: Array<CollectionId> | null },
 ): Array<CollectionType> | null => {
   return meta && meta.collections
-    ? meta.collections.map((id) => collections.byId[id])
+    ? meta.collections.reduce((result, id) => {
+        const collection = collections.byId[id];
+        if (collection) {
+          result.push(collection);
+        }
+        return result;
+      }, [])
     : null;
 };
 
