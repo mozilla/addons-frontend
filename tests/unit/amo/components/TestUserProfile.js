@@ -464,20 +464,40 @@ describe(__filename, () => {
   });
 
   it('renders AddonsByAuthorsCard for extensions', () => {
-    const root = renderUserProfile();
+    const username = 'tofumatt';
+    const root = renderUserProfile({ params: { username } });
 
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
       'addonType',
       ADDON_TYPE_EXTENSION,
     );
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'pageParam',
+      'page_e',
+    );
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('paginate', true);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'pathname',
+      `/user/${username}/`,
+    );
   });
 
   it('renders AddonsByAuthorsCard for themes', () => {
-    const root = renderUserProfile();
+    const username = 'tofumatt';
+    const root = renderUserProfile({ params: { username } });
 
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
       'addonType',
       ADDON_TYPE_THEME,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'pageParam',
+      'page_t',
+    );
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('paginate', true);
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'pathname',
+      `/user/${username}/`,
     );
   });
 

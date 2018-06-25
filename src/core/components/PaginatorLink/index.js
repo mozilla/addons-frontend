@@ -8,11 +8,16 @@ export default class PaginatorLink extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     currentPage: PropTypes.number.isRequired,
-    pathname: PropTypes.string.isRequired,
     page: PropTypes.number.isRequired,
     pageCount: PropTypes.number.isRequired,
+    pageParam: PropTypes.string,
+    pathname: PropTypes.string.isRequired,
     queryParams: PropTypes.object,
     text: PropTypes.string,
+  };
+
+  static defaultProps = {
+    pageParam: 'page',
   };
 
   render() {
@@ -21,6 +26,7 @@ export default class PaginatorLink extends React.Component {
       currentPage,
       page,
       pageCount,
+      pageParam,
       pathname,
       queryParams,
       text,
@@ -55,7 +61,7 @@ export default class PaginatorLink extends React.Component {
       <Button
         buttonType="cancel"
         className={makeClassName('Paginate-item', className)}
-        to={{ pathname, query: { ...queryParams, page } }}
+        to={{ pathname, query: { ...queryParams, [pageParam]: page } }}
       >
         {text || page}
       </Button>

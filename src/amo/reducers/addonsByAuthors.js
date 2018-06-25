@@ -44,7 +44,7 @@ export const FETCH_ADDONS_BY_AUTHORS: 'FETCH_ADDONS_BY_AUTHORS' =
 export const LOAD_ADDONS_BY_AUTHORS: 'LOAD_ADDONS_BY_AUTHORS' =
   'LOAD_ADDONS_BY_AUTHORS';
 
-type FetchAddonsByAuthorsParams = {|
+export type FetchAddonsByAuthorsParams = {|
   addonType?: string,
   authorUsernames: Array<string>,
   errorHandlerId: string,
@@ -228,6 +228,33 @@ const reducer = (
           ...newState.byAddonSlug,
           [forAddonSlug]: undefined,
         };
+      }
+
+      if (authorUsernames.length) {
+        // Potentially remove add-ons loaded for these authors with this add-on
+        // type, so that we can load new add-ons in the UI (pagination).
+
+        const addonsToRemove = getAddonsForUsernames(
+          newState,
+          authorUsernames,
+          addonType,
+        );
+
+        if (addonsToRemove) {
+          for (const addonToRemove of addonsToRemove) {
+            if (addonToRemove.authors) {
+              for (const author of addonToRemove.authors) {
+                newState.byUsername[author.username] = newState.byUsername[
+                  author.username
+                ].filter((id) => id !== addonToRemove.id);
+
+                newState.byUserId[author.id] = newState.byUserId[
+                  author.id
+                ].filter((id) => id !== addonToRemove.id);
+              }
+            }
+          }
+        }
       }
 
       const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
