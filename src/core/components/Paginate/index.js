@@ -56,7 +56,7 @@ export class PaginateBase extends React.Component<InternalProps> {
   pageCount() {
     const { count, perPage } = this.props;
 
-    invariant(perPage, 'perPage is required');
+    invariant(typeof perPage === 'number', 'perPage is required');
 
     if (perPage <= 0) {
       throw new TypeError(`A perPage value of ${perPage} is not allowed`);

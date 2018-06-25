@@ -4,11 +4,9 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import { searchLoad } from 'core/actions/search';
 import { search as searchApi } from 'core/api/search';
-import { SEARCH_STARTED } from 'core/constants';
 import log from 'core/logger';
-import { abortSearch } from 'core/reducers/search';
+import { SEARCH_STARTED, abortSearch, searchLoad } from 'core/reducers/search';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
 export function* fetchSearchResults({ payload }) {

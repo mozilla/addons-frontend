@@ -7,9 +7,9 @@ import Paginate from 'core/components/Paginate';
 import { INSTALL_SOURCE_SEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
+import type { FiltersType } from 'core/reducers/search';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
-import type { FiltersType } from 'amo/components/SearchPage';
 
 type Props = {|
   count: number,

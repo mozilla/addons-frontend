@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
-import { searchStart } from 'core/actions/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
   OS_LINUX,
 } from 'core/constants';
+import { searchStart } from 'core/reducers/search';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import Select from 'ui/components/Select';

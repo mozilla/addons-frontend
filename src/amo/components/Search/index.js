@@ -11,8 +11,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
-import { searchStart } from 'core/actions/search';
-import { resetSearch } from 'core/reducers/search';
+import { resetSearch, searchStart } from 'core/reducers/search';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
@@ -29,9 +28,9 @@ import {
   convertFiltersToQueryParams,
   hasSearchFilters,
 } from 'core/searchUtils';
-import type { FiltersType } from 'amo/components/SearchPage';
 import type { ViewContextType } from 'amo/reducers/viewContext';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
+import type { SearchType, FiltersType } from 'core/reducers/search';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
@@ -251,7 +250,7 @@ export class SearchBase extends React.Component<InternalProps> {
 }
 
 export function mapStateToProps(state: {|
-  search: Object,
+  search: SearchType,
   viewContext: ViewContextType,
 |}) {
   return {
