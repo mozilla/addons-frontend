@@ -61,6 +61,7 @@ export default (
       )}
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
+      <Route path="/:lang/android/language-tools/" component={NotFound} />
       <Route path="language-tools/" component={LanguageTools} />
       <Route path="search-tools/" component={SearchTools} />
       <Route path="search/" component={SearchPage} />

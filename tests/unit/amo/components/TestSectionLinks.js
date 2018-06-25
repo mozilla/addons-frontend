@@ -48,7 +48,7 @@ describe(__filename, () => {
     expect(root.find(DropdownMenu)).toHaveLength(1);
   });
 
-  it('hides link to the Language Tools page on Android', () => {
+  it('hides link to the Language Tools page on Android clients', () => {
     _store.dispatch(setClientApp(CLIENT_APP_ANDROID));
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
@@ -59,7 +59,7 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
-  it('renders a link to the Language Tools page for non Android', () => {
+  it('renders a link to the Language Tools page for non-Android clients', () => {
     _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
@@ -67,7 +67,7 @@ describe(__filename, () => {
       root.find('.SectionLinks-dropdownlink').findWhere((element) => {
         return element.prop('to') === '/language-tools/';
       }),
-    ).toHaveLength(1);
+    ).toHaveProp('children', 'Dictionaries & Language Packs');
   });
 
   it('renders a link to the Search Tools page', () => {
