@@ -36,11 +36,10 @@ type Props = {|
   text?: null | string,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 /*
  * This renders a form with an auto-resizing textarea,

@@ -27,13 +27,12 @@ type Props = {|
   review: UserReviewType,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
   siteUser: UserType | null,
   wasFlagged: boolean,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class FlagReviewMenuBase extends React.Component<InternalProps> {
   static defaultProps = {

@@ -160,6 +160,40 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   [`src/core/types/util`](https://github.com/mozilla/addons-frontend/blob/master/src/core/types/util.js)
   if you have to. This is meant as a working replacement for
   [$Exact<T>](https://flow.org/en/docs/types/utilities/#toc-exact).
+* Add a type hint for components wrapped in HOCs (higher order components) so that Flow can validate calls to the component. We need to add a hint because we don't yet have decent type coverage for all the HOCs we rely on. Here is an example:
+
+```js
+// Imagine this is something like components/ConfirmButton/index.js
+import { compose } from 'redux';
+import * as React from 'react';
+
+// This expresses externally used props, i.e. to validate how the app would use <ConfirmButton />
+type Props = {|
+  prompt?: string | null,
+|};
+
+// This expresses internally used props, such as i18n which is injected by translate()
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
+
+export class ConfirmButtonBase extends React.Component<InternalProps> {
+  render() {
+    const prompt = this.props.prompt || this.props.i18n.gettext('Confirm');
+    return <button>{prompt}</button>;
+  }
+}
+
+// This provides a type hint for the final component with its external props.
+// The i18n prop is not in external props because it is injected by translate() for internal use only.
+const ConfirmButton: React.ComponentType<Props> = compose(translate())(
+  ConfirmButtonBase,
+);
+
+export default ConfirmButton;
+```
+
 * Try to avoid loose types like `Object` or `any` but feel free to use
   them if you are spending too much time declaring types that depend on other
   types that depend on other types, and so on.

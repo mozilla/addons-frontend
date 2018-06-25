@@ -19,7 +19,8 @@ type Props = {|
   user: UserType | null,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
 
@@ -30,10 +31,7 @@ export const UserProfileEditPictureBase = ({
   onSelect,
   preview,
   user,
-}: {
-  ...Props,
-  ...InjectedProps,
-}) => {
+}: InternalProps) => {
   const altText = user
     ? i18n.sprintf(i18n.gettext('Profile picture for %(name)s'), {
         name: user.name,

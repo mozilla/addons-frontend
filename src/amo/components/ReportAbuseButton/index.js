@@ -30,15 +30,14 @@ type Props = {|
   addon: AddonType,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   abuseReport: AddonAbuseState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   loading: boolean,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   textarea: React.ElementRef<typeof Textarea>;

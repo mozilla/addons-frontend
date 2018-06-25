@@ -17,12 +17,11 @@ type Props = {|
   sections: Array<React.Element<typeof HeroSection>>,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   dispatch: DispatchFunc,
   heroBanners: Object,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class HeroBase extends React.Component<InternalProps> {
   componentWillMount() {

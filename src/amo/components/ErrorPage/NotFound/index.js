@@ -19,11 +19,10 @@ type Props = {|
   errorCode?: string,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class NotFoundBase extends React.Component<InternalProps> {
   render() {
