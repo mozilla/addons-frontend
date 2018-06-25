@@ -3,21 +3,28 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import Paginate from 'core/components/Paginate';
 import { INSTALL_SOURCE_SEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
+import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
+import type { FiltersType } from 'amo/components/SearchPage';
 
 type Props = {|
   count: number,
-  filters: Object,
-  i18n: I18nType,
+  filters: FiltersType,
   loading: boolean,
-  paginator?: React.Node,
-  results: Array<Object>,
+  paginator?: React.Element<typeof Paginate> | null,
+  results: Array<AddonType | CollectionAddonType>,
 |};
 
-export class SearchResultsBase extends React.Component<Props> {
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
+
+export class SearchResultsBase extends React.Component<InternalProps> {
   static defaultProps = {
     count: 0,
     filters: {},

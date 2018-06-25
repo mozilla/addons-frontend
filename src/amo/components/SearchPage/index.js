@@ -21,10 +21,19 @@ import {
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 
+export type FiltersType = {|
+  addonType?: string,
+  featured?: boolean,
+  operatingSystem?: string,
+  page?: number,
+  query?: Object,
+  sort?: string,
+|};
+
 type Props = {|
   clientApp: string,
   dispatch: DispatchFunc,
-  filters: Object,
+  filters: FiltersType,
   lang: string,
   location: ReactRouterLocation,
   pathname: string,
@@ -92,11 +101,10 @@ export class SearchPageBase extends React.Component<Props> {
   }
 
   render() {
-    const { filters, pathname, ...otherProps } = this.props;
+    const { filters, pathname } = this.props;
 
     return (
       <Search
-        {...otherProps}
         enableSearchFilters
         filters={filters}
         paginationQueryParams={convertFiltersToQueryParams(filters)}

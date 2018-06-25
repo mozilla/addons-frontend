@@ -63,17 +63,9 @@ describe(__filename, () => {
     expect(results.prop('count')).toEqual(props.count);
     expect(results.prop('filters')).toEqual(props.filters);
     expect(results.prop('loading')).toEqual(props.loading);
-    expect(results.prop('pathname')).toEqual(props.pathname);
     expect(results.prop('results')).toEqual(props.results);
     expect(Object.keys(results.props()).sort()).toEqual(
-      [
-        'count',
-        'filters',
-        'loading',
-        'paginator',
-        'pathname',
-        'results',
-      ].sort(),
+      ['count', 'filters', 'loading', 'paginator', 'results'].sort(),
     );
   });
 
