@@ -28,10 +28,6 @@
     margin-bottom: 10px;
     overflow: hidden;
     width: calc(100% + 20px);
-
-    @include respond-to(extraLarge) {
-      min-height: $theme-height-default;
-    }
   }
 
   @include respond-to(large) {
@@ -63,18 +59,6 @@
     object-fit: cover;
     object-position: top left;
     width: 100%;
-
-    @include respond-to(extraLarge) {
-      height: $theme-height-default;
-    }
-  }
-
-  .SearchResult--persona & {
-    object-position: top right;
-
-    @include respond-to(extraLarge) {
-      height: 100px;
-    }
   }
 }
 

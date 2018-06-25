@@ -125,17 +125,6 @@
   overflow-y: hidden;
   position: relative;
   width: 100%;
-
-  @include respond-to(extraLarge) {
-    height: $theme-height-default;
-  }
-
-  .Addon-persona & {
-
-    @include respond-to(extraLarge) {
-      height: 100px;
-    }
-  }
 }
 
 .Addon-theme-header-label {
@@ -152,18 +141,6 @@
   object-fit: cover;
   object-position: top left;
   width: 100%;
-
-  @include respond-to(extraLarge) {
-    height: $theme-height-default;
-  }
-
-  .Addon-persona & {
-    object-position: top right;
-
-    @include respond-to(extraLarge) {
-      height: 100px;
-    }
-  }
 }
 
 .Addon-summary-and-install-button-wrapper {
