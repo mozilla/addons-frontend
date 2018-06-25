@@ -416,4 +416,27 @@ describe(__filename, () => {
 
     expect(root.find('.AddonMoreInfo-version-history')).toHaveLength(0);
   });
+
+  it('renders the last updated date', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      last_updated: Date.now(),
+    });
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(1);
+    expect(root.find('.AddonMoreInfo-last-updated').children()).toIncludeText(
+      'a few seconds ago',
+    );
+  });
+
+  it('does not show the last updated date if there is no last updated date', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      last_updated: null,
+    });
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(0);
+  });
 });
