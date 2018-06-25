@@ -52,18 +52,22 @@ describe(__filename, () => {
     _store.dispatch(setClientApp(CLIENT_APP_ANDROID));
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
-    expect(root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-      return element.prop('to') === '/language-tools/';
-    })).toHaveLength(0);
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('to') === '/language-tools/';
+      }),
+    ).toHaveLength(0);
   });
 
   it('renders a link to the Language Tools page for non Android', () => {
     _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
-    expect(root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-      return element.prop('to') === '/language-tools/';
-    })).toHaveLength(1);
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('to') === '/language-tools/';
+      }),
+    ).toHaveLength(1);
   });
 
   it('renders a link to the Search Tools page', () => {
