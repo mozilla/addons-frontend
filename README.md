@@ -160,7 +160,7 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   [`src/core/types/util`](https://github.com/mozilla/addons-frontend/blob/master/src/core/types/util.js)
   if you have to. This is meant as a working replacement for
   [$Exact<T>](https://flow.org/en/docs/types/utilities/#toc-exact).
-* Add a type hint for components wrapped in HOCs (higher order components) so that Flow can validate calls to the component. Here is an example:
+* Add a type hint for components wrapped in HOCs (higher order components) so that Flow can validate calls to the component. We need to add a hint because we don't yet have decent type coverage for all the HOCs we rely on. Here is an example:
 
 ```js
 // Imagine this is something like components/ConfirmButton/index.js
