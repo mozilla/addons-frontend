@@ -11,6 +11,10 @@
   }
 
   .Addon-summary-and-install-button-wrapper {
+    .Addon-get-firefox-button {
+      margin-bottom: 6px;
+    }
+
     .InstallButton,
     .Addon-get-firefox-button {
       @include respond-to(medium) {
