@@ -28,7 +28,8 @@ type Props = {|
   user?: UserType | null,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasSubmitted: boolean,
@@ -36,8 +37,6 @@ type InjectedProps = {|
   isSubmitting: boolean,
   uiVisible: boolean,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class ReportUserAbuseBase extends React.Component<InternalProps> {
   hideReportUI = () => {

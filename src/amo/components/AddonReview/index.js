@@ -46,21 +46,20 @@ type DispatchMappedProps = {|
 |};
 
 type Props = {|
-  createLocalState?: typeof defaultLocalStateCreator,
-  debounce?: typeof defaultDebounce,
   onEscapeOverlay?: () => void,
   onReviewSubmitted: () => void | Promise<void>,
   review: UserReviewType,
   ...DispatchMappedProps,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   apiState: ApiStateType,
+  createLocalState: typeof defaultLocalStateCreator,
+  debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   reviewBody: ?string,
@@ -80,7 +79,6 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     this.state = {
       reviewBody: props.review.body,
     };
-    invariant(props.createLocalState, 'createLocalState() is undefined');
     this.localState = props.createLocalState(`AddonReview:${props.review.id}`);
     this.checkForStoredState();
   }
@@ -163,7 +161,6 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
   };
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
-    invariant(this.props.debounce, 'debounce() is undefined');
     const saveState = this.props.debounce((state) => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.

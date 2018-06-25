@@ -12,7 +12,8 @@ type Props = {|
   permissions: Array<string>,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
 
@@ -34,8 +35,6 @@ type GenerateHostPermissionsParams = {|
   // eslint-disable-next-line react/no-unused-prop-types
   messageType: HostPermissionMessageType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class HostPermissionsBase extends React.Component<InternalProps> {
   getPermissionString({

@@ -28,11 +28,10 @@ type Props = {|
   showSummary?: boolean,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {

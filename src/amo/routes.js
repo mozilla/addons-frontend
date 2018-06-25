@@ -61,6 +61,10 @@ export default (
       )}
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
+
+      {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
+      <Route path="/:lang/android/language-tools/" component={NotFound} />
+
       <Route path="language-tools/" component={LanguageTools} />
       <Route path="search-tools/" component={SearchTools} />
       <Route path="search/" component={SearchPage} />

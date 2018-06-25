@@ -41,7 +41,8 @@ type Props = {|
   review?: UserReviewType | null,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
@@ -51,8 +52,6 @@ type InjectedProps = {|
   siteUserHasReplyPerm: boolean,
   submittingReply: boolean,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class AddonReviewListItemBase extends React.Component<InternalProps> {
   onClickToEditReview = (event: SyntheticEvent<any>) => {

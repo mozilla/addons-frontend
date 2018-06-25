@@ -21,15 +21,14 @@ type Props = {|
   onConfirm: Function,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
 
 type State = {|
   showConfirmation: boolean,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class ConfirmButtonBase extends React.Component<InternalProps, State> {
   static defaultProps = {

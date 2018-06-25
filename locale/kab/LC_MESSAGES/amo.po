@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-22 17:40+0000\n"
-"Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
+"PO-Revision-Date: 2018-06-23 13:53+0000\n"
+"Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -1656,6 +1656,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), d asmel unṣib n Mozilla ittwaxedmen i usebded n izegrar i yiminig fireox. Izegrar ad ak-n-fken taggnit i usigen n iming s tmerna n tmahaltin timaynutin ɣer Fireox, sakin "
+"daɣ aqaεed n tunigin ɣer ugbur Web, aya ad ibeddel tamuɣli-inek ɣef tunigin."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
@@ -1670,6 +1672,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Izegrar i d-ittwabedren dagi ttwarnan-d sɣur waṭas n ineflayen seg umaḍal meṛra, ama d imdanen neɣ d tikebbaniyen, kra n izegrar deg AMO fɣen-d s widem awurman ɣef aya zemren ad ttwazren i tikkelt-"
+"nnuḍen sɣur tarbaεt n imaẓragen."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1679,7 +1683,7 @@ msgstr "Ttekki"
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
-msgstr ""
+msgstr "Mozilla d aqeṛṛu n Internet ur ittnadin ara adrim, Nsuffeɣ-d Firefox akken ad nmud tallelt, tazmert akked anekcum. Izegrar qeblen asigen n iseqdac deg Firefox, tzemred ad tetekkiḍ s ubrid:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -1697,7 +1701,7 @@ msgstr ""
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
-msgstr ""
+msgstr "S wwudem amatu, ala. Maca asenqed ur isεi ara tiwtilin n ussawen, tzemreḍ ad tsended ɣef \" Cegger asenqed-a\" sakin qaεed-it. ma yella asenqed deg-s acetki ur ɣezzifet ara, nezmer ad ten-kkes."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
@@ -1707,7 +1711,7 @@ msgstr "Amnir n ucegger"
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
-msgstr ""
+msgstr "Asenqed n izegrar d abrid akken ad tebḍuḍ tamupvli-inekɣef izegrar i tesqedceḍ. tarbaεt-nneγ tesεa azref ad tekkes asnqed ur ittqadaren ara tiwtilin-nneγ."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1719,7 +1723,7 @@ msgstr "Eg:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Aru am akken tettemslayeḍ akked umdakkel ɣef useqdec n uzegrir."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1771,19 +1775,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Aru asenqed ɣef izegrar i  tesqedceḍ yakan."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Iseqdac rregmat, awalen n tuzzuft neɣ awalen n karuh."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Tzemred ad tessedduḍ HTML, iseɣwan, tangalt aɣbalu neq kran n yeḥricen n tengalt. Iwenniten ttwasnen d akken d aḍris kan."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Ittawi-d talɣut n tkerkas, isefcal tazmert n ineflayen neɣ ireggem-iten."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
@@ -1797,7 +1801,7 @@ msgstr "Azen aceggir ɣef uzegrir i terirniḍ neq win terna tkebbaniy-ik."
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
-msgstr ""
+msgstr "Asenqed n izegrar ittwaxdem akken ad nexdem kra. Amedya, tuzna n usenqed, askan n ilɣuten, γef izegrar."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "Frequently Asked Questions about Reviews"
@@ -1811,7 +1815,7 @@ msgstr "Amek ara d-mleɣ acegger ur nemɛin ara?"
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
-msgstr ""
+msgstr "ttxil-k azen-d asteqsi neɣ asuter s usened ɣef \" Cegger asenqed-a\" sakin asenqed ad aɣ-d-yawweḍ. Tarbaεt-nneɣ ad twali asenqed sakin ad nẓer ma ad ten-kkes neɣ ad t-id-nner ɣer usmel."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:85
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -1819,7 +1823,7 @@ msgstr "Nek d ameskar n uzegrir, zemreɣ ad rreɣ i iceggiren?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:91
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Ih, bab n uzegrir izmer ad immud yiwet n tiririt ɣef usenqed. Tzemred ad tesbaduḍ adiwenni deg %(startLink)s texxamt n udiwenni-nneɣ %(endLink)s i useqerdec n temsal."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2006,14 +2010,16 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Ma tsentmeḍ %(startStrong)s tigawt-agi%(endStrong)s, Isefka-agi ad ttwaksen: tugna n umaɣnu, talqaut n umaɣnu ( isem n useqdec,imayl, isem ittwaseknen, adig, asebter agejdan) akked isemnyifen n "
+"ilɣa. isefka-nniḍen am usenqed."
 
 #: src/amo/components/UserProfileEdit/index.js:743
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Awelleh: ma telliḍ d bab n izegrar, ilaq ad tent-azneḍ ɣeer iseqdacen-nniḍen neɣ kkes-iten send ad tekkseḍ amaɣnu-inek."
 
 #: src/amo/components/UserProfileEdit/index.js:747
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Awelleh: Amaɣnu n useqdac izmer ad ittwakkes ma yella aseqdac ur yisεi ula d yiwen uzegrir."
 
 #: src/amo/components/UserProfileEdit/index.js:760
 msgid "Yes, delete my profile"

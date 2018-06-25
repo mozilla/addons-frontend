@@ -42,7 +42,6 @@ import './styles.scss';
 
 type Props = {|
   addonType?: string,
-  addons?: Array<AddonType>,
   authorDisplayName: string,
   authorUsernames: Array<string>,
   className?: string,
@@ -58,7 +57,8 @@ type Props = {|
   type?: 'horizontal' | 'vertical',
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   addons?: Array<AddonType>,
   count: number | null,
   dispatch: DispatchFunc,
@@ -67,8 +67,6 @@ type InjectedProps = {|
   loading?: boolean,
   location: ReactRouterLocation,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 type DispatchFetchAddonsByAuthorsParams = {|
   addonType: $PropertyType<FetchAddonsByAuthorsParams, 'addonType'>,

@@ -1,7 +1,6 @@
 /* @flow */
 /* global Node */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
-import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -51,10 +50,6 @@ type LoadSavedReviewFunc = ({|
 type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
 type Props = {|
-  AddonReview?: typeof DefaultAddonReview,
-  AuthenticateButton?: typeof DefaultAuthenticateButton,
-  UserRating?: typeof DefaultUserRating,
-  ReportAbuseButton?: typeof DefaultReportAbuseButton,
   addon: AddonType,
   location: ReactRouterLocation,
   onReviewSubmitted?: () => void,
@@ -66,16 +61,19 @@ type DispatchMappedProps = {|
   submitReview: SubmitReviewFunc,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   ...DispatchMappedProps,
+  AddonReview: typeof DefaultAddonReview,
+  AuthenticateButton: typeof DefaultAuthenticateButton,
+  UserRating: typeof DefaultUserRating,
+  ReportAbuseButton: typeof DefaultReportAbuseButton,
   apiState: ApiStateType,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   userId: number,
   userReview: UserReviewType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   showTextEntry: boolean,
@@ -177,7 +175,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
   renderLogInToRate() {
     const { AuthenticateButton, addon, location } = this.props;
-    invariant(AuthenticateButton, 'AuthenticateButton() is undefined');
     return (
       <div className="RatingManager-log-in-to-rate">
         <AuthenticateButton
@@ -214,10 +211,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName: addon.name },
     );
-
-    invariant(AddonReview, 'AddonReview() is undefined');
-    invariant(UserRating, 'UserRating() is undefined');
-    invariant(ReportAbuseButton, 'ReportAbuseButton() is undefined');
 
     return (
       <div className="RatingManager">

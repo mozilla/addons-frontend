@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -11,15 +12,14 @@ import type { DispatchFunc } from 'core/types/redux';
 
 type Props = {|
   children: React.Node,
-  getErrorComponent: typeof getErrorComponentDefault,
+  getErrorComponent?: typeof getErrorComponentDefault,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   dispatch: DispatchFunc,
   errorPage: ErrorPageState,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class ErrorPageBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -36,6 +36,7 @@ export class ErrorPageBase extends React.Component<InternalProps> {
 
   render() {
     const { children, errorPage, getErrorComponent } = this.props;
+    invariant(getErrorComponent, 'getErrorComponent() is undefined');
 
     if (errorPage.hasError) {
       const ErrorComponent = getErrorComponent(errorPage.statusCode);

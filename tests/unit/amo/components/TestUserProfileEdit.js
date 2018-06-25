@@ -133,6 +133,11 @@ describe(__filename, () => {
     );
     expect(root.find(UserProfileEditPicture)).toHaveLength(1);
 
+    expect(root.find('.UserProfileEdit-manage-account-link')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-manage-account-link')).toHaveText(
+      'Manage Firefox Accounts...',
+    );
+
     expect(root.find('.UserProfileEdit-notifications-aside'))
       .toHaveText(oneLine`From time to time, Mozilla may send you email about
         upcoming releases and add-on events. Please select the topics you are
@@ -365,6 +370,10 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-email')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-email')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-email')).toHaveProp(
+      'title',
+      'Email address cannot be changed here',
+    );
   });
 
   it('renders help sections for some fields', () => {
@@ -963,6 +972,8 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
       users a bit more information about this user. These fields are optional,
       but they'll help other users get to know willdurand better.`);
+
+    expect(root.find('.UserProfileEdit-manage-account-link')).toHaveLength(0);
 
     expect(root.find({ htmlFor: 'biography' })).toHaveText(
       'Introduce willdurand to the community',
