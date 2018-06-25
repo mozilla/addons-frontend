@@ -44,11 +44,6 @@ type Props = {|
 |};
 
 export default class AddonsCard extends React.Component<Props> {
-<<<<<<< HEAD
-=======
-  cardContainer: React.ElementRef<any> | null;
-
->>>>>>> fixing flow stuff
   static defaultProps = {
     editing: false,
     loading: false,
@@ -118,11 +113,7 @@ export default class AddonsCard extends React.Component<Props> {
       type && `AddonsCard--${type}`,
     );
     return (
-      <CardList
-        {...otherProps}
-        className={allClassNames}
-        ref={(ref) => { this.cardContainer = ref; }}
-      >
+      <CardList {...otherProps} className={allClassNames}>
         {children}
         {addonElements.length ? (
           <ul className="AddonsCard-list">{addonElements}</ul>
