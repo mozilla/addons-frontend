@@ -370,6 +370,10 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-email')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-email')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-email')).toHaveProp(
+      'title',
+      'Email address cannot be changed here',
+    );
   });
 
   it('renders help sections for some fields', () => {
