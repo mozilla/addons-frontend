@@ -9,6 +9,7 @@ import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -17,6 +18,7 @@ import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -162,6 +164,36 @@ describe(__filename, () => {
       },
     });
     expect(shelf).toHaveProp('loading', true);
+  });
+
+  it('renders a featured themes shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
+    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+    const root = render({ _config: fakeConfig });
+
+    const shelves = root.find(LandingAddonsCard);
+    const shelf = shelves.find('.Home-FeaturedThemes');
+    expect(shelf).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        featured: true,
+      },
+    });
+  });
+
+  it('renders a featured themes shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const root = render({ _config: fakeConfig });
+
+    const shelves = root.find(LandingAddonsCard);
+    const shelf = shelves.find('.Home-FeaturedThemes');
+    expect(shelf).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEME,
+        featured: true,
+      },
+    });
   });
 
   it('renders a shelf with curated themes', () => {

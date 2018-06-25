@@ -10,6 +10,7 @@ import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
   CATEGORIES_FETCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -23,6 +24,7 @@ import {
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -430,6 +432,86 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TRENDING,
+      },
+    });
+  });
+
+  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
+    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+
+    const root = render({ _config: fakeConfig }, { autoDispatchCategories: false });
+
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(landingShelves.at(0)).toHaveProp('footerLink', {
+      pathname: `/search/`,
+      query: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        category: fakeCategory.slug,
+        featured: true,
+      },
+    });
+
+    expect(landingShelves.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TOP_RATED,
+      },
+    });
+
+    expect(landingShelves.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TRENDING,
+      },
+    });
+  });
+
+  it('renders the themes shelves with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+
+    const root = render({ _config: fakeConfig }, { autoDispatchCategories: false });
+
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(landingShelves.at(0)).toHaveProp('footerLink', {
+      pathname: `/search/`,
+      query: {
+        addonType: ADDON_TYPE_THEME,
+        category: fakeCategory.slug,
+        featured: true,
+      },
+    });
+
+    expect(landingShelves.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEME,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TOP_RATED,
+      },
+    });
+
+    expect(landingShelves.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEME,
         category: fakeCategory.slug,
         sort: SEARCH_SORT_TRENDING,
       },

@@ -8,6 +8,7 @@ import LandingPage, { LandingPageBase } from 'amo/components/LandingPage';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
@@ -21,6 +22,7 @@ import {
 import {
   createStubErrorHandler,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -270,6 +272,78 @@ describe(__filename, () => {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
     const root = render({ params: fakeParams });
+
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, featured: true },
+    });
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
+    });
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
+    });
+  });
+
+  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
+    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Featured', slug: 'featured' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Trending', slug: 'trending' },
+      ]),
+    }));
+
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+    };
+    const root = render({ params: fakeParams, _config: fakeConfig });
+
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEMES_FILTER, featured: true },
+    });
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEMES_FILTER, sort: SEARCH_SORT_TOP_RATED },
+    });
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEMES_FILTER, sort: SEARCH_SORT_TRENDING },
+    });
+  });
+
+  it('renders the themes shelves with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Featured', slug: 'featured' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Trending', slug: 'trending' },
+      ]),
+    }));
+
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+    };
+    const root = render({ params: fakeParams, _config: fakeConfig });
 
     const addonCards = root.find(LandingAddonsCard);
     expect(addonCards.at(0)).toHaveProp('footerLink', {
