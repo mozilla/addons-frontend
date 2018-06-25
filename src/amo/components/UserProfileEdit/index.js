@@ -506,15 +506,16 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 value={this.state.username}
               />
 
-              <div title={i18n.gettext('Email address cannot be changed here')}>
+              <div>
                 <label className="UserProfileEdit--label" htmlFor="email">
                   {i18n.gettext('Email Address')}
                 </label>
                 <input
                   className="UserProfileEdit-email"
-                  disabled
                   defaultValue={user && user.email}
+                  disabled
                   onChange={this.onFieldChange}
+                  title={i18n.gettext('Email address cannot be changed here')}
                   type="email"
                 />
                 {isEditingCurrentUser && (
