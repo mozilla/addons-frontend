@@ -92,7 +92,8 @@ type Props = {|
   user: UserType | null,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
 
@@ -100,10 +101,7 @@ export const UserProfileEditNotificationsBase = ({
   i18n,
   onChange,
   user,
-}: {
-  ...Props,
-  ...InjectedProps,
-}) => {
+}: InternalProps) => {
   let notifications = [];
   if (!user || !user.notifications) {
     for (let i = 0; i < 2; i++) {

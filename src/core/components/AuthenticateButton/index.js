@@ -31,17 +31,16 @@ type Props = {|
   location: ReactRouterLocation,
   logInText?: string,
   logOutText?: string,
-  noIcon: boolean,
+  noIcon?: boolean,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   api: ApiStateType,
   handleLogIn: HandleLogInFunc,
   i18n: I18nType,
   siteUser: UserType | null,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class AuthenticateButtonBase extends React.Component<InternalProps> {
   static defaultProps = {

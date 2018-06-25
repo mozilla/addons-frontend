@@ -31,12 +31,11 @@ type Props = {|
   saveNote: SaveAddonNoteFunc,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   editingNote: boolean,

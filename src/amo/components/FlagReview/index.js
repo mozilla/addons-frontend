@@ -19,13 +19,12 @@ type Props = {|
   wasFlaggedText: string,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   flagState: FlagState,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class FlagReviewBase extends React.Component<InternalProps> {
   onClick = (event: SyntheticEvent<any>) => {

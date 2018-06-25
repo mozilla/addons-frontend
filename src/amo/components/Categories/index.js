@@ -40,12 +40,13 @@ type CategoriesStateType = {|
   loading: boolean,
 |};
 
-type Props = {
+type Props = {|
   addonType: string,
   className?: string,
-};
+|};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   categoriesState: $PropertyType<CategoriesStateType, 'categories'>,
   clientApp: string,
   dispatch: DispatchFunc,
@@ -53,8 +54,6 @@ type InjectedProps = {|
   i18n: I18nType,
   loading: boolean,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class CategoriesBase extends React.Component<InternalProps> {
   componentWillMount() {

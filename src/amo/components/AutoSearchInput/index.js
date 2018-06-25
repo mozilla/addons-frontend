@@ -48,7 +48,6 @@ export type SuggestionType = {|
 export type SearchFilters = Object;
 
 type Props = {|
-  debounce?: typeof defaultDebounce,
   inputLabelText?: string,
   // This is the name property of the <input> tag.
   inputName: string,
@@ -68,14 +67,14 @@ type MappedProps = {|
   userAgentInfo: UserAgentInfoType,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   ...MappedProps,
+  debounce: typeof defaultDebounce,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   autocompleteIsOpen: boolean,
@@ -104,6 +103,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   searchInput: React.ElementRef<'input'> | null;
 
   static defaultProps = {
+    debounce: defaultDebounce,
     showInputLabel: true,
   };
 
@@ -120,8 +120,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       'The selectSuggestionText property is required',
     );
 
-    const debounce = props.debounce || defaultDebounce;
-    this.dispatchAutocompleteStart = debounce(
+    this.dispatchAutocompleteStart = this.props.debounce(
       ({ filters }) => {
         const { dispatch, errorHandler } = this.props;
 

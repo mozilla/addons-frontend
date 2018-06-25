@@ -55,13 +55,13 @@ export type AddonAddedStatusType =
 
 type Props = {|
   collection: CollectionType | null,
-  clearTimeout?: Function,
   creating: boolean,
   page: number | null,
-  setTimeout?: Function,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
+  clearTimeout: Function,
   clientApp: ?string,
   currentUsername: string,
   dispatch: DispatchFunc,
@@ -70,10 +70,9 @@ type InjectedProps = {|
   i18n: I18nType,
   isCollectionBeingModified: boolean,
   router: ReactRouterType,
+  setTimeout: Function,
   siteLang: ?string,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 type State = {|
   addonAddedStatus: AddonAddedStatusType | null,
@@ -120,7 +119,6 @@ export class CollectionManagerBase extends React.Component<
     }
 
     if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
-      invariant(this.props.setTimeout, 'setTimeout() is undefined');
       this.timeout = this.props.setTimeout(
         this.resetMessageStatus,
         MESSAGE_RESET_TIME,
@@ -130,7 +128,6 @@ export class CollectionManagerBase extends React.Component<
 
   componentWillUnmount() {
     if (this.timeout) {
-      invariant(this.props.clearTimeout, 'clearTimeout() is undefined');
       this.props.clearTimeout(this.timeout);
     }
   }

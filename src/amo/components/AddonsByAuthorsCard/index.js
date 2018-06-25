@@ -43,15 +43,14 @@ type Props = {|
   type?: 'horizontal' | 'vertical',
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   addons?: Array<AddonType>,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   loading?: boolean,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   static defaultProps = {
