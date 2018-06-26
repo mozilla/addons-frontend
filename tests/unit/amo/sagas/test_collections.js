@@ -37,7 +37,7 @@ import {
 describe(__filename, () => {
   const username = 'some-user';
   const slug = 'collection-slug';
-  const page = 1;
+  const filters = { page: 1 };
 
   let clientData;
   let errorHandler;
@@ -88,14 +88,14 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           api: state.api,
-          page,
+          filters,
           slug,
           username,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollection({ page, slug, username });
+      _fetchCurrentCollection({ filters, slug, username });
 
       const expectedLoadAction = loadCurrentCollection({
         addons: collectionAddons.results,
@@ -153,14 +153,14 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           api: state.api,
-          page,
+          filters,
           slug,
           username,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollectionPage({ page, slug, username });
+      _fetchCurrentCollectionPage({ filters, slug, username });
 
       const expectedLoadAction = loadCurrentCollectionPage({
         addons: collectionAddons.results,
@@ -173,7 +173,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCurrentCollectionPage({ page, slug, username });
+      _fetchCurrentCollectionPage({ filters, slug, username });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -189,7 +189,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCurrentCollectionPage({ page, slug, username });
+      _fetchCurrentCollectionPage({ filters, slug, username });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -314,7 +314,7 @@ describe(__filename, () => {
       expect(addedAction).toEqual(expectedAddedAction);
 
       const unexpectedFetchAction = fetchCurrentCollectionPage({
-        page: 1,
+        filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
         username: params.username,
@@ -330,7 +330,7 @@ describe(__filename, () => {
         collectionId: 5432,
         slug: 'a-collection',
         editing: true,
-        page: 1,
+        filters: { page: 1 },
         username: 'some-user',
       };
       const state = sagaTester.getState();
@@ -350,7 +350,7 @@ describe(__filename, () => {
       _addAddonToCollection(params);
 
       const expectedFetchAction = fetchCurrentCollectionPage({
-        page: params.page,
+        filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
         username: params.username,
@@ -676,7 +676,7 @@ describe(__filename, () => {
         removeAddonFromCollection({
           addonId: 543,
           errorHandlerId: errorHandler.id,
-          page: 1,
+          filters: { page: 1 },
           slug: 'some-collection',
           username: 'some-user',
           ...params,
@@ -687,7 +687,7 @@ describe(__filename, () => {
     it('deletes an add-on from a collection', async () => {
       const params = {
         addonId: 123,
-        page: 2,
+        filters: { page: 2 },
         slug: 'some-other-slug',
         username: 'some-other-user',
       };
@@ -707,7 +707,7 @@ describe(__filename, () => {
       _removeAddonFromCollection(params);
 
       const expectedFetchAction = fetchCurrentCollectionPage({
-        page: params.page,
+        filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
         username: params.username,
@@ -823,7 +823,7 @@ describe(__filename, () => {
           addonId: 543,
           errorHandlerId: errorHandler.id,
           notes: '',
-          page: 1,
+          filters: { page: 1 },
           slug: 'some-collection',
           username: 'some-user',
           ...params,
@@ -835,7 +835,7 @@ describe(__filename, () => {
       const params = {
         addonId: 123,
         notes: 'Here are some notes',
-        page: 2,
+        filters: { page: 2 },
         slug: 'some-other-slug',
         username: 'some-other-user',
       };
@@ -856,7 +856,7 @@ describe(__filename, () => {
       _updateCollectionAddon(params);
 
       const expectedFetchAction = fetchCurrentCollectionPage({
-        page: params.page,
+        filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
         username: params.username,
@@ -893,7 +893,7 @@ describe(__filename, () => {
     it('deletes notes for a collection add-on by updating the notes to an empty string', async () => {
       const params = {
         addonId: 123,
-        page: 2,
+        filters: { page: 2 },
         slug: 'some-other-slug',
         username: 'some-other-user',
       };
@@ -919,7 +919,7 @@ describe(__filename, () => {
       );
 
       const expectedFetchAction = fetchCurrentCollectionPage({
-        page: params.page,
+        filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
         username: params.username,

@@ -74,6 +74,7 @@ describe(__filename, () => {
     return {
       collection,
       creating: false,
+      filters: {},
       i18n: fakeI18n(),
       router,
       store,
@@ -688,14 +689,14 @@ describe(__filename, () => {
   });
 
   it('dispatches addAddonToCollection when selecting an add-on', () => {
-    const page = 2;
+    const filters = { page: 2 };
     const errorHandler = createStubErrorHandler();
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection, errorHandler, page });
+    const root = render({ collection, errorHandler, filters });
 
     const suggestion = createInternalSuggestion(
       createFakeAutocompleteResult({ name: 'uBlock Origin' }),
@@ -714,39 +715,7 @@ describe(__filename, () => {
         slug: collection.slug,
         editing: true,
         errorHandlerId: errorHandler.id,
-        page,
-        username: signedInUsername,
-      }),
-    );
-  });
-
-  it('dispatches addAddonToCollection with a default page of 1 when selecting an add-on', () => {
-    const errorHandler = createStubErrorHandler();
-
-    const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
-    });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection, errorHandler, page: undefined });
-
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      addAddonToCollection({
-        addonId: suggestion.addonId,
-        collectionId: collection.id,
-        slug: collection.slug,
-        editing: true,
-        errorHandlerId: errorHandler.id,
-        page: 1,
+        filters,
         username: signedInUsername,
       }),
     );
