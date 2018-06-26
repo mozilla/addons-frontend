@@ -27,7 +27,9 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
-export type Props = {||};
+export type Props = {|
+  location: ReactRouterLocation,
+|};
 
 export type InternalProps = {|
   ...Props,
@@ -38,7 +40,6 @@ export type InternalProps = {|
   i18n: I18nType,
   isLoggedIn: boolean,
   loadingUserCollections: boolean,
-  location: ReactRouterLocation,
 |};
 
 export class CollectionListBase extends React.Component<InternalProps> {
