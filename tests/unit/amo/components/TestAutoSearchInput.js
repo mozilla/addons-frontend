@@ -23,6 +23,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
@@ -300,7 +301,9 @@ describe(__filename, () => {
     it('can be used without a location', () => {
       const { store } = dispatchClientMetadata();
       const dispatch = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
       const root = render({
+        errorHandler,
         store,
       });
 
@@ -310,7 +313,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(
         dispatch,
         autocompleteStart({
-          errorHandlerId: root.instance().props.errorHandler.id,
+          errorHandlerId: errorHandler.id,
           filters: {
             operatingSystem: OS_WINDOWS,
             query,
