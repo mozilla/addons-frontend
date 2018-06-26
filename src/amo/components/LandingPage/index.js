@@ -1,4 +1,5 @@
 import makeClassName from 'classnames';
+import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -25,6 +26,7 @@ import log from 'core/logger';
 import {
   apiAddonType,
   apiAddonTypeIsValid,
+  getAddonTypeFilter,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -34,6 +36,7 @@ import './styles.scss';
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     // This is a bug; addonTypeOfResults is used in
     // `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
@@ -54,6 +57,10 @@ export class LandingPageBase extends React.Component {
     // This is a bug; resultsLoaded is used in `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
     resultsLoaded: PropTypes.bool.isRequired,
+  };
+
+  static defaultProps = {
+    _config: config,
   };
 
   componentWillMount() {
@@ -122,6 +129,9 @@ export class LandingPageBase extends React.Component {
   contentForType = (visibleAddonType) => {
     const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
+    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, {
+      _config: this.props._config,
+    });
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
@@ -158,7 +168,7 @@ export class LandingPageBase extends React.Component {
         featuredFooterLink: {
           pathname: '/search/',
           query: {
-            addonType: ADDON_TYPE_THEME,
+            addonType: themeFilter,
             featured: true,
           },
         },
@@ -166,13 +176,13 @@ export class LandingPageBase extends React.Component {
         trendingHeader: i18n.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
-          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
+          query: { addonType: themeFilter, sort: SEARCH_SORT_TRENDING },
         },
         trendingFooterText: i18n.gettext('See more trending themes'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
-          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
+          query: { addonType: themeFilter, sort: SEARCH_SORT_TOP_RATED },
         },
         highlyRatedFooterText: i18n.gettext('See more top rated themes'),
       },

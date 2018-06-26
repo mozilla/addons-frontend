@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 import PropTypes from 'prop-types';
+import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -24,12 +25,17 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { apiAddonType, apiAddonTypeIsValid } from 'core/utils';
+import {
+  apiAddonType,
+  apiAddonTypeIsValid,
+  getAddonTypeFilter,
+} from 'core/utils';
 
 import './styles.scss';
 
 export class CategoryBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     addonTypeOfResults: PropTypes.string,
     categoryOfResults: PropTypes.string,
     categories: PropTypes.object,
@@ -46,6 +52,10 @@ export class CategoryBase extends React.Component {
     }).isRequired,
     trendingAddons: PropTypes.array,
     resultsLoaded: PropTypes.bool.isRequired,
+  };
+
+  static defaultProps = {
+    _config: config,
   };
 
   componentWillMount() {
@@ -123,6 +133,9 @@ export class CategoryBase extends React.Component {
 
   contentForType = (addonType) => {
     const { i18n, params } = this.props;
+    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, {
+      _config: this.props._config,
+    });
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
@@ -164,7 +177,7 @@ export class CategoryBase extends React.Component {
         featuredFooterLink: {
           pathname: '/search/',
           query: {
-            addonType: ADDON_TYPE_THEME,
+            addonType: themeFilter,
             category: params.slug,
             featured: true,
           },
@@ -174,7 +187,7 @@ export class CategoryBase extends React.Component {
         trendingFooterLink: {
           pathname: '/search/',
           query: {
-            addonType: ADDON_TYPE_THEME,
+            addonType: themeFilter,
             category: params.slug,
             sort: SEARCH_SORT_TRENDING,
           },
@@ -184,7 +197,7 @@ export class CategoryBase extends React.Component {
         highlyRatedFooterLink: {
           pathname: '/search/',
           query: {
-            addonType: ADDON_TYPE_THEME,
+            addonType: themeFilter,
             category: params.slug,
             sort: SEARCH_SORT_TOP_RATED,
           },

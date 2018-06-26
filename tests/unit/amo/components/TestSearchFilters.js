@@ -2,13 +2,20 @@ import * as React from 'react';
 
 import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
 import { searchStart } from 'core/actions/search';
-import { ADDON_TYPE_EXTENSION, OS_LINUX } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
+  OS_LINUX,
+} from 'core/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import Select from 'ui/components/Select';
 import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -243,5 +250,29 @@ describe(__filename, () => {
     const root = render({ filters: { category: 'abstract' } });
 
     expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
+  });
+
+  it('sets themes filters shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
+    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+    const root = render({ _config: fakeConfig });
+    const selectFilters = root.find(Select);
+
+    const optionValues = selectFilters
+      .find('#SearchFilters-AddonType')
+      .children()
+      .map((option) => option.props().value);
+    expect(optionValues).toContain(ADDON_TYPE_THEMES_FILTER);
+  });
+
+  it('sets themes filters shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const root = render({ _config: fakeConfig });
+    const selectFilters = root.find(Select);
+
+    const optionValues = selectFilters
+      .find('#SearchFilters-AddonType')
+      .children()
+      .map((option) => option.props().value);
+    expect(optionValues).toContain(ADDON_TYPE_THEME);
   });
 });

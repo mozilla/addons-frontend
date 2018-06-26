@@ -10,6 +10,7 @@ import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
   CATEGORIES_FETCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -23,6 +24,7 @@ import {
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -434,6 +436,68 @@ describe(__filename, () => {
         sort: SEARCH_SORT_TRENDING,
       },
     });
+  });
+
+  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
+    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+
+    const root = render(
+      { _config: fakeConfig },
+      { autoDispatchCategories: false },
+    );
+
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(landingShelves.at(0)).toHaveProp('footerLink');
+    expect(landingShelves.at(0).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEMES_FILTER,
+    );
+
+    expect(landingShelves.at(1)).toHaveProp('footerLink');
+    expect(landingShelves.at(1).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEMES_FILTER,
+    );
+
+    expect(landingShelves.at(2)).toHaveProp('footerLink');
+    expect(landingShelves.at(2).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEMES_FILTER,
+    );
+  });
+
+  it('renders the themes shelves with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+
+    const root = render(
+      { _config: fakeConfig },
+      { autoDispatchCategories: false },
+    );
+
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(landingShelves.at(0)).toHaveProp('footerLink');
+    expect(landingShelves.at(0).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEME,
+    );
+
+    expect(landingShelves.at(1)).toHaveProp('footerLink');
+    expect(landingShelves.at(1).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEME,
+    );
+
+    expect(landingShelves.at(2)).toHaveProp('footerLink');
+    expect(landingShelves.at(2).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEME,
+    );
   });
 
   it('sets the correct header/footer texts and links for themes', () => {
