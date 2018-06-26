@@ -45,6 +45,7 @@ describe(__filename, () => {
       onSuggestionSelected: sinon.stub(),
       selectSuggestionText: 'Go to the extension detail page',
       store,
+      useFiltersFromLocation: true,
       ...customProps,
     };
   };
@@ -277,8 +278,9 @@ describe(__filename, () => {
       const dispatch = sinon.spy(store, 'dispatch');
       const locationQuery = { type: ADDON_TYPE_EXTENSION };
       const root = render({
-        store,
         location: fakeRouterLocation({ query: locationQuery }),
+        store,
+        useFiltersFromLocation: true,
       });
 
       const query = 'ad blocker';
@@ -293,6 +295,28 @@ describe(__filename, () => {
             operatingSystem: OS_WINDOWS,
             query,
           },
+        }),
+      );
+    });
+
+    it('ignores filters from the location', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatch = sinon.spy(store, 'dispatch');
+      const locationQuery = { type: ADDON_TYPE_EXTENSION };
+      const root = render({
+        location: fakeRouterLocation({ query: locationQuery }),
+        store,
+        useFiltersFromLocation: false,
+      });
+
+      const query = 'ad blocker';
+      fetchSuggestions({ root, query });
+
+      sinon.assert.calledWith(
+        dispatch,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: {},
         }),
       );
     });

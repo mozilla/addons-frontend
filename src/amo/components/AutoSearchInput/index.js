@@ -59,6 +59,7 @@ type Props = {|
   // This is accessibility text for what selecting a suggestion will do.
   selectSuggestionText: string,
   showInputLabel?: boolean,
+  useFiltersFromLocation: boolean,
 |};
 
 type MappedProps = {|
@@ -193,7 +194,9 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       return;
     }
 
-    const filters = this.createFiltersFromQuery(value);
+    const filters = this.props.useFiltersFromLocation
+      ? this.createFiltersFromQuery(value)
+      : {};
 
     this.setState({ autocompleteIsOpen: true });
 

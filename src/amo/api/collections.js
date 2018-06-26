@@ -3,6 +3,7 @@ import invariant from 'invariant';
 
 import { callApi, allPages, validateLocalizedString } from 'core/api';
 import type {
+  CollectionFilters,
   ExternalCollectionAddon,
   ExternalCollectionDetail,
 } from 'amo/reducers/collections';
@@ -37,13 +38,13 @@ export const getCollectionDetail = ({
 export type GetCollectionAddonsParams = {|
   ...GetCollectionParams,
   nextURL?: string,
-  page?: number,
+  filters?: CollectionFilters,
 |};
 
 export const getCollectionAddons = ({
   api,
+  filters,
   nextURL,
-  page,
   slug,
   username,
 }: GetCollectionAddonsParams): Promise<
@@ -63,11 +64,11 @@ export const getCollectionAddons = ({
     params: undefined,
     state: api,
   };
-  // If a page is requested explicitly, pass it to callApi().
+  // If filters are requested explicitly, pass them to callApi().
   // By default, this code does not define request.params because doing so
   // would overwrite any query string params in nextURL.
-  if (page) {
-    request.params = { page };
+  if (filters) {
+    request.params = filters;
   }
 
   return callApi(request);

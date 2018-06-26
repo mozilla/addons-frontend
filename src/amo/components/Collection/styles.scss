@@ -44,6 +44,19 @@
   white-space: nowrap;
 }
 
+.Collection-sort {
+  margin-top: 12px;
+}
+
+.Sort-label {
+  color: $grey-50;
+  display: block;
+}
+
+.Sort-select {
+  margin: 0 0 5px;
+}
+
 @include respond-to(large) {
   .Collection-wrapper {
     display: grid;
@@ -52,7 +65,7 @@
     grid-template-columns: minmax(300px, 35%) 1fr;
     margin: 10px 0 0;
 
-    .Collection-detail {
+    .Collection-detail-wrapper {
       grid-column: 1;
     }
 
