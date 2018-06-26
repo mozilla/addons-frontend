@@ -15,7 +15,7 @@ import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
   deleteUserAccount,
   deleteUserPicture,
-  editUserAccount,
+  updateUserAccount,
   fetchUserAccount,
   fetchUserNotifications,
   getCurrentUser,
@@ -334,7 +334,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     invariant(user, 'user is required');
 
     dispatch(
-      editUserAccount({
+      updateUserAccount({
         errorHandlerId: errorHandler.id,
         notifications,
         picture,

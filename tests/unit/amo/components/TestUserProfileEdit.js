@@ -12,10 +12,10 @@ import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
   deleteUserAccount,
   deleteUserPicture,
-  editUserAccount,
+  updateUserAccount,
   fetchUserAccount,
   fetchUserNotifications,
-  finishEditUserAccount,
+  finishUpdateUserAccount,
   getCurrentUser,
   loadUserAccount,
   loadUserNotifications,
@@ -96,7 +96,7 @@ describe(__filename, () => {
     );
   }
 
-  function _editUserAccount({
+  function _updateUserAccount({
     store,
     notifications = {},
     picture = null,
@@ -105,7 +105,7 @@ describe(__filename, () => {
     errorHandlerId = createStubErrorHandler().id,
   }) {
     store.dispatch(
-      editUserAccount({
+      updateUserAccount({
         errorHandlerId,
         notifications,
         picture,
@@ -553,7 +553,7 @@ describe(__filename, () => {
     });
   });
 
-  it('dispatches editUserAccount action with all fields on submit', () => {
+  it('dispatches updateUserAccount action with all fields on submit', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -565,7 +565,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       dispatchSpy,
-      editUserAccount({
+      updateUserAccount({
         errorHandlerId: errorHandler.id,
         notifications: {},
         picture: null,
@@ -625,7 +625,7 @@ describe(__filename, () => {
   it('renders a submit button with a different text when editing', () => {
     const { store } = signInUserWithUsername('tofumatt');
 
-    _editUserAccount({ store });
+    _updateUserAccount({ store });
 
     const root = renderUserProfileEdit({ store });
 
@@ -638,7 +638,7 @@ describe(__filename, () => {
     const { store } = signInUserWithUsername('tofumatt');
     const params = { username: 'another-user' };
 
-    _editUserAccount({ store });
+    _updateUserAccount({ store });
 
     const root = renderUserProfileEdit({ params, store });
 
@@ -664,7 +664,7 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches editUserAccount action with new field values on submit', () => {
+  it('dispatches updateUserAccount action with new field values on submit', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -686,7 +686,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       dispatchSpy,
-      editUserAccount({
+      updateUserAccount({
         errorHandlerId: errorHandler.id,
         notifications: {},
         picture: null,
@@ -703,7 +703,7 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches editUserAccount action with updated notifications on submit', () => {
+  it('dispatches updateUserAccount action with updated notifications on submit', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -730,7 +730,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       dispatchSpy,
-      editUserAccount({
+      updateUserAccount({
         errorHandlerId: errorHandler.id,
         notifications: {
           reply: false,
@@ -765,7 +765,7 @@ describe(__filename, () => {
 
     const occupation = 'new occupation';
 
-    _editUserAccount({
+    _updateUserAccount({
       store,
       userFields: {
         occupation,
@@ -782,7 +782,7 @@ describe(__filename, () => {
     );
 
     // The user profile has been updated.
-    store.dispatch(finishEditUserAccount());
+    store.dispatch(finishUpdateUserAccount());
 
     const { isUpdating } = store.getState().users;
     root.setProps({ isUpdating });
@@ -875,7 +875,7 @@ describe(__filename, () => {
 
     const username = '';
 
-    _editUserAccount({
+    _updateUserAccount({
       errorHandlerId: errorHandler.id,
       store,
       userFields: {
@@ -894,7 +894,7 @@ describe(__filename, () => {
 
     // An error occured while updating the user profile.
     errorHandler.handle(new Error('unexpected error'));
-    store.dispatch(finishEditUserAccount());
+    store.dispatch(finishUpdateUserAccount());
 
     const { isUpdating } = store.getState().users;
     root.setProps({ isUpdating });

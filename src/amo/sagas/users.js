@@ -2,10 +2,10 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   DELETE_USER_ACCOUNT,
   DELETE_USER_PICTURE,
-  EDIT_USER_ACCOUNT,
+  UPDATE_USER_ACCOUNT,
   FETCH_USER_ACCOUNT,
   FETCH_USER_NOTIFICATIONS,
-  finishEditUserAccount,
+  finishUpdateUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
@@ -34,7 +34,7 @@ export function* fetchCurrentUserAccount({ payload }) {
   yield put(loadCurrentUserAccount({ user: response }));
 }
 
-export function* editUserAccount({
+export function* updateUserAccount({
   payload: { errorHandlerId, notifications, picture, userFields, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -44,7 +44,7 @@ export function* editUserAccount({
   try {
     const state = yield select(getState);
 
-    const user = yield call(api.editUserAccount, {
+    const user = yield call(api.updateUserAccount, {
       api: state.api,
       picture,
       userId,
@@ -68,10 +68,10 @@ export function* editUserAccount({
       );
     }
   } catch (error) {
-    log.warn(`Could not edit user account: ${error}`);
+    log.warn(`Could not update user account: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   } finally {
-    yield put(finishEditUserAccount());
+    yield put(finishUpdateUserAccount());
   }
 }
 
@@ -160,7 +160,7 @@ export function* deleteUserAccount({ payload: { errorHandlerId, userId } }) {
 export default function* usersSaga() {
   yield takeLatest(DELETE_USER_ACCOUNT, deleteUserAccount);
   yield takeLatest(DELETE_USER_PICTURE, deleteUserPicture);
-  yield takeLatest(EDIT_USER_ACCOUNT, editUserAccount);
+  yield takeLatest(UPDATE_USER_ACCOUNT, updateUserAccount);
   yield takeLatest(FETCH_USER_ACCOUNT, fetchUserAccount);
   yield takeLatest(FETCH_USER_NOTIFICATIONS, fetchUserNotifications);
   yield takeLatest(SET_AUTH_TOKEN, fetchCurrentUserAccount);

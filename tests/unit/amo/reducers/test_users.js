@@ -1,7 +1,7 @@
 import reducer, {
   LOAD_USER_ACCOUNT,
-  editUserAccount,
-  finishEditUserAccount,
+  updateUserAccount,
+  finishUpdateUserAccount,
   getCurrentUser,
   getUserById,
   getUserByUsername,
@@ -88,14 +88,14 @@ describe(__filename, () => {
     });
   });
 
-  describe('finishEditUserAccount', () => {
+  describe('finishUpdateUserAccount', () => {
     it('sets a user account to not editing', () => {
       const user = createUserAccountResponse();
       const userFields = { biography: 'Punk rock music fan' };
 
       let state = reducer(
         initialState,
-        editUserAccount({
+        updateUserAccount({
           errorHandlerId: 'fake-error-id',
           notifications: {},
           picture: null,
@@ -103,20 +103,19 @@ describe(__filename, () => {
           userId: user.id,
         }),
       );
-      state = reducer(state, finishEditUserAccount());
+      state = reducer(state, finishUpdateUserAccount());
 
       expect(state.isUpdating).toEqual(false);
     });
   });
 
-  describe('editUserAccount', () => {
+  describe('updateUserAccount', () => {
     it('sets user account to editing', () => {
       const user = createUserAccountResponse();
       const userFields = { biography: 'Punk rock music fan' };
-
       const state = reducer(
         initialState,
-        editUserAccount({
+        updateUserAccount({
           errorHandlerId: 'fake-error-id',
           notifications: {},
           picture: null,
