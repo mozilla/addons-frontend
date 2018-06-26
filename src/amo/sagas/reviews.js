@@ -21,6 +21,7 @@ import {
 } from 'amo/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type { GetReviewsParams } from 'amo/api/reviews';
 import type {
   FetchReviewsAction,
   FetchUserReviewsAction,
@@ -34,13 +35,17 @@ function* fetchReviews({
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
-    const response = yield call(getReviews, {
+
+    const params: GetReviewsParams = {
       addon: addonSlug,
-      api: state.api,
+      apiState: state.api,
       // Hide star-only ratings (reviews that do not have a body).
       filter: 'without_empty_body',
       page,
-    });
+    };
+
+    const response = yield call(getReviews, params);
+
     yield put(
       setAddonReviews({
         addonSlug,
@@ -62,13 +67,15 @@ function* fetchUserReviews({
   try {
     const state = yield select(getState);
 
-    const response = yield call(getReviews, {
-      api: state.api,
+    const params: GetReviewsParams = {
+      apiState: state.api,
       // Hide star-only ratings (reviews that do not have a body).
       filter: 'without_empty_body',
       page,
       user: userId,
-    });
+    };
+
+    const response = yield call(getReviews, params);
 
     yield put(
       setUserReviews({

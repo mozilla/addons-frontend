@@ -3,7 +3,6 @@ import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import { fetchUserReviews } from 'amo/actions/reviews';
@@ -59,20 +58,24 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
+  location: ReactRouterLocation,
+  params: {| username: string |},
+|};
+
+type InternalProps = {|
+  ...Props,
   canEditProfile: boolean,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isOwner: boolean,
-  location: ReactRouterLocation,
-  params: {| username: string |},
   reviewCount: number | null,
   reviews: Array<UserReviewType> | null,
   user: UserType | null,
 |};
 
-export class UserProfileBase extends React.Component<Props> {
+export class UserProfileBase extends React.Component<InternalProps> {
   componentWillMount() {
     const {
       dispatch,
@@ -112,7 +115,7 @@ export class UserProfileBase extends React.Component<Props> {
     params: newParams,
     reviews,
     user,
-  }: Props) {
+  }: InternalProps) {
     const {
       dispatch,
       errorHandler,
@@ -420,7 +423,7 @@ export class UserProfileBase extends React.Component<Props> {
 
 export function mapStateToProps(
   state: {| reviews: ReviewState, users: UsersStateType |},
-  ownProps: Props,
+  ownProps: InternalProps,
 ) {
   const currentUser = getCurrentUser(state.users);
   const user = getUserByUsername(state.users, ownProps.params.username);
@@ -438,7 +441,7 @@ export function mapStateToProps(
     currentUser,
     isOwner,
     reviewCount: reviews ? reviews.reviewCount : null,
-    reviews: reviews ? reviews.reviews.slice(0, DEFAULT_API_PAGE_SIZE) : null,
+    reviews: reviews ? reviews.reviews : null,
     user,
   };
 }
@@ -451,7 +454,6 @@ const UserProfile: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
-  withRouter,
 )(UserProfileBase);
 
 export default UserProfile;

@@ -135,7 +135,7 @@ export const replyToReview = ({
   });
 };
 
-type GetReviewsParams = {|
+export type GetReviewsParams = {|
   // This is the addon ID, slug, or guid.
   addon?: number | string,
   apiState?: ApiStateType,

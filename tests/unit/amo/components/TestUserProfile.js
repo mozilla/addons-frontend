@@ -86,10 +86,15 @@ describe(__filename, () => {
     );
   }
 
-  function _setUserReviews({ store, userId, reviews = [fakeReview] }) {
+  function _setUserReviews({
+    store,
+    userId,
+    reviews = [fakeReview],
+    count = null,
+  }) {
     store.dispatch(
       setUserReviews({
-        reviewCount: reviews.length,
+        reviewCount: count === null ? reviews.length : count,
         reviews,
         userId,
       }),
@@ -808,8 +813,13 @@ describe(__filename, () => {
     const { params, store } = signInUserWithUsername('black-panther');
     const user = getCurrentUser(store.getState().users);
 
-    const reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview);
-    _setUserReviews({ store, userId: user.id, reviews });
+    const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
+    _setUserReviews({
+      store,
+      userId: user.id,
+      reviews,
+      count: DEFAULT_API_PAGE_SIZE + 2,
+    });
 
     const location = fakeRouterLocation({ query: { foo: 'bar' } });
 

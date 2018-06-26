@@ -196,7 +196,10 @@ export const getReviewsByUserId = (
   return state.byUserId[userId]
     ? {
         reviewCount: state.byUserId[userId].reviewCount,
-        reviews: state.byUserId[userId].reviews.map((id) => state.byId[id]),
+        reviews: expandReviewObjects({
+          state,
+          reviews: state.byUserId[userId].reviews,
+        }),
       }
     : null;
 };
@@ -325,29 +328,36 @@ export default function reviewsReducer(
     }
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
+      const reviews = payload.reviews.map((review) =>
+        denormalizeReview(review),
+      );
+
       return {
         ...state,
-        byId: storeReviewObjects({ state, reviews: payload.reviews }),
+        byId: storeReviewObjects({ state, reviews }),
         byAddon: {
           ...state.byAddon,
           [payload.addonSlug]: {
             reviewCount: payload.reviewCount,
-            reviews: payload.reviews.map((review) => review.id),
+            reviews: reviews.map((review) => review.id),
           },
         },
       };
     }
     case SET_USER_REVIEWS: {
       const { payload } = action;
+      const reviews = payload.reviews.map((review) =>
+        denormalizeReview(review),
+      );
 
       return {
         ...state,
-        byId: storeReviewObjects({ state, reviews: payload.reviews }),
+        byId: storeReviewObjects({ state, reviews }),
         byUserId: {
           ...state.byUserId,
           [payload.userId]: {
             reviewCount: payload.reviewCount,
-            reviews: payload.reviews.map((review) => review.id),
+            reviews: reviews.map((review) => review.id),
           },
         },
       };

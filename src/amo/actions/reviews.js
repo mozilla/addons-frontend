@@ -172,11 +172,7 @@ type SetUserReviewsParams = {|
 
 export type SetUserReviewsAction = {|
   type: typeof SET_USER_REVIEWS,
-  payload: {|
-    reviewCount: number,
-    reviews: Array<UserReviewType>,
-    userId: number,
-  |},
+  payload: SetUserReviewsParams,
 |};
 
 export const setUserReviews = ({
@@ -195,7 +191,7 @@ export const setUserReviews = ({
     type: SET_USER_REVIEWS,
     payload: {
       reviewCount,
-      reviews: reviews.map((review) => denormalizeReview(review)),
+      reviews,
       userId,
     },
   };
@@ -210,19 +206,15 @@ export const setDenormalizedReview = (
   return { type: SET_REVIEW, payload: review };
 };
 
-export type SetAddonReviewsAction = {|
-  type: typeof SET_ADDON_REVIEWS,
-  payload: {|
-    addonSlug: string,
-    reviewCount: number,
-    reviews: Array<UserReviewType>,
-  |},
-|};
-
 type SetAddonReviewsParams = {|
   addonSlug: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
+|};
+
+export type SetAddonReviewsAction = {|
+  type: typeof SET_ADDON_REVIEWS,
+  payload: SetAddonReviewsParams,
 |};
 
 export const setAddonReviews = ({
@@ -244,7 +236,7 @@ export const setAddonReviews = ({
     payload: {
       addonSlug,
       reviewCount,
-      reviews: reviews.map((review) => denormalizeReview(review)),
+      reviews,
     },
   };
 };

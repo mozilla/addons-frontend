@@ -66,9 +66,9 @@ describe(__filename, () => {
         .once()
         .withArgs({
           addon: fakeAddon.slug,
-          page: 1,
-          api: apiState,
+          apiState,
           filter: 'without_empty_body',
+          page: 1,
         })
         .returns(Promise.resolve(apiResponsePage({ results: reviews })));
 
@@ -310,7 +310,7 @@ describe(__filename, () => {
         .expects('getReviews')
         .once()
         .withArgs({
-          api: apiState,
+          apiState,
           filter: 'without_empty_body',
           page: 1,
           user: userId,
