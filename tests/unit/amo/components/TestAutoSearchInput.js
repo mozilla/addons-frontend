@@ -23,6 +23,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
@@ -290,6 +291,30 @@ describe(__filename, () => {
           errorHandlerId: root.instance().props.errorHandler.id,
           filters: {
             addonType: ADDON_TYPE_EXTENSION,
+            operatingSystem: OS_WINDOWS,
+            query,
+          },
+        }),
+      );
+    });
+
+    it('can be used without a location', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatch = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+      const root = render({
+        errorHandler,
+        store,
+      });
+
+      const query = 'ad blocker';
+      fetchSuggestions({ root, query });
+
+      sinon.assert.calledWith(
+        dispatch,
+        autocompleteStart({
+          errorHandlerId: errorHandler.id,
+          filters: {
             operatingSystem: OS_WINDOWS,
             query,
           },
