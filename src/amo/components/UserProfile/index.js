@@ -5,13 +5,16 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { fetchUserReviews } from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
+import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
 } from 'amo/reducers/addonsByAuthors';
+import { getReviewsByUserId } from 'amo/reducers/reviews';
 import {
   fetchUserAccount,
   getCurrentUser,
@@ -19,6 +22,8 @@ import {
   hasPermission,
   isDeveloper,
 } from 'amo/reducers/users';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
+import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -27,35 +32,59 @@ import {
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
+import {
+  nl2br,
+  removeProtocolFromURL,
+  sanitizeHTML,
+  sanitizeUserHTML,
+} from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+import CardList from 'ui/components/CardList';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
+import UserRating from 'ui/components/UserRating';
+import type { UserReviewType } from 'amo/actions/reviews';
+import type { ReviewState } from 'amo/reducers/reviews';
 import type { UsersStateType, UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterLocation } from 'core/types/router';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 type Props = {|
+  location: ReactRouterLocation,
+  params: {| username: string |},
+|};
+
+type InternalProps = {|
+  ...Props,
+  canEditProfile: boolean,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  canEditProfile: boolean,
   i18n: I18nType,
   isOwner: boolean,
-  params: {| username: string |},
+  reviewCount: number | null,
+  reviews: Array<UserReviewType> | null,
   user: UserType | null,
 |};
 
-export class UserProfileBase extends React.Component<Props> {
+export class UserProfileBase extends React.Component<InternalProps> {
   componentWillMount() {
-    const { dispatch, errorHandler, params, user } = this.props;
+    const {
+      dispatch,
+      errorHandler,
+      isOwner,
+      params,
+      reviews,
+      user,
+    } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
@@ -69,17 +98,48 @@ export class UserProfileBase extends React.Component<Props> {
           username: params.username,
         }),
       );
+    } else if (isOwner && !reviews) {
+      dispatch(
+        fetchUserReviews({
+          errorHandlerId: errorHandler.id,
+          page: this.getReviewsPage(),
+          userId: user.id,
+        }),
+      );
     }
   }
 
-  componentWillReceiveProps({ params: newParams }: Props) {
-    const { dispatch, errorHandler, params: oldParams } = this.props;
+  componentWillReceiveProps({
+    isOwner,
+    location: newLocation,
+    params: newParams,
+    reviews,
+    user,
+  }: InternalProps) {
+    const {
+      dispatch,
+      errorHandler,
+      location: oldLocation,
+      params: oldParams,
+    } = this.props;
 
     if (oldParams.username !== newParams.username) {
       dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
           username: newParams.username,
+        }),
+      );
+    } else if (
+      user &&
+      isOwner &&
+      (oldLocation.query.page !== newLocation.query.page || !reviews)
+    ) {
+      dispatch(
+        fetchUserReviews({
+          errorHandlerId: errorHandler.id,
+          page: newLocation.query.page || 1,
+          userId: user.id,
         }),
       );
     }
@@ -103,7 +163,71 @@ export class UserProfileBase extends React.Component<Props> {
       return `/users/edit`;
     }
 
-    return `/user/${user.username}/edit/`;
+    return `${this.getURL()}edit/`;
+  }
+
+  getReviewsPage() {
+    const { location } = this.props;
+
+    const currentPage = parseInt(location.query.page, 10);
+
+    return Number.isNaN(currentPage) || currentPage < 1 ? 1 : currentPage;
+  }
+
+  renderReviews() {
+    const { location, i18n, isOwner, reviews, reviewCount } = this.props;
+
+    if (!isOwner || !reviews || reviews.length < 1) {
+      return null;
+    }
+
+    const paginator =
+      reviewCount && reviewCount > DEFAULT_API_PAGE_SIZE ? (
+        <Paginate
+          LinkComponent={Link}
+          count={reviewCount}
+          currentPage={this.getReviewsPage()}
+          pathname={this.getURL()}
+          queryParams={location.query}
+        />
+      ) : null;
+
+    return (
+      <CardList
+        className="UserProfile-reviews"
+        footer={paginator}
+        header={i18n.gettext('My reviews')}
+      >
+        <ul>
+          {reviews.map((review) => {
+            const reviewBodySanitized = sanitizeHTML(nl2br(review.body), [
+              'br',
+            ]);
+
+            return (
+              <li key={String(review.id)}>
+                <div className="AddonReviewListItem">
+                  <p
+                    className="AddonReviewListItem-body"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={reviewBodySanitized}
+                  />
+                  <div className="AddonReviewListItem-byline">
+                    <UserRating styleSize="small" review={review} readOnly />
+                    <Link
+                      title={i18n.gettext('Browse the reviews for this add-on')}
+                      to={`/addon/${review.addonSlug}/reviews/`}
+                    >
+                      {i18n.moment(review.created).fromNow()}
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </CardList>
+    );
   }
 
   render() {
@@ -154,6 +278,7 @@ export class UserProfileBase extends React.Component<Props> {
         </h1>
       </div>
     );
+
     const userProfileTitle = i18n.sprintf(
       i18n.gettext('User Profile for %(user)s'),
       {
@@ -262,7 +387,7 @@ export class UserProfileBase extends React.Component<Props> {
 
           {user &&
             user.username && (
-              <div className="UserProfile-addons-by-author">
+              <div className="UserProfile-addons-and-reviews">
                 <AddonsByAuthorsCard
                   addonType={ADDON_TYPE_EXTENSION}
                   authorDisplayName={user.name}
@@ -286,6 +411,8 @@ export class UserProfileBase extends React.Component<Props> {
                   pathname={this.getURL()}
                   showMore={false}
                 />
+
+                {this.renderReviews()}
               </div>
             )}
         </div>
@@ -295,7 +422,7 @@ export class UserProfileBase extends React.Component<Props> {
 }
 
 export function mapStateToProps(
-  state: {| users: UsersStateType |},
+  state: {| reviews: ReviewState, users: UsersStateType |},
   ownProps: Props,
 ) {
   const currentUser = getCurrentUser(state.users);
@@ -307,10 +434,14 @@ export function mapStateToProps(
     user &&
     (currentUser.id === user.id || hasPermission(state, USERS_EDIT));
 
+  const reviews = user ? getReviewsByUserId(state.reviews, user.id) : null;
+
   return {
-    currentUser,
     canEditProfile,
+    currentUser,
     isOwner,
+    reviewCount: reviews ? reviews.reviewCount : null,
+    reviews: reviews ? reviews.reviews : null,
     user,
   };
 }

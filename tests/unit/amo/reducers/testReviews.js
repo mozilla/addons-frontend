@@ -1,21 +1,23 @@
 import {
   clearAddonReviews,
-  flagReview,
-  sendReplyToReview,
-  setReviewWasFlagged,
-  showEditReviewForm,
-  showReplyToReviewForm,
   denormalizeReview,
+  flagReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
+  sendReplyToReview,
   setAddonReviews,
   setReview,
   setReviewReply,
+  setReviewWasFlagged,
+  setUserReviews,
+  showEditReviewForm,
+  showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
 import reviewsReducer, {
   changeViewState,
   expandReviewObjects,
+  getReviewsByUserId,
   initialState,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
@@ -694,6 +696,85 @@ describe(__filename, () => {
         flag: {},
         replyingToReview: false,
         submittingReply: false,
+      });
+    });
+  });
+
+  describe('setUserReviews', () => {
+    const userId = 123;
+
+    it('stores review objects', () => {
+      const review1 = fakeReview;
+      const review2 = { ...fakeReview, id: 3 };
+
+      const state = reviewsReducer(
+        undefined,
+        setUserReviews({
+          reviews: [review1, review2],
+          reviewCount: 2,
+          userId,
+        }),
+      );
+
+      expect(state.byId[review1.id]).toEqual(denormalizeReview(review1));
+      expect(state.byId[review2.id]).toEqual(denormalizeReview(review2));
+    });
+
+    it('stores multiple reviews for a user ID', () => {
+      const review1 = fakeReview;
+      const review2 = { ...fakeReview, id: 3 };
+
+      const action = setUserReviews({
+        reviewCount: 2,
+        reviews: [review1, review2],
+        userId,
+      });
+
+      const state = reviewsReducer(undefined, action);
+      const storedReviews = state.byUserId[userId].reviews;
+
+      expect(storedReviews.length).toEqual(2);
+      expect(storedReviews[0]).toEqual(review1.id);
+      expect(storedReviews[1]).toEqual(review2.id);
+    });
+
+    it('stores review counts', () => {
+      const state = reviewsReducer(
+        undefined,
+        setUserReviews({
+          reviewCount: 1,
+          reviews: [fakeReview],
+          userId,
+        }),
+      );
+
+      expect(state.byUserId[userId].reviewCount).toEqual(1);
+    });
+  });
+
+  describe('getReviewsByUserId()', () => {
+    it('returns null when userId is not found', () => {
+      const reviews = getReviewsByUserId(initialState, 123);
+
+      expect(reviews).toEqual(null);
+    });
+
+    it('returns an object with reviews and reviewCount', () => {
+      const userId = 123;
+      const reviews = [fakeReview];
+
+      const state = reviewsReducer(
+        undefined,
+        setUserReviews({
+          userId,
+          reviewCount: reviews.length,
+          reviews,
+        }),
+      );
+
+      expect(getReviewsByUserId(state, userId)).toEqual({
+        reviewCount: reviews.length,
+        reviews: reviews.map(denormalizeReview),
       });
     });
   });
