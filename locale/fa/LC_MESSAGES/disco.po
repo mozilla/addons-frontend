@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-05 19:01+0000\n"
+"POT-Creation-Date: 2018-06-26 17:00+0000\n"
 "PO-Revision-Date: 2017-08-24 11:48+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "خطای کارگزار"
 
-#: src/core/components/ErrorPage/GenericError/index.js:28
+#: src/core/components/ErrorPage/GenericError/index.js:27
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
@@ -26,8 +26,8 @@ msgstr ""
 "متاسفانه خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. این خطا نگه "
 "داری شده و مورد بررسی قرار خواهد گرفت."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "کد خطا: %(status)s."
 
@@ -39,41 +39,41 @@ msgstr "صفحه پیدا نشد"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "متاسفیم، نتوانستیم چیزی در آدرس URL وارد شده پیدا کنیم."
 
-#: src/core/components/InstallButton/index.js:236
-#: src/core/components/InstallButton/index.js:275
+#: src/core/components/InstallButton/index.js:244
+#: src/core/components/InstallButton/index.js:287
 msgid "Install Theme"
 msgstr "نصب قالب"
 
-#: src/core/components/InstallButton/index.js:262
-#: src/core/components/InstallButton/index.js:275
+#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:288
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
-#: src/core/components/InstallSwitch/index.js:70
+#: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
 msgstr "در حال دریافت %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:73
+#: src/core/components/InstallSwitch/index.js:72
 msgid "Installing %(name)s."
 msgstr "در حال نصب %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:77
+#: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s نصب و فعال شده است. برای حذف کلیک کنید."
 
-#: src/core/components/InstallSwitch/index.js:80
+#: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s غیر فعال شده است. برای فعال‌سازی کلیک کنید."
 
-#: src/core/components/InstallSwitch/index.js:83
+#: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
 msgstr "در حال حذف %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:86
+#: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s حذف شده. برای نصب کلیک کنید."
 
-#: src/core/components/InstallSwitch/index.js:89
+#: src/core/components/InstallSwitch/index.js:90
 msgid "Install state for %(name)s is unknown."
 msgstr "وضعیت نصب برای %(name)s ناشناس است."
 
@@ -81,15 +81,15 @@ msgstr "وضعیت نصب برای %(name)s ناشناس است."
 msgid "Your add-on is ready"
 msgstr "افزودنی شما حاضر است"
 
-#: src/core/containers/InfoDialog/index.js:38
+#: src/core/containers/InfoDialog/index.js:39
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "حالا شما می‌توانید به %(name)s از طریق نوار ابزار دسترسی داشته باشید."
 
-#: src/core/containers/InfoDialog/index.js:47
+#: src/core/containers/InfoDialog/index.js:53
 msgid "OK!"
 msgstr "باشه!"
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:135
 msgid "Hover to preview or click to install %(name)s"
 msgstr "برای پیش‌نمایش موس را بر روی‌اش نگه دارید یا برای نصب %(name)s کلیک کنید"
 
@@ -97,63 +97,63 @@ msgstr "برای پیش‌نمایش موس را بر روی‌اش نگه دا�
 msgid "Hover over the image to preview"
 msgstr "برای پیش‌نمایش بر روی تصویر حرکت کنید"
 
-#: src/disco/components/Addon.js:176
+#: src/disco/components/Addon.js:178
 msgid "Installation failed. Please try again."
 msgstr "نصب شکست خورد. لطفا دوباره تلاش کنید."
 
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon.js:180
 msgid "Download failed. Please check your connection."
 msgstr "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon.js:182
 msgid "An unexpected error occurred during installation."
 msgstr "یک خطا غیر منتظره در هنگام نصب رُخ داد."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:186
 msgid "An unexpected error occurred during uninstallation."
 msgstr "یک خطا غیر منتظره در هنگام حذف رُخ داد."
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:191
 msgid "An unexpected error occurred."
 msgstr "یک خطا غیر منتظره رُخ داد."
 
-#: src/disco/components/Addon.js:193
+#: src/disco/components/Addon.js:199
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "این افزودنی پس از راه‌اندازی مجدد فایرفاکس حذف خواهد شد."
 
-#: src/disco/components/Addon.js:195
+#: src/disco/components/Addon.js:203
 msgid "Please restart Firefox to use this add-on."
 msgstr "لطفا برای استفاده از این افزودنی فایرفاکس را مجددا راه‌اندازی کنید."
 
-#: src/disco/components/Addon.js:95
+#: src/disco/components/Addon.js:88
 msgid "Close"
 msgstr "بستن"
 
-#: src/disco/components/AddonCompatibilityError/index.js:42
+#: src/disco/components/AddonCompatibilityError/index.js:37
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "در حال حاضر فایرفاکس برای iOS از افزونه‌ها پشتیبانی نمی‌کند."
 
-#: src/disco/components/AddonCompatibilityError/index.js:45
+#: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "This add-on does not support your version of Firefox."
 msgstr "این افزونه از نسخه فایرفاکس شما پشتیبانی نمی‌کند."
 
-#: src/disco/components/AddonCompatibilityError/index.js:50
+#: src/disco/components/AddonCompatibilityError/index.js:47
 msgid "This add-on does not support your browser."
 msgstr "این اقزونه از مرورگر شما پشتیبانی نمی‌کند."
 
-#: src/disco/components/Footer/index.js:26
+#: src/disco/components/Footer/index.js:25
 msgid "Privacy Policy"
 msgstr "سیاست‌های حریم‌خصوصی"
 
-#: src/disco/containers/App.js:37
+#: src/disco/containers/App.js:36
 msgid "Discover Add-ons"
 msgstr "افزونه کشف کنید"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:138
 msgid "Personalize Your Firefox"
 msgstr "فایرفاکس خود را شخصی سازی کنید"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/containers/DiscoPane.js:140
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -171,31 +171,31 @@ msgstr ""
 "که\n"
 "ما به دلیل کارایی و کارکردشان به شما توصیه می کنیم."
 
-#: src/disco/containers/DiscoPane.js:147
+#: src/disco/containers/DiscoPane.js:150
 msgid "Click to play"
 msgstr "کلیک برای پخش"
 
-#: src/disco/containers/DiscoPane.js:148
+#: src/disco/containers/DiscoPane.js:153
 msgid "to find out more about add-ons"
 msgstr "برای پیداکردن اطلاعات بیشتر در مورد افزونه"
 
-#: src/disco/containers/DiscoPane.js:162
+#: src/disco/containers/DiscoPane.js:171
 msgid "Close video"
 msgstr "بستن ویدئو"
 
-#: src/disco/containers/DiscoPane.js:182
+#: src/disco/containers/DiscoPane.js:192
 msgid "See more add-ons!"
 msgstr "نمایش افزودنی‌های بیشتر!"
 
-#: src/ui/components/ErrorList/index.js:45
+#: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "نشست شما منسوخ شده است"
 
-#: src/ui/components/ErrorList/index.js:52
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "یک خطا غیر منتظره رُخ داد"
 
-#: src/ui/components/ErrorList/index.js:60
+#: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
 msgstr "برای ادامه صفحه را مجددا بارگیری کنید"
 
