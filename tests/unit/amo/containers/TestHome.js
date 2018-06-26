@@ -172,13 +172,11 @@ describe(__filename, () => {
 
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedThemes');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        featured: true,
-      },
-    });
+
+    expect(shelf.at(0)).toHaveProp('footerLink');
+    expect(shelf.at(0).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEMES_FILTER,
+    );
   });
 
   it('renders a featured themes shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
@@ -187,13 +185,11 @@ describe(__filename, () => {
 
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedThemes');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEME,
-        featured: true,
-      },
-    });
+
+    expect(shelf.at(0)).toHaveProp('footerLink');
+    expect(shelf.at(0).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEME,
+    );
   });
 
   it('renders a shelf with curated themes', () => {

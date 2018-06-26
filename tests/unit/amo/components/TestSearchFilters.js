@@ -255,30 +255,24 @@ describe(__filename, () => {
   it('sets themes filters shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
     const fakeConfig = getFakeConfig({ enableStaticThemes: true });
     const root = render({ _config: fakeConfig });
-    const selectOption = root.find(Select);
+    const selectFilters = root.find(Select);
 
-    selectOption
-      .at(1)
-      .props()
-      .children.forEach((option) => {
-        if (option.props.children === 'Theme') {
-          expect(option.props.value).toEqual(ADDON_TYPE_THEMES_FILTER);
-        }
-      });
+    const optionValues = selectFilters
+      .find('.SearchFilters-AddonType')
+      .children()
+      .map((option) => option.props().value);
+    expect(optionValues).toContain(ADDON_TYPE_THEMES_FILTER);
   });
 
   it('sets themes filters shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
     const fakeConfig = getFakeConfig({ enableStaticThemes: false });
     const root = render({ _config: fakeConfig });
-    const selectOption = root.find(Select);
+    const selectFilters = root.find(Select);
 
-    selectOption
-      .at(1)
-      .props()
-      .children.forEach((option) => {
-        if (option.props.children === 'Theme') {
-          expect(option.props.value).toEqual(ADDON_TYPE_THEME);
-        }
-      });
+    const optionValues = selectFilters
+      .find('.SearchFilters-AddonType')
+      .children()
+      .map((option) => option.props().value);
+    expect(optionValues).toContain(ADDON_TYPE_THEME);
   });
 });
