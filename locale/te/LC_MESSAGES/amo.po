@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-20 17:05+0000\n"
-"PO-Revision-Date: 2018-06-25 12:36+0000\n"
+"PO-Revision-Date: 2018-06-26 16:11+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -45,7 +45,7 @@ msgstr "సేకరణకు జోడించు"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "%(title)s మునుజూపు"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -309,7 +309,7 @@ msgstr "సమీక్షను వ్రాయండి"
 
 #: src/amo/components/AddonReview/index.js:213
 msgid "Review text"
-msgstr ""
+msgstr "సమీక్ష పాఠ్యం"
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Submit review"
@@ -718,11 +718,11 @@ msgstr "ఈ పొడిగింత గురించి"
 
 #: src/amo/components/EditableCollectionAddon/index.js:129
 msgid "Save"
-msgstr ""
+msgstr "భద్రపరచు"
 
 #: src/amo/components/EditableCollectionAddon/index.js:149
 msgid "Edit"
-msgstr ""
+msgstr "సరిదిద్దు"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1149,7 +1149,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "జాల భద్రత"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
@@ -1880,11 +1880,11 @@ msgstr "%(user)s కోసం వాడుకరి ప్రొఫైల్"
 
 #: src/amo/components/UserProfile/index.js:178 src/amo/components/UserProfileEdit/index.js:576
 msgid "Location"
-msgstr ""
+msgstr "ప్రాంతం"
 
 #: src/amo/components/UserProfile/index.js:186 src/amo/components/UserProfileEdit/index.js:588
 msgid "Occupation"
-msgstr ""
+msgstr "వృత్తి"
 
 #: src/amo/components/UserProfile/index.js:193
 msgid "User since"
@@ -1900,7 +1900,7 @@ msgstr ""
 
 #: src/amo/components/UserProfile/index.js:219 src/amo/components/UserProfileEdit/index.js:610
 msgid "Biography"
-msgstr ""
+msgstr "స్వపరిచయం"
 
 #: src/amo/components/UserProfile/index.js:243
 msgid "Edit profile"
@@ -1941,7 +1941,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:490
 msgid "Email Address"
-msgstr ""
+msgstr "ఈమెయిలు చిరునామా"
 
 #: src/amo/components/UserProfileEdit/index.js:506
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -1981,7 +1981,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:651
 msgid "Notifications"
-msgstr ""
+msgstr "గమనింపులు"
 
 #: src/amo/components/UserProfileEdit/index.js:654
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2049,7 +2049,7 @@ msgstr "అవును, నా ప్రొఫైలును తొలగి�
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "Yes, delete this profile"
-msgstr ""
+msgstr "అవును, ఈ ప్రొఫైలును తొలగించు"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2106,7 +2106,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "మీరు నిజంగానే ఈ బొమ్మను తొలగించాలని అనుకుంటున్నారా?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:80
 msgid "Delete this picture"
@@ -2191,7 +2191,7 @@ msgstr "సరే!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "నిర్ధారించు"
 
 #: src/ui/components/DismissibleTextForm/index.js:112
 msgid "Enter text."
@@ -2207,7 +2207,7 @@ msgstr "సమర్పిస్తోంది"
 
 #: src/ui/components/DismissibleTextForm/index.js:154
 msgid "Delete"
-msgstr ""
+msgstr "తొలగించు"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
