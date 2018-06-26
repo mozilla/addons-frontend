@@ -297,6 +297,28 @@ describe(__filename, () => {
       );
     });
 
+    it('can be used without a location', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatch = sinon.spy(store, 'dispatch');
+      const root = render({
+        store,
+      });
+
+      const query = 'ad blocker';
+      fetchSuggestions({ root, query });
+
+      sinon.assert.calledWith(
+        dispatch,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: {
+            operatingSystem: OS_WINDOWS,
+            query,
+          },
+        }),
+      );
+    });
+
     it('lets you override the default operating system', () => {
       const { store } = dispatchClientMetadata();
       const dispatch = sinon.spy(store, 'dispatch');

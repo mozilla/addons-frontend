@@ -7,7 +7,6 @@ import defaultDebounce from 'lodash.debounce';
 import * as React from 'react';
 import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import SearchSuggestion from 'amo/components/SearchSuggestion';
@@ -52,7 +51,7 @@ type Props = {|
   // This is the name property of the <input> tag.
   inputName: string,
   inputPlaceholder?: string,
-  location: ReactRouterLocation,
+  location?: ReactRouterLocation,
   onSearch: (SearchFilters) => void,
   onSuggestionSelected: (SuggestionType) => void,
   query?: string,
@@ -152,9 +151,12 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   createFiltersFromQuery(query: string) {
     const { location, userAgentInfo } = this.props;
     // Preserve any existing search filters.
-    const filtersFromLocation = convertQueryParamsToFilters(location.query);
-    // Do not preserve page. New searches should always start on page 1.
-    delete filtersFromLocation.page;
+    let filtersFromLocation = {};
+    if (location) {
+      filtersFromLocation = convertQueryParamsToFilters(location.query);
+      // Do not preserve page. New searches should always start on page 1.
+      delete filtersFromLocation.page;
+    }
 
     return {
       operatingSystem: convertOSToFilterValue(userAgentInfo.os.name),
@@ -375,7 +377,6 @@ const mapStateToProps = (state: {|
 export const extractId = (ownProps: Props): string => ownProps.inputName;
 
 const AutoSearchInput: React.ComponentType<Props> = compose(
-  withRouter,
   withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),
   translate(),
