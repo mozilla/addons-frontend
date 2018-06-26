@@ -56,7 +56,7 @@ describe(__filename, () => {
     );
   });
 
-  it('renders loading text when no collection props are passed', () => {
+  it('renders loading text when loading is true', () => {
     const props = {
       id: 99,
       loading: true,

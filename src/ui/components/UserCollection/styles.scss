@@ -21,6 +21,7 @@
   width: 100%;
   word-wrap: break-word;
 
+  .UserCollection-link:active &,
   .UserCollection-link:focus &,
   .UserCollection-link:hover & {
     color: $link-color;

@@ -27,7 +27,10 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
-export type Props = {|
+export type Props = {||};
+
+export type InternalProps = {|
+  ...Props,
   collections: Array<CollectionType> | null,
   currentUsername: string | null,
   dispatch: DispatchFunc,
@@ -38,7 +41,7 @@ export type Props = {|
   location: ReactRouterLocation,
 |};
 
-export class CollectionListBase extends React.Component<Props> {
+export class CollectionListBase extends React.Component<InternalProps> {
   componentDidMount() {
     const {
       collections,
@@ -107,7 +110,7 @@ export class CollectionListBase extends React.Component<Props> {
         <div className="CollectionList-wrapper">
           <Card
             className="CollectionList-info"
-            header={i18n.gettext('About collections')}
+            header={i18n.gettext('Collections')}
           >
             {!isLoggedIn ? (
               <AuthenticateButton
@@ -162,13 +165,15 @@ export const mapStateToProps = (state: {|
   };
 };
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: InternalProps) => {
   const { currentUsername } = ownProps;
   return currentUsername || '';
 };
 
-export default compose(
+const CollectionList: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(CollectionListBase);
+
+export default CollectionList;

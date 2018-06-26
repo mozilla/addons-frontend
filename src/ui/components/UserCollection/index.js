@@ -19,11 +19,10 @@ type Props = {|
   slug?: string,
 |};
 
-type InjectedProps = {|
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
-
-type InternalProps = { ...Props, ...InjectedProps };
 
 export const UserCollectionBase = (props: InternalProps) => {
   const {
@@ -36,7 +35,7 @@ export const UserCollectionBase = (props: InternalProps) => {
     i18n,
   } = props;
 
-  let linkTo;
+  let linkTo = null;
   let numberText;
 
   if (!loading) {
@@ -57,7 +56,7 @@ export const UserCollectionBase = (props: InternalProps) => {
 
   return (
     <li className="UserCollection" key={id}>
-      <Link className="UserCollection-link" to={linkTo || null}>
+      <Link className="UserCollection-link" to={linkTo}>
         <h2 className="UserCollection-name">{name || <LoadingText />}</h2>
         <p className="UserCollection-number">{numberText || <LoadingText />}</p>
       </Link>

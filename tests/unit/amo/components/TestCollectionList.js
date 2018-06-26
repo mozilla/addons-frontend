@@ -134,7 +134,7 @@ describe(__filename, () => {
     expect(root.find('.CollectionList-info')).toHaveLength(1);
     expect(root.find('.CollectionList-info')).toHaveProp(
       'header',
-      'About collections',
+      'Collections',
     );
     expect(root.find('.CollectionList-info-text'))
       .toHaveText(oneLineTrim`Collections make it easy to keep track of 
