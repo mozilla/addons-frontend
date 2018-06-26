@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-26 18:31+0000\n"
+"PO-Revision-Date: 2018-06-26 18:45+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -612,28 +612,24 @@ msgid "Collections"
 msgstr "Zběrki"
 
 #: src/amo/components/CollectionList/index.js:120
-#, fuzzy
 msgid "Log in to view your collections"
-msgstr "Přizjewće so, zo byšće zběrku wutworił"
+msgstr "Přizjewće so, zo byšće sej swoje zběrk wobhlada"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Zběrki wosnadnjeja slědowanje wašich najlubšich přidatkow a dźělenje wašeho perfektnje přiměrjeneho wobhladowaka z druhimi."
 
 #: src/amo/components/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
 msgstr "Zběrku wutworić"
 
 #: src/amo/components/CollectionList/index.js:67
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Přizjewće so, zo byšće zběrku wutworił"
+msgstr "Nimaće žane zběrki."
 
 #: src/amo/components/CollectionList/index.js:97
-#, fuzzy
 msgid "My collections"
-msgstr "Moje zběrki pokazać"
+msgstr "Moje zběrki"
 
 #: src/amo/components/CollectionManager/index.js:332
 msgid "Create collection"
@@ -2323,13 +2319,12 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Pokazać</span> Wjace čitać"
 
 #: src/ui/components/UserCollection/index.js:52
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(count)s přidatk namakany"
-msgstr[1] "%(count)s přidatkaj namakanej"
-msgstr[2] "%(count)s přidatki namakane"
-msgstr[3] "%(count)s přidatkow namakane"
+msgstr[0] "%(total)s přidatk namakany"
+msgstr[1] "%(total)s přidatkaj namakanej"
+msgstr[2] "%(total)s přidatki namakane"
+msgstr[3] "%(total)s přidatkow namakane"
 
 #~ msgid "Essential extensions"
 #~ msgstr "Wažne rozšěrjenja"
