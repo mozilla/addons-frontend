@@ -254,10 +254,14 @@
   .Addon-get-firefox-privacy-link:link,
   .Addon-get-firefox-privacy-link:visited,
   .Addon-get-firefox-privacy-link:hover {
-    @include font-medium();
+    @include font-bold();
 
     color: $ink-90;
-    font-size: $font-size-s;
+    font-size: $font-size-caption10;
     text-decoration: none;
+  }
+
+  .Addon-get-firefox-privacy-link:hover {
+    text-decoration: underline;
   }
 }
