@@ -1,5 +1,8 @@
 {
-  "extends": "amo",
+  "extends": [
+    "amo",
+    "plugin:amo/recommended"
+  ],
   "globals": {
     "CLIENT_CONFIG": true,
     "document": true,
