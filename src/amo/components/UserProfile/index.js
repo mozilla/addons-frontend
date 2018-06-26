@@ -423,7 +423,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(
   state: {| reviews: ReviewState, users: UsersStateType |},
-  ownProps: InternalProps,
+  ownProps: Props,
 ) {
   const currentUser = getCurrentUser(state.users);
   const user = getUserByUsername(state.users, ownProps.params.username);
