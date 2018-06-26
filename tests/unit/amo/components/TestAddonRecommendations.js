@@ -2,10 +2,8 @@ import * as React from 'react';
 
 import AddonRecommendations, {
   TAAR_IMPRESSION_CATEGORY,
-  TAAR_COHORT_COOKIE_NAME,
   TAAR_COHORT_DIMENSION,
   TAAR_COHORT_INCLUDED,
-  TAAR_COHORT_EXCLUDED,
   TAAR_EXPERIMENT_PARTICIPANT,
   TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
   AddonRecommendationsBase,
@@ -31,17 +29,6 @@ import {
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
-const fakeCookie = (returnValue) => {
-  return {
-    load: sinon.stub().returns(returnValue),
-    save: sinon.spy(),
-  };
-};
-
-const fakeRandomizer = (recommended) => {
-  return sinon.stub().returns(recommended ? 0.5 : 0.4);
-};
-
 describe(__filename, () => {
   let fakeTracking;
   let store;
@@ -54,15 +41,12 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  function doFetchRecommendations({
-    guid = fakeAddon.guid,
-    recommended = true,
-  }) {
+  function doFetchRecommendations({ guid = fakeAddon.guid }) {
     const errorHandler = createStubErrorHandler();
     return fetchRecommendations({
       errorHandlerId: errorHandler.id,
       guid,
-      recommended,
+      recommended: true,
     });
   }
 
@@ -77,21 +61,14 @@ describe(__filename, () => {
     });
   }
 
-  function render({
-    addon = createInternalAddon(fakeAddon),
-    cookie = fakeCookie(),
-    randomizer = fakeRandomizer(true),
-    ...props
-  } = {}) {
+  function render({ addon = createInternalAddon(fakeAddon), ...props } = {}) {
     const errorHandler = createStubErrorHandler();
 
     return shallowUntilTarget(
       <AddonRecommendations
         addon={addon}
         i18n={fakeI18n()}
-        cookie={cookie}
         errorHandler={errorHandler}
-        randomizer={randomizer}
         store={store}
         tracking={fakeTracking}
         {...props}
@@ -167,41 +144,12 @@ describe(__filename, () => {
     expect(root).toHaveProp('header', 'Other popular extensions');
   });
 
-  it('uses the randomizer to set the cohort cookie to included', () => {
-    const cookie = fakeCookie(undefined);
-    const randomizer = fakeRandomizer(true);
-
-    render({ cookie, randomizer });
-
-    sinon.assert.calledWith(
-      cookie.save,
-      TAAR_COHORT_COOKIE_NAME,
-      TAAR_COHORT_INCLUDED,
-      { path: '/' },
-    );
-  });
-
-  it('uses the randomizer to set the cohort cookie to excluded', () => {
-    const cookie = fakeCookie(undefined);
-    const randomizer = fakeRandomizer(false);
-
-    render({ cookie, randomizer });
-
-    sinon.assert.calledWith(
-      cookie.save,
-      TAAR_COHORT_COOKIE_NAME,
-      TAAR_COHORT_EXCLUDED,
-      { path: '/' },
-    );
-  });
-
   it('should dispatch a fetch action if no recommendations exist', () => {
     const addon = createInternalAddon(fakeAddon);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
-    const randomizer = fakeRandomizer(true);
 
-    render({ addon, errorHandler, randomizer });
+    render({ addon, errorHandler });
 
     sinon.assert.calledWith(
       dispatchSpy,
@@ -225,9 +173,8 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
-    const randomizer = fakeRandomizer(true);
 
-    const root = render({ addon, errorHandler, randomizer });
+    const root = render({ addon, errorHandler });
 
     dispatchSpy.resetHistory();
 
@@ -296,10 +243,7 @@ describe(__filename, () => {
   });
 
   it('should set GA custom dimensions', () => {
-    const cookie = fakeCookie(undefined);
-    const randomizer = fakeRandomizer(true);
-
-    render({ cookie, randomizer, tracking: fakeTracking });
+    render({ tracking: fakeTracking });
 
     sinon.assert.calledTwice(fakeTracking.setDimension);
     sinon.assert.calledWith(fakeTracking.setDimension, {
