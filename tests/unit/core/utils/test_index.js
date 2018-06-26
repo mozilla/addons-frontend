@@ -744,7 +744,7 @@ describe(__filename, () => {
         type: ADDON_TYPE_THEME,
         config: fakeConfig,
       });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
         ADDON_TYPE_THEMES_FILTER,
       );
     });
@@ -755,7 +755,7 @@ describe(__filename, () => {
         type: ADDON_TYPE_STATIC_THEME,
         config: fakeConfig,
       });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
         ADDON_TYPE_THEMES_FILTER,
       );
     });
@@ -766,7 +766,7 @@ describe(__filename, () => {
         type: ADDON_TYPE_THEME,
         config: fakeConfig,
       });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
         ADDON_TYPE_THEME,
       );
     });
@@ -777,7 +777,7 @@ describe(__filename, () => {
         type: ADDON_TYPE_EXTENSION,
         config: fakeConfig,
       });
-      expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(
+      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
         ADDON_TYPE_EXTENSION,
       );
     });
