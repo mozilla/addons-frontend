@@ -61,6 +61,7 @@ export class SearchFormBase extends React.Component<Props> {
           query={query}
           selectSuggestionText={i18n.gettext('Go to the add-on page')}
           showInputLabel={false}
+          useFiltersFromLocation
         />
       </form>
     );
