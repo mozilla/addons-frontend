@@ -13,9 +13,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
-  INSTALL_CATEGORY,
   INSTALL_STARTED_CATEGORY,
-  TRACKING_TYPE_EXTENSION,
   validAddonTypes,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
@@ -23,6 +21,7 @@ import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import tracking from 'core/tracking';
+import { getExtensionTypeAction, getAddonCategory } from 'core/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
@@ -122,7 +121,7 @@ export class InstallButtonBase extends React.Component {
   installExtension = ({ installURL, event }) => {
     const { addon, _InstallTrigger } = this.props;
 
-    this.trackInstallStarted({ addonName: addon.name });
+    this.trackInstallStarted({ addonName: addon.name, type: addon.type });
 
     if (!_InstallTrigger) {
       // Let the button serve the file like a normal link.
@@ -157,7 +156,10 @@ export class InstallButtonBase extends React.Component {
 
         if (status === 0) {
           // The extension was installed successfully.
-          this.trackInstallSucceeded({ addonName: addon.name });
+          this.trackInstallSucceeded({
+            addonName: addon.name,
+            type: addon.type,
+          });
         }
       },
     );
@@ -165,22 +167,25 @@ export class InstallButtonBase extends React.Component {
     return false;
   };
 
-  trackInstallStarted({ addonName }) {
+  trackInstallStarted({ addonName, type }) {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
+      action: getExtensionTypeAction(type),
+      category: getAddonCategory({
+        type,
+        installType: INSTALL_STARTED_CATEGORY,
+      }),
       label: addonName,
     });
   }
 
-  trackInstallSucceeded({ addonName }) {
+  trackInstallSucceeded({ addonName, type }) {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_CATEGORY,
+      action: getExtensionTypeAction(type),
+      category: getAddonCategory({ type }),
       label: addonName,
     });
   }
@@ -253,7 +258,10 @@ export class InstallButtonBase extends React.Component {
 
             _log.info('Adding OpenSearch Provider', { addon });
             _window.external.AddSearchProvider(installURL);
-            this.trackInstallStarted({ addonName: addon.name });
+            this.trackInstallStarted({
+              addonName: addon.name,
+              type: addon.type,
+            });
 
             return false;
           };

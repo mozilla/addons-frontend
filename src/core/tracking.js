@@ -9,8 +9,10 @@ import log from 'core/logger';
 import {
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_INVALID,
+  TRACKING_TYPE_STATIC_THEME,
   TRACKING_TYPE_THEME,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 
@@ -158,6 +160,7 @@ export class Tracking {
 export function getAction(type) {
   return (
     {
+      [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
       [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
     }[type] || TRACKING_TYPE_INVALID
