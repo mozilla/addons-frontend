@@ -10,6 +10,7 @@ import {
 } from 'core/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import Select from 'ui/components/Select';
 import {
   createFakeEvent,
   createStubErrorHandler,
@@ -254,16 +255,30 @@ describe(__filename, () => {
   it('sets themes filters shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
     const fakeConfig = getFakeConfig({ enableStaticThemes: true });
     const root = render({ _config: fakeConfig });
-    expect(root.instance().addonTypeOptions()[3].value).toEqual(
-      ADDON_TYPE_THEMES_FILTER,
-    );
+    const selectOption = root.find(Select);
+
+    selectOption
+      .at(1)
+      .props()
+      .children.forEach((option) => {
+        if (option.props.children === 'Theme') {
+          expect(option.props.value).toEqual(ADDON_TYPE_THEMES_FILTER);
+        }
+      });
   });
 
   it('sets themes filters shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
     const fakeConfig = getFakeConfig({ enableStaticThemes: false });
     const root = render({ _config: fakeConfig });
-    expect(root.instance().addonTypeOptions()[3].value).toEqual(
-      ADDON_TYPE_THEME,
-    );
+    const selectOption = root.find(Select);
+
+    selectOption
+      .at(1)
+      .props()
+      .children.forEach((option) => {
+        if (option.props.children === 'Theme') {
+          expect(option.props.value).toEqual(ADDON_TYPE_THEME);
+        }
+      });
   });
 });

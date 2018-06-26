@@ -453,32 +453,20 @@ describe(__filename, () => {
 
     const landingShelves = root.find(LandingAddonsCard);
 
-    expect(landingShelves.at(0)).toHaveProp('footerLink', {
-      pathname: `/search/`,
-      query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        category: fakeCategory.slug,
-        featured: true,
-      },
-    });
+    expect(landingShelves.at(0)).toHaveProp('footerLink');
+    expect(landingShelves.at(0).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEMES_FILTER,
+    );
 
-    expect(landingShelves.at(1)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        category: fakeCategory.slug,
-        sort: SEARCH_SORT_TOP_RATED,
-      },
-    });
+    expect(landingShelves.at(1)).toHaveProp('footerLink');
+    expect(landingShelves.at(1).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEMES_FILTER,
+    );
 
-    expect(landingShelves.at(2)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        category: fakeCategory.slug,
-        sort: SEARCH_SORT_TRENDING,
-      },
-    });
+    expect(landingShelves.at(2)).toHaveProp('footerLink');
+    expect(landingShelves.at(2).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEMES_FILTER,
+    );
   });
 
   it('renders the themes shelves with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
@@ -496,32 +484,20 @@ describe(__filename, () => {
 
     const landingShelves = root.find(LandingAddonsCard);
 
-    expect(landingShelves.at(0)).toHaveProp('footerLink', {
-      pathname: `/search/`,
-      query: {
-        addonType: ADDON_TYPE_THEME,
-        category: fakeCategory.slug,
-        featured: true,
-      },
-    });
+    expect(landingShelves.at(0)).toHaveProp('footerLink');
+    expect(landingShelves.at(0).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEME,
+    );
 
-    expect(landingShelves.at(1)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEME,
-        category: fakeCategory.slug,
-        sort: SEARCH_SORT_TOP_RATED,
-      },
-    });
+    expect(landingShelves.at(1)).toHaveProp('footerLink');
+    expect(landingShelves.at(1).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEME,
+    );
 
-    expect(landingShelves.at(2)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEME,
-        category: fakeCategory.slug,
-        sort: SEARCH_SORT_TRENDING,
-      },
-    });
+    expect(landingShelves.at(2)).toHaveProp('footerLink');
+    expect(landingShelves.at(2).props().footerLink.query.addonType).toEqual(
+      ADDON_TYPE_THEME,
+    );
   });
 
   it('sets the correct header/footer texts and links for themes', () => {

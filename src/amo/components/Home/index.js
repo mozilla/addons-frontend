@@ -236,10 +236,9 @@ export class HomeBase extends React.Component {
           footerLink={{
             pathname: '/search/',
             query: {
-              addonType: getAddonTypeFilter(
-                ADDON_TYPE_THEME,
-                this.props._config,
-              ),
+              addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
+                _config: this.props._config,
+              }),
               featured: true,
             },
           }}

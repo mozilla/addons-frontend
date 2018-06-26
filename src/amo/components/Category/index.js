@@ -133,10 +133,9 @@ export class CategoryBase extends React.Component {
 
   contentForType = (addonType) => {
     const { i18n, params } = this.props;
-    const themeFilter = getAddonTypeFilter(
-      ADDON_TYPE_THEME,
-      this.props._config,
-    );
+    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, {
+      _config: this.props._config,
+    });
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
