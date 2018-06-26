@@ -258,7 +258,7 @@ describe(__filename, () => {
     const selectFilters = root.find(Select);
 
     const optionValues = selectFilters
-      .find('.SearchFilters-AddonType')
+      .find('#SearchFilters-AddonType')
       .children()
       .map((option) => option.props().value);
     expect(optionValues).toContain(ADDON_TYPE_THEMES_FILTER);
@@ -270,7 +270,7 @@ describe(__filename, () => {
     const selectFilters = root.find(Select);
 
     const optionValues = selectFilters
-      .find('.SearchFilters-AddonType')
+      .find('#SearchFilters-AddonType')
       .children()
       .map((option) => option.props().value);
     expect(optionValues).toContain(ADDON_TYPE_THEME);
