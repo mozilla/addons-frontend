@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-26 17:51+0000\n"
+"PO-Revision-Date: 2018-06-26 17:53+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -616,14 +616,12 @@ msgid "Create a collection"
 msgstr "Skapa en samling"
 
 #: src/amo/components/CollectionList/index.js:67
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Logga in för att skapa en samling"
+msgstr "Du har inga samlingar."
 
 #: src/amo/components/CollectionList/index.js:97
-#, fuzzy
 msgid "My collections"
-msgstr "Visa mina samlingar"
+msgstr "Mina samlingar"
 
 #: src/amo/components/CollectionManager/index.js:332
 msgid "Create collection"
@@ -1968,7 +1966,7 @@ msgstr "Du kan ändra din e-postadress från ditt Firefox-konto. %(startLink)sBe
 
 #: src/amo/components/UserProfileEdit/index.js:544
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "Hantera Firefox-konto..."
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -2291,11 +2289,10 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Fäll ut för att</span> läsa mer"
 
 #: src/ui/components/UserCollection/index.js:52
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(count)s tillägg hittades"
-msgstr[1] "%(count)s tillägg hittades"
+msgstr[0] "%(total)s tillägg"
+msgstr[1] "%(total)s tillägg"
 
 #~ msgid "Essential extensions"
 #~ msgstr "Nödvändiga utökningar"
