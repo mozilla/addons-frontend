@@ -1,4 +1,5 @@
 /* @flow */
+import { oneLineTrim } from 'common-tags';
 import config from 'config';
 import deepEqual from 'deep-eql';
 import invariant from 'invariant';
@@ -24,7 +25,10 @@ import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
 import {
+  COLLECTION_SORT_DATE_ADDED,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
+  COLLECTION_SORT_NAME,
+  COLLECTION_SORT_POPULARITY,
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
   INSTALL_SOURCE_COLLECTION,
@@ -44,6 +48,7 @@ import Card from 'ui/components/Card';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
+import Select from 'ui/components/Select';
 import type {
   CollectionFilters,
   CollectionsState,
@@ -51,10 +56,11 @@ import type {
 } from 'amo/reducers/collections';
 import type { UsersStateType } from 'amo/reducers/users';
 import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ApiStateType } from 'core/reducers/api';
 import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocation, ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -69,17 +75,20 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
   i18n: I18nType,
   isLoggedIn: boolean,
   isOwner: boolean,
+  lang: string,
   location: ReactRouterLocation,
   params: {|
     slug: string,
     username: string,
   |},
+  router: ReactRouterType,
 |};
 
 export type RemoveCollectionAddonFunc = (addonId: number) => void;
@@ -128,6 +137,50 @@ export class CollectionBase extends React.Component<InternalProps> {
       }),
     );
   };
+
+  onSortSelect = (event: SyntheticEvent<any>) => {
+    const { clientApp, editing, filters, lang, router } = this.props;
+
+    event.preventDefault();
+
+    const sortValue = event.currentTarget.value;
+    const newFilters = {
+      ...filters,
+      sort: sortValue,
+    };
+
+    const pathname = oneLineTrim`/${lang}/${clientApp}
+      ${editing ? this.editUrl() : this.url()}`;
+    router.push({
+      pathname,
+      query: convertFiltersToQueryParams(newFilters),
+    });
+
+    return false;
+  };
+
+  sortOptions() {
+    const { i18n } = this.props;
+
+    return [
+      {
+        label: i18n.gettext('Newest first'),
+        value: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+      },
+      {
+        label: i18n.gettext('Oldest first'),
+        value: COLLECTION_SORT_DATE_ADDED,
+      },
+      {
+        label: i18n.gettext('Name'),
+        value: COLLECTION_SORT_NAME,
+      },
+      {
+        label: i18n.gettext('Popularity'),
+        value: COLLECTION_SORT_POPULARITY,
+      },
+    ];
+  }
 
   loadDataIfNeeded(nextProps?: InternalProps) {
     const { collection, creating, errorHandler, loading, params } = {
@@ -439,10 +492,34 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     return (
       <div className="Collection-wrapper">
-        <Card className="Collection-detail">
-          {this.renderCardContents()}
-          {this.renderDeleteButton()}
-        </Card>
+        <div className="Collection-detail-wrapper">
+          <Card className="Collection-detail">
+            {this.renderCardContents()}
+            {this.renderDeleteButton()}
+          </Card>
+          <Card className="Collection-sort">
+            <form>
+              <label className="Sort-label" htmlFor="Sort-Select">
+                {i18n.gettext('Sort add-ons by')}
+              </label>
+              <Select
+                className="Sort-select"
+                defaultValue={filters.sort}
+                id="Sort-Select"
+                name="sort"
+                onChange={this.onSortSelect}
+              >
+                {this.sortOptions().map((option) => {
+                  return (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  );
+                })}
+              </Select>
+            </form>
+          </Card>
+        </div>
         <div className="Collection-items">
           {!creating && (
             <AddonsCard
@@ -493,6 +570,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
 export const mapStateToProps = (
   state: {|
+    api: ApiStateType,
     collections: CollectionsState,
     users: UsersStateType,
   |},
@@ -528,10 +606,12 @@ export const mapStateToProps = (
   }
 
   return {
+    clientApp: state.api.clientApp,
     collection,
     filters,
     isLoggedIn: !!currentUser,
     isOwner,
+    lang: state.api.lang,
     loading,
     hasEditPermission,
   };
