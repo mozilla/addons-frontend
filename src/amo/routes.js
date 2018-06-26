@@ -10,6 +10,7 @@ import CategoriesPage from 'amo/components/CategoriesPage';
 import Category from 'amo/components/Category';
 import Collection from 'amo/components/Collection';
 import CollectionEdit from 'amo/components/CollectionEdit';
+import CollectionList from 'amo/components/CollectionList';
 import Home from 'amo/components/Home';
 import LandingPage from 'amo/components/LandingPage';
 import LanguageTools from 'amo/components/LanguageTools';
@@ -49,6 +50,7 @@ export default (
       <Route path="collections/:username/:slug/" component={Collection} />
       {config.get('enableNewCollectionsUI') && (
         <React.Fragment>
+          <Route path="collections/" component={CollectionList} />
           <Route
             path="collections/add/"
             component={(props) => <Collection {...props} creating />}

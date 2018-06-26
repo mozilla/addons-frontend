@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import {
   addAddonToCollection,
+  expandCollections,
   fetchUserCollections,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
@@ -21,7 +22,6 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
-  CollectionId,
   CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
@@ -277,15 +277,6 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     );
   }
 }
-
-const expandCollections = (
-  collections: CollectionsState,
-  meta?: { collections: Array<CollectionId> | null },
-): Array<CollectionType> | null => {
-  return meta && meta.collections
-    ? meta.collections.map((id) => collections.byId[id])
-    : null;
-};
 
 export const mapStateToProps = (
   state: {| collections: CollectionsState, users: UsersStateType |},

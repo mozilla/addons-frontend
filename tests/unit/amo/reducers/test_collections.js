@@ -7,7 +7,7 @@ import reducer, {
   beginCollectionModification,
   createInternalAddons,
   createInternalCollection,
-  unloadCollectionBySlug,
+  expandCollections,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
@@ -21,6 +21,7 @@ import reducer, {
   loadCurrentCollectionPage,
   loadUserCollections,
   localizeCollectionDetail,
+  unloadCollectionBySlug,
 } from 'amo/reducers/collections';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
@@ -1072,6 +1073,70 @@ describe(__filename, () => {
       });
 
       expect(localizedDetail).toEqual(collectionDetail);
+    });
+  });
+
+  describe('expandCollections', () => {
+    const username = 'some-username';
+
+    it('returns null if there is no meta passed', () => {
+      const state = reducer(undefined, {});
+
+      expect(expandCollections(state)).toEqual(null);
+    });
+
+    it('returns null if there is no collections key in meta', () => {
+      const state = reducer(undefined, {});
+      const meta = {};
+
+      expect(expandCollections(state, meta)).toEqual(null);
+    });
+
+    it('returns collection objects when ids are passed in via meta.collections', () => {
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+      const meta = {
+        collections: [firstCollection.id, secondCollection.id],
+      };
+
+      const state = reducer(
+        undefined,
+        loadUserCollections({
+          username,
+          collections: [firstCollection, secondCollection],
+        }),
+      );
+
+      const collections = expandCollections(state, meta);
+      expect(collections.length).toEqual(2);
+      expect(collections[0]).toEqual(
+        createInternalCollection({ detail: firstCollection }),
+      );
+      expect(collections[1]).toEqual(
+        createInternalCollection({ detail: secondCollection }),
+      );
+    });
+
+    it('skips unloaded collections', () => {
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+      const meta = {
+        collections: [firstCollection.id, secondCollection.id],
+      };
+
+      const state = reducer(
+        undefined,
+        loadUserCollections({
+          username,
+          collections: [firstCollection],
+        }),
+      );
+
+      const collections = expandCollections(state, meta);
+      expect(collections.length).toEqual(1);
+      expect(collections[0]).toEqual(
+        createInternalCollection({ detail: firstCollection }),
+      );
     });
   });
 });

@@ -1,0 +1,37 @@
+@import "~core/css/inc/mixins";
+@import "~photon-colors/photon-colors";
+@import "~ui/css/vars";
+
+.UserCollection {
+  grid-column: auto;
+  list-style-type: none;
+}
+
+.UserCollection-link {
+  text-decoration: none;
+}
+
+.UserCollection-name {
+  @include font-bold();
+
+  color: $black;
+  flex-grow: 1;
+  font-size: $font-size-default;
+  margin-bottom: 0;
+  width: 100%;
+  word-wrap: break-word;
+
+  .UserCollection-link:active &,
+  .UserCollection-link:focus &,
+  .UserCollection-link:hover & {
+    color: $link-color;
+  }
+}
+
+.UserCollection-number {
+  @include font-light();
+
+  color: $grey-50;
+  font-size: $font-size-m-smaller;
+  margin-top: 0;
+}

@@ -72,6 +72,10 @@ export class HeaderBase extends React.Component {
     const editProfileLinkProps = config.get('enableUserProfile')
       ? { to: editProfileURL }
       : { href: editProfileURL };
+    const myCollectionsURL = siteUser ? '/collections/' : null;
+    const myCollectionsLinkProps = config.get('enableNewCollectionsUI')
+      ? { to: myCollectionsURL }
+      : { href: myCollectionsURL };
 
     return (
       <header className="Header">
@@ -105,7 +109,7 @@ export class HeaderBase extends React.Component {
               <DropdownMenuItem>
                 <Link
                   className="Header-user-menu-collections-link"
-                  href={`/collections/${siteUser.username}/`}
+                  {...myCollectionsLinkProps}
                 >
                   {i18n.gettext('View My Collections')}
                 </Link>

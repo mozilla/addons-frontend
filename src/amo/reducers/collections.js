@@ -927,6 +927,21 @@ export const localizeCollectionDetail = ({
   };
 };
 
+export const expandCollections = (
+  collections: CollectionsState,
+  meta?: { collections: Array<CollectionId> | null },
+): Array<CollectionType> | null => {
+  return meta && meta.collections
+    ? meta.collections.reduce((result, id) => {
+        const collection = collections.byId[id];
+        if (collection) {
+          result.push(collection);
+        }
+        return result;
+      }, [])
+    : null;
+};
+
 type Action =
   | AbortFetchCurrentCollection
   | AbortAddAddonToCollectionAction
