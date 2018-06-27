@@ -1,0 +1,19 @@
+# exclude everything by default
+*.*
+# exclude these files
+Dockerfile
+# exclude these directories
+/assets/
+/bin/
+/config/
+/dist/
+/docker/
+/flow/
+/locale/
+/node_modules/
+/src/core/fonts/
+/src/disco/video/
+/src/locale/
+/tests/ui/
+# white-list files we want to process
+!*.js
