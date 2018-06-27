@@ -75,6 +75,19 @@ export function* updateUserAccount({
         userId,
       });
 
+      if (typeof notifications.announcements !== 'undefined') {
+        // The Salesforce integration is asynchronous and takes a lot of time
+        // so we set the notification to whatever the user has chosen,
+        // otherwise we would display the wrong notification value.
+        // See: https://github.com/mozilla/addons-frontend/issues/5219
+        const index = allNotifications.findIndex(
+          (notification) => notification.name === 'announcements',
+        );
+        if (index !== -1) {
+          allNotifications[index].enabled = notifications.announcements;
+        }
+      }
+
       yield put(
         loadUserNotifications({
           notifications: allNotifications,
