@@ -274,8 +274,14 @@ export const ADDONS_REVIEW = 'Addons:Review';
 export const THEMES_REVIEW = 'Personas:Review';
 // Can view statistics for all addons, regardless of privacy settings.
 export const STATS_VIEW = 'Stats:View';
-// Can edit all collections.
-export const COLLECTIONS_EDIT = 'Collections:Edit';
+// Can edit all Mozilla-owned collections.
+export const MOZILLA_COLLECTIONS_EDIT = 'Admin:Curation';
+// The username which corresponds to Mozilla-owned collections.
+export const MOZILLA_COLLECTIONS_USERNAME = 'mozilla';
+// Can edit the special Featured Themes collection.
+export const FEATURED_THEMES_COLLECTION_EDIT = 'Collections:Contribute';
+// The slug for the special Featured Themes collection.
+export const FEATURED_THEMES_COLLECTION_SLUG = 'featured-personas';
 // Can confirm approval of automatically approved add-ons.
 export const ADDONS_POSTREVIEW = 'Addons:PostReview';
 // Can approve add-ons content.
