@@ -58,7 +58,6 @@ After you have everything, the bootstrap script prompts you to check out a clone
 
 Change into the source directory and apply this patch to allow a local server at a URL like `localhost:3000`.
 
-<!-- prettier-ignore -->
 ```diff
 diff --git a/browser/base/content/browser-addons.js b/browser/base/content/browser-addons.js
 --- a/browser/base/content/browser-addons.js
@@ -112,7 +111,6 @@ diff --git a/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp b/toolkit/mozapps
 
    nsAutoCString host;
    rv = uri->GetHost(host);
-
 ```
 
 This patch will:
