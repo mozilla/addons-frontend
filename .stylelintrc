@@ -27,8 +27,10 @@
     "block-closing-brace-newline-after": ["always", {
       "ignoreAtRules": ["if", "else"],
     }],
+    "declaration-colon-newline-after": null,
     "function-url-quotes": ["always"],
     "function-blacklist": ["random"],
+    "indentation": null,
     "max-nesting-depth": [3, {
       "ignore": ["blockless-at-rules"],
     }],
@@ -41,5 +43,7 @@
         "after-comment"
       ]
     }],
+    "string-quotes": null,
+    "value-list-comma-newline-after": null,
   }
 }

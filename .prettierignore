@@ -18,3 +18,4 @@ Dockerfile
 # white-list files we want to process
 !*.js
 !*.md
+!*.scss
