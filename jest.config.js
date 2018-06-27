@@ -5,15 +5,8 @@ module.exports = {
     '<rootDir>/src/core/server/webpack-isomorphic-tools-config.js',
     '<rootDir>/src/locale/',
   ],
-  moduleDirectories: [
-    'src',
-    'node_modules',
-  ],
-  moduleFileExtensions: [
-    'js',
-    'json',
-    'jsx',
-  ],
+  moduleDirectories: ['src', 'node_modules'],
+  moduleFileExtensions: ['js', 'json', 'jsx'],
   moduleNameMapper: {
     // Prevent un-transpiled react-photoswipe code being required.
     '^photoswipe$': '<rootDir>/node_modules/photoswipe',
@@ -29,10 +22,7 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src)/',
   ],
-  testMatch: [
-    '**/[Tt]est(*).js?(x)',
-    '**/__tests__/**/*.js?(x)',
-  ],
+  testMatch: ['**/[Tt]est(*).js?(x)', '**/__tests__/**/*.js?(x)'],
   // This will initialize the jsdom document with a URL which is necessary
   // for History push state to work.
   // See https://github.com/ReactTraining/react-router/issues/5030
@@ -43,9 +33,7 @@ module.exports = {
     // Tests can assert on the filenname.
     '^.+\\.(jpg|jpeg|gif|png)$': '<rootDir>/tests/fileTransformer',
   },
-  transformIgnorePatterns: [
-    '<rootDir>/node_modules/',
-  ],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',

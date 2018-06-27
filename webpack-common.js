@@ -17,10 +17,12 @@ const urlLoaderOptions = {
 
 const postCssPlugins = [];
 if (config.get('enablePostCssLoader')) {
-  postCssPlugins.push(autoprefixer({
-    browsers: ['last 2 versions'],
-    grid: false,
-  }));
+  postCssPlugins.push(
+    autoprefixer({
+      browsers: ['last 2 versions'],
+      grid: false,
+    }),
+  );
 }
 
 export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
@@ -122,7 +124,8 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
     {
       test: /\.svg$/,
       use: [{ loader: 'svg-url-loader', options: urlLoaderOptions }],
-    }, {
+    },
+    {
       test: /\.(jpg|png|gif|webm|mp4|otf|woff|woff2)$/,
       use: [{ loader: 'url-loader', options: urlLoaderOptions }],
     },
@@ -144,13 +147,19 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
     // This replaces the config with a new module that has sensitive,
     // server-only keys removed.
     new webpack.NormalModuleReplacementPlugin(
-      /config$/, 'core/client/config.js'),
+      /config$/,
+      'core/client/config.js',
+    ),
     // This replaces the logger with a more lightweight logger for the client.
     new webpack.NormalModuleReplacementPlugin(
-      /core\/logger$/, 'core/client/logger.js'),
+      /core\/logger$/,
+      'core/client/logger.js',
+    ),
     // This swaps the server side window object with a standard browser window.
     new webpack.NormalModuleReplacementPlugin(
-      /core\/window/, 'core/browserWindow.js'),
+      /core\/window/,
+      'core/browserWindow.js',
+    ),
     new CircularDependencyPlugin({
       exclude: /node_modules/,
       failOnError: true,
@@ -162,7 +171,7 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
       // This allow us to exclude locales for other apps being built.
       new webpack.ContextReplacementPlugin(
         /locale$/,
-        new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
+        new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`),
       ),
     );
   }
