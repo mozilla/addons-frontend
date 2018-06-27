@@ -1,5 +1,6 @@
 /* @flow */
 import config from 'config';
+import deepEqual from 'deep-eql';
 import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -155,10 +156,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     if (nextProps && nextProps.filters) {
       const nextFilters = nextProps.filters;
 
-      if (
-        filters.page !== nextFilters.page ||
-        filters.sort !== nextFilters.sort
-      ) {
+      if (!deepEqual(filters, nextFilters)) {
         addonsPageChanged = true;
         filters = nextFilters;
       }

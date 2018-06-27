@@ -16,7 +16,7 @@ import {
   updateCollection,
   updateCollectionAddon,
 } from 'amo/api/collections';
-import { COLLECTION_SORT_DATE_ADDED } from 'core/constants';
+import { COLLECTION_SORT_DATE_ADDED_ASCENDING } from 'core/constants';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddonsListResponse,
@@ -101,7 +101,7 @@ describe(__filename, () => {
     it('calls the collection add-ons list API', async () => {
       const filters = {
         page: 1,
-        sort: COLLECTION_SORT_DATE_ADDED,
+        sort: COLLECTION_SORT_DATE_ADDED_ASCENDING,
       };
       const params = getParams({ filters });
 
