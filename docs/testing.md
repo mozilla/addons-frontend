@@ -10,7 +10,6 @@ We want to maintain a project with a high coverage (aiming for 100%). Our main [
 - Use action creators in `amo/actions/` and `core/actions/` instead of hard-coding `dispatch()` arguments or state data for tests. This applies to both UI components and reducers/sagas.
 - Use constants (see `core/constants`) when using the same value across files. This avoids hard-coding values and [magic constants](https://en.wikipedia.org/wiki/Magic_constant).
 
-
 ## Jest
 
 [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) is our main testing framework. Please refer to the [`README` section about running the test suite](https://github.com/mozilla/addons-frontend#running-tests) to know how to run the tests. Below are a few rules regarding Jest:
@@ -21,8 +20,7 @@ We want to maintain a project with a high coverage (aiming for 100%). Our main [
 When creating a new test file, start with a `describe()` block that takes the current file name as first argument. This makes easy to find/edit a failing test case as Jest will display the test file in its output:
 
 ```js
-describe(__filename, () => {
-});
+describe(__filename, () => {});
 ```
 
 ## Spies/Stubs/Mocks and Sinon.JS
@@ -41,7 +39,6 @@ sinon.assert.called(spy);
 ```
 
 There is no need to import sinon, it is already in the global scope for all test files.
-
 
 ## Testing reducers and sagas
 
@@ -76,8 +73,8 @@ We use [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) for testing UI comp
 - Prefer `shallow()` over `mount()` when it makes sense.
 - Assert components on public properties (props), _e.g._:
 
-    ```js
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    ```
+  ```js
+  expect(root.find(Badge)).toHaveProp('type', 'featured');
+  ```
 
 - You can use `shallowUntilTarget()` (`tests/unit/helpers`) for testing a component wrapped in one or more HOCs (higher order components). See `tests/unit/core/components/TestInstallButton.js` for an example of a test case with this helper.
