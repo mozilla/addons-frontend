@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-23 06:11+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2018-06-21 15:26+0000\n"
+"Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -1423,7 +1423,7 @@ msgstr "Älä käytä tätä lomaketta ohjelmistovirheiden ilmoittamiseen tai vi
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Kerro kuinka tämä käyttäjä rikkoo käytäntöjämme."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
@@ -1668,11 +1668,11 @@ msgstr "Kerro kavereillesi ja perheellesi, että Firefox on nopea ja turvallinen
 
 #: src/amo/components/StaticPages/About.js:157
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Muita tapoja osallistua lisäosayhteisön toimintaan on lueteltu %(startLink)swikissä%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:171
 msgid "Get support"
-msgstr ""
+msgstr "Etsi tukea"
 
 #: src/amo/components/StaticPages/About.js:176
 msgid ""
@@ -1723,6 +1723,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla on voittoa tavoittelematon internetin esitaistelija. Rakennamme Firefoxia pitääksemme sen hyvinvoivana, avoimena ja saavutettavana. Lisäosat tukevat käyttäjän Firefoxin valinta- ja "
+"muokkausmahdollisuuksia. Sinä voit osallistua seuraavilla tavoilla:"
 
 #: src/amo/components/StaticPages/About.js:82
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -1881,7 +1883,7 @@ msgstr "Selaa kaikkia teemoja"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "Lisäosien aloitussivu"
 
 #: src/amo/components/UserProfile/index.js:139
 #, fuzzy
