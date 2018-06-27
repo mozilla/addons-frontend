@@ -255,22 +255,24 @@
   flex-direction: column;
   width: max-content;
 
-  .Addon-get-firefox-privacy-link,
-  .Addon-get-firefox-privacy-link:active,
-  .Addon-get-firefox-privacy-link:focus,
-  .Addon-get-firefox-privacy-link:link,
-  .Addon-get-firefox-privacy-link:visited,
-  .Addon-get-firefox-privacy-link:hover {
-    @include font-bold();
+  .Addon-get-firefox-privacy-link {
+    &,
+    &:active,
+    &:focus,
+    &:link,
+    &:visited,
+    &:hover {
+      @include font-bold();
 
-    color: $ink-90;
-    font-size: $font-size-caption10;
-    text-decoration: none;
-  }
+      color: $ink-90;
+      font-size: $font-size-caption10;
+      text-decoration: none;
+    }
 
-  .Addon-get-firefox-privacy-link:active,
-  .Addon-get-firefox-privacy-link:focus,
-  .Addon-get-firefox-privacy-link:hover {
-    text-decoration: underline;
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
