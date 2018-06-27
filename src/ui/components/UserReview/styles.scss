@@ -1,0 +1,49 @@
+@import "~photon-colors/photon-colors";
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+
+.UserReview {
+  word-wrap: break-word;
+
+  .Rating {
+    margin: 0;
+
+    @include margin-end(6px);
+  }
+
+  .ErrorList {
+    margin-top: 6px;
+  }
+
+  .TooltipMenu {
+    width: fit-content;
+  }
+}
+
+.UserReview-review-header {
+  margin: 0;
+  padding: 0;
+}
+
+.UserReview-body {
+  font-size: $font-size-default;
+  margin: 0 0 6px;
+  word-wrap: break-word;
+}
+
+.UserReview-byLine {
+  color: $sub-text-color;
+  display: flex;
+  font-size: $font-size-s;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    &:not(.Button) {
+      color: $blue-50;
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+}

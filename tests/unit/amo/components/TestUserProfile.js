@@ -33,6 +33,7 @@ import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
 import UserRating from 'ui/components/UserRating';
+import UserReview from 'ui/components/UserReview';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -807,11 +808,14 @@ describe(__filename, () => {
     );
     expect(root.find('.UserProfile-reviews')).toHaveProp('footer', null);
 
-    expect(root.find('.AddonReviewListItem')).toHaveLength(reviews.length);
+    expect(root.find(UserReview)).toHaveLength(reviews.length);
 
-    const firstReview = root.find('.AddonReviewListItem');
+    const firstReview = root
+      .find(UserReview)
+      .at(0)
+      .shallow();
 
-    expect(firstReview.find('.AddonReviewListItem-body').html()).toContain(
+    expect(firstReview.find('.UserReview-body').html()).toContain(
       fakeReview.body,
     );
 
@@ -861,9 +865,7 @@ describe(__filename, () => {
     expect(paginator).toHaveProp('pathname', '/user/black-panther/');
     expect(paginator).toHaveProp('queryParams', location.query);
 
-    expect(root.find('.AddonReviewListItem')).toHaveLength(
-      DEFAULT_API_PAGE_SIZE,
-    );
+    expect(root.find(UserReview)).toHaveLength(DEFAULT_API_PAGE_SIZE);
   });
 
   it(`does not display the user's reviews when current user is not the owner`, () => {
