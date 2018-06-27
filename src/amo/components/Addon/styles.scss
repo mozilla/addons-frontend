@@ -251,6 +251,7 @@
 
   .Addon-get-firefox-privacy-link,
   .Addon-get-firefox-privacy-link:active,
+  .Addon-get-firefox-privacy-link:focus,
   .Addon-get-firefox-privacy-link:link,
   .Addon-get-firefox-privacy-link:visited,
   .Addon-get-firefox-privacy-link:hover {
@@ -261,6 +262,8 @@
     text-decoration: none;
   }
 
+  .Addon-get-firefox-privacy-link:active,
+  .Addon-get-firefox-privacy-link:focus,
   .Addon-get-firefox-privacy-link:hover {
     text-decoration: underline;
   }
