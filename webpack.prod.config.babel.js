@@ -9,8 +9,7 @@ import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import SriDataPlugin from './src/core/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
-import webpackIsomorphicToolsConfig
-  from './src/core/server/webpack-isomorphic-tools-config';
+import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
 
 const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
@@ -77,10 +76,7 @@ export default {
       'normalize.css': 'normalize.css/normalize.css',
       tests: path.resolve('./tests'),
     },
-    modules: [
-      path.resolve('./src'),
-      'node_modules',
-    ],
+    modules: [path.resolve('./src'), 'node_modules'],
     extensions: ['.js', '.jsx'],
   },
 };
