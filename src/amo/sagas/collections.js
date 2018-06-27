@@ -59,7 +59,7 @@ import type {
 } from 'amo/reducers/collections';
 
 export function* fetchCurrentCollection({
-  payload: { errorHandlerId, page, slug, username },
+  payload: { errorHandlerId, filters, slug, username },
 }: FetchCurrentCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -79,7 +79,7 @@ export function* fetchCurrentCollection({
     };
     const addonsParams: $Shape<GetCollectionAddonsParams> = {
       ...baseParams,
-      page,
+      filters,
     };
     const { detail, addons } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
@@ -96,7 +96,7 @@ export function* fetchCurrentCollection({
 }
 
 export function* fetchCurrentCollectionPage({
-  payload: { errorHandlerId, page, slug, username },
+  payload: { errorHandlerId, filters, slug, username },
 }: FetchCurrentCollectionPageAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -107,7 +107,7 @@ export function* fetchCurrentCollectionPage({
 
     const params: GetCollectionAddonsParams = {
       api: state.api,
-      page,
+      filters,
       slug,
       username,
     };
@@ -155,8 +155,8 @@ export function* addAddonToCollection({
     collectionId,
     editing,
     errorHandlerId,
+    filters,
     notes,
-    page,
     slug,
     username,
   },
@@ -177,12 +177,12 @@ export function* addAddonToCollection({
     yield call(api.createCollectionAddon, params);
 
     if (editing) {
-      invariant(page, 'A page parameter is required when editing');
+      invariant(filters, 'A filters parameter is required when editing');
 
       yield put(
         fetchCurrentCollectionPageAction({
-          page,
           errorHandlerId: errorHandler.id,
+          filters,
           slug,
           username,
         }),
@@ -299,7 +299,7 @@ export function* modifyCollection(
 }
 
 export function* removeAddonFromCollection({
-  payload: { addonId, errorHandlerId, page, slug, username },
+  payload: { addonId, errorHandlerId, filters, slug, username },
 }: RemoveAddonFromCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -317,8 +317,8 @@ export function* removeAddonFromCollection({
 
     yield put(
       fetchCurrentCollectionPageAction({
-        page,
         errorHandlerId: errorHandler.id,
+        filters,
         slug,
         username,
       }),
@@ -364,7 +364,7 @@ export function* deleteCollection({
 }
 
 export function* updateCollectionAddon({
-  payload: { addonId, errorHandlerId, notes, page, slug, username },
+  payload: { addonId, errorHandlerId, filters, notes, slug, username },
 }: UpdateCollectionAddonAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -383,8 +383,8 @@ export function* updateCollectionAddon({
 
     yield put(
       fetchCurrentCollectionPageAction({
-        page,
         errorHandlerId: errorHandler.id,
+        filters,
         slug,
         username,
       }),

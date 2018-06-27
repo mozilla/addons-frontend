@@ -17,6 +17,7 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
+  createInternalCollection,
   deleteCollection,
   deleteCollectionAddonNotes,
   fetchCurrentCollection,
@@ -26,7 +27,11 @@ import {
   updateCollectionAddon,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
-import { COLLECTIONS_EDIT } from 'core/constants';
+import {
+  COLLECTION_SORT_DATE_ADDED_DESCENDING,
+  COLLECTION_SORT_NAME,
+  COLLECTIONS_EDIT,
+} from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
   createFakeEvent,
@@ -199,12 +204,18 @@ describe(__filename, () => {
 
     renderComponent({ errorHandler, params: { slug, username }, store });
 
+    // These are the expected default values for filters.
+    const filters = {
+      page: 1,
+      sort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+    };
+
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(
       fakeDispatch,
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
-        page: undefined,
+        filters,
         slug,
         username,
       }),
@@ -239,7 +250,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('passes the page from query string to fetchCurrentCollection', () => {
+  it('passes filters from the query string to fetchCurrentCollection', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -247,10 +258,12 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const username = 'some-user';
     const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     renderComponent({
       errorHandler,
-      location: fakeRouterLocation({ query: { page } }),
+      location: fakeRouterLocation({ query: filters }),
       params: { slug, username },
       store,
     });
@@ -260,7 +273,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
-        page,
+        filters,
         slug,
         username,
       }),
@@ -342,7 +355,6 @@ describe(__filename, () => {
     store.dispatch(
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
-        page: 123,
         slug,
         username,
       }),
@@ -383,10 +395,12 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const username = 'some-user';
     const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     const location = fakeRouterLocation({
       pathname: `/collections/${username}/${slug}/`,
-      query: { page },
+      query: filters,
     });
 
     const newSlug = 'other-collection';
@@ -414,7 +428,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
-        page,
+        filters,
         slug: newSlug,
         username,
       }),
@@ -424,6 +438,9 @@ describe(__filename, () => {
   it('dispatches fetchCurrentCollectionPage when page has changed', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -432,69 +449,72 @@ describe(__filename, () => {
       }),
     );
 
-    const page = 123;
-    const location = fakeRouterLocation();
-    const newLocation = fakeRouterLocation({ query: { page } });
     const errorHandler = createStubErrorHandler();
 
     const wrapper = renderComponent({
       errorHandler,
-      location,
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
     fakeDispatch.resetHistory();
 
+    const newFilters = {
+      ...filters,
+      page: 999,
+    };
+
     // This will trigger the componentWillReceiveProps() method.
-    wrapper.setProps({ location: newLocation });
+    wrapper.setProps({ filters: newFilters });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(
       fakeDispatch,
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
-        page,
+        filters: newFilters,
         username: defaultUser,
         slug: defaultSlug,
       }),
     );
   });
 
-  it('defaults to first page when there is no page and collection is loaded', () => {
+  it('dispatches fetchCurrentCollectionPage when sort has changed', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
-        page: 2,
       }),
     );
 
-    // This happens when a user clicks the "back" button in the browser, after
-    // having browsed a collection and navigated to the second page.
-    // See: https://github.com/mozilla/addons-frontend/issues/4933
-    const page = null;
-    const location = fakeRouterLocation();
-    const newLocation = fakeRouterLocation({ query: { page } });
     const errorHandler = createStubErrorHandler();
 
     const wrapper = renderComponent({
       errorHandler,
-      location,
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
     fakeDispatch.resetHistory();
 
+    const newFilters = {
+      ...filters,
+      sort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+    };
+
     // This will trigger the componentWillReceiveProps() method.
-    wrapper.setProps({ location: newLocation });
+    wrapper.setProps({ filters: newFilters });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(
       fakeDispatch,
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
-        page: 1,
+        filters: newFilters,
         username: defaultUser,
         slug: defaultSlug,
       }),
@@ -505,6 +525,9 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -515,6 +538,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
     fakeDispatch.resetHistory();
@@ -530,7 +554,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
-        page: undefined,
+        filters,
         ...newParams,
       }),
     );
@@ -563,6 +587,9 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -573,6 +600,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
     fakeDispatch.resetHistory();
@@ -588,25 +616,40 @@ describe(__filename, () => {
       fakeDispatch,
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
-        page: undefined,
+        filters,
         ...newParams,
       }),
     );
   });
 
   it('renders a collection', () => {
+    const slug = 'some-slug';
+    const username = 'some-username';
+    const page = 2;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
+
     const { store } = dispatchClientMetadata();
 
-    const pathname = `/collections/${defaultUser}/${defaultSlug}/`;
+    const detail = createFakeCollectionDetail({
+      authorUsername: username,
+      count: 10,
+      slug,
+    });
 
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
+        detail,
       }),
     );
 
-    const wrapper = renderComponent({ store });
+    const wrapper = renderComponent({
+      location: fakeRouterLocation({ query: filters }),
+      params: { username, slug },
+      store,
+    });
+
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveProp('editing', false);
 
@@ -614,7 +657,13 @@ describe(__filename, () => {
     const paginator = shallow(footer);
 
     expect(paginator.instance()).toBeInstanceOf(Paginate);
-    expect(paginator).toHaveProp('pathname', pathname);
+    expect(paginator).toHaveProp('count', detail.addon_count);
+    expect(paginator).toHaveProp('currentPage', page);
+    expect(paginator).toHaveProp(
+      'pathname',
+      `/collections/${username}/${slug}/`,
+    );
+    expect(paginator).toHaveProp('queryParams', filters);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
 
@@ -625,26 +674,45 @@ describe(__filename, () => {
       },
     });
 
-    const pathname = `/collections/${defaultUser}/${defaultSlug}/edit/`;
+    const slug = 'some-slug';
+    const username = 'some-username';
+    const page = 2;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-      }),
-    );
+    const addons = createFakeCollectionAddons();
+    const detail = createFakeCollectionDetail({
+      authorUsername: username,
+      count: 10,
+      slug,
+    });
 
-    const wrapper = renderComponent({ editing: true, store });
+    store.dispatch(loadCurrentCollection({ addons, detail }));
+
+    const wrapper = renderComponent({
+      editing: true,
+      location: fakeRouterLocation({ query: filters }),
+      params: { username, slug },
+      store,
+    });
 
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveProp('editing', true);
 
     const footer = wrapper.find(AddonsCard).prop('footer');
     const paginator = shallow(footer);
-    expect(paginator).toHaveProp('pathname', pathname);
+    expect(paginator).toHaveProp(
+      'pathname',
+      `/collections/${username}/${slug}/edit/`,
+    );
 
     expect(wrapper.find(CollectionManager)).toHaveLength(1);
+    expect(wrapper.find(CollectionManager)).toHaveProp(
+      'collection',
+      createInternalCollection({ items: addons, detail }),
+    );
     expect(wrapper.find(CollectionManager)).toHaveProp('creating', false);
+    expect(wrapper.find(CollectionManager)).toHaveProp('filters', filters);
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'deleteNote',
       wrapper.instance().deleteNote,
@@ -728,7 +796,7 @@ describe(__filename, () => {
     store.dispatch(
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
-        page: 2,
+        filters: { page: 2 },
         slug,
         username,
       }),
@@ -736,7 +804,9 @@ describe(__filename, () => {
 
     // This is needed because shallowUntilTarget() does not trigger any
     // lifecycle methods.
-    wrapper.setProps(mapStateToProps(store.getState()));
+    wrapper.setProps(
+      mapStateToProps(store.getState(), { location: fakeRouterLocation() }),
+    );
 
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
     // We should not update the collection detail card.
@@ -879,31 +949,9 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({
       userProps: { permissions: [COLLECTIONS_EDIT] },
     });
-
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-      }),
-    );
-
-    const wrapper = renderComponent({ store, _config: fakeConfig });
-
-    const editLink = wrapper.find('.Collection-edit-link').find(Button);
-    expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp(
-      'to',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`,
-    );
-  });
-
-  it('includes the page number in the edit link', () => {
-    // Turn on the enableNewCollectionsUI feature.
     const page = 123;
-    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
-    const { store } = dispatchSignInActions({
-      userProps: { permissions: [COLLECTIONS_EDIT] },
-    });
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -914,18 +962,18 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       _config: fakeConfig,
-      location: fakeRouterLocation({ query: { page } }),
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
 
     const editLink = wrapper.find('.Collection-edit-link').find(Button);
     expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp(
-      'to',
-      `/collections/${defaultUser}/${
+    expect(editLink).toHaveProp('to', {
+      pathname: `/collections/${defaultUser}/${
         defaultCollectionDetail.slug
-      }/edit/?page=${page}`,
-    );
+      }/edit/`,
+      query: filters,
+    });
   });
 
   it('renders an edit link when user is the collection owner', () => {
@@ -1084,6 +1132,8 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -1094,7 +1144,7 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { page } }),
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
 
@@ -1109,51 +1159,7 @@ describe(__filename, () => {
       removeAddonFromCollection({
         addonId,
         errorHandlerId: errorHandler.id,
-        page,
-        slug: collectionDetail.slug,
-        username: collectionDetail.author.username,
-      }),
-    );
-  });
-
-  it('dispatches removeAddonFromCollection when removeAddon is called without a page defined', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
-
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
-    const collectionDetail = createFakeCollectionDetail();
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    store.dispatch(
-      loadCurrentCollection({
-        addons,
-        detail: collectionDetail,
-      }),
-    );
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
-      location: fakeRouterLocation({ query: {} }),
-      store,
-    });
-
-    fakeDispatch.resetHistory();
-
-    // This simulates the user clicking the "Remove" button on the
-    // EditableCollectionAddon component.
-    root.instance().removeAddon(addonId);
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
-      removeAddonFromCollection({
-        addonId,
-        errorHandlerId: errorHandler.id,
-        page: 1,
+        filters,
         slug: collectionDetail.slug,
         username: collectionDetail.author.username,
       }),
@@ -1214,6 +1220,8 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -1224,7 +1232,7 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { page } }),
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
 
@@ -1240,51 +1248,7 @@ describe(__filename, () => {
       deleteCollectionAddonNotes({
         addonId,
         errorHandlerId: errorHandler.id,
-        page,
-        slug: collectionDetail.slug,
-        username: collectionDetail.author.username,
-      }),
-    );
-  });
-
-  it('dispatches deleteCollectionAddonNotes when deleteNote is called without a page defined', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
-
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
-    const collectionDetail = createFakeCollectionDetail();
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    store.dispatch(
-      loadCurrentCollection({
-        addons,
-        detail: collectionDetail,
-      }),
-    );
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
-      location: fakeRouterLocation({ query: {} }),
-      store,
-    });
-
-    fakeDispatch.resetHistory();
-
-    // This simulates the user clicking the "Delete" button on the
-    // EditableCollectionAddon component's comment form.
-    root.instance().deleteNote(addonId, errorHandler);
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
-      deleteCollectionAddonNotes({
-        addonId,
-        errorHandlerId: errorHandler.id,
-        page: 1,
+        filters,
         slug: collectionDetail.slug,
         username: collectionDetail.author.username,
       }),
@@ -1305,6 +1269,8 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
     const notes = 'These are some notes.';
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -1315,7 +1281,7 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { page } }),
+      location: fakeRouterLocation({ query: filters }),
       store,
     });
 
@@ -1331,53 +1297,7 @@ describe(__filename, () => {
         addonId,
         errorHandlerId: errorHandler.id,
         notes,
-        page,
-        slug: collectionDetail.slug,
-        username: collectionDetail.author.username,
-      }),
-    );
-  });
-
-  it('dispatches updateCollectionAddon when saveNote is called without a page defined', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
-
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
-    const collectionDetail = createFakeCollectionDetail();
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const notes = 'These are some notes.';
-
-    store.dispatch(
-      loadCurrentCollection({
-        addons,
-        detail: collectionDetail,
-      }),
-    );
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
-      location: fakeRouterLocation({ query: {} }),
-      store,
-    });
-
-    fakeDispatch.resetHistory();
-
-    // This simulates the user clicking the "Save" button on the
-    // EditableCollectionAddon component's comment form.
-    root.instance().saveNote(addonId, errorHandler, notes);
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
-      updateCollectionAddon({
-        addonId,
-        errorHandlerId: errorHandler.id,
-        notes,
-        page: 1,
+        filters,
         slug: collectionDetail.slug,
         username: collectionDetail.author.username,
       }),

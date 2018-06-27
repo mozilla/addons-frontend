@@ -28,6 +28,7 @@ import type {
   SuggestionType,
 } from 'amo/components/AutoSearchInput';
 import type {
+  CollectionFilters,
   CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
@@ -56,7 +57,7 @@ export type AddonAddedStatusType =
 type Props = {|
   collection: CollectionType | null,
   creating: boolean,
-  page: number | null,
+  filters: CollectionFilters,
 |};
 
 type InternalProps = {|
@@ -257,7 +258,7 @@ export class CollectionManagerBase extends React.Component<
       currentUsername,
       dispatch,
       errorHandler,
-      page,
+      filters,
     } = this.props;
     const { addonId } = suggestion;
 
@@ -275,10 +276,10 @@ export class CollectionManagerBase extends React.Component<
       addAddonToCollection({
         addonId,
         collectionId: collection.id,
-        slug: collection.slug,
         editing: true,
         errorHandlerId: errorHandler.id,
-        page: page || 1,
+        filters,
+        slug: collection.slug,
         username: currentUsername,
       }),
     );
@@ -313,7 +314,6 @@ export class CollectionManagerBase extends React.Component<
       errorHandler,
       i18n,
       isCollectionBeingModified,
-      router,
       siteLang,
     } = this.props;
     const { name, slug } = this.state;
@@ -409,7 +409,6 @@ export class CollectionManagerBase extends React.Component<
             inputPlaceholder={i18n.gettext(
               'Find an add-on to include in this collection',
             )}
-            location={router.location}
             onSearch={this.onSearchAddon}
             onSuggestionSelected={this.onAddonSelected}
             selectSuggestionText={i18n.gettext('Add to collection')}
