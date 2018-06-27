@@ -1,6 +1,7 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
+@import "~photon-colors/photon-colors";
 
 .Addon {
   padding: $padding-page;
@@ -10,10 +11,20 @@
   }
 
   .Addon-summary-and-install-button-wrapper {
+    .Addon-get-firefox-button {
+      margin-bottom: 6px;
+    }
+
     .InstallButton,
-    .Button--get-firefox {
+    .Addon-get-firefox {
       @include respond-to(medium) {
         align-self: flex-end;
+      }
+    }
+
+    .InstallButton,
+    .Addon-get-firefox-button {
+      @include respond-to(medium) {
         margin-bottom: 12px;
       }
     }
@@ -191,7 +202,7 @@
 }
 
 .Addon .InstallButton-button,
-.Button--get-firefox {
+.Addon-get-firefox-button {
   width: 100%;
 
   @include respond-to(medium) {
@@ -236,4 +247,31 @@
   // .Addon-overall-rating .Card-footer-link {
   //   display: none;
   // }
+}
+
+.Addon-get-firefox {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .Addon-get-firefox-privacy-link {
+    &,
+    &:active,
+    &:focus,
+    &:link,
+    &:visited,
+    &:hover {
+      @include font-bold();
+
+      color: $ink-90;
+      font-size: $font-size-caption10;
+      text-decoration: none;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

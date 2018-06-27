@@ -495,7 +495,7 @@ export class AddonBase extends React.Component {
       ? addonsByAuthors.length
       : 0;
 
-    const downloadUrl = `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
+    const downloadUrl = `https://www.mozilla.org/firefox/download/thanks/${makeQueryStringWithUTM(
       {
         utm_content: 'install-addon-button',
       },
@@ -561,14 +561,22 @@ export class AddonBase extends React.Component {
                   )}
                 {addon &&
                   !isFireFox && (
-                    <Button
-                      buttonType="confirm"
-                      href={downloadUrl}
-                      puffy
-                      className="Button--get-firefox"
-                    >
-                      {i18n.gettext('Only with Firefox—Get Firefox Now')}
-                    </Button>
+                    <div className="Addon-get-firefox">
+                      <Button
+                        buttonType="confirm"
+                        href={downloadUrl}
+                        puffy
+                        className="Addon-get-firefox-button"
+                      >
+                        {i18n.gettext('Only with Firefox—Get Firefox Now')}
+                      </Button>
+                      <a
+                        className="Addon-get-firefox-privacy-link"
+                        href="https://www.mozilla.org/privacy/firefox/"
+                      >
+                        {i18n.gettext('Firefox Privacy Notice')}
+                      </a>
+                    </div>
                   )}
               </div>
 
