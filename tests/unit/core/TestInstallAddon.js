@@ -8,6 +8,7 @@ import createStore from 'amo/store';
 import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLOSE_INFO,
   DISABLED,
@@ -18,10 +19,11 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
   INSTALL_CANCELLED,
-  INSTALL_FAILED,
   INSTALL_STARTED_CATEGORY,
+  INSTALL_FAILED,
+  INSTALL_THEME_CATEGORY,
+  INSTALL_THEME_STARTED_CATEGORY,
   INSTALLED,
   INSTALLING,
   OS_ALL,
@@ -35,13 +37,13 @@ import {
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
-  TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_THEME,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { getAddonCategory, getExtensionTypeAction } from 'core/utils';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   fakeRouterLocation,
@@ -1107,8 +1109,10 @@ describe(`${__filename}: withInstallHelpers`, () => {
         // Even though the install() promise fails, it gets caught
         // and resolved successfully.
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_EXTENSION,
-          category: INSTALL_STARTED_CATEGORY,
+          action: getExtensionTypeAction(),
+          category: getAddonCategory({
+            installCategory: INSTALL_STARTED_CATEGORY,
+          }),
           label: addon.name,
         });
         sinon.assert.calledOnce(fakeTracking.sendEvent);
@@ -1128,8 +1132,33 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return install(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_EXTENSION,
-          category: INSTALL_CATEGORY,
+          action: getExtensionTypeAction(),
+          category: getAddonCategory(),
+          label: addon.name,
+        });
+      });
+    });
+
+    it('tracks a static theme addon install', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      });
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { root } = renderWithInstallHelpers({
+        ...addon,
+        _tracking: fakeTracking,
+      });
+      const { install } = root.instance().props;
+
+      return install(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: getExtensionTypeAction(ADDON_TYPE_STATIC_THEME),
+          category: getAddonCategory({
+            type: ADDON_TYPE_STATIC_THEME,
+          }),
           label: addon.name,
         });
       });
@@ -1299,8 +1328,38 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_EXTENSION,
-          category: UNINSTALL_CATEGORY,
+          action: getExtensionTypeAction(),
+          category: getAddonCategory({
+            installCategory: UNINSTALL_CATEGORY,
+          }),
+          label: addon.name,
+        });
+      });
+    });
+
+    it('tracks a static theme addon uninstall', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper();
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      });
+      const { root } = renderWithInstallHelpers({
+        ...addon,
+        _addonManager: fakeAddonManager,
+        _tracking: fakeTracking,
+      });
+      const { uninstall } = root.instance().props;
+
+      return uninstall(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: getExtensionTypeAction(ADDON_TYPE_STATIC_THEME),
+          category: getAddonCategory({
+            type: ADDON_TYPE_STATIC_THEME,
+            installCategory: UNINSTALL_CATEGORY,
+          }),
           label: addon.name,
         });
       });
@@ -1322,7 +1381,10 @@ describe(`${__filename}: withInstallHelpers`, () => {
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
           action: TRACKING_TYPE_THEME,
-          category: UNINSTALL_CATEGORY,
+          category: getAddonCategory({
+            type: addon.type,
+            installCategory: UNINSTALL_CATEGORY,
+          }),
           label: addon.name,
         });
       });
@@ -1347,7 +1409,10 @@ describe(`${__filename}: withInstallHelpers`, () => {
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
           action: 'invalid',
-          category: UNINSTALL_CATEGORY,
+          category: getAddonCategory({
+            type: addon.type,
+            installCategory: UNINSTALL_CATEGORY,
+          }),
           label: addon.name,
         });
       });
@@ -1478,12 +1543,12 @@ describe(`${__filename}: withInstallHelpers`, () => {
       installTheme(node, addon, stubs);
       sinon.assert.calledWith(stubs._tracking.sendEvent, {
         action: TRACKING_TYPE_THEME,
-        category: INSTALL_STARTED_CATEGORY,
+        category: INSTALL_THEME_STARTED_CATEGORY,
         label: 'hai-theme',
       });
       sinon.assert.calledWith(stubs._tracking.sendEvent, {
         action: TRACKING_TYPE_THEME,
-        category: INSTALL_CATEGORY,
+        category: INSTALL_THEME_CATEGORY,
         label: 'hai-theme',
       });
       sinon.assert.calledTwice(stubs._tracking.sendEvent);

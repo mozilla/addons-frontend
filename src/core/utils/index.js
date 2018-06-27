@@ -349,19 +349,20 @@ export const getAddonTypeFilter = (addonType, _config = config) => {
   return ADDON_TYPE_THEMES_FILTER;
 };
 
-export const getExtensionTypeAction = (type) => {
+export const getExtensionTypeAction = (type = ADDON_TYPE_EXTENSION) => {
   let action = TRACKING_TYPE_EXTENSION;
 
   if (type === ADDON_TYPE_STATIC_THEME) {
     action = TRACKING_TYPE_STATIC_THEME;
   }
+
   return action;
 };
 
 export const getAddonCategory = ({
   type = ADDON_TYPE_EXTENSION,
   installCategory = INSTALL_CATEGORY,
-}) => {
+} = {}) => {
   let category;
   const isTheme = ADDON_TYPE_THEMES.includes(type);
 

@@ -16,12 +16,10 @@ import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
-  INSTALL_CATEGORY,
   INSTALL_STARTED_CATEGORY,
   OS_ALL,
   OS_MAC,
   OS_WINDOWS,
-  TRACKING_TYPE_EXTENSION,
   UNKNOWN,
 } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
@@ -35,6 +33,7 @@ import {
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import { getAddonCategory, getExtensionTypeAction } from 'core/utils';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
@@ -399,8 +398,10 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
+      action: getExtensionTypeAction(),
+      category: getAddonCategory({
+        installCategory: INSTALL_STARTED_CATEGORY,
+      }),
       label: addon.name,
     });
   });
@@ -427,8 +428,11 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
+      action: getExtensionTypeAction(),
+      category: getAddonCategory({
+        type: ADDON_TYPE_OPENSEARCH,
+        installCategory: INSTALL_STARTED_CATEGORY,
+      }),
       label: addon.name,
     });
   });
@@ -493,8 +497,10 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
+      action: getExtensionTypeAction(),
+      category: getAddonCategory({
+        installCategory: INSTALL_STARTED_CATEGORY,
+      }),
       label: addon.name,
     });
 
@@ -505,8 +511,8 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_CATEGORY,
+      action: getExtensionTypeAction(),
+      category: getAddonCategory(),
       label: addon.name,
     });
   });
