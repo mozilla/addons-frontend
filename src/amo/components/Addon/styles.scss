@@ -16,9 +16,15 @@
     }
 
     .InstallButton,
-    .Addon-get-firefox-button {
+    .Addon-get-firefox {
       @include respond-to(medium) {
         align-self: flex-end;
+      }
+    }
+
+    .InstallButton,
+    .Addon-get-firefox-button {
+      @include respond-to(medium) {
         margin-bottom: 12px;
       }
     }
