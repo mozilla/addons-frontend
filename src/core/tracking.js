@@ -7,13 +7,13 @@ import invariant from 'invariant';
 import { convertBoolean } from 'core/utils';
 import log from 'core/logger';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEME,
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_INVALID,
   TRACKING_TYPE_STATIC_THEME,
   TRACKING_TYPE_THEME,
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
 } from 'core/constants';
 
 export function isDoNotTrackEnabled({
@@ -160,8 +160,8 @@ export class Tracking {
 export function getAction(type) {
   return (
     {
-      [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
       [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
       [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
     }[type] || TRACKING_TYPE_INVALID
   );

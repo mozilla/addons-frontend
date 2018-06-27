@@ -12,6 +12,7 @@ import log from 'core/logger';
 import themeAction, { getThemeData } from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import {
+  ADDON_TYPE_THEME,
   CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
@@ -40,7 +41,6 @@ import {
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
   TRACKING_TYPE_THEME,
-  ADDON_TYPE_THEME,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
