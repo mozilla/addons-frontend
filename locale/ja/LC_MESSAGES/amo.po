@@ -2248,7 +2248,7 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 #: src/ui/components/UserCollection/index.js:52
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(count)s 個のアドオン"
+msgstr[0] "%(total)s 個のアドオン"
 
 #~ msgid "Essential extensions"
 #~ msgstr "必須の拡張機能"
