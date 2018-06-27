@@ -35,7 +35,14 @@ export function* fetchCurrentUserAccount({ payload }) {
 }
 
 export function* updateUserAccount({
-  payload: { errorHandlerId, notifications, picture, userFields, userId },
+  payload: {
+    errorHandlerId,
+    notifications,
+    picture,
+    pictureData,
+    userFields,
+    userId,
+  },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -50,6 +57,14 @@ export function* updateUserAccount({
       userId,
       ...userFields,
     });
+
+    if (picture) {
+      // The post-upload task (resize, etc.) is asynchronous so we set the
+      // uploaded file before loading the user account in order to display the
+      // latest picture.
+      // See: https://github.com/mozilla/addons-frontend/issues/5252
+      user.picture_url = pictureData;
+    }
 
     yield put(loadUserAccount({ user }));
 

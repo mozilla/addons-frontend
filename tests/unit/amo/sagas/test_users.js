@@ -171,11 +171,13 @@ describe(__filename, () => {
       expect(calledFinishAction.payload).toEqual({});
     });
 
-    it('can receive a picture file in payload', async () => {
+    it('can receive a picture file and picture data in payload', async () => {
       const state = sagaTester.getState();
       const user = createUserAccountResponse({ id: 5001 });
 
       const picture = new File([], 'some-image.png');
+      const pictureData = 'image';
+
       const userFields = {
         biography: 'I fell into a burning ring of fire.',
         location: 'Folsom Prison',
@@ -197,13 +199,18 @@ describe(__filename, () => {
           errorHandlerId: errorHandler.id,
           notifications: {},
           picture,
+          pictureData,
           userFields,
           userId: user.id,
         }),
       );
 
       const expectedCalledAction = loadUserAccount({
-        user: { ...user, ...userFields },
+        user: {
+          ...user,
+          ...userFields,
+          picture_url: pictureData,
+        },
       });
 
       const calledAction = await sagaTester.waitFor(expectedCalledAction.type);

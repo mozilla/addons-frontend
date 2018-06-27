@@ -328,6 +328,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       notifications,
       occupation,
       picture,
+      pictureData,
       username,
     } = this.state;
 
@@ -338,6 +339,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         errorHandlerId: errorHandler.id,
         notifications,
         picture,
+        pictureData,
         userFields: {
           biography,
           display_name: displayName,
