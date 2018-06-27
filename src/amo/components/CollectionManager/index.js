@@ -17,8 +17,9 @@ import {
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
-import log from 'core/logger';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { decodeHtmlEntities } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
@@ -139,6 +140,7 @@ export class CollectionManagerBase extends React.Component<
       collection,
       creating,
       errorHandler,
+      filters,
       router,
       siteLang,
     } = this.props;
@@ -158,9 +160,10 @@ export class CollectionManagerBase extends React.Component<
     errorHandler.clear();
 
     const { authorUsername, slug } = collection;
-    router.push(
-      `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`,
-    );
+    router.push({
+      pathname: `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`,
+      query: convertFiltersToQueryParams(filters),
+    });
   };
 
   onSubmit = (event: SyntheticEvent<any>) => {
@@ -170,6 +173,7 @@ export class CollectionManagerBase extends React.Component<
       currentUsername,
       dispatch,
       errorHandler,
+      filters,
       siteLang,
     } = this.props;
     event.preventDefault();
@@ -209,6 +213,7 @@ export class CollectionManagerBase extends React.Component<
           ...payload,
           collectionSlug: collection.slug,
           defaultLocale: collection.defaultLocale,
+          filters,
           username: collection.authorUsername,
         }),
       );

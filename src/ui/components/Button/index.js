@@ -27,7 +27,7 @@ export default class Button extends React.Component {
     href: PropTypes.string,
     micro: PropTypes.bool,
     puffy: PropTypes.bool,
-    to: PropTypes.string || PropTypes.object,
+    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   };
 
   static defaultProps = {

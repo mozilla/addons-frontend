@@ -213,7 +213,7 @@ describe(__filename, () => {
     // These are the expected default values for filters.
     const filters = {
       page: 1,
-      sort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+      collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
     };
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -264,8 +264,8 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const username = 'some-user';
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     renderComponent({
       errorHandler,
@@ -401,8 +401,8 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const username = 'some-user';
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     const location = fakeRouterLocation({
       pathname: `/collections/${username}/${slug}/`,
@@ -445,8 +445,8 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -488,8 +488,8 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -509,7 +509,7 @@ describe(__filename, () => {
 
     const newFilters = {
       ...filters,
-      sort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+      collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
     };
 
     // This will trigger the componentWillReceiveProps() method.
@@ -532,8 +532,8 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -594,8 +594,8 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -632,8 +632,8 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const username = 'some-username';
     const page = 2;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     const { store } = dispatchClientMetadata();
 
@@ -674,8 +674,8 @@ describe(__filename, () => {
   });
 
   it('renders a sort card', () => {
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { collectionSort };
 
     const wrapper = renderComponent({
       location: fakeRouterLocation({ query: filters }),
@@ -685,7 +685,10 @@ describe(__filename, () => {
 
     expect(wrapper.find('.Collection-sort')).toHaveLength(1);
     expect(wrapper.find('.Sort-label')).toHaveText('Sort add-ons by');
-    expect(wrapper.find('.Sort-select')).toHaveProp('defaultValue', sort);
+    expect(wrapper.find('.Sort-select')).toHaveProp(
+      'defaultValue',
+      collectionSort,
+    );
     expect(wrapper.find('.Sort-select')).toHaveProp(
       'onChange',
       wrapper.instance().onSortSelect,
@@ -706,8 +709,8 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const username = 'some-username';
     const page = 2;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     const addons = createFakeCollectionAddons();
     const detail = createFakeCollectionDetail({
@@ -1021,8 +1024,8 @@ describe(__filename, () => {
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
     const authorUserId = 11;
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
@@ -1219,8 +1222,8 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -1307,8 +1310,8 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -1355,8 +1358,8 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
     const notes = 'These are some notes.';
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const collectionSort = COLLECTION_SORT_NAME;
+    const filters = { page, collectionSort };
 
     store.dispatch(
       loadCurrentCollection({
@@ -1397,7 +1400,7 @@ describe(__filename, () => {
         const slug = 'some-slug';
         const username = 'some-username';
         const page = 2;
-        const sort = COLLECTION_SORT_NAME;
+        const collectionSort = COLLECTION_SORT_NAME;
         const clientApp = CLIENT_APP_FIREFOX;
         const lang = 'en-US';
 
@@ -1407,19 +1410,20 @@ describe(__filename, () => {
 
         const wrapper = renderComponent({
           editing,
-          location: fakeRouterLocation({ query: { page, sort } }),
+          location: fakeRouterLocation({ query: { page, collectionSort } }),
           params: { username, slug },
           router,
           store,
         });
 
-        // This emulates a user choosing an item from the sort select.
-        wrapper.instance().onSortSelect(
-          createFakeEvent({
-            preventDefault: preventDefaultSpy,
-            currentTarget: { value: sort },
-          }),
-        );
+        const select = wrapper.find('.Sort-select');
+
+        const fakeEvent = createFakeEvent({
+          preventDefault: preventDefaultSpy,
+          currentTarget: { value: collectionSort },
+        });
+
+        select.simulate('change', fakeEvent);
 
         const pathname = `/${lang}/${clientApp}/collections/${username}/${slug}/${
           editing ? 'edit/' : ''
@@ -1429,7 +1433,7 @@ describe(__filename, () => {
         sinon.assert.callCount(router.push, 1);
         sinon.assert.calledWith(router.push, {
           pathname,
-          query: { page, sort },
+          query: { page, collectionSort },
         });
       },
     );

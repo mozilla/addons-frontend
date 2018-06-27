@@ -27,6 +27,7 @@ import collectionsReducer, {
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddonsListResponse,
@@ -413,8 +414,9 @@ describe(__filename, () => {
     const _updateCollection = (params = {}) => {
       sagaTester.dispatch(
         updateCollection({
-          errorHandlerId: errorHandler.id,
           collectionSlug: 'some-collection',
+          errorHandlerId: errorHandler.id,
+          filters: { page: 1 },
           slug,
           username,
           ...params,
@@ -558,17 +560,20 @@ describe(__filename, () => {
         mockApi.expects('updateCollection').returns(Promise.resolve());
 
         const collectionSlug = 'some-collection';
+        const updateFilters = { page: 2 };
         // Update everything except the slug.
         _updateCollection({
           collectionSlug,
-          username,
+          filters: updateFilters,
           slug: undefined,
+          username,
         });
 
         const { lang, clientApp } = clientData.state.api;
-        const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${username}/${collectionSlug}/`,
-        );
+        const expectedAction = pushLocation({
+          pathname: `/${lang}/${clientApp}/collections/${username}/${collectionSlug}/`,
+          query: convertFiltersToQueryParams(updateFilters),
+        });
 
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
@@ -580,12 +585,14 @@ describe(__filename, () => {
         mockApi.expects('updateCollection').returns(Promise.resolve());
 
         const newSlug = 'new-slug';
-        _updateCollection({ username, slug: newSlug });
+        const updateFilters = { page: 2 };
+        _updateCollection({ filters: updateFilters, slug: newSlug, username });
 
         const { lang, clientApp } = clientData.state.api;
-        const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${username}/${newSlug}/`,
-        );
+        const expectedAction = pushLocation({
+          pathname: `/${lang}/${clientApp}/collections/${username}/${newSlug}/`,
+          query: convertFiltersToQueryParams(updateFilters),
+        });
 
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);

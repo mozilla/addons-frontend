@@ -1,5 +1,4 @@
 /* @flow */
-import { oneLineTrim } from 'common-tags';
 import config from 'config';
 import deepEqual from 'deep-eql';
 import invariant from 'invariant';
@@ -25,7 +24,7 @@ import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
 import {
-  COLLECTION_SORT_DATE_ADDED,
+  COLLECTION_SORT_DATE_ADDED_ASCENDING,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
   COLLECTION_SORT_POPULARITY,
@@ -68,7 +67,6 @@ export type Props = {|
   collection: CollectionType | null,
   creating: boolean,
   editing: boolean,
-  filters: CollectionFilters,
   loading: boolean,
 |};
 
@@ -78,6 +76,7 @@ type InternalProps = {|
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  filters: CollectionFilters,
   hasEditPermission: boolean,
   i18n: I18nType,
   isLoggedIn: boolean,
@@ -138,7 +137,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   };
 
-  onSortSelect = (event: SyntheticEvent<any>) => {
+  onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
     const { clientApp, editing, filters, lang, router } = this.props;
 
     event.preventDefault();
@@ -146,11 +145,12 @@ export class CollectionBase extends React.Component<InternalProps> {
     const sortValue = event.currentTarget.value;
     const newFilters = {
       ...filters,
-      sort: sortValue,
+      collectionSort: sortValue,
     };
 
-    const pathname = oneLineTrim`/${lang}/${clientApp}
-      ${editing ? this.editUrl() : this.url()}`;
+    const pathname = `/${lang}/${clientApp}${
+      editing ? this.editUrl() : this.url()
+    }`;
     router.push({
       pathname,
       query: convertFiltersToQueryParams(newFilters),
@@ -169,7 +169,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       },
       {
         label: i18n.gettext('Oldest first'),
-        value: COLLECTION_SORT_DATE_ADDED,
+        value: COLLECTION_SORT_DATE_ADDED_ASCENDING,
       },
       {
         label: i18n.gettext('Name'),
@@ -504,7 +504,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               </label>
               <Select
                 className="Sort-select"
-                defaultValue={filters.sort}
+                defaultValue={filters.collectionSort}
                 id="Sort-Select"
                 name="sort"
                 onChange={this.onSortSelect}
@@ -582,7 +582,9 @@ export const mapStateToProps = (
   const filtersFromLocation = convertQueryParamsToFilters(location.query);
   const filters = {
     page: filtersFromLocation.page || 1,
-    sort: filtersFromLocation.sort || COLLECTION_SORT_DATE_ADDED_DESCENDING,
+    collectionSort:
+      filtersFromLocation.collectionSort ||
+      COLLECTION_SORT_DATE_ADDED_DESCENDING,
   };
 
   const currentUser = getCurrentUser(state.users);

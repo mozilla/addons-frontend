@@ -35,6 +35,7 @@ import {
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type {
   CreateCollectionAddonParams,
   CreateCollectionParams,
@@ -223,8 +224,10 @@ export function* modifyCollection(
   yield put(errorHandler.createClearingAction());
 
   let collectionSlug;
+  let filters;
   if (action.type === UPDATE_COLLECTION) {
     collectionSlug = action.payload.collectionSlug;
+    filters = action.payload.filters;
   }
 
   try {
@@ -280,7 +283,12 @@ export function* modifyCollection(
       // a race condition if we mix it with deleting old collection data.
       // If we could move to an ID based URL then we won't have to redirect.
       // See https://github.com/mozilla/addons-server/issues/7529
-      yield put(pushLocation(newLocation));
+      yield put(
+        pushLocation({
+          pathname: newLocation,
+          query: convertFiltersToQueryParams(filters),
+        }),
+      );
 
       const slugWasEdited = slug && slug !== collectionSlug;
       if (!slugWasEdited) {
