@@ -1,6 +1,7 @@
 /* global InstallTrigger, window */
 import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
+import config from 'config';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -98,6 +99,7 @@ export class InstallButtonBase extends React.Component {
     userAgentInfo: PropTypes.string.isRequired,
     version: PropTypes.string,
     _InstallTrigger: PropTypes.object,
+    _config: PropTypes.object,
     _log: PropTypes.object,
     _tracking: PropTypes.object,
     _window: PropTypes.object,
@@ -108,6 +110,7 @@ export class InstallButtonBase extends React.Component {
     useButton: false,
     _InstallTrigger:
       typeof InstallTrigger !== 'undefined' ? InstallTrigger : null,
+    _config: config,
     _log: log,
     _tracking: tracking,
     _window: typeof window !== 'undefined' ? window : {},
@@ -196,9 +199,15 @@ export class InstallButtonBase extends React.Component {
       i18n,
       location,
       userAgentInfo,
+      _config,
       _log,
       _window,
     } = this.props;
+
+    if (addon.type === ADDON_TYPE_OPENSEARCH && _config.get('server')) {
+      _log.info('Not rendering opensearch add-on on the server');
+      return null;
+    }
 
     // OpenSearch plugins display their own prompt so using the "Add to
     // Firefox" button regardless on mozAddonManager support is a better UX.

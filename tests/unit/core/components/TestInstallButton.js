@@ -36,6 +36,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
+import { getFakeConfig } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
 
 describe(__filename, () => {
@@ -65,6 +66,20 @@ describe(__filename, () => {
       <InstallButton {...renderProps(props)} />,
       InstallButtonBase,
     );
+
+  const renderOpenSearch = (customProps = {}) => {
+    const props = {
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_OPENSEARCH,
+      }),
+      // Install buttons for opensearch add-ons are not rendered on
+      // the server.
+      _config: getFakeConfig({ server: false }),
+      ...customProps,
+    };
+    return render(props);
+  };
 
   const renderToDom = (customProps = {}) => {
     const props = renderProps(customProps);
@@ -285,7 +300,7 @@ describe(__filename, () => {
   it('adds defaultInstallSource to search provider buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const defaultInstallSource = 'homepage';
-    const root = render({
+    const root = renderOpenSearch({
       addon: createInternalAddon(
         createFakeAddon({
           type: ADDON_TYPE_OPENSEARCH,
@@ -323,7 +338,7 @@ describe(__filename, () => {
   });
 
   it('renders a button for OpenSearch regardless of mozAddonManager', () => {
-    const root = render({
+    const root = renderOpenSearch({
       addon: createInternalAddon({
         ...fakeAddon,
         hasAddonManager: true,
@@ -342,11 +357,7 @@ describe(__filename, () => {
   });
 
   it('disables the OpenSearch button if not compatible', () => {
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
-      }),
+    const root = renderOpenSearch({
       getClientCompatibility: getClientCompatibilityFalseOpenSearch,
     });
 
@@ -364,7 +375,7 @@ describe(__filename, () => {
     const fakeWindow = createFakeMozWindow();
     const installURL = 'https://a.m.o/files/addon.xpi';
 
-    const rootNode = render({
+    const rootNode = renderOpenSearch({
       addon: createInternalAddon(
         createFakeAddon({
           files: [{ platform: OS_ALL, url: installURL }],
@@ -381,6 +392,14 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
     sinon.assert.calledWith(fakeWindow.external.AddSearchProvider, installURL);
+  });
+
+  it('does not render open search plugins on the server', () => {
+    const rootNode = renderOpenSearch({
+      _config: getFakeConfig({ server: true }),
+    });
+
+    expect(rootNode.find('.InstallButton-button')).toHaveLength(0);
   });
 
   it('tracks install analytics when installing an extension', () => {
@@ -416,7 +435,7 @@ describe(__filename, () => {
       }),
     );
 
-    const rootNode = render({
+    const rootNode = renderOpenSearch({
       addon,
       useButton: true,
       _tracking,
