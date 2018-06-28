@@ -11,8 +11,9 @@ import {
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
+import { createApiError } from 'core/api';
+import { ErrorHandler } from 'core/errorHandler';
 import Paginate from 'core/components/Paginate';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,
@@ -22,6 +23,7 @@ import {
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -967,5 +969,32 @@ describe(__filename, () => {
         }),
       );
     });
+  });
+
+  it('does not render anything when an API error is thrown', () => {
+    const { store } = dispatchClientMetadata();
+    const authorUsernames = ['some', 'authors'];
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'not found' },
+      }),
+    );
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorUsernames,
+      errorHandler,
+      store,
+    });
+
+    expect(root.html()).toBeNull();
   });
 });

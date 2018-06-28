@@ -146,11 +146,9 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 
   getURL() {
-    const { user } = this.props;
+    const { params } = this.props;
 
-    invariant(user, 'user is required');
-
-    return `/user/${user.username}/`;
+    return `/user/${params.username}/`;
   }
 
   getEditURL() {
@@ -385,13 +383,14 @@ export class UserProfileBase extends React.Component<InternalProps> {
             ) : null}
           </Card>
 
-          {user &&
-            user.username && (
+          {params &&
+            params.username && (
               <div className="UserProfile-addons-and-reviews">
                 <AddonsByAuthorsCard
                   addonType={ADDON_TYPE_EXTENSION}
-                  authorDisplayName={user.name}
-                  authorUsernames={[user.username]}
+                  authorDisplayName={user ? user.name : params.username}
+                  authorUsernames={[params.username]}
+                  errorHandler={errorHandler}
                   numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
                   pageParam="page_e"
                   paginate
@@ -403,8 +402,9 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
                 <AddonsByAuthorsCard
                   addonType={ADDON_TYPE_THEME}
-                  authorDisplayName={user.name}
-                  authorUsernames={[user.username]}
+                  authorDisplayName={user ? user.name : params.username}
+                  authorUsernames={[params.username]}
+                  errorHandler={errorHandler}
                   numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
                   pageParam="page_t"
                   paginate
