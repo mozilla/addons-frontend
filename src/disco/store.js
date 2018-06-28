@@ -12,6 +12,7 @@ import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import discoResults from 'disco/reducers/discoResults';
 import redirectTo from 'core/reducers/redirectTo';
+import uiState from 'core/reducers/uiState';
 
 export default function createStore({
   history = browserHistory,
@@ -29,6 +30,7 @@ export default function createStore({
       infoDialog,
       redirectTo,
       routing,
+      uiState,
     }),
     initialState,
     middleware({

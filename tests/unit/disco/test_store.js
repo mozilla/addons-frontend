@@ -13,6 +13,7 @@ describe(__filename, () => {
       'installations',
       'redirectTo',
       'routing',
+      'uiState',
     ]);
   });
 });

@@ -17,6 +17,7 @@ import {
   convertOSToFilterValue,
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
+import { withUIState } from 'core/reducers/uiState';
 import translate from 'core/i18n/translate';
 import {
   autocompleteCancel,
@@ -66,6 +67,10 @@ type MappedProps = {|
   userAgentInfo: UserAgentInfoType,
 |};
 
+type UIStateType = {|
+  autocompleteIsOpen: boolean,
+|};
+
 type InternalProps = {|
   ...Props,
   ...MappedProps,
@@ -73,10 +78,11 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
 |};
 
 type State = {|
-  autocompleteIsOpen: boolean,
   searchValue: string,
 |};
 
@@ -100,6 +106,7 @@ type OnSearchChangeParams = {|
 export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   dispatchAutocompleteStart: (filters: Object) => void;
   searchInput: React.ElementRef<'input'> | null;
+  setUIStateDebounced: $PropertyType<InternalProps, 'setUIState'>;
 
   static defaultProps = {
     debounce: defaultDebounce,
@@ -134,8 +141,15 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       { trailing: true },
     );
 
+    this.setUIStateDebounced = this.props.debounce(
+      (...args) => {
+        this.props.setUIState(...args);
+      },
+      400,
+      { leading: true },
+    );
+
     this.state = {
-      autocompleteIsOpen: false,
       searchValue: props.query || '',
     };
   }
@@ -166,7 +180,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   }
 
   handleSuggestionsClearRequested = () => {
-    this.setState({ autocompleteIsOpen: false });
+    this.props.setUIState({ autocompleteIsOpen: false });
     this.props.dispatch(autocompleteCancel());
   };
 
@@ -197,7 +211,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
     const filters = this.createFiltersFromQuery(value);
 
-    this.setState({ autocompleteIsOpen: true });
+    this.setUIStateDebounced({ autocompleteIsOpen: true });
 
     this.dispatchAutocompleteStart({ filters });
   };
@@ -258,7 +272,8 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       return;
     }
 
-    this.setState({ autocompleteIsOpen: false, searchValue: '' });
+    this.props.setUIState({ autocompleteIsOpen: false });
+    this.setState({ searchValue: '' });
     this.props.onSuggestionSelected(suggestion);
   };
 
@@ -284,10 +299,11 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       inputName,
       inputPlaceholder,
       showInputLabel,
+      uiState,
     } = this.props;
 
     const autocompleteIsOpen =
-      this.state.autocompleteIsOpen &&
+      uiState.autocompleteIsOpen &&
       // This prevents the input to look like Autosuggest is open when
       // there are no results coming from the API.
       this.getSuggestions().length > 0;
@@ -378,6 +394,11 @@ export const extractId = (ownProps: Props): string => ownProps.inputName;
 
 const AutoSearchInput: React.ComponentType<Props> = compose(
   withFixedErrorHandler({ fileName: __filename, extractId }),
+  withUIState({
+    fileName: __filename,
+    extractId,
+    defaultState: ({ autocompleteIsOpen: false }: UIStateType),
+  }),
   connect(mapStateToProps),
   translate(),
 )(AutoSearchInputBase);
