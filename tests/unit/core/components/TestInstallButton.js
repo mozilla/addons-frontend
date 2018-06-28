@@ -32,11 +32,11 @@ import {
   createFakeMozWindow,
   fakeI18n,
   fakeRouterLocation,
+  getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
-import { getFakeConfig } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
 
 describe(__filename, () => {
