@@ -919,60 +919,24 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('returns a 404 if an AddonsByAuthorsCard receives a 404 API error', () => {
-    const { store } = signInUserWithUsername('black-panther');
+  it('returns a 404 when the API returns a 404', () => {
+    const { store } = dispatchSignInActions();
+
     const errorHandler = new ErrorHandler({
       id: 'some-error-handler-id',
       dispatch: store.dispatch,
     });
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'internal server error' },
+      }),
+    );
 
     const root = renderUserProfile({ errorHandler, store });
-
-    // Simulate an error thrown inside the first AddonsByAuthorsCard.
-    root
-      .find(AddonsByAuthorsCard)
-      .at(0)
-      .prop('errorHandler')
-      .handle(
-        createApiError({
-          response: { status: 404 },
-          apiURL: 'https://some/api/endpoint',
-          jsonResponse: { message: 'not found' },
-        }),
-      );
-
-    // Trigger a re-rendering.
-    root.setProps();
 
     expect(root.find(NotFound)).toHaveLength(1);
-  });
-
-  it('renders errors from an AddonsByAuthorsCard', () => {
-    const { store } = dispatchSignInActions();
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-
-    const root = renderUserProfile({ errorHandler, store });
-
-    // Simulate an error thrown inside the second AddonsByAuthorsCard.
-    root
-      .find(AddonsByAuthorsCard)
-      .at(1)
-      .prop('errorHandler')
-      .handle(
-        createApiError({
-          response: { status: 500 },
-          apiURL: 'https://some/api/endpoint',
-          jsonResponse: { message: 'internal server error' },
-        }),
-      );
-
-    // Trigger a re-rendering.
-    root.setProps();
-
-    expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   describe('errorHandler - extractId', () => {

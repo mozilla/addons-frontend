@@ -24,6 +24,7 @@ import {
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -971,7 +972,7 @@ describe(__filename, () => {
     });
   });
 
-  it('does not render anything when an API error is thrown', () => {
+  it('renders an error when an API error is thrown', () => {
     const { store } = dispatchClientMetadata();
     const authorUsernames = ['some', 'authors'];
 
@@ -979,7 +980,6 @@ describe(__filename, () => {
       id: 'some-id',
       dispatch: store.dispatch,
     });
-
     errorHandler.handle(
       createApiError({
         response: { status: 404 },
@@ -995,6 +995,6 @@ describe(__filename, () => {
       store,
     });
 
-    expect(root.html()).toBeNull();
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 });

@@ -28,7 +28,6 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
 import type {
   AddonsByAuthorsState,
   FetchAddonsByAuthorsParams,
@@ -212,8 +211,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     invariant(errorHandler, 'errorHandler is required');
 
     if (errorHandler.hasError()) {
-      log.warn('Captured API Error:', errorHandler.capturedError);
-      return null;
+      return errorHandler.renderError();
     }
 
     if (!loading && (!addons || !addons.length)) {
