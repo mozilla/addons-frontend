@@ -307,6 +307,87 @@ describe(__filename, () => {
       const calledAction = await sagaTester.waitFor(errorAction.type);
       expect(calledAction).toEqual(errorAction);
     });
+
+    // See: https://github.com/mozilla/addons-frontend/issues/5219
+    it('overrides the "announcements" notification if updated', async () => {
+      const ANNOUNCEMENTS_NOTIFICATION = 'announcements';
+
+      const state = sagaTester.getState();
+
+      const username = 'babar';
+      const user = createUserAccountResponse({ id: 5001, username });
+
+      // Set the "announcements" notification to false by default.
+      const currentNotifications = createUserNotificationsResponse().map(
+        (notification) => {
+          if (notification.name !== ANNOUNCEMENTS_NOTIFICATION) {
+            return notification;
+          }
+
+          return {
+            ...notification,
+            enabled: false,
+          };
+        },
+      );
+
+      const updatedNotifications = {
+        [ANNOUNCEMENTS_NOTIFICATION]: false,
+      };
+
+      mockApi
+        .expects('updateUserAccount')
+        .withArgs({
+          api: state.api,
+          picture: null,
+          userId: user.id,
+        })
+        .once()
+        .returns(Promise.resolve(user));
+
+      mockApi
+        .expects('updateUserNotifications')
+        .withArgs({
+          api: state.api,
+          notifications: updatedNotifications,
+          userId: user.id,
+        })
+        .once()
+        // The API returns the currentNotifications because the Basket
+        // synchronization takes time.
+        .returns(Promise.resolve(currentNotifications));
+
+      sagaTester.dispatch(
+        updateUserAccount({
+          errorHandlerId: errorHandler.id,
+          notifications: updatedNotifications,
+          picture: null,
+          userFields: {},
+          userId: user.id,
+        }),
+      );
+
+      const newNotifications = currentNotifications.map((notification) => {
+        if (notification.name !== ANNOUNCEMENTS_NOTIFICATION) {
+          return notification;
+        }
+
+        return {
+          ...notification,
+          enabled: updatedNotifications[ANNOUNCEMENTS_NOTIFICATION],
+        };
+      });
+
+      const expectedCalledAction = loadUserNotifications({
+        notifications: newNotifications,
+        username,
+      });
+
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
+
+      expect(calledAction).toEqual(expectedCalledAction);
+      mockApi.verify();
+    });
   });
 
   describe('deleteUserPicture', () => {
