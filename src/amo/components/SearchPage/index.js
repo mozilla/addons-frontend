@@ -18,19 +18,24 @@ import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
+import type { FiltersType } from 'core/reducers/search';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 
 type Props = {|
+  location: ReactRouterLocation,
+|};
+
+type InternalProps = {|
+  ...Props,
   clientApp: string,
   dispatch: DispatchFunc,
-  filters: Object,
+  filters: FiltersType,
   lang: string,
-  location: ReactRouterLocation,
   pathname: string,
 |};
 
-export class SearchPageBase extends React.Component<Props> {
+export class SearchPageBase extends React.Component<InternalProps> {
   componentWillMount() {
     const { clientApp, filters, lang, location } = this.props;
 
@@ -92,11 +97,10 @@ export class SearchPageBase extends React.Component<Props> {
   }
 
   render() {
-    const { filters, pathname, ...otherProps } = this.props;
+    const { filters, pathname } = this.props;
 
     return (
       <Search
-        {...otherProps}
         enableSearchFilters
         filters={filters}
         paginationQueryParams={convertFiltersToQueryParams(filters)}
@@ -106,7 +110,7 @@ export class SearchPageBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(state: any, ownProps: Props) {
+export function mapStateToProps(state: any, ownProps: InternalProps) {
   const { location } = ownProps;
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);

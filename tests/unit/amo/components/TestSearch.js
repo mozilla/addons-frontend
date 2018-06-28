@@ -10,7 +10,6 @@ import Search, {
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { setViewContext } from 'amo/actions/viewContext';
-import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
@@ -23,7 +22,7 @@ import {
 } from 'core/constants';
 import { createApiError } from 'core/api/index';
 import { ErrorHandler } from 'core/errorHandler';
-import { resetSearch } from 'core/reducers/search';
+import { resetSearch, searchStart } from 'core/reducers/search';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
@@ -63,17 +62,9 @@ describe(__filename, () => {
     expect(results.prop('count')).toEqual(props.count);
     expect(results.prop('filters')).toEqual(props.filters);
     expect(results.prop('loading')).toEqual(props.loading);
-    expect(results.prop('pathname')).toEqual(props.pathname);
     expect(results.prop('results')).toEqual(props.results);
     expect(Object.keys(results.props()).sort()).toEqual(
-      [
-        'count',
-        'filters',
-        'loading',
-        'paginator',
-        'pathname',
-        'results',
-      ].sort(),
+      ['count', 'filters', 'loading', 'paginator', 'results'].sort(),
     );
   });
 
