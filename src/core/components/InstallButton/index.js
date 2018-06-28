@@ -205,7 +205,7 @@ export class InstallButtonBase extends React.Component {
     } = this.props;
 
     if (addon.type === ADDON_TYPE_OPENSEARCH && _config.get('server')) {
-      _log.info('Not rendering opensearch add-on on the server');
+      _log.info('Not rendering opensearch install button on the server');
       return null;
     }
 
