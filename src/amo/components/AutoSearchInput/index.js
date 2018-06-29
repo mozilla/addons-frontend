@@ -154,10 +154,8 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     let filtersFromLocation = {};
     if (location) {
       filtersFromLocation = convertQueryParamsToFilters(location.query);
-      // Do not preserve page or collection_sort.
-      // New searches should always start on page 1 and collection_sort is irrelevant.
+      // Do not preserve page. New searches should always start on page 1.
       delete filtersFromLocation.page;
-      delete filtersFromLocation.collection_sort;
     }
 
     return {

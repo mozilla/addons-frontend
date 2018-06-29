@@ -2,7 +2,6 @@
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 
-import type { CollectionAddonsSortType } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type { CollectionAddonType, ExternalAddonType } from 'core/types/addons';
 import type { LocalizedString } from 'core/types/api';
@@ -49,7 +48,7 @@ export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES' =
 
 export type CollectionFilters = {|
   page: number,
-  collectionSort?: CollectionAddonsSortType,
+  collectionSort: string,
 |};
 
 export type CollectionType = {

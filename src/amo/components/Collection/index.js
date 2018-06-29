@@ -36,11 +36,6 @@ import {
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import {
-  convertFiltersToQueryParams,
-  convertQueryParamsToFilters,
-} from 'core/searchUtils';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
@@ -116,6 +111,13 @@ export class CollectionBase extends React.Component<InternalProps> {
     this.loadDataIfNeeded(nextProps);
   }
 
+  convertFiltersToQueryParams(filters: CollectionFilters) {
+    return {
+      page: filters.page,
+      collection_sort: filters.collectionSort,
+    };
+  }
+
   onDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
@@ -151,7 +153,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     }`;
     router.push({
       pathname,
-      query: convertFiltersToQueryParams(newFilters),
+      query: this.convertFiltersToQueryParams(newFilters),
     });
   };
 
@@ -268,7 +270,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       // https://github.com/mozilla/addons-frontend/issues/4293
       props.to = {
         pathname: this.editUrl(),
-        query: convertFiltersToQueryParams(filters),
+        query: this.convertFiltersToQueryParams(filters),
       };
     } else {
       props.href = this.editUrl();
@@ -471,7 +473,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           count={collection.numberOfAddons}
           currentPage={filters.page}
           pathname={editing ? this.editUrl() : this.url()}
-          queryParams={convertFiltersToQueryParams(filters)}
+          queryParams={this.convertFiltersToQueryParams(filters)}
         />
       ) : null;
 
@@ -575,12 +577,10 @@ export const mapStateToProps = (
   const { loading } = state.collections.current;
   const { location } = ownProps;
 
-  const filtersFromLocation = convertQueryParamsToFilters(location.query);
   const filters = {
-    page: filtersFromLocation.page || 1,
+    page: location.query.page || 1,
     collectionSort:
-      filtersFromLocation.collectionSort ||
-      COLLECTION_SORT_DATE_ADDED_DESCENDING,
+      location.query.collection_sort || COLLECTION_SORT_DATE_ADDED_DESCENDING,
   };
 
   const currentUser = getCurrentUser(state.users);

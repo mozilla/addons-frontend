@@ -19,7 +19,6 @@ export const paramsToFilter = {
   appversion: 'compatibleWithVersion',
   author: 'author',
   category: 'category',
-  collection_sort: 'collectionSort',
   exclude_addons: 'exclude_addons',
   featured: 'featured',
   page: 'page',
