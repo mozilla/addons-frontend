@@ -30,6 +30,7 @@ export const setUIState = ({
 }: SetUIStateParams): SetUIStateAction => {
   invariant(change, 'change cannot be undefined');
   invariant(id, 'id cannot be undefined');
+  // TODO: maybe we need setInitialUIState() that resets the object rather than changing it.
   // TODO: maybe disallow and value of `change` to be an object?
   // I'm thinking of nested objects which redux may not be able to
   // handle in mapStateToProps
@@ -63,30 +64,39 @@ export const withUIState = ({
   invariant(extractId, 'extractId is required');
   invariant(defaultState, 'defaultState is required');
 
+  const mapStateToProps = (
+    state: {| uiState: UIStateType |},
+    props: Object,
+  ) => {
+    const id = generateId({ fileName, id: extractId(props) });
+    const uiState = state.uiState[id] || defaultState;
+    return {
+      _setUIStateAction: (change: Object) => setUIState({ id, change }),
+      uiState,
+    };
+  };
+
+  const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    const { dispatch } = dispatchProps;
+    return {
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      setUIState: (change: Object) => {
+        dispatch(stateProps._setUIStateAction(change));
+      },
+      // This is just for testing; Enzyme's shallow()
+      // does not trigger lifecycle methods which means it won't
+      // trigger Redux mapper functions.
+      // https://github.com/airbnb/enzyme/issues/1221
+      simulateUIStateProps: ({ store }: {| store: Object |}) => {
+        const stateProps = mapStateToProps(store.getState(), ownProps);
+        return mergeProps(stateProps, { dispatch: store.dispatch }, ownProps);
+      },
+    };
+  };
+
   return (WrappedComponent) => {
-    const mapStateToProps = (
-      state: {| uiState: UIStateType |},
-      props: Object,
-    ) => {
-      const id = generateId({ fileName, id: extractId(props) });
-      return {
-        _setUIStateAction: (change: Object) => setUIState({ id, change }),
-        uiState: state.uiState[id] || defaultState,
-      };
-    };
-
-    const mergeProps = (stateProps, dispatchProps, ownProps) => {
-      const { dispatch } = dispatchProps;
-      return {
-        ...ownProps,
-        ...stateProps,
-        ...dispatchProps,
-        setUIState: (change: Object) => {
-          dispatch(stateProps._setUIStateAction(change));
-        },
-      };
-    };
-
     return compose(
       connect(
         mapStateToProps,
