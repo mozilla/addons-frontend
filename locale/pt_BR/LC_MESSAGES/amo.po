@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-27 13:49+0000\n"
+"PO-Revision-Date: 2018-06-29 16:28+0000\n"
 "Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1584,9 +1584,8 @@ msgid "No theme preview available"
 msgstr "Nenhuma visualização de tema disponível"
 
 #: src/amo/components/SearchResult/index.js:144
-#, fuzzy
 msgid "Add-on note"
-msgstr "Ícone da extensão"
+msgstr "Nota da extensão"
 
 #: src/amo/components/SearchResult/index.js:162
 msgid "%(total)s user"
