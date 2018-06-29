@@ -133,6 +133,7 @@ describe(__filename, () => {
         query: 'Cool things',
         author: 'johndoe',
         tag: 'firefox57',
+        collectionSort: 'name',
       });
 
       expect(queryParams).toEqual({
@@ -142,6 +143,7 @@ describe(__filename, () => {
         type: ADDON_TYPE_THEME,
         author: 'johndoe',
         tag: 'firefox57',
+        collection_sort: 'name',
       });
     });
   });
@@ -154,6 +156,7 @@ describe(__filename, () => {
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
         tag: 'firefox57',
+        collection_sort: 'name',
       });
 
       expect(filters).toEqual({
@@ -162,6 +165,7 @@ describe(__filename, () => {
         page: 4,
         query: 'Cool things',
         tag: 'firefox57',
+        collectionSort: 'name',
       });
     });
   });

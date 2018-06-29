@@ -140,12 +140,10 @@ export class CollectionBase extends React.Component<InternalProps> {
   onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
     const { clientApp, editing, filters, lang, router } = this.props;
 
-    event.preventDefault();
-
-    const sortValue = event.currentTarget.value;
+    const collectionSort = event.currentTarget.value;
     const newFilters = {
       ...filters,
-      collectionSort: sortValue,
+      collectionSort,
     };
 
     const pathname = `/${lang}/${clientApp}${
@@ -155,8 +153,6 @@ export class CollectionBase extends React.Component<InternalProps> {
       pathname,
       query: convertFiltersToQueryParams(newFilters),
     });
-
-    return false;
   };
 
   sortOptions() {
@@ -505,7 +501,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               <Select
                 className="Sort-select"
                 defaultValue={filters.collectionSort}
-                id="Sort-Select"
+                id="Sort-select"
                 name="sort"
                 onChange={this.onSortSelect}
               >

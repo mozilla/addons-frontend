@@ -273,6 +273,28 @@ describe(__filename, () => {
       );
     });
 
+    it('fetches suggestions without a collection_sort', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.stub(store, 'dispatch');
+      const root = render({
+        store,
+        location: fakeRouterLocation({ query: { collection_sort: 'name' } }),
+      });
+
+      fetchSuggestions({ root, query: 'ad blocker' });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: sinon.match(
+            // Make sure the search is executed without a collection_sort parameter.
+            (filters) => typeof filters.collection_sort === 'undefined',
+          ),
+        }),
+      );
+    });
+
     it('preserves existing search filters on the query string', () => {
       const { store } = dispatchClientMetadata();
       const dispatch = sinon.spy(store, 'dispatch');
