@@ -26,7 +26,7 @@ import {
   removeAddonFromCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
-import { createApiError } from 'core/api/index';
+import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import {
   CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
@@ -100,6 +100,7 @@ describe(__filename, () => {
           ...defaultCollectionDetail,
           description: 'Apples &amp; carrots',
         },
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
     const wrapper = renderComponent({ store });
@@ -138,6 +139,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: [],
         detail: collectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -177,6 +179,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -194,6 +197,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: [],
         detail: collectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -239,6 +243,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -295,6 +300,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -315,6 +321,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -395,6 +402,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -451,6 +459,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -490,6 +499,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -533,6 +543,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -569,6 +580,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: createFakeCollectionDetail({ authorUsername: username }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -594,6 +606,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -640,6 +653,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -651,6 +665,37 @@ describe(__filename, () => {
 
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveProp('editing', false);
+  });
+
+  it('renders a collection with pagination', () => {
+    const slug = 'some-slug';
+    const username = 'some-username';
+    const page = 2;
+    const sort = COLLECTION_SORT_NAME;
+    const filters = { page, sort };
+
+    const { store } = dispatchClientMetadata();
+
+    const detail = createFakeCollectionDetail({
+      authorUsername: username,
+      count: 10,
+      slug,
+    });
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail,
+        // With a pageSize < count, the pagination will be displayed.
+        pageSize: 5,
+      }),
+    );
+
+    const wrapper = renderComponent({
+      location: fakeRouterLocation({ query: filters }),
+      params: { username, slug },
+      store,
+    });
 
     const footer = wrapper.find(AddonsCard).prop('footer');
     const paginator = shallow(footer);
@@ -753,7 +798,16 @@ describe(__filename, () => {
       slug,
     });
 
-    store.dispatch(loadCurrentCollection({ addons, detail }));
+    // With a pageSize < count, the pagination will be displayed.
+    const pageSize = 5;
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail,
+        pageSize,
+      }),
+    );
 
     const wrapper = renderComponent({
       editing: true,
@@ -775,7 +829,11 @@ describe(__filename, () => {
     expect(wrapper.find(CollectionManager)).toHaveLength(1);
     expect(wrapper.find(CollectionManager)).toHaveProp(
       'collection',
-      createInternalCollection({ items: addons, detail }),
+      createInternalCollection({
+        items: addons,
+        detail,
+        pageSize,
+      }),
     );
     expect(wrapper.find(CollectionManager)).toHaveProp('creating', false);
     expect(wrapper.find(CollectionManager)).toHaveProp('filters', {
@@ -827,6 +885,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -846,6 +905,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -925,6 +985,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: defaultCollectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -954,6 +1015,7 @@ describe(__filename, () => {
           authorUsername: username,
           slug,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1000,6 +1062,7 @@ describe(__filename, () => {
           authorUsername: username,
           slug,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1042,6 +1105,7 @@ describe(__filename, () => {
         detail: createFakeCollectionDetail({
           authorId: authorUserId,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1069,6 +1133,7 @@ describe(__filename, () => {
         detail: createFakeCollectionDetail({
           authorId: authorUserId,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1098,6 +1163,7 @@ describe(__filename, () => {
         detail: createFakeCollectionDetail({
           authorId: authorUserId,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1132,6 +1198,7 @@ describe(__filename, () => {
         detail: createFakeCollectionDetail({
           authorId: authorUserId,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1149,6 +1216,7 @@ describe(__filename, () => {
         detail: createFakeCollectionDetail({
           authorId: 99,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1167,6 +1235,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1187,6 +1256,7 @@ describe(__filename, () => {
         detail: createFakeCollectionDetail({
           authorId: authorUserId,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1262,6 +1332,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons,
         detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1304,6 +1375,7 @@ describe(__filename, () => {
           authorUsername: username,
           slug,
         }),
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1349,6 +1421,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons,
         detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
     const root = renderComponent({
@@ -1396,6 +1469,7 @@ describe(__filename, () => {
       loadCurrentCollection({
         addons,
         detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
     const root = renderComponent({

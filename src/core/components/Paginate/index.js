@@ -3,7 +3,6 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import PaginatorLink from 'core/components/PaginatorLink';
 import translate from 'core/i18n/translate';
 import type { I18nType } from 'core/types/i18n';
@@ -16,7 +15,7 @@ type Props = {|
   currentPage?: string | number,
   pageParam?: string,
   pathname?: string,
-  perPage?: number,
+  perPage: number,
   queryParams?: Object,
   showPages?: number,
 |};
@@ -43,7 +42,6 @@ function makePageNumbers({
 export class PaginateBase extends React.Component<InternalProps> {
   static defaultProps = {
     pageParam: 'page',
-    perPage: DEFAULT_API_PAGE_SIZE,
     showPages: 7,
   };
 

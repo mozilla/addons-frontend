@@ -110,16 +110,17 @@ describe(__filename, () => {
 
   describe('setAddonReviews', () => {
     const defaultParams = {
-      reviews: [fakeReview],
-      reviewCount: 1,
       addonSlug: fakeAddon.slug,
+      pageSize: 123,
+      reviewCount: 1,
+      reviews: [fakeReview],
     };
 
     it('requires an addonSlug', () => {
       const params = { ...defaultParams };
       delete params.addonSlug;
       expect(() => setAddonReviews(params)).toThrowError(
-        /addonSlug cannot be empty/,
+        /addonSlug is required/,
       );
     });
 
@@ -127,7 +128,7 @@ describe(__filename, () => {
       const params = { ...defaultParams };
       delete params.reviews;
       expect(() => setAddonReviews(params)).toThrowError(
-        /reviews must be an Array/,
+        /reviews is required and must be an array/,
       );
     });
 
@@ -135,7 +136,7 @@ describe(__filename, () => {
       const params = { ...defaultParams };
       delete params.reviewCount;
       expect(() => setAddonReviews(params)).toThrowError(
-        /reviewCount must be set/,
+        /reviewCount is required/,
       );
     });
   });

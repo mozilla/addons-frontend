@@ -8,7 +8,7 @@ import {
   setAuthToken,
   setUserAgent,
 } from 'core/actions';
-import { addon as addonSchema } from 'core/api';
+import { DEFAULT_API_PAGE_SIZE, addon as addonSchema } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -398,6 +398,7 @@ export const createFakeCollectionAddonsListResponse = ({
 } = {}) => {
   return {
     count: addons.length,
+    page_size: DEFAULT_API_PAGE_SIZE,
     results: createFakeCollectionAddons({ addons }),
   };
 };

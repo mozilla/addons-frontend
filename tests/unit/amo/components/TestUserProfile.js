@@ -94,6 +94,7 @@ describe(__filename, () => {
   }) {
     store.dispatch(
       setUserReviews({
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviewCount: count === null ? reviews.length : count,
         reviews,
         userId,

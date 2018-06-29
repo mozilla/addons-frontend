@@ -21,6 +21,7 @@ import reviewsReducer, {
   initialState,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
@@ -282,6 +283,7 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 3 };
       const action = setAddonReviews({
         addonSlug: fakeAddon.slug,
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviews: [review1, review2],
         reviewCount: 2,
       });
@@ -304,6 +306,7 @@ describe(__filename, () => {
         state,
         setAddonReviews({
           addonSlug: addon1.slug,
+          pageSize: DEFAULT_API_PAGE_SIZE,
           reviews: [review1],
           reviewCount: 1,
         }),
@@ -312,6 +315,7 @@ describe(__filename, () => {
         state,
         setAddonReviews({
           addonSlug: addon2.slug,
+          pageSize: DEFAULT_API_PAGE_SIZE,
           reviews: [review2, review3],
           reviewCount: 2,
         }),
@@ -327,6 +331,7 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 3 };
       const action = setAddonReviews({
         addonSlug: fakeAddon.slug,
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviews: [review1, review2],
         reviewCount: 2,
       });
@@ -340,6 +345,7 @@ describe(__filename, () => {
         undefined,
         setAddonReviews({
           addonSlug: 'slug1',
+          pageSize: DEFAULT_API_PAGE_SIZE,
           reviews: [fakeReview],
           reviewCount: 1,
         }),
@@ -348,6 +354,7 @@ describe(__filename, () => {
         state,
         setAddonReviews({
           addonSlug: 'slug2',
+          pageSize: DEFAULT_API_PAGE_SIZE,
           reviews: [fakeReview, fakeReview],
           reviewCount: 2,
         }),
@@ -364,6 +371,7 @@ describe(__filename, () => {
 
       const action = setAddonReviews({
         addonSlug,
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviews: [fakeReview],
         reviewCount: 1,
       });
@@ -381,6 +389,7 @@ describe(__filename, () => {
       const review = { ...fakeReview, id: 1 };
       const action = setAddonReviews({
         addonSlug: firstSlug,
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviews: [review],
         reviewCount: 1,
       });
@@ -403,6 +412,7 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 2 };
       const action = setAddonReviews({
         addonSlug: fakeAddon.slug,
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviews: [review1, review2],
         reviewCount: 2,
       });
@@ -710,6 +720,7 @@ describe(__filename, () => {
       const state = reviewsReducer(
         undefined,
         setUserReviews({
+          pageSize: DEFAULT_API_PAGE_SIZE,
           reviews: [review1, review2],
           reviewCount: 2,
           userId,
@@ -725,6 +736,7 @@ describe(__filename, () => {
       const review2 = { ...fakeReview, id: 3 };
 
       const action = setUserReviews({
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviewCount: 2,
         reviews: [review1, review2],
         userId,
@@ -742,6 +754,7 @@ describe(__filename, () => {
       const state = reviewsReducer(
         undefined,
         setUserReviews({
+          pageSize: DEFAULT_API_PAGE_SIZE,
           reviewCount: 1,
           reviews: [fakeReview],
           userId,
@@ -762,10 +775,12 @@ describe(__filename, () => {
     it('returns an object with reviews and reviewCount', () => {
       const userId = 123;
       const reviews = [fakeReview];
+      const pageSize = 10;
 
       const state = reviewsReducer(
         undefined,
         setUserReviews({
+          pageSize,
           userId,
           reviewCount: reviews.length,
           reviews,
@@ -773,6 +788,7 @@ describe(__filename, () => {
       );
 
       expect(getReviewsByUserId(state, userId)).toEqual({
+        pageSize,
         reviewCount: reviews.length,
         reviews: reviews.map(denormalizeReview),
       });
