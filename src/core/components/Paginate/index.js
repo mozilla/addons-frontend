@@ -1,14 +1,38 @@
+/* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import PaginatorLink from 'core/components/PaginatorLink';
 import translate from 'core/i18n/translate';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-function makePageNumbers({ start, end }) {
+type Props = {|
+  LinkComponent: React.Node,
+  count: number,
+  currentPage?: string | number,
+  pageParam?: string,
+  pathname?: string,
+  perPage?: number,
+  queryParams?: Object,
+  showPages?: number,
+|};
+
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
+
+function makePageNumbers({
+  start,
+  end,
+}: {|
+  start: number,
+  end: number,
+|}): Array<number> {
   const pages = [];
   for (let i = start; i <= end; i++) {
     pages.push(i);
@@ -16,19 +40,7 @@ function makePageNumbers({ start, end }) {
   return pages;
 }
 
-export class PaginateBase extends React.Component {
-  static propTypes = {
-    LinkComponent: PropTypes.func,
-    count: PropTypes.number.isRequired,
-    currentPage: PropTypes.number,
-    i18n: PropTypes.object.isRequired,
-    pageParam: PropTypes.string,
-    pathname: PropTypes.string.isRequired,
-    perPage: PropTypes.number,
-    queryParams: PropTypes.object,
-    showPages: PropTypes.number,
-  };
-
+export class PaginateBase extends React.Component<InternalProps> {
   static defaultProps = {
     pageParam: 'page',
     perPage: DEFAULT_API_PAGE_SIZE,
@@ -43,13 +55,17 @@ export class PaginateBase extends React.Component {
 
   pageCount() {
     const { count, perPage } = this.props;
+
+    invariant(typeof perPage === 'number', 'perPage is required');
+
     if (perPage <= 0) {
       throw new TypeError(`A perPage value of ${perPage} is not allowed`);
     }
+
     return Math.ceil(count / perPage);
   }
 
-  visiblePages({ pageCount }) {
+  visiblePages({ pageCount }: {| pageCount: number |}) {
     const { showPages } = this.props;
     if (!showPages) {
       return [];
@@ -120,6 +136,7 @@ export class PaginateBase extends React.Component {
             pageParam={pageParam}
             text={i18n.gettext('Previous')}
           />
+
           {this.visiblePages({ pageCount }).map((page) => (
             <PaginatorLink
               {...linkParams}
@@ -128,6 +145,7 @@ export class PaginateBase extends React.Component {
               pageParam={pageParam}
             />
           ))}
+
           <PaginatorLink
             {...linkParams}
             className="Paginate-item--next"
@@ -136,6 +154,7 @@ export class PaginateBase extends React.Component {
             text={i18n.gettext('Next')}
           />
         </div>
+
         <div className="Paginate-page-number">
           {i18n.sprintf(
             i18n.gettext('Page %(currentPage)s of %(totalPages)s'),
@@ -147,4 +166,8 @@ export class PaginateBase extends React.Component {
   }
 }
 
-export default compose(translate({ withRef: true }))(PaginateBase);
+const Paginate: React.ComponentType<Props> = compose(
+  translate({ withRef: true }),
+)(PaginateBase);
+
+export default Paginate;

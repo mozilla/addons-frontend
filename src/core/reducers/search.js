@@ -1,28 +1,123 @@
-import { SEARCH_STARTED, SEARCH_LOADED } from 'core/constants';
+/* @flow */
+import invariant from 'invariant';
+
 import { createInternalAddon } from 'core/reducers/addons';
+import type {
+  AddonType,
+  CollectionAddonType,
+  ExternalAddonType,
+} from 'core/types/addons';
 
-const SEARCH_ABORTED = 'SEARCH_ABORTED';
-const SEARCH_RESET = 'SEARCH_RESET';
+export const SEARCH_STARTED: 'SEARCH_STARTED' = 'SEARCH_STARTED';
+export const SEARCH_LOADED: 'SEARCH_LOADED' = 'SEARCH_LOADED';
 
-export const initialState = {
+const SEARCH_ABORTED: 'SEARCH_ABORTED' = 'SEARCH_ABORTED';
+const SEARCH_RESET: 'SEARCH_RESET' = 'SEARCH_RESET';
+
+export type FiltersType = {|
+  addonType?: string,
+  featured?: boolean,
+  operatingSystem?: string,
+  page?: number,
+  query?: Object,
+  sort?: string,
+|};
+
+export type SearchType = {|
+  count: number,
+  filters: FiltersType | {},
+  loading: boolean,
+  results: Array<AddonType | CollectionAddonType>,
+|};
+
+export const initialState: SearchType = {
   count: 0,
   filters: {},
   loading: false,
   results: [],
 };
 
-export const abortSearch = () => {
+type AbortSearchAction = {|
+  type: typeof SEARCH_ABORTED,
+|};
+
+export const abortSearch = (): AbortSearchAction => {
   return { type: SEARCH_ABORTED };
 };
 
-export const resetSearch = () => {
+type ResetSearchAction = {|
+  type: typeof SEARCH_RESET,
+|};
+
+export const resetSearch = (): ResetSearchAction => {
   return { type: SEARCH_RESET };
 };
 
-export default function search(state = initialState, action) {
-  const { payload } = action;
+type SearchStartParams = {|
+  errorHandlerId: string,
+  filters: FiltersType,
+|};
+
+type SearchStartAction = {|
+  type: typeof SEARCH_STARTED,
+  payload: SearchStartParams,
+|};
+
+export function searchStart({
+  errorHandlerId,
+  filters,
+}: SearchStartParams): SearchStartAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(filters, 'filters are required');
+
+  return {
+    type: SEARCH_STARTED,
+    payload: { errorHandlerId, filters },
+  };
+}
+
+type SearchLoadParams = {|
+  entities: {|
+    addons: { [slug: string]: ExternalAddonType },
+  |},
+  result: {|
+    count: number,
+    results: Array<string>,
+  |},
+|};
+
+type SearchLoadAction = {|
+  type: typeof SEARCH_LOADED,
+  payload: SearchLoadParams,
+|};
+
+export function searchLoad({
+  entities,
+  result,
+}: SearchLoadParams): SearchLoadAction {
+  invariant(entities, 'entities are required');
+  invariant(result, 'result is required');
+
+  return {
+    type: SEARCH_LOADED,
+    payload: { entities, result },
+  };
+}
+
+type Action =
+  | AbortSearchAction
+  | ResetSearchAction
+  | SearchStartAction
+  | SearchLoadAction;
+
+export default function search(
+  state: SearchType = initialState,
+  action: Action,
+): SearchType {
   switch (action.type) {
-    case SEARCH_STARTED:
+    case SEARCH_STARTED: {
+      const { payload } = action;
+
       return {
         ...state,
         count: 0,
@@ -30,7 +125,10 @@ export default function search(state = initialState, action) {
         results: [],
         loading: true,
       };
-    case SEARCH_LOADED:
+    }
+    case SEARCH_LOADED: {
+      const { payload } = action;
+
       return {
         ...state,
         count: payload.result.count,
@@ -39,6 +137,7 @@ export default function search(state = initialState, action) {
           createInternalAddon(payload.entities.addons[slug]),
         ),
       };
+    }
     case SEARCH_ABORTED:
       return {
         ...state,

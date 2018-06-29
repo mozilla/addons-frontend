@@ -3,7 +3,7 @@ import * as React from 'react';
 import SearchContextCard, {
   SearchContextCardBase,
 } from 'amo/components/SearchContextCard';
-import { searchStart } from 'core/actions/search';
+import { searchStart } from 'core/reducers/search';
 import {
   dispatchClientMetadata,
   dispatchSearchResults,
@@ -17,7 +17,7 @@ import {
   ADDON_TYPE_THEME,
 } from 'core/constants';
 
-describe('SearchContextCard', () => {
+describe(__filename, () => {
   let _store;
 
   function render(customProps = {}) {

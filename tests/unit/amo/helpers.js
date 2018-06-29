@@ -17,7 +17,7 @@ import {
   ENABLED,
   OS_ALL,
 } from 'core/constants';
-import { searchLoad, searchStart } from 'core/actions/search';
+import { searchLoad, searchStart } from 'core/reducers/search';
 import {
   autocompleteLoad,
   autocompleteStart,

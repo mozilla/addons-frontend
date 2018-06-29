@@ -1,9 +1,10 @@
-import { searchLoad, searchStart } from 'core/actions/search';
 import { createInternalAddon } from 'core/reducers/addons';
 import search, {
   abortSearch,
   initialState,
   resetSearch,
+  searchLoad,
+  searchStart,
 } from 'core/reducers/search';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 

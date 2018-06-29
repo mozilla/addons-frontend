@@ -1,5 +1,5 @@
+/* @flow */
 import deepEqual from 'deep-eql';
-import PropTypes from 'prop-types';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -11,8 +11,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
-import { searchStart } from 'core/actions/search';
-import { resetSearch } from 'core/reducers/search';
+import { resetSearch, searchStart } from 'core/reducers/search';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
@@ -29,26 +28,36 @@ import {
   convertFiltersToQueryParams,
   hasSearchFilters,
 } from 'core/searchUtils';
+import type { ViewContextType } from 'amo/reducers/viewContext';
+import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
+import type { SearchType, FiltersType } from 'core/reducers/search';
+import type { AddonType, CollectionAddonType } from 'core/types/addons';
+import type { DispatchFunc } from 'core/types/redux';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-export class SearchBase extends React.Component {
-  static propTypes = {
-    LinkComponent: PropTypes.node,
-    context: PropTypes.string.isRequired,
-    count: PropTypes.number,
-    dispatch: PropTypes.func.isRequired,
-    enableSearchFilters: PropTypes.bool,
-    errorHandler: PropTypes.object.isRequired,
-    filters: PropTypes.object,
-    filtersUsedForResults: PropTypes.object,
-    i18n: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired,
-    paginationQueryParams: PropTypes.object,
-    pathname: PropTypes.string,
-    results: PropTypes.array,
-  };
+type Props = {|
+  LinkComponent?: React.Node,
+  enableSearchFilters?: boolean,
+  filters: FiltersType,
+  paginationQueryParams?: Object,
+  pathname?: string,
+|};
 
+type InternalProps = {|
+  ...Props,
+  context: string,
+  count: number,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  filtersUsedForResults: Object,
+  i18n: I18nType,
+  loading: boolean,
+  results: Array<AddonType | CollectionAddonType>,
+|};
+
+export class SearchBase extends React.Component<InternalProps> {
   static defaultProps = {
     LinkComponent: Link,
     count: 0,
@@ -67,14 +76,17 @@ export class SearchBase extends React.Component {
     });
   }
 
-  componentWillReceiveProps({ filters }) {
+  componentWillReceiveProps({ filters }: InternalProps) {
     this.dispatchSearch({
       newFilters: filters,
       oldFilters: this.props.filters,
     });
   }
 
-  dispatchSearch({ newFilters = {}, oldFilters = {} } = {}) {
+  dispatchSearch({
+    newFilters = {},
+    oldFilters = {},
+  }: {| newFilters: FiltersType, oldFilters: FiltersType |} = {}) {
     const { context, dispatch, errorHandler } = this.props;
     const { addonType } = newFilters;
 
@@ -229,7 +241,6 @@ export class SearchBase extends React.Component {
           count={count}
           filters={filters}
           loading={loading}
-          pathname={pathname}
           paginator={paginator}
           results={results}
         />
@@ -238,7 +249,10 @@ export class SearchBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state: {|
+  search: SearchType,
+  viewContext: ViewContextType,
+|}) {
   return {
     context: state.viewContext.context,
     count: state.search.count,
@@ -250,12 +264,14 @@ export function mapStateToProps(state) {
 
 // This ID does not need to differentiate between component instances because
 // the error handler gets cleared every time the search filters change.
-export const extractId = (ownProps) => {
+export const extractId = (ownProps: InternalProps) => {
   return ownProps.filters.page;
 };
 
-export default compose(
+const Search: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(SearchBase);
+
+export default Search;
