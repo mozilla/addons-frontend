@@ -49,7 +49,7 @@ Here are some commands you can run:
 | yarn lint                   | Run all the JS + SCSS linters                                                                              |
 | yarn nsp-check              | Run [nsp][] to detect dependencies with known vulnerabilities                                              |
 | yarn prettier               | Run [Prettier][] to automatically format the entire codebase                                               |
-| yarn prettier-dev           | Run [Pretty-Quick][] to automatically format only staged files in Git                                      |
+| yarn prettier-dev           | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch   |
 | yarn prettier-ci            | Run [Prettier][] and fail if some code has been changed without being formatted                            |
 | yarn version-check          | Check you have the required dependencies                                                                   |
 | yarn test                   | Run all tests (Enters [jest][] in `--watch` mode)                                                          |
