@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
+import { withUIState } from 'core/reducers/uiState';
 import { nl2br, sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
@@ -31,30 +32,32 @@ type Props = {|
   saveNote: SaveAddonNoteFunc,
 |};
 
+type UIStateType = {|
+  editingNote: boolean,
+|};
+
 type InternalProps = {|
   ...Props,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-|};
-
-type State = {|
-  editingNote: boolean,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
 |};
 
 export class EditableCollectionAddonBase extends React.Component<
   InternalProps,
-  State,
 > {
   constructor(props: InternalProps) {
     super(props);
-    this.state = {
-      editingNote: false,
-    };
+  }
+
+  componentWillMount() {
+    this.props.setUIState({ editingNote: false });
   }
 
   onEditNote = (event: SyntheticEvent<HTMLElement>) => {
     event.preventDefault();
-    this.setState({ editingNote: true });
+    this.props.setUIState({ editingNote: true });
   };
 
   onDeleteNote = () => {
@@ -68,7 +71,7 @@ export class EditableCollectionAddonBase extends React.Component<
   };
 
   onDismissNoteForm = () => {
-    this.setState({ editingNote: false });
+    this.props.setUIState({ editingNote: false });
   };
 
   onRemoveAddon = (event: SyntheticEvent<HTMLButtonElement>) => {
@@ -99,7 +102,7 @@ export class EditableCollectionAddonBase extends React.Component<
 
   render() {
     const { addon, className, errorHandler, i18n } = this.props;
-    const showNotes = addon.notes || this.state.editingNote;
+    const showNotes = addon.notes || this.props.uiState.editingNote;
 
     const iconURL = getAddonIconUrl(addon);
     return (
@@ -132,7 +135,7 @@ export class EditableCollectionAddonBase extends React.Component<
               {i18n.gettext('User comment')}
             </h4>
 
-            {this.state.editingNote ? (
+            {this.props.uiState.editingNote ? (
               <React.Fragment>
                 {errorHandler.renderErrorIfPresent()}
                 <DismissibleTextForm
@@ -183,6 +186,10 @@ export const extractId = (ownProps: Props) => {
 const EditableCollectionAddon: React.ComponentType<Props> = compose(
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
+  withUIState({
+    fileName: __filename,
+    extractId,
+  }),
 )(EditableCollectionAddonBase);
 
 export default EditableCollectionAddon;
