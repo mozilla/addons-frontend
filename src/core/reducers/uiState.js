@@ -85,10 +85,11 @@ export const withUIState = ({
       setUIState: (change: Object) => {
         dispatch(stateProps._setUIStateAction(change));
       },
-      // This is just for testing; Enzyme's shallow()
-      // does not trigger lifecycle methods which means it won't
-      // trigger Redux mapper functions.
-      // https://github.com/airbnb/enzyme/issues/1221
+      // This is just for testing to simulate the props you'll
+      // get after a Redux action is dispatched.
+      // Using shallowUntilTarget() and root.update() won't
+      // actually update all of the HOC wrapped components
+      // ... I guess?
       simulateUIStateProps: ({ store }: {| store: Object |}) => {
         const stateProps = mapStateToProps(store.getState(), ownProps);
         return mergeProps(stateProps, { dispatch: store.dispatch }, ownProps);
