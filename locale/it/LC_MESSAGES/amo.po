@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-28 12:17+0000\n"
-"Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
+"PO-Revision-Date: 2018-06-29 07:30+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -602,9 +602,8 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "Cerca estensioni e temi da aggiungere alla tua raccolta."
 
 #: src/amo/components/CollectionList/index.js:114
-#, fuzzy
 msgid "Collections"
-msgstr "Nome della raccolta"
+msgstr "Raccolte"
 
 #: src/amo/components/CollectionList/index.js:120
 msgid "Log in to view your collections"
@@ -612,16 +611,15 @@ msgstr "Accedi per visualizzare le tue raccolte"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Le raccolte permettono di mantenere facilmente traccia dei componenti aggiuntivi preferiti e condividere le funzionalità personalizzate del proprio browser con altri utenti."
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
 msgstr "Crea una raccolta"
 
 #: src/amo/components/CollectionList/index.js:67
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Accedi per creare la raccolta"
+msgstr "Non hai ancora creato alcuna raccolta."
 
 #: src/amo/components/CollectionList/index.js:97
 msgid "My collections"
