@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -2307,8 +2307,8 @@ msgstr "<span class=\"visually-hidden\">DÃ©velopper pour afficher</span> Plus dâ
 #: src/ui/components/UserCollection/index.js:52
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(count)s module"
-msgstr[1] "%(count)s modules"
+msgstr[0] "%(total)s module"
+msgstr[1] "%(total)s modules"
 
 #~ msgid "Essential extensions"
 #~ msgstr "Extensions indispensables"
