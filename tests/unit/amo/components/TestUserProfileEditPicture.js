@@ -126,7 +126,7 @@ describe(__filename, () => {
     );
     expect(root.find(ConfirmButton)).toHaveProp('onConfirm', onDelete);
     expect(root.find(ConfirmButton).children()).toHaveText(
-      'Delete this picture',
+      'Delete This Picture',
     );
   });
 
