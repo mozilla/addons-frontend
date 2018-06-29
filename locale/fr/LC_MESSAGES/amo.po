@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-28 20:06+0000\n"
+"PO-Revision-Date: 2018-06-29 10:57+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -569,11 +569,11 @@ msgstr "Modifier cette collection"
 
 #: src/amo/components/Collection/index.js:309
 msgid "Log in to create a collection"
-msgstr "Se connecter pour créer une collection"
+msgstr "Connectez-vous pour créer une collection"
 
 #: src/amo/components/Collection/index.js:310
 msgid "Log in to edit this collection"
-msgstr "Se connecter pour modifier cette collection"
+msgstr "Connectez-vous pour modifier cette collection"
 
 #: src/amo/components/Collection/index.js:348 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -605,7 +605,7 @@ msgstr "Collections"
 
 #: src/amo/components/CollectionList/index.js:120
 msgid "Log in to view your collections"
-msgstr "Se connecter pour afficher vos collections"
+msgstr "Connectez-vous pour afficher vos collections"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -726,11 +726,11 @@ msgstr "À propos de ce module"
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1006,9 +1006,8 @@ msgid "Privacy matters"
 msgstr "Outils de confidentialité"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Voir plus d’extensions pour les onglets"
+msgstr "Voir plus d’extensions pour le respect de la vie privée"
 
 #: src/amo/components/Home/index.js:265
 msgid "Tame your tabs"
@@ -1044,11 +1043,11 @@ msgstr "Regarder des vidéos"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Un moyen performant pour retrouver des versions archivées d’anciennes pages web"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Black Menu for Google"
@@ -1080,7 +1079,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:135
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Effacez les données de sites web stockées dans Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Group Speed Dial"
@@ -1174,7 +1173,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "Tabliss"
-msgstr ""
+msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
@@ -1182,7 +1181,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
@@ -1594,9 +1593,8 @@ msgid "No theme preview available"
 msgstr "Aperçu du thème non disponible"
 
 #: src/amo/components/SearchResult/index.js:144
-#, fuzzy
 msgid "Add-on note"
-msgstr "Icône du module"
+msgstr "Notes"
 
 #: src/amo/components/SearchResult/index.js:162
 msgid "%(total)s user"
@@ -1978,7 +1976,7 @@ msgstr "Vous pouvez modifier votre adresse électronique depuis votre compte Fir
 
 #: src/amo/components/UserProfileEdit/index.js:544
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "Gérer son compte Firefox…"
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -1986,11 +1984,11 @@ msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:556
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Dites-en plus sur vous. Ces champs sont facultatifs, mais ils aideront les autres utilisateurs à mieux vous connaître."
 
 #: src/amo/components/UserProfileEdit/index.js:562
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Dites-en plus sur cet utilisateur. Ces champs sont facultatifs, mais ils aideront les autres utilisateurs à mieux connaître %(username)s."
 
 #: src/amo/components/UserProfileEdit/index.js:572
 msgid "Display Name"
