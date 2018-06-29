@@ -60,6 +60,5 @@ def test_theme_installs(discovery_pane, firefox, notifications):
     theme.install()
     firefox.browser.wait_for_notification(
         notifications.AddOnInstallConfirmation).install()
-    firefox.browser.wait_for_notification(
-        notifications.AddOnInstallComplete)
-    assert theme.is_installed
+    WebDriverWait(firefox.selenium, timeout=5).until(
+        lambda _: theme.is_installed)
