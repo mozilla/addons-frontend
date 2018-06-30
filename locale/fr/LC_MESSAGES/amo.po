@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-29 10:57+0000\n"
+"PO-Revision-Date: 2018-06-30 13:44+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -609,7 +609,7 @@ msgstr "Connectez-vous pour afficher vos collections"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Les collections permettent de garder trace facilement de vos modules favoris et de partager votre personnalisation du navigateur avec d’autres."
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
@@ -1071,7 +1071,7 @@ msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Accédez à la recherche d’image inversée dans un menu contextuel"
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Forget Me Not"
@@ -1121,7 +1121,7 @@ msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Augmentez la vitesse de téléchargement avec la prise en charge du multi-thread"
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Web Security"
@@ -2075,7 +2075,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:792
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Attention : un profil ne peut être supprimé que si l’utilisateur n’est pas détenteur de modules."
 
 #: src/amo/components/UserProfileEdit/index.js:804
 msgid "Yes, delete my profile"
