@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-30 07:29+0000\n"
+"PO-Revision-Date: 2018-06-30 07:46+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1036,7 +1036,7 @@ msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "วิธีที่ทรงพลังในการค้นหารุ่นที่เก็บถาวรของหน้าเว็บที่เก่ากว่า"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Black Menu for Google"
@@ -1075,9 +1075,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:143
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "ตัด บันทึก และจัดระเบียบสิ่งที่ชื่นชอบของคุณบนเว็บ"
+msgstr "ที่คั่นหน้าแบบมีภาพสำหรับสถานที่โปรดของคุณบนเว็บ"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "PrivacyBadger"
@@ -1109,7 +1108,7 @@ msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "เพิ่มความเร็วการดาวน์โหลดด้วยการรองรับหลายเธรด"
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Web Security"
@@ -1173,7 +1172,7 @@ msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "ใส่ปุ่ม ‘แบ่งปัน’ ของสื่อสังคมลงในแถบเครื่องมือ Firefox"
 
 #: src/amo/components/LandingPage/index.js:225
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
