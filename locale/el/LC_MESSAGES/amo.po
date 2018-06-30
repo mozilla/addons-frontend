@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-30 10:30+0000\n"
+"PO-Revision-Date: 2018-06-30 10:43+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1252,43 +1252,43 @@ msgstr "Μάθετε περισσότερα σχετικά με τα δικαι�
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Ανάγνωση και τροποποίηση σελιδοδεικτών"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Ανάγνωση και τροποποίηση των ρυθμίσεων του προγράμματος περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Εκκαθάριση πρόσφατου ιστορικού περιήγησης, cookies και σχετικών δεδομένων"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Λήψη δεδομένων από το πρόχειρο"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Εισαγωγή δεδομένων στο πρόχειρο"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Επέκταση των εργαλείων προγραμματιστή για πρόσβαση στα δεδομένα σας στις ανοιχτές καρτέλες"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Λήψη αρχείων και ανάγνωση/τροποποίηση ιστορικού λήψεων του προγράμματος περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Άνοιγμα ληφθέντων αρχείων του υπολογιστή σας"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Ανάγνωση κειμένων όλων των ανοιχτών καρτελών"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
-msgstr ""
+msgstr "Πρόσβαση στην τοποθεσία σας"
 
 #: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
@@ -1296,35 +1296,35 @@ msgstr "Έχει πρόσβαση σε ιστορικό περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Εποπτεία χρήσης επεκτάσεων και διαχείριση θεμάτων"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Ανταλλαγή μηνυμάτων με προγράμματα εκτός του Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Εμφάνιση ειδοποιήσεων σε εσάς"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Παροχή κρυπτογραφικών υπηρεσιών ταυτοποίησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Έλεγχος ρυθμίσεων μεσολάβησης προγράμματος περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Ανάγνωση και τροποποίηση ρυθμίσεων απορρήτου"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Πρόσβαση στις πρόσφατα κλεισμένες καρτέλες"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Πρόσβαση στις καρτέλες περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
@@ -1332,11 +1332,11 @@ msgstr "Απόκρυψη και εμφάνιση καρτελών"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Αποθήκευση απεριόριστου όγκου δεδομένων στο πρόγραμμα περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Πρόσβαση στις ενέργειες του περιηγητή κατά την πλοήγηση"
 
 #: src/amo/components/RatingManager/index.js:154
 msgid "Log in to rate this dictionary"
@@ -1952,7 +1952,7 @@ msgstr "Μπορείτε να αλλάξετε τη διεύθυνση email σ�
 
 #: src/amo/components/UserProfileEdit/index.js:544
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "Διαχείριση λογαριασμού Firefox..."
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -1980,7 +1980,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Συστήστε το χρήστη %(username)s στην κοινότητα"
 
 #: src/amo/components/UserProfileEdit/index.js:665
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
