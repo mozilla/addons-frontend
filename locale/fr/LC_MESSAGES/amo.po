@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-30 13:44+0000\n"
+"PO-Revision-Date: 2018-07-01 16:55+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -720,9 +720,8 @@ msgid "User comment"
 msgstr "Commentaire d’un utilisateur"
 
 #: src/amo/components/EditableCollectionAddon/index.js:144
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "À propos de ce module"
+msgstr "Laissez un commentaire à propos de ce module."
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
@@ -1001,9 +1000,8 @@ msgid "See more translation tools"
 msgstr "Voir plus d’outils de traduction"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Outils de confidentialité"
+msgstr "Respect de la vie privée"
 
 #: src/amo/components/Home/index.js:253
 msgid "See more privacy extensions"
@@ -1086,9 +1084,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:143
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Capturez et enregistrez les éléments intéressants que vous trouvez sur le Web"
+msgstr "Des marque-pages visuels pour vos sites préférés"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "PrivacyBadger"
@@ -1115,9 +1112,8 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "Surlignez le texte de n’importe quelle page web pour ouvrir un menu de recherche très pratique"
 
 #: src/amo/components/HomeHeroBanner/index.js:37
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
