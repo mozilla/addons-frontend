@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-30 10:43+0000\n"
+"PO-Revision-Date: 2018-07-01 08:20+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2230,27 +2230,27 @@ msgstr "Εναλλαγή περιεχομένων"
 
 #: src/ui/components/HostPermissions/index.js:51
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Πρόσβαση στα δεδομένα σας για όλες τις ιστοσελίδες"
 
 #: src/ui/components/HostPermissions/index.js:55
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Πρόσβαση στα δεδομένα σας σε %(param)s άλλο τομέα"
+msgstr[1] "Πρόσβαση στα δεδομένα σας σε %(param)s άλλους τομείς"
 
 #: src/ui/components/HostPermissions/index.js:64
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Πρόσβαση στα δεδομένα σας για ιστοσελίδες στον τομέα %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:70
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Πρόσβαση στα δεδομένα σας σε %(param)s άλλη ιστοσελίδα"
+msgstr[1] "Πρόσβαση στα δεδομένα σας σε %(param)s άλλες ιστοσελίδες"
 
 #: src/ui/components/HostPermissions/index.js:78
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Πρόσβαση στα δεδομένα σας για %(param)s"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
