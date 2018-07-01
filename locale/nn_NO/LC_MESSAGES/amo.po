@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-26 17:23+0000\n"
+"PO-Revision-Date: 2018-07-01 11:50+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1039,7 +1039,7 @@ msgstr "Sjå på videoar"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
@@ -1091,7 +1091,7 @@ msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Blokker snikete spionreklame og sporfølgjarar"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1103,11 +1103,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:32
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Marker tekst på ei nettside og få opna ein smart søkemeny"
 
 #: src/amo/components/HomeHeroBanner/index.js:37
 msgid "Turbo Download Manager"
@@ -1127,11 +1127,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Arranger faner loddrett"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "uBlock Origin"
@@ -1175,7 +1175,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
@@ -1247,7 +1247,7 @@ msgstr "Lese og endre bokmerke"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Les og endre nettlesarinnstillingane"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
@@ -1275,7 +1275,7 @@ msgstr "Opne filer lasta ned til datamaskina di"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Les teksten på alle opne faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
@@ -1303,7 +1303,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Kontroller proxy-innstillingane til nettlesaren"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Read and modify privacy settings"
@@ -1895,7 +1895,7 @@ msgstr "Tal på utvidingar"
 
 #: src/amo/components/UserProfile/index.js:219
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Gjennomsnittleg vurdring for tillegget til utvilaren"
 
 #: src/amo/components/UserProfile/index.js:234 src/amo/components/UserProfileEdit/index.js:643
 msgid "Biography"
@@ -1971,11 +1971,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:647
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Presenter deg sjølv for fellesskapet, om du vil"
 
 #: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Presenter %(username)s for fellesskapet"
 
 #: src/amo/components/UserProfileEdit/index.js:665
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -2240,8 +2240,8 @@ msgstr "Tilgang til dataa dine for nettsider på domenet %(param)s"
 #: src/ui/components/HostPermissions/index.js:70
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tilgang til dataa dine på %(param)s anna nettside"
+msgstr[1] "Tilgang til dataa dine på %(param)s andre nettsider"
 
 #: src/ui/components/HostPermissions/index.js:78
 msgid "Access your data for %(param)s"
