@@ -446,6 +446,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     const isEditingCurrentUser =
       currentUser && user ? currentUser.id === user.id : false;
 
+    const userProfileURL = `/user/${username}/`;
+
     return (
       <div className="UserProfileEdit">
         {user && (
@@ -461,7 +463,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         <Card className="UserProfileEdit-user-links">
           <ul>
             <li>
-              <Link to={`/user/${username}/`}>
+              <Link to={userProfileURL}>
                 {isEditingCurrentUser
                   ? i18n.gettext('View My Profile')
                   : i18n.gettext(`View user's profile`)}
@@ -525,7 +527,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     dangerouslySetInnerHTML={sanitizeHTML(
                       i18n.sprintf(
                         i18n.gettext(`You can change your email address on
-                            Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
+                          Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
                         {
                           startLink:
                             '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
@@ -691,14 +693,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               <p className="UserProfileEdit-notifications-aside">
                 {isEditingCurrentUser
                   ? i18n.gettext(
-                      `From time to time, Mozilla may send you email about upcoming
-                  releases and add-on events. Please select the topics you are
-                  interested in.`,
+                      `From time to time, Mozilla may send you email about
+                      upcoming releases and add-on events. Please select the
+                      topics you are interested in.`,
                     )
                   : i18n.gettext(
-                      `From time to time, Mozilla may send this user email about
-                  upcoming releases and add-on events. Please select the
-                  topics this user may be interested in.`,
+                      `From time to time, Mozilla may send this user email
+                      about upcoming releases and add-on events. Please select
+                      the topics this user may be interested in.`,
                     )}
               </p>
 
@@ -728,11 +730,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 {/* eslint-disable-next-line no-nested-ternary */}
                 {isEditingCurrentUser
                   ? isUpdating
-                    ? i18n.gettext('Updating your profile…')
-                    : i18n.gettext('Update my profile')
+                    ? i18n.gettext('Updating your account…')
+                    : i18n.gettext('Update My Account')
                   : isUpdating
-                    ? i18n.gettext("Updating user's profile…")
-                    : i18n.gettext("Update user's profile")}
+                    ? i18n.gettext('Updating this account…')
+                    : i18n.gettext('Update This Account')}
               </Button>
               <Button
                 buttonType="neutral"
@@ -743,8 +745,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 type="button"
               >
                 {isEditingCurrentUser
-                  ? i18n.gettext('Delete my profile')
-                  : i18n.gettext(`Delete user's profile`)}
+                  ? i18n.gettext('Delete My Account')
+                  : i18n.gettext(`Delete This Account`)}
               </Button>
             </div>
           </div>
@@ -756,42 +758,62 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             header={
               isEditingCurrentUser
                 ? i18n.gettext(
-                    `Attention: You are about to delete your profile. Are you sure?`,
+                    `IMPORTANT: Deleting your account is irreversible.`,
                   )
                 : i18n.gettext(
-                    `Attention: You are about to delete a profile. Are you sure?`,
+                    `IMPORTANT: Deleting this account is irreversible.`,
                   )
             }
             onEscapeOverlay={this.onCancelProfileDeletion}
             visibleOnLoad
           >
+            <p>
+              {isEditingCurrentUser
+                ? i18n.gettext(
+                    `Your data will be permanently removed, including profile
+                    details (picture, user name, display name, location, home
+                    page, biography, occupation) and notification preferences.
+                    Your reviews and ratings will be anonymised and no longer
+                    editable.`,
+                  )
+                : i18n.gettext(
+                    `The user’s data will be permanently removed, including
+                    profile details (picture, user name, display name,
+                    location, home page, biography, occupation) and
+                    notification preferences. Reviews and ratings will be
+                    anonymised and no longer editable.`,
+                  )}
+            </p>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext(`If you confirm this
-                    %(startStrong)sirreversible action%(endStrong)s, the
-                    following data will be removed: profile picture,
-                    profile details (including username, email, display
-                    name, location, home page, biography, occupation) and
-                    notification preferences. Other data such as ratings
-                    and reviews will be anonymized.`),
+                  isEditingCurrentUser
+                    ? i18n.gettext(
+                        `%(strongStart)sNOTE:%(strongEnd)s You cannot delete
+                        your account if you are the %(linkStart)sauthor of any
+                        add-ons%(linkEnd)s. You must %(docLinkStart)stransfer
+                        ownership%(docLinkEnd)s or delete the add-ons before
+                        you can delete your account.`,
+                      )
+                    : i18n.gettext(
+                        `%(strongStart)sNOTE:%(strongEnd)s You cannot delete a
+                        user’s account if the user is the %(linkStart)sauthor
+                        of any add-ons%(linkEnd)s.`,
+                      ),
                   {
-                    startStrong: '<strong>',
-                    endStrong: '</strong>',
+                    linkStart: `<a href="${userProfileURL}">`,
+                    linkEnd: '</a>',
+                    docLinkStart:
+                      '<a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">',
+                    docLinkEnd: '</a>',
+                    strongStart: '<strong>',
+                    strongEnd: '</strong>',
                   },
                 ),
-                ['strong'],
+                ['a', 'strong'],
               )}
             />
-            <p>
-              {isEditingCurrentUser
-                ? i18n.gettext(`Important: if you own add-ons, you have to
-                  transfer them to other users or to delete them before you
-                  can delete your profile.`)
-                : i18n.gettext(`Important: a user profile can only be deleted if
-                  the user does not own any add-ons.`)}
-            </p>
             <div className="UserProfileEdit-buttons-wrapper">
               <Button
                 buttonType="alert"
@@ -801,8 +823,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 puffy
               >
                 {isEditingCurrentUser
-                  ? i18n.gettext('Yes, delete my profile')
-                  : i18n.gettext('Yes, delete this profile')}
+                  ? i18n.gettext('Delete My Account')
+                  : i18n.gettext('Delete This Account')}
               </Button>
               <Button
                 buttonType="cancel"

@@ -587,7 +587,7 @@ describe(__filename, () => {
     const button = root.find('.UserProfileEdit-submit-button');
 
     expect(button).toHaveLength(1);
-    expect(button.dive()).toHaveText('Update my profile');
+    expect(button.dive()).toHaveText('Update My Account');
     expect(button).toHaveProp('disabled', false);
   });
 
@@ -596,7 +596,7 @@ describe(__filename, () => {
     const button = root.find('.UserProfileEdit-delete-button');
 
     expect(button).toHaveLength(1);
-    expect(button.dive()).toHaveText('Delete my profile');
+    expect(button.dive()).toHaveText('Delete My Account');
     expect(button).toHaveProp('disabled', false);
   });
 
@@ -607,7 +607,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
-      `Update user's profile`,
+      `Update This Account`,
     );
   });
 
@@ -618,7 +618,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-delete-button').dive()).toHaveText(
-      `Delete user's profile`,
+      `Delete This Account`,
     );
   });
 
@@ -630,7 +630,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
-      'Updating your profile…',
+      'Updating your account…',
     );
   });
 
@@ -643,7 +643,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
-      `Updating user's profile…`,
+      `Updating this account…`,
     );
   });
 
@@ -1251,25 +1251,27 @@ describe(__filename, () => {
     expect(modal).toHaveLength(1);
     expect(modal).toHaveProp(
       'header',
-      'Attention: You are about to delete your profile. Are you sure?',
+      'IMPORTANT: Deleting your account is irreversible.',
     );
     expect(modal).toHaveProp('visibleOnLoad', true);
 
-    expect(modal.find('p').at(0)).toHaveProp('dangerouslySetInnerHTML', {
-      __html: oneLine`If you confirm this <strong>irreversible action</strong>,
-        the following data will be removed: profile picture, profile details
-        (including username, email, display name, location, home page,
-        biography, occupation) and notification preferences. Other data such as
-        ratings and reviews will be anonymized.`,
-    });
+    expect(modal.find('p').at(0)).toHaveText(
+      oneLine`Your data will be permanently removed, including profile details
+      (picture, user name, display name, location, home page, biography,
+      occupation) and notification preferences. Your reviews and ratings will
+      be anonymised and no longer editable.`,
+    );
 
-    expect(modal.find('p').at(1)).toHaveText(oneLine`Important: if you own
-      add-ons, you have to transfer them to other users or to delete them
-      before you can delete your profile.`);
+    expect(modal.find('p').at(1)).toHaveHTML(
+      oneLine`<p><strong>NOTE:</strong> You cannot delete your account if you
+      are the <a href="/user/tofumatt/">author of any add-ons</a>. You must
+      <a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">transfer ownership</a>
+      or delete the add-ons before you can delete your account.</p>`,
+    );
 
     expect(root.find('.UserProfileEdit-confirm-button')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
-      'Yes, delete my profile',
+      'Delete My Account',
     );
     expect(root.find('.UserProfileEdit-confirm-button')).toHaveProp(
       'disabled',
@@ -1311,7 +1313,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveProp(
       'header',
-      'Attention: You are about to delete a profile. Are you sure?',
+      'IMPORTANT: Deleting this account is irreversible.',
     );
 
     expect(
@@ -1319,11 +1321,12 @@ describe(__filename, () => {
         .find('.UserProfileEdit-deletion-modal')
         .find('p')
         .at(1),
-    ).toHaveText(oneLine`Important: a user profile can only be deleted if the
-        user does not own any add-ons.`);
+    ).toHaveHTML(oneLine`<p><strong>NOTE:</strong> You cannot delete a user’s
+    account if the user is the <a href="/user/another-user/">author of any
+    add-ons</a>.</p>`);
 
     expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
-      'Yes, delete this profile',
+      'Delete This Account',
     );
   });
 

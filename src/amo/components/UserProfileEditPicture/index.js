@@ -63,7 +63,7 @@ export const UserProfileEditPictureBase = ({
           onChange={onSelect}
           type="file"
         />
-        <span className={buttonClass}>{i18n.gettext('Choose photo...')}</span>
+        <span className={buttonClass}>{i18n.gettext('Choose Photo…')}</span>
       </label>
 
       {user &&
@@ -74,7 +74,7 @@ export const UserProfileEditPictureBase = ({
             message={i18n.gettext('Do you really want to delete this picture?')}
             onConfirm={onDelete}
           >
-            {i18n.gettext('Delete this picture')}
+            {i18n.gettext('Delete This Picture')}
           </ConfirmButton>
         )}
     </section>
