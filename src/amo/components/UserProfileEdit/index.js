@@ -527,11 +527,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     dangerouslySetInnerHTML={sanitizeHTML(
                       i18n.sprintf(
                         i18n.gettext(`You can change your email address on
-                            Firefox Accounts. %(linkStart)sNeed help?%(linkEnd)s`),
+                          Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
                         {
-                          linkStart:
+                          startLink:
                             '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
-                          linkEnd: '</a>',
+                          endLink: '</a>',
                         },
                       ),
                       ['a'],
@@ -787,7 +787,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
-                //
                 i18n.sprintf(
                   isEditingCurrentUser
                     ? i18n.gettext(
