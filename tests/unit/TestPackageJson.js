@@ -12,7 +12,8 @@ const packageJson = JSON.parse(
 
 // postcss-loader: https://github.com/mozilla/addons-frontend/issues/4592
 // prettier: https://github.com/mozilla/addons-frontend/issues/5312
-const skipDevDeps = ['postcss-loader', 'prettier'];
+// pretty-quick: https://github.com/mozilla/addons-frontend/pull/5461/files#r199189927
+const skipDevDeps = ['postcss-loader', 'prettier', 'pretty-quick'];
 
 describe('Package JSON', () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {
