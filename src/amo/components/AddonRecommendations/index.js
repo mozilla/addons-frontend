@@ -110,7 +110,6 @@ export class AddonRecommendationsBase extends React.Component<Props> {
       fetchRecommendations({
         errorHandlerId: this.props.errorHandler.id,
         guid,
-        recommended: true,
       }),
     );
   }

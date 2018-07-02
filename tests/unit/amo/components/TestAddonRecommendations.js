@@ -46,7 +46,6 @@ describe(__filename, () => {
     return fetchRecommendations({
       errorHandlerId: errorHandler.id,
       guid,
-      recommended: true,
     });
   }
 
@@ -156,7 +155,6 @@ describe(__filename, () => {
       fetchRecommendations({
         errorHandlerId: errorHandler.id,
         guid: addon.guid,
-        recommended: true,
       }),
     );
   });
@@ -190,7 +188,6 @@ describe(__filename, () => {
       fetchRecommendations({
         errorHandlerId: errorHandler.id,
         guid: newAddon.guid,
-        recommended: true,
       }),
     );
   });
