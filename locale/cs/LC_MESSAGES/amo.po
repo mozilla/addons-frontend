@@ -589,14 +589,12 @@ msgid "Creator"
 msgstr "Autor"
 
 #: src/amo/components/Collection/index.js:379
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Pro změnu této sbírky se musíte přihlásit"
+msgstr ""
 
 #: src/amo/components/Collection/index.js:382
-#, fuzzy
 msgid "Delete this collection"
-msgstr "Upravit tuto sbírku"
+msgstr ""
 
 #: src/amo/components/Collection/index.js:414
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -607,14 +605,12 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "Vyhledávejte doplňky a rozšíření, které můžete přidat do sbírky."
 
 #: src/amo/components/CollectionList/index.js:114
-#, fuzzy
 msgid "Collections"
-msgstr "Název sbírky"
+msgstr ""
 
 #: src/amo/components/CollectionList/index.js:120
-#, fuzzy
 msgid "Log in to view your collections"
-msgstr "Pro vytvoření sbírky se musíte přihlásit"
+msgstr ""
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -626,19 +622,16 @@ msgid "Create a collection"
 msgstr "Vytvořit novou sbírku"
 
 #: src/amo/components/CollectionList/index.js:67
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Pro vytvoření sbírky se musíte přihlásit"
+msgstr ""
 
 #: src/amo/components/CollectionList/index.js:97
-#, fuzzy
 msgid "My collections"
-msgstr "Zobrazit mé sbírky"
+msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:332
-#, fuzzy
 msgid "Create collection"
-msgstr "Vytvořit novou sbírku"
+msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:333
 #, fuzzy
@@ -730,14 +723,12 @@ msgid "Remove"
 msgstr "Odebrat"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132
-#, fuzzy
 msgid "User comment"
-msgstr "Zaregistrován(a) od"
+msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:144
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "O tomto doplňku"
+msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
@@ -1014,14 +1005,12 @@ msgid "See more translation tools"
 msgstr ""
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Zásady ochrany soukromí"
+msgstr ""
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Více rozšíření panelů"
+msgstr ""
 
 #: src/amo/components/Home/index.js:265
 msgid "Tame your tabs"
@@ -1080,9 +1069,8 @@ msgid "Translate an entire web page with a couple clicks"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:123
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Více rozšíření panelů"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Access reverse image search options in a context menu"
@@ -1101,9 +1089,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:143
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Ukládání a organizace vašich oblíbených věcí na webu"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "PrivacyBadger"
@@ -1130,9 +1117,8 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:37
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
@@ -1614,9 +1600,8 @@ msgid "No theme preview available"
 msgstr "Náhled motivu není dostupný"
 
 #: src/amo/components/SearchResult/index.js:144
-#, fuzzy
 msgid "Add-on note"
-msgstr "Ikona doplňku"
+msgstr ""
 
 #: src/amo/components/SearchResult/index.js:162
 msgid "%(total)s user"
@@ -1915,14 +1900,12 @@ msgid "Add-ons Home Page"
 msgstr "Domovská stránka"
 
 #: src/amo/components/UserProfile/index.js:139
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Doplňky od těchto vývojářů"
+msgstr ""
 
 #: src/amo/components/UserProfile/index.js:145
-#, fuzzy
 msgid "Theme artist"
-msgstr "Vzhledy od těchto umělců"
+msgstr ""
 
 #: src/amo/components/UserProfile/index.js:158 src/amo/components/UserProfileEdit/index.js:454
 msgid "User Profile for %(user)s"
@@ -2322,12 +2305,11 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Rozbalit do</span> Přečíst více"
 
 #: src/ui/components/UserCollection/index.js:52
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "Nalezen %(count)s doplněk"
-msgstr[1] "Nalezeny %(count)s doplňky"
-msgstr[2] "Nalezeno %(count)s doplňků"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #~ msgid "Essential extensions"
 #~ msgstr "Procházet všechna rozšíření"
