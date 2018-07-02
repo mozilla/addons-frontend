@@ -68,11 +68,11 @@ export const withUIState = ({
     state: {| uiState: UIStateType |},
     props: Object,
   ) => {
-    const id = generateId({ fileName, id: extractId(props) });
-    const uiState = state.uiState[id] || defaultState;
+    const uiStateID = generateId({ fileName, id: extractId(props) });
+    const uiState = state.uiState[uiStateID] || defaultState;
     return {
-      _setUIStateAction: (change: Object) => setUIState({ id, change }),
       uiState,
+      uiStateID,
     };
   };
 
@@ -83,7 +83,7 @@ export const withUIState = ({
       ...stateProps,
       ...dispatchProps,
       setUIState: (change: Object) => {
-        dispatch(stateProps._setUIStateAction(change));
+        dispatch(setUIState({ id: stateProps.uiStateID, change }));
       },
       // This is just for testing to simulate the props you'll
       // get after a Redux action is dispatched.
