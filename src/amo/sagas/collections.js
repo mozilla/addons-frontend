@@ -23,7 +23,7 @@ import {
   abortFetchUserCollections,
   addonAddedToCollection,
   beginCollectionModification,
-  unloadCollectionBySlug,
+  convertFiltersToQueryParams,
   finishCollectionModification,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
   fetchUserCollections as fetchUserCollectionsAction,
@@ -31,11 +31,11 @@ import {
   loadCurrentCollectionPage,
   loadUserCollections,
   localizeCollectionDetail,
+  unloadCollectionBySlug,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type {
   CreateCollectionAddonParams,
   CreateCollectionParams,

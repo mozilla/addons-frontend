@@ -17,7 +17,7 @@ import {
   finishCollectionModification,
   updateCollection,
 } from 'amo/reducers/collections';
-import { CLIENT_APP_FIREFOX } from 'core/constants';
+import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
 import {
@@ -616,20 +616,25 @@ describe(__filename, () => {
 
     const slug = 'my-collection';
     const username = 'some-username';
-    const filters = { page: 1 };
+    const page = 1;
+    const sort = COLLECTION_SORT_NAME;
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
         authorUsername: username,
         slug,
       }),
     });
-    const root = render({ collection, filters, store: localStore });
+    const root = render({
+      collection,
+      filters: { collectionSort: sort, page },
+      store: localStore,
+    });
 
     simulateCancel(root);
 
     sinon.assert.calledWith(fakeRouter.push, {
       pathname: `/${newLang}/${clientApp}/collections/${username}/${slug}/`,
-      query: filters,
+      query: { collection_sort: sort, page },
     });
   });
 

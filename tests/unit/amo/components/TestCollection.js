@@ -680,13 +680,12 @@ describe(__filename, () => {
       'onChange',
       wrapper.instance().onSortSelect,
     );
-    wrapper
-      .find('.Sort-select')
-      .children()
-      .forEach((option, index) => {
-        expect(option).toHaveProp('value', sortOptions[index].value);
-        expect(option).toHaveText(sortOptions[index].children);
-      });
+
+    const options = wrapper.find('.Sort-select').children();
+    sortOptions.forEach((option, index) => {
+      expect(options.at(index)).toHaveProp('value', option.value);
+      expect(options.at(index)).toHaveText(option.children);
+    });
   });
 
   it('renders a collection for editing', () => {

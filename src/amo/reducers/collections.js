@@ -943,6 +943,13 @@ export const expandCollections = (
     : null;
 };
 
+export const convertFiltersToQueryParams = (filters: CollectionFilters) => {
+  return {
+    page: filters.page,
+    collection_sort: filters.collectionSort,
+  };
+};
+
 type Action =
   | AbortFetchCurrentCollection
   | AbortAddAddonToCollectionAction

@@ -12,6 +12,7 @@ import config from 'config';
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import {
   addAddonToCollection,
+  convertFiltersToQueryParams,
   createCollection,
   updateCollection,
 } from 'amo/reducers/collections';
@@ -19,7 +20,6 @@ import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { decodeHtmlEntities } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';

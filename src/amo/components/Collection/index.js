@@ -12,12 +12,13 @@ import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import {
+  convertFiltersToQueryParams,
   deleteCollectionAddonNotes,
-  removeAddonFromCollection,
   deleteCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   getCurrentCollection,
+  removeAddonFromCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
@@ -111,13 +112,6 @@ export class CollectionBase extends React.Component<InternalProps> {
     this.loadDataIfNeeded(nextProps);
   }
 
-  convertFiltersToQueryParams(filters: CollectionFilters) {
-    return {
-      page: filters.page,
-      collection_sort: filters.collectionSort,
-    };
-  }
-
   onDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
@@ -153,7 +147,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     }`;
     router.push({
       pathname,
-      query: this.convertFiltersToQueryParams(newFilters),
+      query: convertFiltersToQueryParams(newFilters),
     });
   };
 
@@ -270,7 +264,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       // https://github.com/mozilla/addons-frontend/issues/4293
       props.to = {
         pathname: this.editUrl(),
-        query: this.convertFiltersToQueryParams(filters),
+        query: convertFiltersToQueryParams(filters),
       };
     } else {
       props.href = this.editUrl();
@@ -473,7 +467,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           count={collection.numberOfAddons}
           currentPage={filters.page}
           pathname={editing ? this.editUrl() : this.url()}
-          queryParams={this.convertFiltersToQueryParams(filters)}
+          queryParams={convertFiltersToQueryParams(filters)}
         />
       ) : null;
 
