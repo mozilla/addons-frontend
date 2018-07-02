@@ -45,6 +45,7 @@ type Props = {|
   authorDisplayName: string,
   authorUsernames: Array<string>,
   className?: string,
+  errorHandler?: ErrorHandlerType,
   forAddonSlug?: string,
   numberOfAddons: number,
   pageParam: string,
@@ -62,7 +63,6 @@ type InternalProps = {|
   addons?: Array<AddonType>,
   count: number | null,
   dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
   i18n: I18nType,
   loading?: boolean,
   location: ReactRouterLocation,
@@ -176,6 +176,8 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       filtersForPagination.sort = SEARCH_SORT_POPULAR;
     }
 
+    invariant(errorHandler, 'errorHandler is required');
+
     this.props.dispatch(
       fetchAddonsByAuthors({
         addonType,
@@ -196,6 +198,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       authorDisplayName,
       authorUsernames,
       className,
+      errorHandler,
       i18n,
       loading,
       numberOfAddons,
@@ -204,6 +207,12 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       showSummary,
       type,
     } = this.props;
+
+    invariant(errorHandler, 'errorHandler is required');
+
+    if (errorHandler.hasError()) {
+      return errorHandler.renderError();
+    }
 
     if (!loading && (!addons || !addons.length)) {
       return null;

@@ -498,6 +498,35 @@ describe(__filename, () => {
     expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
   });
 
+  it('passes the errorHandler to the AddonsByAuthorsCard', () => {
+    const errorHandler = createStubErrorHandler();
+    const root = renderUserProfile({ errorHandler });
+
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'errorHandler',
+      errorHandler,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'errorHandler',
+      errorHandler,
+    );
+  });
+
+  it('renders AddonsByAuthorsCard without a user', () => {
+    const username = 'not-loaded';
+    const root = renderUserProfile({ params: { username } });
+
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'authorDisplayName',
+      username,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'authorDisplayName',
+      username,
+    );
+  });
+
   it('renders AddonsByAuthorsCard for extensions', () => {
     const username = 'tofumatt';
     const root = renderUserProfile({ params: { username } });
@@ -534,12 +563,6 @@ describe(__filename, () => {
       'pathname',
       `/user/${username}/`,
     );
-  });
-
-  it('renders no AddonsByAuthorsCard if no user found', () => {
-    const root = renderUserProfile({ params: { username: 'not-loaded' } });
-
-    expect(root.find(AddonsByAuthorsCard)).toHaveLength(0);
   });
 
   it('renders a not found page if the API request is a 404', () => {
@@ -894,6 +917,26 @@ describe(__filename, () => {
     });
 
     sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('returns a 404 when the API returns a 404', () => {
+    const { store } = dispatchSignInActions();
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'internal server error' },
+      }),
+    );
+
+    const root = renderUserProfile({ errorHandler, store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
   });
 
   describe('errorHandler - extractId', () => {
