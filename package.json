@@ -25,7 +25,7 @@
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
     "prettier": "prettier --write '**'",
-    "prettier-ci": "npm run prettier -- --list-different || (echo '\n\nThis failure means you did not run `yarn prettier` before committing\n\n' && exit 1)",
+    "prettier-ci": "npm run prettier -- --list-different || (echo '\n\nThis failure means you did not run `yarn prettier-dev` before committing\n\n' && exit 1)",
     "prettier-dev": "pretty-quick --branch master",
     "start": "npm run version-check && better-npm-run node bin/server.js",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
