@@ -8,19 +8,17 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
+  applyUIStateChanges,
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  setUIState,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 
 describe(__filename, () => {
-  function applyUIStateChanges({ root, store }) {
-    root.setProps(root.instance().props.simulateUIStateProps({ store }));
-  }
-
   function render(props = {}) {
     const addon = props.addon || {
       ...createInternalAddon(fakeAddon),
@@ -47,8 +45,7 @@ describe(__filename, () => {
     ...customProps
   } = {}) {
     const root = render({ store, ...customProps });
-    root.instance().props.setUIState({ editingNote: true });
-    applyUIStateChanges({ root, store });
+    setUIState({ root, store, change: { editingNote: true } });
 
     return root;
   }

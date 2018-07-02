@@ -611,3 +611,15 @@ export const createUserNotificationsResponse = () => {
     },
   ];
 };
+
+export function applyUIStateChanges({ root, store }) {
+  // This simulates what Redux will do on an action dispatch.
+  // It's necessary because shallow wrapper updates do not
+  // propagate to all HOCs.
+  root.setProps(root.instance().props.simulateUIStateProps({ store }));
+}
+
+export function setUIState({ root, change, store }) {
+  root.instance().props.setUIState(change);
+  applyUIStateChanges({ root, store });
+}

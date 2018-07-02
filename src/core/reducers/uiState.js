@@ -46,7 +46,7 @@ export const generateId = ({
   id: string,
 |}) => {
   invariant(fileName, 'fileName is required');
-  invariant(id, 'id is required');
+  invariant(typeof id === 'string', 'id must be a string');
 
   return `${normalizeFileNameId(fileName)}-${id}`;
 };
