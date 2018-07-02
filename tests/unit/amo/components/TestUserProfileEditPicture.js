@@ -36,6 +36,10 @@ describe(__filename, () => {
       'name',
       name,
     );
+    expect(root.find('.UserProfileEditPicture-file-input')).toHaveProp(
+      'accept',
+      'image/png, image/jpeg',
+    );
     expect(root.find('.UserProfileEditPicture-delete-button')).toHaveLength(0);
   });
 

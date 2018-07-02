@@ -57,6 +57,7 @@ export const UserProfileEditPictureBase = ({
       {/* eslint-disable-next-line jsx-a11y/label-has-for */}
       <label className="UserProfileEditPicture-file">
         <input
+          accept="image/png, image/jpeg"
           className="UserProfileEditPicture-file-input"
           disabled={!user}
           name={name}
