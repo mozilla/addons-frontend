@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-26 16:54+0000\n"
+"POT-Creation-Date: 2018-07-03 17:51+0000\n"
 "PO-Revision-Date: 2018-06-21 15:26+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
@@ -39,7 +39,8 @@ msgstr "Lisätty kokoelmaan %(collectionName)s"
 msgid "Add to…"
 msgstr "Lisää kohteeseen…"
 
-#: src/amo/components/AddAddonToCollection/index.js:262 src/amo/components/CollectionManager/index.js:415
+#: src/amo/components/AddAddonToCollection/index.js:262
+#: src/amo/components/CollectionManager/index.js:419
 msgid "Add to collection"
 msgstr "Lisää kokoelmaan"
 
@@ -57,7 +58,8 @@ msgstr "Esikatsele koskettamalla"
 
 #: src/amo/components/Addon/index.js:254
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Tätä lisäosaa ei voi arvioida, koska yhtäkään sen versiota ei ole julkaistu."
+msgstr ""
+"Tätä lisäosaa ei voi arvioida, koska yhtäkään sen versiota ei ole julkaistu."
 
 #: src/amo/components/Addon/index.js:263
 msgid "Read %(count)s review"
@@ -146,8 +148,12 @@ msgid "Some features may require payment"
 msgstr "Jotkin ominaisuudet saattavat vaatia maksua"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Tämän lisäosan asentamiseksi tarvitsee <a href=\"%(downloadUrl)s\">ladata Firefox</a>."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Tämän lisäosan asentamiseksi tarvitsee <a href=\"%(downloadUrl)s\">ladata "
+"Firefox</a>."
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
@@ -166,12 +172,20 @@ msgid "This add-on is not available on your platform."
 msgstr "Tämä lisäosa ei ole käytettävissä käyttämässäsi ympäristössä."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Tämä lisäosa vaatii <a href=\"%(downloadUrl)s\">uudemman Firefox-version</a> (vähintään version %(minVersion)s). Käytössäsi on Firefox %(yourVersion)s."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Tämä lisäosa vaatii <a href=\"%(downloadUrl)s\">uudemman Firefox-version</a> "
+"(vähintään version %(minVersion)s). Käytössäsi on Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:94
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Käyttämäsi selain ei tue lisäosia. Voit asentaa tämän lisäosan <a href=\"%(downloadUrl)s\">lataamalla Firefoxin</a>."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"Käyttämäsi selain ei tue lisäosia. Voit asentaa tämän lisäosan <a href="
+"\"%(downloadUrl)s\">lataamalla Firefoxin</a>."
 
 #: src/amo/components/AddonMeta/index.js:30
 msgid "Users"
@@ -233,7 +247,8 @@ msgstr "Lisäosan linkit"
 msgid "Version"
 msgstr "Versio"
 
-#: src/amo/components/AddonMoreInfo/index.js:195 src/amo/components/Collection/index.js:358
+#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/Collection/index.js:421
 msgid "Last updated"
 msgstr "Viimeksi päivitetty"
 
@@ -261,7 +276,9 @@ msgstr "Käyttötilastot"
 msgid "More information"
 msgstr "Lisätietoja"
 
-#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:178 src/amo/components/UserProfileEdit/index.js:592
+#: src/amo/components/AddonMoreInfo/index.js:45
+#: src/amo/components/UserProfile/index.js:301
+#: src/amo/components/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "Kotisivu"
 
@@ -277,29 +294,41 @@ msgstr "Sähköpostituki"
 msgid "Visit stats dashboard"
 msgstr "Näytä tilastosivu"
 
-#: src/amo/components/AddonRecommendations/index.js:165
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "Muut tätä laajennusta käyttävät asensivat myös"
 
-#: src/amo/components/AddonRecommendations/index.js:166
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "Muita suosittuja laajennuksia"
 
 #: src/amo/components/AddonReview/index.js:199
-msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Kerro maailmalle, miksi tämä laajennus on mielestäsi fantastinen. Noudata %(linkStart)sarviointiohjeitamme%(linkEnd)s."
+msgid ""
+"Tell the world why you think this extension is fantastic! Please follow our "
+"%(linkStart)sreview guidelines%(linkEnd)s."
+msgstr ""
+"Kerro maailmalle, miksi tämä laajennus on mielestäsi fantastinen. Noudata "
+"%(linkStart)sarviointiohjeitamme%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:203
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Kerro mitä pidät tästä laajennuksesta. Kirjoita lyhyesti ja ytimekkäästi."
+msgstr ""
+"Kerro mitä pidät tästä laajennuksesta. Kirjoita lyhyesti ja ytimekkäästi."
 
 #: src/amo/components/AddonReview/index.js:207
-msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Kerro maailmalle tästä laajennuksesta. Seuraa %(linkStart)sarviointiohjeitamme%(linkEnd)s."
+msgid ""
+"Tell the world about this extension. Please follow our %(linkStart)sreview "
+"guidelines%(linkEnd)s."
+msgstr ""
+"Kerro maailmalle tästä laajennuksesta. Seuraa "
+"%(linkStart)sarviointiohjeitamme%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:211
-msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "Kerro kokemuksestasi tämän laajennuksen kanssa. Kirjoita lyhyesti ja ytimekkäästi."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"Kerro kokemuksestasi tämän laajennuksen kanssa. Kirjoita lyhyesti ja "
+"ytimekkäästi."
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Write a review"
@@ -376,87 +405,88 @@ msgstr "Muokkaa arviotani"
 msgid "Reply to this review"
 msgstr "Vastaa tähän arvioon"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:217
+#: src/amo/components/AddonsByAuthorsCard/index.js:226
 msgid "More dictionaries by %(author)s"
 msgstr "Lisää sanastoja tekijältä %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:220
+#: src/amo/components/AddonsByAuthorsCard/index.js:229
 msgid "More dictionaries by these translators"
 msgstr "Lisää sanastoja näiltä käyttäjiltä"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:224
+#: src/amo/components/AddonsByAuthorsCard/index.js:233
 msgid "Dictionaries by %(author)s"
 msgstr "Käyttäjän %(author)s oikolukusanastot"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:227
+#: src/amo/components/AddonsByAuthorsCard/index.js:236
 msgid "Dictionaries by these translators"
 msgstr "Sanastoja näiltä käyttäjiltä"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:234
+#: src/amo/components/AddonsByAuthorsCard/index.js:243
 msgid "More extensions by %(author)s"
 msgstr "Lisää laajennuksia tekijältä %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:237
+#: src/amo/components/AddonsByAuthorsCard/index.js:246
 msgid "More extensions by these developers"
 msgstr "Lisää laajennuksia näiltä kehittäjiltä"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:241
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "Extensions by %(author)s"
 msgstr "Käyttäjän %(author)s laajennukset"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:244
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "Extensions by these developers"
 msgstr "Näiden käyttäjien laajennukset"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:251
+#: src/amo/components/AddonsByAuthorsCard/index.js:260
 msgid "More language packs by %(author)s"
 msgstr "Lisää kielipaketteja tekijältä %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:254
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More language packs by these translators"
 msgstr "Lisää kielipaketteja näiltä kääntäjiltä"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:258
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "Language packs by %(author)s"
 msgstr "Käyttäjän %(author)s kielipaketit"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:261
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Language packs by these translators"
 msgstr "Kielipaketit näiltä kääntäjiltä"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:269
+#: src/amo/components/AddonsByAuthorsCard/index.js:278
 msgid "More themes by %(author)s"
 msgstr "Lisää teemoja tekijältä %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:272
+#: src/amo/components/AddonsByAuthorsCard/index.js:281
 msgid "More themes by these artists"
 msgstr "Lisää teemoja näiltä käyttäjiltä"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:276
+#: src/amo/components/AddonsByAuthorsCard/index.js:285
 msgid "Themes by %(author)s"
 msgstr "Tekijän %(author)s teemat"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:288
 msgid "Themes by these artists"
 msgstr "Näiden käyttäjien teemat"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:295
 msgid "More add-ons by %(author)s"
 msgstr "Lisää lisäosia käyttäjältä %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:289
+#: src/amo/components/AddonsByAuthorsCard/index.js:298
 msgid "More add-ons by these developers"
 msgstr "Lisää lisäosia näiltä kehittäjiltä"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:302
 msgid "Add-ons by %(author)s"
 msgstr "Tekijän %(author)s lisäosat"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "Add-ons by these developers"
 msgstr "Näiden käyttäjien lisäosat"
 
-#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:152
+#: src/amo/components/App/index.js:207
+#: src/amo/components/SectionLinks/index.js:152
 msgid "Add-ons for Firefox"
 msgstr "Lisäosia Firefoxille"
 
@@ -464,7 +494,8 @@ msgstr "Lisäosia Firefoxille"
 msgid "%s – Add-ons for Firefox"
 msgstr "%s – Lisäosia Firefoxille"
 
-#: src/amo/components/App/index.js:211 src/amo/components/SectionLinks/index.js:139
+#: src/amo/components/App/index.js:211
+#: src/amo/components/SectionLinks/index.js:139
 msgid "Add-ons for Android"
 msgstr "Lisäosia Androidille"
 
@@ -480,7 +511,8 @@ msgstr "Ladataan"
 msgid "Find add-ons"
 msgstr "Etsi lisäosia"
 
-#: src/amo/components/AutoSearchInput/index.js:326 src/amo/components/AutoSearchInput/index.js:354
+#: src/amo/components/AutoSearchInput/index.js:326
+#: src/amo/components/AutoSearchInput/index.js:354
 msgid "Search"
 msgstr "Haku"
 
@@ -496,59 +528,85 @@ msgstr "Luokat"
 msgid "Loading categories."
 msgstr "Ladataan luokkia."
 
-#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:222 src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/Category/index.js:142
+#: src/amo/components/LandingPage/index.js:222
+#: src/amo/components/SectionLinks/index.js:87
 msgid "Extensions"
 msgstr "Laajennukset"
 
-#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:205 src/amo/components/LandingPage/index.js:138 src/amo/components/Search/index.js:111
+#: src/amo/components/Category/index.js:143
+#: src/amo/components/Home/index.js:205
+#: src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Search/index.js:123
 msgid "Featured extensions"
 msgstr "Suositellut laajennukset"
 
-#: src/amo/components/Category/index.js:152 src/amo/components/Home/index.js:206 src/amo/components/LandingPage/index.js:146
+#: src/amo/components/Category/index.js:152
+#: src/amo/components/Home/index.js:206
+#: src/amo/components/LandingPage/index.js:146
 msgid "See more featured extensions"
 msgstr "Katso lisää suositeltuja lisäosia"
 
-#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:124
+#: src/amo/components/Category/index.js:153
+#: src/amo/components/LandingPage/index.js:147
+#: src/amo/components/Search/index.js:136
 msgid "Trending extensions"
 msgstr "Nousussa olevat laajennukset"
 
-#: src/amo/components/Category/index.js:162 src/amo/components/LandingPage/index.js:155
+#: src/amo/components/Category/index.js:162
+#: src/amo/components/LandingPage/index.js:155
 msgid "See more trending extensions"
 msgstr "Katso lisää nousussa olevia laajennuksia"
 
-#: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:136
+#: src/amo/components/Category/index.js:163
+#: src/amo/components/LandingPage/index.js:156
+#: src/amo/components/Search/index.js:148
 msgid "Top rated extensions"
 msgstr "Parhaiten arvioidut laajennukset"
 
-#: src/amo/components/Category/index.js:172 src/amo/components/LandingPage/index.js:164
+#: src/amo/components/Category/index.js:172
+#: src/amo/components/LandingPage/index.js:164
 msgid "See more top rated extensions"
 msgstr "Katso lisää parhaiten arvioituja laajennuksia"
 
-#: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:221 src/amo/components/SectionLinks/index.js:97
+#: src/amo/components/Category/index.js:175
+#: src/amo/components/LandingPage/index.js:221
+#: src/amo/components/SectionLinks/index.js:97
 msgid "Themes"
 msgstr "Teemat"
 
-#: src/amo/components/Category/index.js:176 src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:167 src/amo/components/Search/index.js:114
+#: src/amo/components/Category/index.js:176
+#: src/amo/components/Home/index.js:234
+#: src/amo/components/LandingPage/index.js:167
+#: src/amo/components/Search/index.js:126
 msgid "Featured themes"
 msgstr "Suositellut teemat"
 
-#: src/amo/components/Category/index.js:185 src/amo/components/Home/index.js:235 src/amo/components/LandingPage/index.js:175
+#: src/amo/components/Category/index.js:185
+#: src/amo/components/Home/index.js:235
+#: src/amo/components/LandingPage/index.js:175
 msgid "See more featured themes"
 msgstr "Katso lisää suositeltuja teemoja"
 
-#: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:127
+#: src/amo/components/Category/index.js:186
+#: src/amo/components/LandingPage/index.js:176
+#: src/amo/components/Search/index.js:139
 msgid "Trending themes"
 msgstr "Nousussa olevat teemat"
 
-#: src/amo/components/Category/index.js:195 src/amo/components/LandingPage/index.js:181
+#: src/amo/components/Category/index.js:195
+#: src/amo/components/LandingPage/index.js:181
 msgid "See more trending themes"
 msgstr "Katso lisää nousussa olevia teemoja"
 
-#: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:139
+#: src/amo/components/Category/index.js:196
+#: src/amo/components/LandingPage/index.js:182
+#: src/amo/components/Search/index.js:151
 msgid "Top rated themes"
 msgstr "Parhaiten arvioidut teemat"
 
-#: src/amo/components/Category/index.js:205 src/amo/components/LandingPage/index.js:187
+#: src/amo/components/Category/index.js:205
+#: src/amo/components/LandingPage/index.js:187
 msgid "See more top rated themes"
 msgstr "Katso lisää parhaiten arvioituja teemoja"
 
@@ -564,43 +622,66 @@ msgstr "Selaa kaikkia tämän luokan laajennuksia."
 msgid "Browse all themes in this category."
 msgstr "Selaa kaikkia tämän luokan teemoja."
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:160
+msgid "Newest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:164
+msgid "Oldest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:168
+msgid "Name"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:172
+#, fuzzy
+msgid "Popularity"
+msgstr "Suositut teemat"
+
+#: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
 msgstr "Muokkaa tätä kokoelmaa"
 
-#: src/amo/components/Collection/index.js:309
+#: src/amo/components/Collection/index.js:372
 msgid "Log in to create a collection"
 msgstr "Luo kokoelma kirjautumalla"
 
-#: src/amo/components/Collection/index.js:310
+#: src/amo/components/Collection/index.js:373
 msgid "Log in to edit this collection"
 msgstr "Muokkaa tätä kokoelmaa kirjautumalla"
 
-#: src/amo/components/Collection/index.js:348 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:411
+#: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Lisäosat"
 
-#: src/amo/components/Collection/index.js:352
+#: src/amo/components/Collection/index.js:415
 msgid "Creator"
 msgstr "Tekijä"
 
-#: src/amo/components/Collection/index.js:379
+#: src/amo/components/Collection/index.js:442
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "Haluatko varmasti poistaa tämän kuvan?"
 
-#: src/amo/components/Collection/index.js:382
+#: src/amo/components/Collection/index.js:445
 #, fuzzy
 msgid "Delete this collection"
 msgstr "Muokkaa tätä kokoelmaa"
 
-#: src/amo/components/Collection/index.js:414
+#: src/amo/components/Collection/index.js:478
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "Luo ensin kokoelma. Sen jälkeen voit lisätä laajennuksia ja teemoja."
 
-#: src/amo/components/Collection/index.js:417
+#: src/amo/components/Collection/index.js:481
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Etsi laajennuksia ja teemoja lisättäväksi kokoelmaasi."
+
+#: src/amo/components/Collection/index.js:496
+#, fuzzy
+msgid "Sort add-ons by"
+msgstr "Parhaiten arvioidut lisäosat"
 
 #: src/amo/components/CollectionList/index.js:114
 #, fuzzy
@@ -613,7 +694,9 @@ msgid "Log in to view your collections"
 msgstr "Luo kokoelma kirjautumalla"
 
 #: src/amo/components/CollectionList/index.js:125
-msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
+msgid ""
+"Collections make it easy to keep track of favorite add-ons and share your "
+"perfectly customized browser with others."
 msgstr ""
 
 #: src/amo/components/CollectionList/index.js:134
@@ -631,35 +714,38 @@ msgstr "Luo kokoelma kirjautumalla"
 msgid "My collections"
 msgstr "Näytä kokoelmani"
 
-#: src/amo/components/CollectionManager/index.js:332
+#: src/amo/components/CollectionManager/index.js:337
 msgid "Create collection"
 msgstr "Luo kokoelma"
 
-#: src/amo/components/CollectionManager/index.js:333
+#: src/amo/components/CollectionManager/index.js:338
 msgid "Save collection"
 msgstr "Tallenna kokoelma"
 
-#: src/amo/components/CollectionManager/index.js:342
+#: src/amo/components/CollectionManager/index.js:347
 msgid "Collection name"
 msgstr "Kokoelman nimi"
 
-#: src/amo/components/CollectionManager/index.js:356
+#: src/amo/components/CollectionManager/index.js:361
 msgid "Description"
 msgstr "Kuvaus"
 
-#: src/amo/components/CollectionManager/index.js:368
+#: src/amo/components/CollectionManager/index.js:373
 msgid "Custom URL"
 msgstr "Mukautettu osoite"
 
-#: src/amo/components/CollectionManager/index.js:401
+#: src/amo/components/CollectionManager/index.js:406
 msgid "Added to collection"
 msgstr "Lisätty kokoelmaan"
 
-#: src/amo/components/CollectionManager/index.js:409
+#: src/amo/components/CollectionManager/index.js:414
 msgid "Find an add-on to include in this collection"
 msgstr "Etsi lisäosa lisättäväksi tähän kokoelmaan"
 
-#: src/amo/components/CollectionManager/index.js:431 src/amo/components/UserProfileEdit/index.js:812 src/ui/components/ConfirmButton/index.js:100 src/ui/components/DismissibleTextForm/index.js:149
+#: src/amo/components/CollectionManager/index.js:435
+#: src/amo/components/UserProfileEdit/index.js:836
+#: src/ui/components/ConfirmButton/index.js:100
+#: src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -672,12 +758,20 @@ msgid "Support these developers"
 msgstr "Tue näitä kehittäjiä"
 
 #: src/amo/components/ContributeCard/index.js:37
-msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "Tämän laajennuksen kehittäjä pyytää taloudellista tukeasi laajennuksen kehityksen jatkamiseksi."
+msgid ""
+"The developer of this extension asks that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"Tämän laajennuksen kehittäjä pyytää taloudellista tukeasi laajennuksen "
+"kehityksen jatkamiseksi."
 
 #: src/amo/components/ContributeCard/index.js:39
-msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "Tämän laajennuksen kehittäjät pyytävät taloudellista tukeasi laajennuksen kehityksen jatkamiseksi."
+msgid ""
+"The developers of this extension ask that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"Tämän laajennuksen kehittäjät pyytävät taloudellista tukeasi laajennuksen "
+"kehityksen jatkamiseksi."
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this artist"
@@ -688,11 +782,15 @@ msgid "Support these artists"
 msgstr "Tue näitä käyttäjiä"
 
 #: src/amo/components/ContributeCard/index.js:51
-msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
+msgid ""
+"The artist of this theme asks that you help support its continued creation "
+"by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:53
-msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
+msgid ""
+"The artists of this theme ask that you help support its continued creation "
+"by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:60
@@ -704,18 +802,27 @@ msgid "Support these authors"
 msgstr "Tue näitä tekijöitä"
 
 #: src/amo/components/ContributeCard/index.js:65
-msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr "Tämän lisäosan tekijä pyytää taloudellista tukeasi lisäosan kehityksen jatkamiseksi."
+msgid ""
+"The author of this add-on asks that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+"Tämän lisäosan tekijä pyytää taloudellista tukeasi lisäosan kehityksen "
+"jatkamiseksi."
 
 #: src/amo/components/ContributeCard/index.js:67
-msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr "Tämän lisäosan tekijät pyytävät taloudellista tukeasi lisäosan kehityksen jatkamiseksi."
+msgid ""
+"The authors of this add-on ask that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+"Tämän lisäosan tekijät pyytävät taloudellista tukeasi lisäosan kehityksen "
+"jatkamiseksi."
 
 #: src/amo/components/ContributeCard/index.js:87
 msgid "Contribute now"
 msgstr "Tue nyt"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:106
+#: src/amo/components/DownloadFirefoxButton/index.js:39
+#: src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
 msgstr "Lataa Firefox"
 
@@ -742,22 +849,37 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr "Jos olet sisäänkirjautunut ja uskot tämän viestin olevan virhe, <a href=\"%(url)s\">ilmoita ongelmasta</a>. Kerro mistä tulit ja mihin olit suuntaamassa, niin me korjaamme ongelman."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
+msgstr ""
+"Jos olet sisäänkirjautunut ja uskot tämän viestin olevan virhe, <a href="
+"\"%(url)s\">ilmoita ongelmasta</a>. Kerro mistä tulit ja mihin olit "
+"suuntaamassa, niin me korjaamme ongelman."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
 msgstr "Ei valtuutettu"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Valitettavasti valtuutesi eivät riitä tämän sivun näkemiseen. Jos et ole kirjautunut sisään, kirjaudu sisään sivun yläosassa olevan kirjautumislinkin kautta."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"Valitettavasti valtuutesi eivät riitä tämän sivun näkemiseen. Jos et ole "
+"kirjautunut sisään, kirjaudu sisään sivun yläosassa olevan kirjautumislinkin "
+"kautta."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
-"Jos päädyit tänne seuraamalla linkkiä joltain toiselta sivulta, <a href=\"%(url)s\">ilmoita ongelmasta</a>. Kerro miltä sivulta tulit tänne ja mitä etsit, niin me teemme parhaamme korjataksemme "
-"asian."
+"Jos päädyit tänne seuraamalla linkkiä joltain toiselta sivulta, <a href="
+"\"%(url)s\">ilmoita ongelmasta</a>. Kerro miltä sivulta tulit tänne ja mitä "
+"etsit, niin me teemme parhaamme korjataksemme asian."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:41
 msgid "This add-on has been removed by its author."
@@ -771,23 +893,31 @@ msgstr "Ylläpitäjä on poistanut tämän lisäosan."
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr "Valitettavasti kirjoittamastasi osoitteesta ei löytynyt mitään."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
+#: src/amo/components/ErrorPage/NotFound/index.js:57
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "Sivua ei löytynyt"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Palvelinvirhe"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Valitettavasti palvelimellamme tapahtui virhe, emmekä voineet täyttää pyyntöäsi. Tallensimme tämän virheen ja tutkimme asiaa."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"Valitettavasti palvelimellamme tapahtui virhe, emmekä voineet täyttää "
+"pyyntöäsi. Tallensimme tämän virheen ja tutkimme asiaa."
 
 #: src/amo/components/FlagReviewMenu/index.js:107
 msgid "This is a bug report or support request"
@@ -883,11 +1013,13 @@ msgstr "Ilmoita tavaramerkin väärinkäytöstä"
 
 #: src/amo/components/Footer/index.js:194
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
-" or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
-"Jos ei erikseen %(startNotedLink)smainita%(endNotedLink)s, tämän sivuston sisällön kattaa lisenssi %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s tai "
-"mikä tahansa uudempi versio."
+"Jos ei erikseen %(startNotedLink)smainita%(endNotedLink)s, tämän sivuston "
+"sisällön kattaa lisenssi %(startLicenseLink)sCreative Commons Attribution "
+"Share-Alike License v3.0%(endLicenseLink)s tai mikä tahansa uudempi versio."
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
@@ -933,11 +1065,13 @@ msgstr "Oma tili"
 msgid "View My Collections"
 msgstr "Näytä kokoelmani"
 
-#: src/amo/components/Header/index.js:122 src/amo/components/UserProfileEdit/index.js:466
+#: src/amo/components/Header/index.js:122
+#: src/amo/components/UserProfileEdit/index.js:470
 msgid "View My Profile"
 msgstr "Näytä profiilini"
 
-#: src/amo/components/Header/index.js:130 src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/Header/index.js:130
+#: src/amo/components/UserProfileEdit/index.js:476
 msgid "Edit My Profile"
 msgstr "Muokkaa profiiliani"
 
@@ -957,7 +1091,8 @@ msgstr "Lähetä uusi teema"
 msgid "Reviewer Tools"
 msgstr "Arvioijan työkalut"
 
-#: src/amo/components/Header/index.js:165 src/core/components/AuthenticateButton/index.js:77
+#: src/amo/components/Header/index.js:165
+#: src/core/components/AuthenticateButton/index.js:77
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
@@ -991,7 +1126,8 @@ msgstr "Vuodenaikaiset"
 
 #: src/amo/components/Home/index.js:171
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "Muokkaa Firefoxin toimintaa laajennuksilla. Oletko kiinnostunut näistä?"
+msgstr ""
+"Muokkaa Firefoxin toimintaa laajennuksilla. Oletko kiinnostunut näistä?"
 
 #: src/amo/components/Home/index.js:173
 msgid "Change the way Firefox looks with themes."
@@ -1085,7 +1221,9 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:135
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr "Aseta Firefox unohtamaan verkkosivujen tietoja, kuten evästeet tai paikallinen tallennustila"
+msgstr ""
+"Aseta Firefox unohtamaan verkkosivujen tietoja, kuten evästeet tai "
+"paikallinen tallennustila"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Group Speed Dial"
@@ -1165,23 +1303,32 @@ msgid "Multi-Account Containers"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:71
-msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Pidä eri osat verkkoelämästäsi — työ, henkilökohtainen jne — erillään toisistaan väritetyin välilehdin"
+msgid ""
+"Keep different parts of your online life—work, personal, etc.—separated by "
+"color-coded tabs"
+msgstr ""
+"Pidä eri osat verkkoelämästäsi — työ, henkilökohtainen jne — erillään "
+"toisistaan väritetyin välilehdin"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Worldwide Radio"
 msgstr "Maailmanradio"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
-msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr "Quantum-laajennushaasteen voittaja! Kuuntele radioa suorana ympäri maailman"
+msgid ""
+"Quantum Extensions Challenge winner! Listen to live radio from around the "
+"world"
+msgstr ""
+"Quantum-laajennushaasteen voittaja! Kuuntele radioa suorana ympäri maailman"
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "Tabliss"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
+msgid ""
+"Enjoy a gorgeous new tab page with customizable backgrounds, local weather & "
+"more"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:92
@@ -1193,12 +1340,20 @@ msgid "Put a social media ‘Share’ button into Firefox toolbar"
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:225
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Muuta selaimesi ulkoasua. Valitse tuhansista eri teemoista, joiden avulla teet Firefoxista näköisesi."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Muuta selaimesi ulkoasua. Valitse tuhansista eri teemoista, joiden avulla "
+"teet Firefoxista näköisesi."
 
 #: src/amo/components/LandingPage/index.js:227
-msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "Selaa tehokkaita työkaluja ja ominaisuuksia, joiden avulla voit muokata Firefoxista mieleisesi."
+msgid ""
+"Explore powerful tools and features to customize Firefox and make the "
+"browser all your own."
+msgstr ""
+"Selaa tehokkaita työkaluja ja ominaisuuksia, joiden avulla voit muokata "
+"Firefoxista mieleisesi."
 
 #: src/amo/components/LandingPage/index.js:257
 msgid "Explore all categories"
@@ -1217,12 +1372,20 @@ msgid "Dictionaries and Language Packs"
 msgstr "Oikolukusanastot ja kielipaketit"
 
 #: src/amo/components/LanguageTools/index.js:154
-msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "Sanastolisäosan asentaminen lisää uuden kielivalinnan oikolukutyökaluun, joka tarkistaa kirjoitusasusi Firefoxissa."
+msgid ""
+"Installing a dictionary add-on will add a new language option to your spell-"
+"checker, which checks your spelling as you type in Firefox."
+msgstr ""
+"Sanastolisäosan asentaminen lisää uuden kielivalinnan oikolukutyökaluun, "
+"joka tarkistaa kirjoitusasusi Firefoxissa."
 
 #: src/amo/components/LanguageTools/index.js:159
-msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr "Kielipaketit muuttavat selaimesi käyttöliittymän kieltä, mukaan lukien valikot ja asetukset."
+msgid ""
+"Language packs change your browser's interface language, including menu "
+"options and settings."
+msgstr ""
+"Kielipaketit muuttavat selaimesi käyttöliittymän kieltä, mukaan lukien "
+"valikot ja asetukset."
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "All Locales"
@@ -1292,7 +1455,8 @@ msgstr "Lue tekstiä avoinna olevilta välilehdiltä"
 msgid "Access your location"
 msgstr "Pääsy sijaintitietoosi"
 
-#: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
 msgstr "Pääsy selaushistoriaan"
 
@@ -1373,25 +1537,42 @@ msgid "You reported this add-on for abuse"
 msgstr "Ilmoitit tämän lisäosan väärinkäytösten vuoksi"
 
 #: src/amo/components/ReportAbuseButton/index.js:119
-msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "Vastaanotimme ilmoituksesi. Kiitos että saatoit tietoomme huolesi tämän lisäosan suhteen."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+"Vastaanotimme ilmoituksesi. Kiitos että saatoit tietoomme huolesi tämän "
+"lisäosan suhteen."
 
-#: src/amo/components/ReportAbuseButton/index.js:126 src/amo/components/ReportUserAbuse/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:126
+#: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "Emme voi vastata jokaiseen väärinkäytösilmoitukseen, mutta tutkimme siitä huolimatta asian."
+msgstr ""
+"Emme voi vastata jokaiseen väärinkäytösilmoitukseen, mutta tutkimme siitä "
+"huolimatta asian."
 
 #: src/amo/components/ReportAbuseButton/index.js:138
-msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
+msgid ""
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
+"%(linkTagEnd)s or has security or privacy issues, please report these issues "
+"to Mozilla using this form."
 msgstr ""
-"Jos olet sitä mieltä, että tämä lisäosa rikkoo %(linkTagStart)sMozillan lisäosakäytäntöjä%(linkTagEnd)s tai sisältää tietoturva- tai suojausongelmia, ilmoita niistä Mozillalle tällä lomakkeella."
+"Jos olet sitä mieltä, että tämä lisäosa rikkoo %(linkTagStart)sMozillan "
+"lisäosakäytäntöjä%(linkTagEnd)s tai sisältää tietoturva- tai "
+"suojausongelmia, ilmoita niistä Mozillalle tällä lomakkeella."
 
 #: src/amo/components/ReportAbuseButton/index.js:154
 msgid "Report this add-on for abuse"
 msgstr "Ilmoita tämän lisäosan väärinkäytöksistä"
 
 #: src/amo/components/ReportAbuseButton/index.js:183
-msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Älä käytä tätä lomaketta ohjelmistovirheiden ilmoittamiseen tai lisäosien ominaisuuksien toivomiseen. Tätä lomaketta ei lähetetä lisäosan kehittäjälle, vaan Mozillalle."
+msgid ""
+"Please don't use this form to report bugs or request add-on features; this "
+"report will be sent to Mozilla and not to the add-on developer."
+msgstr ""
+"Älä käytä tätä lomaketta ohjelmistovirheiden ilmoittamiseen tai lisäosien "
+"ominaisuuksien toivomiseen. Tätä lomaketta ei lähetetä lisäosan "
+"kehittäjälle, vaan Mozillalle."
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Explain how this add-on is violating our policies."
@@ -1401,25 +1582,38 @@ msgstr "Kerro kuinka tämä lisäosa on vastoin käytäntöjämme."
 msgid "Dismiss"
 msgstr "Hylkää"
 
-#: src/amo/components/ReportAbuseButton/index.js:222 src/amo/components/ReportUserAbuse/index.js:145
+#: src/amo/components/ReportAbuseButton/index.js:222
+#: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Lähetetään väärinkäyttöilmoitusta"
 
-#: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:144
+#: src/amo/components/ReportAbuseButton/index.js:223
+#: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "Lähetä väärinkäyttöilmoitus"
 
-#: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
+#: src/amo/components/ReportUserAbuse/index.js:100
+#: src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
 msgstr "Ilmoita tämän käyttäjän väärinkäytöksistä"
 
 #: src/amo/components/ReportUserAbuse/index.js:114
-msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "Jos olet sitä mieltä, että tämä käyttäjä rikkoo %(linkTagStart)sMozillan lisäosakäytäntöjä%(linkTagEnd)s, ilmoita käyttäjä Mozillalle tällä lomakkeella."
+msgid ""
+"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
+"%(linkTagEnd)s, please report this user to Mozilla."
+msgstr ""
+"Jos olet sitä mieltä, että tämä käyttäjä rikkoo %(linkTagStart)sMozillan "
+"lisäosakäytäntöjä%(linkTagEnd)s, ilmoita käyttäjä Mozillalle tällä "
+"lomakkeella."
 
 #: src/amo/components/ReportUserAbuse/index.js:130
-msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Älä käytä tätä lomaketta ohjelmistovirheiden ilmoittamiseen tai viestin lähettämiseen tälle käyttäjälle. Tätä lomaketta ei lähetetä käyttäjälle, vaan Mozillalle."
+msgid ""
+"Please don't use this form to report bugs or contact this user; your report "
+"will only be sent to Mozilla and not to this user."
+msgstr ""
+"Älä käytä tätä lomaketta ohjelmistovirheiden ilmoittamiseen tai viestin "
+"lähettämiseen tälle käyttäjälle. Tätä lomaketta ei lähetetä käyttäjälle, "
+"vaan Mozillalle."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
@@ -1430,38 +1624,43 @@ msgid "You reported this user for abuse"
 msgstr "Ilmoitit tämän käyttäjän väärinkäytösten vuoksi"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
-msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Vastaanotimme ilmoituksesi. Kiitos että ilmoitit huolesi tämän käyttäjän suhteen."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this user."
+msgstr ""
+"Vastaanotimme ilmoituksesi. Kiitos että ilmoitit huolesi tämän käyttäjän "
+"suhteen."
 
-#: src/amo/components/Search/index.js:106 src/amo/components/SearchResults/index.js:62
+#: src/amo/components/Search/index.js:118
+#: src/amo/components/SearchResults/index.js:69
 msgid "Search results"
 msgstr "Hakutulokset"
 
-#: src/amo/components/Search/index.js:117
+#: src/amo/components/Search/index.js:129
 msgid "Featured add-ons"
 msgstr "Suositellut lisäosat"
 
-#: src/amo/components/Search/index.js:130
+#: src/amo/components/Search/index.js:142
 msgid "Trending add-ons"
 msgstr "Nousussa olevat lisäosat"
 
-#: src/amo/components/Search/index.js:142
+#: src/amo/components/Search/index.js:154
 msgid "Top rated add-ons"
 msgstr "Parhaiten arvioidut lisäosat"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:160
 msgid "Popular extensions"
 msgstr "Suositut laajennukset"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:163
 msgid "Popular themes"
 msgstr "Suositut teemat"
 
-#: src/amo/components/Search/index.js:154
+#: src/amo/components/Search/index.js:166
 msgid "Popular add-ons"
 msgstr "Suositut lisäosat"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:172
 msgid "Search results for \"%(query)s\""
 msgstr "Tulokset haulle ”%(query)s”"
 
@@ -1519,7 +1718,8 @@ msgstr "Etsitään \"%(query)s\""
 msgid "Loading add-ons"
 msgstr "Ladataan lisäosia"
 
-#: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:126
 msgid "All"
 msgstr "Kaikki"
 
@@ -1606,19 +1806,19 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s käyttäjä"
 msgstr[1] "%(total)s käyttäjää"
 
-#: src/amo/components/SearchResults/index.js:36
+#: src/amo/components/SearchResults/index.js:43
 msgid "Searching…"
 msgstr "Haetaan…"
 
-#: src/amo/components/SearchResults/index.js:41
+#: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "Ei tuloksia haulla \"%(query)s\"."
 
-#: src/amo/components/SearchResults/index.js:47
+#: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
 msgstr "Tuloksia ei löytynyt."
 
-#: src/amo/components/SearchResults/index.js:50
+#: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Etsi Firefox-lisäosia kirjoittamalla hakusana."
 
@@ -1651,24 +1851,43 @@ msgid "Explore"
 msgstr "Selaa"
 
 #: src/amo/components/StaticPages/About.js:122
-msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "Jos haluat osallistua, mutta et pidä itseäsi kovin teknisenä henkilönä, voit auttaa muilla tavoin:"
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"Jos haluat osallistua, mutta et pidä itseäsi kovin teknisenä henkilönä, voit "
+"auttaa muilla tavoin:"
 
 #: src/amo/components/StaticPages/About.js:131
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Osallistu keskusteluun %(startLink)skeskustelualueella%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:144
-msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr "Jätä palautetta suosikkilisäosistasi. Lisäosien tekijät mitä luultavimmin parantavat lisäosiaan ja luovat uusia, kun he tietävät luomiaan lisäosia arvostettavan."
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"Jätä palautetta suosikkilisäosistasi. Lisäosien tekijät mitä luultavimmin "
+"parantavat lisäosiaan ja luovat uusia, kun he tietävät luomiaan lisäosia "
+"arvostettavan."
 
 #: src/amo/components/StaticPages/About.js:149
-msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr "Kerro kavereillesi ja perheellesi, että Firefox on nopea ja turvallinen selain; se suojelee yksityisyyttä, ja sen voi muokata mieleisekseen lisäosilla!"
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"Kerro kavereillesi ja perheellesi, että Firefox on nopea ja turvallinen "
+"selain; se suojelee yksityisyyttä, ja sen voi muokata mieleisekseen "
+"lisäosilla!"
 
 #: src/amo/components/StaticPages/About.js:157
-msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr "Muita tapoja osallistua lisäosayhteisön toimintaan on lueteltu %(startLink)swikissä%(endLink)s"
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s"
+msgstr ""
+"Muita tapoja osallistua lisäosayhteisön toimintaan on lueteltu "
+"%(startLink)swikissä%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:171
 msgid "Get support"
@@ -1676,31 +1895,47 @@ msgstr "Etsi tukea"
 
 #: src/amo/components/StaticPages/About.js:176
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
-"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Jos haluat oppia lisää Firefoxin lisäosien hallitsemisesta, tai tarvitset yleistä Firefox-tukea, tutustu %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla -sivustoon. Jos et löydä vastausta sieltä, "
-"%(startForumLink)sesitä kysymyksesi yhteisön keskustelualueella%(endForumLink)s."
+"Jos haluat oppia lisää Firefoxin lisäosien hallitsemisesta, tai tarvitset "
+"yleistä Firefox-tukea, tutustu %(startSUMOLink)sSupport%(endSUMOLink)s "
+"Mozilla -sivustoon. Jos et löydä vastausta sieltä, %(startForumLink)sesitä "
+"kysymyksesi yhteisön keskustelualueella%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:197
-msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
 msgstr ""
 
-#: src/amo/components/StaticPages/About.js:23 src/amo/components/StaticPages/About.js:26
+#: src/amo/components/StaticPages/About.js:23
+#: src/amo/components/StaticPages/About.js:26
 msgid "About Firefox Add-ons"
 msgstr "Tietoja Firefox-lisäosista"
 
 #: src/amo/components/StaticPages/About.js:32
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
-"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO) on Mozillan virallinen sivusto Firefox-selaimen lisäosien etsimiseen ja asentamiseen. Lisäosat auttavat muokkaamaan selailukokemusta lisäämällä uusia ominaisuuksia "
-"Firefoxiin, lisäten vuorovaikutustapoja verkkosivujen sisältöön ja muuttaen selaimen ulkoasua."
+"Addons.mozilla.org (AMO) on Mozillan virallinen sivusto Firefox-selaimen "
+"lisäosien etsimiseen ja asentamiseen. Lisäosat auttavat muokkaamaan "
+"selailukokemusta lisäämällä uusia ominaisuuksia Firefoxiin, lisäten "
+"vuorovaikutustapoja verkkosivujen sisältöön ja muuttaen selaimen ulkoasua."
 
 #: src/amo/components/StaticPages/About.js:42
-msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr "AMOn avulla voit etsiä lisäosia myös Mozilla %(startTBLink)sThunderbirdille%(endTBLink)s ja %(startSMLink)sSeaMonkeylle%(endSMLink)s."
+msgid ""
+"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
+"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr ""
+"AMOn avulla voit etsiä lisäosia myös Mozilla %(startTBLink)sThunderbirdille"
+"%(endTBLink)s ja %(startSMLink)sSeaMonkeylle%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:59
 msgid "A community of creators"
@@ -1708,11 +1943,17 @@ msgstr "Tekijöiden yhteisö"
 
 #: src/amo/components/StaticPages/About.js:61
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
-"been automatically published and may be subject to review by a team of editors once publically listed."
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publically "
+"listed."
 msgstr ""
-"Tuhannet kehittäjät ja teemasuunnittelijat ovat suunnitelleet täällä luetellut lisäosat. Heitä on ympäri maailman ja heihin lukeutuu sekä yksittäisiä harrastelijoita, että suuria yrityksiä. Jotkin "
-"AMO:n lisäosat julkaistaan automaattisesti, ja muokkaustiimi saattaa tehdä niihin tarkistuksia, vaikka ne on julkaistu."
+"Tuhannet kehittäjät ja teemasuunnittelijat ovat suunnitelleet täällä "
+"luetellut lisäosat. Heitä on ympäri maailman ja heihin lukeutuu sekä "
+"yksittäisiä harrastelijoita, että suuria yrityksiä. Jotkin AMO:n lisäosat "
+"julkaistaan automaattisesti, ja muokkaustiimi saattaa tehdä niihin "
+"tarkistuksia, vaikka ne on julkaistu."
 
 #: src/amo/components/StaticPages/About.js:70
 msgid "Get involved"
@@ -1720,27 +1961,45 @@ msgstr "Tule mukaan"
 
 #: src/amo/components/StaticPages/About.js:72
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
-"the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
 msgstr ""
-"Mozilla on voittoa tavoittelematon internetin esitaistelija. Rakennamme Firefoxia pitääksemme sen hyvinvoivana, avoimena ja saavutettavana. Lisäosat tukevat käyttäjän Firefoxin valinta- ja "
-"muokkausmahdollisuuksia. Sinä voit osallistua seuraavilla tavoilla:"
+"Mozilla on voittoa tavoittelematon internetin esitaistelija. Rakennamme "
+"Firefoxia pitääksemme sen hyvinvoivana, avoimena ja saavutettavana. Lisäosat "
+"tukevat käyttäjän Firefoxin valinta- ja muokkausmahdollisuuksia. Sinä voit "
+"osallistua seuraavilla tavoilla:"
 
 #: src/amo/components/StaticPages/About.js:82
-msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr "%(startLink)sTee oma lisäosa%(endLink)s. Me tarjoamme jakelualustan ja päivityspalvelut, joten voimme auttaa sinua tavoittamaan suuren käyttäjämäärän."
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sTee oma lisäosa%(endLink)s. Me tarjoamme jakelualustan ja "
+"päivityspalvelut, joten voimme auttaa sinua tavoittamaan suuren "
+"käyttäjämäärän."
 
 #: src/amo/components/StaticPages/About.js:98
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
-"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
+"Help improve this website. It's open source, and you can file bugs and "
+"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
+"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
+"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
+"Github."
 msgstr ""
-"Auta parantamaan tätä sivustoa. Se on avointa lähdekoodia, joten voit ilmoittaa ongelmista ja lähettää korjauksia. Voit aloittaa %(startGoodFirstBugLink)sensimmäisellä löytämälläsi "
-"virheellä%(endGoodFirstBugLink)s tai voit katsoa kaikki avoinna olevat AMOn %(startAddonsServerRepoLink)spalvelimen%(endAddonsServerRepoLink)s ja "
-"%(startAddonsFrontendRepoLink)sedustan%(endAddonsFrontendRepoLink)s ongelmat Githubissa."
+"Auta parantamaan tätä sivustoa. Se on avointa lähdekoodia, joten voit "
+"ilmoittaa ongelmista ja lähettää korjauksia. Voit aloittaa "
+"%(startGoodFirstBugLink)sensimmäisellä löytämälläsi virheellä"
+"%(endGoodFirstBugLink)s tai voit katsoa kaikki avoinna olevat AMOn "
+"%(startAddonsServerRepoLink)spalvelimen%(endAddonsServerRepoLink)s ja "
+"%(startAddonsFrontendRepoLink)sedustan%(endAddonsFrontendRepoLink)s ongelmat "
+"Githubissa."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:102
-msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgid ""
+"Include your own or anyone else’s email, phone number, or other personal "
+"details."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:107
@@ -1749,8 +2008,10 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:112
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
-"add-on, or the add-on requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving "
+"a negative review of an add-on for displaying ads or requiring data "
+"gathering, when that is the intended purpose of the add-on, or the add-on "
+"requires gathering data to function."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:121
@@ -1763,8 +2024,10 @@ msgstr "Voinko ilmoittaa ongelmallisesta arviosta?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:125
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
-"evaluate whether or not to delete the review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this "
+"review\" and it will be submitted to the site for moderation. Our moderation "
+"team will use the Review Guidelines to evaluate whether or not to delete the "
+"review or restore it back to the site."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:132
@@ -1772,27 +2035,35 @@ msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Olen lisäosan tekijä, voinko vastata arvioihin?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:138
-msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgid ""
+"Yes, add-on authors can provide a single response to a review. You can set "
+"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
+"additional discussion or follow-up."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:152
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr "Olen lisäosan tekijä, voinko poistaa epämieluisat arviot ja arvostelut?"
+msgstr ""
+"Olen lisäosan tekijä, voinko poistaa epämieluisat arviot ja arvostelut?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:157
 msgid ""
-"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
-"valid due to a new release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines "
+"outlined above, you can click \"Report this review\" and have it moderated. "
+"If a review included a complaint that is no longer valid due to a new "
+"release of your add-on, we may consider deleting the review."
 msgstr ""
 
-#: src/amo/components/StaticPages/ReviewGuide.js:21 src/amo/components/StaticPages/ReviewGuide.js:23
+#: src/amo/components/StaticPages/ReviewGuide.js:21
+#: src/amo/components/StaticPages/ReviewGuide.js:23
 msgid "Review Guidelines"
 msgstr "Arvioinnin ohjeistukset"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:29
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
-" with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons "
+"you’ve installed and used. Our review moderation team reserves the right to "
+"refuse or remove any review that does not comply with these guidelines."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:34
@@ -1804,7 +2075,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
-msgid "Write like you are telling a friend about your experience with the add-on."
+msgid ""
+"Write like you are telling a friend about your experience with the add-on."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
@@ -1836,7 +2108,8 @@ msgid "Will you continue to use this add-on?"
 msgstr "Jatkatko tämän lisäosan käyttämistä?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
-msgid "Take a moment to read your review before submitting it to minimize typos."
+msgid ""
+"Take a moment to read your review before submitting it to minimize typos."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:69
@@ -1845,12 +2118,15 @@ msgstr "Älä:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:72
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "Lähetä yhden sanan sisältäviä arvioita, kuten \"Hyvä!\" tai \"Surkea\"."
+msgstr ""
+"Lähetä yhden sanan sisältäviä arvioita, kuten \"Hyvä!\" tai \"Surkea\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
-" on the add-on's detail page."
+"Post technical issues, support requests, or feature suggestions. Use the "
+"available support options for each add-on, if available. You can find them "
+"in the \"More information\" section in the sidebar on the add-on's detail "
+"page."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
@@ -1858,15 +2134,21 @@ msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Kirjoita arvioita lisäosista, joita et ole itse käyttänyt."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:87
-msgid "Use profanity, sexual language or language that can be construed as hateful."
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:92
-msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr "Sisällytä HTML:ää, linkkejä, lähdekoodia tai koodipätkiä. Arvioiden on tarkoitus olla sisällöltään vain tekstiä."
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"Sisällytä HTML:ää, linkkejä, lähdekoodia tai koodipätkiä. Arvioiden on "
+"tarkoitus olla sisällöltään vain tekstiä."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
-msgid "Make false statements, disparage add-on authors or personally insult them."
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
 msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:20
@@ -1885,45 +2167,59 @@ msgstr "Selaa kaikkia teemoja"
 msgid "Add-ons Home Page"
 msgstr "Lisäosien aloitussivu"
 
-#: src/amo/components/UserProfile/index.js:139
+#: src/amo/components/UserProfile/index.js:197
+#, fuzzy
+msgid "My reviews"
+msgstr "Arvioita"
+
+#: src/amo/components/UserProfile/index.js:216
+#, fuzzy
+msgid "Browse the reviews for this add-on"
+msgstr "Tällä lisäosalla on %(total)s arvio"
+
+#: src/amo/components/UserProfile/index.js:261
 #, fuzzy
 msgid "Add-ons developer"
 msgstr "Näiden käyttäjien lisäosat"
 
-#: src/amo/components/UserProfile/index.js:145
+#: src/amo/components/UserProfile/index.js:267
 #, fuzzy
 msgid "Theme artist"
 msgstr "Näiden käyttäjien teemat"
 
-#: src/amo/components/UserProfile/index.js:158 src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfile/index.js:281
+#: src/amo/components/UserProfileEdit/index.js:458
 msgid "User Profile for %(user)s"
 msgstr "Käyttäjän %(user)s profiili"
 
-#: src/amo/components/UserProfile/index.js:188 src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfile/index.js:311
+#: src/amo/components/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr "Sijainti"
 
-#: src/amo/components/UserProfile/index.js:196 src/amo/components/UserProfileEdit/index.js:621
+#: src/amo/components/UserProfile/index.js:319
+#: src/amo/components/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr "Ammatti"
 
-#: src/amo/components/UserProfile/index.js:203
+#: src/amo/components/UserProfile/index.js:326
 msgid "User since"
 msgstr "Käyttäjä alkaen"
 
-#: src/amo/components/UserProfile/index.js:213
+#: src/amo/components/UserProfile/index.js:336
 msgid "Number of add-ons"
 msgstr "Lisäosien lukumäärä"
 
-#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfile/index.js:342
 msgid "Average rating of developer’s add-ons"
 msgstr "Keskiarvoinen arvio kehittäjän lisäosista"
 
-#: src/amo/components/UserProfile/index.js:234 src/amo/components/UserProfileEdit/index.js:643
+#: src/amo/components/UserProfile/index.js:357
+#: src/amo/components/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr "Biografia"
 
-#: src/amo/components/UserProfile/index.js:258
+#: src/amo/components/UserProfile/index.js:381
 msgid "Edit profile"
 msgstr "Muokkaa profiilia"
 
@@ -1931,151 +2227,187 @@ msgstr "Muokkaa profiilia"
 msgid "Picture successfully deleted"
 msgstr "Kuva on poistettu"
 
-#: src/amo/components/UserProfileEdit/index.js:424
+#: src/amo/components/UserProfileEdit/index.js:426
 msgid "Log in to edit the profile"
 msgstr "Muokkaa profiilia kirjautumalla"
 
-#: src/amo/components/UserProfileEdit/index.js:467
+#: src/amo/components/UserProfileEdit/index.js:471
 msgid "View user's profile"
 msgstr "Näytä käyttäjän profiili"
 
-#: src/amo/components/UserProfileEdit/index.js:473
+#: src/amo/components/UserProfileEdit/index.js:477
 msgid "Edit user's profile"
 msgstr "Muokkaa käyttäjän profiilia"
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:495
 msgid "Account"
 msgstr "Tili"
 
-#: src/amo/components/UserProfileEdit/index.js:492
+#: src/amo/components/UserProfileEdit/index.js:496
 msgid "Account for %(username)s"
 msgstr "Käyttäjän %(username)s tili"
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:502
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
-#: src/amo/components/UserProfileEdit/index.js:511
+#: src/amo/components/UserProfileEdit/index.js:515
 msgid "Email Address"
 msgstr "Sähköpostiosoite"
 
-#: src/amo/components/UserProfileEdit/index.js:518
+#: src/amo/components/UserProfileEdit/index.js:522
 msgid "Email address cannot be changed here"
 msgstr "Sähköpostiosoitetta ei voi vaihtaa täällä"
 
-#: src/amo/components/UserProfileEdit/index.js:527
-msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "Voit vaihtaa sähköpostiosoitteesi Firefox-tilin kautta. %(startLink)sTarvitsetko apua?%(endLink)s"
+#: src/amo/components/UserProfileEdit/index.js:531
+msgid ""
+"You can change your email address on Firefox Accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+"Voit vaihtaa sähköpostiosoitteesi Firefox-tilin kautta. "
+"%(startLink)sTarvitsetko apua?%(endLink)s"
 
-#: src/amo/components/UserProfileEdit/index.js:544
+#: src/amo/components/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts..."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:552
+#: src/amo/components/UserProfileEdit/index.js:556
 msgid "Profile"
 msgstr "Profiili"
 
-#: src/amo/components/UserProfileEdit/index.js:556
-msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr "Kerro muille tietoja itsestäsi. Nämä kentät ovat valinnaisia, mutta niiden avulla muut oppivat tuntemaan sinut."
+#: src/amo/components/UserProfileEdit/index.js:560
+msgid ""
+"Tell users a bit more information about yourself. These fields are optional, "
+"but they'll help other users get to know you better."
+msgstr ""
+"Kerro muille tietoja itsestäsi. Nämä kentät ovat valinnaisia, mutta niiden "
+"avulla muut oppivat tuntemaan sinut."
 
-#: src/amo/components/UserProfileEdit/index.js:562
-msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
+#: src/amo/components/UserProfileEdit/index.js:566
+msgid ""
+"Tell users a bit more information about this user. These fields are "
+"optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:572
+#: src/amo/components/UserProfileEdit/index.js:576
 msgid "Display Name"
 msgstr "Näyttönimi"
 
-#: src/amo/components/UserProfileEdit/index.js:604
+#: src/amo/components/UserProfileEdit/index.js:608
 msgid "This URL will only be visible for users who are developers."
 msgstr "Tämä osoite on näkyvissä vain käyttäjille, jotka ovat kehittäjiä."
 
-#: src/amo/components/UserProfileEdit/index.js:647
+#: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce yourself to the community if you like"
 msgstr "Esittele itsesi yhteisölle, jos haluat"
 
-#: src/amo/components/UserProfileEdit/index.js:651
+#: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce %(username)s to the community"
 msgstr "Esittele %(username)s yhteisölle"
 
-#: src/amo/components/UserProfileEdit/index.js:665
+#: src/amo/components/UserProfileEdit/index.js:669
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "HTML on osittain tuettu: %(htmlTags)s. Linkit ovat kiellettyjä."
 
-#: src/amo/components/UserProfileEdit/index.js:689
+#: src/amo/components/UserProfileEdit/index.js:693
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
-#: src/amo/components/UserProfileEdit/index.js:693
-msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+#: src/amo/components/UserProfileEdit/index.js:697
+msgid ""
+"From time to time, Mozilla may send you email about upcoming releases and "
+"add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:698
-msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+#: src/amo/components/UserProfileEdit/index.js:702
+msgid ""
+"From time to time, Mozilla may send this user email about upcoming releases "
+"and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:713
-msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr "Mozilla varaa oikeuden ottaa sinuun yhteyttä liittyen jakamiisi lisäosiin."
-
-#: src/amo/components/UserProfileEdit/index.js:731
-msgid "Updating your profile…"
-msgstr "Päivitetään profiiliasi…"
-
-#: src/amo/components/UserProfileEdit/index.js:732
-msgid "Update my profile"
-msgstr "Päivitä profiilisi"
-
-#: src/amo/components/UserProfileEdit/index.js:734
-msgid "Updating user's profile…"
-msgstr "Päivitetään käyttäjän profiilia…"
+#: src/amo/components/UserProfileEdit/index.js:717
+msgid ""
+"Mozilla reserves the right to contact you individually about specific "
+"concerns with your hosted add-ons."
+msgstr ""
+"Mozilla varaa oikeuden ottaa sinuun yhteyttä liittyen jakamiisi lisäosiin."
 
 #: src/amo/components/UserProfileEdit/index.js:735
-msgid "Update user's profile"
-msgstr "Päivitä käyttäjän profiili"
+#, fuzzy
+msgid "Updating your account…"
+msgstr "Päivitetään profiiliasi…"
 
-#: src/amo/components/UserProfileEdit/index.js:746
-msgid "Delete my profile"
-msgstr "Poista profiilini"
+#: src/amo/components/UserProfileEdit/index.js:736
+#, fuzzy
+msgid "Update My Account"
+msgstr "Oma tili"
 
-#: src/amo/components/UserProfileEdit/index.js:747
-msgid "Delete user's profile"
-msgstr "Poista käyttäjän profiili"
+#: src/amo/components/UserProfileEdit/index.js:738
+#, fuzzy
+msgid "Updating this account…"
+msgstr "Päivitetään käyttäjän profiilia…"
 
-#: src/amo/components/UserProfileEdit/index.js:758
-msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr "Huomio: olet aikeissa poistaa profiilisi. Oletko varma?"
-
-#: src/amo/components/UserProfileEdit/index.js:761
-msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr "Huomio: olet aikeissa poistaa profiilin. Oletko varma?"
-
-#: src/amo/components/UserProfileEdit/index.js:772
-msgid ""
-"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
-"page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
+#: src/amo/components/UserProfileEdit/index.js:739
+msgid "Update This Account"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:789
-msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr "Tärkeää: Jos omistat lisäosia, sinun tulee siirtää ne toiselle käyttäjälle tai poistaa ne, ennen kuin voit poistaa profiilisi."
+#: src/amo/components/UserProfileEdit/index.js:750
+#: src/amo/components/UserProfileEdit/index.js:828
+#, fuzzy
+msgid "Delete My Account"
+msgstr "Oma tili"
 
-#: src/amo/components/UserProfileEdit/index.js:792
-msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr "Tärkeää: käyttäjäprofiili on mahdollista poistaa vain, jos käyttäjä ei omista yhtäkään lisäosaa."
+#: src/amo/components/UserProfileEdit/index.js:751
+#: src/amo/components/UserProfileEdit/index.js:829
+#, fuzzy
+msgid "Delete This Account"
+msgstr "Muokkaa tätä kokoelmaa"
 
-#: src/amo/components/UserProfileEdit/index.js:804
-msgid "Yes, delete my profile"
-msgstr "Kyllä, poista profiilini"
+#: src/amo/components/UserProfileEdit/index.js:762
+msgid "IMPORTANT: Deleting your account is irreversible."
+msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:805
-msgid "Yes, delete this profile"
-msgstr "Kyllä, poista tämä profiili"
+#: src/amo/components/UserProfileEdit/index.js:765
+msgid "IMPORTANT: Deleting this account is irreversible."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:774
+msgid ""
+"Your data will be permanently removed, including profile details (picture, "
+"user name, display name, location, home page, biography, occupation) and "
+"notification preferences. Your reviews and ratings will be anonymised and no "
+"longer editable."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:781
+msgid ""
+"The user’s data will be permanently removed, including profile details "
+"(picture, user name, display name, location, home page, biography, "
+"occupation) and notification preferences. Reviews and ratings will be "
+"anonymised and no longer editable."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:794
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are "
+"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+"before you can delete your account."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:801
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the "
+"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
-msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr "pysy ajan tasalla lisäosien kehittäjille olennaisista uutisista ja tapahtumista (mukaan lukien about:addons-uutiskirje)"
+msgid ""
+"stay up-to-date with news and events relevant to add-on developers "
+"(including the about:addons newsletter)"
+msgstr ""
+"pysy ajan tasalla lisäosien kehittäjille olennaisista uutisista ja "
+"tapahtumista (mukaan lukien about:addons-uutiskirje)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -2121,16 +2453,18 @@ msgstr "Käyttäjän %(name)s profiilikuva"
 msgid "Profile photo"
 msgstr "Profiilikuva"
 
-#: src/amo/components/UserProfileEditPicture/index.js:66
-msgid "Choose photo..."
+#: src/amo/components/UserProfileEditPicture/index.js:67
+#, fuzzy
+msgid "Choose Photo…"
 msgstr "Valitse kuva..."
 
-#: src/amo/components/UserProfileEditPicture/index.js:74
+#: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Haluatko varmasti poistaa tämän kuvan?"
 
-#: src/amo/components/UserProfileEditPicture/index.js:77
-msgid "Delete this picture"
+#: src/amo/components/UserProfileEditPicture/index.js:78
+#, fuzzy
+msgid "Delete This Picture"
 msgstr "Poista tämä kuva"
 
 #: src/core/components/AuthenticateButton/index.js:78
@@ -2138,10 +2472,15 @@ msgid "Register or Log in"
 msgstr "Rekisteröidy tai kirjaudu"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Valitettavasti havaitsimme virheen, eikä pyyntöäsi pystytty käsittelemään. Kirjasimme virheen ja tutkimme asiaa."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Valitettavasti havaitsimme virheen, eikä pyyntöäsi pystytty käsittelemään. "
+"Kirjasimme virheen ja tutkimme asiaa."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Virhekoodi: %(status)s."
 
@@ -2149,11 +2488,13 @@ msgstr "Virhekoodi: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Valitettavasti kirjoittamastasi osoitteesta ei löytynyt mitään."
 
-#: src/core/components/InstallButton/index.js:244 src/core/components/InstallButton/index.js:287
+#: src/core/components/InstallButton/index.js:253
+#: src/core/components/InstallButton/index.js:296
 msgid "Install Theme"
 msgstr "Asenna teema"
 
-#: src/core/components/InstallButton/index.js:272 src/core/components/InstallButton/index.js:288
+#: src/core/components/InstallButton/index.js:281
+#: src/core/components/InstallButton/index.js:297
 msgid "Add to Firefox"
 msgstr "Lisää Firefoxiin"
 
@@ -2185,15 +2526,15 @@ msgstr "%(name)s on poistettu. Asenna se napsauttamalla."
 msgid "Install state for %(name)s is unknown."
 msgstr "Lisäosan %(name)s asennuksen tila on tuntematon."
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:137
 msgid "Previous"
 msgstr "Edellinen"
 
-#: src/core/components/Paginate/index.js:136
+#: src/core/components/Paginate/index.js:154
 msgid "Next"
 msgstr "Seuraava"
 
-#: src/core/components/Paginate/index.js:141
+#: src/core/components/Paginate/index.js:160
 #, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Sivu %(pageNumber)s/%(totalPages)s"
@@ -2297,6 +2638,44 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "%(count)s lisäosa löytyi"
 msgstr[1] "%(count)s lisäosaa löytyi"
 
+#~ msgid "Update my profile"
+#~ msgstr "Päivitä profiilisi"
+
+#~ msgid "Update user's profile"
+#~ msgstr "Päivitä käyttäjän profiili"
+
+#~ msgid "Delete my profile"
+#~ msgstr "Poista profiilini"
+
+#~ msgid "Delete user's profile"
+#~ msgstr "Poista käyttäjän profiili"
+
+#~ msgid "Attention: You are about to delete your profile. Are you sure?"
+#~ msgstr "Huomio: olet aikeissa poistaa profiilisi. Oletko varma?"
+
+#~ msgid "Attention: You are about to delete a profile. Are you sure?"
+#~ msgstr "Huomio: olet aikeissa poistaa profiilin. Oletko varma?"
+
+#~ msgid ""
+#~ "Important: if you own add-ons, you have to transfer them to other users "
+#~ "or to delete them before you can delete your profile."
+#~ msgstr ""
+#~ "Tärkeää: Jos omistat lisäosia, sinun tulee siirtää ne toiselle "
+#~ "käyttäjälle tai poistaa ne, ennen kuin voit poistaa profiilisi."
+
+#~ msgid ""
+#~ "Important: a user profile can only be deleted if the user does not own "
+#~ "any add-ons."
+#~ msgstr ""
+#~ "Tärkeää: käyttäjäprofiili on mahdollista poistaa vain, jos käyttäjä ei "
+#~ "omista yhtäkään lisäosaa."
+
+#~ msgid "Yes, delete my profile"
+#~ msgstr "Kyllä, poista profiilini"
+
+#~ msgid "Yes, delete this profile"
+#~ msgstr "Kyllä, poista tämä profiili"
+
 #~ msgid "Essential extensions"
 #~ msgstr "Oleellisimmat laajennukset"
 
@@ -2315,8 +2694,12 @@ msgstr[1] "%(count)s lisäosaa löytyi"
 #~ msgid "Session Sync"
 #~ msgstr "Istuntojen synkronointi"
 
-#~ msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-#~ msgstr "Quantum-laajennushaasteen voittaja! Tallenna istunnot kirjanmerkeiksi ja käytä niitä eri laitteiden välillä"
+#~ msgid ""
+#~ "Quantum Extensions Challenge winner! Save sessions as bookmarks and "
+#~ "access them across devices"
+#~ msgstr ""
+#~ "Quantum-laajennushaasteen voittaja! Tallenna istunnot kirjanmerkeiksi ja "
+#~ "käytä niitä eri laitteiden välillä"
 
 #~ msgid "Profile successfully updated"
 #~ msgstr "Profiili päivitetty onnistuneesti"
@@ -2365,9 +2748,6 @@ msgstr[1] "%(count)s lisäosaa löytyi"
 
 #~ msgid "Search Site"
 #~ msgstr "Haku"
-
-#~ msgid "Reviews"
-#~ msgstr "Arvioita"
 
 #~ msgid "Review"
 #~ msgid_plural "Reviews"

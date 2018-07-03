@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-26 16:54+0000\n"
+"POT-Creation-Date: 2018-07-03 17:51+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -43,7 +43,7 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:262
-#: src/amo/components/CollectionManager/index.js:415
+#: src/amo/components/CollectionManager/index.js:419
 #, fuzzy
 msgid "Add to collection"
 msgstr "ویرایش این مجموعه"
@@ -254,7 +254,7 @@ msgid "Version"
 msgstr "نسخه"
 
 #: src/amo/components/AddonMoreInfo/index.js:195
-#: src/amo/components/Collection/index.js:358
+#: src/amo/components/Collection/index.js:421
 msgid "Last updated"
 msgstr "آخرین بروزرسانی"
 
@@ -283,8 +283,8 @@ msgid "More information"
 msgstr "اطلاعات بیشتر"
 
 #: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/components/UserProfile/index.js:178
-#: src/amo/components/UserProfileEdit/index.js:592
+#: src/amo/components/UserProfile/index.js:301
+#: src/amo/components/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "صفحه نخست"
 
@@ -300,11 +300,11 @@ msgstr "رایانامهٔ پشتیبانی"
 msgid "Visit stats dashboard"
 msgstr "مشاهدهٔ داشبورد آمارها"
 
-#: src/amo/components/AddonRecommendations/index.js:165
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr ""
 
-#: src/amo/components/AddonRecommendations/index.js:166
+#: src/amo/components/AddonRecommendations/index.js:135
 #, fuzzy
 msgid "Other popular extensions"
 msgstr "افزونه‌های محبوب بیشتر"
@@ -406,92 +406,92 @@ msgstr "ویرایش بازخورد من"
 msgid "Reply to this review"
 msgstr "پاسخ به این بازخورد"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:217
+#: src/amo/components/AddonsByAuthorsCard/index.js:226
 msgid "More dictionaries by %(author)s"
 msgstr "واژه‌نامه‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:220
+#: src/amo/components/AddonsByAuthorsCard/index.js:229
 msgid "More dictionaries by these translators"
 msgstr "واژه‌نامه‌های بیشتر توسط این مترجمان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:224
+#: src/amo/components/AddonsByAuthorsCard/index.js:233
 #, fuzzy
 msgid "Dictionaries by %(author)s"
 msgstr "واژه‌نامه‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:227
+#: src/amo/components/AddonsByAuthorsCard/index.js:236
 #, fuzzy
 msgid "Dictionaries by these translators"
 msgstr "واژه‌نامه‌های بیشتر توسط این مترجمان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:234
+#: src/amo/components/AddonsByAuthorsCard/index.js:243
 msgid "More extensions by %(author)s"
 msgstr "افزونه‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:237
+#: src/amo/components/AddonsByAuthorsCard/index.js:246
 msgid "More extensions by these developers"
 msgstr "افزونه‌های بیشتر توسط این توسعه‌دهندگان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:241
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 #, fuzzy
 msgid "Extensions by %(author)s"
 msgstr "افزونه‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:244
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
 #, fuzzy
 msgid "Extensions by these developers"
 msgstr "افزونه‌های بیشتر توسط این توسعه‌دهندگان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:251
+#: src/amo/components/AddonsByAuthorsCard/index.js:260
 msgid "More language packs by %(author)s"
 msgstr "بسته‌های زبان بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:254
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More language packs by these translators"
 msgstr "بسته‌های زبان بیشتر توسط این مترجمان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:258
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 #, fuzzy
 msgid "Language packs by %(author)s"
 msgstr "بسته‌های زبان بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:261
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
 #, fuzzy
 msgid "Language packs by these translators"
 msgstr "بسته‌های زبان بیشتر توسط این مترجمان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:269
+#: src/amo/components/AddonsByAuthorsCard/index.js:278
 msgid "More themes by %(author)s"
 msgstr "تم‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:272
+#: src/amo/components/AddonsByAuthorsCard/index.js:281
 msgid "More themes by these artists"
 msgstr "تم‌های بیشتر توسط این هنرمندان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:276
+#: src/amo/components/AddonsByAuthorsCard/index.js:285
 #, fuzzy
 msgid "Themes by %(author)s"
 msgstr "تم‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:288
 #, fuzzy
 msgid "Themes by these artists"
 msgstr "تم‌های بیشتر توسط این هنرمندان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:295
 msgid "More add-ons by %(author)s"
 msgstr "افزونه‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:289
+#: src/amo/components/AddonsByAuthorsCard/index.js:298
 msgid "More add-ons by these developers"
 msgstr "افزونه‌های بیشتر توسط این توسعه‌دهندگان"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:302
 #, fuzzy
 msgid "Add-ons by %(author)s"
 msgstr "افزونه‌های بیشتر توسط %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
 #, fuzzy
 msgid "Add-ons by these developers"
 msgstr "افزونه‌های بیشتر توسط این توسعه‌دهندگان"
@@ -548,7 +548,7 @@ msgstr "افزونه‌ها"
 #: src/amo/components/Category/index.js:143
 #: src/amo/components/Home/index.js:205
 #: src/amo/components/LandingPage/index.js:138
-#: src/amo/components/Search/index.js:111
+#: src/amo/components/Search/index.js:123
 msgid "Featured extensions"
 msgstr "افزونه‌های منتخب"
 
@@ -560,7 +560,7 @@ msgstr "دیدن افزونه‌های منتخب بیشتر"
 
 #: src/amo/components/Category/index.js:153
 #: src/amo/components/LandingPage/index.js:147
-#: src/amo/components/Search/index.js:124
+#: src/amo/components/Search/index.js:136
 msgid "Trending extensions"
 msgstr "افزونه‌های داغ"
 
@@ -571,7 +571,7 @@ msgstr "دیدن افزونه‌های داغ بیشتر"
 
 #: src/amo/components/Category/index.js:163
 #: src/amo/components/LandingPage/index.js:156
-#: src/amo/components/Search/index.js:136
+#: src/amo/components/Search/index.js:148
 msgid "Top rated extensions"
 msgstr "افزونه‌های با بیشترین امتیاز"
 
@@ -589,7 +589,7 @@ msgstr "قالب‌ها"
 #: src/amo/components/Category/index.js:176
 #: src/amo/components/Home/index.js:234
 #: src/amo/components/LandingPage/index.js:167
-#: src/amo/components/Search/index.js:114
+#: src/amo/components/Search/index.js:126
 msgid "Featured themes"
 msgstr "پوسته‌های منتخب"
 
@@ -601,7 +601,7 @@ msgstr "دیدن پوسته‌های منتخب بیشتر"
 
 #: src/amo/components/Category/index.js:186
 #: src/amo/components/LandingPage/index.js:176
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Search/index.js:139
 msgid "Trending themes"
 msgstr "پوسته‌های داغ"
 
@@ -612,7 +612,7 @@ msgstr "دیدن پوسته‌های منتخب بیشتر"
 
 #: src/amo/components/Category/index.js:196
 #: src/amo/components/LandingPage/index.js:182
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:151
 msgid "Top rated themes"
 msgstr "پوسته‌های با بیشترین امتیاز"
 
@@ -633,46 +633,68 @@ msgstr "تمام ضمیمه‌های این دسته را مرور کنید."
 msgid "Browse all themes in this category."
 msgstr "تمام زمینه‌های این دسته را مرور کنید."
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:160
+msgid "Newest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:164
+msgid "Oldest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:168
+msgid "Name"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:172
+#, fuzzy
+msgid "Popularity"
+msgstr "محبوب‌ترین پوسته‌ها"
+
+#: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/Collection/index.js:309
+#: src/amo/components/Collection/index.js:372
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/Collection/index.js:310
+#: src/amo/components/Collection/index.js:373
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/Collection/index.js:348
+#: src/amo/components/Collection/index.js:411
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "افزونه‌ها"
 
-#: src/amo/components/Collection/index.js:352
+#: src/amo/components/Collection/index.js:415
 msgid "Creator"
 msgstr "سازنده"
 
-#: src/amo/components/Collection/index.js:379
+#: src/amo/components/Collection/index.js:442
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/Collection/index.js:382
+#: src/amo/components/Collection/index.js:445
 #, fuzzy
 msgid "Delete this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/Collection/index.js:414
+#: src/amo/components/Collection/index.js:478
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/Collection/index.js:417
+#: src/amo/components/Collection/index.js:481
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
+
+#: src/amo/components/Collection/index.js:496
+#, fuzzy
+msgid "Sort add-ons by"
+msgstr "افزونه‌های با بیشترین امتیاز"
 
 #: src/amo/components/CollectionList/index.js:114
 #, fuzzy
@@ -705,39 +727,39 @@ msgstr "ویرایش این مجموعه"
 msgid "My collections"
 msgstr "نمایش مجموعهٔ من"
 
-#: src/amo/components/CollectionManager/index.js:332
+#: src/amo/components/CollectionManager/index.js:337
 #, fuzzy
 msgid "Create collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/CollectionManager/index.js:333
+#: src/amo/components/CollectionManager/index.js:338
 #, fuzzy
 msgid "Save collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/CollectionManager/index.js:342
+#: src/amo/components/CollectionManager/index.js:347
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:356
+#: src/amo/components/CollectionManager/index.js:361
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:368
+#: src/amo/components/CollectionManager/index.js:373
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:401
+#: src/amo/components/CollectionManager/index.js:406
 #, fuzzy
 msgid "Added to collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/CollectionManager/index.js:409
+#: src/amo/components/CollectionManager/index.js:414
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:431
-#: src/amo/components/UserProfileEdit/index.js:812
+#: src/amo/components/CollectionManager/index.js:435
+#: src/amo/components/UserProfileEdit/index.js:836
 #: src/ui/components/ConfirmButton/index.js:100
 #: src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
@@ -1067,13 +1089,13 @@ msgid "View My Collections"
 msgstr "نمایش مجموعهٔ من"
 
 #: src/amo/components/Header/index.js:122
-#: src/amo/components/UserProfileEdit/index.js:466
+#: src/amo/components/UserProfileEdit/index.js:470
 #, fuzzy
 msgid "View My Profile"
 msgstr "نمایش نمایه"
 
 #: src/amo/components/Header/index.js:130
-#: src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/UserProfileEdit/index.js:476
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "ویرایش نمایه"
@@ -1637,36 +1659,36 @@ msgstr ""
 "ما گزارش شما را دریافت کردیم. بابت در جریان قرار دادن ما از نگرانی‌های خود در "
 "خصوص این افزونه از شما متشکریم."
 
-#: src/amo/components/Search/index.js:106
-#: src/amo/components/SearchResults/index.js:62
+#: src/amo/components/Search/index.js:118
+#: src/amo/components/SearchResults/index.js:69
 msgid "Search results"
 msgstr "نتایج جستجو"
 
-#: src/amo/components/Search/index.js:117
+#: src/amo/components/Search/index.js:129
 msgid "Featured add-ons"
 msgstr "افزونه‌های منتخب"
 
-#: src/amo/components/Search/index.js:130
+#: src/amo/components/Search/index.js:142
 msgid "Trending add-ons"
 msgstr "افزونه‌های داغ"
 
-#: src/amo/components/Search/index.js:142
+#: src/amo/components/Search/index.js:154
 msgid "Top rated add-ons"
 msgstr "افزونه‌های با بیشترین امتیاز"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:160
 msgid "Popular extensions"
 msgstr "محبوب‌ترین افزونه‌ها"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:163
 msgid "Popular themes"
 msgstr "محبوب‌ترین پوسته‌ها"
 
-#: src/amo/components/Search/index.js:154
+#: src/amo/components/Search/index.js:166
 msgid "Popular add-ons"
 msgstr "محبوب‌ترین افزونه‌ها"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:172
 msgid "Search results for \"%(query)s\""
 msgstr "نتایج جست‌وجو برای «%(query)s»"
 
@@ -1813,19 +1835,19 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s کاربر"
 msgstr[1] "%(total)s کاربر"
 
-#: src/amo/components/SearchResults/index.js:36
+#: src/amo/components/SearchResults/index.js:43
 msgid "Searching…"
 msgstr "در حال جستجو…"
 
-#: src/amo/components/SearchResults/index.js:41
+#: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "هیچ نتیجه‌ای برای «%(query)s» پیدا نشد."
 
-#: src/amo/components/SearchResults/index.js:47
+#: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
 msgstr "هیچ نتیجه‌ای پیدا نشد."
 
-#: src/amo/components/SearchResults/index.js:50
+#: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "لطفاً عبارت جستجو را برای جستجو در افزونه‌های فایرفاکس وارد کنید."
 
@@ -2132,52 +2154,62 @@ msgstr "مرور تمام تم‌ها"
 msgid "Add-ons Home Page"
 msgstr "صفحه خانگی افزودنه‌ها"
 
-#: src/amo/components/UserProfile/index.js:139
+#: src/amo/components/UserProfile/index.js:197
+#, fuzzy
+msgid "My reviews"
+msgstr "بازخوردها"
+
+#: src/amo/components/UserProfile/index.js:216
+#, fuzzy
+msgid "Browse the reviews for this add-on"
+msgstr "%(total)s بازخورد برای این افزونه"
+
+#: src/amo/components/UserProfile/index.js:261
 #, fuzzy
 msgid "Add-ons developer"
 msgstr "افزونه‌های بیشتر توسط این توسعه‌دهندگان"
 
-#: src/amo/components/UserProfile/index.js:145
+#: src/amo/components/UserProfile/index.js:267
 #, fuzzy
 msgid "Theme artist"
 msgstr "تم‌های بیشتر توسط این هنرمندان"
 
-#: src/amo/components/UserProfile/index.js:158
-#: src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfile/index.js:281
+#: src/amo/components/UserProfileEdit/index.js:458
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "نتایج جست‌وجو برای «%(query)s»"
 
-#: src/amo/components/UserProfile/index.js:188
-#: src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfile/index.js:311
+#: src/amo/components/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:196
-#: src/amo/components/UserProfileEdit/index.js:621
+#: src/amo/components/UserProfile/index.js:319
+#: src/amo/components/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:203
+#: src/amo/components/UserProfile/index.js:326
 #, fuzzy
 msgid "User since"
 msgstr "کاربرها"
 
-#: src/amo/components/UserProfile/index.js:213
+#: src/amo/components/UserProfile/index.js:336
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "محبوب‌ترین افزونه‌ها"
 
-#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfile/index.js:342
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:234
-#: src/amo/components/UserProfileEdit/index.js:643
+#: src/amo/components/UserProfile/index.js:357
+#: src/amo/components/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:258
+#: src/amo/components/UserProfile/index.js:381
 #, fuzzy
 msgid "Edit profile"
 msgstr "ویرایش نمایه"
@@ -2186,179 +2218,180 @@ msgstr "ویرایش نمایه"
 msgid "Picture successfully deleted"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:424
+#: src/amo/components/UserProfileEdit/index.js:426
 #, fuzzy
 msgid "Log in to edit the profile"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/UserProfileEdit/index.js:467
+#: src/amo/components/UserProfileEdit/index.js:471
 #, fuzzy
 msgid "View user's profile"
 msgstr "نمایش نمایه"
 
-#: src/amo/components/UserProfileEdit/index.js:473
+#: src/amo/components/UserProfileEdit/index.js:477
 #, fuzzy
 msgid "Edit user's profile"
 msgstr "ویرایش نمایه"
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:495
 #, fuzzy
 msgid "Account"
 msgstr "حساب من"
 
-#: src/amo/components/UserProfileEdit/index.js:492
+#: src/amo/components/UserProfileEdit/index.js:496
 msgid "Account for %(username)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:502
 #, fuzzy
 msgid "Username"
 msgstr "کاربرها"
 
-#: src/amo/components/UserProfileEdit/index.js:511
+#: src/amo/components/UserProfileEdit/index.js:515
 msgid "Email Address"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:518
+#: src/amo/components/UserProfileEdit/index.js:522
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:527
+#: src/amo/components/UserProfileEdit/index.js:531
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:544
+#: src/amo/components/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts..."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:552
+#: src/amo/components/UserProfileEdit/index.js:556
 #, fuzzy
 msgid "Profile"
 msgstr "نمایش نمایه"
 
-#: src/amo/components/UserProfileEdit/index.js:556
+#: src/amo/components/UserProfileEdit/index.js:560
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:562
+#: src/amo/components/UserProfileEdit/index.js:566
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:572
+#: src/amo/components/UserProfileEdit/index.js:576
 #, fuzzy
 msgid "Display Name"
 msgstr "بازی کردن"
 
-#: src/amo/components/UserProfileEdit/index.js:604
+#: src/amo/components/UserProfileEdit/index.js:608
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:647
+#: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce yourself to the community if you like"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:651
+#: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:665
+#: src/amo/components/UserProfileEdit/index.js:669
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:689
+#: src/amo/components/UserProfileEdit/index.js:693
 msgid "Notifications"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:693
+#: src/amo/components/UserProfileEdit/index.js:697
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:698
+#: src/amo/components/UserProfileEdit/index.js:702
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:713
+#: src/amo/components/UserProfileEdit/index.js:717
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
-msgid "Updating your profile…"
-msgstr "در حال به‌روز رسانی پاسخ"
-
-#: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
-msgid "Update my profile"
-msgstr "به‌روز رسانی پاسخ"
-
-#: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
-msgid "Updating user's profile…"
-msgstr "در حال به‌روز رسانی پاسخ"
-
 #: src/amo/components/UserProfileEdit/index.js:735
 #, fuzzy
-msgid "Update user's profile"
-msgstr "به‌روز رسانی پاسخ"
+msgid "Updating your account…"
+msgstr "در حال به‌روز رسانی پاسخ"
 
-#: src/amo/components/UserProfileEdit/index.js:746
+#: src/amo/components/UserProfileEdit/index.js:736
 #, fuzzy
-msgid "Delete my profile"
-msgstr "به‌روز رسانی پاسخ"
+msgid "Update My Account"
+msgstr "حساب من"
 
-#: src/amo/components/UserProfileEdit/index.js:747
+#: src/amo/components/UserProfileEdit/index.js:738
 #, fuzzy
-msgid "Delete user's profile"
-msgstr "به‌روز رسانی پاسخ"
+msgid "Updating this account…"
+msgstr "در حال به‌روز رسانی پاسخ"
 
-#: src/amo/components/UserProfileEdit/index.js:758
-msgid "Attention: You are about to delete your profile. Are you sure?"
+#: src/amo/components/UserProfileEdit/index.js:739
+msgid "Update This Account"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:761
-msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:772
-msgid ""
-"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the "
-"following data will be removed: profile picture, profile details (including "
-"username, email, display name, location, home page, biography, occupation) "
-"and notification preferences. Other data such as ratings and reviews will be "
-"anonymized."
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:789
-msgid ""
-"Important: if you own add-ons, you have to transfer them to other users or "
-"to delete them before you can delete your profile."
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:792
-msgid ""
-"Important: a user profile can only be deleted if the user does not own any "
-"add-ons."
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:804
+#: src/amo/components/UserProfileEdit/index.js:750
+#: src/amo/components/UserProfileEdit/index.js:828
 #, fuzzy
-msgid "Yes, delete my profile"
-msgstr "به‌روز رسانی پاسخ"
+msgid "Delete My Account"
+msgstr "حساب من"
 
-#: src/amo/components/UserProfileEdit/index.js:805
-msgid "Yes, delete this profile"
+#: src/amo/components/UserProfileEdit/index.js:751
+#: src/amo/components/UserProfileEdit/index.js:829
+#, fuzzy
+msgid "Delete This Account"
+msgstr "ویرایش این مجموعه"
+
+#: src/amo/components/UserProfileEdit/index.js:762
+msgid "IMPORTANT: Deleting your account is irreversible."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:765
+msgid "IMPORTANT: Deleting this account is irreversible."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:774
+msgid ""
+"Your data will be permanently removed, including profile details (picture, "
+"user name, display name, location, home page, biography, occupation) and "
+"notification preferences. Your reviews and ratings will be anonymised and no "
+"longer editable."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:781
+msgid ""
+"The user’s data will be permanently removed, including profile details "
+"(picture, user name, display name, location, home page, biography, "
+"occupation) and notification preferences. Reviews and ratings will be "
+"anonymised and no longer editable."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:794
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are "
+"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+"before you can delete your account."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:801
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the "
+"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
@@ -2413,17 +2446,18 @@ msgstr "نتایج جست‌وجو برای «%(query)s»"
 msgid "Profile photo"
 msgstr "نمایش نمایه"
 
-#: src/amo/components/UserProfileEditPicture/index.js:66
-msgid "Choose photo..."
+#: src/amo/components/UserProfileEditPicture/index.js:67
+msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:74
+#: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:77
-msgid "Delete this picture"
-msgstr ""
+#: src/amo/components/UserProfileEditPicture/index.js:78
+#, fuzzy
+msgid "Delete This Picture"
+msgstr "ویرایش این مجموعه"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"
@@ -2446,13 +2480,13 @@ msgstr "کد خطا: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "متاسفیم، نمی‌توانیم چیزی در URL وارد شده پیدا کنیم."
 
-#: src/core/components/InstallButton/index.js:244
-#: src/core/components/InstallButton/index.js:287
+#: src/core/components/InstallButton/index.js:253
+#: src/core/components/InstallButton/index.js:296
 msgid "Install Theme"
 msgstr "نصب پوسته"
 
-#: src/core/components/InstallButton/index.js:272
-#: src/core/components/InstallButton/index.js:288
+#: src/core/components/InstallButton/index.js:281
+#: src/core/components/InstallButton/index.js:297
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
@@ -2484,15 +2518,15 @@ msgstr "%(name)s حذف شد. برای نصب کلیک کنید."
 msgid "Install state for %(name)s is unknown."
 msgstr "وضعیت نصب %(name)s نامشخص است."
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:137
 msgid "Previous"
 msgstr "قبلی"
 
-#: src/core/components/Paginate/index.js:136
+#: src/core/components/Paginate/index.js:154
 msgid "Next"
 msgstr "بعدی"
 
-#: src/core/components/Paginate/index.js:141
+#: src/core/components/Paginate/index.js:160
 #, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "صفحه %(currentPage)s از %(totalPages)s"
@@ -2600,6 +2634,26 @@ msgstr[0] "%(count)s افزونه یافت شد"
 msgstr[1] "%(count)s افزونه یافت شد"
 
 #, fuzzy
+#~ msgid "Update my profile"
+#~ msgstr "به‌روز رسانی پاسخ"
+
+#, fuzzy
+#~ msgid "Update user's profile"
+#~ msgstr "به‌روز رسانی پاسخ"
+
+#, fuzzy
+#~ msgid "Delete my profile"
+#~ msgstr "به‌روز رسانی پاسخ"
+
+#, fuzzy
+#~ msgid "Delete user's profile"
+#~ msgstr "به‌روز رسانی پاسخ"
+
+#, fuzzy
+#~ msgid "Yes, delete my profile"
+#~ msgstr "به‌روز رسانی پاسخ"
+
+#, fuzzy
 #~ msgid "Essential extensions"
 #~ msgstr "مرور تمام ضمیمه‌ها"
 
@@ -2657,9 +2711,6 @@ msgstr[1] "%(count)s افزونه یافت شد"
 
 #~ msgid "Search Site"
 #~ msgstr "جستجو"
-
-#~ msgid "Reviews"
-#~ msgstr "بازخوردها"
 
 #~ msgid "Review"
 #~ msgid_plural "Reviews"
