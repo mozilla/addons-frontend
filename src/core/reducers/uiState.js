@@ -4,8 +4,7 @@ import invariant from 'invariant';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-// TODO: move this to a shared location.
-import { normalizeFileNameId } from 'core/errorHandler';
+import { normalizeFileNameId } from 'core/utils';
 
 export const SET_UI_STATE = 'SET_UI_STATE';
 

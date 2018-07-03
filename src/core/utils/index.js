@@ -336,3 +336,22 @@ export const getAddonTypeFilter = (addonType, { _config = config } = {}) => {
 
   return ADDON_TYPE_THEMES_FILTER;
 };
+
+/*
+ * Return an ID for a filename.
+ *
+ * This will normalize the representation of a filename on both client and
+ * server. The result may not be a valid filename.
+ *
+ * We need this because the babel polyfill for `__filename` on the client
+ * returns a relative path but `__filename` on the server returns an
+ * absolute path.
+ */
+export const normalizeFileNameId = (filename) => {
+  let fileId = filename;
+  if (!fileId.startsWith('src')) {
+    fileId = fileId.replace(/^.*src/, 'src');
+  }
+
+  return fileId;
+};

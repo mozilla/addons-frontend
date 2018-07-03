@@ -5,6 +5,7 @@ import { oneLine } from 'common-tags';
 
 import { clearError, setError, setErrorMessage } from 'core/actions/errors';
 import log from 'core/logger';
+import { normalizeFileNameId } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 
 function generateHandlerId({ name = '' } = {}) {
@@ -12,19 +13,6 @@ function generateHandlerId({ name = '' } = {}) {
     .toString(36)
     .substr(2, 9)}`;
 }
-
-// We need this function to retrieve a relative path based on `__filename` on
-// both the server and client sides. The polyfill for `__filename` on the
-// client returns a relative path but `__filename` on the server is an absolute
-// path.
-export const normalizeFileNameId = (filename) => {
-  let fileId = filename;
-  if (!fileId.startsWith('src')) {
-    fileId = fileId.replace(/^.*src/, 'src');
-  }
-
-  return fileId;
-};
 
 /*
  * Error handling utility for components.

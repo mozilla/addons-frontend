@@ -39,6 +39,7 @@ import {
   isValidClientApp,
   ngettext,
   nl2br,
+  normalizeFileNameId,
   refreshAddon,
   removeProtocolFromURL,
   render404IfConfigKeyIsFalse,
@@ -780,6 +781,26 @@ describe(__filename, () => {
       expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
         ADDON_TYPE_EXTENSION,
       );
+    });
+  });
+
+  describe('normalizeFileNameId', () => {
+    it('returns a path relative to the project root directory', () => {
+      expect(normalizeFileNameId('/path/to/src/foo/index.js')).toEqual(
+        'src/foo/index.js',
+      );
+    });
+
+    it('returns the given filename if `src` is not in it', () => {
+      const filename = 'tests/unit/core/utils/test_index.js';
+
+      expect(normalizeFileNameId(filename)).toEqual(filename);
+    });
+
+    it('does not strip `src` in a given relative filename', () => {
+      const filename = 'src/file.js';
+
+      expect(normalizeFileNameId(filename)).toEqual(filename);
     });
   });
 });
