@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-27 01:50+0000\n"
+"PO-Revision-Date: 2018-07-03 01:26+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -610,19 +610,16 @@ msgid "Collections make it easy to keep track of favorite add-ons and share your
 msgstr ""
 
 #: src/amo/components/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
 msgstr "创建收藏集"
 
 #: src/amo/components/CollectionList/index.js:67
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "登录以创建一个收藏集"
+msgstr "您没有任何收藏。"
 
 #: src/amo/components/CollectionList/index.js:97
-#, fuzzy
 msgid "My collections"
-msgstr "查看我的收藏集"
+msgstr "我的收藏集"
 
 #: src/amo/components/CollectionManager/index.js:332
 msgid "Create collection"
@@ -717,14 +714,12 @@ msgid "Remove"
 msgstr "移除"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132
-#, fuzzy
 msgid "User comment"
-msgstr "注册时间"
+msgstr "用户评价"
 
 #: src/amo/components/EditableCollectionAddon/index.js:144
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "关于此附加组件"
+msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
@@ -1110,13 +1105,12 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr "在任何页面上选中文本，就会浮起快捷搜索菜单"
 
 #: src/amo/components/HomeHeroBanner/index.js:37
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "以多线程方式加速下載"
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Web Security"
@@ -1176,11 +1170,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "将社交媒体的“分享”按钮放入 Firefox 工具栏"
 
 #: src/amo/components/LandingPage/index.js:225
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1858,9 +1852,8 @@ msgid "Add-ons Home Page"
 msgstr "附加组件首页"
 
 #: src/amo/components/UserProfile/index.js:139
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "这些开发者制作的附加组件"
+msgstr "附加组件开发者"
 
 #: src/amo/components/UserProfile/index.js:145
 #, fuzzy
@@ -1941,7 +1934,7 @@ msgstr "您可以更改您 Firefox 账户上的电子邮件地址。%(startLink)
 
 #: src/amo/components/UserProfileEdit/index.js:544
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "管理 Firefox 账号..."
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -2166,9 +2159,8 @@ msgid "Next"
 msgstr "下一页"
 
 #: src/core/components/Paginate/index.js:141
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "第 %(pageNumber)s 页，共 %(totalPages)s 页"
+msgstr "第 %(currentPage)s 页，共 %(totalPages)s 页"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2261,10 +2253,9 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">展开以</span>阅读全文"
 
 #: src/ui/components/UserCollection/index.js:52
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "找到 %(count)s 个附加组件"
+msgstr[0] ""
 
 #~ msgid "Essential extensions"
 #~ msgstr "必备扩展"
