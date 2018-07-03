@@ -153,8 +153,9 @@ describe(__filename, () => {
     it('preserves existing component state', () => {
       const id = 'component-instance-id';
 
-      let state = reducer(
-        undefined,
+      let state;
+      state = reducer(
+        state,
         setUIState({
           id,
           change: { color: 'red' },
@@ -175,8 +176,9 @@ describe(__filename, () => {
     it('changes existing component state', () => {
       const id = 'component-instance-id';
 
-      let state = reducer(
-        undefined,
+      let state;
+      state = reducer(
+        state,
         setUIState({
           id,
           change: { color: 'red' },
@@ -197,8 +199,9 @@ describe(__filename, () => {
       const id1 = 'component-instance1';
       const id2 = 'component-instance2';
 
-      let state = reducer(
-        undefined,
+      let state;
+      state = reducer(
+        state,
         setUIState({
           id: id1,
           change: { color: 'red' },
@@ -219,8 +222,9 @@ describe(__filename, () => {
     it('ignores unrelated actions', () => {
       const id = 'component-instance-id';
 
-      let state = reducer(
-        undefined,
+      let state;
+      state = reducer(
+        state,
         setUIState({
           id,
           change: { color: 'red' },
