@@ -30,7 +30,10 @@ import { createApiError } from 'core/api/index';
 import {
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
-  COLLECTIONS_EDIT,
+  FEATURED_THEMES_COLLECTION_EDIT,
+  FEATURED_THEMES_COLLECTION_SLUG,
+  MOZILLA_COLLECTIONS_EDIT,
+  MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
@@ -668,11 +671,8 @@ describe(__filename, () => {
   });
 
   it('renders a collection for editing', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
 
     const slug = 'some-slug';
     const username = 'some-username';
@@ -682,6 +682,7 @@ describe(__filename, () => {
 
     const addons = createFakeCollectionAddons();
     const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
       authorUsername: username,
       count: 10,
       slug,
@@ -733,11 +734,7 @@ describe(__filename, () => {
   });
 
   it('renders a create collection page', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+    const { store } = dispatchSignInActions();
 
     const wrapper = renderComponent({ creating: true, store });
 
@@ -872,17 +869,23 @@ describe(__filename, () => {
     expect(wrapper.find('title')).toHaveLength(0);
   });
 
-  it('renders an edit link when user has `Collections:Edit` permission', () => {
+  it('renders an edit link for a mozilla collection when user has the `Admin:Curation` permission', () => {
     const { store } = dispatchSignInActions({
       userProps: {
-        permissions: [COLLECTIONS_EDIT],
+        permissions: [MOZILLA_COLLECTIONS_EDIT],
       },
     });
+
+    const slug = 'some-slug';
+    const username = MOZILLA_COLLECTIONS_USERNAME;
 
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
+        detail: createFakeCollectionDetail({
+          authorUsername: username,
+          slug,
+        }),
       }),
     );
 
@@ -891,45 +894,86 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
   });
 
-  it('renders a delete button when user has `Collections:Edit` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+  it('does not render an edit link for a mozilla collection when user does not have the `Admin:Curation` permission', () => {
+    const { store } = dispatchSignInActions();
+
+    const slug = 'some-slug';
+    const username = MOZILLA_COLLECTIONS_USERNAME;
 
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
+        detail: createFakeCollectionDetail({
+          authorUsername: username,
+          slug,
+        }),
       }),
     );
 
     const wrapper = renderComponent({ store });
-    const { onDelete } = wrapper.instance();
-    const button = wrapper.find(ConfirmButton);
-    expect(button).toHaveLength(1);
-    expect(button).toHaveClassName('Collection-delete-button');
-    expect(button).toHaveProp('buttonType', 'cancel');
-    expect(button).toHaveProp(
-      'message',
-      'Do you really want to delete this collection?',
+
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+  });
+
+  it('renders an edit link for a the Featured Themes collection when user has the `Collections:Contribute` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
+      },
+    });
+
+    const slug = FEATURED_THEMES_COLLECTION_SLUG;
+    const username = MOZILLA_COLLECTIONS_USERNAME;
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({
+          authorUsername: username,
+          slug,
+        }),
+      }),
     );
-    expect(button).toHaveProp('onConfirm', onDelete);
-    expect(button.children()).toHaveText('Delete this collection');
+
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+  });
+
+  it('does not render an edit link for a the Featured Themes collection when user does not have the `Collections:Contribute` permission', () => {
+    const { store } = dispatchSignInActions();
+
+    const slug = FEATURED_THEMES_COLLECTION_SLUG;
+    const username = MOZILLA_COLLECTIONS_USERNAME;
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({
+          authorUsername: username,
+          slug,
+        }),
+      }),
+    );
+
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
 
   it('links to a Collection edit page', () => {
     // Turn off the enableNewCollectionsUI feature so that the component renders a link.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
-    const { store } = dispatchSignInActions({
-      userProps: { permissions: [COLLECTIONS_EDIT] },
-    });
+    const authorUserId = 11;
+
+    const { store } = dispatchSignInActions({ userId: authorUserId });
 
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
+        detail: createFakeCollectionDetail({
+          authorId: authorUserId,
+        }),
       }),
     );
 
@@ -946,17 +990,19 @@ describe(__filename, () => {
   it('links internally to a Collection edit page', () => {
     // Turn on the enableNewCollectionsUI feature.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
-    const { store } = dispatchSignInActions({
-      userProps: { permissions: [COLLECTIONS_EDIT] },
-    });
+    const authorUserId = 11;
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
     const filters = { page, sort };
 
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
+        detail: createFakeCollectionDetail({
+          authorId: authorUserId,
+        }),
       }),
     );
 
@@ -993,6 +1039,23 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
   });
 
+  it('does not render an edit link when user is not the collection owner', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: 99 });
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: createFakeCollectionDetail({
+          authorId: authorUserId,
+        }),
+      }),
+    );
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+  });
+
   it('renders a delete button when user is the collection owner', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
@@ -1010,7 +1073,7 @@ describe(__filename, () => {
     expect(wrapper.find(ConfirmButton)).toHaveLength(1);
   });
 
-  it('does not render a delete button when user does not have permission', () => {
+  it('does not render a delete button when user is not the collection owner', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
@@ -1028,51 +1091,47 @@ describe(__filename, () => {
   });
 
   it('passes a collection to CollectionManager when editing', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
     });
 
-    const collectionDetail = createFakeCollectionDetail();
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
-        detail: collectionDetail,
+        detail,
       }),
     );
+
     const root = renderComponent({ store, editing: true });
 
     const manager = root.find(CollectionManager);
     expect(manager).toHaveProp('collection');
-    expect(manager.prop('collection').id).toEqual(collectionDetail.id);
+    expect(manager.prop('collection').id).toEqual(detail.id);
   });
 
   it('passes the correct editing flag to AddonsCard when editing', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    const collectionDetail = createFakeCollectionDetail();
     store.dispatch(
       loadCurrentCollection({
         addons: createFakeCollectionAddons(),
-        detail: collectionDetail,
+        detail: createFakeCollectionDetail({
+          authorId: authorUserId,
+        }),
       }),
     );
+
     const root = renderComponent({ store, editing: true });
 
     expect(root.find(AddonsCard)).toHaveProp('editing', true);
   });
 
   it('passes a null collection to CollectionManager when editing', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
 
     const root = renderComponent({ store, editing: true });
 
@@ -1120,15 +1179,14 @@ describe(__filename, () => {
   });
 
   it('dispatches removeAddonFromCollection when removeAddon is called', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
 
     const addons = createFakeCollectionAddons();
     const addonId = addons[0].addon.id;
-    const collectionDetail = createFakeCollectionDetail();
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
+    });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
@@ -1138,9 +1196,10 @@ describe(__filename, () => {
     store.dispatch(
       loadCurrentCollection({
         addons,
-        detail: collectionDetail,
+        detail,
       }),
     );
+
     const root = renderComponent({
       editing: true,
       errorHandler,
@@ -1160,8 +1219,8 @@ describe(__filename, () => {
         addonId,
         errorHandlerId: errorHandler.id,
         filters,
-        slug: collectionDetail.slug,
-        username: collectionDetail.author.username,
+        slug: detail.slug,
+        username: detail.author.username,
       }),
     );
   });
@@ -1208,15 +1267,14 @@ describe(__filename, () => {
   });
 
   it('dispatches deleteCollectionAddonNotes when deleteNote is called', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
 
     const addons = createFakeCollectionAddons();
     const addonId = addons[0].addon.id;
-    const collectionDetail = createFakeCollectionDetail();
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
+    });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
@@ -1226,7 +1284,7 @@ describe(__filename, () => {
     store.dispatch(
       loadCurrentCollection({
         addons,
-        detail: collectionDetail,
+        detail,
       }),
     );
     const root = renderComponent({
@@ -1249,22 +1307,21 @@ describe(__filename, () => {
         addonId,
         errorHandlerId: errorHandler.id,
         filters,
-        slug: collectionDetail.slug,
-        username: collectionDetail.author.username,
+        slug: detail.slug,
+        username: detail.author.username,
       }),
     );
   });
 
   it('dispatches updateCollectionAddon when saveNote is called', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [COLLECTIONS_EDIT],
-      },
-    });
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
 
     const addons = createFakeCollectionAddons();
     const addonId = addons[0].addon.id;
-    const collectionDetail = createFakeCollectionDetail();
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
+    });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
@@ -1275,7 +1332,7 @@ describe(__filename, () => {
     store.dispatch(
       loadCurrentCollection({
         addons,
-        detail: collectionDetail,
+        detail,
       }),
     );
     const root = renderComponent({
@@ -1298,8 +1355,8 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         notes,
         filters,
-        slug: collectionDetail.slug,
-        username: collectionDetail.author.username,
+        slug: detail.slug,
+        username: detail.author.username,
       }),
     );
   });

@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import CollectionManager from 'amo/components/CollectionManager';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import {
   deleteCollectionAddonNotes,
@@ -18,19 +20,20 @@ import {
   getCurrentCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
-import CollectionManager from 'amo/components/CollectionManager';
-import NotFound from 'amo/components/ErrorPage/NotFound';
-import AuthenticateButton from 'core/components/AuthenticateButton';
-import {
-  COLLECTIONS_EDIT,
-  INSTALL_SOURCE_COLLECTION,
-  COLLECTION_SORT_DATE_ADDED_DESCENDING,
-} from 'core/constants';
-import Paginate from 'core/components/Paginate';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
+import AuthenticateButton from 'core/components/AuthenticateButton';
+import Paginate from 'core/components/Paginate';
+import {
+  COLLECTION_SORT_DATE_ADDED_DESCENDING,
+  FEATURED_THEMES_COLLECTION_EDIT,
+  FEATURED_THEMES_COLLECTION_SLUG,
+  INSTALL_SOURCE_COLLECTION,
+  MOZILLA_COLLECTIONS_EDIT,
+  MOZILLA_COLLECTIONS_USERNAME,
+} from 'core/constants';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
@@ -71,6 +74,7 @@ type InternalProps = {|
   hasEditPermission: boolean,
   i18n: I18nType,
   isLoggedIn: boolean,
+  isOwner: boolean,
   location: ReactRouterLocation,
   params: {|
     slug: string,
@@ -379,9 +383,9 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 
   renderDeleteButton() {
-    const { hasEditPermission, i18n } = this.props;
+    const { i18n, isOwner } = this.props;
 
-    if (!hasEditPermission) {
+    if (!isOwner) {
       return null;
     }
 
@@ -504,19 +508,30 @@ export const mapStateToProps = (
   };
 
   const currentUser = getCurrentUser(state.users);
+  const collection = getCurrentCollection(state.collections);
+
+  const isOwner =
+    collection && currentUser && collection.authorId === currentUser.id;
   let hasEditPermission = false;
 
-  const collection = getCurrentCollection(state.collections);
   if (collection && currentUser) {
     hasEditPermission =
-      collection.authorId === currentUser.id ||
-      hasPermission(state, COLLECTIONS_EDIT);
+      isOwner ||
+      // User can edit mozilla collections, and it is a mozilla collection.
+      (collection.authorUsername === MOZILLA_COLLECTIONS_USERNAME &&
+        hasPermission(state, MOZILLA_COLLECTIONS_EDIT)) ||
+      // User can edit the featured theme collection, and it is the featured
+      // theme collection.
+      (collection.authorUsername === MOZILLA_COLLECTIONS_USERNAME &&
+        collection.slug === FEATURED_THEMES_COLLECTION_SLUG &&
+        hasPermission(state, FEATURED_THEMES_COLLECTION_EDIT));
   }
 
   return {
     collection,
     filters,
     isLoggedIn: !!currentUser,
+    isOwner,
     loading,
     hasEditPermission,
   };

@@ -21,7 +21,6 @@ import {
   ADDONS_REVIEW,
   ALL_SUPER_POWERS,
   ADMIN_TOOLS_VIEW,
-  COLLECTIONS_EDIT,
   STATS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
@@ -335,7 +334,7 @@ describe(__filename, () => {
     });
 
     it('returns `false` when user does not have any reviewer permissions', () => {
-      const permissions = [COLLECTIONS_EDIT, STATS_VIEW];
+      const permissions = [STATS_VIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(false);
