@@ -85,6 +85,9 @@ export function* updateUserAccount({
         );
         if (index !== -1) {
           allNotifications[index].enabled = notifications.announcements;
+          log.debug(
+            'Optimistically set user value for "announcements" notification',
+          );
         }
       }
 
