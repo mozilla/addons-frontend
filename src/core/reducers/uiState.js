@@ -30,7 +30,6 @@ export const setUIState = ({
 }: SetUIStateParams): SetUIStateAction => {
   invariant(change, 'change cannot be undefined');
   invariant(id, 'id cannot be undefined');
-  // TODO: maybe we need setInitialUIState() that resets the object rather than changing it.
   // TODO: maybe disallow and value of `change` to be an object?
   // I'm thinking of nested objects which redux may not be able to
   // handle in mapStateToProps
@@ -91,8 +90,8 @@ export const withUIState = ({
       // actually update all of the HOC wrapped components
       // ... I guess?
       simulateUIStateProps: ({ store }: {| store: Object |}) => {
-        const stateProps = mapStateToProps(store.getState(), ownProps);
-        return mergeProps(stateProps, { dispatch: store.dispatch }, ownProps);
+        const _stateProps = mapStateToProps(store.getState(), ownProps);
+        return mergeProps(_stateProps, { dispatch: store.dispatch }, ownProps);
       },
     };
   };
@@ -110,7 +109,7 @@ export const withUIState = ({
 
 type UIStateActions = SetUIStateAction;
 
-export default function uiState(
+export default function uiStateReducer(
   state: UIStateType = initialState,
   action: UIStateActions,
 ) {

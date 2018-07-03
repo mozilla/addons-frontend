@@ -47,10 +47,6 @@ type InternalProps = {|
 export class EditableCollectionAddonBase extends React.Component<
   InternalProps,
 > {
-  constructor(props: InternalProps) {
-    super(props);
-  }
-
   componentWillMount() {
     this.props.setUIState({ editingNote: false });
   }

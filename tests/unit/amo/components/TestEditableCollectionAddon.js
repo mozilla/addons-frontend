@@ -217,7 +217,7 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
       const notes = 'Some notes.';
 
-      let root = renderAndEditNote({ notes, store });
+      const root = renderAndEditNote({ notes, store });
       let notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(1);
 

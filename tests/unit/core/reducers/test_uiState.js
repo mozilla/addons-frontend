@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp, react/prop-types */
 import * as React from 'react';
 import { compose } from 'redux';
 
@@ -99,7 +100,7 @@ describe(__filename, () => {
       const Thing = compose(
         withUIState({
           fileName: __filename,
-          extractId: (props) => '',
+          extractId: () => '',
           defaultState,
         }),
       )(ThingBase);
