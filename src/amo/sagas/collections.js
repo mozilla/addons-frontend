@@ -283,6 +283,7 @@ export function* modifyCollection(
       // a race condition if we mix it with deleting old collection data.
       // If we could move to an ID based URL then we won't have to redirect.
       // See https://github.com/mozilla/addons-server/issues/7529
+      invariant(filters, 'filters are required when updating');
       yield put(
         pushLocation({
           pathname: newLocation,
