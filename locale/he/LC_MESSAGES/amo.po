@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-03 19:28+0000\n"
+"PO-Revision-Date: 2018-07-03 19:39+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -2068,23 +2068,25 @@ msgstr "חשוב: מחיקת חשבון זה היא פעולה בלתי הפיכ
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
-msgstr ""
+msgstr "הנתונים שלך יוסרו לצמיתות, לרבות פרטי הפרופיל (תמונה, שם משתמש, שם תצוגה, מיקום, דף הבית, קורות חיים ועיסוק) והעדפות התרעות. הסקירות והדירוגים שלך יהפכו להיות אנונימיים ובלתי ניתנים לעריכה."
 
 #: src/amo/components/UserProfileEdit/index.js:781
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
-msgstr ""
+msgstr "נתוני המשתמש יוסרו לצמיתות, לרבות פרטי הפרופיל (תמונה, שם משתמש, שם תצוגה, מיקום, דף הבית, קורות חיים ועיסוק) והעדפות התרעות. הסקירות והדירוגים יהפכו להיות אנונימיים ובלתי ניתנים לעריכה."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחוק את החשבון שלך אם הינך %(linkStart)sהיוצר של תוספות כלשהן%(linkEnd)s. עליך %(docLinkStart)sלהעביר בעלות%(docLinkEnd)s או למחוק את התוספות לפני "
+"שיהיה ניתן למחוק את החשבון שלך."
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחוק חשבון משתמש אם המשתמש הוא %(linkStart)sהיוצר של תוספות כלשהן%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
