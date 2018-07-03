@@ -48,8 +48,9 @@ Here are some commands you can run:
 | yarn stylelint              | Lint the SCSS                                                                                              |
 | yarn lint                   | Run all the JS + SCSS linters                                                                              |
 | yarn nsp-check              | Run [nsp][] to detect dependencies with known vulnerabilities                                              |
-| yarn prettier               | Run [Prettier][] to automatically format the code                                                          |
-| yarn prettier-ci            | Run [Prettier][] and fail if some code has been changed                                                    |
+| yarn prettier               | Run [Prettier][] to automatically format the entire codebase                                               |
+| yarn prettier-dev           | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch   |
+| yarn prettier-ci            | Run [Prettier][] and fail if some code has been changed without being formatted                            |
 | yarn version-check          | Check you have the required dependencies                                                                   |
 | yarn test                   | Run all tests (Enters [jest][] in `--watch` mode)                                                          |
 | yarn test-coverage          | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode)                        |
@@ -162,7 +163,7 @@ export default ConfirmButton;
 
 ### Prettier
 
-We Use [Prettier][] to automatically format our JavaScript code and stop all the on-going debates over styles. As a developer, you have to run it (with `yarn prettier`) before submitting a Pull Request.
+We use [Prettier][] to automatically format our JavaScript code and stop all the on-going debates over styles. As a developer, you have to run it (with `yarn prettier-dev`) before submitting a Pull Request.
 
 ### Code coverage
 
@@ -376,3 +377,4 @@ At a later date if we need to move things out into their own project we still ca
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
 [nsp]: https://github.com/nodesecurity/nsp
 [prettier]: https://prettier.io/
+[pretty-quick]: https://www.npmjs.com/package/pretty-quick
