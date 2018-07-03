@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-03 19:41+0000\n"
+"PO-Revision-Date: 2018-07-03 20:11+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -565,15 +565,15 @@ msgstr "Ver todos los temas en esta categoría."
 
 #: src/amo/components/Collection/index.js:160
 msgid "Newest first"
-msgstr ""
+msgstr "Las más nuevas primero"
 
 #: src/amo/components/Collection/index.js:164
 msgid "Oldest first"
-msgstr ""
+msgstr "Las más antiguas primero"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: src/amo/components/Collection/index.js:172
 msgid "Popularity"
@@ -629,7 +629,7 @@ msgstr "Inicia sesión para ver tus colecciones"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Con las colecciones es muy fácil seguirle el rastro a tus complementos favoritos y compartir con otros tu navegador perfectamente personalizado."
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
@@ -745,11 +745,11 @@ msgstr "Agregar un comentario sobre este complemento."
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1059,11 +1059,11 @@ msgstr "Ver videos"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "Ver archivos de la página y caché"
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Una forma muy potente de encontrar versiones archivadas de antiguas páginas web"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Black Menu for Google"
@@ -1095,7 +1095,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:135
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Haz que Firefox olvide datos de sitios web, como las cookies o el almacenamiento local"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Group Speed Dial"
@@ -1127,7 +1127,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:32
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Resalta texto en cualquier página web para que te aparezca un menú de búsqueda muy útil"
 
 #: src/amo/components/HomeHeroBanner/index.js:37
 msgid "Turbo Download Manager"
@@ -1139,7 +1139,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Web Security"
-msgstr ""
+msgstr "Seguridad web"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Protection against malware and data phishing scams"
@@ -1191,7 +1191,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Disfruta de una bonita página Nueva pestaña con fondos personalizables, meteorología local y mucho más"
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Share Backported"
@@ -1199,7 +1199,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Agrega un botón de ‘Compartir’ en redes sociales en la barra de herramientas de Firefox"
 
 #: src/amo/components/LandingPage/index.js:225
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1993,7 +1993,7 @@ msgstr "Puedes cambiar la dirección de correo en tu cuenta de Firefox. %(startL
 
 #: src/amo/components/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "Gestionar las cuentas de Firefox..."
 
 #: src/amo/components/UserProfileEdit/index.js:556
 msgid "Profile"
@@ -2033,15 +2033,15 @@ msgstr "Notificaciones"
 
 #: src/amo/components/UserProfileEdit/index.js:697
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "De vez en cuando, puede que Mozilla te envíe un correo sobre los próximos lanzamientos y eventos sobre complementos. Selecciona los temas que te interesan."
 
 #: src/amo/components/UserProfileEdit/index.js:702
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "De vez en cuando, puede que Mozilla te envíe un correo sobre los próximos lanzamientos y eventos sobre complementos. Selecciona los temas que te interesan."
 
 #: src/amo/components/UserProfileEdit/index.js:717
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla se reserva el derecho a ponerse en contacto contigo de forma individual sobre distintos temas relativos a tus complementos."
 
 #: src/amo/components/UserProfileEdit/index.js:735
 msgid "Updating your account…"
@@ -2057,7 +2057,7 @@ msgstr "Actualizando la cuenta…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "Actualizar la cuenta"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
 msgid "Delete My Account"
@@ -2069,73 +2069,79 @@ msgstr "Eliminar esta cuenta"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "IMPORTANTE: Si eliminas tu cuenta, no lo podrás deshacer."
 
 #: src/amo/components/UserProfileEdit/index.js:765
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "IMPORTANTE: Si eliminas la cuenta, no lo podrás deshacer."
 
 #: src/amo/components/UserProfileEdit/index.js:774
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"Tus datos se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las notificaciones. "
+"Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
 
 #: src/amo/components/UserProfileEdit/index.js:781
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"Los datos del usuario se eliminarán de forma permanente, incluidos los datos del perfil (foto, nombre de usuario, ubicación, página de inicio, biografía, ocupación) y las preferencias sobre las "
+"notificaciones. Tus comentarios y calificaciones pasarán a ser anónimos y no se podrán volver a editar."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sNOTA:%(strongEnd)s No puedes eliminar tu cuenta si eres el %(linkStart)sautor de algún complemento%(linkEnd)s. Primero tienes que %(docLinkStart)stransferir la propiedad%(docLinkEnd)s"
+" o eliminar el complemento y después proceder a eliminar tu cuenta."
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sNOTA:%(strongEnd)s No puedes eliminar la cuenta de un usuario si este último es el %(linkStart)sautor de algún complemento%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "mantente al día de las noticias y eventos más importantes para los desarrolladores de complementos (incluido el boletín de noticias de about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla necesita ponerse en contacto conmigo sobre mi complemento si"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "hay nuevos complementos o funciones de Firefox"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:26
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "alguien ha escrito un comentario sobre mi complemento"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:28
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "un desarrollador de complementos responde a mi comentario"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "un revisor ha revisado mi complemento"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "no se puede actualizar mi complemento basado en sdk"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "se ha actualizado correctamente mi complemento basado en sdk"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "no se puede actualizar la compatibilidad de mi complemento"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:38
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "se ha actualizado correctamente la compatibilidad de mi complemento"
 
 #: src/amo/components/UserProfileEditPicture/index.js:36
 msgid "Profile picture for %(name)s"
@@ -2147,11 +2153,11 @@ msgstr "Foto del perfil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Elegir foto..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "¿De verdad quieres eliminar esta foto?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
 msgid "Delete This Picture"
@@ -2235,7 +2241,7 @@ msgstr "¡Vale!"
 
 #: src/ui/components/ConfirmButton/index.js:93
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: src/ui/components/DismissibleTextForm/index.js:119
 msgid "Enter text."
@@ -2251,7 +2257,7 @@ msgstr "Enviando"
 
 #: src/ui/components/DismissibleTextForm/index.js:161
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
