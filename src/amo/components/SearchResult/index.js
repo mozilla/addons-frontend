@@ -141,7 +141,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
               <div className="SearchResult-note">
                 <h4 className="SearchResult-note-header">
                   <Icon name="comments-blue" />
-                  {i18n.gettext('Add-on note')}
+                  {i18n.gettext("Collector's note")}
                 </h4>
                 <p
                   className="SearchResult-note-content"
