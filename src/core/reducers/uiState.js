@@ -30,9 +30,6 @@ export const setUIState = ({
 }: SetUIStateParams): SetUIStateAction => {
   invariant(change, 'change cannot be undefined');
   invariant(id, 'id cannot be undefined');
-  // TODO: maybe disallow and value of `change` to be an object?
-  // I'm thinking of nested objects which redux may not be able to
-  // handle in mapStateToProps
 
   return { type: SET_UI_STATE, payload: { change, id } };
 };
