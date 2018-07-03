@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-07-03 01:26+0000\n"
+"PO-Revision-Date: 2018-07-03 01:33+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -580,14 +580,12 @@ msgid "Creator"
 msgstr "作者"
 
 #: src/amo/components/Collection/index.js:379
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "您确实要删除这张照片吗？"
+msgstr "您确定要删除这个收藏集吗？"
 
 #: src/amo/components/Collection/index.js:382
-#, fuzzy
 msgid "Delete this collection"
-msgstr "编辑此收藏集"
+msgstr "删除这个收藏集"
 
 #: src/amo/components/Collection/index.js:414
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -990,14 +988,12 @@ msgid "See more translation tools"
 msgstr "看看更多翻译工具"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Privacy matters"
-msgstr "隐私保护工具"
+msgstr "隐私很重要"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "看看更多标签页扩展"
+msgstr "看看更多隐私保护扩展"
 
 #: src/amo/components/Home/index.js:265
 msgid "Tame your tabs"
@@ -1033,7 +1029,7 @@ msgstr "观看视频"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
@@ -1076,9 +1072,8 @@ msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:143
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "剪切、保存并管理您在网络上最喜欢的东西"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "PrivacyBadger"
@@ -1166,7 +1161,7 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "享用华丽的新标签页，您还可以自定义背景、本地天气信息等等。"
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Share Backported"
@@ -1572,9 +1567,8 @@ msgid "No theme preview available"
 msgstr "无主题预览可用"
 
 #: src/amo/components/SearchResult/index.js:144
-#, fuzzy
 msgid "Add-on note"
-msgstr "附加组件图标"
+msgstr ""
 
 #: src/amo/components/SearchResult/index.js:162
 msgid "%(total)s user"
@@ -1856,9 +1850,8 @@ msgid "Add-ons developer"
 msgstr "附加组件开发者"
 
 #: src/amo/components/UserProfile/index.js:145
-#, fuzzy
 msgid "Theme artist"
-msgstr "这些艺术家制作的主题"
+msgstr "主题艺术家"
 
 #: src/amo/components/UserProfile/index.js:158 src/amo/components/UserProfileEdit/index.js:454
 msgid "User Profile for %(user)s"
