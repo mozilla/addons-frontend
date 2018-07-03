@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-07-02 16:11+0000\n"
+"PO-Revision-Date: 2018-07-03 09:49+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -380,11 +380,11 @@ msgstr "ఈ సమీక్షకి స్పందించు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:217
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s నుండి మరిన్ని నిఘంటువులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:220
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "ఈ అనువాదకుల నుండి మరిన్ని నిఘంటువులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "Dictionaries by %(author)s"
@@ -396,11 +396,11 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:234
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s నుండి మరిన్ని పొడగింతలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:237
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "ఈ డెవలపర్ల నుండి మరిన్ని పొడగింతలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "Extensions by %(author)s"
@@ -448,7 +448,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "ఈ డెవలపర్ల నుండి మరిన్ని పొడగింతలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:293
 msgid "Add-ons by %(author)s"
