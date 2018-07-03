@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   FETCH_RECOMMENDATIONS,
@@ -18,6 +20,7 @@ export function* fetchRecommendations({
   yield put(errorHandler.createClearingAction());
 
   try {
+    invariant(typeof recommended === 'boolean', 'recommended is required');
     const state = yield select(getState);
 
     const params: GetRecommendationsParams = {

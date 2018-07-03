@@ -31,7 +31,6 @@ describe(__filename, () => {
   });
 
   const guid = 'some-guid';
-  const recommended = true;
 
   function _fetchRecommendations(params) {
     sagaTester.dispatch(
@@ -56,12 +55,12 @@ describe(__filename, () => {
       .withArgs({
         api: state.api,
         guid,
-        recommended,
+        recommended: true,
       })
       .once()
       .returns(Promise.resolve(recommendations));
 
-    _fetchRecommendations({ guid, recommended });
+    _fetchRecommendations({ guid });
 
     const expectedLoadAction = loadRecommendations({
       addons: recommendations.results,
@@ -76,7 +75,7 @@ describe(__filename, () => {
   });
 
   it('clears the error handler', async () => {
-    _fetchRecommendations({ guid, recommended });
+    _fetchRecommendations({ guid });
 
     const expectedAction = errorHandler.createClearingAction();
 
@@ -92,7 +91,7 @@ describe(__filename, () => {
       .once()
       .returns(Promise.reject(error));
 
-    _fetchRecommendations({ guid, recommended });
+    _fetchRecommendations({ guid });
 
     const expectedAction = errorHandler.createErrorAction(error);
     const action = await sagaTester.waitFor(expectedAction.type);

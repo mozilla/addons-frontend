@@ -2,7 +2,6 @@
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
-import defaultCookie from 'react-cookie';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -29,53 +28,33 @@ import type { DispatchFunc } from 'core/types/redux';
 import './styles.scss';
 
 export const TAAR_IMPRESSION_CATEGORY = 'AMO Addon / Recommendations Shown';
-export const TAAR_COHORT_COOKIE_NAME = 'taar_cohort';
 export const TAAR_COHORT_DIMENSION = 'dimension4';
-export const TAAR_COHORT_INCLUDED: 'TAAR_COHORT_INCLUDED' =
-  'TAAR_COHORT_INCLUDED';
-export const TAAR_COHORT_EXCLUDED: 'TAAR_COHORT_EXCLUDED' =
-  'TAAR_COHORT_EXCLUDED';
+export const TAAR_COHORT_INCLUDED = 'TAAR_COHORT_INCLUDED';
 export const TAAR_EXPERIMENT_PARTICIPANT = 'TAAR-LITE-AB';
 export const TAAR_EXPERIMENT_PARTICIPANT_DIMENSION = 'dimension5';
-
-export type CohortName =
-  | typeof TAAR_COHORT_INCLUDED
-  | typeof TAAR_COHORT_EXCLUDED;
 
 type Props = {|
   addon: AddonType | null,
   className?: string,
-  cookie: typeof defaultCookie,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  randomizer: () => number,
   recommendations: Recommendations | null,
   tracking: typeof defaultTracking,
 |};
 
 export class AddonRecommendationsBase extends React.Component<Props> {
   static defaultProps = {
-    cookie: defaultCookie,
-    randomizer: Math.random,
     recommendations: null,
     tracking: defaultTracking,
   };
 
   componentDidMount() {
-    const { addon, cookie, randomizer, recommendations, tracking } = this.props;
-
-    // Set a cohort for the experiment.
-    this.cohort = cookie.load(TAAR_COHORT_COOKIE_NAME);
-    if (this.cohort === undefined) {
-      this.cohort =
-        randomizer() >= 0.5 ? TAAR_COHORT_INCLUDED : TAAR_COHORT_EXCLUDED;
-      cookie.save(TAAR_COHORT_COOKIE_NAME, this.cohort, { path: '/' });
-    }
+    const { addon, recommendations, tracking } = this.props;
 
     tracking.setDimension({
       dimension: TAAR_COHORT_DIMENSION,
-      value: this.cohort,
+      value: TAAR_COHORT_INCLUDED,
     });
 
     tracking.setDimension({
@@ -84,10 +63,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     });
 
     if (addon && !recommendations) {
-      this.dispatchFetchRecommendations({
-        guid: addon.guid,
-        recommended: this.cohort === TAAR_COHORT_INCLUDED,
-      });
+      this.dispatchFetchRecommendations(addon.guid);
     }
   }
 
@@ -103,10 +79,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
 
     // Fetch recommendations when the add-on changes.
     if (newAddon && oldAddon !== newAddon) {
-      this.dispatchFetchRecommendations({
-        guid: newAddon.guid,
-        recommended: this.cohort === TAAR_COHORT_INCLUDED,
-      });
+      this.dispatchFetchRecommendations(newAddon.guid);
     }
 
     // Send the GA ping when recommendations are loaded.
@@ -120,7 +93,6 @@ export class AddonRecommendationsBase extends React.Component<Props> {
       invariant(newAddon, 'newAddon is required');
       invariant(outcome, 'outcome is required');
 
-      // TODO: Determine the exact format for this output.
       let action = outcome;
       if (fallbackReason) {
         action = `${action}-${fallbackReason}`;
@@ -133,14 +105,11 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     }
   }
 
-  cohort: CohortName;
-
-  dispatchFetchRecommendations({ guid, recommended }: Object) {
+  dispatchFetchRecommendations(guid: string) {
     this.props.dispatch(
       fetchRecommendations({
         errorHandlerId: this.props.errorHandler.id,
         guid,
-        recommended,
       }),
     );
   }

@@ -60,7 +60,7 @@ export const abortFetchRecommendations = ({
 type FetchRecommendationsParams = {|
   errorHandlerId: string,
   guid: string,
-  recommended: boolean,
+  recommended?: boolean,
 |};
 
 export type FetchRecommendationsAction = {|
@@ -71,11 +71,10 @@ export type FetchRecommendationsAction = {|
 export const fetchRecommendations = ({
   errorHandlerId,
   guid,
-  recommended,
+  recommended = true,
 }: FetchRecommendationsParams): FetchRecommendationsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(guid, 'guid is required');
-  invariant(typeof recommended === 'boolean', 'recommended is required');
 
   return {
     type: FETCH_RECOMMENDATIONS,
