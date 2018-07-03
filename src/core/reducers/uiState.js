@@ -64,7 +64,8 @@ export const withUIState = ({
     state: {| uiState: UIStateType |},
     props: Object,
   ) => {
-    const uiStateID = generateId({ fileName, id: extractId(props) });
+    const uiStateID =
+      props.uiStateID || generateId({ fileName, id: extractId(props) });
     const uiState = state.uiState[uiStateID] || defaultState;
     return {
       uiState,

@@ -109,6 +109,22 @@ describe(__filename, () => {
 
       expect(root.instance().props.uiState).toEqual(defaultState);
     });
+
+    it('lets you set a custom uiStateID', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const uiStateID = 'my-custom-id';
+      const root = render({ uiStateID });
+
+      root.find('.close-button').simulate('click');
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        setUIState({
+          id: uiStateID,
+          change: { isOpen: true },
+        }),
+      );
+    });
   });
 
   describe('generateId', () => {
