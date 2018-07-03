@@ -68,7 +68,7 @@ export const getCollectionAddons = ({
   // By default, this code does not define request.params because doing so
   // would overwrite any query string params in nextURL.
   if (filters) {
-    request.params = filters;
+    request.params = { page: filters.page, sort: filters.collectionSort };
   }
 
   return callApi(request);

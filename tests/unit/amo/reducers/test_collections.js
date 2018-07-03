@@ -5,6 +5,7 @@ import reducer, {
   addAddonToCollection,
   addonAddedToCollection,
   beginCollectionModification,
+  convertFiltersToQueryParams,
   createInternalAddons,
   createInternalCollection,
   expandCollections,
@@ -23,6 +24,7 @@ import reducer, {
   localizeCollectionDetail,
   unloadCollectionBySlug,
 } from 'amo/reducers/collections';
+import { COLLECTION_SORT_NAME } from 'core/constants';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddon,
@@ -1122,6 +1124,17 @@ describe(__filename, () => {
       expect(collections[0]).toEqual(
         createInternalCollection({ detail: firstCollection }),
       );
+    });
+  });
+
+  describe('convertFiltersToQueryParams', () => {
+    it('returns expected query params from filters', () => {
+      const page = 1;
+      const sort = COLLECTION_SORT_NAME;
+
+      expect(
+        convertFiltersToQueryParams({ collectionSort: sort, page }),
+      ).toEqual({ collection_sort: sort, page });
     });
   });
 });

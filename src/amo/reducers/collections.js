@@ -2,7 +2,6 @@
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 
-import type { CollectionAddonsSortType } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type { CollectionAddonType, ExternalAddonType } from 'core/types/addons';
 import type { LocalizedString } from 'core/types/api';
@@ -49,7 +48,7 @@ export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES' =
 
 export type CollectionFilters = {|
   page: number,
-  sort?: CollectionAddonsSortType,
+  collectionSort: string,
 |};
 
 export type CollectionType = {
@@ -501,6 +500,7 @@ type UpdateCollectionParams = {|
   ...RequiredModifyCollectionParams,
   ...OptionalModifyCollectionParams,
   collectionSlug: string,
+  filters: CollectionFilters,
   name: ?LocalizedString,
   slug: ?string,
 |};
@@ -542,25 +542,28 @@ export const createCollection = ({
 };
 
 export const updateCollection = ({
-  errorHandlerId,
   collectionSlug,
   defaultLocale,
   description,
+  errorHandlerId,
+  filters,
   name,
   slug,
   username,
 }: UpdateCollectionParams = {}): UpdateCollectionAction => {
-  invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(username, 'username is required');
   invariant(collectionSlug, 'collectionSlug is required when updating');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(filters, 'filters is required');
+  invariant(username, 'username is required');
 
   return {
     type: UPDATE_COLLECTION,
     payload: {
-      errorHandlerId,
       collectionSlug,
       defaultLocale,
       description,
+      errorHandlerId,
+      filters,
       name,
       slug,
       username,
@@ -938,6 +941,13 @@ export const expandCollections = (
         return result;
       }, [])
     : null;
+};
+
+export const convertFiltersToQueryParams = (filters: CollectionFilters) => {
+  return {
+    page: filters.page,
+    collection_sort: filters.collectionSort,
+  };
 };
 
 type Action =

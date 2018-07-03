@@ -17,7 +17,7 @@ import {
   finishCollectionModification,
   updateCollection,
 } from 'amo/reducers/collections';
-import { CLIENT_APP_FIREFOX } from 'core/constants';
+import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
 import {
@@ -336,12 +336,13 @@ describe(__filename, () => {
 
   it('updates the collection on submit', () => {
     const errorHandler = createStubErrorHandler();
+    const filters = { page: 1 };
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection, errorHandler });
+    const root = render({ collection, errorHandler, filters });
 
     // Fill in the form with new values.
     const name = 'A new name';
@@ -361,6 +362,7 @@ describe(__filename, () => {
         defaultLocale: collection.defaultLocale,
         description: { [lang]: description },
         errorHandlerId: errorHandler.id,
+        filters,
         name: { [lang]: name },
         slug,
         username: signedInUsername,
@@ -454,6 +456,8 @@ describe(__filename, () => {
   it('trims leading and trailing spaces from slug and name before submitting', () => {
     const name = 'trishul';
     const slug = 'trishul';
+    const errorHandler = createStubErrorHandler();
+    const filters = { page: 1 };
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
@@ -464,7 +468,7 @@ describe(__filename, () => {
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection });
+    const root = render({ collection, errorHandler, filters });
 
     // Enter in collection name and slug with trailing and leading spaces.
     typeInput({ root, name: 'name', text: `  ${name}   ` });
@@ -479,7 +483,8 @@ describe(__filename, () => {
         collectionSlug: slug,
         defaultLocale: collection.defaultLocale,
         description: { [lang]: collection.description },
-        errorHandlerId: root.instance().props.errorHandler.id,
+        errorHandlerId: errorHandler.id,
+        filters,
         name: { [lang]: name },
         slug,
         username: signedInUsername,
@@ -546,12 +551,14 @@ describe(__filename, () => {
   });
 
   it('allows a blank description', () => {
+    const errorHandler = createStubErrorHandler();
+    const filters = { page: 1 };
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection });
+    const root = render({ collection, errorHandler, filters });
 
     // Enter in a blank collection description.
     typeInput({ root, name: 'description', text: '' });
@@ -565,7 +572,8 @@ describe(__filename, () => {
         collectionSlug: collection.slug,
         defaultLocale: collection.defaultLocale,
         description: { [lang]: '' },
-        errorHandlerId: root.instance().props.errorHandler.id,
+        errorHandlerId: errorHandler.id,
+        filters,
         name: { [lang]: collection.name },
         slug: collection.slug,
         username: signedInUsername,
@@ -608,20 +616,26 @@ describe(__filename, () => {
 
     const slug = 'my-collection';
     const username = 'some-username';
+    const page = 1;
+    const sort = COLLECTION_SORT_NAME;
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
         authorUsername: username,
         slug,
       }),
     });
-    const root = render({ collection, store: localStore });
+    const root = render({
+      collection,
+      filters: { collectionSort: sort, page },
+      store: localStore,
+    });
 
     simulateCancel(root);
 
-    sinon.assert.calledWith(
-      fakeRouter.push,
-      `/${newLang}/${clientApp}/collections/${username}/${slug}/`,
-    );
+    sinon.assert.calledWith(fakeRouter.push, {
+      pathname: `/${newLang}/${clientApp}/collections/${username}/${slug}/`,
+      query: { collection_sort: sort, page },
+    });
   });
 
   it('calls router.goBack() on cancel when creating', () => {

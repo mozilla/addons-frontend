@@ -134,16 +134,10 @@ export const SEARCH_SORT_RELEVANCE = 'relevance';
 export const SEARCH_SORT_UPDATED = 'updated';
 
 // Collection add-ons sort values
-export const COLLECTION_SORT_DATE_ADDED_ASCENDING: 'added' = 'added';
-export const COLLECTION_SORT_DATE_ADDED_DESCENDING: '-added' = '-added';
-export const COLLECTION_SORT_NAME: 'name' = 'name';
-export const COLLECTION_SORT_POPULARITY: 'popularity' = 'popularity';
-
-export type CollectionAddonsSortType =
-  | typeof COLLECTION_SORT_DATE_ADDED_ASCENDING
-  | typeof COLLECTION_SORT_DATE_ADDED_DESCENDING
-  | typeof COLLECTION_SORT_NAME
-  | typeof COLLECTION_SORT_POPULARITY;
+export const COLLECTION_SORT_DATE_ADDED_ASCENDING = 'added';
+export const COLLECTION_SORT_DATE_ADDED_DESCENDING = '-added';
+export const COLLECTION_SORT_NAME = 'name';
+export const COLLECTION_SORT_POPULARITY = 'popularity';
 
 // Operating system for add-ons and files
 export const OS_ALL = 'all';

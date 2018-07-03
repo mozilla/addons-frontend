@@ -101,8 +101,9 @@ describe(__filename, () => {
     it('calls the collection add-ons list API', async () => {
       const filters = {
         page: 1,
-        sort: COLLECTION_SORT_DATE_ADDED_ASCENDING,
+        collectionSort: COLLECTION_SORT_DATE_ADDED_ASCENDING,
       };
+
       const params = getParams({ filters });
 
       mockApi
@@ -110,7 +111,7 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint: 'accounts/account/some-user/collections/some-slug/addons',
-          params: filters,
+          params: { page: filters.page, sort: filters.collectionSort },
           state: apiState,
         })
         .once()
