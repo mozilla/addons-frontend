@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import reducer, { generateId, withUIState } from 'core/reducers/uiState';
+import reducer, {
+  generateId,
+  setUIState,
+  withUIState,
+} from 'core/reducers/uiState';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { applyUIStateChanges, shallowUntilTarget } from 'tests/unit/helpers';
 
@@ -83,11 +87,99 @@ describe(__filename, () => {
       // The first overlay should still be open.
       expect(root1.find('.overlay')).toHaveLength(1);
     });
+
+    it('begins with a default state', () => {
+      class ThingBase extends React.Component {
+        render() {
+          return <div />;
+        }
+      }
+      const defaultState = { visible: true };
+
+      const Thing = compose(
+        withUIState({
+          fileName: __filename,
+          extractId: (props) => '',
+          defaultState,
+        }),
+      )(ThingBase);
+
+      const root = shallowUntilTarget(<Thing store={store} />, ThingBase);
+
+      expect(root.instance().props.uiState).toEqual(defaultState);
+    });
   });
 
   describe('generateId', () => {
     it('generates an ID', () => {
-      expect(generateId({ fileName: __filename, id: 'any-id' })).toEqual('foo');
+      const id = 'any-id';
+      const fileName = 'src/some-file.js';
+      expect(generateId({ fileName, id })).toEqual(`${fileName}-${id}`);
+    });
+  });
+
+  describe('reducer', () => {
+    it('lets you set UI state', () => {
+      const id = 'component-instance-id';
+
+      const state = reducer(undefined, setUIState({
+        id, change: { color: 'red' }
+      }));
+
+      expect(state[id].color).toEqual('red');
+    });
+
+    it('preserves existing component state', () => {
+      const id = 'component-instance-id';
+
+      let state = reducer(undefined, setUIState({
+        id, change: { color: 'red' }
+      }));
+      state = reducer(state, setUIState({
+        id, change: { mood: 'blue' }
+      }));
+
+      expect(state[id].color).toEqual('red');
+      expect(state[id].mood).toEqual('blue');
+    });
+
+    it('changes existing component state', () => {
+      const id = 'component-instance-id';
+
+      let state = reducer(undefined, setUIState({
+        id, change: { color: 'red' }
+      }));
+      state = reducer(state, setUIState({
+        id, change: { color: 'magenta' }
+      }));
+
+      expect(state[id].color).toEqual('magenta');
+    });
+
+    it('preserves other state for other components', () => {
+      const id1 = 'component-instance1';
+      const id2 = 'component-instance2';
+
+      let state = reducer(undefined, setUIState({
+        id: id1, change: { color: 'red' }
+      }));
+      state = reducer(state, setUIState({
+        id: id2, change: { size: 'large' }
+      }));
+
+      expect(state[id1].color).toEqual('red');
+      expect(state[id2].size).toEqual('large');
+    });
+
+    it('ignores unrelated actions', () => {
+      const id = 'component-instance-id';
+
+      let state = reducer(undefined, setUIState({
+        id, change: { color: 'red' }
+      }));
+      state = reducer(state, { type: 'ANOTHER_ACTION', payload: {} });
+
+      expect(state[id].color).toEqual('red');
     });
   });
 });
