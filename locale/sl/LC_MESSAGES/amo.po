@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-03 20:10+0000\n"
+"PO-Revision-Date: 2018-07-03 20:12+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -2074,23 +2074,20 @@ msgid "Update My Account"
 msgstr "Posodobi moj račun"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Posodabljanje uporabnikovega profila …"
+msgstr "Posodabljanje tega računa …"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "Posodobi ta račun"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
-#, fuzzy
 msgid "Delete My Account"
-msgstr "Moj račun"
+msgstr "Izbriši moj račun"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Izbriši to zbirko"
+msgstr "Izbriši ta račun"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
@@ -2177,7 +2174,6 @@ msgid "Profile photo"
 msgstr "Slika profila"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
 msgstr "Izberi sliko ..."
 
@@ -2186,7 +2182,6 @@ msgid "Do you really want to delete this picture?"
 msgstr "Ali res želite izbrisati to sliko?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "Izbriši to sliko"
 
