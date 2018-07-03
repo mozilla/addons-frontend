@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-03 21:07+0000\n"
+"PO-Revision-Date: 2018-07-03 21:19+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -569,16 +569,15 @@ msgstr "Nyaste først"
 
 #: src/amo/components/Collection/index.js:164
 msgid "Oldest first"
-msgstr ""
+msgstr "Eldste først"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: src/amo/components/Collection/index.js:172
-#, fuzzy
 msgid "Popularity"
-msgstr "Populære tema"
+msgstr "Popularitet"
 
 #: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
@@ -617,9 +616,8 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "Søk etter utvidingar og tema som skal leggast til i samlinga di."
 
 #: src/amo/components/Collection/index.js:496
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Høgast vurderte utvidingar"
+msgstr "Sorter tillegg etter"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -1888,14 +1886,12 @@ msgid "Add-ons Home Page"
 msgstr "Heimeside for utvidingar"
 
 #: src/amo/components/UserProfile/index.js:197
-#, fuzzy
 msgid "My reviews"
-msgstr "Vurderingar"
+msgstr "Mine vurderingar"
 
 #: src/amo/components/UserProfile/index.js:216
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "%(total)s vurdering for denne utvidinga"
+msgstr "Sjå etter vurderingar for dette tillegget"
 
 #: src/amo/components/UserProfile/index.js:261
 msgid "Add-ons developer"
@@ -2030,33 +2026,28 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Oppdaterer profilen din…"
+msgstr "Oppdaterer kontoen din…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
-#, fuzzy
 msgid "Update My Account"
-msgstr "Min konto"
+msgstr "Oppdater kontoen min"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Oppdaterer brukarprofilen…"
+msgstr "Oppdaterer denne kontoen…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "Oppdater denne kontoen"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
-#, fuzzy
 msgid "Delete My Account"
-msgstr "Min konto"
+msgstr "Slett kontoen min"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Slett denne samlinga"
+msgstr "Slett denne kontoen"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
@@ -2137,16 +2128,14 @@ msgid "Profile photo"
 msgstr "Profilbilde"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Vel eit bilde…"
+msgstr "Vel bilde…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Vil du slette dette bildet?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "Slett dette bildet"
 
