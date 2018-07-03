@@ -569,6 +569,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         notifications: {},
         picture: null,
+        pictureData: null,
         userFields: {
           biography: user.biography,
           display_name: user.display_name,
@@ -690,6 +691,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         notifications: {},
         picture: null,
+        pictureData: null,
         userFields: {
           biography: user.biography,
           display_name: user.display_name,
@@ -736,6 +738,7 @@ describe(__filename, () => {
           reply: false,
         },
         picture: null,
+        pictureData: null,
         userFields: {
           biography: user.biography,
           display_name: user.display_name,
