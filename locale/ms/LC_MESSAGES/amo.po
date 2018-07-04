@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 00:33+0000\n"
+"PO-Revision-Date: 2018-07-04 00:36+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -2084,13 +2084,12 @@ msgstr ""
 "anonimus dan tidak boleh diedit."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Jika anda sahkan %(startStrong)s tindakan tidak boleh dibatalkan %(endStrong)s ini, data berikut akan dibuang: gambar profil, butiran profil (termasuk nama pengguna, e-mel, nama paparan, likasi, "
-"laman, biografi, pekerjaan) dan keutamaan notifikasi. Data lain seperti penarafan dan ulasan akan jadi anonimus."
+"Data pengguna akan dibuang secara kekal, termasuk butiran profil (gambar, nama pengguna, nama paparan, lokasi, laman, biografi, pekerjaan) dan keutamaan notifikasi. Ulasan dan penarafan akan jadi "
+"anonimus dan tidak lagi boleh diedit."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
