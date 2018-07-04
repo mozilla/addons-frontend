@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 09:12+0000\n"
+"PO-Revision-Date: 2018-07-04 09:13+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1907,9 +1907,8 @@ msgid "My reviews"
 msgstr "Saját értékelések"
 
 #: src/amo/components/UserProfile/index.js:216
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "%(total)s értékelés ehhez a kiegészítőhöz"
+msgstr "Kiegészítő értékeléseinek tallózása"
 
 #: src/amo/components/UserProfile/index.js:261
 msgid "Add-ons developer"
