@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-03 20:50+0000\n"
+"PO-Revision-Date: 2018-07-04 19:50+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2103,22 +2103,20 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "WAŽNY: Zhašenje tutoho konta njeda so cofnyć."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Jeli tutu%(startStrong)sireversibelnu akciju%(endStrong)s wobkrućeće, so slědowace daty wotstronja: profilowy wobraz, profilowe podrobnosće (inkluziwnje wužiwarske mjeno, e-mejlowu adresu, "
-"zwobraznjenske mjeno, městno, startowu stronu, biografiju, powołanje) a nastajenja za zdźělenki. Druhe daty kaž pohódnoćenja a přepruwowanja budu so anonymizować."
+"Waše daty budu so na přeco wotstronjeć, inkluziwnje profilow podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje) a zdźělenske nastajenja. "
+"Waše přepruwowanja a pohódnoćenja budu so anonymizować a njebudu hižo wobdźěłujomne."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Jeli tutu%(startStrong)sireversibelnu akciju%(endStrong)s wobkrućeće, so slědowace daty wotstronja: profilowy wobraz, profilowe podrobnosće (inkluziwnje wužiwarske mjeno, e-mejlowu adresu, "
-"zwobraznjenske mjeno, městno, startowu stronu, biografiju, powołanje) a nastajenja za zdźělenki. Druhe daty kaž pohódnoćenja a přepruwowanja budu so anonymizować."
+"Waše daty budu so na přeco wotstronjeć, inkluziwnje profilow podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje) a zdźělenske nastajenja. "
+"Waše přepruwowanja a pohódnoćenja budu so anonymizować a njebudu hižo wobdźěłujomne."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
