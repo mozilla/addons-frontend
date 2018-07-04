@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 09:13+0000\n"
+"PO-Revision-Date: 2018-07-04 10:05+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -565,15 +565,15 @@ msgstr "Összes téma tallózása ebben a kategóriában."
 
 #: src/amo/components/Collection/index.js:160
 msgid "Newest first"
-msgstr ""
+msgstr "Legújabb elől"
 
 #: src/amo/components/Collection/index.js:164
 msgid "Oldest first"
-msgstr ""
+msgstr "Legrégebbi elől"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: src/amo/components/Collection/index.js:172
 msgid "Popularity"
@@ -617,7 +617,7 @@ msgstr "Keressen kiegészítőket és témákat a gyűjteményéhez adáshoz."
 
 #: src/amo/components/Collection/index.js:496
 msgid "Sort add-ons by"
-msgstr "Kiegészítők rendezése"
+msgstr "Kiegészítők rendezése eszerint"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -2044,69 +2044,64 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "A Mozilla fenntartja a jogot, hogy egyénileg felvegye Önnel a kapcsolatot, ha aggasztónak találja az Ön által beküldött kiegészítőket."
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Saját profil frissítése…"
+msgstr "Saját fiók frissítése…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
-#, fuzzy
 msgid "Update My Account"
-msgstr "Saját fiók"
+msgstr "Saját fiók frissítése"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Felhasználó profiljának frissítése…"
+msgstr "Felhasználó fiókjának frissítése…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "Fiók frissítése"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
-#, fuzzy
 msgid "Delete My Account"
-msgstr "Saját fiók"
+msgstr "Saját fiók törlése"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Ezen gyűjtemény törlése"
+msgstr "Ezen fiók törlése"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "FONTOS: A fiók törlése nem vonható vissza."
 
 #: src/amo/components/UserProfileEdit/index.js:765
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "FONTOS: A fiókja törlése nem vonható vissza."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Ha megerősíti ezt a %(startStrong)svissza nem vonható műveletet%(endStrong)s, akkor a következő adatok törlődnek: profilkép, profiladatok (beleértve a felhasználónevet, e-mail címet, megjelenítési "
-"nevet, helyet, weboldalt, életrajzot, foglalkozás) és értesítési beállítások. Az egyéb adatok, mint a minősítések és értékelések anonimizálásra kerülnek."
+"Az adatai véglegesen törlődnek, beleértve a profiladatokat (felhasználónevet, e-mail címet, megjelenítési nevet, helyet, weboldalt, életrajzot, foglalkozás) és az értesítési beállításokat. Az egyéb "
+"adatok, mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem szerkeszthetőek."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Ha megerősíti ezt a %(startStrong)svissza nem vonható műveletet%(endStrong)s, akkor a következő adatok törlődnek: profilkép, profiladatok (beleértve a felhasználónevet, e-mail címet, megjelenítési "
-"nevet, helyet, weboldalt, életrajzot, foglalkozás) és értesítési beállítások. Az egyéb adatok, mint a minősítések és értékelések anonimizálásra kerülnek."
+"A felhasználó adatai véglegesen törlődnek, beleértve a profiladatokat (felhasználónevet, e-mail címet, megjelenítési nevet, helyet, weboldalt, életrajzot, foglalkozás) és az értesítési "
+"beállításokat. Az egyéb adatok, mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem szerkeszthetőek."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a fiókját, ha %(linkStart)skiegészítők szerzője%(linkEnd)s. %(docLinkStart)sÁt kell adnia a tulajdonjogukat%(docLinkEnd)s, vagy törölnie kell a "
+"kiegészítőit, mielőtt törölheti a fiókját."
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a felhasználói fiókot, ha a felhasználó %(linkStart)skiegészítők szerzője%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2157,7 +2152,6 @@ msgid "Profile photo"
 msgstr "Profilkép"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
 msgstr "Válasszon fényképet…"
 
@@ -2166,7 +2160,6 @@ msgid "Do you really want to delete this picture?"
 msgstr "Valóban törölni szeretné ezt a képet?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "Fénykép törlése"
 
