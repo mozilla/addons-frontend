@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 00:11+0000\n"
+"PO-Revision-Date: 2018-07-04 00:33+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -2076,13 +2076,12 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "PENTING: Penghapusan akaun ini tidak boleh dibatalkan."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Jika anda sahkan %(startStrong)s tindakan tidak boleh dibatalkan %(endStrong)s ini, data berikut akan dibuang: gambar profil, butiran profil (termasuk nama pengguna, e-mel, nama paparan, likasi, "
-"laman, biografi, pekerjaan) dan keutamaan notifikasi. Data lain seperti penarafan dan ulasan akan jadi anonimus."
+"Data anda akan dibuang secara kekal, termasuk butiran profil (gambar, nama pengguna, nama paparan, lokasi, laman, biografi, pekerjaan) dan keutamaan notifikasi. Ulasan dan penarafan anda akan jadi "
+"anonimus dan tidak boleh diedit."
 
 #: src/amo/components/UserProfileEdit/index.js:781
 #, fuzzy
@@ -2154,18 +2153,16 @@ msgid "Profile photo"
 msgstr "Foto profil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Pilih foto..."
+msgstr "Pilih Foto…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Adakah anda pasti mahu menghapuskan gambar ini?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "Buang gambar ini"
+msgstr "Buang Gambar Ini"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"
