@@ -14,7 +14,7 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
 export function* fetchHomeAddons({
-  payload: { errorHandlerId, collectionsToFetch },
+  payload: { collectionsToFetch, errorHandlerId, includeFeaturedThemes },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -59,16 +59,18 @@ export function* fetchHomeAddons({
         },
         page: 1,
       }),
-      featuredThemes: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_THEME,
-          featured: true,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_RANDOM,
-        },
-        page: 1,
-      }),
+      featuredThemes: includeFeaturedThemes
+        ? call(searchApi, {
+            api: state.api,
+            filters: {
+              addonType: ADDON_TYPE_THEME,
+              featured: true,
+              page_size: LANDING_PAGE_ADDON_COUNT,
+              sort: SEARCH_SORT_RANDOM,
+            },
+            page: 1,
+          })
+        : null,
     });
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);

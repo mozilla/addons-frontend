@@ -87,8 +87,9 @@ describe(__filename, () => {
       const state = homeReducer(
         loadedState,
         fetchHomeAddons({
-          errorHandlerId: 'some-error-handler-id',
           collectionsToFetch: [],
+          errorHandlerId: 'some-error-handler-id',
+          includeFeaturedThemes: true,
         }),
       );
 

@@ -48,8 +48,9 @@ describe(__filename, () => {
     function _fetchHomeAddons(params) {
       sagaTester.dispatch(
         fetchHomeAddons({
-          errorHandlerId: errorHandler.id,
           collectionsToFetch: [{ slug: 'some-slug', user: 'some-user' }],
+          errorHandlerId: errorHandler.id,
+          includeFeaturedThemes: true,
           ...params,
         }),
       );
@@ -125,6 +126,7 @@ describe(__filename, () => {
           { slug: firstCollectionSlug, username: firstCollectionUser },
           { slug: secondCollectionSlug, username: secondCollectionUser },
         ],
+        includeFeaturedThemes: true,
       });
 
       const expectedLoadAction = loadHomeAddons({
@@ -135,6 +137,50 @@ describe(__filename, () => {
 
       await sagaTester.waitFor(expectedLoadAction.type);
       mockCollectionsApi.verify();
+      mockSearchApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('does not fetch featured themes if includeFeaturedThemes is false', async () => {
+      const state = sagaTester.getState();
+
+      const baseArgs = { api: state.api };
+      const baseFilters = {
+        page_size: LANDING_PAGE_ADDON_COUNT,
+      };
+
+      const collections = [];
+
+      const featuredExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_EXTENSION,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(featuredExtensions));
+
+      _fetchHomeAddons({
+        collectionsToFetch: [],
+        includeFeaturedThemes: false,
+      });
+
+      const expectedLoadAction = loadHomeAddons({
+        collections,
+        featuredExtensions,
+        featuredThemes: null,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
       mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
