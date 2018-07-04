@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 06:25+0000\n"
+"PO-Revision-Date: 2018-07-04 06:46+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -565,15 +565,15 @@ msgstr "Troch alle tema's yn dizze kategory blêdzje."
 
 #: src/amo/components/Collection/index.js:160
 msgid "Newest first"
-msgstr ""
+msgstr "Nijste earst"
 
 #: src/amo/components/Collection/index.js:164
 msgid "Oldest first"
-msgstr ""
+msgstr "Aldste earst"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
-msgstr ""
+msgstr "Namme"
 
 #: src/amo/components/Collection/index.js:172
 msgid "Popularity"
@@ -2055,7 +2055,7 @@ msgstr "Account wurdt fernijd…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "Account bywurkje"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
 msgid "Delete My Account"
@@ -2067,11 +2067,11 @@ msgstr "Dit account fuortsmite"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "WICHTICH: It fuortsmiten fan jo account kin net ûngedien makke wurde."
 
 #: src/amo/components/UserProfileEdit/index.js:765
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "WICHTICH: It fuortsmiten fan dit account kin net ûngedien makke wurde."
 
 #: src/amo/components/UserProfileEdit/index.js:774
 msgid ""
@@ -2094,10 +2094,12 @@ msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sLET OP:%(strongEnd)s Jo kinne jo account net fuortsmite as jo de %(linkStart)sauteur binne fan ien of mear add-ons%(linkEnd)s. Jo moatte %(docLinkStart)sit eigendom "
+"oerdrage%(docLinkEnd)s of de add-ons fuortsmite eardat jo jo account fuortsmite kinne."
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sLET OP:%(strongEnd)s Jo kinne in brûkersaccount net fuortsmite as de brûker %(linkStart)sauteur is fan ien of mear add-ons%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
