@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-06-28 19:43+0000\n"
+"PO-Revision-Date: 2018-07-04 13:03+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:174
@@ -40,8 +39,7 @@ msgstr "Додано до %(collectionName)s"
 msgid "Add to…"
 msgstr "Додати до…"
 
-#: src/amo/components/AddAddonToCollection/index.js:262
-#: src/amo/components/CollectionManager/index.js:419
+#: src/amo/components/AddAddonToCollection/index.js:262 src/amo/components/CollectionManager/index.js:419
 msgid "Add to collection"
 msgstr "Додати до збірки"
 
@@ -149,12 +147,8 @@ msgid "Some features may require payment"
 msgstr "Деякі функції можуть потребувати оплати"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Ви маєте <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити "
-"цей додаток."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ви маєте <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити цей додаток."
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
@@ -173,21 +167,12 @@ msgid "This add-on is not available on your platform."
 msgstr "Цей додаток недоступний на вашій платформі."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Цей додаток вимагає <a href=\"%(downloadUrl)s\">новішої версії Firefox</a> "
-"(щонайменше, версію %(minVersion)s). Ви використовуєте Firefox "
-"%(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Цей додаток вимагає <a href=\"%(downloadUrl)s\">новішої версії Firefox</a> (щонайменше, версію %(minVersion)s). Ви використовуєте Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:94
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Ваш браузер не підтримує додатки. Ви можете <a href=\"%(downloadUrl)s"
-"\">завантажити Firefox</a>, щоб встановити цей додаток."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ваш браузер не підтримує додатки. Ви можете <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити цей додаток."
 
 #: src/amo/components/AddonMeta/index.js:30
 msgid "Users"
@@ -251,8 +236,7 @@ msgstr "Посилання додатка"
 msgid "Version"
 msgstr "Версія"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
-#: src/amo/components/Collection/index.js:421
+#: src/amo/components/AddonMoreInfo/index.js:195 src/amo/components/Collection/index.js:421
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
@@ -280,9 +264,7 @@ msgstr "Статистика використання"
 msgid "More information"
 msgstr "Більше інформації"
 
-#: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/components/UserProfile/index.js:301
-#: src/amo/components/UserProfileEdit/index.js:596
+#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:301 src/amo/components/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
@@ -307,33 +289,20 @@ msgid "Other popular extensions"
 msgstr "Інші популярні розширення"
 
 #: src/amo/components/AddonReview/index.js:199
-msgid ""
-"Tell the world why you think this extension is fantastic! Please follow our "
-"%(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
-"Розкажіть світу, чому ви вважаєте це розширення фантастичним! Будь ласка, "
-"дотримуйтесь наших %(linkStart)sвимог до відгуків%(linkEnd)s."
+msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr "Розкажіть світу, чому ви вважаєте це розширення фантастичним! Будь ласка, дотримуйтесь наших %(linkStart)sвимог до відгуків%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:203
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Розкажіть нам, чому ви любите це розширення. Висловлюйтесь конкретно й "
-"коротко."
+msgstr "Розкажіть нам, чому ви любите це розширення. Висловлюйтесь конкретно й коротко."
 
 #: src/amo/components/AddonReview/index.js:207
-msgid ""
-"Tell the world about this extension. Please follow our %(linkStart)sreview "
-"guidelines%(linkEnd)s."
-msgstr ""
-"Розкажіть світу про це розширення. Будь ласка, дотримуйтесь наших "
-"%(linkStart)sвимог до відгуків%(linkEnd)s."
+msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr "Розкажіть світу про це розширення. Будь ласка, дотримуйтесь наших %(linkStart)sвимог до відгуків%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:211
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Розкажіть про ваш досвід використання цього розширення. Будьте конкретними й "
-"стислими."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Розкажіть про ваш досвід використання цього розширення. Будьте конкретними й стислими."
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Write a review"
@@ -490,8 +459,7 @@ msgstr "Додатки від %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Додатки від цих розробників"
 
-#: src/amo/components/App/index.js:207
-#: src/amo/components/SectionLinks/index.js:152
+#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:152
 msgid "Add-ons for Firefox"
 msgstr "Додатки для Firefox"
 
@@ -499,8 +467,7 @@ msgstr "Додатки для Firefox"
 msgid "%s – Add-ons for Firefox"
 msgstr "%s – Додатки для Firefox"
 
-#: src/amo/components/App/index.js:211
-#: src/amo/components/SectionLinks/index.js:139
+#: src/amo/components/App/index.js:211 src/amo/components/SectionLinks/index.js:139
 msgid "Add-ons for Android"
 msgstr "Додатки для Android"
 
@@ -516,8 +483,7 @@ msgstr "Завантаження"
 msgid "Find add-ons"
 msgstr "Знайти додатки"
 
-#: src/amo/components/AutoSearchInput/index.js:326
-#: src/amo/components/AutoSearchInput/index.js:354
+#: src/amo/components/AutoSearchInput/index.js:326 src/amo/components/AutoSearchInput/index.js:354
 msgid "Search"
 msgstr "Пошук"
 
@@ -533,85 +499,59 @@ msgstr "Категорії"
 msgid "Loading categories."
 msgstr "Завантаження категорій."
 
-#: src/amo/components/Category/index.js:142
-#: src/amo/components/LandingPage/index.js:222
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:222 src/amo/components/SectionLinks/index.js:87
 msgid "Extensions"
 msgstr "Розширення"
 
-#: src/amo/components/Category/index.js:143
-#: src/amo/components/Home/index.js:205
-#: src/amo/components/LandingPage/index.js:138
-#: src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:205 src/amo/components/LandingPage/index.js:138 src/amo/components/Search/index.js:123
 msgid "Featured extensions"
 msgstr "Відібрані розширення"
 
-#: src/amo/components/Category/index.js:152
-#: src/amo/components/Home/index.js:206
-#: src/amo/components/LandingPage/index.js:146
+#: src/amo/components/Category/index.js:152 src/amo/components/Home/index.js:206 src/amo/components/LandingPage/index.js:146
 msgid "See more featured extensions"
 msgstr "Більше відібраних розширень"
 
-#: src/amo/components/Category/index.js:153
-#: src/amo/components/LandingPage/index.js:147
-#: src/amo/components/Search/index.js:136
+#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:136
 msgid "Trending extensions"
 msgstr "Популярні розширення"
 
-#: src/amo/components/Category/index.js:162
-#: src/amo/components/LandingPage/index.js:155
+#: src/amo/components/Category/index.js:162 src/amo/components/LandingPage/index.js:155
 msgid "See more trending extensions"
 msgstr "Більше популярних розширень"
 
-#: src/amo/components/Category/index.js:163
-#: src/amo/components/LandingPage/index.js:156
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:148
 msgid "Top rated extensions"
 msgstr "Найвище оцінені розширення"
 
-#: src/amo/components/Category/index.js:172
-#: src/amo/components/LandingPage/index.js:164
+#: src/amo/components/Category/index.js:172 src/amo/components/LandingPage/index.js:164
 msgid "See more top rated extensions"
 msgstr "Найвище оцінені розширення"
 
-#: src/amo/components/Category/index.js:175
-#: src/amo/components/LandingPage/index.js:221
-#: src/amo/components/SectionLinks/index.js:97
+#: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:221 src/amo/components/SectionLinks/index.js:97
 msgid "Themes"
 msgstr "Теми"
 
-#: src/amo/components/Category/index.js:176
-#: src/amo/components/Home/index.js:234
-#: src/amo/components/LandingPage/index.js:167
-#: src/amo/components/Search/index.js:126
+#: src/amo/components/Category/index.js:176 src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:167 src/amo/components/Search/index.js:126
 msgid "Featured themes"
 msgstr "Відібрані теми"
 
-#: src/amo/components/Category/index.js:185
-#: src/amo/components/Home/index.js:235
-#: src/amo/components/LandingPage/index.js:175
+#: src/amo/components/Category/index.js:185 src/amo/components/Home/index.js:235 src/amo/components/LandingPage/index.js:175
 msgid "See more featured themes"
 msgstr "Більше відібраних тем"
 
-#: src/amo/components/Category/index.js:186
-#: src/amo/components/LandingPage/index.js:176
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:139
 msgid "Trending themes"
 msgstr "Популярні теми"
 
-#: src/amo/components/Category/index.js:195
-#: src/amo/components/LandingPage/index.js:181
+#: src/amo/components/Category/index.js:195 src/amo/components/LandingPage/index.js:181
 msgid "See more trending themes"
 msgstr "Більше популярних тем"
 
-#: src/amo/components/Category/index.js:196
-#: src/amo/components/LandingPage/index.js:182
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:151
 msgid "Top rated themes"
 msgstr "Найвище оцінені теми"
 
-#: src/amo/components/Category/index.js:205
-#: src/amo/components/LandingPage/index.js:187
+#: src/amo/components/Category/index.js:205 src/amo/components/LandingPage/index.js:187
 msgid "See more top rated themes"
 msgstr "Найвище оцінені теми"
 
@@ -629,20 +569,19 @@ msgstr "Переглянути всі теми в цій категорії."
 
 #: src/amo/components/Collection/index.js:160
 msgid "Newest first"
-msgstr ""
+msgstr "Спочатку найновіші"
 
 #: src/amo/components/Collection/index.js:164
 msgid "Oldest first"
-msgstr ""
+msgstr "Спочатку найстаріші"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
-msgstr ""
+msgstr "Назва"
 
 #: src/amo/components/Collection/index.js:172
-#, fuzzy
 msgid "Popularity"
-msgstr "Популярні теми"
+msgstr "Популярність"
 
 #: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
@@ -656,8 +595,7 @@ msgstr "Увійдіть, щоб створити збірку"
 msgid "Log in to edit this collection"
 msgstr "Увійдіть, щоб змінити цю збірку"
 
-#: src/amo/components/Collection/index.js:411
-#: src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:411 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Додатки"
 
@@ -675,17 +613,15 @@ msgstr "Видалити цю збірку"
 
 #: src/amo/components/Collection/index.js:478
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
-"Спочатку створіть свою збірку. Потім ви зможете додавати розширення і теми."
+msgstr "Спочатку створіть свою збірку. Потім ви зможете додавати розширення і теми."
 
 #: src/amo/components/Collection/index.js:481
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Шукайте розширення і теми, щоб додати до своєї збірки."
 
 #: src/amo/components/Collection/index.js:496
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Найвище оцінені додатки"
+msgstr "Впорядкувати додатки за"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -696,12 +632,8 @@ msgid "Log in to view your collections"
 msgstr "Увійдіть, щоб побачити свої збірки"
 
 #: src/amo/components/CollectionList/index.js:125
-msgid ""
-"Collections make it easy to keep track of favorite add-ons and share your "
-"perfectly customized browser with others."
-msgstr ""
-"Збірки дозволяють з легкістю стежити за улюбленими додатками та ділитись "
-"вашим ідеально пристосованим браузером з іншими."
+msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
+msgstr "Збірки дозволяють з легкістю стежити за улюбленими додатками та ділитись вашим ідеально пристосованим браузером з іншими."
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
@@ -743,10 +675,7 @@ msgstr "Додано до збірки"
 msgid "Find an add-on to include in this collection"
 msgstr "Знайдіть додаток для включення до цієї збірки"
 
-#: src/amo/components/CollectionManager/index.js:435
-#: src/amo/components/UserProfileEdit/index.js:836
-#: src/ui/components/ConfirmButton/index.js:100
-#: src/ui/components/DismissibleTextForm/index.js:149
+#: src/amo/components/CollectionManager/index.js:435 src/amo/components/UserProfileEdit/index.js:836 src/ui/components/ConfirmButton/index.js:100 src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -759,20 +688,12 @@ msgid "Support these developers"
 msgstr "Підтримати цих розробників"
 
 #: src/amo/components/ContributeCard/index.js:37
-msgid ""
-"The developer of this extension asks that you help support its continued "
-"development by making a small contribution."
-msgstr ""
-"Розробник цього розширення просить вас посприяти його подальшому розвитку, "
-"зробивши невеликий внесок."
+msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
+msgstr "Розробник цього розширення просить вас посприяти його подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:39
-msgid ""
-"The developers of this extension ask that you help support its continued "
-"development by making a small contribution."
-msgstr ""
-"Розробники цього розширення просять вас посприяти його подальшому розвитку, "
-"зробивши невеликий внесок."
+msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
+msgstr "Розробники цього розширення просять вас посприяти його подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this artist"
@@ -783,20 +704,12 @@ msgid "Support these artists"
 msgstr "Підтримати цих художників"
 
 #: src/amo/components/ContributeCard/index.js:51
-msgid ""
-"The artist of this theme asks that you help support its continued creation "
-"by making a small contribution."
-msgstr ""
-"Художник цієї теми просить вас посприяти її подальшому розвитку, зробивши "
-"невеликий внесок."
+msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
+msgstr "Художник цієї теми просить вас посприяти її подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:53
-msgid ""
-"The artists of this theme ask that you help support its continued creation "
-"by making a small contribution."
-msgstr ""
-"Художники цієї теми просять вас посприяти її подальшому розвитку, зробивши "
-"невеликий внесок."
+msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
+msgstr "Художники цієї теми просять вас посприяти її подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this author"
@@ -807,27 +720,18 @@ msgid "Support these authors"
 msgstr "Підтримати цих авторів"
 
 #: src/amo/components/ContributeCard/index.js:65
-msgid ""
-"The author of this add-on asks that you help support its continued work by "
-"making a small contribution."
-msgstr ""
-"Автор цього додатка просить вас посприяти його подальшому розвитку, зробивши "
-"невеликий внесок."
+msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
+msgstr "Автор цього додатка просить вас посприяти його подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:67
-msgid ""
-"The authors of this add-on ask that you help support its continued work by "
-"making a small contribution."
-msgstr ""
-"Автори цього додатка просять вас посприяти його подальшому розвитку, "
-"зробивши невеликий внесок."
+msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
+msgstr "Автори цього додатка просять вас посприяти його подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:87
 msgid "Contribute now"
 msgstr "Зробити внесок"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:39
-#: src/amo/components/Footer/index.js:106
+#: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
 msgstr "Завантажити Firefox"
 
@@ -852,37 +756,22 @@ msgid "Edit"
 msgstr "Редагувати"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Якщо ви увійшли в систему і думаєте, що це повідомлення про помилку, будь "
-"ласка, <a href=\"%(url)s\">повідомте про неї</a>. Розкажіть нам звідки ви "
-"перейшли та що намагались знайти, і ми виправимо це."
+"Якщо ви увійшли в систему і думаєте, що це повідомлення про помилку, будь ласка, <a href=\"%(url)s\">повідомте про неї</a>. Розкажіть нам звідки ви перейшли та що намагались знайти, і ми виправимо "
+"це."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
 msgstr "Не авторизовано"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Вибачте, але ви не маєте права доступу до цієї сторінки. Якщо ви не "
-"авторизовані, спробуйте увійти в систему, використовуючи посилання у верхній "
-"частині сторінки."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Вибачте, але ви не маєте права доступу до цієї сторінки. Якщо ви не авторизовані, спробуйте увійти в систему, використовуючи посилання у верхній частині сторінки."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Якщо ви перейшли за посиланням з іншого місця, будь ласка, <a href=\"%(url)s"
-"\">повідомте про проблему</a>. Розкажіть нам звідки ви перейшли та що "
-"намагались знайти, і ми спробуємо виправити це."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Якщо ви перейшли за посиланням з іншого місця, будь ласка, <a href=\"%(url)s\">повідомте про проблему</a>. Розкажіть нам звідки ви перейшли та що намагались знайти, і ми спробуємо виправити це."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:41
 msgid "This add-on has been removed by its author."
@@ -896,35 +785,25 @@ msgstr "Цей додаток був вимкнений адміністрато
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr "Вибачте, але ми не можемо нічого знайти за введеною вами адресою."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:57
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "Сторінку не знайдено"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Якщо у вас є додаткова інформація, яка допомогла б нам, ви можете <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">повідомити про "
-"проблему</a>. Розкажіть нам, які кроки призводять до помилки, і ми зробимо "
-"все можливе, щоб виправити це."
+"Якщо у вас є додаткова інформація, яка допомогла б нам, ви можете <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">повідомити про проблему</a>. Розкажіть нам, які кроки призводять "
+"до помилки, і ми зробимо все можливе, щоб виправити це."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Помилка сервера"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Вибачте, але сталася помилка з нашим сервером, і ми не змогли виконати ваш "
-"запит. Ми записали цю помилку і будемо розслідувати її."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Вибачте, але сталася помилка з нашим сервером, і ми не змогли виконати ваш запит. Ми записали цю помилку і будемо розслідувати її."
 
 #: src/amo/components/FlagReviewMenu/index.js:107
 msgid "This is a bug report or support request"
@@ -1020,14 +899,11 @@ msgstr "Повідомити про зловживання торговою ма
 
 #: src/amo/components/Footer/index.js:194
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
-"За винятком випадків %(startNotedLink)sзазначених тут%(endNotedLink)s, вміст "
-"цього сайту ліцензовано на умовах %(startLicenseLink)sліцензії Creative "
-"Commons Attribution Share-Alike License v3.0%(endLicenseLink)s, або будь-"
-"якою новішою версією."
+"За винятком випадків %(startNotedLink)sзазначених тут%(endNotedLink)s, вміст цього сайту ліцензовано на умовах %(startLicenseLink)sліцензії Creative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s, або будь-якою новішою версією."
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
@@ -1073,13 +949,11 @@ msgstr "Мій обліковий запис"
 msgid "View My Collections"
 msgstr "Переглянути мої збірки"
 
-#: src/amo/components/Header/index.js:122
-#: src/amo/components/UserProfileEdit/index.js:470
+#: src/amo/components/Header/index.js:122 src/amo/components/UserProfileEdit/index.js:470
 msgid "View My Profile"
 msgstr "Переглянути мій профіль"
 
-#: src/amo/components/Header/index.js:130
-#: src/amo/components/UserProfileEdit/index.js:476
+#: src/amo/components/Header/index.js:130 src/amo/components/UserProfileEdit/index.js:476
 msgid "Edit My Profile"
 msgstr "Редагувати мій профіль"
 
@@ -1099,8 +973,7 @@ msgstr "Подати нову тему"
 msgid "Reviewer Tools"
 msgstr "Інструменти рецензента"
 
-#: src/amo/components/Header/index.js:165
-#: src/core/components/AuthenticateButton/index.js:77
+#: src/amo/components/Header/index.js:165 src/core/components/AuthenticateButton/index.js:77
 msgid "Log out"
 msgstr "Вийти"
 
@@ -1218,8 +1091,7 @@ msgstr "Опції пошуку зображень"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Access reverse image search options in a context menu"
-msgstr ""
-"Отримуйте доступ до функцій зворотного пошуку зображення в контекстному меню"
+msgstr "Отримуйте доступ до функцій зворотного пошуку зображення в контекстному меню"
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Forget Me Not"
@@ -1259,9 +1131,7 @@ msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:32
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
-"Підсвічуйте текст на будь-якій веб-сторінці, щоб скористатися зручним меню "
-"пошуку"
+msgstr "Підсвічуйте текст на будь-якій веб-сторінці, щоб скористатися зручним меню пошуку"
 
 #: src/amo/components/HomeHeroBanner/index.js:37
 msgid "Turbo Download Manager"
@@ -1301,44 +1171,31 @@ msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr ""
-"Популярне розширення для захисту від стеження, тепер з можливістю блокування "
-"реклами"
+msgstr "Популярне розширення для захисту від стеження, тепер з можливістю блокування реклами"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Multi-Account Containers"
 msgstr "Мульти-акаунтові контейнери"
 
 #: src/amo/components/HomeHeroBanner/index.js:71
-msgid ""
-"Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
-msgstr ""
-"Розмежуйте різні частини вашої онлайн діяльності — роботу, особисте, тощо — "
-"у вкладках з різними кольорами"
+msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
+msgstr "Розмежуйте різні частини вашої онлайн діяльності — роботу, особисте, тощо — у вкладках з різними кольорами"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Worldwide Radio"
 msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
-msgid ""
-"Quantum Extensions Challenge winner! Listen to live radio from around the "
-"world"
-msgstr ""
-"Переможець змагання розширень для Quantum! Слухайте живе радіо з усього світу"
+msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
+msgstr "Переможець змагання розширень для Quantum! Слухайте живе радіо з усього світу"
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "Tabliss"
 msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-msgid ""
-"Enjoy a gorgeous new tab page with customizable backgrounds, local weather & "
-"more"
-msgstr ""
-"Яскрава сторінка нової вкладки з налаштовуваними тлом, місцевою погодою та "
-"іншим"
+msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
+msgstr "Яскрава сторінка нової вкладки з налаштовуваними тлом, місцевою погодою та іншим"
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Share Backported"
@@ -1346,24 +1203,15 @@ msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
-"Вбудуйте кнопку соціальних мереж \"Поділитися\" в панель інструментів Firefox"
+msgstr "Вбудуйте кнопку соціальних мереж \"Поділитися\" в панель інструментів Firefox"
 
 #: src/amo/components/LandingPage/index.js:225
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Налаштуйте вигляд вашого браузера. Обирайте з тисяч тем, щоб Firefox "
-"виглядав так, як ви хочете."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Налаштуйте вигляд вашого браузера. Обирайте з тисяч тем, щоб Firefox виглядав так, як ви хочете."
 
 #: src/amo/components/LandingPage/index.js:227
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
-msgstr ""
-"Перегляньте потужні інструменти і можливості, щоб налаштувати Firefox і "
-"зробити його своїм."
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
+msgstr "Перегляньте потужні інструменти і можливості, щоб налаштувати Firefox і зробити його своїм."
 
 #: src/amo/components/LandingPage/index.js:257
 msgid "Explore all categories"
@@ -1382,20 +1230,12 @@ msgid "Dictionaries and Language Packs"
 msgstr "Словники та мовні пакунки"
 
 #: src/amo/components/LanguageTools/index.js:154
-msgid ""
-"Installing a dictionary add-on will add a new language option to your spell-"
-"checker, which checks your spelling as you type in Firefox."
-msgstr ""
-"Встановлення словника додасть нову мову у засіб перевірки орфографії, який "
-"перевіряє ваш правопис, коли ви щось друкуєте в Firefox."
+msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
+msgstr "Встановлення словника додасть нову мову у засіб перевірки орфографії, який перевіряє ваш правопис, коли ви щось друкуєте в Firefox."
 
 #: src/amo/components/LanguageTools/index.js:159
-msgid ""
-"Language packs change your browser's interface language, including menu "
-"options and settings."
-msgstr ""
-"Локалізації змінюють мову інтерфейсу вашого браузера, включаючи меню і "
-"налаштування."
+msgid "Language packs change your browser's interface language, including menu options and settings."
+msgstr "Локалізації змінюють мову інтерфейсу вашого браузера, включаючи меню і налаштування."
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "All Locales"
@@ -1447,9 +1287,7 @@ msgstr "Вводити дані на клавіатурі"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
-"Розширте інструменти розробника для доступу до своїх даних у відкритих "
-"вкладках"
+msgstr "Розширте інструменти розробника для доступу до своїх даних у відкритих вкладках"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Download files and read and modify the browser’s download history"
@@ -1467,8 +1305,7 @@ msgstr "Читати текст у всіх відкритих вкладах"
 msgid "Access your location"
 msgstr "Отримувати доступ до вашого розташування"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
 msgstr "Доступ до історії браузера"
 
@@ -1549,42 +1386,26 @@ msgid "You reported this add-on for abuse"
 msgstr "Ви повідомили про порушення цього додатка"
 
 #: src/amo/components/ReportAbuseButton/index.js:119
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-"Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу "
-"стурбованість цим додатком."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
+msgstr "Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу стурбованість цим додатком."
 
-#: src/amo/components/ReportAbuseButton/index.js:126
-#: src/amo/components/ReportUserAbuse/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:126 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
-"Ми не можемо відповісти на кожне повідомлення про порушення правил, але ми "
-"розглянемо цю проблему."
+msgstr "Ми не можемо відповісти на кожне повідомлення про порушення правил, але ми розглянемо цю проблему."
 
 #: src/amo/components/ReportAbuseButton/index.js:138
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
-"Якщо ви вважаєте, що цей додаток порушує %(linkTagStart)sполітики Mozilla "
-"щодо додатків%(linkTagEnd)s, або має проблеми з безпекою чи приватністю, "
-"будь ласка, повідомте про це Mozilla за допомогою цієї форми."
+"Якщо ви вважаєте, що цей додаток порушує %(linkTagStart)sполітики Mozilla щодо додатків%(linkTagEnd)s, або має проблеми з безпекою чи приватністю, будь ласка, повідомте про це Mozilla за допомогою "
+"цієї форми."
 
 #: src/amo/components/ReportAbuseButton/index.js:154
 msgid "Report this add-on for abuse"
 msgstr "Повідомити про порушення цього додатка"
 
 #: src/amo/components/ReportAbuseButton/index.js:183
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
-"Не використовуйте цю форму, щоб повідомляти про помилки або запитувати нові "
-"функції в додатку; це повідомлення буде надіслано в Mozilla, а не "
-"розробникові додатка."
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+msgstr "Не використовуйте цю форму, щоб повідомляти про помилки або запитувати нові функції в додатку; це повідомлення буде надіслано в Mozilla, а не розробникові додатка."
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Explain how this add-on is violating our policies."
@@ -1594,36 +1415,25 @@ msgstr "Поясніть, як цей додаток порушує наші п�
 msgid "Dismiss"
 msgstr "Відхилити"
 
-#: src/amo/components/ReportAbuseButton/index.js:222
-#: src/amo/components/ReportUserAbuse/index.js:145
+#: src/amo/components/ReportAbuseButton/index.js:222 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Надсилання повідомлення про порушення правил"
 
-#: src/amo/components/ReportAbuseButton/index.js:223
-#: src/amo/components/ReportUserAbuse/index.js:144
+#: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "Повідомити про порушення правил"
 
-#: src/amo/components/ReportUserAbuse/index.js:100
-#: src/amo/components/ReportUserAbuse/index.js:107
+#: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
 msgstr "Повідомити про порушення цього користувача"
 
 #: src/amo/components/ReportUserAbuse/index.js:114
-msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
-"%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Якщо ви вважаєте, що цей користувач порушує %(linkTagStart)sПравила додатків "
-"Mozilla%(linkTagEnd)s, будь ласка, повідомте про це в Mozilla."
+msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
+msgstr "Якщо ви вважаєте, що цей користувач порушує %(linkTagStart)sПравила додатків Mozilla%(linkTagEnd)s, будь ласка, повідомте про це в Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:130
-msgid ""
-"Please don't use this form to report bugs or contact this user; your report "
-"will only be sent to Mozilla and not to this user."
-msgstr ""
-"Не використовуйте цю форму для повідомлення про помилки чи зв'язку з цим "
-"користувачем; цей звіт буде надіслано в Mozilla, а не цьому користувачу."
+msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
+msgstr "Не використовуйте цю форму для повідомлення про помилки чи зв'язку з цим користувачем; цей звіт буде надіслано в Mozilla, а не цьому користувачу."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
@@ -1634,15 +1444,10 @@ msgid "You reported this user for abuse"
 msgstr "Ви повідомили про порушення цього користувача"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this user."
-msgstr ""
-"Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу "
-"стурбованість щодо цього користувача."
+msgid "We have received your report. Thanks for letting us know about your concerns with this user."
+msgstr "Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу стурбованість щодо цього користувача."
 
-#: src/amo/components/Search/index.js:118
-#: src/amo/components/SearchResults/index.js:69
+#: src/amo/components/Search/index.js:118 src/amo/components/SearchResults/index.js:69
 msgid "Search results"
 msgstr "Результати пошуку"
 
@@ -1735,8 +1540,7 @@ msgstr "Пошук \"%(query)s\""
 msgid "Loading add-ons"
 msgstr "Завантаження додатків"
 
-#: src/amo/components/SearchFilters/index.js:110
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
 msgid "All"
 msgstr "Всі"
 
@@ -1868,43 +1672,24 @@ msgid "Explore"
 msgstr "Дослідити"
 
 #: src/amo/components/StaticPages/About.js:122
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"Якщо ви хочете допомогти, але не зовсім дружите з технологіями, ви все одно "
-"можете це зробити:"
+msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
+msgstr "Якщо ви хочете допомогти, але не зовсім дружите з технологіями, ви все одно можете це зробити:"
 
 #: src/amo/components/StaticPages/About.js:131
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Візьміть участь в роботі нашого %(startLink)sфоруму%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:144
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"Залишайте відгуки додаткам на цьому сайті. Автори додатка більш схильні до "
-"вдосконалення своїх додатків та написання нових, якщо вони знають, що люди "
-"цінять їх роботу."
+msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgstr "Залишайте відгуки додаткам на цьому сайті. Автори додатка більш схильні до вдосконалення своїх додатків та написання нових, якщо вони знають, що люди цінять їх роботу."
 
 #: src/amo/components/StaticPages/About.js:149
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"Розкажіть своїм друзям і родичам, що Firefox - це швидкий, безпечний "
-"браузер, що захищає їхню приватність і дозволяє використовувати додатки для "
-"його персоналізації!"
+msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgstr "Розкажіть своїм друзям і родичам, що Firefox - це швидкий, безпечний браузер, що захищає їхню приватність і дозволяє використовувати додатки для його персоналізації!"
 
 #: src/amo/components/StaticPages/About.js:157
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s"
-msgstr ""
-"Щоб дізнатися про багато способів, якими ви можете допомогти спільноті "
-"додатків, будь ласка, відвідайте нашу %(startLink)sвікі-сторінку%(endLink)s"
+msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
+msgstr "Щоб дізнатися про багато способів, якими ви можете допомогти спільноті додатків, будь ласка, відвідайте нашу %(startLink)sвікі-сторінку%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:171
 msgid "Get support"
@@ -1912,51 +1697,31 @@ msgstr "Отримати підтримку"
 
 #: src/amo/components/StaticPages/About.js:176
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
+"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Якщо ви бажаєте дізнатися більше про керування додатками в Firefox, або вам "
-"потрібна загальна підтримка з питань стосовно Firefox, завітайте в "
-"%(startSUMOLink)sПідтримку%(endSUMOLink)s Mozilla. Якщо ви не знайдете там "
-"відповідь, спробуйте %(startForumLink)sзадати питання на форумі нашої "
-"спільноти%(endForumLink)s."
+"Якщо ви бажаєте дізнатися більше про керування додатками в Firefox, або вам потрібна загальна підтримка з питань стосовно Firefox, завітайте в %(startSUMOLink)sПідтримку%(endSUMOLink)s Mozilla. Якщо"
+" ви не знайдете там відповідь, спробуйте %(startForumLink)sзадати питання на форумі нашої спільноти%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:197
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)sІнформацію про те, як зв'язатися з командою додатків Mozilla "
-"можна знайти тут%(endLink)s."
+msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
+msgstr "%(startLink)sІнформацію про те, як зв'язатися з командою додатків Mozilla можна знайти тут%(endLink)s."
 
-#: src/amo/components/StaticPages/About.js:23
-#: src/amo/components/StaticPages/About.js:26
+#: src/amo/components/StaticPages/About.js:23 src/amo/components/StaticPages/About.js:26
 msgid "About Firefox Add-ons"
 msgstr "Про додатки Firefox"
 
 #: src/amo/components/StaticPages/About.js:32
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
+"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO) - це офіційний сайт Mozilla, призначений для пошуку "
-"і встановлення додатків для браузера Firefox. Додатки допомагають змінювати "
-"і персоналізувати роботу браузера, додаючи нові можливості в Firefox, "
-"вдосконалюючи вашу взаємодію з веб-вмістом та змінюючи вигляд браузера."
+"Addons.mozilla.org (AMO) - це офіційний сайт Mozilla, призначений для пошуку і встановлення додатків для браузера Firefox. Додатки допомагають змінювати і персоналізувати роботу браузера, додаючи "
+"нові можливості в Firefox, вдосконалюючи вашу взаємодію з веб-вмістом та змінюючи вигляд браузера."
 
 #: src/amo/components/StaticPages/About.js:42
-msgid ""
-"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
-"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
-"Ви також можете використовувати AMO для пошуку додатків до Mozilla "
-"%(startTBLink)sThunderbird%(endTBLink)s та %(startSMLink)sSeaMonkey"
-"%(endSMLink)s."
+msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "Ви також можете використовувати AMO для пошуку додатків до Mozilla %(startTBLink)sThunderbird%(endTBLink)s та %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:59
 msgid "A community of creators"
@@ -1964,16 +1729,11 @@ msgstr "Спільнота творців"
 
 #: src/amo/components/StaticPages/About.js:61
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publically "
-"listed."
+"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
+"been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
-"Додатки і теми, що знаходяться тут, створені тисячами розробників і "
-"дизайнерів з усього світу, починаючи від окремих любителів і до великих "
-"корпорацій. Деякі додатки AMO були автоматично оприлюднені та можуть бути "
-"предметом для перевірки командою рецензентів після їх оприлюднення."
+"Додатки і теми, що знаходяться тут, створені тисячами розробників і дизайнерів з усього світу, починаючи від окремих любителів і до великих корпорацій. Деякі додатки AMO були автоматично оприлюднені"
+" та можуть бути предметом для перевірки командою рецензентів після їх оприлюднення."
 
 #: src/amo/components/StaticPages/About.js:70
 msgid "Get involved"
@@ -1981,66 +1741,40 @@ msgstr "Взяти участь"
 
 #: src/amo/components/StaticPages/About.js:72
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
+"the following ways:"
 msgstr ""
-"Mozilla є некомерційною організацією, метою якої є розвиток Інтернету. Ми "
-"створили Firefox, щоб допомогти зберегти Інтернет здоровим, відкритим і "
-"доступним для всіх. Додатки підтримують вибір користувача і дозволяють "
-"пристосувати Firefox для своїх потреб, і ви також можете допомогти "
-"наступними способами:"
+"Mozilla є некомерційною організацією, метою якої є розвиток Інтернету. Ми створили Firefox, щоб допомогти зберегти Інтернет здоровим, відкритим і доступним для всіх. Додатки підтримують вибір "
+"користувача і дозволяють пристосувати Firefox для своїх потреб, і ви також можете допомогти наступними способами:"
 
 #: src/amo/components/StaticPages/About.js:82
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sСтворіть свій власний додаток%(endLink)s. Ми забезпечуємо "
-"безкоштовний хостинг та службу оновлень, а також можемо допомогти вам "
-"охопити широку аудиторію користувачів."
+msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgstr "%(startLink)sСтворіть свій власний додаток%(endLink)s. Ми забезпечуємо безкоштовний хостинг та службу оновлень, а також можемо допомогти вам охопити широку аудиторію користувачів."
 
 #: src/amo/components/StaticPages/About.js:98
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and "
-"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
-"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
-"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
-"Github."
+"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
+"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Допоможіть покращити цей веб-сайт. Він має відкритий код і ви можете "
-"повідомляти про проблеми і надсилати виправлення. Ви можете почати з "
-"%(startGoodFirstBugLink)sкорисного першого звіту%(endGoodFirstBugLink)s, або "
-"переглянути всі відкриті звіти для %(startAddonsServerRepoLink)sсервера"
-"%(endAddonsServerRepoLink)s та %(startAddonsFrontendRepoLink)sінтерфейсу"
-"%(endAddonsFrontendRepoLink)s AMO на Github."
+"Допоможіть покращити цей веб-сайт. Він має відкритий код і ви можете повідомляти про проблеми і надсилати виправлення. Ви можете почати з %(startGoodFirstBugLink)sкорисного першого "
+"звіту%(endGoodFirstBugLink)s, або переглянути всі відкриті звіти для %(startAddonsServerRepoLink)sсервера%(endAddonsServerRepoLink)s та "
+"%(startAddonsFrontendRepoLink)sінтерфейсу%(endAddonsFrontendRepoLink)s AMO на Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:102
-msgid ""
-"Include your own or anyone else’s email, phone number, or other personal "
-"details."
-msgstr ""
-"Включати ваші власні або чиїсь ще адреси ел. пошти, номери телефонів або "
-"інші персональні дані."
+msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgstr "Включати ваші власні або чиїсь ще адреси ел. пошти, номери телефонів або інші персональні дані."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:107
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
-"Розміщувати відгуки на додаток, написаний чи представлений вами або вашою "
-"організацією."
+msgstr "Розміщувати відгуки на додаток, написаний чи представлений вами або вашою організацією."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:112
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving "
-"a negative review of an add-on for displaying ads or requiring data "
-"gathering, when that is the intended purpose of the add-on, or the add-on "
-"requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
+"add-on, or the add-on requires gathering data to function."
 msgstr ""
-"Критикувати додаток за щось, для чого він призначений. Наприклад, залишати "
-"негативний відгук про те, що додаток показує рекламу чи вимагає отримання "
-"даних, коли це є метою цього додатку, або якщо додаток вимагає отримання "
-"даних для своєї роботи."
+"Критикувати додаток за щось, для чого він призначений. Наприклад, залишати негативний відгук про те, що додаток показує рекламу чи вимагає отримання даних, коли це є метою цього додатку, або якщо "
+"додаток вимагає отримання даних для своєї роботи."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:121
 msgid "Frequently Asked Questions about Reviews"
@@ -2052,29 +1786,19 @@ msgstr "Як мені повідомити про некоректний від�
 
 #: src/amo/components/StaticPages/ReviewGuide.js:125
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this "
-"review\" and it will be submitted to the site for moderation. Our moderation "
-"team will use the Review Guidelines to evaluate whether or not to delete the "
-"review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
+"evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Будь ласка, повідомляйте чи позначайте будь-які відгуки під питанням, "
-"натискаючи \"Повідомити про цей відгук\" і він буде відправлений на сайт для "
-"модерування. Наша команда рецензентів визначить необхідність видалення чи "
-"оприлюднення цього відгуку, керуючись настановами про відгуки."
+"Будь ласка, повідомляйте чи позначайте будь-які відгуки під питанням, натискаючи \"Повідомити про цей відгук\" і він буде відправлений на сайт для модерування. Наша команда рецензентів визначить "
+"необхідність видалення чи оприлюднення цього відгуку, керуючись настановами про відгуки."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:132
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Я автор додатка, чи можу я відповідати на відгуки?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:138
-msgid ""
-"Yes, add-on authors can provide a single response to a review. You can set "
-"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
-"additional discussion or follow-up."
-msgstr ""
-"Так, автори додатків можуть залишати одну відповідь на відгук. Ви можете "
-"відкрити тему для обговорення на нашому %(startLink)sфорумі%(endLink)s, щоб "
-"прийняти участь в додатковій дискусії."
+msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgstr "Так, автори додатків можуть залишати одну відповідь на відгук. Ви можете відкрити тему для обговорення на нашому %(startLink)sфорумі%(endLink)s, щоб прийняти участь в додатковій дискусії."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:152
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2082,32 +1806,23 @@ msgstr "Я автор додатка, чи можу я видаляти несп
 
 #: src/amo/components/StaticPages/ReviewGuide.js:157
 msgid ""
-"In general, no. But if the review did not meet the review guidelines "
-"outlined above, you can click \"Report this review\" and have it moderated. "
-"If a review included a complaint that is no longer valid due to a new "
-"release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
+"valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"Взагалі, ні. Але якщо відгук не відповідав наведеним вище інструкціям, ви "
-"можете натиснути кнопку \"Повідомити про цей відгук\" і залишити його "
-"модераторам. Якщо в огляді було включено скаргу, яка більше не дійсна через "
-"нову версію вашого додатка, ми можемо розглянути питання про видалення цього "
-"відгуку."
+"Взагалі, ні. Але якщо відгук не відповідав наведеним вище інструкціям, ви можете натиснути кнопку \"Повідомити про цей відгук\" і залишити його модераторам. Якщо в огляді було включено скаргу, яка "
+"більше не дійсна через нову версію вашого додатка, ми можемо розглянути питання про видалення цього відгуку."
 
-#: src/amo/components/StaticPages/ReviewGuide.js:21
-#: src/amo/components/StaticPages/ReviewGuide.js:23
+#: src/amo/components/StaticPages/ReviewGuide.js:21 src/amo/components/StaticPages/ReviewGuide.js:23
 msgid "Review Guidelines"
 msgstr "Вимоги до відгуків"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:29
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons "
-"you’ve installed and used. Our review moderation team reserves the right to "
-"refuse or remove any review that does not comply with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
+" with these guidelines."
 msgstr ""
-"Відгуки про додатки дозволяють вам ділитися своїми враженнями про додатки, "
-"якими ви користуєтесь. Наша команда перевірки відгуків залишає за собою "
-"право відхиляти чи видаляти будь-який відгук, що не відповідає цим "
-"настановам."
+"Відгуки про додатки дозволяють вам ділитися своїми враженнями про додатки, якими ви користуєтесь. Наша команда перевірки відгуків залишає за собою право відхиляти чи видаляти будь-який відгук, що не"
+" відповідає цим настановам."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:34
 msgid "Tips for writing a great review"
@@ -2118,8 +1833,7 @@ msgid "Do:"
 msgstr "Вам слід:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
-msgid ""
-"Write like you are telling a friend about your experience with the add-on."
+msgid "Write like you are telling a friend about your experience with the add-on."
 msgstr "Писати про свій досвід використання додатка."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
@@ -2151,8 +1865,7 @@ msgid "Will you continue to use this add-on?"
 msgstr "Чи будете ви й надалі використовувати цей додаток?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
-msgid ""
-"Take a moment to read your review before submitting it to minimize typos."
+msgid "Take a moment to read your review before submitting it to minimize typos."
 msgstr "Перевірте свій відгук перед відправленням для мінімізації помилок."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:69
@@ -2161,45 +1874,31 @@ msgstr "Вам не слід:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:72
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
-"Надсилати односкладові відгуки, такі як \"Відмінно!\", \"чудово\" чи \"погано"
-"\"."
+msgstr "Надсилати односкладові відгуки, такі як \"Відмінно!\", \"чудово\" чи \"погано\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the "
-"available support options for each add-on, if available. You can find them "
-"in the \"More information\" section in the sidebar on the add-on's detail "
-"page."
+"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
+" on the add-on's detail page."
 msgstr ""
-"Задавати технічні питання, запити про підтримку, або пропонувати нові "
-"функції. Використовуйте доступні варіанти для кожного додатка. Ви можете "
-"знайти їх в розділі \"Більше інформації\" на бічній панелі сторінки додатка."
+"Задавати технічні питання, запити про підтримку, або пропонувати нові функції. Використовуйте доступні варіанти для кожного додатка. Ви можете знайти їх в розділі \"Більше інформації\" на бічній "
+"панелі сторінки додатка."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Писати відгуки на додатки, які ви особисто не використовували."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:87
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
-"Використовувати ненормативну лексику, непристойні вирази або слова, які "
-"можуть бути витлумачені як ненависть."
+msgid "Use profanity, sexual language or language that can be construed as hateful."
+msgstr "Використовувати ненормативну лексику, непристойні вирази або слова, які можуть бути витлумачені як ненависть."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:92
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"Додавати HTML, посилання, програмний код або фрагменти коду. Відгуки повинні "
-"містити тільки текст."
+msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
+msgstr "Додавати HTML, посилання, програмний код або фрагменти коду. Відгуки повинні містити тільки текст."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"Робити неправдиві заяви, принижувати або особисто ображати авторів додатків."
+msgid "Make false statements, disparage add-on authors or personally insult them."
+msgstr "Робити неправдиві заяви, принижувати або особисто ображати авторів додатків."
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -2218,14 +1917,12 @@ msgid "Add-ons Home Page"
 msgstr "Початкова сторінка додатків"
 
 #: src/amo/components/UserProfile/index.js:197
-#, fuzzy
 msgid "My reviews"
-msgstr "Відгуки"
+msgstr "Мої відгуки"
 
 #: src/amo/components/UserProfile/index.js:216
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "%(total)s відгук на цей додаток"
+msgstr "Перегляд відгуків для цього додатка"
 
 #: src/amo/components/UserProfile/index.js:261
 msgid "Add-ons developer"
@@ -2235,18 +1932,15 @@ msgstr "Розробник додатка"
 msgid "Theme artist"
 msgstr "Автор теми"
 
-#: src/amo/components/UserProfile/index.js:281
-#: src/amo/components/UserProfileEdit/index.js:458
+#: src/amo/components/UserProfile/index.js:281 src/amo/components/UserProfileEdit/index.js:458
 msgid "User Profile for %(user)s"
 msgstr "Профіль користувача для %(user)s"
 
-#: src/amo/components/UserProfile/index.js:311
-#: src/amo/components/UserProfileEdit/index.js:613
+#: src/amo/components/UserProfile/index.js:311 src/amo/components/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr "Розташування"
 
-#: src/amo/components/UserProfile/index.js:319
-#: src/amo/components/UserProfileEdit/index.js:625
+#: src/amo/components/UserProfile/index.js:319 src/amo/components/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr "Заняття"
 
@@ -2262,8 +1956,7 @@ msgstr "Кількість додатків"
 msgid "Average rating of developer’s add-ons"
 msgstr "Середня оцінка додатків розробника"
 
-#: src/amo/components/UserProfile/index.js:357
-#: src/amo/components/UserProfileEdit/index.js:647
+#: src/amo/components/UserProfile/index.js:357 src/amo/components/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr "Біографія"
 
@@ -2308,12 +2001,8 @@ msgid "Email address cannot be changed here"
 msgstr "Тут неможливо змінити адресу е-пошти"
 
 #: src/amo/components/UserProfileEdit/index.js:531
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"Ви можете змінити свою адресу е-пошти в обліковому записі Firefox. "
-"%(startLink)sПотрібна допомога?%(endLink)s"
+msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
+msgstr "Ви можете змінити свою адресу е-пошти в обліковому записі Firefox. %(startLink)sПотрібна допомога?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts..."
@@ -2324,21 +2013,12 @@ msgid "Profile"
 msgstr "Профіль"
 
 #: src/amo/components/UserProfileEdit/index.js:560
-msgid ""
-"Tell users a bit more information about yourself. These fields are optional, "
-"but they'll help other users get to know you better."
-msgstr ""
-"Розкажіть іншим трохи більше інформації про себе. Ці поля є необов’язковими, "
-"але вони допоможуть користувачам краще з вами познайомитися."
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr "Розкажіть іншим трохи більше інформації про себе. Ці поля є необов’язковими, але вони допоможуть користувачам краще з вами познайомитися."
 
 #: src/amo/components/UserProfileEdit/index.js:566
-msgid ""
-"Tell users a bit more information about this user. These fields are "
-"optional, but they'll help other users get to know %(username)s better."
-msgstr ""
-"Розкажіть іншим трохи більше інформації про цього користувача. Ці поля є "
-"необов’язковими, але вони допоможуть користувачам краще познайомитися з "
-"%(username)s."
+msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
+msgstr "Розкажіть іншим трохи більше інформації про цього користувача. Ці поля є необов’язковими, але вони допоможуть користувачам краще познайомитися з %(username)s."
 
 #: src/amo/components/UserProfileEdit/index.js:576
 msgid "Display Name"
@@ -2365,124 +2045,85 @@ msgid "Notifications"
 msgstr "Сповіщення"
 
 #: src/amo/components/UserProfileEdit/index.js:697
-msgid ""
-"From time to time, Mozilla may send you email about upcoming releases and "
-"add-on events. Please select the topics you are interested in."
-msgstr ""
-"Час від часу Mozilla може надсилати вам електронні листи про випуски, що "
-"наближаються, та про події додатків. Будь ласка, оберіть теми, які вас "
-"цікавлять."
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "Час від часу Mozilla може надсилати вам електронні листи про випуски, що наближаються, та про події додатків. Будь ласка, оберіть теми, які вас цікавлять."
 
 #: src/amo/components/UserProfileEdit/index.js:702
-msgid ""
-"From time to time, Mozilla may send this user email about upcoming releases "
-"and add-on events. Please select the topics this user may be interested in."
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
-"Час від часу Mozilla може надсилати електронний лист цьому користувачу про "
-"випуски, що наближаються, та про події додатків. Будь ласка, оберіть теми, "
-"які можуть бути цікавими для цього користувача."
+"Час від часу Mozilla може надсилати електронний лист цьому користувачу про випуски, що наближаються, та про події додатків. Будь ласка, оберіть теми, які можуть бути цікавими для цього користувача."
 
 #: src/amo/components/UserProfileEdit/index.js:717
-msgid ""
-"Mozilla reserves the right to contact you individually about specific "
-"concerns with your hosted add-ons."
-msgstr ""
-"Mozilla зберігає за собою право звернутись до вас особисто з особливими "
-"питаннями щодо розміщених вами додатків."
+msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
+msgstr "Mozilla зберігає за собою право звернутись до вас особисто з особливими питаннями щодо розміщених вами додатків."
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Оновлення вашого профілю…"
+msgstr "Оновлення облікового запису…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
-#, fuzzy
 msgid "Update My Account"
-msgstr "Мій обліковий запис"
+msgstr "Оновити обліковий запис"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Оновлення профілю користувача…"
+msgstr "Оновлення цього облікового запису…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "Оновити цей обліковий запис"
 
-#: src/amo/components/UserProfileEdit/index.js:750
-#: src/amo/components/UserProfileEdit/index.js:828
-#, fuzzy
+#: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
 msgid "Delete My Account"
-msgstr "Мій обліковий запис"
+msgstr "Видалити обліковий запис"
 
-#: src/amo/components/UserProfileEdit/index.js:751
-#: src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
+#: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
 msgid "Delete This Account"
-msgstr "Видалити цю збірку"
+msgstr "Видалити цей обліковий запис"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "ВАЖЛИВО: Видалення облікового запису є незворотною дією."
 
 #: src/amo/components/UserProfileEdit/index.js:765
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "ВАЖЛИВО: Видалення цього облікового запису є незворотною дією."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
-"Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
+" will be anonymised and no longer editable."
 msgstr ""
-"Якщо ви підтвердите цю %(startStrong)sнезворотну дію%(endStrong)s, будуть "
-"вилучені такі дані: зображення профілю, інформація профілю (включно з іменем "
-"користувача, адресою електронної пошти, ім'ям для показу, домівкою, "
-"біографією, заняттям) та налаштування сповіщень. Інші дані, як от оцінки та "
-"відгуки стануть анонімними."
+"Ваші дані будуть незворотно вилучені, разом з подробицями профілю (зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, домівкою, інформацією про себе, заняттям) і налаштуваннями"
+" сповіщень. Ваші оцінки та відгуки стануть анонімними й недоступними для редагування."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
-"The user’s data will be permanently removed, including profile details "
-"(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
+"ratings will be anonymised and no longer editable."
 msgstr ""
-"Якщо ви підтвердите цю %(startStrong)sнезворотну дію%(endStrong)s, будуть "
-"вилучені такі дані: зображення профілю, інформація профілю (включно з іменем "
-"користувача, адресою електронної пошти, ім'ям для показу, домівкою, "
-"біографією, заняттям) та налаштування сповіщень. Інші дані, як от оцінки та "
-"відгуки стануть анонімними."
+"Користувацькі дані будуть незворотно вилучені, разом з подробицями профілю (зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, домівкою, інформацією про себе, заняттям) і "
+"налаштуваннями сповіщень. Оцінки та відгуки стануть анонімними й недоступними для редагування."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your account."
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
+" add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sПРИМІТКА:%(strongEnd)s Ви не можете видалити обліковий запис, якщо ви є %(linkStart)sавтором будь-якого додатку%(linkEnd)s. Для можливості видалення облікового запису ви повинні "
+"%(docLinkStart)sпередати власність%(docLinkEnd)s або видалити додатки."
 
 #: src/amo/components/UserProfileEdit/index.js:801
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+msgstr "%(strongStart)sПРИМІТКА:%(strongEnd)s Ви не можете видалити обліковий запис користувача, якщо він є %(linkStart)sавтором будь-якого додатку%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
-msgid ""
-"stay up-to-date with news and events relevant to add-on developers "
-"(including the about:addons newsletter)"
-msgstr ""
-"будьте в курсі новин та подій, пов'язаних з розробкою додатків (включно з "
-"розсилкою about:addons)"
+msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
+msgstr "будьте в курсі новин та подій, пов'язаних з розробкою додатків (включно з розсилкою about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
-"Mozilla необхідно зв'язатися зі мною з приводу мого індивідуального додатка"
+msgstr "Mozilla необхідно зв'язатися зі мною з приводу мого індивідуального додатка"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
@@ -2525,16 +2166,14 @@ msgid "Profile photo"
 msgstr "Фотографія профілю"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Оберіть фото..."
+msgstr "Оберіть фото…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Ви справді хочете видалити це зображення?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "Видалити це зображення"
 
@@ -2543,15 +2182,10 @@ msgid "Register or Log in"
 msgstr "Реєстрація чи вхід"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Вибачте, але сталася помилка, і ми не змогли виконати ваш запит. Ми записали "
-"цю помилку і будемо розслідувати її."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Вибачте, але сталася помилка, і ми не змогли виконати ваш запит. Ми записали цю помилку і будемо розслідувати її."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Код помилки: %(status)s."
 
@@ -2559,13 +2193,11 @@ msgstr "Код помилки: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Вибачте, але ми не можемо нічого знайти за наданою вами URL."
 
-#: src/core/components/InstallButton/index.js:253
-#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:253 src/core/components/InstallButton/index.js:296
 msgid "Install Theme"
 msgstr "Встановити тему"
 
-#: src/core/components/InstallButton/index.js:281
-#: src/core/components/InstallButton/index.js:297
+#: src/core/components/InstallButton/index.js:281 src/core/components/InstallButton/index.js:297
 msgid "Add to Firefox"
 msgstr "Додати до Firefox"
 
@@ -2728,19 +2360,11 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "Attention: You are about to delete a profile. Are you sure?"
 #~ msgstr "Обережно: Ви збираєтеся видалити профіль. Ви впевнені?"
 
-#~ msgid ""
-#~ "Important: if you own add-ons, you have to transfer them to other users "
-#~ "or to delete them before you can delete your profile."
-#~ msgstr ""
-#~ "Важливо: Якщо у вас є додатки, ви повинні передати їх іншим користувачам, "
-#~ "або видалити їх, перед видаленням профілю."
+#~ msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
+#~ msgstr "Важливо: Якщо у вас є додатки, ви повинні передати їх іншим користувачам, або видалити їх, перед видаленням профілю."
 
-#~ msgid ""
-#~ "Important: a user profile can only be deleted if the user does not own "
-#~ "any add-ons."
-#~ msgstr ""
-#~ "Важливо: профіль користувача можна видалити лише якщо він не є власником "
-#~ "додатків."
+#~ msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
+#~ msgstr "Важливо: профіль користувача можна видалити лише якщо він не є власником додатків."
 
 #~ msgid "Yes, delete my profile"
 #~ msgstr "Так, видалити мій профіль"
@@ -2757,12 +2381,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "Envify"
 #~ msgstr "Envify"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Different tab colors for different "
-#~ "dev environments"
-#~ msgstr ""
-#~ "Переможець змагання розширень для Quantum! Різні кольори вкладок для "
-#~ "різних середовищ розробки"
+#~ msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
+#~ msgstr "Переможець змагання розширень для Quantum! Різні кольори вкладок для різних середовищ розробки"
 
 #~ msgid "Laser Cat"
 #~ msgstr "Laser Cat"
@@ -2779,12 +2399,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "Session Sync"
 #~ msgstr "Session Sync"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Save sessions as bookmarks and "
-#~ "access them across devices"
-#~ msgstr ""
-#~ "Переможець змагання розширень для Quantum! Зберігайте сеансу у вигляді "
-#~ "закладок та отримуйте до них доступ на різних пристроях"
+#~ msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
+#~ msgstr "Переможець змагання розширень для Quantum! Зберігайте сеансу у вигляді закладок та отримуйте до них доступ на різних пристроях"
 
 #~ msgid "Profile successfully updated"
 #~ msgstr "Профіль успішно оновлено"
@@ -2969,18 +2585,11 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "SearchPreview"
 #~ msgstr "SearchPreview"
 
-#~ msgid ""
-#~ "Enhance search results with thumbnail previews, popularity ranks & more."
-#~ msgstr ""
-#~ "Вдоскональте результати пошуку завдяки перегляду мініатюр, рейтингу та "
-#~ "інших подробиць."
+#~ msgid "Enhance search results with thumbnail previews, popularity ranks & more."
+#~ msgstr "Вдоскональте результати пошуку завдяки перегляду мініатюр, рейтингу та інших подробиць."
 
-#~ msgid ""
-#~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
-#~ "visit except those on your whitelist."
-#~ msgstr ""
-#~ "Автоматично видаляйте дані (куки, автономні дані та ін.) для всіх сайтів, "
-#~ "за винятком тих, що у білому списку."
+#~ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
+#~ msgstr "Автоматично видаляйте дані (куки, автономні дані та ін.) для всіх сайтів, за винятком тих, що у білому списку."
 
 #~ msgid "Zoom for Firefox"
 #~ msgstr "Zoom для Firefox"
@@ -2997,12 +2606,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "Momentum"
 #~ msgstr "Momentum"
 
-#~ msgid ""
-#~ "Replace your new tab with a personal dashboard—to-do lists, weather "
-#~ "forecasts and more."
-#~ msgstr ""
-#~ "Замініть сторінку нової вкладки особистою панеллю — списки завдань, "
-#~ "прогноз погоди та інше."
+#~ msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
+#~ msgstr "Замініть сторінку нової вкладки особистою панеллю — списки завдань, прогноз погоди та інше."
 
 #~ msgid "Kimetrak"
 #~ msgstr "Kimetrak"
@@ -3049,23 +2654,17 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "Grammarly"
 #~ msgstr "Grammarly"
 
-#~ msgid ""
-#~ "Get grammar help anywhere you write on the web—social media, email, docs "
-#~ "and more."
-#~ msgstr ""
-#~ "Допомога з граматики всюди, де ви пишете в Інтернеті — соціальні мережі, "
-#~ "електронна пошта, документи та інше."
+#~ msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
+#~ msgstr "Допомога з граматики всюди, де ви пишете в Інтернеті — соціальні мережі, електронна пошта, документи та інше."
 
 #~ msgid "Remove ads, promoted content, and other clutter from your feed."
-#~ msgstr ""
-#~ "Приберіть рекламу, оголошення та інший непотрібний вміст зі своєї стрічки."
+#~ msgstr "Приберіть рекламу, оголошення та інший непотрібний вміст зі своєї стрічки."
 
 #~ msgid "LastPass Password Manager"
 #~ msgstr "Менеджер паролів LastPass"
 
 #~ msgid "Easily manage all your passwords for all devices from one spot"
-#~ msgstr ""
-#~ "Легко керуйте з одного місця всіма паролями для всіх ваших пристроїв"
+#~ msgstr "Легко керуйте з одного місця всіма паролями для всіх ваших пристроїв"
 
 #~ msgid "Top-rated Themes"
 #~ msgstr "Найвище оцінені теми"
@@ -3079,11 +2678,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "Перегляньте більше додатків для захисту вашої приватності"
 
-#~ msgid ""
-#~ "Translate a word, phrase, even an entire page. Supports 100+ languages."
-#~ msgstr ""
-#~ "Перекладайте слово, фразу та навіть цілу сторінку. Підтримує понад 100 "
-#~ "мов."
+#~ msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
+#~ msgstr "Перекладайте слово, фразу та навіть цілу сторінку. Підтримує понад 100 мов."
 
 #~ msgid "Search by Image"
 #~ msgstr "Пошук за зображенням"
@@ -3103,12 +2699,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "Decentraleyes"
 #~ msgstr "Decentraleyes"
 
-#~ msgid ""
-#~ "Tracking protection against third-party sites aiming to mark your every "
-#~ "online move."
-#~ msgstr ""
-#~ "Захист від сторонніх сайтів, які хочуть стежити за кожним вашим кроком в "
-#~ "мережі."
+#~ msgid "Tracking protection against third-party sites aiming to mark your every online move."
+#~ msgstr "Захист від сторонніх сайтів, які хочуть стежити за кожним вашим кроком в мережі."
 
 #~ msgid "Top privacy extensions"
 #~ msgstr "Найпопулярніші розширення для приватності"
@@ -3120,8 +2712,7 @@ msgstr[2] "%(total)s додатків"
 #~ msgstr "YouTube High Definition"
 
 #~ msgid "Play videos in HD, turn off annotations, change player size & more"
-#~ msgstr ""
-#~ "Дивіться відео в HD, вимикайте анотації, змінюйте розміри плеєра тощо"
+#~ msgstr "Дивіться відео в HD, вимикайте анотації, змінюйте розміри плеєра тощо"
 
 #~ msgid "Productivity extensions"
 #~ msgstr "Розширення для продуктивності"
@@ -3162,13 +2753,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "All written reviews"
 #~ msgstr "Всі написані відгуки"
 
-#~ msgid ""
-#~ "Sorry, but we can't find anything at the address you entered. If you "
-#~ "followed a link to an add-on, it's possible that add-on has been removed "
-#~ "by its author."
-#~ msgstr ""
-#~ "Вибачте, але нам не вдалося знайти нічого за введеною адресою. Якщо ви "
-#~ "перейшли за посиланням, ймовірно, автор видалив свій додаток."
+#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+#~ msgstr "Вибачте, але нам не вдалося знайти нічого за введеною адресою. Якщо ви перейшли за посиланням, ймовірно, автор видалив свій додаток."
 
 #~ msgid "Themes change how Firefox looks"
 #~ msgstr "Теми, що змінюють зовнішній вигляд Firefox"
@@ -3206,12 +2792,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "…or what it looks like"
 #~ msgstr "…або на що це схоже"
 
-#~ msgid ""
-#~ "Install powerful tools that make browsing faster and safer, add-ons make "
-#~ "your browser yours."
-#~ msgstr ""
-#~ "Встановіть потужні інструменти, що пришвидшують і убезпечують перегляд, "
-#~ "додатки роблять ваш браузер вашим."
+#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+#~ msgstr "Встановіть потужні інструменти, що пришвидшують і убезпечують перегляд, додатки роблять ваш браузер вашим."
 
 #~ msgid "Legal notices"
 #~ msgstr "Юридичні відомості"
@@ -3228,12 +2810,8 @@ msgstr[2] "%(total)s додатків"
 #~ msgid "Browse by category"
 #~ msgstr "За категоріями"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Розширення - це спеціальні функції, які ви можете додати до Firefox. Теми "
-#~ "дозволяють вам змінити вигляд вашого браузера."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Розширення - це спеціальні функції, які ви можете додати до Firefox. Теми дозволяють вам змінити вигляд вашого браузера."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s з 5"
