@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 09:52+0000\n"
+"PO-Revision-Date: 2018-07-04 09:55+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2093,22 +2093,20 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "ყურადღება: ანგარიშის წაშლა შეუქცევადი ქმედებაა."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"თუ თანახმა ხართ ეს %(startStrong)sშეუქცევადი ქმედება%(endStrong)s განხორციელდეს, წაიშლება შემდეგი მონაცემები: პროფილის სურათი, პროფილის ცალკეული მონაცემები (მომხმარებლის სახელი, ელფოსტა, გამოსაჩენი "
-"სახელი, ადგილმდებარეობა, მთავარი გვერდი, ბიოგრაფია, საქმიანობა) და შეტყობინებების პარამეტრები. სხვა სახის მონაცემებზე, როგორიცაა დატოვებული შეფასებები და მიმოხილვები, აღარ იქნება აღნიშნული ვინაობა."
+"თქვენი მონაცემები სამუდამოდ წაიშლება, მათ შორის პროფილის ცალკეული მონაცემები (მომხმარებლის სახელი, ელფოსტა, გამოსაჩენი სახელი, ადგილმდებარეობა, მთავარი გვერდი, ბიოგრაფია, საქმიანობა) და "
+"შეტყობინებების პარამეტრები. დატოვებულ შეფასებებსა და მიმოხილვებზე ვინაობა დაიფარება და შეიზღუდება ჩასწორების შესაძლებლობა."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"თუ თანახმა ხართ ეს %(startStrong)sშეუქცევადი ქმედება%(endStrong)s განხორციელდეს, წაიშლება შემდეგი მონაცემები: პროფილის სურათი, პროფილის ცალკეული მონაცემები (მომხმარებლის სახელი, ელფოსტა, გამოსაჩენი "
-"სახელი, ადგილმდებარეობა, მთავარი გვერდი, ბიოგრაფია, საქმიანობა) და შეტყობინებების პარამეტრები. სხვა სახის მონაცემებზე, როგორიცაა დატოვებული შეფასებები და მიმოხილვები, აღარ იქნება აღნიშნული ვინაობა."
+"მომხმარებლის მონაცემები სამუდამოდ წაიშლება, მათ შორის პროფილის ცალკეული მონაცემები (მომხმარებლის სახელი, ელფოსტა, გამოსაჩენი სახელი, ადგილმდებარეობა, მთავარი გვერდი, ბიოგრაფია, საქმიანობა) და "
+"შეტყობინებების პარამეტრები. დატოვებულ შეფასებებსა და მიმოხილვებზე ვინაობა დაიფარება და შეიზღუდება ჩასწორების შესაძლებლობა."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
@@ -2171,7 +2169,6 @@ msgid "Profile photo"
 msgstr "პროფილის სურათი"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
 msgstr "სურათის არჩევა..."
 
@@ -2180,7 +2177,6 @@ msgid "Do you really want to delete this picture?"
 msgstr "ნამდვილად გსურთ ამ სურათის წაშლა?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "სურათის წაშლა"
 
