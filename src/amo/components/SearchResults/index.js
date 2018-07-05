@@ -4,7 +4,7 @@ import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Paginate from 'core/components/Paginate';
-import { INSTALL_SOURCE_SEARCH } from 'core/constants';
+import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
 import type { FiltersType } from 'core/reducers/search';
@@ -59,11 +59,15 @@ export class SearchResultsBase extends React.Component<InternalProps> {
       );
     }
 
+    const addonInstallSource = filters.featured
+      ? INSTALL_SOURCE_FEATURED
+      : INSTALL_SOURCE_SEARCH;
+
     return (
       <div className="SearchResults">
         {loadingMessage}
         <AddonsCard
-          addonInstallSource={INSTALL_SOURCE_SEARCH}
+          addonInstallSource={addonInstallSource}
           addons={hasSearchFilters(filters) ? results : null}
           footer={paginator}
           header={i18n.gettext('Search results')}
