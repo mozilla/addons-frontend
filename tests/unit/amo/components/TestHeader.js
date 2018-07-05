@@ -12,6 +12,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  getFakeConfig,
   fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
@@ -90,15 +91,29 @@ describe(__filename, () => {
     expect(wrapper.find(DropdownMenu)).toHaveProp('text', 'babar');
   });
 
-  it("displays user's collection when user is signed in", () => {
+  it('displays link to my colections when user is signed in and new collections UI is disabled', () => {
+    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
+    const username = 'babar';
     const { store } = dispatchSignInActions({
-      userProps: { username: 'babar' },
+      userProps: { username },
     });
-    const wrapper = renderHeader({ store });
+    const wrapper = renderHeader({ _config: fakeConfig, store });
     const link = wrapper.find('.Header-user-menu-collections-link');
 
     expect(link).toHaveLength(1);
     expect(link.prop('children')).toEqual('View My Collections');
+    expect(link.prop('href')).toEqual(`/collections/${username}/`);
+  });
+
+  it('displays link to my colections when user is signed in and new collections UI is enabled', () => {
+    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
+    const { store } = dispatchSignInActions();
+    const wrapper = renderHeader({ _config: fakeConfig, store });
+    const link = wrapper.find('.Header-user-menu-collections-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.prop('children')).toEqual('View My Collections');
+    expect(link.prop('to')).toEqual(`/collections/`);
   });
 
   it('displays a view profile link when user is signed in', () => {
