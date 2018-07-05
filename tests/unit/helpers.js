@@ -3,6 +3,7 @@ import url from 'url';
 
 import base64url from 'base64url';
 import config, { util as configUtil } from 'config';
+import invariant from 'invariant';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
@@ -15,6 +16,7 @@ import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
+import { createUIStateMapper, mergeUIStateProps } from 'core/reducers/uiState';
 import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
@@ -616,7 +618,23 @@ export function applyUIStateChanges({ root, store }) {
   // This simulates what Redux will do on an action dispatch.
   // It's necessary because shallow wrapper updates do not
   // propagate to all HOCs.
-  root.setProps(root.instance().props.simulateUIStateProps({ store }));
+  const ownProps = root.instance().props;
+  invariant(
+    ownProps.uiStateID,
+    'uiStateID cannot be undefined; was the component wrapped in withUIState()?',
+  );
+
+  const mapStateToProps = createUIStateMapper({
+    uiStateID: ownProps.uiStateID,
+  });
+  const _stateProps = mapStateToProps(store.getState(), ownProps);
+  const mappedProps = mergeUIStateProps(
+    _stateProps,
+    { dispatch: store.dispatch },
+    ownProps,
+  );
+
+  root.setProps(mappedProps);
 }
 
 export function setUIState({ root, change, store }) {

@@ -8,6 +8,8 @@ import { normalizeFileNameId } from 'core/utils';
 
 export const SET_UI_STATE = 'SET_UI_STATE';
 
+type ExtractIdType = (props: Object) => string;
+
 type UIStateType = {
   [id: string]: Object,
 };
@@ -47,59 +49,81 @@ export const generateId = ({
   return `${normalizeFileNameId(fileName)}-${id}`;
 };
 
+export const createUIStateMapper = ({
+  defaultState,
+  extractId,
+  fileName,
+  uiStateID,
+}: {|
+  defaultState: Object,
+  extractId?: ExtractIdType,
+  fileName?: string,
+  uiStateID?: string,
+|}) => {
+  const mapStateToProps = (
+    state: {| uiState: UIStateType |},
+    props: Object,
+  ) => {
+    let computedUIStateID;
+    if (uiStateID) {
+      computedUIStateID = uiStateID;
+    } else {
+      invariant(extractId, 'extractId is required when uiStateID is undefined');
+      invariant(fileName, 'fileName is required when uiStateID is undefined');
+      computedUIStateID =
+        props.uiStateID || generateId({ fileName, id: extractId(props) });
+    }
+    const uiState = state.uiState[computedUIStateID] || defaultState;
+    return {
+      uiState,
+      uiStateID: computedUIStateID,
+    };
+  };
+
+  return mapStateToProps;
+};
+
+export const mergeUIStateProps = (
+  stateProps: Object,
+  dispatchProps: Object,
+  ownProps: Object,
+) => {
+  const { dispatch } = dispatchProps;
+  return {
+    ...ownProps,
+    ...stateProps,
+    ...dispatchProps,
+    setUIState: (change: Object) => {
+      dispatch(setUIState({ id: stateProps.uiStateID, change }));
+    },
+  };
+};
+
 export const withUIState = ({
   fileName,
   extractId,
   defaultState = {},
 }: {|
   fileName: string,
-  extractId: (props: Object) => string,
+  extractId: ExtractIdType,
   defaultState?: Object,
 |}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
   invariant(defaultState, 'defaultState is required');
 
-  const mapStateToProps = (
-    state: {| uiState: UIStateType |},
-    props: Object,
-  ) => {
-    const uiStateID =
-      props.uiStateID || generateId({ fileName, id: extractId(props) });
-    const uiState = state.uiState[uiStateID] || defaultState;
-    return {
-      uiState,
-      uiStateID,
-    };
-  };
-
-  const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { dispatch } = dispatchProps;
-    return {
-      ...ownProps,
-      ...stateProps,
-      ...dispatchProps,
-      setUIState: (change: Object) => {
-        dispatch(setUIState({ id: stateProps.uiStateID, change }));
-      },
-      // This is just for testing to simulate the props you'll
-      // get after a Redux action is dispatched.
-      // Using shallowUntilTarget() and root.update() won't
-      // actually update all of the HOC wrapped components
-      // ... I guess?
-      simulateUIStateProps: ({ store }: {| store: Object |}) => {
-        const _stateProps = mapStateToProps(store.getState(), ownProps);
-        return mergeProps(_stateProps, { dispatch: store.dispatch }, ownProps);
-      },
-    };
-  };
+  const mapStateToProps = createUIStateMapper({
+    extractId,
+    fileName,
+    defaultState,
+  });
 
   return (WrappedComponent) => {
     return compose(
       connect(
         mapStateToProps,
         undefined,
-        mergeProps,
+        mergeUIStateProps,
       ),
     )(WrappedComponent);
   };
