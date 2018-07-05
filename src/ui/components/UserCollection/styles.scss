@@ -2,6 +2,10 @@
 @import "~photon-colors/photon-colors";
 @import "~ui/css/vars";
 
+.CardList ul > li.UserCollection {
+  padding: 0 $padding-page-l;
+}
+
 .UserCollection {
   grid-column: auto;
   list-style-type: none;
