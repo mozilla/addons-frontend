@@ -614,10 +614,16 @@ export const createUserNotificationsResponse = () => {
   ];
 };
 
+/*
+ * Call this in a test after any shallowUntilTarget() component might
+ * have adjusted its uiState.
+ *
+ * This simulates how Redux will update component props after
+ * an action dispatch.
+ * It's necessary because shallow Enzyme wrapper updates do not
+ * propagate to all HOCs.
+ */
 export function applyUIStateChanges({ root, store }) {
-  // This simulates what Redux will do on an action dispatch.
-  // It's necessary because shallow wrapper updates do not
-  // propagate to all HOCs.
   const ownProps = root.instance().props;
   invariant(
     ownProps.uiStateID,
@@ -637,6 +643,9 @@ export function applyUIStateChanges({ root, store }) {
   root.setProps(mappedProps);
 }
 
+/*
+ * Change a component's uiState.
+ */
 export function setUIState({ root, change, store }) {
   root.instance().props.setUIState(change);
   applyUIStateChanges({ root, store });
