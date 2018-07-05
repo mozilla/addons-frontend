@@ -202,14 +202,21 @@ describe(__filename, () => {
 
     it('shows a populated notes form when the edit button icon is clicked', () => {
       const notes = 'Some notes.';
+      const { store } = dispatchClientMetadata();
+      const root = render({ notes, store });
 
-      const root = renderAndEditNote({ notes });
+      const commentIcon = root.find('.EditableCollectionAddon-edit-note');
+      commentIcon.simulate('click', createFakeEvent());
+      applyUIStateChanges({ root, store });
+
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(1);
       // The read-only portion should not be shown.
       expect(
         root.find('.EditableCollectionAddon-notes-read-only'),
       ).toHaveLength(0);
+
+      // Make sure props.notes is included in the form.
       expect(notesForm).toHaveProp('text', notes);
     });
 
