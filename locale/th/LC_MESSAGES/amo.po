@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-05 15:50+0000\n"
+"PO-Revision-Date: 2018-07-05 15:57+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -572,9 +572,8 @@ msgid "Name"
 msgstr "ชื่อ"
 
 #: src/amo/components/Collection/index.js:172
-#, fuzzy
 msgid "Popularity"
-msgstr "ชุดตกแต่งยอดนิยม"
+msgstr "ความนิยม"
 
 #: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
@@ -614,9 +613,8 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "ค้นหาส่วนขยายและชุดตกแต่งที่จะเพิ่มไปยังชุดสะสมของคุณ"
 
 #: src/amo/components/Collection/index.js:496
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "ส่วนเสริมที่ได้รับการจัดอันดับสูงสุด"
+msgstr "เรียงส่วนเสริมตาม"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -1874,9 +1872,8 @@ msgid "Add-ons Home Page"
 msgstr "หน้าแรกส่วนเสริม"
 
 #: src/amo/components/UserProfile/index.js:197
-#, fuzzy
 msgid "My reviews"
-msgstr "ไม่มีบทวิจารณ์"
+msgstr "บทวิจารณ์ของฉัน"
 
 #: src/amo/components/UserProfile/index.js:216
 #, fuzzy
@@ -2018,33 +2015,28 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your account…"
-msgstr "กำลังอัปเดตโปรไฟล์ของคุณ…"
+msgstr "กำลังอัปเดตบัญชีของคุณ…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
-#, fuzzy
 msgid "Update My Account"
-msgstr "บัญชีของฉัน"
+msgstr "อัปเดตบัญชีของฉัน"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "กำลังอัปเดตโปรไฟล์ของผู้ใช้…"
+msgstr "กำลังอัปเดตบัญชีนี้…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "อัปเดตบัญชีนี้"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
-#, fuzzy
 msgid "Delete My Account"
-msgstr "บัญชีของฉัน"
+msgstr "ลบบัญชีของฉัน"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "ลบชุดสะสมนี้"
+msgstr "ลบบัญชีนี้"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
