@@ -16,7 +16,8 @@ import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
-  INSTALL_STARTED_CATEGORY,
+  INSTALL_ACTION,
+  INSTALL_STARTED_ACTION,
   OS_ALL,
   OS_MAC,
   OS_WINDOWS,
@@ -25,6 +26,7 @@ import {
 import { getAddonIconUrl } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
 import * as themePreview from 'core/themePreview';
+import { getAction, getAddonEventCategory } from 'core/tracking';
 import {
   createFakeEvent,
   createFakeMozWindow,
@@ -33,7 +35,6 @@ import {
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { getAddonCategory, getExtensionTypeAction } from 'core/utils';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
@@ -398,10 +399,11 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getExtensionTypeAction(),
-      category: getAddonCategory({
-        installCategory: INSTALL_STARTED_CATEGORY,
-      }),
+      action: getAction(ADDON_TYPE_EXTENSION),
+      category: getAddonEventCategory(
+        ADDON_TYPE_EXTENSION,
+        INSTALL_STARTED_ACTION,
+      ),
       label: addon.name,
     });
   });
@@ -428,11 +430,11 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getExtensionTypeAction(),
-      category: getAddonCategory({
-        type: ADDON_TYPE_OPENSEARCH,
-        installCategory: INSTALL_STARTED_CATEGORY,
-      }),
+      action: getAction(ADDON_TYPE_OPENSEARCH),
+      category: getAddonEventCategory(
+        ADDON_TYPE_OPENSEARCH,
+        INSTALL_STARTED_ACTION,
+      ),
       label: addon.name,
     });
   });
@@ -497,10 +499,11 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getExtensionTypeAction(),
-      category: getAddonCategory({
-        installCategory: INSTALL_STARTED_CATEGORY,
-      }),
+      action: getAction(ADDON_TYPE_EXTENSION),
+      category: getAddonEventCategory(
+        ADDON_TYPE_EXTENSION,
+        INSTALL_STARTED_ACTION,
+      ),
       label: addon.name,
     });
 
@@ -511,8 +514,8 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getExtensionTypeAction(),
-      category: getAddonCategory(),
+      action: getAction(ADDON_TYPE_EXTENSION),
+      category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
       label: addon.name,
     });
   });

@@ -12,24 +12,12 @@ import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import {
   ADDON_TYPE_COMPLETE_THEME,
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
   ADDON_TYPE_THEMES_FILTER,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
-  INSTALL_CATEGORY,
-  INSTALL_EXTENSION_CATEGORY,
-  INSTALL_STARTED_CATEGORY,
-  INSTALL_THEME_CATEGORY,
-  INSTALL_THEME_STARTED_CATEGORY,
-  TRACKING_TYPE_STATIC_THEME,
-  TRACKING_TYPE_EXTENSION,
-  UNINSTALL_CATEGORY,
-  UNINSTALL_EXTENSION_CATEGORY,
-  UNINSTALL_THEME_CATEGORY,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
 import { AddonTypeNotFound } from 'core/errors';
@@ -347,40 +335,4 @@ export const getAddonTypeFilter = (addonType, _config = config) => {
   }
 
   return ADDON_TYPE_THEMES_FILTER;
-};
-
-export const getExtensionTypeAction = (type = ADDON_TYPE_EXTENSION) => {
-  let action = TRACKING_TYPE_EXTENSION;
-
-  if (type === ADDON_TYPE_STATIC_THEME) {
-    action = TRACKING_TYPE_STATIC_THEME;
-  }
-
-  return action;
-};
-
-export const getAddonCategory = ({
-  type = ADDON_TYPE_EXTENSION,
-  installCategory = INSTALL_CATEGORY,
-} = {}) => {
-  let category;
-  const isTheme = ADDON_TYPE_THEMES.includes(type);
-
-  switch (installCategory) {
-    case INSTALL_STARTED_CATEGORY:
-      category = isTheme
-        ? INSTALL_THEME_STARTED_CATEGORY
-        : INSTALL_EXTENSION_CATEGORY;
-      break;
-    case UNINSTALL_CATEGORY:
-      category = isTheme
-        ? UNINSTALL_THEME_CATEGORY
-        : UNINSTALL_EXTENSION_CATEGORY;
-      break;
-    default:
-      category = isTheme ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
-      break;
-  }
-
-  return category;
 };

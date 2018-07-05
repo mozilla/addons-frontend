@@ -194,16 +194,18 @@ export const INSTALL_COMPLETE = 'INSTALL_COMPLETE';
 export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
 export const INSTALL_ERROR = 'INSTALL_ERROR';
 
+// Tracking install actions.
+export const INSTALL_ACTION = 'install';
+export const INSTALL_STARTED_ACTION = 'install:started';
+export const UNINSTALL_ACTION = 'uninstall';
+
 // Tracking categories.
-export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
 export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
 export const INSTALL_EXTENSION_CATEGORY = 'AMO Addon Installs';
 
-export const INSTALL_STARTED_CATEGORY = 'AMO Addon / Theme Installs Started';
 export const INSTALL_THEME_STARTED_CATEGORY = 'AMO Theme Installs Started';
-export const INSTALL_EXT_STARTED_CATEGORY = 'AMO Addon Installs Started';
+export const INSTALL_EXTENSION_STARTED_CATEGORY = 'AMO Addon Installs Started';
 
-export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
 export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
 export const UNINSTALL_EXTENSION_CATEGORY = 'AMO Addon Uninstalls';
 

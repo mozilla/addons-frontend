@@ -13,15 +13,15 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
-  INSTALL_STARTED_CATEGORY,
+  INSTALL_ACTION,
+  INSTALL_STARTED_ACTION,
   validAddonTypes,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
-import tracking from 'core/tracking';
-import { getExtensionTypeAction, getAddonCategory } from 'core/utils';
+import tracking, { getAction, getAddonEventCategory } from 'core/tracking';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
@@ -172,11 +172,8 @@ export class InstallButtonBase extends React.Component {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
-      action: getExtensionTypeAction(type),
-      category: getAddonCategory({
-        type,
-        installType: INSTALL_STARTED_CATEGORY,
-      }),
+      action: getAction(type),
+      category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
       label: addonName,
     });
   }
@@ -185,8 +182,8 @@ export class InstallButtonBase extends React.Component {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
-      action: getExtensionTypeAction(type),
-      category: getAddonCategory({ type }),
+      action: getAction(type),
+      category: getAddonEventCategory(type, INSTALL_ACTION),
       label: addonName,
     });
   }
