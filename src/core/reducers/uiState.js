@@ -102,12 +102,11 @@ export const mergeUIStateProps = (
 export const withUIState = ({
   fileName,
   extractId,
-  // TODO: make this non-optional, like this.setState()
-  initialState = {},
+  initialState,
 }: {|
   fileName: string,
   extractId: ExtractIdType,
-  initialState?: Object,
+  initialState: Object,
 |}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');

@@ -15,10 +15,6 @@ describe(__filename, () => {
     let store;
 
     class OverlayBase extends React.Component {
-      componentWillMount() {
-        this.props.setUIState({ isOpen: true });
-      }
-
       closeOverlay = () => {
         this.props.setUIState({ isOpen: false });
       };
@@ -44,6 +40,7 @@ describe(__filename, () => {
       withUIState({
         fileName: __filename,
         extractId: (props) => props.id,
+        initialState: { isOpen: true },
       }),
     )(OverlayBase);
 
