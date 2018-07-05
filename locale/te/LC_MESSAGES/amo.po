@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 10:51+0000\n"
+"PO-Revision-Date: 2018-07-05 08:46+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -634,9 +634,8 @@ msgid "Collections"
 msgstr "సేకరణలు"
 
 #: src/amo/components/CollectionList/index.js:120
-#, fuzzy
 msgid "Log in to view your collections"
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "మీ సేకరణలను చూడడానికి ప్రవేశించండి"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -1027,9 +1026,8 @@ msgid "See more translation tools"
 msgstr "మరిన్ని అనువాద పనిముట్లను చూడండి"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Privacy matters"
-msgstr "గోప్యతా విధానం"
+msgstr "అంతరంగికతా విషయాలు"
 
 #: src/amo/components/Home/index.js:253
 msgid "See more privacy extensions"
@@ -1516,11 +1514,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:67
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" కోసం శోధిస్తున్నారు"
-msgstr[1] "\"%(query)s\" కోసం శోధిస్తున్నారు"
+msgstr[0] "\"%(query)s\" కొరకు %(count)s అలంకారం దొరికింది"
+msgstr[1] "\"%(query)s\" కొరకు %(count)s అలంకారాలు దొరికాయి"
 
 #: src/amo/components/SearchContextCard/index.js:76
 msgid "%(count)s result found for \"%(query)s\""
@@ -2154,7 +2151,7 @@ msgstr "ఈ బొమ్మను తొలగించు"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"
-msgstr "నమోదు లేదా సైన్ ఇన్"
+msgstr "నమోదవ్వండి లేదా ప్రవేశించండి"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
