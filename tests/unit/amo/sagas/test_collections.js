@@ -490,6 +490,22 @@ describe(__filename, () => {
         expect(action).toEqual(expectedAction);
         mockApi.verify();
       });
+
+      it('refreshes user collections', async () => {
+        const testUsername = 'some-username';
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        _updateCollection({ username: testUsername });
+
+        const expectedAction = fetchUserCollections({
+          errorHandlerId: errorHandler.id,
+          username: testUsername,
+        });
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
     });
 
     describe('update logic', () => {

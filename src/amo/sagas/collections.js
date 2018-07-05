@@ -275,6 +275,14 @@ export function* modifyCollection(
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
     const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
 
+    // Refresh the user's list of collections.
+    yield put(
+      fetchUserCollectionsAction({
+        errorHandlerId: errorHandler.id,
+        username,
+      }),
+    );
+
     if (creating) {
       invariant(response, 'response is required when creating');
       // If a new collection was just created, load it so that it will

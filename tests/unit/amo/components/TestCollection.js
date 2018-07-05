@@ -790,6 +790,7 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveLength(0);
     expect(wrapper.find(CollectionManager)).toHaveLength(1);
     expect(wrapper.find(CollectionManager)).toHaveProp('creating', true);
+    expect(wrapper.find(CollectionManager)).toHaveProp('collection', null);
 
     // Make sure these were not rendered.
     expect(wrapper.find('.Collection-title')).toHaveLength(0);
