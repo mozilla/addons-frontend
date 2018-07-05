@@ -50,12 +50,12 @@ export const generateId = ({
 };
 
 export const createUIStateMapper = ({
-  defaultState,
+  initialState,
   extractId,
   fileName,
   uiStateID,
 }: {|
-  defaultState: Object,
+  initialState: Object,
   extractId?: ExtractIdType,
   fileName?: string,
   uiStateID?: string,
@@ -73,7 +73,7 @@ export const createUIStateMapper = ({
       computedUIStateID =
         props.uiStateID || generateId({ fileName, id: extractId(props) });
     }
-    const uiState = state.uiState[computedUIStateID] || defaultState;
+    const uiState = state.uiState[computedUIStateID] || initialState;
     return {
       uiState,
       uiStateID: computedUIStateID,
@@ -102,20 +102,20 @@ export const mergeUIStateProps = (
 export const withUIState = ({
   fileName,
   extractId,
-  defaultState = {},
+  initialState = {},
 }: {|
   fileName: string,
   extractId: ExtractIdType,
-  defaultState?: Object,
+  initialState?: Object,
 |}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
-  invariant(defaultState, 'defaultState is required');
+  invariant(initialState, 'initialState is required');
 
   const mapStateToProps = createUIStateMapper({
     extractId,
     fileName,
-    defaultState,
+    initialState,
   });
 
   return (WrappedComponent) => {

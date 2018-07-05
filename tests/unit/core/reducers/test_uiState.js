@@ -89,25 +89,25 @@ describe(__filename, () => {
       expect(root1.find('.overlay')).toHaveLength(1);
     });
 
-    it('begins with a default state', () => {
+    it('begins with an initial state', () => {
       class ThingBase extends React.Component {
         render() {
           return <div />;
         }
       }
-      const defaultState = { visible: true };
+      const initialState = { visible: true };
 
       const Thing = compose(
         withUIState({
           fileName: __filename,
           extractId: () => '',
-          defaultState,
+          initialState,
         }),
       )(ThingBase);
 
       const root = shallowUntilTarget(<Thing store={store} />, ThingBase);
 
-      expect(root.instance().props.uiState).toEqual(defaultState);
+      expect(root.instance().props.uiState).toEqual(initialState);
     });
 
     it('lets you set a custom uiStateID', () => {
