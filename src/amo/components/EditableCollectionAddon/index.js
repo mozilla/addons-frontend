@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
-import { withUIState } from 'core/reducers/uiState';
+import withUIState from 'core/withUIState';
 import { nl2br, sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';

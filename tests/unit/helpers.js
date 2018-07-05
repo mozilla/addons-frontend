@@ -16,7 +16,7 @@ import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
-import { createUIStateMapper, mergeUIStateProps } from 'core/reducers/uiState';
+import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
 import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
