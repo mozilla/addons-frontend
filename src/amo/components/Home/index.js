@@ -14,6 +14,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_HOME_COLLECTION,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -216,6 +217,7 @@ export class HomeBase extends React.Component {
 
         {(loading || collections[0]) && (
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
             addons={collections[0]}
             className="Home-FeaturedCollection"
             header={i18n.gettext('Translation tools')}
@@ -247,6 +249,7 @@ export class HomeBase extends React.Component {
 
         {(loading || collections[1]) && (
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
             addons={collections[1]}
             className="Home-FeaturedCollection"
             header={i18n.gettext('Privacy matters')}
@@ -260,6 +263,7 @@ export class HomeBase extends React.Component {
 
         {(loading || collections[2]) && (
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
             addons={collections[2]}
             className="Home-FeaturedCollection"
             header={i18n.gettext('Tame your tabs')}
