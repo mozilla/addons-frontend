@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-26 16:54+0000\n"
+"POT-Creation-Date: 2018-07-03 17:51+0000\n"
 "PO-Revision-Date: 2017-12-28 08:32+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -43,7 +43,7 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:262
-#: src/amo/components/CollectionManager/index.js:415
+#: src/amo/components/CollectionManager/index.js:419
 #, fuzzy
 msgid "Add to collection"
 msgstr "이 콜렉션 수정"
@@ -252,7 +252,7 @@ msgid "Version"
 msgstr "버전"
 
 #: src/amo/components/AddonMoreInfo/index.js:195
-#: src/amo/components/Collection/index.js:358
+#: src/amo/components/Collection/index.js:421
 msgid "Last updated"
 msgstr "최신 버전"
 
@@ -281,8 +281,8 @@ msgid "More information"
 msgstr "추가 정보"
 
 #: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/components/UserProfile/index.js:178
-#: src/amo/components/UserProfileEdit/index.js:592
+#: src/amo/components/UserProfile/index.js:301
+#: src/amo/components/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "홈 페이지"
 
@@ -298,11 +298,11 @@ msgstr "지원 이메일"
 msgid "Visit stats dashboard"
 msgstr "통계 대시보드 방문"
 
-#: src/amo/components/AddonRecommendations/index.js:165
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr ""
 
-#: src/amo/components/AddonRecommendations/index.js:166
+#: src/amo/components/AddonRecommendations/index.js:135
 #, fuzzy
 msgid "Other popular extensions"
 msgstr "인기있는 확장 기능 더보기"
@@ -407,92 +407,92 @@ msgstr "내 리뷰 수정"
 msgid "Reply to this review"
 msgstr "이 리뷰에 답변"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:217
+#: src/amo/components/AddonsByAuthorsCard/index.js:226
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:220
+#: src/amo/components/AddonsByAuthorsCard/index.js:229
 msgid "More dictionaries by these translators"
 msgstr "이 번역자들의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:224
+#: src/amo/components/AddonsByAuthorsCard/index.js:233
 #, fuzzy
 msgid "Dictionaries by %(author)s"
 msgstr "%(author)s의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:227
+#: src/amo/components/AddonsByAuthorsCard/index.js:236
 #, fuzzy
 msgid "Dictionaries by these translators"
 msgstr "이 번역자들의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:234
+#: src/amo/components/AddonsByAuthorsCard/index.js:243
 msgid "More extensions by %(author)s"
 msgstr "%(author)s의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:237
+#: src/amo/components/AddonsByAuthorsCard/index.js:246
 msgid "More extensions by these developers"
 msgstr "이 개발자의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:241
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 #, fuzzy
 msgid "Extensions by %(author)s"
 msgstr "%(author)s의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:244
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
 #, fuzzy
 msgid "Extensions by these developers"
 msgstr "이 개발자의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:251
+#: src/amo/components/AddonsByAuthorsCard/index.js:260
 msgid "More language packs by %(author)s"
 msgstr "%(author)s의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:254
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More language packs by these translators"
 msgstr "이 번역자들의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:258
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 #, fuzzy
 msgid "Language packs by %(author)s"
 msgstr "%(author)s의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:261
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
 #, fuzzy
 msgid "Language packs by these translators"
 msgstr "이 번역자들의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:269
+#: src/amo/components/AddonsByAuthorsCard/index.js:278
 msgid "More themes by %(author)s"
 msgstr "%(author)s의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:272
+#: src/amo/components/AddonsByAuthorsCard/index.js:281
 msgid "More themes by these artists"
 msgstr "이 아티스트들의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:276
+#: src/amo/components/AddonsByAuthorsCard/index.js:285
 #, fuzzy
 msgid "Themes by %(author)s"
 msgstr "%(author)s의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:288
 #, fuzzy
 msgid "Themes by these artists"
 msgstr "이 아티스트들의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:295
 msgid "More add-ons by %(author)s"
 msgstr "%(author)s의 부가 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:289
+#: src/amo/components/AddonsByAuthorsCard/index.js:298
 msgid "More add-ons by these developers"
 msgstr "이 개발자의 부가 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:302
 #, fuzzy
 msgid "Add-ons by %(author)s"
 msgstr "%(author)s의 부가 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
 #, fuzzy
 msgid "Add-ons by these developers"
 msgstr "이 개발자의 부가 기능 더보기"
@@ -551,7 +551,7 @@ msgstr "확장 기능"
 #: src/amo/components/Category/index.js:143
 #: src/amo/components/Home/index.js:205
 #: src/amo/components/LandingPage/index.js:138
-#: src/amo/components/Search/index.js:111
+#: src/amo/components/Search/index.js:123
 msgid "Featured extensions"
 msgstr "추천 확장 기능"
 
@@ -563,7 +563,7 @@ msgstr "추천 확장 기능 더보기"
 
 #: src/amo/components/Category/index.js:153
 #: src/amo/components/LandingPage/index.js:147
-#: src/amo/components/Search/index.js:124
+#: src/amo/components/Search/index.js:136
 msgid "Trending extensions"
 msgstr "유행하는 확장 기능"
 
@@ -574,7 +574,7 @@ msgstr "유행하는 확장 기능 더보기"
 
 #: src/amo/components/Category/index.js:163
 #: src/amo/components/LandingPage/index.js:156
-#: src/amo/components/Search/index.js:136
+#: src/amo/components/Search/index.js:148
 msgid "Top rated extensions"
 msgstr "가장 평점이 높은 확장 기능"
 
@@ -592,7 +592,7 @@ msgstr "테마"
 #: src/amo/components/Category/index.js:176
 #: src/amo/components/Home/index.js:234
 #: src/amo/components/LandingPage/index.js:167
-#: src/amo/components/Search/index.js:114
+#: src/amo/components/Search/index.js:126
 msgid "Featured themes"
 msgstr "추천 테마"
 
@@ -604,7 +604,7 @@ msgstr "추천 테마 더보기"
 
 #: src/amo/components/Category/index.js:186
 #: src/amo/components/LandingPage/index.js:176
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Search/index.js:139
 msgid "Trending themes"
 msgstr "유행하는 테마"
 
@@ -615,7 +615,7 @@ msgstr "유행하는 테마 더보기"
 
 #: src/amo/components/Category/index.js:196
 #: src/amo/components/LandingPage/index.js:182
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:151
 msgid "Top rated themes"
 msgstr "가장 평점이 높은 테마"
 
@@ -636,46 +636,68 @@ msgstr "이 카테고리의 모든 확장 기능 탐색하기."
 msgid "Browse all themes in this category."
 msgstr "이 카테고리의 모든 테마 탐색하기."
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:160
+msgid "Newest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:164
+msgid "Oldest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:168
+msgid "Name"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:172
+#, fuzzy
+msgid "Popularity"
+msgstr "가장 인기있는 테마"
+
+#: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/Collection/index.js:309
+#: src/amo/components/Collection/index.js:372
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/Collection/index.js:310
+#: src/amo/components/Collection/index.js:373
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/Collection/index.js:348
+#: src/amo/components/Collection/index.js:411
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "부가 기능"
 
-#: src/amo/components/Collection/index.js:352
+#: src/amo/components/Collection/index.js:415
 msgid "Creator"
 msgstr "제작자"
 
-#: src/amo/components/Collection/index.js:379
+#: src/amo/components/Collection/index.js:442
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/Collection/index.js:382
+#: src/amo/components/Collection/index.js:445
 #, fuzzy
 msgid "Delete this collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/Collection/index.js:414
+#: src/amo/components/Collection/index.js:478
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/Collection/index.js:417
+#: src/amo/components/Collection/index.js:481
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
+
+#: src/amo/components/Collection/index.js:496
+#, fuzzy
+msgid "Sort add-ons by"
+msgstr "가장 평점이 높은 확장 기능"
 
 #: src/amo/components/CollectionList/index.js:114
 #, fuzzy
@@ -708,39 +730,39 @@ msgstr "이 콜렉션 수정"
 msgid "My collections"
 msgstr "내 콜렉션 보기"
 
-#: src/amo/components/CollectionManager/index.js:332
+#: src/amo/components/CollectionManager/index.js:337
 #, fuzzy
 msgid "Create collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/CollectionManager/index.js:333
+#: src/amo/components/CollectionManager/index.js:338
 #, fuzzy
 msgid "Save collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/CollectionManager/index.js:342
+#: src/amo/components/CollectionManager/index.js:347
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:356
+#: src/amo/components/CollectionManager/index.js:361
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:368
+#: src/amo/components/CollectionManager/index.js:373
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:401
+#: src/amo/components/CollectionManager/index.js:406
 #, fuzzy
 msgid "Added to collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/CollectionManager/index.js:409
+#: src/amo/components/CollectionManager/index.js:414
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:431
-#: src/amo/components/UserProfileEdit/index.js:812
+#: src/amo/components/CollectionManager/index.js:435
+#: src/amo/components/UserProfileEdit/index.js:836
 #: src/ui/components/ConfirmButton/index.js:100
 #: src/ui/components/DismissibleTextForm/index.js:149
 #, fuzzy
@@ -1067,13 +1089,13 @@ msgid "View My Collections"
 msgstr "내 콜렉션 보기"
 
 #: src/amo/components/Header/index.js:122
-#: src/amo/components/UserProfileEdit/index.js:466
+#: src/amo/components/UserProfileEdit/index.js:470
 #, fuzzy
 msgid "View My Profile"
 msgstr "프로필 보기"
 
 #: src/amo/components/Header/index.js:130
-#: src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/UserProfileEdit/index.js:476
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "프로필 수정"
@@ -1619,42 +1641,42 @@ msgid ""
 "with this user."
 msgstr ""
 
-#: src/amo/components/Search/index.js:106
-#: src/amo/components/SearchResults/index.js:62
+#: src/amo/components/Search/index.js:118
+#: src/amo/components/SearchResults/index.js:69
 #, fuzzy
 msgid "Search results"
 msgstr "테마 검색"
 
-#: src/amo/components/Search/index.js:117
+#: src/amo/components/Search/index.js:129
 #, fuzzy
 msgid "Featured add-ons"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/Search/index.js:130
+#: src/amo/components/Search/index.js:142
 #, fuzzy
 msgid "Trending add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
-#: src/amo/components/Search/index.js:142
+#: src/amo/components/Search/index.js:154
 #, fuzzy
 msgid "Top rated add-ons"
 msgstr "가장 평점이 높은 확장 기능"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:160
 msgid "Popular extensions"
 msgstr "인기 확장 기능"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:163
 #, fuzzy
 msgid "Popular themes"
 msgstr "가장 인기있는 테마"
 
-#: src/amo/components/Search/index.js:154
+#: src/amo/components/Search/index.js:166
 #, fuzzy
 msgid "Popular add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:172
 #, fuzzy
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
@@ -1808,19 +1830,19 @@ msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s명의 사용자"
 
-#: src/amo/components/SearchResults/index.js:36
+#: src/amo/components/SearchResults/index.js:43
 msgid "Searching…"
 msgstr "검색중…"
 
-#: src/amo/components/SearchResults/index.js:41
+#: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
-#: src/amo/components/SearchResults/index.js:47
+#: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
 msgstr "검색 결과가 없습니다."
 
-#: src/amo/components/SearchResults/index.js:50
+#: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Firefox 부가 기능을 검색하려면 검색어를 입력해주세요."
 
@@ -2130,52 +2152,62 @@ msgstr "모든 테마 탐색하기"
 msgid "Add-ons Home Page"
 msgstr "부가 기능 홈 페이지"
 
-#: src/amo/components/UserProfile/index.js:139
+#: src/amo/components/UserProfile/index.js:197
+#, fuzzy
+msgid "My reviews"
+msgstr "평가"
+
+#: src/amo/components/UserProfile/index.js:216
+#, fuzzy
+msgid "Browse the reviews for this add-on"
+msgstr "이 부가기능에 대한 %(total)s개의 리뷰"
+
+#: src/amo/components/UserProfile/index.js:261
 #, fuzzy
 msgid "Add-ons developer"
 msgstr "이 개발자의 부가 기능 더보기"
 
-#: src/amo/components/UserProfile/index.js:145
+#: src/amo/components/UserProfile/index.js:267
 #, fuzzy
 msgid "Theme artist"
 msgstr "이 아티스트들의 테마 더보기"
 
-#: src/amo/components/UserProfile/index.js:158
-#: src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfile/index.js:281
+#: src/amo/components/UserProfileEdit/index.js:458
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
-#: src/amo/components/UserProfile/index.js:188
-#: src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfile/index.js:311
+#: src/amo/components/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:196
-#: src/amo/components/UserProfileEdit/index.js:621
+#: src/amo/components/UserProfile/index.js:319
+#: src/amo/components/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:203
+#: src/amo/components/UserProfile/index.js:326
 #, fuzzy
 msgid "User since"
 msgstr "사용자"
 
-#: src/amo/components/UserProfile/index.js:213
+#: src/amo/components/UserProfile/index.js:336
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
-#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfile/index.js:342
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:234
-#: src/amo/components/UserProfileEdit/index.js:643
+#: src/amo/components/UserProfile/index.js:357
+#: src/amo/components/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:258
+#: src/amo/components/UserProfile/index.js:381
 #, fuzzy
 msgid "Edit profile"
 msgstr "프로필 수정"
@@ -2184,180 +2216,181 @@ msgstr "프로필 수정"
 msgid "Picture successfully deleted"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:424
+#: src/amo/components/UserProfileEdit/index.js:426
 #, fuzzy
 msgid "Log in to edit the profile"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/UserProfileEdit/index.js:467
+#: src/amo/components/UserProfileEdit/index.js:471
 #, fuzzy
 msgid "View user's profile"
 msgstr "프로필 보기"
 
-#: src/amo/components/UserProfileEdit/index.js:473
+#: src/amo/components/UserProfileEdit/index.js:477
 #, fuzzy
 msgid "Edit user's profile"
 msgstr "프로필 수정"
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:495
 #, fuzzy
 msgid "Account"
 msgstr "내 계정"
 
-#: src/amo/components/UserProfileEdit/index.js:492
+#: src/amo/components/UserProfileEdit/index.js:496
 #, fuzzy
 msgid "Account for %(username)s"
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:502
 #, fuzzy
 msgid "Username"
 msgstr "사용자"
 
-#: src/amo/components/UserProfileEdit/index.js:511
+#: src/amo/components/UserProfileEdit/index.js:515
 msgid "Email Address"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:518
+#: src/amo/components/UserProfileEdit/index.js:522
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:527
+#: src/amo/components/UserProfileEdit/index.js:531
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:544
+#: src/amo/components/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts..."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:552
+#: src/amo/components/UserProfileEdit/index.js:556
 #, fuzzy
 msgid "Profile"
 msgstr "프로필 보기"
 
-#: src/amo/components/UserProfileEdit/index.js:556
+#: src/amo/components/UserProfileEdit/index.js:560
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:562
+#: src/amo/components/UserProfileEdit/index.js:566
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:572
+#: src/amo/components/UserProfileEdit/index.js:576
 #, fuzzy
 msgid "Display Name"
 msgstr "게임하기"
 
-#: src/amo/components/UserProfileEdit/index.js:604
+#: src/amo/components/UserProfileEdit/index.js:608
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:647
+#: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce yourself to the community if you like"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:651
+#: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:665
+#: src/amo/components/UserProfileEdit/index.js:669
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:689
+#: src/amo/components/UserProfileEdit/index.js:693
 msgid "Notifications"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:693
+#: src/amo/components/UserProfileEdit/index.js:697
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:698
+#: src/amo/components/UserProfileEdit/index.js:702
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:713
+#: src/amo/components/UserProfileEdit/index.js:717
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
-msgid "Updating your profile…"
-msgstr "댓글 수정 중"
-
-#: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
-msgid "Update my profile"
-msgstr "댓글 수정"
-
-#: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
-msgid "Updating user's profile…"
-msgstr "댓글 수정 중"
-
 #: src/amo/components/UserProfileEdit/index.js:735
 #, fuzzy
-msgid "Update user's profile"
-msgstr "댓글 수정"
+msgid "Updating your account…"
+msgstr "댓글 수정 중"
 
-#: src/amo/components/UserProfileEdit/index.js:746
+#: src/amo/components/UserProfileEdit/index.js:736
 #, fuzzy
-msgid "Delete my profile"
-msgstr "댓글 수정"
+msgid "Update My Account"
+msgstr "내 계정"
 
-#: src/amo/components/UserProfileEdit/index.js:747
+#: src/amo/components/UserProfileEdit/index.js:738
 #, fuzzy
-msgid "Delete user's profile"
-msgstr "댓글 수정"
+msgid "Updating this account…"
+msgstr "댓글 수정 중"
 
-#: src/amo/components/UserProfileEdit/index.js:758
-msgid "Attention: You are about to delete your profile. Are you sure?"
+#: src/amo/components/UserProfileEdit/index.js:739
+msgid "Update This Account"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:761
-msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:772
-msgid ""
-"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the "
-"following data will be removed: profile picture, profile details (including "
-"username, email, display name, location, home page, biography, occupation) "
-"and notification preferences. Other data such as ratings and reviews will be "
-"anonymized."
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:789
-msgid ""
-"Important: if you own add-ons, you have to transfer them to other users or "
-"to delete them before you can delete your profile."
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:792
-msgid ""
-"Important: a user profile can only be deleted if the user does not own any "
-"add-ons."
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:804
+#: src/amo/components/UserProfileEdit/index.js:750
+#: src/amo/components/UserProfileEdit/index.js:828
 #, fuzzy
-msgid "Yes, delete my profile"
-msgstr "댓글 수정"
+msgid "Delete My Account"
+msgstr "내 계정"
 
-#: src/amo/components/UserProfileEdit/index.js:805
-msgid "Yes, delete this profile"
+#: src/amo/components/UserProfileEdit/index.js:751
+#: src/amo/components/UserProfileEdit/index.js:829
+#, fuzzy
+msgid "Delete This Account"
+msgstr "이 콜렉션 수정"
+
+#: src/amo/components/UserProfileEdit/index.js:762
+msgid "IMPORTANT: Deleting your account is irreversible."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:765
+msgid "IMPORTANT: Deleting this account is irreversible."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:774
+msgid ""
+"Your data will be permanently removed, including profile details (picture, "
+"user name, display name, location, home page, biography, occupation) and "
+"notification preferences. Your reviews and ratings will be anonymised and no "
+"longer editable."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:781
+msgid ""
+"The user’s data will be permanently removed, including profile details "
+"(picture, user name, display name, location, home page, biography, "
+"occupation) and notification preferences. Reviews and ratings will be "
+"anonymised and no longer editable."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:794
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are "
+"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+"before you can delete your account."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:801
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the "
+"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
@@ -2412,17 +2445,18 @@ msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 msgid "Profile photo"
 msgstr "프로필 보기"
 
-#: src/amo/components/UserProfileEditPicture/index.js:66
-msgid "Choose photo..."
+#: src/amo/components/UserProfileEditPicture/index.js:67
+msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:74
+#: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:77
-msgid "Delete this picture"
-msgstr ""
+#: src/amo/components/UserProfileEditPicture/index.js:78
+#, fuzzy
+msgid "Delete This Picture"
+msgstr "이 콜렉션 수정"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"
@@ -2445,13 +2479,13 @@ msgstr "오류 코드 : %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "죄송합니다. 입력하신 URL을 찾을 수 없습니다."
 
-#: src/core/components/InstallButton/index.js:244
-#: src/core/components/InstallButton/index.js:287
+#: src/core/components/InstallButton/index.js:253
+#: src/core/components/InstallButton/index.js:296
 msgid "Install Theme"
 msgstr "테마 설치하기"
 
-#: src/core/components/InstallButton/index.js:272
-#: src/core/components/InstallButton/index.js:288
+#: src/core/components/InstallButton/index.js:281
+#: src/core/components/InstallButton/index.js:297
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -2483,15 +2517,15 @@ msgstr "%(name)s가 제거되었습니다. 설치하시려면 클릭하세요."
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s의 설치 상태를 알 수 없습니다."
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:137
 msgid "Previous"
 msgstr "이전"
 
-#: src/core/components/Paginate/index.js:136
+#: src/core/components/Paginate/index.js:154
 msgid "Next"
 msgstr "다음"
 
-#: src/core/components/Paginate/index.js:141
+#: src/core/components/Paginate/index.js:160
 #, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "%(totalPages)s 페이지 중 %(currentPage)s 번째 페이지"
@@ -2597,6 +2631,26 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "카테고리가 없습니다."
 
 #, fuzzy
+#~ msgid "Update my profile"
+#~ msgstr "댓글 수정"
+
+#, fuzzy
+#~ msgid "Update user's profile"
+#~ msgstr "댓글 수정"
+
+#, fuzzy
+#~ msgid "Delete my profile"
+#~ msgstr "댓글 수정"
+
+#, fuzzy
+#~ msgid "Delete user's profile"
+#~ msgstr "댓글 수정"
+
+#, fuzzy
+#~ msgid "Yes, delete my profile"
+#~ msgstr "댓글 수정"
+
+#, fuzzy
 #~ msgid "Essential extensions"
 #~ msgstr "모든 확장 기능 탐색하기"
 
@@ -2668,9 +2722,6 @@ msgstr[0] "카테고리가 없습니다."
 #, fuzzy
 #~ msgid "Search Site"
 #~ msgstr "검색"
-
-#~ msgid "Reviews"
-#~ msgstr "평가"
 
 #~ msgid "Review"
 #~ msgid_plural "Reviews"

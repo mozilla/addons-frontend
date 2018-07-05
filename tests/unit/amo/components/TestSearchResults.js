@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import SearchResults, { SearchResultsBase } from 'amo/components/SearchResults';
+import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
@@ -96,6 +97,30 @@ describe(__filename, () => {
 
     expect(root.find(AddonsCard)).toHaveProp('addons', results);
     expect(root.find(AddonsCard)).toHaveProp('loading', false);
+  });
+
+  it('sets add-on install source to search by default', () => {
+    const root = render({
+      filters: { query: 'ad blockers' },
+      loading: false,
+      results: [fakeAddon],
+    });
+    expect(root.find(AddonsCard)).toHaveProp(
+      'addonInstallSource',
+      INSTALL_SOURCE_SEARCH,
+    );
+  });
+
+  it('sets add-on install source to featured when approrpriate', () => {
+    const root = render({
+      filters: { query: 'ad blockers', featured: true },
+      loading: false,
+      results: [fakeAddon],
+    });
+    expect(root.find(AddonsCard)).toHaveProp(
+      'addonInstallSource',
+      INSTALL_SOURCE_FEATURED,
+    );
   });
 
   it('passes a paginator as footer prop to the AddonsCard if supplied', () => {

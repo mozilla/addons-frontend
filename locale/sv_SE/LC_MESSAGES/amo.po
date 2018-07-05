@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-06-26 17:53+0000\n"
-"Last-Translator: Andreas Pettersson <az@kth.se>\n"
+"POT-Creation-Date: 2018-07-03 17:51+0000\n"
+"PO-Revision-Date: 2018-07-04 04:07+0000\n"
+"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Lades till %(collectionName)s"
 msgid "Add to…"
 msgstr "Lades till…"
 
-#: src/amo/components/AddAddonToCollection/index.js:262 src/amo/components/CollectionManager/index.js:415
+#: src/amo/components/AddAddonToCollection/index.js:262 src/amo/components/CollectionManager/index.js:419
 msgid "Add to collection"
 msgstr "Lägg till samling"
 
@@ -233,7 +233,7 @@ msgstr "Länkar för tillägg"
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:195 src/amo/components/Collection/index.js:358
+#: src/amo/components/AddonMoreInfo/index.js:195 src/amo/components/Collection/index.js:421
 msgid "Last updated"
 msgstr "Senast uppdaterad"
 
@@ -261,7 +261,7 @@ msgstr "Användningsstatistik"
 msgid "More information"
 msgstr "Mer information"
 
-#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:178 src/amo/components/UserProfileEdit/index.js:592
+#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:301 src/amo/components/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "Hemsida"
 
@@ -277,11 +277,11 @@ msgstr "Support e-post"
 msgid "Visit stats dashboard"
 msgstr "Besök statistikpanelen"
 
-#: src/amo/components/AddonRecommendations/index.js:165
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "Andra användare med denna utökning har också installerat"
 
-#: src/amo/components/AddonRecommendations/index.js:166
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "Andra populära utökningar"
 
@@ -375,83 +375,83 @@ msgstr "Redigera min recension"
 msgid "Reply to this review"
 msgstr "Svara på den här recensionen"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:217
+#: src/amo/components/AddonsByAuthorsCard/index.js:226
 msgid "More dictionaries by %(author)s"
 msgstr "Fler ordböcker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:220
+#: src/amo/components/AddonsByAuthorsCard/index.js:229
 msgid "More dictionaries by these translators"
 msgstr "Fler ordböcker av dessa översättare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:224
+#: src/amo/components/AddonsByAuthorsCard/index.js:233
 msgid "Dictionaries by %(author)s"
 msgstr "Ordböcker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:227
+#: src/amo/components/AddonsByAuthorsCard/index.js:236
 msgid "Dictionaries by these translators"
 msgstr "Ordböcker av dessa översättare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:234
+#: src/amo/components/AddonsByAuthorsCard/index.js:243
 msgid "More extensions by %(author)s"
 msgstr "Fler utökningar av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:237
+#: src/amo/components/AddonsByAuthorsCard/index.js:246
 msgid "More extensions by these developers"
 msgstr "Fler utökningar av dessa utvecklare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:241
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "Extensions by %(author)s"
 msgstr "Utökningar av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:244
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "Extensions by these developers"
 msgstr "Utökningar av dessa utvecklare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:251
+#: src/amo/components/AddonsByAuthorsCard/index.js:260
 msgid "More language packs by %(author)s"
 msgstr "Fler språkpaket av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:254
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More language packs by these translators"
 msgstr "Fler språkpaket av dessa översättare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:258
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "Language packs by %(author)s"
 msgstr "Språkpaket av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:261
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Language packs by these translators"
 msgstr "Språkpaket av dessa översättare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:269
+#: src/amo/components/AddonsByAuthorsCard/index.js:278
 msgid "More themes by %(author)s"
 msgstr "Fler teman av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:272
+#: src/amo/components/AddonsByAuthorsCard/index.js:281
 msgid "More themes by these artists"
 msgstr "Fler teman av dessa artister"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:276
+#: src/amo/components/AddonsByAuthorsCard/index.js:285
 msgid "Themes by %(author)s"
 msgstr "Teman av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:288
 msgid "Themes by these artists"
 msgstr "Teman av dessa artister"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:295
 msgid "More add-ons by %(author)s"
 msgstr "Fler tillägg av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:289
+#: src/amo/components/AddonsByAuthorsCard/index.js:298
 msgid "More add-ons by these developers"
 msgstr "Fler tillägg av dessa utvecklare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:302
 msgid "Add-ons by %(author)s"
 msgstr "Tillägg av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "Add-ons by these developers"
 msgstr "Tillägg av dessa utvecklare"
 
@@ -499,7 +499,7 @@ msgstr "Laddar kategorier."
 msgid "Extensions"
 msgstr "Tillägg"
 
-#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:205 src/amo/components/LandingPage/index.js:138 src/amo/components/Search/index.js:111
+#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:205 src/amo/components/LandingPage/index.js:138 src/amo/components/Search/index.js:123
 msgid "Featured extensions"
 msgstr "Utvalda tillägg"
 
@@ -507,7 +507,7 @@ msgstr "Utvalda tillägg"
 msgid "See more featured extensions"
 msgstr "Se fler utvalda utökningar"
 
-#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:124
+#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:136
 msgid "Trending extensions"
 msgstr "Trendiga tillägg"
 
@@ -515,7 +515,7 @@ msgstr "Trendiga tillägg"
 msgid "See more trending extensions"
 msgstr "Se fler trendiga utökningar"
 
-#: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:136
+#: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:148
 msgid "Top rated extensions"
 msgstr "Högst rankade tillägg"
 
@@ -527,7 +527,7 @@ msgstr "Se fler topprankade utökningar"
 msgid "Themes"
 msgstr "Teman"
 
-#: src/amo/components/Category/index.js:176 src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:167 src/amo/components/Search/index.js:114
+#: src/amo/components/Category/index.js:176 src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:167 src/amo/components/Search/index.js:126
 msgid "Featured themes"
 msgstr "Utvalda teman"
 
@@ -535,7 +535,7 @@ msgstr "Utvalda teman"
 msgid "See more featured themes"
 msgstr "Se fler utvalda teman"
 
-#: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:127
+#: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:139
 msgid "Trending themes"
 msgstr "Trendiga teman"
 
@@ -543,7 +543,7 @@ msgstr "Trendiga teman"
 msgid "See more trending themes"
 msgstr "Se fler trendiga teman"
 
-#: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:139
+#: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:151
 msgid "Top rated themes"
 msgstr "Högst rankade teman"
 
@@ -563,41 +563,63 @@ msgstr "Bläddra bland alla tillägg i denna kategori."
 msgid "Browse all themes in this category."
 msgstr "Bläddra bland alla teman i denna kategori."
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:160
+msgid "Newest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:164
+msgid "Oldest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:168
+msgid "Name"
+msgstr "Namn"
+
+#: src/amo/components/Collection/index.js:172
+#, fuzzy
+msgid "Popularity"
+msgstr "Populära teman"
+
+#: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
 msgstr "Redigera denna samling"
 
-#: src/amo/components/Collection/index.js:309
+#: src/amo/components/Collection/index.js:372
 msgid "Log in to create a collection"
 msgstr "Logga in för att skapa en samling"
 
-#: src/amo/components/Collection/index.js:310
+#: src/amo/components/Collection/index.js:373
 msgid "Log in to edit this collection"
 msgstr "Logga in för att redigera denna samling"
 
-#: src/amo/components/Collection/index.js:348 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:411 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Tillägg"
 
-#: src/amo/components/Collection/index.js:352
+#: src/amo/components/Collection/index.js:415
 msgid "Creator"
 msgstr "Skapare"
 
-#: src/amo/components/Collection/index.js:379
+#: src/amo/components/Collection/index.js:442
 msgid "Do you really want to delete this collection?"
 msgstr "Vill du verkligen ta bort den här samlingen?"
 
-#: src/amo/components/Collection/index.js:382
+#: src/amo/components/Collection/index.js:445
 msgid "Delete this collection"
 msgstr "Ta bort denna samling"
 
-#: src/amo/components/Collection/index.js:414
+#: src/amo/components/Collection/index.js:478
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "Skapa först din samling. Då kan du lägga till utökningar och teman."
 
-#: src/amo/components/Collection/index.js:417
+#: src/amo/components/Collection/index.js:481
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Sök efter utökningar och teman som ska läggas till i din samling."
+
+#: src/amo/components/Collection/index.js:496
+#, fuzzy
+msgid "Sort add-ons by"
+msgstr "Högst rankade tillägg"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -623,35 +645,35 @@ msgstr "Du har inga samlingar."
 msgid "My collections"
 msgstr "Mina samlingar"
 
-#: src/amo/components/CollectionManager/index.js:332
+#: src/amo/components/CollectionManager/index.js:337
 msgid "Create collection"
 msgstr "Skapa samling"
 
-#: src/amo/components/CollectionManager/index.js:333
+#: src/amo/components/CollectionManager/index.js:338
 msgid "Save collection"
 msgstr "Spara samling"
 
-#: src/amo/components/CollectionManager/index.js:342
+#: src/amo/components/CollectionManager/index.js:347
 msgid "Collection name"
 msgstr "Samlingsnamn"
 
-#: src/amo/components/CollectionManager/index.js:356
+#: src/amo/components/CollectionManager/index.js:361
 msgid "Description"
 msgstr "Beskrivning"
 
-#: src/amo/components/CollectionManager/index.js:368
+#: src/amo/components/CollectionManager/index.js:373
 msgid "Custom URL"
 msgstr "Anpassad URL"
 
-#: src/amo/components/CollectionManager/index.js:401
+#: src/amo/components/CollectionManager/index.js:406
 msgid "Added to collection"
 msgstr "Tillagd till samling"
 
-#: src/amo/components/CollectionManager/index.js:409
+#: src/amo/components/CollectionManager/index.js:414
 msgid "Find an add-on to include in this collection"
 msgstr "Hitta ett tillägg som ska inkluderas i den här samlingen"
 
-#: src/amo/components/CollectionManager/index.js:431 src/amo/components/UserProfileEdit/index.js:812 src/ui/components/ConfirmButton/index.js:100 src/ui/components/DismissibleTextForm/index.js:149
+#: src/amo/components/CollectionManager/index.js:435 src/amo/components/UserProfileEdit/index.js:836 src/ui/components/ConfirmButton/index.js:100 src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -927,11 +949,11 @@ msgstr "Mitt konto"
 msgid "View My Collections"
 msgstr "Visa mina samlingar"
 
-#: src/amo/components/Header/index.js:122 src/amo/components/UserProfileEdit/index.js:466
+#: src/amo/components/Header/index.js:122 src/amo/components/UserProfileEdit/index.js:470
 msgid "View My Profile"
 msgstr "Visa min profil"
 
-#: src/amo/components/Header/index.js:130 src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/Header/index.js:130 src/amo/components/UserProfileEdit/index.js:476
 msgid "Edit My Profile"
 msgstr "Redigera min profil"
 
@@ -1425,35 +1447,35 @@ msgstr "Du rapporterade denna användare för missbruk"
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
 msgstr "Vi har fått din rapport. Tack för att du informerade oss om dina problem med denna användare."
 
-#: src/amo/components/Search/index.js:106 src/amo/components/SearchResults/index.js:62
+#: src/amo/components/Search/index.js:118 src/amo/components/SearchResults/index.js:69
 msgid "Search results"
 msgstr "Sökresultat"
 
-#: src/amo/components/Search/index.js:117
+#: src/amo/components/Search/index.js:129
 msgid "Featured add-ons"
 msgstr "Utvalda tillägg"
 
-#: src/amo/components/Search/index.js:130
+#: src/amo/components/Search/index.js:142
 msgid "Trending add-ons"
 msgstr "Trendiga tillägg"
 
-#: src/amo/components/Search/index.js:142
+#: src/amo/components/Search/index.js:154
 msgid "Top rated add-ons"
 msgstr "Högst rankade tillägg"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:160
 msgid "Popular extensions"
 msgstr "Populära utökningar"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:163
 msgid "Popular themes"
 msgstr "Populära teman"
 
-#: src/amo/components/Search/index.js:154
+#: src/amo/components/Search/index.js:166
 msgid "Popular add-ons"
 msgstr "Populära tillägg"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:172
 msgid "Search results for \"%(query)s\""
 msgstr "Sökresultat för \"%(query)s\""
 
@@ -1597,19 +1619,19 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s användare"
 msgstr[1] "%(total)s användare"
 
-#: src/amo/components/SearchResults/index.js:36
+#: src/amo/components/SearchResults/index.js:43
 msgid "Searching…"
 msgstr "Söker…"
 
-#: src/amo/components/SearchResults/index.js:41
+#: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "Inga resultat hittades för \"%(query)s\"."
 
-#: src/amo/components/SearchResults/index.js:47
+#: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
 msgstr "Inga resultat hittades."
 
-#: src/amo/components/SearchResults/index.js:50
+#: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Ange ett sökord för att söka på Firefox tilllägg."
 
@@ -1884,43 +1906,52 @@ msgstr "Bläddra bland alla teman"
 msgid "Add-ons Home Page"
 msgstr "Hemsida för tillägg"
 
-#: src/amo/components/UserProfile/index.js:139
+#: src/amo/components/UserProfile/index.js:197
+msgid "My reviews"
+msgstr "Mina recensioner"
+
+#: src/amo/components/UserProfile/index.js:216
+#, fuzzy
+msgid "Browse the reviews for this add-on"
+msgstr "%(total)s recension för detta tillägg"
+
+#: src/amo/components/UserProfile/index.js:261
 msgid "Add-ons developer"
 msgstr "Utvecklare av tillägg"
 
-#: src/amo/components/UserProfile/index.js:145
+#: src/amo/components/UserProfile/index.js:267
 msgid "Theme artist"
 msgstr "Konstnär för tema"
 
-#: src/amo/components/UserProfile/index.js:158 src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfile/index.js:281 src/amo/components/UserProfileEdit/index.js:458
 msgid "User Profile for %(user)s"
 msgstr "Användarprofil för %(user)s"
 
-#: src/amo/components/UserProfile/index.js:188 src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfile/index.js:311 src/amo/components/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr "Plats"
 
-#: src/amo/components/UserProfile/index.js:196 src/amo/components/UserProfileEdit/index.js:621
+#: src/amo/components/UserProfile/index.js:319 src/amo/components/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr "Yrke"
 
-#: src/amo/components/UserProfile/index.js:203
+#: src/amo/components/UserProfile/index.js:326
 msgid "User since"
 msgstr "Användare sedan"
 
-#: src/amo/components/UserProfile/index.js:213
+#: src/amo/components/UserProfile/index.js:336
 msgid "Number of add-ons"
 msgstr "Antal tillägg"
 
-#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfile/index.js:342
 msgid "Average rating of developer’s add-ons"
 msgstr "Genomsnittliga betyg för utvecklarens tillägg"
 
-#: src/amo/components/UserProfile/index.js:234 src/amo/components/UserProfileEdit/index.js:643
+#: src/amo/components/UserProfile/index.js:357 src/amo/components/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr "Biografi"
 
-#: src/amo/components/UserProfile/index.js:258
+#: src/amo/components/UserProfile/index.js:381
 msgid "Edit profile"
 msgstr "Redigera profil"
 
@@ -1928,149 +1959,156 @@ msgstr "Redigera profil"
 msgid "Picture successfully deleted"
 msgstr "Bilden har tagits bort"
 
-#: src/amo/components/UserProfileEdit/index.js:424
+#: src/amo/components/UserProfileEdit/index.js:426
 msgid "Log in to edit the profile"
 msgstr "Logga in för att redigera profil"
 
-#: src/amo/components/UserProfileEdit/index.js:467
+#: src/amo/components/UserProfileEdit/index.js:471
 msgid "View user's profile"
 msgstr "Visa användarprofil"
 
-#: src/amo/components/UserProfileEdit/index.js:473
+#: src/amo/components/UserProfileEdit/index.js:477
 msgid "Edit user's profile"
 msgstr "Redigera användarprofil"
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:495
 msgid "Account"
 msgstr "Konto"
 
-#: src/amo/components/UserProfileEdit/index.js:492
+#: src/amo/components/UserProfileEdit/index.js:496
 msgid "Account for %(username)s"
 msgstr "Konto för %(username)s"
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:502
 msgid "Username"
 msgstr "Användarnamn"
 
-#: src/amo/components/UserProfileEdit/index.js:511
+#: src/amo/components/UserProfileEdit/index.js:515
 msgid "Email Address"
 msgstr "E-postadress"
 
-#: src/amo/components/UserProfileEdit/index.js:518
+#: src/amo/components/UserProfileEdit/index.js:522
 msgid "Email address cannot be changed here"
 msgstr "E-postadressen kan inte ändras här"
 
-#: src/amo/components/UserProfileEdit/index.js:527
+#: src/amo/components/UserProfileEdit/index.js:531
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr "Du kan ändra din e-postadress från ditt Firefox-konto. %(startLink)sBehöver du hjälp?%(endLink)s"
 
-#: src/amo/components/UserProfileEdit/index.js:544
+#: src/amo/components/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts..."
 msgstr "Hantera Firefox-konto..."
 
-#: src/amo/components/UserProfileEdit/index.js:552
+#: src/amo/components/UserProfileEdit/index.js:556
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/components/UserProfileEdit/index.js:556
+#: src/amo/components/UserProfileEdit/index.js:560
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr "Berätta lite för användarna om dig själv. Dessa fält är frivilliga, men de hjälper andra användare att lära känna dig bättre."
 
-#: src/amo/components/UserProfileEdit/index.js:562
+#: src/amo/components/UserProfileEdit/index.js:566
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr "Berätta för andra användare lite mer om den här användaren. Dessa fält är frivilliga, men de hjälper andra användare att lära känna %(username)s bättre."
 
-#: src/amo/components/UserProfileEdit/index.js:572
+#: src/amo/components/UserProfileEdit/index.js:576
 msgid "Display Name"
 msgstr "Visningsnamn"
 
-#: src/amo/components/UserProfileEdit/index.js:604
+#: src/amo/components/UserProfileEdit/index.js:608
 msgid "This URL will only be visible for users who are developers."
 msgstr "Denna URL kommer endast visas för användare som är utvecklare."
 
-#: src/amo/components/UserProfileEdit/index.js:647
+#: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce yourself to the community if you like"
 msgstr "Presentera dig själv för gemenskapen om du vill"
 
-#: src/amo/components/UserProfileEdit/index.js:651
+#: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce %(username)s to the community"
 msgstr "Presentera %(username)s för gemenskapen"
 
-#: src/amo/components/UserProfileEdit/index.js:665
+#: src/amo/components/UserProfileEdit/index.js:669
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Lite HTML stöds: %(htmlTags)s. Länkar är förbjudna."
 
-#: src/amo/components/UserProfileEdit/index.js:689
+#: src/amo/components/UserProfileEdit/index.js:693
 msgid "Notifications"
 msgstr "Aviseringar"
 
-#: src/amo/components/UserProfileEdit/index.js:693
+#: src/amo/components/UserProfileEdit/index.js:697
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
 msgstr "Från tid till annan kan Mozilla skicka dig e-post om kommande versioner och tilläggsevenemang. Välj de ämnen du är intresserad av."
 
-#: src/amo/components/UserProfileEdit/index.js:698
+#: src/amo/components/UserProfileEdit/index.js:702
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr "Från tid till annan kan Mozilla skicka den här användaren e-postmeddelande om kommande utgåvor och tilläggsevenemang. Välj de ämnen som den här användaren kan vara intresserad av."
 
-#: src/amo/components/UserProfileEdit/index.js:713
+#: src/amo/components/UserProfileEdit/index.js:717
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr "Mozilla förbehåller sig rätten att kontakta dig individuellt om specifika problem med dina hostade tillägg."
 
-#: src/amo/components/UserProfileEdit/index.js:731
-msgid "Updating your profile…"
+#: src/amo/components/UserProfileEdit/index.js:735
+#, fuzzy
+msgid "Updating your account…"
 msgstr "Uppdaterar din profil…"
 
-#: src/amo/components/UserProfileEdit/index.js:732
-msgid "Update my profile"
-msgstr "Uppdatera din profil"
+#: src/amo/components/UserProfileEdit/index.js:736
+msgid "Update My Account"
+msgstr "Uppdatera mitt konto"
 
-#: src/amo/components/UserProfileEdit/index.js:734
-msgid "Updating user's profile…"
+#: src/amo/components/UserProfileEdit/index.js:738
+#, fuzzy
+msgid "Updating this account…"
 msgstr "Uppdaterar användarprofil…"
 
-#: src/amo/components/UserProfileEdit/index.js:735
-msgid "Update user's profile"
-msgstr "Uppdatera användarprofil"
+#: src/amo/components/UserProfileEdit/index.js:739
+msgid "Update This Account"
+msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:746
-msgid "Delete my profile"
-msgstr "Ta bort min profil"
+#: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
+msgid "Delete My Account"
+msgstr "Ta bort mitt konto"
 
-#: src/amo/components/UserProfileEdit/index.js:747
-msgid "Delete user's profile"
-msgstr "Ta bort användarprofil"
+#: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
+#, fuzzy
+msgid "Delete This Account"
+msgstr "Ta bort denna samling"
 
-#: src/amo/components/UserProfileEdit/index.js:758
-msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr "Varning: Du håller på att ta bort din profil. Är du säker?"
+#: src/amo/components/UserProfileEdit/index.js:762
+msgid "IMPORTANT: Deleting your account is irreversible."
+msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:761
-msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr "Varning: Du håller på att ta bort en profil. Är du säker?"
+#: src/amo/components/UserProfileEdit/index.js:765
+msgid "IMPORTANT: Deleting this account is irreversible."
+msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:772
+#: src/amo/components/UserProfileEdit/index.js:774
+#, fuzzy
 msgid ""
-"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
-"page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
+"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
+" will be anonymised and no longer editable."
 msgstr ""
 "Om du bekräftar den här %(startStrong)sirreversibla åtgärden%(endStrong)s, kommer följande data att tas bort: profilbild, profiluppgifter (inklusive användarnamn, e-post, visningsnamn, plats, "
 "hemsida, biografi, yrke) och aviseringsinställningar. Övriga data som betyg och recensioner kommer att anonymiseras."
 
-#: src/amo/components/UserProfileEdit/index.js:789
-msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr "Viktigt: om du äger tillägg måste du överföra dem till andra användare eller radera dem innan du kan radera din profil."
+#: src/amo/components/UserProfileEdit/index.js:781
+#, fuzzy
+msgid ""
+"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
+"ratings will be anonymised and no longer editable."
+msgstr ""
+"Om du bekräftar den här %(startStrong)sirreversibla åtgärden%(endStrong)s, kommer följande data att tas bort: profilbild, profiluppgifter (inklusive användarnamn, e-post, visningsnamn, plats, "
+"hemsida, biografi, yrke) och aviseringsinställningar. Övriga data som betyg och recensioner kommer att anonymiseras."
 
-#: src/amo/components/UserProfileEdit/index.js:792
-msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr "Viktigt: en användarprofil kan bara tas bort om användaren inte äger några tillägg."
+#: src/amo/components/UserProfileEdit/index.js:794
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
+" add-ons before you can delete your account."
+msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:804
-msgid "Yes, delete my profile"
-msgstr "Ja, ta bort min profil"
-
-#: src/amo/components/UserProfileEdit/index.js:805
-msgid "Yes, delete this profile"
-msgstr "Ja, ta bort denna profilen"
+#: src/amo/components/UserProfileEdit/index.js:801
+msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2120,16 +2158,17 @@ msgstr "Profilbild för %(name)s"
 msgid "Profile photo"
 msgstr "Profilbild"
 
-#: src/amo/components/UserProfileEditPicture/index.js:66
-msgid "Choose photo..."
-msgstr "Välj bild..."
+#: src/amo/components/UserProfileEditPicture/index.js:67
+msgid "Choose Photo…"
+msgstr "Välj bild…"
 
-#: src/amo/components/UserProfileEditPicture/index.js:74
+#: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Vill du verkligen ta bort den här bilden?"
 
-#: src/amo/components/UserProfileEditPicture/index.js:77
-msgid "Delete this picture"
+#: src/amo/components/UserProfileEditPicture/index.js:78
+#, fuzzy
+msgid "Delete This Picture"
 msgstr "Ta bort bilden"
 
 #: src/core/components/AuthenticateButton/index.js:78
@@ -2148,11 +2187,11 @@ msgstr "Felkod: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Tyvärr, men vi kan inte hitta något på den URL som du angav."
 
-#: src/core/components/InstallButton/index.js:244 src/core/components/InstallButton/index.js:287
+#: src/core/components/InstallButton/index.js:253 src/core/components/InstallButton/index.js:296
 msgid "Install Theme"
 msgstr "Installera tema"
 
-#: src/core/components/InstallButton/index.js:272 src/core/components/InstallButton/index.js:288
+#: src/core/components/InstallButton/index.js:281 src/core/components/InstallButton/index.js:297
 msgid "Add to Firefox"
 msgstr "Lägg till i Firefox"
 
@@ -2184,15 +2223,15 @@ msgstr "%(name)s är avinstallerad. Klicka för att installera."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installationstillstånd för %(name)s är okänt."
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:137
 msgid "Previous"
 msgstr "Föregående"
 
-#: src/core/components/Paginate/index.js:136
+#: src/core/components/Paginate/index.js:154
 msgid "Next"
 msgstr "Nästa"
 
-#: src/core/components/Paginate/index.js:141
+#: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Sida %(currentPage)s av %(totalPages)s"
 
@@ -2293,6 +2332,36 @@ msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s tillägg"
 msgstr[1] "%(total)s tillägg"
+
+#~ msgid "Update my profile"
+#~ msgstr "Uppdatera din profil"
+
+#~ msgid "Update user's profile"
+#~ msgstr "Uppdatera användarprofil"
+
+#~ msgid "Delete my profile"
+#~ msgstr "Ta bort min profil"
+
+#~ msgid "Delete user's profile"
+#~ msgstr "Ta bort användarprofil"
+
+#~ msgid "Attention: You are about to delete your profile. Are you sure?"
+#~ msgstr "Varning: Du håller på att ta bort din profil. Är du säker?"
+
+#~ msgid "Attention: You are about to delete a profile. Are you sure?"
+#~ msgstr "Varning: Du håller på att ta bort en profil. Är du säker?"
+
+#~ msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
+#~ msgstr "Viktigt: om du äger tillägg måste du överföra dem till andra användare eller radera dem innan du kan radera din profil."
+
+#~ msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
+#~ msgstr "Viktigt: en användarprofil kan bara tas bort om användaren inte äger några tillägg."
+
+#~ msgid "Yes, delete my profile"
+#~ msgstr "Ja, ta bort min profil"
+
+#~ msgid "Yes, delete this profile"
+#~ msgstr "Ja, ta bort denna profilen"
 
 #~ msgid "Essential extensions"
 #~ msgstr "Nödvändiga utökningar"
@@ -2488,9 +2557,6 @@ msgstr[1] "%(total)s tillägg"
 
 #~ msgid "Click to close"
 #~ msgstr "Klicka för att stänga"
-
-#~ msgid "Reviews"
-#~ msgstr "Recensioner"
 
 #~ msgid "Review"
 #~ msgid_plural "Reviews"

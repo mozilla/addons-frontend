@@ -150,6 +150,7 @@ type UpdateUserAccountParams = {|
   errorHandlerId: string,
   notifications: NotificationsUpdateType,
   picture: File | null,
+  pictureData: string | null,
   userFields: UserEditableFieldsType,
   userId: UserId,
 |};
@@ -163,18 +164,31 @@ export const updateUserAccount = ({
   errorHandlerId,
   notifications,
   picture,
+  pictureData,
   userFields,
   userId,
 }: UpdateUserAccountParams): UpdateUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(notifications, 'notifications are required');
-  invariant(picture !== undefined, 'picture is required');
   invariant(userFields, 'userFields are required');
   invariant(userId, 'userId is required');
 
+  invariant(picture !== undefined, 'picture is required');
+
+  if (picture) {
+    invariant(pictureData, 'pictureData is required when picture is present');
+  }
+
   return {
     type: UPDATE_USER_ACCOUNT,
-    payload: { errorHandlerId, notifications, picture, userFields, userId },
+    payload: {
+      errorHandlerId,
+      notifications,
+      picture,
+      pictureData,
+      userFields,
+      userId,
+    },
   };
 };
 

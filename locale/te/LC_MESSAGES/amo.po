@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-26 16:54+0000\n"
-"PO-Revision-Date: 2018-07-03 12:02+0000\n"
+"POT-Creation-Date: 2018-07-03 17:51+0000\n"
+"PO-Revision-Date: 2018-07-05 09:09+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -39,7 +39,7 @@ msgstr "%(collectionName)sకు జోడించబడింది"
 msgid "Add to…"
 msgstr "…కు జోడించు"
 
-#: src/amo/components/AddAddonToCollection/index.js:262 src/amo/components/CollectionManager/index.js:415
+#: src/amo/components/AddAddonToCollection/index.js:262 src/amo/components/CollectionManager/index.js:419
 msgid "Add to collection"
 msgstr "సేకరణకు జోడించు"
 
@@ -234,7 +234,7 @@ msgstr "పొడిగింత లంకెలు"
 msgid "Version"
 msgstr "వెర్షన్"
 
-#: src/amo/components/AddonMoreInfo/index.js:195 src/amo/components/Collection/index.js:358
+#: src/amo/components/AddonMoreInfo/index.js:195 src/amo/components/Collection/index.js:421
 msgid "Last updated"
 msgstr "చివరిగా నవీకరించినది"
 
@@ -262,9 +262,9 @@ msgstr "వాడుక గణాంకాలు"
 msgid "More information"
 msgstr "మరింత సమాచారం"
 
-#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:178 src/amo/components/UserProfileEdit/index.js:592
+#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:301 src/amo/components/UserProfileEdit/index.js:596
 msgid "Homepage"
-msgstr "నివాసపేజీ"
+msgstr "ముంగిలిపేజీ"
 
 #: src/amo/components/AddonMoreInfo/index.js:56
 msgid "Support Site"
@@ -278,18 +278,17 @@ msgstr "ఇమెయిల్ మద్దతు"
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonRecommendations/index.js:165
+#: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other users with this extension also installed"
 msgstr "ఈ పొడగింత ఉన్న వాడుకరులు వీటిని కూడా స్థాపించుకున్నారు"
 
-#: src/amo/components/AddonRecommendations/index.js:166
+#: src/amo/components/AddonRecommendations/index.js:135
 msgid "Other popular extensions"
 msgstr "ఇతర ప్రాచుర్య పొడిగింతలు"
 
 #: src/amo/components/AddonReview/index.js:199
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "ఈ పొడిగింత అద్భుతమని ఎందుకు అనుకుంటున్నారో ప్రపంచానికి చెప్పండి!"
+msgstr "ఈ పొడగింత అద్భుతమని ఎందుకు అనుకుంటున్నారో ప్రపంచానికి చెప్పండి! దయచేసి మా %(linkStart)sసమీక్షా నియమావళి%(linkEnd)sని పాఠించండి."
 
 #: src/amo/components/AddonReview/index.js:203
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -378,86 +377,85 @@ msgstr "నా సమీక్షను సవరించండి"
 msgid "Reply to this review"
 msgstr "ఈ సమీక్షకి స్పందించు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:217
+#: src/amo/components/AddonsByAuthorsCard/index.js:226
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s నుండి మరిన్ని నిఘంటువులు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:220
+#: src/amo/components/AddonsByAuthorsCard/index.js:229
 msgid "More dictionaries by these translators"
 msgstr "ఈ అనువాదకుల నుండి మరిన్ని నిఘంటువులు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:224
+#: src/amo/components/AddonsByAuthorsCard/index.js:233
 msgid "Dictionaries by %(author)s"
 msgstr "%(author)s నిఘంటువులు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:227
+#: src/amo/components/AddonsByAuthorsCard/index.js:236
 msgid "Dictionaries by these translators"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:234
+#: src/amo/components/AddonsByAuthorsCard/index.js:243
 msgid "More extensions by %(author)s"
 msgstr "%(author)s నుండి మరిన్ని పొడగింతలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:237
+#: src/amo/components/AddonsByAuthorsCard/index.js:246
 msgid "More extensions by these developers"
 msgstr "ఈ డెవలపర్ల నుండి మరిన్ని పొడగింతలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:241
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "Extensions by %(author)s"
 msgstr "%(author)s పొడగింతలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:244
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "ఈ డెవలపర్ల పొడగింతలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:251
+#: src/amo/components/AddonsByAuthorsCard/index.js:260
 msgid "More language packs by %(author)s"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:254
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More language packs by these translators"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:258
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "Language packs by %(author)s"
 msgstr "%(author)s భాషా ప్యాకులు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:261
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Language packs by these translators"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:269
+#: src/amo/components/AddonsByAuthorsCard/index.js:278
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "%(author)s నుండి మరిన్ని అలంకారాలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:272
+#: src/amo/components/AddonsByAuthorsCard/index.js:281
 msgid "More themes by these artists"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:276
+#: src/amo/components/AddonsByAuthorsCard/index.js:285
 msgid "Themes by %(author)s"
 msgstr "%(author)s అలంకారాలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:288
 msgid "Themes by these artists"
 msgstr "ఈ కళాకారుల అలంకారాలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:295
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "%(author)s నుండి మరిన్ని పొడగింతలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:289
+#: src/amo/components/AddonsByAuthorsCard/index.js:298
 msgid "More add-ons by these developers"
 msgstr "ఈ డెవలపర్ల నుండి మరిన్ని పొడగింతలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:302
 msgid "Add-ons by %(author)s"
 msgstr "%(author)s పొడగింతలు"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
-#, fuzzy
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "Add-ons by these developers"
-msgstr "ఈ డెవలపర్కు మద్దతు ఇవ్వండి"
+msgstr "ఈ డెవలపర్ల యాడ్-ఆన్లు"
 
 #: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:152
 msgid "Add-ons for Firefox"
@@ -504,15 +502,15 @@ msgstr "వర్గాలను లోడ్ చేస్తోంది."
 msgid "Extensions"
 msgstr "పొడిగింతలు"
 
-#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:205 src/amo/components/LandingPage/index.js:138 src/amo/components/Search/index.js:111
+#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:205 src/amo/components/LandingPage/index.js:138 src/amo/components/Search/index.js:123
 msgid "Featured extensions"
-msgstr ""
+msgstr "విశేష పొడగింతలు"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/Home/index.js:206 src/amo/components/LandingPage/index.js:146
 msgid "See more featured extensions"
 msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
 
-#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:124
+#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:136
 #, fuzzy
 msgid "Trending extensions"
 msgstr "పొడిగింతలను కనుగొనండి"
@@ -522,7 +520,7 @@ msgstr "పొడిగింతలను కనుగొనండి"
 msgid "See more trending extensions"
 msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
-#: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:136
+#: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:148
 msgid "Top rated extensions"
 msgstr ""
 
@@ -535,7 +533,7 @@ msgstr "అత్యధికంగా జనాదరణ పొందిన ప
 msgid "Themes"
 msgstr "అలంకారాలు"
 
-#: src/amo/components/Category/index.js:176 src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:167 src/amo/components/Search/index.js:114
+#: src/amo/components/Category/index.js:176 src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:167 src/amo/components/Search/index.js:126
 msgid "Featured themes"
 msgstr "విశేష అలంకారాలు"
 
@@ -543,7 +541,7 @@ msgstr "విశేష అలంకారాలు"
 msgid "See more featured themes"
 msgstr "మరిన్ని విశేష అలంకారాలను చూడండి"
 
-#: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:127
+#: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:139
 #, fuzzy
 msgid "Trending themes"
 msgstr "అలంకారాలను కనుగొనండి"
@@ -553,7 +551,7 @@ msgstr "అలంకారాలను కనుగొనండి"
 msgid "See more trending themes"
 msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
 
-#: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:139
+#: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:151
 msgid "Top rated themes"
 msgstr ""
 
@@ -574,52 +572,70 @@ msgstr ""
 msgid "Browse all themes in this category."
 msgstr ""
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:160
+msgid "Newest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:164
+msgid "Oldest first"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:168
+msgid "Name"
+msgstr ""
+
+#: src/amo/components/Collection/index.js:172
+msgid "Popularity"
+msgstr "ప్రజాదరణ"
+
+#: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
-msgstr "ఈ సేకరణను సవరించండి"
+msgstr "ఈ సేకరణను సవరించు"
 
-#: src/amo/components/Collection/index.js:309
-#, fuzzy
+#: src/amo/components/Collection/index.js:372
 msgid "Log in to create a collection"
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "సేకరణను సృష్టించడానికి ప్రవేశించండి"
 
-#: src/amo/components/Collection/index.js:310
-#, fuzzy
+#: src/amo/components/Collection/index.js:373
 msgid "Log in to edit this collection"
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "ఈ సేకరణను మార్చడానికి ప్రవేశించండి"
 
-#: src/amo/components/Collection/index.js:348 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:411 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "పొడిగింతలు"
 
-#: src/amo/components/Collection/index.js:352
+#: src/amo/components/Collection/index.js:415
 msgid "Creator"
 msgstr "సృష్టికర్త"
 
-#: src/amo/components/Collection/index.js:379
+#: src/amo/components/Collection/index.js:442
 msgid "Do you really want to delete this collection?"
 msgstr "ఈ సేకరణను నిజంగానే తొలగించాలని కోరుకుంటున్నారా?"
 
-#: src/amo/components/Collection/index.js:382
+#: src/amo/components/Collection/index.js:445
 msgid "Delete this collection"
 msgstr "ఈ సేకరణను తొలగించు"
 
-#: src/amo/components/Collection/index.js:414
+#: src/amo/components/Collection/index.js:478
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/Collection/index.js:417
+#: src/amo/components/Collection/index.js:481
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
+
+# "Firefox" should not be translated. :-)
+#: src/amo/components/Collection/index.js:496
+msgid "Sort add-ons by"
+msgstr "యాడ్-ఆన్లను ఈ క్రమంలో అమర్చు"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
 msgstr "సేకరణలు"
 
 #: src/amo/components/CollectionList/index.js:120
-#, fuzzy
 msgid "Log in to view your collections"
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "మీ సేకరణలను చూడడానికి ప్రవేశించండి"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -630,43 +646,42 @@ msgid "Create a collection"
 msgstr "సేకరణను సృష్టించు"
 
 #: src/amo/components/CollectionList/index.js:67
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "మీకు సేకరణలు ఏమీ లేవు."
 
 #: src/amo/components/CollectionList/index.js:97
 msgid "My collections"
 msgstr "నా సేకరణలు"
 
-#: src/amo/components/CollectionManager/index.js:332
+#: src/amo/components/CollectionManager/index.js:337
 msgid "Create collection"
 msgstr "సేకరణను సృష్టించు"
 
-#: src/amo/components/CollectionManager/index.js:333
+#: src/amo/components/CollectionManager/index.js:338
 msgid "Save collection"
 msgstr "సేకరణను భద్రపరచు"
 
-#: src/amo/components/CollectionManager/index.js:342
+#: src/amo/components/CollectionManager/index.js:347
 msgid "Collection name"
 msgstr "సేకరణ పేరు"
 
-#: src/amo/components/CollectionManager/index.js:356
+#: src/amo/components/CollectionManager/index.js:361
 msgid "Description"
 msgstr "వివరణ"
 
-#: src/amo/components/CollectionManager/index.js:368
+#: src/amo/components/CollectionManager/index.js:373
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:401
+#: src/amo/components/CollectionManager/index.js:406
 msgid "Added to collection"
 msgstr "సేకరణకు చేర్చబడింది"
 
-#: src/amo/components/CollectionManager/index.js:409
+#: src/amo/components/CollectionManager/index.js:414
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:431 src/amo/components/UserProfileEdit/index.js:812 src/ui/components/ConfirmButton/index.js:100 src/ui/components/DismissibleTextForm/index.js:149
+#: src/amo/components/CollectionManager/index.js:435 src/amo/components/UserProfileEdit/index.js:836 src/ui/components/ConfirmButton/index.js:100 src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
 msgstr "రద్దుచేయి"
 
@@ -735,9 +750,8 @@ msgid "User comment"
 msgstr "వాడుకరి వ్యాఖ్య"
 
 #: src/amo/components/EditableCollectionAddon/index.js:144
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "ఈ పొడిగింత గురించి"
+msgstr "ఈ యాడ్-ఆన్ గురించి ఒక వ్యాఖ్య చేర్చండి."
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
@@ -938,11 +952,11 @@ msgstr "నా ఖాతా"
 msgid "View My Collections"
 msgstr "నా సేకరణలను చూడు"
 
-#: src/amo/components/Header/index.js:122 src/amo/components/UserProfileEdit/index.js:466
+#: src/amo/components/Header/index.js:122 src/amo/components/UserProfileEdit/index.js:470
 msgid "View My Profile"
 msgstr "నా ప్రొఫైలును చూడు"
 
-#: src/amo/components/Header/index.js:130 src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/Header/index.js:130 src/amo/components/UserProfileEdit/index.js:476
 msgid "Edit My Profile"
 msgstr "ప్రొఫైలును సవరించు"
 
@@ -1012,14 +1026,12 @@ msgid "See more translation tools"
 msgstr "మరిన్ని అనువాద పనిముట్లను చూడండి"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Privacy matters"
-msgstr "గోప్యతా విధానం"
+msgstr "అంతరంగికతా విషయాలు"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "మరిన్ని ట్యాబు పొడిగింతలు చూడండి"
+msgstr "మరిన్ని అంతరంగికత పొడగింతలను చూడండి"
 
 #: src/amo/components/Home/index.js:265
 msgid "Tame your tabs"
@@ -1071,7 +1083,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:116
 msgid "Page Translate"
-msgstr ""
+msgstr "పేజీ అనువాదం"
 
 #: src/amo/components/HomeHeroBanner/index.js:119
 msgid "Translate an entire web page with a couple clicks"
@@ -1087,7 +1099,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Forget Me Not"
-msgstr ""
+msgstr "నన్ను మర్చిపోకు"
 
 #: src/amo/components/HomeHeroBanner/index.js:135
 msgid "Make Firefox forget website data like cookies & local storage"
@@ -1126,9 +1138,8 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:37
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "%(name)s దింపుకుంటోంది."
+msgstr "టర్బో దింపుకోలు నిర్వాహకి"
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
@@ -1236,7 +1247,7 @@ msgstr "అన్ని స్థానికీకరణలు"
 
 #: src/amo/components/LanguageTools/index.js:171
 msgid "Locale Name"
-msgstr ""
+msgstr "లొకేల్ పేరు"
 
 #: src/amo/components/LanguageTools/index.js:174
 msgid "Language Packs"
@@ -1319,13 +1330,12 @@ msgid "Provide cryptographic authentication services"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:50
-#, fuzzy
 msgid "Control browser proxy settings"
-msgstr "నియంత్రణ బ్రౌజర్ ప్రాక్సీ అమరికలు"
+msgstr "విహరిణి ప్రాక్సీ అమరికలను నియంత్రించడం"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Read and modify privacy settings"
-msgstr "గోప్యత అమరికలను చూడండి, మార్చండి"
+msgstr "అంతరంగికత అమరికలను చూడటం, మార్చడం"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
@@ -1333,7 +1343,7 @@ msgstr "బ్రౌజర్ లో ఇటీవల మూసివేసిన
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
-msgstr "విహారిణి లోని ట్యాబులను పొందండి"
+msgstr "విహారిణి ట్యాబులను చూడటం"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
@@ -1345,7 +1355,7 @@ msgstr "క్లయింట్ వైపు డేటా అపరిమిత
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
-msgstr "నావిగేషన్ సమయంలో విహారిణి చర్యను యాక్సెస్ చేయండి"
+msgstr "నావిగేషన్ సమయంలో విహారిణి కార్యకలాపాన్ని చూడటం"
 
 #: src/amo/components/RatingManager/index.js:154
 msgid "Log in to rate this dictionary"
@@ -1439,39 +1449,39 @@ msgstr ""
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
 msgstr ""
 
-#: src/amo/components/Search/index.js:106 src/amo/components/SearchResults/index.js:62
+#: src/amo/components/Search/index.js:118 src/amo/components/SearchResults/index.js:69
 msgid "Search results"
 msgstr "వెతుకుడు ఫలితాలు"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:117
+#: src/amo/components/Search/index.js:129
 msgid "Featured add-ons"
 msgstr "విశేష పొడిగింతలు"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:130
+#: src/amo/components/Search/index.js:142
 #, fuzzy
 msgid "Trending add-ons"
 msgstr "పొడిగింతలను కనుగొనండి"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:142
+#: src/amo/components/Search/index.js:154
 msgid "Top rated add-ons"
 msgstr "మేటి పొడిగింతలు"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:160
 msgid "Popular extensions"
 msgstr "ప్రాచుర్య పొడిగింతలు"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:163
 msgid "Popular themes"
 msgstr "ప్రాచుర్య అలంకారాలు"
 
-#: src/amo/components/Search/index.js:154
+#: src/amo/components/Search/index.js:166
 msgid "Popular add-ons"
 msgstr "ప్రాచుర్య పొడగింతలు"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:172
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\"కి వెతుకుడు ఫలితాలు"
 
@@ -1504,11 +1514,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:67
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" కోసం శోధిస్తున్నారు"
-msgstr[1] "\"%(query)s\" కోసం శోధిస్తున్నారు"
+msgstr[0] "\"%(query)s\" కొరకు %(count)s అలంకారం దొరికింది"
+msgstr[1] "\"%(query)s\" కొరకు %(count)s అలంకారాలు దొరికాయి"
 
 #: src/amo/components/SearchContextCard/index.js:76
 msgid "%(count)s result found for \"%(query)s\""
@@ -1601,16 +1610,15 @@ msgstr "విశేష పొడిగింతలు మాత్రమే"
 
 #: src/amo/components/SearchForm/index.js:62
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "యాడ్-ఆన్ పేజీకి వెళ్లండి"
 
 #: src/amo/components/SearchResult/index.js:115
 msgid "No theme preview available"
 msgstr "అలంకాలపు మునుజూపు అందుబాటులో లేదు"
 
 #: src/amo/components/SearchResult/index.js:144
-#, fuzzy
 msgid "Add-on note"
-msgstr "పొడిగింత చిహ్నం"
+msgstr "యాడ్-ఆన్ గమనిక"
 
 #: src/amo/components/SearchResult/index.js:162
 msgid "%(total)s user"
@@ -1618,19 +1626,19 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s వాడుకరి"
 msgstr[1] "%(total)s వాడుకరులు"
 
-#: src/amo/components/SearchResults/index.js:36
+#: src/amo/components/SearchResults/index.js:43
 msgid "Searching…"
 msgstr "వెతుకుతోంది…"
 
-#: src/amo/components/SearchResults/index.js:41
+#: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr ""
 
-#: src/amo/components/SearchResults/index.js:47
+#: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
 msgstr "ఫలితాలు కనుగొనబడలేదు."
 
-#: src/amo/components/SearchResults/index.js:50
+#: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 
@@ -1887,44 +1895,51 @@ msgstr "అన్ని అలంకారాలను విహరించు"
 msgid "Add-ons Home Page"
 msgstr "పొడిగింతల ముంగిలి పేజీ"
 
-#: src/amo/components/UserProfile/index.js:139
-#, fuzzy
-msgid "Add-ons developer"
-msgstr "ఈ డెవలపర్కు మద్దతు ఇవ్వండి"
+#: src/amo/components/UserProfile/index.js:197
+msgid "My reviews"
+msgstr "నా సమీక్షలు"
 
-#: src/amo/components/UserProfile/index.js:145
+#: src/amo/components/UserProfile/index.js:216
+msgid "Browse the reviews for this add-on"
+msgstr "ఈ యాడ్-ఆన్‌పై సమీక్షలను చూడండి"
+
+#: src/amo/components/UserProfile/index.js:261
+msgid "Add-ons developer"
+msgstr "యాడ్-ఆన్ల డెవలపరు"
+
+#: src/amo/components/UserProfile/index.js:267
 msgid "Theme artist"
 msgstr "అలంకారపు కళాకారుడు"
 
-#: src/amo/components/UserProfile/index.js:158 src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfile/index.js:281 src/amo/components/UserProfileEdit/index.js:458
 msgid "User Profile for %(user)s"
 msgstr "%(user)s కోసం వాడుకరి ప్రొఫైల్"
 
-#: src/amo/components/UserProfile/index.js:188 src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfile/index.js:311 src/amo/components/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr "ప్రాంతం"
 
-#: src/amo/components/UserProfile/index.js:196 src/amo/components/UserProfileEdit/index.js:621
+#: src/amo/components/UserProfile/index.js:319 src/amo/components/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr "వృత్తి"
 
-#: src/amo/components/UserProfile/index.js:203
+#: src/amo/components/UserProfile/index.js:326
 msgid "User since"
 msgstr "నుండి వాడుకరి"
 
-#: src/amo/components/UserProfile/index.js:213
+#: src/amo/components/UserProfile/index.js:336
 msgid "Number of add-ons"
 msgstr "పొడగింతలు సంఖ్య"
 
-#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfile/index.js:342
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:234 src/amo/components/UserProfileEdit/index.js:643
+#: src/amo/components/UserProfile/index.js:357 src/amo/components/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr "స్వపరిచయం"
 
-#: src/amo/components/UserProfile/index.js:258
+#: src/amo/components/UserProfile/index.js:381
 msgid "Edit profile"
 msgstr "ప్రొఫైలును సవరించు"
 
@@ -1932,150 +1947,147 @@ msgstr "ప్రొఫైలును సవరించు"
 msgid "Picture successfully deleted"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:424
+#: src/amo/components/UserProfileEdit/index.js:426
 msgid "Log in to edit the profile"
 msgstr "ప్రొఫైలును సవరించడానికి ప్రవేశించండి"
 
-#: src/amo/components/UserProfileEdit/index.js:467
+#: src/amo/components/UserProfileEdit/index.js:471
 msgid "View user's profile"
 msgstr "వాడుకరి ప్రొఫైలును చూడండి"
 
-#: src/amo/components/UserProfileEdit/index.js:473
-#, fuzzy
+#: src/amo/components/UserProfileEdit/index.js:477
 msgid "Edit user's profile"
-msgstr "ప్రొఫైల్‌ను సవరించు"
+msgstr "వాడుకరి ప్రొఫైలును సవరించు"
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:495
 msgid "Account"
 msgstr "ఖాతా"
 
-#: src/amo/components/UserProfileEdit/index.js:492
+#: src/amo/components/UserProfileEdit/index.js:496
 msgid "Account for %(username)s"
 msgstr "%(username)s కొరకు ఖాతా"
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:502
 msgid "Username"
 msgstr "వాడుకరి పేరు"
 
-#: src/amo/components/UserProfileEdit/index.js:511
+#: src/amo/components/UserProfileEdit/index.js:515
 msgid "Email Address"
 msgstr "ఈమెయిలు చిరునామా"
 
-#: src/amo/components/UserProfileEdit/index.js:518
+#: src/amo/components/UserProfileEdit/index.js:522
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:527
+#: src/amo/components/UserProfileEdit/index.js:531
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:544
+#: src/amo/components/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts..."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:552
+#: src/amo/components/UserProfileEdit/index.js:556
 msgid "Profile"
 msgstr "ప్రొఫైలు"
 
-#: src/amo/components/UserProfileEdit/index.js:556
+#: src/amo/components/UserProfileEdit/index.js:560
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:562
+#: src/amo/components/UserProfileEdit/index.js:566
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:572
+#: src/amo/components/UserProfileEdit/index.js:576
 msgid "Display Name"
 msgstr "చూపించే పేరు"
 
-#: src/amo/components/UserProfileEdit/index.js:604
+#: src/amo/components/UserProfileEdit/index.js:608
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:647
+#: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce yourself to the community if you like"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:651
+#: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:665
+#: src/amo/components/UserProfileEdit/index.js:669
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:689
+#: src/amo/components/UserProfileEdit/index.js:693
 msgid "Notifications"
 msgstr "గమనింపులు"
 
-#: src/amo/components/UserProfileEdit/index.js:693
+#: src/amo/components/UserProfileEdit/index.js:697
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:698
+#: src/amo/components/UserProfileEdit/index.js:702
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:713
+#: src/amo/components/UserProfileEdit/index.js:717
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:731
-msgid "Updating your profile…"
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
-msgid "Update my profile"
-msgstr "ప్రొఫైల్‌ను సవరించు"
-
-#: src/amo/components/UserProfileEdit/index.js:734
-msgid "Updating user's profile…"
-msgstr ""
-
 #: src/amo/components/UserProfileEdit/index.js:735
-msgid "Update user's profile"
+msgid "Updating your account…"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:746
-msgid "Delete my profile"
-msgstr "నా ప్రొఫైలును తొలగించు"
+#: src/amo/components/UserProfileEdit/index.js:736
+msgid "Update My Account"
+msgstr "నా ఖాతాను తాజాకరించు"
 
-#: src/amo/components/UserProfileEdit/index.js:747
-#, fuzzy
-msgid "Delete user's profile"
-msgstr "ప్రొఫైల్‌ను వీక్షించు"
-
-#: src/amo/components/UserProfileEdit/index.js:758
-msgid "Attention: You are about to delete your profile. Are you sure?"
+#: src/amo/components/UserProfileEdit/index.js:738
+msgid "Updating this account…"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:761
-msgid "Attention: You are about to delete a profile. Are you sure?"
+#: src/amo/components/UserProfileEdit/index.js:739
+msgid "Update This Account"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:772
+#: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
+msgid "Delete My Account"
+msgstr "నా ఖాతాను తొలగించు"
+
+#: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
+msgid "Delete This Account"
+msgstr "ఈ ఖాతాను తొలగించు"
+
+#: src/amo/components/UserProfileEdit/index.js:762
+msgid "IMPORTANT: Deleting your account is irreversible."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:765
+msgid "IMPORTANT: Deleting this account is irreversible."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:774
 msgid ""
-"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
-"page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
+"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
+" will be anonymised and no longer editable."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:789
-msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
+#: src/amo/components/UserProfileEdit/index.js:781
+msgid ""
+"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
+"ratings will be anonymised and no longer editable."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:792
-msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
+#: src/amo/components/UserProfileEdit/index.js:794
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
+" add-ons before you can delete your account."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:804
-msgid "Yes, delete my profile"
-msgstr "అవును, నా ప్రొఫైలును తొలగించు"
-
-#: src/amo/components/UserProfileEdit/index.js:805
-msgid "Yes, delete this profile"
-msgstr "అవును, ఈ ప్రొఫైలును తొలగించు"
+#: src/amo/components/UserProfileEdit/index.js:801
+msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2118,29 +2130,28 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:36
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "%(user)s కోసం వాడుకరి ప్రొఫైల్"
+msgstr "%(name)s కొరకు ప్రొఫైలు చిత్రం"
 
 #: src/amo/components/UserProfileEditPicture/index.js:52
 msgid "Profile photo"
 msgstr "ప్రొఫైలు చిత్రం"
 
-#: src/amo/components/UserProfileEditPicture/index.js:66
-msgid "Choose photo..."
+#: src/amo/components/UserProfileEditPicture/index.js:67
+msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:74
+#: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "మీరు నిజంగానే ఈ బొమ్మను తొలగించాలని అనుకుంటున్నారా?"
 
-#: src/amo/components/UserProfileEditPicture/index.js:77
-msgid "Delete this picture"
-msgstr ""
+#: src/amo/components/UserProfileEditPicture/index.js:78
+msgid "Delete This Picture"
+msgstr "ఈ బొమ్మను తొలగించు"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"
-msgstr "నమోదు లేదా సైన్ ఇన్"
+msgstr "నమోదవ్వండి లేదా ప్రవేశించండి"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -2154,11 +2165,11 @@ msgstr "కోడ్ లోపం: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:244 src/core/components/InstallButton/index.js:287
+#: src/core/components/InstallButton/index.js:253 src/core/components/InstallButton/index.js:296
 msgid "Install Theme"
 msgstr "అలంకారాన్ని స్థాపించు"
 
-#: src/core/components/InstallButton/index.js:272 src/core/components/InstallButton/index.js:288
+#: src/core/components/InstallButton/index.js:281 src/core/components/InstallButton/index.js:297
 msgid "Add to Firefox"
 msgstr "Firefoxకు జోడించండి"
 
@@ -2190,18 +2201,17 @@ msgstr ""
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:137
 msgid "Previous"
 msgstr "మునుపటి"
 
-#: src/core/components/Paginate/index.js:136
+#: src/core/components/Paginate/index.js:154
 msgid "Next"
 msgstr "తదుపరి"
 
-#: src/core/components/Paginate/index.js:141
-#, fuzzy
+#: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "%(totalPages)sలో %(pageNumber)sవ పేజీ"
+msgstr " %(totalPages)sలో %(currentPage)sవ పేజీ"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2253,7 +2263,7 @@ msgstr "విషయాలను టోగుల్ చేయండి"
 
 #: src/ui/components/HostPermissions/index.js:51
 msgid "Access your data for all websites"
-msgstr "మీ డేటాను అన్ని వెబ్ సైట్లలో పొందండి"
+msgstr "అన్ని వెబ్ సైట్లలో మీ డేటాను చూడటం"
 
 #: src/ui/components/HostPermissions/index.js:55
 msgid "Access your data in %(param)s other domain"
@@ -2299,11 +2309,25 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
 #: src/ui/components/UserCollection/index.js:52
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(count)s పొడిగింత దొరికింది"
-msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
+msgstr[0] "%(total)s యాడాన్"
+msgstr[1] "%(total)s యాడాన్లు"
+
+#~ msgid "Update my profile"
+#~ msgstr "నా ప్రొఫైలును సవరించు"
+
+#~ msgid "Delete my profile"
+#~ msgstr "నా ప్రొఫైలును తొలగించు"
+
+#~ msgid "Delete user's profile"
+#~ msgstr "వాడుకరి ప్రొఫైలును తొలగించు"
+
+#~ msgid "Yes, delete my profile"
+#~ msgstr "అవును, నా ప్రొఫైలును తొలగించు"
+
+#~ msgid "Yes, delete this profile"
+#~ msgstr "అవును, ఈ ప్రొఫైలును తొలగించు"
 
 #~ msgid "Essential extensions"
 #~ msgstr "ఆవశ్యక పొడగింతలు"
@@ -2364,9 +2388,6 @@ msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
 
 #~ msgid "Search Site"
 #~ msgstr "వెతుకు"
-
-#~ msgid "Reviews"
-#~ msgstr "సమీక్షలు"
 
 #~ msgid "Review"
 #~ msgid_plural "Reviews"

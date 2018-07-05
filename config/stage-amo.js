@@ -25,5 +25,6 @@ module.exports = {
     },
   },
 
+  enableNewCollectionsUI: true,
   enableUserProfile: true,
 };

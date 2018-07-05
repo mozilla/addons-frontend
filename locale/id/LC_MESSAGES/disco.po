@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-26 17:00+0000\n"
+"POT-Creation-Date: 2018-07-03 17:55+0000\n"
 "PO-Revision-Date: 2018-06-14 22:34+0000\n"
 "Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
@@ -40,13 +40,13 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Maaf, tetapi kami tidak dapat menemukan apapun pada URL yang Anda masukkan."
 
-#: src/core/components/InstallButton/index.js:244
-#: src/core/components/InstallButton/index.js:287
+#: src/core/components/InstallButton/index.js:253
+#: src/core/components/InstallButton/index.js:296
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/core/components/InstallButton/index.js:272
-#: src/core/components/InstallButton/index.js:288
+#: src/core/components/InstallButton/index.js:281
+#: src/core/components/InstallButton/index.js:297
 msgid "Add to Firefox"
 msgstr "Tambahkan ke Firefox"
 
