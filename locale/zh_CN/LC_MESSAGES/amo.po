@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2017-10-10 19:27+0000\n"
-"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2018-07-04 01:27+0000\n"
+"Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -1588,7 +1588,7 @@ msgstr "无主题预览可用"
 
 #: src/amo/components/SearchResult/index.js:144
 msgid "Add-on note"
-msgstr ""
+msgstr "附加组件说明"
 
 #: src/amo/components/SearchResult/index.js:162
 msgid "%(total)s user"
@@ -1866,14 +1866,12 @@ msgid "Add-ons Home Page"
 msgstr "附加组件首页"
 
 #: src/amo/components/UserProfile/index.js:197
-#, fuzzy
 msgid "My reviews"
-msgstr "评价"
+msgstr "我所发表的评价"
 
 #: src/amo/components/UserProfile/index.js:216
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "此附加组件有 %(total)s 则评价"
+msgstr "浏览此附加组件的评价"
 
 #: src/amo/components/UserProfile/index.js:261
 msgid "Add-ons developer"
@@ -2009,17 +2007,15 @@ msgstr "Mozilla 保留使用此信息与您联络，就您上架的附加组件�
 
 #: src/amo/components/UserProfileEdit/index.js:735
 msgid "Updating your account…"
-msgstr ""
+msgstr "正在更新您的账户…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
-#, fuzzy
 msgid "Update My Account"
-msgstr "我的账户"
+msgstr "更新我的账户"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "正在更新用户个人资料…"
+msgstr "正在更新此账户…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
@@ -2030,9 +2026,8 @@ msgid "Delete My Account"
 msgstr "删除我的账户"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "删除这个收藏集"
+msgstr "删除这个账户"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
