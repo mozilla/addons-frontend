@@ -36,6 +36,8 @@ type UIStateType = {|
   editingNote: boolean,
 |};
 
+const initialUIState: UIStateType = { editingNote: false };
+
 type InternalProps = {|
   ...Props,
   errorHandler: ErrorHandlerType,
@@ -47,10 +49,6 @@ type InternalProps = {|
 export class EditableCollectionAddonBase extends React.Component<
   InternalProps,
 > {
-  componentWillMount() {
-    this.props.setUIState({ editingNote: false });
-  }
-
   onEditNote = (event: SyntheticEvent<HTMLElement>) => {
     event.preventDefault();
     this.props.setUIState({ editingNote: true });
@@ -185,6 +183,7 @@ const EditableCollectionAddon: React.ComponentType<Props> = compose(
   withUIState({
     fileName: __filename,
     extractId,
+    initialState: initialUIState,
   }),
 )(EditableCollectionAddonBase);
 

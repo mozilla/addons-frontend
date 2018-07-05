@@ -110,6 +110,35 @@ describe(__filename, () => {
       expect(root.instance().props.uiState).toEqual(initialState);
     });
 
+    it('always resets initial state per component instance', () => {
+      class ThingBase extends React.Component {
+        render() {
+          return <div />;
+        }
+      }
+      const initialState = { visible: true };
+
+      const Thing = compose(
+        withUIState({
+          fileName: __filename,
+          // Each instance will share this same ID.
+          extractId: () => 'shared-ID',
+          initialState,
+        }),
+      )(ThingBase);
+
+      // Create an instance and change its state.
+      const root1 = shallowUntilTarget(<Thing store={store} />, ThingBase);
+      root1.instance().props.setUIState({ visible: false });
+      applyUIStateChanges({ root: root1, store });
+      expect(root1.instance().props.uiState.visible).toEqual(false);
+
+      // Create a second instance and make sure the state was reset.
+      const root2 = shallowUntilTarget(<Thing store={store} />, ThingBase);
+      applyUIStateChanges({ root: root2, store });
+      expect(root2.instance().props.uiState).toEqual(initialState);
+    });
+
     it('lets you set a custom uiStateID', () => {
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const uiStateID = 'my-custom-id';

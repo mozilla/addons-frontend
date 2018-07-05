@@ -102,6 +102,7 @@ export const mergeUIStateProps = (
 export const withUIState = ({
   fileName,
   extractId,
+  // TODO: make this non-optional, like this.setState()
   initialState = {},
 }: {|
   fileName: string,
@@ -119,13 +120,31 @@ export const withUIState = ({
   });
 
   return (WrappedComponent) => {
+    class WithUIState extends React.Component<any> {
+      componentDidMount() {
+        // Every time the component mounts, reset the state regardless
+        // of what is saved in the Redux store. This makes the
+        // implementation behave more like this.setState() whereby
+        // the component constructor() would always initialize
+        // like this.state = {...}.
+        //
+        // TODO: Optimize this by only dispatching if
+        // props.uiState doesn't match initialState?
+        this.props.setUIState(initialState);
+      }
+
+      render() {
+        return <WrappedComponent {...this.props} />;
+      }
+    }
+
     return compose(
       connect(
         mapStateToProps,
         undefined,
         mergeUIStateProps,
       ),
-    )(WrappedComponent);
+    )(WithUIState);
   };
 };
 
