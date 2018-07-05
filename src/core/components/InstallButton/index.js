@@ -120,8 +120,9 @@ export class InstallButtonBase extends React.Component {
 
   installExtension = ({ installURL, event }) => {
     const { addon, _InstallTrigger } = this.props;
+    const { name, type } = addon;
 
-    this.trackInstallStarted({ addonName: addon.name, type: addon.type });
+    this.trackInstallStarted({ addonName: name, type });
 
     if (!_InstallTrigger) {
       // Let the button serve the file like a normal link.
@@ -142,7 +143,7 @@ export class InstallButtonBase extends React.Component {
     //
     _InstallTrigger.install(
       {
-        [addon.name]: {
+        [name]: {
           Hash: getFileHash({ addon, installURL }),
           IconURL: getAddonIconUrl(addon),
           URL: installURL,
@@ -157,8 +158,8 @@ export class InstallButtonBase extends React.Component {
         if (status === 0) {
           // The extension was installed successfully.
           this.trackInstallSucceeded({
-            addonName: addon.name,
-            type: addon.type,
+            addonName: name,
+            type,
           });
         }
       },
