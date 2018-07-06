@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-05 16:42+0000\n"
+"PO-Revision-Date: 2018-07-06 11:39+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -819,9 +819,8 @@ msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:127
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "డెవలపర్ కేంద్రం"
+msgstr "ఈ డెవలపరు స్పందనను ఫ్లాగ్ చెయ్యి"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag this review"
