@@ -676,15 +676,17 @@ describe(__filename, () => {
       }),
     );
 
+    const _isFeaturedCollection = sinon.spy(() => false);
     const wrapper = renderComponent({
       store,
-      _isFeaturedCollection: () => false,
+      _isFeaturedCollection,
     });
 
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'addonInstallSource',
       INSTALL_SOURCE_COLLECTION,
     );
+    sinon.assert.called(_isFeaturedCollection);
   });
 
   it('declares an install source for featured collections', () => {
@@ -697,15 +699,17 @@ describe(__filename, () => {
       }),
     );
 
+    const _isFeaturedCollection = sinon.spy(() => true);
     const wrapper = renderComponent({
       store,
-      _isFeaturedCollection: () => true,
+      _isFeaturedCollection,
     });
 
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'addonInstallSource',
       INSTALL_SOURCE_FEATURED_COLLECTION,
     );
+    sinon.assert.called(_isFeaturedCollection);
   });
 
   it('renders a sort card', () => {
