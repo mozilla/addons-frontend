@@ -33,7 +33,7 @@ import {
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
   INSTALL_SOURCE_COLLECTION,
-  INSTALL_SOURCE_HOME_COLLECTION,
+  INSTALL_SOURCE_FEATURED_COLLECTION,
   MOZILLA_COLLECTIONS_EDIT,
   MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
@@ -490,7 +490,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     const addonInstallSource =
       collection && _isFeaturedCollection(collection)
-        ? INSTALL_SOURCE_HOME_COLLECTION
+        ? INSTALL_SOURCE_FEATURED_COLLECTION
         : INSTALL_SOURCE_COLLECTION;
 
     return (
