@@ -3,7 +3,7 @@ import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe('amo/actions/featured/getFeatured', () => {
-  function getActionArgs(args = {}) {
+  function getAddonTypeForActionArgs(args = {}) {
     const errorHandler = createStubErrorHandler();
     return {
       addonType: ADDON_TYPE_EXTENSION,
@@ -14,7 +14,7 @@ describe('amo/actions/featured/getFeatured', () => {
 
   it('sets the filters', () => {
     const action = getFeatured(
-      getActionArgs({
+      getAddonTypeForActionArgs({
         errorHandlerId: 'some-id',
         addonType: ADDON_TYPE_THEME,
       }),
@@ -26,13 +26,13 @@ describe('amo/actions/featured/getFeatured', () => {
   });
 
   it('throws if no addonType is set', () => {
-    const args = getActionArgs();
+    const args = getAddonTypeForActionArgs();
     delete args.addonType;
     expect(() => getFeatured(args)).toThrowError('addonType must be set');
   });
 
   it('throws if no errorHandler is set', () => {
-    const args = getActionArgs();
+    const args = getAddonTypeForActionArgs();
     delete args.errorHandlerId;
     expect(() => getFeatured(args)).toThrowError('errorHandlerId must be set');
   });

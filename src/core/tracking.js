@@ -167,7 +167,7 @@ export class Tracking {
   }
 }
 
-export function getAction(type) {
+export function getAddonTypeForAction(type) {
   return (
     {
       [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
@@ -179,26 +179,18 @@ export function getAction(type) {
 }
 
 export const getAddonEventCategory = (type, installAction) => {
-  let category;
   const isTheme = ADDON_TYPE_THEMES.includes(type);
 
   switch (installAction) {
     case INSTALL_STARTED_ACTION:
-      category = isTheme
+      return isTheme
         ? INSTALL_THEME_STARTED_CATEGORY
         : INSTALL_EXTENSION_STARTED_CATEGORY;
-      break;
     case UNINSTALL_ACTION:
-      category = isTheme
-        ? UNINSTALL_THEME_CATEGORY
-        : UNINSTALL_EXTENSION_CATEGORY;
-      break;
+      return isTheme ? UNINSTALL_THEME_CATEGORY : UNINSTALL_EXTENSION_CATEGORY;
     default:
-      category = isTheme ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
-      break;
+      return isTheme ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
   }
-
-  return category;
 };
 
 export default new Tracking();

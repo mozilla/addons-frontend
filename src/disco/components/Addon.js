@@ -31,7 +31,7 @@ import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByGUID } from 'core/reducers/addons';
 import themeAction from 'core/themePreview';
-import tracking, { getAction } from 'core/tracking';
+import tracking, { getAddonTypeForAction } from 'core/tracking';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
@@ -214,7 +214,7 @@ export class AddonBase extends React.Component {
 
     if (e.target.nodeName.toLowerCase() === 'a') {
       _tracking.sendEvent({
-        action: getAction(type),
+        action: getAddonTypeForAction(type),
         category: CLICK_CATEGORY,
         label: name,
       });

@@ -1,10 +1,28 @@
 /* global window */
-import { Tracking, isDoNotTrackEnabled, getAction } from 'core/tracking';
+import {
+  Tracking,
+  isDoNotTrackEnabled,
+  getAddonEventCategory,
+  getAddonTypeForAction,
+} from 'core/tracking';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  INSTALL_ACTION,
+  INSTALL_THEME_CATEGORY,
+  INSTALL_EXTENSION_CATEGORY,
+  INSTALL_STARTED_ACTION,
+  INSTALL_THEME_STARTED_CATEGORY,
+  INSTALL_EXTENSION_STARTED_CATEGORY,
   TRACKING_TYPE_EXTENSION,
+  TRACKING_TYPE_INVALID,
+  TRACKING_TYPE_STATIC_THEME,
   TRACKING_TYPE_THEME,
+  UNINSTALL_ACTION,
+  UNINSTALL_THEME_CATEGORY,
+  UNINSTALL_EXTENSION_CATEGORY,
 } from 'core/constants';
 
 describe('Tracking', () => {
@@ -150,17 +168,89 @@ describe('Tracking', () => {
   });
 });
 
-describe('getAction', () => {
+describe('getAddonTypeForAction', () => {
   it('returns addon for TYPE_EXTENSION', () => {
-    expect(getAction(ADDON_TYPE_EXTENSION)).toEqual(TRACKING_TYPE_EXTENSION);
+    expect(getAddonTypeForAction(ADDON_TYPE_EXTENSION)).toEqual(
+      TRACKING_TYPE_EXTENSION,
+    );
+  });
+
+  it('returns addon for TYPE_OPENSEARCH', () => {
+    expect(getAddonTypeForAction(ADDON_TYPE_OPENSEARCH)).toEqual(
+      TRACKING_TYPE_EXTENSION,
+    );
   });
 
   it('returns theme for TYPE_THEME', () => {
-    expect(getAction(ADDON_TYPE_THEME)).toEqual(TRACKING_TYPE_THEME);
+    expect(getAddonTypeForAction(ADDON_TYPE_THEME)).toEqual(
+      TRACKING_TYPE_THEME,
+    );
+  });
+
+  it('returns addon:statictheme for TYPE_STATIC_THEME', () => {
+    expect(getAddonTypeForAction(ADDON_TYPE_STATIC_THEME)).toEqual(
+      TRACKING_TYPE_STATIC_THEME,
+    );
   });
 
   it('returns invalid for unknown type', () => {
-    expect(getAction('whatever')).toEqual('invalid');
+    expect(getAddonTypeForAction('whatever')).toEqual(TRACKING_TYPE_INVALID);
+  });
+});
+
+describe('getAddonEventCategory', () => {
+  it('returns Addon install started category if type is a extension', () => {
+    expect(
+      getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_STARTED_ACTION),
+    ).toEqual(INSTALL_EXTENSION_STARTED_CATEGORY);
+  });
+
+  it('returns Theme install started category if type is a lightweight theme', () => {
+    expect(
+      getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_STARTED_ACTION),
+    ).toEqual(INSTALL_THEME_STARTED_CATEGORY);
+  });
+
+  it('returns Theme install started category if type is a static theme', () => {
+    expect(
+      getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_STARTED_ACTION),
+    ).toEqual(INSTALL_THEME_STARTED_CATEGORY);
+  });
+
+  it('returns Addon uninstall category if type is an extension', () => {
+    expect(
+      getAddonEventCategory(ADDON_TYPE_EXTENSION, UNINSTALL_ACTION),
+    ).toEqual(UNINSTALL_EXTENSION_CATEGORY);
+  });
+
+  it('returns Theme uninstall category if type is a lightweight theme', () => {
+    expect(getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION)).toEqual(
+      UNINSTALL_THEME_CATEGORY,
+    );
+  });
+
+  it('returns Theme uninstall category if type is a static theme', () => {
+    expect(
+      getAddonEventCategory(ADDON_TYPE_STATIC_THEME, UNINSTALL_ACTION),
+    ).toEqual(UNINSTALL_THEME_CATEGORY);
+  });
+
+  it('returns Addon install category if type is a extension', () => {
+    expect(getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION)).toEqual(
+      INSTALL_EXTENSION_CATEGORY,
+    );
+  });
+
+  it('returns Theme install category if type is a lightweight theme', () => {
+    expect(getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_ACTION)).toEqual(
+      INSTALL_THEME_CATEGORY,
+    );
+  });
+
+  it('returns Theme install category if type is a static theme', () => {
+    expect(
+      getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_ACTION),
+    ).toEqual(INSTALL_THEME_CATEGORY);
   });
 });
 

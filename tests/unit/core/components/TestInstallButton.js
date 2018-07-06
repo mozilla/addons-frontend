@@ -26,7 +26,7 @@ import {
 import { getAddonIconUrl } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
 import * as themePreview from 'core/themePreview';
-import { getAction, getAddonEventCategory } from 'core/tracking';
+import { getAddonTypeForAction, getAddonEventCategory } from 'core/tracking';
 import {
   createFakeEvent,
   createFakeMozWindow,
@@ -399,7 +399,7 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getAction(ADDON_TYPE_EXTENSION),
+      action: getAddonTypeForAction(ADDON_TYPE_EXTENSION),
       category: getAddonEventCategory(
         ADDON_TYPE_EXTENSION,
         INSTALL_STARTED_ACTION,
@@ -430,7 +430,7 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getAction(ADDON_TYPE_OPENSEARCH),
+      action: getAddonTypeForAction(ADDON_TYPE_OPENSEARCH),
       category: getAddonEventCategory(
         ADDON_TYPE_OPENSEARCH,
         INSTALL_STARTED_ACTION,
@@ -499,7 +499,7 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getAction(ADDON_TYPE_EXTENSION),
+      action: getAddonTypeForAction(ADDON_TYPE_EXTENSION),
       category: getAddonEventCategory(
         ADDON_TYPE_EXTENSION,
         INSTALL_STARTED_ACTION,
@@ -514,7 +514,7 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getAction(ADDON_TYPE_EXTENSION),
+      action: getAddonTypeForAction(ADDON_TYPE_EXTENSION),
       category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
       label: addon.name,
     });
