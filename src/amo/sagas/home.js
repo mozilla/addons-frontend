@@ -3,7 +3,10 @@ import { oneLine } from 'common-tags';
 
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { getCollectionAddons } from 'amo/api/collections';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_ADDON_COUNT,
+  LANDING_PAGE_THEME_ADDON_COUNT,
+} from 'amo/constants';
 import { FETCH_HOME_ADDONS, loadHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
@@ -68,6 +71,7 @@ export function* fetchHomeAddons({
     filters: {
       addonType: ADDON_TYPE_THEME,
       ...featuredSearchFilters,
+      page_size: LANDING_PAGE_THEME_ADDON_COUNT,
     },
   };
 

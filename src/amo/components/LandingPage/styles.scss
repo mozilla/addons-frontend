@@ -10,6 +10,14 @@
   }
 }
 
+.LandingPage--theme {
+  .Card-contents {
+    .AddonsCard-list {
+      grid-template-columns: repeat(3, 33%);
+    }
+  }
+}
+
 .LandingPage-header {
   background-color: $white;
   border-radius: $border-radius-default;

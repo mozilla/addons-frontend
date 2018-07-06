@@ -55,16 +55,39 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     let imageURL = iconURL;
 
+    const imageAtts = {};
+
     if (isTheme) {
+      const hasPreviews = addon.previews.length;
+      // Since only newly created static themes will have more than one preview
+      // we will set up a fallback for now.
+      const previewFallback = hasPreviews && addon.previews[0];
+      const previewSearch = hasPreviews && addon.previews[1];
+      const previewImage = previewSearch || previewFallback;
+
       let themeURL =
-        addon &&
-        addon.previews &&
-        addon.previews.length > 0 &&
-        isAllowedOrigin(addon.previews[0].image_url)
-          ? addon.previews[0].image_url
+        previewImage && isAllowedOrigin(previewImage.thumbnail_url)
+          ? previewImage.thumbnail_url
           : null;
 
-      if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
+      if (previewSearch) {
+        const themeURLLarge =
+          previewImage && isAllowedOrigin(previewImage.image_url)
+            ? previewImage.image_url
+            : null;
+
+        if (themeURLLarge) {
+          const imageSize = previewImage.image_size[0];
+          const thumbSize = previewImage.thumbnail_size[0];
+          if (imageSize && thumbSize) {
+            // If viewing on retina, it should only show the larger size with
+            // the current widths available
+            imageAtts.srcSet = `${themeURL} ${thumbSize}w, ${themeURLLarge} ${imageSize}w`;
+          }
+        }
+      }
+
+      if (!themeURL && addon.type === ADDON_TYPE_THEME) {
         themeURL =
           addon.themeData && isAllowedOrigin(addon.themeData.previewURL)
             ? addon.themeData.previewURL
@@ -109,7 +132,12 @@ export class SearchResultBase extends React.Component<InternalProps> {
       <div className="SearchResult-result">
         <div className={iconWrapperClassnames}>
           {imageURL ? (
-            <img className="SearchResult-icon" src={imageURL} alt="" />
+            <img
+              className="SearchResult-icon"
+              src={imageURL}
+              alt=""
+              {...imageAtts}
+            />
           ) : (
             <p className="SearchResult-notheme">
               {i18n.gettext('No theme preview available')}

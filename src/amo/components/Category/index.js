@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unused-prop-types */
+import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
 import config from 'config';
 import * as React from 'react';
@@ -29,6 +30,7 @@ import {
   apiAddonType,
   apiAddonTypeIsValid,
   getAddonTypeFilter,
+  isTheme,
 } from 'core/utils';
 
 import './styles.scss';
@@ -251,7 +253,11 @@ export class CategoryBase extends React.Component {
     const { html } = this.contentForType(addonType);
 
     return (
-      <div className="Category">
+      <div
+        className={makeClassName('Category', {
+          'Category--theme': isTheme(addonType),
+        })}
+      >
         {category && (
           <Helmet>
             <title>{`${category.name} – ${html.title}`}</title>

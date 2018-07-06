@@ -147,10 +147,9 @@ export class AddonBase extends React.Component {
     const { addon, i18n } = this.props;
 
     if (this.addonIsTheme()) {
-      let previewURL =
-        addon.previews.length > 0 && addon.previews[0].image_url
-          ? addon.previews[0].image_url
-          : null;
+      const previewHeader = addon.previews.length && addon.previews[0];
+      let previewURL = previewHeader.thumbnail_url || null;
+      const previewURLLarge = previewHeader.image_url || null;
 
       const label = addon
         ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
@@ -164,11 +163,24 @@ export class AddonBase extends React.Component {
         previewURL = addon.previewURL;
       }
 
+      const imageAtts = {};
+      if (previewURLLarge) {
+        const imageSize = previewHeader.image_size[0];
+        const thumbSize = previewHeader.thumbnail_size[0];
+        if (imageSize && thumbSize) {
+          // If viewing on retina, it should only show the larger size with
+          // the current widths available
+          imageAtts.srcSet = `${previewURL} ${thumbSize}w, ${previewURLLarge} ${imageSize}w`;
+        }
+      }
+
+      const imageClassName = 'Addon-theme-header-image';
       const headerImage = (
         <img
           alt={label}
-          className="Addon-theme-header-image"
+          className={imageClassName}
           src={previewURL}
+          {...imageAtts}
         />
       );
 

@@ -6,7 +6,10 @@ import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import { loadLanding } from 'amo/actions/landing';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_ADDON_COUNT,
+  LANDING_PAGE_THEME_ADDON_COUNT,
+} from 'amo/constants';
 import { search as searchApi } from 'core/api/search';
 import {
   LANDING_GET,
@@ -16,6 +19,7 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import { isTheme } from 'core/utils';
 
 export function* fetchLandingAddons({
   payload: { addonType, category, errorHandlerId },
@@ -24,9 +28,14 @@ export function* fetchLandingAddons({
   try {
     const state = yield select(getState);
     const { api } = state;
+
+    let pageSize = isTheme(addonType)
+      ? LANDING_PAGE_THEME_ADDON_COUNT
+      : LANDING_PAGE_ADDON_COUNT;
+
     const filters = {
       addonType,
-      page_size: LANDING_PAGE_ADDON_COUNT,
+      page_size: pageSize,
     };
 
     if (category) {

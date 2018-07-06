@@ -27,6 +27,7 @@ import {
   apiAddonType,
   apiAddonTypeIsValid,
   getAddonTypeFilter,
+  isTheme,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -230,7 +231,9 @@ export class LandingPageBase extends React.Component {
 
     return (
       <div
-        className={makeClassName('LandingPage', `LandingPage--${addonType}`)}
+        className={makeClassName('LandingPage', `LandingPage--${addonType}`, {
+          'LandingPage--theme': isTheme(addonType),
+        })}
       >
         <Helmet>
           <title>{headingText[addonType]}</title>
