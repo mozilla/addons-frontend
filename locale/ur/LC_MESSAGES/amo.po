@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-06 18:02+0000\n"
+"PO-Revision-Date: 2018-07-06 18:05+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -1319,7 +1319,7 @@ msgstr "%(addonType)s کے بارے میں"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "اجازتوں کے بارے میں مزید سیکھیں"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
@@ -1359,7 +1359,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
-msgstr ""
+msgstr "اپنے محل وقوع تک رسائی کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 #, fuzzy
@@ -1392,11 +1392,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "حالیہ بند کی گئی ٹیبیں تک رسائی"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
-msgstr ""
+msgstr "براؤزر کے ٹیب کی رسائی"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
