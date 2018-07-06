@@ -33,6 +33,8 @@ import {
   COLLECTION_SORT_NAME,
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
+  INSTALL_SOURCE_COLLECTION,
+  INSTALL_SOURCE_HOME_COLLECTION,
   MOZILLA_COLLECTIONS_EDIT,
   MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
@@ -662,6 +664,48 @@ describe(__filename, () => {
     );
     expect(paginator).toHaveProp('queryParams', queryParams);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+  });
+
+  it('declares an install source for non-featured collections', () => {
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
+
+    const wrapper = renderComponent({
+      store,
+      _isFeaturedCollection: () => false,
+    });
+
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'addonInstallSource',
+      INSTALL_SOURCE_COLLECTION,
+    );
+  });
+
+  it('declares an install source for featured collections', () => {
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: defaultCollectionDetail,
+      }),
+    );
+
+    const wrapper = renderComponent({
+      store,
+      _isFeaturedCollection: () => true,
+    });
+
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'addonInstallSource',
+      INSTALL_SOURCE_HOME_COLLECTION,
+    );
   });
 
   it('renders a sort card', () => {
