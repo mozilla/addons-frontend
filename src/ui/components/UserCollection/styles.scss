@@ -3,7 +3,12 @@
 @import "~ui/css/vars";
 
 .CardList ul > li.UserCollection {
-  padding: 0 $padding-page-l;
+  padding: 4px $padding-page-l;
+
+  @include respond-to(large) {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
 }
 
 .UserCollection {
@@ -22,7 +27,6 @@
   flex-grow: 1;
   font-size: $font-size-default;
   margin: 0;
-  padding-top: 4px;
   width: 100%;
   word-wrap: break-word;
 
@@ -34,7 +38,6 @@
 
   @include respond-to(large) {
     margin-top: 12px;
-    padding-top: 0;
   }
 }
 
@@ -44,10 +47,4 @@
   color: $grey-50;
   font-size: $font-size-m-smaller;
   margin: 0;
-  padding-bottom: 4px;
-
-  @include respond-to(large) {
-    margin-top: 12px;
-    padding-bottom: 0;
-  }
 }
