@@ -834,15 +834,15 @@ describe(__filename, () => {
   });
 
   describe('isTheme', () => {
-    it("returns true if type it's a lightweight theme", () => {
+    it('returns true if type is a lightweight theme', () => {
       expect(isTheme(ADDON_TYPE_THEME)).toEqual(true);
     });
 
-    it("returns true if type it's a static theme", () => {
+    it('returns true if type is a static theme', () => {
       expect(isTheme(ADDON_TYPE_STATIC_THEME)).toEqual(true);
     });
 
-    it("returns false if type it's an extension", () => {
+    it('returns false if type is an extension', () => {
       expect(isTheme(ADDON_TYPE_EXTENSION)).toEqual(false);
     });
   });

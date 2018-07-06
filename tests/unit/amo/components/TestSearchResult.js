@@ -157,7 +157,6 @@ describe(__filename, () => {
     );
   });
 
-  // TODO: This can be removed once migration happens.
   it('displays srcSet values if preview has multiple images', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -173,7 +172,7 @@ describe(__filename, () => {
   });
 
   // TODO: This can be removed once migration happens.
-  it('displays fallback image for older themes that only had 1 preview option', () => {
+  it('displays fallback image for older themes that only have 1 preview option', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
