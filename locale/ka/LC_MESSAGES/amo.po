@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-06 22:17+0000\n"
+"PO-Revision-Date: 2018-07-06 22:26+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -462,7 +462,7 @@ msgstr "Firefox-ის დამატებები"
 
 #: src/amo/components/App/index.js:208
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - Firefox-ის დამატებები"
+msgstr "%s – Firefox-ის დამატებები"
 
 #: src/amo/components/App/index.js:211 src/amo/components/SectionLinks/index.js:139
 msgid "Add-ons for Android"
@@ -470,7 +470,7 @@ msgstr "დამატებები Android-ისთვის"
 
 #: src/amo/components/App/index.js:212
 msgid "%s – Add-ons for Android"
-msgstr "%s - დამატებები Android-ისთვის"
+msgstr "%s – დამატებები Android-ისთვის"
 
 #: src/amo/components/AutoSearchInput/index.js:212
 msgid "Loading"
