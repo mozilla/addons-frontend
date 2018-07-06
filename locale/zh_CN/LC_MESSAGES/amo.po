@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-06 19:49+0000\n"
+"PO-Revision-Date: 2018-07-06 19:52+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2041,13 +2041,13 @@ msgstr "重要：注销此账号后无法撤销操作。"
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
-msgstr "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。您的评分与评论等其他数据将被匿名化处理，并无法再被编辑。"
+msgstr "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。您的评价与评分数据将被匿名化处理，并且无法再编辑。"
 
 #: src/amo/components/UserProfileEdit/index.js:781
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
-msgstr "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。评分与评论等其他数据将被匿名化处理，并无法再被编辑。"
+msgstr "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。评价与评分数据将被匿名化处理，并且无法再编辑。"
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
@@ -2057,7 +2057,7 @@ msgstr "%(strongStart)s注意：%(strongEnd)s如果您是%(linkStart)s任何附�
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)s注意：%(strongEnd)s您无法注销%(linkStart)s任何附加组件之作者%(linkEnd)s的账号。"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
