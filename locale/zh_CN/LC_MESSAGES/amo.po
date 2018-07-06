@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 01:27+0000\n"
-"Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
+"PO-Revision-Date: 2018-07-06 04:47+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -561,15 +561,15 @@ msgstr "浏览此分类中的所有主题。"
 
 #: src/amo/components/Collection/index.js:160
 msgid "Newest first"
-msgstr ""
+msgstr "最新在前"
 
 #: src/amo/components/Collection/index.js:164
 msgid "Oldest first"
-msgstr ""
+msgstr "最早在前"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: src/amo/components/Collection/index.js:172
 msgid "Popularity"
@@ -613,7 +613,7 @@ msgstr "在您的收藏集中搜索扩展和主题。"
 
 #: src/amo/components/Collection/index.js:496
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "排序附加组件，按"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -625,7 +625,7 @@ msgstr "登录以查看您的收藏集"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "收藏集可以方便存下您喜欢的附加组件，让您可以与朋友分享彰显您个性的浏览器。"
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
@@ -1053,7 +1053,7 @@ msgstr "View Page Archive & Cache"
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "查找旧网页归档版本的强大工具"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Black Menu for Google"
@@ -1093,7 +1093,7 @@ msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:143
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "以可视化的形式摆放您喜欢的网站"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "PrivacyBadger"
@@ -2031,11 +2031,11 @@ msgstr "删除这个账户"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "重要：注销您的账户后无法撤销操作。"
 
 #: src/amo/components/UserProfileEdit/index.js:765
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "重要：注销此账号后无法撤销操作。"
 
 #: src/amo/components/UserProfileEdit/index.js:774
 #, fuzzy
@@ -2055,7 +2055,7 @@ msgstr "若您确认要进行这个%(startStrong)s不可撤销的操作%(endStro
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
-msgstr ""
+msgstr "%(strongStart)s注意：%(strongEnd)s如果您是%(linkStart)s任何附加组件的作者%(linkEnd)s，则无法注销您的账户。 要注销帐户，您必须先%(docLinkStart)s转移附加组件的所有权%(docLinkEnd)s或删除附加组件。"
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
