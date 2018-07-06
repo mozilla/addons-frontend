@@ -36,6 +36,7 @@ import {
   getClientConfig,
   isAddonAuthor,
   isAllowedOrigin,
+  isTheme,
   isValidClientApp,
   ngettext,
   nl2br,
@@ -829,6 +830,20 @@ describe(__filename, () => {
       const filename = 'src/file.js';
 
       expect(normalizeFileNameId(filename)).toEqual(filename);
+    });
+  });
+
+  describe('isTheme', () => {
+    it("returns true if type it's a lightweight theme", () => {
+      expect(isTheme(ADDON_TYPE_THEME)).toEqual(true);
+    });
+
+    it("returns true if type it's a static theme", () => {
+      expect(isTheme(ADDON_TYPE_STATIC_THEME)).toEqual(true);
+    });
+
+    it("returns false if type it's an extension", () => {
+      expect(isTheme(ADDON_TYPE_EXTENSION)).toEqual(false);
     });
   });
 });

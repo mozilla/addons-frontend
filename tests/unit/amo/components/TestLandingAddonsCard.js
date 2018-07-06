@@ -3,7 +3,17 @@ import { shallow } from 'enzyme';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_ADDON_COUNT,
+  LANDING_PAGE_THEME_ADDON_COUNT,
+} from 'amo/constants';
+
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
+} from 'core/constants';
+
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
@@ -62,6 +72,48 @@ describe(__filename, () => {
   it('sets the number of placeholders to render while loading', () => {
     const root = render({ loading: true });
     expect(root).toHaveProp('placeholderCount', LANDING_PAGE_ADDON_COUNT);
+  });
+
+  it('sets the correct number of placeholders for theme types', () => {
+    const root = render({
+      footerLink: {
+        pathname: '/some-path/',
+        query: { addonType: ADDON_TYPE_THEMES_FILTER },
+      },
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      LANDING_PAGE_THEME_ADDON_COUNT,
+    );
+  });
+
+  it('sets the correct number of placeholders for lightweight theme type', () => {
+    const root = render({
+      footerLink: {
+        pathname: '/some-path/',
+        query: { addonType: ADDON_TYPE_THEME },
+      },
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      LANDING_PAGE_THEME_ADDON_COUNT,
+    );
+  });
+
+  it('sets the correct number of placeholders for an extension type', () => {
+    const root = render({
+      footerLink: {
+        pathname: '/some-path/',
+        query: { addonType: ADDON_TYPE_EXTENSION },
+      },
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      LANDING_PAGE_ADDON_COUNT,
+    );
   });
 
   it('hides the footer link when less add-ons than placeholderCount', () => {

@@ -876,7 +876,7 @@ describe(__filename, () => {
     expect(image.type()).toEqual('img');
     expect(image).toHaveClassName('Addon-theme-header-image');
     expect(image.prop('src')).toEqual(
-      'https://addons.cdn.mozilla.net/123/image.png',
+      'https://addons.cdn.mozilla.net/7123/image.png',
     );
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
@@ -892,7 +892,7 @@ describe(__filename, () => {
     expect(image.type()).toEqual('img');
     expect(image).toHaveClassName('Addon-theme-header-image');
     expect(image.prop('src')).toEqual(
-      'https://addons.cdn.mozilla.net/123/image.png',
+      'https://addons.cdn.mozilla.net/7123/image.png',
     );
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });

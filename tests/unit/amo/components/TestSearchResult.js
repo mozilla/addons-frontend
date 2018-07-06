@@ -144,6 +144,50 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchResult--theme');
   });
 
+  it('displays the thumbnail image as the default src for static theme', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const root = render({ addon });
+    const image = root.find('.SearchResult-icon');
+
+    expect(image.prop('src')).toEqual(
+      'https://addons.cdn.mozilla.net/4444/image.png',
+    );
+  });
+
+  // TODO: This can be removed once migration happens.
+  it('displays srcSet values if preview has multiple images', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+
+    const root = render({ addon });
+    const image = root.find('.SearchResult-icon');
+
+    expect(image.prop('srcSet')).toEqual(
+      'https://addons.cdn.mozilla.net/4444/image.png 200w, https://addons.cdn.mozilla.net/55555/image.png 400w',
+    );
+  });
+
+  // TODO: This can be removed once migration happens.
+  it('displays fallback image for older themes that only had 1 preview option', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    delete addon.previews[1];
+
+    const root = render({ addon });
+    const image = root.find('.SearchResult-icon');
+
+    expect(image.prop('src')).toEqual(
+      'https://addons.cdn.mozilla.net/7123/image.png',
+    );
+  });
+
   it('displays a message if the lightweight theme preview image is unavailable', () => {
     const addon = createInternalAddon({
       ...fakeAddon,

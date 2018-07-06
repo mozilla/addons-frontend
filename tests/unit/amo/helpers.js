@@ -98,6 +98,14 @@ export const fakeAddon = Object.freeze({
       image_size: [400, 200],
       thumbnail_size: [200, 100],
     },
+    {
+      id: 1234779,
+      caption: 'Chillin out',
+      image_url: 'https://addons.cdn.mozilla.net/55555/image.png',
+      thumbnail_url: 'https://addons.cdn.mozilla.net/4444/image.png',
+      image_size: [400, 200],
+      thumbnail_size: [200, 100],
+    },
   ],
   public_stats: true,
   ratings: {

@@ -1,7 +1,10 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as collectionsApi from 'amo/api/collections';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_ADDON_COUNT,
+  LANDING_PAGE_THEME_ADDON_COUNT,
+} from 'amo/constants';
 import homeReducer, {
   fetchHomeAddons,
   loadHomeAddons,
@@ -110,6 +113,7 @@ describe(__filename, () => {
           ...baseArgs,
           filters: {
             ...baseFilters,
+            page_size: LANDING_PAGE_THEME_ADDON_COUNT,
             addonType: ADDON_TYPE_THEME,
             featured: true,
             sort: SEARCH_SORT_RANDOM,
@@ -204,6 +208,7 @@ describe(__filename, () => {
             ...baseArgs,
             filters: {
               ...baseFilters,
+              page_size: LANDING_PAGE_THEME_ADDON_COUNT,
               addonType: ADDON_TYPE_THEME,
               featured: true,
               sort: SEARCH_SORT_RANDOM,
