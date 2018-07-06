@@ -7,13 +7,11 @@ import {
   LANDING_PAGE_ADDON_COUNT,
   LANDING_PAGE_THEME_ADDON_COUNT,
 } from 'amo/constants';
-
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
-
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 

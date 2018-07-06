@@ -29,7 +29,7 @@ export function* fetchLandingAddons({
     const state = yield select(getState);
     const { api } = state;
 
-    let pageSize = isTheme(addonType)
+    const pageSize = isTheme(addonType)
       ? LANDING_PAGE_THEME_ADDON_COUNT
       : LANDING_PAGE_ADDON_COUNT;
 
