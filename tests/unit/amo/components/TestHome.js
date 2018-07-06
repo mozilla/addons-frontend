@@ -1,10 +1,15 @@
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import Home, { COLLECTIONS_TO_FETCH, HomeBase } from 'amo/components/Home';
+import Home, {
+  FEATURED_COLLECTIONS,
+  HomeBase,
+  isFeaturedCollection,
+} from 'amo/components/Home';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
+import { createInternalCollection } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
@@ -25,6 +30,7 @@ import {
   createAddonsApiResult,
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
+  createFakeCollectionDetail,
   dispatchClientMetadata,
   fakeAddon,
   fakeTheme,
@@ -67,8 +73,8 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('footerText', 'See more translation tools');
     expect(shelf).toHaveProp(
       'footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[0].username}/${
-        COLLECTIONS_TO_FETCH[0].slug
+      `/collections/${FEATURED_COLLECTIONS[0].username}/${
+        FEATURED_COLLECTIONS[0].slug
       }/`,
     );
     expect(shelf).toHaveProp('loading', true);
@@ -84,8 +90,8 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('footerText', 'See more privacy extensions');
     expect(shelf).toHaveProp(
       'footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[1].username}/${
-        COLLECTIONS_TO_FETCH[1].slug
+      `/collections/${FEATURED_COLLECTIONS[1].username}/${
+        FEATURED_COLLECTIONS[1].slug
       }/`,
     );
     expect(shelf).toHaveProp('loading', true);
@@ -101,8 +107,8 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('footerText', 'See more tab extensions');
     expect(shelf).toHaveProp(
       'footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[2].username}/${
-        COLLECTIONS_TO_FETCH[2].slug
+      `/collections/${FEATURED_COLLECTIONS[2].username}/${
+        FEATURED_COLLECTIONS[2].slug
       }/`,
     );
     expect(shelf).toHaveProp('loading', true);
@@ -234,7 +240,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
-        collectionsToFetch: COLLECTIONS_TO_FETCH,
+        collectionsToFetch: FEATURED_COLLECTIONS,
       }),
     );
   });
@@ -353,5 +359,86 @@ describe(__filename, () => {
 
     const root = render({ errorHandler, store });
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  describe('isFeaturedCollection', () => {
+    const createCollection = (details = {}) => {
+      return createInternalCollection({
+        detail: createFakeCollectionDetail(details),
+        items: createFakeCollectionAddons(),
+      });
+    };
+
+    it('returns true for a featured collection', () => {
+      const slug = 'privacy-matters';
+      const username = 'mozilla';
+
+      const featuredCollections = [{ slug, username }];
+
+      const collection = createCollection({ slug, authorUsername: username });
+
+      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
+        true,
+      );
+    });
+
+    it('returns false for a non-featured collection', () => {
+      const featuredCollections = [
+        { slug: 'privacy-matters', username: 'mozilla' },
+      ];
+
+      const collection = createCollection({ slug: 'another-collection' });
+
+      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
+        false,
+      );
+    });
+
+    it('returns true for one of many featured collections', () => {
+      const slug = 'privacy-matters';
+      const username = 'mozilla';
+
+      const featuredCollections = [
+        { slug: 'first', username: 'first-author' },
+        { slug: 'second', username: 'second-author' },
+        { slug, username },
+      ];
+
+      const collection = createCollection({ slug, authorUsername: username });
+
+      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
+        true,
+      );
+    });
+
+    it('returns false for a matching slug, wrong author', () => {
+      const slug = 'privacy-matters';
+
+      const featuredCollections = [{ slug, username: 'mozilla' }];
+
+      const collection = createCollection({
+        slug,
+        authorUsername: 'another-author',
+      });
+
+      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
+        false,
+      );
+    });
+
+    it('returns false for a matching author, wrong slug', () => {
+      const username = 'mozilla';
+
+      const featuredCollections = [{ slug: 'privacy-matters', username }];
+
+      const collection = createCollection({
+        slug: 'another-collection',
+        authorUsername: username,
+      });
+
+      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
+        false,
+      );
+    });
   });
 });

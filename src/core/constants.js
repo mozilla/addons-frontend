@@ -109,7 +109,8 @@ export const TRACKING_TYPE_INVALID = 'invalid';
 // Add-on install tracking sources.
 // These key values may be linked to historic analytic data.
 export const INSTALL_SOURCE_COLLECTION = 'collection';
-export const INSTALL_SOURCE_HOME_COLLECTION = 'homepage-collection-featured';
+export const INSTALL_SOURCE_FEATURED_COLLECTION =
+  'homepage-collection-featured';
 export const INSTALL_SOURCE_DETAIL_PAGE = 'dp-btn-primary';
 export const INSTALL_SOURCE_DISCOVERY = 'discovery-promo';
 export const INSTALL_SOURCE_FEATURED = 'featured';

@@ -14,7 +14,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_HOME_COLLECTION,
+  INSTALL_SOURCE_FEATURED_COLLECTION,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -25,11 +25,23 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-export const COLLECTIONS_TO_FETCH = [
+export const FEATURED_COLLECTIONS = [
   { slug: 'translation-tools', username: 'mozilla' },
   { slug: 'privacy-matters', username: 'mozilla' },
   { slug: 'change-up-your-tabs', username: 'mozilla' },
 ];
+
+export const isFeaturedCollection = (
+  collection,
+  { featuredCollections = FEATURED_COLLECTIONS } = {},
+) => {
+  return featuredCollections.some((featured) => {
+    return (
+      featured.slug === collection.slug &&
+      featured.username === collection.authorUsername
+    );
+  });
+};
 
 export class HomeBase extends React.Component {
   static propTypes = {
@@ -56,7 +68,7 @@ export class HomeBase extends React.Component {
       dispatch(
         fetchHomeAddons({
           errorHandlerId: errorHandler.id,
-          collectionsToFetch: COLLECTIONS_TO_FETCH,
+          collectionsToFetch: FEATURED_COLLECTIONS,
         }),
       );
     }
@@ -217,13 +229,13 @@ export class HomeBase extends React.Component {
 
         {(loading || collections[0]) && (
           <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
+            addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
             addons={collections[0]}
             className="Home-FeaturedCollection"
             header={i18n.gettext('Translation tools')}
             footerText={i18n.gettext('See more translation tools')}
-            footerLink={`/collections/${COLLECTIONS_TO_FETCH[0].username}/${
-              COLLECTIONS_TO_FETCH[0].slug
+            footerLink={`/collections/${FEATURED_COLLECTIONS[0].username}/${
+              FEATURED_COLLECTIONS[0].slug
             }/`}
             loading={loading}
           />
@@ -249,13 +261,13 @@ export class HomeBase extends React.Component {
 
         {(loading || collections[1]) && (
           <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
+            addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
             addons={collections[1]}
             className="Home-FeaturedCollection"
             header={i18n.gettext('Privacy matters')}
             footerText={i18n.gettext('See more privacy extensions')}
-            footerLink={`/collections/${COLLECTIONS_TO_FETCH[1].username}/${
-              COLLECTIONS_TO_FETCH[1].slug
+            footerLink={`/collections/${FEATURED_COLLECTIONS[1].username}/${
+              FEATURED_COLLECTIONS[1].slug
             }/`}
             loading={loading}
           />
@@ -263,13 +275,13 @@ export class HomeBase extends React.Component {
 
         {(loading || collections[2]) && (
           <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
+            addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
             addons={collections[2]}
             className="Home-FeaturedCollection"
             header={i18n.gettext('Tame your tabs')}
             footerText={i18n.gettext('See more tab extensions')}
-            footerLink={`/collections/${COLLECTIONS_TO_FETCH[2].username}/${
-              COLLECTIONS_TO_FETCH[2].slug
+            footerLink={`/collections/${FEATURED_COLLECTIONS[2].username}/${
+              FEATURED_COLLECTIONS[2].slug
             }/`}
             loading={loading}
           />

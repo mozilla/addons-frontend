@@ -11,6 +11,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
+import { isFeaturedCollection } from 'amo/components/Home';
 import {
   convertFiltersToQueryParams,
   deleteCollectionAddonNotes,
@@ -32,6 +33,7 @@ import {
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
   INSTALL_SOURCE_COLLECTION,
+  INSTALL_SOURCE_FEATURED_COLLECTION,
   MOZILLA_COLLECTIONS_EDIT,
   MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
@@ -70,6 +72,7 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  _isFeaturedCollection: typeof isFeaturedCollection,
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -101,6 +104,7 @@ export type SaveAddonNoteFunc = (
 export class CollectionBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
+    _isFeaturedCollection: isFeaturedCollection,
     creating: false,
     editing: false,
   };
@@ -449,6 +453,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
   renderCollection() {
     const {
+      _isFeaturedCollection,
       collection,
       creating,
       editing,
@@ -483,6 +488,11 @@ export class CollectionBase extends React.Component<InternalProps> {
           );
     }
 
+    const addonInstallSource =
+      collection && _isFeaturedCollection(collection)
+        ? INSTALL_SOURCE_FEATURED_COLLECTION
+        : INSTALL_SOURCE_COLLECTION;
+
     return (
       <div className="Collection-wrapper">
         <div className="Collection-detail-wrapper">
@@ -516,7 +526,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         <div className="Collection-items">
           {!creating && (
             <AddonsCard
-              addonInstallSource={INSTALL_SOURCE_COLLECTION}
+              addonInstallSource={addonInstallSource}
               addons={addons}
               deleteNote={this.deleteNote}
               editing={editing}
