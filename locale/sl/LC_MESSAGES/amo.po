@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-03 20:12+0000\n"
+"PO-Revision-Date: 2018-07-06 08:56+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -581,7 +581,7 @@ msgstr ""
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: src/amo/components/Collection/index.js:172
 msgid "Popularity"
@@ -2091,11 +2091,11 @@ msgstr "Izbriši ta račun"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "POMEMBNO: brisanja računa ni mogoče razveljaviti."
 
 #: src/amo/components/UserProfileEdit/index.js:765
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "POMEMBNO: brisanja računa ni mogoče razveljaviti."
 
 #: src/amo/components/UserProfileEdit/index.js:774
 #, fuzzy
