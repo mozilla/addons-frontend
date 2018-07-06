@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-06 05:29+0000\n"
-"Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
+"PO-Revision-Date: 2018-07-06 19:49+0000\n"
+"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -573,7 +573,7 @@ msgstr "名称"
 
 #: src/amo/components/Collection/index.js:172
 msgid "Popularity"
-msgstr ""
+msgstr "热门度"
 
 #: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
@@ -737,7 +737,7 @@ msgstr "用户评价"
 
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "添加对此附加组件的评论。"
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
@@ -2038,18 +2038,16 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "重要：注销此账号后无法撤销操作。"
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
-msgstr "若您确认要进行这个%(startStrong)s不可撤销的操作%(endStrong)s，将移除下列数据：头像、详细个人资料（包含用户名、电子邮箱、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。评分与评论等其他数据将被匿名化处理。"
+msgstr "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。您的评分与评论等其他数据将被匿名化处理，并无法再被编辑。"
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
-msgstr "若您确认要进行这个%(startStrong)s不可撤销的操作%(endStrong)s，将移除下列数据：头像、详细个人资料（包含用户名、电子邮箱、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。评分与评论等其他数据将被匿名化处理。"
+msgstr "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。评分与评论等其他数据将被匿名化处理，并无法再被编辑。"
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
