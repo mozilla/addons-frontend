@@ -21,7 +21,8 @@
   color: $black;
   flex-grow: 1;
   font-size: $font-size-default;
-  margin-bottom: 0;
+  margin: 0;
+  padding-top: 4px;
   width: 100%;
   word-wrap: break-word;
 
@@ -30,6 +31,11 @@
   .UserCollection-link:hover & {
     color: $link-color;
   }
+
+  @include respond-to(large) {
+    margin-top: 12px;
+    padding-top: 0;
+  }
 }
 
 .UserCollection-number {
@@ -37,5 +43,11 @@
 
   color: $grey-50;
   font-size: $font-size-m-smaller;
-  margin-top: 0;
+  margin: 0;
+  padding-bottom: 4px;
+
+  @include respond-to(large) {
+    margin-top: 12px;
+    padding-bottom: 0;
+  }
 }
