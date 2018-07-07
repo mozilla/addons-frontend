@@ -444,7 +444,7 @@ export class WithInstallHelpers extends React.Component {
       });
   }
 
-  install({ type }) {
+  install() {
     const {
       _addonManager,
       _tracking,
@@ -453,8 +453,9 @@ export class WithInstallHelpers extends React.Component {
       guid,
       iconUrl,
       location,
-      platformFiles,
       name,
+      platformFiles,
+      type,
       userAgentInfo,
     } = this.props;
 
