@@ -9,6 +9,7 @@ import {
 } from 'amo/constants';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
@@ -72,7 +73,7 @@ describe(__filename, () => {
     expect(root).toHaveProp('placeholderCount', LANDING_PAGE_ADDON_COUNT);
   });
 
-  it('sets the correct number of placeholders for theme types', () => {
+  it('sets the correct number of placeholders for lightweight and static theme types', () => {
     const root = render({
       footerLink: {
         pathname: '/some-path/',
@@ -86,11 +87,25 @@ describe(__filename, () => {
     );
   });
 
-  it('sets the correct number of placeholders for lightweight theme type', () => {
+  it('sets the correct number of placeholders for a lightweight theme type', () => {
     const root = render({
       footerLink: {
         pathname: '/some-path/',
         query: { addonType: ADDON_TYPE_THEME },
+      },
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      LANDING_PAGE_THEME_ADDON_COUNT,
+    );
+  });
+
+  it('sets the correct number of placeholders for a static theme type', () => {
+    const root = render({
+      footerLink: {
+        pathname: '/some-path/',
+        query: { addonType: ADDON_TYPE_STATIC_THEME },
       },
     });
 

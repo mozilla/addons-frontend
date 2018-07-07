@@ -172,11 +172,12 @@ describe(__filename, () => {
   });
 
   // TODO: This can be removed once migration happens.
-  it('displays fallback image for older themes that only have 1 preview option', () => {
+  it('displays a fallback image for themes that only have 1 preview option', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
     });
+
     delete addon.previews[1];
 
     const root = render({ addon });
