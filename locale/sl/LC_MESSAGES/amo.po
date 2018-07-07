@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-06 09:06+0000\n"
+"PO-Revision-Date: 2018-07-07 08:31+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -2098,32 +2098,32 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "POMEMBNO: brisanja računa ni mogoče razveljaviti."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Če potrdite to %(startStrong)snepovratno dejanje%(endStrong)s, bodo naslednji podatki izbrisani: slika profila, podatki o profilu (vključno z uporabniškim imenom, e-poštnim naslovom, prikaznim "
-"imenom, lokacijo, domačo stranjo, življenjepisom, poklicem) in nastavitve obvestil. Ostali podatki, kot so ocene, bodo anonimizirani."
+"Vaši podatki bodo trajno izbrisani, vključno s podrobnostmi o profilu (slika, uporabniško ime, prikazno ime, kraj, domača stran, življenjepis, poklic) in nastavitvami obvestil. Vaše ocene bodo "
+"anonimizirane in jih ne bo več mogoče urediti."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Če potrdite to %(startStrong)snepovratno dejanje%(endStrong)s, bodo naslednji podatki izbrisani: slika profila, podatki o profilu (vključno z uporabniškim imenom, e-poštnim naslovom, prikaznim "
-"imenom, lokacijo, domačo stranjo, življenjepisom, poklicem) in nastavitve obvestil. Ostali podatki, kot so ocene, bodo anonimizirani."
+"Podatki tega uporabnika bodo trajno izbrisani, vključno s podrobnostmi o profilu (slika, uporabniško ime, prikazno ime, kraj, domača stran, življenjepis, poklic) in nastavitvami obvestil. Ocene bodo"
+" anonimizirane in jih ne bo več mogoče urediti."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sOPOMBA:%(strongEnd)s Svojega računa ne morete izbrisati, če ste %(linkStart)savtor katerega od dodatkov%(linkEnd)s. Preden lahko izbrišete račun, morate %(docLinkStart)sprenesti "
+"lastništvo%(docLinkEnd)s ali izbrisati dodatke."
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sOPOMBA:%(strongEnd)s Uporabnikovega računa ne morete izbrisati, če je uporabnik %(linkStart)savtor katerega od dodatkov%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
