@@ -70,19 +70,21 @@ export class SearchResultBase extends React.Component<InternalProps> {
           ? previewImage.thumbnail_url
           : null;
 
+      // Let's only worry about setting up srcset if we have the correct
+      // preview for this.
       if (previewSearch) {
-        const themeURLLarge =
+        const themeUrlLarge =
           previewImage && isAllowedOrigin(previewImage.image_url)
             ? previewImage.image_url
             : null;
 
-        if (themeURLLarge) {
+        if (themeUrlLarge) {
           const imageSize = previewImage.image_size[0];
           const thumbSize = previewImage.thumbnail_size[0];
           if (imageSize && thumbSize) {
             // If viewing on retina, it should only show the larger size with
             // the current widths available
-            imageAtts.srcSet = `${themeURL} ${thumbSize}w, ${themeURLLarge} ${imageSize}w`;
+            imageAtts.srcSet = `${themeURL} ${thumbSize}w, ${themeUrlLarge} ${imageSize}w`;
           }
         }
       }
@@ -135,7 +137,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
             <img
               className="SearchResult-icon"
               src={imageURL}
-              alt=""
+              alt={addon ? `${addon.name}` : ''}
               {...imageAtts}
             />
           ) : (
