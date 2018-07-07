@@ -3,11 +3,11 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 
 describe(__filename, () => {
   describe('LANDING_GET', () => {
-    const getAddonTypeForActionParams = () => ({
+    const getActionParams = () => ({
       addonType: ADDON_TYPE_THEME,
       errorHandlerId: 'some-error-handler',
     });
-    const action = getLanding(getAddonTypeForActionParams());
+    const action = getLanding(getActionParams());
 
     it('sets the type', () => {
       expect(action.type).toEqual('LANDING_GET');
@@ -22,13 +22,13 @@ describe(__filename, () => {
     });
 
     it('throws if no addonType is set', () => {
-      const params = getAddonTypeForActionParams();
+      const params = getActionParams();
       delete params.addonType;
       expect(() => getLanding(params)).toThrowError('addonType must be set');
     });
 
     it('throws if no errorHandlerId is set', () => {
-      const params = getAddonTypeForActionParams();
+      const params = getActionParams();
       delete params.errorHandlerId;
       expect(() => getLanding(params)).toThrowError(
         'errorHandlerId must be set',
@@ -37,7 +37,7 @@ describe(__filename, () => {
 
     it('optionally takes a category', () => {
       const actionWithCategorySet = getLanding({
-        ...getAddonTypeForActionParams(),
+        ...getActionParams(),
         category: 'some-category',
       });
 
