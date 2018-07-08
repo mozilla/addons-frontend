@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-08 10:39+0000\n"
+"PO-Revision-Date: 2018-07-08 11:06+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -2179,18 +2179,16 @@ msgid "Profile photo"
 msgstr "Profilowe foto"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Foto wubraś..."
+msgstr "Foto wubraś…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Cośo napšawdu toś tón wobraz wulašowaś?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "Tutón wobraz wulašowaś"
+msgstr "Toś ten wobraz wulašowaś"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"
