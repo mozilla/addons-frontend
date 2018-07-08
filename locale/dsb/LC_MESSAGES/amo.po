@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-08 10:33+0000\n"
+"PO-Revision-Date: 2018-07-08 10:39+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -2079,23 +2079,20 @@ msgid "Update My Account"
 msgstr "Mójo konto aktualizěrowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Profil wužywarja se aktualizěrujo…"
+msgstr "Toś to konto se aktualizěrujo…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
 msgstr "Toś to konto aktualizěrowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
-#, fuzzy
 msgid "Delete My Account"
-msgstr "Mójo konto"
+msgstr "Mójo konto wulašowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Toś tu zběrku wulašowaś"
+msgstr "Toś to konto wulašowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
@@ -2106,22 +2103,20 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "WAŽNY: Lašowanje toś togo konta njedajo se anulěrowaś."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Jolic toś tu %(startStrong)sireversibelnu akciju%(endStrong)s wobkšuśujośo, se slědujuce daty wótwónoźiju: profilowy wobraz, profilowe drobnostki (inkluziwnje wužywarske mě, e-mailowu adresu, "
-"zwobraznjeńske mě, městno, startowy bok, biografiju, pówołanje) a nastajenja za powěźeńki. Druge daty ako pógódnośenja a pśeglědanja budu se anonymizěrowaś."
+"Waše daty budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje) a nastajenja powěźeńkow. Waše "
+"pśeglědanja a pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Jolic toś tu %(startStrong)sireversibelnu akciju%(endStrong)s wobkšuśujośo, se slědujuce daty wótwónoźiju: profilowy wobraz, profilowe drobnostki (inkluziwnje wužywarske mě, e-mailowu adresu, "
-"zwobraznjeńske mě, městno, startowy bok, biografiju, pówołanje) a nastajenja za powěźeńki. Druge daty ako pógódnośenja a pśeglědanja budu se anonymizěrowaś."
+"Daty wužywarjow budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje) a nastajenja powěźeńkow. "
+"Waše pśeglědanja a pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
