@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-08 14:40+0000\n"
+"PO-Revision-Date: 2018-07-08 14:42+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -792,6 +792,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Jos sinulla mahdollisesti on lisätietoa, Josta voi olla apua vian selvittämisessä, <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">voit ilmoittaa ongelmasta</a>. Kerro "
+"yksityiskohtaiset vaiheet, jotka johtivat virheeseen, niin me teemme parhaamme korjataksemme ongelman."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -1018,14 +1020,12 @@ msgid "See more translation tools"
 msgstr "Näytä lisää käännöstyökaluja"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Yksityisyystyökalut"
+msgstr "Yksityisyydellä on merkitystä"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Näytä lisää välilehtilaajennuksia"
+msgstr "Näytä lisää yksityisyyslaajennuksia"
 
 #: src/amo/components/Home/index.js:265
 msgid "Tame your tabs"
@@ -1065,7 +1065,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Tehokas tapa löytää vanhoja versioita sivustoista"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Black Menu for Google"
@@ -1105,7 +1105,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:143
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "Visuaaliset kirjanmerkit verkon suosikkisivustoillesi"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "PrivacyBadger"
@@ -1138,7 +1138,7 @@ msgstr "Latausten hallinta (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Kasvata latausnopeuksia monisäikeistyksen tuen avulla"
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Web Security"
@@ -1174,7 +1174,7 @@ msgstr "Suosittu seurantaa estävä laajennus sisältää nyt myös mainoseston"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Useiden tilien eristäjä"
 
 #: src/amo/components/HomeHeroBanner/index.js:71
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
@@ -1202,7 +1202,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Aseta sosiaalisen median ‘Jaa’-painike Firefoxin työkalupalkkiin"
 
 #: src/amo/components/LandingPage/index.js:225
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
