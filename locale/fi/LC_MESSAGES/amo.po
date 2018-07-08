@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-05 07:19+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2018-07-08 14:40+0000\n"
+"Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -634,19 +634,16 @@ msgid "Collections make it easy to keep track of favorite add-ons and share your
 msgstr ""
 
 #: src/amo/components/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
 msgstr "Luo kokoelma"
 
 #: src/amo/components/CollectionList/index.js:67
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Luo kokoelma kirjautumalla"
+msgstr "Sinulla ei ole kokoelmia."
 
 #: src/amo/components/CollectionList/index.js:97
-#, fuzzy
 msgid "My collections"
-msgstr "Näytä kokoelmani"
+msgstr "Omat kokoelmani"
 
 #: src/amo/components/CollectionManager/index.js:337
 msgid "Create collection"
@@ -706,11 +703,11 @@ msgstr "Tue näitä käyttäjiä"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Tämän teeman kehittäjä pyytää taloudellista tukeasi teeman kehityksen jatkamiseksi."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Tämän teeman kehittäjät pyytävät taloudellista tukeasi teeman kehityksen jatkamiseksi."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this author"
@@ -741,14 +738,12 @@ msgid "Remove"
 msgstr "Poista"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132
-#, fuzzy
 msgid "User comment"
-msgstr "Käyttäjä alkaen"
+msgstr "Käyttäjäkommentti"
 
 #: src/amo/components/EditableCollectionAddon/index.js:144
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Tietoja tästä lisäosasta"
+msgstr "Lisää kommentti tästä lisäosasta."
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
