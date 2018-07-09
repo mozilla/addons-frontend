@@ -22,7 +22,7 @@ import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import tracking, {
-  getAddonTypeForAction,
+  getAddonTypeForTracking,
   getAddonEventCategory,
 } from 'core/tracking';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
@@ -175,7 +175,7 @@ export class InstallButtonBase extends React.Component {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
-      action: getAddonTypeForAction(type),
+      action: getAddonTypeForTracking(type),
       category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
       label: addonName,
     });
@@ -185,7 +185,7 @@ export class InstallButtonBase extends React.Component {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
-      action: getAddonTypeForAction(type),
+      action: getAddonTypeForTracking(type),
       category: getAddonEventCategory(type, INSTALL_ACTION),
       label: addonName,
     });

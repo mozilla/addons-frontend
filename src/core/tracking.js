@@ -167,7 +167,7 @@ export class Tracking {
   }
 }
 
-export function getAddonTypeForAction(type) {
+export function getAddonTypeForTracking(type) {
   return (
     {
       [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,

@@ -3,7 +3,7 @@ import {
   Tracking,
   isDoNotTrackEnabled,
   getAddonEventCategory,
-  getAddonTypeForAction,
+  getAddonTypeForTracking,
 } from 'core/tracking';
 import {
   ADDON_TYPE_EXTENSION,
@@ -168,86 +168,86 @@ describe('Tracking', () => {
   });
 });
 
-describe('getAddonTypeForAction', () => {
+describe('getAddonTypeForTracking', () => {
   it('returns addon for TYPE_EXTENSION', () => {
-    expect(getAddonTypeForAction(ADDON_TYPE_EXTENSION)).toEqual(
+    expect(getAddonTypeForTracking(ADDON_TYPE_EXTENSION)).toEqual(
       TRACKING_TYPE_EXTENSION,
     );
   });
 
   it('returns addon for TYPE_OPENSEARCH', () => {
-    expect(getAddonTypeForAction(ADDON_TYPE_OPENSEARCH)).toEqual(
+    expect(getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH)).toEqual(
       TRACKING_TYPE_EXTENSION,
     );
   });
 
   it('returns theme for TYPE_THEME', () => {
-    expect(getAddonTypeForAction(ADDON_TYPE_THEME)).toEqual(
+    expect(getAddonTypeForTracking(ADDON_TYPE_THEME)).toEqual(
       TRACKING_TYPE_THEME,
     );
   });
 
   it('returns addon:statictheme for TYPE_STATIC_THEME', () => {
-    expect(getAddonTypeForAction(ADDON_TYPE_STATIC_THEME)).toEqual(
+    expect(getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME)).toEqual(
       TRACKING_TYPE_STATIC_THEME,
     );
   });
 
   it('returns invalid for unknown type', () => {
-    expect(getAddonTypeForAction('whatever')).toEqual(TRACKING_TYPE_INVALID);
+    expect(getAddonTypeForTracking('whatever')).toEqual(TRACKING_TYPE_INVALID);
   });
 });
 
 describe('getAddonEventCategory', () => {
-  it('returns Addon Installs Started category if type is a extension and install started is the action type', () => {
+  it('returns the expected category when type is extension and installAction is install started', () => {
     expect(
       getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_STARTED_ACTION),
     ).toEqual(INSTALL_EXTENSION_STARTED_CATEGORY);
   });
 
-  it('returns Theme Installs Started category if type is a lightweight theme and install started is the action type', () => {
+  it('returns the expected category when type is lightweight theme and installAction is install started', () => {
     expect(
       getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_STARTED_ACTION),
     ).toEqual(INSTALL_THEME_STARTED_CATEGORY);
   });
 
-  it('returns Theme Install Started category if type is a static theme and install started is the action type', () => {
+  it('returns the expected category when type is static theme and installAction is install started', () => {
     expect(
       getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_STARTED_ACTION),
     ).toEqual(INSTALL_THEME_STARTED_CATEGORY);
   });
 
-  it('returns Addon Uninstall category if type is an extension and uninstall is the action type', () => {
+  it('returns the expected category when type is extension and installAction is uninstall', () => {
     expect(
       getAddonEventCategory(ADDON_TYPE_EXTENSION, UNINSTALL_ACTION),
     ).toEqual(UNINSTALL_EXTENSION_CATEGORY);
   });
 
-  it('returns Theme Uninstall category if type is a lightweight theme and uninstall is the action type', () => {
+  it('returns the expected category when type is lightweight theme and installAction is uninstall started', () => {
     expect(getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION)).toEqual(
       UNINSTALL_THEME_CATEGORY,
     );
   });
 
-  it('returns Theme Uninstall category if type is a static theme and uninstall is the action type', () => {
+  it('returns the expected category when type is static theme and installAction is uninstall started', () => {
     expect(
       getAddonEventCategory(ADDON_TYPE_STATIC_THEME, UNINSTALL_ACTION),
     ).toEqual(UNINSTALL_THEME_CATEGORY);
   });
 
-  it('returns Addon Installs category if type is a extension and install is the action type', () => {
+  it('returns the expected category when type is extension and installAction is install', () => {
     expect(getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION)).toEqual(
       INSTALL_EXTENSION_CATEGORY,
     );
   });
 
-  it('returns Theme Installs category if type is a lightweight theme and install is the action type', () => {
+  it('returns the expected category when type is lightweight theme and installAction is install', () => {
     expect(getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_ACTION)).toEqual(
       INSTALL_THEME_CATEGORY,
     );
   });
 
-  it('returns Theme Installs category if type is a static theme and install is the action type', () => {
+  it('returns the expected category when type is static theme and installAction is install', () => {
     expect(
       getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_ACTION),
     ).toEqual(INSTALL_THEME_CATEGORY);

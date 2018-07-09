@@ -55,7 +55,7 @@ import {
 } from 'tests/unit/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
-import { getAddonTypeForAction, getAddonEventCategory } from 'core/tracking';
+import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 
 const {
   WithInstallHelpers,
@@ -1113,7 +1113,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
         // Even though the install() promise fails, it gets caught
         // and resolved successfully.
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForAction(ADDON_TYPE_EXTENSION),
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(
             ADDON_TYPE_EXTENSION,
             INSTALL_STARTED_ACTION,
@@ -1137,7 +1137,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return install(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForAction(ADDON_TYPE_EXTENSION),
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
           label: addon.name,
         });
@@ -1160,7 +1160,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return install(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForAction(ADDON_TYPE_STATIC_THEME),
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
           category: getAddonEventCategory(
             ADDON_TYPE_STATIC_THEME,
             INSTALL_STARTED_ACTION,
@@ -1186,7 +1186,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return install(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForAction(ADDON_TYPE_STATIC_THEME),
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
           category: getAddonEventCategory(
             ADDON_TYPE_STATIC_THEME,
             INSTALL_ACTION,
@@ -1360,7 +1360,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForAction(ADDON_TYPE_EXTENSION),
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(
             ADDON_TYPE_EXTENSION,
             UNINSTALL_ACTION,
@@ -1388,7 +1388,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForAction(ADDON_TYPE_STATIC_THEME),
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
           category: getAddonEventCategory(
             ADDON_TYPE_STATIC_THEME,
             UNINSTALL_ACTION,
@@ -1413,7 +1413,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForAction(ADDON_TYPE_THEME),
+          action: getAddonTypeForTracking(ADDON_TYPE_THEME),
           category: getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION),
           label: addon.name,
         });

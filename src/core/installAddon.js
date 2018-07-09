@@ -11,7 +11,7 @@ import { setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
 import themeAction, { getThemeData } from 'core/themePreview';
 import tracking, {
-  getAddonTypeForAction,
+  getAddonTypeForTracking,
   getAddonEventCategory,
 } from 'core/tracking';
 import {
@@ -462,7 +462,7 @@ export class WithInstallHelpers extends React.Component {
     return new Promise((resolve) => {
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
       _tracking.sendEvent({
-        action: getAddonTypeForAction(type),
+        action: getAddonTypeForTracking(type),
         category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
         label: name,
       });
@@ -485,7 +485,7 @@ export class WithInstallHelpers extends React.Component {
       })
       .then(() => {
         _tracking.sendEvent({
-          action: getAddonTypeForAction(type),
+          action: getAddonTypeForTracking(type),
           category: getAddonEventCategory(type, INSTALL_ACTION),
           label: name,
         });
@@ -546,7 +546,7 @@ export class WithInstallHelpers extends React.Component {
     const { _addonManager, _tracking, dispatch } = this.props;
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
 
-    const action = getAddonTypeForAction(type);
+    const action = getAddonTypeForTracking(type);
     return _addonManager
       .uninstall(guid)
       .then(() => {
