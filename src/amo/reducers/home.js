@@ -23,18 +23,20 @@ export const initialState: HomeState = {
 };
 
 type FetchHomeAddonsParams = {|
-  errorHandlerId: string,
   collectionsToFetch: Array<Object>,
+  errorHandlerId: string,
+  includeFeaturedThemes: boolean,
 |};
 
-type FetchHomeAddonsAction = {|
+export type FetchHomeAddonsAction = {|
   type: typeof FETCH_HOME_ADDONS,
   payload: FetchHomeAddonsParams,
 |};
 
 export const fetchHomeAddons = ({
-  errorHandlerId,
   collectionsToFetch,
+  errorHandlerId,
+  includeFeaturedThemes,
 }: FetchHomeAddonsParams): FetchHomeAddonsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(collectionsToFetch, 'collectionsToFetch is required');
@@ -42,8 +44,9 @@ export const fetchHomeAddons = ({
   return {
     type: FETCH_HOME_ADDONS,
     payload: {
-      errorHandlerId,
       collectionsToFetch,
+      errorHandlerId,
+      includeFeaturedThemes,
     },
   };
 };
@@ -63,9 +66,9 @@ type ApiAddonsResponse = {|
 |};
 
 type LoadHomeAddonsParams = {|
-  collections: Array<Object>,
+  collections: Array<Object | null>,
   featuredExtensions: ApiAddonsResponse,
-  featuredThemes: ApiAddonsResponse,
+  featuredThemes?: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -80,7 +83,6 @@ export const loadHomeAddons = ({
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   invariant(collections, 'collections is required');
   invariant(featuredExtensions, 'featuredExtensions is required');
-  invariant(featuredThemes, 'featuredThemes is required');
 
   return {
     type: LOAD_HOME_ADDONS,
@@ -97,8 +99,9 @@ type Action = FetchHomeAddonsAction | LoadHomeAddonsAction;
 const createInternalAddons = (
   response: ApiAddonsResponse,
 ): Array<AddonType> => {
-  return response.result.results.map((slug) =>
-    createInternalAddon(response.entities.addons[slug]),
+  const { result, entities } = response;
+  return result.results.map((slug) =>
+    createInternalAddon(entities.addons[slug]),
   );
 };
 
@@ -133,7 +136,9 @@ const reducer = (
           return null;
         }),
         featuredExtensions: createInternalAddons(featuredExtensions),
-        featuredThemes: createInternalAddons(featuredThemes),
+        featuredThemes: featuredThemes
+          ? createInternalAddons(featuredThemes)
+          : [],
         resultsLoaded: true,
       };
     }

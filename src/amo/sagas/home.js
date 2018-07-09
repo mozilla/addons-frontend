@@ -1,3 +1,4 @@
+/* @flow */
 import { oneLine } from 'common-tags';
 
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
@@ -12,10 +13,13 @@ import {
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type { GetCollectionAddonsParams } from 'amo/api/collections';
+import type { FetchHomeAddonsAction } from 'amo/reducers/home';
+import type { SearchParams } from 'core/api/search';
 
 export function* fetchHomeAddons({
-  payload: { errorHandlerId, collectionsToFetch },
-}) {
+  payload: { collectionsToFetch, errorHandlerId, includeFeaturedThemes },
+}: FetchHomeAddonsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -25,54 +29,60 @@ export function* fetchHomeAddons({
   const collections = [];
   for (const collection of collectionsToFetch) {
     try {
-      const result = yield call(getCollectionAddons, {
+      const params: GetCollectionAddonsParams = {
         api: state.api,
-        page: 1,
         slug: collection.slug,
         username: collection.username,
-      });
+      };
+      const result = yield call(getCollectionAddons, params);
       collections.push(result);
     } catch (error) {
       log.warn(
         oneLine`Home collection: ${collection.username}/${collection.slug}
           failed to load: ${error}`,
       );
-      if ([401, 404].includes(error.response.status)) {
+      if (error.response && [401, 404].includes(error.response.status)) {
         // The collection was not found or is marked private.
         collections.push(null);
       } else {
         yield put(errorHandler.createErrorAction(error));
+        return;
       }
     }
   }
 
-  let homeAddons;
+  const featuredSearchFilters = {
+    featured: true,
+    page_size: LANDING_PAGE_ADDON_COUNT,
+    sort: SEARCH_SORT_RANDOM,
+  };
+  const featuredExtensionsParams: SearchParams = {
+    api: state.api,
+    filters: {
+      addonType: ADDON_TYPE_EXTENSION,
+      ...featuredSearchFilters,
+    },
+  };
+  const featuredThemesParams: SearchParams = {
+    api: state.api,
+    filters: {
+      addonType: ADDON_TYPE_THEME,
+      ...featuredSearchFilters,
+    },
+  };
+
+  let homeAddons = {};
   try {
     homeAddons = yield all({
-      featuredExtensions: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          featured: true,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_RANDOM,
-        },
-        page: 1,
-      }),
-      featuredThemes: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_THEME,
-          featured: true,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_RANDOM,
-        },
-        page: 1,
-      }),
+      featuredExtensions: call(searchApi, featuredExtensionsParams),
+      featuredThemes: includeFeaturedThemes
+        ? call(searchApi, featuredThemesParams)
+        : null,
     });
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
+    return;
   }
 
   yield put(
@@ -84,6 +94,6 @@ export function* fetchHomeAddons({
   );
 }
 
-export default function* homeSaga() {
+export default function* homeSaga(): Generator<any, any, any> {
   yield takeLatest(FETCH_HOME_ADDONS, fetchHomeAddons);
 }
