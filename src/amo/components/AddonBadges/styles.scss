@@ -24,7 +24,7 @@
     @include text-align-end();
 
     .Addon-theme & {
-      margin: 0;
+      @include margin-start(0);
     }
 
     .Icon {
