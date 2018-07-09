@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-04 04:07+0000\n"
+"PO-Revision-Date: 2018-07-09 05:41+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -565,20 +565,19 @@ msgstr "Bläddra bland alla teman i denna kategori."
 
 #: src/amo/components/Collection/index.js:160
 msgid "Newest first"
-msgstr ""
+msgstr "Nyaste först"
 
 #: src/amo/components/Collection/index.js:164
 msgid "Oldest first"
-msgstr ""
+msgstr "Äldsta först"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Name"
 msgstr "Namn"
 
 #: src/amo/components/Collection/index.js:172
-#, fuzzy
 msgid "Popularity"
-msgstr "Populära teman"
+msgstr "Popularitet"
 
 #: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
@@ -2048,31 +2047,28 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla förbehåller sig rätten att kontakta dig individuellt om specifika problem med dina hostade tillägg."
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Uppdaterar din profil…"
+msgstr "Uppdaterar ditt konto…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
 msgid "Update My Account"
 msgstr "Uppdatera mitt konto"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Uppdaterar användarprofil…"
+msgstr "Uppdaterar detta konto…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
-msgstr ""
+msgstr "Uppdatera detta konto"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
 msgid "Delete My Account"
 msgstr "Ta bort mitt konto"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Ta bort denna samling"
+msgstr "Ta bort det här kontot"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
@@ -2167,9 +2163,8 @@ msgid "Do you really want to delete this picture?"
 msgstr "Vill du verkligen ta bort den här bilden?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "Ta bort bilden"
+msgstr "Ta bort den här bilden"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"
