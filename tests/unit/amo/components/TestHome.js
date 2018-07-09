@@ -4,8 +4,10 @@ import { setViewContext } from 'amo/actions/viewContext';
 import Home, {
   FEATURED_COLLECTIONS,
   HomeBase,
+  getFeaturedCollectionsMetadata,
   isFeaturedCollection,
 } from 'amo/components/Home';
+import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
@@ -62,79 +64,21 @@ describe(__filename, () => {
     expect(root.find(HomeHeroBanner)).toHaveLength(1);
   });
 
-  it('renders a first featured collection shelf', () => {
-    const root = render();
+  it.each([0, 1, 2, 3])(
+    `renders a featured collection shelf at position %s`,
+    (index) => {
+      const collectionMetadata = getFeaturedCollectionsMetadata(fakeI18n())[
+        index
+      ];
+      const root = render();
 
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedCollection').at(0);
+      const shelves = root.find(FeaturedCollectionCard);
+      const shelf = shelves.find('.Home-FeaturedCollection').at(index);
 
-    expect(shelf).toHaveProp('header', 'Social media customization');
-    expect(shelf).toHaveProp(
-      'footerText',
-      'See more social media customization extensions',
-    );
-    expect(shelf).toHaveProp(
-      'footerLink',
-      `/collections/${FEATURED_COLLECTIONS[0].username}/${
-        FEATURED_COLLECTIONS[0].slug
-      }/`,
-    );
-    expect(shelf).toHaveProp('loading', true);
-  });
-
-  it('renders a second featured collection shelf', () => {
-    const root = render();
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedCollection').at(1);
-
-    expect(shelf).toHaveProp('header', 'Dynamic downloaders');
-    expect(shelf).toHaveProp('footerText', 'See more dynamic downloaders');
-    expect(shelf).toHaveProp(
-      'footerLink',
-      `/collections/${FEATURED_COLLECTIONS[1].username}/${
-        FEATURED_COLLECTIONS[1].slug
-      }/`,
-    );
-    expect(shelf).toHaveProp('loading', true);
-  });
-
-  it('renders a third featured collection shelf', () => {
-    const root = render();
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedCollection').at(2);
-
-    expect(shelf).toHaveProp('header', 'Summer themes');
-    expect(shelf).toHaveProp('footerText', 'See more summer themes');
-    expect(shelf).toHaveProp(
-      'footerLink',
-      `/collections/${FEATURED_COLLECTIONS[2].username}/${
-        FEATURED_COLLECTIONS[2].slug
-      }/`,
-    );
-    expect(shelf).toHaveProp('loading', true);
-  });
-
-  it('renders a fourth featured collection shelf', () => {
-    const root = render();
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedCollection').at(3);
-
-    expect(shelf).toHaveProp('header', 'Must-have media');
-    expect(shelf).toHaveProp(
-      'footerText',
-      'See more must-have media extensions',
-    );
-    expect(shelf).toHaveProp(
-      'footerLink',
-      `/collections/${FEATURED_COLLECTIONS[3].username}/${
-        FEATURED_COLLECTIONS[3].slug
-      }/`,
-    );
-    expect(shelf).toHaveProp('loading', true);
-  });
+      expect(shelf).toHaveProp('collectionMetadata', collectionMetadata);
+      expect(shelf).toHaveProp('loading', true);
+    },
+  );
 
   it('renders a featured extensions shelf', () => {
     const root = render();
@@ -302,17 +246,14 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
 
-    const shelves = root.find(LandingAddonsCard);
-    expect(shelves).toHaveLength(2);
-
-    const firstCollectionShelf = shelves.find('.Home-FeaturedCollection').at(0);
+    const firstCollectionShelf = root.find('.Home-FeaturedCollection');
     expect(firstCollectionShelf).toHaveProp('loading', false);
     expect(firstCollectionShelf).toHaveProp(
       'addons',
       collectionAddons.map((addon) => createInternalAddon(addon.addon)),
     );
 
-    const featuredExtensionsShelf = shelves.find('.Home-FeaturedExtensions');
+    const featuredExtensionsShelf = root.find('.Home-FeaturedExtensions');
     expect(featuredExtensionsShelf).toHaveProp('loading', false);
     expect(featuredExtensionsShelf).toHaveProp(
       'addons',

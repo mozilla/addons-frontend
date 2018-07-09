@@ -145,28 +145,11 @@ describe(__filename, () => {
     });
 
     it('does not fetch featured themes if includeFeaturedThemes is false', async () => {
-      const state = sagaTester.getState();
-
-      const baseArgs = { api: state.api };
-      const baseFilters = {
-        page_size: LANDING_PAGE_ADDON_COUNT,
-      };
-
       const collections = [];
 
       const featuredExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi
         .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            addonType: ADDON_TYPE_EXTENSION,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
-          },
-          page: 1,
-        })
         .returns(Promise.resolve(featuredExtensions));
 
       _fetchHomeAddons({
@@ -180,11 +163,8 @@ describe(__filename, () => {
         featuredThemes: null,
       });
 
-      await sagaTester.waitFor(expectedLoadAction.type);
+      const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
       mockSearchApi.verify();
-
-      const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[2];
       expect(loadAction).toEqual(expectedLoadAction);
     });
 

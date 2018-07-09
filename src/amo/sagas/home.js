@@ -1,3 +1,4 @@
+/* @flow */
 import { oneLine } from 'common-tags';
 
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
@@ -12,10 +13,11 @@ import {
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type { FetchHomeAddonsAction } from 'amo/reducers/home';
 
 export function* fetchHomeAddons({
   payload: { collectionsToFetch, errorHandlerId, includeFeaturedThemes },
-}) {
+}: FetchHomeAddonsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -46,7 +48,7 @@ export function* fetchHomeAddons({
     }
   }
 
-  let homeAddons;
+  let homeAddons = {};
   try {
     homeAddons = yield all({
       featuredExtensions: call(searchApi, {
@@ -86,6 +88,6 @@ export function* fetchHomeAddons({
   );
 }
 
-export default function* homeSaga() {
+export default function* homeSaga(): Generator<any, any, any> {
   yield takeLatest(FETCH_HOME_ADDONS, fetchHomeAddons);
 }

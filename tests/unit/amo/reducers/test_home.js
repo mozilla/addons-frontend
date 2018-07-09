@@ -70,15 +70,23 @@ describe(__filename, () => {
 
       const homeState = store.getState().home;
 
-      expect(homeState.resultsLoaded).toEqual(true);
       expect(homeState.collections).toHaveLength(1);
       expect(homeState.collections[0]).toEqual(null);
-      expect(homeState.featuredExtensions).toEqual([
-        createInternalAddon(fakeAddon),
-      ]);
-      expect(homeState.featuredThemes).toEqual([
-        createInternalAddon(fakeTheme),
-      ]);
+    });
+
+    it('loads an empty array if featured themes is null', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(
+        loadHomeAddons({
+          collections: [null],
+          featuredExtensions: createAddonsApiResult([fakeAddon]),
+          featuredThemes: null,
+        }),
+      );
+
+      const homeState = store.getState().home;
+      expect(homeState.featuredThemes).toEqual([]);
     });
 
     it('sets `resultsLoaded` to `false` when fetching home add-ons', () => {

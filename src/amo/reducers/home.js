@@ -28,7 +28,7 @@ type FetchHomeAddonsParams = {|
   includeFeaturedThemes: boolean,
 |};
 
-type FetchHomeAddonsAction = {|
+export type FetchHomeAddonsAction = {|
   type: typeof FETCH_HOME_ADDONS,
   payload: FetchHomeAddonsParams,
 |};
@@ -66,9 +66,9 @@ type ApiAddonsResponse = {|
 |};
 
 type LoadHomeAddonsParams = {|
-  collections: Array<Object>,
+  collections: Array<Object | null>,
   featuredExtensions: ApiAddonsResponse,
-  featuredThemes: ApiAddonsResponse | null,
+  featuredThemes?: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -97,11 +97,8 @@ export const loadHomeAddons = ({
 type Action = FetchHomeAddonsAction | LoadHomeAddonsAction;
 
 const createInternalAddons = (
-  response: ApiAddonsResponse | null,
+  response: ApiAddonsResponse,
 ): Array<AddonType> => {
-  if (response === null) {
-    return [];
-  }
   const { result, entities } = response;
   return result.results.map((slug) =>
     createInternalAddon(entities.addons[slug]),
@@ -139,7 +136,9 @@ const reducer = (
           return null;
         }),
         featuredExtensions: createInternalAddons(featuredExtensions),
-        featuredThemes: createInternalAddons(featuredThemes),
+        featuredThemes: featuredThemes
+          ? createInternalAddons(featuredThemes)
+          : [],
         resultsLoaded: true,
       };
     }

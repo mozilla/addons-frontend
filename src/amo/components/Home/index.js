@@ -6,6 +6,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
+import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
@@ -14,7 +15,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_FEATURED_COLLECTION,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -22,6 +22,7 @@ import translate from 'core/i18n/translate';
 import { getAddonTypeFilter } from 'core/utils';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -42,6 +43,33 @@ export const isFeaturedCollection = (
       featured.username === collection.authorUsername
     );
   });
+};
+
+export const getFeaturedCollectionsMetadata = (i18n: I18nType) => {
+  return [
+    {
+      footerText: i18n.gettext(
+        'See more social media customization extensions',
+      ),
+      header: i18n.gettext('Social media customization'),
+      ...FEATURED_COLLECTIONS[0],
+    },
+    {
+      footerText: i18n.gettext('See more dynamic downloaders'),
+      header: i18n.gettext('Dynamic downloaders'),
+      ...FEATURED_COLLECTIONS[1],
+    },
+    {
+      footerText: i18n.gettext('See more summer themes'),
+      header: i18n.gettext('Summer themes'),
+      ...FEATURED_COLLECTIONS[2],
+    },
+    {
+      footerText: i18n.gettext('See more must-have media extensions'),
+      header: i18n.gettext('Must-have media'),
+      ...FEATURED_COLLECTIONS[3],
+    },
+  ];
 };
 
 export class HomeBase extends React.Component {
@@ -196,6 +224,8 @@ export class HomeBase extends React.Component {
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
 
+    const featuredCollectionsMetadata = getFeaturedCollectionsMetadata(i18n);
+
     const loading = resultsLoaded === false;
 
     return (
@@ -242,45 +272,28 @@ export class HomeBase extends React.Component {
         )}
 
         {(loading || collections[0]) && (
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
+          <FeaturedCollectionCard
             addons={collections[0]}
             className="Home-FeaturedCollection"
-            header={i18n.gettext('Social media customization')}
-            footerText={i18n.gettext(
-              'See more social media customization extensions',
-            )}
-            footerLink={`/collections/${FEATURED_COLLECTIONS[0].username}/${
-              FEATURED_COLLECTIONS[0].slug
-            }/`}
+            collectionMetadata={featuredCollectionsMetadata[0]}
             loading={loading}
           />
         )}
 
         {(loading || collections[1]) && (
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
+          <FeaturedCollectionCard
             addons={collections[1]}
             className="Home-FeaturedCollection"
-            header={i18n.gettext('Dynamic downloaders')}
-            footerText={i18n.gettext('See more dynamic downloaders')}
-            footerLink={`/collections/${FEATURED_COLLECTIONS[1].username}/${
-              FEATURED_COLLECTIONS[1].slug
-            }/`}
+            collectionMetadata={featuredCollectionsMetadata[1]}
             loading={loading}
           />
         )}
 
         {(loading || collections[2]) && (
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
+          <FeaturedCollectionCard
             addons={collections[2]}
             className="Home-FeaturedCollection"
-            header={i18n.gettext('Summer themes')}
-            footerText={i18n.gettext('See more summer themes')}
-            footerLink={`/collections/${FEATURED_COLLECTIONS[2].username}/${
-              FEATURED_COLLECTIONS[2].slug
-            }/`}
+            collectionMetadata={featuredCollectionsMetadata[2]}
             loading={loading}
           />
         )}
@@ -302,14 +315,10 @@ export class HomeBase extends React.Component {
         />
 
         {(loading || collections[3]) && (
-          <LandingAddonsCard
+          <FeaturedCollectionCard
             addons={collections[3]}
             className="Home-FeaturedCollection"
-            header={i18n.gettext('Must-have media')}
-            footerText={i18n.gettext('See more must-have media extensions')}
-            footerLink={`/collections/${FEATURED_COLLECTIONS[3].username}/${
-              FEATURED_COLLECTIONS[3].slug
-            }/`}
+            collectionMetadata={featuredCollectionsMetadata[3]}
             loading={loading}
           />
         )}
