@@ -1,4 +1,4 @@
-apipkg==1.4
+apipkg==1.5
 atomicwrites==1.1.5
 attrs==18.1.0
 certifi==2018.4.16
@@ -11,7 +11,7 @@ more-itertools==4.2.0
 pluggy==0.6.0
 py==1.5.4
 PyPOM==2.0.0
-pytest==3.6.2
+pytest==3.6.3
 pytest-base-url==1.4.1
 pytest-firefox==0.1.1
 pytest-forked==0.2
