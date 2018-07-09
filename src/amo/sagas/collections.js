@@ -82,13 +82,21 @@ export function* fetchCurrentCollection({
       ...baseParams,
       filters,
     };
+
     const { detail, addons } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
       addons: call(api.getCollectionAddons, addonsParams),
     });
 
     const addonsToLoad = addons.results;
-    yield put(loadCurrentCollection({ addons: addonsToLoad, detail }));
+
+    yield put(
+      loadCurrentCollection({
+        addons: addonsToLoad,
+        detail,
+        pageSize: addons.page_size,
+      }),
+    );
   } catch (error) {
     log.warn(`Collection failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -118,6 +126,7 @@ export function* fetchCurrentCollectionPage({
       loadCurrentCollectionPage({
         addons: addons.results,
         numberOfAddons: addons.count,
+        pageSize: addons.page_size,
       }),
     );
   } catch (error) {
@@ -274,7 +283,15 @@ export function* modifyCollection(
         detail: response,
         lang,
       });
-      yield put(loadCurrentCollection({ addons: [], detail: localizedDetail }));
+
+      yield put(
+        loadCurrentCollection({
+          addons: [],
+          detail: localizedDetail,
+          pageSize: null,
+        }),
+      );
+
       yield put(pushLocation(`${newLocation}edit/`));
     } else {
       // TODO: invalidate the stored collection instead of redirecting.

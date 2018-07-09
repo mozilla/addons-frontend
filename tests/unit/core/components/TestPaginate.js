@@ -12,6 +12,7 @@ describe(__filename, () => {
     count: 20,
     currentPage: 1,
     pathname: '/some/path',
+    perPage: DEFAULT_API_PAGE_SIZE,
   });
 
   function renderPaginate(extra = {}) {

@@ -22,7 +22,6 @@ import {
   hasPermission,
   isDeveloper,
 } from 'amo/reducers/users';
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
@@ -70,6 +69,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isOwner: boolean,
+  pageSize: number | null,
   reviewCount: number | null,
   reviews: Array<UserReviewType> | null,
   user: UserType | null,
@@ -173,19 +173,27 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 
   renderReviews() {
-    const { location, i18n, isOwner, reviews, reviewCount } = this.props;
+    const {
+      location,
+      i18n,
+      isOwner,
+      pageSize,
+      reviews,
+      reviewCount,
+    } = this.props;
 
     if (!isOwner || !reviews || reviews.length < 1) {
       return null;
     }
 
     const paginator =
-      reviewCount && reviewCount > DEFAULT_API_PAGE_SIZE ? (
+      reviewCount && pageSize && reviewCount > pageSize ? (
         <Paginate
           LinkComponent={Link}
           count={reviewCount}
           currentPage={this.getReviewsPage()}
           pathname={this.getURL()}
+          perPage={pageSize}
           queryParams={location.query}
         />
       ) : null;
@@ -230,8 +238,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
   render() {
     const {
-      errorHandler,
       canEditProfile,
+      errorHandler,
       i18n,
       isOwner,
       params,
@@ -440,6 +448,7 @@ export function mapStateToProps(
     canEditProfile,
     currentUser,
     isOwner,
+    pageSize: reviews ? reviews.pageSize : null,
     reviewCount: reviews ? reviews.reviewCount : null,
     reviews: reviews ? reviews.reviews : null,
     user,

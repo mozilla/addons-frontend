@@ -46,6 +46,7 @@ type Props = {|
   lang: string,
   location: ReactRouterLocation,
   params: {| addonSlug: string |},
+  pageSize: number | null,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
   router: ReactRouterType,
@@ -140,6 +141,7 @@ export class AddonReviewListBase extends React.Component<Props> {
       errorHandler,
       location,
       i18n,
+      pageSize,
       reviewCount,
       reviews,
     } = this.props;
@@ -237,12 +239,13 @@ export class AddonReviewListBase extends React.Component<Props> {
     /* eslint-enable jsx-a11y/heading-has-content */
 
     const paginator =
-      addon && reviewCount ? (
+      addon && reviewCount && pageSize && reviewCount > pageSize ? (
         <Paginate
           LinkComponent={Link}
           count={reviewCount}
           currentPage={this.getCurrentPage()}
           pathname={this.url()}
+          perPage={pageSize}
         />
       ) : null;
 
@@ -324,6 +327,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     addon: getAddonBySlug(state, addonSlug),
     clientApp: state.api.clientApp,
     lang: state.api.lang,
+    pageSize: reviewData ? reviewData.pageSize : null,
     reviewCount: reviewData && reviewData.reviewCount,
     reviews:
       reviewData &&

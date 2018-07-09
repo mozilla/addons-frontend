@@ -458,21 +458,24 @@ export class CollectionBase extends React.Component<InternalProps> {
       creating,
       editing,
       filters,
+      i18n,
       isLoggedIn,
       loading,
-      i18n,
     } = this.props;
 
     const addons: Array<CollectionAddonType> =
       (collection && collection.addons) || [];
 
     const paginator =
-      collection && collection.numberOfAddons > 0 ? (
+      collection &&
+      collection.pageSize &&
+      collection.numberOfAddons > collection.pageSize ? (
         <Paginate
           LinkComponent={Link}
           count={collection.numberOfAddons}
           currentPage={filters.page}
           pathname={editing ? this.editUrl() : this.url()}
+          perPage={collection.pageSize}
           queryParams={convertFiltersToQueryParams(filters)}
         />
       ) : null;

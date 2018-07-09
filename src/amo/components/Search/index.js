@@ -54,6 +54,7 @@ type InternalProps = {|
   filtersUsedForResults: Object,
   i18n: I18nType,
   loading: boolean,
+  pageSize: number,
   results: Array<AddonType | CollectionAddonType>,
 |};
 
@@ -189,6 +190,7 @@ export class SearchBase extends React.Component<InternalProps> {
       errorHandler,
       filters,
       loading,
+      pageSize,
       paginationQueryParams,
       pathname,
       results,
@@ -215,12 +217,13 @@ export class SearchBase extends React.Component<InternalProps> {
       paginationQueryParams || convertFiltersToQueryParams(filters);
 
     const paginator =
-      count > 0 ? (
+      count > pageSize ? (
         <Paginate
           LinkComponent={LinkComponent}
           count={count}
           currentPage={filters.page}
           pathname={pathname}
+          perPage={pageSize}
           queryParams={queryParams}
         />
       ) : null;
@@ -249,18 +252,19 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: {|
+export const mapStateToProps = (state: {|
   search: SearchType,
   viewContext: ViewContextType,
-|}) {
+|}) => {
   return {
     context: state.viewContext.context,
     count: state.search.count,
     filtersUsedForResults: state.search.filters,
     loading: state.search.loading,
+    pageSize: state.search.pageSize,
     results: state.search.results,
   };
-}
+};
 
 // This ID does not need to differentiate between component instances because
 // the error handler gets cleared every time the search filters change.

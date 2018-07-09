@@ -36,18 +36,23 @@ type ReviewsById = {
   [id: number]: UserReviewType,
 };
 
+type StoredReviewsData = {|
+  pageSize: number,
+  reviewCount: number,
+  reviews: Array<number>,
+|};
+
+type ReviewsData = {|
+  ...StoredReviewsData,
+  reviews: Array<UserReviewType>,
+|};
+
 type ReviewsByAddon = {
-  [slug: string]: {|
-    reviewCount: number,
-    reviews: Array<number>,
-  |},
+  [slug: string]: StoredReviewsData,
 };
 
 type ReviewsByUserId = {
-  [userId: number]: {|
-    reviewCount: number,
-    reviews: Array<number>,
-  |},
+  [userId: number]: StoredReviewsData,
 };
 
 export type FlagState = {
@@ -189,16 +194,16 @@ export const changeViewState = ({
 export const getReviewsByUserId = (
   state: ReviewState,
   userId: number,
-): {|
-  reviewCount: number,
-  reviews: Array<UserReviewType>,
-|} | null => {
-  return state.byUserId[userId]
+): ReviewsData | null => {
+  const storedReviewsData = state.byUserId[userId];
+
+  return storedReviewsData
     ? {
-        reviewCount: state.byUserId[userId].reviewCount,
+        pageSize: storedReviewsData.pageSize,
+        reviewCount: storedReviewsData.reviewCount,
         reviews: expandReviewObjects({
           state,
-          reviews: state.byUserId[userId].reviews,
+          reviews: storedReviewsData.reviews,
         }),
       }
     : null;
@@ -343,6 +348,7 @@ export default function reviewsReducer(
         byAddon: {
           ...state.byAddon,
           [payload.addonSlug]: {
+            pageSize: payload.pageSize,
             reviewCount: payload.reviewCount,
             reviews: reviews.map((review) => review.id),
           },
@@ -361,6 +367,7 @@ export default function reviewsReducer(
         byUserId: {
           ...state.byUserId,
           [payload.userId]: {
+            pageSize: payload.pageSize,
             reviewCount: payload.reviewCount,
             reviews: reviews.map((review) => review.id),
           },
