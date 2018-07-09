@@ -16,17 +16,17 @@ import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
-  INSTALL_CATEGORY,
-  INSTALL_STARTED_CATEGORY,
+  INSTALL_ACTION,
+  INSTALL_STARTED_ACTION,
   OS_ALL,
   OS_MAC,
   OS_WINDOWS,
-  TRACKING_TYPE_EXTENSION,
   UNKNOWN,
 } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
 import * as themePreview from 'core/themePreview';
+import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 import {
   createFakeEvent,
   createFakeMozWindow,
@@ -418,8 +418,11 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
+      action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+      category: getAddonEventCategory(
+        ADDON_TYPE_EXTENSION,
+        INSTALL_STARTED_ACTION,
+      ),
       label: addon.name,
     });
   });
@@ -446,8 +449,11 @@ describe(__filename, () => {
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
+      action: getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH),
+      category: getAddonEventCategory(
+        ADDON_TYPE_OPENSEARCH,
+        INSTALL_STARTED_ACTION,
+      ),
       label: addon.name,
     });
   });
@@ -512,8 +518,11 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
+      action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+      category: getAddonEventCategory(
+        ADDON_TYPE_EXTENSION,
+        INSTALL_STARTED_ACTION,
+      ),
       label: addon.name,
     });
 
@@ -524,8 +533,8 @@ describe(__filename, () => {
 
     sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_CATEGORY,
+      action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+      category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
       label: addon.name,
     });
   });
