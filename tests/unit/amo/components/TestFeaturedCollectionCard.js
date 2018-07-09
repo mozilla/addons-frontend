@@ -12,13 +12,11 @@ describe(__filename, () => {
     const props = {
       addons: [],
       className: 'SomeClass',
-      collectionMetadata: {
-        footerText: 'Footer text',
-        header: 'Header text',
-        slug: 'some-slug',
-        username: 'some-username',
-      },
+      footerText: 'Footer text',
+      header: 'Header text',
       loading: false,
+      slug: 'some-slug',
+      username: 'some-username',
       ...customProps,
     };
 
@@ -57,24 +55,26 @@ describe(__filename, () => {
     expect(root.find(LandingAddonsCard)).toHaveProp('className', className);
   });
 
-  it('sets properties on LandingAddonsCard from collectionMetadata', () => {
-    const collectionMetadata = {
+  it('passes collection related properties to LandingAddonsCard', () => {
+    const collectionProperties = {
       footerText: 'Custom footer',
       header: 'Custom header',
       slug: 'custom-slug',
       username: 'custom-username',
     };
 
-    const root = render({ collectionMetadata });
+    const root = render({ ...collectionProperties });
     const landingAddonsCard = root.find(LandingAddonsCard);
     expect(landingAddonsCard).toHaveProp(
       'footerLink',
-      `/collections/${collectionMetadata.username}/${collectionMetadata.slug}/`,
+      `/collections/${collectionProperties.username}/${
+        collectionProperties.slug
+      }/`,
     );
     expect(landingAddonsCard).toHaveProp(
       'footerText',
-      collectionMetadata.footerText,
+      collectionProperties.footerText,
     );
-    expect(landingAddonsCard).toHaveProp('header', collectionMetadata.header);
+    expect(landingAddonsCard).toHaveProp('header', collectionProperties.header);
   });
 });

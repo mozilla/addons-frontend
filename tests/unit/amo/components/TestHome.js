@@ -75,7 +75,10 @@ describe(__filename, () => {
       const shelves = root.find(FeaturedCollectionCard);
       const shelf = shelves.find('.Home-FeaturedCollection').at(index);
 
-      expect(shelf).toHaveProp('collectionMetadata', collectionMetadata);
+      expect(shelf).toHaveProp('footerText', collectionMetadata.footerText);
+      expect(shelf).toHaveProp('header', collectionMetadata.header);
+      expect(shelf).toHaveProp('slug', collectionMetadata.slug);
+      expect(shelf).toHaveProp('username', collectionMetadata.username);
       expect(shelf).toHaveProp('loading', true);
     },
   );
