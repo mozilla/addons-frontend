@@ -112,6 +112,7 @@ describe(__filename, () => {
     const prevState = reviewsReducer(
       undefined,
       setUserReviews({
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviews: [fakeReview],
         reviewCount: 1,
         userId,
