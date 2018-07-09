@@ -5,34 +5,36 @@ import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'core/constants';
 import type { AddonType } from 'core/types/addons';
 
-export type LandingCardCollectionMetadata = {|
+type Props = {|
+  addons: Array<AddonType>,
+  className: string,
   footerText: string,
   header: string,
+  loading: boolean,
   slug: string,
   username: string,
 |};
 
-type Props = {|
-  addons: Array<AddonType>,
-  className: string,
-  collectionMetadata: LandingCardCollectionMetadata,
-  loading: boolean,
-|};
-
 export default class FeaturedCollectionCard extends React.Component<Props> {
   render() {
-    const { addons, className, collectionMetadata, loading } = this.props;
+    const {
+      addons,
+      className,
+      footerText,
+      header,
+      loading,
+      slug,
+      username,
+    } = this.props;
 
     return (
       <LandingAddonsCard
         addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
         addons={addons}
         className={className}
-        header={collectionMetadata.header}
-        footerText={collectionMetadata.footerText}
-        footerLink={`/collections/${collectionMetadata.username}/${
-          collectionMetadata.slug
-        }/`}
+        header={header}
+        footerText={footerText}
+        footerLink={`/collections/${username}/${slug}/`}
         loading={loading}
       />
     );

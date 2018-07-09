@@ -22,7 +22,6 @@ import translate from 'core/i18n/translate';
 import { getAddonTypeFilter } from 'core/utils';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
-import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -45,7 +44,7 @@ export const isFeaturedCollection = (
   });
 };
 
-export const getFeaturedCollectionsMetadata = (i18n: I18nType) => {
+export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
       footerText: i18n.gettext(
@@ -275,8 +274,8 @@ export class HomeBase extends React.Component {
           <FeaturedCollectionCard
             addons={collections[0]}
             className="Home-FeaturedCollection"
-            collectionMetadata={featuredCollectionsMetadata[0]}
             loading={loading}
+            {...featuredCollectionsMetadata[0]}
           />
         )}
 
@@ -284,8 +283,8 @@ export class HomeBase extends React.Component {
           <FeaturedCollectionCard
             addons={collections[1]}
             className="Home-FeaturedCollection"
-            collectionMetadata={featuredCollectionsMetadata[1]}
             loading={loading}
+            {...featuredCollectionsMetadata[1]}
           />
         )}
 
@@ -293,8 +292,8 @@ export class HomeBase extends React.Component {
           <FeaturedCollectionCard
             addons={collections[2]}
             className="Home-FeaturedCollection"
-            collectionMetadata={featuredCollectionsMetadata[2]}
             loading={loading}
+            {...featuredCollectionsMetadata[2]}
           />
         )}
 
@@ -318,8 +317,8 @@ export class HomeBase extends React.Component {
           <FeaturedCollectionCard
             addons={collections[3]}
             className="Home-FeaturedCollection"
-            collectionMetadata={featuredCollectionsMetadata[3]}
             loading={loading}
+            {...featuredCollectionsMetadata[3]}
           />
         )}
 

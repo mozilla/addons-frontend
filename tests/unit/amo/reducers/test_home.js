@@ -79,7 +79,7 @@ describe(__filename, () => {
 
       store.dispatch(
         loadHomeAddons({
-          collections: [null],
+          collections: [],
           featuredExtensions: createAddonsApiResult([fakeAddon]),
           featuredThemes: null,
         }),
