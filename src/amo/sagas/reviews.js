@@ -69,8 +69,6 @@ function* fetchUserReviews({
 
     const params: GetReviewsParams = {
       apiState: state.api,
-      // Hide star-only ratings (reviews that do not have a body).
-      filter: 'without_empty_body',
       page,
       user: userId,
     };
