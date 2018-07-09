@@ -405,6 +405,15 @@ describe(__filename, () => {
     it('handles null text', () => {
       expect(nl2br(null)).toEqual('');
     });
+
+    it('returns valid HTML', () => {
+      const htmlValue =
+        '<ul>\n\n\n<li>ul\nli<strong>foo\nbar</strong>\n</li>\r\n</ul>';
+
+      expect(nl2br(htmlValue)).toEqual(
+        '<ul>\n\n\n<li>ul<br />li<strong>foo<br />bar</strong>\n</li>\r\n</ul>',
+      );
+    });
   });
 
   describe('isAllowedOrigin', () => {
