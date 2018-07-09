@@ -311,7 +311,6 @@ describe(__filename, () => {
         .once()
         .withArgs({
           apiState,
-          filter: 'without_empty_body',
           page: 1,
           user: userId,
         })
