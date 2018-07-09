@@ -75,7 +75,6 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           ...baseArgs,
-          page: 1,
           slug: firstCollectionSlug,
           username: firstCollectionUser,
         })
@@ -84,7 +83,6 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           ...baseArgs,
-          page: 1,
           slug: secondCollectionSlug,
           username: secondCollectionUser,
         })
@@ -102,7 +100,6 @@ describe(__filename, () => {
             featured: true,
             sort: SEARCH_SORT_RANDOM,
           },
-          page: 1,
         })
         .returns(Promise.resolve(featuredExtensions));
 
@@ -117,7 +114,6 @@ describe(__filename, () => {
             featured: true,
             sort: SEARCH_SORT_RANDOM,
           },
-          page: 1,
         })
         .returns(Promise.resolve(featuredThemes));
 
@@ -129,19 +125,17 @@ describe(__filename, () => {
         includeFeaturedThemes: true,
       });
 
-      const expectedLoadAction = loadHomeAddons({
+      const loadAction = loadHomeAddons({
         collections,
         featuredExtensions,
         featuredThemes,
       });
 
-      await sagaTester.waitFor(expectedLoadAction.type);
+      const expectedAction = await sagaTester.waitFor(loadAction.type);
       mockCollectionsApi.verify();
       mockSearchApi.verify();
 
-      const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[2];
-      expect(loadAction).toEqual(expectedLoadAction);
+      expect(expectedAction).toEqual(loadAction);
     });
 
     it('does not fetch featured themes if includeFeaturedThemes is false', async () => {
@@ -157,15 +151,15 @@ describe(__filename, () => {
         includeFeaturedThemes: false,
       });
 
-      const expectedLoadAction = loadHomeAddons({
+      const loadAction = loadHomeAddons({
         collections,
         featuredExtensions,
         featuredThemes: null,
       });
 
-      const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
+      const expectedAction = await sagaTester.waitFor(loadAction.type);
       mockSearchApi.verify();
-      expect(loadAction).toEqual(expectedLoadAction);
+      expect(expectedAction).toEqual(loadAction);
     });
 
     it.each([401, 404])(
@@ -200,7 +194,6 @@ describe(__filename, () => {
               featured: true,
               sort: SEARCH_SORT_RANDOM,
             },
-            page: 1,
           })
           .returns(Promise.resolve(featuredExtensions));
 
@@ -215,7 +208,6 @@ describe(__filename, () => {
               featured: true,
               sort: SEARCH_SORT_RANDOM,
             },
-            page: 1,
           })
           .returns(Promise.resolve(featuredThemes));
 
@@ -225,29 +217,24 @@ describe(__filename, () => {
           ],
         });
 
-        const expectedLoadAction = loadHomeAddons({
+        const loadAction = loadHomeAddons({
           collections,
           featuredExtensions,
           featuredThemes,
         });
 
-        await sagaTester.waitFor(expectedLoadAction.type);
-
-        const calledActions = sagaTester.getCalledActions();
-        const loadAction = calledActions[2];
-        expect(loadAction).toEqual(expectedLoadAction);
+        const expectedAction = await sagaTester.waitFor(loadAction.type);
+        expect(expectedAction).toEqual(loadAction);
       },
     );
 
     it('clears the error handler', async () => {
       _fetchHomeAddons();
 
-      const expectedAction = errorHandler.createClearingAction();
+      const errorAction = errorHandler.createClearingAction();
 
-      await sagaTester.waitFor(expectedAction.type);
-      expect(sagaTester.getCalledActions()[1]).toEqual(
-        errorHandler.createClearingAction(),
-      );
+      const expectedAction = await sagaTester.waitFor(errorAction.type);
+      expect(expectedAction).toEqual(errorAction);
     });
 
     it('dispatches an error for a failed collection fetch', async () => {
@@ -260,8 +247,8 @@ describe(__filename, () => {
       _fetchHomeAddons();
 
       const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
-      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      const expectedAction = await sagaTester.waitFor(errorAction.type);
+      expect(expectedAction).toEqual(errorAction);
     });
 
     it('dispatches an error for a failed search fetch', async () => {
@@ -277,7 +264,6 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           ...baseArgs,
-          page: 1,
           slug,
           username,
         })
@@ -293,8 +279,8 @@ describe(__filename, () => {
       _fetchHomeAddons({ collectionsToFetch: [{ slug, username }] });
 
       const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
-      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      const expectedAction = await sagaTester.waitFor(errorAction.type);
+      expect(expectedAction).toEqual(errorAction);
     });
   });
 });
