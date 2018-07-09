@@ -44,20 +44,20 @@ const Notice = ({
 }: Props) => {
   invariant(validTypes.includes(type), `Unknown type: ${type}`);
 
-  const actionProps = {
+  const buttonProps = {
     href: actionHref || undefined,
     onClick: actionOnClick || undefined,
     to: actionTo || undefined,
   };
 
   let actionButton;
-  if (Object.values(actionProps).some((val) => val !== undefined)) {
+  if (Object.values(buttonProps).some((val) => val !== undefined)) {
     invariant(
       actionText,
       'When specifying an action button, actionText is required',
     );
     actionButton = (
-      <Button className="Notice-button" micro {...actionProps}>
+      <Button className="Notice-button" micro {...buttonProps}>
         {actionText}
       </Button>
     );
