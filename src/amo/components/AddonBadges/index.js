@@ -2,7 +2,11 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { isQuantumCompatible } from 'core/utils/compatibility';
 import Badge from 'ui/components/Badge';
@@ -27,6 +31,7 @@ export const AddonBadgesBase = (props: Props) => {
     switch (addonType) {
       case ADDON_TYPE_EXTENSION:
         return i18n.gettext('Featured Extension');
+      case ADDON_TYPE_STATIC_THEME:
       case ADDON_TYPE_THEME:
         return i18n.gettext('Featured Theme');
       default:
