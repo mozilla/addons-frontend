@@ -17,7 +17,6 @@ type Props = {
   actionHref?: string,
   actionOnClick?: Function,
   actionText?: string,
-  // This is the `to` prop of <Link/>
   actionTo?: string | Object,
   children?: React.Node,
   className?: string,
