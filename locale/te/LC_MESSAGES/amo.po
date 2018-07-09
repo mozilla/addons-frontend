@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-06 11:39+0000\n"
+"PO-Revision-Date: 2018-07-09 13:22+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2261,21 +2261,18 @@ msgstr[0] "మరో %(param)s డొమైనులో మీ డేటా �
 msgstr[1] "మరో %(param)s డొమైన్లలో మీ డేటా చూడగలదు"
 
 #: src/ui/components/HostPermissions/index.js:64
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "%(domain)s డొమైన్ లో సైట్లు మీ డేటాను పొందబడును"
+msgstr "%(param)s డొమైనులో మీ డేటా చూడటం"
 
 #: src/ui/components/HostPermissions/index.js:70
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "%(site)s కోసం మీ డేటాను పొందండి"
-msgstr[1] "%(site)s కోసం మీ డేటాను పొందండి"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/ui/components/HostPermissions/index.js:78
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "%(site)s కోసం మీ డేటాను పొందండి"
+msgstr "%(param)s కోసం మీ డేటాను పొందడం"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
