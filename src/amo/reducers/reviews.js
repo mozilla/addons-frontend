@@ -264,6 +264,11 @@ export default function reviewsReducer(
       return {
         ...state,
         byId: storeReviewObjects({ state, reviews: [payload] }),
+        byUserId: {
+          ...state.byUserId,
+          // This will trigger a refresh from the server.
+          [payload.userId]: undefined,
+        },
         [payload.userId]: {
           ...state[payload.userId],
           // TODO: this should be a list of review IDs, not objects. It will

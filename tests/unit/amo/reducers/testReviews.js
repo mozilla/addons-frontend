@@ -105,6 +105,23 @@ describe(__filename, () => {
     expect(state.byId[review.id]).toEqual(denormalizeReview(review));
   });
 
+  it('resets the byUserId data when adding a new review', () => {
+    const userId = 123;
+
+    const prevState = reviewsReducer(
+      undefined,
+      setUserReviews({
+        reviews: [fakeReview],
+        reviewCount: 1,
+        userId,
+      }),
+    );
+    expect(prevState.byUserId[userId]).toBeDefined();
+
+    const state = reviewsReducer(prevState, setFakeReview({ userId }));
+    expect(state.byUserId[userId]).not.toBeDefined();
+  });
+
   it('stores a review reply object', () => {
     const review = { ...fakeReview, id: 1, body: 'Original review body' };
     const state = reviewsReducer(undefined, setReview(review));
