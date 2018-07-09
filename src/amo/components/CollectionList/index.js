@@ -75,6 +75,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
           <UserCollection
             authorUsername={authorUsername}
             id={id}
+            key={id}
             name={name}
             numberOfAddons={numberOfAddons}
             slug={slug}
@@ -84,7 +85,9 @@ export class CollectionListBase extends React.Component<InternalProps> {
     } else {
       // Create 4 "loading" components.
       for (let count = 0; count < 4; count++) {
-        collectionElements.push(<UserCollection id={count} loading />);
+        collectionElements.push(
+          <UserCollection id={count} key={count} loading />,
+        );
       }
     }
 
