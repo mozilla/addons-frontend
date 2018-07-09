@@ -27,7 +27,7 @@ export type SearchType = {|
   count: number,
   filters: FiltersType | {},
   loading: boolean,
-  pageSize: number,
+  pageSize: number | null,
   results: Array<AddonType | CollectionAddonType>,
 |};
 
@@ -35,7 +35,7 @@ export const initialState: SearchType = {
   count: 0,
   filters: {},
   loading: false,
-  pageSize: 0,
+  pageSize: null,
   results: [],
 };
 

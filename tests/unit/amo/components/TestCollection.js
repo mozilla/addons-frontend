@@ -83,6 +83,21 @@ describe(__filename, () => {
     return shallowUntilTarget(<Collection {...allProps} />, CollectionBase);
   };
 
+  const _loadCurrentCollection = ({
+    store,
+    addons = createFakeCollectionAddons(),
+    detail = defaultCollectionDetail,
+    pageSize = DEFAULT_API_PAGE_SIZE,
+  }) => {
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail,
+        pageSize,
+      }),
+    );
+  };
+
   it('renders itself', () => {
     const wrapper = renderComponent();
 
@@ -93,16 +108,14 @@ describe(__filename, () => {
   it('allows HTML entities in the Collection description', () => {
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: {
-          ...defaultCollectionDetail,
-          description: 'Apples &amp; carrots',
-        },
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({
+      store,
+      detail: {
+        ...defaultCollectionDetail,
+        description: 'Apples &amp; carrots',
+      },
+    });
+
     const wrapper = renderComponent({ store });
 
     expect(wrapper.find('.Collection-description').html()).toContain(
@@ -133,15 +146,8 @@ describe(__filename, () => {
 
   it('renders placeholder text if there are no add-ons', () => {
     const { store } = dispatchSignInActions();
-    const collectionDetail = createFakeCollectionDetail();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: [],
-        detail: collectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store, addons: [] });
 
     const wrapper = renderComponent({ store });
 
@@ -175,13 +181,11 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons();
     const collectionDetail = createFakeCollectionDetail();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: collectionAddons,
-        detail: collectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({
+      store,
+      addons: collectionAddons,
+      detail: collectionDetail,
+    });
 
     const wrapper = renderComponent({ store });
 
@@ -191,15 +195,7 @@ describe(__filename, () => {
   it('hides placeholder text when viewing a collection if the user is not logged in', () => {
     const { store } = dispatchClientMetadata();
 
-    const collectionDetail = createFakeCollectionDetail();
-
-    store.dispatch(
-      loadCurrentCollection({
-        addons: [],
-        detail: collectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store, addons: [] });
 
     const wrapper = renderComponent({ store });
 
@@ -239,13 +235,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     fakeDispatch.resetHistory();
 
@@ -296,13 +286,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({ store });
     fakeDispatch.resetHistory();
@@ -317,13 +301,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const location = fakeRouterLocation();
 
@@ -398,13 +376,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
@@ -455,13 +427,7 @@ describe(__filename, () => {
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const errorHandler = createStubErrorHandler();
 
@@ -495,13 +461,7 @@ describe(__filename, () => {
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const errorHandler = createStubErrorHandler();
 
@@ -539,13 +499,7 @@ describe(__filename, () => {
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({
       errorHandler,
@@ -576,13 +530,11 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({ authorUsername: username }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({ authorUsername: username }),
+    });
+
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const wrapper = renderComponent({ errorHandler, store });
@@ -602,13 +554,7 @@ describe(__filename, () => {
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({
       errorHandler,
@@ -649,13 +595,7 @@ describe(__filename, () => {
       slug,
     });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store, detail });
 
     const wrapper = renderComponent({
       location: fakeRouterLocation({ query: queryParams }),
@@ -671,8 +611,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const username = 'some-username';
     const page = 2;
-    const sort = COLLECTION_SORT_NAME;
-    const filters = { page, sort };
+    const filters = { page, collection_sort: COLLECTION_SORT_NAME };
 
     const { store } = dispatchClientMetadata();
 
@@ -682,14 +621,8 @@ describe(__filename, () => {
       slug,
     });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail,
-        // With a pageSize < count, the pagination will be displayed.
-        pageSize: 5,
-      }),
-    );
+    // With a pageSize < count, the pagination will be displayed.
+    _loadCurrentCollection({ store, detail, pageSize: 5 });
 
     const wrapper = renderComponent({
       location: fakeRouterLocation({ query: filters }),
@@ -707,19 +640,14 @@ describe(__filename, () => {
       'pathname',
       `/collections/${username}/${slug}/`,
     );
-    expect(paginator).toHaveProp('queryParams', queryParams);
+    expect(paginator).toHaveProp('queryParams', filters);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
 
   it('declares an install source for non-featured collections', () => {
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const _isFeaturedCollection = sinon.spy(() => false);
     const wrapper = renderComponent({
@@ -737,12 +665,7 @@ describe(__filename, () => {
   it('declares an install source for featured collections', () => {
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const _isFeaturedCollection = sinon.spy(() => true);
     const wrapper = renderComponent({
@@ -801,13 +724,12 @@ describe(__filename, () => {
     // With a pageSize < count, the pagination will be displayed.
     const pageSize = 5;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons,
-        detail,
-        pageSize,
-      }),
-    );
+    _loadCurrentCollection({
+      store,
+      addons,
+      detail,
+      pageSize,
+    });
 
     const wrapper = renderComponent({
       editing: true,
@@ -881,13 +803,11 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons({ addons: [] });
     const collectionDetail = createFakeCollectionDetail({ count: 0 });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: collectionAddons,
-        detail: collectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({
+      store,
+      addons: collectionAddons,
+      detail: collectionDetail,
+    });
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(AddonsCard).prop('footer')).toEqual(null);
@@ -901,13 +821,7 @@ describe(__filename, () => {
     const username = defaultUser;
 
     // User loads the collection page.
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({
       errorHandler,
@@ -981,13 +895,7 @@ describe(__filename, () => {
   it('renders an HTML title', () => {
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: defaultCollectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('title')).toHaveText(defaultCollectionDetail.name);
@@ -1008,16 +916,13 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const username = MOZILLA_COLLECTIONS_USERNAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorUsername: username,
-          slug,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
 
@@ -1030,15 +935,13 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const username = MOZILLA_COLLECTIONS_USERNAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorUsername: username,
-          slug,
-        }),
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
 
@@ -1055,16 +958,13 @@ describe(__filename, () => {
     const slug = FEATURED_THEMES_COLLECTION_SLUG;
     const username = MOZILLA_COLLECTIONS_USERNAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorUsername: username,
-          slug,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
 
@@ -1077,15 +977,13 @@ describe(__filename, () => {
     const slug = FEATURED_THEMES_COLLECTION_SLUG;
     const username = MOZILLA_COLLECTIONS_USERNAME;
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorUsername: username,
-          slug,
-        }),
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
 
@@ -1099,15 +997,12 @@ describe(__filename, () => {
 
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorId: authorUserId,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
@@ -1127,15 +1022,12 @@ describe(__filename, () => {
 
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorId: authorUserId,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
       }),
-    );
+    });
 
     const wrapper = renderComponent({
       _config: fakeConfig,
@@ -1157,15 +1049,12 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorId: authorUserId,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
@@ -1175,14 +1064,12 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: 99 });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorId: authorUserId,
-        }),
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
@@ -1192,15 +1079,12 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorId: authorUserId,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(ConfirmButton)).toHaveLength(1);
@@ -1210,15 +1094,12 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorId: 99,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorId: 99,
       }),
-    );
+    });
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(ConfirmButton)).toHaveLength(0);
@@ -1231,13 +1112,7 @@ describe(__filename, () => {
       authorId: authorUserId,
     });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-      }),
-    );
+    _loadCurrentCollection({ store, detail });
 
     const root = renderComponent({ store, editing: true });
 
@@ -1250,15 +1125,12 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    store.dispatch(
-      loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
-        detail: createFakeCollectionDetail({
-          authorId: authorUserId,
-        }),
-        pageSize: DEFAULT_API_PAGE_SIZE,
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
       }),
-    );
+    });
 
     const root = renderComponent({ store, editing: true });
 

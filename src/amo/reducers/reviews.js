@@ -36,23 +36,23 @@ type ReviewsById = {
   [id: number]: UserReviewType,
 };
 
-type StoredReviewData = {|
+type StoredReviewsData = {|
   pageSize: number,
   reviewCount: number,
   reviews: Array<number>,
 |};
 
 type ReviewsData = {|
-  ...StoredReviewData,
+  ...StoredReviewsData,
   reviews: Array<UserReviewType>,
 |};
 
 type ReviewsByAddon = {
-  [slug: string]: StoredReviewData,
+  [slug: string]: StoredReviewsData,
 };
 
 type ReviewsByUserId = {
-  [userId: number]: StoredReviewData,
+  [userId: number]: StoredReviewsData,
 };
 
 export type FlagState = {
@@ -195,13 +195,15 @@ export const getReviewsByUserId = (
   state: ReviewState,
   userId: number,
 ): ReviewsData | null => {
-  return state.byUserId[userId]
+  const storedReviewsData = state.byUserId[userId];
+
+  return storedReviewsData
     ? {
-        pageSize: state.byUserId[userId].pageSize,
-        reviewCount: state.byUserId[userId].reviewCount,
+        pageSize: storedReviewsData.pageSize,
+        reviewCount: storedReviewsData.reviewCount,
         reviews: expandReviewObjects({
           state,
-          reviews: state.byUserId[userId].reviews,
+          reviews: storedReviewsData.reviews,
         }),
       }
     : null;

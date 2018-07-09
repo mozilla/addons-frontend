@@ -46,7 +46,7 @@ type Props = {|
   lang: string,
   location: ReactRouterLocation,
   params: {| addonSlug: string |},
-  pageSize?: number,
+  pageSize: number | null,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
   router: ReactRouterType,
@@ -327,7 +327,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     addon: getAddonBySlug(state, addonSlug),
     clientApp: state.api.clientApp,
     lang: state.api.lang,
-    pageSize: reviewData && reviewData.pageSize,
+    pageSize: reviewData ? reviewData.pageSize : null,
     reviewCount: reviewData && reviewData.reviewCount,
     reviews:
       reviewData &&

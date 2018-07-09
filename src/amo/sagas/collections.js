@@ -288,7 +288,7 @@ export function* modifyCollection(
         loadCurrentCollection({
           addons: [],
           detail: localizedDetail,
-          pageSize: 0,
+          pageSize: null,
         }),
       );
 

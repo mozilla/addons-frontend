@@ -344,13 +344,13 @@ describe(__filename, () => {
       expect(state.byId[userState.collections[0]]).toEqual(
         createInternalCollection({
           detail: firstCollection,
-          pageSize: 0,
+          pageSize: null,
         }),
       );
       expect(state.byId[userState.collections[1]]).toEqual(
         createInternalCollection({
           detail: secondCollection,
-          pageSize: 0,
+          pageSize: null,
         }),
       );
     });
@@ -1130,13 +1130,13 @@ describe(__filename, () => {
       expect(collections[0]).toEqual(
         createInternalCollection({
           detail: firstCollection,
-          pageSize: 0,
+          pageSize: null,
         }),
       );
       expect(collections[1]).toEqual(
         createInternalCollection({
           detail: secondCollection,
-          pageSize: 0,
+          pageSize: null,
         }),
       );
     });
@@ -1161,7 +1161,7 @@ describe(__filename, () => {
       expect(collections[0]).toEqual(
         createInternalCollection({
           detail: firstCollection,
-          pageSize: 0,
+          pageSize: null,
         }),
       );
     });

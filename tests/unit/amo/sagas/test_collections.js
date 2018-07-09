@@ -640,7 +640,7 @@ describe(__filename, () => {
             detail: collectionDetailResponse,
             lang: state.api.lang,
           }),
-          pageSize: 0,
+          pageSize: null,
         });
 
         const loadAction = await sagaTester.waitFor(expectedLoadAction.type);

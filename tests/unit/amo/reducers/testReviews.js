@@ -772,7 +772,7 @@ describe(__filename, () => {
       expect(reviews).toEqual(null);
     });
 
-    it('returns an object with reviews and reviewCount', () => {
+    it('returns an object with reviews, reviewCount and pageSize', () => {
       const userId = 123;
       const reviews = [fakeReview];
       const pageSize = 10;

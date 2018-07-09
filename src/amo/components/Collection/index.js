@@ -467,7 +467,9 @@ export class CollectionBase extends React.Component<InternalProps> {
       (collection && collection.addons) || [];
 
     const paginator =
-      collection && collection.numberOfAddons > collection.pageSize ? (
+      collection &&
+      collection.pageSize &&
+      collection.numberOfAddons > collection.pageSize ? (
         <Paginate
           LinkComponent={Link}
           count={collection.numberOfAddons}
