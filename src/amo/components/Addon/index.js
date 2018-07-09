@@ -36,7 +36,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
-  ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
@@ -147,8 +146,6 @@ export class AddonBase extends React.Component {
   headerImage() {
     const { addon, i18n } = this.props;
 
-    const previewURL = addon ? addon.previewURL : null;
-
     if (this.addonIsTheme()) {
       let previewURL =
         addon.previews.length > 0 && addon.previews[0].image_url
@@ -160,6 +157,8 @@ export class AddonBase extends React.Component {
             title: addon.name,
           })
         : '';
+
+      const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
       if (!previewURL && type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
@@ -173,28 +172,12 @@ export class AddonBase extends React.Component {
         />
       );
 
-      const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-
-      const unInstalledTheme =
-        installStatus !== ENABLED && type === ADDON_TYPE_THEME;
-
       return (
         <div
           className="Addon-theme-header"
           id="Addon-theme-header"
           role="presentation"
         >
-          {unInstalledTheme ? (
-            <Button
-              buttonType="action"
-              className="Addon-theme-header-label"
-              disabled={!compatible}
-              htmlFor="Addon-theme-header"
-            >
-              <Icon name="eye" className="Addon-theme-preview-icon" />
-              {label}
-            </Button>
-          ) : null}
           {headerImage}
         </div>
       );

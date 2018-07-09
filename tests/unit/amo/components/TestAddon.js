@@ -947,27 +947,6 @@ describe(__filename, () => {
     expect(root.find('.Addon-theme')).toHaveLength(1);
   });
 
-  it('enables a theme preview for supported clients if it is a lightweight theme', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-    });
-    const button = root.find('.Addon-theme-header-label');
-    expect(button.prop('disabled')).toEqual(false);
-  });
-
-  it("hides 'Tap to preview' button for a static theme", () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-      }),
-    });
-    expect(root.find('.Addon-theme-header-label')).toHaveLength(0);
-  });
-
   it('disables install button for incompatibility with firefox version', () => {
     const root = shallowRender({
       getClientCompatibility: () => ({
