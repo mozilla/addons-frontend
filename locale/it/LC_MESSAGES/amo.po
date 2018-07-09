@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-03 18:12+0000\n"
-"Last-Translator: Giorgio Romano <ascotwork@gmail.com>\n"
+"PO-Revision-Date: 2018-07-09 15:51+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -618,9 +618,8 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "Cerca estensioni e temi da aggiungere alla tua raccolta."
 
 #: src/amo/components/Collection/index.js:496
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Componenti aggiuntivi più votati"
+msgstr "Ordina i componenti aggiuntivi per"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -2057,18 +2056,16 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla si riserva il diritto di contattarti in caso di problemi con i componenti aggiuntivi che gestisci."
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Aggiornamento del profilo in corso…"
+msgstr "Aggiornamento account personale in corso…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
 msgid "Update My Account"
 msgstr "Aggiorna il mio account"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Aggiornamento del profilo utente in corso…"
+msgstr "Aggiornamento dell’account in corso…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
@@ -2084,39 +2081,39 @@ msgstr "Elimina questo account"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "IMPORTANTE: L’eliminazione del tuo account è irreversibile."
 
 #: src/amo/components/UserProfileEdit/index.js:765
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "IMPORTANTE: L’eliminazione di questo account è irreversibile."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Se confermi questa %(startStrong)sazione irreversibile%(endStrong)s, i seguenti dati verranno rimossi: immagine del profilo, informazioni del profilo (incluso nome utente, email, nome visualizzato, "
-"posizione, homepage, biografia, occupazione) e le preferenze di notifica. Gli altri dati, come le valutazioni e i commenti, verranno visualizzati come anonimi."
+"I tuoi dati, inclusi i dettagli del profilo (immagine, nome utente, nome visualizzato, località, sito web, biografia, occupazione) e le preferenze per le notifiche, verranno eliminati "
+"definitivamente. Le tue recensioni e valutazioni appariranno come anonime e non saranno più modificabili."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Se confermi questa %(startStrong)sazione irreversibile%(endStrong)s, i seguenti dati verranno rimossi: immagine del profilo, informazioni del profilo (incluso nome utente, email, nome visualizzato, "
-"posizione, homepage, biografia, occupazione) e le preferenze di notifica. Gli altri dati, come le valutazioni e i commenti, verranno visualizzati come anonimi."
+"I dati dell’utente, inclusi i dettagli del profilo (immagine, nome utente, nome visualizzato, località, sito web, biografia, occupazione) e le preferenze per le notifiche, verranno eliminati "
+"definitivamente. Le recensioni e valutazioni dell’utente appariranno come anonime e non saranno più modificabili."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sNOTE:%(strongEnd)s Non puoi eliminare il tuo account finché risulti come %(linkStart)s autore di uno o più componenti aggiuntivi%(linkEnd)s. Prima di procedere all’eliminazione dovrai"
+" %(docLinkStart)strasferire la proprietà%(docLinkEnd)s dei tuoi componenti aggiuntivi o eliminarli."
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sNOTE:%(strongEnd)s Non puoi eliminare l’account se l’utente è %(linkStart)sautore di uno o più componenti aggiuntivi%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
