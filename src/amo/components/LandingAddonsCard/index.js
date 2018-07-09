@@ -34,8 +34,12 @@ export default class LandingAddonsCard extends React.Component<Props> {
       loading,
     } = this.props;
 
-    const filterType = footerLink.query ? footerLink.query.addonType : null;
-    const addonTypeArray = filterType ? filterType.split(',') : [];
+    const filterType =
+      footerLink && footerLink.query && footerLink.query.addonType
+        ? footerLink.query.addonType
+        : null;
+    const addonTypeArray =
+      filterType && typeof filterType === 'string' ? filterType.split(',') : [];
     const placeholderCount = addonTypeArray.find((type) => isTheme(type))
       ? LANDING_PAGE_THEME_ADDON_COUNT
       : LANDING_PAGE_ADDON_COUNT;

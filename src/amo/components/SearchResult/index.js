@@ -58,11 +58,10 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const imageAtts = {};
 
     if (isTheme) {
-      const hasPreviews = addon.previews.length;
       // Since only newly created static themes will have more than one preview
       // we will set up a fallback for now.
-      const previewFallback = hasPreviews && addon.previews[0];
-      const previewSearch = hasPreviews && addon.previews[1];
+      const previewFallback = addon && addon.previews && addon.previews[0];
+      const previewSearch = addon && addon.previews && addon.previews[1];
       const previewImage = previewSearch || previewFallback;
 
       let themeURL =
@@ -79,9 +78,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
             : null;
 
         if (themeUrlLarge) {
-          const imageSize = previewImage.image_size[0];
-          const thumbSize = previewImage.thumbnail_size[0];
-          if (imageSize && thumbSize) {
+          const imageSize = previewImage && previewImage.image_size[0];
+          const thumbSize = previewImage && previewImage.thumbnail_size[0];
+          if (themeURL && imageSize && thumbSize) {
             // If viewing on retina, it should only show the larger size with
             // the current widths available
             imageAtts.srcSet = `${themeURL} ${thumbSize}w, ${themeUrlLarge} ${imageSize}w`;
@@ -89,7 +88,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
         }
       }
 
-      if (!themeURL && addon.type === ADDON_TYPE_THEME) {
+      if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =
           addon.themeData && isAllowedOrigin(addon.themeData.previewURL)
             ? addon.themeData.previewURL
