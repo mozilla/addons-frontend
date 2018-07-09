@@ -78,7 +78,11 @@ export class ErrorListBase extends React.Component {
               // eslint-disable-next-line react/no-array-index-key
               key={`erroritem-${index}`}
             >
-              <Notice type="error" action={action} actionText={actionText}>
+              <Notice
+                type="error"
+                actionOnClick={action}
+                actionText={actionText}
+              >
                 {item}
               </Notice>
             </li>

@@ -70,9 +70,9 @@ describe(__filename, () => {
     expect(notice.html()).toContain('Your session has expired');
 
     expect(notice.prop('actionText')).toEqual('Reload To Continue');
-    expect(notice.prop('action')).toBeDefined();
+    expect(notice.prop('actionOnClick')).toBeDefined();
 
-    const action = notice.prop('action');
+    const action = notice.prop('actionOnClick');
     // Simulate how <Notice /> will execute this callback on button press.
     action();
 
