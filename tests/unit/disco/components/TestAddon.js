@@ -421,8 +421,10 @@ describe(__filename, () => {
       });
 
       sinon.assert.called(fakeEvent.preventDefault);
-      sinon.assert.calledWith(installTheme,
-        themeImage, { ...addon, status: UNINSTALLED });
+      sinon.assert.calledWith(installTheme, themeImage, {
+        ...addon,
+        status: UNINSTALLED,
+      });
     });
   });
 

@@ -28,4 +28,3 @@ export function getThemeData(themeData) {
     version: themeData.version,
   };
 }
-

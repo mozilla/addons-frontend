@@ -20,7 +20,9 @@ describe(__filename, () => {
     themeInstall(fakeNode, fakeDoc);
 
     expect(fakeDoc.createEvent.calledWith('Events')).toBeTruthy();
-    expect(fakeEvent.initEvent.calledWith(THEME_INSTALL, true, false)).toBeTruthy();
+    expect(
+      fakeEvent.initEvent.calledWith(THEME_INSTALL, true, false),
+    ).toBeTruthy();
     expect(fakeNode.dispatchEvent.calledWith(fakeEvent)).toBeTruthy();
   });
 
