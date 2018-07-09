@@ -8,6 +8,11 @@
   @include respond-to(large) {
     grid-column: 2;
     grid-row: 1;
+
+    .Addon-theme & {
+      grid-column: auto;
+      grid-row: auto;
+    }
   }
 }
 
@@ -17,5 +22,15 @@
   @include respond-to(large) {
     @include margin-start(12px);
     @include text-align-end();
+
+    .Addon-theme & {
+      margin: 0;
+    }
+
+    .Icon {
+      .Addon-theme & {
+        margin: 0;
+      }
+    }
   }
 }

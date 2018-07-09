@@ -12,6 +12,11 @@
     display: flex;
     flex-direction: row-reverse;
     margin: 0 0 12px;
+
+    .Addon-theme & {
+      flex-direction: row;
+      margin: 0;
+    }
   }
 
   .Icon {
