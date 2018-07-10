@@ -22,7 +22,6 @@ import collectionsReducer, {
   localizeCollectionDetail,
   removeAddonFromCollection,
   unloadCollectionBySlug,
-  unloadUserCollections,
   updateCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
@@ -491,21 +490,6 @@ describe(__filename, () => {
         expect(action).toEqual(expectedAction);
         mockApi.verify();
       });
-
-      it('refreshes user collections', async () => {
-        const testUsername = 'some-username';
-        mockApi.expects('updateCollection').returns(Promise.resolve());
-
-        _updateCollection({ username: testUsername });
-
-        const expectedAction = unloadUserCollections({
-          username: testUsername,
-        });
-
-        const action = await sagaTester.waitFor(expectedAction.type);
-        expect(action).toEqual(expectedAction);
-        mockApi.verify();
-      });
     });
 
     describe('update logic', () => {
@@ -801,25 +785,10 @@ describe(__filename, () => {
 
       _deleteCollection(params);
 
-      const expectedUnloadCollectionAction = unloadCollectionBySlug(
-        params.slug,
-      );
+      const expectedUnloadAction = unloadCollectionBySlug(params.slug);
 
-      const unloadCollectionAction = await sagaTester.waitFor(
-        expectedUnloadCollectionAction.type,
-      );
-      expect(unloadCollectionAction).toEqual(expectedUnloadCollectionAction);
-
-      const expectedUnloadUserCollectionsAction = unloadUserCollections({
-        username: params.username,
-      });
-
-      const unloadUserCollectionsAction = await sagaTester.waitFor(
-        expectedUnloadUserCollectionsAction.type,
-      );
-      expect(unloadUserCollectionsAction).toEqual(
-        expectedUnloadUserCollectionsAction,
-      );
+      const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
+      expect(unloadAction).toEqual(expectedUnloadAction);
 
       const expectedPushAction = pushLocation(
         `/${lang}/${clientApp}/collections/`,

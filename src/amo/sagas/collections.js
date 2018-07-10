@@ -31,7 +31,6 @@ import {
   loadUserCollections,
   localizeCollectionDetail,
   unloadCollectionBySlug,
-  unloadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -275,13 +274,6 @@ export function* modifyCollection(
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
     const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
 
-    // Unload the user's collections, which will force a re-fetch.
-    yield put(
-      unloadUserCollections({
-        username,
-      }),
-    );
-
     if (creating) {
       invariant(response, 'response is required when creating');
       // If a new collection was just created, load it so that it will
@@ -383,12 +375,6 @@ export function* deleteCollection({
     // Unload the collection from state.
     yield put(unloadCollectionBySlug(slug));
 
-    // Unload the user's collections, which will force a re-fetch.
-    yield put(
-      unloadUserCollections({
-        username,
-      }),
-    );
     yield put(pushLocation(`/${lang}/${clientApp}/collections/`));
   } catch (error) {
     log.warn(`Failed to delete collection: ${error}`);

@@ -6,8 +6,10 @@ import reducer, {
   addonAddedToCollection,
   beginCollectionModification,
   convertFiltersToQueryParams,
+  createCollection,
   createInternalAddons,
   createInternalCollection,
+  deleteCollection,
   expandCollections,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
@@ -23,7 +25,7 @@ import reducer, {
   loadUserCollections,
   localizeCollectionDetail,
   unloadCollectionBySlug,
-  unloadUserCollections,
+  updateCollection,
 } from 'amo/reducers/collections';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { COLLECTION_SORT_NAME } from 'core/constants';
@@ -374,7 +376,7 @@ describe(__filename, () => {
       expect(state.bySlug[collection.slug]).toEqual(collection.id);
     });
 
-    it('unloads user collections', () => {
+    it('unloads user collections after creating', () => {
       const username = 'some-user';
       const collection = createFakeCollectionDetail({ id: 1 });
 
@@ -390,7 +392,64 @@ describe(__filename, () => {
 
       state = reducer(
         state,
-        unloadUserCollections({
+        createCollection({
+          errorHandlerId: createStubErrorHandler().id,
+          name: 'some-collection',
+          slug: 'some-slug',
+          username,
+        }),
+      );
+
+      expect(state.userCollections[username].collections).toEqual(null);
+    });
+
+    it('unloads user collections after updating', () => {
+      const username = 'some-user';
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      let state = reducer(
+        undefined,
+        loadUserCollections({
+          username,
+          collections: [collection],
+        }),
+      );
+
+      expect(state.userCollections[username].collections).toEqual([1]);
+
+      state = reducer(
+        state,
+        updateCollection({
+          collectionSlug: 'some-slug',
+          errorHandlerId: createStubErrorHandler().id,
+          filters: {},
+          name: 'some-collection',
+          username,
+        }),
+      );
+
+      expect(state.userCollections[username].collections).toEqual(null);
+    });
+
+    it('unloads user collections after deleting', () => {
+      const username = 'some-user';
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      let state = reducer(
+        undefined,
+        loadUserCollections({
+          username,
+          collections: [collection],
+        }),
+      );
+
+      expect(state.userCollections[username].collections).toEqual([1]);
+
+      state = reducer(
+        state,
+        deleteCollection({
+          errorHandlerId: createStubErrorHandler().id,
+          slug: 'some-slug',
           username,
         }),
       );
