@@ -4,13 +4,21 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import { STATS_VIEW } from 'core/constants';
+import {
+  ADDONS_CONTENTREVIEW,
+  ADDONS_EDIT,
+  ADDONS_POSTREVIEW,
+  ADMIN_TOOLS_VIEW,
+  STATS_VIEW,
+  THEMES_REVIEW,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import {
   addonHasVersionHistory,
   isAddonAuthor,
+  isTheme,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -21,14 +29,33 @@ import type { AppState } from 'amo/store';
 
 type Props = {|
   addon: AddonType | null,
-  i18n: I18nType,
-  userId: number | null,
-  hasStatsPermission: boolean,
 |};
 
-export class AddonMoreInfoBase extends React.Component<Props> {
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+  userId: number | null,
+  hasAdminPermission: boolean,
+  hasCodeReviewPermission: boolean,
+  hasContentReviewPermission: boolean,
+  hasEditPermission: boolean,
+  hasStatsPermission: boolean,
+  hasThemeReviewPermission: boolean,
+|};
+
+export class AddonMoreInfoBase extends React.Component<InternalProps> {
   listContent() {
-    const { addon, i18n, userId, hasStatsPermission } = this.props;
+    const {
+      addon,
+      hasAdminPermission,
+      hasCodeReviewPermission,
+      hasContentReviewPermission,
+      hasEditPermission,
+      hasStatsPermission,
+      hasThemeReviewPermission,
+      i18n,
+      userId,
+    } = this.props;
 
     if (!addon) {
       return this.renderDefinitions({
@@ -91,6 +118,63 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       );
     }
 
+    const editLink = hasEditPermission ? (
+      <li>
+        <Link
+          className="AddonMoreInfo-edit-link"
+          href={`/developers/addon/${addon.slug}/edit`}
+        >
+          {i18n.gettext('Edit add-on')}
+        </Link>
+      </li>
+    ) : null;
+
+    const adminLink = hasAdminPermission ? (
+      <li>
+        <Link
+          className="AddonMoreInfo-admin-link"
+          href={`/admin/addon/manage/${addon.slug}/`}
+        >
+          {i18n.gettext('Admin add-on')}
+        </Link>
+      </li>
+    ) : null;
+
+    const contentReviewLink = hasContentReviewPermission ? (
+      <li>
+        <Link
+          className="AddonMoreInfo-contentReview-link"
+          href={`/reviewers/review-content/${addon.slug}`}
+        >
+          {i18n.gettext('Content review add-on')}
+        </Link>
+      </li>
+    ) : null;
+
+    const codeReviewLink =
+      hasCodeReviewPermission && !isTheme(addon.type) ? (
+        <li>
+          <Link
+            className="AddonMoreInfo-codeReview-link"
+            href={`/reviewers/review/${addon.slug}`}
+          >
+            {i18n.gettext('Code review add-on')}
+          </Link>
+        </li>
+      ) : null;
+
+    const themeReviewLink =
+      hasThemeReviewPermission && isTheme(addon.type) ? (
+        <li>
+          <Link
+            className="AddonMoreInfo-themeReview-link"
+            href={`/reviewers/review/${addon.slug}`}
+          >
+            {i18n.gettext('Review theme')}
+          </Link>
+        </li>
+      ) : null;
+
     const currentVersion = addon.current_version;
     const lastUpdated = addon.last_updated;
     const license = currentVersion && currentVersion.license;
@@ -112,14 +196,45 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     }
 
     return this.renderDefinitions({
+      adminLink,
+      codeReviewLink,
+      contentReviewLink,
+      editLink,
+      eulaLink: addon.has_eula ? (
+        <Link
+          className="AddonMoreInfo-eula-link"
+          href={`/addon/${addon.slug}/eula/`}
+        >
+          {i18n.gettext('Read the license agreement for this add-on')}
+        </Link>
+      ) : null,
       homepage,
+      privacyPolicyLink: addon.has_privacy_policy ? (
+        <Link
+          className="AddonMoreInfo-privacy-policy-link"
+          href={`/addon/${addon.slug}/privacy/`}
+        >
+          {i18n.gettext('Read the privacy policy for this add-on')}
+        </Link>
+      ) : null,
+      statsLink,
       supportUrl,
       supportEmail,
-      statsLink,
+      themeReviewLink,
       version:
         currentVersion && addonHasVersionHistory(addon)
           ? currentVersion.version
           : null,
+      versionHistoryLink: addonHasVersionHistory(addon) ? (
+        <li>
+          <Link
+            className="AddonMoreInfo-version-history-link"
+            href={`/addon/${addon.slug}/versions/`}
+          >
+            {i18n.gettext('See all versions')}
+          </Link>
+        </li>
+      ) : null,
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
             // translators: This will output, in English:
@@ -132,46 +247,25 @@ export class AddonMoreInfoBase extends React.Component<Props> {
           )
         : null,
       versionLicenseLink,
-      privacyPolicyLink: addon.has_privacy_policy ? (
-        <Link
-          className="AddonMoreInfo-privacy-policy-link"
-          href={`/addon/${addon.slug}/privacy/`}
-        >
-          {i18n.gettext('Read the privacy policy for this add-on')}
-        </Link>
-      ) : null,
-      eulaLink: addon.has_eula ? (
-        <Link
-          className="AddonMoreInfo-eula-link"
-          href={`/addon/${addon.slug}/eula/`}
-        >
-          {i18n.gettext('Read the license agreement for this add-on')}
-        </Link>
-      ) : null,
-      versionHistoryLink: addonHasVersionHistory(addon) ? (
-        <li>
-          <Link
-            className="AddonMoreInfo-version-history-link"
-            href={`/addon/${addon.slug}/versions/`}
-          >
-            {i18n.gettext('See all versions')}
-          </Link>
-        </li>
-      ) : null,
     });
   }
 
   renderDefinitions({
+    adminLink,
+    codeReviewLink,
+    contentReviewLink,
+    editLink,
+    eulaLink = null,
     homepage = null,
+    privacyPolicyLink = null,
+    statsLink = null,
     supportUrl = null,
     supportEmail = null,
-    statsLink = null,
-    privacyPolicyLink = null,
-    eulaLink = null,
+    themeReviewLink,
     version = null,
+    versionHistoryLink = null,
     versionLastUpdated,
     versionLicenseLink = null,
-    versionHistoryLink = null,
   }: Object) {
     const { i18n } = this.props;
     return (
@@ -246,6 +340,24 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             {statsLink}
           </Definition>
         )}
+        {(editLink ||
+          adminLink ||
+          contentReviewLink ||
+          codeReviewLink ||
+          themeReviewLink) && (
+          <Definition
+            className="AddonMoreInfo-admin-links"
+            term={i18n.gettext('Admin Links')}
+          >
+            <ul className="AddonMoreInfo-admin-links-contents-list">
+              {editLink}
+              {adminLink}
+              {contentReviewLink}
+              {codeReviewLink}
+              {themeReviewLink}
+            </ul>
+          </Definition>
+        )}
       </DefinitionList>
     );
   }
@@ -264,7 +376,12 @@ export class AddonMoreInfoBase extends React.Component<Props> {
 export const mapStateToProps = (state: AppState) => {
   return {
     userId: state.users.currentUserID,
+    hasAdminPermission: hasPermission(state, ADMIN_TOOLS_VIEW),
+    hasCodeReviewPermission: hasPermission(state, ADDONS_POSTREVIEW),
+    hasContentReviewPermission: hasPermission(state, ADDONS_CONTENTREVIEW),
+    hasEditPermission: hasPermission(state, ADDONS_EDIT),
     hasStatsPermission: hasPermission(state, STATS_VIEW),
+    hasThemeReviewPermission: hasPermission(state, THEMES_REVIEW),
   };
 };
 
