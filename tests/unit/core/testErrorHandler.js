@@ -15,7 +15,6 @@ import translate from 'core/i18n/translate';
 import { clearError, setError, setErrorMessage } from 'core/actions/errors';
 import {
   ErrorHandler,
-  normalizeFileNameId,
   withErrorHandler,
   withFixedErrorHandler,
   withRenderedErrorHandler,
@@ -494,26 +493,6 @@ describe(__filename, () => {
       expect(errorHandler.id).toEqual(
         'src/SomeComponent/index.js-unique-id-based-on-props',
       );
-    });
-  });
-
-  describe('normalizeFileNameId', () => {
-    it('returns a path relative to the project root directory', () => {
-      expect(normalizeFileNameId('/path/to/src/foo/index.js')).toEqual(
-        'src/foo/index.js',
-      );
-    });
-
-    it('returns the given filename if `src` is not in it', () => {
-      const filename = 'tests/unit/core/utils/test_index.js';
-
-      expect(normalizeFileNameId(filename)).toEqual(filename);
-    });
-
-    it('does not strip `src` in a given relative filename', () => {
-      const filename = 'src/file.js';
-
-      expect(normalizeFileNameId(filename)).toEqual(filename);
     });
   });
 });

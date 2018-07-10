@@ -8,9 +8,11 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
+  applyUIStateChanges,
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  setUIState,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
@@ -36,6 +38,16 @@ describe(__filename, () => {
       />,
       EditableCollectionAddonBase,
     );
+  }
+
+  function renderAndEditNote({
+    store = dispatchClientMetadata().store,
+    ...customProps
+  } = {}) {
+    const root = render({ store, ...customProps });
+    setUIState({ root, store, change: { editingNote: true } });
+
+    return root;
   }
 
   it('renders a className if provided', () => {
@@ -141,12 +153,14 @@ describe(__filename, () => {
     });
 
     it('shows an empty notes form when the comment icon is clicked', () => {
-      const root = render();
+      const { store } = dispatchClientMetadata();
+      const root = render({ store });
 
       expect(root.find('.EditableCollectionAddon-notes')).toHaveLength(0);
 
       const commentIcon = root.find('.EditableCollectionAddon-edit-note');
       commentIcon.simulate('click', createFakeEvent());
+      applyUIStateChanges({ root, store });
 
       expect(root.find('.EditableCollectionAddon-notes')).toHaveLength(1);
 
@@ -172,33 +186,45 @@ describe(__filename, () => {
       ).toHaveLength(0);
     });
 
+    it('changes UI state when the comment icon is clicked', () => {
+      const { store } = dispatchClientMetadata();
+      const root = render({ store });
+      applyUIStateChanges({ root, store });
+
+      expect(root.instance().props.uiState.editingNote).toEqual(false);
+
+      const commentIcon = root.find('.EditableCollectionAddon-edit-note');
+      commentIcon.simulate('click', createFakeEvent());
+      applyUIStateChanges({ root, store });
+
+      expect(root.instance().props.uiState.editingNote).toEqual(true);
+    });
+
     it('shows a populated notes form when the edit button icon is clicked', () => {
       const notes = 'Some notes.';
+      const { store } = dispatchClientMetadata();
+      const root = render({ notes, store });
 
-      const root = render({ notes });
-      expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find(
-        '.EditableCollectionAddon-notes-edit-button',
-      );
-      editButton.simulate('click', createFakeEvent());
+      const commentIcon = root.find('.EditableCollectionAddon-edit-note');
+      commentIcon.simulate('click', createFakeEvent());
+      applyUIStateChanges({ root, store });
+
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(1);
       // The read-only portion should not be shown.
       expect(
         root.find('.EditableCollectionAddon-notes-read-only'),
       ).toHaveLength(0);
+
+      // Make sure props.notes is included in the form.
       expect(notesForm).toHaveProp('text', notes);
     });
 
     it('hides the notes form when the cancel button is clicked on the DismissibleTextForm', () => {
+      const { store } = dispatchClientMetadata();
       const notes = 'Some notes.';
 
-      let root = render({ notes });
-      expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find(
-        '.EditableCollectionAddon-notes-edit-button',
-      );
-      editButton.simulate('click', createFakeEvent());
+      const root = renderAndEditNote({ notes, store });
       let notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(1);
 
@@ -207,7 +233,8 @@ describe(__filename, () => {
       const onDismissNoteForm = notesForm.prop('onDismiss');
       onDismissNoteForm();
 
-      root = render({ notes });
+      applyUIStateChanges({ root, store });
+
       notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(0);
     });
@@ -221,13 +248,8 @@ describe(__filename, () => {
       const deleteNote = sinon.spy();
       const errorHandler = createStubErrorHandler();
 
-      const root = render({ addon, deleteNote, errorHandler });
+      const root = renderAndEditNote({ addon, deleteNote, errorHandler });
 
-      expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find(
-        '.EditableCollectionAddon-notes-edit-button',
-      );
-      editButton.simulate('click', createFakeEvent());
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
 
       // This simulates the user clicking the "Delete" button on the
@@ -247,13 +269,7 @@ describe(__filename, () => {
       const saveNote = sinon.spy();
       const errorHandler = createStubErrorHandler();
 
-      const root = render({ addon, errorHandler, saveNote });
-
-      expect(root.find('.EditableCollectionAddon-notes-form')).toHaveLength(0);
-      const editButton = root.find(
-        '.EditableCollectionAddon-notes-edit-button',
-      );
-      editButton.simulate('click', createFakeEvent());
+      const root = renderAndEditNote({ addon, errorHandler, saveNote });
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
 
       // This simulates the user clicking the "Save" button on the
