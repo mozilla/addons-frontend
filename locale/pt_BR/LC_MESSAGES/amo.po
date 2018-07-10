@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-10 04:50+0000\n"
+"PO-Revision-Date: 2018-07-10 04:58+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2077,22 +2077,20 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "IMPORTANTE: Excluir esta conta é irreversível."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Caso confirme esta %(startStrong)sação irreversível%(endStrong)s, os seguintes dados serão removidos: imagem de perfil, detalhes de perfil (incluindo nome de usuário, e-mail, nome de exibição, "
-"localização, página inicial, biografia e ocupação) e preferências de notificação. Outros dados, como avaliações e análises, serão convertidos em anônimos."
+"Seus dados serão permanentemente removidos, incluindo detalhes de perfil (foto, nome de usuário, nome de exibição, localização, página inicial, biografia, ocupação) e preferências de notificação. "
+"Suas análises e avaliações serão convertidas em anônimas e não poderão mais ser editadas."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Caso confirme esta %(startStrong)sação irreversível%(endStrong)s, os seguintes dados serão removidos: imagem de perfil, detalhes de perfil (incluindo nome de usuário, e-mail, nome de exibição, "
-"localização, página inicial, biografia e ocupação) e preferências de notificação. Outros dados, como avaliações e análises, serão convertidos em anônimos."
+"Os dados do usuário serão permanentemente removidos, incluindo detalhes de perfil (foto, nome de usuário, nome de exibição, localização, página inicial, biografia, ocupação) e preferências de "
+"notificação. Análises e avaliações serão convertidas em anônimas e não poderão mais ser editadas."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
@@ -2104,7 +2102,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sNOTE:%(strongEnd)s Você não pode excluir uma conta de usuário se o usuário for %(linkStart)sautor de qualquer extensão%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
