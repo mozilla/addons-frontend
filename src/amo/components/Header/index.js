@@ -24,6 +24,7 @@ import './styles.scss';
 
 export class HeaderBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     api: PropTypes.object.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -35,6 +36,7 @@ export class HeaderBase extends React.Component {
   };
 
   static defaultProps = {
+    _config: config,
     isHomePage: false,
     query: '',
   };
@@ -47,6 +49,7 @@ export class HeaderBase extends React.Component {
 
   render() {
     const {
+      _config,
       i18n,
       isHomePage,
       location,
@@ -65,15 +68,22 @@ export class HeaderBase extends React.Component {
     );
 
     const viewProfileURL = siteUser ? `/user/${siteUser.username}/` : null;
-    const viewProfileLinkProps = config.get('enableUserProfile')
+    const viewProfileLinkProps = _config.get('enableUserProfile')
       ? { to: viewProfileURL }
       : { href: viewProfileURL };
     const editProfileURL = siteUser ? '/users/edit' : null;
-    const editProfileLinkProps = config.get('enableUserProfile')
+    const editProfileLinkProps = _config.get('enableUserProfile')
       ? { to: editProfileURL }
       : { href: editProfileURL };
-    const myCollectionsURL = siteUser ? '/collections/' : null;
-    const myCollectionsLinkProps = config.get('enableNewCollectionsUI')
+
+    const enableNewCollectionsUI = _config.get('enableNewCollectionsUI');
+    let myCollectionsURL = null;
+    if (siteUser) {
+      myCollectionsURL = enableNewCollectionsUI
+        ? '/collections/'
+        : `/collections/${siteUser.username}/`;
+    }
+    const myCollectionsLinkProps = enableNewCollectionsUI
       ? { to: myCollectionsURL }
       : { href: myCollectionsURL };
 

@@ -103,13 +103,15 @@ export const INCOMPATIBLE_UNSUPPORTED_PLATFORM =
 
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
+export const TRACKING_TYPE_STATIC_THEME = 'addon:statictheme';
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
 // Add-on install tracking sources.
 // These key values may be linked to historic analytic data.
 export const INSTALL_SOURCE_COLLECTION = 'collection';
-export const INSTALL_SOURCE_HOME_COLLECTION = 'homepage-collection-featured';
+export const INSTALL_SOURCE_FEATURED_COLLECTION =
+  'homepage-collection-featured';
 export const INSTALL_SOURCE_DETAIL_PAGE = 'dp-btn-primary';
 export const INSTALL_SOURCE_DISCOVERY = 'discovery-promo';
 export const INSTALL_SOURCE_FEATURED = 'featured';
@@ -198,10 +200,21 @@ export const INSTALL_COMPLETE = 'INSTALL_COMPLETE';
 export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
 export const INSTALL_ERROR = 'INSTALL_ERROR';
 
+// Tracking install actions.
+export const INSTALL_ACTION = 'install';
+export const INSTALL_STARTED_ACTION = 'install:started';
+export const UNINSTALL_ACTION = 'uninstall';
+
 // Tracking categories.
-export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
-export const INSTALL_STARTED_CATEGORY = 'AMO Addon / Theme Installs Started';
-export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
+export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
+export const INSTALL_EXTENSION_CATEGORY = 'AMO Addon Installs';
+
+export const INSTALL_THEME_STARTED_CATEGORY = 'AMO Theme Installs Started';
+export const INSTALL_EXTENSION_STARTED_CATEGORY = 'AMO Addon Installs Started';
+
+export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
+export const UNINSTALL_EXTENSION_CATEGORY = 'AMO Addon Uninstalls';
+
 export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 
 // Error used to know that the setEnable method on addon is

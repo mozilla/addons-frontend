@@ -27,6 +27,7 @@ export type SearchType = {|
   count: number,
   filters: FiltersType | {},
   loading: boolean,
+  pageSize: number | null,
   results: Array<AddonType | CollectionAddonType>,
 |};
 
@@ -34,6 +35,7 @@ export const initialState: SearchType = {
   count: 0,
   filters: {},
   loading: false,
+  pageSize: null,
   results: [],
 };
 
@@ -82,6 +84,7 @@ type SearchLoadParams = {|
   |},
   result: {|
     count: number,
+    page_size: number,
     results: Array<string>,
   |},
 |};
@@ -122,8 +125,8 @@ export default function search(
         ...state,
         count: 0,
         filters: payload.filters,
-        results: [],
         loading: true,
+        results: [],
       };
     }
     case SEARCH_LOADED: {
@@ -133,6 +136,7 @@ export default function search(
         ...state,
         count: payload.result.count,
         loading: false,
+        pageSize: payload.result.page_size,
         results: payload.result.results.map((slug) =>
           createInternalAddon(payload.entities.addons[slug]),
         ),
@@ -142,8 +146,8 @@ export default function search(
       return {
         ...state,
         count: 0,
-        results: [],
         loading: false,
+        results: [],
       };
     case SEARCH_RESET:
       return initialState;

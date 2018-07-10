@@ -1,4 +1,4 @@
-apipkg==1.4
+apipkg==1.5
 atomicwrites==1.1.5
 attrs==18.1.0
 certifi==2018.4.16
@@ -9,9 +9,9 @@ funcsigs==1.0.2
 idna==2.7
 more-itertools==4.2.0
 pluggy==0.6.0
-py==1.5.3
+py==1.5.4
 PyPOM==2.0.0
-pytest==3.6.1
+pytest==3.6.3
 pytest-base-url==1.4.1
 pytest-firefox==0.1.1
 pytest-forked==0.2
@@ -23,7 +23,7 @@ pytest-variables==1.7.1
 pytest-xdist==1.22.2
 atomicwrites==1.1.5
 requests==2.19.1
-selenium==3.12.0
+selenium==3.13.0
 six==1.11.0
 urllib3==1.22
 zope.component==4.4.1

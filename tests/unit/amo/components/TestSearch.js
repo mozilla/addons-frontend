@@ -20,7 +20,7 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
-import { createApiError } from 'core/api/index';
+import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import { ErrorHandler } from 'core/errorHandler';
 import { resetSearch, searchStart } from 'core/reducers/search';
 import ErrorList from 'ui/components/ErrorList';
@@ -52,6 +52,7 @@ describe(__filename, () => {
       handleSearch: sinon.spy(),
       i18n: fakeI18n(),
       loading: false,
+      pageSize: DEFAULT_API_PAGE_SIZE,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
     };
   });
@@ -334,6 +335,7 @@ describe(__filename, () => {
         count: state.search.count,
         filtersUsedForResults: state.search.filters,
         loading: state.search.loading,
+        pageSize: state.search.pageSize,
         results: state.search.results,
       });
     });

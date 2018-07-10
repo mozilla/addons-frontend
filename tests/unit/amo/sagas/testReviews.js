@@ -20,6 +20,7 @@ import {
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga from 'amo/sagas/reviews';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
   dispatchSignInActions,
@@ -70,7 +71,14 @@ describe(__filename, () => {
           filter: 'without_empty_body',
           page: 1,
         })
-        .returns(Promise.resolve(apiResponsePage({ results: reviews })));
+        .returns(
+          Promise.resolve(
+            apiResponsePage({
+              page_size: DEFAULT_API_PAGE_SIZE,
+              results: reviews,
+            }),
+          ),
+        );
 
       _fetchReviews();
 
@@ -81,8 +89,9 @@ describe(__filename, () => {
       expect(calledActions[1]).toEqual(
         setAddonReviews({
           addonSlug: fakeAddon.slug,
-          reviews,
+          pageSize: DEFAULT_API_PAGE_SIZE,
           reviewCount: 1,
+          reviews,
         }),
       );
     });
@@ -311,15 +320,22 @@ describe(__filename, () => {
         .once()
         .withArgs({
           apiState,
-          filter: 'without_empty_body',
           page: 1,
           user: userId,
         })
-        .returns(Promise.resolve(apiResponsePage({ results: reviews })));
+        .returns(
+          Promise.resolve(
+            apiResponsePage({
+              page_size: DEFAULT_API_PAGE_SIZE,
+              results: reviews,
+            }),
+          ),
+        );
 
       _fetchUserReviews();
 
       const expectedAction = setUserReviews({
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviewCount: 1,
         reviews,
         userId,

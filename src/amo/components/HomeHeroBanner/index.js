@@ -25,13 +25,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           {i18n.gettext('Prevent Facebook from tracking you around the web')}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-2" linkTo="/addon/swift-selection-search/">
-        <h3>{i18n.gettext('Swift Selection Search')}</h3>
+      <HeroSection key="hero-2" linkTo="/addon/midnight-lizard-quantum/">
+        <h3>{i18n.gettext('Midnight Lizard')}</h3>
 
-        <p>
-          {i18n.gettext(`Highlight text on any web page to pull up a
-              handy search menu`)}
-        </p>
+        <p>{i18n.gettext('Give the entire internet a new look')}</p>
       </HeroSection>,
       <HeroSection key="hero-3" linkTo="/addon/turbo-download-manager/">
         <h3>{i18n.gettext('Turbo Download Manager')}</h3>
@@ -41,15 +38,19 @@ export class HomeHeroBannerBase extends React.Component<Props> {
               support`)}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-4" linkTo="/addon/web-security/">
-        <h3>{i18n.gettext('Web Security')}</h3>
+      <HeroSection key="hero-4" linkTo="/addon/auth-helper/">
+        <h3>{i18n.gettext('Authenticator')}</h3>
         <p>
-          {i18n.gettext('Protection against malware and data phishing scams')}
+          {i18n.gettext('Generate 2-step verification codes right in Firefox')}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-5" linkTo="/addon/vertical-tabs-reloaded/">
-        <h3>{i18n.gettext('Vertical Tabs Reloaded')}</h3>
-        <p>{i18n.gettext('Arrange tabs in a vertical fashion')}</p>
+      <HeroSection key="hero-5" linkTo="/addon/ip-address-and-domain-info/">
+        <h3>{i18n.gettext('IP Address and Domain Information')}</h3>
+        <p>
+          {i18n.gettext(
+            `See detailed info about every website you visit—IP address, location, provider & more`,
+          )}
+        </p>
       </HeroSection>,
       <HeroSection key="hero-6" linkTo="/addon/ublock-origin/">
         <h3>{i18n.gettext('uBlock Origin')}</h3>
@@ -72,13 +73,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
               life—work, personal, etc.—separated by color-coded tabs`)}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-9" linkTo="/addon/worldwide-radio/">
-        <h3>{i18n.gettext('Worldwide Radio')}</h3>
+      <HeroSection key="hero-9" linkTo="/addon/transparent-standalone-image/">
+        <h3>{i18n.gettext('Transparent Standalone Images')}</h3>
 
-        <p>
-          {i18n.gettext(`Quantum Extensions Challenge winner!
-              Listen to live radio from around the world`)}
-        </p>
+        <p>{i18n.gettext('Render images on transparent backgrounds')}</p>
       </HeroSection>,
       <HeroSection key="hero-10" linkTo="/addon/tabliss/">
         <h3>{i18n.gettext('Tabliss')}</h3>
@@ -104,13 +102,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
               web pages`)}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-13" linkTo="/addon/black-menu-google/">
-        <h3>{i18n.gettext('Black Menu for Google')}</h3>
+      <HeroSection key="hero-13" linkTo="/addon/privacy-possum/">
+        <h3>{i18n.gettext('Privacy Possum')}</h3>
 
-        <p>
-          {i18n.gettext(`Easy drop-down menu access to Google services
-              like Search and Translate`)}
-        </p>
+        <p>{i18n.gettext('Protect yourself against the sneakiest trackers')}</p>
       </HeroSection>,
       <HeroSection key="hero-14" linkTo="/addon/page-translate/">
         <h3>{i18n.gettext('Page Translate')}</h3>
@@ -119,14 +114,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           {i18n.gettext('Translate an entire web page with a couple clicks')}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-15" linkTo="/addon/image-search-options/">
-        <h3>{i18n.gettext('Image Search Options')}</h3>
+      <HeroSection key="hero-15" linkTo="/addon/textmarkerpro/">
+        <h3>{i18n.gettext('Textmarker')}</h3>
 
-        <p>
-          {i18n.gettext(
-            'Access reverse image search options in a context menu',
-          )}
-        </p>
+        <p>{i18n.gettext('Highly customizable text highlighter')}</p>
       </HeroSection>,
       <HeroSection key="hero-16" linkTo="/addon/forget_me_not/">
         <h3>{i18n.gettext('Forget Me Not')}</h3>
@@ -144,10 +135,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
               web`)}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-18" linkTo="/addon/privacy-badger17/">
-        <h3>{i18n.gettext('PrivacyBadger')}</h3>
+      <HeroSection key="hero-18" linkTo="/addon/styl-us/">
+        <h3>{i18n.gettext('Stylus')}</h3>
 
-        <p>{i18n.gettext('Block sneaky spying ads and trackers')}</p>
+        <p>{i18n.gettext('Give your favorite websites a new look')}</p>
       </HeroSection>,
     ];
   }

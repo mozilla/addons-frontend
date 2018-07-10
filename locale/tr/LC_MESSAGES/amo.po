@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-05 10:51+0000\n"
+"PO-Revision-Date: 2018-07-10 13:59+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -629,7 +629,7 @@ msgstr "Koleksiyonlarınızı görmek için giriş yapın"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Koleksiyonlar, sevdiğiniz eklentileri takip etmenizi ve özelleştirdiğiniz tarayıcınızı başkalarıyla paylaşmanızı kolaylaştırır."
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
@@ -740,9 +740,8 @@ msgid "User comment"
 msgstr "Kullanıcı yorumu"
 
 #: src/amo/components/EditableCollectionAddon/index.js:144
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Bu eklenti hakkında"
+msgstr "Bu eklenti hakkında yorum ekleyin."
 
 #: src/amo/components/EditableCollectionAddon/index.js:145
 msgid "Save"
@@ -1017,9 +1016,8 @@ msgid "See more translation tools"
 msgstr "Diğer çeviri araçlarına bakın"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Privacy matters"
-msgstr "Gizlilik araçları"
+msgstr "Gizlilik önemlidir"
 
 #: src/amo/components/Home/index.js:253
 msgid "See more privacy extensions"
@@ -1063,7 +1061,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:103
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Eski web sayfalarının arşivlenmiş sürümlerini bulmanın güçlü bir yolu"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Black Menu for Google"
@@ -1087,7 +1085,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Resim arama seçeneklerine sağ tıklama menüsünden erişin"
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Forget Me Not"
@@ -1095,16 +1093,15 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:135
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Firefox'un çerezler ve yerel depolama gibi web sitesi verilerini unutmasını sağlayın"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Group Speed Dial"
 msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:143
-#, fuzzy
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Web'deki en sevdiğiniz şeyleri saklayın, kaydedin ve düzenleyin"
+msgstr "Web'deki en sevdiğiniz yerler için görsel yer imleri"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "PrivacyBadger"
@@ -1131,13 +1128,12 @@ msgid "Highlight text on any web page to pull up a handy search menu"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:37
-#, fuzzy
 msgid "Turbo Download Manager"
-msgstr "Download Manager (S3)"
+msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:40
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Çoklu parça desteğiyle indirme hızlarını artırın"
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Web Security"
@@ -1193,7 +1189,7 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Özelleştirilebilir arka planlar, hava durumu ve daha fazlasıyla muhteşem bir yeni sekme sayfası"
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Share Backported"
@@ -1201,7 +1197,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Firefox araç çubuğuna sosyal medyada ‘Paylaş’ düğmesi ekleyin"
 
 #: src/amo/components/LandingPage/index.js:225
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1911,9 +1907,8 @@ msgid "My reviews"
 msgstr "İncelemelerim"
 
 #: src/amo/components/UserProfile/index.js:216
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "Bu eklentinin %(total)s incelemesi var"
+msgstr "Bu eklentinin incelemelerine göz atın"
 
 #: src/amo/components/UserProfile/index.js:261
 msgid "Add-ons developer"

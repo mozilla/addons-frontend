@@ -62,6 +62,7 @@ export type CollectionType = {
   lastUpdatedDate: string,
   name: string,
   numberOfAddons: number,
+  pageSize: number | null,
   slug: string,
 };
 
@@ -284,6 +285,7 @@ export type CollectionAddonsListResponse = {|
 type LoadCurrentCollectionParams = {|
   addons: ExternalCollectionAddons,
   detail: ExternalCollectionDetail,
+  pageSize: number | null,
 |};
 
 type LoadCurrentCollectionAction = {|
@@ -294,23 +296,21 @@ type LoadCurrentCollectionAction = {|
 export const loadCurrentCollection = ({
   addons,
   detail,
+  pageSize,
 }: LoadCurrentCollectionParams = {}): LoadCurrentCollectionAction => {
-  if (!addons) {
-    throw new Error('addons are required');
-  }
-  if (!detail) {
-    throw new Error('detail is required');
-  }
+  invariant(addons, 'addons are required');
+  invariant(detail, 'detail is required');
 
   return {
     type: LOAD_CURRENT_COLLECTION,
-    payload: { addons, detail },
+    payload: { addons, detail, pageSize },
   };
 };
 
 type LoadCurrentCollectionPageParams = {|
   addons: ExternalCollectionAddons,
   numberOfAddons: number,
+  pageSize: number,
 |};
 
 type LoadCurrentCollectionPageAction = {|
@@ -321,16 +321,18 @@ type LoadCurrentCollectionPageAction = {|
 export const loadCurrentCollectionPage = ({
   addons,
   numberOfAddons,
+  pageSize,
 }: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
   invariant(addons, 'The addons parameter is required');
   invariant(
     typeof numberOfAddons === 'number',
     'The numberOfAddons parameter must be a number',
   );
+  invariant(typeof pageSize === 'number', 'pageSize is required');
 
   return {
     type: LOAD_CURRENT_COLLECTION_PAGE,
-    payload: { addons, numberOfAddons },
+    payload: { addons, numberOfAddons, pageSize },
   };
 };
 
@@ -814,11 +816,13 @@ export const getCurrentCollection = (
 type CreateInternalCollectionParams = {|
   detail: ExternalCollectionDetail,
   items?: ExternalCollectionAddons,
+  pageSize: number | null,
 |};
 
 export const createInternalCollection = ({
   detail,
   items,
+  pageSize,
 }: CreateInternalCollectionParams): CollectionType => ({
   addons: items ? createInternalAddons(items) : null,
   authorId: detail.author.id,
@@ -830,6 +834,7 @@ export const createInternalCollection = ({
   lastUpdatedDate: detail.modified,
   name: detail.name,
   numberOfAddons: detail.addon_count,
+  pageSize,
   slug: detail.slug,
 });
 
@@ -837,17 +842,20 @@ type LoadCollectionIntoStateParams = {|
   state: CollectionsState,
   collection: ExternalCollectionDetail,
   addons?: ExternalCollectionAddons,
+  pageSize: number | null,
 |};
 
 export const loadCollectionIntoState = ({
   state,
   collection,
   addons,
+  pageSize,
 }: LoadCollectionIntoStateParams): CollectionsState => {
   const existingCollection = state.byId[collection.id];
   const internalCollection = createInternalCollection({
     detail: collection,
     items: addons,
+    pageSize,
   });
   // In case the new collection isn't loaded with add-ons,
   // make sure we don't overwrite any existing addons.
@@ -1007,12 +1015,13 @@ const reducer = (
     }
 
     case LOAD_CURRENT_COLLECTION: {
-      const { addons, detail } = action.payload;
+      const { addons, detail, pageSize } = action.payload;
 
       const newState = loadCollectionIntoState({
         state,
         collection: detail,
         addons,
+        pageSize,
       });
 
       return {
@@ -1025,7 +1034,7 @@ const reducer = (
     }
 
     case LOAD_CURRENT_COLLECTION_PAGE: {
-      const { addons, numberOfAddons } = action.payload;
+      const { addons, numberOfAddons, pageSize } = action.payload;
 
       const currentCollection = getCurrentCollection(state);
       if (!currentCollection) {
@@ -1040,6 +1049,7 @@ const reducer = (
             ...currentCollection,
             addons: createInternalAddons(addons),
             numberOfAddons,
+            pageSize,
           },
         },
         current: {
@@ -1120,6 +1130,7 @@ const reducer = (
         newState = loadCollectionIntoState({
           state: newState,
           collection,
+          pageSize: null,
         });
       });
 

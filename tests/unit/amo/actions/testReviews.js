@@ -9,7 +9,6 @@ import {
   setReview,
   setReviewWasFlagged,
   setReviewReply,
-  setAddonReviews,
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM, SET_REVIEW } from 'amo/constants';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
@@ -105,38 +104,6 @@ describe(__filename, () => {
     it('sets an action type', () => {
       const action = setDenormalizedReview(denormalizeReview(fakeReview));
       expect(action.type).toEqual(SET_REVIEW);
-    });
-  });
-
-  describe('setAddonReviews', () => {
-    const defaultParams = {
-      reviews: [fakeReview],
-      reviewCount: 1,
-      addonSlug: fakeAddon.slug,
-    };
-
-    it('requires an addonSlug', () => {
-      const params = { ...defaultParams };
-      delete params.addonSlug;
-      expect(() => setAddonReviews(params)).toThrowError(
-        /addonSlug cannot be empty/,
-      );
-    });
-
-    it('requires a list of reviews', () => {
-      const params = { ...defaultParams };
-      delete params.reviews;
-      expect(() => setAddonReviews(params)).toThrowError(
-        /reviews must be an Array/,
-      );
-    });
-
-    it('requires a count of reviews', () => {
-      const params = { ...defaultParams };
-      delete params.reviewCount;
-      expect(() => setAddonReviews(params)).toThrowError(
-        /reviewCount must be set/,
-      );
     });
   });
 

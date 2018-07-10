@@ -94,6 +94,7 @@ describe(__filename, () => {
   }) {
     store.dispatch(
       setUserReviews({
+        pageSize: DEFAULT_API_PAGE_SIZE,
         reviewCount: count === null ? reviews.length : count,
         reviews,
         userId,
@@ -823,7 +824,12 @@ describe(__filename, () => {
       'to',
       `/addon/${fakeReview.addon.slug}/reviews/`,
     );
-    expect(firstReview.find(Link).children()).toHaveText('a year ago');
+    expect(firstReview.find(Link).children()).toHaveText(
+      root
+        .instance()
+        .props.i18n.moment(fakeReview.created)
+        .fromNow(),
+    );
 
     expect(firstReview.find(UserRating)).toHaveLength(1);
     expect(firstReview.find(UserRating)).toHaveProp(

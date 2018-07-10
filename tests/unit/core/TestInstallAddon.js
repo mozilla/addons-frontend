@@ -8,6 +8,7 @@ import createStore from 'amo/store';
 import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLOSE_INFO,
   DISABLED,
@@ -18,10 +19,12 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
+  INSTALL_ACTION,
   INSTALL_CANCELLED,
+  INSTALL_STARTED_ACTION,
   INSTALL_FAILED,
-  INSTALL_STARTED_CATEGORY,
+  INSTALL_THEME_CATEGORY,
+  INSTALL_THEME_STARTED_CATEGORY,
   INSTALLED,
   INSTALLING,
   OS_ALL,
@@ -35,9 +38,9 @@ import {
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
-  TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_THEME,
-  UNINSTALL_CATEGORY,
+  TRACKING_TYPE_INVALID,
+  UNINSTALL_ACTION,
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
@@ -52,6 +55,7 @@ import {
 } from 'tests/unit/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
+import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 
 const {
   WithInstallHelpers,
@@ -61,6 +65,8 @@ const {
   mapStateToProps,
   withInstallHelpers,
 } = installAddon;
+
+const INVALID_TYPE = 'not-a-real-type';
 
 // See: https://github.com/airbnb/enzyme/issues/1232.
 class BaseComponent extends React.Component {
@@ -1107,8 +1113,11 @@ describe(`${__filename}: withInstallHelpers`, () => {
         // Even though the install() promise fails, it gets caught
         // and resolved successfully.
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_EXTENSION,
-          category: INSTALL_STARTED_CATEGORY,
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(
+            ADDON_TYPE_EXTENSION,
+            INSTALL_STARTED_ACTION,
+          ),
           label: addon.name,
         });
         sinon.assert.calledOnce(fakeTracking.sendEvent);
@@ -1128,8 +1137,60 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return install(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_EXTENSION,
-          category: INSTALL_CATEGORY,
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
+          label: addon.name,
+        });
+      });
+    });
+
+    it('tracks the start of a static theme install', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      });
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { root } = renderWithInstallHelpers({
+        ...addon,
+        _tracking: fakeTracking,
+      });
+      const { install } = root.instance().props;
+
+      return install(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+          category: getAddonEventCategory(
+            ADDON_TYPE_STATIC_THEME,
+            INSTALL_STARTED_ACTION,
+          ),
+          label: addon.name,
+        });
+      });
+    });
+
+    it('tracks a static theme addon install', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      });
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { root } = renderWithInstallHelpers({
+        ...addon,
+        _tracking: fakeTracking,
+      });
+      const { install } = root.instance().props;
+
+      return install(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+          category: getAddonEventCategory(
+            ADDON_TYPE_STATIC_THEME,
+            INSTALL_ACTION,
+          ),
           label: addon.name,
         });
       });
@@ -1299,8 +1360,39 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_EXTENSION,
-          category: UNINSTALL_CATEGORY,
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(
+            ADDON_TYPE_EXTENSION,
+            UNINSTALL_ACTION,
+          ),
+          label: addon.name,
+        });
+      });
+    });
+
+    it('tracks a static theme addon uninstall', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper();
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      });
+      const { root } = renderWithInstallHelpers({
+        ...addon,
+        _addonManager: fakeAddonManager,
+        _tracking: fakeTracking,
+      });
+      const { uninstall } = root.instance().props;
+
+      return uninstall(addon).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+          category: getAddonEventCategory(
+            ADDON_TYPE_STATIC_THEME,
+            UNINSTALL_ACTION,
+          ),
           label: addon.name,
         });
       });
@@ -1321,8 +1413,8 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_THEME,
-          category: UNINSTALL_CATEGORY,
+          action: getAddonTypeForTracking(ADDON_TYPE_THEME),
+          category: getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION),
           label: addon.name,
         });
       });
@@ -1335,7 +1427,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       };
       const addon = createInternalAddon({
         ...fakeAddon,
-        type: 'not-a-real-type',
+        type: INVALID_TYPE,
       });
       const { root } = renderWithInstallHelpers({
         ...addon,
@@ -1346,8 +1438,8 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       return uninstall(addon).then(() => {
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: 'invalid',
-          category: UNINSTALL_CATEGORY,
+          action: TRACKING_TYPE_INVALID,
+          category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
           label: addon.name,
         });
       });
@@ -1478,12 +1570,12 @@ describe(`${__filename}: withInstallHelpers`, () => {
       installTheme(node, addon, stubs);
       sinon.assert.calledWith(stubs._tracking.sendEvent, {
         action: TRACKING_TYPE_THEME,
-        category: INSTALL_STARTED_CATEGORY,
+        category: INSTALL_THEME_STARTED_CATEGORY,
         label: 'hai-theme',
       });
       sinon.assert.calledWith(stubs._tracking.sendEvent, {
         action: TRACKING_TYPE_THEME,
-        category: INSTALL_CATEGORY,
+        category: INSTALL_THEME_CATEGORY,
         label: 'hai-theme',
       });
       sinon.assert.calledTwice(stubs._tracking.sendEvent);

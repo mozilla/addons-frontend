@@ -10,8 +10,12 @@ import config from 'config';
 import { setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
 import themeAction, { getThemeData } from 'core/themePreview';
-import tracking, { getAction } from 'core/tracking';
+import tracking, {
+  getAddonTypeForTracking,
+  getAddonEventCategory,
+} from 'core/tracking';
 import {
+  ADDON_TYPE_THEME,
   CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
@@ -21,11 +25,13 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
+  INSTALL_ACTION,
   INSTALL_ERROR,
   INSTALL_CANCELLED,
   INSTALL_FAILED,
-  INSTALL_STARTED_CATEGORY,
+  INSTALL_STARTED_ACTION,
+  INSTALL_THEME_CATEGORY,
+  INSTALL_THEME_STARTED_CATEGORY,
   INSTALLING,
   OS_ALL,
   OS_ANDROID,
@@ -38,10 +44,8 @@ import {
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
-  TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_THEME,
-  ADDON_TYPE_THEME,
-  UNINSTALL_CATEGORY,
+  UNINSTALL_ACTION,
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
@@ -88,12 +92,12 @@ export function installTheme(
     // For consistency, track both a start-install and an install event.
     _tracking.sendEvent({
       action: TRACKING_TYPE_THEME,
-      category: INSTALL_STARTED_CATEGORY,
+      category: INSTALL_THEME_STARTED_CATEGORY,
       label: name,
     });
     _tracking.sendEvent({
       action: TRACKING_TYPE_THEME,
-      category: INSTALL_CATEGORY,
+      category: INSTALL_THEME_CATEGORY,
       label: name,
     });
   }
@@ -449,16 +453,17 @@ export class WithInstallHelpers extends React.Component {
       guid,
       iconUrl,
       location,
-      platformFiles,
       name,
+      platformFiles,
+      type,
       userAgentInfo,
     } = this.props;
 
     return new Promise((resolve) => {
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
       _tracking.sendEvent({
-        action: TRACKING_TYPE_EXTENSION,
-        category: INSTALL_STARTED_CATEGORY,
+        action: getAddonTypeForTracking(type),
+        category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
         label: name,
       });
 
@@ -480,8 +485,8 @@ export class WithInstallHelpers extends React.Component {
       })
       .then(() => {
         _tracking.sendEvent({
-          action: TRACKING_TYPE_EXTENSION,
-          category: INSTALL_CATEGORY,
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, INSTALL_ACTION),
           label: name,
         });
         if (!_addonManager.hasPermissionPromptsEnabled()) {
@@ -541,13 +546,13 @@ export class WithInstallHelpers extends React.Component {
     const { _addonManager, _tracking, dispatch } = this.props;
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
 
-    const action = getAction(type);
+    const action = getAddonTypeForTracking(type);
     return _addonManager
       .uninstall(guid)
       .then(() => {
         _tracking.sendEvent({
           action,
-          category: UNINSTALL_CATEGORY,
+          category: getAddonEventCategory(type, UNINSTALL_ACTION),
           label: name,
         });
       })

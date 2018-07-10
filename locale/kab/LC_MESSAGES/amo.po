@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-05 14:33+0000\n"
-"Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
+"PO-Revision-Date: 2018-07-06 09:11+0000\n"
+"Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -576,9 +576,8 @@ msgid "Name"
 msgstr "Isem"
 
 #: src/amo/components/Collection/index.js:172
-#, fuzzy
 msgid "Popularity"
-msgstr "ISental iɣerfanen"
+msgstr "Tiɣerfi"
 
 #: src/amo/components/Collection/index.js:281
 msgid "Edit this collection"
@@ -617,9 +616,8 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "Nadi isiɣzaf akked isental ara ternuḍ ar tegrumma-ik."
 
 #: src/amo/components/Collection/index.js:496
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+msgstr "Smizzwer izegrar s"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -1892,14 +1890,12 @@ msgid "Add-ons Home Page"
 msgstr "Asebter agejdan n uzegrir"
 
 #: src/amo/components/UserProfile/index.js:197
-#, fuzzy
 msgid "My reviews"
-msgstr "Iceggiren"
+msgstr "Iceggiren-iw"
 
 #: src/amo/components/UserProfile/index.js:216
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "%(total)s iceggiren i uzegrir-a"
+msgstr "Snirem iceggiren i uzegrir-a"
 
 #: src/amo/components/UserProfile/index.js:261
 msgid "Add-ons developer"
@@ -2034,33 +2030,28 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla ad k-id-inermes ɣef uguren icudden ar izegrar inek izedɣen ɣur-s."
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Aleqqem n umaɣnu-ik…"
+msgstr "Aleqqem n umiḍan-ik…"
 
 #: src/amo/components/UserProfileEdit/index.js:736
-#, fuzzy
 msgid "Update My Account"
-msgstr "Amiḍan-iw"
+msgstr "Leqqem amiḍan-iw"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Taẓrigt n umaɣnu n useqdac…"
+msgstr "Abeddel n umiḍan-agi…"
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Update This Account"
 msgstr "Leqqem amiḍan-agi"
 
 #: src/amo/components/UserProfileEdit/index.js:750 src/amo/components/UserProfileEdit/index.js:828
-#, fuzzy
 msgid "Delete My Account"
-msgstr "Amiḍan-iw"
+msgstr "Kkes amiḍan-iw"
 
 #: src/amo/components/UserProfileEdit/index.js:751 src/amo/components/UserProfileEdit/index.js:829
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Kkes tagrumma-a"
+msgstr "Kkes amiḍan-a"
 
 #: src/amo/components/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your account is irreversible."
@@ -2071,32 +2062,32 @@ msgid "IMPORTANT: Deleting this account is irreversible."
 msgstr "IMPORTANT: Ma tekseḍ amiḍan-agi, aya ad yili i lebda."
 
 #: src/amo/components/UserProfileEdit/index.js:774
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Ma tsentmeḍ %(startStrong)s tigawt-agi%(endStrong)s, Isefka-agi ad ttwaksen: tugna n umaɣnu, talqaut n umaɣnu ( isem n useqdec,imayl, isem ittwaseknen, adig, asebter agejdan) akked isemnyifen n "
-"ilɣa. isefka-nniḍen am usenqed."
+"Isefka-ik ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) akked isemnyifen n yilɣa. Iceggiren-ik akked usezmel ad "
+"uɣalen d udrigen, wurgin ad ttwabeddlen."
 
 #: src/amo/components/UserProfileEdit/index.js:781
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Ma tsentmeḍ %(startStrong)s tigawt-agi%(endStrong)s, Isefka-agi ad ttwaksen: tugna n umaɣnu, talqaut n umaɣnu ( isem n useqdec,imayl, isem ittwaseknen, adig, asebter agejdan) akked isemnyifen n "
-"ilɣa. isefka-nniḍen am usenqed."
+"Isefka n useqdac ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) akked isemnyifen n yilɣa. Iceggiren-ik akked "
+"usezmel ad uɣalen d udrigen, wurgin ad ttwabeddlen."
 
 #: src/amo/components/UserProfileEdit/index.js:794
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan-ik ma yella kečč d %(linkStart)sameskar n walbawḍ n yizegrar%(linkEnd)s. Yessefk %(docLinkStart)sad tmuddeḍ ayla %(docLinkEnd)s "
+"neɣ ad tekkseḍ izegrar send ad tizmireḍ ad tekkseḍ amiḍan-ik."
 
 #: src/amo/components/UserProfileEdit/index.js:801
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan n useqdac ma yella aseqdac d %(linkStart)sameskar n walbaɛḍ n yizegrar%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2147,18 +2138,16 @@ msgid "Profile photo"
 msgstr "Tawlaft n umaɣnu"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Fren tawlaft"
+msgstr "Fren tawlaft…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "Kkes tugna-agi"
+msgstr "Kkes tawlaft-agi"
 
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Register or Log in"

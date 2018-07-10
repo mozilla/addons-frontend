@@ -49,8 +49,9 @@ function* fetchReviews({
     yield put(
       setAddonReviews({
         addonSlug,
-        reviews: response.results,
+        pageSize: response.page_size,
         reviewCount: response.count,
+        reviews: response.results,
       }),
     );
   } catch (error) {
@@ -69,8 +70,6 @@ function* fetchUserReviews({
 
     const params: GetReviewsParams = {
       apiState: state.api,
-      // Hide star-only ratings (reviews that do not have a body).
-      filter: 'without_empty_body',
       page,
       user: userId,
     };
@@ -79,6 +78,7 @@ function* fetchUserReviews({
 
     yield put(
       setUserReviews({
+        pageSize: response.page_size,
         reviewCount: response.count,
         reviews: response.results,
         userId,

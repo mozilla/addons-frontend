@@ -24,6 +24,7 @@ import reducer, {
   localizeCollectionDetail,
   unloadCollectionBySlug,
 } from 'amo/reducers/collections';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { COLLECTION_SORT_NAME } from 'core/constants';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
@@ -81,6 +82,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collectionAddons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -105,6 +107,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collectionAddons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -115,6 +118,7 @@ describe(__filename, () => {
         createInternalCollection({
           detail: collectionDetail,
           items: collectionAddons,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
       expect(state.current.loading).toEqual(false);
@@ -130,6 +134,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collectionAddons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -157,6 +162,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collectionAddons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -175,6 +181,7 @@ describe(__filename, () => {
         ...createInternalCollection({
           detail: collectionDetail,
           items: collectionAddons.results,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
         addons: [],
       });
@@ -186,7 +193,11 @@ describe(__filename, () => {
       expect(() =>
         reducer(
           undefined,
-          loadCurrentCollectionPage({ addons, numberOfAddons: 5 }),
+          loadCurrentCollectionPage({
+            addons,
+            numberOfAddons: 5,
+            pageSize: DEFAULT_API_PAGE_SIZE,
+          }),
         ),
       ).toThrow(/current collection does not exist/);
     });
@@ -201,6 +212,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collectionAddons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -216,6 +228,7 @@ describe(__filename, () => {
         loadCurrentCollectionPage({
           addons: newAddons,
           numberOfAddons: 5,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -254,6 +267,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: createFakeCollectionAddons(),
           detail: firstCollection,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -262,6 +276,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: createFakeCollectionAddons(),
           detail: secondCollection,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -327,10 +342,16 @@ describe(__filename, () => {
       expect(userState.collections).toEqual([1, 2]);
 
       expect(state.byId[userState.collections[0]]).toEqual(
-        createInternalCollection({ detail: firstCollection }),
+        createInternalCollection({
+          detail: firstCollection,
+          pageSize: null,
+        }),
       );
       expect(state.byId[userState.collections[1]]).toEqual(
-        createInternalCollection({ detail: secondCollection }),
+        createInternalCollection({
+          detail: secondCollection,
+          pageSize: null,
+        }),
       );
     });
 
@@ -744,6 +765,7 @@ describe(__filename, () => {
     const defaultParams = {
       addons: createFakeCollectionAddons(),
       detail: createFakeCollectionDetail(),
+      pageSize: DEFAULT_API_PAGE_SIZE,
     };
 
     it('throws an error when addons are missing', () => {
@@ -830,6 +852,7 @@ describe(__filename, () => {
       const internalCollection = createInternalCollection({
         items: addons,
         detail: collectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       });
 
       const state = reducer(
@@ -837,6 +860,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -869,6 +893,7 @@ describe(__filename, () => {
       const internalCollection = createInternalCollection({
         items: addons,
         detail: collectionDetail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
       });
 
       const state = reducer(
@@ -876,6 +901,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -908,6 +934,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -1002,6 +1029,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collectionAddons,
           detail: collectionDetail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -1020,6 +1048,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collection1Addons,
           detail: collection1Detail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -1030,6 +1059,7 @@ describe(__filename, () => {
         loadCurrentCollection({
           addons: collection2Addons,
           detail: collection2Detail,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -1040,6 +1070,7 @@ describe(__filename, () => {
         createInternalCollection({
           detail: collection1Detail,
           items: collection1Addons,
+          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
     });
@@ -1097,10 +1128,16 @@ describe(__filename, () => {
       const collections = expandCollections(state, meta);
       expect(collections.length).toEqual(2);
       expect(collections[0]).toEqual(
-        createInternalCollection({ detail: firstCollection }),
+        createInternalCollection({
+          detail: firstCollection,
+          pageSize: null,
+        }),
       );
       expect(collections[1]).toEqual(
-        createInternalCollection({ detail: secondCollection }),
+        createInternalCollection({
+          detail: secondCollection,
+          pageSize: null,
+        }),
       );
     });
 
@@ -1122,7 +1159,10 @@ describe(__filename, () => {
       const collections = expandCollections(state, meta);
       expect(collections.length).toEqual(1);
       expect(collections[0]).toEqual(
-        createInternalCollection({ detail: firstCollection }),
+        createInternalCollection({
+          detail: firstCollection,
+          pageSize: null,
+        }),
       );
     });
   });

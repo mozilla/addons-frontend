@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-03 17:51+0000\n"
-"PO-Revision-Date: 2018-07-05 09:09+0000\n"
-"Last-Translator: వీవెన్ <veeven@gmail.com>\n"
+"PO-Revision-Date: 2018-07-10 10:10+0000\n"
+"Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -323,11 +323,10 @@ msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s కోసం సమీక్షలు"
 
 #: src/amo/components/AddonReviewList/index.js:194
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s సమీక్ష"
-msgstr[1] "%(total)s సమీక్షలు"
+msgstr[0] "ఈ యాడ్-ఆనుకి %(total)s సమీక్ష"
+msgstr[1] "ఈ యాడ్-ఆన్‌కి %(total)s సమీక్షలు"
 
 #: src/amo/components/AddonReviewList/index.js:223
 msgid "by %(authorList)s"
@@ -511,23 +510,20 @@ msgid "See more featured extensions"
 msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
 
 #: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:136
-#, fuzzy
 msgid "Trending extensions"
-msgstr "పొడిగింతలను కనుగొనండి"
+msgstr "ట్రెండవుతూన్న పొడగింతలు"
 
 #: src/amo/components/Category/index.js:162 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
+msgstr "మరిన్ని ట్రెండవుతూన్న పొడగింతలను చూడండి"
 
 #: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:148
 msgid "Top rated extensions"
 msgstr ""
 
 #: src/amo/components/Category/index.js:172 src/amo/components/LandingPage/index.js:164
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
+msgstr ""
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:221 src/amo/components/SectionLinks/index.js:97
 msgid "Themes"
@@ -542,23 +538,20 @@ msgid "See more featured themes"
 msgstr "మరిన్ని విశేష అలంకారాలను చూడండి"
 
 #: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:139
-#, fuzzy
 msgid "Trending themes"
-msgstr "అలంకారాలను కనుగొనండి"
+msgstr "ట్రెండవుతూన్న అలంకారాలు"
 
 #: src/amo/components/Category/index.js:195 src/amo/components/LandingPage/index.js:181
-#, fuzzy
 msgid "See more trending themes"
-msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
+msgstr "మరిన్ని ట్రెండవుతూన్న అలంకారాలను చూడండి"
 
 #: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:151
 msgid "Top rated themes"
 msgstr ""
 
 #: src/amo/components/Category/index.js:205 src/amo/components/LandingPage/index.js:187
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
+msgstr ""
 
 #: src/amo/components/CategoryHeader/index.js:41
 msgid "Browse all add-ons in this category."
@@ -821,26 +814,23 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag"
-msgstr ""
+msgstr "పతాకం"
 
 #: src/amo/components/FlagReviewMenu/index.js:127
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "డెవలపర్ కేంద్రం"
+msgstr "ఈ డెవలపరు స్పందనను ఫ్లాగ్ చెయ్యి"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
-#, fuzzy
 msgid "Flag this review"
-msgstr "పరిదృశ్యం చూడడానికి తాకండి"
+msgstr "ఈ సమీక్షను ఫ్లాగ్ చేయి"
 
 #: src/amo/components/FlagReviewMenu/index.js:62
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "ఈ ప్రతిస్పందనను ఫ్లాగ్ చేయడానికి లాగిన్ అవ్వండి"
 
 #: src/amo/components/FlagReviewMenu/index.js:63
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "పరిదృశ్యం చూడడానికి తాకండి"
+msgstr "ఈ సమస్యను ఫ్లాగు చెయ్యడానికి ప్రవేశించండి"
 
 #: src/amo/components/FlagReviewMenu/index.js:72
 msgid "You cannot flag your own response"
@@ -1460,9 +1450,8 @@ msgstr "విశేష పొడిగింతలు"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:142
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "పొడిగింతలను కనుగొనండి"
+msgstr "ట్రెండవుతూన్న యాడ్-ఆన్లు"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:154
@@ -2272,21 +2261,18 @@ msgstr[0] "మరో %(param)s డొమైనులో మీ డేటా �
 msgstr[1] "మరో %(param)s డొమైన్లలో మీ డేటా చూడగలదు"
 
 #: src/ui/components/HostPermissions/index.js:64
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "%(domain)s డొమైన్ లో సైట్లు మీ డేటాను పొందబడును"
+msgstr "%(param)s డొమైనులో మీ డేటా చూడటం"
 
 #: src/ui/components/HostPermissions/index.js:70
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "%(site)s కోసం మీ డేటాను పొందండి"
-msgstr[1] "%(site)s కోసం మీ డేటాను పొందండి"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/ui/components/HostPermissions/index.js:78
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "%(site)s కోసం మీ డేటాను పొందండి"
+msgstr "%(param)s కోసం మీ డేటాను పొందడం"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"

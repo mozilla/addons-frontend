@@ -10,7 +10,16 @@
   }
 
   .Card-contents {
+    background: $white;
     font-size: $font-size-m-smaller;
+
+    .CollectionList-listing {
+      padding-bottom: $padding-page;
+
+      @include respond-to(large) {
+        padding-bottom: $padding-page-l;
+      }
+    }
   }
 }
 
@@ -24,10 +33,6 @@
 
     .CollectionList-list.CardList {
       margin: 0;
-
-      .Card-contents {
-        background: $white;
-      }
     }
   }
 }
@@ -43,6 +48,5 @@
     grid-auto-flow: initial;
     grid-template-columns: repeat(2, 50%);
     margin: 0;
-    padding: 0;
   }
 }

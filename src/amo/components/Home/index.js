@@ -6,6 +6,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
+import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
@@ -14,7 +15,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_HOME_COLLECTION,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -25,11 +25,51 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-export const COLLECTIONS_TO_FETCH = [
-  { slug: 'translation-tools', username: 'mozilla' },
-  { slug: 'privacy-matters', username: 'mozilla' },
-  { slug: 'change-up-your-tabs', username: 'mozilla' },
+export const FEATURED_COLLECTIONS = [
+  { slug: 'social-media-customization', username: 'mozilla' },
+  { slug: 'dynamic-media-downloaders', username: 'mozilla' },
+  { slug: 'summer-themes', username: 'mozilla' },
+  { slug: 'must-have-media', username: 'mozilla' },
 ];
+
+export const isFeaturedCollection = (
+  collection,
+  { featuredCollections = FEATURED_COLLECTIONS } = {},
+) => {
+  return featuredCollections.some((featured) => {
+    return (
+      featured.slug === collection.slug &&
+      featured.username === collection.authorUsername
+    );
+  });
+};
+
+export const getFeaturedCollectionsMetadata = (i18n) => {
+  return [
+    {
+      footerText: i18n.gettext(
+        'See more social media customization extensions',
+      ),
+      header: i18n.gettext('Social media customization'),
+      ...FEATURED_COLLECTIONS[0],
+    },
+    {
+      footerText: i18n.gettext('See more dynamic downloaders'),
+      header: i18n.gettext('Dynamic downloaders'),
+      ...FEATURED_COLLECTIONS[1],
+    },
+    {
+      footerText: i18n.gettext('See more summer themes'),
+      header: i18n.gettext('Summer themes'),
+      ...FEATURED_COLLECTIONS[2],
+    },
+    {
+      footerText: i18n.gettext('See more must-have media extensions'),
+      header: i18n.gettext('Must-have media'),
+      ...FEATURED_COLLECTIONS[3],
+    },
+  ];
+};
 
 export class HomeBase extends React.Component {
   static propTypes = {
@@ -40,23 +80,31 @@ export class HomeBase extends React.Component {
     featuredExtensions: PropTypes.array.isRequired,
     featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
+    includeFeaturedThemes: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
     _config: config,
+    includeFeaturedThemes: false,
   };
 
   componentWillMount() {
-    const { dispatch, errorHandler, resultsLoaded } = this.props;
+    const {
+      dispatch,
+      errorHandler,
+      includeFeaturedThemes,
+      resultsLoaded,
+    } = this.props;
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
     if (!resultsLoaded) {
       dispatch(
         fetchHomeAddons({
+          collectionsToFetch: FEATURED_COLLECTIONS,
           errorHandlerId: errorHandler.id,
-          collectionsToFetch: COLLECTIONS_TO_FETCH,
+          includeFeaturedThemes,
         }),
       );
     }
@@ -164,6 +212,7 @@ export class HomeBase extends React.Component {
       featuredExtensions,
       featuredThemes,
       i18n,
+      includeFeaturedThemes,
       resultsLoaded,
     } = this.props;
 
@@ -173,6 +222,8 @@ export class HomeBase extends React.Component {
       extensions. Are you interested in…`);
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
+
+    const featuredCollectionsMetadata = getFeaturedCollectionsMetadata(i18n);
 
     const loading = resultsLoaded === false;
 
@@ -199,6 +250,53 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
+        {includeFeaturedThemes && (
+          <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
+            addons={featuredThemes}
+            className="Home-FeaturedThemes"
+            header={i18n.gettext('Featured themes')}
+            footerText={i18n.gettext('See more featured themes')}
+            footerLink={{
+              pathname: '/search/',
+              query: {
+                addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
+                  _config: this.props._config,
+                }),
+                featured: true,
+              },
+            }}
+            loading={loading}
+          />
+        )}
+
+        {(loading || collections[0]) && (
+          <FeaturedCollectionCard
+            addons={collections[0]}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...featuredCollectionsMetadata[0]}
+          />
+        )}
+
+        {(loading || collections[1]) && (
+          <FeaturedCollectionCard
+            addons={collections[1]}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...featuredCollectionsMetadata[1]}
+          />
+        )}
+
+        {(loading || collections[2]) && (
+          <FeaturedCollectionCard
+            addons={collections[2]}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...featuredCollectionsMetadata[2]}
+          />
+        )}
+
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={featuredExtensions}
@@ -215,63 +313,12 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[0]) && (
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
-            addons={collections[0]}
+        {(loading || collections[3]) && (
+          <FeaturedCollectionCard
+            addons={collections[3]}
             className="Home-FeaturedCollection"
-            header={i18n.gettext('Translation tools')}
-            footerText={i18n.gettext('See more translation tools')}
-            footerLink={`/collections/${COLLECTIONS_TO_FETCH[0].username}/${
-              COLLECTIONS_TO_FETCH[0].slug
-            }/`}
             loading={loading}
-          />
-        )}
-
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={featuredThemes}
-          className="Home-FeaturedThemes"
-          header={i18n.gettext('Featured themes')}
-          footerText={i18n.gettext('See more featured themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                _config: this.props._config,
-              }),
-              featured: true,
-            },
-          }}
-          loading={loading}
-        />
-
-        {(loading || collections[1]) && (
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
-            addons={collections[1]}
-            className="Home-FeaturedCollection"
-            header={i18n.gettext('Privacy matters')}
-            footerText={i18n.gettext('See more privacy extensions')}
-            footerLink={`/collections/${COLLECTIONS_TO_FETCH[1].username}/${
-              COLLECTIONS_TO_FETCH[1].slug
-            }/`}
-            loading={loading}
-          />
-        )}
-
-        {(loading || collections[2]) && (
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_HOME_COLLECTION}
-            addons={collections[2]}
-            className="Home-FeaturedCollection"
-            header={i18n.gettext('Tame your tabs')}
-            footerText={i18n.gettext('See more tab extensions')}
-            footerLink={`/collections/${COLLECTIONS_TO_FETCH[2].username}/${
-              COLLECTIONS_TO_FETCH[2].slug
-            }/`}
-            loading={loading}
+            {...featuredCollectionsMetadata[3]}
           />
         )}
 

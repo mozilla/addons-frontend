@@ -9,7 +9,7 @@ import type { ApiStateType } from 'core/reducers/api';
 
 export type SearchParams = {|
   api: ApiStateType,
-  auth: boolean,
+  auth?: boolean,
   // TODO: Make a "searchFilters" type because these are the same args
   // for convertFiltersToQueryParams.
   filters: {|
