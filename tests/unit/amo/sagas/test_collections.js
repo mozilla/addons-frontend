@@ -22,6 +22,7 @@ import collectionsReducer, {
   localizeCollectionDetail,
   removeAddonFromCollection,
   unloadCollectionBySlug,
+  unloadUserCollections,
   updateCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
@@ -497,8 +498,7 @@ describe(__filename, () => {
 
         _updateCollection({ username: testUsername });
 
-        const expectedAction = fetchUserCollections({
-          errorHandlerId: errorHandler.id,
+        const expectedAction = unloadUserCollections({
           username: testUsername,
         });
 
@@ -801,18 +801,25 @@ describe(__filename, () => {
 
       _deleteCollection(params);
 
-      const expectedUnloadAction = unloadCollectionBySlug(params.slug);
+      const expectedUnloadCollectionAction = unloadCollectionBySlug(
+        params.slug,
+      );
 
-      const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
-      expect(unloadAction).toEqual(expectedUnloadAction);
+      const unloadCollectionAction = await sagaTester.waitFor(
+        expectedUnloadCollectionAction.type,
+      );
+      expect(unloadCollectionAction).toEqual(expectedUnloadCollectionAction);
 
-      const expectedFetchAction = fetchUserCollections({
-        errorHandlerId: errorHandler.id,
+      const expectedUnloadUserCollectionsAction = unloadUserCollections({
         username: params.username,
       });
 
-      const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
-      expect(fetchAction).toEqual(expectedFetchAction);
+      const unloadUserCollectionsAction = await sagaTester.waitFor(
+        expectedUnloadUserCollectionsAction.type,
+      );
+      expect(unloadUserCollectionsAction).toEqual(
+        expectedUnloadUserCollectionsAction,
+      );
 
       const expectedPushAction = pushLocation(
         `/${lang}/${clientApp}/collections/`,

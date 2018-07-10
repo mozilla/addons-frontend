@@ -23,6 +23,7 @@ import reducer, {
   loadUserCollections,
   localizeCollectionDetail,
   unloadCollectionBySlug,
+  unloadUserCollections,
 } from 'amo/reducers/collections';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { COLLECTION_SORT_NAME } from 'core/constants';
@@ -371,6 +372,30 @@ describe(__filename, () => {
       expect(userState.collections).toEqual([1]);
 
       expect(state.bySlug[collection.slug]).toEqual(collection.id);
+    });
+
+    it('unloads user collections', () => {
+      const username = 'some-user';
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      let state = reducer(
+        undefined,
+        loadUserCollections({
+          username,
+          collections: [collection],
+        }),
+      );
+
+      expect(state.userCollections[username].collections).toEqual([1]);
+
+      state = reducer(
+        state,
+        unloadUserCollections({
+          username,
+        }),
+      );
+
+      expect(state.userCollections[username].collections).toEqual(null);
     });
 
     it('sets a loading flag when begining to add add-on to collection', () => {

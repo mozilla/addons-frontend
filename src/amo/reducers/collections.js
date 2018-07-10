@@ -45,6 +45,8 @@ export const UPDATE_COLLECTION_ADDON: 'UPDATE_COLLECTION_ADDON' =
   'UPDATE_COLLECTION_ADDON';
 export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES' =
   'DELETE_COLLECTION_ADDON_NOTES';
+export const UNLOAD_USER_COLLECTIONS: 'UNLOAD_USER_COLLECTIONS' =
+  'UNLOAD_USER_COLLECTIONS';
 
 export type CollectionFilters = {|
   page: number,
@@ -769,6 +771,26 @@ export const deleteCollectionAddonNotes = ({
   };
 };
 
+type UnloadUserCollectionsParams = {|
+  username: string,
+|};
+
+export type UnloadUserCollectionsAction = {|
+  type: typeof UNLOAD_USER_COLLECTIONS,
+  payload: UnloadUserCollectionsParams,
+|};
+
+export const unloadUserCollections = ({
+  username,
+}: UnloadUserCollectionsParams): UnloadUserCollectionsAction => {
+  invariant(username, 'username is required');
+
+  return {
+    type: UNLOAD_USER_COLLECTIONS,
+    payload: { username },
+  };
+};
+
 export const createInternalAddons = (
   items: ExternalCollectionAddons,
 ): Array<CollectionAddonType> => {
@@ -974,7 +996,8 @@ type Action =
   | LoadCurrentCollectionPageAction
   | LoadUserCollectionsAction
   | BeginCollectionModificationAction
-  | FinishCollectionModificationAction;
+  | FinishCollectionModificationAction
+  | UnloadUserCollectionsAction;
 
 const reducer = (
   state: CollectionsState = initialState,
@@ -1231,6 +1254,20 @@ const reducer = (
         return { ...state, byId: newIdMap };
       }
       return state;
+    }
+
+    case UNLOAD_USER_COLLECTIONS: {
+      const { username } = action.payload;
+      return {
+        ...state,
+        userCollections: {
+          ...state.userCollections,
+          [username]: {
+            collections: null,
+            loading: false,
+          },
+        },
+      };
     }
 
     default:

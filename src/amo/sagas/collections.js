@@ -26,12 +26,12 @@ import {
   convertFiltersToQueryParams,
   finishCollectionModification,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
-  fetchUserCollections as fetchUserCollectionsAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
   localizeCollectionDetail,
   unloadCollectionBySlug,
+  unloadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -275,10 +275,9 @@ export function* modifyCollection(
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
     const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
 
-    // Refresh the user's list of collections.
+    // Unload the user's collections, which will force a re-fetch.
     yield put(
-      fetchUserCollectionsAction({
-        errorHandlerId: errorHandler.id,
+      unloadUserCollections({
         username,
       }),
     );
@@ -384,9 +383,9 @@ export function* deleteCollection({
     // Unload the collection from state.
     yield put(unloadCollectionBySlug(slug));
 
+    // Unload the user's collections, which will force a re-fetch.
     yield put(
-      fetchUserCollectionsAction({
-        errorHandlerId: errorHandler.id,
+      unloadUserCollections({
         username,
       }),
     );
