@@ -26,7 +26,6 @@ import {
   convertFiltersToQueryParams,
   finishCollectionModification,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
-  fetchUserCollections as fetchUserCollectionsAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -376,12 +375,6 @@ export function* deleteCollection({
     // Unload the collection from state.
     yield put(unloadCollectionBySlug(slug));
 
-    yield put(
-      fetchUserCollectionsAction({
-        errorHandlerId: errorHandler.id,
-        username,
-      }),
-    );
     yield put(pushLocation(`/${lang}/${clientApp}/collections/`));
   } catch (error) {
     log.warn(`Failed to delete collection: ${error}`);

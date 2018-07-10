@@ -790,14 +790,6 @@ describe(__filename, () => {
       const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
       expect(unloadAction).toEqual(expectedUnloadAction);
 
-      const expectedFetchAction = fetchUserCollections({
-        errorHandlerId: errorHandler.id,
-        username: params.username,
-      });
-
-      const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
-      expect(fetchAction).toEqual(expectedFetchAction);
-
       const expectedPushAction = pushLocation(
         `/${lang}/${clientApp}/collections/`,
       );

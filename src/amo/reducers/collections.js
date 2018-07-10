@@ -907,6 +907,27 @@ export const changeAddonCollectionsLoadingFlag = ({
   };
 };
 
+type UnloadUserCollectionsParams = {|
+  state: CollectionsState,
+  username: string,
+|};
+
+const unloadUserCollections = ({
+  state,
+  username,
+}: UnloadUserCollectionsParams = {}): CollectionsState => {
+  return {
+    ...state,
+    userCollections: {
+      ...state.userCollections,
+      [username]: {
+        collections: null,
+        loading: false,
+      },
+    },
+  };
+};
+
 type LocalizeCollectionDetailParams = {|
   detail: ExternalCollectionDetailWithLocalizedStrings,
   lang: string,
@@ -964,17 +985,19 @@ type Action =
   | AbortFetchUserCollectionsAction
   | AddAddonToCollectionAction
   | AddonAddedToCollectionAction
+  | BeginCollectionModificationAction
   | CreateCollectionAction
-  | UnloadCollectionBySlugAction
+  | DeleteCollectionAction
   | FetchCurrentCollectionAction
   | FetchCurrentCollectionPageAction
   | FetchUserCollectionsAction
+  | FinishCollectionModificationAction
   | LoadCollectionAddonsAction
   | LoadCurrentCollectionAction
   | LoadCurrentCollectionPageAction
   | LoadUserCollectionsAction
-  | BeginCollectionModificationAction
-  | FinishCollectionModificationAction;
+  | UnloadCollectionBySlugAction
+  | UpdateCollectionAction;
 
 const reducer = (
   state: CollectionsState = initialState,
@@ -1231,6 +1254,13 @@ const reducer = (
         return { ...state, byId: newIdMap };
       }
       return state;
+    }
+
+    case CREATE_COLLECTION:
+    case DELETE_COLLECTION:
+    case UPDATE_COLLECTION: {
+      const { username } = action.payload;
+      return unloadUserCollections({ state, username });
     }
 
     default:

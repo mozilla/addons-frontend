@@ -583,7 +583,7 @@ export const mapStateToProps = (
   ownProps: InternalProps,
 ) => {
   const { loading } = state.collections.current;
-  const { location } = ownProps;
+  const { creating, location } = ownProps;
 
   const filters = {
     page: location.query.page || 1,
@@ -592,7 +592,7 @@ export const mapStateToProps = (
   };
 
   const currentUser = getCurrentUser(state.users);
-  const collection = getCurrentCollection(state.collections);
+  const collection = creating ? null : getCurrentCollection(state.collections);
 
   const isOwner =
     collection && currentUser && collection.authorId === currentUser.id;
