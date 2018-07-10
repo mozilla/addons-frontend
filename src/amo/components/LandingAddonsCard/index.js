@@ -18,11 +18,15 @@ type Props = {|
   footerLink?: Object | string | null,
   footerText?: string,
   header?: React.Node,
-  isTheme: boolean,
+  isTheme?: boolean,
   loading: boolean,
 |};
 
 export default class LandingAddonsCard extends React.Component<Props> {
+  static defaultProps = {
+    isTheme: false,
+  };
+
   render() {
     const {
       addonInstallSource,

@@ -52,6 +52,7 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
       ),
       header: i18n.gettext('Social media customization'),
       ...FEATURED_COLLECTIONS[0],
+      isTheme: true,
     },
     {
       footerText: i18n.gettext('See more dynamic downloaders'),
@@ -62,11 +63,13 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
       footerText: i18n.gettext('See more summer themes'),
       header: i18n.gettext('Summer themes'),
       ...FEATURED_COLLECTIONS[2],
+      isTheme: true,
     },
     {
       footerText: i18n.gettext('See more must-have media extensions'),
       header: i18n.gettext('Must-have media'),
       ...FEATURED_COLLECTIONS[3],
+      isTheme: true,
     },
   ];
 };
@@ -267,6 +270,7 @@ export class HomeBase extends React.Component {
               },
             }}
             loading={loading}
+            isTheme
           />
         )}
 
@@ -311,7 +315,6 @@ export class HomeBase extends React.Component {
             },
           }}
           loading={loading}
-          isTheme
         />
 
         {(loading || collections[3]) && (
