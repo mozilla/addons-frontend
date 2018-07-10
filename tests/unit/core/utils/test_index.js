@@ -406,12 +406,18 @@ describe(__filename, () => {
       expect(nl2br(null)).toEqual('');
     });
 
+    it('returns mixed content with <br/>', () => {
+      expect(nl2br('foo\nbar\n\n<b>bold</b>')).toEqual(
+        'foo<br />bar<br />\n<b>bold</b>',
+      );
+    });
+
     it('returns valid HTML', () => {
       const htmlValue =
-        '<ul>\n\n\n<li>ul\nli<strong>foo\nbar</strong>\n</li>\r\n</ul>';
+        '<ul>\n<li>ul\nli<strong>foo\nbar</strong>\n</li>\n</ul>';
 
       expect(nl2br(htmlValue)).toEqual(
-        '<ul>\n\n\n<li>ul<br />li<strong>foo<br />bar</strong>\n</li>\r\n</ul>',
+        '<ul>\n<li>ul<br />li<strong>foo<br />bar</strong>\n</li>\n</ul>',
       );
     });
   });
