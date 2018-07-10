@@ -12,5 +12,4 @@ module.exports = {
   trackingEnabled: false,
   enableNewCollectionsUI: true,
   enableStaticThemes: true,
-  enableUserProfile: true,
 };

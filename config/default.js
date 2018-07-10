@@ -288,10 +288,8 @@ module.exports = {
   // Expose the new screen for editing a collection.
   enableNewCollectionsUI: false,
 
-  // Show and link to User Profiles using the front-end. These pages
-  // are still in development so this should only be enabled locally and
-  // on `-dev`.
-  enableUserProfile: false,
+  // Enable the new user profile pages.
+  enableUserProfile: true,
 
   // Enable the TAAR Lite A/B test.
   enableAddonRecommendations: false,
