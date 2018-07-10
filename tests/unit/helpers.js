@@ -633,9 +633,9 @@ export function applyUIStateChanges({ root, store }) {
   const mapStateToProps = createUIStateMapper({
     uiStateID: ownProps.uiStateID,
   });
-  const _stateProps = mapStateToProps(store.getState(), ownProps);
+  const stateProps = mapStateToProps(store.getState(), ownProps);
   const mappedProps = mergeUIStateProps(
-    _stateProps,
+    stateProps,
     { dispatch: store.dispatch },
     ownProps,
   );
