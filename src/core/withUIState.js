@@ -8,7 +8,7 @@ import { normalizeFileNameId } from 'core/utils';
 import { setUIState } from 'core/reducers/uiState';
 import type { UIStateType } from 'core/reducers/uiState';
 
-type ExtractIdType = (props: Object) => string;
+type ExtractIdFunc = (props: Object) => string;
 
 export const generateId = ({
   fileName,
@@ -30,7 +30,7 @@ export const createUIStateMapper = ({
   uiStateID,
 }: {|
   initialState: Object,
-  extractId?: ExtractIdType,
+  extractId?: ExtractIdFunc,
   fileName?: string,
   uiStateID?: string,
 |}) => {
@@ -79,7 +79,7 @@ const withUIState = ({
   initialState,
 }: {|
   fileName: string,
-  extractId: ExtractIdType,
+  extractId: ExtractIdFunc,
   initialState: Object,
 |}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
