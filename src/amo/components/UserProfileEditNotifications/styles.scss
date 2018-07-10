@@ -1,8 +1,8 @@
-@import "~photon-colors/photon-colors";
+@import '~photon-colors/photon-colors';
 
-@import "~amo/css/inc/vars";
-@import "~core/css/inc/mixins";
-@import "~ui/css/vars";
+@import '~amo/css/inc/vars';
+@import '~core/css/inc/mixins';
+@import '~ui/css/vars';
 
 $input-height: 16px;
 
@@ -50,7 +50,7 @@ $input-height: 16px;
     transition: all $transition-short cubic-bezier(0.77, 0, 0.175, 1);
     width: $input-height;
 
-    [dir=rtl] & {
+    [dir='rtl'] & {
       right: 0;
     }
 
@@ -59,7 +59,7 @@ $input-height: 16px;
       background-color: transparent;
       border-bottom: 2px solid $white;
       border-right: 2px solid $white;
-      content: "";
+      content: '';
       display: block;
       height: 55%;
       left: 50%;

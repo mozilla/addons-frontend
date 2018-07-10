@@ -1,7 +1,7 @@
-@import "~photon-colors/photon-colors";
-@import "~amo/css/inc/vars";
-@import "~core/css/inc/mixins";
-@import "~ui/css/vars";
+@import '~photon-colors/photon-colors';
+@import '~amo/css/inc/vars';
+@import '~core/css/inc/mixins';
+@import '~ui/css/vars';
 
 .HeroSection {
   border-radius: $border-radius-default;
@@ -10,7 +10,7 @@
 
 .HeroSection-wrapper,
 .HeroSection-link-wrapper,
-.HeroSection-link-wrapper:link, {
+.HeroSection-link-wrapper:link {
   align-items: flex-end;
   color: $white;
   display: flex;

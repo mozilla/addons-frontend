@@ -1,5 +1,5 @@
-@import "~amo/css/inc/vars";
-@import "~photon-colors/photon-colors";
+@import '~amo/css/inc/vars';
+@import '~photon-colors/photon-colors';
 
 @keyframes placeHolderShimmer {
   0% {
@@ -35,6 +35,10 @@
 
 @for $delay from 1 through 3 {
   .LoadingText--delay-#{$delay} {
-    animation: placeHolderShimmer #{$delay * 1.5}s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
+    animation: placeHolderShimmer
+      #{$delay *
+      1.5}s
+      infinite
+      cubic-bezier(0.65, 0.05, 0.36, 1);
   }
 }

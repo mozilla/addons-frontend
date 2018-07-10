@@ -1,76 +1,76 @@
-@import "./vars";
-@import "~amo/css/inc/vars";
-@import "~photon-colors/photon-colors";
+@import './vars';
+@import '~amo/css/inc/vars';
+@import '~photon-colors/photon-colors';
 
 /* Font mixins. Changes here affect *all* apps */
 @mixin font-light() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: normal;
   font-weight: 300;
 }
 
 @mixin font-light-italic() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: normal;
   font-weight: 300;
 }
 
 @mixin font-regular() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
 }
 
 @mixin font-regular-italic() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: italic;
   font-weight: 400;
 }
 
 @mixin font-medium() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: normal;
   font-weight: 500;
 }
 
 @mixin font-medium-italic() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: italic;
   font-weight: 500;
 }
 
 @mixin font-bold() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: normal;
   font-weight: 600;
 }
 
 @mixin font-bold-italic() {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: italic;
   font-weight: 600;
 }
 
 @mixin font-opensans-regular() {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
 }
 
 @mixin font-opensans-regular-italic() {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   font-weight: 400;
 }
 
 @mixin font-opensans-bold() {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 700;
 }
 
 @mixin font-opensans-bold-italic() {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   font-weight: 700;
 }
@@ -100,7 +100,7 @@
 @mixin text-align-start() {
   text-align: left;
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     text-align: right;
   }
 }
@@ -108,7 +108,7 @@
 @mixin text-align-end() {
   text-align: right;
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     text-align: left;
   }
 }
@@ -117,7 +117,7 @@
   left: $pos;
   right: auto;
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     left: auto;
     right: $pos;
   }
@@ -127,7 +127,7 @@
   left: auto;
   right: $pos;
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     left: $pos;
     right: auto;
   }
@@ -136,47 +136,47 @@
 @mixin margin($top, $end, $bottom, $start) {
   margin: $top $end $bottom $start;
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     margin: $top $start $bottom $end;
   }
 }
 
 @mixin margin-start($val) {
-  [dir=ltr] & {
+  [dir='ltr'] & {
     margin-left: $val;
   }
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     margin-right: $val;
   }
 }
 
 @mixin margin-end($val) {
-  [dir=ltr] & {
+  [dir='ltr'] & {
     margin-right: $val;
   }
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     margin-left: $val;
   }
 }
 
 @mixin padding-start($val) {
-  [dir=ltr] & {
+  [dir='ltr'] & {
     padding-left: $val;
   }
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     padding-right: $val;
   }
 }
 
 @mixin padding-end($val) {
-  [dir=ltr] & {
+  [dir='ltr'] & {
     padding-right: $val;
   }
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     padding-left: $val;
   }
 }

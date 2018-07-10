@@ -1,8 +1,8 @@
-@import "~core/css/inc/mixins";
-@import "~core/css/inc/vars";
-@import "~ui/css/vars";
-@import "~ui/components/Button/styles";
-@import "~photon-colors/photon-colors";
+@import '~core/css/inc/mixins';
+@import '~core/css/inc/vars';
+@import '~ui/css/vars';
+@import '~ui/components/Button/styles';
+@import '~photon-colors/photon-colors';
 
 .Notice {
   border-radius: $border-radius-s;
@@ -63,7 +63,7 @@
   }
 
   .Notice-icon {
-    background-image: url("./media/exclamation.svg");
+    background-image: url('./media/exclamation.svg');
   }
 
   background-color: $red-50;
@@ -88,7 +88,7 @@
   }
 
   .Notice-icon {
-    background-image: url("./media/generic-info-mark.svg");
+    background-image: url('./media/generic-info-mark.svg');
   }
 
   background-color: $grey-20;
@@ -121,7 +121,7 @@
   }
 
   .Notice-icon {
-    background-image: url("./media/check-mark.svg");
+    background-image: url('./media/check-mark.svg');
   }
 
   background-color: $green-50;
@@ -135,5 +135,5 @@
 }
 
 .Notice-firefox .Notice-icon {
-  background-image: url("./media/firefox.svg");
+  background-image: url('./media/firefox.svg');
 }

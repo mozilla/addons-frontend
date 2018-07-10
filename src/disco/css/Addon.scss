@@ -1,5 +1,5 @@
-@import "~disco/css/inc/vars";
-@import "~core/css/inc/mixins";
+@import '~disco/css/inc/vars';
+@import '~core/css/inc/mixins';
 
 $addon-padding: 20px;
 
@@ -72,7 +72,7 @@ $addon-padding: 20px;
     > .switch {
       float: right;
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         float: left;
       }
     }
@@ -185,7 +185,7 @@ $addon-padding: 20px;
     right: 0;
     top: 0;
 
-    [dir=rtl] & {
+    [dir='rtl'] & {
       padding: 15px 20px 15px 80px;
     }
 
@@ -211,19 +211,21 @@ $addon-padding: 20px;
     }
 
     &.error {
-      background: #c33c32 url("../img/warning.svg") no-repeat calc(100% - 40px) 50%;
+      background: #c33c32 url('../img/warning.svg') no-repeat calc(100% - 40px)
+        50%;
       z-index: 20;
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         background-position: 40px 50%;
       }
     }
 
     &.restart {
-      background: #70cf5b url("../img/restart.svg") no-repeat calc(100% - 40px) 50%;
+      background: #70cf5b url('../img/restart.svg') no-repeat calc(100% - 40px)
+        50%;
       z-index: 10;
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         background-position: 40px 50%;
       }
     }
@@ -240,7 +242,7 @@ $addon-padding: 20px;
       padding: 5px;
       position: absolute;
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         left: auto;
         right: 15px;
       }

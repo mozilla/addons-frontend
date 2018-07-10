@@ -1,14 +1,12 @@
-@import "~core/css/inc/mixins";
-@import "~amo/css/inc/vars";
-@import "~ui/css/vars";
+@import '~core/css/inc/mixins';
+@import '~amo/css/inc/vars';
+@import '~ui/css/vars';
 
 .AddonRecommendations {
-
   // stylelint-disable max-nesting-depth
 
   &.AddonsCard--horizontal {
     ul.AddonsCard-list {
-
       // overriding default Search Results styles
       @include respond-to(large) {
         grid-auto-flow: initial;
@@ -16,7 +14,6 @@
       }
 
       .SearchResult {
-
         @include respond-to(large) {
           padding: 12px 24px;
 
@@ -41,7 +38,6 @@
       }
 
       .SearchResult-link {
-
         @include respond-to(large) {
           display: block;
           padding: 0;

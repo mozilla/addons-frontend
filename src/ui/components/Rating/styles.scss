@@ -1,4 +1,4 @@
-@import "./vars";
+@import './vars';
 
 .Rating,
 .Rating-star-group {
@@ -11,14 +11,14 @@
 }
 
 .Rating-choice {
-  background: url("./img/dim-star.svg") center/$rating-l-star-size no-repeat;
+  background: url('./img/dim-star.svg') center/$rating-l-star-size no-repeat;
   height: $rating-l-star-size + $rating-l-star-gutter;
   width: $rating-l-star-size + $rating-l-star-gutter;
 }
 
 .Rating--editable {
   .Rating-choice {
-    background-image: url("./img/dim-star-gold.svg");
+    background-image: url('./img/dim-star-gold.svg');
     cursor: pointer;
   }
 
@@ -29,27 +29,27 @@
   // First, make all stars appear selected when you hover over the group.
   .Rating-star-group:hover .Rating-choice,
   .Rating-choice:focus {
-    background-image: url("./img/full-star-gold.svg");
+    background-image: url('./img/full-star-gold.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
   .Rating-choice:hover ~ .Rating-choice {
-    background-image: url("./img/dim-star-gold.svg");
+    background-image: url('./img/dim-star-gold.svg');
   }
 }
 
 .Rating-selected-star {
-  background-image: url("./img/full-star.svg");
+  background-image: url('./img/full-star.svg');
 }
 
 .Rating--editable .Rating-selected-star {
-  background-image: url("./img/full-star-gold.svg");
+  background-image: url('./img/full-star-gold.svg');
 }
 
 .Rating-half-star {
-  background-image: url("./img/half-star.svg");
+  background-image: url('./img/half-star.svg');
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     transform: scaleX(-1);
   }
 }
@@ -63,10 +63,10 @@
 
 .Rating--by-owner {
   .Rating-choice {
-    background-image: url("./img/dim-star-gold.svg");
+    background-image: url('./img/dim-star-gold.svg');
   }
 
   .Rating-selected-star {
-    background-image: url("./img/full-star-gold.svg");
+    background-image: url('./img/full-star-gold.svg');
   }
 }

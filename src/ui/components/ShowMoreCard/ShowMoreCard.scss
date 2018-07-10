@@ -1,5 +1,5 @@
-@import "~core/css/inc/vars";
-@import "~core/css/inc/mixins";
+@import '~core/css/inc/vars';
+@import '~core/css/inc/mixins';
 
 .ShowMoreCard-contents {
   &::after {
@@ -8,7 +8,7 @@
     // See: https://github.com/mozilla/addons-frontend/issues/2865
     background: linear-gradient(rgba(255, 255, 255, 0), $base-color);
     bottom: 0;
-    content: "";
+    content: '';
     height: 20px;
     left: 0;
     position: absolute;

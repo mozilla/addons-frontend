@@ -1,8 +1,8 @@
-@import "~amo/css/inc/vars";
-@import "~core/css/inc/mixins";
-@import "~core/css/inc/vars";
-@import "~photon-colors/photon-colors";
-@import "~ui/css/vars";
+@import '~amo/css/inc/vars';
+@import '~core/css/inc/mixins';
+@import '~core/css/inc/vars';
+@import '~photon-colors/photon-colors';
+@import '~ui/css/vars';
 
 .Home {
   padding: $padding-page;
@@ -109,7 +109,7 @@
   background-repeat: no-repeat;
   background-size: 64px;
   border-radius: $border-radius-default;
-  content: "";
+  content: '';
   display: block;
   height: 64px;
   margin-bottom: 5px;
@@ -122,25 +122,25 @@
 }
 
 .Icon-Home-SubjectShelf-ad-blockers {
-  background-image: url("./icons/ad-blockers.svg");
+  background-image: url('./icons/ad-blockers.svg');
 }
 
 .Icon-Home-SubjectShelf-password-managers {
-  background-image: url("./icons/password-managers.svg");
+  background-image: url('./icons/password-managers.svg');
 }
 
 .Icon-Home-SubjectShelf-bookmark-managers {
-  background-image: url("./icons/bookmark-managers.svg");
+  background-image: url('./icons/bookmark-managers.svg');
 }
 
 .Icon-Home-SubjectShelf-watching-videos {
-  background-image: url("./icons/watching-videos.svg");
+  background-image: url('./icons/watching-videos.svg');
 }
 
 .Icon-Home-SubjectShelf-smarter-shopping {
-  background-image: url("./icons/smarter-shopping.svg");
+  background-image: url('./icons/smarter-shopping.svg');
 }
 
 .Icon-Home-SubjectShelf-be-more-productive {
-  background-image: url("./icons/be-more-productive.svg");
+  background-image: url('./icons/be-more-productive.svg');
 }
