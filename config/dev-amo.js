@@ -27,5 +27,4 @@ module.exports = {
 
   enableNewCollectionsUI: true,
   enableStaticThemes: true,
-  enableUserProfile: true,
 };
