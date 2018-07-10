@@ -4,6 +4,7 @@ import AddonBadges, { AddonBadgesBase } from 'amo/components/AddonBadges';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -54,6 +55,18 @@ describe(__filename, () => {
       ...fakeAddon,
       is_featured: true,
       type: ADDON_TYPE_THEME,
+    });
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
+  });
+
+  it('adds a different badge label when a "static theme" addon is featured', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      is_featured: true,
+      type: ADDON_TYPE_STATIC_THEME,
     });
     const root = shallowRender({ addon });
 
