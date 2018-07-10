@@ -52,6 +52,10 @@ describe(__filename, () => {
       store = dispatchClientMetadata().store;
     });
 
+    it('sets a display name', () => {
+      expect(Overlay.displayName).toMatch(/WithUIState\(OverlayBase\)/);
+    });
+
     it('lets you manage UI state', () => {
       const root = render();
       expect(root.find('.overlay')).toHaveLength(1);

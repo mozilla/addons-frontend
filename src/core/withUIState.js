@@ -110,6 +110,10 @@ const withUIState = ({
       }
     }
 
+    const wrappedName =
+      WrappedComponent.displayName || WrappedComponent.name || 'Component';
+    WithUIState.displayName = `WithUIState(${wrappedName})`;
+
     return connect(
       mapStateToProps,
       undefined,
