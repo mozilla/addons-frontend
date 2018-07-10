@@ -73,7 +73,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
               life—work, personal, etc.—separated by color-coded tabs`)}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-9" linkTo="/addon//transparent-standalone-image/">
+      <HeroSection key="hero-9" linkTo="/addon/transparent-standalone-image/">
         <h3>{i18n.gettext('Transparent Standalone Images')}</h3>
 
         <p>{i18n.gettext('Render images on transparent backgrounds')}</p>
