@@ -39,6 +39,7 @@ export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
   name: string,
+  type: string,
   url: string,
 |};
 

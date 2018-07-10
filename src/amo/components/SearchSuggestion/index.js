@@ -8,10 +8,11 @@ import LoadingText from 'ui/components/LoadingText';
 import './styles.scss';
 
 type Props = {|
-  name: string,
+  arrowAlt?: string,
   iconUrl: string,
   loading: boolean,
-  arrowAlt?: string,
+  name: string,
+  type: string,
 |};
 
 const SearchSuggestion = ({
