@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-03 17:55+0000\n"
+"POT-Creation-Date: 2018-07-10 19:20+0000\n"
 "PO-Revision-Date: 2018-05-22 17:14+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
@@ -39,13 +39,13 @@ msgstr "找不到页面"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
 
-#: src/core/components/InstallButton/index.js:253
-#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "安装主题"
 
-#: src/core/components/InstallButton/index.js:281
-#: src/core/components/InstallButton/index.js:297
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "添加到 Firefox"
 
