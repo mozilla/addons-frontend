@@ -2,7 +2,7 @@ import SagaTester from 'redux-saga-tester';
 
 import * as searchApi from 'core/api/search';
 import { getLanding, loadLanding } from 'amo/actions/landing';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import { LANDING_PAGE_EXTENSION_COUNT } from 'amo/constants';
 import landingReducer from 'amo/reducers/landing';
 import landingSaga from 'amo/sagas/landing';
 import {
@@ -59,7 +59,7 @@ describe(__filename, () => {
       const baseArgs = { api: apiState };
       const baseFilters = {
         addonType,
-        page_size: LANDING_PAGE_ADDON_COUNT,
+        page_size: LANDING_PAGE_EXTENSION_COUNT,
       };
 
       const featured = createAddonsApiResult([
@@ -156,7 +156,7 @@ describe(__filename, () => {
       const baseFilters = {
         addonType,
         category,
-        page_size: LANDING_PAGE_ADDON_COUNT,
+        page_size: LANDING_PAGE_EXTENSION_COUNT,
       };
 
       const featured = createAddonsApiResult([
@@ -226,7 +226,7 @@ describe(__filename, () => {
       const baseArgs = { api: apiState };
       const baseFilters = {
         addonType,
-        page_size: LANDING_PAGE_ADDON_COUNT,
+        page_size: LANDING_PAGE_EXTENSION_COUNT,
       };
 
       const featured = createAddonsApiResult([

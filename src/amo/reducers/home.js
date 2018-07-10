@@ -1,7 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import { LANDING_PAGE_EXTENSION_COUNT } from 'amo/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
@@ -128,7 +128,7 @@ const reducer = (
         collections: collections.map((collection) => {
           if (collection) {
             return collection.results
-              .slice(0, LANDING_PAGE_ADDON_COUNT)
+              .slice(0, LANDING_PAGE_EXTENSION_COUNT)
               .map((item) => {
                 return createInternalAddon(item.addon);
               });

@@ -311,6 +311,7 @@ export class HomeBase extends React.Component {
             },
           }}
           loading={loading}
+          isTheme
         />
 
         {(loading || collections[3]) && (

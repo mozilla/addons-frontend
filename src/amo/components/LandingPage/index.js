@@ -269,6 +269,7 @@ export class LandingPageBase extends React.Component {
             footerText={html.featuredFooterText}
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
+            isTheme={isTheme(addonType)}
             loading={loading}
           />,
         )}
@@ -281,6 +282,7 @@ export class LandingPageBase extends React.Component {
             footerLink={html.highlyRatedFooterLink}
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
+            isTheme={isTheme(addonType)}
             loading={loading}
           />,
         )}
@@ -293,6 +295,7 @@ export class LandingPageBase extends React.Component {
             footerLink={html.trendingFooterLink}
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
+            isTheme={isTheme(addonType)}
             loading={loading}
           />,
         )}

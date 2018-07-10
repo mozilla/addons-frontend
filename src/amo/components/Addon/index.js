@@ -148,8 +148,16 @@ export class AddonBase extends React.Component {
 
     if (this.addonIsTheme()) {
       const previewHeader = addon.previews.length && addon.previews[0];
-      let previewURL = previewHeader.thumbnail_url || null;
-      const previewURLLarge = previewHeader.image_url || null;
+
+      let previewURL =
+        previewHeader && previewHeader.thumbnail_url
+          ? previewHeader.thumbnail_url
+          : null;
+
+      const previewUrlLarge =
+        previewHeader && previewHeader.image_url
+          ? previewHeader.image_url
+          : null;
 
       const label = addon
         ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
@@ -164,13 +172,13 @@ export class AddonBase extends React.Component {
       }
 
       const imageAtts = {};
-      if (previewURLLarge) {
-        const imageSize = previewHeader.image_size[0];
-        const thumbSize = previewHeader.thumbnail_size[0];
-        if (imageSize && thumbSize) {
+      if (previewUrlLarge) {
+        const imageWidth = previewHeader && previewHeader.image_size[0];
+        const thumbWidth = previewHeader && previewHeader.thumbnail_size[0];
+        if (imageWidth && thumbWidth) {
           // If viewing on retina, it should only show the larger size with
           // the current widths available
-          imageAtts.srcSet = `${previewURL} ${thumbSize}w, ${previewURLLarge} ${imageSize}w`;
+          imageAtts.srcSet = `${previewURL} ${thumbWidth}w, ${previewUrlLarge} ${imageWidth}w`;
         }
       }
 

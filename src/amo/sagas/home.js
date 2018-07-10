@@ -4,8 +4,8 @@ import { oneLine } from 'common-tags';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { getCollectionAddons } from 'amo/api/collections';
 import {
-  LANDING_PAGE_ADDON_COUNT,
-  LANDING_PAGE_THEME_ADDON_COUNT,
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import { FETCH_HOME_ADDONS, loadHomeAddons } from 'amo/reducers/home';
 import {
@@ -56,7 +56,7 @@ export function* fetchHomeAddons({
 
   const featuredSearchFilters = {
     featured: true,
-    page_size: LANDING_PAGE_ADDON_COUNT,
+    page_size: LANDING_PAGE_EXTENSION_COUNT,
     sort: SEARCH_SORT_RANDOM,
   };
   const featuredExtensionsParams: SearchParams = {
@@ -71,7 +71,7 @@ export function* fetchHomeAddons({
     filters: {
       addonType: ADDON_TYPE_THEME,
       ...featuredSearchFilters,
-      page_size: LANDING_PAGE_THEME_ADDON_COUNT,
+      page_size: LANDING_PAGE_THEME_COUNT,
     },
   };
 

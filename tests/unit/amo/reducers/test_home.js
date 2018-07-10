@@ -1,4 +1,4 @@
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import { LANDING_PAGE_EXTENSION_COUNT } from 'amo/constants';
 import homeReducer, {
   fetchHomeAddons,
   initialState,
@@ -45,9 +45,13 @@ describe(__filename, () => {
 
       expect(homeState.resultsLoaded).toEqual(true);
       expect(homeState.collections).toHaveLength(1);
-      expect(homeState.collections[0]).toHaveLength(LANDING_PAGE_ADDON_COUNT);
+      expect(homeState.collections[0]).toHaveLength(
+        LANDING_PAGE_EXTENSION_COUNT,
+      );
       expect(homeState.collections[0]).toEqual(
-        Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon)),
+        Array(LANDING_PAGE_EXTENSION_COUNT).fill(
+          createInternalAddon(fakeAddon),
+        ),
       );
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),

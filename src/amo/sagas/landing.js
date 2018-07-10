@@ -7,8 +7,8 @@ import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { loadLanding } from 'amo/actions/landing';
 import {
-  LANDING_PAGE_ADDON_COUNT,
-  LANDING_PAGE_THEME_ADDON_COUNT,
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import { search as searchApi } from 'core/api/search';
 import {
@@ -30,8 +30,8 @@ export function* fetchLandingAddons({
     const { api } = state;
 
     const pageSize = isTheme(addonType)
-      ? LANDING_PAGE_THEME_ADDON_COUNT
-      : LANDING_PAGE_ADDON_COUNT;
+      ? LANDING_PAGE_THEME_COUNT
+      : LANDING_PAGE_EXTENSION_COUNT;
 
     const filters = {
       addonType,

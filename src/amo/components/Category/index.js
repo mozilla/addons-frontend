@@ -278,6 +278,7 @@ export class CategoryBase extends React.Component {
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
             loading={loading}
+            isTheme={isTheme(addonType)}
           />,
         )}
         {this.renderIfNotEmpty(
@@ -290,6 +291,7 @@ export class CategoryBase extends React.Component {
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
             loading={loading}
+            isTheme={isTheme(addonType)}
           />,
         )}
         {this.renderIfNotEmpty(
@@ -302,6 +304,7 @@ export class CategoryBase extends React.Component {
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
             loading={loading}
+            isTheme={isTheme(addonType)}
           />,
         )}
       </div>
