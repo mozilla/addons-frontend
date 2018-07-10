@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-10 23:01+0000\n"
+"PO-Revision-Date: 2018-07-10 23:14+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1036,9 +1036,8 @@ msgid "See more social media customization extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
 #: src/amo/components/Home/index.js:53
-#, fuzzy
 msgid "Social media customization"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+msgstr "Amuddu n wudem i yiẓedwa n tmetti"
 
 #: src/amo/components/Home/index.js:57
 #, fuzzy
@@ -1050,14 +1049,12 @@ msgid "Dynamic downloaders"
 msgstr ""
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "Isental yettwasnen aṭas"
+msgstr "Wali ugar n yisental n unebdu"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "ISental iɣerfanen"
+msgstr "Isental n unebdu"
 
 #: src/amo/components/Home/index.js:67
 #, fuzzy
@@ -1073,9 +1070,8 @@ msgid "A powerful way to find archived versions of older web pages"
 msgstr "Abrid uzmir akken ad tafeḍ ileqman yettwaskelsen n yisebtar web iqbuṛen"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Tasertit n tbaḍnit"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
