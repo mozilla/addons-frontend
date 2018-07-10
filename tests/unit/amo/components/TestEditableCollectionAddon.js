@@ -5,6 +5,7 @@ import EditableCollectionAddon, {
   extractId,
 } from 'amo/components/EditableCollectionAddon';
 import fallbackIcon from 'amo/img/icons/default-64.png';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
@@ -54,6 +55,17 @@ describe(__filename, () => {
     const className = 'testClassName';
     const root = render({ className });
     expect(root).toHaveClassName(className);
+  });
+
+  it("renders an image className with it's type", () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const root = render({ addon });
+    expect(root.find('img')).toHaveClassName(
+      `EditableCollectionAddon-icon--${ADDON_TYPE_STATIC_THEME}`,
+    );
   });
 
   it("renders the add-on's icon", () => {
