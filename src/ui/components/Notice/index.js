@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 
@@ -13,11 +14,17 @@ const firefoxRequiredType: 'firefox' = 'firefox';
 const validTypes = [errorType, genericType, successType, firefoxRequiredType];
 
 type Props = {
-  action?: Function,
+  actionHref?: string,
+  actionOnClick?: Function,
   actionText?: string,
+  actionTo?: string | Object,
   children?: React.Node,
   className?: string,
-  type: typeof errorType | typeof successType,
+  type:
+    | typeof errorType
+    | typeof firefoxRequiredType
+    | typeof genericType
+    | typeof successType,
 };
 
 /*
@@ -25,15 +32,31 @@ type Props = {
  *
  * See https://design.firefox.com/photon/components/message-bars.html
  */
-const Notice = ({ action, actionText, children, className, type }: Props) => {
-  if (!validTypes.includes(type)) {
-    throw new Error(`Unknown type: ${type}`);
-  }
+const Notice = ({
+  actionHref,
+  actionOnClick,
+  actionText,
+  actionTo,
+  children,
+  className,
+  type,
+}: Props) => {
+  invariant(validTypes.includes(type), `Unknown type: ${type}`);
+
+  const buttonProps = {
+    href: actionHref || undefined,
+    onClick: actionOnClick || undefined,
+    to: actionTo || undefined,
+  };
 
   let actionButton;
-  if (action && actionText) {
+  if (Object.values(buttonProps).some((val) => val !== undefined)) {
+    invariant(
+      actionText,
+      'When specifying an action button, actionText is required',
+    );
     actionButton = (
-      <Button className="Notice-button" onClick={action} micro>
+      <Button className="Notice-button" micro {...buttonProps}>
         {actionText}
       </Button>
     );
