@@ -1,6 +1,5 @@
 /* eslint-disable react/no-multi-comp, react/prop-types */
 import * as React from 'react';
-import { compose } from 'redux';
 
 import withUIState, { generateId } from 'core/withUIState';
 import { setUIState } from 'core/reducers/uiState';
@@ -33,13 +32,11 @@ describe(__filename, () => {
       }
     }
 
-    const Overlay = compose(
-      withUIState({
-        fileName: __filename,
-        extractId: (props) => props.id,
-        initialState: { isOpen: true },
-      }),
-    )(OverlayBase);
+    const Overlay = withUIState({
+      fileName: __filename,
+      extractId: (props) => props.id,
+      initialState: { isOpen: true },
+    })(OverlayBase);
 
     const render = ({ id = 'some-id', ...props } = {}) => {
       const root = shallowUntilTarget(
@@ -91,13 +88,11 @@ describe(__filename, () => {
       }
       const initialState = { visible: true };
 
-      const Thing = compose(
-        withUIState({
-          fileName: __filename,
-          extractId: () => '',
-          initialState,
-        }),
-      )(ThingBase);
+      const Thing = withUIState({
+        fileName: __filename,
+        extractId: () => '',
+        initialState,
+      })(ThingBase);
 
       const root = shallowUntilTarget(<Thing store={store} />, ThingBase);
 
@@ -112,14 +107,12 @@ describe(__filename, () => {
       }
       const initialState = { visible: true };
 
-      const Thing = compose(
-        withUIState({
-          fileName: __filename,
-          // Each instance will share this same ID.
-          extractId: () => 'shared-ID',
-          initialState,
-        }),
-      )(ThingBase);
+      const Thing = withUIState({
+        fileName: __filename,
+        // Each instance will share this same ID.
+        extractId: () => 'shared-ID',
+        initialState,
+      })(ThingBase);
 
       // Create an instance and change its state.
       const root1 = shallowUntilTarget(<Thing store={store} />, ThingBase);

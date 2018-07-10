@@ -1,7 +1,6 @@
 /* @flow */
 import * as React from 'react';
 import invariant from 'invariant';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { normalizeFileNameId } from 'core/utils';
@@ -111,12 +110,10 @@ const withUIState = ({
       }
     }
 
-    return compose(
-      connect(
-        mapStateToProps,
-        undefined,
-        mergeUIStateProps,
-      ),
+    return connect(
+      mapStateToProps,
+      undefined,
+      mergeUIStateProps,
     )(WithUIState);
   };
 };
