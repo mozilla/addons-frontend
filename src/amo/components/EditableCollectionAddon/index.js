@@ -101,7 +101,14 @@ export class EditableCollectionAddonBase extends React.Component<
     const iconURL = getAddonIconUrl(addon);
     return (
       <li className={makeClassName('EditableCollectionAddon', className)}>
-        <img className="EditableCollectionAddon-icon" src={iconURL} alt="" />
+        <img
+          className={makeClassName(
+            'EditableCollectionAddon-icon',
+            `EditableCollectionAddon-icon--${addon.type}`,
+          )}
+          src={iconURL}
+          alt=""
+        />
         <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
         <div className="EditableCollectionAddon-comments-icon">
           <a

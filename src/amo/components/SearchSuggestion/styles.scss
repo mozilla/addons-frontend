@@ -23,6 +23,10 @@
   // https://github.com/mozilla/addons-frontend/issues/4009
   overflow: hidden;
   width: 16px;
+
+  &.SearchSuggestion-icon--statictheme {
+    opacity: 0;
+  }
 }
 
 .SearchSuggestion-icon-arrow {
