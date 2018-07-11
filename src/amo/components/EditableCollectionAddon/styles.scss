@@ -7,7 +7,7 @@
 .EditableCollectionAddon {
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: 32px minmax(80px, auto) 32px 64px;
+  grid-template-columns: 32px minmax(80px, auto) min-content min-content;
   padding: 12px;
 }
 
@@ -35,12 +35,21 @@
   }
 }
 
-.EditableCollectionAddon-comments-icon {
+.EditableCollectionAddon-leaveNote {
   align-items: center;
   display: flex;
 }
 
-.EditableCollectionAddon-remove-button {
+.EditableCollectionAddon-leaveNote--hidden {
+  visibility: hidden;
+}
+
+.EditableCollectionAddon-leaveNote-button {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.EditableCollectionAddon-remove {
   align-items: center;
   display: flex;
 }

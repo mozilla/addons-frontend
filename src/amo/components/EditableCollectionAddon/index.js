@@ -113,21 +113,28 @@ export class EditableCollectionAddonBase extends React.Component<
           alt={addon.name}
         />
         <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
-        <div className="EditableCollectionAddon-comments-icon">
-          <a
-            href="#editComment"
-            onClick={this.onEditNote}
-            className="EditableCollectionAddon-edit-note"
-          >
-            <Icon name="comments" />
-          </a>
-        </div>
-        <div className="EditableCollectionAddon-remove-button">
+        <div
+          className={makeClassName('EditableCollectionAddon-leaveNote', {
+            'EditableCollectionAddon-leaveNote--hidden': showNotes,
+          })}
+        >
           <Button
-            name={addon.id}
-            buttonType="alert"
-            onClick={this.onRemoveAddon}
+            buttonType="action"
+            className="EditableCollectionAddon-leaveNote-button"
             micro
+            name={`leaveNote-${addon.id}`}
+            onClick={this.onEditNote}
+          >
+            {i18n.gettext('Leave a note')}
+          </Button>
+        </div>
+        <div className="EditableCollectionAddon-remove">
+          <Button
+            buttonType="alert"
+            className="EditableCollectionAddon-remove-button"
+            micro
+            name={addon.id}
+            onClick={this.onRemoveAddon}
           >
             {i18n.gettext('Remove')}
           </Button>
