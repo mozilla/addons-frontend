@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-11 00:05+0000\n"
+"PO-Revision-Date: 2018-07-11 00:09+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1042,29 +1042,24 @@ msgid "Social media customization"
 msgstr "Penyesuaian media sosial"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Pemuat turun media"
+msgstr "Lihat pemuat turun dinamik selanjutnya"
 
 #: src/amo/components/Home/index.js:58
-#, fuzzy
 msgid "Dynamic downloaders"
-msgstr "Pemuat turun media"
+msgstr "Pemuat turun dinamik"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "Lihat tema popular selanjutnya"
+msgstr "Lihat tema musim panas selanjutnya"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "Tema popular"
+msgstr "Tema musim panas"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "Lihat ekstensi sohor kini selanjutnya"
+msgstr "Lihat media mesti-ada selanjutnya"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
@@ -1075,9 +1070,8 @@ msgid "A powerful way to find archived versions of older web pages"
 msgstr "Satu cara mudah untuk mencari versi arkib halaman web yang lebih lama"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Dasar Privasi"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
@@ -1193,7 +1187,7 @@ msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Kemas gabung imej dalam latar belakang telus"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
