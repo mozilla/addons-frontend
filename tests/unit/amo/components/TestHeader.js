@@ -178,4 +178,17 @@ describe(__filename, () => {
 
     expect(link).toHaveLength(0);
   });
+
+  it('displays manage my submissions when user is logged in', () => {
+    const username = 'championshuttler';
+    const { store } = dispatchSignInActions({
+      userProps: { username },
+    });
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-user-menu-developers-submissions-on-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.prop('children')).toEqual('Manage My Submissions');
+    expect(link).toHaveProp('href', '/developers/addons/');
+  });
 });
