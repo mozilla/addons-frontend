@@ -412,12 +412,25 @@ describe(__filename, () => {
       );
     });
 
-    it('returns valid HTML', () => {
-      const htmlValue =
-        '<ul>\n<li>ul\nli<strong>foo\nbar</strong>\n</li>\n</ul>';
+    it('preserves line breaks between tags', () => {
+      const htmlValue = '<ul>\n<li><strong></strong>\n</li>\n</ul>';
 
       expect(nl2br(htmlValue)).toEqual(
-        '<ul>\n<li>ul<br />li<strong>foo<br />bar</strong>\n</li>\n</ul>',
+        '<ul>\n<li><strong></strong>\n</li>\n</ul>',
+      );
+    });
+
+    it('converts line breaks in tag content', () => {
+      const htmlValue = '<strong>foo\nbar</strong>';
+
+      expect(nl2br(htmlValue)).toEqual('<strong>foo<br />bar</strong>');
+    });
+
+    it('returns valid HTML', () => {
+      const htmlValue = 'ul\nli<strong>foo\nbar</strong>';
+
+      expect(nl2br(htmlValue)).toEqual(
+        'ul<br />li<strong>foo<br />bar</strong>',
       );
     });
   });
