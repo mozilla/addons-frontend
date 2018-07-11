@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-11 01:32+0000\n"
+"PO-Revision-Date: 2018-07-11 01:39+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1047,11 +1047,11 @@ msgstr "სოციალური ქსელის მორგება"
 
 #: src/amo/components/Home/index.js:57
 msgid "See more dynamic downloaders"
-msgstr "სხვა ცვალებადი ჩამომტვირთველები"
+msgstr "ცვალებადი შიგთავსის სხვა ჩამომტვირთველები"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
-msgstr "ცვალებადი ჩამომტვირთველები"
+msgstr "ცვალებადი შიგთავსის ჩამომტვირთველები"
 
 #: src/amo/components/Home/index.js:62
 msgid "See more summer themes"
@@ -1062,9 +1062,8 @@ msgid "Summer themes"
 msgstr "საზაფხულო თემები"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "სხვა ხშირად ჩამოტვირთული გაფართოებები"
+msgstr "სხვა აუცილებელი გაფართოებები"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
@@ -1075,9 +1074,8 @@ msgid "A powerful way to find archived versions of older web pages"
 msgstr "მძლავრი ხელსაწყო, ძველი ვებგვერდების შენახული ასლების მოსაძიებლად"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "პირადი მონაცემების დაცვის დებულება"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
