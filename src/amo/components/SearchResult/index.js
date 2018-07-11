@@ -48,7 +48,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const { addon, i18n, showMetadata, showSummary } = this.props;
 
     const isTheme = this.addonIsTheme();
-    const averageDailyUsers = addon && addon.average_daily_users;
+    const averageDailyUsers = addon ? addon.average_daily_users : null;
 
     // Fall-back to default icon if invalid icon url.
     const iconURL = getAddonIconUrl(addon);
@@ -157,7 +157,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
         <h3 className="SearchResult-users SearchResult--meta-section">
           <Icon className="SearchResult-users-icon" name="user-fill" />
           <span className="SearchResult-users-text">
-            {addon ? (
+            {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
               i18n.sprintf(
                 i18n.ngettext(
                   '%(total)s user',

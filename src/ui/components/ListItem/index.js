@@ -3,7 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 
 type Props = {|
-  children?: React.ChildrenArray<React.Element<any>>,
+  children?: React.ChildrenArray<React.Element<any> | string>,
   className?: string,
 |};
 

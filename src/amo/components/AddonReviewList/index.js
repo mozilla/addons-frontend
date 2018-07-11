@@ -187,7 +187,7 @@ export class AddonReviewListBase extends React.Component<Props> {
       addon && addon.ratings ? addon.ratings.text_count : null;
     let addonName;
     let reviewCountHTML;
-    if (addon) {
+    if (addon && addonRatingCount !== null) {
       addonName = <Link to={this.addonURL()}>{addon.name}</Link>;
       reviewCountHTML = i18n.sprintf(
         i18n.ngettext(
