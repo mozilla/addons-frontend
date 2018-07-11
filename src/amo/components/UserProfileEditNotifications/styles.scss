@@ -36,6 +36,10 @@ $input-height: 16px;
         transform: translateX(-50%) rotate(45deg) scale(1);
       }
     }
+
+    &:focus ~ .UserProfileEditNotification-checkbox {
+      @include focus();
+    }
   }
 
   .UserProfileEditNotification-checkbox {

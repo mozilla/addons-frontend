@@ -78,7 +78,8 @@
 /* Shared mixins. Bear in mind changes here impact *all* apps. */
 
 @mixin focus() {
-  box-shadow: inset 0 0 2px 0 $blue-50, 0 0 3px 0 transparentize($blue-50, 0.3);
+  box-shadow: 0 0 0 1px $blue-50 inset, 0 0 0 1px $blue-50,
+    0 0 0 4px transparentize($blue-50, 0.7);
   outline: none;
 }
 

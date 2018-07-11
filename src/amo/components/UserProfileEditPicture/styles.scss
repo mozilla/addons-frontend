@@ -11,6 +11,10 @@ $picture-size: 128px;
     display: inline-block;
     width: $picture-size;
 
+    .UserAvatar-image {
+      margin-bottom: 4px;
+    }
+
     .Icon {
       height: $picture-size;
       width: $picture-size;
@@ -22,7 +26,21 @@ $picture-size: 128px;
     cursor: pointer;
     display: inline-block;
     overflow: hidden;
+    padding: 4px;
     position: relative;
+
+    .Button {
+      display: flex;
+      justify-content: flex-start;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+
+  .UserProfileEditPicture-file--has-focus {
+    .Button {
+      @include focus();
+    }
   }
 
   .UserProfileEditPicture-file-input {
@@ -36,13 +54,6 @@ $picture-size: 128px;
     position: absolute;
     top: 0;
     width: 0.01em !important;
-
-    .Button {
-      display: flex;
-      justify-content: flex-start;
-      overflow: hidden;
-      position: relative;
-    }
   }
 
   .UserProfileEditPicture-delete-button {
