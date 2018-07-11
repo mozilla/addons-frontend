@@ -167,7 +167,7 @@ export const changeViewState = ({
   state,
   reviewId,
   stateChange,
-}: ChangeViewStateParams = {}): $Shape<ReviewsState> => {
+}: ChangeViewStateParams = {}): ReviewsState => {
   const change = { ...stateChange };
 
   const existingFlag = state.view[reviewId] ? state.view[reviewId].flag : {};

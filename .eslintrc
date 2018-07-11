@@ -8,6 +8,8 @@
     "document": true,
     "webpackIsomorphicTools": true,
     "ga": true,
+    // https://flow.org/en/docs/types/utilities/#toc-objmap
+    "$ObjMap": true,
     // https://flow.org/en/docs/types/utilities/#toc-propertytype
     "$PropertyType": true,
     // These are undocumented utilities that ship with Flow
