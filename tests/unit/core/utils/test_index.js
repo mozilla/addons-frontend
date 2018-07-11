@@ -405,6 +405,34 @@ describe(__filename, () => {
     it('handles null text', () => {
       expect(nl2br(null)).toEqual('');
     });
+
+    it('returns mixed content with <br/>', () => {
+      expect(nl2br('foo\nbar\n\n<b>bold</b>')).toEqual(
+        'foo<br />bar<br />\n<b>bold</b>',
+      );
+    });
+
+    it('preserves line breaks between tags', () => {
+      const htmlValue = '<ul>\n<li><strong></strong>\n</li>\n</ul>';
+
+      expect(nl2br(htmlValue)).toEqual(
+        '<ul>\n<li><strong></strong>\n</li>\n</ul>',
+      );
+    });
+
+    it('converts line breaks in tag content', () => {
+      const htmlValue = '<strong>foo\nbar</strong>';
+
+      expect(nl2br(htmlValue)).toEqual('<strong>foo<br />bar</strong>');
+    });
+
+    it('returns valid HTML', () => {
+      const htmlValue = 'ul\nli<strong>foo\nbar</strong>';
+
+      expect(nl2br(htmlValue)).toEqual(
+        'ul<br />li<strong>foo<br />bar</strong>',
+      );
+    });
   });
 
   describe('isAllowedOrigin', () => {
