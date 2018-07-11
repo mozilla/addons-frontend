@@ -1,6 +1,6 @@
-@import "~amo/css/inc/vars";
-@import "~core/css/inc/mixins";
-@import "~ui/css/vars";
+@import '~amo/css/inc/vars';
+@import '~core/css/inc/mixins';
+@import '~ui/css/vars';
 
 .Hero {
   margin: 0 0 $padding-page;
@@ -23,16 +23,16 @@
   grid-gap: 12px;
   grid-template: 1fr;
   grid-template-areas:
-    "first"
-    "second"
-    "third";
+    'first'
+    'second'
+    'third';
   padding-bottom: 10px;
 
   @include respond-to(medium) {
     grid-template: 1fr 1fr / 60% 1fr;
     grid-template-areas:
-      "first second"
-      "first third";
+      'first second'
+      'first third';
     height: auto;
     margin-bottom: -12px;
   }

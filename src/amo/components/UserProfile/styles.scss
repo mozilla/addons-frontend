@@ -1,6 +1,6 @@
-@import "~amo/css/inc/vars";
-@import "~core/css/inc/mixins";
-@import "~ui/css/vars";
+@import '~amo/css/inc/vars';
+@import '~core/css/inc/mixins';
+@import '~ui/css/vars';
 
 $avatar-size: 64px;
 
@@ -14,7 +14,6 @@ $avatar-size: 64px;
 }
 
 .UserProfile-wrapper {
-
   @include respond-to(large) {
     display: flex;
     justify-content: flex-start;

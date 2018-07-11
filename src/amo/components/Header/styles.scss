@@ -1,8 +1,8 @@
-@import "~photon-colors/photon-colors";
+@import '~photon-colors/photon-colors';
 
-@import "~core/css/inc/mixins";
-@import "~amo/css/inc/vars";
-@import "~ui/css/vars";
+@import '~core/css/inc/mixins';
+@import '~amo/css/inc/vars';
+@import '~ui/css/vars';
 
 .Header {
   background: $ink-90;
@@ -65,7 +65,7 @@
     color: $white;
   }
 
-  background-image: url("./styles/firefox-addons-min.svg");
+  background-image: url('./styles/firefox-addons-min.svg');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 225px 48px;

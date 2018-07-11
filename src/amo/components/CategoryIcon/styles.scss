@@ -1,22 +1,22 @@
-@import "~core/css/inc/mixins";
-@import "~amo/css/inc/vars";
-@import "~ui/css/vars";
+@import '~core/css/inc/mixins';
+@import '~amo/css/inc/vars';
+@import '~ui/css/vars';
 
 $default-icon-size: 64px;
 
 @mixin icon($name) {
   display: inline-block;
   height: $default-icon-size;
-  mask: url("./#{$name}.svg") no-repeat 50% 50%;
+  mask: url('./#{$name}.svg') no-repeat 50% 50%;
   transform: scale(0.8);
   width: $default-icon-size;
 
   // This prevents Edge/ESR 52 from rendering a square block of color because
   // it can't mask over the SVG.
-  @supports not (mask: url("./#{$name}.svg") no-repeat 50% 50%) {
-    background: transparent url("./#{$name}.svg") center no-repeat;
+  @supports not (mask: url('./#{$name}.svg') no-repeat 50% 50%) {
+    background: transparent url('./#{$name}.svg') center no-repeat;
     background-size: contain;
-    content: "";
+    content: '';
   }
 
   @include respond-to(medium) {
@@ -31,141 +31,141 @@ $default-icon-size: 64px;
 }
 
 .Icon-abstract {
-  @include icon($name: "abstract");
+  @include icon($name: 'abstract');
 }
 
 .Icon-alerts-updates {
-  @include icon($name: "alerts-updates");
+  @include icon($name: 'alerts-updates');
 }
 
 .Icon-appearance {
-  @include icon($name: "appearance");
+  @include icon($name: 'appearance');
 }
 
 .Icon-bookmarks {
-  @include icon($name: "bookmarks");
+  @include icon($name: 'bookmarks');
 }
 
 .Icon-causes {
-  @include icon($name: "causes");
+  @include icon($name: 'causes');
 }
 
 .Icon-download-management {
-  @include icon($name: "download-management");
+  @include icon($name: 'download-management');
 }
 
 .Icon-fashion {
-  @include icon($name: "fashion");
+  @include icon($name: 'fashion');
 }
 
 .Icon-feeds-news-blogging {
-  @include icon($name: "feeds-news-blogging");
+  @include icon($name: 'feeds-news-blogging');
 }
 
 .Icon-film-and-tv {
-  @include icon($name: "film-tv");
+  @include icon($name: 'film-tv');
 }
 
 .Icon-firefox {
-  @include icon($name: "firefox");
+  @include icon($name: 'firefox');
 }
 
 .Icon-foxkeh {
-  @include icon($name: "foxkeh");
+  @include icon($name: 'foxkeh');
 }
 
 .Icon-games-entertainment {
-  @include icon($name: "games-entertainment");
+  @include icon($name: 'games-entertainment');
 }
 
 .Icon-holiday {
-  @include icon($name: "holiday");
+  @include icon($name: 'holiday');
 }
 
 .Icon-language-support {
-  @include icon($name: "language-support");
+  @include icon($name: 'language-support');
 }
 
 .Icon-music {
-  @include icon($name: "music");
+  @include icon($name: 'music');
 }
 
 .Icon-nature {
-  @include icon($name: "nature");
+  @include icon($name: 'nature');
 }
 
 .Icon-other-extension {
-  @include icon($name: "other-extension");
+  @include icon($name: 'other-extension');
 }
 
 .Icon-other-persona {
-  @include icon($name: "other-theme");
+  @include icon($name: 'other-theme');
 }
 
 .Icon-photos-music-videos,
 .Icon-photos-media {
-  @include icon($name: "photos-music-video");
+  @include icon($name: 'photos-music-video');
 }
 
 .Icon-privacy-security,
 .Icon-security-privacy {
-  @include icon($name: "privacy-security");
+  @include icon($name: 'privacy-security');
 }
 
 .Icon-scenery {
-  @include icon($name: "scenery");
+  @include icon($name: 'scenery');
 }
 
 .Icon-search-tools {
-  @include icon($name: "search-tools");
+  @include icon($name: 'search-tools');
 }
 
 .Icon-seasonal {
-  @include icon($name: "seasonal");
+  @include icon($name: 'seasonal');
 }
 
 .Icon-shopping {
-  @include icon($name: "shopping");
+  @include icon($name: 'shopping');
 }
 
 .Icon-social-communication,
 .Icon-social-networking {
-  @include icon($name: "social-communication");
+  @include icon($name: 'social-communication');
 }
 
 .Icon-solid {
-  @include icon($name: "solid");
+  @include icon($name: 'solid');
 }
 
 .Icon-sports,
 .Icon-sports-games {
-  @include icon($name: "sports");
+  @include icon($name: 'sports');
 }
 
 .Icon-tabs {
-  @include icon($name: "tabs");
+  @include icon($name: 'tabs');
 }
 
 .Icon-web-development {
-  @include icon($name: "web-development");
+  @include icon($name: 'web-development');
 }
 
 .Icon-websites {
-  @include icon($name: "websites");
+  @include icon($name: 'websites');
 }
 
 .Icon-device-features-location {
-  @include icon($name: "device-features-location");
+  @include icon($name: 'device-features-location');
 }
 
 .Icon-experimental {
-  @include icon($name: "experimental");
+  @include icon($name: 'experimental');
 }
 
 .Icon-performance {
-  @include icon($name: "performance");
+  @include icon($name: 'performance');
 }
 
 .Icon-user-interface {
-  @include icon($name: "user-interface");
+  @include icon($name: 'user-interface');
 }

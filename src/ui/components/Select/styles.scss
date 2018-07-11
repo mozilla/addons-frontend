@@ -1,14 +1,15 @@
-@import "~photon-colors/photon-colors";
+@import '~photon-colors/photon-colors';
 
-@import "~core/css/inc/mixins";
-@import "~ui/css/vars";
+@import '~core/css/inc/mixins';
+@import '~ui/css/vars';
 
 .Select {
   @include padding-end(24px);
   @include padding-start(6px);
 
   appearance: none;
-  background: $grey-30 url("~ui/components/Icon/img/triangle-down-black.svg") no-repeat calc(100% - 10px) 50%;
+  background: $grey-30 url('~ui/components/Icon/img/triangle-down-black.svg')
+    no-repeat calc(100% - 10px) 50%;
   background-size: 12px;
   border: 0;
   border-radius: $border-radius-s;
@@ -21,7 +22,7 @@
   white-space: nowrap;
   width: 100%;
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     background-position: 10px 50%;
   }
 }

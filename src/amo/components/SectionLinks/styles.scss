@@ -1,6 +1,6 @@
-@import "~core/css/inc/mixins";
-@import "~amo/css/inc/vars";
-@import "~ui/css/vars";
+@import '~core/css/inc/mixins';
+@import '~amo/css/inc/vars';
+@import '~ui/css/vars';
 
 .SectionLinks {
   display: flex;
@@ -24,11 +24,12 @@
 
   &::after {
     background: transparent;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
     margin: auto;
-    transition: width $transition-short ease, background-color $transition-short ease;
+    transition: width $transition-short ease,
+      background-color $transition-short ease;
     width: 0;
   }
 

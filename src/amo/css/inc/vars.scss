@@ -1,4 +1,4 @@
-@import "~core/css/inc/vars";
+@import '~core/css/inc/vars';
 
 $body-font-color: #000;
 
@@ -14,12 +14,34 @@ $accent-color: #ebebeb;
 // it with `@include respond-to(medium) { [...] }`.
 $breakpoints: (
   // This breakpoint exists for tweaking of very small screens.
-  extraSmall: only screen and (max-width: 349px),
-  mediumOnly: only screen and (min-width: 500px) and (max-width: 719px),
-  medium: only screen and (min-width: 500px),
-  large: only screen and (min-width: 720px),
-  extraLarge: only screen and (min-width: 900px),
-  extraExtraLarge: only screen and (min-width: 1150px),
+    extraSmall: only screen and
+    (
+      max-width: 349px,
+    ),
+  mediumOnly: only screen and
+    (
+      min-width: 500px,
+    )
+    and
+    (
+      max-width: 719px,
+    ),
+  medium: only screen and
+    (
+      min-width: 500px,
+    ),
+  large: only screen and
+    (
+      min-width: 720px,
+    ),
+  extraLarge: only screen and
+    (
+      min-width: 900px,
+    ),
+  extraExtraLarge: only screen and
+    (
+      min-width: 1150px,
+    )
 );
 $page-margin: 20px 10px;
 

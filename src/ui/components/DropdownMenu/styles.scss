@@ -1,6 +1,6 @@
-@import "~core/css/inc/mixins";
-@import "~amo/css/inc/vars";
-@import "~ui/css/vars";
+@import '~core/css/inc/mixins';
+@import '~amo/css/inc/vars';
+@import '~ui/css/vars';
 
 .DropdownMenu {
   @include text-align-start();
@@ -86,7 +86,7 @@
     @include end(36px);
 
     background-color: $white;
-    content: "";
+    content: '';
     display: block;
     height: 8px;
     position: absolute;

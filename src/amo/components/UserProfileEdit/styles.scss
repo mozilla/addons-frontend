@@ -1,6 +1,6 @@
-@import "~amo/css/inc/vars";
-@import "~core/css/inc/mixins";
-@import "~ui/css/vars";
+@import '~amo/css/inc/vars';
+@import '~core/css/inc/mixins';
+@import '~ui/css/vars';
 
 $font-size-aside: 10px;
 
@@ -59,7 +59,7 @@ $font-size-aside: 10px;
     float: right;
     width: 35%;
 
-    [dir=rtl] & {
+    [dir='rtl'] & {
       float: left;
     }
   }

@@ -1,5 +1,5 @@
-@import "~disco/css/inc/vars";
-@import "~core/css/inc/mixins";
+@import '~disco/css/inc/vars';
+@import '~core/css/inc/mixins';
 $size: 26px;
 $borderSize: 1px;
 $transition: 0.3s;
@@ -11,7 +11,10 @@ $switchToBackgroundRatio: 2.7;
 $switchStrokeOff: #858585;
 $switchStrokeOn: #00a920;
 $switchStrokeWidth: 1px;
-$switchHandleActivePosition: round(($size * $switchToBackgroundRatio) - ($size + ($switchHandleGap * 2 + $switchStrokeWidth)));
+$switchHandleActivePosition: round(
+  ($size * $switchToBackgroundRatio) -
+    ($size + ($switchHandleGap * 2 + $switchStrokeWidth))
+);
 $switchBackgroundOn: #57bd35;
 $switchBackgroundOff: #b1b1b1;
 $uninstallStripeColor1: $switchBackgroundOff;
@@ -32,15 +35,14 @@ $installStripeColor2: #00c42e;
 @mixin stripes($color1, $color2, $stripeBackgroundColor) {
   animation: stripes 0.5s linear infinite;
   background-color: $stripeBackgroundColor;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      $color1,
-      $color1 25%,
-      $color2 25%,
-      $color2 50%,
-      $color1 50%
-    );
+  background-image: repeating-linear-gradient(
+    45deg,
+    $color1,
+    $color1 25%,
+    $color2 25%,
+    $color2 50%,
+    $color1 50%
+  );
   background-size: $size / 2 $size / 2;
 }
 
@@ -66,7 +68,7 @@ $installStripeColor2: #00c42e;
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
     }
@@ -94,13 +96,14 @@ $installStripeColor2: #00c42e;
       width: $size;
       z-index: 3;
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         transform: translateX(-$switchHandleGap);
       }
     }
 
     &:hover::after {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 0 $size/2 transparentize($switchHandleActive, 0.8);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25),
+        0 0 0 $size/2 transparentize($switchHandleActive, 0.8);
     }
   }
 
@@ -128,7 +131,7 @@ $installStripeColor2: #00c42e;
     &::after {
       transform: translateX($switchHandleActivePosition);
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         transform: translateX(-$switchHandleActivePosition);
       }
     }
@@ -136,9 +139,9 @@ $installStripeColor2: #00c42e;
 
   &.Switch--success {
     input + label::before {
-      background: $switchBackgroundOn url("./tick.svg") no-repeat 35% 50%;
+      background: $switchBackgroundOn url('./tick.svg') no-repeat 35% 50%;
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         background-position: 65% 50%;
       }
     }
@@ -147,7 +150,11 @@ $installStripeColor2: #00c42e;
 
 .Switch--indefinite-reverse {
   input + label::before {
-    @include stripes($uninstallStripeColor1, $uninstallStripeColor2, $switchBackgroundOff);
+    @include stripes(
+      $uninstallStripeColor1,
+      $uninstallStripeColor2,
+      $switchBackgroundOff
+    );
     // Reverse the stripe direction without
     // impacting the animation speed.
     transform: scaleX(-1);
@@ -157,7 +164,7 @@ $installStripeColor2: #00c42e;
     &::after {
       transform: translateX($switchHandleGap);
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         transform: translateX(-$switchHandleGap);
       }
     }
@@ -180,7 +187,7 @@ $installStripeColor2: #00c42e;
       background: $switchHandleActive;
       transform: translateX($switchHandleActivePosition);
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         transform: translateX(-$switchHandleActivePosition);
       }
     }
@@ -192,13 +199,17 @@ $installStripeColor2: #00c42e;
     border-color: $switchStrokeOn;
 
     &::before {
-      @include stripes($installStripeColor1, $installStripeColor2, $switchBackgroundOn);
+      @include stripes(
+        $installStripeColor1,
+        $installStripeColor2,
+        $switchBackgroundOn
+      );
     }
 
     &::after {
       transform: translateX($switchHandleActivePosition);
 
-      [dir=rtl] & {
+      [dir='rtl'] & {
         transform: translateX(-$switchHandleActivePosition);
       }
     }
@@ -220,16 +231,16 @@ $installStripeColor2: #00c42e;
   transition: transform $transition;
   width: 100%;
 
-  [dir=rtl] & {
+  [dir='rtl'] & {
     transform: translateX(100%);
   }
 }
 
 @for $i from 1 through 100 {
-  [data-progress="#{$i}"] .Switch-progress-bar {
+  [data-progress='#{$i}'] .Switch-progress-bar {
     transform: translateX(#{percentage($i - 100) / 100});
 
-    [dir=rtl] & {
+    [dir='rtl'] & {
       transform: translateX(#{percentage(100 - $i) / 100});
     }
   }
