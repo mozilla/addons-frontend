@@ -12,19 +12,36 @@
   grid-template-columns: min-content auto;
   line-height: 1.1;
   padding: 4px;
+
+  &.Notice-dismissible {
+    grid-template-columns: min-content auto auto;
+  }
 }
 
 .Notice-icon {
   background-position: center top;
   background-repeat: no-repeat;
-  margin: 4px;
-  min-height: 16px;
-  width: 16px;
 }
 
 .Notice-column {
   align-items: center;
   display: flex;
+}
+
+.Notice-dismisser {
+  align-items: top;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Notice-icon, .Notice-dismisser-icon {
+  margin: 4px;
+  min-height: 16px;
+  width: 16px;
+}
+
+.Notice-x-mark-icon {
+  cursor: pointer;
 }
 
 .Notice-text {
@@ -64,6 +81,10 @@
 
   .Notice-icon {
     background-image: url('./media/exclamation.svg');
+  }
+
+  .Icon-x-mark-icon {
+    fill: $white;
   }
 
   background-color: $red-50;

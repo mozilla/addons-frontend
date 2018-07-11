@@ -1,3 +1,4 @@
+@import '~ui/css/vars';
 @import './vars';
 @import '~core/css/inc/mixins';
 
@@ -190,6 +191,10 @@
 
 .Icon-x-mark {
   @include icon($name: 'x-mark');
+}
+
+.Icon-x-mark-white {
+  @include icon($name: 'x-mark-white');
 }
 
 .Icon-requires-payment {
