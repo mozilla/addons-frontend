@@ -30,7 +30,7 @@
   height: 32px;
   width: 32px;
 
-  &.EditableCollectionAddon-icon--statictheme {
+  .EditableCollectionAddon--statictheme & {
     opacity: 0;
   }
 }

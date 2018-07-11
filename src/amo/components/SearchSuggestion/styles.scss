@@ -24,7 +24,7 @@
   overflow: hidden;
   width: 16px;
 
-  &.SearchSuggestion-icon--statictheme {
+  .SearchSuggestion--statictheme & {
     opacity: 0;
   }
 }

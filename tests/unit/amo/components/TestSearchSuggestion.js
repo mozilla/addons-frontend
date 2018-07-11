@@ -35,12 +35,12 @@ describe(__filename, () => {
     expect(root.find(Icon)).toHaveProp('alt', props.arrowAlt);
   });
 
-  it('displays image classname with its type', () => {
+  it('displays a class name with its type', () => {
     const props = { type: ADDON_TYPE_STATIC_THEME };
     const root = shallowComponent(props);
 
-    expect(root.find('img')).toHaveClassName(
-      `SearchSuggestion-icon--${ADDON_TYPE_STATIC_THEME}`,
+    expect(root).toHaveClassName(
+      `SearchSuggestion--${ADDON_TYPE_STATIC_THEME}`,
     );
   });
 

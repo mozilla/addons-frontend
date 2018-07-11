@@ -23,15 +23,10 @@ const SearchSuggestion = ({
   type,
 }: Props) => {
   return (
-    <p className="SearchSuggestion">
-      <img
-        alt={name}
-        className={makeClassName(
-          'SearchSuggestion-icon',
-          `SearchSuggestion-icon--${type}`,
-        )}
-        src={iconUrl}
-      />
+    <p
+      className={makeClassName('SearchSuggestion', `SearchSuggestion--${type}`)}
+    >
+      <img alt={name} className="SearchSuggestion-icon" src={iconUrl} />
       <span className="SearchSuggestion-name">
         {loading ? <LoadingText minWidth={20} range={12} /> : name}
       </span>

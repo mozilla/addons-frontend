@@ -57,14 +57,14 @@ describe(__filename, () => {
     expect(root).toHaveClassName(className);
   });
 
-  it('renders an image class name with its type', () => {
+  it('renders a class name with its type', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
     });
     const root = render({ addon });
-    expect(root.find('img')).toHaveClassName(
-      `EditableCollectionAddon-icon--${ADDON_TYPE_STATIC_THEME}`,
+    expect(root).toHaveClassName(
+      `EditableCollectionAddon--${ADDON_TYPE_STATIC_THEME}`,
     );
   });
 
