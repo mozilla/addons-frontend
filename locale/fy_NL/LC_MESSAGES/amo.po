@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-11 07:30+0000\n"
+"PO-Revision-Date: 2018-07-11 12:45+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1068,9 +1068,8 @@ msgid "A powerful way to find archived versions of older web pages"
 msgstr "In krêftige manier om argivearre ferzjes fan âldere websiden te finen"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Privacybelied"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
