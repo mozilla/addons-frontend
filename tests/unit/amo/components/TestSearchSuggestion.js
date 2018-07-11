@@ -5,6 +5,7 @@ import SearchSuggestion from 'amo/components/SearchSuggestion';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import { fakeAddon } from 'tests/unit/amo/helpers';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 
 describe(__filename, () => {
   const shallowComponent = (props = {}) => {
@@ -32,6 +33,15 @@ describe(__filename, () => {
 
     expect(root.find(Icon)).toHaveLength(1);
     expect(root.find(Icon)).toHaveProp('alt', props.arrowAlt);
+  });
+
+  it('displays a class name with its type', () => {
+    const props = { type: ADDON_TYPE_STATIC_THEME };
+    const root = shallowComponent(props);
+
+    expect(root).toHaveClassName(
+      `SearchSuggestion--${ADDON_TYPE_STATIC_THEME}`,
+    );
   });
 
   it('displays a loading indicator when loading prop is true', () => {

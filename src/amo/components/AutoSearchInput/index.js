@@ -40,6 +40,7 @@ export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
   name: string,
+  type: string,
   url: string,
 |};
 
@@ -265,14 +266,15 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   renderSuggestion = (suggestion: SuggestionType) => {
     const { loadingSuggestions, selectSuggestionText } = this.props;
-    const { name, iconUrl } = suggestion;
+    const { iconUrl, name, type } = suggestion;
 
     return (
       <SearchSuggestion
-        name={name}
+        arrowAlt={selectSuggestionText}
         iconUrl={iconUrl}
         loading={loadingSuggestions}
-        arrowAlt={selectSuggestionText}
+        name={name}
+        type={type}
       />
     );
   };
