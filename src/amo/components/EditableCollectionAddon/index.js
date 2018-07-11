@@ -107,7 +107,7 @@ export class EditableCollectionAddonBase extends React.Component<
             `EditableCollectionAddon-icon--${addon.type}`,
           )}
           src={iconURL}
-          alt=""
+          alt={addon.name}
         />
         <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
         <div className="EditableCollectionAddon-comments-icon">

@@ -51,13 +51,13 @@ describe(__filename, () => {
     return root;
   }
 
-  it('renders a className if provided', () => {
+  it('renders a class name if provided', () => {
     const className = 'testClassName';
     const root = render({ className });
     expect(root).toHaveClassName(className);
   });
 
-  it("renders an image className with it's type", () => {
+  it('renders an image class name with its type', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
