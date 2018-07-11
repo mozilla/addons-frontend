@@ -6,8 +6,9 @@ import { compose } from 'redux';
 
 import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
-import type { ApiStateType, UserAgentInfoType } from 'core/reducers/api';
 import Button from 'ui/components/Button';
+import type { AppState } from 'amo/store';
+import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
@@ -41,11 +42,7 @@ export const DownloadFirefoxButtonBase = ({
   );
 };
 
-type StateType = {|
-  api: ApiStateType,
-|};
-
-export function mapStateToProps(state: StateType) {
+export function mapStateToProps(state: AppState) {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

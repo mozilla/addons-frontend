@@ -12,7 +12,7 @@ import type {
   SearchFilters,
   SuggestionType,
 } from 'amo/components/AutoSearchInput';
-import type { ApiStateType } from 'core/reducers/api';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterType } from 'core/types/router';
 
@@ -67,7 +67,7 @@ export class SearchFormBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(state: {| api: ApiStateType |}): $Shape<Props> {
+export function mapStateToProps(state: AppState): $Shape<Props> {
   const { api } = state;
 
   return { apiLang: api.lang, clientApp: api.clientApp };

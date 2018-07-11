@@ -21,11 +21,8 @@ import type { AddonType } from 'core/types/addons';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type {
-  CollectionsState,
-  CollectionType,
-} from 'amo/reducers/collections';
-import type { UsersStateType } from 'amo/reducers/users';
+import type { CollectionType } from 'amo/reducers/collections';
+import type { AppState } from 'amo/store';
 import type { ElementEvent } from 'core/types/dom';
 
 import './styles.scss';
@@ -278,10 +275,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (
-  state: {| collections: CollectionsState, users: UsersStateType |},
-  ownProps: Props,
-) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { collections, users } = state;
   const currentUser = getCurrentUser(users);
   const currentUsername = currentUser && currentUser.username;

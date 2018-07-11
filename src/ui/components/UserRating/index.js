@@ -6,8 +6,8 @@ import { compose } from 'redux';
 import { getCurrentUser } from 'amo/reducers/users';
 import Rating, { RATING_STYLE_SIZE_TYPES } from 'ui/components/Rating';
 import translate from 'core/i18n/translate';
+import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { UsersStateType } from 'amo/reducers/users';
 
 type Props = {|
   className?: string,
@@ -41,12 +41,10 @@ export const UserRatingBase = (props: Props) => {
   );
 };
 
-const mapStateToProps = (
-  state: {| users: UsersStateType |},
-  ownProps: Props,
-) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { review } = ownProps;
   const siteUser = getCurrentUser(state.users);
+
   return { isOwner: !!(siteUser && review && review.userId === siteUser.id) };
 };
 

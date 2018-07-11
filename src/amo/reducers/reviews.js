@@ -68,7 +68,7 @@ type ViewStateByReviewId = {|
   submittingReply: boolean,
 |};
 
-export type ReviewState = {|
+export type ReviewsState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
@@ -92,7 +92,7 @@ export type ReviewState = {|
   //
 |};
 
-export const initialState: ReviewState = {
+export const initialState: ReviewsState = {
   byAddon: {},
   byId: {},
   byUserId: {},
@@ -101,7 +101,7 @@ export const initialState: ReviewState = {
 };
 
 type ExpandReviewObjectsParams = {|
-  state: ReviewState,
+  state: ReviewsState,
   reviews: Array<number>,
 |};
 
@@ -137,7 +137,7 @@ function mergeInNewReview(
 }
 
 type StoreReviewObjectsParams = {|
-  state: ReviewState,
+  state: ReviewsState,
   reviews: Array<UserReviewType>,
 |};
 
@@ -158,7 +158,7 @@ export const storeReviewObjects = ({
 };
 
 type ChangeViewStateParams = {|
-  state: ReviewState,
+  state: ReviewsState,
   reviewId: number,
   stateChange: $Shape<ViewStateByReviewId>,
 |};
@@ -167,7 +167,7 @@ export const changeViewState = ({
   state,
   reviewId,
   stateChange,
-}: ChangeViewStateParams = {}): $Shape<ReviewState> => {
+}: ChangeViewStateParams = {}): $Shape<ReviewsState> => {
   const change = { ...stateChange };
 
   const existingFlag = state.view[reviewId] ? state.view[reviewId].flag : {};
@@ -192,7 +192,7 @@ export const changeViewState = ({
 };
 
 export const getReviewsByUserId = (
-  state: ReviewState,
+  state: ReviewsState,
   userId: number,
 ): ReviewsData | null => {
   const storedReviewsData = state.byUserId[userId];
@@ -223,7 +223,7 @@ type ReviewActionType =
   | ReviewWasFlaggedAction;
 
 export default function reviewsReducer(
-  state: ReviewState = initialState,
+  state: ReviewsState = initialState,
   action: ReviewActionType,
 ) {
   switch (action.type) {

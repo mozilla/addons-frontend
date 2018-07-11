@@ -20,7 +20,8 @@ import OverlayCard from 'ui/components/OverlayCard';
 import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/reviews';
-import type { ApiStateType } from 'core/reducers/api';
+import type { AppState } from 'amo/store';
+import type { ApiState } from 'core/reducers/api';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
 import type { DispatchFunc } from 'core/types/redux';
@@ -32,7 +33,7 @@ type SetDenormalizedReviewFunction = (review: $Shape<UserReviewType>) => void;
 
 type RefreshAddonFunction = (params: {|
   addonSlug: string,
-  apiState: ApiStateType,
+  apiState: ApiState,
 |}) => Promise<void>;
 
 type UpdateReviewTextFunction = (
@@ -54,7 +55,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  apiState: ApiStateType,
+  apiState: ApiState,
   createLocalState: typeof defaultLocalStateCreator,
   debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
@@ -266,7 +267,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
   }
 }
 
-export const mapStateToProps = (state: {| api: ApiStateType |}) => ({
+export const mapStateToProps = (state: AppState) => ({
   apiState: state.api,
 });
 

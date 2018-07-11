@@ -14,7 +14,6 @@ import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
-import type { ViewContextType } from 'amo/reducers/viewContext';
 import { addChangeListeners } from 'core/addonManager';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
@@ -27,7 +26,7 @@ import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import type { ApiStateType } from 'core/reducers/api';
+import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
@@ -243,10 +242,7 @@ export class AppBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: {
-  api: ApiStateType,
-  viewContext: ViewContextType,
-}) => ({
+export const mapStateToProps = (state: AppState) => ({
   authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
   isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,

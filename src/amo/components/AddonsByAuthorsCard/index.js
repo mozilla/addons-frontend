@@ -28,10 +28,8 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import type {
-  AddonsByAuthorsState,
-  FetchAddonsByAuthorsParams,
-} from 'amo/reducers/addonsByAuthors';
+import type { FetchAddonsByAuthorsParams } from 'amo/reducers/addonsByAuthors';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -354,10 +352,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: {| addonsByAuthors: AddonsByAuthorsState |},
-  ownProps: Props,
-) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { addonType, authorUsernames, forAddonSlug, numberOfAddons } = ownProps;
 
   let addons = getAddonsForUsernames(

@@ -20,8 +20,8 @@ import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
+import type { AppState } from 'amo/store';
 import type { ViewContextType } from 'amo/reducers/viewContext';
-import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
 
@@ -160,10 +160,7 @@ export class SectionLinksBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(state: {
-  api: ApiStateType,
-  viewContext: ViewContextType,
-}) {
+export function mapStateToProps(state: AppState) {
   return {
     clientApp: state.api.clientApp,
     viewContext: state.viewContext.context,

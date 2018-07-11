@@ -47,12 +47,12 @@ export type InstallationAction = {|
   type: string,
 |};
 
-type InstallationState = {
+export type InstallationsState = {
   [guid: $PropertyType<AddonType, 'guid'>]: InstalledAddon,
 };
 
 export default function installations(
-  state: InstallationState = {},
+  state: InstallationsState = {},
   { type, payload }: InstallationAction,
 ) {
   function updateAddon(newProps: Object): InstalledAddon {

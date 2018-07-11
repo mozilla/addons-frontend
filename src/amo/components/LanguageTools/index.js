@@ -23,9 +23,8 @@ import {
 } from 'core/reducers/languageTools';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { ApiStateType } from 'core/reducers/api';
-import type { LanguageToolsState } from 'core/reducers/languageTools';
 import type { LanguageToolType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
@@ -255,10 +254,7 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: {|
-  languageTools: LanguageToolsState,
-  api: ApiStateType,
-|}) => {
+export const mapStateToProps = (state: AppState) => {
   return {
     languageTools: getAllLanguageTools(state),
     lang: state.api.lang,

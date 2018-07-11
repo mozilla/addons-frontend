@@ -263,7 +263,7 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
 
 type AddonID = number;
 
-export type AddonState = {|
+export type AddonsState = {|
   // Flow wants hash maps with string keys.
   // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
   byID: { [addonId: string]: AddonType },
@@ -271,21 +271,21 @@ export type AddonState = {|
   bySlug: { [addonSlug: string]: AddonID },
 |};
 
-export const initialState: AddonState = {
+export const initialState: AddonsState = {
   byID: {},
   byGUID: {},
   bySlug: {},
 };
 
 export const getAddonByID = (
-  state: { addons: AddonState },
+  state: { addons: AddonsState },
   id: AddonID,
 ): AddonType | null => {
   return state.addons.byID[`${id}`] || null;
 };
 
 export const getAddonBySlug = (
-  state: { addons: AddonState },
+  state: { addons: AddonsState },
   slug: string,
 ): AddonType | null => {
   const addonId = state.addons.bySlug[slug];
@@ -294,7 +294,7 @@ export const getAddonBySlug = (
 };
 
 export const getAddonByGUID = (
-  state: { addons: AddonState },
+  state: { addons: AddonsState },
   guid: string,
 ): AddonType | null => {
   const addonId = state.addons.byGUID[guid];
@@ -303,7 +303,7 @@ export const getAddonByGUID = (
 };
 
 export const getAllAddons = (state: {
-  addons: AddonState,
+  addons: AddonsState,
 }): Array<AddonType> => {
   const addons = state.addons.byID;
 
@@ -312,7 +312,7 @@ export const getAllAddons = (state: {
 };
 
 export default function addonsReducer(
-  state: AddonState = initialState,
+  state: AddonsState = initialState,
   action: LoadAddonsAction,
 ) {
   switch (action.type) {

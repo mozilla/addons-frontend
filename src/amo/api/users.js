@@ -9,12 +9,12 @@ import type {
   ExternalUserType,
   NotificationsType,
 } from 'amo/reducers/users';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 
 export function currentUserAccount({
   api,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
 |}): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
 
@@ -31,7 +31,7 @@ export function updateUserAccount({
   userId,
   ...editableFields
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   editableFields: UserEditableFieldsType,
   picture?: File | null,
   userId: UserId,
@@ -65,7 +65,7 @@ export function updateUserAccount({
 }
 
 type UserApiParams = {|
-  api: ApiStateType,
+  api: ApiState,
   username: string,
 |};
 
@@ -102,7 +102,7 @@ export function updateUserNotifications({
   notifications,
   userId,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   notifications: NotificationsUpdateType,
   userId: UserId,
 |}): Promise<NotificationsType> {
@@ -123,7 +123,7 @@ export function deleteUserPicture({
   api,
   userId,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   userId: UserId,
 |}): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
@@ -141,7 +141,7 @@ export function deleteUserAccount({
   api,
   userId,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   userId: UserId,
 |}): Promise<UserId> {
   invariant(api, 'api state is required.');

@@ -6,9 +6,10 @@ import { compose } from 'redux';
 import { flagReview } from 'amo/actions/reviews';
 import { withErrorHandler } from 'core/errorHandler';
 import LoadingText from 'ui/components/LoadingText';
+import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
-import type { FlagState, ReviewState } from 'amo/reducers/reviews';
+import type { FlagState } from 'amo/reducers/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 
@@ -70,17 +71,16 @@ export class FlagReviewBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (
-  state: {| reviews: ReviewState |},
-  ownProps: Props,
-) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   let flagState = {};
+
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
     if (view && view.flag && view.flag.reason === ownProps.reason) {
       flagState = view.flag;
     }
   }
+
   return {
     flagState,
   };

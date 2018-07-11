@@ -75,7 +75,7 @@ export type UserType = {|
   notifications: NotificationsType | null,
 |};
 
-export type UsersStateType = {
+export type UsersState = {
   currentUserID: UserId | null,
   byID: { [userId: UserId]: UserType },
   byUsername: { [username: string]: UserId },
@@ -95,7 +95,7 @@ export type UserEditableFieldsType = {|
   username?: string | null,
 |};
 
-export const initialState: UsersStateType = {
+export const initialState: UsersState = {
   currentUserID: null,
   byID: {},
   byUsername: {},
@@ -359,17 +359,17 @@ export const loadUserNotifications = ({
   };
 };
 
-export const getUserById = (users: UsersStateType, userId: number) => {
+export const getUserById = (users: UsersState, userId: number) => {
   invariant(userId, 'userId is required');
   return users.byID[userId];
 };
 
-export const getUserByUsername = (users: UsersStateType, username: string) => {
+export const getUserByUsername = (users: UsersState, username: string) => {
   invariant(username, 'username is required');
   return users.byID[users.byUsername[username.toLowerCase()]];
 };
 
-export const getCurrentUser = (users: UsersStateType) => {
+export const getCurrentUser = (users: UsersState) => {
   if (!users.currentUserID) {
     return null;
   }
@@ -393,7 +393,7 @@ export const isDeveloper = (user: UserType | null): boolean => {
 };
 
 export const hasPermission = (
-  state: { users: UsersStateType },
+  state: { users: UsersState },
   permission: string,
 ): boolean => {
   const currentUser = getCurrentUser(state.users);
@@ -417,7 +417,7 @@ export const hasPermission = (
 };
 
 export const hasAnyReviewerRelatedPermission = (state: {
-  users: UsersStateType,
+  users: UsersState,
 }): boolean => {
   const currentUser = getCurrentUser(state.users);
 
@@ -452,7 +452,7 @@ export const addUserToState = ({
   user,
 }: {
   user: ExternalUserType,
-  state: UsersStateType,
+  state: UsersState,
 }): {|
   byID: { [userId: UserId]: UserType },
   byUsername: { [username: string]: UserId },
@@ -489,9 +489,9 @@ type Action =
   | LogOutUserAction;
 
 const reducer = (
-  state: UsersStateType = initialState,
+  state: UsersState = initialState,
   action: Action,
-): UsersStateType => {
+): UsersState => {
   switch (action.type) {
     case UPDATE_USER_ACCOUNT:
       return {

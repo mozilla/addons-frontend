@@ -16,10 +16,8 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import defaultTracking from 'core/tracking';
 import LoadingText from 'ui/components/LoadingText';
-import type {
-  Recommendations,
-  RecommendationsState,
-} from 'amo/reducers/recommendations';
+import type { Recommendations } from 'amo/reducers/recommendations';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
@@ -151,10 +149,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (
-  state: {| recommendations: RecommendationsState |},
-  ownProps: Props,
-) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { addon } = ownProps;
   const recommendations = addon
     ? getRecommendationsByGuid({

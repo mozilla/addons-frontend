@@ -7,11 +7,11 @@ import type {
   ExternalCollectionAddon,
   ExternalCollectionDetail,
 } from 'amo/reducers/collections';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 
 export type GetCollectionParams = {|
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
 |};
@@ -94,7 +94,7 @@ export const getAllCollectionAddons = async ({
 };
 
 type ListCollectionsParams = {|
-  api: ApiStateType,
+  api: ApiState,
   nextURL?: string,
   username: string,
 |};
@@ -133,7 +133,7 @@ export const getAllUserCollections = async ({
 };
 
 type ModifyCollectionParams = {|
-  api: ApiStateType,
+  api: ApiState,
   defaultLocale: ?string,
   description: ?LocalizedString,
   // Even though the API accepts string|number, we need to always use
@@ -267,7 +267,7 @@ export const createCollection = ({
 
 type ModifyCollectionAddonBaseParams = {|
   addonId: number,
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
   _modifyCollectionAddon?: (any) => Promise<void>,
@@ -354,7 +354,7 @@ export const updateCollectionAddon = ({
 
 export type RemoveAddonFromCollectionParams = {|
   addonId: number,
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
 |};
@@ -379,7 +379,7 @@ export const removeAddonFromCollection = ({
 };
 
 export type DeleteCollectionParams = {|
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
 |};

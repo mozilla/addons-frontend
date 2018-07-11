@@ -30,11 +30,9 @@ import type {
 } from 'amo/components/AutoSearchInput';
 import type {
   CollectionFilters,
-  CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
-import type { UsersStateType } from 'amo/reducers/users';
-import type { ApiStateType } from 'core/reducers/api';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -454,12 +452,9 @@ export const extractId = (ownProps: Props) => {
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (state: {|
-  api: ApiStateType,
-  collections: CollectionsState,
-  users: UsersStateType,
-|}) => {
+export const mapStateToProps = (state: AppState) => {
   const currentUser = getCurrentUser(state.users);
+
   return {
     hasAddonBeenAdded: state.collections.hasAddonBeenAdded,
     clientApp: state.api.clientApp,

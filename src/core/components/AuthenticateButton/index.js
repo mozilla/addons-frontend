@@ -11,8 +11,9 @@ import { getCurrentUser, logOutUser } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
-import type { ApiStateType } from 'core/reducers/api';
-import type { UsersStateType, UserType } from 'amo/reducers/users';
+import type { AppState } from 'amo/store';
+import type { ApiState } from 'core/reducers/api';
+import type { UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
@@ -22,7 +23,7 @@ type HandleLogInFunc = (
   options?: {| _window: typeof window |},
 ) => void;
 
-type HandleLogOutFunction = ({| api: ApiStateType |}) => Promise<void>;
+type HandleLogOutFunction = ({| api: ApiState |}) => Promise<void>;
 
 type Props = {|
   buttonType?: string,
@@ -36,7 +37,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  api: ApiStateType,
+  api: ApiState,
   handleLogIn: HandleLogInFunc,
   i18n: I18nType,
   siteUser: UserType | null,
@@ -98,15 +99,12 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
 }
 
 type StateMappedProps = {|
-  api: ApiStateType,
+  api: ApiState,
   handleLogIn: HandleLogInFunc,
   siteUser: UserType | null,
 |};
 
-export const mapStateToProps = (state: {|
-  api: ApiStateType,
-  users: UsersStateType,
-|}): StateMappedProps => ({
+export const mapStateToProps = (state: AppState): StateMappedProps => ({
   api: state.api,
   handleLogIn(location, { _window = window } = {}) {
     // eslint-disable-next-line no-param-reassign
