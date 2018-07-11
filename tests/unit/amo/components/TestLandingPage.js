@@ -222,6 +222,22 @@ describe(__filename, () => {
     );
   });
 
+  it('does not render a theme className when page type is extensions', () => {
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+    const root = render({ params: fakeParams });
+    expect(root).not.toHaveClassName('.LandingPage--theme');
+  });
+
+  it('renders a theme className when page type is themes', () => {
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+    };
+    const root = render({ params: fakeParams });
+    expect(root).toHaveClassName('.LandingPage--theme');
+  });
+
   it('sets the links in each footer for extensions', () => {
     store.dispatch(
       landingActions.loadLanding({
