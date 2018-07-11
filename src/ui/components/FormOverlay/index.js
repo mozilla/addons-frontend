@@ -32,6 +32,7 @@ type Props = {|
 export class FormOverlayBase extends React.Component<Props> {
   static defaultProps = {
     isOpen: false,
+    isSubmitting: false,
   };
 
   closeOverlay(event: SyntheticEvent<any>) {
@@ -152,7 +153,7 @@ export class FormOverlayBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props): $Shape<Props> => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   const overlayState = state.formOverlay[ownProps.id];
 
   if (!overlayState) {
