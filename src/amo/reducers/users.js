@@ -11,6 +11,7 @@ import {
   RATINGS_MODERATE,
   THEMES_REVIEW,
 } from 'core/constants';
+import type { AppState } from 'amo/store';
 
 export const FINISH_UPDATE_USER_ACCOUNT: 'FINISH_UPDATE_USER_ACCOUNT' =
   'FINISH_UPDATE_USER_ACCOUNT';
@@ -392,10 +393,7 @@ export const isDeveloper = (user: UserType | null): boolean => {
   return user.is_addon_developer || user.is_artist;
 };
 
-export const hasPermission = (
-  state: { users: UsersState },
-  permission: string,
-): boolean => {
+export const hasPermission = (state: AppState, permission: string): boolean => {
   const currentUser = getCurrentUser(state.users);
 
   // If the user isn't authenticated, they have no permissions.
@@ -416,9 +414,7 @@ export const hasPermission = (
   return permissions.includes(permission);
 };
 
-export const hasAnyReviewerRelatedPermission = (state: {
-  users: UsersState,
-}): boolean => {
+export const hasAnyReviewerRelatedPermission = (state: AppState): boolean => {
   const currentUser = getCurrentUser(state.users);
 
   // If the user isn't authenticated, they have no permissions.

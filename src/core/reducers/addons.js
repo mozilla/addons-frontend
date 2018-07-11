@@ -2,6 +2,7 @@
 import { oneLine } from 'common-tags';
 
 import { ADDON_TYPE_THEME } from 'core/constants';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 import type {
@@ -278,14 +279,14 @@ export const initialState: AddonsState = {
 };
 
 export const getAddonByID = (
-  state: { addons: AddonsState },
+  state: AppState,
   id: AddonID,
 ): AddonType | null => {
   return state.addons.byID[`${id}`] || null;
 };
 
 export const getAddonBySlug = (
-  state: { addons: AddonsState },
+  state: AppState,
   slug: string,
 ): AddonType | null => {
   const addonId = state.addons.bySlug[slug];
@@ -294,7 +295,7 @@ export const getAddonBySlug = (
 };
 
 export const getAddonByGUID = (
-  state: { addons: AddonsState },
+  state: AppState,
   guid: string,
 ): AddonType | null => {
   const addonId = state.addons.byGUID[guid];
@@ -302,9 +303,7 @@ export const getAddonByGUID = (
   return getAddonByID(state, addonId);
 };
 
-export const getAllAddons = (state: {
-  addons: AddonsState,
-}): Array<AddonType> => {
+export const getAllAddons = (state: AppState): Array<AddonType> => {
   const addons = state.addons.byID;
 
   // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.

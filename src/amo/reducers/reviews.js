@@ -192,18 +192,18 @@ export const changeViewState = ({
 };
 
 export const getReviewsByUserId = (
-  state: ReviewsState,
+  reviewsState: ReviewsState,
   userId: number,
 ): ReviewsData | null => {
-  const storedReviewsData = state.byUserId[userId];
+  const storedReviewsData = reviewsState.byUserId[userId];
 
   return storedReviewsData
     ? {
         pageSize: storedReviewsData.pageSize,
         reviewCount: storedReviewsData.reviewCount,
         reviews: expandReviewObjects({
-          state,
           reviews: storedReviewsData.reviews,
+          state: reviewsState,
         }),
       }
     : null;
