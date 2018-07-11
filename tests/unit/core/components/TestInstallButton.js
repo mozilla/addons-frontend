@@ -25,7 +25,7 @@ import {
 } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
-import * as themePreview from 'core/themePreview';
+import * as themeInstall from 'core/themeInstall';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 import {
   createFakeEvent,
@@ -142,7 +142,7 @@ describe(__filename, () => {
     expect(button.children().at(1)).toHaveText('Install Theme');
     expect(button).toHaveProp(
       'data-browsertheme',
-      JSON.stringify(themePreview.getThemeData(addon)),
+      JSON.stringify(themeInstall.getThemeData(addon)),
     );
   });
 

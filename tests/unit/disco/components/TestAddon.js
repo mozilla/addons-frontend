@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 
 import { AddonBase, mapStateToProps } from 'disco/components/Addon';
 import { setInstallState } from 'core/actions/installations';
-import HoverIntent from 'core/components/HoverIntent';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
@@ -402,48 +401,6 @@ describe(__filename, () => {
     it("doesn't render the logo for a theme", () => {
       expect(root.find('.logo')).toHaveLength(0);
     });
-  });
-
-  describe('Theme Previews', () => {
-    let root;
-    let themeImage;
-    let previewTheme;
-    let resetThemePreview;
-
-    beforeEach(() => {
-      previewTheme = sinon.spy();
-      resetThemePreview = sinon.spy();
-      const data = {
-        ...result,
-        type: ADDON_TYPE_THEME,
-        previewTheme,
-        resetThemePreview,
-      };
-      root = renderAddon({ addon: data, ...data });
-      themeImage = root.find('.theme-image');
-    });
-
-    it('runs theme preview onHoverIntent on theme image', () => {
-      const onHoverIntent = root.find(HoverIntent).prop('onHoverIntent');
-      onHoverIntent({ currentTarget: fakeEvent.currentTarget });
-      sinon.assert.calledWith(previewTheme, fakeEvent.currentTarget);
-    });
-
-    it('resets theme preview onHoverIntentEnd on theme image', () => {
-      const onHoverIntentEnd = root.find(HoverIntent).prop('onHoverIntentEnd');
-      onHoverIntentEnd({ currentTarget: fakeEvent.currentTarget });
-      sinon.assert.calledWith(resetThemePreview, fakeEvent.currentTarget);
-    });
-
-    it('runs theme preview onFocus on theme image', () => {
-      themeImage.simulate('focus', fakeEvent);
-      sinon.assert.calledWith(previewTheme, fakeEvent.currentTarget);
-    });
-
-    it('resets theme preview onBlur on theme image', () => {
-      themeImage.simulate('blur', fakeEvent);
-      sinon.assert.calledWith(resetThemePreview, fakeEvent.currentTarget);
-    });
 
     it('calls installTheme on click', () => {
       const installTheme = sinon.stub();
@@ -456,7 +413,7 @@ describe(__filename, () => {
         type: ADDON_TYPE_THEME,
         userAgentInfo: signedInApiState.userAgentInfo,
       });
-      themeImage = shallowRoot.find('.theme-image');
+      const themeImage = shallowRoot.find('.theme-image');
 
       themeImage.simulate('click', {
         ...fakeEvent,
@@ -464,9 +421,6 @@ describe(__filename, () => {
       });
 
       sinon.assert.called(fakeEvent.preventDefault);
-      // without status informataion, install doesn't
-      // work property.
-      // See: https://github.com/mozilla/addons-frontend/issues/4999
       sinon.assert.calledWith(installTheme, themeImage, {
         ...addon,
         status: UNINSTALLED,

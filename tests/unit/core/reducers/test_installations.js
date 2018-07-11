@@ -11,8 +11,6 @@ import {
   INSTALLED,
   INSTALLING,
   START_DOWNLOAD,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   UNINSTALL_COMPLETE,
   UNINSTALLED,
   UNINSTALLING,
@@ -262,54 +260,6 @@ describe('installations reducer', () => {
       [guid]: {
         status: ERROR,
         error: 'an-error',
-      },
-    });
-  });
-
-  it('sets isPreviewingTheme and themePreviewNode', () => {
-    const guid = 'my-addon@me.com';
-    const state = installations(
-      undefined,
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid,
-      }),
-    );
-
-    expect(
-      installations(state, {
-        type: THEME_PREVIEW,
-        payload: {
-          guid,
-          themePreviewNode: 'preview-theme-node',
-        },
-      }),
-    ).toMatchObject({
-      [guid]: {
-        themePreviewNode: 'preview-theme-node',
-        isPreviewingTheme: true,
-      },
-    });
-  });
-
-  it('unsets isPreviewingTheme', () => {
-    const guid = 'my-addon@me.com';
-    const state = installations(
-      undefined,
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid,
-      }),
-    );
-
-    expect(
-      installations(state, {
-        type: THEME_RESET_PREVIEW,
-        payload: { guid },
-      }),
-    ).toMatchObject({
-      [guid]: {
-        isPreviewingTheme: false,
       },
     });
   });

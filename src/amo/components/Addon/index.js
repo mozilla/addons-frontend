@@ -36,7 +36,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
-  ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
@@ -49,7 +48,6 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
-import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
@@ -72,19 +70,13 @@ export class AddonBase extends React.Component {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
-    getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     platformFiles: PropTypes.object,
-    isPreviewingTheme: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired,
     // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
-    resetThemePreview: PropTypes.func.isRequired,
-    // eslint-disable-next-line react/require-default-props
-    themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
-    toggleThemePreview: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     addonsByAuthors: PropTypes.array.isRequired,
   };
@@ -146,36 +138,13 @@ export class AddonBase extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    const {
-      isPreviewingTheme,
-      resetThemePreview,
-      themePreviewNode,
-    } = this.props;
-
-    if (isPreviewingTheme && themePreviewNode) {
-      resetThemePreview(themePreviewNode);
-    }
-  }
-
-  onClick = (event) => {
-    this.props.toggleThemePreview(event.currentTarget);
-  };
-
   addonIsTheme() {
     const { addon } = this.props;
     return addon && ADDON_TYPE_THEMES.includes(addon.type);
   }
 
-  headerImage({ compatible }) {
-    const {
-      addon,
-      getBrowserThemeData,
-      i18n,
-      isPreviewingTheme,
-      installStatus,
-    } = this.props;
-    const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
+  headerImage() {
+    const { addon, i18n } = this.props;
 
     if (this.addonIsTheme()) {
       let previewURL =
@@ -183,50 +152,39 @@ export class AddonBase extends React.Component {
           ? addon.previews[0].image_url
           : null;
 
-      let label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
-        title: addon.name,
-      });
+      const label = addon
+        ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+            title: addon.name,
+          })
+        : '';
+
+      const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
       if (!previewURL && type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
-        label = isPreviewingTheme
-          ? i18n.gettext('Cancel preview')
-          : i18n.gettext('Tap to preview');
       }
 
-      const imageClassName = 'Addon-theme-header-image';
       const headerImage = (
-        <img alt={label} className={imageClassName} src={previewURL} />
+        <img
+          alt={label}
+          className="Addon-theme-header-image"
+          src={previewURL}
+        />
       );
-
-      const unInstalledTheme =
-        installStatus !== ENABLED && type === ADDON_TYPE_THEME;
 
       return (
         <div
           className="Addon-theme-header"
           id="Addon-theme-header"
-          data-browsertheme={getBrowserThemeData()}
-          onClick={this.onClick}
           role="presentation"
         >
-          {unInstalledTheme ? (
-            <Button
-              buttonType="action"
-              className="Addon-theme-header-label"
-              disabled={!compatible}
-              htmlFor="Addon-theme-header"
-            >
-              <Icon name="eye" className="Addon-theme-preview-icon" />
-              {label}
-            </Button>
-          ) : null}
           {headerImage}
         </div>
       );
     }
 
     const iconUrl = getAddonIconUrl(addon);
+
     return (
       <div className="Addon-icon">
         <img className="Addon-icon-image" alt="" src={iconUrl} />
@@ -544,7 +502,7 @@ export class AddonBase extends React.Component {
               />
             ) : null}
             <header className="Addon-header">
-              {this.headerImage({ compatible: isCompatible })}
+              {this.headerImage()}
 
               <h1 className="Addon-title" {...titleProps} />
 

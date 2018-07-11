@@ -1,17 +1,11 @@
 import { createInternalAddon } from 'core/reducers/addons';
-import themeAction, { getThemeData } from 'core/themePreview';
-import { THEME_PREVIEW } from 'core/constants';
+import themeInstall, { getThemeData } from 'core/themeInstall';
+import { THEME_INSTALL } from 'core/constants';
 import { fakeTheme } from 'tests/unit/amo/helpers';
 import { createFakeEvent } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  it('throws for invalid action', () => {
-    expect(() => {
-      themeAction(null, 'whatever');
-    }).toThrowError('Invalid theme action requested');
-  });
-
-  it('sets-up the event for previews', () => {
+  it('sets-up the event for install', () => {
     const fakeNode = {
       dispatchEvent: sinon.stub(),
     };
@@ -23,11 +17,11 @@ describe(__filename, () => {
     };
     fakeDoc.createEvent.returns(fakeEvent);
 
-    themeAction(fakeNode, THEME_PREVIEW, fakeDoc);
+    themeInstall(fakeNode, fakeDoc);
 
     expect(fakeDoc.createEvent.calledWith('Events')).toBeTruthy();
     expect(
-      fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false),
+      fakeEvent.initEvent.calledWith(THEME_INSTALL, true, false),
     ).toBeTruthy();
     expect(fakeNode.dispatchEvent.calledWith(fakeEvent)).toBeTruthy();
   });
