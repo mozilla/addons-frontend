@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-11 07:21+0000\n"
+"PO-Revision-Date: 2018-07-11 07:30+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1040,33 +1040,28 @@ msgid "Social media customization"
 msgstr "Oanpassingen foar sosjale media"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Mediadownloaders"
+msgstr "Mear dynamyske downloaders besjen"
 
 #: src/amo/components/Home/index.js:58
-#, fuzzy
 msgid "Dynamic downloaders"
-msgstr "Mediadownloaders"
+msgstr "Dynamyske downloaders"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "Mear populêre tema's besjen"
+msgstr "Mear simmertema's besjen"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "Populêre tema's"
+msgstr "Simmertema's"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "Mear oanrekommandearre útwreidingen"
+msgstr "Mear oanrekommandearre mediaútwreidingen besjen"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
-msgstr ""
+msgstr "Net te missen media"
 
 #: src/amo/components/HomeHeroBanner/index.js:101
 msgid "A powerful way to find archived versions of older web pages"
@@ -1159,7 +1154,7 @@ msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "Besjoch detaillearre ynformaasje oer elke website dy't jo besykje – IP-adres, lokaasje, provider en mear"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "uBlock Origin"
@@ -1187,11 +1182,11 @@ msgstr "Hâld ferskate dielen fan jo onlinelibben – wurk, privee, ensfh. – s
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Renderje ôfbyldingen op in transparante eftergrûn"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
