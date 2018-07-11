@@ -23,9 +23,9 @@ export const getRecommendations = ({
   invariant(typeof recommended === 'boolean', 'recommended is required');
 
   return callApi({
+    apiState: api,
     auth: true,
     endpoint: 'addons/recommendations/',
     params: { guid, recommended },
-    state: api,
   });
 };

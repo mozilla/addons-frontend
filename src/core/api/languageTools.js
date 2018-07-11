@@ -12,6 +12,6 @@ export function languageTools({ api }: LanguageToolsParams) {
     endpoint: 'addons/language-tools',
     method: 'GET',
     params: { app: api.clientApp },
-    state: api,
+    apiState: api,
   });
 }

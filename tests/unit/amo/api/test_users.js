@@ -42,7 +42,7 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint: 'accounts/profile',
-          state: state.api,
+          apiState: state.api,
         })
         .returns(mockResponse());
 
@@ -77,7 +77,7 @@ describe(__filename, () => {
           body: editableFields,
           endpoint: `accounts/account/${params.userId}`,
           method: 'PATCH',
-          state: params.api,
+          apiState: params.api,
         })
         .returns(mockResponse(editableFields));
 
@@ -153,7 +153,7 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint: `accounts/account/${params.username}`,
-          state: params.api,
+          apiState: params.api,
         })
         .returns(mockResponse());
 
@@ -176,7 +176,7 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint: `accounts/account/${params.username}/notifications`,
-          state: params.api,
+          apiState: params.api,
         })
         .returns(notificationsResponse);
 
@@ -197,7 +197,7 @@ describe(__filename, () => {
           auth: true,
           endpoint: `accounts/account/${params.userId}/picture`,
           method: 'DELETE',
-          state: params.api,
+          apiState: params.api,
         })
         .returns(createApiResponse());
 
@@ -219,7 +219,7 @@ describe(__filename, () => {
           credentials: true,
           endpoint: `accounts/account/${params.userId}`,
           method: 'DELETE',
-          state: params.api,
+          apiState: params.api,
         })
         .returns(createApiResponse());
 
@@ -247,7 +247,7 @@ describe(__filename, () => {
           body: params.notifications,
           endpoint: `accounts/account/${params.userId}/notifications`,
           method: 'POST',
-          state: params.api,
+          apiState: params.api,
         })
         .returns(notificationsResponse);
 

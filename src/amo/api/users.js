@@ -21,7 +21,7 @@ export function currentUserAccount({
   return callApi({
     auth: true,
     endpoint: 'accounts/profile',
-    state: api,
+    apiState: api,
   });
 }
 
@@ -60,7 +60,7 @@ export function updateUserAccount({
     body,
     endpoint: `accounts/account/${userId}`,
     method: 'PATCH',
-    state: api,
+    apiState: api,
   });
 }
 
@@ -79,7 +79,7 @@ export function userAccount({
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}`,
-    state: api,
+    apiState: api,
   });
 }
 
@@ -93,7 +93,7 @@ export function userNotifications({
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}/notifications`,
-    state: api,
+    apiState: api,
   });
 }
 
@@ -115,7 +115,7 @@ export function updateUserNotifications({
     body: notifications,
     endpoint: `accounts/account/${userId}/notifications`,
     method: 'POST',
-    state: api,
+    apiState: api,
   });
 }
 
@@ -133,7 +133,7 @@ export function deleteUserPicture({
     auth: true,
     endpoint: `accounts/account/${userId}/picture`,
     method: 'DELETE',
-    state: api,
+    apiState: api,
   });
 }
 
@@ -152,6 +152,6 @@ export function deleteUserAccount({
     credentials: true,
     endpoint: `accounts/account/${userId}`,
     method: 'DELETE',
-    state: api,
+    apiState: api,
   });
 }

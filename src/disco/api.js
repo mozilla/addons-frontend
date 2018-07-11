@@ -31,6 +31,6 @@ export function getDiscoveryAddons({ api, taarParams = {}, _config = config }) {
     endpoint: 'discovery',
     params: allowedTaarParams,
     schema: { results: [discoResult] },
-    state: api,
+    apiState: api,
   });
 }

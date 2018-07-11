@@ -32,7 +32,7 @@ describe(__filename, () => {
         endpoint: 'discovery',
         params: { platform: 'Windows' },
         schema: { results: [discoResult] },
-        state: apiState,
+        apiState,
       });
     });
 
@@ -54,7 +54,7 @@ describe(__filename, () => {
           'telemetry-client-id': telemetryClientId,
         },
         schema: { results: [discoResult] },
-        state: apiState,
+        apiState,
       });
     });
 
@@ -74,7 +74,7 @@ describe(__filename, () => {
         endpoint: 'discovery',
         params: { fakeTestParam: 'foo', platform: 'Darwin' },
         schema: { results: [discoResult] },
-        state: apiState,
+        apiState,
       });
     });
 
@@ -92,7 +92,7 @@ describe(__filename, () => {
         endpoint: 'discovery',
         params: { platform: 'Darwin' },
         schema: { results: [discoResult] },
-        state: apiState,
+        apiState,
       });
     });
   });

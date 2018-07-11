@@ -19,7 +19,7 @@ describe(__filename, () => {
         auth: true,
         endpoint: 'addons/recommendations/',
         params,
-        state: apiState,
+        apiState,
       })
       .once()
       .returns(createApiResponse());

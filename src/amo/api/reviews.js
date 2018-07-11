@@ -94,7 +94,7 @@ export function submitReview({
         body: review,
         method,
         auth: true,
-        state: apiState,
+        apiState,
         ...apiCallParams,
       }),
     );
@@ -129,7 +129,7 @@ export const replyToReview = ({
         endpoint,
         errorHandler,
         method: 'POST',
-        state: apiState,
+        apiState,
       }),
     );
   });
@@ -164,7 +164,7 @@ export function getReviews({
         auth: true,
         endpoint: 'reviews/review',
         params: { user, addon, ...params },
-        state: apiState,
+        apiState,
       }),
     );
   });
@@ -239,7 +239,7 @@ export const flagReview = ({
         endpoint: `reviews/review/${reviewId}/flag`,
         errorHandler,
         method: 'POST',
-        state: apiState,
+        apiState,
       }),
     );
   });

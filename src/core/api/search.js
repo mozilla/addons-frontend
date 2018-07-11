@@ -37,7 +37,7 @@ export function search({ api, auth = false, filters = {} }: SearchParams) {
     endpoint: 'addons/search',
     schema: { results: [addon] },
     params: convertFiltersToQueryParams(newFilters),
-    state: api,
+    apiState: api,
     auth,
   });
 }
