@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-11 10:03+0000\n"
+"PO-Revision-Date: 2018-07-11 10:09+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1040,9 +1040,8 @@ msgid "Social media customization"
 msgstr "Personalização de redes sociais"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Transferidores de multimédia"
+msgstr "Ver mais transferidores dinâmicos"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
@@ -1062,7 +1061,7 @@ msgstr "Ver mais extensões de multimédia essenciais"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
-msgstr ""
+msgstr "Multimédia essencial"
 
 #: src/amo/components/HomeHeroBanner/index.js:101
 msgid "A powerful way to find archived versions of older web pages"
@@ -1074,7 +1073,7 @@ msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Proteja-se contra os trackers mais traiçoeiros"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Page Translate"
@@ -1086,11 +1085,11 @@ msgstr "Traduza uma página web com alguns cliques"
 
 #: src/amo/components/HomeHeroBanner/index.js:118
 msgid "Textmarker"
-msgstr ""
+msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Marcador de texto altamente personalizável"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Forget Me Not"
@@ -1110,11 +1109,11 @@ msgstr "Marcadores visuais para os seus sítios favoritos da web"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:141
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "Dê um novo visual aos seus websites favoritos"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1126,11 +1125,11 @@ msgstr "Impeça o Facebook de monitorizar-lhe pela web"
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "Midnight Lizard"
-msgstr ""
+msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Give the entire internet a new look"
-msgstr ""
+msgstr "Dê um novo visual à internet inteira"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Turbo Download Manager"
@@ -1142,19 +1141,19 @@ msgstr "Aumente as velocidades de download com suporte a multi-threading"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Authenticator"
-msgstr ""
+msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
-msgstr ""
+msgstr "Gere códigos de verificação de 2 passos mesmo no Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "Veja informação detalhada acerca de todos os websites que visita—endereço de IP, localização, operador e mais"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "uBlock Origin"
@@ -1182,11 +1181,11 @@ msgstr "Mantenha diferentes partes da sua vida online—trabalho, pessoal, etc.�
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Renderize imagens em fundos transparentes"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
