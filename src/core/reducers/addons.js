@@ -2,6 +2,7 @@
 import { oneLine } from 'common-tags';
 
 import { ADDON_TYPE_THEME } from 'core/constants';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 import type {
@@ -263,7 +264,7 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
 
 type AddonID = number;
 
-export type AddonState = {|
+export type AddonsState = {|
   // Flow wants hash maps with string keys.
   // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
   byID: { [addonId: string]: AddonType },
@@ -271,21 +272,21 @@ export type AddonState = {|
   bySlug: { [addonSlug: string]: AddonID },
 |};
 
-export const initialState: AddonState = {
+export const initialState: AddonsState = {
   byID: {},
   byGUID: {},
   bySlug: {},
 };
 
 export const getAddonByID = (
-  state: { addons: AddonState },
+  state: AppState,
   id: AddonID,
 ): AddonType | null => {
   return state.addons.byID[`${id}`] || null;
 };
 
 export const getAddonBySlug = (
-  state: { addons: AddonState },
+  state: AppState,
   slug: string,
 ): AddonType | null => {
   const addonId = state.addons.bySlug[slug];
@@ -294,7 +295,7 @@ export const getAddonBySlug = (
 };
 
 export const getAddonByGUID = (
-  state: { addons: AddonState },
+  state: AppState,
   guid: string,
 ): AddonType | null => {
   const addonId = state.addons.byGUID[guid];
@@ -302,9 +303,7 @@ export const getAddonByGUID = (
   return getAddonByID(state, addonId);
 };
 
-export const getAllAddons = (state: {
-  addons: AddonState,
-}): Array<AddonType> => {
+export const getAllAddons = (state: AppState): Array<AddonType> => {
   const addons = state.addons.byID;
 
   // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.
@@ -312,7 +311,7 @@ export const getAllAddons = (state: {
 };
 
 export default function addonsReducer(
-  state: AddonState = initialState,
+  state: AddonsState = initialState,
   action: LoadAddonsAction,
 ) {
   switch (action.type) {

@@ -14,9 +14,9 @@ import { getCurrentUser } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
-import type { ReviewState } from 'amo/reducers/reviews';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
-import type { UsersStateType, UserType } from 'amo/reducers/users';
+import type { UserType } from 'amo/reducers/users';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReactRouterLocation } from 'core/types/router';
 
@@ -132,17 +132,16 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (
-  state: {| users: UsersStateType, reviews: ReviewState |},
-  ownProps: Props,
-) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   let wasFlagged = false;
+
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
     if (view && view.flag && view.flag.wasFlagged) {
       wasFlagged = true;
     }
   }
+
   return {
     wasFlagged,
     siteUser: getCurrentUser(state.users),

@@ -801,16 +801,19 @@ export const getCollectionById = ({
 };
 
 export const getCurrentCollection = (
-  state: CollectionsState,
+  collectionsState: CollectionsState,
 ): CollectionType | null => {
-  if (!state) {
-    throw new Error('The state parameter is required');
+  if (!collectionsState) {
+    throw new Error('The collectionsState parameter is required');
   }
-  if (!state.current.id) {
+  if (!collectionsState.current.id) {
     return null;
   }
 
-  return getCollectionById({ id: state.current.id, state });
+  return getCollectionById({
+    id: collectionsState.current.id,
+    state: collectionsState,
+  });
 };
 
 type CreateInternalCollectionParams = {|

@@ -15,11 +15,8 @@ import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import UserCollection from 'ui/components/UserCollection';
-import type {
-  CollectionsState,
-  CollectionType,
-} from 'amo/reducers/collections';
-import type { UsersStateType } from 'amo/reducers/users';
+import type { CollectionType } from 'amo/reducers/collections';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
@@ -146,10 +143,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: {|
-  collections: CollectionsState,
-  users: UsersStateType,
-|}) => {
+export const mapStateToProps = (state: AppState) => {
   const { collections, users } = state;
 
   const currentUser = getCurrentUser(users);

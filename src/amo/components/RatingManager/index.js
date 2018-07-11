@@ -24,16 +24,15 @@ import {
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultUserRating from 'ui/components/UserRating';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type {
   GetLatestReviewParams,
   SubmitReviewParams,
 } from 'amo/api/reviews';
-import type { ReviewState } from 'amo/reducers/reviews';
-import type { ApiStateType } from 'core/reducers/api';
-import type { UsersStateType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ApiState } from 'core/reducers/api';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
@@ -42,7 +41,7 @@ import './styles.scss';
 
 type LoadSavedReviewFunc = ({|
   addonId: $PropertyType<GetLatestReviewParams, 'addon'>,
-  apiState: ApiStateType,
+  apiState: ApiState,
   userId: $PropertyType<GetLatestReviewParams, 'user'>,
   versionId: $PropertyType<GetLatestReviewParams, 'version'>,
 |}) => Promise<any>;
@@ -68,7 +67,7 @@ type InternalProps = {|
   AuthenticateButton: typeof DefaultAuthenticateButton,
   UserRating: typeof DefaultUserRating,
   ReportAbuseButton: typeof DefaultReportAbuseButton,
-  apiState: ApiStateType,
+  apiState: ApiState,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   userId: number,
@@ -243,10 +242,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 }
 
-export const mapStateToProps = (
-  state: {| api: ApiStateType, reviews: ReviewState, users: UsersStateType |},
-  ownProps: Props,
-) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
 

@@ -23,9 +23,9 @@ import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { ReviewState } from 'amo/reducers/reviews';
+import type { UserType } from 'amo/reducers/users';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UsersStateType, UserType } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
@@ -293,10 +293,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(
-  state: {| users: UsersStateType, reviews: ReviewState |},
-  ownProps: Props,
-) {
+export function mapStateToProps(state: AppState, ownProps: Props) {
   let editingReview = false;
   let replyingToReview = false;
   let submittingReply = false;

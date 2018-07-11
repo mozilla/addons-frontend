@@ -34,12 +34,8 @@ import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
 import OverlayCard from 'ui/components/OverlayCard';
-import type {
-  NotificationsUpdateType,
-  UsersStateType,
-  UserType,
-} from 'amo/reducers/users';
-import type { ApiStateType } from 'core/reducers/api';
+import type { NotificationsUpdateType, UserType } from 'amo/reducers/users';
+import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
@@ -843,13 +839,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 }
 
-export function mapStateToProps(
-  state: {
-    api: ApiStateType,
-    users: UsersStateType,
-  },
-  ownProps: Props,
-) {
+export function mapStateToProps(state: AppState, ownProps: Props) {
   const { clientApp, lang } = state.api;
 
   const currentUser = getCurrentUser(state.users);

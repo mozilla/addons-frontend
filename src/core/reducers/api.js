@@ -62,7 +62,7 @@ export type UserAgentInfoType = {|
   },
 |};
 
-export type ApiStateType = {
+export type ApiState = {
   clientApp: ?string,
   lang: ?string,
   token: ?string,
@@ -70,7 +70,7 @@ export type ApiStateType = {
   userAgentInfo: UserAgentInfoType,
 };
 
-export const initialApiState: ApiStateType = {
+export const initialApiState: ApiState = {
   clientApp: null,
   lang: null,
   token: null,
@@ -86,9 +86,9 @@ type Action =
   | LogOutUserAction;
 
 export default function api(
-  state: Exact<ApiStateType> = initialApiState,
+  state: Exact<ApiState> = initialApiState,
   action: Action,
-): Exact<ApiStateType> {
+): Exact<ApiState> {
   switch (action.type) {
     case SET_AUTH_TOKEN:
       return {

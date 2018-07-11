@@ -28,9 +28,9 @@ import {
   convertFiltersToQueryParams,
   hasSearchFilters,
 } from 'core/searchUtils';
-import type { ViewContextType } from 'amo/reducers/viewContext';
+import type { AppState } from 'amo/store';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
-import type { SearchType, FiltersType } from 'core/reducers/search';
+import type { FiltersType } from 'core/reducers/search';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
@@ -252,10 +252,7 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: {|
-  search: SearchType,
-  viewContext: ViewContextType,
-|}) => {
+export const mapStateToProps = (state: AppState) => {
   return {
     context: state.viewContext.context,
     count: state.search.count,

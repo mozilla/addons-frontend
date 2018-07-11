@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { normalizeFileNameId } from 'core/utils';
 import { setUIState } from 'core/reducers/uiState';
-import type { UIStateType } from 'core/reducers/uiState';
+import type { AppState } from 'amo/store';
 
 type ExtractIdFunc = (props: Object) => string;
 
@@ -33,10 +33,7 @@ export const createUIStateMapper = ({
   fileName?: string,
   uiStateID?: string,
 |}) => {
-  const mapStateToProps = (
-    state: {| uiState: UIStateType |},
-    props: Object,
-  ) => {
+  const mapStateToProps = (state: AppState, props: Object) => {
     let computedUIStateID;
     if (uiStateID) {
       computedUIStateID = uiStateID;

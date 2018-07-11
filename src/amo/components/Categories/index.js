@@ -8,14 +8,14 @@ import { compose } from 'redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import { categoriesFetch } from 'core/actions/categories';
 import { withErrorHandler } from 'core/errorHandler';
-import type { ErrorHandlerType } from 'core/errorHandler';
-import type { ApiStateType } from 'core/reducers/api';
 import translate from 'core/i18n/translate';
-import type { DispatchFunc } from 'core/types/redux';
 import { getCategoryColor, visibleAddonType } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
+import type { AppState } from 'amo/store';
+import type { ErrorHandlerType } from 'core/errorHandler';
+import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -161,10 +161,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: {|
-  api: ApiStateType,
-  categories: CategoriesStateType,
-|}) {
+export function mapStateToProps(state: AppState) {
   return {
     categoriesState: state.categories.categories,
     clientApp: state.api.clientApp,

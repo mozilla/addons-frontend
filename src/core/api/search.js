@@ -5,10 +5,10 @@ import {
   convertFiltersToQueryParams,
   fixFiltersForAndroidThemes,
 } from 'core/searchUtils';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 
 export type SearchParams = {|
-  api: ApiStateType,
+  api: ApiState,
   auth?: boolean,
   // TODO: Make a "searchFilters" type because these are the same args
   // for convertFiltersToQueryParams.

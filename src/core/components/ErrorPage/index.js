@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import log from 'core/logger';
 import { getErrorComponent as getErrorComponentDefault } from 'core/utils';
 import { loadErrorPage } from 'core/reducers/errorPage';
+import type { AppState } from 'amo/store';
 import type { ErrorPageState } from 'core/reducers/errorPage';
 import type { DispatchFunc } from 'core/types/redux';
 
@@ -49,7 +50,7 @@ export class ErrorPageBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: {| errorPage: ErrorPageState |}) => ({
+export const mapStateToProps = (state: AppState) => ({
   errorPage: state.errorPage,
 });
 

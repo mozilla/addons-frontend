@@ -138,42 +138,40 @@ export const joinAuthorNamesAndAddonType = (
 };
 
 export const getLoadingForAuthorNames = (
-  state: AddonsByAuthorsState,
+  addonsByAuthorsState: AddonsByAuthorsState,
   authorUsernames: Array<string>,
   addonType?: string,
 ): boolean | null => {
   return (
-    state.loadingFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
-    null
+    addonsByAuthorsState.loadingFor[
+      joinAuthorNamesAndAddonType(authorUsernames, addonType)
+    ] || null
   );
 };
 
 export const getCountForAuthorNames = (
-  state: AddonsByAuthorsState,
+  addonsByAuthorsState: AddonsByAuthorsState,
   authorUsernames: Array<string>,
   addonType?: string,
 ) => {
   return (
-    state.countFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
-    null
+    addonsByAuthorsState.countFor[
+      joinAuthorNamesAndAddonType(authorUsernames, addonType)
+    ] || null
   );
 };
 
 export const getAddonsForSlug = (
-  state: AddonsByAuthorsState,
+  addonsByAuthorsState: AddonsByAuthorsState,
   slug: string,
 ): Array<SearchResultAddonType> | null => {
-  const ids = state.byAddonSlug[slug];
+  const ids = addonsByAuthorsState.byAddonSlug[slug];
 
-  return ids
-    ? ids.map((id) => {
-        return state.byAddonId[id];
-      })
-    : null;
+  return ids ? ids.map((id) => addonsByAuthorsState.byAddonId[id]) : null;
 };
 
 export const getAddonsForUsernames = (
-  state: AddonsByAuthorsState,
+  addonsByAuthorsState: AddonsByAuthorsState,
   usernames: Array<string>,
   addonType?: string,
   excludeSlug?: string,
@@ -182,7 +180,7 @@ export const getAddonsForUsernames = (
 
   const ids = usernames
     .map((username) => {
-      return state.byUsername[username];
+      return addonsByAuthorsState.byUsername[username];
     })
     .reduce((array, addonIds) => {
       if (addonIds) {
@@ -199,7 +197,7 @@ export const getAddonsForUsernames = (
   return ids.length
     ? ids
         .map((id) => {
-          return state.byAddonId[id];
+          return addonsByAuthorsState.byAddonId[id];
         })
         .filter((addon) => {
           const addonTypeFilter = getAddonTypeFilter(addonType);

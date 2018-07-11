@@ -8,24 +8,26 @@ import {
   SET_VIEW_CONTEXT,
 } from 'core/constants';
 
-export type ViewContextType = {|
-  context:
-    | typeof ADDON_TYPE_EXTENSION
-    | typeof ADDON_TYPE_THEME
-    | typeof VIEW_CONTEXT_EXPLORE
-    | typeof VIEW_CONTEXT_HOME
-    | typeof VIEW_CONTEXT_LANGUAGE_TOOLS,
+export type ViewContextType =
+  | typeof ADDON_TYPE_EXTENSION
+  | typeof ADDON_TYPE_THEME
+  | typeof VIEW_CONTEXT_EXPLORE
+  | typeof VIEW_CONTEXT_HOME
+  | typeof VIEW_CONTEXT_LANGUAGE_TOOLS;
+
+export type ViewContextState = {|
+  context: ViewContextType,
 |};
 
 export type ViewContextActionType = {|
   type: typeof SET_VIEW_CONTEXT,
-  payload: ViewContextType,
+  payload: ViewContextState,
 |};
 
 export const initialState = { context: VIEW_CONTEXT_EXPLORE };
 
 export default function viewContext(
-  state: ViewContextType = initialState,
+  state: ViewContextState = initialState,
   action: ViewContextActionType,
 ) {
   switch (action.type) {

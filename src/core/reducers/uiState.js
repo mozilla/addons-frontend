@@ -3,7 +3,7 @@ import invariant from 'invariant';
 
 export const SET_UI_STATE = 'SET_UI_STATE';
 
-export type UIStateType = {
+export type UIStateState = {
   [id: string]: Object,
 };
 
@@ -32,7 +32,7 @@ export const setUIState = ({
 type UIStateActions = SetUIStateAction;
 
 export default function uiStateReducer(
-  state: UIStateType = initialState,
+  state: UIStateState = initialState,
   action: UIStateActions,
 ) {
   switch (action.type) {

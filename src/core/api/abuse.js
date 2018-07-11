@@ -1,6 +1,6 @@
 /* @flow */
 import { callApi } from 'core/api';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 
 /*
  * A reporter object, returned by Abuse Report APIs
@@ -21,7 +21,7 @@ export type AbuseReporter = {|
 
 export type ReportAddonParams = {|
   addonSlug: string,
-  api: ApiStateType,
+  api: ApiState,
   message: string,
 |};
 
@@ -36,7 +36,7 @@ export function reportAddon({ addonSlug, api, message }: ReportAddonParams) {
 }
 
 export type ReportUserParams = {|
-  api: ApiStateType,
+  api: ApiState,
   message: string,
   userId: number,
 |};

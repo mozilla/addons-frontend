@@ -16,7 +16,7 @@ import {
   convertFiltersToQueryParams,
 } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocation } from 'core/types/router';
 
@@ -80,7 +80,7 @@ type CallApiParams = {|
   method?: 'GET' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'PUT' | 'PATCH',
   params?: Object,
   schema?: Object,
-  state?: ApiStateType,
+  state?: ApiState,
   _config?: typeof config,
 |};
 
@@ -220,7 +220,7 @@ export function callApi({
 }
 
 type FetchAddonParams = {|
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
 |};
 
@@ -250,7 +250,7 @@ export function startLoginUrl({
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 
-export function categories({ api }: {| api: ApiStateType |}) {
+export function categories({ api }: {| api: ApiState |}) {
   return callApi({
     endpoint: 'addons/categories',
     schema: { results: [category] },
@@ -258,7 +258,7 @@ export function categories({ api }: {| api: ApiStateType |}) {
   });
 }
 
-export function logOutFromServer({ api }: {| api: ApiStateType |}) {
+export function logOutFromServer({ api }: {| api: ApiState |}) {
   return callApi({
     auth: true,
     credentials: true,
@@ -269,7 +269,7 @@ export function logOutFromServer({ api }: {| api: ApiStateType |}) {
 }
 
 type AutocompleteParams = {|
-  api: ApiStateType,
+  api: ApiState,
   filters: {|
     query: string,
     addonType?: string,

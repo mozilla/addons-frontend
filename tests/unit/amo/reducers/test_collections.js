@@ -962,7 +962,7 @@ describe(__filename, () => {
   describe('getCurrentCollection', () => {
     it('requires the state parameter', () => {
       expect(() => getCurrentCollection()).toThrow(
-        /state parameter is required/,
+        /collectionsState parameter is required/,
       );
     });
 

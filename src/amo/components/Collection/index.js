@@ -49,12 +49,10 @@ import MetadataCard from 'ui/components/MetadataCard';
 import Select from 'ui/components/Select';
 import type {
   CollectionFilters,
-  CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
-import type { UsersStateType } from 'amo/reducers/users';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { ApiStateType } from 'core/reducers/api';
 import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
@@ -574,14 +572,7 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: {|
-    api: ApiStateType,
-    collections: CollectionsState,
-    users: UsersStateType,
-  |},
-  ownProps: InternalProps,
-) => {
+export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const { loading } = state.collections.current;
   const { creating, location } = ownProps;
 
