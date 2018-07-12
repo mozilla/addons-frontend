@@ -16,7 +16,6 @@ export default class Icon extends React.Component<Props> {
   render() {
     const { alt, children, className, name, ...props } = this.props;
 
-    // TODO: test to allow children
     let altSpan;
     // If alt text was included, we'll render that in a hidden span.
     if (alt) {
