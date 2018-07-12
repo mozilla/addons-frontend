@@ -107,37 +107,41 @@ export class EditableCollectionAddonBase extends React.Component<
           className,
         )}
       >
-        <img
-          className="EditableCollectionAddon-icon"
-          src={iconURL}
-          alt={addon.name}
-        />
-        <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
-        <div
-          className={makeClassName('EditableCollectionAddon-leaveNote', {
-            'EditableCollectionAddon-leaveNote--hidden': showNotes,
-          })}
-        >
-          <Button
-            buttonType="action"
-            className="EditableCollectionAddon-leaveNote-button"
-            micro
-            name={`leaveNote-${addon.id}`}
-            onClick={this.onEditNote}
-          >
-            {i18n.gettext('Leave a note')}
-          </Button>
+        <div className="EditableCollectionAddon-details">
+          <img
+            className="EditableCollectionAddon-icon"
+            src={iconURL}
+            alt={addon.name}
+          />
+          <h2 className="EditableCollectionAddon-name">{addon.name}</h2>
         </div>
-        <div className="EditableCollectionAddon-remove">
-          <Button
-            buttonType="alert"
-            className="EditableCollectionAddon-remove-button"
-            micro
-            name={addon.id}
-            onClick={this.onRemoveAddon}
+        <div className="EditableCollectionAddon-buttons">
+          <div
+            className={makeClassName('EditableCollectionAddon-leaveNote', {
+              'EditableCollectionAddon-leaveNote--hidden': showNotes,
+            })}
           >
-            {i18n.gettext('Remove')}
-          </Button>
+            <Button
+              buttonType="action"
+              className="EditableCollectionAddon-leaveNote-button"
+              micro
+              name={`leaveNote-${addon.id}`}
+              onClick={this.onEditNote}
+            >
+              {i18n.gettext('Leave a note')}
+            </Button>
+          </div>
+          <div className="EditableCollectionAddon-remove">
+            <Button
+              buttonType="alert"
+              className="EditableCollectionAddon-remove-button"
+              micro
+              name={addon.id}
+              onClick={this.onRemoveAddon}
+            >
+              {i18n.gettext('Remove')}
+            </Button>
+          </div>
         </div>
         {showNotes && (
           <div className="EditableCollectionAddon-notes">

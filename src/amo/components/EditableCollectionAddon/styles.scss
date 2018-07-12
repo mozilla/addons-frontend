@@ -8,13 +8,44 @@
   .EditableCollectionAddon {
     display: grid;
     grid-gap: 24px;
-    grid-template-columns: 32px minmax(80px, auto) min-content min-content;
-    padding: 12px;
+    grid-template-columns: minmax(112px, auto) min-content;
   }
+}
+
+.EditableCollectionAddon-buttons,
+.EditableCollectionAddon-details {
+  align-items: center;
+  display: flex;
+
+  @include respond-to(large) {
+    display: grid;
+    grid-gap: 24px;
+    padding: 0;
+  }
+}
+
+.EditableCollectionAddon-details {
+  grid-template-columns: 32px minmax(80px, auto);
+}
+
+.EditableCollectionAddon-buttons {
+  grid-template-columns: min-content min-content;
 }
 
 .EditableCollectionAddon > div {
   margin-top: $padding-page;
+}
+
+.EditableCollectionAddon-icon {
+  @include margin-end(12px);
+
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+
+  .EditableCollectionAddon--statictheme & {
+    opacity: 0;
+  }
 }
 
 .EditableCollectionAddon-name {
@@ -31,18 +62,10 @@
   }
 }
 
-.EditableCollectionAddon-icon {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
+div.EditableCollectionAddon-leaveNote {
+  @include margin-end(12px);
 
-  .EditableCollectionAddon--statictheme & {
-    opacity: 0;
-  }
-}
-
-@include respond-to(large) {
-  div.EditableCollectionAddon-leaveNote {
+  @include respond-to(large) {
     align-items: center;
     display: flex;
     margin-top: 0;
@@ -73,7 +96,7 @@
 div.EditableCollectionAddon-notes {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
-  grid-column: 1 / 5;
+  grid-column: 1 / 3;
   padding: 12px;
 
   @include respond-to(large) {
