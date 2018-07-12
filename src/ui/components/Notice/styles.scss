@@ -63,7 +63,7 @@
   }
 
   .Notice-icon {
-    background-image: url('./media/exclamation.svg');
+    background-image: url('./img/exclamation.svg');
   }
 
   background-color: $red-50;
@@ -88,7 +88,7 @@
   }
 
   .Notice-icon {
-    background-image: url('./media/generic-info-mark.svg');
+    background-image: url('./img/generic-info-mark.svg');
   }
 
   background-color: $grey-20;
@@ -121,7 +121,7 @@
   }
 
   .Notice-icon {
-    background-image: url('./media/check-mark.svg');
+    background-image: url('./img/check-mark.svg');
   }
 
   background-color: $green-50;
@@ -135,5 +135,5 @@
 }
 
 .Notice-firefox .Notice-icon {
-  background-image: url('./media/firefox.svg');
+  background-image: url('./img/firefox.svg');
 }
