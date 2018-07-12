@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-12 09:33+0000\n"
+"PO-Revision-Date: 2018-07-12 09:41+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1040,9 +1040,8 @@ msgid "Social media customization"
 msgstr "సామాజిక మాధ్యమాల అభిమతీకరణ"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
+msgstr "మరిన్ని డైనమిక్ డౌనులోడర్లను చూడండి"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
@@ -1057,9 +1056,8 @@ msgid "Summer themes"
 msgstr "వేసవి అలంకారాలు"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "మరిన్ని ట్రెండవుతూన్న పొడగింతలను చూడండి"
+msgstr "మరిన్ని తప్పక-ఉండాల్సిన మాధ్యమ పొడగింతలను చూడండి"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
@@ -1070,9 +1068,8 @@ msgid "A powerful way to find archived versions of older web pages"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "గోప్యతా విధానం"
+msgstr "ప్రైవసీ పోస్సమ్"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
