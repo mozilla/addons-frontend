@@ -364,7 +364,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   className="UserProfile-biography"
                   term={i18n.gettext('Biography')}
                 >
-                  <p
+                  <div
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
                   />
