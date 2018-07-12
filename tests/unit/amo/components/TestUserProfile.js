@@ -926,6 +926,15 @@ describe(__filename, () => {
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
+  it('renders a user profile when URL contains a user ID', () => {
+    const { store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    const root = renderUserProfile({ params: { username: user.id }, store });
+
+    expect(root.find('.UserProfile')).toHaveLength(1);
+  });
+
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
       const username = 'foo';
