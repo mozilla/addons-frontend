@@ -86,6 +86,10 @@
     background-image: url('./media/exclamation.svg');
   }
 
+  .IconXMark-path {
+    fill: $white;
+  }
+
   background-color: $red-50;
 
   &,
@@ -109,6 +113,10 @@
 
   .Notice-icon {
     background-image: url('./media/generic-info-mark.svg');
+  }
+
+  .IconXMark-path {
+    fill: $grey-90;
   }
 
   background-color: $grey-20;
@@ -142,6 +150,10 @@
 
   .Notice-icon {
     background-image: url('./media/check-mark.svg');
+  }
+
+  .IconXMark-path {
+    fill: $green-90;
   }
 
   background-color: $green-50;

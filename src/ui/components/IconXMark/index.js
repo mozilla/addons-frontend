@@ -10,18 +10,13 @@ import './styles.scss';
 type Props = {|
   alt?: $PropertyType<IconProps, 'alt'>,
   className?: string,
-  color: 'white' | 'grey-90' | 'green-90' | 'yellow-90' | 'black',
 |};
 
 const IconXMark = ({ className, color, ...iconProps }: Props) => {
   return (
     <Icon
       {...iconProps}
-      className={makeClassName(
-        'IconXMark',
-        `IconXMark-color-${color}`,
-        className,
-      )}
+      className={makeClassName('IconXMark', className)}
       name="x-mark"
     >
       <svg

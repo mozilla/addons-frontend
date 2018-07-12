@@ -80,7 +80,6 @@ export class NoticeBase extends React.Component<InternalProps> {
       );
     }
 
-    // TODO: different Icon names for different notice types.
     const finalClass = makeClassName('Notice', `Notice-${type}`, className, {
       'Notice-dismissible': dismissible,
     });
@@ -101,7 +100,6 @@ export class NoticeBase extends React.Component<InternalProps> {
             >
               <IconXMark
                 className="Notice-dismisser-icon"
-                color="white"
                 alt={i18n.gettext('Dismiss this notice')}
               />
             </Button>
