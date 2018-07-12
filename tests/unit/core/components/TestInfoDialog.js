@@ -63,7 +63,7 @@ describe(__filename, () => {
       const dialog = renderInfoDialog();
       const root = findDOMNode(dialog);
       Simulate.click(root.querySelector('button'));
-      expect(closeAction.called).toBeTruthy();
+      sinon.assert.called(closeAction);
     });
   });
 
@@ -105,7 +105,7 @@ describe(__filename, () => {
       ReactDOM.render(<FakeContainer />, mountNode);
       const outsideNode = document.getElementById('outside-component');
       simulateClick(outsideNode);
-      expect(closeAction.called).toBeTruthy();
+      sinon.assert.called(closeAction);
     });
   });
 

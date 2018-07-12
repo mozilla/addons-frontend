@@ -19,11 +19,9 @@ describe(__filename, () => {
 
     themeInstall(fakeNode, fakeDoc);
 
-    expect(fakeDoc.createEvent.calledWith('Events')).toBeTruthy();
-    expect(
-      fakeEvent.initEvent.calledWith(THEME_INSTALL, true, false),
-    ).toBeTruthy();
-    expect(fakeNode.dispatchEvent.calledWith(fakeEvent)).toBeTruthy();
+    sinon.assert.calledWith(fakeDoc.createEvent, 'Events');
+    sinon.assert.calledWith(fakeEvent.initEvent, THEME_INSTALL, true, false);
+    sinon.assert.calledWith(fakeNode.dispatchEvent, fakeEvent);
   });
 
   it('returns themeData from getThemeData', () => {

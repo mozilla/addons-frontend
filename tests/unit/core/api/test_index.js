@@ -108,7 +108,7 @@ describe(__filename, () => {
       sinon.stub(errorHandler, 'clear');
 
       await api.callApi({ endpoint: 'resource', errorHandler });
-      expect(errorHandler.clear.called).toBeTruthy();
+      sinon.assert.called(errorHandler.clear);
     });
 
     it('passes errors to the error handler', async () => {
@@ -126,7 +126,7 @@ describe(__filename, () => {
       await api
         .callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
-          expect(errorHandler.handle.called).toBeTruthy();
+          sinon.assert.called(errorHandler.handle);
           const { args } = errorHandler.handle.firstCall;
           expect(args[0].response.data.non_field_errors).toEqual(
             nonFieldErrors,
@@ -198,7 +198,7 @@ describe(__filename, () => {
       await api
         .callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
-          expect(errorHandler.handle.called).toBeTruthy();
+          sinon.assert.called(errorHandler.handle);
           const { args } = errorHandler.handle.firstCall;
           expect(args[0].message).toEqual('this could be any error');
         });

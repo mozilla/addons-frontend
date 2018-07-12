@@ -65,40 +65,40 @@ describe(__filename, () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 1);
-    expect(onSelectRating.called).toEqual(true);
-    expect(onSelectRating.firstCall.args[0]).toEqual(1);
+    sinon.assert.called(onSelectRating);
+    sinon.assert.calledWith(onSelectRating, 1);
   });
 
   it('lets you select a two star rating', () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 2);
-    expect(onSelectRating.called).toEqual(true);
-    expect(onSelectRating.firstCall.args[0]).toEqual(2);
+    sinon.assert.called(onSelectRating);
+    sinon.assert.calledWith(onSelectRating, 2);
   });
 
   it('lets you select a three star rating', () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 3);
-    expect(onSelectRating.called).toEqual(true);
-    expect(onSelectRating.firstCall.args[0]).toEqual(3);
+    sinon.assert.called(onSelectRating);
+    sinon.assert.calledWith(onSelectRating, 3);
   });
 
   it('lets you select a four star rating', () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 4);
-    expect(onSelectRating.called).toEqual(true);
-    expect(onSelectRating.firstCall.args[0]).toEqual(4);
+    sinon.assert.called(onSelectRating);
+    sinon.assert.calledWith(onSelectRating, 4);
   });
 
   it('lets you select a five star rating', () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 5);
-    expect(onSelectRating.called).toEqual(true);
-    expect(onSelectRating.firstCall.args[0]).toEqual(5);
+    sinon.assert.called(onSelectRating);
+    sinon.assert.calledWith(onSelectRating, 5);
   });
 
   it('renders correct full stars for a rating', () => {
@@ -214,8 +214,8 @@ describe(__filename, () => {
     const button = root.ratingElements[4];
     Simulate.click(button, fakeEvent);
 
-    expect(fakeEvent.preventDefault.called).toEqual(true);
-    expect(fakeEvent.stopPropagation.called).toEqual(true);
+    sinon.assert.called(fakeEvent.preventDefault);
+    sinon.assert.called(fakeEvent.stopPropagation);
   });
 
   it('requires a valid onSelectRating callback', () => {
@@ -235,7 +235,7 @@ describe(__filename, () => {
         readOnly: true,
       });
       selectRating(root, 5);
-      expect(onSelectRating.called).toEqual(false);
+      sinon.assert.notCalled(onSelectRating);
     });
 
     it('does not classify as editable when read-only', () => {

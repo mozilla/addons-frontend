@@ -48,15 +48,15 @@ describe(__filename, () => {
   it('pulls i18n from context', () => {
     const i18n = fakeI18n();
     render({ i18n });
-    expect(i18n.gettext.called).toBeTruthy();
+    sinon.assert.called(i18n.gettext);
   });
 
   it('overrides the i18n from props', () => {
     const contextI18n = fakeI18n();
     const propsI18n = fakeI18n();
     render({ i18n: contextI18n, componentProps: { i18n: propsI18n } });
-    expect(contextI18n.gettext.called).toBeFalsy();
-    expect(propsI18n.gettext.called).toBeTruthy();
+    sinon.assert.notCalled(contextI18n.gettext);
+    sinon.assert.called(propsI18n.gettext);
   });
 
   it('throws an exception calling getWrappedInstance without withRef', () => {

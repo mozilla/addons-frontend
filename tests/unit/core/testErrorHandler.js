@@ -174,8 +174,9 @@ describe(__filename, () => {
       const error = new Error();
       errorHandler.handle(error);
 
-      expect(store.dispatch.called).toBeTruthy();
-      expect(store.dispatch.firstCall.args[0]).toEqual(
+      sinon.assert.called(store.dispatch);
+      sinon.assert.calledWith(
+        store.dispatch,
         setError({ id: errorHandler.id, error }),
       );
     });
@@ -357,8 +358,9 @@ describe(__filename, () => {
     it('dispatches an error', () => {
       const error = new Error();
       errorHandler.handle(error);
-      expect(errorHandler.dispatch.called).toBeTruthy();
-      expect(errorHandler.dispatch.firstCall.args[0]).toEqual(
+      sinon.assert.called(errorHandler.dispatch);
+      sinon.assert.calledWith(
+        errorHandler.dispatch,
         setError({ id: errorHandler.id, error }),
       );
     });
@@ -396,8 +398,9 @@ describe(__filename, () => {
 
     it('clears an error', () => {
       errorHandler.clear();
-      expect(errorHandler.dispatch.called).toBeTruthy();
-      expect(errorHandler.dispatch.firstCall.args[0]).toEqual(
+      sinon.assert.called(errorHandler.dispatch);
+      sinon.assert.calledWith(
+        errorHandler.dispatch,
         clearError(errorHandler.id),
       );
     });

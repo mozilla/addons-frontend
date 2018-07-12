@@ -101,9 +101,8 @@ describe(__filename, () => {
       loadSavedReview,
     });
 
-    expect(loadSavedReview.called).toEqual(true);
-    const args = loadSavedReview.firstCall.args[0];
-    expect(args).toEqual({
+    sinon.assert.called(loadSavedReview);
+    sinon.assert.calledWith(loadSavedReview, {
       apiState: signedInApiState,
       userId,
       addonId: addon.id,
@@ -126,7 +125,7 @@ describe(__filename, () => {
       }),
     });
     return root.onSelectRating(5).then(() => {
-      expect(submitReview.called).toEqual(true);
+      sinon.assert.called(submitReview);
 
       const call = submitReview.firstCall.args[0];
       expect(call.versionId).toEqual(321);
@@ -147,7 +146,7 @@ describe(__filename, () => {
       userReview: setReview(fakeReview).payload,
     });
     return root.onSelectRating(5).then(() => {
-      expect(submitReview.called).toBeTruthy();
+      sinon.assert.called(submitReview);
 
       const call = submitReview.firstCall.args[0];
       expect(call.reviewId).toBeTruthy();
@@ -183,7 +182,7 @@ describe(__filename, () => {
       addon,
     });
     return root.onSelectRating(newReview.rating).then(() => {
-      expect(submitReview.called).toBeTruthy();
+      sinon.assert.called(submitReview);
 
       // Make sure the review is submitted in a way where it will be
       // newly created against the current version.
@@ -200,7 +199,7 @@ describe(__filename, () => {
     const FakeAddonReview = sinon.spy(() => <div />);
     const root = render({ AddonReview: FakeAddonReview, userReview });
 
-    expect(FakeAddonReview.called).toEqual(false);
+    sinon.assert.notCalled(FakeAddonReview);
 
     return root.onSelectRating(5).then(() => {
       sinon.assert.called(FakeAddonReview);
@@ -246,10 +245,10 @@ describe(__filename, () => {
     const userId = null; // logged out
     const root = render({ AddonReview: FakeAddonReview, userReview, userId });
 
-    expect(FakeAddonReview.called).toEqual(false);
+    sinon.assert.notCalled(FakeAddonReview);
 
     return root.onSelectRating(5).then(() => {
-      expect(FakeAddonReview.called).toBeFalsy();
+      sinon.assert.notCalled(FakeAddonReview);
     });
   });
 
@@ -259,7 +258,7 @@ describe(__filename, () => {
 
     const root = render({ UserRating: UserRatingStub, userReview });
 
-    expect(UserRatingStub.called).toEqual(true);
+    sinon.assert.called(UserRatingStub);
     const props = UserRatingStub.firstCall.args[0];
     expect(props.onSelectRating).toEqual(root.onSelectRating);
     expect(props.review).toEqual(userReview);
@@ -270,7 +269,7 @@ describe(__filename, () => {
 
     render({ UserRating: UserRatingStub, userReview: null });
 
-    expect(UserRatingStub.called).toEqual(true);
+    sinon.assert.called(UserRatingStub);
     const props = UserRatingStub.firstCall.args[0];
     expect(props.rating).toBe(undefined);
   });
@@ -294,7 +293,7 @@ describe(__filename, () => {
         AuthenticateButton,
         addon: createInternalAddon({ ...fakeAddon, type: addonType }),
       });
-      expect(AuthenticateButton.called).toBeTruthy();
+      sinon.assert.called(AuthenticateButton);
       const props = AuthenticateButton.firstCall.args[0];
       return props.logInText;
     }
@@ -302,7 +301,7 @@ describe(__filename, () => {
     it('does not load saved ratings', () => {
       const loadSavedReview = sinon.spy();
       renderWithoutUser({ loadSavedReview });
-      expect(loadSavedReview.called).toEqual(false);
+      sinon.assert.notCalled(loadSavedReview);
     });
 
     it('renders an AuthenticateButton', () => {
@@ -310,7 +309,7 @@ describe(__filename, () => {
       const location = fakeRouterLocation();
       renderWithoutUser({ AuthenticateButton, location });
 
-      expect(AuthenticateButton.called).toBeTruthy();
+      sinon.assert.called(AuthenticateButton);
       const props = AuthenticateButton.firstCall.args[0];
       expect(props.location).toEqual(location);
     });
@@ -392,9 +391,8 @@ describe(__filename, () => {
           .returns(Promise.resolve({ ...fakeReview, ...params }));
 
         return actions.submitReview(params).then(() => {
-          expect(dispatch.called).toEqual(true);
-          const action = dispatch.firstCall.args[0];
-          expect(action).toEqual(setReview(fakeReview));
+          sinon.assert.called(dispatch);
+          sinon.assert.calledWith(dispatch, setReview(fakeReview));
           mockApi.verify();
         });
       });
@@ -424,8 +422,8 @@ describe(__filename, () => {
           })
           .then(() => {
             mockApi.verify();
-            expect(dispatch.called).toEqual(true);
-            expect(dispatch.firstCall.args[0]).toEqual(setReview(fakeReview));
+            sinon.assert.called(dispatch);
+            sinon.assert.calledWith(dispatch, setReview(fakeReview));
           });
       });
 
@@ -440,7 +438,7 @@ describe(__filename, () => {
             addonId,
           })
           .then(() => {
-            expect(dispatch.called).toEqual(false);
+            sinon.assert.notCalled(dispatch);
           });
       });
     });
