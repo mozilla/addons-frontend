@@ -286,7 +286,7 @@ module.exports = {
   // Feature flags.
 
   // Expose the new screen for editing a collection.
-  enableNewCollectionsUI: false,
+  enableNewCollectionsUI: true,
 
   // Enable the new user profile pages.
   enableUserProfile: true,
