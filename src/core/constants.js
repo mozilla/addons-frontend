@@ -103,7 +103,7 @@ export const INCOMPATIBLE_UNSUPPORTED_PLATFORM =
 
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
-export const TRACKING_TYPE_STATIC_THEME = 'addon:statictheme';
+export const TRACKING_TYPE_STATIC_THEME = ADDON_TYPE_STATIC_THEME;
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
