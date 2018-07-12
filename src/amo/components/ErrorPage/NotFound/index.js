@@ -13,7 +13,7 @@ import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
-import 'amo/components/ErrorPage/ErrorPage.scss';
+import '../styles.scss';
 
 type Props = {|
   errorCode?: string,
