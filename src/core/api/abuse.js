@@ -31,7 +31,7 @@ export function reportAddon({ addonSlug, api, message }: ReportAddonParams) {
     endpoint: 'abuse/report/addon',
     method: 'POST',
     body: { addon: addonSlug, message },
-    state: api,
+    apiState: api,
   });
 }
 
@@ -63,6 +63,6 @@ export function reportUser({
     method: 'POST',
     // Using an ID that isn't posted as a string causes a 500 error.
     body: { message, user: userId.toString() },
-    state: api,
+    apiState: api,
   });
 }

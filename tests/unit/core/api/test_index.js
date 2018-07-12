@@ -55,7 +55,7 @@ describe(__filename, () => {
         .withArgs(urlWithTheseParams({ lang, wrap_outgoing_links: true }))
         .returns(createApiResponse());
 
-      await api.callApi({ endpoint: 'resource', state: state.api });
+      await api.callApi({ endpoint: 'resource', apiState: state.api });
       mockWindow.verify();
     });
 
@@ -70,7 +70,7 @@ describe(__filename, () => {
 
       await api.callApi({
         endpoint: 'resource?lang=fr',
-        state: state.api,
+        apiState: state.api,
       });
       mockWindow.verify();
     });
