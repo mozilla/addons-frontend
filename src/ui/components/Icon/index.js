@@ -1,5 +1,4 @@
 /* @flow */
-import invariant from 'invariant';
 import * as React from 'react';
 import makeClassName from 'classnames';
 

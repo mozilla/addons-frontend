@@ -12,7 +12,7 @@ type Props = {|
   className?: string,
 |};
 
-const IconXMark = ({ className, color, ...iconProps }: Props) => {
+const IconXMark = ({ className, ...iconProps }: Props) => {
   return (
     <Icon
       {...iconProps}

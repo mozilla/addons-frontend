@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { setUIState as setUIStateAction } from 'core/reducers/uiState';
