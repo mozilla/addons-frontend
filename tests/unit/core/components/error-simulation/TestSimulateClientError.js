@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import SimulateClientError, {
   SimulateClientErrorBase,
-} from 'core/containers/error-simulation/SimulateClientError';
+} from 'core/components/error-simulation/SimulateClientError';
 import { shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
