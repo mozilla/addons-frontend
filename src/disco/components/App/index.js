@@ -10,7 +10,7 @@ import DefaultErrorPage from 'core/components/ErrorPage';
 import translate from 'core/i18n/translate';
 import Footer from 'disco/components/Footer';
 
-import 'disco/css/App.scss';
+import './styles.scss';
 
 export class AppBase extends React.Component {
   static propTypes = {

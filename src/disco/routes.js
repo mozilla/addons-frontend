@@ -7,9 +7,8 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import SimulateAsyncError from 'core/containers/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'core/containers/error-simulation/SimulateClientError';
 import SimulateSyncError from 'core/containers/error-simulation/SimulateSyncError';
-
-import App from './containers/App';
-import DiscoPane from './containers/DiscoPane';
+import App from 'disco/components/App';
+import DiscoPane from 'disco/components/DiscoPane';
 
 export default (
   <Router component={App}>

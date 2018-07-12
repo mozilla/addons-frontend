@@ -34,7 +34,7 @@ import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
 
-import 'disco/css/Addon.scss';
+import './styles.scss';
 
 export class AddonBase extends React.Component {
   static propTypes = {

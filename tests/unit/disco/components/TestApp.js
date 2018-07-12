@@ -8,7 +8,7 @@ import {
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 
-import { AppBase, mapStateToProps } from 'disco/containers/App';
+import { AppBase, mapStateToProps } from 'disco/components/App';
 import createStore from 'disco/store';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
