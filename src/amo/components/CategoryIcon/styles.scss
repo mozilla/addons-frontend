@@ -7,14 +7,14 @@ $default-icon-size: 64px;
 @mixin icon($name) {
   display: inline-block;
   height: $default-icon-size;
-  mask: url('./#{$name}.svg') no-repeat 50% 50%;
+  mask: url('./img/#{$name}.svg') no-repeat 50% 50%;
   transform: scale(0.8);
   width: $default-icon-size;
 
   // This prevents Edge/ESR 52 from rendering a square block of color because
   // it can't mask over the SVG.
-  @supports not (mask: url('./#{$name}.svg') no-repeat 50% 50%) {
-    background: transparent url('./#{$name}.svg') center no-repeat;
+  @supports not (mask: url('./img/#{$name}.svg') no-repeat 50% 50%) {
+    background: transparent url('./img/#{$name}.svg') center no-repeat;
     background-size: contain;
     content: '';
   }
