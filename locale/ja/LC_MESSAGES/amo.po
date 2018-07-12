@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-12 00:12+0000\n"
+"PO-Revision-Date: 2018-07-12 00:15+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -1032,29 +1032,24 @@ msgid "Social media customization"
 msgstr "ソーシャルメディアのカスタマイズ"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "メディアダウンローダー"
+msgstr "動的ダウンローダーをもっと見る"
 
 #: src/amo/components/Home/index.js:58
-#, fuzzy
 msgid "Dynamic downloaders"
-msgstr "メディアダウンローダー"
+msgstr "動的ダウンローダー"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "人気テーマをもっと見る"
+msgstr "夏のテーマをもっと見る"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "人気のテーマ"
+msgstr "夏のテーマ"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "流行の拡張機能をもっと見る"
+msgstr "必携のメディア拡張機能をもっと見る"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
@@ -1065,9 +1060,8 @@ msgid "A powerful way to find archived versions of older web pages"
 msgstr "古いウェブページのアーカイブ版を見つける強力な方法"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "プライバシーポリシー"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
@@ -1147,11 +1141,11 @@ msgstr "2 段階認証コードを Firefox 内で直接生成"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "訪れたすべてのサイトについて、IP アドレス、所在地、プロバイダーなど、詳しい情報を表示"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "uBlock Origin"
@@ -1179,11 +1173,11 @@ msgstr "仕事用、個人用など、オンライン生活の別々の場面を
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "透明の背景上に画像を表示"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
