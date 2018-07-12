@@ -4,11 +4,17 @@
 @import '~core/css/inc/vars';
 @import '~ui/css/vars';
 
-.EditableCollectionAddon {
-  display: grid;
-  grid-gap: 24px;
-  grid-template-columns: 32px minmax(80px, auto) min-content min-content;
-  padding: 12px;
+@include respond-to(large) {
+  .EditableCollectionAddon {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 32px minmax(80px, auto) min-content min-content;
+    padding: 12px;
+  }
+}
+
+.EditableCollectionAddon > div {
+  margin-top: $padding-page;
 }
 
 .EditableCollectionAddon-name {
@@ -35,13 +41,20 @@
   }
 }
 
-.EditableCollectionAddon-leaveNote {
-  align-items: center;
-  display: flex;
+@include respond-to(large) {
+  div.EditableCollectionAddon-leaveNote {
+    align-items: center;
+    display: flex;
+    margin-top: 0;
+  }
 }
 
 .EditableCollectionAddon-leaveNote--hidden {
-  visibility: hidden;
+  display: none;
+  @include respond-to(large) {
+    display: flex;
+    visibility: hidden;
+  }
 }
 
 .EditableCollectionAddon-leaveNote-button {
@@ -49,19 +62,23 @@
   white-space: nowrap;
 }
 
-.EditableCollectionAddon-remove {
-  align-items: center;
-  display: flex;
+@include respond-to(large) {
+  div.EditableCollectionAddon-remove {
+    align-items: center;
+    display: flex;
+    margin-top: 0;
+  }
 }
 
-.EditableCollectionAddon-notes {
+div.EditableCollectionAddon-notes {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
   grid-column: 1 / 5;
-  margin-top: 0;
   padding: 12px;
 
-  @include respond-to(medium) {
+  @include respond-to(large) {
+    margin-top: 0;
+
     @include margin-start(12px);
   }
 }
