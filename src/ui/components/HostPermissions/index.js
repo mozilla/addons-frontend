@@ -43,6 +43,9 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     multiple = false,
   }: GetPermissionStringParams): string {
     const { i18n } = this.props;
+
+    const paramNumber = parseInt(param, 10);
+
     // These should be kept in sync with Firefox's strings for webextention
     // host permissions which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
@@ -55,9 +58,9 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
             i18n.ngettext(
               'Access your data in %(param)s other domain',
               'Access your data in %(param)s other domains',
-              param,
+              paramNumber,
             ),
-            { param: i18n.formatNumber(param) },
+            { param: i18n.formatNumber(paramNumber) },
           );
         }
         return i18n.sprintf(
@@ -70,9 +73,9 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
             i18n.ngettext(
               'Access your data on %(param)s other site',
               'Access your data on %(param)s other sites',
-              param,
+              paramNumber,
             ),
-            { param: i18n.formatNumber(param) },
+            { param: i18n.formatNumber(paramNumber) },
           );
         }
         return i18n.sprintf(i18n.gettext('Access your data for %(param)s'), {
