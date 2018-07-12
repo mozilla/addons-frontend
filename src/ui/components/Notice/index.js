@@ -73,9 +73,6 @@ export class NoticeBase extends React.Component<InternalProps> {
       uiState,
     } = this.props;
     invariant(validTypes.includes(type), `Unknown type: ${type}`);
-    // if (dismissible) {
-    //   invariant(this.props.id, 'When dismissible=true, the id property must be defined');
-    // }
 
     if (dismissible && uiState.wasDismissed) {
       return null;
