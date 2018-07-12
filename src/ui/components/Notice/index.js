@@ -5,6 +5,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import withUIState from 'core/withUIState';
 import Button from 'ui/components/Button';
 import IconXMark from 'ui/components/IconXMark';
 import type { I18nType } from 'core/types/i18n';
@@ -17,6 +18,10 @@ const successType: 'success' = 'success';
 const firefoxRequiredType: 'firefox' = 'firefox';
 const validTypes = [errorType, genericType, successType, firefoxRequiredType];
 
+type UIState = {|
+  wasDismissed: boolean,
+|};
+
 type Props = {|
   actionHref?: string,
   actionOnClick?: Function,
@@ -25,6 +30,8 @@ type Props = {|
   children?: React.Node,
   className?: string,
   dismissible?: boolean,
+  id?: string,
+  onDismiss?: (SyntheticEvent<any>) => void,
   type:
     | typeof errorType
     | typeof firefoxRequiredType
@@ -35,6 +42,8 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  setUIState: (state: $Shape<UIState>) => void,
+  uiState: UIState,
 |};
 
 /*
@@ -43,8 +52,11 @@ type InternalProps = {|
  * See https://design.firefox.com/photon/components/message-bars.html
  */
 export class NoticeBase extends React.Component<InternalProps> {
-  onDismissNotice = () => {
-    console.log('Notice dismissed');
+  onDismissNotice = (event: SyntheticEvent<any>) => {
+    this.props.setUIState({ wasDismissed: true });
+    if (this.props.onDismiss) {
+      this.props.onDismiss(event);
+    }
   };
 
   render() {
@@ -58,8 +70,16 @@ export class NoticeBase extends React.Component<InternalProps> {
       dismissible,
       i18n,
       type,
+      uiState,
     } = this.props;
     invariant(validTypes.includes(type), `Unknown type: ${type}`);
+    // if (dismissible) {
+    //   invariant(this.props.id, 'When dismissible=true, the id property must be defined');
+    // }
+
+    if (dismissible && uiState.wasDismissed) {
+      return null;
+    }
 
     const buttonProps = {
       href: actionHref || undefined,
@@ -110,6 +130,28 @@ export class NoticeBase extends React.Component<InternalProps> {
   }
 }
 
-const Notice: React.ComponentType<Props> = compose(translate())(NoticeBase);
+const extractId = (props: Props) => {
+  if (props.dismissible) {
+    invariant(
+      props.id,
+      'When dismissible=true, the id property must be defined',
+    );
+  }
+  return props.id || '';
+};
+
+const initialState: UIState = {
+  wasDismissed: false,
+};
+
+const Notice: React.ComponentType<Props> = compose(
+  withUIState({
+    fileName: __filename,
+    extractId,
+    initialState,
+    newStatePerInstance: false,
+  }),
+  translate(),
+)(NoticeBase);
 
 export default Notice;

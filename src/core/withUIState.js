@@ -72,15 +72,25 @@ export const mergeUIStateProps = (
   };
 };
 
+type withUIStateParams = {|
+  // This should always be set to __filename for ID purposes.
+  fileName: string,
+  // A function that takes component props and returns a string to identify this state.
+  extractId: ExtractIdFunc,
+  // An Object that defines the initial state.
+  initialState: Object,
+  // When true, new component instances will be reset to initialState.
+  newStatePerInstance?: boolean,
+|};
+
 const withUIState = ({
   fileName,
   extractId,
   initialState,
-}: {|
-  fileName: string,
-  extractId: ExtractIdFunc,
-  initialState: Object,
-|}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
+  newStatePerInstance = true,
+}: withUIStateParams): ((
+  React.ComponentType<any>,
+) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
   invariant(initialState, 'initialState is required');
@@ -94,15 +104,17 @@ const withUIState = ({
   return (WrappedComponent) => {
     class WithUIState extends React.Component<any> {
       componentDidMount() {
-        // Every time the component mounts, reset the state regardless
-        // of what is saved in the Redux store. This makes the
-        // implementation behave more like this.setState() whereby
-        // the component constructor() would always initialize
-        // like this.state = {...}.
-        //
-        // TODO: Optimize this by only dispatching if
-        // props.uiState doesn't match initialState?
-        this.props.setUIState(initialState);
+        if (newStatePerInstance) {
+          // Every time the component mounts, reset the state regardless
+          // of what is saved in the Redux store. This makes the
+          // implementation behave more like this.setState() whereby
+          // the component constructor() would always initialize
+          // like this.state = {...}.
+          //
+          // TODO: Optimize this by only dispatching if
+          // props.uiState doesn't match initialState?
+          this.props.setUIState(initialState);
+        }
       }
 
       render() {
