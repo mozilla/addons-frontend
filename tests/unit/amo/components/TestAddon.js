@@ -65,6 +65,7 @@ import {
   dispatchSignInActions,
   fakeAddon,
   fakeInstalledAddon,
+  fakePreview,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
 import {
@@ -866,21 +867,19 @@ describe(__filename, () => {
   });
 
   it('renders a static theme preview as an image', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/1.png';
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/54321.png';
+    const newPreview = [
+      {
+        ...fakePreview,
+        thumbnail_url: headerImageThumb,
+      },
+    ];
+
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
         type: ADDON_TYPE_STATIC_THEME,
-        previews: [
-          {
-            id: 1,
-            caption: 'Image 1',
-            image_url: 'https://addons.cdn.mozilla.net/full/1.png',
-            thumbnail_url: headerImageThumb,
-            image_size: [400, 200],
-            thumbnail_size: [200, 100],
-          },
-        ],
+        previews: newPreview,
       }),
     });
     const image = root.find('.Addon-theme-header-image');
@@ -891,21 +890,18 @@ describe(__filename, () => {
   });
 
   it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/1.png';
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const newPreview = [
+      {
+        ...fakePreview,
+        thumbnail_url: headerImageThumb,
+      },
+    ];
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
         type: ADDON_TYPE_THEME,
-        previews: [
-          {
-            id: 1,
-            caption: 'Image 1',
-            image_url: 'https://addons.cdn.mozilla.net/full/1.png',
-            thumbnail_url: headerImageThumb,
-            image_size: [400, 200],
-            thumbnail_size: [200, 100],
-          },
-        ],
+        previews: newPreview,
       }),
     });
     const image = root.find('.Addon-theme-header-image');

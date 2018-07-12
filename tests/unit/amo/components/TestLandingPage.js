@@ -222,19 +222,17 @@ describe(__filename, () => {
     );
   });
 
-  it('does not render a theme className when page type is extensions', () => {
-    const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
-    };
-    const root = render({ params: fakeParams });
+  it('does not render a theme class name when page type is extensions', () => {
+    const root = render({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+    });
     expect(root).not.toHaveClassName('.LandingPage--theme');
   });
 
-  it('renders a theme className when page type is themes', () => {
-    const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
-    };
-    const root = render({ params: fakeParams });
+  it('renders a theme class name when page type is themes', () => {
+    const root = render({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+    });
     expect(root).toHaveClassName('.LandingPage--theme');
   });
 

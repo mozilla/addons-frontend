@@ -130,7 +130,7 @@ const reducer = (
       return {
         ...state,
         collections: collections.map((collection) => {
-          if (collection) {
+          if (collection && collection.results && collection.results.length) {
             const sliceEnd = isTheme(collection.results[0].addon.type)
               ? LANDING_PAGE_THEME_COUNT
               : LANDING_PAGE_EXTENSION_COUNT;

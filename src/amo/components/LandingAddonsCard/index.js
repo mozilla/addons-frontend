@@ -4,10 +4,7 @@ import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
-import {
-  LANDING_PAGE_EXTENSION_COUNT,
-  LANDING_PAGE_THEME_COUNT,
-} from 'amo/constants';
+import { LANDING_PAGE_EXTENSION_COUNT } from 'amo/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { AddonType } from 'core/types/addons';
 
@@ -18,13 +15,13 @@ type Props = {|
   footerLink?: Object | string | null,
   footerText?: string,
   header?: React.Node,
-  isTheme?: boolean,
   loading: boolean,
+  placeholderCount: number,
 |};
 
 export default class LandingAddonsCard extends React.Component<Props> {
   static defaultProps = {
-    isTheme: false,
+    placeholderCount: LANDING_PAGE_EXTENSION_COUNT,
   };
 
   render() {
@@ -35,13 +32,9 @@ export default class LandingAddonsCard extends React.Component<Props> {
       footerLink,
       footerText,
       header,
-      isTheme,
       loading,
+      placeholderCount,
     } = this.props;
-
-    const placeholderCount = isTheme
-      ? LANDING_PAGE_THEME_COUNT
-      : LANDING_PAGE_EXTENSION_COUNT;
 
     let footerLinkHtml = null;
     if (addons && addons.length >= placeholderCount) {

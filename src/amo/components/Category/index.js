@@ -13,6 +13,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { LANDING_PAGE_THEME_COUNT } from 'amo/constants';
 import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -252,10 +253,18 @@ export class CategoryBase extends React.Component {
 
     const { html } = this.contentForType(addonType);
 
+    const isAddonTheme = isTheme(addonType);
+
+    const themeProps = {};
+
+    if (isAddonTheme) {
+      themeProps.placeholderCount = LANDING_PAGE_THEME_COUNT;
+    }
+
     return (
       <div
         className={makeClassName('Category', {
-          'Category--theme': isTheme(addonType),
+          'Category--theme': isAddonTheme,
         })}
       >
         {category && (
@@ -278,7 +287,7 @@ export class CategoryBase extends React.Component {
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
             loading={loading}
-            isTheme={isTheme(addonType)}
+            {...themeProps}
           />,
         )}
         {this.renderIfNotEmpty(
@@ -291,7 +300,7 @@ export class CategoryBase extends React.Component {
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
             loading={loading}
-            isTheme={isTheme(addonType)}
+            {...themeProps}
           />,
         )}
         {this.renderIfNotEmpty(
@@ -304,7 +313,7 @@ export class CategoryBase extends React.Component {
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
             loading={loading}
-            isTheme={isTheme(addonType)}
+            {...themeProps}
           />,
         )}
       </div>

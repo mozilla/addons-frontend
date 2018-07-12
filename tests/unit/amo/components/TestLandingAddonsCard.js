@@ -67,8 +67,8 @@ describe(__filename, () => {
     expect(root).toHaveProp('placeholderCount', LANDING_PAGE_EXTENSION_COUNT);
   });
 
-  it('sets the correct number of placeholders for a theme type', () => {
-    const root = render({ isTheme: true });
+  it('overrides the default placeholder value when passed in', () => {
+    const root = render({ placeholderCount: LANDING_PAGE_THEME_COUNT });
 
     expect(root.find(AddonsCard)).toHaveProp(
       'placeholderCount',
@@ -76,8 +76,8 @@ describe(__filename, () => {
     );
   });
 
-  it('sets the correct number of placeholders for an extension type', () => {
-    const root = render({ isTheme: false });
+  it('uses the default placeholder count when there is no override', () => {
+    const root = render();
 
     expect(root.find(AddonsCard)).toHaveProp(
       'placeholderCount',

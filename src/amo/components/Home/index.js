@@ -10,6 +10,7 @@ import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
+import { LANDING_PAGE_THEME_COUNT } from 'amo/constants';
 import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
@@ -51,25 +52,26 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
         'See more social media customization extensions',
       ),
       header: i18n.gettext('Social media customization'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[0],
-      isTheme: true,
     },
     {
       footerText: i18n.gettext('See more dynamic downloaders'),
       header: i18n.gettext('Dynamic downloaders'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
     {
       footerText: i18n.gettext('See more summer themes'),
       header: i18n.gettext('Summer themes'),
-      ...FEATURED_COLLECTIONS[2],
       isTheme: true,
+      ...FEATURED_COLLECTIONS[2],
     },
     {
       footerText: i18n.gettext('See more must-have media extensions'),
       header: i18n.gettext('Must-have media'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[3],
-      isTheme: true,
     },
   ];
 };
@@ -258,7 +260,6 @@ export class HomeBase extends React.Component {
             addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={featuredThemes}
             className="Home-FeaturedThemes"
-            header={i18n.gettext('Featured themes')}
             footerText={i18n.gettext('See more featured themes')}
             footerLink={{
               pathname: '/search/',
@@ -269,8 +270,9 @@ export class HomeBase extends React.Component {
                 featured: true,
               },
             }}
+            header={i18n.gettext('Featured themes')}
             loading={loading}
-            isTheme
+            placeholderCount={LANDING_PAGE_THEME_COUNT}
           />
         )}
 

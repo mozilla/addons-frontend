@@ -28,14 +28,11 @@ export function* fetchLandingAddons({
   try {
     const state = yield select(getState);
     const { api } = state;
-
-    const pageSize = isTheme(addonType)
-      ? LANDING_PAGE_THEME_COUNT
-      : LANDING_PAGE_EXTENSION_COUNT;
-
     const filters = {
       addonType,
-      page_size: pageSize,
+      page_size: isTheme(addonType)
+        ? LANDING_PAGE_THEME_COUNT
+        : LANDING_PAGE_EXTENSION_COUNT,
     };
 
     if (category) {

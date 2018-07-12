@@ -6,7 +6,7 @@ import * as React from 'react';
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakePreview, fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -145,29 +145,21 @@ describe(__filename, () => {
   });
 
   it('displays the thumbnail image as the default src for static theme', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/1.png';
+    const headerImageThumb =
+      'https://addons.cdn.mozilla.net/mytestthumb/12345.png';
+    const newPreview = [
+      {
+        ...fakePreview,
+        thumbnail_url: headerImageThumb,
+      },
+    ];
+
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
-      previews: [
-        {
-          id: 1,
-          caption: 'Image 1',
-          image_url: 'https://addons.cdn.mozilla.net/full/1.png',
-          thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/1.png',
-          image_size: [400, 200],
-          thumbnail_size: [200, 100],
-        },
-        {
-          id: 2,
-          caption: 'Image 2',
-          image_url: 'https://addons.cdn.mozilla.net/thumb/1.png',
-          thumbnail_url: headerImageThumb,
-          image_size: [400, 200],
-          thumbnail_size: [200, 100],
-        },
-      ],
+      previews: newPreview,
     });
+
     const root = render({ addon });
     const image = root.find('.SearchResult-icon');
 
@@ -175,31 +167,28 @@ describe(__filename, () => {
   });
 
   it('displays srcSet values if preview has multiple options', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/1.png';
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/1.png';
-    const thumbWidth = 200;
-    const fullWidth = 400;
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+    const thumbWidth = 450;
+    const fullWidth = 900;
+
+    const newPreview = [
+      {
+        ...fakePreview,
+      },
+      {
+        ...fakePreview,
+        image_url: headerImageFull,
+        thumbnail_url: headerImageThumb,
+        image_size: [fullWidth, 200],
+        thumbnail_size: [thumbWidth, 100],
+      },
+    ];
+
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
-      previews: [
-        {
-          id: 1,
-          caption: 'Image 1',
-          image_url: 'https://addons.cdn.mozilla.net/full/1.png',
-          thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/1.png',
-          image_size: [400, 200],
-          thumbnail_size: [200, 100],
-        },
-        {
-          id: 2,
-          caption: 'Image 2',
-          image_url: headerImageFull,
-          thumbnail_url: headerImageThumb,
-          image_size: [fullWidth, 200],
-          thumbnail_size: [thumbWidth, 100],
-        },
-      ],
+      previews: newPreview,
     });
 
     const root = render({ addon });
@@ -213,19 +202,18 @@ describe(__filename, () => {
   // TODO: This can be removed once migration happens.
   it('displays a fallback image for themes that only have 1 preview option', () => {
     const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/1.png';
+
+    const newPreview = [
+      {
+        ...fakePreview,
+        thumbnail_url: headerImageThumb,
+      },
+    ];
+
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
-      previews: [
-        {
-          id: 1,
-          caption: 'Image 1',
-          image_url: 'https://addons.cdn.mozilla.net/full/1.png',
-          thumbnail_url: headerImageThumb,
-          image_size: [400, 200],
-          thumbnail_size: [200, 100],
-        },
-      ],
+      previews: newPreview,
     });
 
     const root = render({ addon });

@@ -500,16 +500,9 @@ describe(__filename, () => {
     );
   });
 
-  it('renders isTheme to be true with theme className if type is a theme', () => {
-    _categoriesFetch();
-    _categoriesLoad({
-      result: [{ ...fakeCategory, type: ADDON_TYPE_THEME }],
-    });
-    _getLanding();
-    _loadLanding();
-
+  it('renders a theme class name if type is a theme', () => {
     const root = render(
-      {},
+      { params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) } },
       {
         autoDispatchCategories: false,
         paramOverrides: {
@@ -518,22 +511,12 @@ describe(__filename, () => {
       },
     );
 
-    const landingShelves = root.find(LandingAddonsCard);
-
     expect(root).toHaveClassName('Category--theme');
-    expect(landingShelves.at(0)).toHaveProp('isTheme', true);
   });
 
-  it('renders isTheme to be false without theme className if type is an extension', () => {
-    _categoriesFetch();
-    _categoriesLoad({
-      result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
-    });
-    _getLanding();
-    _loadLanding();
-
+  it('renders without a theme class name if type is an extension', () => {
     const root = render(
-      {},
+      { params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) } },
       {
         autoDispatchCategories: false,
         paramOverrides: {
@@ -542,9 +525,7 @@ describe(__filename, () => {
       },
     );
 
-    const landingShelves = root.find(LandingAddonsCard);
     expect(root).not.toHaveClassName('Category--theme');
-    expect(landingShelves.at(0)).toHaveProp('isTheme', false);
   });
 
   it('sets the correct header/footer texts and links for themes', () => {

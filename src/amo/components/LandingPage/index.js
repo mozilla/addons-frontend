@@ -12,6 +12,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Categories from 'amo/components/Categories';
+import { LANDING_PAGE_THEME_COUNT } from 'amo/constants';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -229,10 +230,18 @@ export class LandingPageBase extends React.Component {
         to customize Firefox and make the browser all your own.`),
     };
 
+    const isAddonTheme = isTheme(addonType);
+
+    const themeProps = {};
+
+    if (isAddonTheme) {
+      themeProps.placeholderCount = LANDING_PAGE_THEME_COUNT;
+    }
+
     return (
       <div
         className={makeClassName('LandingPage', `LandingPage--${addonType}`, {
-          'LandingPage--theme': isTheme(addonType),
+          'LandingPage--theme': isAddonTheme,
         })}
       >
         <Helmet>
@@ -269,8 +278,8 @@ export class LandingPageBase extends React.Component {
             footerText={html.featuredFooterText}
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
-            isTheme={isTheme(addonType)}
             loading={loading}
+            {...themeProps}
           />,
         )}
         {this.renderIfNotEmpty(
@@ -282,8 +291,8 @@ export class LandingPageBase extends React.Component {
             footerLink={html.highlyRatedFooterLink}
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
-            isTheme={isTheme(addonType)}
             loading={loading}
+            {...themeProps}
           />,
         )}
         {this.renderIfNotEmpty(
@@ -295,8 +304,8 @@ export class LandingPageBase extends React.Component {
             footerLink={html.trendingFooterLink}
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
-            isTheme={isTheme(addonType)}
             loading={loading}
+            {...themeProps}
           />,
         )}
       </div>
