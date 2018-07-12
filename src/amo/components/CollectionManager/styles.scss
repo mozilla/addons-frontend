@@ -18,10 +18,6 @@
   .AutoSearchInput-query {
     border: 1px solid $grey-50;
     border-radius: $border-radius-xs;
-
-    &:focus {
-      box-shadow: none;
-    }
   }
 
   label {
@@ -48,6 +44,10 @@
   input,
   textarea {
     width: 100%;
+
+    &:focus {
+      @include focus();
+    }
   }
 
   textarea {
