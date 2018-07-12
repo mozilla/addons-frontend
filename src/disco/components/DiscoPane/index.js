@@ -11,7 +11,7 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
-import InfoDialog from 'core/containers/InfoDialog';
+import InfoDialog from 'core/components/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
