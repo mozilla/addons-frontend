@@ -1,17 +1,21 @@
+@import '~ui/css/vars';
 @import './vars';
 @import '~core/css/inc/mixins';
 
 @mixin icon($name) {
   background: url('./img/#{$name}.svg') center no-repeat;
   background-size: contain;
-  content: '';
-  display: inline-block;
-  height: $default-icon-size;
-  width: $default-icon-size;
 }
 
 @mixin permission-icon($name) {
   @include icon($name: 'permissions/#{$name}');
+}
+
+.Icon {
+  content: '';
+  display: inline-block;
+  height: $default-icon-size;
+  width: $default-icon-size;
 }
 
 .Icon-arrow {
@@ -188,8 +192,10 @@
   @include icon($name: 'not-compatible');
 }
 
-.Icon-x-mark {
-  @include icon($name: 'x-mark');
+.Icon-inline-content {
+  // An Icon with inline content (such as an SVG)
+  // does not need a background image.
+  background: none;
 }
 
 .Icon-requires-payment {

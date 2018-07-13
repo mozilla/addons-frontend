@@ -1,12 +1,28 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { createFakeEvent } from 'tests/unit/helpers';
-import Notice from 'ui/components/Notice';
+import { setUIState as setUIStateAction } from 'core/reducers/uiState';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  createFakeEvent,
+  fakeI18n,
+  shallowUntilTarget,
+  setUIState,
+} from 'tests/unit/helpers';
+import Notice, { NoticeBase } from 'ui/components/Notice';
 
-const render = ({ children, ...customProps } = {}) => {
-  const props = { type: 'success', ...customProps };
-  return shallow(<Notice {...props}>{children}</Notice>);
+const render = ({
+  store = dispatchClientMetadata().store,
+  children,
+  ...customProps
+} = {}) => {
+  const props = {
+    id: 'example-id',
+    store,
+    i18n: fakeI18n(),
+    type: 'success',
+    ...customProps,
+  };
+  return shallowUntilTarget(<Notice {...props}>{children}</Notice>, NoticeBase);
 };
 
 describe(__filename, () => {
@@ -72,5 +88,67 @@ describe(__filename, () => {
 
     const button = root.find('.Notice-button');
     expect(button).toHaveProp('href', actionHref);
+  });
+
+  it('calls back when you dismiss a notice', () => {
+    const onDismiss = sinon.stub();
+    const root = render({ dismissible: true, onDismiss });
+
+    const event = createFakeEvent();
+    root.find('.Notice-dismisser-button').simulate('click', event);
+    sinon.assert.calledWith(onDismiss, event);
+  });
+
+  it('does not require a dismissal callback', () => {
+    const root = render({ dismissible: true, onDismiss: undefined });
+
+    // Make sure this doesn't throw.
+    root.find('.Notice-dismisser-button').simulate('click', createFakeEvent());
+  });
+
+  it('changes UI state when dismissing a notice', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const uiStateID = 'example-id';
+    const root = render({ store, uiStateID, dismissible: true });
+
+    dispatchSpy.resetHistory();
+    root.find('.Notice-dismisser-button').simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      setUIStateAction({
+        id: uiStateID,
+        change: { wasDismissed: true },
+      }),
+    );
+  });
+
+  it('hides a dismissed notice', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store, dismissible: true });
+    setUIState({ root, store, change: { wasDismissed: true } });
+
+    expect(root.find('.Notice')).toHaveLength(0);
+  });
+
+  it('only hides dismissible notices', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store, dismissible: false });
+    setUIState({ root, store, change: { wasDismissed: true } });
+
+    expect(root.find('.Notice')).toHaveLength(1);
+  });
+
+  it('requires an ID prop for dismissible notices', () => {
+    expect(() => render({ dismissible: true, id: undefined })).toThrow(
+      /id property must be defined/,
+    );
+  });
+
+  it('sets a uiStateID based on ID prop', () => {
+    const id = 'notice-id';
+    const root = render({ dismissible: true, id });
+    expect(root.instance().props.uiStateID).toContain(id);
   });
 });

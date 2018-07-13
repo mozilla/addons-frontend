@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import { closeFormOverlay } from 'core/reducers/formOverlay';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
-import Icon from 'ui/components/Icon';
+import IconXMark from 'ui/components/IconXMark';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
@@ -115,7 +115,7 @@ export class FormOverlayBase extends React.Component<Props> {
                 className="FormOverlay-close-button"
                 onClick={this.onClickExIcon}
               >
-                <Icon name="x-mark" alt={i18n.gettext('Click to close')} />
+                <IconXMark alt={i18n.gettext('Click to close')} />
               </Button>
             </div>
             <h3 className="FormOverlay-h3">{title}</h3>

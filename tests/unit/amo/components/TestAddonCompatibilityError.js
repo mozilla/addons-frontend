@@ -60,6 +60,7 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
+        .childAt(0)
         .render()
         .find('a')
         .attr('href'),
@@ -69,9 +70,9 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
-        .render()
-        .text(),
-    ).toContain('You need to download Firefox to install this add-on.');
+        .childAt(0)
+        .html(),
+    ).toMatch(/You need to .*download Firefox.* to install this add-on/);
   });
 
   it('allows downloadUrl overrides', () => {
@@ -86,6 +87,7 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
+        .childAt(0)
         .render()
         .find('a')
         .attr('href'),
@@ -95,9 +97,9 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
-        .render()
-        .text(),
-    ).toContain('You need to download Firefox to install this add-on.');
+        .childAt(0)
+        .html(),
+    ).toMatch(/You need to .*download Firefox.* to install this add-on/);
   });
 
   it('renders a generic notice for non-Firefox browsers', () => {
@@ -133,8 +135,8 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
-        .render()
-        .text(),
+        .childAt(0)
+        .html(),
     ).toContain('This add-on is not compatible with your version of Firefox');
   });
 
@@ -149,17 +151,18 @@ describe(__filename, () => {
 
     const text = root
       .find('.AddonCompatibilityError')
-      .render()
-      .text();
+      .childAt(0)
+      .html();
 
     expect(
       root
         .find('.AddonCompatibilityError')
+        .childAt(0)
         .render()
         .find('a')
         .attr('href'),
     ).toMatch(new RegExp('https://www.mozilla.org/firefox/new/'));
-    expect(text).toContain('This add-on requires a newer version of Firefox');
+    expect(text).toMatch(/This add-on requires a .*newer version of Firefox/);
     expect(text).toContain('(at least version 34.0)');
     expect(text).toContain('You are using Firefox 33.0');
   });
@@ -173,8 +176,8 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
-        .render()
-        .text(),
+        .childAt(0)
+        .html(),
     ).toContain('Firefox for iOS does not currently support add-ons.');
   });
 
@@ -185,8 +188,8 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
-        .render()
-        .text(),
+        .childAt(0)
+        .html(),
     ).toContain('Your version of Firefox does not support search plugins.');
   });
 
@@ -197,8 +200,8 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
-        .render()
-        .text(),
+        .childAt(0)
+        .html(),
     ).toContain('This add-on is not available on your platform.');
   });
 
@@ -218,8 +221,8 @@ describe(__filename, () => {
     expect(
       root
         .find('.AddonCompatibilityError')
-        .render()
-        .text(),
+        .childAt(0)
+        .html(),
     ).toContain('Your browser does not support add-ons.');
   });
 
