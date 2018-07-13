@@ -1,4 +1,5 @@
 /* @flow */
+import type { AppState } from 'amo/store';
 import type { LanguageToolType } from 'core/types/addons';
 
 export const FETCH_LANGUAGE_TOOLS: 'FETCH_LANGUAGE_TOOLS' =
@@ -57,9 +58,9 @@ export const loadLanguageTools = ({
   };
 };
 
-export const getAllLanguageTools = (state: {
-  languageTools: LanguageToolsState,
-}): Array<LanguageToolType> => {
+export const getAllLanguageTools = (
+  state: AppState,
+): Array<LanguageToolType> => {
   const { byID } = state.languageTools;
 
   // TODO: one day, Flow will get `Object.values()` right but for now... we

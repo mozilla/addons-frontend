@@ -24,12 +24,9 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { ReviewState } from 'amo/reducers/reviews';
-import type { AddonState } from 'core/reducers/addons';
-import type { ApiStateType } from 'core/reducers/api';
-import type { UsersStateType } from 'amo/reducers/users';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation, ReactRouterType } from 'core/types/router';
@@ -190,7 +187,7 @@ export class AddonReviewListBase extends React.Component<Props> {
       addon && addon.ratings ? addon.ratings.text_count : null;
     let addonName;
     let reviewCountHTML;
-    if (addon) {
+    if (addon && addonRatingCount !== null) {
       addonName = <Link to={this.addonURL()}>{addon.name}</Link>;
       reviewCountHTML = i18n.sprintf(
         i18n.ngettext(
@@ -308,13 +305,6 @@ export class AddonReviewListBase extends React.Component<Props> {
     );
   }
 }
-
-type AppState = {|
-  addons: AddonState,
-  api: ApiStateType,
-  users: UsersStateType,
-  reviews: ReviewState,
-|};
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {

@@ -7,11 +7,11 @@ import type {
   ExternalCollectionAddon,
   ExternalCollectionDetail,
 } from 'amo/reducers/collections';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 
 export type GetCollectionParams = {|
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
 |};
@@ -31,7 +31,7 @@ export const getCollectionDetail = ({
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}/collections/${slug}`,
-    state: api,
+    apiState: api,
   });
 };
 
@@ -62,7 +62,7 @@ export const getCollectionAddons = ({
     endpoint:
       nextURL || `accounts/account/${username}/collections/${slug}/addons`,
     params: undefined,
-    state: api,
+    apiState: api,
   };
   // If filters are requested explicitly, pass them to callApi().
   // By default, this code does not define request.params because doing so
@@ -94,7 +94,7 @@ export const getAllCollectionAddons = async ({
 };
 
 type ListCollectionsParams = {|
-  api: ApiStateType,
+  api: ApiState,
   nextURL?: string,
   username: string,
 |};
@@ -111,7 +111,7 @@ export const listCollections = ({
   }
   const endpoint = nextURL || `accounts/account/${username}/collections`;
 
-  return callApi({ auth: true, endpoint, state: api });
+  return callApi({ auth: true, endpoint, apiState: api });
 };
 
 export type GetAllUserCollectionsParams = {|
@@ -133,7 +133,7 @@ export const getAllUserCollections = async ({
 };
 
 type ModifyCollectionParams = {|
-  api: ApiStateType,
+  api: ApiState,
   defaultLocale: ?string,
   description: ?LocalizedString,
   // Even though the API accepts string|number, we need to always use
@@ -217,7 +217,7 @@ export const modifyCollection = (
       creating ? '' : collectionSlug
     }`,
     method: creating ? 'POST' : 'PATCH',
-    state: api,
+    apiState: api,
   });
 };
 
@@ -267,7 +267,7 @@ export const createCollection = ({
 
 type ModifyCollectionAddonBaseParams = {|
   addonId: number,
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
   _modifyCollectionAddon?: (any) => Promise<void>,
@@ -313,7 +313,7 @@ export const modifyCollectionAddon = (
     endpoint = `${endpoint}/${addonId}`;
   }
 
-  return callApi({ auth: true, body, endpoint, method, state: api });
+  return callApi({ auth: true, body, endpoint, method, apiState: api });
 };
 
 export const createCollectionAddon = ({
@@ -354,7 +354,7 @@ export const updateCollectionAddon = ({
 
 export type RemoveAddonFromCollectionParams = {|
   addonId: number,
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
 |};
@@ -374,12 +374,12 @@ export const removeAddonFromCollection = ({
     auth: true,
     endpoint: `accounts/account/${username}/collections/${slug}/addons/${addonId}`,
     method: 'DELETE',
-    state: api,
+    apiState: api,
   });
 };
 
 export type DeleteCollectionParams = {|
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
   username: string,
 |};
@@ -397,6 +397,6 @@ export const deleteCollection = ({
     auth: true,
     endpoint: `accounts/account/${username}/collections/${slug}`,
     method: 'DELETE',
-    state: api,
+    apiState: api,
   });
 };

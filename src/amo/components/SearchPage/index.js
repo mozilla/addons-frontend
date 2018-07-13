@@ -18,6 +18,7 @@ import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
+import type { AppState } from 'amo/store';
 import type { FiltersType } from 'core/reducers/search';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -110,7 +111,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: any, ownProps: InternalProps) {
+export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   const { location } = ownProps;
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);

@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import { setHeroBannerOrder } from 'core/reducers/heroBanners';
 import Card from 'ui/components/Card';
 import HeroSection from 'ui/components/HeroSection';
+import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
@@ -52,7 +53,7 @@ export class HeroBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: Object) => {
+export const mapStateToProps = (state: AppState) => {
   return { heroBanners: state.heroBanners };
 };
 

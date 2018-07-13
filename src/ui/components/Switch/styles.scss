@@ -139,7 +139,7 @@ $installStripeColor2: #00c42e;
 
   &.Switch--success {
     input + label::before {
-      background: $switchBackgroundOn url('./tick.svg') no-repeat 35% 50%;
+      background: $switchBackgroundOn url('./img/tick.svg') no-repeat 35% 50%;
 
       [dir='rtl'] & {
         background-position: 65% 50%;

@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import type { AddonType } from 'core/types/addons';
-import type { ApiStateType, UserAgentInfoType } from 'core/reducers/api';
-import type { I18nType } from 'core/types/i18n';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+import type { AppState } from 'amo/store';
+import type { AddonType } from 'core/types/addons';
+import type { UserAgentInfoType } from 'core/reducers/api';
+import type { I18nType } from 'core/types/i18n';
 
 import { PermissionUtils } from './permissions';
 
@@ -65,7 +66,7 @@ export class PermissionsCardBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: {| api: ApiStateType |}) => {
+export const mapStateToProps = (state: AppState) => {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

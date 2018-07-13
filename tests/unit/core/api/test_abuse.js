@@ -33,7 +33,7 @@ describe(__filename, () => {
           endpoint: 'abuse/report/addon',
           method: 'POST',
           body: { addon: 'cool-addon', message },
-          state: apiState,
+          apiState,
         })
         .once()
         .returns(
@@ -72,7 +72,7 @@ describe(__filename, () => {
           endpoint: 'abuse/report/user',
           method: 'POST',
           body: { message, user: '5001' },
-          state: apiState,
+          apiState,
         })
         .once()
         .returns(mockResponse({ message, user }));

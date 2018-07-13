@@ -23,7 +23,8 @@ import {
   autocompleteStart,
 } from 'core/reducers/autocomplete';
 import Icon from 'ui/components/Icon';
-import type { ApiStateType, UserAgentInfoType } from 'core/reducers/api';
+import type { AppState } from 'amo/store';
+import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -39,6 +40,7 @@ export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
   name: string,
+  type: string,
   url: string,
 |};
 
@@ -264,14 +266,15 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   renderSuggestion = (suggestion: SuggestionType) => {
     const { loadingSuggestions, selectSuggestionText } = this.props;
-    const { name, iconUrl } = suggestion;
+    const { iconUrl, name, type } = suggestion;
 
     return (
       <SearchSuggestion
-        name={name}
+        arrowAlt={selectSuggestionText}
         iconUrl={iconUrl}
         loading={loadingSuggestions}
-        arrowAlt={selectSuggestionText}
+        name={name}
+        type={type}
       />
     );
   };
@@ -360,13 +363,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   }
 }
 
-// TODO: port reducers/autocomplete.js to Flow
-type AutocompleteState = Object;
-
-const mapStateToProps = (state: {|
-  api: ApiStateType,
-  autocomplete: AutocompleteState,
-|}): MappedProps => {
+const mapStateToProps = (state: AppState): MappedProps => {
   return {
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,

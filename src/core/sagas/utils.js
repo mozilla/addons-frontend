@@ -1,10 +1,9 @@
 /* @flow */
 import { ErrorHandler } from 'core/errorHandler';
 import defaultLog from 'core/logger';
-import type { ApiStateType } from 'core/reducers/api';
+import type { AppState } from 'amo/store';
 
 type CreateErrorHandlerType = {| log: typeof defaultLog |};
-type StateType = {| api: ApiStateType, auth: Object |};
 
 export function createErrorHandler(
   id: string,
@@ -19,6 +18,6 @@ export function createErrorHandler(
 }
 
 // Convenience function to extract state info.
-export function getState(state: StateType): StateType {
+export function getState(state: AppState): AppState {
   return state;
 }

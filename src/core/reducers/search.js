@@ -23,7 +23,7 @@ export type FiltersType = {|
   sort?: string,
 |};
 
-export type SearchType = {|
+export type SearchState = {|
   count: number,
   filters: FiltersType | {},
   loading: boolean,
@@ -31,7 +31,7 @@ export type SearchType = {|
   results: Array<AddonType | CollectionAddonType>,
 |};
 
-export const initialState: SearchType = {
+export const initialState: SearchState = {
   count: 0,
   filters: {},
   loading: false,
@@ -114,9 +114,9 @@ type Action =
   | SearchLoadAction;
 
 export default function search(
-  state: SearchType = initialState,
+  state: SearchState = initialState,
   action: Action,
-): SearchType {
+): SearchState {
   switch (action.type) {
     case SEARCH_STARTED: {
       const { payload } = action;

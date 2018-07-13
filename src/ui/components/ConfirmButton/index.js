@@ -13,7 +13,7 @@ type Props = {|
   buttonType?: string,
   cancelButtonText?: string | null,
   cancelButtonType?: string,
-  children: React.Element<any>,
+  children: React.Element<any> | string,
   className?: string,
   confirmButtonText?: string | null,
   confirmButtonType?: string,

@@ -1,3 +1,4 @@
+/* @flow */
 import { createStore as _createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { browserHistory } from 'react-router';
@@ -28,40 +29,104 @@ import redirectTo from 'core/reducers/redirectTo';
 import search from 'core/reducers/search';
 import uiState from 'core/reducers/uiState';
 import { middleware } from 'core/store';
+import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
+import type { CollectionsState } from 'amo/reducers/collections';
+import type { HomeState } from 'amo/reducers/home';
+import type { RecommendationsState } from 'amo/reducers/recommendations';
+import type { ReviewsState } from 'amo/reducers/reviews';
+import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
+import type { UsersState } from 'amo/reducers/users';
+import type { ViewContextState } from 'amo/reducers/viewContext';
+import type { AbuseState } from 'core/reducers/abuse';
+import type { AddonsState } from 'core/reducers/addons';
+import type { ApiState } from 'core/reducers/api';
+import type { ErrorPageState } from 'core/reducers/errorPage';
+import type { FormOverlayState } from 'core/reducers/formOverlay';
+import type { LanguageToolsState } from 'core/reducers/languageTools';
+import type { InstallationsState } from 'core/reducers/installations';
+import type { RedirectToState } from 'core/reducers/redirectTo';
+import type { SearchState } from 'core/reducers/search';
+import type { UIStateState } from 'core/reducers/uiState';
+
+export type AppState = {|
+  abuse: AbuseState,
+  addons: AddonsState,
+  addonsByAuthors: AddonsByAuthorsState,
+  api: ApiState,
+  autocomplete: Object,
+  categories: Object,
+  collections: CollectionsState,
+  errorPage: ErrorPageState,
+  errors: Object,
+  formOverlay: FormOverlayState,
+  heroBanners: Object,
+  home: HomeState,
+  infoDialog: Object,
+  installations: InstallationsState,
+  landing: Object,
+  languageTools: LanguageToolsState,
+  recommendations: RecommendationsState,
+  redirectTo: RedirectToState,
+  reviews: ReviewsState,
+  routing: Object,
+  search: SearchState,
+  uiState: UIStateState,
+  userAbuseReports: UserAbuseReportsState,
+  users: UsersState,
+  viewContext: ViewContextState,
+|};
+
+// This is a type function that takes a state type and returns a reducer
+// type, i.e. a function that accepts and returns the same state type.
+/* eslint-disable no-undef */
+type CreateReducerType = <AnyState>(
+  AnyState,
+) => (AnyState, action: Object) => AnyState;
+/* eslint-enable no-undef */
+
+// Given AppState, create a type for all possible application reducers.
+// See https://flow.org/en/docs/types/utilities/#toc-objmap
+type AppReducersType = $ObjMap<AppState, CreateReducerType>;
+
+type CreateStoreParams = {|
+  history: Object,
+  initialState: Object,
+|};
 
 export default function createStore({
   history = browserHistory,
   initialState = {},
-} = {}) {
+}: CreateStoreParams = {}) {
   const sagaMiddleware = createSagaMiddleware();
+  const reducers: AppReducersType = {
+    abuse,
+    addons,
+    addonsByAuthors,
+    api,
+    autocomplete,
+    categories,
+    collections,
+    errors,
+    errorPage,
+    formOverlay,
+    heroBanners,
+    home,
+    infoDialog,
+    installations,
+    landing,
+    languageTools,
+    recommendations,
+    redirectTo,
+    reviews,
+    routing,
+    search,
+    uiState,
+    userAbuseReports,
+    users,
+    viewContext,
+  };
   const store = _createStore(
-    combineReducers({
-      abuse,
-      addons,
-      addonsByAuthors,
-      api,
-      autocomplete,
-      categories,
-      collections,
-      errors,
-      errorPage,
-      formOverlay,
-      heroBanners,
-      home,
-      infoDialog,
-      installations,
-      landing,
-      languageTools,
-      recommendations,
-      redirectTo,
-      reviews,
-      routing,
-      search,
-      uiState,
-      userAbuseReports,
-      users,
-      viewContext,
-    }),
+    combineReducers(reducers),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),

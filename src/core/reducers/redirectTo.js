@@ -5,7 +5,7 @@ import log from 'core/logger';
 
 const SEND_SERVER_REDIRECT: 'SEND_SERVER_REDIRECT' = 'SEND_SERVER_REDIRECT';
 
-type State = {|
+export type RedirectToState = {|
   url: null | string,
   status: null | 301 | 302 | 303 | 305 | 307 | 308,
 |};
@@ -16,14 +16,14 @@ export const initialState = {
 };
 
 type SendServerRedirectParams = {|
-  ...State,
+  ...RedirectToState,
   _config?: Object,
 |};
 
 type SendServerRedirectAction = {|
   type: typeof SEND_SERVER_REDIRECT,
   payload: {|
-    ...State,
+    ...RedirectToState,
   |},
 |};
 
@@ -54,7 +54,7 @@ export const sendServerRedirect = ({
 
 type Action = SendServerRedirectAction;
 
-const reducer = (state: State = initialState, action: Action) => {
+const reducer = (state: RedirectToState = initialState, action: Action) => {
   switch (action.type) {
     case SEND_SERVER_REDIRECT: {
       const { payload } = action;

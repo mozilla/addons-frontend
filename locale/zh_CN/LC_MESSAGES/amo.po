@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:15+0000\n"
-"PO-Revision-Date: 2018-07-11 10:45+0000\n"
-"Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
+"PO-Revision-Date: 2018-07-12 03:20+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -973,11 +973,11 @@ msgstr "书签"
 
 #: src/amo/components/Home/index.js:121
 msgid "Password managers"
-msgstr "密码管理器"
+msgstr "密码管理"
 
 #: src/amo/components/Home/index.js:125
 msgid "Ad blockers"
-msgstr "广告屏蔽器"
+msgstr "挡广告"
 
 #: src/amo/components/Home/index.js:129
 msgid "Smarter Shopping"
@@ -1061,7 +1061,7 @@ msgstr "查找旧网页归档版本的强大工具"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Privacy Possum"
-msgstr "Privacy Possum"
+msgstr "Privacy Possum 隐私负鼠"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
@@ -1085,7 +1085,7 @@ msgstr "高度可定制的文本荧光笔"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Forget Me Not"
-msgstr "Forget Me Not"
+msgstr "Forget Me Not 勿忘我"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Make Firefox forget website data like cookies & local storage"
@@ -1093,11 +1093,11 @@ msgstr "让 Firefox 忘记 Cookie 与本地存储等网站数据"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Group Speed Dial"
-msgstr "Group Speed Dial"
+msgstr "Group Speed Dial - 分组摆列标签页"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "以可视化的形式摆放您喜欢的网站"
+msgstr "直观摆列您在网络上喜欢的东西"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Stylus"
@@ -1109,7 +1109,7 @@ msgstr "给您喜爱的网站一个新外观"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
-msgstr "Facebook Container"
+msgstr "Facebook Container 脸书隔离罩"
 
 #: src/amo/components/HomeHeroBanner/index.js:25
 msgid "Prevent Facebook from tracking you around the web"
@@ -1157,7 +1157,7 @@ msgstr "高效而强大的广告过滤器"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Ghostery"
-msgstr "Ghostery"
+msgstr "Ghostery – 私密的广告拦截工具"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Popular anti-tracking extension now has ad blocking ability"
@@ -1165,7 +1165,7 @@ msgstr "知名的反跟踪扩展，现在也有广告过滤功能了"
 
 #: src/amo/components/HomeHeroBanner/index.js:69
 msgid "Multi-Account Containers"
-msgstr "Multi-Account Containers"
+msgstr "Multi-Account Containers - 小号多开"
 
 #: src/amo/components/HomeHeroBanner/index.js:72
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
@@ -1217,7 +1217,7 @@ msgstr "更改语言"
 
 #: src/amo/components/LanguageTools/index.js:103
 msgid "Available for your locale"
-msgstr "可用于您的语言"
+msgstr "有您的语言"
 
 #: src/amo/components/LanguageTools/index.js:143
 msgid "Dictionaries and Language Packs"

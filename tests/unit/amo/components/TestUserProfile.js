@@ -411,9 +411,11 @@ describe(__filename, () => {
   });
 
   it("renders the user's biography", () => {
+    const biography = '<blockquote><b>Not even vegan!</b></blockquote>';
+
     const { store } = dispatchSignInActions({
       userProps: {
-        biography: 'Not even vegan!',
+        biography,
         username: 'tofumatt',
       },
     });
@@ -424,9 +426,9 @@ describe(__filename, () => {
     expect(
       root
         .find('.UserProfile-biography')
-        .find('p')
+        .find('div')
         .html(),
-    ).toContain('Not even vegan!');
+    ).toContain(biography);
   });
 
   it('omits a null biography', () => {

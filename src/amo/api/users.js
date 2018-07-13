@@ -9,19 +9,19 @@ import type {
   ExternalUserType,
   NotificationsType,
 } from 'amo/reducers/users';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 
 export function currentUserAccount({
   api,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
 |}): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
 
   return callApi({
     auth: true,
     endpoint: 'accounts/profile',
-    state: api,
+    apiState: api,
   });
 }
 
@@ -31,7 +31,7 @@ export function updateUserAccount({
   userId,
   ...editableFields
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   editableFields: UserEditableFieldsType,
   picture?: File | null,
   userId: UserId,
@@ -60,12 +60,12 @@ export function updateUserAccount({
     body,
     endpoint: `accounts/account/${userId}`,
     method: 'PATCH',
-    state: api,
+    apiState: api,
   });
 }
 
 type UserApiParams = {|
-  api: ApiStateType,
+  api: ApiState,
   username: string,
 |};
 
@@ -79,7 +79,7 @@ export function userAccount({
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}`,
-    state: api,
+    apiState: api,
   });
 }
 
@@ -93,7 +93,7 @@ export function userNotifications({
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}/notifications`,
-    state: api,
+    apiState: api,
   });
 }
 
@@ -102,7 +102,7 @@ export function updateUserNotifications({
   notifications,
   userId,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   notifications: NotificationsUpdateType,
   userId: UserId,
 |}): Promise<NotificationsType> {
@@ -115,7 +115,7 @@ export function updateUserNotifications({
     body: notifications,
     endpoint: `accounts/account/${userId}/notifications`,
     method: 'POST',
-    state: api,
+    apiState: api,
   });
 }
 
@@ -123,7 +123,7 @@ export function deleteUserPicture({
   api,
   userId,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   userId: UserId,
 |}): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
@@ -133,7 +133,7 @@ export function deleteUserPicture({
     auth: true,
     endpoint: `accounts/account/${userId}/picture`,
     method: 'DELETE',
-    state: api,
+    apiState: api,
   });
 }
 
@@ -141,7 +141,7 @@ export function deleteUserAccount({
   api,
   userId,
 }: {|
-  api: ApiStateType,
+  api: ApiState,
   userId: UserId,
 |}): Promise<UserId> {
   invariant(api, 'api state is required.');
@@ -152,6 +152,6 @@ export function deleteUserAccount({
     credentials: true,
     endpoint: `accounts/account/${userId}`,
     method: 'DELETE',
-    state: api,
+    apiState: api,
   });
 }

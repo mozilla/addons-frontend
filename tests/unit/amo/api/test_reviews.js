@@ -82,7 +82,7 @@ describe(__filename, () => {
           },
           method: 'POST',
           auth: true,
-          state: params.apiState,
+          apiState: params.apiState,
           errorHandler: params.errorHandler,
         })
         .returns(Promise.resolve(fakeResponse));
@@ -110,7 +110,7 @@ describe(__filename, () => {
           },
           method: 'PATCH',
           auth: true,
-          state: params.apiState,
+          apiState: params.apiState,
         })
         .returns(Promise.resolve(fakeResponse));
 
@@ -139,7 +139,7 @@ describe(__filename, () => {
           },
           method: 'PATCH',
           auth: true,
-          state: params.apiState,
+          apiState: params.apiState,
         })
         .returns(Promise.resolve(submitReviewResponse()));
 
@@ -162,7 +162,7 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'reviews/review',
           params,
-          state: undefined,
+          apiState: undefined,
         })
         .returns(Promise.resolve(fakeResponse));
 
@@ -179,7 +179,7 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'reviews/review',
           params,
-          state: signedInApiState,
+          apiState: signedInApiState,
         })
         .returns(Promise.resolve(getReviewsResponse()));
 
@@ -214,7 +214,7 @@ describe(__filename, () => {
             user: params.user,
             version: params.version,
           },
-          state: undefined,
+          apiState: undefined,
         })
         .returns(
           Promise.resolve(
@@ -322,7 +322,7 @@ describe(__filename, () => {
           },
           method: 'POST',
           auth: true,
-          state: apiState,
+          apiState,
         })
         .returns(Promise.resolve(fakeResponse));
 
@@ -363,7 +363,7 @@ describe(__filename, () => {
             note: undefined,
           },
           method: 'POST',
-          state: params.apiState,
+          apiState: params.apiState,
         })
         .returns(Promise.resolve());
 

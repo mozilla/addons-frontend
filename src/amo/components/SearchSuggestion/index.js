@@ -1,5 +1,6 @@
 /* @flow */
 import * as React from 'react';
+import makeClassName from 'classnames';
 
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -7,15 +8,24 @@ import LoadingText from 'ui/components/LoadingText';
 import './styles.scss';
 
 type Props = {|
-  name: string,
+  arrowAlt?: string,
   iconUrl: string,
   loading: boolean,
-  arrowAlt?: string,
+  name: string,
+  type: string,
 |};
 
-const SearchSuggestion = ({ name, iconUrl, arrowAlt, loading }: Props) => {
+const SearchSuggestion = ({
+  arrowAlt,
+  iconUrl,
+  loading,
+  name,
+  type,
+}: Props) => {
   return (
-    <p className="SearchSuggestion">
+    <p
+      className={makeClassName('SearchSuggestion', `SearchSuggestion--${type}`)}
+    >
       <img alt={name} className="SearchSuggestion-icon" src={iconUrl} />
       <span className="SearchSuggestion-name">
         {loading ? <LoadingText minWidth={20} range={12} /> : name}

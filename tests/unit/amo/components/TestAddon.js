@@ -50,7 +50,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
-  ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INSTALL_SOURCE_DETAIL_PAGE,
@@ -95,7 +94,6 @@ function renderProps({
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
-    getBrowserThemeData: () => '{}',
     i18n,
     location: fakeRouterLocation(),
     params: params || { slug: addon ? addon.slug : fakeAddon.slug },
@@ -865,7 +863,6 @@ describe(__filename, () => {
     expect(image.type()).toEqual('img');
     expect(image).toHaveClassName('Addon-theme-header-image');
     expect(image.prop('src')).toEqual('https://amo/preview.png');
-    expect(image.prop('alt')).toEqual('Tap to preview');
   });
 
   it('renders a static theme preview as an image', () => {
@@ -950,27 +947,6 @@ describe(__filename, () => {
     expect(root.find('.Addon-theme')).toHaveLength(1);
   });
 
-  it('enables a theme preview for supported clients if it is a lightweight theme', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-    });
-    const button = root.find('.Addon-theme-header-label');
-    expect(button.prop('disabled')).toEqual(false);
-  });
-
-  it("hides 'Tap to preview' button for a static theme", () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-      }),
-    });
-    expect(root.find('.Addon-theme-header-label')).toHaveLength(0);
-  });
-
   it('disables install button for incompatibility with firefox version', () => {
     const root = shallowRender({
       getClientCompatibility: () => ({
@@ -1029,42 +1005,7 @@ describe(__filename, () => {
     );
   });
 
-  it('enables a theme preview for non-enabled add-ons', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-      installStatus: UNKNOWN,
-    });
-    expect(root.find('.Addon-theme-header-label')).toHaveLength(1);
-  });
-
-  it('disables theme preview for enabled add-ons', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-      installStatus: ENABLED,
-    });
-    expect(root.find('.Addon-theme-header-label')).toHaveLength(0);
-  });
-
-  it('disables a theme preview for unsupported clients', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-      getClientCompatibility: getClientCompatibilityFalse,
-    });
-    const button = root.find('.Addon-theme-header-label');
-    expect(button.prop('disabled')).toEqual(true);
-  });
-
-  it('unsets the theme preview on component unmount', () => {
-    const resetThemePreview = sinon.spy();
+  it('shows the preview image in the header', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
@@ -1073,39 +1014,8 @@ describe(__filename, () => {
           previewURL: 'https://amo/preview.png',
         },
       }),
-      isPreviewingTheme: true,
-      themePreviewNode: 'theme-preview-node',
-      resetThemePreview,
     });
-    root.unmount();
-    expect(resetThemePreview.calledWith('theme-preview-node')).toBeTruthy();
-  });
-
-  it('sets the browsertheme data on the header', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        theme_data: {
-          ...fakeTheme.theme_data,
-          previewURL: 'https://amo/preview.png',
-        },
-      }),
-      getBrowserThemeData: () => '{"the":"themedata"}',
-    });
-    const header = root.find('.Addon-theme-header');
-    expect(header.prop('data-browsertheme')).toEqual('{"the":"themedata"}');
-  });
-
-  it('toggles a theme on click', () => {
-    const toggleThemePreview = sinon.spy();
-    const root = shallowRender({
-      addon: createInternalAddon(fakeTheme),
-      toggleThemePreview,
-    });
-    const header = root.find('.Addon-theme-header');
-    const currentTarget = sinon.stub();
-    header.simulate('click', { currentTarget });
-    sinon.assert.calledWith(toggleThemePreview, currentTarget);
+    expect(root.find('.Addon-theme-header-image')).toHaveLength(1);
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {

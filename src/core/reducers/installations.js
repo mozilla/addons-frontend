@@ -10,8 +10,6 @@ import {
   INSTALL_ERROR,
   INSTALL_STATE,
   START_DOWNLOAD,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   UNINSTALLED,
   UNINSTALL_COMPLETE,
 } from 'core/constants';
@@ -21,7 +19,6 @@ export type InstalledAddon = {
   downloadProgress?: number,
   error?: string,
   guid: $PropertyType<AddonType, 'guid'>,
-  isPreviewingTheme?: boolean,
   needsRestart?: boolean,
   // TODO: merge with core/constants.validInstallStates
   // once that file supports Flow.
@@ -38,7 +35,6 @@ export type InstalledAddon = {
     | 'UNINSTALLED'
     | 'UNINSTALLING'
     | 'UNKNOWN',
-  themePreviewNode?: Node,
   url?: $PropertyType<AddonType, 'url'>,
 };
 
@@ -47,12 +43,12 @@ export type InstallationAction = {|
   type: string,
 |};
 
-type InstallationState = {
+export type InstallationsState = {
   [guid: $PropertyType<AddonType, 'guid'>]: InstalledAddon,
 };
 
 export default function installations(
-  state: InstallationState = {},
+  state: InstallationsState = {},
   { type, payload }: InstallationAction,
 ) {
   function updateAddon(newProps: Object): InstalledAddon {
@@ -125,21 +121,6 @@ export default function installations(
           downloadProgress: 0,
           error: payload.error,
           status: ERROR,
-        }),
-      };
-    case THEME_PREVIEW:
-      return {
-        ...state,
-        [payload.guid]: updateAddon({
-          isPreviewingTheme: true,
-          themePreviewNode: payload.themePreviewNode,
-        }),
-      };
-    case THEME_RESET_PREVIEW:
-      return {
-        ...state,
-        [payload.guid]: updateAddon({
-          isPreviewingTheme: false,
         }),
       };
     default:

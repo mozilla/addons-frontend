@@ -30,7 +30,7 @@ describe(__filename, () => {
           endpoint: 'addons/language-tools',
           method: 'GET',
           params: { app: CLIENT_APP_ANDROID },
-          state: apiState,
+          apiState,
         })
         .once()
         .returns(mockResponse());

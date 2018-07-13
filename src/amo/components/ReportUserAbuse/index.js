@@ -14,7 +14,7 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
@@ -173,10 +173,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: {| userAbuseReports: UserAbuseReportsState |},
-  ownProps: Props,
-) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const abuseReport =
     ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
       ? state.userAbuseReports.byUserId[ownProps.user.id]

@@ -4,7 +4,7 @@ import { oneLine } from 'common-tags';
 import { REVIEW_FLAG_REASON_OTHER } from 'amo/constants';
 import { callApi } from 'core/api';
 import type { FlagReviewReasonType } from 'amo/constants';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { PaginatedApiResponse } from 'core/types/api';
 
@@ -43,7 +43,7 @@ export type ExternalReviewType = {|
 // can type check each one independently.
 export type SubmitReviewParams = {|
   addonId?: number,
-  apiState?: ApiStateType,
+  apiState?: ApiState,
   body?: string,
   errorHandler?: ErrorHandlerType,
   rating?: number | null,
@@ -94,7 +94,7 @@ export function submitReview({
         body: review,
         method,
         auth: true,
-        state: apiState,
+        apiState,
         ...apiCallParams,
       }),
     );
@@ -102,7 +102,7 @@ export function submitReview({
 }
 
 type ReplyToReviewParams = {|
-  apiState?: ApiStateType,
+  apiState?: ApiState,
   body: string,
   errorHandler?: ErrorHandlerType,
   originalReviewId: number,
@@ -129,7 +129,7 @@ export const replyToReview = ({
         endpoint,
         errorHandler,
         method: 'POST',
-        state: apiState,
+        apiState,
       }),
     );
   });
@@ -138,7 +138,7 @@ export const replyToReview = ({
 export type GetReviewsParams = {|
   // This is the addon ID, slug, or guid.
   addon?: number | string,
-  apiState?: ApiStateType,
+  apiState?: ApiState,
   filter?: string,
   page?: number,
   page_size?: number,
@@ -164,7 +164,7 @@ export function getReviews({
         auth: true,
         endpoint: 'reviews/review',
         params: { user, addon, ...params },
-        state: apiState,
+        apiState,
       }),
     );
   });
@@ -172,7 +172,7 @@ export function getReviews({
 
 export type GetLatestReviewParams = {|
   addon: number,
-  apiState?: ApiStateType,
+  apiState?: ApiState,
   user: number,
   version: number,
 |};
@@ -203,7 +203,7 @@ export function getLatestUserReview({
 }
 
 type FlagReviewParams = {|
-  apiState?: ApiStateType,
+  apiState?: ApiState,
   errorHandler?: ErrorHandlerType,
   note?: string,
   reason: FlagReviewReasonType,
@@ -239,7 +239,7 @@ export const flagReview = ({
         endpoint: `reviews/review/${reviewId}/flag`,
         errorHandler,
         method: 'POST',
-        state: apiState,
+        apiState,
       }),
     );
   });

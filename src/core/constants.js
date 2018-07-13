@@ -103,7 +103,7 @@ export const INCOMPATIBLE_UNSUPPORTED_PLATFORM =
 
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
-export const TRACKING_TYPE_STATIC_THEME = 'addon:statictheme';
+export const TRACKING_TYPE_STATIC_THEME = ADDON_TYPE_STATIC_THEME;
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
@@ -169,15 +169,8 @@ export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 export const CLOSE_INFO = 'CLOSE_INFO';
 export const SHOW_INFO = 'SHOW_INFO';
 
-// Theme preview actions.
+// Theme action.
 export const THEME_INSTALL = 'InstallBrowserTheme';
-export const THEME_PREVIEW = 'PreviewBrowserTheme';
-export const THEME_RESET_PREVIEW = 'ResetBrowserThemePreview';
-export const validThemeActions = [
-  THEME_INSTALL,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
-];
 
 export const INSTALL_EVENT_LIST = [
   'onDownloadStarted',

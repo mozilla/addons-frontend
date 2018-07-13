@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import makeClassName from 'classnames';
 
-import './Switch.scss';
+import './styles.scss';
 
 export default class Switch extends React.Component {
   static propTypes = {

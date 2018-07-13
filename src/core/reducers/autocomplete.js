@@ -44,6 +44,7 @@ export const createInternalSuggestion = (externalSuggestion) => {
     addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
     name: externalSuggestion.name,
+    type: externalSuggestion.type,
     url: externalSuggestion.url,
   };
 };

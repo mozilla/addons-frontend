@@ -18,7 +18,7 @@ import {
   validInstallStates as validStates,
 } from 'core/constants';
 import log from 'core/logger';
-import { getThemeData } from 'core/themePreview';
+import { getThemeData } from 'core/themeInstall';
 import Switch from 'ui/components/Switch';
 
 export class InstallSwitchBase extends React.Component {

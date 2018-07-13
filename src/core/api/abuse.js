@@ -1,6 +1,6 @@
 /* @flow */
 import { callApi } from 'core/api';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 
 /*
  * A reporter object, returned by Abuse Report APIs
@@ -21,7 +21,7 @@ export type AbuseReporter = {|
 
 export type ReportAddonParams = {|
   addonSlug: string,
-  api: ApiStateType,
+  api: ApiState,
   message: string,
 |};
 
@@ -31,12 +31,12 @@ export function reportAddon({ addonSlug, api, message }: ReportAddonParams) {
     endpoint: 'abuse/report/addon',
     method: 'POST',
     body: { addon: addonSlug, message },
-    state: api,
+    apiState: api,
   });
 }
 
 export type ReportUserParams = {|
-  api: ApiStateType,
+  api: ApiState,
   message: string,
   userId: number,
 |};
@@ -63,6 +63,6 @@ export function reportUser({
     method: 'POST',
     // Using an ID that isn't posted as a string causes a 500 error.
     body: { message, user: userId.toString() },
-    state: api,
+    apiState: api,
   });
 }

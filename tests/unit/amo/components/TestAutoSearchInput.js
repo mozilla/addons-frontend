@@ -558,6 +558,7 @@ describe(__filename, () => {
 
       expect(suggestion).toHaveProp('name', name);
       expect(suggestion).toHaveProp('iconUrl', suggestionData.iconUrl);
+      expect(suggestion).toHaveProp('type', suggestionData.type);
     });
 
     it('renders search suggestion in a loading state', () => {

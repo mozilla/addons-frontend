@@ -46,9 +46,9 @@ import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
 import UserRating from 'ui/components/UserRating';
+import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { ReviewState } from 'amo/reducers/reviews';
-import type { UsersStateType, UserType } from 'amo/reducers/users';
+import type { UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -364,7 +364,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   className="UserProfile-biography"
                   term={i18n.gettext('Biography')}
                 >
-                  <p
+                  <div
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
                   />
@@ -429,10 +429,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(
-  state: {| reviews: ReviewState, users: UsersStateType |},
-  ownProps: Props,
-) {
+export function mapStateToProps(state: AppState, ownProps: Props) {
   const currentUser = getCurrentUser(state.users);
   const user = getUserByUsername(state.users, ownProps.params.username);
   const isOwner = currentUser && user && currentUser.id === user.id;

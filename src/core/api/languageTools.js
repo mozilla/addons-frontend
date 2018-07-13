@@ -1,9 +1,9 @@
 /* @flow */
 import { callApi } from 'core/api';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 
 export type LanguageToolsParams = {|
-  api: ApiStateType,
+  api: ApiState,
 |};
 
 export function languageTools({ api }: LanguageToolsParams) {
@@ -12,6 +12,6 @@ export function languageTools({ api }: LanguageToolsParams) {
     endpoint: 'addons/language-tools',
     method: 'GET',
     params: { app: api.clientApp },
-    state: api,
+    apiState: api,
   });
 }

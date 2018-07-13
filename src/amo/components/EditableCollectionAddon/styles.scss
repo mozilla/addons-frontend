@@ -29,6 +29,10 @@
   display: inline-block;
   height: 32px;
   width: 32px;
+
+  .EditableCollectionAddon--statictheme & {
+    opacity: 0;
+  }
 }
 
 .EditableCollectionAddon-comments-icon {

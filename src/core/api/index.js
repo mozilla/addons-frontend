@@ -16,7 +16,7 @@ import {
   convertFiltersToQueryParams,
 } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { ApiStateType } from 'core/reducers/api';
+import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocation } from 'core/types/router';
 
@@ -72,6 +72,7 @@ export function createApiError({
 }
 
 type CallApiParams = {|
+  apiState?: ApiState,
   auth?: boolean,
   body?: Object | FormData,
   credentials?: boolean,
@@ -80,7 +81,6 @@ type CallApiParams = {|
   method?: 'GET' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'PUT' | 'PATCH',
   params?: Object,
   schema?: Object,
-  state?: ApiStateType,
   _config?: typeof config,
 |};
 
@@ -89,7 +89,7 @@ export function callApi({
   schema,
   params = {},
   auth = false,
-  state = initialApiState,
+  apiState = initialApiState,
   method = 'GET',
   body,
   credentials,
@@ -123,7 +123,7 @@ export function callApi({
   const queryString = makeQueryString({
     ...parsedUrl.query,
     ...params,
-    lang: state.lang,
+    lang: apiState.lang,
     // Always return URLs wrapped by the outgoing proxy.
     // Example: http://outgoing.prod.mozaws.net/
     wrap_outgoing_links: true,
@@ -151,8 +151,8 @@ export function callApi({
     }
   }
   if (auth) {
-    if (state.token) {
-      options.headers.authorization = `Bearer ${state.token}`;
+    if (apiState.token) {
+      options.headers.authorization = `Bearer ${apiState.token}`;
     }
   }
 
@@ -220,7 +220,7 @@ export function callApi({
 }
 
 type FetchAddonParams = {|
-  api: ApiStateType,
+  api: ApiState,
   slug: string,
 |};
 
@@ -229,7 +229,7 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
     endpoint: `addons/addon/${slug}`,
     schema: addon,
     auth: true,
-    state: api,
+    apiState: api,
   });
 }
 
@@ -250,26 +250,26 @@ export function startLoginUrl({
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 
-export function categories({ api }: {| api: ApiStateType |}) {
+export function categories({ api }: {| api: ApiState |}) {
   return callApi({
     endpoint: 'addons/categories',
     schema: { results: [category] },
-    state: api,
+    apiState: api,
   });
 }
 
-export function logOutFromServer({ api }: {| api: ApiStateType |}) {
+export function logOutFromServer({ api }: {| api: ApiState |}) {
   return callApi({
     auth: true,
     credentials: true,
     endpoint: 'accounts/session',
     method: 'DELETE',
-    state: api,
+    apiState: api,
   });
 }
 
 type AutocompleteParams = {|
-  api: ApiStateType,
+  api: ApiState,
   filters: {|
     query: string,
     addonType?: string,
@@ -288,7 +288,7 @@ export function autocomplete({ api, filters }: AutocompleteParams) {
       app: api.clientApp,
       ...convertFiltersToQueryParams(filtersWithAppVersion),
     },
-    state: api,
+    apiState: api,
   });
 }
 

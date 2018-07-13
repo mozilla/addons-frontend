@@ -8,9 +8,9 @@ import { closeFormOverlay } from 'core/reducers/formOverlay';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import IconXMark from 'ui/components/IconXMark';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { FormOverlayState } from 'core/reducers/formOverlay';
 
 import './styles.scss';
 
@@ -32,6 +32,7 @@ type Props = {|
 export class FormOverlayBase extends React.Component<Props> {
   static defaultProps = {
     isOpen: false,
+    isSubmitting: false,
   };
 
   closeOverlay(event: SyntheticEvent<any>) {
@@ -152,10 +153,7 @@ export class FormOverlayBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (
-  state: {| formOverlay: FormOverlayState |},
-  ownProps: Props,
-): $Shape<Props> => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   const overlayState = state.formOverlay[ownProps.id];
 
   if (!overlayState) {

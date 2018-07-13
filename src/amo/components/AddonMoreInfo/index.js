@@ -17,7 +17,7 @@ import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
 import type { I18nType } from 'core/types/i18n';
-import type { UsersStateType } from 'amo/reducers/users';
+import type { AppState } from 'amo/store';
 
 type Props = {|
   addon: AddonType | null,
@@ -254,7 +254,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: {| users: UsersStateType |}) => {
+export const mapStateToProps = (state: AppState) => {
   return {
     userId: state.users.currentUserID,
     hasStatsPermission: hasPermission(state, STATS_VIEW),

@@ -10,7 +10,6 @@ import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
-import HoverIntent from 'core/components/HoverIntent';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
@@ -30,7 +29,6 @@ import {
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByGUID } from 'core/reducers/addons';
-import themeAction from 'core/themePreview';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
@@ -56,13 +54,10 @@ export class AddonBase extends React.Component {
     // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
-    previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
-    resetThemePreview: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
-    themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     _tracking: PropTypes.object,
@@ -72,8 +67,6 @@ export class AddonBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
     platformFiles: {},
     needsRestart: false,
-    // Defaults themeAction to the imported func.
-    themeAction,
     _tracking: tracking,
   };
 
@@ -117,27 +110,17 @@ export class AddonBase extends React.Component {
     if (this.props.type === ADDON_TYPE_THEME) {
       /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
       return (
-        <HoverIntent
-          onHoverIntent={this.previewTheme}
-          onHoverIntentEnd={this.resetThemePreview}
+        <a
+          href="#"
+          className="theme-image"
+          data-browsertheme={getBrowserThemeData()}
+          onClick={this.installTheme}
         >
-          <a
-            href="#"
-            className="theme-image"
-            data-browsertheme={getBrowserThemeData()}
-            onBlur={this.resetThemePreview}
-            onClick={this.installTheme}
-            onFocus={this.previewTheme}
-          >
-            <img
-              src={previewURL}
-              alt={sprintf(
-                i18n.gettext('Hover to preview or click to install %(name)s'),
-                { name },
-              )}
-            />
-          </a>
-        </HoverIntent>
+          <img
+            src={previewURL}
+            alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
+          />
+        </a>
       );
       /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
@@ -145,14 +128,12 @@ export class AddonBase extends React.Component {
   }
 
   getDescription() {
-    const { i18n, description, type } = this.props;
+    const { description, type } = this.props;
+
     if (type === ADDON_TYPE_THEME) {
-      return (
-        <p className="editorial-description">
-          {i18n.gettext('Hover over the image to preview')}
-        </p>
-      );
+      return null;
     }
+
     return (
       <div
         className="editorial-description"
@@ -219,14 +200,6 @@ export class AddonBase extends React.Component {
         label: name,
       });
     }
-  };
-
-  previewTheme = (e) => {
-    this.props.previewTheme(e.currentTarget);
-  };
-
-  resetThemePreview = (e) => {
-    this.props.resetThemePreview(e.currentTarget);
   };
 
   render() {

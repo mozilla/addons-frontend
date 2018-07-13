@@ -43,7 +43,7 @@ export const UserCollectionBase = (props: InternalProps) => {
     invariant(name, 'name is required');
     invariant(slug, 'slug is required');
     invariant(
-      Number.isInteger(numberOfAddons),
+      numberOfAddons !== undefined && Number.isInteger(numberOfAddons),
       'numberOfAddons must be a number',
     );
 

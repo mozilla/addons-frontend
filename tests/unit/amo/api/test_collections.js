@@ -69,7 +69,7 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint: 'accounts/account/some-user/collections/some-slug',
-          state: apiState,
+          apiState,
         })
         .once()
         .returns(createApiResponse());
@@ -112,7 +112,7 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'accounts/account/some-user/collections/some-slug/addons',
           params: { page: filters.page, sort: filters.collectionSort },
-          state: apiState,
+          apiState,
         })
         .once()
         .returns(createApiResponse());
@@ -180,7 +180,7 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint: `accounts/account/${username}/collections`,
-          state: apiState,
+          apiState,
         })
         .once()
         .returns(createApiResponse());
@@ -280,7 +280,7 @@ describe(__filename, () => {
           },
           endpoint,
           method: 'POST',
-          state: params.api,
+          apiState: params.api,
         })
         .once()
         .returns(Promise.resolve());
@@ -308,7 +308,7 @@ describe(__filename, () => {
           },
           endpoint,
           method: 'PATCH',
-          state: params.api,
+          apiState: params.api,
         })
         .once()
         .returns(Promise.resolve());
@@ -399,7 +399,7 @@ describe(__filename, () => {
           body: { addon: params.addonId, notes: undefined },
           endpoint,
           method: 'POST',
-          state: params.api,
+          apiState: params.api,
         })
         .once()
         .returns(Promise.resolve());
@@ -454,7 +454,7 @@ describe(__filename, () => {
           body: { notes },
           endpoint,
           method: 'PATCH',
-          state: params.api,
+          apiState: params.api,
         })
         .once()
         .returns(Promise.resolve());
@@ -545,7 +545,7 @@ describe(__filename, () => {
           auth: true,
           endpoint,
           method: 'DELETE',
-          state: api,
+          apiState: api,
         })
         .once()
         .returns(Promise.resolve());
@@ -574,7 +574,7 @@ describe(__filename, () => {
           auth: true,
           endpoint,
           method: 'DELETE',
-          state: api,
+          apiState: api,
         })
         .once()
         .returns(Promise.resolve());
