@@ -96,7 +96,6 @@ module.exports = {
     'defaultLang',
     'enableClientConsole',
     'enableNewCollectionsUI',
-    'enableUserProfile',
     'enableAddonRecommendations',
     'enableStaticThemes',
     'fxaConfig',
@@ -287,9 +286,6 @@ module.exports = {
 
   // Expose the new screen for editing a collection.
   enableNewCollectionsUI: false,
-
-  // Enable the new user profile pages.
-  enableUserProfile: true,
 
   // Enable the TAAR Lite A/B test.
   enableAddonRecommendations: false,

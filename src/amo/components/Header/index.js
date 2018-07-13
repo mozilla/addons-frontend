@@ -68,13 +68,7 @@ export class HeaderBase extends React.Component {
     );
 
     const viewProfileURL = siteUser ? `/user/${siteUser.username}/` : null;
-    const viewProfileLinkProps = _config.get('enableUserProfile')
-      ? { to: viewProfileURL }
-      : { href: viewProfileURL };
     const editProfileURL = siteUser ? '/users/edit' : null;
-    const editProfileLinkProps = _config.get('enableUserProfile')
-      ? { to: editProfileURL }
-      : { href: editProfileURL };
 
     const enableNewCollectionsUI = _config.get('enableNewCollectionsUI');
     let myCollectionsURL = null;
@@ -127,7 +121,7 @@ export class HeaderBase extends React.Component {
               <DropdownMenuItem>
                 <Link
                   className="Header-user-menu-view-profile-link"
-                  {...viewProfileLinkProps}
+                  to={viewProfileURL}
                 >
                   {i18n.gettext('View My Profile')}
                 </Link>
@@ -135,7 +129,7 @@ export class HeaderBase extends React.Component {
               <DropdownMenuItem>
                 <Link
                   className="Header-user-menu-edit-profile-link"
-                  {...editProfileLinkProps}
+                  to={editProfileURL}
                 >
                   {i18n.gettext('Edit My Profile')}
                 </Link>
