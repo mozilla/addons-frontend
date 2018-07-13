@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-13 23:20+0000\n"
+"PO-Revision-Date: 2018-07-13 23:22+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1909,7 +1909,7 @@ msgstr "Sertai survei ringkas"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Terima kasih kerana melawat laman ini! Sila luangkan satu atau dua minit untuk memaklumkan Firefox perihal pengalaman anda."
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2307,7 +2307,7 @@ msgstr "Akses data anda untuk %(param)s"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Abaikan notis ini"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
