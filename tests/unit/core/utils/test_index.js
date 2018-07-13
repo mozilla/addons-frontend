@@ -2,7 +2,6 @@ import url from 'url';
 
 import * as React from 'react';
 import config from 'config';
-import { sprintf } from 'jed';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
@@ -37,7 +36,6 @@ import {
   isAddonAuthor,
   isAllowedOrigin,
   isValidClientApp,
-  ngettext,
   nl2br,
   normalizeFileNameId,
   refreshAddon,
@@ -506,26 +504,6 @@ describe(__filename, () => {
       const output = addQueryParams('/relative/path/?one=1', { two: '2' });
       expect(output).toMatch(/^\/relative\/path\//);
       expect(url.parse(output, true).query).toEqual({ one: '1', two: '2' });
-    });
-  });
-
-  describe('ngettext', () => {
-    function fileCount(count) {
-      return sprintf(ngettext('%(count)s file', '%(count)s files', count), {
-        count,
-      });
-    }
-
-    it('outputs singular when count is one', () => {
-      expect('1 file').toEqual(fileCount(1));
-    });
-
-    it('outputs plural when count is zero', () => {
-      expect('0 files').toEqual(fileCount(0));
-    });
-
-    it('outputs plural when count is above one', () => {
-      expect('2 files').toEqual(fileCount(2));
     });
   });
 
