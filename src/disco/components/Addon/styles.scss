@@ -211,7 +211,7 @@ $addon-padding: 20px;
     }
 
     &.error {
-      background: #c33c32 url('../img/warning.svg') no-repeat calc(100% - 40px)
+      background: #c33c32 url('./img/warning.svg') no-repeat calc(100% - 40px)
         50%;
       z-index: 20;
 
@@ -221,7 +221,7 @@ $addon-padding: 20px;
     }
 
     &.restart {
-      background: #70cf5b url('../img/restart.svg') no-repeat calc(100% - 40px)
+      background: #70cf5b url('./img/restart.svg') no-repeat calc(100% - 40px)
         50%;
       z-index: 10;
 

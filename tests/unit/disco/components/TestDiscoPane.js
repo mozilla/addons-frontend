@@ -19,7 +19,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import { getDiscoResults } from 'disco/actions';
 import createStore from 'disco/store';
 import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
-import * as helpers from 'disco/containers/DiscoPane';
+import * as helpers from 'disco/components/DiscoPane';
 import {
   createFakeEvent,
   createStubErrorHandler,

@@ -17,10 +17,11 @@ import { getAddonByGUID } from 'core/reducers/addons';
 import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
 import { getDiscoResults } from 'disco/actions';
 import Addon from 'disco/components/Addon';
-import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
 import Button from 'ui/components/Button';
+
+import videoPoster from './img/AddOnsPoster.jpg';
 
 export class DiscoPaneBase extends React.Component {
   static propTypes = {
