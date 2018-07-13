@@ -1,6 +1,7 @@
 @import '~ui/css/vars';
+@import '~ui/components/Icon/vars';
 
 .IconXMark-svg {
-  height: 16px;
-  width: 16px;
+  height: $default-icon-size;
+  width: $default-icon-size;
 }
