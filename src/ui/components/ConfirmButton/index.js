@@ -118,7 +118,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
 }
 
 export const extractId = (ownProps: Props) => {
-  return `confirmButton-${ownProps.className}`;
+  return `confirmButton-${ownProps.className || ''}`;
 };
 
 const ConfirmButton: React.ComponentType<Props> = compose(
