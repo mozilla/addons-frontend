@@ -1,18 +1,13 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import {
-  denormalizeReview,
-  fetchUserReviews,
-  setUserReviews,
-} from 'amo/actions/reviews';
+import { fetchUserReviews, setUserReviews } from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import UserProfile, {
   extractId,
   UserProfileBase,
 } from 'amo/components/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import Link from 'amo/components/Link';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   fetchUserAccount,
@@ -32,7 +27,7 @@ import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
-import UserRating from 'ui/components/UserRating';
+import UserReview from 'ui/components/UserReview';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -809,34 +804,20 @@ describe(__filename, () => {
     );
     expect(root.find('.UserProfile-reviews')).toHaveProp('footer', null);
 
-    expect(root.find('.AddonReviewListItem')).toHaveLength(reviews.length);
+    expect(root.find(UserReview)).toHaveLength(reviews.length);
 
-    const firstReview = root.find('.AddonReviewListItem');
+    const byLine = shallow(root.find(UserReview).prop('byLine'), {
+      // The `Link` component needs the store.
+      context: { store },
+    });
 
-    expect(firstReview.find('.AddonReviewListItem-body').html()).toContain(
-      fakeReview.body,
-    );
-
-    expect(firstReview.find(Link)).toHaveLength(1);
-    expect(firstReview.find(Link)).toHaveProp(
-      'title',
-      'Browse the reviews for this add-on',
-    );
-    expect(firstReview.find(Link)).toHaveProp(
-      'to',
-      `/addon/${fakeReview.addon.slug}/reviews/`,
-    );
-    expect(firstReview.find(Link).children()).toHaveText(
+    expect(byLine).toHaveProp('title', 'Browse the reviews for this add-on');
+    expect(byLine).toHaveProp('to', `/addon/${fakeReview.addon.slug}/reviews/`);
+    expect(byLine.children()).toHaveText(
       root
         .instance()
         .props.i18n.moment(fakeReview.created)
         .fromNow(),
-    );
-
-    expect(firstReview.find(UserRating)).toHaveLength(1);
-    expect(firstReview.find(UserRating)).toHaveProp(
-      'review',
-      denormalizeReview(fakeReview),
     );
   });
 
@@ -863,9 +844,7 @@ describe(__filename, () => {
     expect(paginator).toHaveProp('pathname', '/user/black-panther/');
     expect(paginator).toHaveProp('queryParams', location.query);
 
-    expect(root.find('.AddonReviewListItem')).toHaveLength(
-      DEFAULT_API_PAGE_SIZE,
-    );
+    expect(root.find(UserReview)).toHaveLength(DEFAULT_API_PAGE_SIZE);
   });
 
   it(`does not display the user's reviews when current user is not the owner`, () => {
