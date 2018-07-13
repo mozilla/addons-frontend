@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Card from 'ui/components/Card';
 import Overlay from 'ui/components/Overlay';
 
-import './OverlayCard.scss';
+import './styles.scss';
 
 export default class OverlayCard extends React.Component {
   static propTypes = {

@@ -9,7 +9,7 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 
-import './ShowMoreCard.scss';
+import './styles.scss';
 
 // This refers to height of `Card-contents` CSS class,
 // beyond which it will add read more link.
