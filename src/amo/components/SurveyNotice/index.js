@@ -18,7 +18,7 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-const SurveyNoticeBase = (props: InternalProps) => {
+export const SurveyNoticeBase = (props: InternalProps) => {
   const { i18n } = props;
   return (
     <Notice
