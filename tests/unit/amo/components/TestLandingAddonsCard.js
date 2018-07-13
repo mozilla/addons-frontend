@@ -76,6 +76,25 @@ describe(__filename, () => {
     );
   });
 
+  it('overrides the placeholder prop value when isTheme is passed in', () => {
+    const root = render({ isTheme: true, placeholderCount: 2 });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      LANDING_PAGE_THEME_COUNT,
+    );
+  });
+
+  it('uses the placeholder prop value when isTheme is passed in as false', () => {
+    const placeholderCount = 2;
+    const root = render({ isTheme: false, placeholderCount });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      placeholderCount,
+    );
+  });
+
   it('uses the default placeholder count when there is no override', () => {
     const root = render();
 

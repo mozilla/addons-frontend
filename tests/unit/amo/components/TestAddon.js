@@ -868,18 +868,16 @@ describe(__filename, () => {
 
   it('renders a static theme preview as an image', () => {
     const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/54321.png';
-    const newPreview = [
-      {
-        ...fakePreview,
-        thumbnail_url: headerImageThumb,
-      },
-    ];
-
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
         type: ADDON_TYPE_STATIC_THEME,
-        previews: newPreview,
+        previews: [
+          {
+            ...fakePreview,
+            thumbnail_url: headerImageThumb,
+          },
+        ],
       }),
     });
     const image = root.find('.Addon-theme-header-image');
@@ -891,17 +889,16 @@ describe(__filename, () => {
 
   it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
     const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
-    const newPreview = [
-      {
-        ...fakePreview,
-        thumbnail_url: headerImageThumb,
-      },
-    ];
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
         type: ADDON_TYPE_THEME,
-        previews: newPreview,
+        previews: [
+          {
+            ...fakePreview,
+            thumbnail_url: headerImageThumb,
+          },
+        ],
       }),
     });
     const image = root.find('.Addon-theme-header-image');

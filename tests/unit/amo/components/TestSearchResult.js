@@ -131,15 +131,16 @@ describe(__filename, () => {
   });
 
   it('adds a theme-specific class', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_THEME,
-      theme_data: {
-        previewURL:
-          'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
-      },
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+        theme_data: {
+          previewURL:
+            'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
+        },
+      }),
     });
-    const root = render({ addon });
 
     expect(root).toHaveClassName('SearchResult--theme');
   });
@@ -147,20 +148,19 @@ describe(__filename, () => {
   it('displays the thumbnail image as the default src for static theme', () => {
     const headerImageThumb =
       'https://addons.cdn.mozilla.net/mytestthumb/12345.png';
-    const newPreview = [
-      {
-        ...fakePreview,
-        thumbnail_url: headerImageThumb,
-      },
-    ];
 
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_STATIC_THEME,
-      previews: newPreview,
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            thumbnail_url: headerImageThumb,
+          },
+        ],
+      }),
     });
-
-    const root = render({ addon });
     const image = root.find('.SearchResult-icon');
 
     expect(image.prop('src')).toEqual(headerImageThumb);
@@ -172,26 +172,24 @@ describe(__filename, () => {
     const thumbWidth = 450;
     const fullWidth = 900;
 
-    const newPreview = [
-      {
-        ...fakePreview,
-      },
-      {
-        ...fakePreview,
-        image_url: headerImageFull,
-        thumbnail_url: headerImageThumb,
-        image_size: [fullWidth, 200],
-        thumbnail_size: [thumbWidth, 100],
-      },
-    ];
-
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_STATIC_THEME,
-      previews: newPreview,
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+          },
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
+            image_size: [fullWidth, 200],
+            thumbnail_size: [thumbWidth, 100],
+          },
+        ],
+      }),
     });
-
-    const root = render({ addon });
     const image = root.find('.SearchResult-icon');
 
     expect(image.prop('srcSet')).toEqual(
@@ -203,20 +201,18 @@ describe(__filename, () => {
   it('displays a fallback image for themes that only have 1 preview option', () => {
     const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/1.png';
 
-    const newPreview = [
-      {
-        ...fakePreview,
-        thumbnail_url: headerImageThumb,
-      },
-    ];
-
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_STATIC_THEME,
-      previews: newPreview,
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            thumbnail_url: headerImageThumb,
+          },
+        ],
+      }),
     });
-
-    const root = render({ addon });
     const image = root.find('.SearchResult-icon');
 
     expect(image.prop('src')).toEqual(headerImageThumb);

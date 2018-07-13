@@ -10,7 +10,6 @@ import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
-import { LANDING_PAGE_THEME_COUNT } from 'amo/constants';
 import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
@@ -271,8 +270,8 @@ export class HomeBase extends React.Component {
               },
             }}
             header={i18n.gettext('Featured themes')}
+            isTheme
             loading={loading}
-            placeholderCount={LANDING_PAGE_THEME_COUNT}
           />
         )}
 

@@ -3,7 +3,6 @@ import * as React from 'react';
 import makeClassNames from 'classnames';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import { LANDING_PAGE_THEME_COUNT } from 'amo/constants';
 import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'core/constants';
 import type { AddonType } from 'core/types/addons';
 
@@ -33,12 +32,6 @@ export default class FeaturedCollectionCard extends React.Component<Props> {
       username,
     } = this.props;
 
-    const themeProps = {};
-
-    if (isTheme) {
-      themeProps.placeholderCount = LANDING_PAGE_THEME_COUNT;
-    }
-
     return (
       <LandingAddonsCard
         addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
@@ -50,7 +43,7 @@ export default class FeaturedCollectionCard extends React.Component<Props> {
         footerText={footerText}
         footerLink={`/collections/${username}/${slug}/`}
         loading={loading}
-        {...themeProps}
+        isTheme={isTheme}
       />
     );
   }

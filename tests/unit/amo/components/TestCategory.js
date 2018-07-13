@@ -505,9 +505,6 @@ describe(__filename, () => {
       { params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) } },
       {
         autoDispatchCategories: false,
-        paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
-        },
       },
     );
 
@@ -516,12 +513,11 @@ describe(__filename, () => {
 
   it('renders without a theme class name if type is an extension', () => {
     const root = render(
-      { params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) } },
+      {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      },
       {
         autoDispatchCategories: false,
-        paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
-        },
       },
     );
 
