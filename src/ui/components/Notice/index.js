@@ -146,7 +146,6 @@ const Notice: React.ComponentType<Props> = compose(
     fileName: __filename,
     extractId,
     initialState,
-    newStatePerInstance: false,
   }),
   translate(),
 )(NoticeBase);
