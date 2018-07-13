@@ -192,8 +192,9 @@
   @include icon($name: 'not-compatible');
 }
 
-.Icon-x-mark {
-  // This icon contains an inline SVG.
+.Icon-inline-content {
+  // An Icon with inline content (such as an SVG)
+  // does not need a background image.
   background: none;
 }
 

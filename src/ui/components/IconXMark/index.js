@@ -17,7 +17,7 @@ const IconXMark = ({ className, ...iconProps }: Props) => {
     <Icon
       {...iconProps}
       className={makeClassName('IconXMark', className)}
-      name="x-mark"
+      name="inline-content"
     >
       <svg
         className="IconXMark-svg"
