@@ -125,6 +125,7 @@ describe(__filename, () => {
 
     expect(link).toHaveLength(1);
     expect(link.prop('children')).toEqual('View My Profile');
+    expect(link.prop('to')).toEqual('/user/babar/');
   });
 
   it('displays an edit profile link when user is signed in', () => {
@@ -136,6 +137,7 @@ describe(__filename, () => {
 
     expect(link).toHaveLength(1);
     expect(link.prop('children')).toEqual('Edit My Profile');
+    expect(link.prop('to')).toEqual('/users/edit');
   });
 
   it('allows a signed-in user to log out', () => {
