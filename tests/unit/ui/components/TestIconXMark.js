@@ -5,11 +5,7 @@ import Icon from 'ui/components/Icon';
 import IconXMark from 'ui/components/IconXMark';
 
 describe(__filename, () => {
-  const render = (moreProps = {}) => {
-    const props = {
-      color: 'white',
-      ...moreProps,
-    };
+  const render = (props = {}) => {
     return shallow(<IconXMark {...props} />);
   };
 
