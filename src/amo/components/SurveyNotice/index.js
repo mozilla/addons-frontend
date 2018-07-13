@@ -34,4 +34,8 @@ const SurveyNoticeBase = (props: InternalProps) => {
   );
 };
 
-export default compose(translate())(SurveyNoticeBase);
+const SurveyNotice: React.ComponentType<Props> = compose(translate())(
+  SurveyNoticeBase,
+);
+
+export default SurveyNotice;
