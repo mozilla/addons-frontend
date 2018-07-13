@@ -26,6 +26,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
+import Notice from 'ui/components/Notice';
 
 describe(__filename, () => {
   let store;
@@ -302,9 +303,11 @@ describe(__filename, () => {
 
       const root = render({ addon });
 
-      const notice = root.find('Notice');
+      const notice = root.find(Notice);
       expect(notice.prop('type')).toEqual('success');
-      expect(notice.html()).toContain(`Added to ${firstCollection.name}`);
+      expect(notice.childAt(0).text()).toContain(
+        `Added to ${firstCollection.name}`,
+      );
     });
 
     it('shows notices for each target collection', () => {
@@ -339,11 +342,15 @@ describe(__filename, () => {
 
       const root = render({ addon });
 
-      const notice = root.find('Notice');
-      expect(notice.at(0).html()).toContain(`Added to ${firstCollection.name}`);
-      expect(notice.at(1).html()).toContain(
-        `Added to ${secondCollection.name}`,
-      );
+      const notice = root.find(Notice);
+      const text = (index) => {
+        return notice
+          .at(index)
+          .childAt(0)
+          .text();
+      };
+      expect(text(0)).toContain(`Added to ${firstCollection.name}`);
+      expect(text(1)).toContain(`Added to ${secondCollection.name}`);
     });
 
     it('does nothing when you select the prompt', () => {

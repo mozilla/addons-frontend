@@ -40,13 +40,9 @@ export default (
       <IndexRoute component={Home} />
       <Route path="addon/:slug/" component={Addon} />
       <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
-      {config.get('enableUserProfile') && (
-        <React.Fragment>
-          <Route path="users/edit" component={UserProfileEdit} />
-          <Route path="user/:username/edit/" component={UserProfileEdit} />
-          <Route path="user/:username/" component={UserProfile} />
-        </React.Fragment>
-      )}
+      <Route path="users/edit" component={UserProfileEdit} />
+      <Route path="user/:username/edit/" component={UserProfileEdit} />
+      <Route path="user/:username/" component={UserProfile} />
       <Route path="collections/:username/:slug/" component={Collection} />
       {config.get('enableNewCollectionsUI') && (
         <React.Fragment>

@@ -6,18 +6,19 @@ import './styles.scss';
 
 export type Props = {|
   alt?: string | React.Node,
+  children?: React.Node,
   className?: string,
   name: string,
 |};
 
 export default class Icon extends React.Component<Props> {
   render() {
-    const { alt, className, name, ...props } = this.props;
+    const { alt, children, className, name, ...props } = this.props;
 
-    let children = null;
+    let altSpan;
     // If alt text was included, we'll render that in a hidden span.
     if (alt) {
-      children = <span className="visually-hidden">{alt}</span>;
+      altSpan = <span className="visually-hidden">{alt}</span>;
     }
 
     return (
@@ -25,6 +26,7 @@ export default class Icon extends React.Component<Props> {
         className={makeClassName('Icon', `Icon-${name}`, className)}
         {...props}
       >
+        {altSpan}
         {children}
       </span>
     );

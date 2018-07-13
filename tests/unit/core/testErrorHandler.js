@@ -5,7 +5,7 @@ import {
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-dom/test-utils';
-import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 import { shallow } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
@@ -19,7 +19,7 @@ import {
   withFixedErrorHandler,
   withRenderedErrorHandler,
 } from 'core/errorHandler';
-import errors from 'core/reducers/errors';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
 import ErrorList from 'ui/components/ErrorList';
@@ -35,7 +35,7 @@ class SomeComponentBase extends React.Component {
 }
 
 function createErrorStore() {
-  return createStore(combineReducers({ errors }));
+  return dispatchClientMetadata().store;
 }
 
 function createWrappedComponent({
@@ -54,7 +54,9 @@ function createWrappedComponent({
 
   const tree = renderIntoDocument(
     <I18nProvider i18n={fakeI18n()}>
-      <ComponentWithErrorHandling store={store} {...customProps} />
+      <Provider store={store}>
+        <ComponentWithErrorHandling {...customProps} />
+      </Provider>
     </I18nProvider>,
   );
   const component = findRenderedComponentWithType(tree, SomeComponent);

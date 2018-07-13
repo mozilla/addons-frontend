@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Icon from 'ui/components/Icon';
 
-describe('<Icon />', () => {
+describe(__filename, () => {
   it('maps the name to a className', () => {
     const root = shallow(<Icon name="foo" />);
 
@@ -20,10 +20,21 @@ describe('<Icon />', () => {
   });
 
   it('renders alt-text as a visually hidden span', () => {
-    const root = shallow(<Icon alt="Alt text!" name="bar" />);
+    const alt = 'Alt text!';
+    const root = shallow(<Icon alt={alt} name="bar" />);
 
-    expect(root.children()).toHaveHTML(
-      '<span class="visually-hidden">Alt text!</span>',
+    expect(root.find('.visually-hidden')).toHaveText(alt);
+  });
+
+  it('renders alt text and children', () => {
+    const alt = 'click to close';
+    const root = shallow(
+      <Icon alt={alt} name="bar">
+        <div className="thing" />
+      </Icon>,
     );
+
+    expect(root.find('.visually-hidden')).toHaveText(alt);
+    expect(root.find('.thing')).toHaveLength(1);
   });
 });
