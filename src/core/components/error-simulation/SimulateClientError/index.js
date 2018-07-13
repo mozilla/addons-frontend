@@ -1,7 +1,7 @@
 import { compose } from 'redux';
 import * as React from 'react';
 
-import { render404IfConfigKeyIsFalse } from 'core/utils';
+import { render404IfConfigKeyIsFalse } from 'core/utils/errors';
 import Button from 'ui/components/Button';
 
 import './styles.scss';

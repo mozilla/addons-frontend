@@ -298,9 +298,7 @@ export const mapDispatchToProps = (
   },
 });
 
-export const RatingManagerWithI18n = compose(translate({ withRef: true }))(
-  RatingManagerBase,
-);
+export const RatingManagerWithI18n = translate()(RatingManagerBase);
 
 const RatingManager: React.ComponentType<Props> = compose(
   withRenderedErrorHandler({ name: 'RatingManager' }),

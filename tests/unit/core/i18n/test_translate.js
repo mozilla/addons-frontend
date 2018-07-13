@@ -1,10 +1,7 @@
 /* eslint-disable react/no-multi-comp */
+import { mount } from 'enzyme';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-dom/test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
@@ -31,19 +28,20 @@ class InnerComponent extends React.Component {
 }
 
 describe(__filename, () => {
-  function render({
+  const render = ({
     Component = translate()(InnerComponent),
     i18n = fakeI18n(),
     componentProps = {},
-  } = {}) {
-    return renderIntoDocument(
+  } = {}) => {
+    return mount(
       <I18nProvider i18n={i18n}>
         <OuterComponent>
           <Component {...componentProps} />
         </OuterComponent>
       </I18nProvider>,
+      InnerComponent,
     );
-  }
+  };
 
   it('pulls i18n from context', () => {
     const i18n = fakeI18n();
@@ -57,22 +55,5 @@ describe(__filename, () => {
     render({ i18n: contextI18n, componentProps: { i18n: propsI18n } });
     sinon.assert.notCalled(contextI18n.gettext);
     sinon.assert.called(propsI18n.gettext);
-  });
-
-  it('throws an exception calling getWrappedInstance without withRef', () => {
-    const Component = translate()(InnerComponent);
-    const root = render({ Component });
-    const wrappedComponent = findRenderedComponentWithType(root, Component);
-    expect(() => {
-      wrappedComponent.getWrappedInstance();
-    }).toThrowError('To access the wrapped instance');
-  });
-
-  it('returns the wrapped instance when using withRef', () => {
-    const Component = translate({ withRef: true })(InnerComponent);
-    const root = render({ Component });
-    const wrappedComponent = findRenderedComponentWithType(root, Component);
-    const component = wrappedComponent.getWrappedInstance();
-    expect(component).toBeInstanceOf(InnerComponent);
   });
 });

@@ -3,7 +3,7 @@ import * as React from 'react';
 import invariant from 'invariant';
 import { connect } from 'react-redux';
 
-import { normalizeFileNameId } from 'core/utils';
+import { getDisplayName, normalizeFileNameId } from 'core/utils';
 import { setUIState } from 'core/reducers/uiState';
 import type { AppState } from 'amo/store';
 
@@ -107,9 +107,9 @@ const withUIState = ({
       }
     }
 
-    const wrappedName =
-      WrappedComponent.displayName || WrappedComponent.name || 'Component';
-    WithUIState.displayName = `WithUIState(${wrappedName})`;
+    WithUIState.displayName = `WithUIState(${getDisplayName(
+      WrappedComponent,
+    )})`;
 
     return connect(
       mapStateToProps,

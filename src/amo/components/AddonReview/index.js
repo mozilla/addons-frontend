@@ -301,7 +301,7 @@ const AddonReview: React.ComponentType<Props> = compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-  translate({ withRef: true }),
+  translate(),
 )(AddonReviewBase);
 
 export default AddonReview;

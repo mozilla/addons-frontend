@@ -164,8 +164,6 @@ export class PaginateBase extends React.Component<InternalProps> {
   }
 }
 
-const Paginate: React.ComponentType<Props> = compose(
-  translate({ withRef: true }),
-)(PaginateBase);
+const Paginate: React.ComponentType<Props> = compose(translate())(PaginateBase);
 
 export default Paginate;

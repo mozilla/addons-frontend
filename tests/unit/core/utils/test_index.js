@@ -1,12 +1,6 @@
 import url from 'url';
 
-import * as React from 'react';
 import config from 'config';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-dom/test-utils';
-import { compose } from 'redux';
 
 import * as api from 'core/api';
 import {
@@ -40,7 +34,6 @@ import {
   normalizeFileNameId,
   refreshAddon,
   removeProtocolFromURL,
-  render404IfConfigKeyIsFalse,
   safePromise,
   sanitizeHTML,
   sanitizeUserHTML,
@@ -48,13 +41,10 @@ import {
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
-import NotFound from 'core/components/ErrorPage/NotFound';
-import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon, loadAddons } from 'core/reducers/addons';
 import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
-  fakeI18n,
   getFakeConfig,
   unexpectedSuccess,
   userAgents,
@@ -570,55 +560,6 @@ describe(__filename, () => {
       expect(trimAndAddProtocolToUrl('https://test.com')).toEqual(
         'https://test.com',
       );
-    });
-  });
-
-  describe('render404IfConfigKeyIsFalse', () => {
-    function render(
-      props = {},
-      {
-        configKey = 'someConfigKey',
-        _config = { get: () => true },
-        SomeComponent = () => <div />,
-      } = {},
-    ) {
-      const WrappedComponent = compose(
-        render404IfConfigKeyIsFalse(configKey, { _config }),
-      )(SomeComponent);
-
-      return renderIntoDocument(
-        <I18nProvider i18n={fakeI18n()}>
-          <WrappedComponent {...props} />
-        </I18nProvider>,
-      );
-    }
-
-    it('requires a config key', () => {
-      expect(() => render404IfConfigKeyIsFalse()).toThrowError(
-        /configKey cannot be empty/,
-      );
-    });
-
-    it('returns a 404 when disabled by the config', () => {
-      const configKey = 'customConfigKey';
-      const _config = {
-        get: sinon.spy(() => false),
-      };
-      const root = render({}, { _config, configKey });
-      const node = findRenderedComponentWithType(root, NotFound);
-
-      expect(node).toBeTruthy();
-      sinon.assert.calledWith(_config.get, configKey);
-    });
-
-    it('passes through component and props when enabled', () => {
-      const _config = { get: () => true };
-      const SomeComponent = sinon.spy(() => <div />);
-      const props = { color: 'orange', size: 'large' };
-
-      render(props, { SomeComponent, _config });
-
-      sinon.assert.calledWith(SomeComponent, props);
     });
   });
 

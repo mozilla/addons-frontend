@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import log from 'core/logger';
-import { getErrorComponent as getErrorComponentDefault } from 'core/utils';
+import { getErrorComponent as getErrorComponentDefault } from 'core/utils/errors';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import type { AppState } from 'amo/store';
 import type { ErrorPageState } from 'core/reducers/errorPage';

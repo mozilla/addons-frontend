@@ -5,7 +5,6 @@ import {
   renderIntoDocument,
 } from 'react-dom/test-utils';
 
-import translate from 'core/i18n/translate';
 import { setAuthToken } from 'core/actions';
 import { createInternalAddon } from 'core/reducers/addons';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
@@ -23,9 +22,10 @@ import * as reviewsApi from 'amo/api/reviews';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
+  RatingManagerBase,
+  RatingManagerWithI18n,
   mapDispatchToProps,
   mapStateToProps,
-  RatingManagerBase,
 } from 'amo/components/RatingManager';
 import {
   fakeAddon,
@@ -33,6 +33,7 @@ import {
   signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
+  createStubErrorHandler,
   createUserAccountResponse,
   fakeI18n,
   fakeRouterLocation,
@@ -53,7 +54,7 @@ describe(__filename, () => {
       ReportAbuseButton: () => <div />,
       addon: createInternalAddon(fakeAddon),
       apiState: signedInApiState,
-      errorHandler: sinon.stub(),
+      errorHandler: createStubErrorHandler(),
       location: fakeRouterLocation({ pathname: '/some/location/' }),
       version: fakeAddon.current_version,
       userId: 91234,
@@ -62,19 +63,19 @@ describe(__filename, () => {
       store,
       ...customProps,
     };
-    const RatingManager = translate({ withRef: true })(RatingManagerBase);
+
     const root = findRenderedComponentWithType(
       renderIntoDocument(
         <I18nProvider i18n={fakeI18n()}>
           <Provider store={props.store}>
-            <RatingManager {...props} />
+            <RatingManagerWithI18n {...props} />
           </Provider>
         </I18nProvider>,
       ),
-      RatingManager,
+      RatingManagerBase,
     );
 
-    return root.getWrappedInstance();
+    return root;
   }
 
   it('prompts you to rate the add-on by name', () => {

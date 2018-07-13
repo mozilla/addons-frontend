@@ -315,12 +315,7 @@ export function mapStateToProps(state, ownProps) {
 
 export default compose(
   withRouter,
-  translate({ withRef: true }),
-  connect(
-    mapStateToProps,
-    undefined,
-    undefined,
-    { withRef: true },
-  ),
+  translate(),
+  connect(mapStateToProps),
   withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
 )(AddonBase);

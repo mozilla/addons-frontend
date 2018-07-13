@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import * as React from 'react';
 
 import log from 'core/logger';
-import { render404IfConfigKeyIsFalse } from 'core/utils';
+import { render404IfConfigKeyIsFalse } from 'core/utils/errors';
 
 export class SimulateSyncErrorBase extends React.Component {
   render() {
