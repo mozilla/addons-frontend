@@ -4,13 +4,7 @@
 @import '~photon-colors/photon-colors';
 
 .StaticPage {
-  margin: $padding-page;
-  margin-top: 0;
-
-  @include respond-to(large) {
-    margin: $padding-page-l;
-    margin-top: 0;
-  }
+  @include page-padding();
 
   .Card-contents li,
   .Card-contents p {

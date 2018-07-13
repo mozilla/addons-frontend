@@ -3,13 +3,7 @@
 @import '~ui/css/vars';
 
 .CollectionList {
-  padding: $padding-page;
-  padding-top: 0;
-
-  @include respond-to(large) {
-    padding: $padding-page-l;
-    padding-top: 0;
-  }
+  @include page-padding();
 
   .Card-contents {
     background: $white;

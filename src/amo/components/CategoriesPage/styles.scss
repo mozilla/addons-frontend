@@ -2,13 +2,7 @@
 @import '~core/css/inc/mixins';
 
 .CategoriesPage {
-  margin: $padding-page;
-  margin-top: 0;
-
-  @include respond-to(large) {
-    margin: $padding-page-l;
-    margin-top: 0;
-  }
+  @include page-padding();
 
   .Categories-item {
     display: block;
