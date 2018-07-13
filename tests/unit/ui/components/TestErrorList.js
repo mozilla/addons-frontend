@@ -3,6 +3,7 @@ import * as React from 'react';
 import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import ErrorList, { ErrorListBase } from 'ui/components/ErrorList';
+import Notice from 'ui/components/Notice';
 
 function render(customProps = {}) {
   const props = {
@@ -24,26 +25,35 @@ describe(__filename, () => {
   it('renders a message', () => {
     const root = render({ messages: ['Some error'] });
 
-    const notice = root.find('Notice');
+    const notice = root.find(Notice);
     expect(notice.prop('type')).toEqual('error');
-    expect(notice.html()).toContain('Some error');
+    expect(notice.childAt(0).text()).toContain('Some error');
   });
 
   it('renders a generic message for errors without a message', () => {
     const root = render({ messages: [] });
-    expect(root.find('Notice').html()).toContain(
-      'An unexpected error occurred',
-    );
+    expect(
+      root
+        .find(Notice)
+        .childAt(0)
+        .text(),
+    ).toContain('An unexpected error occurred');
   });
 
   it('renders all messages', () => {
     const root = render({
       messages: ['One', 'Two', 'Three'],
     });
-    const items = root.find('Notice');
-    expect(items.at(0).html()).toContain('One');
-    expect(items.at(1).html()).toContain('Two');
-    expect(items.at(2).html()).toContain('Three');
+    const items = root.find(Notice);
+    const text = (index) => {
+      return items
+        .at(index)
+        .childAt(0)
+        .text();
+    };
+    expect(text(0)).toContain('One');
+    expect(text(1)).toContain('Two');
+    expect(text(2)).toContain('Three');
   });
 
   it('renders object messages', () => {
@@ -51,7 +61,7 @@ describe(__filename, () => {
     const root = render({ messages: [objectMessage] });
     expect(
       root
-        .find('Notice')
+        .find(Notice)
         .childAt(0)
         .text(),
     ).toEqual(JSON.stringify(objectMessage));
@@ -65,9 +75,9 @@ describe(__filename, () => {
       messages: ['Signature error'],
     });
 
-    const notice = root.find('Notice');
+    const notice = root.find(Notice);
     // Make sure the Signature error message is replaced with a new message.
-    expect(notice.html()).toContain('Your session has expired');
+    expect(notice.childAt(0).text()).toContain('Your session has expired');
 
     expect(notice.prop('actionText')).toEqual('Reload To Continue');
     expect(notice.prop('actionOnClick')).toBeDefined();
