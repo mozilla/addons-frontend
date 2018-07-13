@@ -145,4 +145,10 @@ describe(__filename, () => {
       /id property must be defined/,
     );
   });
+
+  it('sets a uiStateID based on ID prop', () => {
+    const id = 'notice-id';
+    const root = render({ dismissible: true, id });
+    expect(root.instance().props.uiStateID).toContain(id);
+  });
 });
