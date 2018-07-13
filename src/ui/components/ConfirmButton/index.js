@@ -3,7 +3,6 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
 import Button from 'ui/components/Button';
@@ -117,16 +116,11 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: Props) => {
-  return `confirmButton-${ownProps.className || ''}`;
-};
-
 const ConfirmButton: React.ComponentType<Props> = compose(
   translate(),
-  withFixedErrorHandler({ fileName: __filename, extractId }),
   withUIState({
     fileName: __filename,
-    extractId,
+    extractId: () => '',
     initialState: initialUIState,
   }),
 )(ConfirmButtonBase);
