@@ -3,6 +3,12 @@
 
 .CategoriesPage {
   margin: $padding-page;
+  margin-top: 0;
+
+  @include respond-to(large) {
+    margin: $padding-page-l;
+    margin-top: 0;
+  }
 
   .Categories-item {
     display: block;
@@ -11,9 +17,5 @@
   .Categories-loading-text {
     display: block;
     margin: 0 0 5px;
-  }
-
-  @include respond-to(large) {
-    margin: $padding-page-l;
   }
 }

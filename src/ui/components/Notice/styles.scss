@@ -105,7 +105,7 @@
       $background: $blue-60,
       $background-active: $blue-80,
       $background-hover: $blue-70,
-      $color: $grey-90
+      $color: $white
     );
     @include notice_button();
   }

@@ -4,9 +4,11 @@
 
 .Addon {
   padding: $padding-page;
+  padding-top: 0;
 
   @include respond-to(large) {
     padding: $padding-page-l;
+    padding-top: 0;
   }
 
   .Addon-summary-and-install-button-wrapper {

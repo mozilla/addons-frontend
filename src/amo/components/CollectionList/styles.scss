@@ -4,9 +4,11 @@
 
 .CollectionList {
   padding: $padding-page;
+  padding-top: 0;
 
   @include respond-to(large) {
     padding: $padding-page-l;
+    padding-top: 0;
   }
 
   .Card-contents {
@@ -29,7 +31,7 @@
     grid-auto-flow: column dense;
     grid-gap: 0 $padding-page-l;
     grid-template-columns: minmax(300px, 35%) 1fr;
-    margin: 10px 0 0;
+    margin: 0;
 
     .CollectionList-list.CardList {
       margin: 0;

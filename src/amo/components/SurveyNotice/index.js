@@ -6,11 +6,6 @@ import translate from 'core/i18n/translate';
 import Notice from 'ui/components/Notice';
 import type { I18nType } from 'core/types/i18n';
 
-// TODO: implement the logic and layout/placement for this component.
-// See https://github.com/mozilla/addons-frontend/issues/5438
-//
-// This is just a placeholder to get an early start on the localizations needed.
-
 type Props = {||};
 
 type InternalProps = {|
@@ -24,7 +19,9 @@ export const SurveyNoticeBase = (props: InternalProps) => {
     <Notice
       actionHref="https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey"
       actionText={i18n.gettext('Take short survey')}
+      className="SurveyNotice"
       dismissible
+      id="amo-experience-survey"
       type="generic"
     >
       {i18n.gettext(

@@ -10,6 +10,7 @@ import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
 import SearchForm from 'amo/components/SearchForm';
+import SurveyNotice from 'amo/components/SurveyNotice';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
@@ -228,6 +229,9 @@ export class AppBase extends React.Component<Props> {
           <div className="App-content">
             <div className="App-content-wrapper">
               <ErrorPage getErrorComponent={getErrorComponent}>
+                <div className="App-banner">
+                  <SurveyNotice />
+                </div>
                 {children}
               </ErrorPage>
             </div>

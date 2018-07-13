@@ -8,6 +8,7 @@
     grid-gap: $padding-page-l;
     grid-template-columns: minmax(300px, 35%) 1fr;
     padding: $padding-page-l;
+    padding-top: 0;
   }
 
   .Card {
