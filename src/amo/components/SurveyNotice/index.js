@@ -11,12 +11,12 @@ import type { I18nType } from 'core/types/i18n';
 //
 // This is just a placeholder to get an early start on the localizations needed.
 
-type Props = {};
+type Props = {||};
 
-type InternalProps = {
+type InternalProps = {|
   ...Props,
   i18n: I18nType,
-};
+|};
 
 const SurveyNoticeBase = (props: InternalProps) => {
   const { i18n } = props;
