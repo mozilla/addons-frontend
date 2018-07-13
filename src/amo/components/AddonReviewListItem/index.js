@@ -270,7 +270,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
     );
 
     return (
-      <UserReview review={review} byLine={byLine} isReply={isReply}>
+      <UserReview review={review} byLine={byLine} showRating={isReply}>
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}
       </UserReview>

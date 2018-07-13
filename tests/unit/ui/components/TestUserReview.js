@@ -73,7 +73,7 @@ describe(__filename, () => {
   });
 
   it('hides ratings for replies', () => {
-    const root = render({ isReply: true });
+    const root = render({ showRating: true });
     expect(root.find(UserRating)).toHaveLength(0);
   });
 });

@@ -11,7 +11,7 @@ import './styles.scss';
 type Props = {|
   byLine: React.Node | null,
   children?: React.Node,
-  isReply?: boolean,
+  showRating?: boolean,
   review: ?UserReviewType,
 |};
 
@@ -19,7 +19,7 @@ const UserReview: React.ComponentType<Props> = ({
   byLine,
   children,
   review,
-  isReply = false,
+  showRating = false,
 }: Props) => {
   let body = (
     <p className="UserReview-body">
@@ -41,7 +41,7 @@ const UserReview: React.ComponentType<Props> = ({
     <div className="UserReview">
       {body}
       <div className="UserReview-byLine">
-        {review && !isReply ? (
+        {review && !showRating ? (
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
         {byLine}
