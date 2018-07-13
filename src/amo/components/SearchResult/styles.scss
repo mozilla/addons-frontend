@@ -152,8 +152,7 @@
 
 .SearchResult-author {
   display: none;
-  overflow: auto;
-  word-wrap: break-word;
+  word-break: break-all;
 
   @include respond-to(medium) {
     display: block;
