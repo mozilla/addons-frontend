@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 18:11+0000\n"
+"PO-Revision-Date: 2018-07-14 18:18+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1145,15 +1145,15 @@ msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
-msgstr ""
+msgstr "Генерите коды двухшаговой верификации прямо в Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "Узнайте подробную информацию о каждом посещаемом вами веб-сайте — IP-адрес, местоположение, хостинг и другое"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "uBlock Origin"
@@ -1181,11 +1181,11 @@ msgstr "Разделите разные части вашей онлайн-жи�
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Отображение изображений на прозрачном фоне"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
@@ -1193,19 +1193,19 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Насладитесь великолепной страницей новой вкладки с настраиваемым фоном, информацией о местной погоде и другим"
 
 #: src/amo/components/HomeHeroBanner/index.js:90
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:93
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
-msgstr ""
+msgstr "Поместите кнопку «Поделиться» в социальных сетях на панель инструментов Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "Посмотреть архив и кэш страницы"
 
 #: src/amo/components/LandingPage/index.js:225
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1922,21 +1922,19 @@ msgstr "Домашняя страница дополнений"
 
 #: src/amo/components/SurveyNotice/index.js:26
 msgid "Take short survey"
-msgstr ""
+msgstr "Пройти короткий опрос"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:205
-#, fuzzy
 msgid "My reviews"
-msgstr "Отзывов"
+msgstr "Мои отзывы"
 
 #: src/amo/components/UserProfile/index.js:224
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "%(total)s отзыв на это дополнение"
+msgstr "Просмотреть отзывы на это дополнение"
 
 #: src/amo/components/UserProfile/index.js:269
 msgid "Add-ons developer"
