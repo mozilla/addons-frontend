@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-13 20:53+0000\n"
+"PO-Revision-Date: 2018-07-14 19:04+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -557,11 +557,11 @@ msgstr "Parcourir tous les thèmes dans cette catégorie."
 
 #: src/amo/components/Collection/index.js:162
 msgid "Newest first"
-msgstr ""
+msgstr "Les plus récents d’abord"
 
 #: src/amo/components/Collection/index.js:166
 msgid "Oldest first"
-msgstr ""
+msgstr "Les plus anciens d’abord"
 
 #: src/amo/components/Collection/index.js:170
 msgid "Name"
@@ -1075,7 +1075,7 @@ msgstr "Politique de confidentialité"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Protégez-vous contre les traqueurs les plus insidieux"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Page Translate"
@@ -1087,11 +1087,11 @@ msgstr "Traduisez une page web entière en simplement deux clics"
 
 #: src/amo/components/HomeHeroBanner/index.js:118
 msgid "Textmarker"
-msgstr ""
+msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Surligneur de texte complètement personnalisable"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Forget Me Not"
@@ -1111,7 +1111,7 @@ msgstr "Des marque-pages visuels pour vos sites préférés"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:141
 msgid "Give your favorite websites a new look"
@@ -1127,7 +1127,7 @@ msgstr "Empêche Facebook de vous pister sur le Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "Midnight Lizard"
-msgstr ""
+msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Give the entire internet a new look"
@@ -1918,7 +1918,7 @@ msgstr "Page d’accueil des modules"
 
 #: src/amo/components/SurveyNotice/index.js:26
 msgid "Take short survey"
-msgstr ""
+msgstr "Participer à l’enquête"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
@@ -2329,7 +2329,7 @@ msgstr "Accéder à vos données pour %(param)s"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Cacher ce message"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
