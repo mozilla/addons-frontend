@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 21:20+0000\n"
+"PO-Revision-Date: 2018-07-14 21:29+0000\n"
 "Last-Translator: Uccen Marzuq <merzouk.ouchene@laposte.net>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1179,7 +1179,7 @@ msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Agemmuḍ n tugna deg igilalen ifrawanen"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
@@ -1893,11 +1893,11 @@ msgstr "Asebter agejdan n uzegrir"
 
 #: src/amo/components/SurveyNotice/index.js:26
 msgid "Take short survey"
-msgstr ""
+msgstr "Ekki deg uḥetc"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Tanemirt ɣef tirza-inek ɣer usmel-agi! Ttxil-k fkaɣ dqiqa naɣ snat iwakken ad d-tefkeḍ awal i Firefox ɣef tirmi-ik"
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2297,7 +2297,7 @@ msgstr "Kcem ɣer isefka-ik i %S"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Fer izen-agi"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
