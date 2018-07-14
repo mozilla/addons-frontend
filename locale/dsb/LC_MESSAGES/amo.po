@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 11:30+0000\n"
+"PO-Revision-Date: 2018-07-14 11:39+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1077,7 +1077,7 @@ msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Šćitajśo se pśeśiwo zakśebjatnym pśeslědowakam"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Page Translate"
@@ -1936,7 +1936,7 @@ msgstr "Na krotkem napšašowanju se wobźěliś"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Źěkujomy se za waš woglěd na toś tom websedle! Bjerśo se někotare minuty casa, aby wó swójom dožywjenju z Firefox wulicował."
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2340,7 +2340,7 @@ msgstr "Mějśo pśistup na swóje daty za %(param)s"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Toś ten pokaz zachyśiś"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
