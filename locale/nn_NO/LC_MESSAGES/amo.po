@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 09:51+0000\n"
+"PO-Revision-Date: 2018-07-14 09:52+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1034,9 +1034,8 @@ msgid "Social media customization"
 msgstr "Tilpassing av sosiale medium"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Vis fleire Wikipedia-boosters"
+msgstr "Vis fleire dynamiske nedlastingsverktøy"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
