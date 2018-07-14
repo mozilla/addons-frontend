@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 18:02+0000\n"
+"PO-Revision-Date: 2018-07-14 18:11+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -625,22 +625,19 @@ msgstr "Войдите, чтобы просмотреть свои подбор�
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Подборки позволяют легко отслеживать любимые дополнения и поделиться с другими вашим прекрасно настроенным браузером."
 
 #: src/amo/components/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
 msgstr "Создать подборку"
 
 #: src/amo/components/CollectionList/index.js:64
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Войдите, чтобы создать подборку"
+msgstr "У вас нет подборок."
 
 #: src/amo/components/CollectionList/index.js:97
-#, fuzzy
 msgid "My collections"
-msgstr "Посмотреть мои подборки"
+msgstr "Мои подборки"
 
 #: src/amo/components/CollectionManager/index.js:335
 msgid "Create collection"
@@ -1043,46 +1040,40 @@ msgid "Social media customization"
 msgstr "Настройка социальных сетей"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Загрузчики медиа"
+msgstr "Больше динамичных загрузчиков"
 
 #: src/amo/components/Home/index.js:58
-#, fuzzy
 msgid "Dynamic downloaders"
-msgstr "Загрузчики медиа"
+msgstr "Динамичные загрузчики"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "Больше популярных тем"
+msgstr "Больше летних тем"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "Популярные темы"
+msgstr "Летние темы"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "Больше набирающих популярность расширений"
+msgstr "Больше популярнейших медиа расширений"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
-msgstr ""
+msgstr "Популярнейшие медиа расширения"
 
 #: src/amo/components/HomeHeroBanner/index.js:101
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "Мощный способ поиска архивных версий старых веб-страниц"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Политика приватности"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Защитите себя от самых пронырливых трекеров"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Page Translate"
@@ -1094,11 +1085,11 @@ msgstr "Переведите всю веб-страницу с помощью п
 
 #: src/amo/components/HomeHeroBanner/index.js:118
 msgid "Textmarker"
-msgstr ""
+msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Гибко настраиваемое выделение текста"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Forget Me Not"
@@ -1106,7 +1097,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Заставьте Firefox забыть данные веб-сайтов, такие как куки и локальное хранилище"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Group Speed Dial"
@@ -1118,11 +1109,11 @@ msgstr "Визуальные закладки для ваших любимых �
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:141
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "Придайте новый вид вашим любимым веб-сайтам"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1134,11 +1125,11 @@ msgstr "Запретите Фейсбуку отслеживать вас по �
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "Midnight Lizard"
-msgstr ""
+msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Give the entire internet a new look"
-msgstr ""
+msgstr "Придайте новый вид всему Интернету"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Turbo Download Manager"
@@ -1146,11 +1137,11 @@ msgstr "Turbo Download Manager"
 
 #: src/amo/components/HomeHeroBanner/index.js:37
 msgid "Increase download speeds with multi-threading support"
-msgstr ""
+msgstr "Увеличьте скорость загрузки добавив поддержку многопоточности"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Authenticator"
-msgstr ""
+msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
