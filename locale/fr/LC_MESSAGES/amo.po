@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 19:04+0000\n"
+"PO-Revision-Date: 2018-07-14 22:15+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1046,14 +1046,12 @@ msgid "Dynamic downloaders"
 msgstr "Utilitaires multimédia"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "Voir plus de thèmes populaires"
+msgstr "Voir plus de thèmes de l’été"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "Thèmes populaires"
+msgstr "Thèmes de l’été"
 
 #: src/amo/components/Home/index.js:67
 #, fuzzy
@@ -1143,7 +1141,7 @@ msgstr "Augmentez la vitesse de téléchargement avec la prise en charge du mult
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Authenticator"
-msgstr ""
+msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
