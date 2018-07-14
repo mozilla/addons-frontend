@@ -15,7 +15,7 @@ import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
-describe('<Categories />', () => {
+describe(__filename, () => {
   let store;
 
   beforeEach(() => {

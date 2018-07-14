@@ -5,7 +5,7 @@ import ReviewGuide, {
 } from 'amo/components/StaticPages/ReviewGuide';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-describe('ReviewGuide', () => {
+describe(__filename, () => {
   function render() {
     return shallowUntilTarget(
       <ReviewGuide i18n={fakeI18n()} />,

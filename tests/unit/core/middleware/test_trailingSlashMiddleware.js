@@ -1,6 +1,6 @@
 import { trailingSlashesMiddleware } from 'core/middleware';
 
-describe('Trailing Slashes Middleware', () => {
+describe(__filename, () => {
   let fakeRes;
   let fakeNext;
   let fakeConfig;

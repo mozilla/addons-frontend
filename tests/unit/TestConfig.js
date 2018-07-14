@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 
-describe('Config Environment Variables', () => {
+describe(__filename, () => {
   beforeEach(() => {
     jest.resetModules();
   });

@@ -8,7 +8,7 @@ import { findDOMNode } from 'react-dom';
 import Overlay from 'ui/components/Overlay';
 import OverlayCard from 'ui/components/OverlayCard';
 
-describe('<OverlayCard />', () => {
+describe(__filename, () => {
   function render(props = {}) {
     return renderIntoDocument(<OverlayCard {...props} />);
   }

@@ -9,7 +9,7 @@ import {
   userAuthToken,
 } from 'tests/unit/helpers';
 
-describe('api reducer', () => {
+describe(__filename, () => {
   it('maintains the old state', () => {
     const state = { some: 'state' };
     expect(api(state, { type: 'UNRELATED' })).toBe(state);

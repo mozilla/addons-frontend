@@ -7,7 +7,7 @@ import tmp from 'tmp';
 
 import SriDataPlugin from 'core/server/sriDataPlugin';
 
-describe('SriDataPlugin', () => {
+describe(__filename, () => {
   let distDir;
   let srcDir;
   let tempDir;

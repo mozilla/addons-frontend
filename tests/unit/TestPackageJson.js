@@ -15,7 +15,7 @@ const packageJson = JSON.parse(
                               with the exact same version */
 const skipDevDeps = ['postcss-loader', 'prettier', 'pretty-quick'];
 
-describe('Package JSON', () => {
+describe(__filename, () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {
     it(`should have devDependencies[${key}] version prefixed with "^"`, () => {
       if (!skipDevDeps.includes(key)) {

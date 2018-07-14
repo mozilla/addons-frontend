@@ -3,7 +3,7 @@
 import getInstallData from 'disco/tracking';
 import { DISCO_DATA_UNKNOWN } from 'disco/constants';
 
-describe('disco pane install tracking data', () => {
+describe(__filename, () => {
   function getFakeWindow(hash) {
     return {
       decodeURIComponent: window.decodeURIComponent,

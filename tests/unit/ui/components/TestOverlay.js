@@ -3,7 +3,7 @@ import { renderIntoDocument, Simulate } from 'react-dom/test-utils';
 
 import Overlay from 'ui/components/Overlay';
 
-describe('<Overlay />', () => {
+describe(__filename, () => {
   function render(props = {}) {
     return renderIntoDocument(<Overlay {...props} />);
   }

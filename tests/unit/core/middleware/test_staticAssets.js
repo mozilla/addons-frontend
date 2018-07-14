@@ -3,7 +3,7 @@ import config from 'config';
 
 import { serveAssetsLocally } from 'core/middleware';
 
-describe('Static Assets Middleware', () => {
+describe(__filename, () => {
   it('calls Express.static', () => {
     const expressStub = sinon.stub(Express, 'static');
     sinon

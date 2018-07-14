@@ -4,7 +4,7 @@ import MockExpressResponse from 'mock-express-response';
 import log from 'core/logger';
 import { logRequests } from 'core/middleware';
 
-describe('logRequest Middleware', () => {
+describe(__filename, () => {
   it('logs requests', () => {
     const middleware = logRequests;
     const req = new MockExpressRequest();

@@ -14,7 +14,7 @@ const apiHosts = {
   production: 'https://addons.mozilla.org',
 };
 
-describe('CSP Config Defaults', () => {
+describe(__filename, () => {
   const existingNodeEnv = process.env.NODE_ENV;
 
   afterEach(() => {
