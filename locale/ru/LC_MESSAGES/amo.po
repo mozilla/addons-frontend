@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 18:29+0000\n"
+"PO-Revision-Date: 2018-07-14 18:35+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -2122,10 +2122,12 @@ msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sПРИМЕЧАНИЕ:%(strongEnd)s Вы не можете удалить свой аккаунт, если вы являетесь автором %(linkStart)sкакого-либо дополнения%(linkEnd)s. Чтобы удалить свой аккаунт, вы должны сначала "
+"%(docLinkStart)sсменить их владельца%(docLinkEnd)s или удалить дополнения перед удалением своего аккаунта."
 
 #: src/amo/components/UserProfileEdit/index.js:797
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sПРИМЕЧАНИЕ:%(strongEnd)s Вы не можете удалить аккаунт пользователя, если он является %(linkStart)sавтором каких-либо дополнений%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
