@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 18:18+0000\n"
+"PO-Revision-Date: 2018-07-14 18:29+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1926,7 +1926,7 @@ msgstr "Пройти короткий опрос"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Спасибо, что посетили этот сайт! Пожалуйста, уделите нам минутку или две, чтобы рассказать о своих впечатлениях при работе с Firefox."
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2018,7 +2018,7 @@ msgstr "Вы можете изменить свой адрес электрон�
 
 #: src/amo/components/UserProfileEdit/index.js:544
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "Управление Аккаунтами Firefox..."
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -2070,53 +2070,52 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla оставляет за собой право связаться с вами лично, в случае, если возникнут вопросы по размещенным вами дополнениям."
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Обновление вашего профиля…"
+msgstr "Обновление вашего аккаунта…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
 msgid "Update My Account"
-msgstr "Моя учётная запись"
+msgstr "Обновить мой аккаунт"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Обновление профиля пользователя…"
+msgstr "Обновление этого аккаунта…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
 msgid "Update This Account"
-msgstr ""
+msgstr "Обновить этот аккаунт"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:824
-#, fuzzy
 msgid "Delete My Account"
-msgstr "Моя учётная запись"
+msgstr "Удалить мой аккаунт"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:825
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Удалить эту подборку"
+msgstr "Удалить этот аккаунт"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "ВНИМАНИЕ: Удаление вашего аккаунта является необратимым."
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "ВНИМАНИЕ: Удаление этого аккаунта является необратимым."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"Ваши данные будут навсегда удалены, включая данные профиля (изображение, имя пользователя, отображаемое имя, местоположение, домашняя страница, биография, профессия) и настройки уведомлений. Ваши "
+"отзывы и рейтинги станут анонимными и нередактируемыми."
 
 #: src/amo/components/UserProfileEdit/index.js:777
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"Данные пользователя будут навсегда удалены, включая данные профиля (изображение, имя пользователя, отображаемое имя, местоположение, домашняя страница, биография, профессия) и настройки уведомлений."
+" Отзывы и рейтинги станут анонимными и нередактируемыми."
 
 #: src/amo/components/UserProfileEdit/index.js:790
 msgid ""
@@ -2177,16 +2176,14 @@ msgid "Profile photo"
 msgstr "Фото профиля"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Выберите фото..."
+msgstr "Выберите фото…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Вы действительно хотите удалить эту картинку?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "Удалить это изображение"
 
@@ -2330,7 +2327,7 @@ msgstr "Получать доступ к вашим данных на %(param)s"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Скрыть это уведомление"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
@@ -2353,12 +2350,11 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Разверните, чтобы</span> прочитать больше"
 
 #: src/ui/components/UserCollection/index.js:52
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "найдено %(count)s дополнение"
-msgstr[1] "найдено %(count)s дополнения"
-msgstr[2] "найдено %(count)s дополнений"
+msgstr[0] "%(total)s дополнение"
+msgstr[1] "%(total)s дополнения"
+msgstr[2] "%(total)s дополнений"
 
 #~ msgid "Cancel preview"
 #~ msgstr "Отменить предпросмотр"
