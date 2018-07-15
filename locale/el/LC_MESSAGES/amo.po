@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-15 20:48+0000\n"
+"PO-Revision-Date: 2018-07-15 21:53+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -278,9 +278,8 @@ msgid "Other popular extensions"
 msgstr "Άλλες δημοφιλείς επεκτάσεις"
 
 #: src/amo/components/AddonReview/index.js:200
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Πείτε στον κόσμο γιατί θεωρείτε ότι αυτή η επέκταση είναι φανταστική!"
+msgstr "Πείτε στον κόσμο γιατί θεωρείτε ότι αυτή η επέκταση είναι φανταστική! Παρακαλούμε ακολουθήστε τις %(linkStart)sοδηγίες αξιολόγησής%(linkEnd)s μας."
 
 #: src/amo/components/AddonReview/index.js:204
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -572,9 +571,8 @@ msgid "Name"
 msgstr ""
 
 #: src/amo/components/Collection/index.js:174
-#, fuzzy
 msgid "Popularity"
-msgstr "Δημοφιλή θέματα"
+msgstr "Δημοτικότητα"
 
 #: src/amo/components/Collection/index.js:283
 msgid "Edit this collection"
@@ -613,9 +611,8 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr "Αναζητήστε επεκτάσεις και θέματα για να προσθέσετε στη συλλογή σας."
 
 #: src/amo/components/Collection/index.js:507
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Πιο υψηλά βαθμολογημένα πρόσθετα"
+msgstr "Ταξινόμηση προσθέτων κατά"
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
@@ -706,14 +703,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:60
-#, fuzzy
 msgid "Support this author"
-msgstr "Ιστοσελίδα υποστήριξης"
+msgstr "Υποστήριξη δημιουργού"
 
 #: src/amo/components/ContributeCard/index.js:61
-#, fuzzy
 msgid "Support these authors"
-msgstr "Ιστοσελίδα υποστήριξης"
+msgstr "Υποστήριξη δημιουργών"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -1040,28 +1035,24 @@ msgid "See more social media customization extensions"
 msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
 
 #: src/amo/components/Home/index.js:53
-#, fuzzy
 msgid "Social media customization"
-msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
+msgstr "Προσαρμογή μέσων κοινωνικής δικτύωσης"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Προτεινόμενα θέματα"
+msgstr "Δείτε περισσότερες δυναμικές εφαρμογές λήψεων"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
 msgstr ""
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "Δημοφιλέστερα θέματα"
+msgstr "Δείτε περισσότερα καλοκαιρινά θέματα"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "Δημοφιλή θέματα"
+msgstr "Καλοκαιρινά θέματα"
 
 #: src/amo/components/Home/index.js:67
 #, fuzzy
@@ -1077,9 +1068,8 @@ msgid "A powerful way to find archived versions of older web pages"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Πολιτική απορρήτου"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
@@ -1906,14 +1896,12 @@ msgid "Thanks for visiting this site! Please take a minute or two to tell Firefo
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:205
-#, fuzzy
 msgid "My reviews"
-msgstr "Κριτικές"
+msgstr "Οι αξιολογήσεις μου"
 
 #: src/amo/components/UserProfile/index.js:224
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "%(total)s κριτική για το πρόσθετο"
+msgstr "Περιήγηση στις αξιολογήσεις αυτού του προσθέτου"
 
 #: src/amo/components/UserProfile/index.js:269
 msgid "Add-ons developer"
@@ -2048,33 +2036,28 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your account…"
-msgstr "Ενημέρωση του προφίλ σας…"
+msgstr "Ενημέρωση του λογαριασμού σας…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
 msgid "Update My Account"
-msgstr "Ο λογαριασμός μου"
+msgstr "Ενημέρωση λογαριασμού"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating this account…"
-msgstr "Ενημέρωση προφίλ χρήστη…"
+msgstr "Ενημέρωση λογαριασμού…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
 msgid "Update This Account"
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:824
-#, fuzzy
 msgid "Delete My Account"
-msgstr "Ο λογαριασμός μου"
+msgstr "Διαγραφή λογαριασμού"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:825
-#, fuzzy
 msgid "Delete This Account"
-msgstr "Διαγραφή συλλογής"
+msgstr "Διαγραφή λογαριασμού"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your account is irreversible."
@@ -2155,16 +2138,14 @@ msgid "Profile photo"
 msgstr "Φωτογραφία προφίλ"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Επιλογή φωτογραφίας..."
+msgstr "Επιλογή φωτογραφίας…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
 msgstr "Θέλετε πραγματικά να διαγράψετε αυτή την εικόνα;"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "Διαγραφή εικόνας"
 
