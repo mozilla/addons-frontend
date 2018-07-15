@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-13 14:59+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2018-07-14 10:10+0000\n"
+"Last-Translator: Giorgio Romano <ascotwork@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1915,11 +1915,11 @@ msgstr "Pagina iniziale componenti aggiuntivi"
 
 #: src/amo/components/SurveyNotice/index.js:26
 msgid "Take short survey"
-msgstr ""
+msgstr "Rispondi ad un breve sondaggio"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Grazie per aver visitato questo sito. Ti chiediamo un minuto o due per raccontarci la tua esperienza con Firefox."
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2321,7 +2321,7 @@ msgstr "Accedere ai dati utente di %(param)s"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Chiudi questo avviso"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
