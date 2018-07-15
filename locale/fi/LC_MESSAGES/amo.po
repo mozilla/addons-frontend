@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-15 17:09+0000\n"
+"PO-Revision-Date: 2018-07-15 17:17+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1290,7 +1290,7 @@ msgstr "Vie tietoja leikepöydälle"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Laajenna web-työkaluita käyttämään avoimissa välilehdissä olevia tietoja"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Download files and read and modify the browser’s download history"
@@ -1350,7 +1350,7 @@ msgstr "Piilota ja näytä selaimen välilehtiä"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Tallenna rajoittamaton määrä tietoja selaimeen"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
@@ -1612,9 +1612,8 @@ msgid "No theme preview available"
 msgstr "Teeman esikatselua ei ole saatavilla"
 
 #: src/amo/components/SearchResult/index.js:144
-#, fuzzy
 msgid "Add-on note"
-msgstr "Lisäosan kuvake"
+msgstr ""
 
 #: src/amo/components/SearchResult/index.js:162
 msgid "%(total)s user"
@@ -1700,7 +1699,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:197
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sTietoa yhteydenottamisesta Mozillan lisäosatiimiin%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:23 src/amo/components/StaticPages/About.js:26
 msgid "About Firefox Add-ons"
@@ -1757,11 +1756,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:102
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Sisällytä omaasi tai kenenkään muun sähköpostiosoitetta, puhelinnumeroa tai muita henkilötietoja."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:107
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Arvioi lisäosia, joiden tekemiseen sinä tai edustamasi organisaatio on osallistunut millään tavalla."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:112
 msgid ""
@@ -1789,7 +1788,7 @@ msgstr "Olen lisäosan tekijä, voinko vastata arvioihin?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:138
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Kyllä, lisäosien tekijät voivat antaa yksittäisen vastauksen arvioon. Aiheeseen liittyvää lisäkeskustelua on mahdollista käydä %(startLink)skeskustelualueella%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:152
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1810,6 +1809,7 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Lisäosiin kohdistuvat arviot ovat tapa jakaa mielipiteitä asentamistasi ja käyttämistäsi lisäosista. Moderointitiimimme varaa oikeuden estää tai poistaa minkä tahansa ohjeistuksen vastaisen arvion."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:34
 msgid "Tips for writing a great review"
@@ -1817,19 +1817,19 @@ msgstr "Vinkkejä sisällöllisesti hyvän arvion kirjoittamiseen"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:35
 msgid "Do:"
-msgstr ""
+msgstr "Suositeltavia asioita:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Kirjoita kuten kertoisit lisäosasta kavereillesi."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Pidä arviot lyhyinä, ytimekkäinä ja helposti ymmärrettävinä."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Kerro yksittäisistä ja hyödyllisistä yksityiskohdista. Esimerkiksi:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:51
 msgid "Did the add-on work as you expected it to?"
@@ -1853,7 +1853,7 @@ msgstr "Jatkatko tämän lisäosan käyttämistä?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Ennen kuin lähetät arvion, lue arviosi läpi ajatuksella ja korjaa mahdolliset kirjoitusvirheet."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:69
 msgid "Don't:"
@@ -1868,6 +1868,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Lähetä ilmoituksia teknisistä ongelmista, tukipyyntöjä tai ominaisuuspyyntöjä. Käytä lisäosan saatavilla olevia tukikanavia. Ne ovat näkyvissä yksittäisen lisäosan sivulla sivupalkissa kohdassa "
+"”Lisätietoja”."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "Write reviews for add-ons which you have not personally used."
@@ -1875,7 +1877,7 @@ msgstr "Kirjoita arvioita lisäosista, joita et ole itse käyttänyt."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:87
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Käytä kirosanoja, seksuaalisia viittauksia tai ”vihapuheeseen” verrattavaa kieltä."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:92
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
@@ -1883,7 +1885,7 @@ msgstr "Sisällytä HTML:ää, linkkejä, lähdekoodia tai koodipätkiä. Arvioi
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Kerro valheita, pilkkaa lisäosien tekijöitä tai esitä henkilökohtaisia loukkauksia."
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -1918,9 +1920,8 @@ msgid "Browse the reviews for this add-on"
 msgstr "Selaa tämän lisäosan arvioita"
 
 #: src/amo/components/UserProfile/index.js:269
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Näiden käyttäjien lisäosat"
+msgstr ""
 
 #: src/amo/components/UserProfile/index.js:275
 msgid "Theme artist"
@@ -2012,7 +2013,7 @@ msgstr "Kerro muille tietoja itsestäsi. Nämä kentät ovat valinnaisia, mutta 
 
 #: src/amo/components/UserProfileEdit/index.js:562
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Kerro muille käyttäjille hieman lisää tästä käyttäjästä. Nämä kentät ovat valinnaisia, mutta niiden avulla muut käyttäjät oppivat tuntemaan käyttäjän %(username)s aiempaa paremmin."
 
 #: src/amo/components/UserProfileEdit/index.js:572
 msgid "Display Name"
@@ -2040,11 +2041,12 @@ msgstr "Ilmoitukset"
 
 #: src/amo/components/UserProfileEdit/index.js:693
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Ajoittain Mozilla saattaa lähettää sähköpostia tulevista julkaisuista ja lisäosiin liittyvistä tapahtumista. Valitse sinua kiinnostavat aihealueet."
 
 #: src/amo/components/UserProfileEdit/index.js:698
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Ajoittain Mozilla saattaa lähettää tälle käyttäjälle sähköpostia tulevista julkaisuista ja lisäosiin liittyvistä tapahtumista. Valitse kyseistä käyttäjää mahdollisesti kiinnostavat aihealueet."
 
 #: src/amo/components/UserProfileEdit/index.js:713
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
