@@ -735,8 +735,8 @@ describe(__filename, () => {
 
     expect(root.find('.AddonDescription')).toHaveLength(1);
 
-    expect(root.find('.AddonDescription-contents').html()).toContain(
-      description,
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${description}</div>`,
     );
   });
 
@@ -766,7 +766,9 @@ describe(__filename, () => {
 
     expect(root.find('.AddonDescription')).toHaveLength(1);
 
-    expect(root.find('.AddonDescription-contents').html()).toContain(summary);
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${summary}</div>`,
+    );
   });
 
   it("displays an extension's description on the show more card if there are both description and summary", () => {
