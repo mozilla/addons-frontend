@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -14,7 +15,6 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
 import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -248,7 +248,12 @@ export class AddonReviewListBase extends React.Component<Props> {
       ) : null;
 
     return (
-      <div className="AddonReviewList">
+      <div
+        className={makeClassName(
+          'AddonReviewList',
+          `AddonReviewList--${addon && addon.type}`,
+        )}
+      >
         {addon && (
           <Helmet>
             <title>{header}</title>
@@ -259,16 +264,13 @@ export class AddonReviewListBase extends React.Component<Props> {
 
         <Card className="AddonReviewList-addon">
           <div className="AddonReviewList-header">
-            {addon &&
-              addon.type !== ADDON_TYPE_STATIC_THEME && (
-                <div className="AddonReviewList-header-icon">
-                  {addon ? (
-                    <Link to={this.addonURL()}>{iconImage}</Link>
-                  ) : (
-                    iconImage
-                  )}
-                </div>
+            <div className="AddonReviewList-header-icon">
+              {addon ? (
+                <Link to={this.addonURL()}>{iconImage}</Link>
+              ) : (
+                iconImage
               )}
+            </div>
             <div className="AddonReviewList-header-text">
               <h1 className="visually-hidden">{header}</h1>
               <h2 className="AddonReviewList-header-addonName">{addonName}</h2>

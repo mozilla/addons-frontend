@@ -53,6 +53,10 @@
   align-items: center;
   display: flex;
   height: 36px;
+
+  .AddonReviewList--statictheme & {
+    display: none;
+  }
 }
 
 .AddonReviewList-header-text {

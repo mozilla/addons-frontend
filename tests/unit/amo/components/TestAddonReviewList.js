@@ -125,6 +125,9 @@ describe(__filename, () => {
     it('waits for an addon and reviews to load', () => {
       const location = fakeRouterLocation();
       const root = render({ addon: null, location });
+      expect(root.find('.AddonReviewList-header-icon img').prop('src')).toEqual(
+        fallbackIcon,
+      );
       expect(
         root.find('.AddonReviewList-header-text').find(LoadingText),
       ).toHaveLength(3);
@@ -466,15 +469,17 @@ describe(__filename, () => {
       expect(img).toHaveProp('src', addon.icon_url);
     });
 
-    it('does not render a static theme icon in the header', () => {
+    it('renders a class name with its type', () => {
       const addon = {
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
       };
       dispatchAddon(addon);
       const root = render();
-      const img = root.find('.AddonReviewList-header-icon img');
-      expect(img).toHaveLength(0);
+
+      expect(root).toHaveClassName(
+        `AddonReviewList--${ADDON_TYPE_STATIC_THEME}`,
+      );
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {
