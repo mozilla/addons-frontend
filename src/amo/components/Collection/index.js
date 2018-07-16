@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
@@ -40,12 +41,8 @@ import {
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { sanitizeHTML } from 'core/utils';
-import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import ConfirmButton from 'ui/components/ConfirmButton';
-import LoadingText from 'ui/components/LoadingText';
-import MetadataCard from 'ui/components/MetadataCard';
 import Select from 'ui/components/Select';
 import type {
   CollectionFilters,
@@ -86,6 +83,7 @@ type InternalProps = {|
     username: string,
   |},
   router: ReactRouterType,
+  showEditButton: boolean,
 |};
 
 export type RemoveCollectionAddonFunc = (addonId: number) => void;
@@ -258,33 +256,6 @@ export class CollectionBase extends React.Component<InternalProps> {
     return `${this.url()}edit/`;
   }
 
-  editCollectionLink() {
-    const { _config, i18n, filters } = this.props;
-    const props = {};
-
-    if (_config.get('enableNewCollectionsUI')) {
-      // TODO: make this a real link when the form is ready for release.
-      // https://github.com/mozilla/addons-frontend/issues/4293
-      props.to = {
-        pathname: this.editUrl(),
-        query: convertFiltersToQueryParams(filters),
-      };
-    } else {
-      props.href = this.editUrl();
-    }
-
-    return (
-      <Button
-        className="Collection-edit-link"
-        buttonType="neutral"
-        puffy
-        {...props}
-      >
-        {i18n.gettext('Edit this collection')}
-      </Button>
-    );
-  }
-
   removeAddon: RemoveCollectionAddonFunc = (addonId: number) => {
     const { collection, dispatch, errorHandler, filters } = this.props;
 
@@ -362,7 +333,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       creating,
       editing,
       filters,
-      hasEditPermission,
+      showEditButton,
       i18n,
     } = this.props;
 
@@ -376,43 +347,14 @@ export class CollectionBase extends React.Component<InternalProps> {
       );
     }
 
-    /* eslint-disable react/no-danger */
     return (
-      <React.Fragment>
-        <h1 className="Collection-title">
-          {collection ? collection.name : <LoadingText />}
-        </h1>
-        <p className="Collection-description">
-          {collection ? (
-            <span
-              dangerouslySetInnerHTML={sanitizeHTML(collection.description)}
-            />
-          ) : (
-            <LoadingText />
-          )}
-        </p>
-        <MetadataCard
-          metadata={[
-            {
-              content: collection ? collection.numberOfAddons : null,
-              title: i18n.gettext('Add-ons'),
-            },
-            {
-              content: collection ? collection.authorName : null,
-              title: i18n.gettext('Creator'),
-            },
-            {
-              content: collection
-                ? i18n.moment(collection.lastUpdatedDate).format('ll')
-                : null,
-              title: i18n.gettext('Last updated'),
-            },
-          ]}
-        />
-        {hasEditPermission ? this.editCollectionLink() : null}
-      </React.Fragment>
+      <CollectionDetails
+        collection={collection}
+        editUrl={this.editUrl()}
+        filters={filters}
+        showEditButton={showEditButton}
+      />
     );
-    /* eslint-enable react/no-danger */
   }
 
   renderDeleteButton() {
@@ -592,15 +534,18 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const isOwner =
     collection && currentUser && collection.authorId === currentUser.id;
   let hasEditPermission = false;
+  let showEditButton = false;
 
   if (collection && currentUser) {
     hasEditPermission =
       isOwner ||
       // User can edit mozilla collections, and it is a mozilla collection.
       (collection.authorUsername === MOZILLA_COLLECTIONS_USERNAME &&
-        hasPermission(state, MOZILLA_COLLECTIONS_EDIT)) ||
-      // User can edit the featured theme collection, and it is the featured
-      // theme collection.
+        hasPermission(state, MOZILLA_COLLECTIONS_EDIT));
+    showEditButton =
+      hasEditPermission ||
+      // User can maintain the featured themes collection, and it is the featured
+      // themes collection.
       (collection.authorUsername === MOZILLA_COLLECTIONS_USERNAME &&
         collection.slug === FEATURED_THEMES_COLLECTION_SLUG &&
         hasPermission(state, FEATURED_THEMES_COLLECTION_EDIT));
@@ -610,11 +555,12 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
     clientApp: state.api.clientApp,
     collection,
     filters,
+    hasEditPermission,
     isLoggedIn: !!currentUser,
     isOwner,
     lang: state.api.lang,
     loading,
-    hasEditPermission,
+    showEditButton,
   };
 };
 

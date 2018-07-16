@@ -7,15 +7,14 @@ import Collection, {
   mapStateToProps,
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
+import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
-import Button from 'ui/components/Button';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
-import MetadataCard from 'ui/components/MetadataCard';
 import {
   createInternalCollection,
   deleteCollection,
@@ -45,7 +44,6 @@ import {
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -105,43 +103,10 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
   });
 
-  it('allows HTML entities in the Collection description', () => {
-    const { store } = dispatchClientMetadata();
+  it('renders a CollectionDetail when not editing', () => {
+    const wrapper = renderComponent({ creating: false, editing: false });
 
-    _loadCurrentCollection({
-      store,
-      detail: {
-        ...defaultCollectionDetail,
-        description: 'Apples &amp; carrots',
-      },
-    });
-
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find('.Collection-description').html()).toContain(
-      'Apples &amp; carrots',
-    );
-  });
-
-  it('renders loading indicators when there is no collection', () => {
-    const wrapper = renderComponent({ collection: null });
-
-    // We display 5 items on the detail card: title, description, number of
-    // addons, creator, and last modified date.
-    // 3 items are rendered by `MetadataCard` though and will render
-    // as `LoadingText` if null; so we just make sure it has `null`
-    // props for the last three.
-    expect(wrapper.find('.Collection-detail').find(LoadingText)).toHaveLength(
-      2,
-    );
-    const contents = wrapper
-      .find(MetadataCard)
-      .prop('metadata')
-      .map(({ content } = {}) => {
-        return content;
-      });
-    expect(contents).toEqual([null, null, null]);
-    expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
+    expect(wrapper.find(CollectionDetails)).toHaveLength(1);
   });
 
   it('renders placeholder text if there are no add-ons', () => {
@@ -607,6 +572,44 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('editing', false);
   });
 
+  it('renders collection details', () => {
+    const slug = 'some-slug';
+    const username = 'some-username';
+    const page = 2;
+    const sort = COLLECTION_SORT_NAME;
+    const queryParams = { page, collection_sort: sort };
+    const pageSize = DEFAULT_API_PAGE_SIZE;
+
+    const { store } = dispatchClientMetadata();
+
+    const addons = createFakeCollectionAddons();
+    const detail = createFakeCollectionDetail({
+      authorUsername: username,
+      count: 10,
+      slug,
+    });
+    const collection = createInternalCollection({
+      detail,
+      items: addons,
+      pageSize,
+    });
+
+    _loadCurrentCollection({ addons, detail, pageSize, store });
+
+    const wrapper = renderComponent({
+      location: fakeRouterLocation({ query: queryParams }),
+      params: { username, slug },
+      store,
+    });
+
+    const details = wrapper.find(CollectionDetails);
+    expect(details).toHaveLength(1);
+    expect(details).toHaveProp('collection', collection);
+    expect(details).toHaveProp('editUrl', wrapper.instance().editUrl());
+    expect(details).toHaveProp('filters', { page, collectionSort: sort });
+    expect(details).toHaveProp('showEditButton', false);
+  });
+
   it('renders a collection with pagination', () => {
     const slug = 'some-slug';
     const username = 'some-username';
@@ -782,10 +785,8 @@ describe(__filename, () => {
       wrapper.instance().saveNote,
     );
 
-    // Make sure these were not rendered.
-    expect(wrapper.find('.Collection-title')).toHaveLength(0);
-    expect(wrapper.find('.Collection-description')).toHaveLength(0);
-    expect(wrapper.find(MetadataCard)).toHaveLength(0);
+    // Make sure details are not rendered.
+    expect(wrapper.find(CollectionDetails)).toHaveLength(0);
   });
 
   it('renders a create collection page', () => {
@@ -799,10 +800,8 @@ describe(__filename, () => {
     expect(wrapper.find(CollectionManager)).toHaveProp('creating', true);
     expect(wrapper.find(CollectionManager)).toHaveProp('collection', null);
 
-    // Make sure these were not rendered.
-    expect(wrapper.find('.Collection-title')).toHaveLength(0);
-    expect(wrapper.find('.Collection-description')).toHaveLength(0);
-    expect(wrapper.find(MetadataCard)).toHaveLength(0);
+    // Make sure details are not rendered.
+    expect(wrapper.find(CollectionDetails)).toHaveLength(0);
   });
 
   it('does not render the pagination when no add-ons in the collection', () => {
@@ -934,7 +933,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
 
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
   it('does not render an edit link for a mozilla collection when user does not have the `Admin:Curation` permission', () => {
@@ -953,7 +952,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
 
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
   });
 
   it('renders an edit link for a the Featured Themes collection when user has the `Collections:Contribute` permission', () => {
@@ -976,7 +975,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
 
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
   it('does not render an edit link for a the Featured Themes collection when user does not have the `Collections:Contribute` permission', () => {
@@ -995,36 +994,10 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
 
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
   });
 
-  it('links to a Collection edit page', () => {
-    // Turn off the enableNewCollectionsUI feature so that the component renders a link.
-    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
-    const authorUserId = 11;
-
-    const { store } = dispatchSignInActions({ userId: authorUserId });
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorId: authorUserId,
-      }),
-    });
-
-    const wrapper = renderComponent({ store, _config: fakeConfig });
-
-    const editLink = wrapper.find('.Collection-edit-link').find(Button);
-    expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp(
-      'href',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`,
-    );
-  });
-
-  it('links internally to a Collection edit page', () => {
-    // Turn on the enableNewCollectionsUI feature.
-    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
+  it('passes a correct editUrl to the CollectionDetails component', () => {
     const authorUserId = 11;
     const queryParams = { page: 133, collection_sort: COLLECTION_SORT_NAME };
 
@@ -1038,19 +1011,14 @@ describe(__filename, () => {
     });
 
     const wrapper = renderComponent({
-      _config: fakeConfig,
       location: fakeRouterLocation({ query: queryParams }),
       store,
     });
 
-    const editLink = wrapper.find('.Collection-edit-link').find(Button);
-    expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp('to', {
-      pathname: `/collections/${defaultUser}/${
-        defaultCollectionDetail.slug
-      }/edit/`,
-      query: queryParams,
-    });
+    expect(wrapper.find(CollectionDetails)).toHaveProp(
+      'editUrl',
+      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`,
+    );
   });
 
   it('renders an edit link when user is the collection owner', () => {
@@ -1065,7 +1033,7 @@ describe(__filename, () => {
     });
 
     const wrapper = renderComponent({ store });
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
   it('does not render an edit link when user is not the collection owner', () => {
@@ -1080,7 +1048,7 @@ describe(__filename, () => {
     });
 
     const wrapper = renderComponent({ store });
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
   });
 
   it('renders a delete button when user is the collection owner', () => {

@@ -1,0 +1,30 @@
+@import '~amo/css/inc/vars';
+@import '~core/css/inc/mixins';
+@import '~ui/css/vars';
+
+.CollectionDetails {
+  .MetadataCard {
+    @include respond-to(large) {
+      margin-top: 12px;
+    }
+  }
+}
+
+.CollectionDetails-title {
+  @include font-light();
+
+  font-size: $font-size-l;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+.CollectionDetails-description {
+  font-size: $font-size-s;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+.CollectionDetails-edit-link {
+  margin-top: $padding-page;
+  width: 100%;
+}
