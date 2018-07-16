@@ -19,6 +19,7 @@ module.exports = {
     'cookieMaxAge',
     'cookieSecure',
     'enableClientConsole',
+    'enableDevTools',
     'defaultLang',
     'isDeployed',
     'isDevelopment',

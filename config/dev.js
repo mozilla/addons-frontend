@@ -8,6 +8,7 @@ module.exports = {
   staticHost: amoDevCDN,
 
   enableClientConsole: true,
+  enableDevTools: true,
 
   // Content security policy.
   CSP: {

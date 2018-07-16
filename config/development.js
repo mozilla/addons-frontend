@@ -19,6 +19,7 @@ module.exports = {
   cookieSecure: false,
 
   enableClientConsole: true,
+  enableDevTools: true,
 
   serverPort: 3000,
   webpackServerHost,
