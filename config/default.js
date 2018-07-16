@@ -94,6 +94,7 @@ module.exports = {
     'cookieName',
     'cookieSecure',
     'defaultLang',
+    'dismissedExperienceSurveyCookieName',
     'enableClientConsole',
     'enableNewCollectionsUI',
     'enableAddonRecommendations',
@@ -292,4 +293,6 @@ module.exports = {
 
   // Enable static themes.
   enableStaticThemes: false,
+
+  dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 };

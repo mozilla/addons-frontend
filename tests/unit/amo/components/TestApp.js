@@ -28,6 +28,7 @@ import {
 import I18nProvider from 'core/i18n/Provider';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import {
+  fakeCookie,
   fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
@@ -124,17 +125,15 @@ describe(__filename, () => {
         reload: sinon.stub(),
       },
     };
-    const fakeCookieLib = {
-      save: sinon.stub(),
-    };
+    const _cookie = fakeCookie();
 
     const root = render();
     root.onViewDesktop(fakeEvent, {
       _window: fakeWindow,
-      _cookie: fakeCookieLib,
+      _cookie,
     });
     expect(fakeEvent.preventDefault.called).toBeTruthy();
-    expect(fakeCookieLib.save.calledWith('mamo', 'off')).toBeTruthy();
+    sinon.assert.calledWith(_cookie.save, 'mamo', 'off', { path: '/' });
     expect(fakeWindow.location.reload.called).toBeTruthy();
   });
 
@@ -143,7 +142,7 @@ describe(__filename, () => {
     const { handleGlobalEvent } = mapDispatchToProps(dispatch);
     const payload = { guid: '@my-addon', status: 'some-status' };
     handleGlobalEvent(payload);
-    expect(dispatch.calledWith({ type: INSTALL_STATE, payload })).toBeTruthy();
+    sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
   });
 
   it('sets up a callback for setting the userAgentInfo', () => {
@@ -152,7 +151,7 @@ describe(__filename, () => {
     const userAgent = 'tofubrowser';
 
     setUserAgent(userAgent);
-    expect(dispatch.calledWith(setUserAgentAction(userAgent))).toBeTruthy();
+    sinon.assert.calledWith(dispatch, setUserAgentAction(userAgent));
   });
 
   it('sets the userAgent as props', () => {

@@ -10,6 +10,7 @@ import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
 import recommendations from 'amo/reducers/recommendations';
 import reviews from 'amo/reducers/reviews';
+import survey from 'amo/reducers/survey';
 import userAbuseReports from 'amo/reducers/userAbuseReports';
 import users from 'amo/reducers/users';
 import viewContext from 'amo/reducers/viewContext';
@@ -34,6 +35,7 @@ import type { CollectionsState } from 'amo/reducers/collections';
 import type { HomeState } from 'amo/reducers/home';
 import type { RecommendationsState } from 'amo/reducers/recommendations';
 import type { ReviewsState } from 'amo/reducers/reviews';
+import type { SurveyState } from 'amo/reducers/survey';
 import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
 import type { UsersState } from 'amo/reducers/users';
 import type { ViewContextState } from 'amo/reducers/viewContext';
@@ -70,6 +72,7 @@ export type AppState = {|
   reviews: ReviewsState,
   routing: Object,
   search: SearchState,
+  survey: SurveyState,
   uiState: UIStateState,
   userAbuseReports: UserAbuseReportsState,
   users: UsersState,
@@ -120,6 +123,7 @@ export default function createStore({
     reviews,
     routing,
     search,
+    survey,
     uiState,
     userAbuseReports,
     users,
