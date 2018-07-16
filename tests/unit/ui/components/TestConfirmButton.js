@@ -97,6 +97,25 @@ describe(__filename, () => {
     );
   });
 
+  it('passes props to the cancel button in the confirmation panel', () => {
+    const { store } = dispatchClientMetadata();
+    const cancelButtonText = 'neutral cancel button';
+    const cancelButtonType = 'neutral';
+    const root = render({ cancelButtonText, cancelButtonType, store });
+
+    // Show the confirmation panel.
+    root.find(Button).simulate('click', createFakeEvent());
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.ConfirmButton-cancel-button')).toHaveProp(
+      'buttonType',
+      cancelButtonType,
+    );
+    expect(root.find('.ConfirmButton-cancel-button').children()).toHaveText(
+      cancelButtonText,
+    );
+  });
+
   it('closes the confirmation panel on cancel ', () => {
     const { store } = dispatchClientMetadata();
     const onConfirmSpy = sinon.spy();
