@@ -1,15 +1,14 @@
 import { middleware } from 'core/store';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function configForDev(isDevelopment, config = {}) {
-    const finalConfig = { isDevelopment, ...config };
-
-    return {
-      get(key) {
-        return finalConfig[key];
-      },
-    };
-  }
+  const configForDev = (isDevelopment, config = {}) => {
+    return getFakeConfig({
+      isDevelopment,
+      server: false,
+      ...config,
+    });
+  };
 
   it('includes the middleware in development', () => {
     const _createLogger = sinon.stub();
@@ -19,7 +18,7 @@ describe(__filename, () => {
         _createLogger,
       }),
     ).toBe('function');
-    expect(_createLogger.called).toEqual(true);
+    sinon.assert.called(_createLogger);
   });
 
   it('does not apply middleware if not in development', () => {
@@ -30,7 +29,7 @@ describe(__filename, () => {
         _createLogger,
       }),
     ).toBe('function');
-    expect(_createLogger.called).toEqual(false);
+    sinon.assert.notCalled(_createLogger);
   });
 
   it('handles a falsey window while on the server', () => {
@@ -43,7 +42,7 @@ describe(__filename, () => {
         _window,
       }),
     ).toBe('function');
-    expect(_createLogger.called).toEqual(true);
+    sinon.assert.called(_createLogger);
   });
 
   it('does not create a logger for the server', () => {
@@ -54,12 +53,14 @@ describe(__filename, () => {
         _createLogger,
       }),
     ).toBe('function');
-    expect(_createLogger.called).toEqual(false);
+    sinon.assert.notCalled(_createLogger);
   });
 
   it('uses a placeholder store enhancer when devtools is not available', () => {
     const _window = {}; // __REDUX_DEVTOOLS_EXTENSION__() is undefined
-    const enhancer = middleware({ _config: configForDev(true), _window });
+    const _config = getFakeConfig({ enableDevTools: true });
+
+    const enhancer = middleware({ _config, _window });
 
     expect(typeof enhancer).toBe('function');
 
@@ -71,7 +72,7 @@ describe(__filename, () => {
     const _window = {
       __REDUX_DEVTOOLS_EXTENSION__: sinon.spy(),
     };
-    const _config = configForDev(true, { enableDevTools: true });
+    const _config = getFakeConfig({ enableDevTools: true });
 
     expect(typeof middleware({ _config, _window })).toBe('function');
     sinon.assert.called(_window.__REDUX_DEVTOOLS_EXTENSION__);
@@ -81,7 +82,7 @@ describe(__filename, () => {
     const _window = {
       __REDUX_DEVTOOLS_EXTENSION__: sinon.spy(),
     };
-    const _config = configForDev(true, { enableDevTools: false });
+    const _config = getFakeConfig({ enableDevTools: false });
 
     expect(typeof middleware({ _config, _window })).toBe('function');
     sinon.assert.notCalled(_window.__REDUX_DEVTOOLS_EXTENSION__);
