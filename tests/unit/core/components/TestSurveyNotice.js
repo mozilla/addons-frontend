@@ -1,5 +1,6 @@
-import config from 'config';
 import querystring from 'querystring';
+
+import config from 'config';
 import * as React from 'react';
 
 import SurveyNotice, { SurveyNoticeBase } from 'core/components/SurveyNotice';
@@ -91,9 +92,11 @@ describe(__filename, () => {
 
     const notice = root.find(Notice);
     expect(notice).toHaveProp('actionHref');
-    expect(notice.props().actionHref).toContain(querystring.stringify({
-      // The source should not include the /en-US/ part.
-      source: 'firefox/themes/'
-    }));
+    expect(notice.props().actionHref).toContain(
+      querystring.stringify({
+        // The source should not include the /en-US/ part.
+        source: 'firefox/themes/',
+      }),
+    );
   });
 });

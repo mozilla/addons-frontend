@@ -1,6 +1,7 @@
 /* @flow */
-import config from 'config';
 import querystring from 'querystring';
+
+import config from 'config';
 import * as React from 'react';
 import cookie from 'react-cookie';
 import { connect } from 'react-redux';
