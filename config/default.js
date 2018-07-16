@@ -285,7 +285,7 @@ module.exports = {
   // Feature flags.
 
   // Expose the new screen for editing a collection.
-  enableNewCollectionsUI: false,
+  enableNewCollectionsUI: true,
 
   // Enable the TAAR Lite A/B test.
   enableAddonRecommendations: false,

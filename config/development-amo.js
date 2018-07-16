@@ -10,6 +10,5 @@ module.exports = {
   restrictSearchResultsToAppVersion: false,
   fxaConfig: 'local',
   trackingEnabled: false,
-  enableNewCollectionsUI: true,
   enableStaticThemes: true,
 };
