@@ -32,14 +32,6 @@ describe(__filename, () => {
     return shallowUntilTarget(<SurveyNotice {...props} />, SurveyNoticeBase);
   };
 
-  it('configures a Notice', () => {
-    const root = render();
-
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('type', 'generic');
-    expect(notice).toHaveProp('dismissible', true);
-  });
-
   it('does not render a dismissed survey', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(dismissSurvey());
