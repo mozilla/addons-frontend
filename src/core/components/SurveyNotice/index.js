@@ -1,5 +1,6 @@
 /* @flow */
 import config from 'config';
+import querystring from 'querystring';
 import * as React from 'react';
 import cookie from 'react-cookie';
 import { connect } from 'react-redux';
@@ -7,10 +8,13 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import Notice from 'ui/components/Notice';
+import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 import type { AppState } from 'amo/store';
 
-type Props = {||};
+type Props = {|
+  location: ReactRouterLocation,
+|};
 
 type InternalProps = {|
   ...Props,
@@ -39,7 +43,7 @@ export const SurveyNoticeBase = ({
   ],
   ...props
 }: InternalProps) => {
-  const { i18n, siteLang, wasDismissed } = props;
+  const { i18n, location, siteLang, wasDismissed } = props;
 
   if (
     wasDismissed ||
@@ -60,9 +64,16 @@ export const SurveyNoticeBase = ({
     });
   };
 
+  // Pass along a source derived from the current URL path but with
+  // the preceding language path removed.
+  const source = querystring.stringify({
+    source: location.pathname.split('/').slice(2).join('/'),
+  });
+  const surveyUrl = `https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey?${source}`;
+
   return (
     <Notice
-      actionHref="https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey"
+      actionHref={surveyUrl}
       actionText={i18n.gettext('Take short survey')}
       className="SurveyNotice"
       dismissible
@@ -81,8 +92,6 @@ const mapStateToProps = (state: AppState) => {
   return { siteLang: state.api.lang, wasDismissed: state.survey.wasDismissed };
 };
 
-// TODO:
-// - pass a source parameter for current page
 const SurveyNotice: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),

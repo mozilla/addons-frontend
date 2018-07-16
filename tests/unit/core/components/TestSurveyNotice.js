@@ -1,4 +1,5 @@
 import config from 'config';
+import querystring from 'querystring';
 import * as React from 'react';
 
 import SurveyNotice, { SurveyNoticeBase } from 'core/components/SurveyNotice';
@@ -8,6 +9,7 @@ import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   fakeCookie,
   fakeI18n,
+  fakeRouterLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -22,6 +24,7 @@ describe(__filename, () => {
         enableExperienceSurvey: true,
       }),
       i18n: fakeI18n(),
+      location: fakeRouterLocation(),
       store,
       ...customProps,
     };
@@ -80,5 +83,17 @@ describe(__filename, () => {
       '',
       { path: '/' },
     );
+  });
+
+  it('links to a survey with location source', () => {
+    const location = fakeRouterLocation({ pathname: '/en-US/firefox/themes/' });
+    const root = render({ location });
+
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp('actionHref');
+    expect(notice.props().actionHref).toContain(querystring.stringify({
+      // The source should not include the /en-US/ part.
+      source: 'firefox/themes/'
+    }));
   });
 });

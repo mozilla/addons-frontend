@@ -230,7 +230,7 @@ export class AppBase extends React.Component<Props> {
             <div className="App-content-wrapper">
               <ErrorPage getErrorComponent={getErrorComponent}>
                 <div className="App-banner">
-                  <SurveyNotice />
+                  <SurveyNotice location={location} />
                 </div>
                 {children}
               </ErrorPage>
