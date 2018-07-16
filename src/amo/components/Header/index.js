@@ -156,7 +156,11 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/developers/addons/" prependClientApp={false}>
+                <Link
+                  className="Header-user-menu-developers-submissions-on-link"
+                  href="/developers/addons/"
+                  prependClientApp={false}
+                >
                   {i18n.gettext('Manage My Submissions')}
                 </Link>
               </DropdownMenuItem>

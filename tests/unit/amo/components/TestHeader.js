@@ -185,7 +185,9 @@ describe(__filename, () => {
       userProps: { username },
     });
     const wrapper = renderHeader({ store });
-    const link = wrapper.find('[className = "Header-user-menu-developers-submissions-on-link"]');
+    const link = wrapper.find(
+      '.Header-user-menu-developers-submissions-on-link',
+    );
 
     expect(link).toHaveLength(1);
     expect(link.prop('children')).toEqual('Manage My Submissions');
