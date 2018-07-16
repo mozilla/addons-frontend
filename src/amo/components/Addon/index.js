@@ -262,6 +262,7 @@ export class AddonBase extends React.Component {
 
     let title;
     const descriptionProps = {};
+    let showAbout = true;
 
     if (addon) {
       switch (addon.type) {
@@ -286,6 +287,13 @@ export class AddonBase extends React.Component {
       }
 
       const description = addon.description ? addon.description : addon.summary;
+      // For any theme type, we want to hide the summary text here since that is
+      // already displayed in the header.
+      showAbout =
+        ((description === addon.summary &&
+          addon.type === ADDON_TYPE_STATIC_THEME) ||
+          addon.type === ADDON_TYPE_THEME) === false;
+
       if (!description || !description.length) {
         return null;
       }
@@ -295,7 +303,7 @@ export class AddonBase extends React.Component {
       descriptionProps.children = <LoadingText width={100} />;
     }
 
-    return (
+    return showAbout ? (
       <ShowMoreCard header={title} className="AddonDescription">
         <div
           className="AddonDescription-contents"
@@ -305,7 +313,7 @@ export class AddonBase extends React.Component {
           {...descriptionProps}
         />
       </ShowMoreCard>
-    );
+    ) : null;
   }
 
   renderVersionReleaseNotes() {

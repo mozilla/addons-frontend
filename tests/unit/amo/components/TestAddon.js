@@ -630,18 +630,6 @@ describe(__filename, () => {
     );
   });
 
-  it('sets a title for the description of a lightweight theme', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-    });
-    expect(root.find('.AddonDescription').prop('header')).toContain(
-      'About this theme',
-    );
-  });
-
   it('sets a title for the description of a static theme', () => {
     const root = shallowRender({
       addon: createInternalAddon({
@@ -702,30 +690,6 @@ describe(__filename, () => {
     );
   });
 
-  it('uses the summary as the description if no description exists', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      summary: 'short text',
-    });
-    delete addon.description;
-    const rootNode = renderAsDOMNode({ addon });
-    expect(
-      rootNode.querySelector('.AddonDescription-contents').textContent,
-    ).toEqual(addon.summary);
-  });
-
-  it('uses the summary as the description if description is blank', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      description: '',
-      summary: 'short text',
-    });
-    const rootNode = renderAsDOMNode({ addon });
-    expect(
-      rootNode.querySelector('.AddonDescription-contents').textContent,
-    ).toEqual(addon.summary);
-  });
-
   it('hides the description if description and summary are null', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -744,6 +708,85 @@ describe(__filename, () => {
     });
     const rootNode = renderAsDOMNode({ addon });
     expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
+  });
+
+  it("does not display a lightweight theme's summary", () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+        summary: 'my theme is very cool',
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it("displays a static theme's description", () => {
+    const description = 'some cool description';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        summary: 'my theme is very cool',
+        description,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(1);
+
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${description}</div>`,
+    );
+  });
+
+  it('does not display anything if a static theme has no description', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        summary: 'my theme is very cool',
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it("displays the extension's summary when there is no description", () => {
+    const summary = 'my theme is very cool';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_EXTENSION,
+        summary,
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(1);
+
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${summary}</div>`,
+    );
+  });
+
+  it("displays the extension's description when both description and summary are supplied", () => {
+    const description = 'some cool description';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_EXTENSION,
+        summary: 'my theme is very cool',
+        description,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(1);
+
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${description}</div>`,
+    );
   });
 
   it('converts new lines in the description to breaks', () => {
