@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-15 22:33+0000\n"
+"PO-Revision-Date: 2018-07-16 13:56+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -348,9 +348,8 @@ msgid "Publishing reply"
 msgstr "Γίνεται δημοσίευση της απάντησης"
 
 #: src/amo/components/AddonReviewListItem/index.js:204
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "από %(authorName)s, %(timestamp)s"
+msgstr "δημοσιεύτηκε στις %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:210
 msgid "by %(authorName)s, %(timestamp)s"
@@ -513,9 +512,8 @@ msgid "Top rated extensions"
 msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
 
 #: src/amo/components/Category/index.js:172 src/amo/components/LandingPage/index.js:164
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
+msgstr "Δείτε περισσότερες υψηλά βαθμολογημένες επεκτάσεις"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:221 src/amo/components/SectionLinks/index.js:97
 msgid "Themes"
@@ -542,9 +540,8 @@ msgid "Top rated themes"
 msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
 #: src/amo/components/Category/index.js:205 src/amo/components/LandingPage/index.js:187
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Πιο υψηλά βαθμολογημένα θέματα"
+msgstr "Δείτε περισσότερα υψηλά βαθμολογημένα θέματα"
 
 #: src/amo/components/CategoryHeader/index.js:41
 msgid "Browse all add-ons in this category."
