@@ -6,11 +6,22 @@ import UserProfileEditPicture, {
 import { getCurrentUser } from 'amo/reducers/users';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import UserAvatar from 'ui/components/UserAvatar';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
+import {
+  applyUIStateChanges,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ i18n = fakeI18n(), ...props } = {}) => {
+  const render = ({
+    i18n = fakeI18n(),
+    store = dispatchClientMetadata().store,
+    ...props
+  } = {}) => {
     return shallowUntilTarget(
       <UserProfileEditPicture
         i18n={i18n}
@@ -18,6 +29,7 @@ describe(__filename, () => {
         onDelete={sinon.stub()}
         onSelect={sinon.stub()}
         preview={null}
+        store={store}
         user={null}
         {...props}
       />,
@@ -165,5 +177,44 @@ describe(__filename, () => {
     onConfirm();
 
     sinon.assert.callCount(onDelete, 1);
+  });
+
+  it('adds a CSS class when file input has focus', () => {
+    const { store, state } = dispatchSignInActions();
+    const user = getCurrentUser(state.users);
+
+    const root = render({ user, store });
+
+    expect(root.find('.UserProfileEditPicture-file')).not.toHaveClassName(
+      'UserProfileEditPicture-file--has-focus',
+    );
+
+    root.find('input').simulate('focus');
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.UserProfileEditPicture-file')).toHaveClassName(
+      'UserProfileEditPicture-file--has-focus',
+    );
+  });
+
+  it('removes a CSS class when file input looses focus', () => {
+    const { store, state } = dispatchSignInActions();
+    const user = getCurrentUser(state.users);
+
+    const root = render({ user, store });
+
+    root.find('input').simulate('focus');
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.UserProfileEditPicture-file')).toHaveClassName(
+      'UserProfileEditPicture-file--has-focus',
+    );
+
+    root.find('input').simulate('blur');
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.UserProfileEditPicture-file')).not.toHaveClassName(
+      'UserProfileEditPicture-file--has-focus',
+    );
   });
 });
