@@ -18,10 +18,9 @@ import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon } from 'core/reducers/addons';
 import { getDiscoResults } from 'disco/actions';
 import createStore from 'disco/store';
-import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
+import { NAVIGATION_CATEGORY } from 'disco/constants';
 import * as helpers from 'disco/components/DiscoPane';
 import {
-  createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
@@ -38,14 +37,10 @@ import ErrorList from 'ui/components/ErrorList';
 const { DiscoPaneBase } = helpers;
 
 describe(__filename, () => {
-  let fakeEvent;
-  let fakeVideo;
   let fakeTracking;
 
   beforeEach(() => {
-    fakeEvent = createFakeEvent();
     fakeTracking = { sendEvent: sinon.stub() };
-    fakeVideo = { play: sinon.stub(), pause: sinon.stub() };
   });
 
   function renderProps(customProps = {}) {
@@ -77,7 +72,6 @@ describe(__filename, () => {
       params: { platform: 'Darwin' },
       results,
       _tracking: fakeTracking,
-      _video: fakeVideo,
       ...customProps,
     };
   }
@@ -99,41 +93,6 @@ describe(__filename, () => {
       </Provider>,
     );
   }
-
-  describe('video', () => {
-    it('is small by default', () => {
-      const root = render();
-      expect(root.find('header')).not.toHaveClassName('.show-video');
-    });
-
-    it('gets bigger and smaller when clicked', () => {
-      const root = render();
-      root.find('.play-video').simulate('click', fakeEvent);
-      expect(root.find('header')).toHaveClassName('.show-video');
-      root.find('.close-video a').simulate('click', fakeEvent);
-      expect(root.find('header')).not.toHaveClassName('.show-video');
-    });
-
-    it('tracks video being played', () => {
-      const root = render();
-      root.find('.play-video').simulate('click', fakeEvent);
-      sinon.assert.calledWith(fakeTracking.sendEvent, {
-        category: VIDEO_CATEGORY,
-        action: 'play',
-      });
-      sinon.assert.calledOnce(fakeVideo.play);
-    });
-
-    it('tracks video being closed', () => {
-      const root = render();
-      root.find('.close-video a').simulate('click', fakeEvent);
-      sinon.assert.calledWith(fakeTracking.sendEvent, {
-        category: VIDEO_CATEGORY,
-        action: 'close',
-      });
-      sinon.assert.calledOnce(fakeVideo.pause);
-    });
-  });
 
   describe('mapStateToProps', () => {
     it('sets extension results', () => {
