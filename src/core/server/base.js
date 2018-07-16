@@ -23,6 +23,8 @@ import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import * as middleware from 'core/middleware';
 import { loadErrorPage } from 'core/reducers/errorPage';
+// TODO: move this to core/reducers, add to disco store.
+import { dismissSurvey } from 'amo/reducers/survey';
 import { convertBoolean } from 'core/utils';
 import {
   setAuthToken,
@@ -293,9 +295,17 @@ function baseServer(
           }
           runningSagas = sagaMiddleware.run(sagas);
 
+          // TODO: synchronize cookies with Redux store more automatically.
+          // See https://github.com/mozilla/addons-frontend/issues/5617
           const token = cookie.load(config.get('cookieName'));
           if (token) {
             store.dispatch(setAuthToken(token));
+          }
+          if (
+            cookie.load(config.get('dismissedExperienceSurveyCookieName')) !==
+            undefined
+          ) {
+            store.dispatch(dismissSurvey());
           }
 
           pageProps = getPageProps({ noScriptStyles, store, req, res, config });
@@ -503,5 +513,4 @@ export function runServer({
       }
     });
 }
-
 export default baseServer;

@@ -16,6 +16,9 @@ import redirectToReducer, {
   sendServerRedirect,
 } from 'core/reducers/redirectTo';
 import usersReducer, { getCurrentUser } from 'amo/reducers/users';
+import surveyReducer, {
+  initialState as initialSurveyState,
+} from 'amo/reducers/survey';
 import usersSaga from 'amo/sagas/users';
 import * as usersApi from 'amo/api/users';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
@@ -25,6 +28,7 @@ function createStoreAndSagas({
   reducers = {
     api: apiReducer,
     routing: routerReducer,
+    survey: surveyReducer,
     users: usersReducer,
   },
 } = {}) {
@@ -172,6 +176,35 @@ describe(__filename, () => {
 
       expect(response.statusCode).toEqual(200);
       expect(api.token).toEqual(token);
+    });
+
+    it('dispatches dismissSurvey() if cookie is present', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        // Set a cookie with an empty string value.
+        .set(
+          'cookie',
+          `${defaultConfig.get('dismissedExperienceSurveyCookieName')}=""`,
+        )
+        .end();
+
+      const { survey } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(survey.wasDismissed).toEqual(true);
+    });
+
+    it('does not dispatch dismissSurvey() if no cookie is present', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        .end();
+
+      const { survey } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(survey).toEqual(initialSurveyState);
     });
 
     it('fetches the user profile when given a token', async () => {

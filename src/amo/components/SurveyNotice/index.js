@@ -31,13 +31,6 @@ export const SurveyNoticeBase = ({
     return null;
   }
 
-  if (
-    _cookie.load(_config.get('dismissedExperienceSurveyCookieName')) !==
-    undefined
-  ) {
-    return null;
-  }
-
   const onDismiss = () => {
     // Even though a dismissal action is dispatched here, also save a
     // cookie to manually synchronize state. The server code will load

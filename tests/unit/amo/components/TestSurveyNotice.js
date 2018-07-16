@@ -36,26 +36,6 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  it('does not render when a dimissal cookie is present', () => {
-    // Simulate the presence of a cookie with an empty string value.
-    const _cookie = fakeCookie({ load: sinon.spy(() => '') });
-    const root = render({ _cookie });
-
-    expect(root.find(Notice)).toHaveLength(0);
-    sinon.assert.calledWith(
-      _cookie.load,
-      config.get('dismissedExperienceSurveyCookieName'),
-    );
-  });
-
-  it('renders when dismissal cookie is not present', () => {
-    const _cookie = fakeCookie({ load: sinon.spy(() => undefined) });
-    const root = render({ _cookie });
-
-    expect(root.find(Notice)).toHaveLength(1);
-    sinon.assert.called(_cookie.load);
-  });
-
   it('saves a cookie on dismissal', () => {
     const _cookie = fakeCookie();
     const root = render({ _cookie });
