@@ -3,6 +3,7 @@ import { middleware } from 'core/store';
 describe(__filename, () => {
   function configForDev(isDevelopment, config = {}) {
     const finalConfig = { isDevelopment, ...config };
+
     return {
       get(key) {
         return finalConfig[key];
@@ -56,34 +57,33 @@ describe(__filename, () => {
     expect(_createLogger.called).toEqual(false);
   });
 
-  it('uses a placeholder store enhancer when devtools is not installed', () => {
-    const _window = {}; // devToolsExtension() is undefined
-    const enhancer = middleware({
-      _config: configForDev(true),
-      _window,
-    });
+  it('uses a placeholder store enhancer when devtools is not available', () => {
+    const _window = {}; // __REDUX_DEVTOOLS_EXTENSION__() is undefined
+    const enhancer = middleware({ _config: configForDev(true), _window });
+
     expect(typeof enhancer).toBe('function');
+
     const createStore = () => {};
     expect(typeof enhancer(createStore)).toBe('function');
   });
 
-  it('adds the devtools store enhancer in development', () => {
+  it('adds the devtools store enhancer when config enables it', () => {
     const _window = {
-      devToolsExtension: sinon.spy((createStore) => createStore),
+      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy((createStore) => createStore),
     };
-    expect(typeof middleware({ _config: configForDev(true), _window })).toBe(
-      'function',
-    );
-    expect(_window.devToolsExtension.called).toEqual(true);
+    const _config = configForDev(true, { enableDevTools: true });
+
+    expect(typeof middleware({ _config, _window })).toBe('function');
+    expect(_window.__REDUX_DEVTOOLS_EXTENSION__.called).toEqual(true);
   });
 
-  it('only adds the devtools store enhancer in development', () => {
+  it('does not add the devtools store enhancer when config disables it', () => {
     const _window = {
-      devToolsExtension: sinon.spy((createStore) => createStore),
+      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy((createStore) => createStore),
     };
-    expect(typeof middleware({ _config: configForDev(false), _window })).toBe(
-      'function',
-    );
-    expect(_window.devToolsExtension.called).toEqual(false);
+    const _config = configForDev(true, { enableDevTools: false });
+
+    expect(typeof middleware({ _config, _window })).toBe('function');
+    expect(_window.__REDUX_DEVTOOLS_EXTENSION__.called).toEqual(false);
   });
 });
