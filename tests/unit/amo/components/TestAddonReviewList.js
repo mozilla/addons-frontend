@@ -20,6 +20,7 @@ import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -124,9 +125,6 @@ describe(__filename, () => {
     it('waits for an addon and reviews to load', () => {
       const location = fakeRouterLocation();
       const root = render({ addon: null, location });
-      expect(root.find('.AddonReviewList-header-icon img').prop('src')).toEqual(
-        fallbackIcon,
-      );
       expect(
         root.find('.AddonReviewList-header-text').find(LoadingText),
       ).toHaveLength(3);
@@ -466,6 +464,17 @@ describe(__filename, () => {
       const root = render();
       const img = root.find('.AddonReviewList-header-icon img');
       expect(img).toHaveProp('src', addon.icon_url);
+    });
+
+    it('does not render a static theme icon in the header', () => {
+      const addon = {
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      };
+      dispatchAddon(addon);
+      const root = render();
+      const img = root.find('.AddonReviewList-header-icon img');
+      expect(img).toHaveLength(0);
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {
