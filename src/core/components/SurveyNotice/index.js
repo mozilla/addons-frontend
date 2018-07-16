@@ -13,6 +13,8 @@ import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 import type { AppState } from 'amo/store';
 
+import './styles.scss';
+
 type Props = {|
   location: ReactRouterLocation,
 |};
