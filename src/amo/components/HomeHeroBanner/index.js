@@ -57,7 +57,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
         <p>
           {i18n.gettext(
-            'Choose the page you see every time you open a new tab.',
+            'Choose the page you see every time you open a new tab',
           )}
         </p>
       </HeroSection>,
@@ -66,7 +66,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
         <p>
           {i18n.gettext(
-            'Get instant global weather information right in Firefox.',
+            'Get instant global weather information right in Firefox',
           )}
         </p>
       </HeroSection>,
@@ -96,14 +96,14 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
         <p>
           {i18n.gettext(
-            `Have a ton of open tabs? Organize them in a tidy sidebar.`,
+            'Have a ton of open tabs? Organize them in a tidy sidebar',
           )}
         </p>
       </HeroSection>,
       <HeroSection key="hero-12" linkTo="/addon/imagus/">
         <h3>{i18n.gettext('Imagus')}</h3>
 
-        <p>{i18n.gettext('Enlarge images by hovering your mouse over it.')}</p>
+        <p>{i18n.gettext('Enlarge images by hovering your mouse over it')}</p>
       </HeroSection>,
       <HeroSection key="hero-13" linkTo="/addon/privacy-possum/">
         <h3>{i18n.gettext('Privacy Possum')}</h3>
