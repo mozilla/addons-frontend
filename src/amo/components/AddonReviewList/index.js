@@ -14,6 +14,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
 import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -258,13 +259,16 @@ export class AddonReviewListBase extends React.Component<Props> {
 
         <Card className="AddonReviewList-addon">
           <div className="AddonReviewList-header">
-            <div className="AddonReviewList-header-icon">
-              {addon ? (
-                <Link to={this.addonURL()}>{iconImage}</Link>
-              ) : (
-                iconImage
+            {addon &&
+              addon.type !== ADDON_TYPE_STATIC_THEME && (
+                <div className="AddonReviewList-header-icon">
+                  {addon ? (
+                    <Link to={this.addonURL()}>{iconImage}</Link>
+                  ) : (
+                    iconImage
+                  )}
+                </div>
               )}
-            </div>
             <div className="AddonReviewList-header-text">
               <h1 className="visually-hidden">{header}</h1>
               <h2 className="AddonReviewList-header-addonName">{addonName}</h2>
