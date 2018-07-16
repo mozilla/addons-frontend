@@ -5,7 +5,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { compose } from 'redux';
 import config from 'config';
 
@@ -392,19 +392,18 @@ export class CollectionManagerBase extends React.Component<
           />
         </div>
 
-        <ReactCSSTransitionGroup
-          className="NoticePlaceholder"
-          component="div"
-          transitionName="NoticePlaceholder-transition"
-          transitionEnterTimeout={MESSAGE_FADEOUT_TIME}
-          transitionLeaveTimeout={MESSAGE_FADEOUT_TIME}
-        >
+        <TransitionGroup className="NoticePlaceholder">
           {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
-            <Notice type="success">
-              {i18n.gettext('Added to collection')}
-            </Notice>
+            <CSSTransition
+              classNames="NoticePlaceholder-transition"
+              timeout={MESSAGE_FADEOUT_TIME}
+            >
+              <Notice type="success">
+                {i18n.gettext('Added to collection')}
+              </Notice>
+            </CSSTransition>
           )}
-        </ReactCSSTransitionGroup>
+        </TransitionGroup>
 
         {!creating && (
           <AutoSearchInput

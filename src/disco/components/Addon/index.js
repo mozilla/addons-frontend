@@ -4,7 +4,7 @@ import makeClassName from 'classnames';
 import { sprintf } from 'jed';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { compose } from 'redux';
@@ -35,6 +35,8 @@ import { getClientCompatibility as _getClientCompatibility } from 'core/utils/co
 import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
+
+const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
 export class AddonBase extends React.Component {
   static propTypes = {
@@ -72,24 +74,37 @@ export class AddonBase extends React.Component {
 
   getError() {
     const { error, i18n, status } = this.props;
+
     return status === ERROR ? (
-      <div className="notification error" key="error-overlay">
-        <p className="message">{this.errorMessage()}</p>
-        {error && !error.startsWith('FATAL') ? (
-          // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
-          <a className="close" href="#" onClick={this.closeError}>
-            {i18n.gettext('Close')}
-          </a>
-        ) : null}
-      </div>
+      <CSSTransition
+        classNames="overlay"
+        key="error-overlay"
+        timeout={CSS_TRANSITION_TIMEOUT}
+      >
+        <div className="notification error">
+          <p className="message">{this.errorMessage()}</p>
+          {error && !error.startsWith('FATAL') ? (
+            // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
+            <a className="close" href="#" onClick={this.closeError}>
+              {i18n.gettext('Close')}
+            </a>
+          ) : null}
+        </div>
+      </CSSTransition>
     ) : null;
   }
 
   getRestart() {
     return this.props.needsRestart ? (
-      <div className="notification restart" key="restart-overlay">
-        <p className="message">{this.restartMessage()}</p>
-      </div>
+      <CSSTransition
+        classNames="overlay"
+        key="restart-overlay"
+        timeout={CSS_TRANSITION_TIMEOUT}
+      >
+        <div className="notification restart">
+          <p className="message">{this.restartMessage()}</p>
+        </div>
+      </CSSTransition>
     ) : null;
   }
 
@@ -249,14 +264,10 @@ export class AddonBase extends React.Component {
         {this.getThemeImage()}
         {this.getLogo()}
         <div className="content">
-          <ReactCSSTransitionGroup
-            transitionName="overlay"
-            transitionEnterTimeout={700}
-            transitionLeaveTimeout={300}
-          >
+          <TransitionGroup>
             {this.getError()}
             {this.getRestart()}
-          </ReactCSSTransitionGroup>
+          </TransitionGroup>
           <div className="copy">
             <h2
               onClick={this.clickHeadingLink}
