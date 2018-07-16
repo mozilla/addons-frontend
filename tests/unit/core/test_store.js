@@ -69,21 +69,21 @@ describe(__filename, () => {
 
   it('adds the devtools store enhancer when config enables it', () => {
     const _window = {
-      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy((createStore) => createStore),
+      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy(),
     };
     const _config = configForDev(true, { enableDevTools: true });
 
     expect(typeof middleware({ _config, _window })).toBe('function');
-    expect(_window.__REDUX_DEVTOOLS_EXTENSION__.called).toEqual(true);
+    sinon.assert.called(_window.__REDUX_DEVTOOLS_EXTENSION__);
   });
 
   it('does not add the devtools store enhancer when config disables it', () => {
     const _window = {
-      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy((createStore) => createStore),
+      __REDUX_DEVTOOLS_EXTENSION__: sinon.spy(),
     };
     const _config = configForDev(true, { enableDevTools: false });
 
     expect(typeof middleware({ _config, _window })).toBe('function');
-    expect(_window.__REDUX_DEVTOOLS_EXTENSION__.called).toEqual(false);
+    sinon.assert.notCalled(_window.__REDUX_DEVTOOLS_EXTENSION__);
   });
 });
