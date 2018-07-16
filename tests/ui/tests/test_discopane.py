@@ -26,17 +26,6 @@ def test_discopane_loads(discovery_pane):
 
 
 @pytest.mark.nondestructive
-def test_that_welcome_video_plays(discovery_pane):
-    """Test the welcome video."""
-    assert not discovery_pane.is_close_video_displayed
-    discovery_pane.play_video()
-    assert not discovery_pane.is_play_video_displayed
-    discovery_pane.close_video()
-    assert discovery_pane.is_play_video_displayed
-    assert not discovery_pane.is_close_video_displayed
-
-
-@pytest.mark.nondestructive
 def test_see_more_button_is_displayed(discovery_pane):
     """Test to make sure the see more button is displayed."""
     assert discovery_pane.is_see_more_btn_displayed

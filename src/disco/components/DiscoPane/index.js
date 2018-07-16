@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* global navigator */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -14,14 +13,12 @@ import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
 import { getAddonByGUID } from 'core/reducers/addons';
-import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
+import { NAVIGATION_CATEGORY } from 'disco/constants';
 import { getDiscoResults } from 'disco/actions';
 import Addon from 'disco/components/Addon';
-import videoMp4 from 'disco/video/AddOns.mp4';
-import videoWebm from 'disco/video/AddOns.webm';
 import Button from 'ui/components/Button';
 
-import videoPoster from './img/AddOnsPoster.jpg';
+import './styles.scss';
 
 export class DiscoPaneBase extends React.Component {
   static propTypes = {
@@ -32,13 +29,12 @@ export class DiscoPaneBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
-    params: {
+    params: PropTypes.shape({
       platform: PropTypes.string.isRequired,
-    },
+    }).isRequired,
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
-    _video: PropTypes.object,
   };
 
   static defaultProps = {
@@ -46,12 +42,10 @@ export class DiscoPaneBase extends React.Component {
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     _addChangeListeners: addChangeListeners,
     _tracking: tracking,
-    _video: null,
   };
 
   constructor(props) {
     super(props);
-    this.state = { showVideo: false };
 
     const { dispatch, errorHandler, location, params, results } = props;
     // TODO: fix this; it's not the right way to detect whether a
@@ -83,32 +77,6 @@ export class DiscoPaneBase extends React.Component {
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
-  showVideo = (e) => {
-    const { _tracking } = this.props;
-    const _video = this.props._video || this.video;
-
-    e.preventDefault();
-    this.setState({ showVideo: true });
-    _video.play();
-    _tracking.sendEvent({
-      action: 'play',
-      category: VIDEO_CATEGORY,
-    });
-  };
-
-  closeVideo = (e) => {
-    const { _tracking } = this.props;
-    const _video = this.props._video || this.video;
-
-    e.preventDefault();
-    this.setState({ showVideo: false });
-    _video.pause();
-    _tracking.sendEvent({
-      action: 'close',
-      category: VIDEO_CATEGORY,
-    });
-  };
-
   showMoreAddons = () => {
     const { _tracking } = this.props;
     _tracking.sendEvent({
@@ -119,11 +87,7 @@ export class DiscoPaneBase extends React.Component {
   };
 
   render() {
-    // TODO: Add captions see https://github.com/mozilla/addons/issues/367
-    /* eslint-disable jsx-a11y/media-has-caption */
-
     const { AddonComponent, errorHandler, results, i18n } = this.props;
-    const { showVideo } = this.state;
 
     return (
       <div
@@ -133,45 +97,20 @@ export class DiscoPaneBase extends React.Component {
         }}
       >
         {errorHandler.renderErrorIfPresent()}
-        <header className={showVideo ? 'show-video' : ''}>
+        <header>
           <div className="disco-header">
             <div className="disco-content">
               <h1>{i18n.gettext('Personalize Your Firefox')}</h1>
               <p>
-                {i18n.gettext(`There are thousands of free add-ons, created by developers all over
-                    the world, that you can install to personalize your Firefox. From fun visual themes
-                    to powerful tools that make browsing faster and safer, add-ons make your browser yours.
-                    To help you get started, here are some we recommend for their stand-out performance
-                    and functionality.`)}
+                {i18n.gettext(`There are thousands of free add-ons, created by
+                  developers all over the world, that you can install to
+                  personalize your Firefox. From fun visual themes to powerful
+                  tools that make browsing faster and safer, add-ons make your
+                  browser yours.
+
+                  To help you get started, here are some we recommend for their
+                  stand-out performance and functionality.`)}
               </p>
-            </div>
-            <div className="video-wrapper">
-              <a className="play-video" href="#play" onClick={this.showVideo}>
-                <span className="play-video-text">
-                  {i18n.gettext('Click to play')}
-                </span>
-                <span className="visually-hidden">
-                  {i18n.gettext('to find out more about add-ons')}
-                </span>
-              </a>
-              <video
-                poster={videoPoster}
-                controls={showVideo}
-                width="512"
-                height="288"
-                className="disco-video"
-                ref={(ref) => {
-                  this.video = ref;
-                }}
-              >
-                <source src={videoWebm} type="video/webm" />
-                <source src={videoMp4} type="video/mp4" />
-              </video>
-              <div className="close-video">
-                <a href="#close" onClick={this.closeVideo}>
-                  {i18n.gettext('Close video')}
-                </a>
-              </div>
             </div>
           </div>
         </header>

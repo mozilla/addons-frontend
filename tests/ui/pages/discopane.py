@@ -8,13 +8,11 @@ class DiscoveryPane(Page):
     """Contain the locators and actions relating to the discovery pane."""
 
     _root_locator = (By.CLASS_NAME, 'disco-pane')
-    _close_video_locator = (By.CLASS_NAME, 'close-video')
     _extensions_locator = (By.CLASS_NAME, 'extension')
     _discopane_error_alert_locator = (
         By.CSS_SELECTOR, '#discover-error .alert')
     _discopane_header_locator = (By.CLASS_NAME, 'disco-header')
     _discovery_list_item_locator = (By.ID, 'category-discover')
-    _play_video_locator = (By.CLASS_NAME, 'play-video-text')
     _see_more_btn_locator = (By.CLASS_NAME, 'amo-link')
     _themes_locator = (By.CLASS_NAME, 'theme')
 
@@ -36,24 +34,6 @@ class DiscoveryPane(Page):
     def is_header_displayed(self):
         """Check to see if the header is displayed."""
         return self.is_element_displayed(*self._discopane_header_locator)
-
-    def play_video(self):
-        """Plays the welcome video."""
-        self.find_element(*self._play_video_locator).click()
-
-    @property
-    def is_play_video_displayed(self):
-        """Check to see if the welcome video is displayed."""
-        return self.is_element_displayed(*self._play_video_locator)
-
-    def close_video(self):
-        """Close the welcome video."""
-        self.find_element(*self._close_video_locator).click()
-
-    @property
-    def is_close_video_displayed(self):
-        """Check to see if welcome video is closed."""
-        return self.is_element_displayed(*self._close_video_locator)
 
     @property
     def is_see_more_btn_displayed(self):

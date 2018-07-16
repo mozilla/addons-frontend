@@ -20,20 +20,6 @@ img {
   box-sizing: content-box;
 }
 
-.disco-pane {
-  box-sizing: content-box;
-  margin: 0 auto;
-  max-width: 680px;
-  min-width: 260px;
-  padding: 10px 20px 20px;
-}
-
-@include respond-to(large) {
-  .disco-pane {
-    padding-top: 50px;
-  }
-}
-
 // Special class to apply compensation
 // for the padding applied by xul in FF < 50.
 .padding-compensation {
@@ -52,10 +38,8 @@ header {
     line-height: 1.1;
     margin: 0 0 20px;
   }
-}
 
-@include respond-to(large) {
-  header {
+  @include respond-to(large) {
     background: inherit;
     border-bottom: 1px solid $header-border-color;
     margin: 0 0 40px;
@@ -71,136 +55,4 @@ header {
 .amo-link {
   margin: 30px 0;
   text-align: center;
-}
-
-.disco-content {
-  color: $header-copy-font-color;
-  font-size: 15px;
-  line-height: 1.28;
-  width: 100%;
-
-  &:last-child {
-    display: block;
-    margin-bottom: 0;
-  }
-}
-
-@include respond-to(large) {
-  .disco-content {
-    font-size: 14px;
-    margin-right: 50px;
-    max-width: 415px;
-
-    [dir='rtl'] & {
-      margin-left: 50px;
-      margin-right: 0;
-    }
-  }
-}
-
-.disco-header,
-.disco-content,
-.disco-video {
-  transition: 300ms;
-}
-
-.disco-header {
-  align-items: flex-start;
-  display: flex;
-  width: 100%;
-
-  .disco-video {
-    border-radius: 5px;
-    height: 120px;
-    width: 215px;
-  }
-}
-
-.show-video {
-  padding-bottom: 0;
-
-  .disco-header {
-    transform: translateX(-465px);
-    width: 1145px;
-
-    [dir='rtl'] & {
-      transform: translateX(465px);
-    }
-  }
-
-  .disco-content {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .disco-video {
-    height: 288px;
-    margin: 0 84px;
-    width: 512px;
-  }
-
-  .play-video {
-    display: none;
-  }
-
-  .close-video {
-    display: block;
-  }
-}
-
-.video-wrapper {
-  display: none;
-  position: relative;
-}
-
-@include respond-to(large) {
-  .video-wrapper {
-    display: block;
-  }
-}
-
-.play-video {
-  align-items: center;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  left: 0;
-  position: absolute;
-  right: 0;
-  text-decoration: none;
-  top: 0;
-}
-
-.play-video-text {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  display: inline-block;
-  margin: 0 20px;
-  padding: 10px;
-  text-align: center;
-  transition: background 300ms;
-
-  &::before {
-    content: '\25BA ';
-  }
-}
-
-.play-video:hover .play-video-text {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.close-video {
-  display: none;
-  text-align: center;
-
-  a {
-    color: #0996f8;
-    height: 40px;
-    line-height: 40px;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
