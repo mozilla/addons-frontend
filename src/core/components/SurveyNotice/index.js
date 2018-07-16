@@ -16,18 +16,36 @@ type InternalProps = {|
   ...Props,
   _config: typeof config,
   _cookie: typeof cookie,
+  _supportedLangs: Array<string>,
   i18n: I18nType,
+  siteLang: string,
   wasDismissed: boolean,
 |};
 
 export const SurveyNoticeBase = ({
   _config = config,
   _cookie = cookie,
+  _supportedLangs = [
+    'de',
+    'en-US',
+    'es',
+    'fr',
+    'ja',
+    'pl',
+    'pt-BR',
+    'ru',
+    'zh-CN',
+    'zh-TW',
+  ],
   ...props
 }: InternalProps) => {
-  const { i18n, wasDismissed } = props;
+  const { i18n, siteLang, wasDismissed } = props;
 
-  if (wasDismissed) {
+  if (
+    wasDismissed ||
+    !_supportedLangs.includes(siteLang) ||
+    !_config.get('enableExperienceSurvey')
+  ) {
     return null;
   }
 
@@ -60,12 +78,9 @@ export const SurveyNoticeBase = ({
 };
 
 const mapStateToProps = (state: AppState) => {
-  return { wasDismissed: state.survey.wasDismissed };
+  return { siteLang: state.api.lang, wasDismissed: state.survey.wasDismissed };
 };
 
-// TODO:
-// - hide survey for certain locales
-// - hide/show survey from config
 const SurveyNotice: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
