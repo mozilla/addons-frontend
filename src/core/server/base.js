@@ -23,8 +23,7 @@ import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import * as middleware from 'core/middleware';
 import { loadErrorPage } from 'core/reducers/errorPage';
-// TODO: move this to core/reducers, add to disco store.
-import { dismissSurvey } from 'amo/reducers/survey';
+import { dismissSurvey } from 'core/reducers/survey';
 import { convertBoolean } from 'core/utils';
 import {
   setAuthToken,

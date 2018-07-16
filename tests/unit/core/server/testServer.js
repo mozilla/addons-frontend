@@ -16,11 +16,11 @@ import redirectToReducer, {
   sendServerRedirect,
 } from 'core/reducers/redirectTo';
 import usersReducer, { getCurrentUser } from 'amo/reducers/users';
-import surveyReducer, {
-  initialState as initialSurveyState,
-} from 'amo/reducers/survey';
 import usersSaga from 'amo/sagas/users';
 import * as usersApi from 'amo/api/users';
+import surveyReducer, {
+  initialState as initialSurveyState,
+} from 'core/reducers/survey';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import { createUserAccountResponse, userAuthToken } from 'tests/unit/helpers';
 

@@ -1,8 +1,8 @@
 import config from 'config';
 import * as React from 'react';
 
-import SurveyNotice, { SurveyNoticeBase } from 'amo/components/SurveyNotice';
-import { dismissSurvey } from 'amo/reducers/survey';
+import SurveyNotice, { SurveyNoticeBase } from 'core/components/SurveyNotice';
+import { dismissSurvey } from 'core/reducers/survey';
 import Notice from 'ui/components/Notice';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { fakeCookie, fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';

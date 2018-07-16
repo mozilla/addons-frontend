@@ -10,7 +10,6 @@ import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
 import SearchForm from 'amo/components/SearchForm';
-import SurveyNotice from 'amo/components/SurveyNotice';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
@@ -24,6 +23,7 @@ import {
   maximumSetTimeoutDelay,
 } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
+import SurveyNotice from 'core/components/SurveyNotice';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';

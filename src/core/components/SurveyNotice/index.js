@@ -64,8 +64,6 @@ const mapStateToProps = (state: AppState) => {
 };
 
 // TODO:
-// - dispatch a hideSurvey event on the server if cookie
-// - REVERT: hide survey when cookie says it was dismissed
 // - hide survey for certain locales
 // - hide/show survey from config
 const SurveyNotice: React.ComponentType<Props> = compose(
