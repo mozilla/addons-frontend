@@ -6,7 +6,7 @@ import * as utils from 'core/i18n/utils';
 
 const defaultLang = config.get('defaultLang');
 
-describe('i18n utils', () => {
+describe(__filename, () => {
   describe('normalizeLang()', () => {
     it('should normalize standard languages', () => {
       expect(utils.normalizeLang('en-us')).toEqual('en-US');
