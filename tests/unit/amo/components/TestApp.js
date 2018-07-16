@@ -111,7 +111,7 @@ describe(__filename, () => {
 
   it('renders its children', () => {
     const root = shallowRender({
-      children: [<p className="child">The component</p>],
+      children: <p className="child">The component</p>,
     });
     expect(root.find('.child').text()).toEqual('The component');
   });

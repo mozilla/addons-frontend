@@ -81,6 +81,8 @@ const mapStateToProps = (state: AppState) => {
   return { siteLang: state.api.lang, wasDismissed: state.survey.wasDismissed };
 };
 
+// TODO:
+// - pass a source parameter for current page
 const SurveyNotice: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),

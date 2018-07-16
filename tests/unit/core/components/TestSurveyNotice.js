@@ -69,7 +69,7 @@ describe(__filename, () => {
 
     const notice = root.find(Notice);
     expect(notice).toHaveProp('onDismiss');
-    const onDismiss = notice.props().onDismiss;
+    const { onDismiss } = notice.props();
 
     // Simulate a dismissal
     onDismiss();
