@@ -4,11 +4,47 @@
 @import '~core/css/inc/vars';
 @import '~ui/css/vars';
 
-.EditableCollectionAddon {
-  display: grid;
-  grid-gap: 24px;
-  grid-template-columns: 32px minmax(80px, auto) 32px 64px;
-  padding: 12px;
+$icon-size: 32px;
+
+@include respond-to(large) {
+  .EditableCollectionAddon {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: minmax(($icon-size + 80px), auto) min-content;
+  }
+}
+
+.EditableCollectionAddon-buttons,
+.EditableCollectionAddon-details {
+  align-items: center;
+  display: flex;
+  margin-top: $padding-page;
+
+  @include respond-to(large) {
+    display: grid;
+    grid-gap: 24px;
+    padding: 0;
+  }
+}
+
+.EditableCollectionAddon-details {
+  grid-template-columns: $icon-size minmax(80px, auto);
+}
+
+.EditableCollectionAddon-buttons {
+  grid-template-columns: min-content min-content;
+}
+
+.EditableCollectionAddon-icon {
+  @include margin-end(12px);
+
+  display: inline-block;
+  height: $icon-size;
+  width: $icon-size;
+
+  .EditableCollectionAddon--statictheme & {
+    opacity: 0;
+  }
 }
 
 .EditableCollectionAddon-name {
@@ -25,34 +61,39 @@
   }
 }
 
-.EditableCollectionAddon-icon {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
+div.EditableCollectionAddon-leaveNote {
+  @include margin-end(12px);
 
-  .EditableCollectionAddon--statictheme & {
-    opacity: 0;
+  @include respond-to(large) {
+    align-items: center;
+    display: flex;
+    margin-top: 0;
   }
 }
 
-.EditableCollectionAddon-comments-icon {
-  align-items: center;
-  display: flex;
+.EditableCollectionAddon-leaveNote--hidden {
+  display: none;
+  @include respond-to(large) {
+    display: flex;
+    visibility: hidden;
+  }
 }
 
-.EditableCollectionAddon-remove-button {
-  align-items: center;
-  display: flex;
+.EditableCollectionAddon-leaveNote-button {
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.EditableCollectionAddon-notes {
+div.EditableCollectionAddon-notes {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
-  grid-column: 1 / 5;
-  margin-top: 0;
+  grid-column: 1 / 3;
+  margin-top: $padding-page;
   padding: 12px;
 
-  @include respond-to(medium) {
+  @include respond-to(large) {
+    margin-top: 0;
+
     @include margin-start(12px);
   }
 }

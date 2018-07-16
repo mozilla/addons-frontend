@@ -89,16 +89,38 @@ describe(__filename, () => {
     );
   });
 
-  it('renders the comments icon', () => {
-    const root = render();
-    expect(root.find(Icon)).toHaveProp('name', 'comments');
-  });
-
-  it('renders the remove button icon', () => {
+  it('renders the leave a note button icon', () => {
     const addon = createInternalAddon(fakeAddon);
     const root = render({ addon });
-    const button = root.find(Button);
+    const button = root.find('.EditableCollectionAddon-leaveNote-button');
+    expect(button).toHaveProp('buttonType', 'action');
+    expect(button).toHaveProp('micro', true);
+    expect(button).toHaveProp('onClick', root.instance().onEditNote);
+    expect(button.prop('children')).toEqual('Leave a note');
+  });
+
+  it('displays the leave a note button when no notes exist', () => {
+    const root = render({ notes: null });
+    expect(root.find('.EditableCollectionAddon-leaveNote')).not.toHaveClassName(
+      'EditableCollectionAddon-leaveNote--hidden',
+    );
+  });
+
+  it('hides the leave a note button when notes exist', () => {
+    const root = render({ notes: 'some notes' });
+    expect(root.find('.EditableCollectionAddon-leaveNote')).toHaveClassName(
+      'EditableCollectionAddon-leaveNote--hidden',
+    );
+  });
+
+  it('renders the remove button', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon });
+    const button = root.find('.EditableCollectionAddon-remove-button');
+    expect(button).toHaveProp('buttonType', 'alert');
+    expect(button).toHaveProp('micro', true);
     expect(button).toHaveProp('name', addon.id);
+    expect(button).toHaveProp('onClick', root.instance().onRemoveAddon);
     expect(button.prop('children')).toEqual('Remove');
   });
 
@@ -107,7 +129,7 @@ describe(__filename, () => {
     const removeAddon = sinon.spy();
     const root = render({ addon, removeAddon });
 
-    const removeButton = root.find(Button);
+    const removeButton = root.find('.EditableCollectionAddon-remove-button');
     const clickEvent = createFakeEvent();
     removeButton.simulate('click', clickEvent);
 
@@ -164,14 +186,15 @@ describe(__filename, () => {
       );
     });
 
-    it('shows an empty notes form when the comment icon is clicked', () => {
+    it('shows an empty notes form when the leave a note button is clicked', () => {
       const { store } = dispatchClientMetadata();
       const root = render({ store });
 
       expect(root.find('.EditableCollectionAddon-notes')).toHaveLength(0);
 
-      const commentIcon = root.find('.EditableCollectionAddon-edit-note');
-      commentIcon.simulate('click', createFakeEvent());
+      root
+        .find('.EditableCollectionAddon-leaveNote-button')
+        .simulate('click', createFakeEvent());
       applyUIStateChanges({ root, store });
 
       expect(root.find('.EditableCollectionAddon-notes')).toHaveLength(1);
@@ -198,15 +221,16 @@ describe(__filename, () => {
       ).toHaveLength(0);
     });
 
-    it('changes UI state when the comment icon is clicked', () => {
+    it('changes UI state when the leave a note button is clicked', () => {
       const { store } = dispatchClientMetadata();
       const root = render({ store });
       applyUIStateChanges({ root, store });
 
       expect(root.instance().props.uiState.editingNote).toEqual(false);
 
-      const commentIcon = root.find('.EditableCollectionAddon-edit-note');
-      commentIcon.simulate('click', createFakeEvent());
+      root
+        .find('.EditableCollectionAddon-leaveNote-button')
+        .simulate('click', createFakeEvent());
       applyUIStateChanges({ root, store });
 
       expect(root.instance().props.uiState.editingNote).toEqual(true);
@@ -217,8 +241,9 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
       const root = render({ notes, store });
 
-      const commentIcon = root.find('.EditableCollectionAddon-edit-note');
-      commentIcon.simulate('click', createFakeEvent());
+      root
+        .find('.EditableCollectionAddon-notes-edit-button')
+        .simulate('click', createFakeEvent());
       applyUIStateChanges({ root, store });
 
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
