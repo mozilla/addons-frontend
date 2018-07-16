@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-15 19:37+0000\n"
+"PO-Revision-Date: 2018-07-15 19:40+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1035,13 +1035,12 @@ msgid "Social media customization"
 msgstr "Sosiaalisen median mukauttaminen"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Laajennukset"
+msgstr "Katso lisää dynaamisia latausavustimia"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
-msgstr ""
+msgstr "Dynaamiset latausavustimet"
 
 #: src/amo/components/Home/index.js:62
 #, fuzzy
