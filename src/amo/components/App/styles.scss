@@ -135,6 +135,7 @@ fieldset {
   padding: $padding-page / 2 $padding-page $padding-page / 2 $padding-page;
 
   @include respond-to(large) {
-    padding: $padding-page-l / 2 $padding-page-l $padding-page-l / 2 $padding-page-l;
+    padding: $padding-page-l / 2 $padding-page-l $padding-page-l / 2
+      $padding-page-l;
   }
 }

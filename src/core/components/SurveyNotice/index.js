@@ -68,7 +68,10 @@ export const SurveyNoticeBase = ({
   // Pass along a source derived from the current URL path but with
   // the preceding language path removed.
   const source = querystring.stringify({
-    source: location.pathname.split('/').slice(2).join('/'),
+    source: location.pathname
+      .split('/')
+      .slice(2)
+      .join('/'),
   });
   const surveyUrl = `https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey?${source}`;
 
