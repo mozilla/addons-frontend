@@ -3,6 +3,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import { makeQueryStringWithUTM } from 'disco/utils';
 
 import './styles.scss';
 
@@ -18,7 +19,11 @@ export class FooterBase extends React.Component {
       <footer className="Footer">
         <a
           className="Footer-privacy-link"
-          href="https://www.mozilla.org/privacy/websites/"
+          href={`https://www.mozilla.org/privacy/websites/${makeQueryStringWithUTM(
+            {
+              utm_content: 'privacy-policy-link',
+            },
+          )}`}
           rel="noopener noreferrer"
           target="_blank"
         >

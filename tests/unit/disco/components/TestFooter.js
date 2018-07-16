@@ -1,16 +1,17 @@
 import * as React from 'react';
 
 import Footer, { FooterBase } from 'disco/components/Footer';
+import { makeQueryStringWithUTM } from 'disco/utils';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-function render(props = {}) {
-  return shallowUntilTarget(
-    <Footer i18n={fakeI18n()} {...props} />,
-    FooterBase,
-  );
-}
-
 describe(__filename, () => {
+  const render = (props = {}) => {
+    return shallowUntilTarget(
+      <Footer i18n={fakeI18n()} {...props} />,
+      FooterBase,
+    );
+  };
+
   it('renders a footer', () => {
     const root = render();
 
@@ -22,7 +23,9 @@ describe(__filename, () => {
 
     expect(root.find('.Footer-privacy-link')).toHaveProp(
       'href',
-      'https://www.mozilla.org/privacy/websites/',
+      `https://www.mozilla.org/privacy/websites/${makeQueryStringWithUTM({
+        utm_content: 'privacy-policy-link',
+      })}`,
     );
     expect(root.find('.Footer-privacy-link')).toIncludeText('Privacy Policy');
   });
