@@ -17,9 +17,10 @@ import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon } from 'core/reducers/addons';
 import { getDiscoResults } from 'disco/actions';
-import createStore from 'disco/store';
 import { NAVIGATION_CATEGORY } from 'disco/constants';
 import * as helpers from 'disco/components/DiscoPane';
+import createStore from 'disco/store';
+import { makeQueryStringWithUTM } from 'disco/utils';
 import {
   createStubErrorHandler,
   fakeI18n,
@@ -335,6 +336,20 @@ describe(__filename, () => {
   });
 
   describe('See more add-ons link', () => {
+    it('shows a "more add-ons" link with UTM params', () => {
+      const root = render();
+      const button = root.find('.amo-link').find(Button);
+
+      expect(button).toHaveLength(1);
+      expect(button).toHaveProp(
+        'href',
+        `https://addons.mozilla.org/${makeQueryStringWithUTM({
+          utm_content: 'see-more-link',
+          src: 'api',
+        })}`,
+      );
+    });
+
     it('tracks see more addons link being clicked', () => {
       const root = render();
 
