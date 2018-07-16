@@ -55,14 +55,14 @@ describe(__filename, () => {
     expect(root.find(LandingAddonsCard)).toHaveProp('className', className);
   });
 
-  it("renders a theme class name to LandingAddonsCard if the collection's isTheme property is true", () => {
+  it('renders a theme class name to LandingAddonsCard when isTheme is true', () => {
     const root = render({ isTheme: true });
     expect(root.find(LandingAddonsCard)).toHaveClassName(
       'FeaturedCollection--theme',
     );
   });
 
-  it("does not render a theme class name to LandingAddonsCard if the collection's isTheme property is false", () => {
+  it('does not render a theme class name to LandingAddonsCard when isTheme is false', () => {
     const root = render({ isTheme: false });
     expect(root.find(LandingAddonsCard)).not.toHaveClassName(
       'FeaturedCollection--theme',
