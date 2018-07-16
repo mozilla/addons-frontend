@@ -135,12 +135,12 @@ fieldset {
   padding: $padding-page;
   // Split the top padding in half so that we can put optional content
   // in there when needed.
-  padding-top: $padding-page / 2;
   padding-bottom: $padding-page / 2;
+  padding-top: $padding-page / 2;
 
   @include respond-to(large) {
     padding: $padding-page-l;
-    padding-top: $padding-page-l / 2;
     padding-bottom: $padding-page-l / 2;
+    padding-top: $padding-page-l / 2;
   }
 }
