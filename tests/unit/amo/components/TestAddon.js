@@ -22,7 +22,6 @@ import AddonRecommendations from 'amo/components/AddonRecommendations';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
-import ShowMoreCard from 'ui/components/ShowMoreCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
@@ -720,7 +719,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(ShowMoreCard)).toHaveLength(0);
+    expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
   it("displays a static theme's description on the show more card", () => {
@@ -734,7 +733,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(ShowMoreCard)).toHaveLength(1);
+    expect(root.find('.AddonDescription')).toHaveLength(1);
 
     expect(root.find('.AddonDescription-contents').html()).toContain(
       description,
@@ -751,7 +750,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(ShowMoreCard)).toHaveLength(0);
+    expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
   it("displays an extension's summary on the show more card", () => {
@@ -765,7 +764,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(ShowMoreCard)).toHaveLength(1);
+    expect(root.find('.AddonDescription')).toHaveLength(1);
 
     expect(root.find('.AddonDescription-contents').html()).toContain(summary);
   });
@@ -781,10 +780,10 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(ShowMoreCard)).toHaveLength(1);
+    expect(root.find('.AddonDescription')).toHaveLength(1);
 
-    expect(root.find('.AddonDescription-contents').html()).toContain(
-      description,
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${description}</div>`,
     );
   });
 
