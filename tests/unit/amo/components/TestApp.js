@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -42,14 +43,12 @@ describe(__filename, () => {
     }
   }
 
-  // eslint-disable-next-line react/no-multi-comp
   class FakeFooterComponent extends React.Component {
     render() {
       return <footer />;
     }
   }
 
-  // eslint-disable-next-line react/no-multi-comp
   class FakeHeaderComponent extends React.Component {
     render() {
       // eslint-disable-next-line react/prop-types
@@ -57,7 +56,6 @@ describe(__filename, () => {
     }
   }
 
-  // eslint-disable-next-line react/no-multi-comp
   class FakeSearchFormComponent extends React.Component {
     render() {
       return <form />;
@@ -111,16 +109,10 @@ describe(__filename, () => {
   };
 
   it('renders its children', () => {
-    // eslint-disable-next-line react/no-multi-comp
-    class MyComponent extends React.Component {
-      render() {
-        return <p>The component</p>;
-      }
-    }
-    const root = render({ children: [<MyComponent key="key" />] });
-    const rootNode = findDOMNode(root);
-    expect(rootNode.tagName.toLowerCase()).toEqual('div');
-    expect(rootNode.querySelector('p').textContent).toEqual('The component');
+    const root = shallowRender({
+      children: [<p className="child">The component</p>],
+    });
+    expect(root.find('.child').text()).toEqual('The component');
   });
 
   it('sets the mamo cookie to "off"', () => {
