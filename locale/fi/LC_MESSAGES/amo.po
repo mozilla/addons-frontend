@@ -1903,7 +1903,7 @@ msgstr "Osallistu lyhyeeseen tutkimukseen"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Kiitos kun kävit tällä sivustolla! Käytä muutama minuutti aikaasi kertoaksesi Firefoxiin liittyvistä kokemuksistasi."
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2157,7 +2157,6 @@ msgid "Do you really want to delete this picture?"
 msgstr "Haluatko varmasti poistaa tämän kuvan?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
 msgstr "Poista tämä kuva"
 
@@ -2299,7 +2298,7 @@ msgstr ""
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Ohita tämä ilmoitus"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
