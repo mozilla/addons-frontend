@@ -1,5 +1,4 @@
 // Tracking categories.
-export const VIDEO_CATEGORY = 'Discovery Video';
 export const NAVIGATION_CATEGORY = 'Discovery Navigation';
 
 // Action types.

@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import {
@@ -32,7 +33,7 @@ import {
 import ErrorList from 'ui/components/ErrorList';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
-import UserRating from 'ui/components/UserRating';
+import UserReview from 'ui/components/UserReview';
 
 describe(__filename, () => {
   let store;
@@ -52,6 +53,15 @@ describe(__filename, () => {
       <AddonReviewListItem {...props} />,
       AddonReviewListItemBase,
     );
+  };
+
+  const renderByLine = (root) => {
+    // Enzyme does not support React Fragments completely, so we wrap the
+    // fragment into a `<div>` in order to shallow it.
+    // See: https://github.com/airbnb/enzyme/issues/1213
+    const byLine = shallow(<div>{root.find(UserReview).prop('byLine')}</div>);
+
+    return byLine.children();
   };
 
   const getReviewFromState = (reviewId) => {
@@ -140,49 +150,19 @@ describe(__filename, () => {
     });
     const root = render({ review });
 
-    expect(root.find('.AddonReviewListItem-body').html()).toContain(
-      fakeReview.body,
-    );
-
-    expect(root.find('.AddonReviewListItem-byline')).toIncludeText(
-      fakeReview.user.name,
-    );
-
-    const rating = root.find(UserRating);
-    expect(rating).toHaveProp('readOnly', true);
-    expect(rating).toHaveProp('styleSize', 'small');
+    const rating = root.find(UserReview);
     expect(rating).toHaveProp('review', review);
-  });
-
-  it('renders newlines in review bodies', () => {
-    const fakeReviewWithNewLine = {
-      ...fakeReview,
-      body: "It's awesome \n isn't it?",
-    };
-    const root = render({
-      review: _setReview(fakeReviewWithNewLine),
-    });
-
-    expect(
-      root
-        .find('p')
-        .render()
-        .find('br'),
-    ).toHaveLength(1);
+    expect(rating).toHaveProp('showRating', false);
+    expect(rating).toHaveProp('byLine');
   });
 
   it('renders loading text for falsy reviews', () => {
     const root = render({ review: null });
 
+    expect(root.find(UserReview)).toHaveProp('review', null);
+
     expect(
-      root
-        .find('p')
-        .at(0)
-        .find(LoadingText),
-    ).toHaveLength(1);
-    expect(
-      root
-        .find('.AddonReviewListItem-byline')
+      renderByLine(root)
         .at(0)
         .find(LoadingText),
     ).toHaveLength(1);
@@ -192,7 +172,9 @@ describe(__filename, () => {
     dispatchSignInActions({ store });
     const root = render({ review: null });
 
-    expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
+    expect(renderByLine(root).find('.AddonReviewListItem-edit')).toHaveLength(
+      0,
+    );
   });
 
   it('cannot edit without a review', () => {
@@ -211,7 +193,9 @@ describe(__filename, () => {
     });
     const root = render({ review });
 
-    expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
+    expect(renderByLine(root).find('.AddonReviewListItem-edit')).toHaveLength(
+      0,
+    );
   });
 
   it('lets you begin editing your review', () => {
@@ -219,7 +203,7 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
 
-    const editButton = root.find('.AddonReviewListItem-edit');
+    const editButton = renderByLine(root).find('.AddonReviewListItem-edit');
     const clickEvent = createFakeEvent();
     editButton.simulate('click', clickEvent);
 
@@ -235,9 +219,10 @@ describe(__filename, () => {
   it('configures the edit-review form', () => {
     const review = signInAndDispatchSavedReview();
     store.dispatch(showEditReviewForm({ reviewId: review.id }));
+
     const root = render({ review });
 
-    const reviewComponent = root.find(AddonReview);
+    const reviewComponent = renderByLine(root).find(AddonReview);
     expect(reviewComponent).toHaveLength(1);
     expect(reviewComponent).toHaveProp('review', review);
   });
@@ -247,7 +232,7 @@ describe(__filename, () => {
     const location = fakeRouterLocation();
     const root = render({ location, review });
 
-    const flag = root.find(FlagReviewMenu);
+    const flag = renderByLine(root).find(FlagReviewMenu);
     expect(flag).toHaveProp('review', review);
     expect(flag).toHaveProp('location', location);
     expect(flag).toHaveProp('isDeveloperReply', false);
@@ -257,7 +242,7 @@ describe(__filename, () => {
     const { reply } = _setReviewReply();
     const root = renderReply({ reply });
 
-    const flag = root.find(FlagReviewMenu);
+    const flag = renderByLine(root).find(FlagReviewMenu);
     expect(flag).toHaveProp('review', reply);
     expect(flag).toHaveProp('isDeveloperReply', true);
   });
@@ -281,8 +266,11 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ addon, review });
 
-    const editButton = root.find('.AddonReviewListItem-begin-reply');
+    const editButton = renderByLine(root).find(
+      '.AddonReviewListItem-begin-reply',
+    );
     expect(editButton).toHaveLength(1);
+
     const clickEvent = createFakeEvent();
     editButton.simulate('click', clickEvent);
 
@@ -312,8 +300,9 @@ describe(__filename, () => {
 
     const root = render({ addon, review });
 
-    const editButton = root.find('.AddonReviewListItem-begin-reply');
-    expect(editButton).toHaveLength(1);
+    expect(
+      renderByLine(root).find('.AddonReviewListItem-begin-reply'),
+    ).toHaveLength(1);
   });
 
   it('does not let a regular user reply to a review', () => {
@@ -331,7 +320,9 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ addon, review });
 
-    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+    expect(
+      renderByLine(root).find('.AddonReviewListItem-begin-reply'),
+    ).toHaveLength(0);
     sinon.assert.notCalled(fakeDispatch);
   });
 
@@ -347,7 +338,9 @@ describe(__filename, () => {
     store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
     const root = render({ addon, review });
 
-    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+    expect(
+      renderByLine(root).find('.AddonReviewListItem-begin-reply'),
+    ).toHaveLength(0);
   });
 
   it('hides reply button if you wrote the review', () => {
@@ -362,7 +355,9 @@ describe(__filename, () => {
     });
     const root = render({ addon, review });
 
-    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+    expect(
+      renderByLine(root).find('.AddonReviewListItem-begin-reply'),
+    ).toHaveLength(0);
   });
 
   it('cannot dismiss a review reply without a review', () => {
@@ -527,7 +522,9 @@ describe(__filename, () => {
 
     const root = render({ review });
 
-    expect(root.find('.AddonReviewListItem-reply-form')).toHaveLength(0);
+    expect(
+      renderByLine(root).find('.AddonReviewListItem-reply-form'),
+    ).toHaveLength(0);
   });
 
   it('hides the reply-to-review link after a reply has been sent', () => {
@@ -557,7 +554,9 @@ describe(__filename, () => {
     const root = render({ addon, review });
 
     // This link should be hidden now that a reply has been sent.
-    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+    expect(
+      renderByLine(root).find('.AddonReviewListItem-begin-reply'),
+    ).toHaveLength(0);
   });
 
   it('ignores other review related view actions', () => {
@@ -568,7 +567,9 @@ describe(__filename, () => {
 
     const root = render({ review: thisReview });
 
-    expect(root.find('.AddonReviewListItem-reply-form')).toHaveLength(0);
+    expect(
+      renderByLine(root).find('.AddonReviewListItem-reply-form'),
+    ).toHaveLength(0);
   });
 
   it('hides AddonReview when the overlay is escaped', () => {
@@ -577,7 +578,7 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
 
-    const reviewComponent = root.find(AddonReview);
+    const reviewComponent = renderByLine(root).find(AddonReview);
     expect(reviewComponent).toHaveProp('onEscapeOverlay');
 
     const onEscapeOverlay = reviewComponent.prop('onEscapeOverlay');
@@ -607,7 +608,7 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
 
-    const reviewComponent = root.find(AddonReview);
+    const reviewComponent = renderByLine(root).find(AddonReview);
     expect(reviewComponent).toHaveProp('onReviewSubmitted');
 
     const onReviewSubmitted = reviewComponent.prop('onReviewSubmitted');
@@ -637,7 +638,7 @@ describe(__filename, () => {
     store.dispatch(hideEditReviewForm({ reviewId: review.id }));
     const root = render({ review });
 
-    expect(root.find(AddonReview)).toHaveLength(0);
+    expect(renderByLine(root).find(AddonReview)).toHaveLength(0);
   });
 
   it('renders errors', () => {
@@ -668,7 +669,9 @@ describe(__filename, () => {
       const developerUserId = 3321;
       const { addon } = signInAsAddonDeveloper({ developerUserId });
       const root = renderReply({ addon });
-      expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+      expect(
+        renderByLine(root).find('.AddonReviewListItem-begin-reply'),
+      ).toHaveLength(0);
     });
 
     it('hides a nested reply when editing it', () => {
@@ -679,12 +682,6 @@ describe(__filename, () => {
 
       const replyComponent = root.find(AddonReviewListItem);
       expect(replyComponent).toHaveLength(0);
-    });
-
-    it('hides ratings for replies', () => {
-      const root = renderReply();
-
-      expect(root.find(UserRating)).toHaveLength(0);
     });
 
     it('does not include a user name in the byline', () => {
@@ -706,9 +703,10 @@ describe(__filename, () => {
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const root = renderReply({ originalReviewId, reply: review });
 
-      const editButton = root.find('.AddonReviewListItem-edit');
+      const editButton = renderByLine(root).find('.AddonReviewListItem-edit');
       expect(editButton.text()).toContain('Edit my reply');
       expect(editButton).toHaveLength(1);
+
       editButton.simulate('click', createFakeEvent());
 
       sinon.assert.calledWith(

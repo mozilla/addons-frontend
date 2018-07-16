@@ -22,7 +22,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
-import { loadedAddons } from 'disco/containers/DiscoPane';
+import { loadedAddons } from 'disco/components/DiscoPane';
 import createStore from 'disco/store';
 import {
   createFakeEvent,

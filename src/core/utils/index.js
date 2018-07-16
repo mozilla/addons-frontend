@@ -24,17 +24,6 @@ import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import purify from 'core/purify';
 
-export function gettext(str) {
-  return str;
-}
-
-export function ngettext(singular, plural, n) {
-  if (n === 1) {
-    return singular;
-  }
-  return plural;
-}
-
 export function getClientConfig(_config) {
   const clientConfig = {};
   for (const key of _config.get('clientConfigKeys')) {

@@ -20,7 +20,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import log from 'core/logger';
 import { createApiError } from 'core/api';
-import ServerHtml from 'core/containers/ServerHtml';
+import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';

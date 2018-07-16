@@ -52,17 +52,22 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           )}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-6" linkTo="/addon/ublock-origin/">
-        <h3>{i18n.gettext('uBlock Origin')}</h3>
-
-        <p>{i18n.gettext('Efficient, powerful ad blocker')}</p>
-      </HeroSection>,
-      <HeroSection key="hero-7" linkTo="/addon/ghostery/">
-        <h3>{i18n.gettext('Ghostery')}</h3>
+      <HeroSection key="hero-6" linkTo="/addon/new-tab-override/">
+        <h3>{i18n.gettext('New Tab Override')}</h3>
 
         <p>
-          {i18n.gettext(`Popular anti-tracking extension now has
-              ad blocking ability`)}
+          {i18n.gettext(
+            'Choose the page you see every time you open a new tab',
+          )}
+        </p>
+      </HeroSection>,
+      <HeroSection key="hero-7" linkTo="/addon/forecastfox-fix-version/">
+        <h3>{i18n.gettext('Forecastfox')}</h3>
+
+        <p>
+          {i18n.gettext(
+            'Get instant global weather information right in Firefox',
+          )}
         </p>
       </HeroSection>,
       <HeroSection key="hero-8" linkTo="/addon/multi-account-containers/">
@@ -86,21 +91,19 @@ export class HomeHeroBannerBase extends React.Component<Props> {
               backgrounds, local weather & more`)}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-11" linkTo="/addon/share-backported/">
-        <h3>{i18n.gettext('Share Backported')}</h3>
+      <HeroSection key="hero-11" linkTo="/addon/tree-style-tab/">
+        <h3>{i18n.gettext('Tree Style Tab')}</h3>
 
         <p>
-          {i18n.gettext(`Put a social media ‘Share’ button into Firefox
-              toolbar`)}
+          {i18n.gettext(
+            'Have a ton of open tabs? Organize them in a tidy sidebar',
+          )}
         </p>
       </HeroSection>,
-      <HeroSection key="hero-12" linkTo="/addon/view-page-archive/">
-        <h3>{i18n.gettext('View Page Archive & Cache')}</h3>
+      <HeroSection key="hero-12" linkTo="/addon/imagus/">
+        <h3>{i18n.gettext('Imagus')}</h3>
 
-        <p>
-          {i18n.gettext(`A powerful way to find archived versions of older
-              web pages`)}
-        </p>
+        <p>{i18n.gettext('Enlarge images by hovering your mouse over it')}</p>
       </HeroSection>,
       <HeroSection key="hero-13" linkTo="/addon/privacy-possum/">
         <h3>{i18n.gettext('Privacy Possum')}</h3>
