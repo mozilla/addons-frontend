@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-16 13:56+0000\n"
+"PO-Revision-Date: 2018-07-16 14:37+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -812,9 +812,8 @@ msgid "Flagged"
 msgstr "Επισημάνθηκε"
 
 #: src/amo/components/FlagReviewMenu/index.js:127
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Κέντρο προγραμματιστών"
+msgstr "Αναφορά απάντησης προγραμματιστή"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag this review"
@@ -885,9 +884,8 @@ msgid "Legal"
 msgstr "Νομικά"
 
 #: src/amo/components/Footer/index.js:184
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Αναφορά σφάλματος"
+msgstr "Αναφορά κατάχρησης εμπορικού σήματος"
 
 #: src/amo/components/Footer/index.js:194
 msgid ""
@@ -2298,9 +2296,8 @@ msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Ενημερώστε τη βαθμολογία σας σε %(starRating)s από 5"
 
 #: src/ui/components/Rating/index.js:75
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Βαθμολογία %(rating)s από 5"
+msgstr "Βαθμολόγηση προσθέτου με %(starRating)s από 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
