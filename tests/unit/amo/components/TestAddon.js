@@ -710,7 +710,7 @@ describe(__filename, () => {
     expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
   });
 
-  it("does not display a lightweight theme's show more card", () => {
+  it("does not display a lightweight theme's summary", () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -722,7 +722,7 @@ describe(__filename, () => {
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
-  it("displays a static theme's description on the show more card", () => {
+  it("displays a static theme's description", () => {
     const description = 'some cool description';
     const root = shallowRender({
       addon: createInternalAddon({
@@ -740,7 +740,7 @@ describe(__filename, () => {
     );
   });
 
-  it("does not display a static theme's show more card if there is no description", () => {
+  it('does not display anything if a static theme has no description', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -753,7 +753,7 @@ describe(__filename, () => {
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
-  it("displays an extension's summary on the show more card", () => {
+  it("displays the extension's summary when there is no description", () => {
     const summary = 'my theme is very cool';
     const root = shallowRender({
       addon: createInternalAddon({
@@ -771,7 +771,7 @@ describe(__filename, () => {
     );
   });
 
-  it("displays an extension's description on the show more card if there are both description and summary", () => {
+  it("displays the extension's description when both description and summary are supplied", () => {
     const description = 'some cool description';
     const root = shallowRender({
       addon: createInternalAddon({
