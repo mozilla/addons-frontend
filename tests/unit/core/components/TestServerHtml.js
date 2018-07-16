@@ -6,14 +6,14 @@ import {
   renderIntoDocument,
 } from 'react-dom/test-utils';
 
-import ServerHtml from 'core/containers/ServerHtml';
+import ServerHtml from 'core/components/ServerHtml';
 import FakeApp, {
   fakeAssets,
   fakeSRIData,
 } from 'tests/unit/core/server/fakeApp';
 import { getFakeConfig } from 'tests/unit/helpers';
 
-describe('<ServerHtml />', () => {
+describe(__filename, () => {
   const _helmetCanUseDOM = Helmet.canUseDOM;
 
   beforeEach(() => {

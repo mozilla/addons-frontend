@@ -4,7 +4,7 @@ import * as React from 'react';
 import { render404IfConfigKeyIsFalse } from 'core/utils';
 import Button from 'ui/components/Button';
 
-import './SimulateClientError.scss';
+import './styles.scss';
 
 export class SimulateClientErrorBase extends React.Component {
   constructor(props) {

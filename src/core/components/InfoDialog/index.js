@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import './InfoDialog.scss';
+
+import './styles.scss';
 
 class InfoDialogRaw extends React.Component {
   static propTypes = {

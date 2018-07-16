@@ -4,9 +4,9 @@ import { Router, Route } from 'react-router';
 
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
-import SimulateAsyncError from 'core/containers/error-simulation/SimulateAsyncError';
-import SimulateClientError from 'core/containers/error-simulation/SimulateClientError';
-import SimulateSyncError from 'core/containers/error-simulation/SimulateSyncError';
+import SimulateAsyncError from 'core/components/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'core/components/error-simulation/SimulateClientError';
+import SimulateSyncError from 'core/components/error-simulation/SimulateSyncError';
 import App from 'disco/components/App';
 import DiscoPane from 'disco/components/DiscoPane';
 

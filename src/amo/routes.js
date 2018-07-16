@@ -22,9 +22,9 @@ import SearchPage from 'amo/components/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/components/UserProfile';
 import UserProfileEdit from 'amo/components/UserProfileEdit';
-import SimulateAsyncError from 'core/containers/error-simulation/SimulateAsyncError';
-import SimulateClientError from 'core/containers/error-simulation/SimulateClientError';
-import SimulateSyncError from 'core/containers/error-simulation/SimulateSyncError';
+import SimulateAsyncError from 'core/components/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'core/components/error-simulation/SimulateClientError';
+import SimulateSyncError from 'core/components/error-simulation/SimulateSyncError';
 
 // If you add a new route here, check that the nginx rules maintained by ops
 // are in sync. See:

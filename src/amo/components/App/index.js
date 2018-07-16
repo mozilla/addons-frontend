@@ -23,7 +23,7 @@ import {
   maximumSetTimeoutDelay,
 } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
-import InfoDialog from 'core/containers/InfoDialog';
+import InfoDialog from 'core/components/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import type { AppState } from 'amo/store';

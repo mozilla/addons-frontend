@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { renderIntoDocument } from 'react-dom/test-utils';
 
-import { SimulateAsyncErrorBase } from 'core/containers/error-simulation/SimulateAsyncError';
+import { SimulateAsyncErrorBase } from 'core/components/error-simulation/SimulateAsyncError';
 
-describe('SimulateAsyncError', () => {
+describe(__filename, () => {
   let clock;
 
   beforeEach(() => {
