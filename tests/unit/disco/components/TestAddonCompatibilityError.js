@@ -11,7 +11,7 @@ import {
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-describe('AddonCompatibilityError', () => {
+describe(__filename, () => {
   function render({ ...props }) {
     const { store } = dispatchClientMetadata();
 

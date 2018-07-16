@@ -18,7 +18,7 @@ import {
 import installations from 'core/reducers/installations';
 import { fakeInstalledAddon } from 'tests/unit/amo/helpers';
 
-describe('installations reducer', () => {
+describe(__filename, () => {
   it('is an empty object by default', () => {
     expect(installations(undefined, { type: 'whatever' })).toEqual({});
   });

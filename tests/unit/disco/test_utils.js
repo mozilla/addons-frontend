@@ -1,6 +1,6 @@
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 
-describe('sanitizeHTMLWithExternalLinks', () => {
+describe(__filename, () => {
   it('adds `target` and `rel` attributes to HTML "targetable" elements', () => {
     const html = '<a href="http://example.org">link</a>';
     expect(sanitizeHTMLWithExternalLinks(html, ['a'])).toEqual({

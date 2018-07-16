@@ -2,7 +2,7 @@ import { getAddonIconUrl } from 'core/imageUtils';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 
-describe('getAddonIconUrl', () => {
+describe(__filename, () => {
   const allowedIcon = 'https://addons.cdn.mozilla.net/webdev-64.png';
 
   it('return icon url as in fake addon', () => {

@@ -5,7 +5,7 @@ import {
   fakeDiscoAddon,
 } from 'tests/unit/disco/helpers';
 
-describe('discoResults reducer', () => {
+describe(__filename, () => {
   it('defaults to an empty array', () => {
     expect(discoResults(undefined, { type: 'UNRELATED' })).toEqual([]);
   });

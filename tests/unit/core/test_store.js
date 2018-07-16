@@ -1,6 +1,6 @@
 import { middleware } from 'core/store';
 
-describe('core store middleware', () => {
+describe(__filename, () => {
   function configForDev(isDevelopment, config = {}) {
     const finalConfig = { isDevelopment, ...config };
     return {

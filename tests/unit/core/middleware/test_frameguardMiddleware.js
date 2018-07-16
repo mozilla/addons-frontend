@@ -6,7 +6,7 @@ import { frameguard } from 'core/middleware';
 
 const appsList = config.get('validAppNames');
 
-describe('Frameguard Middleware', () => {
+describe(__filename, () => {
   const existingNodeEnv = process.env.NODE_ENV;
 
   afterEach(() => {

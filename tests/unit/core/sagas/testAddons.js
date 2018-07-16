@@ -10,7 +10,7 @@ import {
   createStubErrorHandler,
 } from 'tests/unit/helpers';
 
-describe('core/sagas/addons', () => {
+describe(__filename, () => {
   let apiState;
   let errorHandler;
   let mockApi;

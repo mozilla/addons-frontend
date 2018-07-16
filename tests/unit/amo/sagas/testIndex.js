@@ -1,6 +1,6 @@
 import rootSagas from 'amo/sagas';
 
-describe('amo rootSagas', () => {
+describe(__filename, () => {
   it('should run all sagas without an error', () => {
     expect(() => {
       rootSagas().next();

@@ -3,7 +3,7 @@ import * as React from 'react';
 import Footer, { FooterBase } from 'amo/components/Footer';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-describe('Footer', () => {
+describe(__filename, () => {
   function renderFooter({ ...props }) {
     return shallowUntilTarget(
       <Footer i18n={fakeI18n()} {...props} />,

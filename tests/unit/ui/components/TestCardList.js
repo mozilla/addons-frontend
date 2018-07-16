@@ -8,7 +8,7 @@ function renderToDOM(props) {
   return findDOMNode(renderIntoDocument(<CardList {...props} />));
 }
 
-describe('ui/components/CardList', () => {
+describe(__filename, () => {
   it('adds a CardList class', () => {
     const root = renderToDOM();
     expect(root.className).toContain('CardList');

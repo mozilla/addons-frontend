@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import { shallowUntilTarget } from 'tests/unit/helpers';
 
-describe('helpers', () => {
+describe(__filename, () => {
   describe('shallowUntilTarget', () => {
     function ExampleBase() {
       return <div>Example component</div>;

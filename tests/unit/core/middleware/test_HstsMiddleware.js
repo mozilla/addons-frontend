@@ -3,7 +3,7 @@ import MockExpressResponse from 'mock-express-response';
 
 import { hsts } from 'core/middleware';
 
-describe('HSTS Middleware', () => {
+describe(__filename, () => {
   it('provides the expected HSTS headers', () => {
     const middleware = hsts();
     const nextSpy = sinon.stub();

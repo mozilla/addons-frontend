@@ -10,7 +10,7 @@ function render(props = {}) {
   );
 }
 
-describe('Footer', () => {
+describe(__filename, () => {
   it('renders a footer', () => {
     const root = render();
 

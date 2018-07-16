@@ -1421,104 +1421,104 @@ describe(__filename, () => {
       expect(extractId(props)).toEqual('some-slug');
     });
   });
-});
 
-describe('mapStateToProps', () => {
-  let store;
+  describe('mapStateToProps', () => {
+    let store;
 
-  beforeEach(() => {
-    store = createStore().store;
-  });
+    beforeEach(() => {
+      store = createStore().store;
+    });
 
-  function signIn(params) {
-    dispatchSignInActions({ store, ...params });
-  }
+    function signIn(params) {
+      dispatchSignInActions({ store, ...params });
+    }
 
-  function fetchAddon({ addon = fakeAddon } = {}) {
-    store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
-  }
+    function fetchAddon({ addon = fakeAddon } = {}) {
+      store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
+    }
 
-  function _mapStateToProps(
-    state = store.getState(),
-    ownProps = { params: { slug: fakeAddon.slug } },
-  ) {
-    return mapStateToProps(state, ownProps);
-  }
+    function _mapStateToProps(
+      state = store.getState(),
+      ownProps = { params: { slug: fakeAddon.slug } },
+    ) {
+      return mapStateToProps(state, ownProps);
+    }
 
-  it('can handle a missing addon', () => {
-    signIn();
-    const { addon, platformFiles } = _mapStateToProps();
-    expect(addon).toBeFalsy();
-    // Make sure this isn't undefined since it gets read from `addon`.
-    expect(platformFiles).toEqual({});
-  });
+    it('can handle a missing addon', () => {
+      signIn();
+      const { addon, platformFiles } = _mapStateToProps();
+      expect(addon).toBeFalsy();
+      // Make sure this isn't undefined since it gets read from `addon`.
+      expect(platformFiles).toEqual({});
+    });
 
-  it('sets the clientApp and userAgent', () => {
-    const clientAppFromAgent = 'firefox';
-    signIn({ clientApp: clientAppFromAgent });
-    fetchAddon();
-    const { clientApp, userAgentInfo } = _mapStateToProps();
+    it('sets the clientApp and userAgent', () => {
+      const clientAppFromAgent = 'firefox';
+      signIn({ clientApp: clientAppFromAgent });
+      fetchAddon();
+      const { clientApp, userAgentInfo } = _mapStateToProps();
 
-    expect(clientApp).toEqual(clientAppFromAgent);
-    const { browser, os } = sampleUserAgentParsed;
-    expect(userAgentInfo).toEqual({ browser, os });
-  });
+      expect(clientApp).toEqual(clientAppFromAgent);
+      const { browser, os } = sampleUserAgentParsed;
+      expect(userAgentInfo).toEqual({ browser, os });
+    });
 
-  it('sets installStatus to INSTALLED when add-on is installed', () => {
-    signIn();
-    fetchAddon();
-    store.dispatch(
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid: fakeAddon.guid,
-        status: INSTALLED,
-      }),
-    );
-    const { installStatus } = _mapStateToProps();
+    it('sets installStatus to INSTALLED when add-on is installed', () => {
+      signIn();
+      fetchAddon();
+      store.dispatch(
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid: fakeAddon.guid,
+          status: INSTALLED,
+        }),
+      );
+      const { installStatus } = _mapStateToProps();
 
-    expect(installStatus).toEqual(INSTALLED);
-  });
+      expect(installStatus).toEqual(INSTALLED);
+    });
 
-  it('sets installStatus to UNKNOWN when add-on is not installed', () => {
-    signIn();
-    fetchAddon();
-    const { installStatus } = _mapStateToProps();
+    it('sets installStatus to UNKNOWN when add-on is not installed', () => {
+      signIn();
+      fetchAddon();
+      const { installStatus } = _mapStateToProps();
 
-    expect(installStatus).toEqual(UNKNOWN);
-  });
+      expect(installStatus).toEqual(UNKNOWN);
+    });
 
-  it('must convert all addon props to component props', () => {
-    signIn();
-    const description = 'whatever';
-    fetchAddon({ addon: { ...fakeAddon, description } });
-    const props = _mapStateToProps();
+    it('must convert all addon props to component props', () => {
+      signIn();
+      const description = 'whatever';
+      fetchAddon({ addon: { ...fakeAddon, description } });
+      const props = _mapStateToProps();
 
-    // Make sure a random addon prop gets passed as a component prop
-    // so that the withInstallHelpers HOC works.
-    expect(props.description).toEqual(description);
-  });
+      // Make sure a random addon prop gets passed as a component prop
+      // so that the withInstallHelpers HOC works.
+      expect(props.description).toEqual(description);
+    });
 
-  it('must convert all installed addon props to component props', () => {
-    signIn();
-    fetchAddon();
-    store.dispatch(
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid: fakeAddon.guid,
-        status: INSTALLED,
-      }),
-    );
-    const { needsRestart } = _mapStateToProps();
+    it('must convert all installed addon props to component props', () => {
+      signIn();
+      fetchAddon();
+      store.dispatch(
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid: fakeAddon.guid,
+          status: INSTALLED,
+        }),
+      );
+      const { needsRestart } = _mapStateToProps();
 
-    // Make sure a random installedAddon prop gets passed as a component prop
-    // so that the withInstallHelpers HOC works.
-    expect(needsRestart).toEqual(false);
-  });
+      // Make sure a random installedAddon prop gets passed as a component prop
+      // so that the withInstallHelpers HOC works.
+      expect(needsRestart).toEqual(false);
+    });
 
-  it('handles a non-existant add-on', () => {
-    signIn();
-    const { addon } = _mapStateToProps();
+    it('handles a non-existant add-on', () => {
+      signIn();
+      const { addon } = _mapStateToProps();
 
-    expect(addon).toEqual(null);
+      expect(addon).toEqual(null);
+    });
   });
 });

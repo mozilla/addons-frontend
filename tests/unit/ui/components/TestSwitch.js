@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom';
 
 import Switch from 'ui/components/Switch';
 
-describe('<Switch />', () => {
+describe(__filename, () => {
   function renderButton(props = {}) {
     const renderProps = {
       dispatch: sinon.spy(),

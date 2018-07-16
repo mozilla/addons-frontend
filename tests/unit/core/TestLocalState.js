@@ -12,7 +12,7 @@ function fakeLocalForage(overrides = {}) {
   };
 }
 
-describe('LocalState', () => {
+describe(__filename, () => {
   let localState;
 
   beforeAll(() => {

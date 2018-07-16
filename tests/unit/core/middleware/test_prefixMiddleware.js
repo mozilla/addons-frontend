@@ -1,6 +1,6 @@
 import { prefixMiddleware } from 'core/middleware';
 
-describe('Prefix Middleware', () => {
+describe(__filename, () => {
   let fakeRes;
   let fakeNext;
   let fakeConfig;

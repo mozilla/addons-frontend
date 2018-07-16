@@ -30,7 +30,7 @@ class InnerComponent extends React.Component {
   }
 }
 
-describe('translate()', () => {
+describe(__filename, () => {
   function render({
     Component = translate()(InnerComponent),
     i18n = fakeI18n(),
