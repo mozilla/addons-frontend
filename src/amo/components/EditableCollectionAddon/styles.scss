@@ -4,11 +4,13 @@
 @import '~core/css/inc/vars';
 @import '~ui/css/vars';
 
+$icon-size: 32px;
+
 @include respond-to(large) {
   .EditableCollectionAddon {
     display: grid;
     grid-gap: 24px;
-    grid-template-columns: minmax(112px, auto) min-content;
+    grid-template-columns: minmax(($icon-size + 80px), auto) min-content;
   }
 }
 
@@ -25,7 +27,7 @@
 }
 
 .EditableCollectionAddon-details {
-  grid-template-columns: 32px minmax(80px, auto);
+  grid-template-columns: $icon-size minmax(80px, auto);
 }
 
 .EditableCollectionAddon-buttons {
@@ -40,8 +42,8 @@
   @include margin-end(12px);
 
   display: inline-block;
-  height: 32px;
-  width: 32px;
+  height: $icon-size;
+  width: $icon-size;
 
   .EditableCollectionAddon--statictheme & {
     opacity: 0;
@@ -83,14 +85,6 @@ div.EditableCollectionAddon-leaveNote {
 .EditableCollectionAddon-leaveNote-button {
   overflow: hidden;
   white-space: nowrap;
-}
-
-@include respond-to(large) {
-  div.EditableCollectionAddon-remove {
-    align-items: center;
-    display: flex;
-    margin-top: 0;
-  }
 }
 
 div.EditableCollectionAddon-notes {

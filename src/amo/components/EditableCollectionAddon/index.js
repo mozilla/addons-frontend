@@ -131,17 +131,15 @@ export class EditableCollectionAddonBase extends React.Component<
               {i18n.gettext('Leave a note')}
             </Button>
           </div>
-          <div className="EditableCollectionAddon-remove">
-            <Button
-              buttonType="alert"
-              className="EditableCollectionAddon-remove-button"
-              micro
-              name={addon.id}
-              onClick={this.onRemoveAddon}
-            >
-              {i18n.gettext('Remove')}
-            </Button>
-          </div>
+          <Button
+            buttonType="alert"
+            className="EditableCollectionAddon-remove-button"
+            micro
+            name={addon.id}
+            onClick={this.onRemoveAddon}
+          >
+            {i18n.gettext('Remove')}
+          </Button>
         </div>
         {showNotes && (
           <div className="EditableCollectionAddon-notes">
