@@ -125,7 +125,6 @@ export class EditableCollectionAddonBase extends React.Component<
               buttonType="action"
               className="EditableCollectionAddon-leaveNote-button"
               micro
-              name={`leaveNote-${addon.id}`}
               onClick={this.onEditNote}
             >
               {i18n.gettext('Leave a note')}
