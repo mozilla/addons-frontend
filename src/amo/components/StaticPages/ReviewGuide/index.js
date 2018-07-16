@@ -7,7 +7,7 @@ import Card from 'ui/components/Card';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 
-import 'amo/components/StaticPages/StaticPages.scss';
+import '../styles.scss';
 
 export class ReviewGuideBase extends React.Component {
   static propTypes = {

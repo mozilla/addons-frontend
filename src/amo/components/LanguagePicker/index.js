@@ -8,7 +8,7 @@ import languages from 'core/languages';
 import translate from 'core/i18n/translate';
 import { addQueryParams } from 'core/utils';
 
-import './LanguagePicker.scss';
+import './styles.scss';
 
 export function changeLocaleURL({ currentLocale, location, newLocale }) {
   const newPath = location.pathname.replace(
