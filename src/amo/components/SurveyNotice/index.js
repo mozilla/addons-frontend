@@ -31,6 +31,13 @@ export const SurveyNoticeBase = (props: InternalProps) => {
   );
 };
 
+// TODO:
+// - dispatch a hideSurvey event on the server if cookie
+// - map to hideSurvey state
+// - hide survey when state says it's hidden
+// - hide survey for certain locales
+// - set a cookie when user dimisses a notice
+// - hide/show survey from config
 const SurveyNotice: React.ComponentType<Props> = compose(translate())(
   SurveyNoticeBase,
 );
