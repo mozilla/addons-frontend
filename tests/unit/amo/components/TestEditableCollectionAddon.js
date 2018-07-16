@@ -95,7 +95,6 @@ describe(__filename, () => {
     const button = root.find('.EditableCollectionAddon-leaveNote-button');
     expect(button).toHaveProp('buttonType', 'action');
     expect(button).toHaveProp('micro', true);
-    expect(button).toHaveProp('name', `leaveNote-${addon.id}`);
     expect(button).toHaveProp('onClick', root.instance().onEditNote);
     expect(button.prop('children')).toEqual('Leave a note');
   });
