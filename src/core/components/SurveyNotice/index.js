@@ -63,6 +63,8 @@ export const SurveyNoticeBase = ({
     // TODO: make this synchronization more automatic.
     // See https://github.com/mozilla/addons-frontend/issues/5617
     _cookie.save(_config.get('dismissedExperienceSurveyCookieName'), '', {
+      // Expire 180 days from now. This value is in seconds.
+      maxAge: 24 * 60 * 60 * 180,
       path: '/',
     });
   };

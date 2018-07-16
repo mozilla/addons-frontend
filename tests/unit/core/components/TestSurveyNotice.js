@@ -82,7 +82,7 @@ describe(__filename, () => {
       _cookie.save,
       config.get('dismissedExperienceSurveyCookieName'),
       '',
-      { path: '/' },
+      { maxAge: sinon.match.any, path: '/' },
     );
   });
 
