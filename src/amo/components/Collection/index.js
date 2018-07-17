@@ -334,7 +334,6 @@ export class CollectionBase extends React.Component<InternalProps> {
       editing,
       filters,
       showEditButton,
-      i18n,
     } = this.props;
 
     if (creating || editing) {
