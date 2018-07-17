@@ -251,7 +251,7 @@ export class AddonReviewListBase extends React.Component<Props> {
       <div
         className={makeClassName(
           'AddonReviewList',
-          `AddonReviewList--${addon && addon.type}`,
+          `AddonReviewList--${(addon && addon.type) || ''}`,
         )}
       >
         {addon && (
