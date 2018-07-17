@@ -1,8 +1,6 @@
 import config from 'config';
 import * as React from 'react';
 
-import AutoSearchInput from 'amo/components/AutoSearchInput';
-import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionManager, {
   CollectionManagerBase,
   extractId,
@@ -284,12 +282,6 @@ describe(__filename, () => {
       'New description',
     );
     expect(root.find('#collectionSlug')).toHaveProp('value', 'new-slug');
-  });
-
-  it('hides search add-on select when creating a collection', () => {
-    const root = render({ collection: null, creating: true });
-
-    expect(root.find(AutoSearchInput)).toHaveLength(0);
   });
 
   it('creates a collection on submit', () => {
@@ -763,23 +755,6 @@ describe(__filename, () => {
     const state = root.state();
     expect(state.name).toEqual(secondCollection.name);
     expect(state.description).toEqual(secondCollection.description);
-  });
-
-  it('displays a CollectionAddAddon component when not creating', () => {
-    const collection = createInternalCollection({
-      detail: createFakeCollectionDetail(),
-    });
-    const filters = {};
-    const root = render({ collection, creating: false, filters });
-
-    expect(root.find(CollectionAddAddon)).toHaveProp('collection', collection);
-    expect(root.find(CollectionAddAddon)).toHaveProp('filters', filters);
-  });
-
-  it('does not display a CollectionAddAddon component when creating', () => {
-    const root = render({ creating: true });
-
-    expect(root.find(CollectionAddAddon)).toHaveLength(0);
   });
 
   describe('extractId', () => {
