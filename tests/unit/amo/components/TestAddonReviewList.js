@@ -20,6 +20,7 @@ import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -466,6 +467,18 @@ describe(__filename, () => {
       const root = render();
       const img = root.find('.AddonReviewList-header-icon img');
       expect(img).toHaveProp('src', addon.icon_url);
+    });
+
+    it('renders a class name with its type', () => {
+      dispatchAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      });
+      const root = render();
+
+      expect(root).toHaveClassName(
+        `AddonReviewList--${ADDON_TYPE_STATIC_THEME}`,
+      );
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {

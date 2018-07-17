@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -247,7 +248,12 @@ export class AddonReviewListBase extends React.Component<Props> {
       ) : null;
 
     return (
-      <div className="AddonReviewList">
+      <div
+        className={makeClassName(
+          'AddonReviewList',
+          addon && addon.type ? [`AddonReviewList--${addon.type}`] : null,
+        )}
+      >
         {addon && (
           <Helmet>
             <title>{header}</title>
