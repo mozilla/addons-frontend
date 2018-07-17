@@ -3048,9 +3048,9 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-amo@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.0.1.tgz#676b2bbfd3b105ff1d433fae23bd818c50f723cf"
+eslint-plugin-amo@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.3.2.tgz#6669bcfb3182256334ef9c1fd058d5dc795b45bb"
   dependencies:
     requireindex "~1.1.0"
 
