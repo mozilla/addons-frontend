@@ -16,8 +16,9 @@
 
 .disco-content {
   color: $header-copy-font-color;
-  font-size: 14px;
-  line-height: 1.28;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 620px;
   width: 100%;
 
   &:last-child {
