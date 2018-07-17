@@ -8,9 +8,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import { dismissSurvey } from 'core/reducers/survey';
 import Notice from 'ui/components/Notice';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
 import type { AppState } from 'amo/store';
 
 import './styles.scss';
@@ -24,6 +26,7 @@ type InternalProps = {|
   _config: typeof config,
   _cookie: typeof cookie,
   _supportedLangs: Array<string>,
+  dispatch: DispatchFunc,
   i18n: I18nType,
   siteLang: string,
   wasDismissed: boolean,
@@ -46,7 +49,7 @@ export const SurveyNoticeBase = ({
   ],
   ...props
 }: InternalProps) => {
-  const { i18n, location, siteLang, wasDismissed } = props;
+  const { dispatch, i18n, location, siteLang, wasDismissed } = props;
 
   if (
     wasDismissed ||
@@ -57,6 +60,7 @@ export const SurveyNoticeBase = ({
   }
 
   const onDismiss = () => {
+    dispatch(dismissSurvey());
     // Even though a dismissal action is dispatched here, also save a
     // cookie to manually synchronize state. The server code will load
     // the cookie and synchronize state as part of the request.
@@ -67,6 +71,10 @@ export const SurveyNoticeBase = ({
       maxAge: 24 * 60 * 60 * 180,
       path: '/',
     });
+  };
+
+  const actionOnClick = () => {
+    onDismiss();
   };
 
   // Pass along a source derived from the current URL path but with
@@ -82,6 +90,7 @@ export const SurveyNoticeBase = ({
   return (
     <Notice
       actionHref={surveyUrl}
+      actionOnClick={actionOnClick}
       actionTarget="_blank"
       actionText={i18n.gettext('Take short survey')}
       className="SurveyNotice"

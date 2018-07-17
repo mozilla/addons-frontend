@@ -78,6 +78,50 @@ describe(__filename, () => {
     );
   });
 
+  it('also saves a cookie on action click', () => {
+    const _cookie = fakeCookie();
+    const root = render({ _cookie });
+
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp('actionOnClick');
+    const { actionOnClick } = notice.props();
+
+    // Simulate a click
+    actionOnClick();
+
+    sinon.assert.called(_cookie.save);
+  });
+
+  it('dispatches action on dismissal', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ store });
+
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp('onDismiss');
+    const { onDismiss } = notice.props();
+
+    // Simulate a dismissal
+    onDismiss();
+
+    sinon.assert.calledWith(dispatchSpy, dismissSurvey());
+  });
+
+  it('also dispatches an action on click', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ store });
+
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp('actionOnClick');
+    const { actionOnClick } = notice.props();
+
+    // Simulate a click
+    actionOnClick();
+
+    sinon.assert.calledWith(dispatchSpy, dismissSurvey());
+  });
+
   it('links to a survey with location source', () => {
     const location = fakeRouterLocation({ pathname: '/en-US/firefox/themes/' });
     const root = render({ location });
