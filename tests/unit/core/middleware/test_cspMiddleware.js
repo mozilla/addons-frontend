@@ -63,7 +63,7 @@ describe(__filename, () => {
         cdnHost,
         "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='",
       ]);
-      expect(nextSpy.calledOnce).toEqual(true);
+      sinon.assert.calledOnce(nextSpy);
     });
 
     it('provides the expected style-src directive when noScriptStyles is false', () => {
@@ -85,7 +85,7 @@ describe(__filename, () => {
       const policy = parse(cspHeader);
       const cdnHost = 'https://addons-amo.cdn.mozilla.net';
       expect(policy['style-src']).toEqual([cdnHost]);
-      expect(nextSpy.calledOnce).toEqual(true);
+      sinon.assert.calledOnce(nextSpy);
     });
 
     it('provides the expected csp output for the disco app', () => {
@@ -135,7 +135,7 @@ describe(__filename, () => {
         "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='",
       ]);
       expect(policy['media-src']).toEqual([cdnHost]);
-      expect(nextSpy.calledOnce).toEqual(true);
+      sinon.assert.calledOnce(nextSpy);
     });
 
     it('converts false string to false boolean', () => {
@@ -158,10 +158,11 @@ describe(__filename, () => {
       const req = new MockExpressRequest();
       const res = new MockExpressResponse();
       middleware(req, res, nextSpy);
-      expect(warnStub.calledWith('CSP has been disabled from the config')).toBe(
-        true,
+      sinon.assert.calledWith(
+        warnStub,
+        'CSP has been disabled from the config',
       );
-      expect(nextSpy.calledOnce).toEqual(true);
+      sinon.assert.calledOnce(nextSpy);
     });
 
     it('logs if the csp config is false', () => {
@@ -181,10 +182,11 @@ describe(__filename, () => {
       const req = new MockExpressRequest();
       const res = new MockExpressResponse();
       middleware(req, res, nextSpy);
-      expect(warnStub.calledWith('CSP has been disabled from the config')).toBe(
-        true,
+      sinon.assert.calledWith(
+        warnStub,
+        'CSP has been disabled from the config',
       );
-      expect(nextSpy.calledOnce).toEqual(true);
+      sinon.assert.calledOnce(nextSpy);
     });
 
     it('does not blow up if optional args missing', () => {

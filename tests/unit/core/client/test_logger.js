@@ -28,7 +28,7 @@ describe(__filename, () => {
   it('aliases as expected', () => {
     const logAlias = getAlias('log');
     logAlias('whatever');
-    expect(fakeConsole.log.called).toBeTruthy();
+    sinon.assert.called(fakeConsole.log);
   });
 
   it('throws if the method does not exist on the object', () => {
@@ -46,7 +46,7 @@ describe(__filename, () => {
     };
     const infoAlias = getAlias('info', { _function: fakeFunc });
     infoAlias('hello');
-    expect(fakeFunc.prototype.apply.called).toBeTruthy();
+    sinon.assert.called(fakeFunc.prototype.apply);
   });
 
   it('uses a noop function if the client console loggin is off', () => {
@@ -54,7 +54,7 @@ describe(__filename, () => {
     const fakeNoopFunc = sinon.stub();
     const infoAlias = getAlias('info', { _noop: fakeNoopFunc });
     infoAlias('hello');
-    expect(fakeNoopFunc.called).toBeTruthy();
+    sinon.assert.called(fakeNoopFunc);
   });
 
   it('still throws if invalid method despite being noop', () => {

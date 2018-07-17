@@ -11,8 +11,10 @@ describe(__filename, () => {
     const res = new MockExpressResponse();
     const nextSpy = sinon.stub();
     const logInfoStub = sinon.stub(log, 'info');
+
     middleware(req, res, nextSpy);
-    expect(logInfoStub.called).toBe(true);
-    expect(nextSpy.calledOnce).toBe(true);
+
+    sinon.assert.called(logInfoStub);
+    sinon.assert.calledOnce(nextSpy);
   });
 });

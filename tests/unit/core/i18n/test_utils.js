@@ -65,7 +65,7 @@ describe(__filename, () => {
         error: sinon.stub(),
       };
       utils.langToLocale('whatevs-this-is-really-odd', fakeLog);
-      expect(fakeLog.error.called).toBeTruthy();
+      sinon.assert.called(fakeLog.error);
     });
 
     it('should return undefined for invalid input', () => {
@@ -92,7 +92,7 @@ describe(__filename, () => {
         error: sinon.stub(),
       };
       utils.localeToLang('what_the_heck_is_this', fakeLog);
-      expect(fakeLog.error.called).toBeTruthy();
+      sinon.assert.called(fakeLog.error);
     });
 
     it('should return undefined for invalid input', () => {

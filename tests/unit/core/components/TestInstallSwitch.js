@@ -107,9 +107,11 @@ describe(__filename, () => {
     const uninstall = sinon.stub();
     const button = renderButton({ status: DOWNLOADING, install, uninstall });
     const root = findDOMNode(button);
+
     Simulate.click(root);
-    expect(!install.called).toBeTruthy();
-    expect(!uninstall.called).toBeTruthy();
+
+    sinon.assert.notCalled(install);
+    sinon.assert.notCalled(uninstall);
   });
 
   it('should associate the label and input with id and for attributes', () => {
@@ -174,9 +176,12 @@ describe(__filename, () => {
       name,
       status: UNINSTALLED,
     });
+
     const root = findDOMNode(button.switchEl);
+
     Simulate.click(root);
-    expect(install.calledWith()).toBeTruthy();
+
+    sinon.assert.called(install);
   });
 
   it('should call enable function on click when uninstalled', () => {
@@ -194,8 +199,10 @@ describe(__filename, () => {
       status: DISABLED,
     });
     const root = findDOMNode(button.switchEl);
+
     Simulate.click(root);
-    expect(enable.calledWith()).toBeTruthy();
+
+    sinon.assert.called(enable);
   });
 
   it('should call uninstall function on click when installed', () => {
@@ -212,9 +219,12 @@ describe(__filename, () => {
       type,
       uninstall,
     });
+
     const root = findDOMNode(button.switchEl);
+
     Simulate.click(root);
-    expect(uninstall.calledWith({ guid, installURL, name, type })).toBeTruthy();
+
+    sinon.assert.calledWith(uninstall, { guid, installURL, name, type });
   });
 
   it('returns early when button is clicked on disabled switch', () => {
@@ -241,9 +251,9 @@ describe(__filename, () => {
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
 
-    expect(enable.notCalled).toBeTruthy();
-    expect(install.notCalled).toBeTruthy();
-    expect(installTheme.notCalled).toBeTruthy();
-    expect(uninstall.notCalled).toBeTruthy();
+    sinon.assert.notCalled(enable);
+    sinon.assert.notCalled(install);
+    sinon.assert.notCalled(installTheme);
+    sinon.assert.notCalled(uninstall);
   });
 });

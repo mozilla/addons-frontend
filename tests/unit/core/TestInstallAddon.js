@@ -1526,7 +1526,7 @@ describe(__filename, () => {
         const node = sinon.stub();
         const stubs = installThemeStubs();
         installTheme(node, addon, stubs);
-        expect(stubs._themeInstall.calledWith(node)).toBeTruthy();
+        sinon.assert.calledWith(stubs._themeInstall, node);
       });
 
       it('tracks a theme install', () => {
@@ -1552,8 +1552,8 @@ describe(__filename, () => {
         const node = sinon.stub();
         const stubs = installThemeStubs();
         installTheme(node, addon, stubs);
-        expect(stubs._tracking.sendEvent.called).toBeFalsy();
-        expect(stubs._themeInstall.called).toBeFalsy();
+        sinon.assert.notCalled(stubs._tracking.sendEvent);
+        sinon.assert.notCalled(stubs._themeInstall);
       });
 
       it('does not try to install theme if it is an extension', () => {
@@ -1561,8 +1561,8 @@ describe(__filename, () => {
         const node = sinon.stub();
         const stubs = installThemeStubs();
         installTheme(node, addon, stubs);
-        expect(stubs._tracking.sendEvent.called).toBeFalsy();
-        expect(stubs._themeInstall.called).toBeFalsy();
+        sinon.assert.notCalled(stubs._tracking.sendEvent);
+        sinon.assert.notCalled(stubs._themeInstall);
       });
 
       describe('getBrowserThemeData', () => {

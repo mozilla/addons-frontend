@@ -89,8 +89,10 @@ describe(__filename, () => {
     const onChange = sinon.spy();
     const root = findDOMNode(renderButton({ onChange }));
     const checkbox = root.querySelector('input[type=checkbox]');
+
     Simulate.change(checkbox);
-    expect(onChange.calledWith()).toBeTruthy();
+
+    sinon.assert.called(onChange);
   });
 
   it('associates the label and input with id and for attributes', () => {

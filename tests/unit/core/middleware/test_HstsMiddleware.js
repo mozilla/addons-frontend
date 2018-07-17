@@ -9,8 +9,10 @@ describe(__filename, () => {
     const nextSpy = sinon.stub();
     const req = new MockExpressRequest();
     const res = new MockExpressResponse();
+
     middleware(req, res, nextSpy);
+
     expect(res.get('strict-transport-security')).toEqual('max-age=31536000');
-    expect(nextSpy.calledOnce).toEqual(true);
+    sinon.assert.calledOnce(nextSpy);
   });
 });

@@ -28,7 +28,7 @@ describe(__filename, () => {
       const res = new MockExpressResponse();
       middleware(req, res, nextSpy);
       expect(res.get('x-frame-options')).toEqual('DENY');
-      expect(nextSpy.calledOnce).toEqual(true);
+      sinon.assert.calledOnce(nextSpy);
     });
   }
 

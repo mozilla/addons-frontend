@@ -31,7 +31,7 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeNext.called).toBeTruthy();
+    sinon.assert.called(fakeNext);
   });
 
   it('should add trailing slashes to a URL if one is not found', () => {
@@ -42,8 +42,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/foo/bar/']);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/foo/bar/');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('should not add trailing slashes if the URL has an exception', () => {
@@ -54,8 +54,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.called).toBeFalsy();
-    expect(fakeNext.called).toBeTruthy();
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.called(fakeNext);
   });
 
   it('should handle trailing slash exceptions with $lang', () => {
@@ -66,8 +66,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.called).toBeFalsy();
-    expect(fakeNext.called).toBeTruthy();
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.called(fakeNext);
   });
 
   it('should handle trailing slash exceptions with $clientApp', () => {
@@ -78,8 +78,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.called).toBeFalsy();
-    expect(fakeNext.called).toBeTruthy();
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.called(fakeNext);
   });
 
   it('should handle trailing slash exceptions with $lang/$clientApp', () => {
@@ -90,8 +90,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.called).toBeFalsy();
-    expect(fakeNext.called).toBeTruthy();
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.called(fakeNext);
   });
 
   it('should not be an exception without $lang/$clientApp', () => {
@@ -102,8 +102,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/slash/trailing/']);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/slash/trailing/');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('should not be an exception without both $lang/$clientApp', () => {
@@ -114,11 +114,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([
-      301,
-      '/en-US/slash/trailing/',
-    ]);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/slash/trailing/');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('redirects a URL with $lang and $clientApp without an exception', () => {
@@ -129,11 +126,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([
-      301,
-      '/en-US/firefox/trailing/',
-    ]);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/trailing/');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('detects an exception that has a query string', () => {
@@ -144,8 +138,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.called).toBeFalsy();
-    expect(fakeNext.called).toBeTruthy();
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.called(fakeNext);
   });
 
   it('does not remove query string', () => {
@@ -156,11 +150,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([
-      301,
-      '/hello/?query=test',
-    ]);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/hello/?query=test');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('should not be an exception with missing $lang', () => {
@@ -171,11 +162,8 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([
-      301,
-      '/firefox/slash/trailing/',
-    ]);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/firefox/slash/trailing/');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('should include query params in the redirect', () => {
@@ -186,11 +174,12 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([
+    sinon.assert.calledWith(
+      fakeRes.redirect,
       301,
       '/foo/search/?q=foo&category=bar',
-    ]);
-    expect(fakeNext.called).toBeFalsy();
+    );
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('should handle several ? in URL (though that should never happen)', () => {
@@ -201,10 +190,11 @@ describe(__filename, () => {
     trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
       _config: fakeConfig,
     });
-    expect(fakeRes.redirect.firstCall.args).toEqual([
+    sinon.assert.calledWith(
+      fakeRes.redirect,
       301,
       '/foo/search/?q=foo&category=bar?test=bad',
-    ]);
-    expect(fakeNext.called).toBeFalsy();
+    );
+    sinon.assert.notCalled(fakeNext);
   });
 });

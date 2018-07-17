@@ -1,6 +1,6 @@
+import { mount } from 'enzyme';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { renderIntoDocument } from 'react-dom/test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
 import { fakeI18n } from 'tests/unit/helpers';
@@ -17,7 +17,7 @@ describe(__filename, () => {
   }
 
   function render({ i18n }) {
-    return renderIntoDocument(
+    return mount(
       <I18nProvider i18n={i18n}>
         <MyComponent />
       </I18nProvider>,
@@ -26,7 +26,9 @@ describe(__filename, () => {
 
   it('sets the i18n as context', () => {
     const i18n = fakeI18n();
+
     render({ i18n });
-    expect(i18n.gettext.calledWith('Howdy')).toBeTruthy();
+
+    sinon.assert.calledWith(i18n.gettext, 'Howdy');
   });
 });

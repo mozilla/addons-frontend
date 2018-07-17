@@ -132,16 +132,18 @@ describe(__filename, () => {
       _window: fakeWindow,
       _cookie,
     });
-    expect(fakeEvent.preventDefault.called).toBeTruthy();
+    sinon.assert.called(fakeEvent.preventDefault);
     sinon.assert.calledWith(_cookie.save, 'mamo', 'off', { path: '/' });
-    expect(fakeWindow.location.reload.called).toBeTruthy();
+    sinon.assert.called(fakeWindow.location.reload);
   });
 
   it('sets up a callback for setting add-on status', () => {
     const dispatch = sinon.spy();
     const { handleGlobalEvent } = mapDispatchToProps(dispatch);
     const payload = { guid: '@my-addon', status: 'some-status' };
+
     handleGlobalEvent(payload);
+
     sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
   });
 
@@ -151,6 +153,7 @@ describe(__filename, () => {
     const userAgent = 'tofubrowser';
 
     setUserAgent(userAgent);
+
     sinon.assert.calledWith(dispatch, setUserAgentAction(userAgent));
   });
 
@@ -244,7 +247,8 @@ describe(__filename, () => {
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
-      expect(logOutUser.called).toBeTruthy();
+
+      sinon.assert.called(logOutUser);
     });
 
     it('only sets one timer when receiving new props', () => {
@@ -258,8 +262,8 @@ describe(__filename, () => {
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
-      expect(logOutUser.called).toBeTruthy();
-      expect(logOutUser.calledOnce).toBeTruthy();
+
+      sinon.assert.calledOnce(logOutUser);
     });
 
     it('does not set a timer when receiving an empty auth token', () => {
@@ -283,7 +287,8 @@ describe(__filename, () => {
       renderAppWithAuth({ authTokenValidFor, logOutUser });
 
       clock.tick(5 * 1000); // 5 seconds
-      expect(logOutUser.called).toBeFalsy();
+
+      sinon.assert.notCalled(logOutUser);
     });
 
     it('only starts a timer when authTokenValidFor is configured', () => {
@@ -292,7 +297,8 @@ describe(__filename, () => {
       renderAppWithAuth({ authTokenValidFor: null, logOutUser });
 
       clock.tick(100 * 1000);
-      expect(logOutUser.called).toBeFalsy();
+
+      sinon.assert.notCalled(logOutUser);
     });
 
     it('ignores malformed timestamps', () => {
@@ -308,7 +314,8 @@ describe(__filename, () => {
       render({ authToken, authTokenValidFor, logOutUser });
 
       clock.tick(authTokenValidFor * 1000);
-      expect(logOutUser.called).toBeFalsy();
+
+      sinon.assert.notCalled(logOutUser);
     });
 
     it('ignores empty timestamps', () => {
@@ -319,7 +326,8 @@ describe(__filename, () => {
       render({ authToken, authTokenValidFor, logOutUser });
 
       clock.tick(authTokenValidFor * 1000);
-      expect(logOutUser.called).toBeFalsy();
+
+      sinon.assert.notCalled(logOutUser);
     });
 
     it('ignores malformed tokens', () => {
@@ -330,7 +338,8 @@ describe(__filename, () => {
       render({ authToken, authTokenValidFor, logOutUser });
 
       clock.tick(authTokenValidFor * 1000);
-      expect(logOutUser.called).toBeFalsy();
+
+      sinon.assert.notCalled(logOutUser);
     });
 
     it('does not set a timeout for expirations too far in the future', () => {
@@ -341,7 +350,8 @@ describe(__filename, () => {
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
-      expect(logOutUser.called).toBeFalsy();
+
+      sinon.assert.notCalled(logOutUser);
     });
 
     it('maps a logOutUser action', () => {
