@@ -1027,6 +1027,29 @@ describe(__filename, () => {
     expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
+  it('passes showEditForm as true to CollectionManager for a mozilla collection when user has the `Admin:Curation` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [MOZILLA_COLLECTIONS_EDIT],
+      },
+    });
+
+    const slug = 'some-slug';
+    const username = MOZILLA_COLLECTIONS_USERNAME;
+
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
+      }),
+    });
+
+    const wrapper = renderComponent({ store, editing: true });
+
+    expect(wrapper.find(CollectionManager)).toHaveProp('showEditForm', true);
+  });
+
   it('does not render an edit link for a mozilla collection when user does not have the `Admin:Curation` permission', () => {
     const { store } = dispatchSignInActions();
 
@@ -1046,7 +1069,7 @@ describe(__filename, () => {
     expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
   });
 
-  it('renders an edit link for a the Featured Themes collection when user has the `Collections:Contribute` permission', () => {
+  it('renders an edit link for the Featured Themes collection when user has the `Collections:Contribute` permission', () => {
     const { store } = dispatchSignInActions({
       userProps: {
         permissions: [FEATURED_THEMES_COLLECTION_EDIT],
@@ -1067,6 +1090,29 @@ describe(__filename, () => {
     const wrapper = renderComponent({ store });
 
     expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
+  });
+
+  it('passes showEditForm as false to CollectionManager for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
+      },
+    });
+
+    const slug = FEATURED_THEMES_COLLECTION_SLUG;
+    const username = MOZILLA_COLLECTIONS_USERNAME;
+
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
+      }),
+    });
+
+    const wrapper = renderComponent({ store, editing: true });
+
+    expect(wrapper.find(CollectionManager)).toHaveProp('showEditForm', false);
   });
 
   it('does not render an edit link for a the Featured Themes collection when user does not have the `Collections:Contribute` permission', () => {

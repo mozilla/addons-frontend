@@ -19,7 +19,6 @@ describe(__filename, () => {
       collection: createInternalCollection({
         detail: createFakeCollectionDetail(),
       }),
-      editUrl: '/collections/username/slug/edit',
       filters: {},
       i18n: fakeI18n(),
       showEditButton: false,

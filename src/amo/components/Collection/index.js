@@ -353,6 +353,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       creating,
       editing,
       filters,
+      hasEditPermission,
       showEditButton,
     } = this.props;
 
@@ -362,6 +363,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           collection={collection}
           creating={creating}
           filters={filters}
+          showEditForm={hasEditPermission}
         />
       );
     }

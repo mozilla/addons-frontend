@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import config from 'config';
 
+import CollectionDetails from 'amo/components/CollectionDetails';
 import {
   convertFiltersToQueryParams,
   createCollection,
@@ -38,6 +39,7 @@ type Props = {|
   collection: CollectionType | null,
   creating: boolean,
   filters: CollectionFilters,
+  showEditForm: boolean,
 |};
 
 type InternalProps = {|
@@ -217,11 +219,23 @@ export class CollectionManagerBase extends React.Component<
       creating,
       currentUsername,
       errorHandler,
+      filters,
       i18n,
       isCollectionBeingModified,
+      showEditForm,
       siteLang,
     } = this.props;
     const { description, name, slug } = this.state;
+
+    if (!showEditForm) {
+      return (
+        <CollectionDetails
+          collection={collection}
+          filters={filters}
+          showEditButton={false}
+        />
+      );
+    }
 
     const collectionUrlPrefix = oneLineTrim`${config.get(
       'apiHost',

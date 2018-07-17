@@ -1,6 +1,7 @@
 import config from 'config';
 import * as React from 'react';
 
+import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager, {
   CollectionManagerBase,
   extractId,
@@ -64,6 +65,7 @@ describe(__filename, () => {
       history,
       i18n: fakeI18n(),
       location: createFakeLocation(),
+      showEditForm: true,
       store,
       ...customProps,
     };
@@ -98,6 +100,23 @@ describe(__filename, () => {
       }),
     );
   };
+
+  it('shows details instead of a form when showEditForm is false', () => {
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail(),
+    });
+    const filters = { page: 1 };
+
+    const root = render({ collection, filters, showEditForm: false });
+
+    const details = root.find(CollectionDetails);
+    expect(details).toHaveLength(1);
+    expect(details).toHaveProp('collection', collection);
+    expect(details).toHaveProp('filters', filters);
+    expect(details).toHaveProp('showEditButton', false);
+
+    expect(root.find('.CollectionManager')).toHaveLength(0);
+  });
 
   it('renders loading text before a collection has loaded', () => {
     const root = render({ collection: null });
