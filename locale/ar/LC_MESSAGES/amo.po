@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-17 21:22+0000\n"
+"PO-Revision-Date: 2018-07-17 21:33+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -23,18 +23,16 @@ msgid "Adding…"
 msgstr "يُضيف…"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
-#, fuzzy
 msgid "Select a collection…"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "اختر مجموعة…"
 
 #: src/amo/components/AddAddonToCollection/index.js:196
-#, fuzzy
 msgid "Create new collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "أنشِئ مجموعة جديدة"
 
 #: src/amo/components/AddAddonToCollection/index.js:238
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "أُضيفت إلى %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:254
@@ -42,9 +40,8 @@ msgid "Add to…"
 msgstr "أضِف إلى…"
 
 #: src/amo/components/AddAddonToCollection/index.js:259 src/amo/components/CollectionManager/index.js:417
-#, fuzzy
 msgid "Add to collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "أضِف إلى مجموعة"
 
 #: src/amo/components/Addon/index.js:156
 msgid "Preview of %(title)s"
@@ -52,7 +49,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:212
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "لا يمكن تقييم هذه الإضافة إذ لم تُنشر أية إصدارات منها."
 
 #: src/amo/components/Addon/index.js:221
 msgid "Read %(count)s review"
@@ -106,7 +103,7 @@ msgstr "%(addonName)s %(startSpan)sمن %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:537
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "فقط في فَيَرفُكس—نزِّل فَيَرفُكس الآن"
 
 #: src/amo/components/Addon/index.js:543
 msgid "Extension Metadata"
@@ -134,7 +131,7 @@ msgstr "إعادة التشغيل مطلوبة"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "تجريبية"
 
 #: src/amo/components/AddonBadges/index.js:63
 msgid "Not compatible with Firefox Quantum"
@@ -142,7 +139,7 @@ msgstr "ليس متوافقا مع فَيَرفُكس كوانتُم"
 
 #: src/amo/components/AddonBadges/index.js:69
 msgid "Some features may require payment"
-msgstr ""
+msgstr "قد تطلب بعض المزايا دفع المال"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -173,15 +170,14 @@ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\
 msgstr "لا يدعم متصفحك الإضافات. يمكنك <a href=\"%(downloadUrl)s\">تنزيل فَيَرفُكس</a> لتثبيت هذه الإضافة."
 
 #: src/amo/components/AddonMeta/index.js:30
-#, fuzzy
 msgid "Users"
 msgstr "عدد المستخدمين"
 
 #: src/amo/components/AddonMeta/index.js:33
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "لا مستخدمين"
+msgstr[1] "مستخدم واحد"
 msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
@@ -219,7 +215,7 @@ msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:72
 msgid "Overall Rating"
-msgstr ""
+msgstr "التقييم الكلي"
 
 #: src/amo/components/AddonMoreInfo/index.js:110
 msgid "%(timeFromNow)s (%(date)s)"
@@ -292,7 +288,7 @@ msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:132
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "المستخدمون الآخرون الذين ثبّتوا هذا الامتداد ثبّتوا أيضا"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 #, fuzzy
@@ -405,14 +401,12 @@ msgid "More dictionaries by these translators"
 msgstr "قواميس أخرى من هؤلاء المترجمين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:231
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "قواميس أخرى من %(author)s"
+msgstr "قواميس من %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:234
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "قواميس أخرى من هؤلاء المترجمين"
+msgstr "قواميس من هؤلاء المترجمين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More extensions by %(author)s"
@@ -423,14 +417,12 @@ msgid "More extensions by these developers"
 msgstr "امتدادات أخرى من هؤلاء المطورين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:248
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "امتدادات أخرى من %(author)s"
+msgstr "امتدادات من %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:251
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "امتدادات أخرى من هؤلاء المطورين"
+msgstr "امتدادات من هؤلاء المطورين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:258
 msgid "More language packs by %(author)s"
@@ -441,14 +433,12 @@ msgid "More language packs by these translators"
 msgstr "حزم لغات أخرى من هؤلاء المترجمين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:265
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "حزم لغات أخرى من %(author)s"
+msgstr "حزم لغات من %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:268
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "حزم لغات أخرى من هؤلاء المترجمين"
+msgstr "حزم لغات من هؤلاء المترجمين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:276
 msgid "More themes by %(author)s"
@@ -459,14 +449,12 @@ msgid "More themes by these artists"
 msgstr "سمات أخرى من هؤلاء الفنانين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:283
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "سمات أخرى من %(author)s"
+msgstr "سمات من %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:286
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "سمات أخرى من هؤلاء الفنانين"
+msgstr "سمات من هؤلاء الفنانين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:293
 msgid "More add-ons by %(author)s"
@@ -477,32 +465,28 @@ msgid "More add-ons by these developers"
 msgstr "إضافات أخرى من هؤلاء المطورين"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:300
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "إضافات أخرى من %(author)s"
+msgstr "إضافات من %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:303
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "إضافات أخرى من هؤلاء المطورين"
+msgstr "إضافات من هؤلاء المطورين"
 
 #: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:152
 msgid "Add-ons for Firefox"
 msgstr "إضافات فَيَرفُكس"
 
 #: src/amo/components/App/index.js:208
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - إضافات فَيَرفُكس"
+msgstr "%s – إضافات فَيَرفُكس"
 
 #: src/amo/components/App/index.js:211 src/amo/components/SectionLinks/index.js:139
 msgid "Add-ons for Android"
 msgstr "إضافات إصدارة أندرويد"
 
 #: src/amo/components/App/index.js:212
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "%s - إضافات إصدارة أندرويد"
+msgstr "%s – إضافات إصدارة أندرويد"
 
 #: src/amo/components/AutoSearchInput/index.js:214
 msgid "Loading"
