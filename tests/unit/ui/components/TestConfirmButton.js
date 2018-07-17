@@ -55,9 +55,11 @@ describe(__filename, () => {
     const root = render({ message, store });
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
+    expect(root.instance().props.uiState.showConfirmation).toEqual(false);
 
     root.find(Button).simulate('click', createFakeEvent());
     applyUIStateChanges({ root, store });
+    expect(root.instance().props.uiState.showConfirmation).toEqual(true);
 
     expect(root).toHaveClassName('ConfirmButton--show-confirmation');
 
@@ -159,17 +161,5 @@ describe(__filename, () => {
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
     sinon.assert.calledWith(onConfirmSpy, event);
-  });
-
-  it('changes UI state when the confirm button is clicked', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
-
-    expect(root.instance().props.uiState.showConfirmation).toEqual(false);
-
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root.instance().props.uiState.showConfirmation).toEqual(true);
   });
 });
