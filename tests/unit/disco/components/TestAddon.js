@@ -7,6 +7,7 @@ import { setInstallState } from 'core/actions/installations';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   CLIENT_APP_FIREFOX,
@@ -407,6 +408,7 @@ describe(__filename, () => {
       const addon = result;
       const shallowRoot = renderAddon({
         addon,
+        previews: [],
         clientApp: signedInApiState.clientApp,
         installTheme,
         status: UNINSTALLED,

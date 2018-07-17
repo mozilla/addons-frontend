@@ -14,6 +14,7 @@ import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES,
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
@@ -52,10 +53,11 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    platformFiles: PropTypes.object,
     // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
+    platformFiles: PropTypes.object,
+    previews: PropTypes.Array,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
@@ -121,31 +123,55 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
-    if (this.props.type === ADDON_TYPE_THEME) {
+    const {
+      i18n,
+      name,
+      previewURL,
+      previews,
+      type,
+      getBrowserThemeData,
+    } = this.props;
+
+    if (ADDON_TYPE_THEMES.includes(type)) {
+      const imageUrl =
+        previews && previews.length > 0 && previews[0].image_url
+          ? previews[0].image_url
+          : null;
+
+      const label = sprintf(i18n.gettext('Preview of %(name)s'), { name });
+
+      const headerImage = (
+        <img
+          alt={label}
+          className="Addon-theme-header-image"
+          src={imageUrl || previewURL}
+        />
+      );
+
       /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return (
+      return !imageUrl && type === ADDON_TYPE_THEME ? (
         <a
-          href="#"
           className="theme-image"
           data-browsertheme={getBrowserThemeData()}
+          href="#"
           onClick={this.installTheme}
         >
-          <img
-            src={previewURL}
-            alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
-          />
+          {headerImage}
+        </a>
+      ) : (
+        <a className="theme-image" href="#">
+          {headerImage}
         </a>
       );
-      /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
+
     return null;
   }
 
   getDescription() {
     const { description, type } = this.props;
 
-    if (type === ADDON_TYPE_THEME) {
+    if (ADDON_TYPE_THEMES.includes(type)) {
       return null;
     }
 
@@ -233,7 +259,7 @@ export class AddonBase extends React.Component {
     }
 
     const addonClasses = makeClassName('addon', {
-      theme: type === ADDON_TYPE_THEME,
+      theme: ADDON_TYPE_THEMES.includes(type),
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
