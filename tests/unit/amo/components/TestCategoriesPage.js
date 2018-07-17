@@ -6,7 +6,7 @@ import { CategoriesPageBase } from 'amo/components/CategoriesPage';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { visibleAddonType } from 'core/utils';
 
-describe('amo/components/CategoriesPage', () => {
+describe(__filename, () => {
   it('renders Categories', () => {
     const params = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),

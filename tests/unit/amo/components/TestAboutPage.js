@@ -3,7 +3,7 @@ import * as React from 'react';
 import About, { AboutBase } from 'amo/components/StaticPages/About';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
-describe('About', () => {
+describe(__filename, () => {
   function render() {
     return shallowUntilTarget(<About i18n={fakeI18n()} />, AboutBase);
   }

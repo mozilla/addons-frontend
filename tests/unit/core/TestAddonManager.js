@@ -7,7 +7,7 @@ import {
 } from 'core/constants';
 import { unexpectedSuccess } from 'tests/unit/helpers';
 
-describe('addonManager', () => {
+describe(__filename, () => {
   let fakeAddon;
   let fakeCallback;
   let fakeInstallObj;

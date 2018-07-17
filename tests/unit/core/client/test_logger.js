@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/named
 import { bindConsoleMethod } from 'core/logger';
 
-describe('logger.bindConsoleMethod()', () => {
+describe(__filename, () => {
   let fakeConsole;
   let fakeConfig;
 

@@ -1,7 +1,7 @@
 import { clearError, setError, setErrorMessage } from 'core/actions/errors';
 import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
 
-describe('core/actions/errors', () => {
+describe(__filename, () => {
   describe('setError', () => {
     it('creates an error action', () => {
       const id = 'some-id';

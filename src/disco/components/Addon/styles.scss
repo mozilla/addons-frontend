@@ -198,13 +198,13 @@ $addon-padding: 20px;
       transform: scale(1.1);
     }
 
-    &.overlay-leave.overlay-leave-active {
+    &.overlay-exit.overlay-exit-active {
       opacity: 0;
       transform: scale(0.9);
       transition: 300ms cubic-bezier(0.19, 0.95, 0.39, 1);
     }
 
-    &.overlay-leave,
+    &.overlay-exit,
     &.overlay-enter.overlay-enter-active {
       opacity: 1;
       transform: scale(1);

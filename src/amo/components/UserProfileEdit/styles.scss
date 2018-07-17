@@ -93,6 +93,10 @@ $font-size-aside: 10px;
     background: $grey-20;
     cursor: not-allowed;
   }
+
+  &:focus {
+    @include focus();
+  }
 }
 
 .UserProfileEdit input {

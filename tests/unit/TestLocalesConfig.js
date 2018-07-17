@@ -29,19 +29,19 @@ describe(__filename, () => {
     it(`should have a "${lang}" entry for locale dir in config.langs`, () =>
       expect(langs).toContain(lang));
   }
-});
 
-describe('Check Locale JS for entities', () => {
-  for (const localeJSFile of glob.sync('src/locale/*/*.js')) {
-    it(`${localeJSFile} should not have html entities`, (done) => {
-      fs.readFile(localeJSFile, 'utf8', (err, data) => {
-        if (!err) {
-          expect(/&[^\s]+;/.test(data)).toBeFalsy();
-        } else {
-          throw new Error(err);
-        }
-        done();
+  describe('Check Locale JS for entities', () => {
+    for (const localeJSFile of glob.sync('src/locale/*/*.js')) {
+      it(`${localeJSFile} should not have html entities`, (done) => {
+        fs.readFile(localeJSFile, 'utf8', (err, data) => {
+          if (!err) {
+            expect(/&[^\s]+;/.test(data)).toBeFalsy();
+          } else {
+            throw new Error(err);
+          }
+          done();
+        });
       });
-    });
-  }
+    }
+  });
 });

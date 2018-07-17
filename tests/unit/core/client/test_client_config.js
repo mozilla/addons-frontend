@@ -1,6 +1,6 @@
 import { ClientConfig } from 'core/client/config';
 
-describe('client-config module', () => {
+describe(__filename, () => {
   let config;
 
   beforeEach(() => {

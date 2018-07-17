@@ -36,6 +36,8 @@ module.exports = {
   cookieSecure: true,
 
   enableClientConsole: false,
+  // Enable devtools for: Redux.
+  enableDevTools: false,
 
   // If true node will serve the static files.
   enableNodeStatics: false,
@@ -96,6 +98,7 @@ module.exports = {
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
     'enableClientConsole',
+    'enableDevTools',
     'enableExperienceSurvey',
     'enableNewCollectionsUI',
     'enableAddonRecommendations',

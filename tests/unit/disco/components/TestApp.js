@@ -47,82 +47,84 @@ function renderApp(customProps = {}) {
   return findDOMNode(root);
 }
 
-describe('App', () => {
-  it('renders its children', () => {
-    const rootNode = renderApp();
-    expect(rootNode.tagName.toLowerCase()).toEqual('div');
-    expect(rootNode.querySelector('p').textContent).toEqual('The component');
-  });
-
-  it('renders padding compensation class for FF < 50', () => {
-    const rootNode = renderApp({ browserVersion: '49.0' });
-    expect(rootNode.className).toContain('padding-compensation');
-  });
-
-  it('does not render padding compensation class for a bogus value', () => {
-    const rootNode = renderApp({ browserVersion: 'whatever' });
-    expect(rootNode.className).not.toContain('padding-compensation');
-  });
-
-  it('does not render padding compensation class for a undefined value', () => {
-    const rootNode = renderApp({ browserVersion: undefined });
-    expect(rootNode.className).not.toContain('padding-compensation');
-  });
-
-  it('does not render padding compensation class for FF == 50', () => {
-    const rootNode = renderApp({ browserVersion: '50.0' });
-    expect(rootNode.className).not.toContain('padding-compensation');
-  });
-
-  it('does not render padding compensation class for FF > 50', () => {
-    const rootNode = renderApp({ browserVersion: '52.0a1' });
-    expect(rootNode.className).not.toContain('padding-compensation');
-  });
-
-  it('renders a response with a 200 status', () => {
-    const root = shallow(<AppBase {...renderProps()} />);
-    expect(root.find(NestedStatus)).toHaveProp('code', 200);
-  });
-});
-
-describe('App errors', () => {
-  it('renders a 404', () => {
-    const { store } = createStore();
-    const error = createApiError({
-      apiURL: 'http://test.com',
-      response: { status: 404 },
+describe(__filename, () => {
+  describe('App', () => {
+    it('renders its children', () => {
+      const rootNode = renderApp();
+      expect(rootNode.tagName.toLowerCase()).toEqual('div');
+      expect(rootNode.querySelector('p').textContent).toEqual('The component');
     });
-    store.dispatch(loadErrorPage({ error }));
 
-    const rootNode = renderApp({ store });
-    expect(rootNode.textContent).not.toContain('The component');
-    expect(rootNode.textContent).toContain('Page not found');
-  });
-
-  it('renders a generic error', () => {
-    const { store } = createStore();
-    const error = createApiError({
-      apiURL: 'http://test.com',
-      response: { status: 500 },
+    it('renders padding compensation class for FF < 50', () => {
+      const rootNode = renderApp({ browserVersion: '49.0' });
+      expect(rootNode.className).toContain('padding-compensation');
     });
-    store.dispatch(loadErrorPage({ error }));
 
-    const rootNode = renderApp({ store });
-    expect(rootNode.textContent).not.toContain('The component');
-    expect(rootNode.textContent).toContain('Server Error');
+    it('does not render padding compensation class for a bogus value', () => {
+      const rootNode = renderApp({ browserVersion: 'whatever' });
+      expect(rootNode.className).not.toContain('padding-compensation');
+    });
+
+    it('does not render padding compensation class for a undefined value', () => {
+      const rootNode = renderApp({ browserVersion: undefined });
+      expect(rootNode.className).not.toContain('padding-compensation');
+    });
+
+    it('does not render padding compensation class for FF == 50', () => {
+      const rootNode = renderApp({ browserVersion: '50.0' });
+      expect(rootNode.className).not.toContain('padding-compensation');
+    });
+
+    it('does not render padding compensation class for FF > 50', () => {
+      const rootNode = renderApp({ browserVersion: '52.0a1' });
+      expect(rootNode.className).not.toContain('padding-compensation');
+    });
+
+    it('renders a response with a 200 status', () => {
+      const root = shallow(<AppBase {...renderProps()} />);
+      expect(root.find(NestedStatus)).toHaveProp('code', 200);
+    });
   });
-});
 
-describe('mapStateToProps', () => {
-  const fakeRouterParams = {
-    params: {
-      version: '49.0',
-    },
-  };
+  describe('App errors', () => {
+    it('renders a 404', () => {
+      const { store } = createStore();
+      const error = createApiError({
+        apiURL: 'http://test.com',
+        response: { status: 404 },
+      });
+      store.dispatch(loadErrorPage({ error }));
 
-  it('returns browserVersion', () => {
-    expect(mapStateToProps(null, fakeRouterParams).browserVersion).toEqual(
-      '49.0',
-    );
+      const rootNode = renderApp({ store });
+      expect(rootNode.textContent).not.toContain('The component');
+      expect(rootNode.textContent).toContain('Page not found');
+    });
+
+    it('renders a generic error', () => {
+      const { store } = createStore();
+      const error = createApiError({
+        apiURL: 'http://test.com',
+        response: { status: 500 },
+      });
+      store.dispatch(loadErrorPage({ error }));
+
+      const rootNode = renderApp({ store });
+      expect(rootNode.textContent).not.toContain('The component');
+      expect(rootNode.textContent).toContain('Server Error');
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    const fakeRouterParams = {
+      params: {
+        version: '49.0',
+      },
+    };
+
+    it('returns browserVersion', () => {
+      expect(mapStateToProps(null, fakeRouterParams).browserVersion).toEqual(
+        '49.0',
+      );
+    });
   });
 });

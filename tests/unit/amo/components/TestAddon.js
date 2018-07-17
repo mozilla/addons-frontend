@@ -630,18 +630,6 @@ describe(__filename, () => {
     );
   });
 
-  it('sets a title for the description of a lightweight theme', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-    });
-    expect(root.find('.AddonDescription').prop('header')).toContain(
-      'About this theme',
-    );
-  });
-
   it('sets a title for the description of a static theme', () => {
     const root = shallowRender({
       addon: createInternalAddon({
@@ -702,30 +690,6 @@ describe(__filename, () => {
     );
   });
 
-  it('uses the summary as the description if no description exists', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      summary: 'short text',
-    });
-    delete addon.description;
-    const rootNode = renderAsDOMNode({ addon });
-    expect(
-      rootNode.querySelector('.AddonDescription-contents').textContent,
-    ).toEqual(addon.summary);
-  });
-
-  it('uses the summary as the description if description is blank', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      description: '',
-      summary: 'short text',
-    });
-    const rootNode = renderAsDOMNode({ addon });
-    expect(
-      rootNode.querySelector('.AddonDescription-contents').textContent,
-    ).toEqual(addon.summary);
-  });
-
   it('hides the description if description and summary are null', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -744,6 +708,85 @@ describe(__filename, () => {
     });
     const rootNode = renderAsDOMNode({ addon });
     expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
+  });
+
+  it("does not display a lightweight theme's summary", () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+        summary: 'my theme is very cool',
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it("displays a static theme's description", () => {
+    const description = 'some cool description';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        summary: 'my theme is very cool',
+        description,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(1);
+
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${description}</div>`,
+    );
+  });
+
+  it('does not display anything if a static theme has no description', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        summary: 'my theme is very cool',
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it("displays the extension's summary when there is no description", () => {
+    const summary = 'my theme is very cool';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_EXTENSION,
+        summary,
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(1);
+
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${summary}</div>`,
+    );
+  });
+
+  it("displays the extension's description when both description and summary are supplied", () => {
+    const description = 'some cool description';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_EXTENSION,
+        summary: 'my theme is very cool',
+        description,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(1);
+
+    expect(root.find('.AddonDescription-contents')).toHaveHTML(
+      `<div class="AddonDescription-contents">${description}</div>`,
+    );
   });
 
   it('converts new lines in the description to breaks', () => {
@@ -1421,104 +1464,104 @@ describe(__filename, () => {
       expect(extractId(props)).toEqual('some-slug');
     });
   });
-});
 
-describe('mapStateToProps', () => {
-  let store;
+  describe('mapStateToProps', () => {
+    let store;
 
-  beforeEach(() => {
-    store = createStore().store;
-  });
+    beforeEach(() => {
+      store = createStore().store;
+    });
 
-  function signIn(params) {
-    dispatchSignInActions({ store, ...params });
-  }
+    function signIn(params) {
+      dispatchSignInActions({ store, ...params });
+    }
 
-  function fetchAddon({ addon = fakeAddon } = {}) {
-    store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
-  }
+    function fetchAddon({ addon = fakeAddon } = {}) {
+      store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
+    }
 
-  function _mapStateToProps(
-    state = store.getState(),
-    ownProps = { params: { slug: fakeAddon.slug } },
-  ) {
-    return mapStateToProps(state, ownProps);
-  }
+    function _mapStateToProps(
+      state = store.getState(),
+      ownProps = { params: { slug: fakeAddon.slug } },
+    ) {
+      return mapStateToProps(state, ownProps);
+    }
 
-  it('can handle a missing addon', () => {
-    signIn();
-    const { addon, platformFiles } = _mapStateToProps();
-    expect(addon).toBeFalsy();
-    // Make sure this isn't undefined since it gets read from `addon`.
-    expect(platformFiles).toEqual({});
-  });
+    it('can handle a missing addon', () => {
+      signIn();
+      const { addon, platformFiles } = _mapStateToProps();
+      expect(addon).toBeFalsy();
+      // Make sure this isn't undefined since it gets read from `addon`.
+      expect(platformFiles).toEqual({});
+    });
 
-  it('sets the clientApp and userAgent', () => {
-    const clientAppFromAgent = 'firefox';
-    signIn({ clientApp: clientAppFromAgent });
-    fetchAddon();
-    const { clientApp, userAgentInfo } = _mapStateToProps();
+    it('sets the clientApp and userAgent', () => {
+      const clientAppFromAgent = 'firefox';
+      signIn({ clientApp: clientAppFromAgent });
+      fetchAddon();
+      const { clientApp, userAgentInfo } = _mapStateToProps();
 
-    expect(clientApp).toEqual(clientAppFromAgent);
-    const { browser, os } = sampleUserAgentParsed;
-    expect(userAgentInfo).toEqual({ browser, os });
-  });
+      expect(clientApp).toEqual(clientAppFromAgent);
+      const { browser, os } = sampleUserAgentParsed;
+      expect(userAgentInfo).toEqual({ browser, os });
+    });
 
-  it('sets installStatus to INSTALLED when add-on is installed', () => {
-    signIn();
-    fetchAddon();
-    store.dispatch(
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid: fakeAddon.guid,
-        status: INSTALLED,
-      }),
-    );
-    const { installStatus } = _mapStateToProps();
+    it('sets installStatus to INSTALLED when add-on is installed', () => {
+      signIn();
+      fetchAddon();
+      store.dispatch(
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid: fakeAddon.guid,
+          status: INSTALLED,
+        }),
+      );
+      const { installStatus } = _mapStateToProps();
 
-    expect(installStatus).toEqual(INSTALLED);
-  });
+      expect(installStatus).toEqual(INSTALLED);
+    });
 
-  it('sets installStatus to UNKNOWN when add-on is not installed', () => {
-    signIn();
-    fetchAddon();
-    const { installStatus } = _mapStateToProps();
+    it('sets installStatus to UNKNOWN when add-on is not installed', () => {
+      signIn();
+      fetchAddon();
+      const { installStatus } = _mapStateToProps();
 
-    expect(installStatus).toEqual(UNKNOWN);
-  });
+      expect(installStatus).toEqual(UNKNOWN);
+    });
 
-  it('must convert all addon props to component props', () => {
-    signIn();
-    const description = 'whatever';
-    fetchAddon({ addon: { ...fakeAddon, description } });
-    const props = _mapStateToProps();
+    it('must convert all addon props to component props', () => {
+      signIn();
+      const description = 'whatever';
+      fetchAddon({ addon: { ...fakeAddon, description } });
+      const props = _mapStateToProps();
 
-    // Make sure a random addon prop gets passed as a component prop
-    // so that the withInstallHelpers HOC works.
-    expect(props.description).toEqual(description);
-  });
+      // Make sure a random addon prop gets passed as a component prop
+      // so that the withInstallHelpers HOC works.
+      expect(props.description).toEqual(description);
+    });
 
-  it('must convert all installed addon props to component props', () => {
-    signIn();
-    fetchAddon();
-    store.dispatch(
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid: fakeAddon.guid,
-        status: INSTALLED,
-      }),
-    );
-    const { needsRestart } = _mapStateToProps();
+    it('must convert all installed addon props to component props', () => {
+      signIn();
+      fetchAddon();
+      store.dispatch(
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid: fakeAddon.guid,
+          status: INSTALLED,
+        }),
+      );
+      const { needsRestart } = _mapStateToProps();
 
-    // Make sure a random installedAddon prop gets passed as a component prop
-    // so that the withInstallHelpers HOC works.
-    expect(needsRestart).toEqual(false);
-  });
+      // Make sure a random installedAddon prop gets passed as a component prop
+      // so that the withInstallHelpers HOC works.
+      expect(needsRestart).toEqual(false);
+    });
 
-  it('handles a non-existant add-on', () => {
-    signIn();
-    const { addon } = _mapStateToProps();
+    it('handles a non-existant add-on', () => {
+      signIn();
+      const { addon } = _mapStateToProps();
 
-    expect(addon).toEqual(null);
+      expect(addon).toEqual(null);
+    });
   });
 });

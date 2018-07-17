@@ -39,7 +39,7 @@ import {
   userAuthToken,
 } from 'tests/unit/helpers';
 
-describe('RatingManager', () => {
+describe(__filename, () => {
   let store;
 
   beforeEach(() => {

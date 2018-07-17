@@ -1,4 +1,4 @@
-describe('AMO Prefix config', () => {
+describe(__filename, () => {
   const existingNodeEnv = process.env.NODE_ENV;
 
   afterEach(() => {

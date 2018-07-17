@@ -570,998 +570,1009 @@ describe(__filename, () => {
       expect(url).toMatch(/lang=he/);
     });
   });
-});
 
-describe(`${__filename}: withInstallHelpers`, () => {
-  const defaultInstallSource = 'some-install-source';
-  const WrappedComponent = sinon.stub();
-  let configStub;
-  let mapDispatchToProps;
+  describe('withInstallHelpers', () => {
+    const defaultInstallSource = 'some-install-source';
+    const WrappedComponent = sinon.stub();
+    let configStub;
+    let mapDispatchToProps;
 
-  function getMapStateToProps({
-    _tracking,
-    installations = {},
-    state = {},
-  } = {}) {
-    return mapStateToProps({ installations, addons: {} }, state, { _tracking });
-  }
-
-  beforeAll(() => {
-    mapDispatchToProps = makeMapDispatchToProps({
-      WrappedComponent,
-      defaultInstallSource,
-    });
-  });
-
-  beforeEach(() => {
-    configStub = sinon
-      .stub(config, 'get')
-      .withArgs('server')
-      .returns(false);
-  });
-
-  describe('setCurrentStatus', () => {
-    it('sets the status to ENABLED when an enabled add-on found', () => {
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        defaultInstallSource: null,
+    function getMapStateToProps({
+      _tracking,
+      installations = {},
+      state = {},
+    } = {}) {
+      return mapStateToProps({ installations, addons: {} }, state, {
+        _tracking,
       });
-      const { setCurrentStatus } = root.instance().props;
+    }
 
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ENABLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('lets you pass custom props to setCurrentStatus', () => {
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        defaultInstallSource: null,
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      dispatch.resetHistory();
-      return setCurrentStatus(addon).then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ENABLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('sets the status to DISABLED when a disabled add-on found', () => {
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        defaultInstallSource: null,
-        _addonManager: getFakeAddonManagerWrapper({
-          getAddon: Promise.resolve({
-            isActive: false,
-            isEnabled: false,
-            type: ADDON_TYPE_EXTENSION,
-          }),
-        }),
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('sets the status to DISABLED when an inactive add-on found', () => {
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        defaultInstallSource: null,
-        _addonManager: getFakeAddonManagerWrapper({
-          getAddon: Promise.resolve({
-            isActive: false,
-            isEnabled: true,
-            type: ADDON_TYPE_EXTENSION,
-          }),
-        }),
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('sets the status to ENABLED when an enabled theme is found', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({
-          type: ADDON_TYPE_THEME,
-          isActive: true,
-          isEnabled: true,
-        }),
-      });
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        defaultInstallSource: null,
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ENABLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('sets the status to DISABLED when an inactive theme is found', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({
-          isActive: false,
-          isEnabled: true,
-          type: ADDON_TYPE_THEME,
-        }),
-      });
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        defaultInstallSource: null,
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('sets the status to DISABLED when a disabled theme is found', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({
-          isActive: true,
-          isEnabled: false,
-          type: ADDON_TYPE_THEME,
-        }),
-      });
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        defaultInstallSource: null,
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('sets the status to UNINSTALLED when not found', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.reject(),
-      });
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        defaultInstallSource: null,
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: UNINSTALLED,
-            url: installURL,
-          }),
-        );
-      });
-    });
-
-    it('dispatches error when setCurrentStatus gets exception', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({
-        // Resolve a null addon which will trigger an exception.
-        getAddon: Promise.resolve(null),
-      });
-      const addon = createInternalAddon(fakeAddon);
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-      });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ERROR,
-            error: FATAL_ERROR,
-          }),
-        );
-      });
-    });
-
-    it('adds defaultInstallSource to the URL', () => {
-      const installURL = 'http://the.url/';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
+    beforeAll(() => {
+      mapDispatchToProps = makeMapDispatchToProps({
+        WrappedComponent,
         defaultInstallSource,
       });
-      const { setCurrentStatus } = root.instance().props;
-
-      return setCurrentStatus().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ENABLED,
-            url: `${installURL}?src=${defaultInstallSource}`,
-          }),
-        );
-      });
     });
-  });
-
-  describe('makeProgressHandler', () => {
-    it('sets the download progress on STATE_DOWNLOADING', () => {
-      const dispatch = sinon.spy();
-      const guid = 'foo@addon';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({ state: 'STATE_DOWNLOADING', progress: 300, maxProgress: 990 });
-      sinon.assert.calledWith(dispatch, {
-        type: DOWNLOAD_PROGRESS,
-        payload: { downloadProgress: 30, guid },
-      });
-    });
-
-    it('sets status to error on onDownloadFailed', () => {
-      const dispatch = sinon.spy();
-      const guid = '{my-addon}';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
-      sinon.assert.calledWith(dispatch, {
-        type: 'INSTALL_ERROR',
-        payload: { guid, error: DOWNLOAD_FAILED },
-      });
-    });
-
-    it('sets status to installing onDownloadEnded', () => {
-      const dispatch = sinon.spy();
-      const guid = '{my-addon}';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadEnded' });
-      sinon.assert.calledWith(
-        dispatch,
-        setInstallState({
-          guid,
-          status: INSTALLING,
-        }),
-      );
-    });
-
-    it('resets status to uninstalled on onInstallCancelled', () => {
-      const dispatch = sinon.spy();
-      const guid = '{my-addon}';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
-      sinon.assert.calledWith(dispatch, {
-        type: INSTALL_CANCELLED,
-        payload: { guid },
-      });
-    });
-
-    it('sets status to error on onInstallFailed', () => {
-      const dispatch = sinon.spy();
-      const guid = '{my-addon}';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
-      sinon.assert.calledWith(dispatch, {
-        type: 'INSTALL_ERROR',
-        payload: { guid, error: INSTALL_FAILED },
-      });
-    });
-
-    it('does nothing on unknown events', () => {
-      const dispatch = sinon.spy();
-      const guid = 'foo@addon';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
-      sinon.assert.notCalled(dispatch);
-    });
-  });
-
-  describe('enable', () => {
-    it('calls addonManager.enable() and content notification', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({
-        permissionPromptsEnabled: false,
-      });
-      const name = 'the-name';
-      const iconUrl = 'https://a.m.o/some-icon.png';
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        name,
-        icon_url: iconUrl,
-      });
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-      });
-      const { enable } = root.instance().props;
-
-      const fakeShowInfo = sinon.stub();
-      return enable({ _showInfo: fakeShowInfo }).then(() => {
-        sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-        sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
-      });
-    });
-
-    it('calls addonManager.enable() without content notification', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({
-        permissionPromptsEnabled: true,
-      });
-      const name = 'the-name';
-      const iconUrl = 'https://a.m.o/some-icon.png';
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        name,
-        icon_url: iconUrl,
-      });
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-      });
-      const { enable } = root.instance().props;
-
-      const fakeShowInfo = sinon.stub();
-      return enable({ _showInfo: fakeShowInfo }).then(() => {
-        sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-        sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
-      });
-    });
-
-    it('dispatches a FATAL_ERROR', () => {
-      const fakeAddonManager = {
-        enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
-      };
-      const addon = createInternalAddon(fakeAddon);
-      const { dispatch, root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-      });
-      const { enable } = root.instance().props;
-
-      return enable().then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ERROR,
-            error: FATAL_ERROR,
-          }),
-        );
-      });
-    });
-
-    it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
-      const fakeAddonManager = {
-        enable: sinon
-          .stub()
-          .returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
-      };
-      const { root, dispatch } = renderWithInstallHelpers({
-        _addonManager: fakeAddonManager,
-      });
-      const { enable } = root.instance().props;
-
-      return enable().then(() => {
-        sinon.assert.notCalled(dispatch);
-      });
-    });
-  });
-
-  describe('install', () => {
-    const installURL = 'https://mysite.com/download.xpi';
-
-    it('calls addonManager.install()', () => {
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      );
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        defaultInstallSource,
-      });
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.calledWith(
-          fakeAddonManager.install,
-          `${installURL}?src=${defaultInstallSource}`,
-          sinon.match.func,
-          { src: defaultInstallSource },
-        );
-      });
-    });
-
-    it('tracks the start of an addon install', () => {
-      const addon = createInternalAddon(fakeAddon);
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: getFakeAddonManagerWrapper({
-          // Make the install fail so that we can be sure only
-          // the 'start' event gets tracked.
-          install: sinon
-            .stub()
-            .returns(Promise.reject(new Error('install error'))),
-        }),
-        _tracking: fakeTracking,
-      });
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        // Even though the install() promise fails, it gets caught
-        // and resolved successfully.
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
-          category: getAddonEventCategory(
-            ADDON_TYPE_EXTENSION,
-            INSTALL_STARTED_ACTION,
-          ),
-          label: addon.name,
-        });
-        sinon.assert.calledOnce(fakeTracking.sendEvent);
-      });
-    });
-
-    it('tracks an addon install', () => {
-      const addon = createInternalAddon(fakeAddon);
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _tracking: fakeTracking,
-      });
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
-          category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
-          label: addon.name,
-        });
-      });
-    });
-
-    it('tracks the start of a static theme install', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-      });
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _tracking: fakeTracking,
-      });
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
-          category: getAddonEventCategory(
-            ADDON_TYPE_STATIC_THEME,
-            INSTALL_STARTED_ACTION,
-          ),
-          label: addon.name,
-        });
-      });
-    });
-
-    it('tracks a static theme addon install', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-      });
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _tracking: fakeTracking,
-      });
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
-          category: getAddonEventCategory(
-            ADDON_TYPE_STATIC_THEME,
-            INSTALL_ACTION,
-          ),
-          label: addon.name,
-        });
-      });
-    });
-
-    it('should dispatch START_DOWNLOAD', () => {
-      const addon = createInternalAddon(fakeAddon);
-      const { root, dispatch } = renderWithInstallHelpers(addon);
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.calledWith(dispatch, {
-          type: START_DOWNLOAD,
-          payload: { guid: addon.guid },
-        });
-      });
-    });
-
-    it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
-      const iconUrl = 'some-icon-url';
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        icon_url: iconUrl,
-      });
-      const props = {
-        ...addon,
-        _addonManager: getFakeAddonManagerWrapper({
-          permissionPromptsEnabled: false,
-        }),
-      };
-      const { root, dispatch } = renderWithInstallHelpers(props);
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.calledWith(dispatch, {
-          type: SHOW_INFO,
-          payload: {
-            addonName: addon.name,
-            imageURL: iconUrl,
-            closeAction: sinon.match.func,
-          },
-        });
-
-        const arg = dispatch.secondCall.args[0];
-        // Prove we're looking at the SHOW_INFO dispatch.
-        expect(arg.type).toEqual(SHOW_INFO);
-
-        // Test that close action dispatches.
-        dispatch.resetHistory();
-        arg.payload.closeAction();
-        sinon.assert.calledWith(dispatch, {
-          type: CLOSE_INFO,
-        });
-      });
-    });
-
-    it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
-      const iconUrl = 'some-icon-url';
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        icon_url: iconUrl,
-      });
-      const props = {
-        ...addon,
-        _addonManager: getFakeAddonManagerWrapper({
-          permissionPromptsEnabled: true,
-        }),
-      };
-      const { root, dispatch } = renderWithInstallHelpers(props);
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.neverCalledWith(dispatch, {
-          type: SHOW_INFO,
-          payload: {
-            addonName: addon.name,
-            imageURL: iconUrl,
-            closeAction: sinon.match.func,
-          },
-        });
-      });
-    });
-
-    it('dispatches error when addonManager.install throws', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      fakeAddonManager.install = sinon.stub().returns(Promise.reject());
-
-      const addon = createInternalAddon(fakeAddon);
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-      });
-      const { install } = root.instance().props;
-
-      return install(addon).then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ERROR,
-            error: FATAL_INSTALL_ERROR,
-          }),
-        );
-      });
-    });
-  });
-
-  describe('uninstall', () => {
-    it('calls addonManager.uninstall()', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const addon = createInternalAddon(fakeAddon);
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-      });
-      const { uninstall } = root.instance().props;
-
-      return uninstall(addon).then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
-        );
-        sinon.assert.calledWith(fakeAddonManager.uninstall, addon.guid);
-      });
-    });
-
-    it('dispatches error when addonManager.uninstall throws', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      fakeAddonManager.uninstall = sinon
-        .stub()
-        .returns(Promise.reject(new Error('Add-on Manager uninstall error')));
-      const addon = createInternalAddon(fakeAddon);
-      const { root, dispatch } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-      });
-      const { uninstall } = root.instance().props;
-
-      return uninstall(addon).then(() => {
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
-        );
-        sinon.assert.calledWith(
-          dispatch,
-          setInstallState({
-            guid: addon.guid,
-            status: ERROR,
-            error: FATAL_UNINSTALL_ERROR,
-          }),
-        );
-      });
-    });
-
-    it('tracks an addon uninstall', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const addon = createInternalAddon(fakeAddon);
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        _tracking: fakeTracking,
-      });
-      const { uninstall } = root.instance().props;
-
-      return uninstall(addon).then(() => {
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
-          category: getAddonEventCategory(
-            ADDON_TYPE_EXTENSION,
-            UNINSTALL_ACTION,
-          ),
-          label: addon.name,
-        });
-      });
-    });
-
-    it('tracks a static theme addon uninstall', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-      });
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        _tracking: fakeTracking,
-      });
-      const { uninstall } = root.instance().props;
-
-      return uninstall(addon).then(() => {
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
-          category: getAddonEventCategory(
-            ADDON_TYPE_STATIC_THEME,
-            UNINSTALL_ACTION,
-          ),
-          label: addon.name,
-        });
-      });
-    });
-
-    it('tracks a theme uninstall', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const addon = createInternalAddon(fakeTheme);
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        _tracking: fakeTracking,
-      });
-      const { uninstall } = root.instance().props;
-
-      return uninstall(addon).then(() => {
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: getAddonTypeForTracking(ADDON_TYPE_THEME),
-          category: getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION),
-          label: addon.name,
-        });
-      });
-    });
-
-    it('tracks a unknown type uninstall', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        type: INVALID_TYPE,
-      });
-      const { root } = renderWithInstallHelpers({
-        ...addon,
-        _addonManager: fakeAddonManager,
-        _tracking: fakeTracking,
-      });
-      const { uninstall } = root.instance().props;
-
-      return uninstall(addon).then(() => {
-        sinon.assert.calledWith(fakeTracking.sendEvent, {
-          action: TRACKING_TYPE_INVALID,
-          category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
-          label: addon.name,
-        });
-      });
-    });
-  });
-
-  describe('mapDispatchToProps', () => {
-    let fakeDispatch;
 
     beforeEach(() => {
-      fakeDispatch = sinon.stub();
-    });
-
-    it('still maps props on the server', () => {
-      sinon.restore();
       configStub = sinon
         .stub(config, 'get')
         .withArgs('server')
-        .returns(true);
-      expect(mapDispatchToProps(fakeDispatch)).toEqual({
-        dispatch: fakeDispatch,
-        defaultInstallSource,
-        WrappedComponent,
+        .returns(false);
+    });
+
+    describe('setCurrentStatus', () => {
+      it('sets the status to ENABLED when an enabled add-on found', () => {
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          defaultInstallSource: null,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ENABLED,
+              url: installURL,
+            }),
+          );
+        });
       });
-      sinon.assert.calledWith(configStub, 'server');
+
+      it('lets you pass custom props to setCurrentStatus', () => {
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          defaultInstallSource: null,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        dispatch.resetHistory();
+        return setCurrentStatus(addon).then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ENABLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('sets the status to DISABLED when a disabled add-on found', () => {
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          defaultInstallSource: null,
+          _addonManager: getFakeAddonManagerWrapper({
+            getAddon: Promise.resolve({
+              isActive: false,
+              isEnabled: false,
+              type: ADDON_TYPE_EXTENSION,
+            }),
+          }),
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: DISABLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('sets the status to DISABLED when an inactive add-on found', () => {
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          defaultInstallSource: null,
+          _addonManager: getFakeAddonManagerWrapper({
+            getAddon: Promise.resolve({
+              isActive: false,
+              isEnabled: true,
+              type: ADDON_TYPE_EXTENSION,
+            }),
+          }),
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: DISABLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('sets the status to ENABLED when an enabled theme is found', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            type: ADDON_TYPE_THEME,
+            isActive: true,
+            isEnabled: true,
+          }),
+        });
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          defaultInstallSource: null,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ENABLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('sets the status to DISABLED when an inactive theme is found', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: false,
+            isEnabled: true,
+            type: ADDON_TYPE_THEME,
+          }),
+        });
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          defaultInstallSource: null,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: DISABLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('sets the status to DISABLED when a disabled theme is found', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: true,
+            isEnabled: false,
+            type: ADDON_TYPE_THEME,
+          }),
+        });
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          defaultInstallSource: null,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: DISABLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('sets the status to UNINSTALLED when not found', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+        });
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          defaultInstallSource: null,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: UNINSTALLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('dispatches error when setCurrentStatus gets exception', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          // Resolve a null addon which will trigger an exception.
+          getAddon: Promise.resolve(null),
+        });
+        const addon = createInternalAddon(fakeAddon);
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ERROR,
+              error: FATAL_ERROR,
+            }),
+          );
+        });
+      });
+
+      it('adds defaultInstallSource to the URL', () => {
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          defaultInstallSource,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ENABLED,
+              url: `${installURL}?src=${defaultInstallSource}`,
+            }),
+          );
+        });
+      });
     });
 
-    it('requires platformFiles', () => {
-      const props = defaultProps();
-      delete props.platformFiles;
-      expect(() => {
-        makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/platformFiles prop is required/);
+    describe('makeProgressHandler', () => {
+      it('sets the download progress on STATE_DOWNLOADING', () => {
+        const dispatch = sinon.spy();
+        const guid = 'foo@addon';
+        const handler = makeProgressHandler(dispatch, guid);
+        handler({
+          state: 'STATE_DOWNLOADING',
+          progress: 300,
+          maxProgress: 990,
+        });
+        sinon.assert.calledWith(dispatch, {
+          type: DOWNLOAD_PROGRESS,
+          payload: { downloadProgress: 30, guid },
+        });
+      });
+
+      it('sets status to error on onDownloadFailed', () => {
+        const dispatch = sinon.spy();
+        const guid = '{my-addon}';
+        const handler = makeProgressHandler(dispatch, guid);
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
+        sinon.assert.calledWith(dispatch, {
+          type: 'INSTALL_ERROR',
+          payload: { guid, error: DOWNLOAD_FAILED },
+        });
+      });
+
+      it('sets status to installing onDownloadEnded', () => {
+        const dispatch = sinon.spy();
+        const guid = '{my-addon}';
+        const handler = makeProgressHandler(dispatch, guid);
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadEnded' });
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid,
+            status: INSTALLING,
+          }),
+        );
+      });
+
+      it('resets status to uninstalled on onInstallCancelled', () => {
+        const dispatch = sinon.spy();
+        const guid = '{my-addon}';
+        const handler = makeProgressHandler(dispatch, guid);
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
+        sinon.assert.calledWith(dispatch, {
+          type: INSTALL_CANCELLED,
+          payload: { guid },
+        });
+      });
+
+      it('sets status to error on onInstallFailed', () => {
+        const dispatch = sinon.spy();
+        const guid = '{my-addon}';
+        const handler = makeProgressHandler(dispatch, guid);
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
+        sinon.assert.calledWith(dispatch, {
+          type: 'INSTALL_ERROR',
+          payload: { guid, error: INSTALL_FAILED },
+        });
+      });
+
+      it('does nothing on unknown events', () => {
+        const dispatch = sinon.spy();
+        const guid = 'foo@addon';
+        const handler = makeProgressHandler(dispatch, guid);
+        handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
+        sinon.assert.notCalled(dispatch);
+      });
     });
 
-    it('requires userAgentInfo', () => {
-      const props = defaultProps();
-      delete props.userAgentInfo;
-      expect(() => {
-        makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/userAgentInfo prop is required/);
+    describe('enable', () => {
+      it('calls addonManager.enable() and content notification', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          permissionPromptsEnabled: false,
+        });
+        const name = 'the-name';
+        const iconUrl = 'https://a.m.o/some-icon.png';
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          name,
+          icon_url: iconUrl,
+        });
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { enable } = root.instance().props;
+
+        const fakeShowInfo = sinon.stub();
+        return enable({ _showInfo: fakeShowInfo }).then(() => {
+          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
+          sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
+        });
+      });
+
+      it('calls addonManager.enable() without content notification', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          permissionPromptsEnabled: true,
+        });
+        const name = 'the-name';
+        const iconUrl = 'https://a.m.o/some-icon.png';
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          name,
+          icon_url: iconUrl,
+        });
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { enable } = root.instance().props;
+
+        const fakeShowInfo = sinon.stub();
+        return enable({ _showInfo: fakeShowInfo }).then(() => {
+          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
+          sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
+        });
+      });
+
+      it('dispatches a FATAL_ERROR', () => {
+        const fakeAddonManager = {
+          enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
+        };
+        const addon = createInternalAddon(fakeAddon);
+        const { dispatch, root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { enable } = root.instance().props;
+
+        return enable().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ERROR,
+              error: FATAL_ERROR,
+            }),
+          );
+        });
+      });
+
+      it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
+        const fakeAddonManager = {
+          enable: sinon
+            .stub()
+            .returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
+        };
+        const { root, dispatch } = renderWithInstallHelpers({
+          _addonManager: fakeAddonManager,
+        });
+        const { enable } = root.instance().props;
+
+        return enable().then(() => {
+          sinon.assert.notCalled(dispatch);
+        });
+      });
     });
 
-    it('requires location', () => {
-      const props = defaultProps();
-      delete props.location;
-      expect(() => {
-        makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/location prop is required/);
-    });
+    describe('install', () => {
+      const installURL = 'https://mysite.com/download.xpi';
 
-    it('can wrap an extension with the right props', () => {
-      const props = defaultProps();
-      expect(() => {
-        makeMapDispatchToProps({})(fakeDispatch, props);
-      }).not.toThrowError();
-    });
-  });
+      it('calls addonManager.install()', () => {
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+          }),
+        );
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          defaultInstallSource,
+        });
+        const { install } = root.instance().props;
 
-  describe('installTheme', () => {
-    const baseAddon = {
-      name: 'hai-theme',
-      guid: '{install-theme}',
-      status: UNINSTALLED,
-      type: ADDON_TYPE_THEME,
-    };
+        return install(addon).then(() => {
+          sinon.assert.calledWith(
+            fakeAddonManager.install,
+            `${installURL}?src=${defaultInstallSource}`,
+            sinon.match.func,
+            { src: defaultInstallSource },
+          );
+        });
+      });
 
-    function installThemeStubs() {
-      return {
-        _themeInstall: sinon.spy(),
-        _tracking: {
+      it('tracks the start of an addon install', () => {
+        const addon = createInternalAddon(fakeAddon);
+        const fakeTracking = {
           sendEvent: sinon.spy(),
-        },
+        };
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: getFakeAddonManagerWrapper({
+            // Make the install fail so that we can be sure only
+            // the 'start' event gets tracked.
+            install: sinon
+              .stub()
+              .returns(Promise.reject(new Error('install error'))),
+          }),
+          _tracking: fakeTracking,
+        });
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          // Even though the install() promise fails, it gets caught
+          // and resolved successfully.
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+            category: getAddonEventCategory(
+              ADDON_TYPE_EXTENSION,
+              INSTALL_STARTED_ACTION,
+            ),
+            label: addon.name,
+          });
+          sinon.assert.calledOnce(fakeTracking.sendEvent);
+        });
+      });
+
+      it('tracks an addon install', () => {
+        const addon = createInternalAddon(fakeAddon);
+        const fakeTracking = {
+          sendEvent: sinon.spy(),
+        };
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _tracking: fakeTracking,
+        });
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+            category: getAddonEventCategory(
+              ADDON_TYPE_EXTENSION,
+              INSTALL_ACTION,
+            ),
+            label: addon.name,
+          });
+        });
+      });
+
+      it('tracks the start of a static theme install', () => {
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+        });
+        const fakeTracking = {
+          sendEvent: sinon.spy(),
+        };
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _tracking: fakeTracking,
+        });
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+            category: getAddonEventCategory(
+              ADDON_TYPE_STATIC_THEME,
+              INSTALL_STARTED_ACTION,
+            ),
+            label: addon.name,
+          });
+        });
+      });
+
+      it('tracks a static theme addon install', () => {
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+        });
+        const fakeTracking = {
+          sendEvent: sinon.spy(),
+        };
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _tracking: fakeTracking,
+        });
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+            category: getAddonEventCategory(
+              ADDON_TYPE_STATIC_THEME,
+              INSTALL_ACTION,
+            ),
+            label: addon.name,
+          });
+        });
+      });
+
+      it('should dispatch START_DOWNLOAD', () => {
+        const addon = createInternalAddon(fakeAddon);
+        const { root, dispatch } = renderWithInstallHelpers(addon);
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.calledWith(dispatch, {
+            type: START_DOWNLOAD,
+            payload: { guid: addon.guid },
+          });
+        });
+      });
+
+      it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
+        const iconUrl = 'some-icon-url';
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          icon_url: iconUrl,
+        });
+        const props = {
+          ...addon,
+          _addonManager: getFakeAddonManagerWrapper({
+            permissionPromptsEnabled: false,
+          }),
+        };
+        const { root, dispatch } = renderWithInstallHelpers(props);
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.calledWith(dispatch, {
+            type: SHOW_INFO,
+            payload: {
+              addonName: addon.name,
+              imageURL: iconUrl,
+              closeAction: sinon.match.func,
+            },
+          });
+
+          const arg = dispatch.secondCall.args[0];
+          // Prove we're looking at the SHOW_INFO dispatch.
+          expect(arg.type).toEqual(SHOW_INFO);
+
+          // Test that close action dispatches.
+          dispatch.resetHistory();
+          arg.payload.closeAction();
+          sinon.assert.calledWith(dispatch, {
+            type: CLOSE_INFO,
+          });
+        });
+      });
+
+      it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
+        const iconUrl = 'some-icon-url';
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          icon_url: iconUrl,
+        });
+        const props = {
+          ...addon,
+          _addonManager: getFakeAddonManagerWrapper({
+            permissionPromptsEnabled: true,
+          }),
+        };
+        const { root, dispatch } = renderWithInstallHelpers(props);
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.neverCalledWith(dispatch, {
+            type: SHOW_INFO,
+            payload: {
+              addonName: addon.name,
+              imageURL: iconUrl,
+              closeAction: sinon.match.func,
+            },
+          });
+        });
+      });
+
+      it('dispatches error when addonManager.install throws', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        fakeAddonManager.install = sinon.stub().returns(Promise.reject());
+
+        const addon = createInternalAddon(fakeAddon);
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ERROR,
+              error: FATAL_INSTALL_ERROR,
+            }),
+          );
+        });
+      });
+    });
+
+    describe('uninstall', () => {
+      it('calls addonManager.uninstall()', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const addon = createInternalAddon(fakeAddon);
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { uninstall } = root.instance().props;
+
+        return uninstall(addon).then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+          );
+          sinon.assert.calledWith(fakeAddonManager.uninstall, addon.guid);
+        });
+      });
+
+      it('dispatches error when addonManager.uninstall throws', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        fakeAddonManager.uninstall = sinon
+          .stub()
+          .returns(Promise.reject(new Error('Add-on Manager uninstall error')));
+        const addon = createInternalAddon(fakeAddon);
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { uninstall } = root.instance().props;
+
+        return uninstall(addon).then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+          );
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ERROR,
+              error: FATAL_UNINSTALL_ERROR,
+            }),
+          );
+        });
+      });
+
+      it('tracks an addon uninstall', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const fakeTracking = {
+          sendEvent: sinon.spy(),
+        };
+        const addon = createInternalAddon(fakeAddon);
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
+        });
+        const { uninstall } = root.instance().props;
+
+        return uninstall(addon).then(() => {
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+            category: getAddonEventCategory(
+              ADDON_TYPE_EXTENSION,
+              UNINSTALL_ACTION,
+            ),
+            label: addon.name,
+          });
+        });
+      });
+
+      it('tracks a static theme addon uninstall', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const fakeTracking = {
+          sendEvent: sinon.spy(),
+        };
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+        });
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
+        });
+        const { uninstall } = root.instance().props;
+
+        return uninstall(addon).then(() => {
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+            category: getAddonEventCategory(
+              ADDON_TYPE_STATIC_THEME,
+              UNINSTALL_ACTION,
+            ),
+            label: addon.name,
+          });
+        });
+      });
+
+      it('tracks a theme uninstall', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const fakeTracking = {
+          sendEvent: sinon.spy(),
+        };
+        const addon = createInternalAddon(fakeTheme);
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
+        });
+        const { uninstall } = root.instance().props;
+
+        return uninstall(addon).then(() => {
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_THEME),
+            category: getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION),
+            label: addon.name,
+          });
+        });
+      });
+
+      it('tracks a unknown type uninstall', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const fakeTracking = {
+          sendEvent: sinon.spy(),
+        };
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          type: INVALID_TYPE,
+        });
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
+        });
+        const { uninstall } = root.instance().props;
+
+        return uninstall(addon).then(() => {
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: TRACKING_TYPE_INVALID,
+            category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
+            label: addon.name,
+          });
+        });
+      });
+    });
+
+    describe('mapDispatchToProps', () => {
+      let fakeDispatch;
+
+      beforeEach(() => {
+        fakeDispatch = sinon.stub();
+      });
+
+      it('still maps props on the server', () => {
+        sinon.restore();
+        configStub = sinon
+          .stub(config, 'get')
+          .withArgs('server')
+          .returns(true);
+        expect(mapDispatchToProps(fakeDispatch)).toEqual({
+          dispatch: fakeDispatch,
+          defaultInstallSource,
+          WrappedComponent,
+        });
+        sinon.assert.calledWith(configStub, 'server');
+      });
+
+      it('requires platformFiles', () => {
+        const props = defaultProps();
+        delete props.platformFiles;
+        expect(() => {
+          makeMapDispatchToProps({})(fakeDispatch, props);
+        }).toThrowError(/platformFiles prop is required/);
+      });
+
+      it('requires userAgentInfo', () => {
+        const props = defaultProps();
+        delete props.userAgentInfo;
+        expect(() => {
+          makeMapDispatchToProps({})(fakeDispatch, props);
+        }).toThrowError(/userAgentInfo prop is required/);
+      });
+
+      it('requires location', () => {
+        const props = defaultProps();
+        delete props.location;
+        expect(() => {
+          makeMapDispatchToProps({})(fakeDispatch, props);
+        }).toThrowError(/location prop is required/);
+      });
+
+      it('can wrap an extension with the right props', () => {
+        const props = defaultProps();
+        expect(() => {
+          makeMapDispatchToProps({})(fakeDispatch, props);
+        }).not.toThrowError();
+      });
+    });
+
+    describe('installTheme', () => {
+      const baseAddon = {
+        name: 'hai-theme',
+        guid: '{install-theme}',
+        status: UNINSTALLED,
+        type: ADDON_TYPE_THEME,
       };
-    }
 
-    it('installs the theme when it is not installed', () => {
-      const addon = { ...baseAddon };
-      const node = sinon.stub();
-      const stubs = installThemeStubs();
-      installTheme(node, addon, stubs);
-      expect(stubs._themeInstall.calledWith(node)).toBeTruthy();
-    });
+      function installThemeStubs() {
+        return {
+          _themeInstall: sinon.spy(),
+          _tracking: {
+            sendEvent: sinon.spy(),
+          },
+        };
+      }
 
-    it('tracks a theme install', () => {
-      const addon = { ...baseAddon };
-      const node = sinon.stub();
-      const stubs = installThemeStubs();
-      installTheme(node, addon, stubs);
-      sinon.assert.calledWith(stubs._tracking.sendEvent, {
-        action: TRACKING_TYPE_THEME,
-        category: INSTALL_THEME_STARTED_CATEGORY,
-        label: 'hai-theme',
+      it('installs the theme when it is not installed', () => {
+        const addon = { ...baseAddon };
+        const node = sinon.stub();
+        const stubs = installThemeStubs();
+        installTheme(node, addon, stubs);
+        expect(stubs._themeInstall.calledWith(node)).toBeTruthy();
       });
-      sinon.assert.calledWith(stubs._tracking.sendEvent, {
-        action: TRACKING_TYPE_THEME,
-        category: INSTALL_THEME_CATEGORY,
-        label: 'hai-theme',
+
+      it('tracks a theme install', () => {
+        const addon = { ...baseAddon };
+        const node = sinon.stub();
+        const stubs = installThemeStubs();
+        installTheme(node, addon, stubs);
+        sinon.assert.calledWith(stubs._tracking.sendEvent, {
+          action: TRACKING_TYPE_THEME,
+          category: INSTALL_THEME_STARTED_CATEGORY,
+          label: 'hai-theme',
+        });
+        sinon.assert.calledWith(stubs._tracking.sendEvent, {
+          action: TRACKING_TYPE_THEME,
+          category: INSTALL_THEME_CATEGORY,
+          label: 'hai-theme',
+        });
+        sinon.assert.calledTwice(stubs._tracking.sendEvent);
       });
-      sinon.assert.calledTwice(stubs._tracking.sendEvent);
-    });
 
-    it('does not try to install theme if INSTALLED', () => {
-      const addon = { ...baseAddon, status: INSTALLED };
-      const node = sinon.stub();
-      const stubs = installThemeStubs();
-      installTheme(node, addon, stubs);
-      expect(stubs._tracking.sendEvent.called).toBeFalsy();
-      expect(stubs._themeInstall.called).toBeFalsy();
-    });
+      it('does not try to install theme if INSTALLED', () => {
+        const addon = { ...baseAddon, status: INSTALLED };
+        const node = sinon.stub();
+        const stubs = installThemeStubs();
+        installTheme(node, addon, stubs);
+        expect(stubs._tracking.sendEvent.called).toBeFalsy();
+        expect(stubs._themeInstall.called).toBeFalsy();
+      });
 
-    it('does not try to install theme if it is an extension', () => {
-      const addon = { ...baseAddon, type: ADDON_TYPE_EXTENSION };
-      const node = sinon.stub();
-      const stubs = installThemeStubs();
-      installTheme(node, addon, stubs);
-      expect(stubs._tracking.sendEvent.called).toBeFalsy();
-      expect(stubs._themeInstall.called).toBeFalsy();
-    });
+      it('does not try to install theme if it is an extension', () => {
+        const addon = { ...baseAddon, type: ADDON_TYPE_EXTENSION };
+        const node = sinon.stub();
+        const stubs = installThemeStubs();
+        installTheme(node, addon, stubs);
+        expect(stubs._tracking.sendEvent.called).toBeFalsy();
+        expect(stubs._themeInstall.called).toBeFalsy();
+      });
 
-    describe('getBrowserThemeData', () => {
-      it('formats the browser theme data', () => {
-        const { getBrowserThemeData } = getMapStateToProps();
-        sinon.stub(themeInstall, 'getThemeData').returns({ foo: 'wat' });
-        expect(getBrowserThemeData({ some: 'data' })).toEqual('{"foo":"wat"}');
+      describe('getBrowserThemeData', () => {
+        it('formats the browser theme data', () => {
+          const { getBrowserThemeData } = getMapStateToProps();
+          sinon.stub(themeInstall, 'getThemeData').returns({ foo: 'wat' });
+          expect(getBrowserThemeData({ some: 'data' })).toEqual(
+            '{"foo":"wat"}',
+          );
+        });
       });
     });
   });

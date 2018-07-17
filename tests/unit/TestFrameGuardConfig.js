@@ -3,7 +3,7 @@ import config from 'config';
 
 const appsList = config.get('validAppNames');
 
-describe('App Specific Frameguard Config', () => {
+describe(__filename, () => {
   const existingNodeEnv = process.env.NODE_ENV;
 
   afterEach(() => {

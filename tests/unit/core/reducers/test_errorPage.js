@@ -11,7 +11,7 @@ function getErrorPageState(store) {
   return store.getState().errorPage;
 }
 
-describe('errorPage reducer', () => {
+describe(__filename, () => {
   let store;
 
   beforeEach(() => {

@@ -13,8 +13,9 @@ import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/components/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
 import { getAddonByGUID } from 'core/reducers/addons';
-import { NAVIGATION_CATEGORY } from 'disco/constants';
 import { getDiscoResults } from 'disco/actions';
+import { NAVIGATION_CATEGORY } from 'disco/constants';
+import { makeQueryStringWithUTM } from 'disco/utils';
 import Addon from 'disco/components/Addon';
 import Button from 'ui/components/Button';
 
@@ -124,7 +125,13 @@ export class DiscoPaneBase extends React.Component {
         <div className="amo-link">
           <Button
             buttonType="action"
-            href="https://addons.mozilla.org/"
+            href={`https://addons.mozilla.org/${makeQueryStringWithUTM({
+              utm_content: 'see-more-link',
+              // The parameter below is not an UTM parameter, but it's used
+              // internally by AMO to track downloads in the stats dashboards
+              // for developers.
+              src: 'api',
+            })}`}
             target="_blank"
             rel="noopener noreferrer"
             onClick={this.showMoreAddons}
