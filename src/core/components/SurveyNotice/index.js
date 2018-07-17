@@ -73,10 +73,6 @@ export const SurveyNoticeBase = ({
     });
   };
 
-  const actionOnClick = () => {
-    onDismiss();
-  };
-
   // Pass along a source derived from the current URL path but with
   // the preceding language path removed.
   const source = querystring.stringify({
@@ -90,7 +86,7 @@ export const SurveyNoticeBase = ({
   return (
     <Notice
       actionHref={surveyUrl}
-      actionOnClick={actionOnClick}
+      actionOnClick={onDismiss}
       actionTarget="_blank"
       actionText={i18n.gettext('Take short survey')}
       className="SurveyNotice"

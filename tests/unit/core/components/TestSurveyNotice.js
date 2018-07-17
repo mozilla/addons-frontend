@@ -78,20 +78,6 @@ describe(__filename, () => {
     );
   });
 
-  it('also saves a cookie on action click', () => {
-    const _cookie = fakeCookie();
-    const root = render({ _cookie });
-
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('actionOnClick');
-    const { actionOnClick } = notice.props();
-
-    // Simulate a click
-    actionOnClick();
-
-    sinon.assert.called(_cookie.save);
-  });
-
   it('dispatches action on dismissal', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -107,19 +93,16 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, dismissSurvey());
   });
 
-  it('also dispatches an action on click', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ store });
+  it('runs the same dismiss logic when clicking through to the survey', () => {
+    const root = render();
 
     const notice = root.find(Notice);
+    expect(notice).toHaveProp('onDismiss');
     expect(notice).toHaveProp('actionOnClick');
-    const { actionOnClick } = notice.props();
+    const { actionOnClick, onDismiss } = notice.props();
 
-    // Simulate a click
-    actionOnClick();
-
-    sinon.assert.calledWith(dispatchSpy, dismissSurvey());
+    // Make sure actionOnClick will behave exactly the same as onDismiss
+    expect(actionOnClick).toBe(onDismiss);
   });
 
   it('links to a survey with location source', () => {
