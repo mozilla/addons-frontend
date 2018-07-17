@@ -10,7 +10,7 @@ $avatar-size: 64px;
 }
 
 .UserProfile {
-  margin: $padding-page;
+  @include page-padding();
 }
 
 .UserProfile-wrapper {

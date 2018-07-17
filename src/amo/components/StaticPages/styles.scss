@@ -1,8 +1,10 @@
+@import '~core/css/inc/vars';
+@import '~core/css/inc/mixins';
 @import '~amo/css/inc/vars';
 @import '~photon-colors/photon-colors';
 
 .StaticPage {
-  margin: $page-margin;
+  @include page-padding();
 
   .Card-contents li,
   .Card-contents p {

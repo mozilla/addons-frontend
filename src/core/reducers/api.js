@@ -64,6 +64,7 @@ export type UserAgentInfoType = {|
 
 export type ApiState = {
   clientApp: ?string,
+  // See config.get('langs') for all possible values.
   lang: ?string,
   token: ?string,
   userAgent: ?string,

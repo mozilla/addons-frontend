@@ -3,11 +3,7 @@
 @import '~ui/css/vars';
 
 .Addon {
-  padding: $padding-page;
-
-  @include respond-to(large) {
-    padding: $padding-page-l;
-  }
+  @include page-padding();
 
   .Addon-summary-and-install-button-wrapper {
     .InstallButton,

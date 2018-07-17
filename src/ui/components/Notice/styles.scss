@@ -14,7 +14,7 @@
   padding: 4px;
 
   &.Notice-dismissible {
-    grid-template-columns: min-content auto auto;
+    grid-template-columns: min-content auto min-content;
   }
 }
 
@@ -105,7 +105,7 @@
       $background: $blue-60,
       $background-active: $blue-80,
       $background-hover: $blue-70,
-      $color: $grey-90
+      $color: $white
     );
     @include notice_button();
   }
@@ -125,6 +125,10 @@
   :hover,
   :active {
     color: $grey-90;
+  }
+
+  .Button:hover {
+    color: $white;
   }
 }
 

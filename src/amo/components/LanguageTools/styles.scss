@@ -5,11 +5,7 @@
 $cell-padding: 6px;
 
 .LanguageTools {
-  padding: $padding-page;
-
-  @include respond-to(large) {
-    padding: $padding-page-l;
-  }
+  @include page-padding();
 }
 
 .LanguageTools-table {

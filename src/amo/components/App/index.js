@@ -23,6 +23,7 @@ import {
   maximumSetTimeoutDelay,
 } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
+import SurveyNotice from 'core/components/SurveyNotice';
 import InfoDialog from 'core/components/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -228,6 +229,9 @@ export class AppBase extends React.Component<Props> {
           <div className="App-content">
             <div className="App-content-wrapper">
               <ErrorPage getErrorComponent={getErrorComponent}>
+                <div className="App-banner">
+                  <SurveyNotice location={location} />
+                </div>
                 {children}
               </ErrorPage>
             </div>

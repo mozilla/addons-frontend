@@ -12,6 +12,7 @@ import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import discoResults from 'disco/reducers/discoResults';
 import redirectTo from 'core/reducers/redirectTo';
+import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
 
 export default function createStore({
@@ -30,6 +31,7 @@ export default function createStore({
       infoDialog,
       redirectTo,
       routing,
+      survey,
       uiState,
     }),
     initialState,

@@ -4,11 +4,7 @@
 @import '~ui/css/vars';
 
 .Collection {
-  padding: $padding-page;
-
-  @include respond-to(large) {
-    padding: $padding-page-l;
-  }
+  @include page-padding();
 
   .MetadataCard {
     @include respond-to(large) {
@@ -67,7 +63,7 @@
     grid-auto-flow: column dense;
     grid-gap: 0 $padding-page-l;
     grid-template-columns: minmax(300px, 35%) 1fr;
-    margin: 10px 0 0;
+    margin: 0;
 
     .Collection-detail-wrapper {
       grid-column: 1;

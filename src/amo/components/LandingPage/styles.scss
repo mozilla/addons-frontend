@@ -3,11 +3,7 @@
 @import '~ui/css/vars';
 
 .LandingPage {
-  padding: $padding-page;
-
-  @include respond-to(large) {
-    padding: $padding-page-l;
-  }
+  @include page-padding();
 }
 
 .LandingPage-header {

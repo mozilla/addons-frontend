@@ -5,11 +5,7 @@
 @import '~ui/css/vars';
 
 .Home {
-  padding: $padding-page;
-
-  @include respond-to(large) {
-    padding: $padding-page-l;
-  }
+  @include page-padding();
 }
 
 .Home-SubjectShelf {

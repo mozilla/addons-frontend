@@ -5,7 +5,7 @@
 $font-size-aside: 10px;
 
 .UserProfileEdit {
-  margin: $padding-page;
+  @include page-padding();
 
   @include respond-to(large) {
     display: flex;

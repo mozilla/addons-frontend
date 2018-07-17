@@ -650,3 +650,7 @@ export function setUIState({ root, change, store }) {
   root.instance().props.setUIState(change);
   applyUIStateChanges({ root, store });
 }
+
+export function fakeCookie(overrides = {}) {
+  return { load: sinon.stub(), save: sinon.stub(), ...overrides };
+}

@@ -27,6 +27,7 @@ import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import redirectTo from 'core/reducers/redirectTo';
 import search from 'core/reducers/search';
+import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
 import { middleware } from 'core/store';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
@@ -46,6 +47,7 @@ import type { LanguageToolsState } from 'core/reducers/languageTools';
 import type { InstallationsState } from 'core/reducers/installations';
 import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
+import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
 
 export type AppState = {|
@@ -70,6 +72,7 @@ export type AppState = {|
   reviews: ReviewsState,
   routing: Object,
   search: SearchState,
+  survey: SurveyState,
   uiState: UIStateState,
   userAbuseReports: UserAbuseReportsState,
   users: UsersState,
@@ -120,6 +123,7 @@ export default function createStore({
     reviews,
     routing,
     search,
+    survey,
     uiState,
     userAbuseReports,
     users,
