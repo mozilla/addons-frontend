@@ -9,6 +9,7 @@ import Collection, {
 import AddonsCard from 'amo/components/AddonsCard';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
+import CollectionSort from 'amo/components/CollectionSort';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
@@ -682,35 +683,32 @@ describe(__filename, () => {
     sinon.assert.called(_isFeaturedCollection);
   });
 
-  it('renders a sort card', () => {
+  it('renders a CollectionSort component', () => {
+    const page = 2;
     const sort = COLLECTION_SORT_NAME;
 
     const wrapper = renderComponent({
-      location: fakeRouterLocation({ query: { collection_sort: sort } }),
+      location: fakeRouterLocation({ query: { collection_sort: sort, page } }),
     });
 
-    const sortOptions = wrapper.instance().sortOptions();
+    const sortComponent = wrapper.find(CollectionSort);
 
-    expect(wrapper.find('.Collection-sort')).toHaveLength(1);
-    expect(wrapper.find('.Sort-label')).toHaveText('Sort add-ons by');
-    expect(wrapper.find('.Sort-select')).toHaveProp('defaultValue', sort);
-    expect(wrapper.find('.Sort-select')).toHaveProp(
-      'onChange',
+    expect(sortComponent).toHaveLength(1);
+    expect(sortComponent).toHaveProp('filters', {
+      page,
+      collectionSort: sort,
+    });
+    expect(sortComponent).toHaveProp(
+      'onSortSelect',
       wrapper.instance().onSortSelect,
     );
-
-    const options = wrapper.find('.Sort-select').children();
-    sortOptions.forEach((option, index) => {
-      expect(options.at(index)).toHaveProp('value', option.value);
-      expect(options.at(index)).toHaveText(option.children);
-    });
   });
 
-  it('does not render a sort card when creating', () => {
+  it('does not render a CollectionSort component when creating', () => {
     const { store } = dispatchSignInActions();
     const wrapper = renderComponent({ creating: true, store });
 
-    expect(wrapper.find('.Collection-sort')).toHaveLength(0);
+    expect(wrapper.find(CollectionSort)).toHaveLength(0);
   });
 
   it('renders a collection for editing', () => {
@@ -1338,13 +1336,13 @@ describe(__filename, () => {
           store,
         });
 
-        const select = wrapper.find('.Sort-select');
-
         const fakeEvent = createFakeEvent({
           currentTarget: { value: sort },
         });
 
-        select.simulate('change', fakeEvent);
+        // Emulate clicking the sort select.
+        const onSortSelect = wrapper.find(CollectionSort).prop('onSortSelect');
+        onSortSelect(fakeEvent);
 
         const pathname = `/${lang}/${clientApp}/collections/${username}/${slug}/${
           editing ? 'edit/' : ''
