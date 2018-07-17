@@ -470,11 +470,10 @@ describe(__filename, () => {
     });
 
     it('renders a class name with its type', () => {
-      const addon = {
+      dispatchAddon({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
-      };
-      dispatchAddon(addon);
+      });
       const root = render();
 
       expect(root).toHaveClassName(
