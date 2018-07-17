@@ -17,6 +17,10 @@
   }
 }
 
+.Collection-login {
+  display: flex;
+}
+
 .Collection-title {
   @include font-light();
 

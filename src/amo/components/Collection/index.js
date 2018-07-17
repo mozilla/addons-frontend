@@ -364,24 +364,9 @@ export class CollectionBase extends React.Component<InternalProps> {
       filters,
       hasEditPermission,
       i18n,
-      isLoggedIn,
-      location,
     } = this.props;
 
     if (creating || editing) {
-      if (!isLoggedIn) {
-        const logInText = creating
-          ? i18n.gettext('Log in to create a collection')
-          : i18n.gettext('Log in to edit this collection');
-
-        return (
-          <AuthenticateButton
-            noIcon
-            location={location}
-            logInText={logInText}
-          />
-        );
-      }
       return (
         <CollectionManager
           collection={collection}
@@ -459,7 +444,24 @@ export class CollectionBase extends React.Component<InternalProps> {
       i18n,
       isLoggedIn,
       loading,
+      location,
     } = this.props;
+
+    if ((creating || editing) && !isLoggedIn) {
+      const logInText = creating
+        ? i18n.gettext('Log in to create a collection')
+        : i18n.gettext('Log in to edit this collection');
+
+      return (
+        <Card className="Collection-login">
+          <AuthenticateButton
+            noIcon
+            location={location}
+            logInText={logInText}
+          />
+        </Card>
+      );
+    }
 
     const addons: Array<CollectionAddonType> =
       (collection && collection.addons) || [];
@@ -501,28 +503,30 @@ export class CollectionBase extends React.Component<InternalProps> {
             {this.renderCardContents()}
             {this.renderDeleteButton()}
           </Card>
-          <Card className="Collection-sort">
-            <form>
-              <label className="Sort-label" htmlFor="Sort-Select">
-                {i18n.gettext('Sort add-ons by')}
-              </label>
-              <Select
-                className="Sort-select"
-                defaultValue={filters.collectionSort}
-                id="Sort-select"
-                name="sort"
-                onChange={this.onSortSelect}
-              >
-                {this.sortOptions().map((option) => {
-                  return (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  );
-                })}
-              </Select>
-            </form>
-          </Card>
+          {!creating && (
+            <Card className="Collection-sort">
+              <form>
+                <label className="Sort-label" htmlFor="Sort-Select">
+                  {i18n.gettext('Sort add-ons by')}
+                </label>
+                <Select
+                  className="Sort-select"
+                  defaultValue={filters.collectionSort}
+                  id="Sort-select"
+                  name="sort"
+                  onChange={this.onSortSelect}
+                >
+                  {this.sortOptions().map((option) => {
+                    return (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    );
+                  })}
+                </Select>
+              </form>
+            </Card>
+          )}
         </div>
         <div className="Collection-items">
           {!creating && (
