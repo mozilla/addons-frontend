@@ -25,6 +25,8 @@ type UIState = {|
 type Props = {|
   actionHref?: string,
   actionOnClick?: Function,
+  // This will be passed to Button and then <a>, e.g. target=_blank
+  actionTarget?: string,
   actionText?: string,
   actionTo?: string | Object,
   children?: React.Node,
@@ -63,6 +65,7 @@ export class NoticeBase extends React.Component<InternalProps> {
     const {
       actionHref,
       actionOnClick,
+      actionTarget,
       actionText,
       actionTo,
       children,
@@ -91,7 +94,12 @@ export class NoticeBase extends React.Component<InternalProps> {
         'When specifying an action button, actionText is required',
       );
       actionButton = (
-        <Button className="Notice-button" micro {...buttonProps}>
+        <Button
+          className="Notice-button"
+          micro
+          target={actionTarget}
+          {...buttonProps}
+        >
           {actionText}
         </Button>
       );

@@ -82,6 +82,7 @@ export const SurveyNoticeBase = ({
   return (
     <Notice
       actionHref={surveyUrl}
+      actionTarget="_blank"
       actionText={i18n.gettext('Take short survey')}
       className="SurveyNotice"
       dismissible

@@ -126,6 +126,10 @@
   :active {
     color: $grey-90;
   }
+
+  .Button:hover {
+    color: $white;
+  }
 }
 
 .Notice-success,

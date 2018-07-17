@@ -151,4 +151,16 @@ describe(__filename, () => {
     const root = render({ dismissible: true, id });
     expect(root.instance().props.uiStateID).toContain(id);
   });
+
+  it('passes an actionTarget to Button', () => {
+    const actionTarget = '_blank';
+    const root = render({
+      actionText: 'some button',
+      actionHref: 'https://example.com',
+      actionTarget,
+    });
+
+    const button = root.find('.Notice-button');
+    expect(button).toHaveProp('target', actionTarget);
+  });
 });
