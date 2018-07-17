@@ -18,6 +18,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <ConfirmButton
         i18n={i18n}
+        id="Collection-confirm-delete"
         message="some warning message"
         onConfirm={sinon.stub()}
         store={dispatchClientMetadata().store}
@@ -167,17 +168,9 @@ describe(__filename, () => {
   });
 
   describe('extractId', () => {
-    it("contains its ID if it's passed in", () => {
+    it('returns a unique ID provided by the ID prop', () => {
       const id = 'special-button';
-      expect(extractId({ id })).toEqual(`confirmButton-${id}`);
-    });
-
-    it('contains the class name and message if there is no ID', () => {
-      const className = 'type-of-button';
-      const message = 'Are you sure?';
-      expect(extractId({ className, message })).toEqual(
-        `confirmButton-${className}-Areyousure?`,
-      );
+      expect(extractId({ id })).toEqual(id);
     });
   });
 });
