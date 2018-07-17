@@ -364,6 +364,36 @@ describe(__filename, () => {
     );
   });
 
+  it('passes isTheme prop as true if type is a theme', () => {
+    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
+
+    const root = render({
+      params: {
+        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      },
+    });
+
+    const addonCardProps = root
+      .find(LandingAddonsCard)
+      .map((addonCard) => addonCard.props().isTheme);
+    expect(addonCardProps).toContain(true);
+  });
+
+  it('passes isTheme prop as false if type is an extension', () => {
+    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_EXTENSION });
+
+    const root = render({
+      params: {
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      },
+    });
+
+    const addonCardProps = root
+      .find(LandingAddonsCard)
+      .map((addonCard) => addonCard.props().isTheme);
+    expect(addonCardProps).toContain(false);
+  });
+
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },

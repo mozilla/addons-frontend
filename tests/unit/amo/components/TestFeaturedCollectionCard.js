@@ -62,6 +62,16 @@ describe(__filename, () => {
     );
   });
 
+  it('passes isTheme prop as true if type is a theme', () => {
+    const root = render({ isTheme: true });
+    expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', true);
+  });
+
+  it('passes isTheme prop as false if type is an extension', () => {
+    const root = render({ isTheme: false });
+    expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', false);
+  });
+
   it('does not render a theme class name to LandingAddonsCard when isTheme is false', () => {
     const root = render({ isTheme: false });
     expect(root.find(LandingAddonsCard)).not.toHaveClassName(

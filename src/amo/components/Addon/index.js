@@ -182,11 +182,10 @@ export class AddonBase extends React.Component {
         }
       }
 
-      const imageClassName = 'Addon-theme-header-image';
       const headerImage = (
         <img
           alt={label}
-          className={imageClassName}
+          className="Addon-theme-header-image"
           src={previewURL}
           {...imageAtts}
         />

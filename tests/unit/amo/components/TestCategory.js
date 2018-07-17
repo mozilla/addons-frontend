@@ -500,11 +500,58 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a theme class name if type is a theme', () => {
+  it('passes isTheme prop as true if type is a theme', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
     const root = render(
-      { params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) } },
+      {},
       {
         autoDispatchCategories: false,
+        paramOverrides: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+        },
+      },
+    );
+
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(landingShelves.at(0)).toHaveProp('isTheme', true);
+  });
+
+  it('passes isTheme prop as false if type is an extension', () => {
+    _categoriesFetch();
+    _categoriesLoad({
+      result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
+    });
+    _getLanding();
+    _loadLanding();
+
+    const root = render(
+      {},
+      {
+        autoDispatchCategories: false,
+        paramOverrides: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+        },
+      },
+    );
+
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(landingShelves.at(0)).toHaveProp('isTheme', false);
+  });
+
+  it('renders a theme class name if type is a theme', () => {
+    const root = render(
+      {},
+      {
+        autoDispatchCategories: false,
+        paramOverrides: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+        },
       },
     );
 

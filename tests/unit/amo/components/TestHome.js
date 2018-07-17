@@ -80,10 +80,11 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('slug', collectionMetadata.slug);
       expect(shelf).toHaveProp('username', collectionMetadata.username);
       expect(shelf).toHaveProp('loading', true);
+      expect(shelf).toHaveProp('isTheme', collectionMetadata.isTheme);
     },
   );
 
-  it('renders a featured extensions shelf', () => {
+  it('passes isTheme prop as false if type is an extension', () => {
     const root = render();
 
     const shelves = root.find(LandingAddonsCard);
@@ -139,6 +140,7 @@ describe(__filename, () => {
       },
     });
     expect(shelf).toHaveProp('loading', true);
+    expect(shelf).toHaveProp('isTheme', true);
   });
 
   it('does not render a featured themes shelf if includeFeaturedThemes is false', () => {

@@ -95,15 +95,6 @@ describe(__filename, () => {
     );
   });
 
-  it('uses the default placeholder count when there is no override', () => {
-    const root = render();
-
-    expect(root.find(AddonsCard)).toHaveProp(
-      'placeholderCount',
-      LANDING_PAGE_EXTENSION_COUNT,
-    );
-  });
-
   it('hides the footer link when less add-ons than placeholderCount', () => {
     const addons = [
       createInternalAddon({

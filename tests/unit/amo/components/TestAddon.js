@@ -882,9 +882,60 @@ describe(__filename, () => {
     });
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
-    expect(image).toHaveClassName('Addon-theme-header-image');
     expect(image.prop('src')).toEqual(headerImageThumb);
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
+  });
+
+  it('displays srcSet values if preview has multiple options for its first item', () => {
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+    const thumbWidth = 450;
+    const fullWidth = 900;
+
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
+            image_size: [fullWidth, 200],
+            thumbnail_size: [thumbWidth, 100],
+          },
+        ],
+      }),
+    });
+
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.prop('srcSet')).toEqual(
+      `${headerImageThumb} ${thumbWidth}w, ${headerImageFull} ${fullWidth}w`,
+    );
+  });
+
+  it('renders image without srcSet if there are no preview image sizes', () => {
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
+            image_size: [],
+            thumbnail_size: [],
+          },
+        ],
+      }),
+    });
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.prop('src')).toEqual(headerImageThumb);
+    expect(image).not.toHaveProp('srcSet');
   });
 
   it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
