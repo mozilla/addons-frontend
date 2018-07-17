@@ -614,12 +614,11 @@ describe(__filename, () => {
     it('passes through component and props when enabled', () => {
       const _config = { get: () => true };
       const SomeComponent = sinon.spy(() => <div />);
-      render({ color: 'orange', size: 'large' }, { SomeComponent, _config });
+      const props = { color: 'orange', size: 'large' };
 
-      sinon.assert.called(SomeComponent);
-      const props = SomeComponent.firstCall.args[0];
-      expect(props.color).toEqual('orange');
-      expect(props.size).toEqual('large');
+      render(props, { SomeComponent, _config });
+
+      sinon.assert.calledWith(SomeComponent, props);
     });
   });
 

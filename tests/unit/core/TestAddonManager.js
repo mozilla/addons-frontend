@@ -157,22 +157,22 @@ describe(__filename, () => {
       sinon.assert.called(fakeInstallObj.install);
     });
 
-    it('rejects if the install fails', async (done) => {
+    it('rejects if the install fails', () => {
       fakeInstallObj.install = sinon.spy(function install() {
         this.onInstallFailedListener();
       });
 
-      try {
-        await addonManager.install(fakeInstallUrl, fakeCallback, {
-          _mozAddonManager: fakeMozAddonManager,
-          src: 'home',
-        });
-
-        done.fail(new Error('this should not be called'));
-      } catch (e) {
-        sinon.assert.calledOnce(fakeInstallObj.install);
-        done();
-      }
+      return (
+        addonManager
+          .install(fakeInstallUrl, fakeCallback, {
+            _mozAddonManager: fakeMozAddonManager,
+            src: 'home',
+          })
+          // The second argument is the reject function.
+          .then(unexpectedSuccess, () => {
+            sinon.assert.calledOnce(fakeInstallObj.install);
+          })
+      );
     });
 
     it('passes the installObj, the event and the id to the callback', async () => {

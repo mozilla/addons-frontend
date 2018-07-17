@@ -65,7 +65,6 @@ describe(__filename, () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 1);
-    sinon.assert.called(onSelectRating);
     sinon.assert.calledWith(onSelectRating, 1);
   });
 
@@ -73,7 +72,6 @@ describe(__filename, () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 2);
-    sinon.assert.called(onSelectRating);
     sinon.assert.calledWith(onSelectRating, 2);
   });
 
@@ -81,7 +79,6 @@ describe(__filename, () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 3);
-    sinon.assert.called(onSelectRating);
     sinon.assert.calledWith(onSelectRating, 3);
   });
 
@@ -89,7 +86,6 @@ describe(__filename, () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 4);
-    sinon.assert.called(onSelectRating);
     sinon.assert.calledWith(onSelectRating, 4);
   });
 
@@ -97,7 +93,6 @@ describe(__filename, () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });
     selectRating(root, 5);
-    sinon.assert.called(onSelectRating);
     sinon.assert.calledWith(onSelectRating, 5);
   });
 

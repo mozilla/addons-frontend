@@ -174,7 +174,6 @@ describe(__filename, () => {
       const error = new Error();
       errorHandler.handle(error);
 
-      sinon.assert.called(store.dispatch);
       sinon.assert.calledWith(
         store.dispatch,
         setError({ id: errorHandler.id, error }),
@@ -358,7 +357,6 @@ describe(__filename, () => {
     it('dispatches an error', () => {
       const error = new Error();
       errorHandler.handle(error);
-      sinon.assert.called(errorHandler.dispatch);
       sinon.assert.calledWith(
         errorHandler.dispatch,
         setError({ id: errorHandler.id, error }),
@@ -398,7 +396,6 @@ describe(__filename, () => {
 
     it('clears an error', () => {
       errorHandler.clear();
-      sinon.assert.called(errorHandler.dispatch);
       sinon.assert.calledWith(
         errorHandler.dispatch,
         clearError(errorHandler.id),

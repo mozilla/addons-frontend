@@ -101,7 +101,6 @@ describe(__filename, () => {
       loadSavedReview,
     });
 
-    sinon.assert.called(loadSavedReview);
     sinon.assert.calledWith(loadSavedReview, {
       apiState: signedInApiState,
       userId,
@@ -391,7 +390,6 @@ describe(__filename, () => {
           .returns(Promise.resolve({ ...fakeReview, ...params }));
 
         return actions.submitReview(params).then(() => {
-          sinon.assert.called(dispatch);
           sinon.assert.calledWith(dispatch, setReview(fakeReview));
           mockApi.verify();
         });
@@ -422,7 +420,6 @@ describe(__filename, () => {
           })
           .then(() => {
             mockApi.verify();
-            sinon.assert.called(dispatch);
             sinon.assert.calledWith(dispatch, setReview(fakeReview));
           });
       });
