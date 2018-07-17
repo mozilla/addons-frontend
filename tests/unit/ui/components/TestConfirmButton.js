@@ -1,7 +1,10 @@
 import * as React from 'react';
 
 import Button from 'ui/components/Button';
-import ConfirmButton, { ConfirmButtonBase } from 'ui/components/ConfirmButton';
+import ConfirmButton, {
+  ConfirmButtonBase,
+  extractId,
+} from 'ui/components/ConfirmButton';
 import {
   applyUIStateChanges,
   createFakeEvent,
@@ -161,5 +164,20 @@ describe(__filename, () => {
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
     sinon.assert.calledWith(onConfirmSpy, event);
+  });
+
+  describe('extractId', () => {
+    it("contains its ID if it's passed in", () => {
+      const id = 'special-button';
+      expect(extractId({ id })).toEqual(`confirmButton-${id}`);
+    });
+
+    it('contains the class name and message if there is no ID', () => {
+      const className = 'type-of-button';
+      const message = 'Are you sure?';
+      expect(extractId({ className, message })).toEqual(
+        `confirmButton-${className}-Areyousure?`,
+      );
+    });
   });
 });

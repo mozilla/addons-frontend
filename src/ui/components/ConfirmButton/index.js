@@ -18,6 +18,7 @@ type Props = {|
   className?: string,
   confirmButtonText?: string | null,
   confirmButtonType?: string,
+  id?: string | null,
   message: string,
   onConfirm: Function,
 |};
@@ -116,11 +117,18 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
   }
 }
 
+export const extractId = (ownProps: Props) => {
+  const buttonId =
+    ownProps.id ||
+    `${ownProps.className || ''}-${ownProps.message.replace(/\s/g, '')}`;
+  return `confirmButton-${buttonId}`;
+};
+
 const ConfirmButton: React.ComponentType<Props> = compose(
   translate(),
   withUIState({
     fileName: __filename,
-    extractId: () => '',
+    extractId,
     initialState: initialUIState,
   }),
 )(ConfirmButtonBase);
