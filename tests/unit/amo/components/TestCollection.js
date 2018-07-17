@@ -704,6 +704,13 @@ describe(__filename, () => {
     });
   });
 
+  it('does not render a sort card when creating', () => {
+    const { store } = dispatchSignInActions();
+    const wrapper = renderComponent({ creating: true, store });
+
+    expect(wrapper.find('.Collection-sort')).toHaveLength(0);
+  });
+
   it('renders a collection for editing', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
@@ -1159,11 +1166,8 @@ describe(__filename, () => {
     expect(authButton).toHaveProp('location', location);
     expect(authButton).toHaveProp('logInText', 'Log in to create a collection');
 
-    // Make sure these were not rendered.
-    expect(root.find(CollectionManager)).toHaveLength(0);
-    expect(root.find('.Collection-title')).toHaveLength(0);
-    expect(root.find('.Collection-description')).toHaveLength(0);
-    expect(root.find(MetadataCard)).toHaveLength(0);
+    // Make sure the collection was not rendered.
+    expect(root.find('.Collection-wrapper')).toHaveLength(0);
   });
 
   it('renders AuthenticateButton when editing and not signed in', () => {
@@ -1180,11 +1184,8 @@ describe(__filename, () => {
       'Log in to edit this collection',
     );
 
-    // Make sure these were not rendered.
-    expect(root.find(CollectionManager)).toHaveLength(0);
-    expect(root.find('.Collection-title')).toHaveLength(0);
-    expect(root.find('.Collection-description')).toHaveLength(0);
-    expect(root.find(MetadataCard)).toHaveLength(0);
+    // Make sure the collection was not rendered.
+    expect(root.find('.Collection-wrapper')).toHaveLength(0);
   });
 
   it('dispatches removeAddonFromCollection when removeAddon is called', () => {
@@ -1383,7 +1384,7 @@ describe(__filename, () => {
         const lang = 'en-US';
         const queryParams = { page, collection_sort: sort };
 
-        const { store } = dispatchClientMetadata({ clientApp, lang });
+        const { store } = dispatchSignInActions({ clientApp, lang });
         const router = createFakeRouter();
 
         const wrapper = renderComponent({
