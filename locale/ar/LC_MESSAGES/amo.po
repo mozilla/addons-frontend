@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-17 21:33+0000\n"
+"PO-Revision-Date: 2018-07-17 21:37+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -278,9 +278,8 @@ msgid "Support Site"
 msgstr "موقع الدعم"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support Email"
-msgstr "موقع الدعم"
+msgstr "بريد الدعم"
 
 #: src/amo/components/AddonMoreInfo/index.js:89
 msgid "Visit stats dashboard"
@@ -609,14 +608,12 @@ msgid "Edit this collection"
 msgstr "لِج لتقييم الامتداد هذا"
 
 #: src/amo/components/Collection/index.js:374
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "لِج لإنشاء مجموعة"
 
 #: src/amo/components/Collection/index.js:375
-#, fuzzy
 msgid "Log in to edit this collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "لِج لتحرير هذه المجموعة"
 
 #: src/amo/components/Collection/index.js:413 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -627,14 +624,12 @@ msgid "Creator"
 msgstr "الصانع"
 
 #: src/amo/components/Collection/index.js:444
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "أمتأكد من حذف المجموعة؟"
 
 #: src/amo/components/Collection/index.js:447
-#, fuzzy
 msgid "Delete this collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "احذف هذه المجموعة"
 
 #: src/amo/components/Collection/index.js:484
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -818,12 +813,11 @@ msgstr "هذه الإضافة أزالها مطوّرها."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:43
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "هذه الإضافة عطّلها أحد المسؤولين."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:47
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "نأسف لكننا لم نجد شيئا يشير إليه المسار الذي أدخلته."
+msgstr "نأسف لكننا لم نجد شيئا يشير إليه العنوان الذي أدخلته."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -841,7 +835,7 @@ msgstr "عطل في الخادوم"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "نأسف ولكن حدث عطل في الخادوم ولم نقدر على إكمال طلبك. لقد سجلنا هذا الخطأ وسننظر فيه."
 
 #: src/amo/components/FlagReviewMenu/index.js:107
 msgid "This is a bug report or support request"
@@ -983,7 +977,7 @@ msgstr "حسابي"
 
 #: src/amo/components/Header/index.js:115
 msgid "View My Collections"
-msgstr ""
+msgstr "اعرض مجموعاتي"
 
 #: src/amo/components/Header/index.js:123 src/amo/components/UserProfileEdit/index.js:466
 msgid "View My Profile"
