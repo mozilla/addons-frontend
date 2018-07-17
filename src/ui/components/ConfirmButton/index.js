@@ -4,6 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import withUIState from 'core/withUIState';
 import Button from 'ui/components/Button';
 import type { I18nType } from 'core/types/i18n';
 
@@ -21,16 +22,20 @@ type Props = {|
   onConfirm: Function,
 |};
 
-type InternalProps = {|
-  ...Props,
-  i18n: I18nType,
-|};
-
-type State = {|
+type UIStateType = {|
   showConfirmation: boolean,
 |};
 
-export class ConfirmButtonBase extends React.Component<InternalProps, State> {
+const initialUIState: UIStateType = { showConfirmation: false };
+
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
+|};
+
+export class ConfirmButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
     buttonType: 'neutral',
     cancelButtonText: null,
@@ -39,25 +44,17 @@ export class ConfirmButtonBase extends React.Component<InternalProps, State> {
     confirmButtonType: 'alert',
   };
 
-  constructor(props: InternalProps) {
-    super(props);
-
-    this.state = {
-      showConfirmation: false,
-    };
-  }
-
   onConfirm = (e: SyntheticEvent<HTMLButtonElement>) => {
-    this.setState({ showConfirmation: false });
+    this.props.setUIState({ showConfirmation: false });
     this.props.onConfirm(e);
   };
 
   toggleConfirmation = (e: SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    this.setState((prevState) => ({
-      showConfirmation: !prevState.showConfirmation,
-    }));
+    this.props.setUIState({
+      showConfirmation: !this.props.uiState.showConfirmation,
+    });
   };
 
   render() {
@@ -71,9 +68,10 @@ export class ConfirmButtonBase extends React.Component<InternalProps, State> {
       confirmButtonType,
       i18n,
       message,
+      uiState,
     } = this.props;
 
-    const { showConfirmation } = this.state;
+    const { showConfirmation } = uiState;
 
     const classNames = makeClassName('ConfirmButton', className, {
       'ConfirmButton--show-confirmation': showConfirmation,
@@ -118,8 +116,13 @@ export class ConfirmButtonBase extends React.Component<InternalProps, State> {
   }
 }
 
-const ConfirmButton: React.ComponentType<Props> = compose(translate())(
-  ConfirmButtonBase,
-);
+const ConfirmButton: React.ComponentType<Props> = compose(
+  translate(),
+  withUIState({
+    fileName: __filename,
+    extractId: () => '',
+    initialState: initialUIState,
+  }),
+)(ConfirmButtonBase);
 
 export default ConfirmButton;
