@@ -198,7 +198,10 @@ export const INSTALL_ACTION = 'install';
 export const INSTALL_STARTED_ACTION = 'install:started';
 export const UNINSTALL_ACTION = 'uninstall';
 
-// Tracking categories.
+// Tracking Event Categories.
+// WARNING: Do not change these without notifying data + metrics teams.
+// Changing these strings will break existing statistics without
+// updating the category matching at the same time.
 export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
 export const INSTALL_EXTENSION_CATEGORY = 'AMO Addon Installs';
 
