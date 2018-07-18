@@ -3,11 +3,10 @@
 @import '~ui/css/vars';
 
 .AddonReviewList {
-  padding: $padding-page;
+  @include page-padding();
 
   @include respond-to(large) {
     display: flex;
-    padding: $padding-page-l;
   }
 
   .Card {
