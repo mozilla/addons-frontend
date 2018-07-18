@@ -71,7 +71,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   userId: number,
-  userReview: UserReviewType,
+  userReview?: UserReviewType,
 |};
 
 type State = {|
@@ -213,7 +213,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
     return (
       <div className="RatingManager">
-        {showTextEntry && isLoggedIn ? (
+        {showTextEntry && isLoggedIn && userReview ? (
           <AddonReview
             onReviewSubmitted={this.onReviewSubmitted}
             review={userReview}
@@ -245,6 +245,8 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
+
+  // TODO: rewrite this usig state.reviews.byAddon
 
   // Look for the latest saved review by this user for this add-on.
   if (userId && state.reviews && ownProps.addon) {
