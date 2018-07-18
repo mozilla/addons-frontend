@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-17 21:37+0000\n"
+"PO-Revision-Date: 2018-07-18 06:03+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -45,7 +45,7 @@ msgstr "أضِف إلى مجموعة"
 
 #: src/amo/components/Addon/index.js:156
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "معاينة لسمة ”⁨%(title)s⁩“"
 
 #: src/amo/components/Addon/index.js:212
 msgid "This add-on cannot be rated because no versions have been published."
@@ -131,7 +131,7 @@ msgstr "إعادة التشغيل مطلوبة"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr "تجريبية"
+msgstr "تجريبي"
 
 #: src/amo/components/AddonBadges/index.js:63
 msgid "Not compatible with Firefox Quantum"
@@ -159,7 +159,7 @@ msgstr "لا يدعم فَيَرفُكس لآي أو إس الإضافات حا�
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "هذه الإضافة غير متوفرة على المنصة لديك."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -205,7 +205,6 @@ msgstr[4] "لا تقييمات"
 msgstr[5] "لا تقييمات"
 
 #: src/amo/components/AddonMeta/index.js:47
-#, fuzzy
 msgid "No Ratings"
 msgstr "لا تقييمات"
 
@@ -290,14 +289,12 @@ msgid "Other users with this extension also installed"
 msgstr "المستخدمون الآخرون الذين ثبّتوا هذا الامتداد ثبّتوا أيضا"
 
 #: src/amo/components/AddonRecommendations/index.js:133
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "امتدادات شعبية"
+msgstr "امتدادات شعبية أخرى"
 
 #: src/amo/components/AddonReview/index.js:200
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "أخبرنا عن سبب اعتبارك هذا الامتداد رائعا."
+msgstr "أخبِر الجميع عن سبب تقييمك بهذا الامتداد على أنه رائع! رجاءً اتبع %(linkStart)sقواعد التقييم%(linkEnd)s لدينا."
 
 #: src/amo/components/AddonReview/index.js:204
 msgid "Tell us what you love about this extension. Be specific and concise."
