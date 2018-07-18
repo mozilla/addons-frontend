@@ -1,3 +1,13 @@
-.SurveyNotice .Notice-column {
-  justify-content: center;
+@import '~photon-colors/photon-colors';
+
+.SurveyNotice {
+  .Notice-column {
+    justify-content: center;
+  }
+
+  &.Notice-generic {
+    // This strays from the Photon spec because the Photon background is the
+    // same as the page background which means the notice box could not be seen.
+    background-color: $grey-30;
+  }
 }
