@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-18 06:27+0000\n"
+"PO-Revision-Date: 2018-07-18 06:42+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1490,7 +1490,7 @@ msgstr "إضافات مُتداولة"
 
 #: src/amo/components/Search/index.js:155
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "أعلى الإضافات تقييما"
 
 #: src/amo/components/Search/index.js:161
 msgid "Popular extensions"
@@ -1506,7 +1506,7 @@ msgstr "إضافات شعبية"
 
 #: src/amo/components/Search/index.js:173
 msgid "Search results for \"%(query)s\""
-msgstr "نتائج البحث عن ”%(query)s“"
+msgstr "نتائج البحث عن ”⁨%(query)s⁩“"
 
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "No add-ons found"
@@ -1584,7 +1584,7 @@ msgstr[5] ""
 
 #: src/amo/components/SearchContextCard/index.js:94
 msgid "Searching for \"%(query)s\""
-msgstr "يبحث عن ”%(query)s“"
+msgstr "يبحث عن ”⁨%(query)s⁩“"
 
 #: src/amo/components/SearchContextCard/index.js:98
 msgid "Loading add-ons"
@@ -2293,7 +2293,6 @@ msgid "Next"
 msgstr "التالي"
 
 #: src/core/components/Paginate/index.js:158
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "صفحة %(currentPage)s من أصل %(totalPages)s"
 
@@ -2382,13 +2381,12 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:60
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "مقيّمة بِ‍ %(rating)s من ٥"
 
 #: src/ui/components/Rating/index.js:64
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "لا تقييمات بعد"
 
 #: src/ui/components/Rating/index.js:69
 #, fuzzy
