@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-18 06:52+0000\n"
+"PO-Revision-Date: 2018-07-18 06:58+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1049,14 +1049,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
 
 #: src/amo/components/Home/index.js:50
-#, fuzzy
 msgid "See more social media customization extensions"
-msgstr "الامتدادات الأعلى تقييما"
+msgstr "طال المزيد من امتدادات تخصيص مواقع الواصل"
 
 #: src/amo/components/Home/index.js:53
-#, fuzzy
 msgid "Social media customization"
-msgstr "الامتدادات الأعلى تقييما"
+msgstr "تخصيص مواقع التواصل"
 
 #: src/amo/components/Home/index.js:57
 #, fuzzy
@@ -1068,14 +1066,12 @@ msgid "Dynamic downloaders"
 msgstr ""
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more summer themes"
-msgstr "امتدادات شعبية"
+msgstr "طالع المزيد من السمات الصيفية"
 
 #: src/amo/components/Home/index.js:63
-#, fuzzy
 msgid "Summer themes"
-msgstr "سمات شعبية"
+msgstr "السمات الصيفية"
 
 #: src/amo/components/Home/index.js:67
 #, fuzzy
@@ -1282,107 +1278,104 @@ msgid "Dictionaries"
 msgstr "القواميس"
 
 #: src/amo/components/PermissionsCard/index.js:48
-#, fuzzy
 msgid "Permissions"
-msgstr "الإصدارة"
+msgstr "التصاريح"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "عن إضافات فَيَرفُكس"
+msgstr "تُريدُ هذه الإضافة:"
 
 #: src/amo/components/PermissionsCard/index.js:62
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "اطّلع على المزيد عن التصاريح"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "قراءة و تعديل العلامات"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "قراءة و تعديل إعدادات المتصفح"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "مسح تأريخ التصفح الحديث و الكعكات و البيانات المتعلقة بها"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "الحصول على البيانات من الحافظة"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "إدخال البيانات إلى الحافظة"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "توسيع أدوات المطورين للوصول إلى بياناتك في الألسنة المفتوحة"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "تنزيل الملفات و قراءة تأريخ تنزيل المتصفح و تعديله"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "فتح الملفات المنزّلة على الحاسوب"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "قراءة نصوص الألسنة المفتوحة"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
-msgstr ""
+msgstr "معرفة مكانك"
 
 #: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
-#, fuzzy
 msgid "Access browsing history"
-msgstr "تأريخ الإصدار"
+msgstr "الوصول إلى تأريخ التصفح"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "مراقبة استخدام الامتدادات وإدارة السمات"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "تبادل الرسائل مع برامج أخرى غير فَيَرفُكس"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Display notifications to you"
-msgstr ""
+msgstr "عرض التنبيهات"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "توفير خدمات استيثاق معمّاة"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "التحكم في إعدادات وسيط المتصفح"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "قراءة و تعديل إعدادات الخصوصية"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "الوصول إلى الألسنة المغلقة حديثًا"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
-msgstr ""
+msgstr "الوصول إلى ألسنة المتصفح"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "إخفاء و إظهار ألسنة المتصفح"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "تخزين بيانات غير محدودة في المتصفح"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "الوصول إلى نشاط المتصفح أثناء التنقل"
 
 #: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this dictionary"
