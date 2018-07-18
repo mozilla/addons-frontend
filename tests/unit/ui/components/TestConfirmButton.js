@@ -1,7 +1,10 @@
 import * as React from 'react';
 
 import Button from 'ui/components/Button';
-import ConfirmButton, { ConfirmButtonBase } from 'ui/components/ConfirmButton';
+import ConfirmButton, {
+  ConfirmButtonBase,
+  extractId,
+} from 'ui/components/ConfirmButton';
 import {
   applyUIStateChanges,
   createFakeEvent,
@@ -11,15 +14,20 @@ import {
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  const render = ({ children, i18n = fakeI18n(), ...props } = {}) => {
+  const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
+    return {
+      i18n,
+      id: 'Collection-confirm-delete',
+      message: 'some warning message',
+      onConfirm: sinon.stub(),
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
+  };
+
+  const render = ({ children, ...otherProps } = {}) => {
     return shallowUntilTarget(
-      <ConfirmButton
-        i18n={i18n}
-        message="some warning message"
-        onConfirm={sinon.stub()}
-        store={dispatchClientMetadata().store}
-        {...props}
-      >
+      <ConfirmButton {...getProps(otherProps)}>
         {children || 'the default text of this button'}
       </ConfirmButton>,
       ConfirmButtonBase,
@@ -161,5 +169,12 @@ describe(__filename, () => {
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
     sinon.assert.calledWith(onConfirmSpy, event);
+  });
+
+  describe('extractId', () => {
+    it('returns a unique ID provided by the ID prop', () => {
+      const id = 'special-button';
+      expect(extractId(getProps({ id }))).toEqual(id);
+    });
   });
 });

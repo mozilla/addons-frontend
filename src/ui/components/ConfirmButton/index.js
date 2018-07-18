@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -18,6 +19,7 @@ type Props = {|
   className?: string,
   confirmButtonText?: string | null,
   confirmButtonType?: string,
+  id: string,
   message: string,
   onConfirm: Function,
 |};
@@ -67,9 +69,16 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
       confirmButtonText,
       confirmButtonType,
       i18n,
+      id,
       message,
+      onConfirm,
       uiState,
     } = this.props;
+
+    invariant(children, 'The children property is required');
+    invariant(id, 'The id property is required');
+    invariant(message, 'The message property is required');
+    invariant(onConfirm, 'The onConfirm property is required');
 
     const { showConfirmation } = uiState;
 
@@ -116,11 +125,15 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
   }
 }
 
+export const extractId = (ownProps: Props) => {
+  return ownProps.id;
+};
+
 const ConfirmButton: React.ComponentType<Props> = compose(
   translate(),
   withUIState({
     fileName: __filename,
-    extractId: () => '',
+    extractId,
     initialState: initialUIState,
   }),
 )(ConfirmButtonBase);

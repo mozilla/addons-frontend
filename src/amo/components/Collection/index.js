@@ -367,10 +367,13 @@ export class CollectionBase extends React.Component<InternalProps> {
       return null;
     }
 
+    const confirmButtonClassName = 'UserProfileEditPicture-delete-button';
+
     return (
       <ConfirmButton
         buttonType="cancel"
-        className="Collection-delete-button"
+        className={confirmButtonClassName}
+        id={confirmButtonClassName}
         message={i18n.gettext('Do you really want to delete this collection?')}
         onConfirm={this.onDelete}
       >
