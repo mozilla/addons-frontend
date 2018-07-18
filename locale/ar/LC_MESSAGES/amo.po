@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-18 06:03+0000\n"
+"PO-Revision-Date: 2018-07-18 06:11+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -329,20 +329,18 @@ msgid "Reviews for %(addonName)s"
 msgstr "مراجعات %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:193
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "لا مراجعات"
-msgstr[1] "مراجعة واحدة"
-msgstr[2] "مراجعتان"
-msgstr[3] "%(total)s مراجعات"
-msgstr[4] "%(total)s مراجعة"
-msgstr[5] "%(total)s مراجعة"
+msgstr[0] "لا مراجعات للإضافة هذه"
+msgstr[1] "مراجعة واحدة للإضافة هذه"
+msgstr[2] "مراجعتان للإضافة هذه"
+msgstr[3] "%(total)s مراجعات للإضافة هذه"
+msgstr[4] "%(total)s مراجعة للإضافة هذه"
+msgstr[5] "%(total)s مراجعة للإضافة هذه"
 
 #: src/amo/components/AddonReviewList/index.js:222
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "كتبها %(authorName)s، %(timestamp)s"
+msgstr "كتبها ⁨%(authorList)s⁩"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
 msgid "Developer response"
@@ -374,7 +372,7 @@ msgstr "نُشرت %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:210
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "كتبها %(authorName)s، %(timestamp)s"
+msgstr "كتبها ⁨%(authorName)s⁩، %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:257
 msgid "Edit my reply"
@@ -584,25 +582,23 @@ msgstr "تصفح كل السمات في هذه الفئة."
 
 #: src/amo/components/Collection/index.js:162
 msgid "Newest first"
-msgstr ""
+msgstr "الأحدث أولا"
 
 #: src/amo/components/Collection/index.js:166
 msgid "Oldest first"
-msgstr ""
+msgstr "الأقدم أولا"
 
 #: src/amo/components/Collection/index.js:170
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: src/amo/components/Collection/index.js:174
-#, fuzzy
 msgid "Popularity"
-msgstr "سمات شعبية"
+msgstr "الشعبية"
 
 #: src/amo/components/Collection/index.js:283
-#, fuzzy
 msgid "Edit this collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "حرِّر هذه المجموعة"
 
 #: src/amo/components/Collection/index.js:374
 msgid "Log in to create a collection"
@@ -637,60 +633,52 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
 #: src/amo/components/Collection/index.js:507
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "الإضافة جاهزة"
+msgstr "افرز الإضافات حسب"
 
 #: src/amo/components/CollectionList/index.js:114
-#, fuzzy
 msgid "Collections"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "المجموعات"
 
 #: src/amo/components/CollectionList/index.js:120
-#, fuzzy
 msgid "Log in to view your collections"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "لِج لعرض مجموعاتك"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "تُسهّل المجموعات تتبع الإضافات المفضلة ومشاركة متصفحك الذي خصّصته بحذافيره مع البقية."
 
 #: src/amo/components/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "أنشِئ مجموعة"
 
 #: src/amo/components/CollectionList/index.js:64
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "ليس لديك مجموعات."
 
 #: src/amo/components/CollectionList/index.js:97
-#, fuzzy
 msgid "My collections"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "مجموعاتي"
 
 #: src/amo/components/CollectionManager/index.js:335
-#, fuzzy
 msgid "Create collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "أنشِئ مجموعة"
 
 #: src/amo/components/CollectionManager/index.js:336
-#, fuzzy
 msgid "Save collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "احفظ مجموعة"
 
 #: src/amo/components/CollectionManager/index.js:345
 msgid "Collection name"
-msgstr ""
+msgstr "اسم المجموعة"
 
 #: src/amo/components/CollectionManager/index.js:359
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #: src/amo/components/CollectionManager/index.js:371
 msgid "Custom URL"
-msgstr ""
+msgstr "المسار المخصص"
 
 #: src/amo/components/CollectionManager/index.js:404
 #, fuzzy
