@@ -24,19 +24,6 @@
   white-space: nowrap;
 }
 
-.Collection-sort {
-  margin-top: 12px;
-}
-
-.Sort-label {
-  color: $grey-50;
-  display: block;
-}
-
-.Sort-select {
-  margin: 0 0 6px;
-}
-
 @include respond-to(large) {
   .Collection-wrapper {
     display: grid;

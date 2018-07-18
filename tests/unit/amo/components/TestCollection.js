@@ -9,6 +9,7 @@ import Collection, {
 import AddonsCard from 'amo/components/AddonsCard';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
+import CollectionSort from 'amo/components/CollectionSort';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
@@ -27,7 +28,6 @@ import {
 } from 'amo/reducers/collections';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import {
-  CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
   FEATURED_THEMES_COLLECTION_EDIT,
@@ -682,35 +682,56 @@ describe(__filename, () => {
     sinon.assert.called(_isFeaturedCollection);
   });
 
-  it('renders a sort card', () => {
+  it('renders a CollectionSort component', () => {
+    const editing = false;
+    const page = 2;
+    const pageSize = 10;
+    const slug = 'some-slug';
     const sort = COLLECTION_SORT_NAME;
+    const username = 'some-username';
 
-    const wrapper = renderComponent({
-      location: fakeRouterLocation({ query: { collection_sort: sort } }),
+    const { store } = dispatchClientMetadata();
+    const addons = createFakeCollectionAddons();
+    const detail = createFakeCollectionDetail({
+      authorUsername: username,
+      slug,
+    });
+    const collection = createInternalCollection({
+      detail,
+      items: addons,
+      pageSize,
     });
 
-    const sortOptions = wrapper.instance().sortOptions();
+    _loadCurrentCollection({
+      store,
+      addons,
+      detail,
+      pageSize,
+    });
 
-    expect(wrapper.find('.Collection-sort')).toHaveLength(1);
-    expect(wrapper.find('.Sort-label')).toHaveText('Sort add-ons by');
-    expect(wrapper.find('.Sort-select')).toHaveProp('defaultValue', sort);
-    expect(wrapper.find('.Sort-select')).toHaveProp(
-      'onChange',
-      wrapper.instance().onSortSelect,
-    );
+    const wrapper = renderComponent({
+      editing,
+      location: fakeRouterLocation({ query: { collection_sort: sort, page } }),
+      params: { username, slug },
+      store,
+    });
 
-    const options = wrapper.find('.Sort-select').children();
-    sortOptions.forEach((option, index) => {
-      expect(options.at(index)).toHaveProp('value', option.value);
-      expect(options.at(index)).toHaveText(option.children);
+    const sortComponent = wrapper.find(CollectionSort);
+
+    expect(sortComponent).toHaveLength(1);
+    expect(sortComponent).toHaveProp('editing', editing);
+    expect(sortComponent).toHaveProp('collection', collection);
+    expect(sortComponent).toHaveProp('filters', {
+      page,
+      collectionSort: sort,
     });
   });
 
-  it('does not render a sort card when creating', () => {
+  it('does not render a CollectionSort component when creating', () => {
     const { store } = dispatchSignInActions();
     const wrapper = renderComponent({ creating: true, store });
 
-    expect(wrapper.find('.Collection-sort')).toHaveLength(0);
+    expect(wrapper.find(CollectionSort)).toHaveLength(0);
   });
 
   it('renders a collection for editing', () => {
@@ -1312,50 +1333,6 @@ describe(__filename, () => {
         slug: detail.slug,
         username: detail.author.username,
       }),
-    );
-  });
-
-  describe('onSortSelect', () => {
-    it.each([true, false])(
-      `calls router.push with expected pathname and query when a sort is selected and editing is %s`,
-      (editing) => {
-        const slug = 'some-slug';
-        const username = 'some-username';
-        const page = 2;
-        const sort = COLLECTION_SORT_NAME;
-        const clientApp = CLIENT_APP_FIREFOX;
-        const lang = 'en-US';
-        const queryParams = { page, collection_sort: sort };
-
-        const { store } = dispatchSignInActions({ clientApp, lang });
-        const router = createFakeRouter();
-
-        const wrapper = renderComponent({
-          editing,
-          location: fakeRouterLocation({ query: queryParams }),
-          params: { username, slug },
-          router,
-          store,
-        });
-
-        const select = wrapper.find('.Sort-select');
-
-        const fakeEvent = createFakeEvent({
-          currentTarget: { value: sort },
-        });
-
-        select.simulate('change', fakeEvent);
-
-        const pathname = `/${lang}/${clientApp}/collections/${username}/${slug}/${
-          editing ? 'edit/' : ''
-        }`;
-
-        sinon.assert.callCount(router.push, 1);
-        sinon.assert.calledWith(router.push, {
-          pathname,
-          query: queryParams,
-        });
-      },
     );
   });
 

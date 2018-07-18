@@ -10,6 +10,7 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
+import CollectionSort from 'amo/components/CollectionSort';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import { isFeaturedCollection } from 'amo/components/Home';
@@ -29,10 +30,7 @@ import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
 import {
-  COLLECTION_SORT_DATE_ADDED_ASCENDING,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
-  COLLECTION_SORT_NAME,
-  COLLECTION_SORT_POPULARITY,
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
   INSTALL_SOURCE_COLLECTION,
@@ -45,7 +43,6 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Card from 'ui/components/Card';
 import ConfirmButton from 'ui/components/ConfirmButton';
-import Select from 'ui/components/Select';
 import type {
   CollectionFilters,
   CollectionType,
@@ -55,7 +52,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation, ReactRouterType } from 'core/types/router';
+import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
@@ -70,7 +67,6 @@ type InternalProps = {|
   ...Props,
   _config: typeof config,
   _isFeaturedCollection: typeof isFeaturedCollection,
-  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   filters: CollectionFilters,
@@ -78,13 +74,11 @@ type InternalProps = {|
   i18n: I18nType,
   isLoggedIn: boolean,
   isOwner: boolean,
-  lang: string,
   location: ReactRouterLocation,
   params: {|
     slug: string,
     username: string,
   |},
-  router: ReactRouterType,
   showEditButton: boolean,
 |};
 
@@ -135,60 +129,6 @@ export class CollectionBase extends React.Component<InternalProps> {
       }),
     );
   };
-
-  onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
-    const {
-      collection,
-      clientApp,
-      editing,
-      filters,
-      lang,
-      params,
-      router,
-    } = this.props;
-
-    const collectionSort = event.currentTarget.value;
-    const newFilters = {
-      ...filters,
-      collectionSort,
-    };
-
-    const urlParams = {
-      authorUsername: params.username,
-      collection,
-      collectionSlug: params.slug,
-    };
-    const pathname = `/${lang}/${clientApp}${
-      editing ? collectionEditUrl(urlParams) : collectionUrl(urlParams)
-    }`;
-    router.push({
-      pathname,
-      query: convertFiltersToQueryParams(newFilters),
-    });
-  };
-
-  sortOptions() {
-    const { i18n } = this.props;
-
-    return [
-      {
-        label: i18n.gettext('Newest first'),
-        value: COLLECTION_SORT_DATE_ADDED_DESCENDING,
-      },
-      {
-        label: i18n.gettext('Oldest first'),
-        value: COLLECTION_SORT_DATE_ADDED_ASCENDING,
-      },
-      {
-        label: i18n.gettext('Name'),
-        value: COLLECTION_SORT_NAME,
-      },
-      {
-        label: i18n.gettext('Popularity'),
-        value: COLLECTION_SORT_POPULARITY,
-      },
-    ];
-  }
 
   loadDataIfNeeded(nextProps?: InternalProps) {
     const { collection, creating, errorHandler, loading, params } = {
@@ -456,28 +396,11 @@ export class CollectionBase extends React.Component<InternalProps> {
             {this.renderDeleteButton()}
           </Card>
           {!creating && (
-            <Card className="Collection-sort">
-              <form>
-                <label className="Sort-label" htmlFor="Sort-Select">
-                  {i18n.gettext('Sort add-ons by')}
-                </label>
-                <Select
-                  className="Sort-select"
-                  defaultValue={filters.collectionSort}
-                  id="Sort-select"
-                  name="sort"
-                  onChange={this.onSortSelect}
-                >
-                  {this.sortOptions().map((option) => {
-                    return (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    );
-                  })}
-                </Select>
-              </form>
-            </Card>
+            <CollectionSort
+              collection={collection}
+              editing={editing}
+              filters={filters}
+            />
           )}
         </div>
         <div className="Collection-items">
@@ -562,13 +485,11 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   }
 
   return {
-    clientApp: state.api.clientApp,
     collection,
     filters,
     hasEditPermission,
     isLoggedIn: !!currentUser,
     isOwner,
-    lang: state.api.lang,
     loading,
     showEditButton,
   };
