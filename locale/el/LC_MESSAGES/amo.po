@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-16 14:37+0000\n"
+"PO-Revision-Date: 2018-07-18 14:09+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -565,7 +565,7 @@ msgstr ""
 
 #: src/amo/components/Collection/index.js:170
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 #: src/amo/components/Collection/index.js:174
 msgid "Popularity"
@@ -2101,19 +2101,19 @@ msgstr "κάποιος γράφει μια κριτική για το πρόσθ
 
 #: src/amo/components/UserProfileEditNotifications/index.js:28
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "ένας προγραμματιστής προσθέτου απαντά στην κριτική μου"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "το πρόσθετό μου αξιολογείται από έναν κριτή"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "το πρόσθετό μου με βάση sdk δεν μπορεί να αναβαθμιστεί"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "το πρόσθετό μου με βάση sdk έχει αναβαθμιστεί επιτυχώς"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
