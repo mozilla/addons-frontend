@@ -42,7 +42,8 @@ export default class LandingAddonsCard extends React.Component<Props> {
     } = this.props;
 
     let footerLinkHtml = null;
-    if (addons && addons.length >= placeholderCount) {
+    const count = isTheme ? LANDING_PAGE_THEME_COUNT : placeholderCount;
+    if (addons && addons.length >= count) {
       let linkTo = footerLink;
       if (linkTo && typeof linkTo === 'object') {
         // As a convenience, fix the query parameter.
@@ -63,7 +64,7 @@ export default class LandingAddonsCard extends React.Component<Props> {
         header={header}
         type="horizontal"
         loading={loading}
-        placeholderCount={isTheme ? LANDING_PAGE_THEME_COUNT : placeholderCount}
+        placeholderCount={count}
       />
     );
   }
