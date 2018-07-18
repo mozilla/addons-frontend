@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-18 06:21+0000\n"
+"PO-Revision-Date: 2018-07-18 06:27+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -806,6 +806,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"إن امتلكت أية معلومات أخرى يمكنها مساعدتها فرجاءً <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">أبلِغ عن علة</a>. أخبِرنا عن الخطوات التي تسببت بهذا العطل وسنحاول ما باستطاعتنا "
+"لإصلاحه."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -939,7 +941,7 @@ msgstr "أبلِغ عن علة"
 
 #: src/amo/components/Footer/index.js:76
 msgid "Review Guide"
-msgstr ""
+msgstr "دليل المراجعات"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Site Status"
@@ -959,12 +961,11 @@ msgstr "اعرض مجموعاتي"
 
 #: src/amo/components/Header/index.js:123 src/amo/components/UserProfileEdit/index.js:466
 msgid "View My Profile"
-msgstr ""
+msgstr "اعرض ملفي الشخصي"
 
 #: src/amo/components/Header/index.js:131 src/amo/components/UserProfileEdit/index.js:472
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "حرّر مراجعتي"
+msgstr "حرِّر ملفي الشخصي"
 
 #: src/amo/components/Header/index.js:135
 msgid "Tools"
