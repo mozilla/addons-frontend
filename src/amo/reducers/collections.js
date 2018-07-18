@@ -986,6 +986,7 @@ type CollectionUrlParams = {|
   authorUsername?: string,
   collection: CollectionType | null,
   collectionSlug?: string,
+  _collectionUrl?: Function,
 |};
 
 export const collectionUrl = ({
@@ -1011,8 +1012,9 @@ export const collectionEditUrl = ({
   authorUsername,
   collection,
   collectionSlug,
+  _collectionUrl = collectionUrl,
 }: CollectionUrlParams): string => {
-  return `${collectionUrl({
+  return `${_collectionUrl({
     authorUsername,
     collection,
     collectionSlug,

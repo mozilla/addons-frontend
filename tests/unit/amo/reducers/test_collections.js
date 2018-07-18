@@ -1308,34 +1308,18 @@ describe(__filename, () => {
   });
 
   describe('collectionEditUrl', () => {
-    it('returns an edit URL for a collection', () => {
-      const authorUsername = 'some-username';
-      const slug = 'some-slug';
-      const collection = createInternalCollection({
-        detail: createFakeCollectionDetail({ authorUsername, slug }),
-      });
+    it('calls collectionUrl and appends `edit/` to it', () => {
+      const _collectionUrl = sinon.spy(() => '/base/url/');
+      const params = {
+        authorUsername: 'some-username',
+        collection: null,
+        collectionSlug: 'some-slug',
+      };
 
-      expect(collectionEditUrl({ collection })).toEqual(
-        `${collectionUrl({ collection })}edit/`,
+      expect(collectionEditUrl({ ...params, _collectionUrl })).toEqual(
+        '/base/url/edit/',
       );
-    });
-
-    it('returns an edit URL for an authorUsername / collectionSlug', () => {
-      const authorUsername = 'some-username';
-      const slug = 'some-slug';
-      expect(
-        collectionEditUrl({
-          authorUsername,
-          collection: null,
-          collectionSlug: slug,
-        }),
-      ).toEqual(
-        `${collectionUrl({
-          authorUsername,
-          collection: null,
-          collectionSlug: slug,
-        })}edit/`,
-      );
+      sinon.assert.calledWith(_collectionUrl, { ...params });
     });
   });
 });
