@@ -392,11 +392,13 @@ export class CollectionBase extends React.Component<InternalProps> {
             {this.renderCardContents()}
             {this.renderDeleteButton()}
           </Card>
-          <CollectionSort
-            collection={collection}
-            editing={editing}
-            filters={filters}
-          />
+          {!creating && (
+            <CollectionSort
+              collection={collection}
+              editing={editing}
+              filters={filters}
+            />
+          )}
         </div>
         <div className="Collection-items">
           {!creating && (

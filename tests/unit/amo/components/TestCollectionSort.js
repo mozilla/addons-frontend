@@ -37,17 +37,6 @@ describe(__filename, () => {
     );
   };
 
-  it('renders nothing with a null collection', () => {
-    const { store } = dispatchClientMetadata();
-
-    const root = render({
-      collection: null,
-      store,
-    });
-
-    expect(root.find('.CollectionSort')).toHaveLength(0);
-  });
-
   it('renders a sort select', () => {
     const sort = COLLECTION_SORT_NAME;
     const { store } = dispatchClientMetadata();

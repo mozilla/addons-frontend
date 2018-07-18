@@ -727,6 +727,13 @@ describe(__filename, () => {
     });
   });
 
+  it('does not render a CollectionSort component when creating', () => {
+    const { store } = dispatchSignInActions();
+    const wrapper = renderComponent({ creating: true, store });
+
+    expect(wrapper.find(CollectionSort)).toHaveLength(0);
+  });
+
   it('renders a collection for editing', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });

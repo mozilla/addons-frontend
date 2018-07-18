@@ -97,9 +97,9 @@ export class CollectionSortBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { collection, filters, i18n } = this.props;
+    const { filters, i18n } = this.props;
 
-    return collection ? (
+    return (
       <Card className="CollectionSort">
         <form>
           <label
@@ -125,7 +125,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
           </Select>
         </form>
       </Card>
-    ) : null;
+    );
   }
 }
 
