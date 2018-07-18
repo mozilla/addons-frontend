@@ -28,7 +28,6 @@ import {
 } from 'amo/reducers/collections';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import {
-  CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
   FEATURED_THEMES_COLLECTION_EDIT,
@@ -684,31 +683,48 @@ describe(__filename, () => {
   });
 
   it('renders a CollectionSort component', () => {
+    const editing = false;
     const page = 2;
+    const pageSize = 10;
+    const slug = 'some-slug';
     const sort = COLLECTION_SORT_NAME;
+    const username = 'some-username';
+
+    const { store } = dispatchClientMetadata();
+    const addons = createFakeCollectionAddons();
+    const detail = createFakeCollectionDetail({
+      authorUsername: username,
+      slug,
+    });
+    const collection = createInternalCollection({
+      detail,
+      items: addons,
+      pageSize,
+    });
+
+    _loadCurrentCollection({
+      store,
+      addons,
+      detail,
+      pageSize,
+    });
 
     const wrapper = renderComponent({
+      editing,
       location: fakeRouterLocation({ query: { collection_sort: sort, page } }),
+      params: { username, slug },
+      store,
     });
 
     const sortComponent = wrapper.find(CollectionSort);
 
     expect(sortComponent).toHaveLength(1);
+    expect(sortComponent).toHaveProp('editing', editing);
+    expect(sortComponent).toHaveProp('collection', collection);
     expect(sortComponent).toHaveProp('filters', {
       page,
       collectionSort: sort,
     });
-    expect(sortComponent).toHaveProp(
-      'onSortSelect',
-      wrapper.instance().onSortSelect,
-    );
-  });
-
-  it('does not render a CollectionSort component when creating', () => {
-    const { store } = dispatchSignInActions();
-    const wrapper = renderComponent({ creating: true, store });
-
-    expect(wrapper.find(CollectionSort)).toHaveLength(0);
   });
 
   it('renders a collection for editing', () => {
@@ -1310,50 +1326,6 @@ describe(__filename, () => {
         slug: detail.slug,
         username: detail.author.username,
       }),
-    );
-  });
-
-  describe('onSortSelect', () => {
-    it.each([true, false])(
-      `calls router.push with expected pathname and query when a sort is selected and editing is %s`,
-      (editing) => {
-        const slug = 'some-slug';
-        const username = 'some-username';
-        const page = 2;
-        const sort = COLLECTION_SORT_NAME;
-        const clientApp = CLIENT_APP_FIREFOX;
-        const lang = 'en-US';
-        const queryParams = { page, collection_sort: sort };
-
-        const { store } = dispatchSignInActions({ clientApp, lang });
-        const router = createFakeRouter();
-
-        const wrapper = renderComponent({
-          editing,
-          location: fakeRouterLocation({ query: queryParams }),
-          params: { username, slug },
-          router,
-          store,
-        });
-
-        const fakeEvent = createFakeEvent({
-          currentTarget: { value: sort },
-        });
-
-        // Emulate clicking the sort select.
-        const onSortSelect = wrapper.find(CollectionSort).prop('onSortSelect');
-        onSortSelect(fakeEvent);
-
-        const pathname = `/${lang}/${clientApp}/collections/${username}/${slug}/${
-          editing ? 'edit/' : ''
-        }`;
-
-        sinon.assert.callCount(router.push, 1);
-        sinon.assert.calledWith(router.push, {
-          pathname,
-          query: queryParams,
-        });
-      },
     );
   });
 

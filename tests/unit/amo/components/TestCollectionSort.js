@@ -3,19 +3,31 @@ import * as React from 'react';
 import CollectionSort, {
   CollectionSortBase,
 } from 'amo/components/CollectionSort';
-import { COLLECTION_SORT_NAME } from 'core/constants';
+import { createInternalCollection } from 'amo/reducers/collections';
+import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import {
   createFakeEvent,
+  createFakeRouter,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import {
+  createFakeCollectionAddons,
+  createFakeCollectionDetail,
+  dispatchClientMetadata,
+} from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {
     const props = {
+      collection: createInternalCollection({
+        detail: createFakeCollectionDetail(),
+        items: createFakeCollectionAddons(),
+      }),
+      editing: false,
       filters: {},
       i18n: fakeI18n(),
-      onSortSelect: sinon.stub(),
+      router: createFakeRouter(),
       ...otherProps,
     };
 
@@ -25,20 +37,30 @@ describe(__filename, () => {
     );
   };
 
+  it('renders nothing with a null collection', () => {
+    const { store } = dispatchClientMetadata();
+
+    const root = render({
+      collection: null,
+      store,
+    });
+
+    expect(root.find('.CollectionSort')).toHaveLength(0);
+  });
+
   it('renders a sort select', () => {
     const sort = COLLECTION_SORT_NAME;
-    const onSortSelect = sinon.stub();
+    const { store } = dispatchClientMetadata();
 
-    const root = render({ filters: { collectionSort: sort }, onSortSelect });
+    const root = render({
+      filters: { collectionSort: sort },
+      store,
+    });
 
-    expect(root.find('.CollectionSort-label')).toHaveText('Sort add-ons by');
+    expect(root.find('.CollectionSort')).toHaveLength(1);
     expect(root.find('.CollectionSort-select')).toHaveProp(
       'defaultValue',
       sort,
-    );
-    expect(root.find('.CollectionSort-select')).toHaveProp(
-      'onChange',
-      onSortSelect,
     );
 
     const options = root.find('.CollectionSort-select').children();
@@ -51,15 +73,51 @@ describe(__filename, () => {
       });
   });
 
-  it('executes onSortSelect when a sort is selected', () => {
-    const onSortSelect = sinon.spy();
+  describe('onSortSelect', () => {
+    it.each([true, false])(
+      `calls router.push with expected pathname and query when a sort is selected and editing is %s`,
+      (editing) => {
+        const slug = 'some-slug';
+        const username = 'some-username';
+        const page = 2;
+        const sort = COLLECTION_SORT_NAME;
+        const clientApp = CLIENT_APP_FIREFOX;
+        const lang = 'en-US';
+        const queryParams = { page, collection_sort: sort };
+        const collection = createInternalCollection({
+          detail: createFakeCollectionDetail({
+            authorUsername: username,
+            slug,
+          }),
+          items: createFakeCollectionAddons(),
+        });
 
-    const root = render({ onSortSelect });
+        const { store } = dispatchClientMetadata({ clientApp, lang });
+        const router = createFakeRouter();
 
-    const event = createFakeEvent();
-    const select = root.find('.CollectionSort-select');
-    select.simulate('change', event);
+        const root = render({
+          collection,
+          editing,
+          filters: { page, collectionSort: sort },
+          router,
+          store,
+        });
 
-    sinon.assert.calledWith(onSortSelect, event);
+        const fakeEvent = createFakeEvent({
+          currentTarget: { value: sort },
+        });
+        const select = root.find('.CollectionSort-select');
+        select.simulate('change', fakeEvent);
+
+        const pathname = `/${lang}/${clientApp}/collections/${username}/${slug}/${
+          editing ? 'edit/' : ''
+        }`;
+
+        sinon.assert.calledWith(router.push, {
+          pathname,
+          query: queryParams,
+        });
+      },
+    );
   });
 });

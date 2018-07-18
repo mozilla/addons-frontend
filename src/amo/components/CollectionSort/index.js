@@ -1,7 +1,15 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
+import {
+  collectionEditUrl,
+  collectionUrl,
+  convertFiltersToQueryParams,
+} from 'amo/reducers/collections';
 import {
   COLLECTION_SORT_DATE_ADDED_ASCENDING,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
@@ -11,22 +19,60 @@ import {
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Select from 'ui/components/Select';
-import type { CollectionFilters } from 'amo/reducers/collections';
+import type {
+  CollectionFilters,
+  CollectionType,
+} from 'amo/reducers/collections';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
 export type Props = {|
+  collection: CollectionType | null,
+  editing: boolean,
   filters: CollectionFilters,
-  onSortSelect: (event: SyntheticEvent<HTMLSelectElement>) => void,
 |};
 
 type InternalProps = {|
   ...Props,
+  clientApp: string,
   i18n: I18nType,
+  lang: string,
+  router: ReactRouterType,
 |};
 
 export class CollectionSortBase extends React.Component<InternalProps> {
+  onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
+    const {
+      collection,
+      clientApp,
+      editing,
+      filters,
+      lang,
+      router,
+    } = this.props;
+
+    invariant(collection, 'A collection is required.');
+
+    const collectionSort = event.currentTarget.value;
+    const newFilters = {
+      ...filters,
+      collectionSort,
+    };
+
+    const pathname = `/${lang}/${clientApp}${
+      editing
+        ? collectionEditUrl({ collection })
+        : collectionUrl({ collection })
+    }`;
+    router.push({
+      pathname,
+      query: convertFiltersToQueryParams(newFilters),
+    });
+  };
+
   sortOptions() {
     const { i18n } = this.props;
 
@@ -51,12 +97,15 @@ export class CollectionSortBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { filters, i18n, onSortSelect } = this.props;
+    const { collection, filters, i18n } = this.props;
 
-    return (
+    return collection ? (
       <Card className="CollectionSort">
         <form>
-          <label className="CollectionSort-label" htmlFor="Sort-Select">
+          <label
+            className="CollectionSort-label"
+            htmlFor="CollectionSort-select"
+          >
             {i18n.gettext('Sort add-ons by')}
           </label>
           <Select
@@ -64,7 +113,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
             defaultValue={filters.collectionSort}
             id="CollectionSort-select"
             name="sort"
-            onChange={onSortSelect}
+            onChange={this.onSortSelect}
           >
             {this.sortOptions().map((option) => {
               return (
@@ -76,12 +125,21 @@ export class CollectionSortBase extends React.Component<InternalProps> {
           </Select>
         </form>
       </Card>
-    );
+    ) : null;
   }
 }
 
-const CollectionSort: React.ComponentType<Props> = compose(translate())(
-  CollectionSortBase,
-);
+export const mapStateToProps = (state: AppState) => {
+  return {
+    clientApp: state.api.clientApp,
+    lang: state.api.lang,
+  };
+};
+
+const CollectionSort: React.ComponentType<Props> = compose(
+  connect(mapStateToProps),
+  translate(),
+  withRouter,
+)(CollectionSortBase);
 
 export default CollectionSort;

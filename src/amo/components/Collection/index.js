@@ -52,7 +52,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation, ReactRouterType } from 'core/types/router';
+import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
@@ -67,7 +67,6 @@ type InternalProps = {|
   ...Props,
   _config: typeof config,
   _isFeaturedCollection: typeof isFeaturedCollection,
-  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   filters: CollectionFilters,
@@ -75,13 +74,11 @@ type InternalProps = {|
   i18n: I18nType,
   isLoggedIn: boolean,
   isOwner: boolean,
-  lang: string,
   location: ReactRouterLocation,
   params: {|
     slug: string,
     username: string,
   |},
-  router: ReactRouterType,
   showEditButton: boolean,
 |};
 
@@ -131,37 +128,6 @@ export class CollectionBase extends React.Component<InternalProps> {
         username,
       }),
     );
-  };
-
-  onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
-    const {
-      collection,
-      clientApp,
-      editing,
-      filters,
-      lang,
-      params,
-      router,
-    } = this.props;
-
-    const collectionSort = event.currentTarget.value;
-    const newFilters = {
-      ...filters,
-      collectionSort,
-    };
-
-    const urlParams = {
-      authorUsername: params.username,
-      collection,
-      collectionSlug: params.slug,
-    };
-    const pathname = `/${lang}/${clientApp}${
-      editing ? collectionEditUrl(urlParams) : collectionUrl(urlParams)
-    }`;
-    router.push({
-      pathname,
-      query: convertFiltersToQueryParams(newFilters),
-    });
   };
 
   loadDataIfNeeded(nextProps?: InternalProps) {
@@ -426,12 +392,11 @@ export class CollectionBase extends React.Component<InternalProps> {
             {this.renderCardContents()}
             {this.renderDeleteButton()}
           </Card>
-          {!creating && (
-            <CollectionSort
-              filters={filters}
-              onSortSelect={this.onSortSelect}
-            />
-          )}
+          <CollectionSort
+            collection={collection}
+            editing={editing}
+            filters={filters}
+          />
         </div>
         <div className="Collection-items">
           {!creating && (
@@ -515,13 +480,11 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   }
 
   return {
-    clientApp: state.api.clientApp,
     collection,
     filters,
     hasEditPermission,
     isLoggedIn: !!currentUser,
     isOwner,
-    lang: state.api.lang,
     loading,
     showEditButton,
   };
