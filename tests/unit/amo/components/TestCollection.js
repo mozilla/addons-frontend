@@ -605,7 +605,6 @@ describe(__filename, () => {
     const details = wrapper.find(CollectionDetails);
     expect(details).toHaveLength(1);
     expect(details).toHaveProp('collection', collection);
-    expect(details).toHaveProp('editUrl', wrapper.instance().editUrl());
     expect(details).toHaveProp('filters', { page, collectionSort: sort });
     expect(details).toHaveProp('showEditButton', false);
   });
@@ -995,30 +994,6 @@ describe(__filename, () => {
     const wrapper = renderComponent({ store });
 
     expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
-  });
-
-  it('passes a correct editUrl to the CollectionDetails component', () => {
-    const authorUserId = 11;
-    const queryParams = { page: 133, collection_sort: COLLECTION_SORT_NAME };
-
-    const { store } = dispatchSignInActions({ userId: authorUserId });
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorId: authorUserId,
-      }),
-    });
-
-    const wrapper = renderComponent({
-      location: fakeRouterLocation({ query: queryParams }),
-      store,
-    });
-
-    expect(wrapper.find(CollectionDetails)).toHaveProp(
-      'editUrl',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`,
-    );
   });
 
   it('renders an edit link when user is the collection owner', () => {

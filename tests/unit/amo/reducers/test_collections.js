@@ -5,6 +5,8 @@ import reducer, {
   addAddonToCollection,
   addonAddedToCollection,
   beginCollectionModification,
+  collectionEditUrl,
+  collectionUrl,
   convertFiltersToQueryParams,
   createCollection,
   createInternalAddons,
@@ -1259,6 +1261,81 @@ describe(__filename, () => {
       expect(
         convertFiltersToQueryParams({ collectionSort: sort, page }),
       ).toEqual({ collection_sort: sort, page });
+    });
+  });
+
+  describe('collectionUrl', () => {
+    it('returns a URL for a collection', () => {
+      const authorUsername = 'some-username';
+      const slug = 'some-slug';
+      const collection = createInternalCollection({
+        detail: createFakeCollectionDetail({ authorUsername, slug }),
+      });
+
+      expect(collectionUrl({ collection })).toEqual(
+        `/collections/${authorUsername}/${slug}/`,
+      );
+    });
+
+    it('returns a URL for an authorUsername / collectionSlug', () => {
+      const authorUsername = 'some-username';
+      const slug = 'some-slug';
+
+      expect(
+        collectionUrl({
+          authorUsername,
+          collection: null,
+          collectionSlug: slug,
+        }),
+      ).toEqual(`/collections/${authorUsername}/${slug}/`);
+    });
+
+    it('returns a URL for the collection when all 3 params are passed', () => {
+      const authorUsername = 'some-username';
+      const slug = 'some-slug';
+      const collection = createInternalCollection({
+        detail: createFakeCollectionDetail({ authorUsername, slug }),
+      });
+
+      expect(
+        collectionUrl({
+          authorUsername: 'a different username',
+          collection,
+          collectionSlug: 'a-different-slug',
+        }),
+      ).toEqual(`/collections/${authorUsername}/${slug}/`);
+    });
+  });
+
+  describe('collectionEditUrl', () => {
+    it('returns an edit URL for a collection', () => {
+      const authorUsername = 'some-username';
+      const slug = 'some-slug';
+      const collection = createInternalCollection({
+        detail: createFakeCollectionDetail({ authorUsername, slug }),
+      });
+
+      expect(collectionEditUrl({ collection })).toEqual(
+        `${collectionUrl({ collection })}edit/`,
+      );
+    });
+
+    it('returns an edit URL for an authorUsername / collectionSlug', () => {
+      const authorUsername = 'some-username';
+      const slug = 'some-slug';
+      expect(
+        collectionEditUrl({
+          authorUsername,
+          collection: null,
+          collectionSlug: slug,
+        }),
+      ).toEqual(
+        `${collectionUrl({
+          authorUsername,
+          collection: null,
+          collectionSlug: slug,
+        })}edit/`,
+      );
     });
   });
 });

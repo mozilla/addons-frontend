@@ -6,6 +6,7 @@ import CollectionDetails, {
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
+  collectionEditUrl,
   convertFiltersToQueryParams,
   createInternalCollection,
 } from 'amo/reducers/collections';
@@ -102,17 +103,21 @@ describe(__filename, () => {
   });
 
   it('renders an edit button if requested', () => {
-    const editUrl = '/collections/username/slug/edit';
+    const authorUsername = 'some-username';
+    const slug = 'some-slug';
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ authorUsername, slug }),
+    });
     const filters = { page: 1 };
 
-    const root = render({ editUrl, filters, showEditButton: true });
+    const root = render({ collection, filters, showEditButton: true });
 
     const editButton = root.find('.CollectionDetails-edit-link');
     expect(editButton).toHaveLength(1);
     expect(editButton).toHaveProp('buttonType', 'neutral');
     expect(editButton).toHaveProp('puffy', true);
     expect(editButton).toHaveProp('to', {
-      pathname: editUrl,
+      pathname: collectionEditUrl({ collection }),
       query: convertFiltersToQueryParams(filters),
     });
     expect(editButton.children()).toHaveText('Edit this collection');

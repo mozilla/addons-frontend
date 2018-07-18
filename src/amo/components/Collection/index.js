@@ -14,6 +14,8 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import { isFeaturedCollection } from 'amo/components/Home';
 import {
+  collectionEditUrl,
+  collectionUrl,
   convertFiltersToQueryParams,
   deleteCollectionAddonNotes,
   deleteCollection,
@@ -135,7 +137,15 @@ export class CollectionBase extends React.Component<InternalProps> {
   };
 
   onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
-    const { clientApp, editing, filters, lang, router } = this.props;
+    const {
+      collection,
+      clientApp,
+      editing,
+      filters,
+      lang,
+      params,
+      router,
+    } = this.props;
 
     const collectionSort = event.currentTarget.value;
     const newFilters = {
@@ -143,8 +153,13 @@ export class CollectionBase extends React.Component<InternalProps> {
       collectionSort,
     };
 
+    const urlParams = {
+      authorUsername: params.username,
+      collection,
+      collectionSlug: params.slug,
+    };
     const pathname = `/${lang}/${clientApp}${
-      editing ? this.editUrl() : this.url()
+      editing ? collectionEditUrl(urlParams) : collectionUrl(urlParams)
     }`;
     router.push({
       pathname,
@@ -246,16 +261,6 @@ export class CollectionBase extends React.Component<InternalProps> {
     }
   }
 
-  url() {
-    const { params } = this.props;
-
-    return `/collections/${params.username}/${params.slug}/`;
-  }
-
-  editUrl() {
-    return `${this.url()}edit/`;
-  }
-
   removeAddon: RemoveCollectionAddonFunc = (addonId: number) => {
     const { collection, dispatch, errorHandler, filters } = this.props;
 
@@ -349,7 +354,6 @@ export class CollectionBase extends React.Component<InternalProps> {
     return (
       <CollectionDetails
         collection={collection}
-        editUrl={this.editUrl()}
         filters={filters}
         showEditButton={showEditButton}
       />
@@ -415,7 +419,11 @@ export class CollectionBase extends React.Component<InternalProps> {
           LinkComponent={Link}
           count={collection.numberOfAddons}
           currentPage={filters.page}
-          pathname={editing ? this.editUrl() : this.url()}
+          pathname={
+            editing
+              ? collectionEditUrl({ collection })
+              : collectionUrl({ collection })
+          }
           perPage={collection.pageSize}
           queryParams={convertFiltersToQueryParams(filters)}
         />

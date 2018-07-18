@@ -2,7 +2,10 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { convertFiltersToQueryParams } from 'amo/reducers/collections';
+import {
+  collectionEditUrl,
+  convertFiltersToQueryParams,
+} from 'amo/reducers/collections';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
@@ -18,7 +21,6 @@ import './styles.scss';
 
 export type Props = {|
   collection: CollectionType | null,
-  editUrl: string,
   filters: CollectionFilters,
   showEditButton: boolean,
 |};
@@ -30,7 +32,7 @@ type InternalProps = {|
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
   render() {
-    const { collection, editUrl, filters, i18n, showEditButton } = this.props;
+    const { collection, filters, i18n, showEditButton } = this.props;
 
     return (
       <div className="CollectionDetails">
@@ -65,19 +67,20 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
             },
           ]}
         />
-        {showEditButton && (
-          <Button
-            className="CollectionDetails-edit-link"
-            buttonType="neutral"
-            puffy
-            to={{
-              pathname: editUrl,
-              query: convertFiltersToQueryParams(filters),
-            }}
-          >
-            {i18n.gettext('Edit this collection')}
-          </Button>
-        )}
+        {showEditButton &&
+          collection && (
+            <Button
+              className="CollectionDetails-edit-link"
+              buttonType="neutral"
+              puffy
+              to={{
+                pathname: collectionEditUrl({ collection }),
+                query: convertFiltersToQueryParams(filters),
+              }}
+            >
+              {i18n.gettext('Edit this collection')}
+            </Button>
+          )}
       </div>
     );
   }
