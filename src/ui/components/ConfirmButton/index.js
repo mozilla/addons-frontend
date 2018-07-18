@@ -71,10 +71,14 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
       i18n,
       id,
       message,
+      onConfirm,
       uiState,
     } = this.props;
 
+    invariant(children, 'The children property is required');
     invariant(id, 'The id property is required');
+    invariant(message, 'The message property is required');
+    invariant(onConfirm, 'The onConfirm property is required');
 
     const { showConfirmation } = uiState;
 

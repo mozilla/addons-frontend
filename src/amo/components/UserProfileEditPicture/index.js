@@ -67,7 +67,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
       },
     );
 
-    const ConfirmButtonClassName = 'UserProfileEditPicture-delete-button';
+    const confirmButtonClassName = 'UserProfileEditPicture-delete-button';
 
     return (
       <section className="UserProfileEditPicture">
@@ -100,8 +100,8 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
           user.picture_url && (
             <ConfirmButton
               buttonType="cancel"
-              className={ConfirmButtonClassName}
-              id={ConfirmButtonClassName}
+              className={confirmButtonClassName}
+              id={confirmButtonClassName}
               message={i18n.gettext(
                 'Do you really want to delete this picture?',
               )}
