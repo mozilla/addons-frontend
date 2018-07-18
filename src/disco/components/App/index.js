@@ -52,5 +52,5 @@ export function mapStateToProps(state, ownProps) {
 
 export default compose(
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate(),
 )(AppBase);

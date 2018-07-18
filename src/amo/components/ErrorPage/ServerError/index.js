@@ -48,4 +48,4 @@ export class ServerErrorBase extends React.Component {
   }
 }
 
-export default compose(translate({ withRef: true }))(ServerErrorBase);
+export default compose(translate())(ServerErrorBase);

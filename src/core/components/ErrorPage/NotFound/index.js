@@ -40,4 +40,4 @@ export class NotFoundBase extends React.Component {
   }
 }
 
-export default compose(translate({ withRef: true }))(NotFoundBase);
+export default compose(translate())(NotFoundBase);

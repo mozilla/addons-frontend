@@ -172,7 +172,7 @@ export function mapStateToProps(state: AppState) {
 const Categories: React.ComponentType<Props> = compose(
   withErrorHandler({ name: 'Categories' }),
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate(),
 )(CategoriesBase);
 
 export default Categories;

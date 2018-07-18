@@ -150,4 +150,4 @@ export class RatingBase extends React.Component {
   }
 }
 
-export default compose(translate({ withRef: true }))(RatingBase);
+export default compose(translate())(RatingBase);

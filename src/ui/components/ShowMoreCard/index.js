@@ -89,4 +89,4 @@ export class ShowMoreCardBase extends React.Component {
   }
 }
 
-export default compose(translate({ withRef: true }))(ShowMoreCardBase);
+export default compose(translate())(ShowMoreCardBase);

@@ -71,8 +71,6 @@ export class NotFoundBase extends React.Component<InternalProps> {
   }
 }
 
-const NotFound: React.ComponentType<Props> = compose(
-  translate({ withRef: true }),
-)(NotFoundBase);
+const NotFound: React.ComponentType<Props> = compose(translate())(NotFoundBase);
 
 export default NotFound;

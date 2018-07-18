@@ -1,50 +1,40 @@
-import React, { Component } from 'react';
+/* @flow */
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import { oneLine } from 'common-tags';
 
-function getDisplayName(component) {
-  return component.displayName || component.name || 'Component';
-}
+import { getDisplayName } from 'core/utils';
+import type { I18nType } from 'core/types/i18n';
 
-export default function translate(options = {}) {
-  const { withRef = false } = options;
+type Context = {|
+  i18n: I18nType,
+|};
 
-  return function Wrapper(WrappedComponent) {
-    class Translate extends Component {
-      constructor(props, context) {
+const translate = (): ((
+  React.ComponentType<any>,
+) => React.ComponentType<any>) => {
+  return (WrappedComponent) => {
+    class Translate extends React.Component<any> {
+      i18n: I18nType;
+
+      static contextTypes: Context = {
+        i18n: PropTypes.object,
+      };
+
+      static displayName = `Translate(${getDisplayName(WrappedComponent)})`;
+
+      constructor(props: Object, context: Context) {
         super(props, context);
+
         this.i18n = context.i18n;
       }
 
-      getWrappedInstance() {
-        if (!withRef) {
-          throw new Error(oneLine`To access the wrapped instance, you need to specify
-            { withRef: true } as the second argument of the translate() call.`);
-        }
-        return this.wrappedInstance;
-      }
-
       render() {
-        const extraProps = { i18n: this.i18n };
-
-        if (withRef) {
-          extraProps.ref = (ref) => {
-            this.wrappedInstance = ref;
-          };
-        }
-
-        return <WrappedComponent {...extraProps} {...this.props} />;
+        return <WrappedComponent i18n={this.i18n} {...this.props} />;
       }
     }
 
-    Translate.WrappedComponent = WrappedComponent;
-
-    Translate.contextTypes = {
-      i18n: PropTypes.object.isRequired,
-    };
-
-    Translate.displayName = `Translate[${getDisplayName(WrappedComponent)}]`;
-
     return Translate;
   };
-}
+};
+
+export default translate;

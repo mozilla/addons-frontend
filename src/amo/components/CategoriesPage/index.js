@@ -19,8 +19,8 @@ export class CategoriesPageBase extends React.Component<Props> {
   }
 }
 
-const CategoriesPage: React.ComponentType<Props> = compose(
-  translate({ withRef: true }),
-)(CategoriesPageBase);
+const CategoriesPage: React.ComponentType<Props> = compose(translate())(
+  CategoriesPageBase,
+);
 
 export default CategoriesPage;

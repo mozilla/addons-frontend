@@ -221,4 +221,4 @@ export class FooterBase extends React.Component {
   }
 }
 
-export default compose(translate({ withRef: true }))(FooterBase);
+export default compose(translate())(FooterBase);

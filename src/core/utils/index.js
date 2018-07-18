@@ -4,12 +4,9 @@ import url from 'url';
 import config from 'config';
 import { AllHtmlEntities } from 'html-entities';
 import invariant from 'invariant';
-import * as React from 'react';
 
 import { loadAddons } from 'core/reducers/addons';
 import { fetchAddon } from 'core/api';
-import GenericError from 'core/components/ErrorPage/GenericError';
-import NotFound from 'core/components/ErrorPage/NotFound';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_OPENSEARCH,
@@ -182,15 +179,6 @@ export function visibleAddonType(addonType) {
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
 }
 
-export function getErrorComponent(status) {
-  switch (status) {
-    case 404:
-      return NotFound;
-    default:
-      return GenericError;
-  }
-}
-
 export function removeProtocolFromURL(urlWithProtocol) {
   invariant(urlWithProtocol, 'urlWithProtocol is required');
 
@@ -234,41 +222,6 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
     urlToReturn = `http://${urlToReturn}`;
   }
   return urlToReturn;
-}
-
-/*
- * A decorator to render a 404 when a config key is false.
- *
- * For example, if you had a config key like this:
- *
- * module.exports = {
- *   allowMyComponent: false,
- * };
- *
- * then you could make your component appear as a 404 like this:
- *
- * class MyComponent extends React.Component {
- *   render() { ... }
- * }
- *
- * export default compose(
- *   render404IfConfigKeyIsFalse('allowMyComponent'),
- * )(MyComponent);
- */
-export function render404IfConfigKeyIsFalse(
-  configKey,
-  { _config = config } = {},
-) {
-  if (!configKey) {
-    throw new TypeError('configKey cannot be empty');
-  }
-  return (Component) => (props) => {
-    if (!_config.get(configKey)) {
-      log.debug(`config.${configKey} was false; not rendering ${Component}`);
-      return <NotFound />;
-    }
-    return <Component {...props} />;
-  };
 }
 
 export function getCategoryColor(category) {
@@ -343,4 +296,8 @@ export const normalizeFileNameId = (filename) => {
   }
 
   return fileId;
+};
+
+export const getDisplayName = (component) => {
+  return component.displayName || component.name || 'Component';
 };

@@ -38,4 +38,4 @@ export class GenericErrorBase extends React.Component {
   }
 }
 
-export default compose(translate({ withRef: true }))(GenericErrorBase);
+export default compose(translate())(GenericErrorBase);

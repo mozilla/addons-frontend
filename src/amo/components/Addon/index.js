@@ -646,7 +646,7 @@ export const extractId = (ownProps) => {
 
 export default compose(
   withRouter,
-  translate({ withRef: true }),
+  translate(),
   connect(mapStateToProps),
   withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
   withFixedErrorHandler({ fileName: __filename, extractId }),

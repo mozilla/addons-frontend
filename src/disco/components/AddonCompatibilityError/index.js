@@ -62,5 +62,5 @@ export function mapStateToProps(state) {
 
 export default compose(
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate(),
 )(AddonCompatibilityErrorBase);
