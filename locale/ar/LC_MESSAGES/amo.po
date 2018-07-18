@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-18 06:42+0000\n"
+"PO-Revision-Date: 2018-07-18 06:52+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1688,7 +1688,7 @@ msgstr "يبحث…"
 
 #: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
-msgstr "لم يُعثر على نتائج ”%(query)s“."
+msgstr "لم يُعثر على نتائج لِ‍ ”⁨%(query)s⁩“."
 
 #: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
@@ -1696,7 +1696,7 @@ msgstr "لم يُعثر على نتائج."
 
 #: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "رجاء أدخِل كلمة بحث للبحث في إضافات فَيَرفُكس."
+msgstr "رجاءً أدخِل كلمة بحث للبحث في إضافات فَيَرفُكس."
 
 #: src/amo/components/SectionLinks/index.js:103
 msgid "More…"
@@ -1840,7 +1840,7 @@ msgstr "أنا مطور إضافات، هل يمكنني الرد على الم�
 
 #: src/amo/components/StaticPages/ReviewGuide.js:138
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "نعم، يمكن لمؤلفي الإضافات وضع إجابة واحدة لكل مراجعة. يمكنك بدء موضوع للنقاش في %(startLink)sمنتدانا%(endLink)s لمزيد من النقاشات والأخذ والرد."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:152
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1938,7 +1938,7 @@ msgstr "تدلي بمعلومات كاذبة، أو تنتقص من قدر ال�
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "الصفحات المقترحة"
 
 #: src/amo/components/SuggestedPages/index.js:25
 msgid "Browse all extensions"
@@ -1961,24 +1961,20 @@ msgid "Thanks for visiting this site! Please take a minute or two to tell Firefo
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:205
-#, fuzzy
 msgid "My reviews"
-msgstr "لا مراجعات"
+msgstr "مراجعاتي"
 
 #: src/amo/components/UserProfile/index.js:224
-#, fuzzy
 msgid "Browse the reviews for this add-on"
-msgstr "لا مراجعات"
+msgstr "تصفّح مراجعات هذه الإضافة"
 
 #: src/amo/components/UserProfile/index.js:269
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "إضافات أخرى من هؤلاء المطورين"
+msgstr "مطوّر إضافات"
 
 #: src/amo/components/UserProfile/index.js:275
-#, fuzzy
 msgid "Theme artist"
-msgstr "سمات أخرى من هؤلاء الفنانين"
+msgstr "فنّان سمات"
 
 #: src/amo/components/UserProfile/index.js:289 src/amo/components/UserProfileEdit/index.js:454
 #, fuzzy
@@ -1987,21 +1983,19 @@ msgstr "نتائج البحث عن ”%(query)s“"
 
 #: src/amo/components/UserProfile/index.js:319 src/amo/components/UserProfileEdit/index.js:609
 msgid "Location"
-msgstr ""
+msgstr "المكان"
 
 #: src/amo/components/UserProfile/index.js:327 src/amo/components/UserProfileEdit/index.js:621
 msgid "Occupation"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:334
-#, fuzzy
 msgid "User since"
-msgstr "عدد المستخدمين"
+msgstr "مستخدمٌ منذ"
 
 #: src/amo/components/UserProfile/index.js:344
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "إضافات شعبية"
+msgstr "عدد الإضافات"
 
 #: src/amo/components/UserProfile/index.js:350
 msgid "Average rating of developer’s add-ons"
@@ -2012,26 +2006,24 @@ msgid "Biography"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:389
-#, fuzzy
 msgid "Edit profile"
-msgstr "حرّر مراجعتي"
+msgstr "حرّر الملف الشخصي"
 
 #: src/amo/components/UserProfileEdit/index.js:184
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "حُذفت الصورة بنجاح"
 
 #: src/amo/components/UserProfileEdit/index.js:422
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "لِج لتحرير الملف الشخصي"
 
 #: src/amo/components/UserProfileEdit/index.js:467
 msgid "View user's profile"
-msgstr ""
+msgstr "اعرض ملف المستخدم"
 
 #: src/amo/components/UserProfileEdit/index.js:473
 msgid "Edit user's profile"
-msgstr ""
+msgstr "حرّر ملف المستخدم"
 
 #: src/amo/components/UserProfileEdit/index.js:491
 #, fuzzy
@@ -2040,20 +2032,19 @@ msgstr "حسابي"
 
 #: src/amo/components/UserProfileEdit/index.js:492
 msgid "Account for %(username)s"
-msgstr ""
+msgstr "حساب ⁨%(username)s⁩"
 
 #: src/amo/components/UserProfileEdit/index.js:498
-#, fuzzy
 msgid "Username"
-msgstr "عدد المستخدمين"
+msgstr "اسم المستخدم"
 
 #: src/amo/components/UserProfileEdit/index.js:511
 msgid "Email Address"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني"
 
 #: src/amo/components/UserProfileEdit/index.js:518
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "لا يمكن تغيير عنوان البريد هنا"
 
 #: src/amo/components/UserProfileEdit/index.js:527
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2112,41 +2103,36 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your account…"
-msgstr "يُحدّث الرد"
+msgstr "يُحدّث حسابك…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
 msgid "Update My Account"
-msgstr "حسابي"
+msgstr "حدِّث حسابي"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating this account…"
-msgstr "يُحدّث الرد"
+msgstr "يُحدّث هذا الحساب…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
 msgid "Update This Account"
-msgstr ""
+msgstr "حدِّث هذا الحساب"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:824
-#, fuzzy
 msgid "Delete My Account"
-msgstr "حسابي"
+msgstr "احذف حسابي"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:825
-#, fuzzy
 msgid "Delete This Account"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "احذف هذا الحساب"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "هام: حذف حسابك إجراء لا عودة فيه."
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "هام: حذف هذا الحساب إجراء لا عودة فيه."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2228,9 +2214,8 @@ msgid "Do you really want to delete this picture?"
 msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "احذف هذه الصورة"
 
 #: src/core/components/AuthenticateButton/index.js:79
 msgid "Register or Log in"
@@ -2306,11 +2291,11 @@ msgstr "بات بإمكانك الآن الوصول إلى %(name)s من شري�
 
 #: src/core/containers/InfoDialog/index.js:53
 msgid "OK!"
-msgstr ""
+msgstr "حسنا!"
 
 #: src/ui/components/ConfirmButton/index.js:93
 msgid "Confirm"
-msgstr ""
+msgstr "أكِّد"
 
 #: src/ui/components/DismissibleTextForm/index.js:119
 msgid "Enter text."
@@ -2318,7 +2303,7 @@ msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:120
 msgid "Submit"
-msgstr ""
+msgstr "أرسِل"
 
 #: src/ui/components/DismissibleTextForm/index.js:122
 msgid "Submitting"
@@ -2326,7 +2311,7 @@ msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:161
 msgid "Delete"
-msgstr ""
+msgstr "احذف"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -2389,29 +2374,26 @@ msgid "There are no ratings yet"
 msgstr "لا تقييمات بعد"
 
 #: src/ui/components/Rating/index.js:69
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "مقيّمة بِ‍ %(rating)s من ٥"
+msgstr "حدِّث تقييمك ليكون %(starRating)s من ٥"
 
 #: src/ui/components/Rating/index.js:75
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "مقيّمة بِ‍ %(rating)s من ٥"
+msgstr "قيِّم هذه الإضافة بِ‍ %(starRating)s من ٥"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
 #: src/ui/components/UserCollection/index.js:52
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "لم يُعثر على أية إضافة"
-msgstr[1] "عُثر على إضافة واحدة"
-msgstr[2] "عُثر على إضافتين"
-msgstr[3] "عُثر على %(count)s إضافات"
-msgstr[4] "عُثر على %(count)s إضافة"
-msgstr[5] "عُثر على %(count)s إضافة"
+msgstr[0] "لا إضافات"
+msgstr[1] "إضافة واحدة"
+msgstr[2] "إضافتان"
+msgstr[3] "%(total)s إضافات"
+msgstr[4] "%(total)s إضافة"
+msgstr[5] "%(total)s إضافة"
 
 #~ msgid "Cancel preview"
 #~ msgstr "ألغِ المعاينة"
