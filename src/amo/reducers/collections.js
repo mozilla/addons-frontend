@@ -982,6 +982,45 @@ export const convertFiltersToQueryParams = (filters: CollectionFilters) => {
   };
 };
 
+type CollectionUrlParams = {|
+  authorUsername?: string,
+  collection: CollectionType | null,
+  collectionSlug?: string,
+  _collectionUrl?: Function,
+|};
+
+export const collectionUrl = ({
+  authorUsername,
+  collection,
+  collectionSlug,
+}: CollectionUrlParams): string => {
+  let slug = collectionSlug;
+  let username = authorUsername;
+  if (collection) {
+    slug = collection.slug;
+    username = collection.authorUsername;
+  }
+  invariant(
+    slug && username,
+    'Either a collection or an authorUsername and collectionSlug are required.',
+  );
+
+  return `/collections/${username}/${slug}/`;
+};
+
+export const collectionEditUrl = ({
+  authorUsername,
+  collection,
+  collectionSlug,
+  _collectionUrl = collectionUrl,
+}: CollectionUrlParams): string => {
+  return `${_collectionUrl({
+    authorUsername,
+    collection,
+    collectionSlug,
+  })}edit/`;
+};
+
 type Action =
   | AbortFetchCurrentCollection
   | AbortAddAddonToCollectionAction

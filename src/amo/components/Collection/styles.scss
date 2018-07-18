@@ -5,30 +5,10 @@
 
 .Collection {
   @include page-padding();
-
-  .MetadataCard {
-    @include respond-to(large) {
-      margin-top: 12px;
-    }
-  }
 }
 
 .Collection-login {
   display: flex;
-}
-
-.Collection-title {
-  @include font-light();
-
-  font-size: $font-size-l;
-  hyphens: auto;
-  word-wrap: break-word;
-}
-
-.Collection-description {
-  font-size: $font-size-s;
-  hyphens: auto;
-  word-wrap: break-word;
 }
 
 .Collection-detail,
@@ -93,11 +73,6 @@
     margin: 0;
     padding: 0;
   }
-}
-
-.Collection-edit-link {
-  margin-top: $padding-page;
-  width: 100%;
 }
 
 .Collection-delete-button {
