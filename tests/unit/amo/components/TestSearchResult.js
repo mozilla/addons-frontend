@@ -145,7 +145,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchResult--theme');
   });
 
-  it('does not render image if the isAllowedOrigin is false', () => {
+  it('does not render an image if the isAllowedOrigin is false', () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -153,7 +153,7 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
-            thumbnail_url: 'http://example.url.com',
+            thumbnail_url: 'http://example.com',
           },
         ],
       }),
@@ -162,7 +162,7 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-icon')).toHaveLength(0);
   });
 
-  it('renders image alt as addon name', () => {
+  it("renders an image's alt attribute as its addon name", () => {
     const alt = 'pretty image';
     const root = render({
       addon: createInternalAddon({
@@ -259,6 +259,35 @@ describe(__filename, () => {
           {
             ...fakePreview,
             image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
+            image_size: [],
+            thumbnail_size: [],
+          },
+        ],
+      }),
+    });
+    const image = root.find('.SearchResult-icon');
+    expect(image.prop('src')).toEqual(headerImageThumb);
+    expect(image).not.toHaveProp('srcSet');
+  });
+
+  it('renders image without srcSet if there is no large preview image url', () => {
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
+          },
+          {
+            ...fakePreview,
+            image_url: '',
             thumbnail_url: headerImageThumb,
             image_size: [],
             thumbnail_size: [],

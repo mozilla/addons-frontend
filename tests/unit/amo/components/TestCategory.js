@@ -500,7 +500,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes isTheme prop as true if type is a theme', () => {
+  it('passes a isTheme prop as true if type is a theme', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();
@@ -521,7 +521,7 @@ describe(__filename, () => {
     expect(landingShelves.at(0)).toHaveProp('isTheme', true);
   });
 
-  it('passes isTheme prop as false if type is an extension', () => {
+  it('passes a isTheme prop as false if type is an extension', () => {
     _categoriesFetch();
     _categoriesLoad({
       result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],

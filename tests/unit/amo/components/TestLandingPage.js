@@ -364,7 +364,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes isTheme prop as true if type is a theme', () => {
+  it('passes a isTheme prop as true if type is a theme', () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
 
     const root = render({
@@ -379,7 +379,7 @@ describe(__filename, () => {
     expect(addonCardProps).toContain(true);
   });
 
-  it('passes isTheme prop as false if type is an extension', () => {
+  it('passes a isTheme prop as false if type is an extension', () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_EXTENSION });
 
     const root = render({

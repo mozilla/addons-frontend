@@ -84,7 +84,7 @@ describe(__filename, () => {
     },
   );
 
-  it('passes isTheme prop as false if type is an extension', () => {
+  it('renders a featured extensions shelf', () => {
     const root = render();
 
     const shelves = root.find(LandingAddonsCard);
