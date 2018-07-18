@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-18 06:11+0000\n"
+"PO-Revision-Date: 2018-07-18 06:21+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -681,13 +681,12 @@ msgid "Custom URL"
 msgstr "المسار المخصص"
 
 #: src/amo/components/CollectionManager/index.js:404
-#, fuzzy
 msgid "Added to collection"
-msgstr "لِج لتقييم الامتداد هذا"
+msgstr "أُضيف إلى المجموعة"
 
 #: src/amo/components/CollectionManager/index.js:412
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "ابحث عن إضافة لتُضيفها إلى هذه المجموعة"
 
 #: src/amo/components/CollectionManager/index.js:433 src/amo/components/UserProfileEdit/index.js:832 src/ui/components/ConfirmButton/index.js:100 src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
@@ -698,57 +697,52 @@ msgid "Support this developer"
 msgstr "ادعم هذا المطور"
 
 #: src/amo/components/ContributeCard/index.js:33
-#, fuzzy
 msgid "Support these developers"
-msgstr "إضافات أخرى من هؤلاء المطورين"
+msgstr "ادعم هؤلاء المطورين"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "يطلب منك مطوّر هذا الامتداد مساعدته بدعم استمرار تطوير هذا العمل من خلال تبرع صغير منك."
+msgstr "يطلب منك مطوّر هذا الامتداد مساعدته بدعم متابعة تطوير هذا العمل عبر مساهمة بسيطة منك."
 
 #: src/amo/components/ContributeCard/index.js:39
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "يطلب منك مطوّري هذا الامتداد مساعدتهم بدعم استمرار تطوير هذا العمل من خلال تبرع صغير منك."
+msgstr "يطلب منك مطوّري هذا الامتداد مساعدتهم بدعم متابعة تطوير هذا العمل عبر مساهمة بسيطة منك."
 
 #: src/amo/components/ContributeCard/index.js:46
-#, fuzzy
 msgid "Support this artist"
-msgstr "موقع الدعم"
+msgstr "ادعم هذا الفنان"
 
 #: src/amo/components/ContributeCard/index.js:47
-#, fuzzy
 msgid "Support these artists"
-msgstr "سمات أخرى من هؤلاء الفنانين"
+msgstr "ادعم هؤلاء الفنانين"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "يطلب منك فنّان هذه السمة مساعدته بدعم متابعة تطوير هذا العمل عبر مساهمة بسيطة منك."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "يطلب منك فنّاني هذه السمة مساعدتهم بدعم متابعة تطوير هذا العمل عبر مساهمة بسيطة منك."
 
 #: src/amo/components/ContributeCard/index.js:60
-#, fuzzy
 msgid "Support this author"
-msgstr "موقع الدعم"
+msgstr "ادعم هذا المؤلف"
 
 #: src/amo/components/ContributeCard/index.js:61
-#, fuzzy
 msgid "Support these authors"
-msgstr "سمات أخرى من %(author)s"
+msgstr "ادعم هؤلاء المؤلفين"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "يطلب منك مؤلف هذه الإضافة مساعدته بدعم متابعة تطوير هذا العمل عبر مساهمة بسيطة منك."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "يطلب منك مؤلفي هذه الإضافة مساعدتهم بدعم متابعة تطوير هذا العمل عبر مساهمة بسيطة منك."
 
 #: src/amo/components/ContributeCard/index.js:87
 msgid "Contribute now"
-msgstr ""
+msgstr "ساهِم الآن"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:40 src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
@@ -756,7 +750,7 @@ msgstr "نزّل فَيَرفُكس"
 
 #: src/amo/components/EditableCollectionAddon/index.js:132
 msgid "Remove"
-msgstr ""
+msgstr "أزِل"
 
 #: src/amo/components/EditableCollectionAddon/index.js:139
 #, fuzzy
@@ -764,17 +758,16 @@ msgid "User comment"
 msgstr "عدد المستخدمين"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "عن إضافات فَيَرفُكس"
+msgstr "أضِف تعليقا عن هذه الإضافة."
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Save"
-msgstr ""
+msgstr "احفظ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:173
 msgid "Edit"
-msgstr ""
+msgstr "حرّر"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
