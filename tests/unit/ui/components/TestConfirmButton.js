@@ -14,16 +14,20 @@ import {
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  const render = ({ children, i18n = fakeI18n(), ...props } = {}) => {
+  const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
+    return {
+      i18n,
+      id: 'Collection-confirm-delete',
+      message: 'some warning message',
+      onConfirm: sinon.stub(),
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
+  };
+
+  const render = ({ children, ...otherProps } = {}) => {
     return shallowUntilTarget(
-      <ConfirmButton
-        i18n={i18n}
-        id="Collection-confirm-delete"
-        message="some warning message"
-        onConfirm={sinon.stub()}
-        store={dispatchClientMetadata().store}
-        {...props}
-      >
+      <ConfirmButton {...getProps(otherProps)}>
         {children || 'the default text of this button'}
       </ConfirmButton>,
       ConfirmButtonBase,
@@ -170,7 +174,7 @@ describe(__filename, () => {
   describe('extractId', () => {
     it('returns a unique ID provided by the ID prop', () => {
       const id = 'special-button';
-      expect(extractId({ id })).toEqual(id);
+      expect(extractId(getProps({ id }))).toEqual(id);
     });
   });
 });

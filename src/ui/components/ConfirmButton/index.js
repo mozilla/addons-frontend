@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -68,9 +69,12 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
       confirmButtonText,
       confirmButtonType,
       i18n,
+      id,
       message,
       uiState,
     } = this.props;
+
+    invariant(id, 'The id property is required');
 
     const { showConfirmation } = uiState;
 
