@@ -146,7 +146,7 @@ describe(__filename, () => {
   });
 
   it('does not render an image if the isAllowedOrigin is false', () => {
-    const differentOriginalUrl = 'http://example.com';
+    const differentOriginUrl = 'http://example.com';
     const isAllowedOriginSpy = sinon.spy();
     const root = render({
       isAllowedOrigin: isAllowedOriginSpy,
@@ -156,13 +156,13 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
-            thumbnail_url: differentOriginalUrl,
+            thumbnail_url: differentOriginUrl,
           },
         ],
       }),
     });
 
-    sinon.assert.calledWith(isAllowedOriginSpy, differentOriginalUrl);
+    sinon.assert.calledWith(isAllowedOriginSpy, differentOriginUrl);
     expect(root.find('.SearchResult-icon')).toHaveLength(0);
   });
 
@@ -253,8 +253,8 @@ describe(__filename, () => {
           previews: [
             {
               ...fakePreview,
-              image_url: 'http://not.this.image.full.png',
-              thumbnail_url: 'http://not.this.image.thumb.png',
+              image_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
+              thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
             },
             {
               ...fakePreview,

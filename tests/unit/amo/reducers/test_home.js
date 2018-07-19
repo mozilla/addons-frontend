@@ -123,11 +123,7 @@ describe(__filename, () => {
 
       store.dispatch(
         loadHomeAddons({
-          collections: [
-            {
-              results: [],
-            },
-          ],
+          collections: [{}],
           featuredExtensions: createAddonsApiResult([fakeAddon]),
           featuredThemes: createAddonsApiResult([fakeTheme]),
         }),

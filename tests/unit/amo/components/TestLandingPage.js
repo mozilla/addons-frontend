@@ -364,7 +364,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes a isTheme prop as true if type is a theme', () => {
+  it('passes an isTheme prop as true if type is a theme', () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
 
     const root = render({
@@ -377,12 +377,10 @@ describe(__filename, () => {
       .find(LandingAddonsCard)
       .map((addonCard) => addonCard.props().isTheme);
 
-    addonCardProps.forEach((cardItem) => {
-      expect(cardItem).toEqual(true);
-    });
+    addonCardProps.forEach((cardItem) => expect(cardItem).toEqual(true));
   });
 
-  it('passes a isTheme prop as false if type is an extension', () => {
+  it('passes an isTheme prop as false if type is an extension', () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_EXTENSION });
 
     const root = render({
@@ -395,9 +393,7 @@ describe(__filename, () => {
       .find(LandingAddonsCard)
       .map((addonCard) => addonCard.props().isTheme);
 
-    addonCardProps.forEach((cardItem) => {
-      expect(cardItem).toEqual(false);
-    });
+    addonCardProps.forEach((cardItem) => expect(cardItem).toEqual(false));
   });
 
   it('renders a LandingPage with themes HTML', () => {

@@ -124,7 +124,7 @@ describe(__filename, () => {
     expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
   });
 
-  it('shows the footer link when there are more or as many add-ons than LANDING_PAGE_THEME_COUNT', () => {
+  it('shows the footer link when there are more or as many add-ons as LANDING_PAGE_THEME_COUNT', () => {
     const addons = [];
     const footerLink = 'footer-link-path';
     const footerText = 'footer link text';
@@ -151,23 +151,25 @@ describe(__filename, () => {
     );
   });
 
-  it('shows the footer link when there are as many or more add-ons than placeholderCount', () => {
+  it('shows the footer link when there are more or as many add-ons as placeholderCount', () => {
+    const addons = [];
     const footerLink = 'footer-link-path';
     const footerText = 'footer link text';
+    const placeholderCount = 2;
 
-    const addons = [
-      createInternalAddon({
-        ...fakeAddon,
-        slug: 'custom-addon',
-      }),
-      createInternalAddon({
-        ...fakeAddon,
-        slug: 'custom-addon-1',
-      }),
-    ];
+    for (let i = 0; i < placeholderCount; i++) {
+      addons.push(
+        createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_THEME,
+          slug: `custom-addon-${i}`,
+        }),
+      );
+    }
+
     const root = render({
       addons,
-      placeholderCount: 2,
+      placeholderCount,
       footerLink,
       footerText,
     });

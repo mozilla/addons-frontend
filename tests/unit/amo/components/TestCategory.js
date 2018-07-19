@@ -500,7 +500,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes a isTheme prop as true if type is a theme', () => {
+  it('passes an isTheme prop as true if type is a theme', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();
