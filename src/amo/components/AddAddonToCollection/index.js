@@ -201,9 +201,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
         key: 'create-new-collection',
         onSelect: () => {
           // TODO: show create collection overlay when it's implemented.
-          // See
-          // https://github.com/mozilla/addons-frontend/issues/4003
-          // https://github.com/mozilla/addons-frontend/issues/3993
+          // See: https://github.com/mozilla/addons-frontend/issues/3993
           router.push(`/${lang}/${clientApp}/collections/add/`);
         },
       }),

@@ -61,7 +61,6 @@ describe(__filename, () => {
     collections = [createFakeCollectionDetail({ authorUsername: username })],
     lang,
     userId = 1,
-
   } = {}) => {
     dispatchSignInActions({
       clientApp,
