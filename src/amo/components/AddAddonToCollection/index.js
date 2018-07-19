@@ -1,5 +1,4 @@
 /* @flow */
-import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -36,7 +35,6 @@ type InternalProps = {|
   ...Props,
   // These are all user collections that the current add-on is a part of.
   addonInCollections: Array<CollectionType> | null,
-  className?: string,
   clientApp: string,
   currentUsername: string | null,
   dispatch: DispatchFunc,
@@ -234,7 +232,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { className, errorHandler, i18n, addonInCollections } = this.props;
+    const { errorHandler, i18n, addonInCollections } = this.props;
     const { actionOptions, collectionOptions, disabled } = this.getSelectData();
 
     let addedNotices = [];
@@ -261,7 +259,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 
     return (
       <Card
-        className={makeClassName('AddAddonToCollection', className)}
+        className="AddAddonToCollection"
         header={i18n.gettext('Add to collection')}
       >
         {errorHandler.renderErrorIfPresent()}

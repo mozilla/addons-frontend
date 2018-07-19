@@ -56,11 +56,12 @@ describe(__filename, () => {
   };
 
   const signInAndDispatchCollections = ({
-    userId = 1,
     username = 'some-user',
+    clientApp,
     collections = [createFakeCollectionDetail({ authorUsername: username })],
     lang,
-    clientApp,
+    userId = 1,
+
   } = {}) => {
     dispatchSignInActions({
       clientApp,
@@ -84,13 +85,6 @@ describe(__filename, () => {
 
     return { firstCollection, secondCollection };
   };
-
-  it('lets you specify the css class', () => {
-    const root = render({ className: 'MyClass' });
-
-    expect(root).toHaveClassName('MyClass');
-    expect(root).toHaveClassName('AddAddonToCollection');
-  });
 
   describe('fetching user collections', () => {
     it('fetches user collections on first render', () => {
