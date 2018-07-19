@@ -246,7 +246,10 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
 
-  // TODO: rewrite this usig state.reviews.byAddon
+  // TODO:
+  // - rewrite this using state.reviews.byAddon
+  // - make setReview() nullify byAddon so that it is re-fetched
+  // - add re-fetching of add-on reviews
 
   // Look for the latest saved review by this user for this add-on.
   if (userId && state.reviews && ownProps.addon) {
