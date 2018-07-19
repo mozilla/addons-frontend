@@ -94,6 +94,8 @@ export type SaveAddonNoteFunc = (
 ) => void;
 
 export class CollectionBase extends React.Component<InternalProps> {
+  addonPlaceholderCount: number;
+
   static defaultProps = {
     _config: config,
     _isFeaturedCollection: isFeaturedCollection,
@@ -101,8 +103,25 @@ export class CollectionBase extends React.Component<InternalProps> {
     editing: false,
   };
 
+  constructor(props: InternalProps) {
+    super(props);
+    this.addonPlaceholderCount = 5;
+    this.maybeResetAddonPlaceholderCount();
+  }
+
+  maybeResetAddonPlaceholderCount() {
+    const { collection } = this.props;
+    if (collection && collection.addons && collection.addons.length) {
+      this.addonPlaceholderCount = collection.addons.length;
+    }
+  }
+
   componentWillMount() {
     this.loadDataIfNeeded();
+  }
+
+  componentDidUpdate() {
+    this.maybeResetAddonPlaceholderCount();
   }
 
   componentWillReceiveProps(nextProps: InternalProps) {
@@ -412,6 +431,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               editing={editing}
               footer={paginator}
               loading={!collection || loading}
+              placeholderCount={this.addonPlaceholderCount}
               removeAddon={this.removeAddon}
               saveNote={this.saveNote}
             />

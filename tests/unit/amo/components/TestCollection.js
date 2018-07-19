@@ -47,10 +47,12 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
+  createFakeCollectionAddon,
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
   dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
@@ -79,6 +81,26 @@ describe(__filename, () => {
     };
 
     return shallowUntilTarget(<Collection {...allProps} />, CollectionBase);
+  };
+
+  const simulateReduxStateChange = ({ wrapper, store }) => {
+    // This is needed because shallowUntilTarget() does not trigger any
+    // lifecycle methods.
+    wrapper.setProps(
+      mapStateToProps(store.getState(), { location: fakeRouterLocation() }),
+    );
+  };
+
+  const createCollectionWithTwoAddons = () => {
+    const addons = [
+      createFakeCollectionAddon({ addon: { ...fakeAddon, id: 1 } }),
+      createFakeCollectionAddon({ addon: { ...fakeAddon, id: 2 } }),
+    ];
+
+    return {
+      detail: createFakeCollectionDetail(),
+      addons: createFakeCollectionAddons({ addons }),
+    };
   };
 
   const _loadCurrentCollection = ({
@@ -572,6 +594,58 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('editing', false);
   });
 
+  it('sets a default placeholder count', () => {
+    const wrapper = renderComponent();
+    expect(wrapper.find(AddonsCard)).toHaveProp('placeholderCount', 5);
+  });
+
+  it('initializes add-on placeholder count with collection add-ons', () => {
+    const { store } = dispatchClientMetadata();
+    const { detail, addons } = createCollectionWithTwoAddons();
+
+    _loadCurrentCollection({
+      store,
+      detail,
+      addons,
+    });
+
+    const wrapper = renderComponent({
+      params: { username: detail.author.username, slug: detail.slug },
+      store,
+    });
+
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      addons.length,
+    );
+  });
+
+  it('updates add-on placeholder count with collection add-ons', () => {
+    const { store } = dispatchClientMetadata();
+    const { detail, addons } = createCollectionWithTwoAddons();
+
+    const wrapper = renderComponent({
+      params: { username: detail.author.username, slug: detail.slug },
+      store,
+    });
+
+    _loadCurrentCollection({
+      store,
+      detail,
+      addons,
+    });
+    simulateReduxStateChange({ wrapper, store });
+
+    // Since the placeholder calculation happens in
+    // componentDidUpdate(), we need to re-render to see the effect.
+    wrapper.setProps();
+
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      addons.length,
+    );
+  });
+
   it('renders collection details', () => {
     const slug = 'some-slug';
     const username = 'some-username';
@@ -868,11 +942,7 @@ describe(__filename, () => {
       }),
     );
 
-    // This is needed because shallowUntilTarget() does not trigger any
-    // lifecycle methods.
-    wrapper.setProps(
-      mapStateToProps(store.getState(), { location: fakeRouterLocation() }),
-    );
+    simulateReduxStateChange({ wrapper, store });
 
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
     // We should not update the collection detail card.
