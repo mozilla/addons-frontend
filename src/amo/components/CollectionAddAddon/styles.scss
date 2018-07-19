@@ -1,0 +1,45 @@
+@import '~photon-colors/photon-colors';
+@import '~amo/css/inc/vars';
+
+.CollectionAddAddon {
+  .ErrorList,
+  .NoticePlaceholder {
+    margin-top: 16px;
+    min-height: 32px;
+  }
+
+  .NoticePlaceholder {
+    + .AutoSearchInput {
+      .AutoSearchInput-label {
+        padding-top: 4px;
+      }
+    }
+  }
+
+  .AutoSearchInput-query {
+    border: 1px solid $grey-50;
+    border-radius: $border-radius-xs;
+  }
+
+  .AutoSearchInput--autocompleteIsOpen .AutoSearchInput-query {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  label {
+    display: block;
+    font-size: $font-size-s;
+    padding: 24px 0 6px;
+  }
+
+  .Notice {
+    &.NoticePlaceholder-transition-appear {
+      opacity: 1;
+    }
+
+    &.NoticePlaceholder-transition-exit-active {
+      opacity: 0;
+      transition: opacity $transition-medium ease-in-out;
+    }
+  }
+}
