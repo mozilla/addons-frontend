@@ -913,52 +913,33 @@ describe(__filename, () => {
     );
   });
 
-  it('renders image without srcSet if there is no large preview image url', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+  it.each([0, 1])(
+    `renders image without srcSet if there are no preview image sizes or large image %s`,
+    (index) => {
+      const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+      const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
 
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-        previews: [
-          {
-            ...fakePreview,
-            image_url: '',
-            thumbnail_url: headerImageThumb,
-            image_size: [],
-            thumbnail_size: [],
-          },
-        ],
-      }),
-    });
-    const image = root.find('.Addon-theme-header-image');
-    expect(image.prop('src')).toEqual(headerImageThumb);
-    expect(image).not.toHaveProp('srcSet');
-  });
+      const root = shallowRender({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+          previews: [
+            {
+              ...fakePreview,
+              image_url: index === 0 ? '' : headerImageFull,
+              thumbnail_url: headerImageThumb,
+              image_size: index === 0 ? [800, 400] : [],
+              thumbnail_size: index === 0 ? [400, 200] : [],
+            },
+          ],
+        }),
+      });
 
-  it('renders image without srcSet if there are no preview image sizes', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
-
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-        previews: [
-          {
-            ...fakePreview,
-            image_url: headerImageFull,
-            thumbnail_url: headerImageThumb,
-            image_size: [],
-            thumbnail_size: [],
-          },
-        ],
-      }),
-    });
-    const image = root.find('.Addon-theme-header-image');
-    expect(image.prop('src')).toEqual(headerImageThumb);
-    expect(image).not.toHaveProp('srcSet');
-  });
+      const image = root.find('.Addon-theme-header-image');
+      expect(image.prop('src')).toEqual(headerImageThumb);
+      expect(image).not.toHaveProp('srcSet');
+    },
+  );
 
   it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
     const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
