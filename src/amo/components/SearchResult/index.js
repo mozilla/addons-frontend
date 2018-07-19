@@ -8,7 +8,7 @@ import translate from 'core/i18n/translate';
 import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
 import {
   addQueryParams,
-  isAllowedOrigin,
+  isAllowedOrigin as defaultIsAllowedOrigin,
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
@@ -24,6 +24,7 @@ import './styles.scss';
 type Props = {|
   addon?: AddonType | CollectionAddonType,
   addonInstallSource?: string,
+  isAllowedOrigin: Function,
   showMetadata?: boolean,
   showSummary?: boolean,
 |};
@@ -35,6 +36,7 @@ type InternalProps = {|
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
+    isAllowedOrigin: defaultIsAllowedOrigin,
     showMetadata: true,
     showSummary: true,
   };
@@ -45,7 +47,13 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 
   renderResult() {
-    const { addon, i18n, showMetadata, showSummary } = this.props;
+    const {
+      addon,
+      i18n,
+      isAllowedOrigin,
+      showMetadata,
+      showSummary,
+    } = this.props;
 
     const isTheme = this.addonIsTheme();
     const averageDailyUsers = addon && addon.average_daily_users;

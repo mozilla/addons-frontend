@@ -146,19 +146,23 @@ describe(__filename, () => {
   });
 
   it('does not render an image if the isAllowedOrigin is false', () => {
+    const differentOriginalUrl = 'http://example.com';
+    const isAllowedOriginSpy = sinon.spy();
     const root = render({
+      isAllowedOrigin: isAllowedOriginSpy,
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
         previews: [
           {
             ...fakePreview,
-            thumbnail_url: 'http://example.com',
+            thumbnail_url: differentOriginalUrl,
           },
         ],
       }),
     });
 
+    sinon.assert.calledWith(isAllowedOriginSpy, differentOriginalUrl);
     expect(root.find('.SearchResult-icon')).toHaveLength(0);
   });
 
