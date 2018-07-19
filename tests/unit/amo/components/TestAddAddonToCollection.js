@@ -12,6 +12,7 @@ import {
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -22,6 +23,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createFakeRouter,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -39,8 +41,8 @@ describe(__filename, () => {
     return {
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
+      router: createFakeRouter(),
       store,
-      _window: {},
       ...customProps,
     };
   };
@@ -54,11 +56,15 @@ describe(__filename, () => {
   };
 
   const signInAndDispatchCollections = ({
-    userId = 1,
     username = 'some-user',
+    clientApp,
     collections = [createFakeCollectionDetail({ authorUsername: username })],
+    lang,
+    userId = 1,
   } = {}) => {
     dispatchSignInActions({
+      clientApp,
+      lang,
       store,
       userId,
       userProps: { username },
@@ -78,13 +84,6 @@ describe(__filename, () => {
 
     return { firstCollection, secondCollection };
   };
-
-  it('lets you specify the css class', () => {
-    const root = render({ className: 'MyClass' });
-
-    expect(root).toHaveClassName('MyClass');
-    expect(root).toHaveClassName('AddAddonToCollection');
-  });
 
   describe('fetching user collections', () => {
     it('fetches user collections on first render', () => {
@@ -376,12 +375,19 @@ describe(__filename, () => {
       sinon.assert.notCalled(dispatchStub);
     });
 
-    it('lets you create a new collection', () => {
-      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
-      signInAndDispatchCollections();
+    it('lets you create a new collection by navigating to the collection page', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'fr';
 
-      const _window = { location: null };
-      const root = render({ addon, _window });
+      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
+
+      signInAndDispatchCollections({
+        clientApp,
+        lang,
+      });
+
+      const routerSpy = createFakeRouter();
+      const root = render({ addon, router: routerSpy });
 
       const select = root.find('.AddAddonToCollection-select');
       const createOption = findOption({
@@ -396,7 +402,10 @@ describe(__filename, () => {
         }),
       );
 
-      expect(_window.location).toEqual('/collections/add');
+      sinon.assert.calledWith(
+        routerSpy.push,
+        `/${lang}/${clientApp}/collections/add/`,
+      );
     });
 
     it('requires an add-on before you can add to a collection', () => {
