@@ -500,7 +500,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes an isTheme prop as true if type is a theme', () => {
+  it('passes an isTheme prop as true to LandingAddonsCard if type is a theme', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();
@@ -518,9 +518,10 @@ describe(__filename, () => {
 
     const landingShelves = root.find(LandingAddonsCard);
 
-    expect(landingShelves.at(0)).toHaveProp('isTheme', true);
-    expect(landingShelves.at(1)).toHaveProp('isTheme', true);
-    expect(landingShelves.at(2)).toHaveProp('isTheme', true);
+    expect.assertions(3);
+    landingShelves.forEach((shelf) => {
+      expect(shelf).toHaveProp('isTheme', true);
+    });
   });
 
   it('renders a theme class name if type is a theme', () => {

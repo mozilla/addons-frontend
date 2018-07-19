@@ -109,38 +109,23 @@ describe(__filename, () => {
   });
 
   it('hides the footer link when there are less add-ons than LANDING_PAGE_THEME_COUNT', () => {
-    const addons = [];
-
-    for (let i = 0; i < LANDING_PAGE_THEME_COUNT - 1; i++) {
-      addons.push(
-        createInternalAddon({
-          ...fakeAddon,
-          type: ADDON_TYPE_THEME,
-          slug: `custom-addon-${i}`,
-        }),
-      );
-    }
-    const root = render({ addons, isTheme: true });
+    const root = render({
+      addons: Array(LANDING_PAGE_THEME_COUNT - 1).fill(
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+      ),
+      isTheme: true,
+    });
     expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
   });
 
   it('shows the footer link when there are more or as many add-ons as LANDING_PAGE_THEME_COUNT', () => {
-    const addons = [];
     const footerLink = 'footer-link-path';
     const footerText = 'footer link text';
 
-    for (let i = 0; i < LANDING_PAGE_THEME_COUNT; i++) {
-      addons.push(
-        createInternalAddon({
-          ...fakeAddon,
-          type: ADDON_TYPE_THEME,
-          slug: `custom-addon-${i}`,
-        }),
-      );
-    }
-
     const root = render({
-      addons,
+      addons: Array(LANDING_PAGE_THEME_COUNT).fill(
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+      ),
       isTheme: true,
       footerLink,
       footerText,
@@ -152,23 +137,14 @@ describe(__filename, () => {
   });
 
   it('shows the footer link when there are more or as many add-ons as placeholderCount', () => {
-    const addons = [];
     const footerLink = 'footer-link-path';
     const footerText = 'footer link text';
     const placeholderCount = 2;
 
-    for (let i = 0; i < placeholderCount; i++) {
-      addons.push(
-        createInternalAddon({
-          ...fakeAddon,
-          type: ADDON_TYPE_THEME,
-          slug: `custom-addon-${i}`,
-        }),
-      );
-    }
-
     const root = render({
-      addons,
+      addons: Array(placeholderCount).fill(
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+      ),
       placeholderCount,
       footerLink,
       footerText,

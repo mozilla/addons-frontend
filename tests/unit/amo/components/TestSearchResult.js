@@ -146,23 +146,14 @@ describe(__filename, () => {
   });
 
   it('does not render an image if the isAllowedOrigin is false', () => {
-    const differentOriginUrl = 'http://example.com';
-    const isAllowedOriginSpy = sinon.spy();
     const root = render({
-      isAllowedOrigin: isAllowedOriginSpy,
+      isAllowedOrigin: sinon.stub().returns(false),
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
-        previews: [
-          {
-            ...fakePreview,
-            thumbnail_url: differentOriginUrl,
-          },
-        ],
       }),
     });
 
-    sinon.assert.calledWith(isAllowedOriginSpy, differentOriginUrl);
     expect(root.find('.SearchResult-icon')).toHaveLength(0);
   });
 
@@ -240,9 +231,9 @@ describe(__filename, () => {
     );
   });
 
-  it.each([0, 1])(
-    `renders image without srcSet if there are no preview image sizes or large image %s`,
-    (index) => {
+  it.each([{ image_url: '' }, { image_size: [] }, { thumbnail_size: [] }])(
+    `renders image without srcSet if there are no preview image sizes or large image %o`,
+    (propOverride) => {
       const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
       const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
 
@@ -258,10 +249,11 @@ describe(__filename, () => {
             },
             {
               ...fakePreview,
-              image_url: index === 0 ? headerImageFull : '',
+              image_url: headerImageFull,
               thumbnail_url: headerImageThumb,
-              image_size: index === 1 ? [400, 200] : [],
-              thumbnail_size: index === 1 ? [200, 100] : [],
+              image_size: [400, 200],
+              thumbnail_size: [200, 100],
+              ...propOverride,
             },
           ],
         }),

@@ -913,9 +913,9 @@ describe(__filename, () => {
     );
   });
 
-  it.each([0, 1])(
-    `renders image without srcSet if there are no preview image sizes or large image %s`,
-    (index) => {
+  it.each([{ image_url: '' }, { image_size: [] }, { thumbnail_size: [] }])(
+    `renders image without srcSet if there are no preview image sizes or large image %o`,
+    (propOverride) => {
       const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
       const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
 
@@ -926,10 +926,11 @@ describe(__filename, () => {
           previews: [
             {
               ...fakePreview,
-              image_url: index === 0 ? '' : headerImageFull,
+              image_url: headerImageFull,
               thumbnail_url: headerImageThumb,
-              image_size: index === 0 ? [800, 400] : [],
-              thumbnail_size: index === 0 ? [400, 200] : [],
+              image_size: [800, 400],
+              thumbnail_size: [400, 200],
+              ...propOverride,
             },
           ],
         }),

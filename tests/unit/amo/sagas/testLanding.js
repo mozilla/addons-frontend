@@ -58,17 +58,23 @@ describe(__filename, () => {
       );
     }
 
-    it.each([0, 1])(
-      `fetches landing page addons from the API position %s`,
-      async (index) => {
-        const addonType = index === 0 ? ADDON_TYPE_EXTENSION : ADDON_TYPE_THEME;
+    it.each([
+      {
+        addonType: ADDON_TYPE_EXTENSION,
+        pageSize: LANDING_PAGE_EXTENSION_COUNT,
+      },
+      {
+        addonType: ADDON_TYPE_THEME,
+        pageSize: LANDING_PAGE_THEME_COUNT,
+      },
+    ])(
+      `fetches landing page addons from the API for %o`,
+      async (testConfig) => {
+        const { addonType, pageSize } = testConfig;
         const baseArgs = { api: apiState };
         const baseFilters = {
           addonType,
-          page_size:
-            index === 0
-              ? LANDING_PAGE_EXTENSION_COUNT
-              : LANDING_PAGE_THEME_COUNT,
+          page_size: pageSize,
         };
 
         const featured = createAddonsApiResult([
