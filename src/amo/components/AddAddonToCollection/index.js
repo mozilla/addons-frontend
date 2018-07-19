@@ -1,8 +1,8 @@
 /* @flow */
-/* global window */
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import {
@@ -24,19 +24,26 @@ import type { DispatchFunc } from 'core/types/redux';
 import type { CollectionType } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
 import type { ElementEvent } from 'core/types/dom';
+import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
 type Props = {|
-  _window: typeof window | Object,
   addon: AddonType | null,
+|};
+
+type InternalProps = {|
+  ...Props,
   // These are all user collections that the current add-on is a part of.
   addonInCollections: Array<CollectionType> | null,
   className?: string,
+  clientApp: string,
   currentUsername: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  router: ReactRouterType,
+  lang: string,
   loadingAddonsInCollections: boolean,
   loadingUserCollections: boolean,
   // These are all collections belonging to the user.
@@ -51,15 +58,12 @@ type SelectData = {|
   disabled: boolean,
 |};
 
-export class AddAddonToCollectionBase extends React.Component<Props> {
+export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   optionSelectHandlers: { [key: string]: OnSelectOptionType };
 
-  static defaultProps = {
-    _window: typeof window !== 'undefined' ? window : {},
-  };
-
-  constructor(props: Props) {
+  constructor(props: InternalProps) {
     super(props);
+
     this.optionSelectHandlers = {};
   }
 
@@ -70,11 +74,11 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: InternalProps) {
     this.loadDataIfNeeded(nextProps);
   }
 
-  loadDataIfNeeded(nextProps?: Props) {
+  loadDataIfNeeded(nextProps?: InternalProps) {
     const combinedProps = { ...this.props, ...nextProps };
     const {
       currentUsername,
@@ -156,10 +160,12 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
   getSelectData(): SelectData {
     const {
-      _window,
+      clientApp,
       i18n,
+      lang,
       loadingAddonsInCollections,
       loadingUserCollections,
+      router,
       userCollections,
     } = this.props;
 
@@ -200,7 +206,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
           // See
           // https://github.com/mozilla/addons-frontend/issues/4003
           // https://github.com/mozilla/addons-frontend/issues/3993
-          _window.location = '/collections/add';
+          router.push(`/${lang}/${clientApp}/collections/add/`);
         },
       }),
     );
@@ -294,7 +300,9 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   }
   return {
     addonInCollections: expandCollections(collections, addonInCollections),
+    clientApp: state.api.clientApp,
     currentUsername,
+    lang: state.api.lang,
     loadingAddonsInCollections: addonInCollections
       ? addonInCollections.loading
       : false,
@@ -303,12 +311,14 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   };
 };
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: InternalProps) => {
   const { addon, currentUsername } = ownProps;
+
   return `${addon ? addon.id : ''}-${currentUsername || ''}`;
 };
 
 const AddAddonToCollection: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
