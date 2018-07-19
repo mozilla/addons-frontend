@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-03-17 06:44+0000\n"
-"Last-Translator: Adeel <meetadeel@gmail.com>\n"
+"PO-Revision-Date: 2018-07-19 12:53+0000\n"
+"Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -243,7 +243,7 @@ msgstr "رازداری پالیسی"
 
 #: src/amo/components/AddonMoreInfo/index.js:219
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "اختتامی صارف لائسنس معاہدہ"
 
 #: src/amo/components/AddonMoreInfo/index.js:227
 msgid "Version History"
@@ -713,7 +713,7 @@ msgstr "منسوخ کریں"
 
 #: src/amo/components/ContributeCard/index.js:32
 msgid "Support this developer"
-msgstr ""
+msgstr "اس کے ڈویلپر کی حمایت کریں"
 
 #: src/amo/components/ContributeCard/index.js:33
 #, fuzzy
@@ -816,7 +816,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:43
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "یہ اضافہ ایک منتظم کی طرف سے نااہل بنا دیا گیا ہے۔"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:47
 msgid "Sorry, but we can't find anything at the address you entered."
@@ -1050,7 +1050,7 @@ msgstr "تلخیص"
 
 #: src/amo/components/Home/index.js:170
 msgid "Nature"
-msgstr ""
+msgstr "‏‏قدرت"
 
 #: src/amo/components/Home/index.js:175
 msgid "Film & TV"
@@ -1638,7 +1638,7 @@ msgstr "حالیہ تازہ کاریاں"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Most Users"
-msgstr ""
+msgstr "سب سے زیادہ صارفین"
 
 #: src/amo/components/SearchFilters/index.js:143
 msgid "Top Rated"
