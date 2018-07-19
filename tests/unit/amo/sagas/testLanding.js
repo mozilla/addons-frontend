@@ -58,166 +58,90 @@ describe(__filename, () => {
       );
     }
 
-    it('fetches extensions landing page addons from the API', async () => {
-      const addonType = ADDON_TYPE_EXTENSION;
-      const baseArgs = { api: apiState };
-      const baseFilters = {
-        addonType,
-        page_size: LANDING_PAGE_EXTENSION_COUNT,
-      };
-
-      const featured = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          slug: 'featured-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(featured));
-
-      const highlyRated = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          slug: 'highly-rated-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            sort: SEARCH_SORT_TOP_RATED,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(highlyRated));
-
-      const trending = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          slug: 'trending-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            sort: SEARCH_SORT_TRENDING,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(trending));
-
-      _getLanding({ addonType });
-
-      await sagaTester.waitFor(LANDING_LOADED);
-      mockSearchApi.verify();
-
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(
-        loadLanding({
+    it.each([0, 1])(
+      `fetches landing page addons from the API position %s`,
+      async (index) => {
+        const addonType = index === 0 ? ADDON_TYPE_EXTENSION : ADDON_TYPE_THEME;
+        const baseArgs = { api: apiState };
+        const baseFilters = {
           addonType,
-          featured,
-          highlyRated,
-          trending,
-        }),
-      );
-    });
+          page_size:
+            index === 0
+              ? LANDING_PAGE_EXTENSION_COUNT
+              : LANDING_PAGE_THEME_COUNT,
+        };
 
-    it('fetches themes landing page addons from the API', async () => {
-      const addonType = ADDON_TYPE_THEME;
-      const baseArgs = { api: apiState };
-      const baseFilters = {
-        addonType,
-        page_size: LANDING_PAGE_THEME_COUNT,
-      };
-
-      const featured = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          type: addonType,
-          slug: 'featured-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
+        const featured = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            slug: 'featured-addon',
           },
-          page: 1,
-        })
-        .returns(Promise.resolve(featured));
+        ]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              featured: true,
+              sort: SEARCH_SORT_RANDOM,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(featured));
 
-      const highlyRated = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          type: addonType,
-          slug: 'highly-rated-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            sort: SEARCH_SORT_TOP_RATED,
+        const highlyRated = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            slug: 'highly-rated-addon',
           },
-          page: 1,
-        })
-        .returns(Promise.resolve(highlyRated));
+        ]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              sort: SEARCH_SORT_TOP_RATED,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(highlyRated));
 
-      const trending = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          type: addonType,
-          slug: 'trending-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            sort: SEARCH_SORT_TRENDING,
+        const trending = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            slug: 'trending-addon',
           },
-          page: 1,
-        })
-        .returns(Promise.resolve(trending));
+        ]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              sort: SEARCH_SORT_TRENDING,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(trending));
 
-      _getLanding({ addonType });
+        _getLanding({ addonType });
 
-      await sagaTester.waitFor(LANDING_LOADED);
-      mockSearchApi.verify();
+        await sagaTester.waitFor(LANDING_LOADED);
+        mockSearchApi.verify();
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(
-        loadLanding({
-          addonType,
-          featured,
-          highlyRated,
-          trending,
-        }),
-      );
-    });
+        const calledActions = sagaTester.getCalledActions();
+        expect(calledActions[1]).toEqual(
+          loadLanding({
+            addonType,
+            featured,
+            highlyRated,
+            trending,
+          }),
+        );
+      },
+    );
 
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');

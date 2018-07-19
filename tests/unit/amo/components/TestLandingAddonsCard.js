@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import Link from 'amo/components/Link';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
@@ -108,51 +109,52 @@ describe(__filename, () => {
   });
 
   it('hides the footer link when there are less add-ons than LANDING_PAGE_THEME_COUNT', () => {
-    const addons = [
-      createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        slug: 'custom-addon',
-      }),
-    ];
+    const addons = [];
+
+    for (let i = 0; i < LANDING_PAGE_THEME_COUNT - 1; i++) {
+      addons.push(
+        createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_THEME,
+          slug: `custom-addon-${i}`,
+        }),
+      );
+    }
     const root = render({ addons, isTheme: true });
     expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
   });
 
   it('shows the footer link when there are more or as many add-ons than LANDING_PAGE_THEME_COUNT', () => {
-    const addons = [
-      createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        slug: 'custom-addon',
-      }),
-      createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        slug: 'custom-addon-1',
-      }),
-      createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        slug: 'custom-addon-2',
-      }),
-    ];
-    const root = render({ addons, isTheme: true });
-    expect(root.find(AddonsCard)).not.toHaveProp('footerLink', null);
+    const addons = [];
+    const footerLink = 'footer-link-path';
+    const footerText = 'footer link text';
 
-    expect(root.find(AddonsCard).prop('footerLink')).toMatchObject({
-      key: null,
-      ref: null,
-      props: {
-        to: { pathname: '/some-path/', query: {} },
-        children: 'some text',
-      },
-      _owner: null,
-      _store: {},
+    for (let i = 0; i < LANDING_PAGE_THEME_COUNT; i++) {
+      addons.push(
+        createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_THEME,
+          slug: `custom-addon-${i}`,
+        }),
+      );
+    }
+
+    const root = render({
+      addons,
+      isTheme: true,
+      footerLink,
+      footerText,
     });
+
+    expect(root.find(AddonsCard).prop('footerLink')).toEqual(
+      <Link to={footerLink}>{footerText}</Link>,
+    );
   });
 
   it('shows the footer link when there are as many or more add-ons than placeholderCount', () => {
+    const footerLink = 'footer-link-path';
+    const footerText = 'footer link text';
+
     const addons = [
       createInternalAddon({
         ...fakeAddon,
@@ -163,19 +165,16 @@ describe(__filename, () => {
         slug: 'custom-addon-1',
       }),
     ];
-    const root = render({ addons, placeholderCount: 2 });
-    expect(root.find(AddonsCard)).not.toHaveProp('footerLink', null);
-
-    expect(root.find(AddonsCard).prop('footerLink')).toMatchObject({
-      key: null,
-      ref: null,
-      props: {
-        to: { pathname: '/some-path/', query: {} },
-        children: 'some text',
-      },
-      _owner: null,
-      _store: {},
+    const root = render({
+      addons,
+      placeholderCount: 2,
+      footerLink,
+      footerText,
     });
+
+    expect(root.find(AddonsCard).prop('footerLink')).toEqual(
+      <Link to={footerLink}>{footerText}</Link>,
+    );
   });
 
   it('accepts a string for the footer link', () => {

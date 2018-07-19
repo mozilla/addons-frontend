@@ -168,14 +168,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         name: alt,
-        type: ADDON_TYPE_THEME,
-        previews: [
-          {
-            ...fakePreview,
-            thumbnail_url:
-              'https://addons.cdn.mozilla.net/mytestthumb/12345.png',
-          },
-        ],
       }),
     });
 
@@ -244,61 +236,39 @@ describe(__filename, () => {
     );
   });
 
-  it('renders image without srcSet if there are no preview image sizes', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+  it.each([0, 1])(
+    `renders image without srcSet if there are no preview image sizes or a large image position %s`,
+    (index) => {
+      const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+      const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
 
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-        previews: [
-          {
-            ...fakePreview,
-          },
-          {
-            ...fakePreview,
-            image_url: headerImageFull,
-            thumbnail_url: headerImageThumb,
-            image_size: [],
-            thumbnail_size: [],
-          },
-        ],
-      }),
-    });
-    const image = root.find('.SearchResult-icon');
-    expect(image.prop('src')).toEqual(headerImageThumb);
-    expect(image).not.toHaveProp('srcSet');
-  });
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+          previews: [
+            {
+              ...fakePreview,
+              image_url: index === 0 ? fakePreview.image_url : headerImageFull,
+              thumbnail_url:
+                index === 0 ? fakePreview.thumbnail_url : headerImageThumb,
+            },
+            {
+              ...fakePreview,
+              image_url: index === 0 ? headerImageFull : '',
+              thumbnail_url: headerImageThumb,
+              image_size: [],
+              thumbnail_size: [],
+            },
+          ],
+        }),
+      });
 
-  it('renders image without srcSet if there is no large preview image url', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
-
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-        previews: [
-          {
-            ...fakePreview,
-            image_url: headerImageFull,
-            thumbnail_url: headerImageThumb,
-          },
-          {
-            ...fakePreview,
-            image_url: '',
-            thumbnail_url: headerImageThumb,
-            image_size: [],
-            thumbnail_size: [],
-          },
-        ],
-      }),
-    });
-    const image = root.find('.SearchResult-icon');
-    expect(image.prop('src')).toEqual(headerImageThumb);
-    expect(image).not.toHaveProp('srcSet');
-  });
+      const image = root.find('.SearchResult-icon');
+      expect(image.prop('src')).toEqual(headerImageThumb);
+      expect(image).not.toHaveProp('srcSet');
+    },
+  );
 
   // TODO: This can be removed once migration happens.
   it('displays a fallback image for themes that only have 1 preview option', () => {

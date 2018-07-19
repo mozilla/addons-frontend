@@ -118,6 +118,25 @@ describe(__filename, () => {
       expect(homeState.collections[0]).toEqual(null);
     });
 
+    it('returns null for an empty collection', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(
+        loadHomeAddons({
+          collections: [
+            {
+              results: [],
+            },
+          ],
+          featuredExtensions: createAddonsApiResult([fakeAddon]),
+          featuredThemes: createAddonsApiResult([fakeTheme]),
+        }),
+      );
+
+      const homeState = store.getState().home;
+      expect(homeState.collections).toEqual([null]);
+    });
+
     it('loads an empty array if featured themes is null', () => {
       const { store } = dispatchClientMetadata();
 

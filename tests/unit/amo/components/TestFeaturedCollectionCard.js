@@ -69,14 +69,9 @@ describe(__filename, () => {
     );
   });
 
-  it('passes a isTheme prop as true if type is a theme', () => {
+  it('passes the same isTheme prop value to the landingAddonsCard', () => {
     const root = render({ isTheme: true });
     expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', true);
-  });
-
-  it('passes a isTheme prop as false if type is an extension', () => {
-    const root = render({ isTheme: false });
-    expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', false);
   });
 
   it('passes collection related properties to LandingAddonsCard', () => {
