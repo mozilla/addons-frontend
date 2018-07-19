@@ -307,7 +307,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const confirmButtonClassName = 'UserProfileEditPicture-delete-button';
+    const confirmButtonClassName = 'Collection-delete-button';
 
     return (
       <ConfirmButton
