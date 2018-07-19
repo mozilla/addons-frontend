@@ -11,7 +11,7 @@ describe(__filename, () => {
     const params = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
-    const root = shallow(<CategoriesPageBase params={params} />);
+    const root = shallow(<CategoriesPageBase match={{ params }} />);
 
     expect(root.find(Categories)).toHaveProp('addonType', ADDON_TYPE_EXTENSION);
   });

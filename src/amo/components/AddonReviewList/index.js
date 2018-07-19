@@ -5,7 +5,6 @@ import { oneLine } from 'common-tags';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
@@ -30,7 +29,11 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation, ReactRouterType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  ReactRouterLocationType,
+  ReactRouterMatchType,
+} from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -42,12 +45,17 @@ type Props = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   lang: string,
-  location: ReactRouterLocation,
-  params: {| addonSlug: string |},
+  location: ReactRouterLocationType,
+  match: {|
+    ...ReactRouterMatchType,
+    params: {
+      addonSlug: string,
+    },
+  |},
   pageSize: number | null,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
-  router: ReactRouterType,
+  history: ReactRouterHistoryType,
 |};
 
 export class AddonReviewListBase extends React.Component<Props> {
@@ -62,7 +70,7 @@ export class AddonReviewListBase extends React.Component<Props> {
   loadDataIfNeeded(nextProps?: Props) {
     const lastAddon = this.props.addon;
     const nextAddon = nextProps && nextProps.addon;
-    const { addon, dispatch, errorHandler, params, reviews } = {
+    const { addon, dispatch, errorHandler, match, reviews } = {
       ...this.props,
       ...nextProps,
     };
@@ -73,7 +81,7 @@ export class AddonReviewListBase extends React.Component<Props> {
     }
 
     if (!addon) {
-      dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
+      dispatch(fetchAddon({ slug: match.params.addonSlug, errorHandler }));
     } else if (
       // This is the first time rendering the component.
       !nextProps ||
@@ -95,9 +103,14 @@ export class AddonReviewListBase extends React.Component<Props> {
     if (!reviews || locationChanged) {
       dispatch(
         fetchReviews({
-          addonSlug: params.addonSlug,
+          addonSlug: match.params.addonSlug,
           errorHandlerId: errorHandler.id,
-          page: location.query.page,
+          // TODO: so, there is a test case (`it dispatches fetchReviews with
+          // an invalid page variable`) that conflicts with `fetchReviews()`
+          // requiring a page of type `number`. We should decide whether `page`
+          // can be anything OR restrict to integer values.
+          // $FLOW_FIXME
+          page: this.getCurrentPage(location),
         }),
       );
     }
@@ -115,18 +128,18 @@ export class AddonReviewListBase extends React.Component<Props> {
     return `${this.addonURL()}reviews/`;
   }
 
-  getCurrentPage() {
-    return this.props.location.query.page || 1;
+  getCurrentPage(location: ReactRouterLocationType) {
+    return location.query.page || 1;
   }
 
   onReviewSubmitted = () => {
-    const { clientApp, dispatch, lang, params, router } = this.props;
+    const { clientApp, dispatch, lang, location, match, history } = this.props;
     // Now that a new review has been submitted, reset the list
     // so that it gets reloaded.
-    dispatch(clearAddonReviews({ addonSlug: params.addonSlug }));
+    dispatch(clearAddonReviews({ addonSlug: match.params.addonSlug }));
 
-    if (this.getCurrentPage() !== 1) {
-      router.push({
+    if (this.getCurrentPage(location) !== 1) {
+      history.push({
         pathname: `/${lang}/${clientApp}${this.url()}`,
         query: { page: 1 },
       });
@@ -241,7 +254,7 @@ export class AddonReviewListBase extends React.Component<Props> {
         <Paginate
           LinkComponent={Link}
           count={reviewCount}
-          currentPage={this.getCurrentPage()}
+          currentPage={this.getCurrentPage(location)}
           pathname={this.url()}
           perPage={pageSize}
         />
@@ -313,10 +326,17 @@ export class AddonReviewListBase extends React.Component<Props> {
 }
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
-  if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
-    throw new Error('The component had a falsey params.addonSlug parameter');
+  if (
+    !ownProps ||
+    !ownProps.match ||
+    !ownProps.match.params ||
+    !ownProps.match.params.addonSlug
+  ) {
+    throw new Error(
+      'The component had a falsey match.params.addonSlug parameter',
+    );
   }
-  const { addonSlug } = ownProps.params;
+  const { addonSlug } = ownProps.match.params;
   const reviewData = state.reviews.byAddon[addonSlug];
 
   return {
@@ -335,13 +355,12 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 }
 
 export const extractId = (ownProps: Props) => {
-  const { location, params } = ownProps.router;
+  const { location, match } = ownProps;
 
-  return `${params.addonSlug}-${location.query.page || ''}`;
+  return `${match.params.addonSlug}-${location.query.page || ''}`;
 };
 
 const AddonReviewList: React.ComponentType<Props> = compose(
-  withRouter,
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),

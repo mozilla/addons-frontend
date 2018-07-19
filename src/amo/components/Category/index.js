@@ -48,9 +48,11 @@ export class CategoryBase extends React.Component {
     highlyRatedAddons: PropTypes.array,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
-    params: PropTypes.shape({
-      slug: PropTypes.string,
-      visibleAddonType: PropTypes.string,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        slug: PropTypes.string,
+        visibleAddonType: PropTypes.string,
+      }).isRequired,
     }).isRequired,
     trendingAddons: PropTypes.array,
     resultsLoaded: PropTypes.bool.isRequired,
@@ -77,7 +79,7 @@ export class CategoryBase extends React.Component {
       dispatch,
       errorHandler,
       loading,
-      params,
+      match,
       resultsLoaded,
     } = {
       ...this.props,
@@ -88,6 +90,8 @@ export class CategoryBase extends React.Component {
       log.warn('Not loading data because of an error.');
       return;
     }
+
+    const { params } = match;
 
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
       log.warn(oneLine`Skipping componentWillMount() because visibleAddonType
@@ -134,7 +138,9 @@ export class CategoryBase extends React.Component {
   }
 
   contentForType = (addonType) => {
-    const { i18n, params } = this.props;
+    const { i18n, match } = this.props;
+    const { params } = match;
+
     const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, {
       _config: this.props._config,
     });
@@ -227,22 +233,24 @@ export class CategoryBase extends React.Component {
       featuredAddons,
       highlyRatedAddons,
       loading,
-      params,
+      match,
       trendingAddons,
     } = this.props;
 
     let addonType;
     try {
-      addonType = apiAddonType(params.visibleAddonType);
+      addonType = apiAddonType(match.params.visibleAddonType);
     } catch (error) {
-      log.info(`addonType ${params.visibleAddonType} threw an error: ${error}`);
+      log.info(
+        `addonType ${match.params.visibleAddonType} threw an error: ${error}`,
+      );
       return <NotFound />;
     }
 
     let category;
     if (categories) {
       if (categories[clientApp] && categories[clientApp][addonType]) {
-        category = categories[clientApp][addonType][params.slug];
+        category = categories[clientApp][addonType][match.params.slug];
       }
 
       if (!errorHandler.hasError() && !category) {

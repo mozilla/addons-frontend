@@ -33,7 +33,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
-  createFakeRouter,
+  createFakeHistory,
   createStubErrorHandler,
   createUserAccountResponse,
   createUserNotificationsResponse,
@@ -42,7 +42,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  let fakeRouter;
+  let fakeHistory;
 
   const defaultUserProps = {
     _window: {},
@@ -83,12 +83,13 @@ describe(__filename, () => {
       store = dispatchSignInActions({ userProps }).store;
     }
 
-    fakeRouter = createFakeRouter({ params });
+    fakeHistory = createFakeHistory();
 
     return shallowUntilTarget(
       <UserProfileEdit
+        history={fakeHistory}
         i18n={i18n}
-        router={fakeRouter}
+        match={{ params }}
         store={store}
         {...props}
       />,
@@ -793,7 +794,7 @@ describe(__filename, () => {
     );
 
     sinon.assert.calledWith(
-      fakeRouter.push,
+      fakeHistory.push,
       `/${lang}/${clientApp}/user/${username}/`,
     );
   });
@@ -814,7 +815,7 @@ describe(__filename, () => {
       username: newUsername,
     });
 
-    sinon.assert.notCalled(fakeRouter.push);
+    sinon.assert.notCalled(fakeHistory.push);
   });
 
   it('changes the URL when username has changed', () => {
@@ -844,7 +845,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.calledWith(
-      fakeRouter.push,
+      fakeHistory.push,
       `/${lang}/${clientApp}/user/${newUsername}/edit/`,
     );
   });
@@ -861,7 +862,7 @@ describe(__filename, () => {
 
     root.setProps({ username: newUsername, params: {} });
 
-    sinon.assert.notCalled(fakeRouter.push);
+    sinon.assert.notCalled(fakeHistory.push);
   });
 
   it('does not render a success message when an error occured', () => {
@@ -1417,7 +1418,7 @@ describe(__filename, () => {
     );
     sinon.assert.calledWith(dispatchSpy, logOutUser());
 
-    sinon.assert.calledWith(fakeRouter.push, `/${lang}/${clientApp}`);
+    sinon.assert.calledWith(fakeHistory.push, `/${lang}/${clientApp}`);
 
     sinon.assert.calledOnce(preventDefaultSpy);
   });
@@ -1472,8 +1473,9 @@ describe(__filename, () => {
     it('returns a unique ID based on params', () => {
       const username = 'foo';
       const params = { username };
+      const match = { params };
 
-      expect(extractId({ params })).toEqual(username);
+      expect(extractId({ match })).toEqual(username);
     });
   });
 

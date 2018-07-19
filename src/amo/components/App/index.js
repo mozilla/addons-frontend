@@ -6,10 +6,33 @@ import * as React from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter, Route, Switch } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
-import SearchForm from 'amo/components/SearchForm';
+import About from 'amo/components/StaticPages/About';
+import Addon from 'amo/components/Addon';
+import AddonReviewList from 'amo/components/AddonReviewList';
+import CategoriesPage from 'amo/components/CategoriesPage';
+import Category from 'amo/components/Category';
+import Collection from 'amo/components/Collection';
+import CollectionEdit from 'amo/components/CollectionEdit';
+import CollectionList from 'amo/components/CollectionList';
+import Home from 'amo/components/Home';
+import LandingPage from 'amo/components/LandingPage';
+import LanguageTools from 'amo/components/LanguageTools';
+import SearchTools from 'amo/components/SearchTools';
+import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import ReviewGuide from 'amo/components/StaticPages/ReviewGuide';
+import SearchPage from 'amo/components/SearchPage';
+import ServerError from 'amo/components/ErrorPage/ServerError';
+import UserProfile from 'amo/components/UserProfile';
+import UserProfileEdit from 'amo/components/UserProfileEdit';
+import SimulateAsyncError from 'core/components/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'core/components/error-simulation/SimulateClientError';
+import SimulateSyncError from 'core/components/error-simulation/SimulateSyncError';
+import ScrollToTop from 'core/components/ScrollToTop';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
@@ -29,7 +52,7 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 import type { I18nType } from 'core/types/i18n';
 
@@ -50,12 +73,11 @@ type Props = {|
   _navigator: typeof navigator,
   authToken?: string,
   authTokenValidFor?: number,
-  children?: React.Node,
   clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,
   isHomePage: boolean,
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   setUserAgent: (userAgent: string) => void,
@@ -118,6 +140,7 @@ export class AppBase extends React.Component<Props> {
 
   setLogOutTimer(authToken: string) {
     const { authTokenValidFor, logOutUser } = this.props;
+
     const expiresAt = authTokenValidFor;
     if (!expiresAt) {
       log.warn(oneLine`configured authTokenValidFor is falsey, not
@@ -195,7 +218,6 @@ export class AppBase extends React.Component<Props> {
       FooterComponent,
       HeaderComponent,
       InfoDialogComponent,
-      children,
       clientApp,
       i18n,
       isHomePage,
@@ -214,33 +236,173 @@ export class AppBase extends React.Component<Props> {
 
     return (
       <NestedStatus code={200}>
-        <div className="amo">
-          <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
-          <InfoDialogComponent />
-          <HeaderComponent
-            SearchFormComponent={SearchForm}
-            isHomePage={isHomePage}
-            location={location}
-            query={query}
-            ref={(ref) => {
-              this.header = ref;
-            }}
-          />
-          <div className="App-content">
-            <div className="App-content-wrapper">
-              <ErrorPage getErrorComponent={getErrorComponent}>
-                <div className="App-banner">
-                  <SurveyNotice location={location} />
-                </div>
-                {children}
-              </ErrorPage>
+        <ScrollToTop>
+          <div className="amo">
+            <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
+
+            <InfoDialogComponent />
+
+            <HeaderComponent
+              isHomePage={isHomePage}
+              location={location}
+              query={query}
+              ref={(ref) => {
+                this.header = ref;
+              }}
+            />
+
+            <div className="App-content">
+              <div className="App-content-wrapper">
+                <ErrorPage getErrorComponent={getErrorComponent}>
+                  <div className="App-banner">
+                    <SurveyNotice location={location} />
+                  </div>
+
+                  <Switch>
+                    <Route exact path="/:lang/about" component={About} />
+                    {/* TODO: Post launch update this URL and redirect see #3374/ */}
+                    <Route
+                      exact
+                      path="/:lang/review_guide"
+                      component={ReviewGuide}
+                    />
+
+                    <Route exact path="/:lang/:application/" component={Home} />
+
+                    <Route
+                      exact
+                      path="/:lang/:application/addon/:slug/"
+                      component={Addon}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/addon/:addonSlug/reviews/"
+                      component={AddonReviewList}
+                    />
+
+                    <Route
+                      exact
+                      path="/:lang/:application/users/edit"
+                      component={UserProfileEdit}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/user/:username/edit/"
+                      component={UserProfileEdit}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/user/:username/"
+                      component={UserProfile}
+                    />
+
+                    <Route
+                      exact
+                      path="/:lang/:application/collections/:username/:slug/"
+                      component={Collection}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/collections/"
+                      component={CollectionList}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/collections/add/"
+                      component={(props) => <Collection {...props} creating />}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/collections/:username/:slug/edit/"
+                      component={CollectionEdit}
+                    />
+
+                    <Route
+                      exact
+                      path="/:lang/:application/:visibleAddonType/categories/"
+                      component={CategoriesPage}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/:visibleAddonType/:slug/"
+                      component={Category}
+                    />
+
+                    {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
+                    <Route
+                      exact
+                      path="/:lang/android/language-tools/"
+                      component={NotFound}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/language-tools/"
+                      component={LanguageTools}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/search-tools/"
+                      component={SearchTools}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/search/"
+                      component={SearchPage}
+                    />
+
+                    <Route
+                      exact
+                      path="/:lang/:application/401/"
+                      component={
+                        config.get('isDevelopment') ? NotAuthorized : NotFound
+                      }
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/404/"
+                      component={NotFound}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/500/"
+                      component={
+                        config.get('isDevelopment') ? ServerError : NotFound
+                      }
+                    />
+
+                    <Route
+                      exact
+                      path="/:lang/:application/simulate-async-error/"
+                      component={SimulateAsyncError}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/simulate-sync-error/"
+                      component={SimulateSyncError}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/simulate-client-error/"
+                      component={SimulateClientError}
+                    />
+                    <Route
+                      exact
+                      path="/:lang/:application/:visibleAddonType/"
+                      component={LandingPage}
+                    />
+
+                    <Route component={NotFound} />
+                  </Switch>
+                </ErrorPage>
+              </div>
             </div>
+
+            <FooterComponent
+              handleViewDesktop={this.onViewDesktop}
+              location={location}
+            />
           </div>
-          <FooterComponent
-            handleViewDesktop={this.onViewDesktop}
-            location={location}
-          />
-        </div>
+        </ScrollToTop>
       </NestedStatus>
     );
   }
@@ -268,6 +430,7 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 }
 
 const App: React.ComponentType<Props> = compose(
+  withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps,

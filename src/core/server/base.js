@@ -7,24 +7,23 @@ import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 import Express from 'express';
 import helmet from 'helmet';
+import { createMemoryHistory } from 'history';
 import Raven from 'raven';
 import cookie from 'react-cookie';
 import * as React from 'react';
 import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
-import { Provider } from 'react-redux';
-import { RouterContext, createMemoryHistory, match } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
 import { END } from 'redux-saga';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import log from 'core/logger';
 import { createApiError } from 'core/api';
+import Root from 'core/components/Root';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
-import { convertBoolean } from 'core/utils';
+import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
 import {
   setAuthToken,
   setClientApp,
@@ -37,9 +36,14 @@ import {
   langToLocale,
   makeI18n,
 } from 'core/i18n/utils';
-import I18nProvider from 'core/i18n/Provider';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
+
+export const createHistory = ({ req }) => {
+  return addQueryParamsToHistory({
+    history: createMemoryHistory({ initialEntries: [req.url] }),
+  });
+};
 
 export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
   const appName = config.get('appName');
@@ -93,8 +97,7 @@ function renderHTML({ props = {}, pageProps }) {
 }
 
 function showErrorPage({ createStore, error = {}, req, res, status, config }) {
-  const memoryHistory = createMemoryHistory(req.url);
-  const { store } = createStore({ history: memoryHistory });
+  const { store } = createStore({ history: createHistory({ req }) });
   const pageProps = getPageProps({ store, req, res, config });
 
   const componentDeclaredStatus = NestedStatus.rewind();
@@ -129,7 +132,7 @@ function hydrateOnClient({ res, props = {}, pageProps }) {
 }
 
 function baseServer(
-  routes,
+  App,
   createStore,
   { appSagas, appInstanceName = null, config = defaultConfig, _HotShots } = {},
 ) {
@@ -237,7 +240,7 @@ function baseServer(
     app.use(middleware.trailingSlashesMiddleware);
   }
 
-  app.use((req, res, next) => {
+  app.use(async (req, res, next) => {
     if (isDevelopment) {
       log.info(oneLine`Clearing require cache for webpack isomorphic tools.
         [Development Mode]`);
@@ -262,127 +265,105 @@ function baseServer(
     // Vary the cache on Do Not Track headers.
     res.vary('DNT');
 
-    const memoryHistory = createMemoryHistory(req.url);
-    const { sagaMiddleware, store } = createStore({
-      history: memoryHistory,
-    });
-    const history = syncHistoryWithStore(memoryHistory, store);
+    const history = createHistory({ req });
+    const { sagaMiddleware, store } = createStore({ history });
 
-    match(
-      { history, location: req.url, routes },
-      async (matchError, redirectLocation, renderProps) => {
-        if (matchError) {
-          log.info(`match() returned an error for ${req.url}: ${matchError}`);
-          return next(matchError);
-        }
+    let pageProps;
+    let runningSagas;
 
-        if (!renderProps) {
-          log.info(`match() did not return renderProps for ${req.url}`);
-          return showErrorPage({ createStore, status: 404, req, res, config });
-        }
+    try {
+      cookie.plugToRequest(req, res);
 
-        let pageProps;
-        let runningSagas;
+      let sagas = appSagas;
+      if (!sagas) {
+        // eslint-disable-next-line global-require, import/no-dynamic-require
+        sagas = require(`${appName}/sagas`).default;
+      }
+      runningSagas = sagaMiddleware.run(sagas);
 
-        try {
-          cookie.plugToRequest(req, res);
+      // TODO: synchronize cookies with Redux store more automatically.
+      // See https://github.com/mozilla/addons-frontend/issues/5617
+      const token = cookie.load(config.get('cookieName'));
+      if (token) {
+        store.dispatch(setAuthToken(token));
+      }
+      if (
+        cookie.load(config.get('dismissedExperienceSurveyCookieName')) !==
+        undefined
+      ) {
+        store.dispatch(dismissSurvey());
+      }
 
-          let sagas = appSagas;
-          if (!sagas) {
-            // eslint-disable-next-line global-require, import/no-dynamic-require
-            sagas = require(`${appName}/sagas`).default;
-          }
-          runningSagas = sagaMiddleware.run(sagas);
+      pageProps = getPageProps({ noScriptStyles, store, req, res, config });
 
-          // TODO: synchronize cookies with Redux store more automatically.
-          // See https://github.com/mozilla/addons-frontend/issues/5617
-          const token = cookie.load(config.get('cookieName'));
-          if (token) {
-            store.dispatch(setAuthToken(token));
-          }
-          if (
-            cookie.load(config.get('dismissedExperienceSurveyCookieName')) !==
-            undefined
-          ) {
-            store.dispatch(dismissSurvey());
-          }
-
-          pageProps = getPageProps({ noScriptStyles, store, req, res, config });
-
-          if (config.get('disableSSR') === true) {
-            // This stops all running sagas.
-            store.dispatch(END);
-
-            await runningSagas.done;
-            log.warn('Server side rendering is disabled.');
-
-            return hydrateOnClient({ res, pageProps });
-          }
-        } catch (preLoadError) {
-          log.info(oneLine`Caught an error in match() before rendering:
-          ${preLoadError}`);
-          return next(preLoadError);
-        }
-
-        let i18nData = {};
-        const { htmlLang } = pageProps;
-        const locale = langToLocale(htmlLang);
-
-        try {
-          if (locale !== langToLocale(config.get('defaultLang'))) {
-            // eslint-disable-next-line global-require, import/no-dynamic-require
-            i18nData = require(`../../locale/${locale}/${appName}.js`);
-          }
-        } catch (e) {
-          log.info(`Locale JSON not found or required for locale: "${locale}"`);
-          log.info(
-            `Falling back to default lang: "${config.get('defaultLang')}"`,
-          );
-        }
-
-        const i18n = makeI18n(i18nData, htmlLang);
-
-        const InitialComponent = (
-          <I18nProvider i18n={i18n}>
-            <Provider store={store} key="provider">
-              <RouterContext {...renderProps} />
-            </Provider>
-          </I18nProvider>
-        );
-
-        const props = { component: InitialComponent };
-
-        // We need to render once because it will force components to
-        // dispatch data loading actions which get processed by sagas.
-        log.info('First component render to dispatch loading actions');
-        renderHTML({ props, pageProps });
-
-        // Send the redux-saga END action to stop sagas from running
-        // indefinitely. This is only done for server-side rendering.
+      if (config.get('disableSSR') === true) {
+        // This stops all running sagas.
         store.dispatch(END);
 
-        try {
-          // Once all sagas have completed, we load the page.
-          await runningSagas.done;
-          log.info('Second component render after sagas have finished');
+        await runningSagas.done;
+        log.warn('Server side rendering is disabled.');
 
-          const finalHTML = renderHTML({ props, pageProps });
+        return hydrateOnClient({ res, pageProps });
+      }
+    } catch (preLoadError) {
+      log.info(oneLine`Caught an error in match() before rendering:
+          ${preLoadError}`);
+      return next(preLoadError);
+    }
 
-          // A redirection has been requested, let's do it.
-          const { redirectTo } = store.getState();
-          if (redirectTo && redirectTo.url) {
-            log.info(oneLine`Redirection requested:
+    let i18nData = {};
+    const { htmlLang } = pageProps;
+    const locale = langToLocale(htmlLang);
+
+    try {
+      if (locale !== langToLocale(config.get('defaultLang'))) {
+        // eslint-disable-next-line global-require, import/no-dynamic-require
+        i18nData = require(`../../locale/${locale}/${appName}.js`);
+      }
+    } catch (e) {
+      log.info(`Locale JSON not found or required for locale: "${locale}"`);
+      log.info(`Falling back to default lang: "${config.get('defaultLang')}"`);
+    }
+
+    const i18n = makeI18n(i18nData, htmlLang);
+
+    const props = {
+      component: (
+        <Root history={history} i18n={i18n} store={store}>
+          <App />
+        </Root>
+      ),
+    };
+
+    // We need to render once because it will force components to
+    // dispatch data loading actions which get processed by sagas.
+    log.info('First component render to dispatch loading actions');
+    renderHTML({ props, pageProps });
+
+    // Send the redux-saga END action to stop sagas from running
+    // indefinitely. This is only done for server-side rendering.
+    store.dispatch(END);
+
+    try {
+      // Once all sagas have completed, we load the page.
+      await runningSagas.done;
+      log.info('Second component render after sagas have finished');
+
+      const finalHTML = renderHTML({ props, pageProps });
+
+      // A redirection has been requested, let's do it.
+      const { redirectTo } = store.getState();
+      if (redirectTo && redirectTo.url) {
+        log.info(oneLine`Redirection requested:
             url=${redirectTo.url} status=${redirectTo.status}`);
-            return res.redirect(redirectTo.status, redirectTo.url);
-          }
+        return res.redirect(redirectTo.status, redirectTo.url);
+      }
 
-          return sendHTML({ res, html: finalHTML });
-        } catch (error) {
-          log.error(`Caught error during rendering: ${error}`);
-          return next(error);
-        }
-      },
-    );
+      return sendHTML({ res, html: finalHTML });
+    } catch (error) {
+      log.error(`Caught error during rendering: ${error}`);
+      return next(error);
+    }
   });
 
   // Error handlers:
@@ -436,10 +417,10 @@ export function runServer({
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
         /* eslint-disable global-require, import/no-dynamic-require */
-        const routes = require(`${appName}/routes`).default;
+        const App = require(`${appName}/components/App`).default;
         const createStore = require(`${appName}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        let server = baseServer(routes, createStore, {
+        let server = baseServer(App, createStore, {
           appInstanceName: appName,
         });
         if (listen === true) {

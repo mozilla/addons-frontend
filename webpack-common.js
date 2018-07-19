@@ -25,7 +25,7 @@ if (config.get('enablePostCssLoader')) {
   );
 }
 
-export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
+export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   let styleRules;
 
   if (bundleStylesWithJs) {
@@ -118,7 +118,7 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
-      query: babelQuery,
+      options: babelOptions,
     },
     ...styleRules,
     {

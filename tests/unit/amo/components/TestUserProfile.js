@@ -73,7 +73,7 @@ describe(__filename, () => {
       <UserProfile
         i18n={i18n}
         location={location}
-        params={params}
+        match={{ params }}
         store={store}
         {...props}
       />,
@@ -132,7 +132,11 @@ describe(__filename, () => {
 
     dispatchSpy.resetHistory();
 
-    root.setProps({ params: { username: 'killmonger' } });
+    root.setProps({
+      match: {
+        params: { username: 'killmonger' },
+      },
+    });
 
     sinon.assert.calledWith(
       dispatchSpy,
@@ -964,11 +968,12 @@ describe(__filename, () => {
   });
 
   describe('errorHandler - extractId', () => {
-    it('returns a unique ID based on params', () => {
+    it('returns a unique ID based on match.params', () => {
       const username = 'foo';
       const params = { username };
+      const match = { params };
 
-      expect(extractId({ params })).toEqual(username);
+      expect(extractId({ match })).toEqual(username);
     });
   });
 });

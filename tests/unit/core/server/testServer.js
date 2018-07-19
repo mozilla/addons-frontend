@@ -1,16 +1,17 @@
 /* eslint-disable react/no-multi-comp */
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { Router, Route } from 'react-router';
-import { routerReducer } from 'react-router-redux';
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { Route } from 'react-router-dom';
+import { createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 import defaultConfig, { util as configUtil } from 'config';
 import cheerio from 'cheerio';
 
-import baseServer from 'core/server/base';
+import baseServer, { createHistory } from 'core/server/base';
+import { middleware } from 'core/store';
 import apiReducer from 'core/reducers/api';
 import redirectToReducer, {
   sendServerRedirect,
@@ -25,28 +26,31 @@ import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import { createUserAccountResponse, userAuthToken } from 'tests/unit/helpers';
 
 function createStoreAndSagas({
+  history = createHistory({ req: { url: '' } }),
   reducers = {
     api: apiReducer,
-    routing: routerReducer,
     survey: surveyReducer,
     users: usersReducer,
   },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
-    combineReducers(reducers),
+    connectRouter(history)(combineReducers(reducers)),
     // Do not define an initial state.
     undefined,
-    applyMiddleware(sagaMiddleware),
+    middleware({
+      routerMiddleware: routerMiddleware(history),
+      sagaMiddleware,
+    }),
   );
 
   return { store, sagaMiddleware };
 }
 
-const stubRoutes = (
-  <Router>
+const StubApp = () => (
+  <div>
     <Route path="*" component={FakeApp} />
-  </Router>
+  </div>
 );
 
 export class ServerTestHelper {
@@ -72,16 +76,16 @@ export class ServerTestHelper {
   }
 
   testClient({
-    routes = stubRoutes,
+    App = StubApp,
     store = null,
     sagaMiddleware = null,
     appSagas = null,
     config = defaultConfig,
     baseServerParams = {},
   } = {}) {
-    function _createStoreAndSagas() {
+    function _createStoreAndSagas({ history }) {
       if (store === null) {
-        return createStoreAndSagas();
+        return createStoreAndSagas({ history });
       }
 
       return { store, sagaMiddleware };
@@ -90,12 +94,13 @@ export class ServerTestHelper {
     // eslint-disable-next-line no-empty-function
     function* fakeSaga() {}
 
-    const app = baseServer(routes, _createStoreAndSagas, {
+    const app = baseServer(App, _createStoreAndSagas, {
       appSagas: appSagas || fakeSaga,
       appInstanceName: 'testapp',
       config,
       ...baseServerParams,
     });
+
     return supertest(app);
   }
 }
@@ -139,13 +144,13 @@ describe(__filename, () => {
         }
       }
 
-      const notFoundStubRoutes = (
-        <Router>
+      const NotFoundApp = () => (
+        <div>
           <Route path="*" component={NotFound} />
-        </Router>
+        </div>
       );
 
-      const response = await testClient({ routes: notFoundStubRoutes })
+      const response = await testClient({ App: NotFoundApp })
         .get('/en-US/firefox/simulation-of-a-non-existent-page')
         .end();
 
@@ -154,6 +159,7 @@ describe(__filename, () => {
 
     it('does not dispatch setAuthToken() if cookie is not found', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
+
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
         .end();
@@ -340,7 +346,6 @@ describe(__filename, () => {
       const { store, sagaMiddleware } = createStoreAndSagas({
         reducers: {
           redirectTo: redirectToReducer,
-          routing: routerReducer,
         },
       });
       const newURL = '/redirect/to/this/url';
@@ -360,14 +365,14 @@ describe(__filename, () => {
         }
       }
 
-      const redirectRoutes = (
-        <Router>
+      const RedirectApp = () => (
+        <div>
           <Route path="*" component={Redirect} />
-        </Router>
+        </div>
       );
 
       const client = testClient({
-        routes: redirectRoutes,
+        App: RedirectApp,
         sagaMiddleware,
         store,
       });

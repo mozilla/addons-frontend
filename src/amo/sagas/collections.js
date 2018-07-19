@@ -4,7 +4,7 @@
 /* eslint-disable import/order */
 import invariant from 'invariant';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
-import { push as pushLocation } from 'react-router-redux';
+import { push as pushLocation } from 'connected-react-router';
 /* eslint-enable import/order */
 
 import {

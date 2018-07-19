@@ -34,7 +34,9 @@ describe(__filename, () => {
     return {
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      },
       store: _store,
       ...otherProps,
     };
@@ -87,7 +89,9 @@ describe(__filename, () => {
 
     fakeDispatch.resetHistory();
     root.setProps({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      },
     });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_THEME));
@@ -120,14 +124,18 @@ describe(__filename, () => {
 
     const root = render({
       errorHandler,
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      },
       store,
     });
     fakeDispatch.resetHistory();
 
     // Now we request extension add-ons.
     root.setProps({
-      params: { visibleAddonType: visibleAddonType(addonType) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(addonType) },
+      },
     });
 
     sinon.assert.calledWith(
@@ -144,18 +152,19 @@ describe(__filename, () => {
   it('does not dispatch getLanding when addon type does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const params = { visibleAddonType: visibleAddonType(addonType) };
+    const match = { params };
     const errorHandler = createStubErrorHandler();
 
     // We load extension add-ons.
     _getAndLoadLandingAddons({ addonType, errorHandler });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ errorHandler, params, store });
+    const root = render({ errorHandler, match, store });
 
     fakeDispatch.resetHistory();
 
     // We request extension add-ons again.
-    root.setProps({ params });
+    root.setProps({ match });
 
     // Make sure only setViewContext is dispatched, not getLanding
     sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
@@ -204,7 +213,9 @@ describe(__filename, () => {
 
   it('renders a LandingPage with no addons set', () => {
     const root = render({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      },
     });
 
     expect(root).toIncludeText('Explore powerful tools and features');
@@ -214,7 +225,9 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
-    const root = render({ params: fakeParams });
+    const match = { params: fakeParams };
+
+    const root = render({ match });
 
     expect(root.find('.LandingPage-button')).toHaveProp(
       'children',
@@ -231,7 +244,9 @@ describe(__filename, () => {
 
   it('renders a theme class name when page type is themes', () => {
     const root = render({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      },
     });
     expect(root).toHaveClassName('.LandingPage--theme');
   });
@@ -255,7 +270,9 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
-    const root = render({ params: fakeParams });
+    const match = { params: fakeParams };
+
+    const root = render({ match });
 
     const addonCards = root.find(LandingAddonsCard);
     expect(addonCards.at(0)).toHaveProp('footerLink', {
@@ -291,7 +308,9 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
-    const root = render({ params: fakeParams });
+    const match = { params: fakeParams };
+
+    const root = render({ match });
 
     const addonCards = root.find(LandingAddonsCard);
     expect(addonCards.at(0)).toHaveProp('footerLink', {
@@ -316,7 +335,9 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
-    const root = render({ params: fakeParams, _config: fakeConfig });
+    const match = { params: fakeParams };
+
+    const root = render({ match, _config: fakeConfig });
 
     const addonCards = root.find(LandingAddonsCard);
 
@@ -344,7 +365,9 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
-    const root = render({ params: fakeParams, _config: fakeConfig });
+    const match = { params: fakeParams };
+
+    const root = render({ match, _config: fakeConfig });
 
     const addonCards = root.find(LandingAddonsCard);
 
@@ -368,8 +391,10 @@ describe(__filename, () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
 
     const root = render({
-      params: {
-        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      match: {
+        params: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+        },
       },
     });
 
@@ -382,8 +407,10 @@ describe(__filename, () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_EXTENSION });
 
     const root = render({
-      params: {
-        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      match: {
+        params: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+        },
       },
     });
 
@@ -394,7 +421,9 @@ describe(__filename, () => {
 
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      },
     });
 
     expect(root).toIncludeText("Change your browser's appearance");
@@ -422,7 +451,9 @@ describe(__filename, () => {
     );
 
     const root = render({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      },
     });
 
     const landingShelves = root.find(LandingAddonsCard);
@@ -456,15 +487,17 @@ describe(__filename, () => {
   });
 
   it('renders not found if add-on type is not supported', () => {
-    const root = render({ params: { visibleAddonType: 'XUL' } });
+    const root = render({ match: { params: { visibleAddonType: 'XUL' } } });
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('renders not found if updated add-on type is not supported', () => {
     const root = render({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      match: {
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      },
     });
-    root.setProps({ params: { visibleAddonType: 'XUL' } });
+    root.setProps({ match: { params: { visibleAddonType: 'XUL' } } });
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
@@ -508,6 +541,7 @@ describe(__filename, () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
     const params = { visibleAddonType: visibleAddonType(addonType) };
+    const match = { params };
 
     store.dispatch(
       landingActions.getLanding({
@@ -518,10 +552,10 @@ describe(__filename, () => {
     store.dispatch(setViewContext(addonType));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ errorHandler, params, store });
+    const root = render({ errorHandler, match, store });
 
     fakeDispatch.resetHistory();
-    root.setProps({ params });
+    root.setProps({ match });
 
     sinon.assert.notCalled(fakeDispatch);
   });
@@ -530,6 +564,7 @@ describe(__filename, () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
     const params = { visibleAddonType: visibleAddonType(addonType) };
+    const match = { params };
 
     store.dispatch(
       landingActions.getLanding({
@@ -540,7 +575,7 @@ describe(__filename, () => {
     store.dispatch(setViewContext(addonType));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ errorHandler, params, store });
+    const root = render({ errorHandler, match, store });
 
     const { context } = store.getState().viewContext;
 
@@ -554,7 +589,9 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
-    const wrapper = render({ params: fakeParams });
+    const match = { params: fakeParams };
+
+    const wrapper = render({ match });
     expect(wrapper.find('title')).toHaveText('Themes');
   });
 
@@ -562,7 +599,9 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
-    const wrapper = render({ params: fakeParams });
+    const match = { params: fakeParams };
+
+    const wrapper = render({ match });
     expect(wrapper.find('title')).toHaveText('Extensions');
   });
 

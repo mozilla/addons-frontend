@@ -30,14 +30,14 @@ import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
 type Props = {|
   addon?: AddonType | null,
   isReplyToReviewId?: number,
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
   review?: UserReviewType | null,
 |};
 

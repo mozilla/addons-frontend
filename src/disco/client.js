@@ -5,7 +5,7 @@ import makeClient from 'core/client/base';
 import tracking from 'core/tracking';
 import getInstallData from 'disco/tracking';
 
-import routes from './routes';
+import App from './components/App';
 import sagas from './sagas';
 import createStore from './store';
 
@@ -19,4 +19,8 @@ if (config.get('trackingSendInitPageView') === false) {
   });
 }
 
-makeClient(routes, createStore, { sagas });
+makeClient(App, createStore, { sagas });
+
+if (module.hot) {
+  module.hot.accept();
+}

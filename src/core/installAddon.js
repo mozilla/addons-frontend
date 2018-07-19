@@ -219,13 +219,13 @@ export const userAgentOSToPlatform = {
  * Parameter types:
  *
  * import type { AddonType } from 'core/types/addons';
- * import type { ReactRouterLocation } from 'core/types/router';
+ * import type { ReactRouterLocationType } from 'core/types/router';
  * import type { UserAgentInfoType } from 'core/reducers/api';
  *
  * type FindInstallUrlParams = {|
  *   appendSource?: boolean,
  *   defaultInstallSource?: string,
- *   location?: ReactRouterLocation,
+ *   location?: ReactRouterLocationType,
  *   platformFiles: $PropertyType<AddonType, 'platformFiles'>,
  *   userAgentInfo: UserAgentInfoType,
  * |};
@@ -305,7 +305,7 @@ export class WithInstallHelpers extends React.Component {
     iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool,
     installTheme: PropTypes.func,
-    // See ReactRouterLocation from 'core/types/router'
+    // See ReactRouterLocationType from 'core/types/router'
     location: PropTypes.object,
     platformFiles: PropTypes.object,
     name: PropTypes.string.isRequired,

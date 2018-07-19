@@ -1,5 +1,5 @@
 import SagaTester from 'redux-saga-tester';
-import { push as pushLocation } from 'react-router-redux';
+import { push as pushLocation } from 'connected-react-router';
 
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {

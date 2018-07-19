@@ -1,22 +1,19 @@
 /* global document */
-
 import 'core/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
 import FastClick from 'fastclick';
+import { createBrowserHistory } from 'history';
 import RavenJs from 'raven-js';
 import * as React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import useScroll from 'react-router-scroll/lib/useScroll';
 
+import Root from 'core/components/Root';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
-import I18nProvider from 'core/i18n/Provider';
 import log from 'core/logger';
+import { addQueryParamsToHistory } from 'core/utils';
 
-export default function makeClient(routes, createStore, { sagas = null } = {}) {
+export default function makeClient(App, createStore, { sagas = null } = {}) {
   // This code needs to come before anything else so we get logs/errors
   // if anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
@@ -48,11 +45,10 @@ export default function makeClient(routes, createStore, { sagas = null } = {}) {
       }
     }
 
-    const { sagaMiddleware, store } = createStore({
-      history: browserHistory,
-      initialState,
+    const history = addQueryParamsToHistory({
+      history: createBrowserHistory(),
     });
-    const history = syncHistoryWithStore(browserHistory, store);
+    const { sagaMiddleware, store } = createStore({ history, initialState });
 
     if (sagas && sagaMiddleware) {
       sagaMiddleware.run(sagas);
@@ -60,16 +56,10 @@ export default function makeClient(routes, createStore, { sagas = null } = {}) {
       log.warn(`sagas not found for this app (src/${appName}/sagas)`);
     }
 
-    const middleware = applyRouterMiddleware(useScroll());
-
     render(
-      <I18nProvider i18n={i18n}>
-        <Provider store={store} key="provider">
-          <Router render={middleware} history={history}>
-            {routes}
-          </Router>
-        </Provider>
-      </I18nProvider>,
+      <Root history={history} i18n={i18n} store={store}>
+        <App />
+      </Root>,
       document.getElementById('react-view'),
     );
   }

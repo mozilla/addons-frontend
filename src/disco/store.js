@@ -1,7 +1,7 @@
+import { createMemoryHistory } from 'history';
 import { createStore as _createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { browserHistory } from 'react-router';
-import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
 import { middleware } from 'core/store';
 import addons from 'core/reducers/addons';
@@ -16,24 +16,25 @@ import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
 
 export default function createStore({
-  history = browserHistory,
+  history = createMemoryHistory(),
   initialState = {},
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
-    combineReducers({
-      addons,
-      api,
-      errors,
-      discoResults,
-      errorPage,
-      installations,
-      infoDialog,
-      redirectTo,
-      routing,
-      survey,
-      uiState,
-    }),
+    connectRouter(history)(
+      combineReducers({
+        addons,
+        api,
+        errors,
+        discoResults,
+        errorPage,
+        installations,
+        infoDialog,
+        redirectTo,
+        survey,
+        uiState,
+      }),
+    ),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),
