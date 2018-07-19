@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-19 09:23+0000\n"
+"PO-Revision-Date: 2018-07-19 09:29+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1087,7 +1087,7 @@ msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Засіб для підсвічування тексту з широкими можливостями"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Forget Me Not"
@@ -1107,11 +1107,11 @@ msgstr "Візуальні закладки для ваших улюблених
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:141
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "Зробіть новий вигляд своїх улюблених веб-сайтів"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1123,11 +1123,11 @@ msgstr "Не дозволяйте Facebook стежити за вами в ін�
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "Midnight Lizard"
-msgstr ""
+msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Give the entire internet a new look"
-msgstr ""
+msgstr "Зробіть новий вигляд для усього інтернету"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Turbo Download Manager"
@@ -1139,19 +1139,19 @@ msgstr "Збільште швидкість завантаження з підт
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Authenticator"
-msgstr ""
+msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
-msgstr ""
+msgstr "Генеруйте коди двохетапної авторизації безпосередньо в Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "Переглядайте подробиці про кожен відвідуваний веб-сайт — IP-адреса, розташування, провайдер та інше"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "uBlock Origin"
@@ -1179,11 +1179,11 @@ msgstr "Розмежуйте різні частини вашої онлайн �
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Відображення зображень на прозорому задньому плані"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
@@ -1918,11 +1918,11 @@ msgstr "Початкова сторінка додатків"
 
 #: src/amo/components/SurveyNotice/index.js:26
 msgid "Take short survey"
-msgstr ""
+msgstr "Пройти швидке опитування"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Дякуємо, що відвідали цей сайт! Будь ласка, знайдіть хвилинку чи дві, щоб розповісти Firefox про свої враження."
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2325,7 +2325,7 @@ msgstr "Отримувати доступ до ваших даних для %(pa
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Відхилити це сповіщення"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
