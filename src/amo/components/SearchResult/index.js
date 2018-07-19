@@ -24,7 +24,6 @@ import './styles.scss';
 type Props = {|
   addon?: AddonType | CollectionAddonType,
   addonInstallSource?: string,
-  isAllowedOrigin: Function,
   showMetadata?: boolean,
   showSummary?: boolean,
 |};
@@ -32,6 +31,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  isAllowedOrigin: Function,
 |};
 
 export class SearchResultBase extends React.Component<InternalProps> {
