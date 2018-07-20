@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-20 16:26+0000\n"
+"PO-Revision-Date: 2018-07-20 16:52+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1767,10 +1767,12 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"طوّر الإضافات الموجودة في هذه الصفحة آلاف المطوّرين ومصمّمي السمات من جميع أصقاع الأرض، بدءا من الهاوين الصغار وحتى الشركات الكبيرة. بضع الإضافات الموجودة في موقع الإضافات نُشرت تلقائيا وقد يراجعها "
+"فريق من المحررين ما إن نُشرت للعامة."
 
 #: src/amo/components/StaticPages/About.js:70
 msgid "Get involved"
-msgstr ""
+msgstr "انضم معنا"
 
 #: src/amo/components/StaticPages/About.js:72
 msgid ""
@@ -1804,17 +1806,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:121
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "الأسئلة الشائعة حول المراجعات"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:123
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "كيف يمكنني الإبلاغ عن مراجعة بها مشكلة؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:125
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"رجاءً أبلِغ أو ضع علامة على أية مراجعات جدلية بنقر زر ”أبلِغ عن هذه المراجعة“ وسيُرسل بلاغ إلى الموقع للنظر فيها. سيستخدم الفريق المختص إرشادات المراجعات ليقرر ما إن كان يجب حذف المراجعة أو "
+"استعادتها إلى الموقع من عدمه."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:132
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -1833,6 +1837,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"بشكل عام لا، لا يمكنك. إلا أنه إن كانت ثمة مراجعة لا تتماشى مع إرشادات المراجعات الموضحة أعلاه، فيمكنك نقر زر ”أبلِغ عن هذه المراجعة“ ليُنظر في أمرها. إن كان في المراجعة شكوى لم تعد في محلها لأنك "
+"أصدرت نسخة جديدة من الإضافة، فيمكن أن ننظر في أمر حذف المراجعة."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:21 src/amo/components/StaticPages/ReviewGuide.js:23
 msgid "Review Guidelines"
@@ -1912,7 +1918,7 @@ msgstr "تستخدم الألفاظ النابية، أو الجنسية، أو 
 
 #: src/amo/components/StaticPages/ReviewGuide.js:92
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "تضع أكواد HTML أو روابط أو نصوص مصدرية أو أجزاء من الكود. على المراجعات أن تكون نصوصا صِرفة فحسب."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid "Make false statements, disparage add-on authors or personally insult them."
@@ -1959,9 +1965,8 @@ msgid "Theme artist"
 msgstr "فنّان سمات"
 
 #: src/amo/components/UserProfile/index.js:289 src/amo/components/UserProfileEdit/index.js:454
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "نتائج البحث عن ”%(query)s“"
+msgstr "ملف المستخدم %(user)s"
 
 #: src/amo/components/UserProfile/index.js:319 src/amo/components/UserProfileEdit/index.js:609
 msgid "Location"
@@ -1981,11 +1986,11 @@ msgstr "عدد الإضافات"
 
 #: src/amo/components/UserProfile/index.js:350
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "معدّل تقييم إضافات المطوّر"
 
 #: src/amo/components/UserProfile/index.js:365 src/amo/components/UserProfileEdit/index.js:643
 msgid "Biography"
-msgstr ""
+msgstr "السيرة الذاتية"
 
 #: src/amo/components/UserProfile/index.js:389
 msgid "Edit profile"
@@ -2008,9 +2013,8 @@ msgid "Edit user's profile"
 msgstr "حرّر ملف المستخدم"
 
 #: src/amo/components/UserProfileEdit/index.js:491
-#, fuzzy
 msgid "Account"
-msgstr "حسابي"
+msgstr "الحساب"
 
 #: src/amo/components/UserProfileEdit/index.js:492
 msgid "Account for %(username)s"
@@ -2030,27 +2034,27 @@ msgstr "لا يمكن تغيير عنوان البريد هنا"
 
 #: src/amo/components/UserProfileEdit/index.js:527
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "يمكنك تغيير بريدك الإلكتروني في حسابات فَيَرفُكس. %(startLink)sأتحتاج مساعدة؟%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:544
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "أدِر حسابات فَيَرفُكس…"
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
-msgstr ""
+msgstr "الملف الشخصي"
 
 #: src/amo/components/UserProfileEdit/index.js:556
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "أخبِر المستخدمين عمن تكون أنت. كل هذه الحقول اختيارية، إلا أنها ستساعد بقية المستخدمين ليتعرفوا عليك أكثر."
 
 #: src/amo/components/UserProfileEdit/index.js:562
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "أخبِر المستخدمين عمن يكون هذا المستخدم. كل هذه الحقول اختيارية، إلا أنها ستساعد بقية المستخدمين ليتعرفوا على %(username)s أكثر."
 
 #: src/amo/components/UserProfileEdit/index.js:572
 msgid "Display Name"
-msgstr ""
+msgstr "اسم العرض"
 
 #: src/amo/components/UserProfileEdit/index.js:604
 msgid "This URL will only be visible for users who are developers."
