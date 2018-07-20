@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-20 14:44+0000\n"
+"PO-Revision-Date: 2018-07-20 15:10+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -813,55 +813,55 @@ msgstr "هذا تبليغ عن علّة أو طلب دعم"
 
 #: src/amo/components/FlagReviewMenu/index.js:110
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "وُضع عليها إشارة بأنها تبليغ عن علّة أو طلب دعم"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag"
-msgstr ""
+msgstr "ضع عليها إشارة"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flagged"
-msgstr ""
+msgstr "وُضع عليها إشارة"
 
 #: src/amo/components/FlagReviewMenu/index.js:127
 msgid "Flag this developer response"
-msgstr ""
+msgstr "ضع على رد المطور هذا إشارة"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag this review"
-msgstr ""
+msgstr "ضع على هذه المراجعة إشارة"
 
 #: src/amo/components/FlagReviewMenu/index.js:62
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "لِج لوضع إشارة على هذا الرد"
 
 #: src/amo/components/FlagReviewMenu/index.js:63
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "لِج لوضع إشارة على هذه المراجعة"
 
 #: src/amo/components/FlagReviewMenu/index.js:72
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "لا يمكنك وضع إشارة على ردك أنت"
 
 #: src/amo/components/FlagReviewMenu/index.js:73
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "لا يمكنك وضع إشارة على مراجعة منك"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "هذا سخام"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "وُضع عليها إشارة بأنها سخام"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "تحتوي المراجعة ألفاظا غير لائقة"
 
 #: src/amo/components/FlagReviewMenu/index.js:94
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "وُضع عليها إشارة بأنها تحتوي ألفاظا غير لائقة"
 
 #: src/amo/components/Footer/index.js:111
 msgid "Android Browser"
@@ -893,7 +893,7 @@ msgstr "الكعكات"
 
 #: src/amo/components/Footer/index.js:176
 msgid "Legal"
-msgstr ""
+msgstr "قانونيات"
 
 #: src/amo/components/Footer/index.js:184
 msgid "Report Trademark Abuse"
@@ -970,9 +970,8 @@ msgid "Submit a New Theme"
 msgstr "أرسِل سمة جديدة"
 
 #: src/amo/components/Header/index.js:156
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "لا مراجعات"
+msgstr "أدوات المراجعين"
 
 #: src/amo/components/Header/index.js:166 src/core/components/AuthenticateButton/index.js:78
 msgid "Log out"
@@ -1008,23 +1007,23 @@ msgstr "مشاهدة الڤديو"
 
 #: src/amo/components/Home/index.js:165
 msgid "Abstract"
-msgstr ""
+msgstr "مجرّدات"
 
 #: src/amo/components/Home/index.js:170
 msgid "Nature"
-msgstr ""
+msgstr "الطبيعة"
 
 #: src/amo/components/Home/index.js:175
 msgid "Film & TV"
-msgstr ""
+msgstr "الأفلام والتلفاز"
 
 #: src/amo/components/Home/index.js:180
 msgid "Scenery"
-msgstr ""
+msgstr "المناظر الطبيعية"
 
 #: src/amo/components/Home/index.js:185
 msgid "Music"
-msgstr ""
+msgstr "الموسيقى"
 
 #: src/amo/components/Home/index.js:190
 msgid "Seasonal"
@@ -1047,13 +1046,12 @@ msgid "Social media customization"
 msgstr "تخصيص مواقع التواصل"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "السمات المُتداولة"
+msgstr "طالع المزيد من برمجيات التنزيل المرنة"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
-msgstr ""
+msgstr "برمجيات التنزيل المرنة"
 
 #: src/amo/components/Home/index.js:62
 msgid "See more summer themes"
