@@ -114,6 +114,8 @@ export class CollectionBase extends React.Component<InternalProps> {
   maybeResetAddonPlaceholderCount() {
     const { collection } = this.props;
     if (collection && collection.addons && collection.addons.length) {
+      // Store the previous count of collection add-ons for use as
+      // the placeholder count when loading the next set of add-ons.
       this.addonPlaceholderCount = collection.addons.length;
     }
   }
