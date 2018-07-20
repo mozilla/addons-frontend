@@ -18,9 +18,11 @@ import {
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
+  ENABLED,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
+  INSTALLED,
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
   UNINSTALLING,
@@ -122,6 +124,23 @@ export class AddonBase extends React.Component {
     return null;
   }
 
+  enableStaticTheme = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const { status } = this.props;
+
+    if (status !== INSTALLED) {
+      await this.props.install();
+      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+      // on why we are explicitly calling the enable function
+      // after install
+      if (status !== ENABLED) {
+        this.props.enable();
+      }
+    }
+  };
+
   getThemeImage() {
     const {
       i18n,
@@ -159,7 +178,7 @@ export class AddonBase extends React.Component {
           {headerImage}
         </a>
       ) : (
-        <a className="theme-image" href="#">
+        <a className="theme-image" href="#" onClick={this.enableStaticTheme}>
           {headerImage}
         </a>
       );

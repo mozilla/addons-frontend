@@ -10,6 +10,7 @@ import {
   ENABLING,
   INSTALLING,
   INSTALLED,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
@@ -105,7 +106,7 @@ export class InstallSwitchBase extends React.Component {
     return undefined;
   }
 
-  handleClick = (e) => {
+  handleClick = async (e) => {
     e.preventDefault();
     const {
       addon,
@@ -131,7 +132,13 @@ export class InstallSwitchBase extends React.Component {
     if (type === ADDON_TYPE_THEME && [UNINSTALLED, DISABLED].includes(status)) {
       installTheme(this.themeData, { ...addon, status });
     } else if (status === UNINSTALLED) {
-      install();
+      await install();
+      if (type === ADDON_TYPE_STATIC_THEME) {
+        // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+        // on why we are explicitly calling the enable function
+        // after install
+        enable();
+      }
     } else if (status === DISABLED) {
       enable();
     } else if ([INSTALLED, ENABLED].includes(status)) {
