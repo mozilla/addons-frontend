@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-20 15:49+0000\n"
+"PO-Revision-Date: 2018-07-20 16:26+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1716,11 +1716,11 @@ msgstr "شارِك في %(startLink)sالمنتدى%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:144
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "اترك انطباعاتك عن الإضافات المفضلة لديك. تزيد احتمالية بأن يُحسّن مطوّرو الإضافات إضافاتهم، عدا عن تطوير إضافات أخرى، ذلك في حال علموا بأن هناك من يقدّر عملهم."
 
 #: src/amo/components/StaticPages/About.js:149
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "أخبِر أصدقائك وعائلتك بأن فَيَرفُكس متصفح سريع وآمن يحمي خصوصيتهم، كما وأن الإضافات يمكن لها أن تجعل المتصفح ملكا لهم."
 
 #: src/amo/components/StaticPages/About.js:157
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
@@ -1735,10 +1735,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"إن أردت أن تطّلع عن المزيد حول طريقة إدارة الإضافات في فَيَرفُكس، أو إن احتجت دعما عاما للمتصفح، فرجاءً زُر %(startSUMOLink)sدعم%(endSUMOLink)s موزيلا. إن لم تجد على إجابة لأسئلتك عناك، يمكنك حينها "
+"%(startForumLink)sطرحها في منتدى المجتمع%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:197
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sيمكنك هنا أن تجد المعلومات المتعلقة بمراسلة فريق موزيلا للإضافات%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:23 src/amo/components/StaticPages/About.js:26
 msgid "About Firefox Add-ons"
@@ -1754,7 +1756,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:42
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "يمكنك أيضا استخدام الموقع للبحث عن إضافات موزيلا %(startTBLink)sثَندربيرد%(endTBLink)s و%(startSMLink)sسي‌مَنكي%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:59
 msgid "A community of creators"
