@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-20 15:10+0000\n"
+"PO-Revision-Date: 2018-07-20 15:33+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1072,7 +1072,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:101
 msgid "A powerful way to find archived versions of older web pages"
-msgstr ""
+msgstr "طريقة فعالة لتجد النسخ المؤرشفة من صفحات الوِب القديمة"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 #, fuzzy
@@ -1085,11 +1085,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Page Translate"
-msgstr ""
+msgstr "ترجمة الصفحات"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "ترجِم صفحة وِب كاملة ببضع نقرات"
 
 #: src/amo/components/HomeHeroBanner/index.js:118
 msgid "Textmarker"
@@ -1121,7 +1121,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:141
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "ألبِس مواقعك المفضلة أجمل الثياب"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 #, fuzzy
@@ -1130,7 +1130,7 @@ msgstr "أعِد التحميل للمتابعة"
 
 #: src/amo/components/HomeHeroBanner/index.js:25
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "امنع فيسبوك من تعقّبك وأنت تجوب الوِب"
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "Midnight Lizard"
@@ -1223,11 +1223,11 @@ msgstr "غيّر مظهر متصفحك. اختر من بين آلاف السما
 
 #: src/amo/components/LandingPage/index.js:227
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "استكشِف أعتى الأدوات والميزات لتُخصّص فَيَرفُكس فيصبح المتصفح ملكك أنت."
 
 #: src/amo/components/LandingPage/index.js:257
 msgid "Explore all categories"
-msgstr ""
+msgstr "استكشِف كل الأقسام"
 
 #: src/amo/components/LanguagePicker.js:51
 msgid "Change language"
@@ -1395,43 +1395,44 @@ msgstr "أأنت مستمع بتجربتك مع %(addonName)s؟"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "أبلغتَ بأن هذه الإضافة تُسيء الاستخدام"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "لقد تلقينا البلاغ الذي بعثته. نشكرك على إعلامنا بمخاوفك تجاه هذه الإضافة."
 
 #: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "محال أن نردّ على كل بلاغ عن إساءة الاستخدام، ولكن مع ذلك سننظر فيه."
 
 #: src/amo/components/ReportAbuseButton/index.js:139
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"إن كنت ترى بأن هذه الإضافة تنتهك %(linkTagStart)sسياسات موزيلا للإضافات%(linkTagEnd)s أو أن فيها مشاكل أمنية أو مشاكل متعلقة بالخصوصية، فرجاءً أبلِغ عن هذه المشاكل إلى موزيلا مستخدما هذه الاستمارة."
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "أبلِغ بأن هذه الإضافة تُسيء الاستخدام"
 
 #: src/amo/components/ReportAbuseButton/index.js:184
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "نرجوك ألا تستخدم هذه الاستمارة للإبلاغ عن العلل أو طلب المزايا، فهذا التقرير سيُرسل إلى موزيلا وليس إلى مطوّر الإضافة."
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "اشرح كيفية انتهاك هذه الإضافة لسياساتنا."
 
 #: src/amo/components/ReportAbuseButton/index.js:213
 msgid "Dismiss"
-msgstr ""
+msgstr "أهمِل"
 
 #: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "يُرسل البلاغ بإساءة الاستخدام"
 
 #: src/amo/components/ReportAbuseButton/index.js:224 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "أرسِل بلاغا بإساءة الاستخدام"
 
 #: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
