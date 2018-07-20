@@ -56,6 +56,8 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
+export const DEFAULT_ADDON_PLACEHOLDER_COUNT = 3;
+
 export type Props = {|
   collection: CollectionType | null,
   creating: boolean,
@@ -94,6 +96,8 @@ export type SaveAddonNoteFunc = (
 ) => void;
 
 export class CollectionBase extends React.Component<InternalProps> {
+  addonPlaceholderCount: number;
+
   static defaultProps = {
     _config: config,
     _isFeaturedCollection: isFeaturedCollection,
@@ -101,8 +105,27 @@ export class CollectionBase extends React.Component<InternalProps> {
     editing: false,
   };
 
+  constructor(props: InternalProps) {
+    super(props);
+    this.addonPlaceholderCount = DEFAULT_ADDON_PLACEHOLDER_COUNT;
+    this.maybeResetAddonPlaceholderCount();
+  }
+
+  maybeResetAddonPlaceholderCount() {
+    const { collection } = this.props;
+    if (collection && collection.addons && collection.addons.length) {
+      // Store the previous count of collection add-ons for use as
+      // the placeholder count when loading the next set of add-ons.
+      this.addonPlaceholderCount = collection.addons.length;
+    }
+  }
+
   componentWillMount() {
     this.loadDataIfNeeded();
+  }
+
+  componentDidUpdate() {
+    this.maybeResetAddonPlaceholderCount();
   }
 
   componentWillReceiveProps(nextProps: InternalProps) {
@@ -412,6 +435,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               editing={editing}
               footer={paginator}
               loading={!collection || loading}
+              placeholderCount={this.addonPlaceholderCount}
               removeAddon={this.removeAddon}
               saveNote={this.saveNote}
             />
