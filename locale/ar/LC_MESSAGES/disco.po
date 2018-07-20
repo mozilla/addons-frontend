@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-10 19:20+0000\n"
-"PO-Revision-Date: 2016-09-30 22:47+0000\n"
-"Last-Translator: Tess Welhazi <tesnime.welhazi@gmail.com>\n"
+"PO-Revision-Date: 2017-10-28 16:18+0000\n"
+"Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -84,11 +84,11 @@ msgstr "حسنا!"
 
 #: src/disco/components/Addon.js:135
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "ضع المؤشر على الزر للمعاينة أو انقر عليه لتثبيت %(name)s"
 
 #: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "ضع المؤشر على الصورة للمعاينة"
 
 #: src/disco/components/Addon.js:178
 msgid "Installation failed. Please try again."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-20 16:52+0000\n"
+"PO-Revision-Date: 2018-07-20 17:08+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1974,7 +1974,7 @@ msgstr "المكان"
 
 #: src/amo/components/UserProfile/index.js:327 src/amo/components/UserProfileEdit/index.js:621
 msgid "Occupation"
-msgstr ""
+msgstr "المهنة"
 
 #: src/amo/components/UserProfile/index.js:334
 msgid "User since"
@@ -2062,31 +2062,31 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:647
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "قدّم نفسك إلى المجتمع إن أردت ذلك"
 
 #: src/amo/components/UserProfileEdit/index.js:651
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "قدّم %(username)s إلى المجتمع"
 
 #: src/amo/components/UserProfileEdit/index.js:665
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "بعض وسوم HTML المدعومة: %(htmlTags)s. الروابط ممنوعة."
 
 #: src/amo/components/UserProfileEdit/index.js:689
 msgid "Notifications"
-msgstr ""
+msgstr "التنبيهات"
 
 #: src/amo/components/UserProfileEdit/index.js:693
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "من وقت لآخر، قد تُرسل لك موزيلا رسائل على بريدك الإلكتروني عن الإصدارات القادمة وأحداث الإضافات. رجاءً اختر الموضوعات التي تهتم بها لتصلك على بريدك."
 
 #: src/amo/components/UserProfileEdit/index.js:698
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "من وقت لآخر، قد تُرسل موزيلا رسائل على بريد هذا المستخدم الإلكتروني عن الإصدارات القادمة وأحداث الإضافات. رجاءً اختر الموضوعات التي يهتم بها هذا المستخدم لتصل على بريده."
 
 #: src/amo/components/UserProfileEdit/index.js:713
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "تحتفظ موزيلا بحقها في التواصل معك شخصيًا بخصوص أمور معينة تتعلق بإضافاتك المُستضافة عندها."
 
 #: src/amo/components/UserProfileEdit/index.js:731
 msgid "Updating your account…"
@@ -2125,79 +2125,82 @@ msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"سوف تُحذف بياناتك نهائيا، بما في ذلك تفاصيل الملف الشخصي (الصورة واسم المستخدم واسم العرض والمكان والصفحة الرئيسية والسيرة الذاتية والمهنة) وتفضيلات التنبيهات. سوف تُجهّل مراجعاتك وتقييماتك ولن تقدر"
+" على تحريرها بعد الآن."
 
 #: src/amo/components/UserProfileEdit/index.js:777
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"سوف تُحذف بيانات هذا المستخدم نهائيا، بما في ذلك تفاصيل الملف الشخصي (الصورة واسم المستخدم واسم العرض والمكان والصفحة الرئيسية والسيرة الذاتية والمهنة) وتفضيلات التنبيهات. سوف تُجهّل المراجعات "
+"والتقييمات ولن يقدر المستخدم على تحريرها بعد الآن."
 
 #: src/amo/components/UserProfileEdit/index.js:790
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
-msgstr ""
+msgstr "%(strongStart)sلاحظ:%(strongEnd)s لا تقدر على حذف حسابك إن كنت %(linkStart)sمؤلفا لأحد الإضافات%(linkEnd)s. عليك %(docLinkStart)sنقل ملكيتها%(docLinkEnd)s أو حذفها قبل أن تحذف حسابك."
 
 #: src/amo/components/UserProfileEdit/index.js:797
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sلاحظ:%(strongEnd)s لا تقدر على حذف حساب المستخدم إن كان %(linkStart)sمؤلفا لأحد الإضافات%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "ابقَ على اطّلاع عن الأخبار والأحداث ذات الصلة بمطوري الإضافات (بما في ذلك نشرة about:addons الإخبارية)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "على موزيلا التواصل مع عن إضافاتي أنا وحدي"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "عندما تتوفر إضافات جديدة أو مميزات جديدة لفَيَرفُكس"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:26
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "عندما يكتب شخصا ما مراجعة على إضافتي"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:28
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "عندما يرد مطور إضافات على مراجعتي"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "عندما يُراجع محرّر إضافتي"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "عندما يتعذر ترقية إضافتي المبنية على SDK"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "عندما تنجح ترقية إضافتي المبنية على SDK"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "عندما يتعذر ترقية التوافقية لإضافتي"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:38
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "عندما تنجح ترقية توافقية إضافتي"
 
 #: src/amo/components/UserProfileEditPicture/index.js:36
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "نتائج البحث عن ”%(query)s“"
+msgstr "صورة ملف %(name)s الشخصي"
 
 #: src/amo/components/UserProfileEditPicture/index.js:52
 msgid "Profile photo"
-msgstr ""
+msgstr "صورة الملف الشخصي"
 
 #: src/amo/components/UserProfileEditPicture/index.js:67
 msgid "Choose Photo…"
-msgstr ""
+msgstr "اختر صورة…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:75
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "أمتأكد من حذف هذه الصورة؟"
 
 #: src/amo/components/UserProfileEditPicture/index.js:78
 msgid "Delete This Picture"
@@ -2293,7 +2296,7 @@ msgstr "أرسِل"
 
 #: src/ui/components/DismissibleTextForm/index.js:122
 msgid "Submitting"
-msgstr ""
+msgstr "يُرسل"
 
 #: src/ui/components/DismissibleTextForm/index.js:161
 msgid "Delete"
@@ -2317,35 +2320,35 @@ msgstr ""
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "الوصول إلى بياناتك لكل المواقع"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "الوصول إلى بياناتك في %(param)s نطاق آخر"
+msgstr[1] "الوصول إلى بياناتك في نطاق واحد آخر"
+msgstr[2] "الوصول إلى بياناتك في نطاقين اثنين آخرين"
+msgstr[3] "الوصول إلى بياناتك في %(param)s نطاقات أخرى"
+msgstr[4] "الوصول إلى بياناتك في %(param)s نطاقا آخر"
+msgstr[5] "الوصول إلى بياناتك في %(param)s نطاق آخر"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "الوصول إلى بياناتك للمواقع في النطاق %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "الوصول إلى بياناتك في %(param)s موقع آخر"
+msgstr[1] "الوصول إلى بياناتك في موقع واحد آخر"
+msgstr[2] "الوصول إلى بياناتك في موقعين اثنين آخرين"
+msgstr[3] "الوصول إلى بياناتك في %(param)s مواقع أخرى"
+msgstr[4] "الوصول إلى بياناتك في %(param)s موقعا آخر"
+msgstr[5] "الوصول إلى بياناتك في %(param)s موقع آخر"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "الوصول إلى بياناتك لموقع %(param)s"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
@@ -2369,7 +2372,7 @@ msgstr "قيِّم هذه الإضافة بِ‍ %(starRating)s من ٥"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">وسّع </span>لقراءة المزيد"
 
 #: src/ui/components/UserCollection/index.js:52
 msgid "%(total)s add-on"
