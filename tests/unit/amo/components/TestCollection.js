@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import Collection, {
   CollectionBase,
+  DEFAULT_ADDON_PLACEHOLDER_COUNT,
   extractId,
   mapStateToProps,
 } from 'amo/components/Collection';
@@ -596,7 +597,10 @@ describe(__filename, () => {
 
   it('sets a default placeholder count', () => {
     const wrapper = renderComponent();
-    expect(wrapper.find(AddonsCard)).toHaveProp('placeholderCount', 5);
+    expect(wrapper.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      DEFAULT_ADDON_PLACEHOLDER_COUNT,
+    );
   });
 
   it('initializes add-on placeholder count with collection add-ons', () => {

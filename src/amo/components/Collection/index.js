@@ -56,6 +56,8 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
+export const DEFAULT_ADDON_PLACEHOLDER_COUNT = 3;
+
 export type Props = {|
   collection: CollectionType | null,
   creating: boolean,
@@ -105,7 +107,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
   constructor(props: InternalProps) {
     super(props);
-    this.addonPlaceholderCount = 5;
+    this.addonPlaceholderCount = DEFAULT_ADDON_PLACEHOLDER_COUNT;
     this.maybeResetAddonPlaceholderCount();
   }
 
