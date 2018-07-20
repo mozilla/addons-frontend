@@ -266,11 +266,11 @@ export function* modifyCollection(
         slug,
         ...baseApiParams,
       };
-      yield call(api.updateCollection, apiParams);
+      response = yield call(api.updateCollection, apiParams);
     }
 
     const { lang, clientApp } = state.api;
-    const effectiveSlug = slug || collectionSlug;
+    const effectiveSlug = (response && response.slug) || slug || collectionSlug;
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
     const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
 
@@ -307,7 +307,7 @@ export function* modifyCollection(
         }),
       );
 
-      const slugWasEdited = slug && slug !== collectionSlug;
+      const slugWasEdited = effectiveSlug !== collectionSlug;
       if (!slugWasEdited) {
         // Invalidate the stored collection object. This will force each
         // component to re-fetch the collection. This is only necessary
