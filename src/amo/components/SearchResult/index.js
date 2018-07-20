@@ -63,8 +63,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     let imageURL = iconURL;
 
-    const imageAtts = {};
-
     if (isTheme) {
       // Since only newly created static themes will have more than one preview
       // we will set up a fallback for now.
@@ -73,28 +71,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
       const previewImage = previewSearch || previewFallback;
 
       let themeURL =
-        previewImage && isAllowedOrigin(previewImage.thumbnail_url)
-          ? previewImage.thumbnail_url
+        previewImage && isAllowedOrigin(previewImage.image_url)
+          ? previewImage.image_url
           : null;
-
-      // Let's only worry about setting up srcset if we have the correct
-      // preview for this.
-      if (previewSearch) {
-        const themeUrlLarge =
-          previewImage && isAllowedOrigin(previewImage.image_url)
-            ? previewImage.image_url
-            : null;
-
-        if (themeUrlLarge) {
-          const imageSize = previewImage && previewImage.image_size[0];
-          const thumbSize = previewImage && previewImage.thumbnail_size[0];
-          if (themeURL && imageSize && thumbSize) {
-            // If viewing on retina, it should only show the larger size with
-            // the current widths available
-            imageAtts.srcSet = `${themeURL} ${thumbSize}w, ${themeUrlLarge} ${imageSize}w`;
-          }
-        }
-      }
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =
@@ -145,7 +124,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
               className="SearchResult-icon"
               src={imageURL}
               alt={addon ? `${addon.name}` : ''}
-              {...imageAtts}
             />
           ) : (
             <p className="SearchResult-notheme">
