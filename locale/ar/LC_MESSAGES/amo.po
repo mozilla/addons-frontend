@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-18 06:58+0000\n"
+"PO-Revision-Date: 2018-07-20 14:31+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -178,31 +178,28 @@ msgid "User"
 msgid_plural "Users"
 msgstr[0] "لا مستخدمين"
 msgstr[1] "مستخدم واحد"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[2] "مستخدمان اثنان"
+msgstr[3] "مستخدمين"
+msgstr[4] "مستخدما"
+msgstr[5] "مستخدم"
 
 #: src/amo/components/AddonMeta/index.js:35
-#, fuzzy
 msgid "No Users"
-msgstr "عدد المستخدمين"
+msgstr "لا مستخدمين"
 
 #: src/amo/components/AddonMeta/index.js:42
-#, fuzzy
 msgid "Ratings"
-msgstr "لا تقييمات"
+msgstr "التقييمات"
 
 #: src/amo/components/AddonMeta/index.js:45
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
 msgstr[0] "لا تقييمات"
-msgstr[1] "لا تقييمات"
-msgstr[2] "لا تقييمات"
-msgstr[3] "لا تقييمات"
-msgstr[4] "لا تقييمات"
-msgstr[5] "لا تقييمات"
+msgstr[1] "تقييم واحد"
+msgstr[2] "تقييمان اثنان"
+msgstr[3] "تقييمات"
+msgstr[4] "تقييما"
+msgstr[5] "تقييم"
 
 #: src/amo/components/AddonMeta/index.js:47
 msgid "No Ratings"
@@ -210,7 +207,7 @@ msgstr "لا تقييمات"
 
 #: src/amo/components/AddonMeta/index.js:52
 msgid "Used by"
-msgstr ""
+msgstr "يستخدمُها"
 
 #: src/amo/components/AddonMeta/index.js:72
 msgid "Overall Rating"
@@ -294,19 +291,19 @@ msgstr "امتدادات شعبية أخرى"
 
 #: src/amo/components/AddonReview/index.js:200
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "أخبِر الجميع عن سبب تقييمك بهذا الامتداد على أنه رائع! رجاءً اتبع %(linkStart)sقواعد التقييم%(linkEnd)s لدينا."
+msgstr "أخبِر الجميع عن سبب تقييمك بهذا الامتداد على أنه رائع! رجاءً اتبع %(linkStart)sإرشادات المراجعات%(linkEnd)s لدينا."
 
 #: src/amo/components/AddonReview/index.js:204
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "أخبِرنا عما أحببت في هذا الامتداد. اجعل تعليقك محددا ومختصرا."
 
 #: src/amo/components/AddonReview/index.js:208
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "أخبِر الجميع عن هذا الامتداد. رجاءً اتبع %(linkStart)sإرشادات المراجعات%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:212
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "أخبِرنا عن تجربتك مع هذا الامتداد. اجعل تعليقك محددا ومختصرا."
 
 #: src/amo/components/AddonReview/index.js:229
 msgid "Write a review"
@@ -314,7 +311,7 @@ msgstr "اكتُب مراجعة"
 
 #: src/amo/components/AddonReview/index.js:245
 msgid "Review text"
-msgstr ""
+msgstr "نص المراجعة"
 
 #: src/amo/components/AddonReview/index.js:262
 msgid "Submit review"
@@ -515,27 +512,24 @@ msgid "Featured extensions"
 msgstr "الامتدادات المُختارة"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/Home/index.js:305 src/amo/components/LandingPage/index.js:146
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "الامتدادات المُختارة"
+msgstr "طالع المزيد من الامتدادات المُختارة"
 
 #: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:137
 msgid "Trending extensions"
 msgstr "الامتدادات المُتداولة"
 
 #: src/amo/components/Category/index.js:162 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "الامتدادات المُتداولة"
+msgstr "طالع المزيد من الامتدادات المُتداولة"
 
 #: src/amo/components/Category/index.js:163 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:149
 msgid "Top rated extensions"
 msgstr "الامتدادات الأعلى تقييما"
 
 #: src/amo/components/Category/index.js:172 src/amo/components/LandingPage/index.js:164
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "الامتدادات الأعلى تقييما"
+msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:221 src/amo/components/SectionLinks/index.js:97
 msgid "Themes"
@@ -546,27 +540,24 @@ msgid "Featured themes"
 msgstr "السمات المُختارة"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/Home/index.js:259 src/amo/components/LandingPage/index.js:175
-#, fuzzy
 msgid "See more featured themes"
-msgstr "السمات المُختارة"
+msgstr "طالع المزيد من السمات المُختارة"
 
 #: src/amo/components/Category/index.js:186 src/amo/components/LandingPage/index.js:176 src/amo/components/Search/index.js:140
 msgid "Trending themes"
 msgstr "السمات المُتداولة"
 
 #: src/amo/components/Category/index.js:195 src/amo/components/LandingPage/index.js:181
-#, fuzzy
 msgid "See more trending themes"
-msgstr "السمات المُتداولة"
+msgstr "طالع المزيد من السمات المُتداولة"
 
 #: src/amo/components/Category/index.js:196 src/amo/components/LandingPage/index.js:182 src/amo/components/Search/index.js:152
 msgid "Top rated themes"
 msgstr "السمات الأعلى تقييما"
 
 #: src/amo/components/Category/index.js:205 src/amo/components/LandingPage/index.js:187
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "السمات الأعلى تقييما"
+msgstr "طالع المزيد من السمات الأعلى تقييما"
 
 #: src/amo/components/CategoryHeader/index.js:41
 msgid "Browse all add-ons in this category."
@@ -626,11 +617,11 @@ msgstr "احذف هذه المجموعة"
 
 #: src/amo/components/Collection/index.js:484
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "عليك أولا إنشاء مجموعة لك. يمكنك بعدها إضافة الامتدادات والسمات إليها."
 
 #: src/amo/components/Collection/index.js:487
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "ابحث عن امتدادات وسمات تُضيفها إلى مجموعتك."
 
 #: src/amo/components/Collection/index.js:507
 msgid "Sort add-ons by"
@@ -753,9 +744,8 @@ msgid "Remove"
 msgstr "أزِل"
 
 #: src/amo/components/EditableCollectionAddon/index.js:139
-#, fuzzy
 msgid "User comment"
-msgstr "عدد المستخدمين"
+msgstr "تعليق من مستخدم"
 
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Add a comment about this add-on."
@@ -1050,7 +1040,7 @@ msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more social media customization extensions"
-msgstr "طال المزيد من امتدادات تخصيص مواقع الواصل"
+msgstr "طالع المزيد من امتدادات تخصيص مواقع الواصل"
 
 #: src/amo/components/Home/index.js:53
 msgid "Social media customization"
