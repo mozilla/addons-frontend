@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-20 14:31+0000\n"
+"PO-Revision-Date: 2018-07-20 14:44+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -765,11 +765,11 @@ msgstr "إن كنت قد ولجت وتظن أن هذه الرسالة أتتك �
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
-msgstr ""
+msgstr "لا تخويل لديك"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "نأسف ولكنك لست مخوّلا لدخول هذه الصفحة. إن لم تكن والجا فجرّب ذلك مستخدما الرابط أعلى الصفحة."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
@@ -809,7 +809,7 @@ msgstr "نأسف ولكن حدث عطل في الخادوم ولم نقدر عل
 
 #: src/amo/components/FlagReviewMenu/index.js:107
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "هذا تبليغ عن علّة أو طلب دعم"
 
 #: src/amo/components/FlagReviewMenu/index.js:110
 msgid "Flagged as a bug report or support request"
