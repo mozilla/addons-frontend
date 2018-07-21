@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-19 23:30+0000\n"
+"PO-Revision-Date: 2018-07-21 01:01+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1048,22 +1048,20 @@ msgid "Summer themes"
 msgstr "Yaz temaları"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "Diğer yükselen eklentilere bakın"
+msgstr "Diğer medya eklentilerine bakın"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
-msgstr ""
+msgstr "Medya eklentileri"
 
 #: src/amo/components/HomeHeroBanner/index.js:101
 msgid "A powerful way to find archived versions of older web pages"
 msgstr "Eski web sayfalarının arşivlenmiş sürümlerini bulmanın güçlü bir yolu"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Gizlilik ilkeleri"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
@@ -1139,7 +1137,7 @@ msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
-msgstr ""
+msgstr "Firefox'ta 2 adımlı doğrulama kodları oluşturun"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
@@ -1175,7 +1173,7 @@ msgstr "Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) ren
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
@@ -1191,7 +1189,7 @@ msgstr "Özelleştirilebilir arka planlar, hava durumu ve daha fazlasıyla muhte
 
 #: src/amo/components/HomeHeroBanner/index.js:90
 msgid "Share Backported"
-msgstr ""
+msgstr "Share Backported"
 
 #: src/amo/components/HomeHeroBanner/index.js:93
 msgid "Put a social media ‘Share’ button into Firefox toolbar"
@@ -1906,7 +1904,7 @@ msgstr "Eklentiler Ana Sayfası"
 
 #: src/amo/components/SurveyNotice/index.js:26
 msgid "Take short survey"
-msgstr ""
+msgstr "Kısa ankete katılın"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
@@ -2078,11 +2076,11 @@ msgstr "Bu hesabı sil"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your account is irreversible."
-msgstr ""
+msgstr "ÖNEMLİ: Hesabınızı silme işlemi geri alınamaz."
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "IMPORTANT: Deleting this account is irreversible."
-msgstr ""
+msgstr "ÖNEMLİ: Hesabını silme işlemi geri alınamaz."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
