@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-16 03:03+0000\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2018-07-21 08:52+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -498,7 +498,7 @@ msgstr "Suositellut laajennukset"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/Home/index.js:305 src/amo/components/LandingPage/index.js:146
 msgid "See more featured extensions"
-msgstr "Katso lisää suositeltuja lisäosia"
+msgstr "Katso lisää suositeltuja laajennuksia"
 
 #: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:137
 msgid "Trending extensions"
@@ -1028,7 +1028,7 @@ msgstr "Muuta Firefoxin ulkoasua teemoilla."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more social media customization extensions"
-msgstr "Katso lisää parhaiten arvioituja laajennuksia"
+msgstr "Katso lisää sosiaalisen median mukauttamisen laajennuksia"
 
 #: src/amo/components/Home/index.js:53
 msgid "Social media customization"
@@ -1052,7 +1052,7 @@ msgstr "Kesäteemat"
 
 #: src/amo/components/Home/index.js:67
 msgid "See more must-have media extensions"
-msgstr "Katso lisää olennaisa medialaajennuksia"
+msgstr "Katso lisää olennaisia medialaajennuksia"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
@@ -1068,7 +1068,7 @@ msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Suojaa itsesi viekkaimpia seurantatoteutuksia vastaan"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Page Translate"
