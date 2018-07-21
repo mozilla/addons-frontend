@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-14 21:41+0000\n"
-"Last-Translator: Uccen Marzuq <merzouk.ouchene@laposte.net>\n"
+"PO-Revision-Date: 2018-07-21 23:05+0000\n"
+"Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -1032,13 +1032,12 @@ msgid "Social media customization"
 msgstr "Amuddu n wudem i yiẓedwa n tmetti"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Isental yettwasnen aṭas"
+msgstr "Wali ugar n yimsidar imussanen"
 
 #: src/amo/components/Home/index.js:58
 msgid "Dynamic downloaders"
-msgstr ""
+msgstr "Imsedar imussanen"
 
 #: src/amo/components/Home/index.js:62
 msgid "See more summer themes"
@@ -1049,9 +1048,8 @@ msgid "Summer themes"
 msgstr "Isental n unebdu"
 
 #: src/amo/components/Home/index.js:67
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "Ugar n yisiɣzaf itran"
+msgstr "Wali ugar n yisiɣzaf n yimidyaten must-have"
 
 #: src/amo/components/Home/index.js:68
 msgid "Must-have media"
@@ -1825,7 +1823,7 @@ msgstr "Azegrir i teddu akken i terǧiḍ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "What features did you like or dislike?"
-msgstr "Anta timihailin i tḥemled neɣ i tkerheḍ?"
+msgstr "Anta timihalin i tḥemleḍ neɣ i tkerheḍ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Was it useful?"
