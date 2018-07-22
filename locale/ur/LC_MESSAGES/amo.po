@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-19 16:42+0000\n"
+"PO-Revision-Date: 2018-07-22 14:24+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -58,7 +58,7 @@ msgstr "اس اظافہ جات کی درجہ بندی نہیں کی جاسکتی
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s جائزے پڑھیں"
-msgstr[1] ""
+msgstr[1] "تمام %(count)s جائزے بڑہیں"
 
 #: src/amo/components/Addon/index.js:241
 msgid "No reviews yet"
@@ -66,7 +66,7 @@ msgstr "اب تک کوئی جائزہ نہیں ہے"
 
 #: src/amo/components/Addon/index.js:251
 msgid "Rate your experience"
-msgstr "اپنے تجربے کی شرح کریں"
+msgstr "اپنے تجربے کی شرح کاری کریں"
 
 #: src/amo/components/Addon/index.js:269
 msgid "About this dictionary"
@@ -107,7 +107,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:543
 msgid "Extension Metadata"
-msgstr ""
+msgstr "توسیعات میٹا ڈیٹا"
 
 #: src/amo/components/Addon/index.js:560
 msgid "Screenshots"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Restart Required"
-msgstr ""
+msgstr "دورہ دوباره شروع کرنا درکار ہے"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
@@ -177,11 +177,11 @@ msgstr "‏‏صارفين"
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "صارف"
-msgstr[1] ""
+msgstr[1] "صارفین"
 
 #: src/amo/components/AddonMeta/index.js:35
 msgid "No Users"
-msgstr ""
+msgstr "کوئی صارفین نہیں"
 
 #: src/amo/components/AddonMeta/index.js:42
 msgid "Ratings"
@@ -191,7 +191,7 @@ msgstr "شرح کارياں"
 msgid "Rating"
 msgid_plural "Ratings"
 msgstr[0] "شرح کاری"
-msgstr[1] ""
+msgstr[1] "شرح کارياں"
 
 #: src/amo/components/AddonMeta/index.js:47
 msgid "No Ratings"
@@ -288,7 +288,7 @@ msgstr "دنیا کو بتائیں آُپ کیوں سوچتے ہیں کہ یہ �
 
 #: src/amo/components/AddonReview/index.js:204
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "مخصوص اور مختصر انداز میں اس کی توسیع میں آپکو کیا پسند آیا پمیں بتائیں۔"
 
 #: src/amo/components/AddonReview/index.js:208
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -308,7 +308,7 @@ msgstr "متن کا جائزہ لیں"
 
 #: src/amo/components/AddonReview/index.js:262
 msgid "Submit review"
-msgstr ""
+msgstr "جائزہ داخل کریں"
 
 #: src/amo/components/AddonReviewList/index.js:173
 msgid "Add-on icon"
@@ -335,9 +335,8 @@ msgid "Developer response"
 msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:156
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "ایک جائزہ لکھیں"
+msgstr "اس جائزے کا حواب دیں۔"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Update reply"
@@ -958,7 +957,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:63
 msgid "Forum"
-msgstr ""
+msgstr "فورم"
 
 #: src/amo/components/Footer/index.js:71
 msgid "Report a bug"
@@ -987,7 +986,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:123 src/amo/components/UserProfileEdit/index.js:466
 msgid "View My Profile"
-msgstr ""
+msgstr "میری پروفائل دیکھیں"
 
 #: src/amo/components/Header/index.js:131 src/amo/components/UserProfileEdit/index.js:472
 #, fuzzy
@@ -1017,7 +1016,7 @@ msgstr "لاگ آؤٹ"
 
 #: src/amo/components/Header/index.js:65
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox اظافہ حات"
 
 #: src/amo/components/Home/index.js:117
 msgid "Bookmarks"
@@ -1033,7 +1032,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:129
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "مستعدی خریداری"
 
 #: src/amo/components/Home/index.js:133
 msgid "Productivity"
@@ -1057,7 +1056,7 @@ msgstr "فلم & ٹی وی"
 
 #: src/amo/components/Home/index.js:180
 msgid "Scenery"
-msgstr ""
+msgstr "نظارہ"
 
 #: src/amo/components/Home/index.js:185
 msgid "Music"
@@ -1065,7 +1064,7 @@ msgstr "موسیقی"
 
 #: src/amo/components/Home/index.js:190
 msgid "Seasonal"
-msgstr ""
+msgstr "‏‏موسمیاتی"
 
 #: src/amo/components/Home/index.js:221
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
@@ -1277,7 +1276,7 @@ msgstr "زبان تبدیل کریں"
 
 #: src/amo/components/LanguageTools/index.js:102
 msgid "Available for your locale"
-msgstr ""
+msgstr "آپ کی زبان میں دستیاب ہے"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
@@ -1323,7 +1322,7 @@ msgstr "اجازتوں کے بارے میں مزید سیکھیں"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "نشانیاں پڑھیں اور ترمیم کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
@@ -1331,15 +1330,15 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "حالیہ برائوزنگ سابقات، کوکیاں اور اس متعلقہ کوائف صاف کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "کلپ بورڈ سے کوائف حاصل کرے"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "کلپ بورڈ پر کوائف ڈالیں"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
@@ -1351,11 +1350,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "مسل کھولیں جو آپ کہ کمپوٹر میں ڈائونلوڈ گئی"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "تمام کھلے ٹیبس کا متن پڑھیں"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
@@ -1384,11 +1383,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "برائوزر کی پراکسی سیٹینگوں کو کنٹرول کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "رازداری سیٹکگیں پڑھیں اور ترمیم کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
@@ -1400,11 +1399,11 @@ msgstr "براؤزر کے ٹیب کی رسائی"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "برائوزر ٹیبس دیکھائیں اور چھپائیں"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "صارف کی طرف سے لامحدود کوائف محفوظ کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
@@ -1720,7 +1719,7 @@ msgstr "خیالہ تلاش کریں"
 
 #: src/amo/components/SectionLinks/index.js:128
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "دیگر برائوزر سائٹس"
 
 #: src/amo/components/SectionLinks/index.js:59
 msgid "for Firefox"
@@ -1728,7 +1727,7 @@ msgstr "Firefox کے لیئے"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "برائے Android"
 
 #: src/amo/components/SectionLinks/index.js:77
 msgid "Explore"
@@ -1756,7 +1755,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:171
 msgid "Get support"
-msgstr ""
+msgstr "معاونت حاصل کریں"
 
 #: src/amo/components/StaticPages/About.js:176
 msgid ""
@@ -1878,7 +1877,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "ایسے لکھیں جیسے آپ اپنے دوست کو اظافہ جات کے ساتھ ترجبہ کے بارے میں بتا رہے ہوں۔"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Keep reviews concise and easy to understand."
@@ -1906,7 +1905,7 @@ msgstr "کیا یہ استعمال میں آسان تھا؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:59
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "کیا آپ اس اظافہ جات کو جاری رکھنا چاہتے ہیں؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1967,9 +1966,8 @@ msgid "Thanks for visiting this site! Please take a minute or two to tell Firefo
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:205
-#, fuzzy
 msgid "My reviews"
-msgstr "متن کا جائزہ لیں"
+msgstr "میرے جائزے"
 
 #: src/amo/components/UserProfile/index.js:224
 #, fuzzy
@@ -2033,11 +2031,11 @@ msgstr "تمام توسیعات براؤز کریں"
 
 #: src/amo/components/UserProfileEdit/index.js:467
 msgid "View user's profile"
-msgstr ""
+msgstr "صارف کی پروفائل دیکھیں"
 
 #: src/amo/components/UserProfileEdit/index.js:473
 msgid "Edit user's profile"
-msgstr ""
+msgstr "صارف کی پروفائل کی تدوین کریں دیکھیں"
 
 #: src/amo/components/UserProfileEdit/index.js:491
 #, fuzzy
@@ -2054,11 +2052,11 @@ msgstr "صارف کا نام"
 
 #: src/amo/components/UserProfileEdit/index.js:511
 msgid "Email Address"
-msgstr ""
+msgstr "ای میل پتہ"
 
 #: src/amo/components/UserProfileEdit/index.js:518
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "ایمیل پتہ یہاں تبدیل نہیں ہو سکتا"
 
 #: src/amo/components/UserProfileEdit/index.js:527
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2066,11 +2064,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:544
 msgid "Manage Firefox Accounts..."
-msgstr ""
+msgstr "Firefox اکائونٹس... بندرست کریں"
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
-msgstr ""
+msgstr "پروفائل"
 
 #: src/amo/components/UserProfileEdit/index.js:556
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -2103,7 +2101,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:689
 msgid "Notifications"
-msgstr ""
+msgstr "اعلانات"
 
 #: src/amo/components/UserProfileEdit/index.js:693
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2314,7 +2312,7 @@ msgstr "ٹھیک ہے!"
 
 #: src/ui/components/ConfirmButton/index.js:93
 msgid "Confirm"
-msgstr ""
+msgstr "تصدیق کریں"
 
 #: src/ui/components/DismissibleTextForm/index.js:119
 msgid "Enter text."
@@ -2330,7 +2328,7 @@ msgstr "جمع کرا رہا ہے"
 
 #: src/ui/components/DismissibleTextForm/index.js:161
 msgid "Delete"
-msgstr ""
+msgstr "حذف کریں"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -2346,11 +2344,11 @@ msgstr "جاری رکھنے کے لیئے پھر لوڈ کریں"
 
 #: src/ui/components/ExpandableCard/index.js:42
 msgid "Toggle contents"
-msgstr ""
+msgstr "مواد ٹوگل کریں"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "تمام ویب سائٹس کے لئے آپ کے کوائف تک رسائی"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
@@ -2374,7 +2372,7 @@ msgstr ""
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "اس اعلان کو برخاست کریں"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
