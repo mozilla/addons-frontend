@@ -399,7 +399,7 @@ describe(__filename, () => {
       expect(root.find('.theme-image')).toHaveLength(1);
     });
 
-    it("renders the alt tag with addon's name", () => {
+    it("does render the alt tag with addon's name", () => {
       expect(root.find('.Addon-theme-header-image')).toHaveProp(
         'alt',
         `Preview of ${newAddonName}`,
@@ -419,7 +419,6 @@ describe(__filename, () => {
       const addon = result;
       const shallowRoot = renderAddon({
         addon,
-        previews: [],
         clientApp: signedInApiState.clientApp,
         installTheme,
         status: UNINSTALLED,
@@ -458,7 +457,7 @@ describe(__filename, () => {
       expect(root.find('.theme-image')).toHaveLength(1);
     });
 
-    it("renders the alt tag with addon's name", () => {
+    it("does render the alt tag with addon's name", () => {
       expect(root.find('.Addon-theme-header-image')).toHaveProp(
         'alt',
         `Preview of ${newAddonName}`,
