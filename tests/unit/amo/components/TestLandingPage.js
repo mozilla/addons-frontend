@@ -222,6 +222,20 @@ describe(__filename, () => {
     );
   });
 
+  it('does not render a theme class name when page type is extensions', () => {
+    const root = render({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+    });
+    expect(root).not.toHaveClassName('.LandingPage--theme');
+  });
+
+  it('renders a theme class name when page type is themes', () => {
+    const root = render({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+    });
+    expect(root).toHaveClassName('.LandingPage--theme');
+  });
+
   it('sets the links in each footer for extensions', () => {
     store.dispatch(
       landingActions.loadLanding({
@@ -348,6 +362,34 @@ describe(__filename, () => {
     expect(addonCards.at(2).props().footerLink.query.addonType).toEqual(
       ADDON_TYPE_THEME,
     );
+  });
+
+  it('passes an isTheme prop as true if type is a theme', () => {
+    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
+
+    const root = render({
+      params: {
+        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      },
+    });
+
+    root.find(LandingAddonsCard).forEach((card) => {
+      expect(card).toHaveProp('isTheme', true);
+    });
+  });
+
+  it('passes an isTheme prop as false if type is an extension', () => {
+    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_EXTENSION });
+
+    const root = render({
+      params: {
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      },
+    });
+
+    root.find(LandingAddonsCard).forEach((card) => {
+      expect(card).toHaveProp('isTheme', false);
+    });
   });
 
   it('renders a LandingPage with themes HTML', () => {

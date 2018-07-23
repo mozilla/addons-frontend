@@ -270,9 +270,12 @@ export const decodeHtmlEntities = (string) => {
   return entities.decode(string);
 };
 
+export const isTheme = (addonType) => {
+  return ADDON_TYPE_THEMES.includes(addonType);
+};
+
 export const getAddonTypeFilter = (addonType, { _config = config } = {}) => {
-  const isTheme = ADDON_TYPE_THEMES.includes(addonType);
-  if (!_config.get('enableStaticThemes') || !isTheme) {
+  if (!_config.get('enableStaticThemes') || !isTheme(addonType)) {
     return addonType;
   }
 

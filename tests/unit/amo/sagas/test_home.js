@@ -1,7 +1,10 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as collectionsApi from 'amo/api/collections';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
+} from 'amo/constants';
 import homeReducer, {
   fetchHomeAddons,
   loadHomeAddons,
@@ -65,9 +68,6 @@ describe(__filename, () => {
       const secondCollectionUser = 'user-id-or-name-2';
 
       const baseArgs = { api: state.api };
-      const baseFilters = {
-        page_size: LANDING_PAGE_ADDON_COUNT,
-      };
 
       const firstCollection = createFakeCollectionAddonsListResponse();
       const secondCollection = createFakeCollectionAddonsListResponse();
@@ -95,7 +95,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           filters: {
-            ...baseFilters,
+            page_size: LANDING_PAGE_EXTENSION_COUNT,
             addonType: ADDON_TYPE_EXTENSION,
             featured: true,
             sort: SEARCH_SORT_RANDOM,
@@ -109,7 +109,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           filters: {
-            ...baseFilters,
+            page_size: LANDING_PAGE_THEME_COUNT,
             addonType: ADDON_TYPE_THEME,
             featured: true,
             sort: SEARCH_SORT_RANDOM,
@@ -173,9 +173,6 @@ describe(__filename, () => {
         const firstCollectionUser = 'user-id-or-name';
 
         const baseArgs = { api: state.api };
-        const baseFilters = {
-          page_size: LANDING_PAGE_ADDON_COUNT,
-        };
 
         mockCollectionsApi
           .expects('getCollectionAddons')
@@ -189,7 +186,7 @@ describe(__filename, () => {
           .withArgs({
             ...baseArgs,
             filters: {
-              ...baseFilters,
+              page_size: LANDING_PAGE_EXTENSION_COUNT,
               addonType: ADDON_TYPE_EXTENSION,
               featured: true,
               sort: SEARCH_SORT_RANDOM,
@@ -203,7 +200,7 @@ describe(__filename, () => {
           .withArgs({
             ...baseArgs,
             filters: {
-              ...baseFilters,
+              page_size: LANDING_PAGE_THEME_COUNT,
               addonType: ADDON_TYPE_THEME,
               featured: true,
               sort: SEARCH_SORT_RANDOM,

@@ -27,6 +27,7 @@ import {
   apiAddonType,
   apiAddonTypeIsValid,
   getAddonTypeFilter,
+  isTheme,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -228,9 +229,13 @@ export class LandingPageBase extends React.Component {
         to customize Firefox and make the browser all your own.`),
     };
 
+    const isAddonTheme = isTheme(addonType);
+
     return (
       <div
-        className={makeClassName('LandingPage', `LandingPage--${addonType}`)}
+        className={makeClassName('LandingPage', `LandingPage--${addonType}`, {
+          'LandingPage--theme': isAddonTheme,
+        })}
       >
         <Helmet>
           <title>{headingText[addonType]}</title>
@@ -266,6 +271,7 @@ export class LandingPageBase extends React.Component {
             footerText={html.featuredFooterText}
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
+            isTheme={isAddonTheme}
             loading={loading}
           />,
         )}
@@ -278,6 +284,7 @@ export class LandingPageBase extends React.Component {
             footerLink={html.highlyRatedFooterLink}
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
+            isTheme={isAddonTheme}
             loading={loading}
           />,
         )}
@@ -290,6 +297,7 @@ export class LandingPageBase extends React.Component {
             footerLink={html.trendingFooterLink}
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
+            isTheme={isAddonTheme}
             loading={loading}
           />,
         )}

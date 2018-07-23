@@ -115,16 +115,12 @@
 
 .Addon-theme-header {
   border-radius: $border-radius-default;
-  height: $theme-height-default;
+  height: auto;
   max-width: $theme-width-default;
   order: -1;
   overflow-y: hidden;
   position: relative;
   width: 100%;
-
-  .Addon-persona & {
-    height: 100px;
-  }
 }
 
 .Addon-theme-header-label {
@@ -136,15 +132,11 @@
 .Addon-theme-header-image {
   border-radius: $border-radius-default;
   display: block;
-  height: $theme-height-default;
+  height: auto;
+  max-width: $theme-width-default;
   object-fit: cover;
   object-position: top left;
   width: 100%;
-
-  .Addon-persona & {
-    height: 100px;
-    object-position: top right;
-  }
 }
 
 .Addon-summary-and-install-button-wrapper {

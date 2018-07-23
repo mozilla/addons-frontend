@@ -31,10 +31,12 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  _isAllowedOrigin: Function,
 |};
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _isAllowedOrigin: isAllowedOrigin,
     showMetadata: true,
     showSummary: true,
   };
@@ -45,7 +47,13 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 
   renderResult() {
-    const { addon, i18n, showMetadata, showSummary } = this.props;
+    const {
+      addon,
+      i18n,
+      _isAllowedOrigin,
+      showMetadata,
+      showSummary,
+    } = this.props;
 
     const isTheme = this.addonIsTheme();
     const averageDailyUsers = addon ? addon.average_daily_users : null;
@@ -56,17 +64,20 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let imageURL = iconURL;
 
     if (isTheme) {
+      // Since only newly created static themes will have more than one preview
+      // we will set up a fallback for now.
+      const previewFallback = addon && addon.previews && addon.previews[0];
+      const previewSearch = addon && addon.previews && addon.previews[1];
+      const previewImage = previewSearch || previewFallback;
+
       let themeURL =
-        addon &&
-        addon.previews &&
-        addon.previews.length > 0 &&
-        isAllowedOrigin(addon.previews[0].image_url)
-          ? addon.previews[0].image_url
+        previewImage && _isAllowedOrigin(previewImage.image_url)
+          ? previewImage.image_url
           : null;
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =
-          addon.themeData && isAllowedOrigin(addon.themeData.previewURL)
+          addon.themeData && _isAllowedOrigin(addon.themeData.previewURL)
             ? addon.themeData.previewURL
             : null;
       }
@@ -109,7 +120,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
       <div className="SearchResult-result">
         <div className={iconWrapperClassnames}>
           {imageURL ? (
-            <img className="SearchResult-icon" src={imageURL} alt="" />
+            <img
+              className="SearchResult-icon"
+              src={imageURL}
+              alt={addon ? `${addon.name}` : ''}
+            />
           ) : (
             <p className="SearchResult-notheme">
               {i18n.gettext('No theme preview available')}

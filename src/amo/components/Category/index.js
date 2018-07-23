@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unused-prop-types */
+import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
 import config from 'config';
 import * as React from 'react';
@@ -29,6 +30,7 @@ import {
   apiAddonType,
   apiAddonTypeIsValid,
   getAddonTypeFilter,
+  isTheme,
 } from 'core/utils';
 
 import './styles.scss';
@@ -250,8 +252,14 @@ export class CategoryBase extends React.Component {
 
     const { html } = this.contentForType(addonType);
 
+    const isAddonTheme = isTheme(addonType);
+
     return (
-      <div className="Category">
+      <div
+        className={makeClassName('Category', {
+          'Category--theme': isAddonTheme,
+        })}
+      >
         {category && (
           <Helmet>
             <title>{`${category.name} – ${html.title}`}</title>
@@ -271,6 +279,7 @@ export class CategoryBase extends React.Component {
             footerText={html.featuredFooterText}
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
+            isTheme={isAddonTheme}
             loading={loading}
           />,
         )}
@@ -283,6 +292,7 @@ export class CategoryBase extends React.Component {
             footerLink={html.highlyRatedFooterLink}
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
+            isTheme={isAddonTheme}
             loading={loading}
           />,
         )}
@@ -295,6 +305,7 @@ export class CategoryBase extends React.Component {
             footerLink={html.trendingFooterLink}
             footerText={html.trendingFooterText}
             header={html.trendingHeader}
+            isTheme={isAddonTheme}
             loading={loading}
           />,
         )}

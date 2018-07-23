@@ -147,9 +147,11 @@ export class AddonBase extends React.Component {
     const { addon, i18n } = this.props;
 
     if (this.addonIsTheme()) {
+      const previewHeader = addon.previews.length && addon.previews[0];
+
       let previewURL =
-        addon.previews.length > 0 && addon.previews[0].image_url
-          ? addon.previews[0].image_url
+        previewHeader && previewHeader.image_url
+          ? previewHeader.image_url
           : null;
 
       const label = addon

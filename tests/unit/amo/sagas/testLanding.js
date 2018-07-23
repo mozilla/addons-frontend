@@ -2,11 +2,15 @@ import SagaTester from 'redux-saga-tester';
 
 import * as searchApi from 'core/api/search';
 import { getLanding, loadLanding } from 'amo/actions/landing';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
+} from 'amo/constants';
 import landingReducer from 'amo/reducers/landing';
 import landingSaga from 'amo/sagas/landing';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   LANDING_LOADED,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
@@ -54,84 +58,96 @@ describe(__filename, () => {
       );
     }
 
-    it('fetches landing page addons from the API', async () => {
-      const addonType = ADDON_TYPE_EXTENSION;
-      const baseArgs = { api: apiState };
-      const baseFilters = {
-        addonType,
-        page_size: LANDING_PAGE_ADDON_COUNT,
-      };
-
-      const featured = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          slug: 'featured-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(featured));
-
-      const highlyRated = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          slug: 'highly-rated-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            sort: SEARCH_SORT_TOP_RATED,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(highlyRated));
-
-      const trending = createAddonsApiResult([
-        {
-          ...fakeAddon,
-          slug: 'trending-addon',
-        },
-      ]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            sort: SEARCH_SORT_TRENDING,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(trending));
-
-      _getLanding({ addonType });
-
-      await sagaTester.waitFor(LANDING_LOADED);
-      mockSearchApi.verify();
-
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(
-        loadLanding({
+    it.each([
+      {
+        addonType: ADDON_TYPE_EXTENSION,
+        pageSize: LANDING_PAGE_EXTENSION_COUNT,
+      },
+      {
+        addonType: ADDON_TYPE_THEME,
+        pageSize: LANDING_PAGE_THEME_COUNT,
+      },
+    ])(
+      `fetches landing page addons from the API for %o`,
+      async (testConfig) => {
+        const { addonType, pageSize } = testConfig;
+        const baseArgs = { api: apiState };
+        const baseFilters = {
           addonType,
-          featured,
-          highlyRated,
-          trending,
-        }),
-      );
-    });
+          page_size: pageSize,
+        };
+
+        const featured = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            slug: 'featured-addon',
+          },
+        ]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              featured: true,
+              sort: SEARCH_SORT_RANDOM,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(featured));
+
+        const highlyRated = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            slug: 'highly-rated-addon',
+          },
+        ]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              sort: SEARCH_SORT_TOP_RATED,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(highlyRated));
+
+        const trending = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            slug: 'trending-addon',
+          },
+        ]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              sort: SEARCH_SORT_TRENDING,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(trending));
+
+        _getLanding({ addonType });
+
+        await sagaTester.waitFor(LANDING_LOADED);
+        mockSearchApi.verify();
+
+        const calledActions = sagaTester.getCalledActions();
+        expect(calledActions[1]).toEqual(
+          loadLanding({
+            addonType,
+            featured,
+            highlyRated,
+            trending,
+          }),
+        );
+      },
+    );
 
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
@@ -156,7 +172,7 @@ describe(__filename, () => {
       const baseFilters = {
         addonType,
         category,
-        page_size: LANDING_PAGE_ADDON_COUNT,
+        page_size: LANDING_PAGE_EXTENSION_COUNT,
       };
 
       const featured = createAddonsApiResult([
@@ -226,7 +242,7 @@ describe(__filename, () => {
       const baseArgs = { api: apiState };
       const baseFilters = {
         addonType,
-        page_size: LANDING_PAGE_ADDON_COUNT,
+        page_size: LANDING_PAGE_EXTENSION_COUNT,
       };
 
       const featured = createAddonsApiResult([

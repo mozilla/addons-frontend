@@ -6,7 +6,7 @@ import * as React from 'react';
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakePreview, fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -131,17 +131,92 @@ describe(__filename, () => {
   });
 
   it('adds a theme-specific class', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_THEME,
-      theme_data: {
-        previewURL:
-          'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
-      },
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+        theme_data: {
+          previewURL:
+            'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
+        },
+      }),
     });
-    const root = render({ addon });
 
     expect(root).toHaveClassName('SearchResult--theme');
+  });
+
+  it('does not render an image if the isAllowedOrigin is false', () => {
+    const root = render({
+      _isAllowedOrigin: sinon.stub().returns(false),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+
+    expect(root.find('.SearchResult-icon')).toHaveLength(0);
+  });
+
+  it("renders an image's alt attribute as its addon name", () => {
+    const alt = 'pretty image';
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        name: alt,
+      }),
+    });
+
+    expect(root.find('.SearchResult-icon')).toHaveProp('alt', alt);
+  });
+
+  it('renders an empty string for the image alt tag while there is no addon', () => {
+    const root = render({
+      addon: {},
+    });
+
+    expect(root.find('.SearchResult-icon')).not.toHaveProp('alt', '');
+  });
+
+  it('displays the thumbnail image as the default src for static theme', () => {
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
+
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+          },
+        ],
+      }),
+    });
+    const image = root.find('.SearchResult-icon');
+
+    expect(image.prop('src')).toEqual(headerImageFull);
+  });
+
+  // TODO: This can be removed once migration happens.
+  // See: https://github.com/mozilla/addons-frontend/issues/5359
+  it('displays a fallback image for themes that only have 1 preview option', () => {
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/1.png';
+
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+          },
+        ],
+      }),
+    });
+    const image = root.find('.SearchResult-icon');
+
+    expect(image.prop('src')).toEqual(headerImageFull);
   });
 
   it('displays a message if the lightweight theme preview image is unavailable', () => {

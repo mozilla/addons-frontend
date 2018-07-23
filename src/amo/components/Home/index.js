@@ -51,21 +51,25 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
         'See more social media customization extensions',
       ),
       header: i18n.gettext('Social media customization'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
       footerText: i18n.gettext('See more dynamic downloaders'),
       header: i18n.gettext('Dynamic downloaders'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
     {
       footerText: i18n.gettext('See more summer themes'),
       header: i18n.gettext('Summer themes'),
+      isTheme: true,
       ...FEATURED_COLLECTIONS[2],
     },
     {
       footerText: i18n.gettext('See more must-have media extensions'),
       header: i18n.gettext('Must-have media'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[3],
     },
   ];
@@ -255,7 +259,6 @@ export class HomeBase extends React.Component {
             addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={featuredThemes}
             className="Home-FeaturedThemes"
-            header={i18n.gettext('Featured themes')}
             footerText={i18n.gettext('See more featured themes')}
             footerLink={{
               pathname: '/search/',
@@ -266,6 +269,8 @@ export class HomeBase extends React.Component {
                 featured: true,
               },
             }}
+            header={i18n.gettext('Featured themes')}
+            isTheme
             loading={loading}
           />
         )}

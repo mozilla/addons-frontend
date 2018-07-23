@@ -1,10 +1,14 @@
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
+} from 'amo/constants';
 import homeReducer, {
   fetchHomeAddons,
   initialState,
   loadHomeAddons,
 } from 'amo/reducers/home';
 import { createInternalAddon } from 'core/reducers/addons';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,
@@ -45,9 +49,13 @@ describe(__filename, () => {
 
       expect(homeState.resultsLoaded).toEqual(true);
       expect(homeState.collections).toHaveLength(1);
-      expect(homeState.collections[0]).toHaveLength(LANDING_PAGE_ADDON_COUNT);
+      expect(homeState.collections[0]).toHaveLength(
+        LANDING_PAGE_EXTENSION_COUNT,
+      );
       expect(homeState.collections[0]).toEqual(
-        Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon)),
+        Array(LANDING_PAGE_EXTENSION_COUNT).fill(
+          createInternalAddon(fakeAddon),
+        ),
       );
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
@@ -55,6 +63,42 @@ describe(__filename, () => {
       expect(homeState.featuredThemes).toEqual([
         createInternalAddon(fakeTheme),
       ]);
+    });
+
+    it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(
+        loadHomeAddons({
+          collections: [
+            createFakeCollectionAddonsListResponse({
+              addons: Array(10).fill({
+                ...createFakeCollectionAddon({
+                  addon: {
+                    ...fakeAddon,
+                    type: ADDON_TYPE_THEME,
+                  },
+                }),
+              }),
+            }),
+          ],
+          featuredExtensions: createAddonsApiResult([fakeAddon]),
+        }),
+      );
+
+      const homeState = store.getState().home;
+
+      expect(homeState.resultsLoaded).toEqual(true);
+      expect(homeState.collections).toHaveLength(1);
+
+      expect(homeState.collections[0]).toEqual(
+        Array(LANDING_PAGE_THEME_COUNT).fill(
+          createInternalAddon({
+            ...fakeAddon,
+            type: ADDON_TYPE_THEME,
+          }),
+        ),
+      );
     });
 
     it('loads a null for a missing collection', () => {
@@ -72,6 +116,25 @@ describe(__filename, () => {
 
       expect(homeState.collections).toHaveLength(1);
       expect(homeState.collections[0]).toEqual(null);
+    });
+
+    it('returns null for an empty collection', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(
+        loadHomeAddons({
+          collections: [
+            createFakeCollectionAddonsListResponse({
+              addons: [],
+            }),
+          ],
+          featuredExtensions: createAddonsApiResult([fakeAddon]),
+          featuredThemes: createAddonsApiResult([fakeTheme]),
+        }),
+      );
+
+      const homeState = store.getState().home;
+      expect(homeState.collections).toEqual([null]);
     });
 
     it('loads an empty array if featured themes is null', () => {
