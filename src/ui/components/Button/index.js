@@ -27,6 +27,7 @@ export default class Button extends React.Component {
     href: PropTypes.string,
     micro: PropTypes.bool,
     puffy: PropTypes.bool,
+    readOnly: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   };
 
@@ -35,6 +36,7 @@ export default class Button extends React.Component {
     disabled: false,
     micro: false,
     puffy: false,
+    readOnly: false,
   };
 
   render() {
@@ -45,6 +47,7 @@ export default class Button extends React.Component {
       href,
       micro,
       puffy,
+      readOnly,
       to,
       ...rest
     } = this.props;
@@ -55,7 +58,7 @@ export default class Button extends React.Component {
         not a valid button type`);
     }
 
-    const setClassName = (...classConfig) => {
+    const getClassName = (...classConfig) => {
       return makeClassName(
         'Button',
         `Button--${buttonType}`,
@@ -69,6 +72,10 @@ export default class Button extends React.Component {
       );
     };
 
+    if (readOnly) {
+      return <span className={getClassName()}>{children}</span>;
+    }
+
     if (href || to) {
       if (href) {
         props.href = href;
@@ -81,7 +88,7 @@ export default class Button extends React.Component {
 
       // Only a Link needs a disabled css class. This is because button
       // is styled based on its disabled property.
-      props.className = setClassName({ disabled: props.disabled });
+      props.className = getClassName({ disabled: props.disabled });
 
       if (props.disabled) {
         props.onClick = (event) => {
@@ -94,7 +101,7 @@ export default class Button extends React.Component {
     }
 
     return (
-      <button className={setClassName()} {...props}>
+      <button className={getClassName()} {...props}>
         {children}
       </button>
     );

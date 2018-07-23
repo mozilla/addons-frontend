@@ -87,8 +87,9 @@ describe(__filename, () => {
       'disabled',
       true,
     );
-    expect(root.find('.UserProfileEditPicture-select-button')).toHaveClassName(
-      'Button--disabled',
+    expect(root.find('.UserProfileEditPicture-select-button')).toHaveProp(
+      'disabled',
+      true,
     );
   });
 

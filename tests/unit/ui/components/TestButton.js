@@ -116,4 +116,12 @@ describe(__filename, () => {
       /buttonType="not-a-real-type" supplied but that is not a valid button/,
     );
   });
+
+  it('renders a read only button', () => {
+    const className = 'som-css-class';
+    const button = render({ readOnly: true, className });
+
+    expect(button.type()).toEqual('span');
+    expect(button).toHaveClassName(className);
+  });
 });
