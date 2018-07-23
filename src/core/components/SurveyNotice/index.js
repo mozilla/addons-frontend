@@ -1,6 +1,4 @@
 /* @flow */
-import querystring from 'querystring';
-
 import config from 'config';
 import * as React from 'react';
 import cookie from 'react-cookie';
@@ -16,6 +14,7 @@ import {
   SURVEY_CATEGORY,
 } from 'core/constants';
 import tracking from 'core/tracking';
+import { addQueryParams } from 'core/utils';
 import Notice from 'ui/components/Notice';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
@@ -59,12 +58,16 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     _tracking: tracking,
   };
 
+  track(action: string) {
+    this.props._tracking.sendEvent({
+      action,
+      category: SURVEY_CATEGORY,
+    });
+  }
+
   componentDidMount() {
     if (this.shouldShowNotice()) {
-      this.props._tracking.sendEvent({
-        action: SURVEY_ACTION_SHOWN,
-        category: SURVEY_CATEGORY,
-      });
+      this.track(SURVEY_ACTION_SHOWN);
     }
   }
 
@@ -94,18 +97,12 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
 
   onDismiss = () => {
     this.dismissNotice();
-    this.props._tracking.sendEvent({
-      action: SURVEY_ACTION_DISMISSED,
-      category: SURVEY_CATEGORY,
-    });
+    this.track(SURVEY_ACTION_DISMISSED);
   };
 
   onClickSurveyLink = () => {
     this.dismissNotice();
-    this.props._tracking.sendEvent({
-      action: SURVEY_ACTION_VISITED,
-      category: SURVEY_CATEGORY,
-    });
+    this.track(SURVEY_ACTION_VISITED);
   };
 
   render() {
@@ -117,13 +114,15 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
 
     // Pass along a source derived from the current URL path but with
     // the preceding language path removed.
-    const source = querystring.stringify({
-      source: location.pathname
-        .split('/')
-        .slice(2)
-        .join('/'),
-    });
-    const surveyUrl = `https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey?${source}`;
+    const surveyUrl = addQueryParams(
+      'https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey',
+      {
+        source: location.pathname
+          .split('/')
+          .slice(2)
+          .join('/'),
+      },
+    );
 
     return (
       <Notice

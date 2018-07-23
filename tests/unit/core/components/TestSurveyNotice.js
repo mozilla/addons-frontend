@@ -43,7 +43,7 @@ describe(__filename, () => {
   const getNoticeProp = (root, prop) => {
     const notice = root.find(Notice);
     expect(notice).toHaveProp(prop);
-    return notice.props()[prop];
+    return notice.prop(prop);
   };
 
   it('does not render a dismissed survey', () => {
