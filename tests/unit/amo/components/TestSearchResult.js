@@ -147,7 +147,7 @@ describe(__filename, () => {
 
   it('does not render an image if the isAllowedOrigin is false', () => {
     const root = render({
-      isAllowedOrigin: sinon.stub().returns(false),
+      _isAllowedOrigin: sinon.stub().returns(false),
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
@@ -198,6 +198,7 @@ describe(__filename, () => {
   });
 
   // TODO: This can be removed once migration happens.
+  // See: https://github.com/mozilla/addons-frontend/issues/5359
   it('displays a fallback image for themes that only have 1 preview option', () => {
     const headerImageFull = 'https://addons.cdn.mozilla.net/full/1.png';
 

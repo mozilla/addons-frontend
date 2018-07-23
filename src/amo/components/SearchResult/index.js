@@ -8,7 +8,7 @@ import translate from 'core/i18n/translate';
 import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
 import {
   addQueryParams,
-  isAllowedOrigin as defaultIsAllowedOrigin,
+  isAllowedOrigin,
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
@@ -31,12 +31,12 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
-  isAllowedOrigin: Function,
+  _isAllowedOrigin: Function,
 |};
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
-    isAllowedOrigin: defaultIsAllowedOrigin,
+    _isAllowedOrigin: isAllowedOrigin,
     showMetadata: true,
     showSummary: true,
   };
@@ -50,7 +50,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const {
       addon,
       i18n,
-      isAllowedOrigin,
+      _isAllowedOrigin,
       showMetadata,
       showSummary,
     } = this.props;
@@ -71,13 +71,13 @@ export class SearchResultBase extends React.Component<InternalProps> {
       const previewImage = previewSearch || previewFallback;
 
       let themeURL =
-        previewImage && isAllowedOrigin(previewImage.image_url)
+        previewImage && _isAllowedOrigin(previewImage.image_url)
           ? previewImage.image_url
           : null;
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =
-          addon.themeData && isAllowedOrigin(addon.themeData.previewURL)
+          addon.themeData && _isAllowedOrigin(addon.themeData.previewURL)
             ? addon.themeData.previewURL
             : null;
       }
