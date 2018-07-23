@@ -386,12 +386,20 @@ describe(__filename, () => {
     });
   });
 
-  describe('<Addon type="theme"/>', () => {
+  describe.each([
+    {
+      type: ADDON_TYPE_THEME,
+    },
+    {
+      type: ADDON_TYPE_STATIC_THEME,
+    },
+  ])(`Addon for %o`, async (testConfig) => {
     let root;
-    const newAddonName = 'Light Summer Colors';
+    const newAddonName = 'Summertime';
+    const { type } = testConfig;
 
     beforeEach(() => {
-      const data = { ...result, type: ADDON_TYPE_THEME, name: newAddonName };
+      const data = { ...result, name: newAddonName, type };
       root = renderAddon({ addon: data, ...data });
     });
 
@@ -399,7 +407,7 @@ describe(__filename, () => {
       expect(root.find('.theme-image')).toHaveLength(1);
     });
 
-    it("does render the alt tag with addon's name", () => {
+    it("renders the alt tag with addon's name", () => {
       expect(root.find('.Addon-theme-header-image')).toHaveProp(
         'alt',
         `Preview of ${newAddonName}`,
@@ -413,7 +421,9 @@ describe(__filename, () => {
     it("doesn't render the description for a lightweight theme", () => {
       expect(root.find('.editorial-description')).toHaveLength(0);
     });
+  });
 
+  describe('<Addon type="theme"/>', () => {
     it('calls installTheme on click', () => {
       const installTheme = sinon.stub();
       const addon = result;
@@ -437,39 +447,6 @@ describe(__filename, () => {
         ...addon,
         status: UNINSTALLED,
       });
-    });
-  });
-
-  describe('<Addon type="statictheme"/>', () => {
-    let root;
-    const newAddonName = 'Summer Colors';
-
-    beforeEach(() => {
-      const data = {
-        ...result,
-        type: ADDON_TYPE_STATIC_THEME,
-        name: newAddonName,
-      };
-      root = renderAddon({ addon: data, ...data });
-    });
-
-    it('does render the theme image for a static theme', () => {
-      expect(root.find('.theme-image')).toHaveLength(1);
-    });
-
-    it("does render the alt tag with addon's name", () => {
-      expect(root.find('.Addon-theme-header-image')).toHaveProp(
-        'alt',
-        `Preview of ${newAddonName}`,
-      );
-    });
-
-    it("doesn't render the logo for a static theme", () => {
-      expect(root.find('.logo')).toHaveLength(0);
-    });
-
-    it("doesn't render the description for a static theme", () => {
-      expect(root.find('.editorial-description')).toHaveLength(0);
     });
   });
 
