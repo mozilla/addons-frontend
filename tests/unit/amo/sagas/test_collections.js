@@ -567,7 +567,9 @@ describe(__filename, () => {
           slug: returnedSlug,
         });
 
-        mockApi.expects('updateCollection').returns(collectionDetailResponse);
+        mockApi
+          .expects('updateCollection')
+          .returns(Promise.resolve(collectionDetailResponse));
 
         const collectionSlug = 'some-collection';
         const updateFilters = { page: 2 };
