@@ -3,9 +3,7 @@ import querystring from 'querystring';
 import config from 'config';
 import * as React from 'react';
 
-import SurveyNotice, {
-  SurveyNoticeBase,
-} from 'core/components/SurveyNotice';
+import SurveyNotice, { SurveyNoticeBase } from 'core/components/SurveyNotice';
 import {
   SURVEY_ACTION_DISMISSED,
   SURVEY_ACTION_SHOWN,
