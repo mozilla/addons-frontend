@@ -438,35 +438,35 @@ describe(__filename, () => {
       detail: createFakeCollectionDetail({ name }),
     });
 
-    let root = render({ collection });
-
-    const buttonsAreDisabled = (shouldBeDisabled) => {
+    const verifyButtons = ({ root, disabled }) => {
       expect(root.find('.CollectionManager-cancel')).toHaveProp(
         'disabled',
-        shouldBeDisabled,
+        disabled,
       );
       expect(root.find('.CollectionManager-submit')).toHaveProp(
         'disabled',
-        shouldBeDisabled,
+        disabled,
       );
     };
+
+    let root = render({ collection });
 
     // Enter a value for name in order to enable submit button.
     typeInput({ root, name: 'name', text: `${name}-changed` });
 
     // Buttons should be enabled now.
-    buttonsAreDisabled(false);
+    verifyButtons({ root, disabled: false });
 
     store.dispatch(beginCollectionModification());
     root = render({ collection });
-    buttonsAreDisabled(true);
+    verifyButtons({ root, disabled: true });
 
     store.dispatch(finishCollectionModification());
     root = render({ collection });
     // Enter a value for name in order to enable submit button.
     typeInput({ root, name: 'name', text: `${name}-changed` });
 
-    buttonsAreDisabled(false);
+    verifyButtons({ root, disabled: false });
   });
 
   it('enables and disables the submit button when form data is modified', () => {
@@ -478,35 +478,35 @@ describe(__filename, () => {
       detail: createFakeCollectionDetail({ description, name, slug }),
     });
 
-    const root = render({ collection });
-
-    const saveIsDisabled = (isDisabled) => {
+    const verifySaveButton = ({ root, disabled }) => {
       expect(root.find('.CollectionManager-submit')).toHaveProp(
         'disabled',
-        isDisabled,
+        disabled,
       );
     };
 
+    const root = render({ collection });
+
     // Save should be disabled by default.
-    saveIsDisabled(true);
+    verifySaveButton({ root, disabled: true });
 
     typeInput({ root, name: 'description', text: `${description}-changed` });
-    saveIsDisabled(false);
+    verifySaveButton({ root, disabled: false });
 
     typeInput({ root, name: 'description', text: description });
-    saveIsDisabled(true);
+    verifySaveButton({ root, disabled: true });
 
     typeInput({ root, name: 'name', text: `${name}-changed` });
-    saveIsDisabled(false);
+    verifySaveButton({ root, disabled: false });
 
     typeInput({ root, name: 'name', text: name });
-    saveIsDisabled(true);
+    verifySaveButton({ root, disabled: true });
 
     typeInput({ root, name: 'slug', text: `${slug}-changed` });
-    saveIsDisabled(false);
+    verifySaveButton({ root, disabled: false });
 
     typeInput({ root, name: 'slug', text: slug });
-    saveIsDisabled(true);
+    verifySaveButton({ root, disabled: true });
   });
 
   it('trims leading and trailing spaces from slug and name before submitting', () => {
