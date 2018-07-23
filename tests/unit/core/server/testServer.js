@@ -383,4 +383,15 @@ describe(__filename, () => {
       expect(response.headers.location).toEqual(newURL);
     });
   });
+
+  describe('createHistory', () => {
+    it('creates a history object with query parameters', () => {
+      const request = {
+        url: '/',
+      };
+      const history = createHistory({ req: request });
+
+      expect(history).toHaveProperty('location.query');
+    });
+  });
 });
