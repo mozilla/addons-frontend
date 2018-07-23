@@ -122,33 +122,36 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const {
-      i18n,
-      name,
-      previewURL,
-      previews,
-      type,
-      getBrowserThemeData,
-    } = this.props;
+    const { type } = this.props;
 
     if (ADDON_TYPE_THEMES.includes(type)) {
-      const imageUrl =
+      const {
+        getBrowserThemeData,
+        i18n,
+        name,
+        previewURL,
+        previews,
+      } = this.props;
+
+      let imageUrl =
         previews && previews.length > 0 && previews[0].image_url
           ? previews[0].image_url
           : null;
 
-      const label = sprintf(i18n.gettext('Preview of %(name)s'), { name });
+      if (!imageUrl && type === ADDON_TYPE_THEME) {
+        imageUrl = previewURL;
+      }
 
       const headerImage = (
         <img
-          alt={label}
+          alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
           className="Addon-theme-header-image"
-          src={imageUrl || previewURL}
+          src={imageUrl}
         />
       );
 
       /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return !imageUrl && type === ADDON_TYPE_THEME ? (
+      return type === ADDON_TYPE_THEME ? (
         <a
           className="theme-image"
           data-browsertheme={getBrowserThemeData()}
