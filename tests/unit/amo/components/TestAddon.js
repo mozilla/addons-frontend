@@ -928,7 +928,7 @@ describe(__filename, () => {
   });
 
   it('renders a static theme preview as an image', () => {
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/54321.png';
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
@@ -936,19 +936,76 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
-            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
           },
         ],
       }),
     });
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
-    expect(image.prop('src')).toEqual(headerImageFull);
+    expect(image.prop('src')).toEqual(headerImageThumb);
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
 
+  it('displays srcSet values if preview has multiple options for its first item', () => {
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+    const thumbWidth = 450;
+    const fullWidth = 900;
+
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
+            image_size: [fullWidth, 200],
+            thumbnail_size: [thumbWidth, 100],
+          },
+        ],
+      }),
+    });
+
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.prop('srcSet')).toEqual(
+      `${headerImageThumb} ${thumbWidth}w, ${headerImageFull} ${fullWidth}w`,
+    );
+  });
+
+  it.each([{ image_url: '' }, { image_size: [] }, { thumbnail_size: [] }])(
+    `renders image without srcSet if there are no preview image sizes or large image %o`,
+    (propOverride) => {
+      const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+      const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+
+      const root = shallowRender({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+          previews: [
+            {
+              ...fakePreview,
+              image_url: headerImageFull,
+              thumbnail_url: headerImageThumb,
+              image_size: [800, 400],
+              thumbnail_size: [400, 200],
+              ...propOverride,
+            },
+          ],
+        }),
+      });
+
+      const image = root.find('.Addon-theme-header-image');
+      expect(image.prop('src')).toEqual(headerImageThumb);
+      expect(image).not.toHaveProp('srcSet');
+    },
+  );
+
   it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
@@ -956,14 +1013,14 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
-            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
           },
         ],
       }),
     });
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
-    expect(image.prop('src')).toEqual(headerImageFull);
+    expect(image.prop('src')).toEqual(headerImageThumb);
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
 
