@@ -18,10 +18,11 @@ import {
   validAddonTypes,
 } from 'core/constants';
 import {
-  apiAddonTypeIsValid,
   addQueryParams,
+  addQueryParamsToHistory,
   addonHasVersionHistory,
   apiAddonType,
+  apiAddonTypeIsValid,
   convertBoolean,
   getAddonTypeFilter,
   getCategoryColor,
@@ -45,6 +46,8 @@ import {
 import { createInternalAddon, loadAddons } from 'core/reducers/addons';
 import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
 import {
+  createFakeHistory,
+  createFakeLocation,
   createFetchAddonResult,
   getFakeConfig,
   unexpectedSuccess,
@@ -759,6 +762,34 @@ describe(__filename, () => {
 
     it('returns false if type is an extension', () => {
       expect(isTheme(ADDON_TYPE_EXTENSION)).toEqual(false);
+    });
+  });
+
+  describe('addQueryParamsToHistory', () => {
+    it('adds a query object to history.location', () => {
+      const history = createFakeHistory({
+        location: createFakeLocation({ query: null }),
+      });
+
+      expect(history).toHaveProperty('location.query', null);
+
+      const historyWithQueryParams = addQueryParamsToHistory({ history });
+
+      expect(historyWithQueryParams).toHaveProperty('location.query', {});
+    });
+
+    it('parses the query string to build the query object', () => {
+      const history = createFakeHistory({
+        location: createFakeLocation({ query: null, search: 'foo=123' }),
+      });
+
+      expect(history).toHaveProperty('location.query', null);
+
+      const historyWithQueryParams = addQueryParamsToHistory({ history });
+
+      expect(historyWithQueryParams.location.query).toEqual({
+        foo: '123',
+      });
     });
   });
 });
