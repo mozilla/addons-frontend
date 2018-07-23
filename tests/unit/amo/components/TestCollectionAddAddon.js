@@ -1,16 +1,16 @@
 import * as React from 'react';
+/* global window */
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionAddAddon, {
-  ADDON_ADDED_STATUS_NONE,
-  ADDON_ADDED_STATUS_PENDING,
-  ADDON_ADDED_STATUS_SUCCESS,
   CollectionAddAddonBase,
   extractId,
+  mapStateToProps,
   MESSAGE_RESET_TIME,
 } from 'amo/components/CollectionAddAddon';
 import {
   addAddonToCollection,
+  addonAddedToCollection,
   createInternalCollection,
 } from 'amo/reducers/collections';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
@@ -37,9 +37,44 @@ const simulateAutoSearchCallback = (props = {}) => {
   });
 };
 
+const setAddonWasAddedUiStateToTrue = ({ username, root, store }) => {
+  store.dispatch(
+    addonAddedToCollection({
+      addonId: 123,
+      collectionId: 321,
+      username,
+    }),
+  );
+
+  // Simulate a Redux state update.
+  root.setProps(mapStateToProps(store.getState()));
+
+  applyUIStateChanges({ root, store });
+};
+
 describe(__filename, () => {
   const signedInUserId = 123;
   const signedInUsername = 'user123';
+
+  let clock;
+
+  beforeEach(() => {
+    clock = sinon.useFakeTimers(Date.now());
+  });
+
+  afterEach(() => {
+    clock.restore();
+  });
+
+  const dispatchSignedInUser = ({
+    userId = signedInUserId,
+    username = signedInUsername,
+  }) => {
+    return dispatchSignInActions({
+      userId,
+      userProps: { username },
+    });
+  };
 
   const getProps = ({
     collection = createInternalCollection({
@@ -74,9 +109,8 @@ describe(__filename, () => {
   });
 
   it('dispatches addAddonToCollection when selecting an add-on', () => {
-    const { store } = dispatchSignInActions({
-      userId: signedInUserId,
-      userProps: { username: signedInUsername },
+    const { store } = dispatchSignedInUser({
+      username: signedInUsername,
     });
     const filters = { page: 2 };
     const errorHandler = createStubErrorHandler();
@@ -110,13 +144,14 @@ describe(__filename, () => {
     );
   });
 
-  it('sets the addonAddedStatus state to pending when selecting an add-on', () => {
-    const { store } = dispatchSignInActions();
+  it('sets the addonWasAdded state to false when selecting an add-on', () => {
+    const { store } = dispatchSignedInUser({
+      username: signedInUsername,
+    });
     const root = render({ store });
 
-    expect(root.instance().props.uiState.addonAddedStatus).toEqual(
-      ADDON_ADDED_STATUS_NONE,
-    );
+    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
+    expect(root.instance().props.uiState.addonWasAdded).toEqual(true);
 
     const suggestion = createInternalSuggestion(
       createFakeAutocompleteResult({ name: 'uBlock Origin' }),
@@ -128,52 +163,47 @@ describe(__filename, () => {
     selectSuggestion(suggestion);
 
     applyUIStateChanges({ root, store });
-    expect(root.instance().props.uiState.addonAddedStatus).toEqual(
-      ADDON_ADDED_STATUS_PENDING,
-    );
+    expect(root.instance().props.uiState.addonWasAdded).toEqual(false);
   });
 
   it('displays a notification for 5 seconds after an add-on has been added', () => {
-    const { store } = dispatchSignInActions();
-    const setTimeoutSpy = sinon.spy();
-    const root = render({ setTimeout: setTimeoutSpy, store });
+    const { store } = dispatchSignedInUser({
+      username: signedInUsername,
+    });
+    const root = render({ setTimeout: window.setTimeout, store });
 
     expect(root.find(Notice)).toHaveLength(0);
 
-    root.setProps({ hasAddonBeenAdded: true });
-    applyUIStateChanges({ root, store });
+    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
 
-    expect(root.instance().props.uiState.addonAddedStatus).toEqual(
-      ADDON_ADDED_STATUS_SUCCESS,
-    );
-    sinon.assert.calledWith(
-      setTimeoutSpy,
-      root.instance().resetMessageStatus,
-      MESSAGE_RESET_TIME,
-    );
+    expect(root.instance().props.uiState.addonWasAdded).toEqual(true);
 
-    // Simulate the setTimeout behavior.
-    root.instance().resetMessageStatus();
-    // See: https://github.com/airbnb/enzyme/blob/enzyme%403.3.0/docs/guides/migration-from-2-to-3.md#for-mount-updates-are-sometimes-required-when-they-werent-before
-    root.update();
+    // Trigger the setTimeout behavior.
+    clock.tick(MESSAGE_RESET_TIME);
 
     applyUIStateChanges({ root, store });
-    expect(root.instance().props.uiState.addonAddedStatus).toEqual(
-      ADDON_ADDED_STATUS_NONE,
-    );
+    expect(root.instance().props.uiState.addonWasAdded).toEqual(false);
     expect(root.find(Notice)).toHaveLength(0);
   });
 
   it('calls clearTimeout when unmounting and timeout is set', () => {
-    const clearTimeoutSpy = sinon.spy();
-    const root = render({ clearTimeout: clearTimeoutSpy });
-
+    const { store } = dispatchSignedInUser({
+      username: signedInUsername,
+    });
     const timeoutID = 123;
-    // Simulates the setTimeout behavior in which timeout is set.
-    root.instance().timeout = timeoutID;
+    const setTimeoutSpy = sinon.spy(() => timeoutID);
+    const clearTimeoutSpy = sinon.spy();
+    const root = render({
+      clearTimeout: clearTimeoutSpy,
+      setTimeout: setTimeoutSpy,
+      store,
+    });
+
+    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
+    sinon.assert.called(setTimeoutSpy);
 
     root.unmount();
 
@@ -190,15 +220,14 @@ describe(__filename, () => {
   });
 
   it('removes the notification after a new add-on has been selected', () => {
-    const { store } = dispatchSignInActions();
+    const { store } = dispatchSignedInUser({
+      username: signedInUsername,
+    });
     const root = render({ store });
 
     expect(root.find(Notice)).toHaveLength(0);
 
-    // Setting this simulates an add-on having been added previously, which
-    // will cause the notification to appear.
-    root.setProps({ hasAddonBeenAdded: true });
-    applyUIStateChanges({ root, store });
+    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
 
     expect(root.find(Notice)).toHaveLength(1);
 
@@ -217,16 +246,17 @@ describe(__filename, () => {
 
   describe('extractId', () => {
     it('generates an ID without a collection', () => {
-      expect(extractId(getProps({ collection: null }))).toEqual('');
+      expect(extractId(getProps({ collection: null }))).toEqual('collection');
     });
 
     it('generates an ID with a collection', () => {
+      const id = 12345;
       const collection = createInternalCollection({
         detail: createFakeCollectionDetail({
-          slug: 'some-slug',
+          id,
         }),
       });
-      expect(extractId(getProps({ collection }))).toEqual('some-slug');
+      expect(extractId(getProps({ collection }))).toEqual(`collection${id}`);
     });
   });
 });

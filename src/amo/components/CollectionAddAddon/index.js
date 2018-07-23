@@ -28,24 +28,12 @@ import './styles.scss';
 export const MESSAGE_RESET_TIME = 5000;
 const MESSAGE_FADEOUT_TIME = 450;
 
-export const ADDON_ADDED_STATUS_NONE: 'ADDON_ADDED_STATUS_NONE' =
-  'ADDON_ADDED_STATUS_NONE';
-export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING' =
-  'ADDON_ADDED_STATUS_PENDING';
-export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS' =
-  'ADDON_ADDED_STATUS_SUCCESS';
-
-export type AddonAddedStatusType =
-  | typeof ADDON_ADDED_STATUS_NONE
-  | typeof ADDON_ADDED_STATUS_PENDING
-  | typeof ADDON_ADDED_STATUS_SUCCESS;
-
 type UIStateType = {|
-  addonAddedStatus: AddonAddedStatusType,
+  addonWasAdded: boolean,
 |};
 
 const initialUIState: UIStateType = {
-  addonAddedStatus: ADDON_ADDED_STATUS_NONE,
+  addonWasAdded: false,
 };
 
 export type Props = {|
@@ -81,9 +69,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
     const { hasAddonBeenAdded } = this.props;
     if (hasAddonBeenAdded !== hasAddonBeenAddedNew) {
       this.props.setUIState({
-        addonAddedStatus: props.hasAddonBeenAdded
-          ? ADDON_ADDED_STATUS_SUCCESS
-          : ADDON_ADDED_STATUS_NONE,
+        addonWasAdded: props.hasAddonBeenAdded,
       });
     }
 
@@ -111,15 +97,9 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
     } = this.props;
     const { addonId } = suggestion;
 
-    invariant(addonId, 'addonId cannot be empty');
-    invariant(
-      collection,
-      'A collection must be loaded before you can add an add-on to it',
-    );
-    invariant(
-      currentUsername,
-      'Cannot add to collection because you are not signed in',
-    );
+    invariant(addonId, 'addonId is required');
+    invariant(collection, 'collection is required');
+    invariant(currentUsername, 'currentUsername is required');
 
     dispatch(
       addAddonToCollection({
@@ -132,14 +112,14 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
         username: currentUsername,
       }),
     );
-    this.props.setUIState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
+    this.props.setUIState({ addonWasAdded: false });
   };
 
   timeout: TimeoutID;
 
   resetMessageStatus = () => {
     this.props.setUIState({
-      addonAddedStatus: ADDON_ADDED_STATUS_NONE,
+      addonWasAdded: false,
     });
   };
 
@@ -152,7 +132,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
           errorHandler.renderError()
         ) : (
           <TransitionGroup className="NoticePlaceholder">
-            {uiState.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
+            {uiState.addonWasAdded && (
               <CSSTransition
                 classNames="NoticePlaceholder-transition"
                 timeout={MESSAGE_FADEOUT_TIME}
@@ -181,7 +161,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
 
 export const extractId = (props: Props) => {
   const { collection } = props;
-  return collection ? collection.slug : '';
+  return `collection${collection ? collection.id : ''}`;
 };
 
 export const mapStateToProps = (state: AppState) => {

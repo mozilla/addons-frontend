@@ -8,12 +8,8 @@
     min-height: 32px;
   }
 
-  .NoticePlaceholder {
-    + .AutoSearchInput {
-      .AutoSearchInput-label {
-        padding-top: 4px;
-      }
-    }
+  .AutoSearchInput-label {
+    padding-top: 4px;
   }
 
   .AutoSearchInput-query {
@@ -24,12 +20,6 @@
   .AutoSearchInput--autocompleteIsOpen .AutoSearchInput-query {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-  }
-
-  label {
-    display: block;
-    font-size: $font-size-s;
-    padding: 24px 0 6px;
   }
 
   .Notice {
