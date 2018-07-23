@@ -11,12 +11,12 @@ type Props = {|
   location: ReactRouterLocationType,
 |};
 
-class ScrollToTop extends React.Component<Props> {
+export class ScrollToTopBase extends React.Component<Props> {
   static defaultProps = {
     _window: typeof window !== 'undefined' ? window : null,
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props) {
     const { _window, location } = this.props;
 
     if (_window && location !== prevProps.location) {
@@ -29,4 +29,4 @@ class ScrollToTop extends React.Component<Props> {
   }
 }
 
-export default withRouter(ScrollToTop);
+export default withRouter(ScrollToTopBase);
