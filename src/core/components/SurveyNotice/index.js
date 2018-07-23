@@ -9,6 +9,12 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import { dismissSurvey } from 'core/reducers/survey';
+import {
+  SURVEY_ACTION_DISMISSED,
+  SURVEY_ACTION_SHOWN,
+  SURVEY_ACTION_VISITED,
+  SURVEY_CATEGORY,
+} from 'core/constants';
 import tracking from 'core/tracking';
 import Notice from 'ui/components/Notice';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -17,11 +23,6 @@ import type { DispatchFunc } from 'core/types/redux';
 import type { AppState } from 'amo/store';
 
 import './styles.scss';
-
-export const TRACKING_CATEGORY = 'AMO Addon / Experience Survey Notice';
-export const TRACKING_ACTION_DISMISSED = 'Dismissed survey notice';
-export const TRACKING_ACTION_SHOWN = 'Shown survey notice';
-export const TRACKING_ACTION_VISITED = 'Visited survey';
 
 type Props = {|
   location: ReactRouterLocation,
@@ -61,8 +62,8 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
   componentDidMount() {
     if (this.shouldShowNotice()) {
       this.props._tracking.sendEvent({
-        action: TRACKING_ACTION_SHOWN,
-        category: TRACKING_CATEGORY,
+        action: SURVEY_ACTION_SHOWN,
+        category: SURVEY_CATEGORY,
       });
     }
   }
@@ -94,16 +95,16 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
   onDismiss = () => {
     this.dismissNotice();
     this.props._tracking.sendEvent({
-      action: TRACKING_ACTION_DISMISSED,
-      category: TRACKING_CATEGORY,
+      action: SURVEY_ACTION_DISMISSED,
+      category: SURVEY_CATEGORY,
     });
   };
 
   onClickSurveyLink = () => {
     this.dismissNotice();
     this.props._tracking.sendEvent({
-      action: TRACKING_ACTION_VISITED,
-      category: TRACKING_CATEGORY,
+      action: SURVEY_ACTION_VISITED,
+      category: SURVEY_CATEGORY,
     });
   };
 

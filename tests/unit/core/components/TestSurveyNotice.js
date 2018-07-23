@@ -5,11 +5,13 @@ import * as React from 'react';
 
 import SurveyNotice, {
   SurveyNoticeBase,
-  TRACKING_ACTION_DISMISSED,
-  TRACKING_ACTION_SHOWN,
-  TRACKING_ACTION_VISITED,
-  TRACKING_CATEGORY,
 } from 'core/components/SurveyNotice';
+import {
+  SURVEY_ACTION_DISMISSED,
+  SURVEY_ACTION_SHOWN,
+  SURVEY_ACTION_VISITED,
+  SURVEY_CATEGORY,
+} from 'core/constants';
 import { dismissSurvey } from 'core/reducers/survey';
 import Notice from 'ui/components/Notice';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
@@ -114,8 +116,8 @@ describe(__filename, () => {
     const root = render({ _tracking });
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_ACTION_SHOWN,
-      category: TRACKING_CATEGORY,
+      action: SURVEY_ACTION_SHOWN,
+      category: SURVEY_CATEGORY,
     });
   });
 
@@ -143,8 +145,8 @@ describe(__filename, () => {
     actionOnClick();
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_ACTION_VISITED,
-      category: TRACKING_CATEGORY,
+      action: SURVEY_ACTION_VISITED,
+      category: SURVEY_CATEGORY,
     });
   });
 
@@ -160,8 +162,8 @@ describe(__filename, () => {
     onDismiss();
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: TRACKING_ACTION_DISMISSED,
-      category: TRACKING_CATEGORY,
+      action: SURVEY_ACTION_DISMISSED,
+      category: SURVEY_CATEGORY,
     });
   });
 

@@ -213,6 +213,11 @@ export const UNINSTALL_EXTENSION_CATEGORY = 'AMO Addon Uninstalls';
 
 export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 
+export const SURVEY_CATEGORY = 'AMO Addon / Experience Survey Notice';
+export const SURVEY_ACTION_DISMISSED = 'Dismissed survey notice';
+export const SURVEY_ACTION_SHOWN = 'Shown survey notice';
+export const SURVEY_ACTION_VISITED = 'Visited survey';
+
 // Error used to know that the setEnable method on addon is
 // not available.
 export const SET_ENABLE_NOT_AVAILABLE = 'SET_ENABLE_NOT_AVAILABLE';
