@@ -378,8 +378,9 @@ describe(__filename, () => {
     it('lets you create a new collection by navigating to the collection page', () => {
       const clientApp = CLIENT_APP_FIREFOX;
       const lang = 'fr';
+      const id = 234;
 
-      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
+      const addon = createInternalAddon({ ...fakeAddon, id });
 
       signInAndDispatchCollections({
         clientApp,
@@ -404,8 +405,19 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         routerSpy.push,
-        `/${lang}/${clientApp}/collections/add/`,
+        `/${lang}/${clientApp}/collections/add/?include_addon_id=${id}`,
       );
+    });
+
+    it('does not include an option to create a collection when no add-on has been loaded', () => {
+      signInAndDispatchCollections();
+      const root = render({ addon: null });
+
+      const createOption = root
+        .find('.AddAddonToCollection-option')
+        .filterWhere((opt) => opt.text() === 'Create new collection');
+
+      expect(createOption).toHaveLength(0);
     });
 
     it('requires an add-on before you can add to a collection', () => {

@@ -494,6 +494,7 @@ export type OptionalModifyCollectionParams = {|
 type CreateCollectionParams = {|
   ...RequiredModifyCollectionParams,
   ...OptionalModifyCollectionParams,
+  includeAddonId?: number,
   name: LocalizedString,
   slug: string,
 |};
@@ -521,6 +522,7 @@ export const createCollection = ({
   errorHandlerId,
   defaultLocale,
   description,
+  includeAddonId,
   name,
   slug,
   username,
@@ -536,6 +538,7 @@ export const createCollection = ({
       errorHandlerId,
       defaultLocale,
       description,
+      includeAddonId,
       name,
       slug,
       username,

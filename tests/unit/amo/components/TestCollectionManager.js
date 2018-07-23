@@ -25,6 +25,7 @@ import {
   createFakeRouter,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
   simulateComponentCallback,
 } from 'tests/unit/helpers';
@@ -76,6 +77,7 @@ describe(__filename, () => {
       creating: false,
       filters: {},
       i18n: fakeI18n(),
+      location: fakeRouterLocation(),
       router,
       store,
       ...customProps,
@@ -327,6 +329,45 @@ describe(__filename, () => {
         defaultLocale: lang,
         description: { [lang]: description },
         errorHandlerId: errorHandler.id,
+        name: { [lang]: name },
+        slug,
+        username: signedInUsername,
+      }),
+    );
+  });
+
+  it('creates a collection with an add-on on submit', () => {
+    const errorHandler = createStubErrorHandler();
+    const id = 123;
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({
+      collection: null,
+      creating: true,
+      errorHandler,
+      router: createFakeRouter({
+        location: fakeRouterLocation({ query: { include_addon_id: id } }),
+      }),
+    });
+
+    // Fill in the form with values.
+    const name = 'A collection name';
+    const description = 'A collection description';
+    const slug = 'collection-slug';
+
+    typeInput({ root, name: 'name', text: name });
+    typeInput({ root, name: 'description', text: description });
+    typeInput({ root, name: 'slug', text: slug });
+
+    simulateSubmit(root);
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      createCollection({
+        defaultLocale: lang,
+        description: { [lang]: description },
+        errorHandlerId: errorHandler.id,
+        includeAddonId: id,
         name: { [lang]: name },
         slug,
         username: signedInUsername,

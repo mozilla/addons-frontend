@@ -158,6 +158,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 
   getSelectData(): SelectData {
     const {
+      addon,
       clientApp,
       i18n,
       lang,
@@ -195,17 +196,21 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       }),
     );
 
-    actionOptions.push(
-      this.createOption({
-        text: i18n.gettext('Create new collection'),
-        key: 'create-new-collection',
-        onSelect: () => {
-          // TODO: show create collection overlay when it's implemented.
-          // See: https://github.com/mozilla/addons-frontend/issues/3993
-          router.push(`/${lang}/${clientApp}/collections/add/`);
-        },
-      }),
-    );
+    if (addon) {
+      actionOptions.push(
+        this.createOption({
+          text: i18n.gettext('Create new collection'),
+          key: 'create-new-collection',
+          onSelect: () => {
+            router.push(
+              `/${lang}/${clientApp}/collections/add/?include_addon_id=${
+                addon.id
+              }`,
+            );
+          },
+        }),
+      );
+    }
 
     if (userCollections && userCollections.length) {
       userCollections
