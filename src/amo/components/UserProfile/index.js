@@ -141,10 +141,14 @@ export class UserProfileBase extends React.Component<InternalProps> {
     }
   }
 
-  getURL() {
+  getUsername() {
     const { params, user } = this.props;
 
-    return `/user/${user ? user.username : params.username}/`;
+    return user ? user.username : params.username;
+  }
+
+  getURL() {
+    return `/user/${this.getUsername()}/`;
   }
 
   getEditURL() {
@@ -383,7 +387,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 <AddonsByAuthorsCard
                   addonType={ADDON_TYPE_EXTENSION}
                   authorDisplayName={user ? user.name : params.username}
-                  authorUsernames={[user ? user.username : params.username]}
+                  authorUsernames={[this.getUsername()]}
                   errorHandler={errorHandler}
                   numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
                   pageParam="page_e"
@@ -397,7 +401,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 <AddonsByAuthorsCard
                   addonType={ADDON_TYPE_THEME}
                   authorDisplayName={user ? user.name : params.username}
-                  authorUsernames={[user ? user.username : params.username]}
+                  authorUsernames={[this.getUsername()]}
                   errorHandler={errorHandler}
                   numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
                   pageParam="page_t"
