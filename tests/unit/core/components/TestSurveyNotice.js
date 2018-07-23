@@ -111,7 +111,7 @@ describe(__filename, () => {
 
   it('tracks when the survey notice is shown', () => {
     const _tracking = createFakeTracking();
-    const root = render({ _tracking });
+    render({ _tracking });
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: SURVEY_ACTION_SHOWN,
@@ -121,7 +121,7 @@ describe(__filename, () => {
 
   it('does not track shown event when the survey notice is disabled', () => {
     const _tracking = createFakeTracking();
-    const root = render({
+    render({
       _config: getFakeConfig({
         enableExperienceSurvey: false,
       }),

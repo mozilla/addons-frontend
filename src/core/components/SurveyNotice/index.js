@@ -78,7 +78,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
   }
 
   dismissNotice = () => {
-    const { _config, _cookie, _tracking, dispatch } = this.props;
+    const { _config, _cookie, dispatch } = this.props;
     dispatch(dismissSurvey());
     // Even though a dismissal action is dispatched here, also save a
     // cookie to manually synchronize state. The server code will load
@@ -109,15 +109,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const {
-      _config,
-      _cookie,
-      _supportedLangs,
-      dispatch,
-      i18n,
-      location,
-      wasDismissed,
-    } = this.props;
+    const { i18n, location } = this.props;
 
     if (!this.shouldShowNotice()) {
       return null;
