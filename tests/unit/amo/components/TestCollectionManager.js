@@ -432,25 +432,81 @@ describe(__filename, () => {
   });
 
   it('disables and enables form buttons when modification status changes', () => {
-    const renderAndCheckButtons = (shouldBeDisabled) => {
-      const root = render();
+    const name = 'Collection name';
 
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ name }),
+    });
+
+    const verifyButtons = ({ root, disabled }) => {
       expect(root.find('.CollectionManager-cancel')).toHaveProp(
         'disabled',
-        shouldBeDisabled,
+        disabled,
       );
       expect(root.find('.CollectionManager-submit')).toHaveProp(
         'disabled',
-        shouldBeDisabled,
+        disabled,
       );
     };
 
-    // Buttons should be enabled by default.
-    renderAndCheckButtons(false);
+    let root = render({ collection });
+
+    // Enter a value for name in order to enable submit button.
+    typeInput({ root, name: 'name', text: `${name}-changed` });
+
+    // Buttons should be enabled now.
+    verifyButtons({ root, disabled: false });
+
     store.dispatch(beginCollectionModification());
-    renderAndCheckButtons(true);
+    root = render({ collection });
+    verifyButtons({ root, disabled: true });
+
     store.dispatch(finishCollectionModification());
-    renderAndCheckButtons(false);
+    root = render({ collection });
+    // Enter a value for name in order to enable submit button.
+    typeInput({ root, name: 'name', text: `${name}-changed` });
+
+    verifyButtons({ root, disabled: false });
+  });
+
+  it('enables and disables the submit button when form data is modified', () => {
+    const description = 'Collection name description';
+    const name = 'Collection name';
+    const slug = 'collection-slug';
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ description, name, slug }),
+    });
+
+    const verifySaveButton = ({ root, disabled }) => {
+      expect(root.find('.CollectionManager-submit')).toHaveProp(
+        'disabled',
+        disabled,
+      );
+    };
+
+    const root = render({ collection });
+
+    // Save should be disabled by default.
+    verifySaveButton({ root, disabled: true });
+
+    typeInput({ root, name: 'description', text: `${description}-changed` });
+    verifySaveButton({ root, disabled: false });
+
+    typeInput({ root, name: 'description', text: description });
+    verifySaveButton({ root, disabled: true });
+
+    typeInput({ root, name: 'name', text: `${name}-changed` });
+    verifySaveButton({ root, disabled: false });
+
+    typeInput({ root, name: 'name', text: name });
+    verifySaveButton({ root, disabled: true });
+
+    typeInput({ root, name: 'slug', text: `${slug}-changed` });
+    verifySaveButton({ root, disabled: false });
+
+    typeInput({ root, name: 'slug', text: slug });
+    verifySaveButton({ root, disabled: true });
   });
 
   it('trims leading and trailing spaces from slug and name before submitting', () => {

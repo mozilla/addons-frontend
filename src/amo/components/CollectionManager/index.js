@@ -319,18 +319,25 @@ export class CollectionManagerBase extends React.Component<
       isCollectionBeingModified,
       siteLang,
     } = this.props;
-    const { name, slug } = this.state;
+    const { description, name, slug } = this.state;
 
     const collectionUrlPrefix = oneLineTrim`${config.get(
       'apiHost',
     )}/${siteLang}/firefox/collections/
        ${(collection && collection.authorUsername) || currentUsername}/`;
 
+    const formIsUnchanged =
+      collection &&
+      (collection.name === name &&
+        collection.slug === slug &&
+        (collection.description === description ||
+          (collection.description === null && !description)));
     const formIsDisabled =
       (!collection && !creating) || isCollectionBeingModified;
     const isNameBlank = !(name && name.trim().length);
     const isSlugBlank = !(slug && slug.trim().length);
-    const isSubmitDisabled = formIsDisabled || isNameBlank || isSlugBlank;
+    const isSubmitDisabled =
+      formIsDisabled || formIsUnchanged || isNameBlank || isSlugBlank;
     const buttonText = creating
       ? i18n.gettext('Create collection')
       : i18n.gettext('Save collection');
