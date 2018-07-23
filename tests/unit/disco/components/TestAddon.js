@@ -26,6 +26,7 @@ import { loadedAddons } from 'disco/components/DiscoPane';
 import createStore from 'disco/store';
 import {
   createFakeEvent,
+  createFakeTracking,
   fakeI18n,
   signedInApiState,
 } from 'tests/unit/helpers';
@@ -316,9 +317,7 @@ describe(__filename, () => {
     });
 
     it('tracks an add-on link click', () => {
-      const fakeTracking = {
-        sendEvent: sinon.stub(),
-      };
+      const fakeTracking = createFakeTracking();
       const data = {
         ...result,
         _tracking: fakeTracking,
