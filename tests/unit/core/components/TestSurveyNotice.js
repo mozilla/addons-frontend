@@ -3,11 +3,18 @@ import querystring from 'querystring';
 import config from 'config';
 import * as React from 'react';
 
-import SurveyNotice, { SurveyNoticeBase } from 'core/components/SurveyNotice';
+import SurveyNotice, {
+  SurveyNoticeBase,
+  TRACKING_ACTION_DISMISSED,
+  TRACKING_ACTION_SHOWN,
+  TRACKING_ACTION_VISITED,
+  TRACKING_CATEGORY,
+} from 'core/components/SurveyNotice';
 import { dismissSurvey } from 'core/reducers/survey';
 import Notice from 'ui/components/Notice';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  createFakeTracking,
   fakeCookie,
   fakeI18n,
   fakeRouterLocation,
@@ -21,6 +28,8 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     const props = {
+      // TODO: update all existing tests to use the same helper.
+      _tracking: createFakeTracking(),
       _config: getFakeConfig({
         enableExperienceSurvey: true,
       }),
@@ -59,50 +68,31 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  it('saves a cookie on dismissal', () => {
-    const _cookie = fakeCookie();
-    const root = render({ _cookie });
-
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('onDismiss');
-    const { onDismiss } = notice.props();
-
-    // Simulate a dismissal
-    onDismiss();
-
-    sinon.assert.calledWith(
-      _cookie.save,
-      config.get('dismissedExperienceSurveyCookieName'),
-      '',
-      { maxAge: sinon.match.any, path: '/' },
-    );
-  });
-
-  it('dispatches action on dismissal', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ store });
-
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('onDismiss');
-    const { onDismiss } = notice.props();
-
-    // Simulate a dismissal
-    onDismiss();
-
-    sinon.assert.calledWith(dispatchSpy, dismissSurvey());
-  });
-
-  it('runs the same dismiss logic when clicking through to the survey', () => {
+  it('configures Notice to call dismissNotice()', () => {
     const root = render();
+    const dismissNotice = sinon.stub(root.instance(), 'dismissNotice');
 
     const notice = root.find(Notice);
     expect(notice).toHaveProp('onDismiss');
-    expect(notice).toHaveProp('actionOnClick');
-    const { actionOnClick, onDismiss } = notice.props();
+    const { onDismiss } = notice.props();
 
-    // Make sure actionOnClick will behave exactly the same as onDismiss
-    expect(actionOnClick).toBe(onDismiss);
+    // Simulate a dismissal
+    onDismiss();
+
+    sinon.assert.called(dismissNotice);
+  });
+
+  it('calls dismissNotice() when clicking through to the survey', () => {
+    const root = render();
+    const dismissNotice = sinon.stub(root.instance(), 'dismissNotice');
+
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp('actionOnClick');
+    const { actionOnClick } = notice.props();
+
+    // Simulate clicking on the Take survey link.
+    actionOnClick();
+    sinon.assert.called(dismissNotice);
   });
 
   it('links to a survey with location source', () => {
@@ -117,5 +107,87 @@ describe(__filename, () => {
         source: 'firefox/themes/',
       }),
     );
+  });
+
+  it('tracks when the survey notice is shown', () => {
+    const _tracking = createFakeTracking();
+    const root = render({ _tracking });
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: TRACKING_ACTION_SHOWN,
+      category: TRACKING_CATEGORY,
+    });
+  });
+
+  it('does not track shown event when the survey notice is disabled', () => {
+    const _tracking = createFakeTracking();
+    const root = render({
+      _config: getFakeConfig({
+        enableExperienceSurvey: false,
+      }),
+      _tracking,
+    });
+
+    sinon.assert.notCalled(_tracking.sendEvent);
+  });
+
+  it('tracks clicking on a survey notice', () => {
+    const _tracking = createFakeTracking();
+    const root = render({ _tracking });
+
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp('actionOnClick');
+    const { actionOnClick } = notice.props();
+
+    // Simulate clicking on a notice.
+    actionOnClick();
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: TRACKING_ACTION_VISITED,
+      category: TRACKING_CATEGORY,
+    });
+  });
+
+  it('tracks user dismissal', () => {
+    const _tracking = createFakeTracking();
+    const root = render({ _tracking });
+
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp('onDismiss');
+    const { onDismiss } = notice.props();
+
+    // Simulate a dismissal
+    onDismiss();
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: TRACKING_ACTION_DISMISSED,
+      category: TRACKING_CATEGORY,
+    });
+  });
+
+  describe('dismissNotice', () => {
+    it('dispatches dismissal action', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = render({ store });
+
+      root.instance().dismissNotice();
+
+      sinon.assert.calledWith(dispatchSpy, dismissSurvey());
+    });
+
+    it('saves a cookie', () => {
+      const _cookie = fakeCookie();
+      const root = render({ _cookie });
+
+      root.instance().dismissNotice();
+
+      sinon.assert.calledWith(
+        _cookie.save,
+        config.get('dismissedExperienceSurveyCookieName'),
+        '',
+        { maxAge: sinon.match.any, path: '/' },
+      );
+    });
   });
 });
