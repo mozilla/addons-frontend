@@ -473,6 +473,24 @@ describe(__filename, () => {
     it("doesn't render the description for a static theme", () => {
       expect(root.find('.editorial-description')).toHaveLength(0);
     });
+
+    it("calls _installStaticTheme when clicking on the static theme's header image", () => {
+      const clickEvent = createFakeEvent();
+      const _installStaticTheme = sinon.spy();
+
+      const shallowRoot = renderAddon({
+        addon: result,
+        clientApp: signedInApiState.clientApp,
+        status: UNINSTALLED,
+        type: ADDON_TYPE_STATIC_THEME,
+        userAgentInfo: signedInApiState.userAgentInfo,
+        _installStaticTheme,
+      });
+      const themeImage = shallowRoot.find('.theme-image');
+
+      themeImage.simulate('click', clickEvent);
+      sinon.assert.called(_installStaticTheme);
+    });
   });
 
   describe('mapStateToProps', () => {

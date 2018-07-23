@@ -1,9 +1,11 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
 import { InstallSwitchBase } from 'core/components/InstallSwitch';
 import {
+  ADDON_TYPE_STATIC_THEME,
   DISABLED,
   DISABLING,
   DOWNLOADING,
@@ -17,7 +19,24 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeTheme } from 'tests/unit/amo/helpers';
-import { fakeI18n } from 'tests/unit/helpers';
+import { createFakeEvent, fakeI18n } from 'tests/unit/helpers';
+import Switch from 'ui/components/Switch';
+
+// TODO: update other tests to use enzyme too
+function renderWrapper(customProps = {}) {
+  const renderProps = {
+    dispatch: sinon.spy(),
+    enable: sinon.spy(),
+    install: sinon.spy(),
+    installTheme: sinon.spy(),
+    uninstall: sinon.spy(),
+    i18n: fakeI18n(),
+    slug: 'foo',
+    name: 'test-addon',
+    ...customProps,
+  };
+  return shallow(<InstallSwitchBase {...renderProps} />);
+}
 
 describe(__filename, () => {
   function renderButton(props = {}) {
@@ -158,6 +177,40 @@ describe(__filename, () => {
     expect(JSON.parse(themeDataEl.getAttribute('data-browsertheme'))).toEqual(
       addon.themeData,
     );
+  });
+
+  it('calls _installAddon function when clicking on an uninstalled addon that is not a lightweight theme', () => {
+    const addon = createInternalAddon(fakeTheme);
+    const _installAddon = sinon.spy();
+
+    const button = renderWrapper({
+      addon,
+      // Simulate the state mapper spreads.
+      ...addon,
+      type: ADDON_TYPE_STATIC_THEME,
+      status: UNINSTALLED,
+      _installAddon,
+    });
+
+    button.find(Switch).simulate('click', createFakeEvent());
+    sinon.assert.called(_installAddon);
+  });
+
+  it('explicitily calls enable when clicking an uninstalled static theme', async () => {
+    const install = sinon.spy();
+    const enable = sinon.spy();
+    const button = renderWrapper({
+      enable,
+      install,
+      type: ADDON_TYPE_STATIC_THEME,
+      status: UNINSTALLED,
+    });
+
+    button.find(Switch).simulate('click', createFakeEvent());
+
+    await install();
+
+    sinon.assert.called(enable);
   });
 
   it('should call install function on click when uninstalled', () => {

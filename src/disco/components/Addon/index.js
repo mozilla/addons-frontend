@@ -41,6 +41,22 @@ import './styles.scss';
 
 const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
+export const installStaticTheme = async (event, props) => {
+  event.preventDefault();
+
+  const { status } = props;
+
+  if (status !== INSTALLED) {
+    await props.install();
+    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+    // on why we are explicitly calling the enable function
+    // after install
+    if (status !== ENABLED) {
+      props.enable();
+    }
+  }
+};
+
 export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
@@ -66,6 +82,7 @@ export class AddonBase extends React.Component {
     status: PropTypes.oneOf(validInstallStates).isRequired,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     userAgentInfo: PropTypes.object.isRequired,
+    _installStaticTheme: PropTypes.func,
     _tracking: PropTypes.object,
   };
 
@@ -73,6 +90,7 @@ export class AddonBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
     platformFiles: {},
     needsRestart: false,
+    _installStaticTheme: installStaticTheme,
     _tracking: tracking,
   };
 
@@ -124,23 +142,6 @@ export class AddonBase extends React.Component {
     return null;
   }
 
-  enableStaticTheme = async (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const { status } = this.props;
-
-    if (status !== INSTALLED) {
-      await this.props.install();
-      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
-      // on why we are explicitly calling the enable function
-      // after install
-      if (status !== ENABLED) {
-        this.props.enable();
-      }
-    }
-  };
-
   getThemeImage() {
     const { type } = this.props;
 
@@ -181,7 +182,11 @@ export class AddonBase extends React.Component {
           {headerImage}
         </a>
       ) : (
-        <a className="theme-image" href="#" onClick={this.enableStaticTheme}>
+        <a
+          className="theme-image"
+          href="#"
+          onClick={(e) => this.props._installStaticTheme(e, this.props)}
+        >
           {headerImage}
         </a>
       );
