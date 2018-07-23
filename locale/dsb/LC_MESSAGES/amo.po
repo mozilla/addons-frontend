@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-23 12:32+0000\n"
+"PO-Revision-Date: 2018-07-23 20:09+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -763,7 +763,7 @@ msgstr "Njeawtorizěrowany"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Bóžko njejsćo za pśistup na toś ten awtorizěrowany. Jolic njejsćo pśizjawjony, pśizjawśo se z pomocu wótkaza górjejce na boku."
+msgstr "Bóžko njejsćo za pśistup k toś tomu bokoju awtorizěrowany. Jolic njejsćo pśizjawjony, pśizjawśo se z pomocu wótkaza górjejce na boku."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
@@ -1293,7 +1293,7 @@ msgstr "Daty do mjazywótkłada kopěrowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Rozšyŕśo wuwijarske rědy, aby pśistup na swóje daty we wócynjonych rejtarkach měł"
+msgstr "Rozšyŕśo wuwijarske rědy, aby pśistup k swójim datam we wócynjonych rejtarkach měł"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Download files and read and modify the browser’s download history"
@@ -1309,11 +1309,11 @@ msgstr "Tekst wšych wócynjonych rejtarkow cytaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
-msgstr "Mějśo pśistup na swójo městno"
+msgstr "Mějśo pśistup k swójomu městnoju"
 
 #: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
-msgstr "Mějśo pśistup na pśeglědowańsku historiju"
+msgstr "Mějśo pśistup k pśeglědowańskej historiji"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Monitor extension usage and manage themes"
@@ -1341,11 +1341,11 @@ msgstr "Nastajenja priwatnosći cytaś a změniś"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
-msgstr "Mějśo pśistup na njedawno zacynjone rejtarki"
+msgstr "Mějśo pśistup k njedawno zacynjonym rejtarkam"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
-msgstr "Pśistup na rejtarki wobglědowaka měś"
+msgstr "Pśistup k rejtarkam wobglědowaka měś"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
@@ -1357,7 +1357,7 @@ msgstr "Njewobgranicowanu licbu klientowych datow składowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
-msgstr "Pśistup na aktiwitu wobglědowaka za nawigaciju měś"
+msgstr "Pśistup k aktiwiśe wobglědowaka za nawigaciju měś"
 
 #: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this dictionary"
@@ -2268,7 +2268,7 @@ msgstr "Waš dodank jo gótowy"
 
 #: src/core/containers/InfoDialog/index.js:39
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "Něnto maśo pśistup na %(name)s ze symboloweje rědki."
+msgstr "Něnto maśo pśistup k %(name)s ze symboloweje rědki."
 
 #: src/core/containers/InfoDialog/index.js:53
 msgid "OK!"
@@ -2312,31 +2312,31 @@ msgstr "Wopśimjeśe pśešaltowaś"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr "Pśistup na swóje daty za wšykne websedła měś"
+msgstr "Pśistup k wašym datam za wšykne websedła měś"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] "Mějśo pśistup na swóje daty w %(param)s drugej domenje"
-msgstr[1] "Mějśo pśistup na swóje daty w %(param)s drugima domenoma"
-msgstr[2] "Mějśo pśistup na swóje daty w %(param)s drugich domenach"
-msgstr[3] "Mějśo pśistup na swóje daty w %(param)s drugich domenach"
+msgstr[0] "Mějśo pśistup k swójim datam w %(param)s drugej domenje"
+msgstr[1] "Mějśo pśistup k swójim datam w %(param)s drugima domenoma"
+msgstr[2] "Mějśo pśistup k swójim datam w %(param)s drugich domenach"
+msgstr[3] "Mějśo pśistup k swójim datam w %(param)s drugich domenach"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Mějśo pśistup na swóje daty za sedła w domenje %(param)s"
+msgstr "Mějśo pśistup k swójim datam za sedła w domenje %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "Mějśo pśistup na swóje daty na %(param)s drugem websedle"
-msgstr[1] "Mějśo pśistup na swóje daty na %(param)s drugima websedłoma"
-msgstr[2] "Mějśo pśistup na swóje daty na %(param)s drugich websedłach"
-msgstr[3] "Mějśo pśistup na swóje daty na %(param)s drugich websedłach"
+msgstr[0] "Mějśo pśistup swójim datam na %(param)s drugem websedle"
+msgstr[1] "Mějśo pśistup k swójim datam na %(param)s drugima websedłoma"
+msgstr[2] "Mějśo pśistup k swójim datam na %(param)s drugich websedłach"
+msgstr[3] "Mějśo pśistup k swójim datam na %(param)s drugich websedłach"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr "Mějśo pśistup na swóje daty za %(param)s"
+msgstr "Mějśo pśistup k swójim datam za %(param)s"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
