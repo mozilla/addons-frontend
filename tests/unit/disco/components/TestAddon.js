@@ -34,6 +34,7 @@ import {
 import {
   dispatchClientMetadata,
   fakeInstalledAddon,
+  fakePreview,
 } from 'tests/unit/amo/helpers';
 import {
   fakeDiscoAddon,
@@ -389,36 +390,51 @@ describe(__filename, () => {
   describe.each([
     {
       type: ADDON_TYPE_THEME,
+      previews: [],
+      previewURL: 'https://addons.cdn.mozilla.net/full/54321.png',
     },
     {
       type: ADDON_TYPE_STATIC_THEME,
+      previews: [
+        {
+          ...fakePreview,
+          image_url: 'https://addons.cdn.mozilla.net/full/54321.png',
+        },
+      ],
     },
   ])(`Addon for %o`, async (testConfig) => {
     let root;
     const newAddonName = 'Summertime';
-    const { type } = testConfig;
+    const { type, previews } = testConfig;
 
     beforeEach(() => {
       const data = { ...result, name: newAddonName, type };
       root = renderAddon({ addon: data, ...data });
     });
 
-    it('does render the theme image for a lightweight theme', () => {
-      expect(root.find('.theme-image')).toHaveLength(1);
-    });
-
-    it("renders the alt tag with addon's name", () => {
-      expect(root.find('.Addon-theme-header-image')).toHaveProp(
+    it('renders the correct image for a theme', () => {
+      const shallowRoot = renderAddon({
+        addon: result,
+        name: newAddonName,
+        type,
+        previews,
+        ...testConfig,
+      });
+      const image = shallowRoot.find('.Addon-theme-header-image');
+      expect(image.prop('src')).toEqual(
+        'https://addons.cdn.mozilla.net/full/54321.png',
+      );
+      expect(shallowRoot.find('.Addon-theme-header-image')).toHaveProp(
         'alt',
         `Preview of ${newAddonName}`,
       );
     });
 
-    it("doesn't render the logo for a lightweight theme", () => {
+    it("doesn't render the logo for a theme", () => {
       expect(root.find('.logo')).toHaveLength(0);
     });
 
-    it("doesn't render the description for a lightweight theme", () => {
+    it("doesn't render the description for a theme", () => {
       expect(root.find('.editorial-description')).toHaveLength(0);
     });
   });
