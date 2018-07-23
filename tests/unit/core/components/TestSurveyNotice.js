@@ -28,7 +28,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     const props = {
-      // TODO: update all existing tests to use the same helper.
       _tracking: createFakeTracking(),
       _config: getFakeConfig({
         enableExperienceSurvey: true,
