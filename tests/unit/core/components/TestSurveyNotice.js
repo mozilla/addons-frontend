@@ -40,6 +40,12 @@ describe(__filename, () => {
     return shallowUntilTarget(<SurveyNotice {...props} />, SurveyNoticeBase);
   };
 
+  const getNoticeProp = (root, prop) => {
+    const notice = root.find(Notice);
+    expect(notice).toHaveProp(prop);
+    return notice.props()[prop];
+  };
+
   it('does not render a dismissed survey', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(dismissSurvey());
@@ -71,9 +77,7 @@ describe(__filename, () => {
     const root = render();
     const dismissNotice = sinon.stub(root.instance(), 'dismissNotice');
 
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('onDismiss');
-    const { onDismiss } = notice.props();
+    const onDismiss = getNoticeProp(root, 'onDismiss');
 
     // Simulate a dismissal
     onDismiss();
@@ -85,9 +89,7 @@ describe(__filename, () => {
     const root = render();
     const dismissNotice = sinon.stub(root.instance(), 'dismissNotice');
 
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('actionOnClick');
-    const { actionOnClick } = notice.props();
+    const actionOnClick = getNoticeProp(root, 'actionOnClick');
 
     // Simulate clicking on the Take survey link.
     actionOnClick();
@@ -98,9 +100,8 @@ describe(__filename, () => {
     const location = fakeRouterLocation({ pathname: '/en-US/firefox/themes/' });
     const root = render({ location });
 
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('actionHref');
-    expect(notice.props().actionHref).toContain(
+    const actionHref = getNoticeProp(root, 'actionHref');
+    expect(actionHref).toContain(
       querystring.stringify({
         // The source should not include the /en-US/ part.
         source: 'firefox/themes/',
@@ -134,9 +135,7 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
     const root = render({ _tracking });
 
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('actionOnClick');
-    const { actionOnClick } = notice.props();
+    const actionOnClick = getNoticeProp(root, 'actionOnClick');
 
     // Simulate clicking on a notice.
     actionOnClick();
@@ -151,9 +150,7 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
     const root = render({ _tracking });
 
-    const notice = root.find(Notice);
-    expect(notice).toHaveProp('onDismiss');
-    const { onDismiss } = notice.props();
+    const onDismiss = getNoticeProp(root, 'onDismiss');
 
     // Simulate a dismissal
     onDismiss();
