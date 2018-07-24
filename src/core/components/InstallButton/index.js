@@ -13,7 +13,6 @@ import InstallSwitch from 'core/components/InstallSwitch';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
   INSTALL_ACTION,
   INSTALL_STARTED_ACTION,
   validAddonTypes,

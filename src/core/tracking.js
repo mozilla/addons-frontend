@@ -4,14 +4,11 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
 
-import { convertBoolean } from 'core/utils';
-import log from 'core/logger';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
   INSTALL_EXTENSION_CATEGORY,
   INSTALL_EXTENSION_STARTED_CATEGORY,
   INSTALL_STARTED_ACTION,
@@ -25,7 +22,8 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
-import { isTheme } from 'core/utils';
+import log from 'core/logger';
+import { convertBoolean, isTheme } from 'core/utils';
 
 export function isDoNotTrackEnabled({
   _log = log,

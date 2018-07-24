@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import {
   addQueryParams,
   isAllowedOrigin,

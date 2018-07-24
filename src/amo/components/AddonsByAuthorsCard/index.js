@@ -23,7 +23,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';

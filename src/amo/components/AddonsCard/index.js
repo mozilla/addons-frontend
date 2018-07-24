@@ -6,7 +6,6 @@ import * as React from 'react';
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { ADDON_TYPE_THEMES } from 'core/constants';
 import { isTheme } from 'core/utils';
 import CardList from 'ui/components/CardList';
 import type {
