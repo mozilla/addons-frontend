@@ -134,9 +134,6 @@ describe(__filename, () => {
     expect(root.find(UserProfileEditPicture)).toHaveLength(1);
 
     expect(root.find('.UserProfileEdit-manage-account-link')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-manage-account-link')).toHaveText(
-      'Manage Firefox Accounts…',
-    );
 
     expect(root.find('.UserProfileEdit-notifications-aside'))
       .toHaveText(oneLine`From time to time, Mozilla may send you email about
@@ -608,7 +605,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
-      `Update Profile`,
+      'Update Profile',
     );
   });
 
@@ -619,7 +616,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-delete-button').dive()).toHaveText(
-      `Delete Profile`,
+      'Delete Profile',
     );
   });
 
