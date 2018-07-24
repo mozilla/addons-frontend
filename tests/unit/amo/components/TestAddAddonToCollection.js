@@ -409,17 +409,6 @@ describe(__filename, () => {
       );
     });
 
-    it('does not include an option to create a collection when no add-on has been loaded', () => {
-      signInAndDispatchCollections();
-      const root = render({ addon: null });
-
-      const createOption = root
-        .find('.AddAddonToCollection-option')
-        .filterWhere((opt) => opt.text() === 'Create new collection');
-
-      expect(createOption).toHaveLength(0);
-    });
-
     it('requires an add-on before you can add to a collection', () => {
       signInAndDispatchCollections();
       const root = render({ addon: null });

@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -196,21 +197,20 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       }),
     );
 
-    if (addon) {
-      actionOptions.push(
-        this.createOption({
-          text: i18n.gettext('Create new collection'),
-          key: 'create-new-collection',
-          onSelect: () => {
-            router.push(
-              `/${lang}/${clientApp}/collections/add/?include_addon_id=${
-                addon.id
-              }`,
-            );
-          },
-        }),
-      );
-    }
+    actionOptions.push(
+      this.createOption({
+        text: i18n.gettext('Create new collection'),
+        key: 'create-new-collection',
+        onSelect: () => {
+          invariant(addon, 'addon is required');
+          router.push(
+            `/${lang}/${clientApp}/collections/add/?include_addon_id=${
+              addon.id
+            }`,
+          );
+        },
+      }),
+    );
 
     if (userCollections && userCollections.length) {
       userCollections

@@ -307,10 +307,8 @@ describe(__filename, () => {
   });
 
   it('creates a collection on submit', () => {
-    const errorHandler = createStubErrorHandler();
-
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection: null, creating: true, errorHandler });
+    const root = render({ collection: null, creating: true });
 
     // Fill in the form with values.
     const name = 'A collection name';
@@ -328,7 +326,7 @@ describe(__filename, () => {
       createCollection({
         defaultLocale: lang,
         description: { [lang]: description },
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: root.instance().props.errorHandler.id,
         name: { [lang]: name },
         slug,
         username: signedInUsername,
@@ -337,14 +335,12 @@ describe(__filename, () => {
   });
 
   it('creates a collection with an add-on on submit', () => {
-    const errorHandler = createStubErrorHandler();
     const id = 123;
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({
       collection: null,
       creating: true,
-      errorHandler,
       router: createFakeRouter({
         location: fakeRouterLocation({ query: { include_addon_id: id } }),
       }),
@@ -366,7 +362,7 @@ describe(__filename, () => {
       createCollection({
         defaultLocale: lang,
         description: { [lang]: description },
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: root.instance().props.errorHandler.id,
         includeAddonId: id,
         name: { [lang]: name },
         slug,
@@ -376,14 +372,13 @@ describe(__filename, () => {
   });
 
   it('updates the collection on submit', () => {
-    const errorHandler = createStubErrorHandler();
     const filters = { page: 1 };
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection, errorHandler, filters });
+    const root = render({ collection, filters });
 
     // Fill in the form with new values.
     const name = 'A new name';
@@ -402,7 +397,7 @@ describe(__filename, () => {
         collectionSlug: collection.slug,
         defaultLocale: collection.defaultLocale,
         description: { [lang]: description },
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: root.instance().props.errorHandler.id,
         filters,
         name: { [lang]: name },
         slug,

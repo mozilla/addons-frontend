@@ -657,14 +657,6 @@ describe(__filename, () => {
 
         mockApi
           .expects('createCollection')
-          .withArgs({
-            api: state.api,
-            defaultLocale: undefined,
-            description: params.description,
-            name: params.name,
-            slug,
-            username,
-          })
           .once()
           .returns(Promise.resolve(collectionDetailResponse));
 
