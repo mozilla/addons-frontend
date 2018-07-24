@@ -25,7 +25,7 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
-export const MESSAGE_RESET_TIME = 5000;
+export const MESSAGE_RESET_TIME = 25000;
 const MESSAGE_FADEOUT_TIME = 450;
 
 type UIStateType = {|
@@ -131,10 +131,10 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
         {errorHandler.hasError() ? (
           errorHandler.renderError()
         ) : (
-          <TransitionGroup className="NoticePlaceholder">
+          <TransitionGroup className="CollectionAddAddon-noticePlaceholder">
             {uiState.addonWasAdded && (
               <CSSTransition
-                classNames="NoticePlaceholder-transition"
+                classNames="CollectionAddAddon-noticePlaceholder-transition"
                 timeout={MESSAGE_FADEOUT_TIME}
               >
                 <Notice type="success">

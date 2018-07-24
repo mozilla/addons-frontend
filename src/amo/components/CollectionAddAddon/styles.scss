@@ -3,7 +3,7 @@
 
 .CollectionAddAddon {
   .ErrorList,
-  .NoticePlaceholder {
+  .CollectionAddAddon-noticePlaceholder {
     margin-top: 16px;
     min-height: 32px;
   }
@@ -22,12 +22,14 @@
     border-bottom-right-radius: 0;
   }
 
+  // The Notice component creates children which are affected by these classes,
+  // which are added by the CSSTransition component.
   .Notice {
-    &.NoticePlaceholder-transition-appear {
+    &.CollectionAddAddon-noticePlaceholder-transition-appear {
       opacity: 1;
     }
 
-    &.NoticePlaceholder-transition-exit-active {
+    &.CollectionAddAddon-noticePlaceholder-transition-exit-active {
       opacity: 0;
       transition: opacity $transition-medium ease-in-out;
     }

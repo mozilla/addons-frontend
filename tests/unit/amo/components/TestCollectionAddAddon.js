@@ -37,7 +37,7 @@ const simulateAutoSearchCallback = (props = {}) => {
   });
 };
 
-const setAddonWasAddedUiStateToTrue = ({ username, root, store }) => {
+const _addonAddedToCollection = ({ username, root, store }) => {
   store.dispatch(
     addonAddedToCollection({
       addonId: 123,
@@ -144,28 +144,6 @@ describe(__filename, () => {
     );
   });
 
-  it('sets the addonWasAdded state to false when selecting an add-on', () => {
-    const { store } = dispatchSignedInUser({
-      username: signedInUsername,
-    });
-    const root = render({ store });
-
-    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
-    expect(root.instance().props.uiState.addonWasAdded).toEqual(true);
-
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    applyUIStateChanges({ root, store });
-    expect(root.instance().props.uiState.addonWasAdded).toEqual(false);
-  });
-
   it('displays a notification for 5 seconds after an add-on has been added', () => {
     const { store } = dispatchSignedInUser({
       username: signedInUsername,
@@ -174,7 +152,7 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(0);
 
-    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
+    _addonAddedToCollection({ username: signedInUsername, root, store });
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
@@ -202,7 +180,7 @@ describe(__filename, () => {
       store,
     });
 
-    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
+    _addonAddedToCollection({ username: signedInUsername, root, store });
     sinon.assert.called(setTimeoutSpy);
 
     root.unmount();
@@ -227,7 +205,7 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(0);
 
-    setAddonWasAddedUiStateToTrue({ username: signedInUsername, root, store });
+    _addonAddedToCollection({ username: signedInUsername, root, store });
 
     expect(root.find(Notice)).toHaveLength(1);
 
