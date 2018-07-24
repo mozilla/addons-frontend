@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2018-04-03 12:48+0000\n"
+"PO-Revision-Date: 2018-07-24 18:57+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "Tenarfeil"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre "
-"førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Feilkode: %(status)s."
 
@@ -51,13 +46,11 @@ msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -91,7 +84,7 @@ msgstr "Installasjonsstatus for %(name)s er ukjend."
 
 #: src/disco/components/Addon/index.js:136
 msgid "Preview of %(name)s"
-msgstr ""
+msgstr "Førehandsvising av %(name)s"
 
 #: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
@@ -147,15 +140,11 @@ msgstr "Tilpass Firefox"
 
 #: src/disco/components/DiscoPane/index.js:106
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan "
-"personleggjere surfinga di på nettet — du kan legge til alt frå artige tema "
-"til kraftfulle verktøy og funksjonar. Her er nokre du kan prøve."
+"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan personleggjere surfinga di på nettet — du kan legge til alt frå artige tema til kraftfulle verktøy og funksjonar. Her er "
+"nokre du kan prøve."
 
 #: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
@@ -182,9 +171,7 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Hald musepeikaren over for å førehandsvise eller klikk for å installere "
-#~ "%(name)s"
+#~ msgstr "Hald musepeikaren over for å førehandsvise eller klikk for å installere %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Hald musepeikaren over bildet for å førehandsvise"
