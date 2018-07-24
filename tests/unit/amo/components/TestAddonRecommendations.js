@@ -23,6 +23,7 @@ import {
   fakeRecommendations,
 } from 'tests/unit/amo/helpers';
 import {
+  createFakeTracking,
   createStubErrorHandler,
   fakeI18n,
   shallowUntilTarget,
@@ -34,10 +35,7 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    fakeTracking = {
-      sendEvent: sinon.spy(),
-      setDimension: sinon.spy(),
-    };
+    fakeTracking = createFakeTracking();
     store = dispatchClientMetadata().store;
   });
 

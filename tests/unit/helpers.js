@@ -654,3 +654,11 @@ export function setUIState({ root, change, store }) {
 export function fakeCookie(overrides = {}) {
   return { load: sinon.stub(), save: sinon.stub(), ...overrides };
 }
+
+export const createFakeTracking = (overrides = {}) => {
+  return {
+    sendEvent: sinon.stub(),
+    setDimension: sinon.stub(),
+    ...overrides,
+  };
+};

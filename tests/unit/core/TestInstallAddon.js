@@ -44,6 +44,7 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
+  createFakeTracking,
   fakeRouterLocation,
   getFakeAddonManagerWrapper,
   sampleUserAgentParsed,
@@ -1095,9 +1096,7 @@ describe(__filename, () => {
 
       it('tracks the start of an addon install', () => {
         const addon = createInternalAddon(fakeAddon);
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: getFakeAddonManagerWrapper({
@@ -1128,9 +1127,7 @@ describe(__filename, () => {
 
       it('tracks an addon install', () => {
         const addon = createInternalAddon(fakeAddon);
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
           ...addon,
           _tracking: fakeTracking,
@@ -1154,9 +1151,7 @@ describe(__filename, () => {
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
         });
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
           ...addon,
           _tracking: fakeTracking,
@@ -1180,9 +1175,7 @@ describe(__filename, () => {
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
         });
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
           ...addon,
           _tracking: fakeTracking,
@@ -1352,9 +1345,7 @@ describe(__filename, () => {
 
       it('tracks an addon uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const addon = createInternalAddon(fakeAddon);
         const { root } = renderWithInstallHelpers({
           ...addon,
@@ -1377,9 +1368,7 @@ describe(__filename, () => {
 
       it('tracks a static theme addon uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const addon = createInternalAddon({
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
@@ -1405,9 +1394,7 @@ describe(__filename, () => {
 
       it('tracks a theme uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const addon = createInternalAddon(fakeTheme);
         const { root } = renderWithInstallHelpers({
           ...addon,
@@ -1427,9 +1414,7 @@ describe(__filename, () => {
 
       it('tracks a unknown type uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
-        const fakeTracking = {
-          sendEvent: sinon.spy(),
-        };
+        const fakeTracking = createFakeTracking();
         const addon = createInternalAddon({
           ...fakeAddon,
           type: INVALID_TYPE,

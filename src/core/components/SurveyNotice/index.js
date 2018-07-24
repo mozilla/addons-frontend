@@ -1,6 +1,4 @@
 /* @flow */
-import querystring from 'querystring';
-
 import config from 'config';
 import * as React from 'react';
 import cookie from 'react-cookie';
@@ -9,6 +7,14 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import { dismissSurvey } from 'core/reducers/survey';
+import {
+  SURVEY_ACTION_DISMISSED,
+  SURVEY_ACTION_SHOWN,
+  SURVEY_ACTION_VISITED,
+  SURVEY_CATEGORY,
+} from 'core/constants';
+import tracking from 'core/tracking';
+import { addQueryParams } from 'core/utils';
 import Notice from 'ui/components/Notice';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
@@ -26,40 +32,56 @@ type InternalProps = {|
   _config: typeof config,
   _cookie: typeof cookie,
   _supportedLangs: Array<string>,
+  _tracking: typeof tracking,
   dispatch: DispatchFunc,
   i18n: I18nType,
   siteLang: string,
   wasDismissed: boolean,
 |};
 
-export const SurveyNoticeBase = ({
-  _config = config,
-  _cookie = cookie,
-  _supportedLangs = [
-    'de',
-    'en-US',
-    'es',
-    'fr',
-    'ja',
-    'pl',
-    'pt-BR',
-    'ru',
-    'zh-CN',
-    'zh-TW',
-  ],
-  ...props
-}: InternalProps) => {
-  const { dispatch, i18n, location, siteLang, wasDismissed } = props;
+export class SurveyNoticeBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _config: config,
+    _cookie: cookie,
+    _supportedLangs: [
+      'de',
+      'en-US',
+      'es',
+      'fr',
+      'ja',
+      'pl',
+      'pt-BR',
+      'ru',
+      'zh-CN',
+      'zh-TW',
+    ],
+    _tracking: tracking,
+  };
 
-  if (
-    wasDismissed ||
-    !_supportedLangs.includes(siteLang) ||
-    !_config.get('enableExperienceSurvey')
-  ) {
-    return null;
+  track(action: string) {
+    this.props._tracking.sendEvent({
+      action,
+      category: SURVEY_CATEGORY,
+    });
   }
 
-  const onDismiss = () => {
+  componentDidMount() {
+    if (this.shouldShowNotice()) {
+      this.track(SURVEY_ACTION_SHOWN);
+    }
+  }
+
+  shouldShowNotice() {
+    const { _config, _supportedLangs, siteLang, wasDismissed } = this.props;
+    return (
+      _config.get('enableExperienceSurvey') &&
+      !wasDismissed &&
+      _supportedLangs.includes(siteLang)
+    );
+  }
+
+  dismissNotice = () => {
+    const { _config, _cookie, dispatch } = this.props;
     dispatch(dismissSurvey());
     // Even though a dismissal action is dispatched here, also save a
     // cookie to manually synchronize state. The server code will load
@@ -73,34 +95,54 @@ export const SurveyNoticeBase = ({
     });
   };
 
-  // Pass along a source derived from the current URL path but with
-  // the preceding language path removed.
-  const source = querystring.stringify({
-    source: location.pathname
-      .split('/')
-      .slice(2)
-      .join('/'),
-  });
-  const surveyUrl = `https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey?${source}`;
+  onDismiss = () => {
+    this.dismissNotice();
+    this.track(SURVEY_ACTION_DISMISSED);
+  };
 
-  return (
-    <Notice
-      actionHref={surveyUrl}
-      actionOnClick={onDismiss}
-      actionTarget="_blank"
-      actionText={i18n.gettext('Take short survey')}
-      className="SurveyNotice"
-      dismissible
-      id="amo-experience-survey"
-      onDismiss={onDismiss}
-      type="generic"
-    >
-      {i18n.gettext(
-        'Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience.',
-      )}
-    </Notice>
-  );
-};
+  onClickSurveyLink = () => {
+    this.dismissNotice();
+    this.track(SURVEY_ACTION_VISITED);
+  };
+
+  render() {
+    const { i18n, location } = this.props;
+
+    if (!this.shouldShowNotice()) {
+      return null;
+    }
+
+    // Pass along a source derived from the current URL path but with
+    // the preceding language path removed.
+    const surveyUrl = addQueryParams(
+      'https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey',
+      {
+        source: location.pathname
+          .split('/')
+          .slice(2)
+          .join('/'),
+      },
+    );
+
+    return (
+      <Notice
+        actionHref={surveyUrl}
+        actionOnClick={this.onClickSurveyLink}
+        actionTarget="_blank"
+        actionText={i18n.gettext('Take short survey')}
+        className="SurveyNotice"
+        dismissible
+        id="amo-experience-survey"
+        onDismiss={this.onDismiss}
+        type="generic"
+      >
+        {i18n.gettext(
+          'Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience.',
+        )}
+      </Notice>
+    );
+  }
+}
 
 const mapStateToProps = (state: AppState) => {
   return { siteLang: state.api.lang, wasDismissed: state.survey.wasDismissed };
