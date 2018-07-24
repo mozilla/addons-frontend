@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-24 20:50+0000\n"
+"PO-Revision-Date: 2018-07-24 20:54+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2111,20 +2111,20 @@ msgstr ""
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
+"Użycie tego adresu e-mail do ponownego zalogowania się w serwisie addons.mozilla.org spowoduje utworzenie nowego profilu serwisu Dodatków do Firefoksa, który nie będzie w żaden sposób powiązany z "
+"usuniętym profilem."
 
 #: src/amo/components/UserProfileEdit/index.js:800
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sUWAGA:%(strongEnd)s nie można usunąć konta, jeśli jest się %(linkStart)sautorem dodatków%(linkEnd)s. Najpierw należy %(docLinkStart)sprzekazać własność%(docLinkEnd)s lub usunąć "
+"%(strongStart)sUWAGA:%(strongEnd)s nie można usunąć profilu, jeśli jest się %(linkStart)sautorem dodatków%(linkEnd)s. Najpierw należy %(docLinkStart)sprzekazać własność%(docLinkEnd)s lub usunąć "
 "dodatki."
 
 #: src/amo/components/UserProfileEdit/index.js:807
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sUWAGA:%(strongEnd)s nie można usunąć konta użytkownika, jeśli jest on %(linkStart)sautorem dodatków%(linkEnd)s."
+msgstr "%(strongStart)sUWAGA:%(strongEnd)s nie można usunąć profilu użytkownika, jeśli jest on %(linkStart)sautorem dodatków%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
