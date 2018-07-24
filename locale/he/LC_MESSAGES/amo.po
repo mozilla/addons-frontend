@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-24 18:53+0000\n"
+"PO-Revision-Date: 2018-07-24 19:44+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -577,7 +577,7 @@ msgstr "תחילה, עליך ליצור את האוסף שלך. לאחר מכן 
 
 #: src/amo/components/Collection/index.js:404
 msgid "Search for extensions and themes to add to your collection."
-msgstr "חיפוש אחר הרחבות וערכות נושא להוספה לאוסף שלך."
+msgstr "יש לחפש אחר הרחבות וערכות נושא כדי להוסיף לאוסף שלך."
 
 #: src/amo/components/CollectionAddAddon/index.js:141
 msgid "Added to collection"
@@ -585,7 +585,7 @@ msgstr "נוסף לאוסף"
 
 #: src/amo/components/CollectionAddAddon/index.js:150
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "חיפוש תוספת כדי לכלול באוסף זה"
 
 #: src/amo/components/CollectionDetails/index.js:56 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -653,11 +653,11 @@ msgstr "מיון תוספות לפי"
 
 #: src/amo/components/CollectionSort/index.js:81
 msgid "Newest first"
-msgstr ""
+msgstr "החדש ביותר תחילה"
 
 #: src/amo/components/CollectionSort/index.js:85
 msgid "Oldest first"
-msgstr ""
+msgstr "הישן ביותר תחילה"
 
 #: src/amo/components/CollectionSort/index.js:89
 msgid "Name"
@@ -724,9 +724,8 @@ msgid "Download Firefox"
 msgstr "הורדת Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "מידע משפטי"
+msgstr "השארת הודעה"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
 msgid "Remove"
@@ -962,7 +961,7 @@ msgstr "הגשת ערכת נושא חדשה"
 
 #: src/amo/components/Header/index.js:155
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "ניהול ההגשות שלי"
 
 #: src/amo/components/Header/index.js:165
 msgid "Reviewer Tools"
@@ -1067,11 +1066,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "הגדלת תמונות ע״י ריחוף העכבר עליהן"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Privacy Possum"
@@ -1079,7 +1078,7 @@ msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "להגן על עצמך מפני רכיבי המעקב הערמומיים ביותר"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Page Translate"
@@ -1111,7 +1110,7 @@ msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "סימניות חזותיות למיקומים המועדפים עליך ברחבי האינטרנט"
 
 #: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Stylus"
@@ -1119,7 +1118,7 @@ msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:144
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "מתן מראה חדש לאתרים המועדפים עליך"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1135,7 +1134,7 @@ msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Give the entire internet a new look"
-msgstr ""
+msgstr "מתן מראה חדש לאינטרנט כולו"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Turbo Download Manager"
@@ -1163,7 +1162,7 @@ msgstr "הצגת מידע מפורט על כל דף אינטרנט שמבקרי�
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
@@ -1171,12 +1170,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
-msgstr ""
+msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
-#, fuzzy
 msgid "Get instant global weather information right in Firefox"
-msgstr "יצירת קודי אימות דו־שלבי היישר ב־Firefox"
+msgstr "קבלת מידע על מזג האוויר העולמי באופן מיידי היישר ב־Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
@@ -1208,7 +1206,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "יש לך כמות נכבדת של לשוניות פתוחות? ניתן לארגן אותן בסרגל צד מסודר"
 
 #: src/amo/components/LandingPage/index.js:226
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1990,9 +1988,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "ניתן לשנות את כתובת הדוא״ל שלך ב־Firefox Accounts. %(startLink)sיש לך צורך בעזרה?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:544
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "ניהול חשבונות Firefox..."
+msgstr "ניהול חשבונות Firefox…"
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -2043,43 +2040,36 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla שומרת את הזכות ליצור אתך קשר באופן אישי בנוגע לחששות שעולים סביב התוספות שלך שמתארחות אצלה."
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "החשבון שלך מתעדכן…"
+msgstr "הפרופיל שלך מתעדכן…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
 msgid "Update My Profile"
 msgstr "עדכון הפרופיל שלי"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating profile…"
-msgstr "עדכון הפרופיל שלי"
+msgstr "הפרופיל מתעדכן…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Update Profile"
-msgstr "עדכון הפרופיל שלי"
+msgstr "עדכון פרופיל"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:834
-#, fuzzy
 msgid "Delete My Profile"
 msgstr "מחיקת הפרופיל שלי"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
-#, fuzzy
 msgid "Delete Profile"
-msgstr "מחיקת הפרופיל שלי"
+msgstr "מחיקת פרופיל"
 
 #: src/amo/components/UserProfileEdit/index.js:758
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "חשוב: מחיקת החשבון שלך היא פעולה בלתי הפיכה."
+msgstr "חשוב: מחיקת פרופיל ה־Firefox Add-ons שלך היא פעולה בלתי הפיכה."
 
 #: src/amo/components/UserProfileEdit/index.js:761
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "חשוב: מחיקת חשבון זה היא פעולה בלתי הפיכה."
+msgstr "חשוב: מחיקת פרופיל Firefox Add-ons זה היא פעולה בלתי הפיכה."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2098,18 +2088,16 @@ msgid "When you use this email address to login again to addons.mozilla.org, you
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:800
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחוק את החשבון שלך אם הינך %(linkStart)sהיוצר של תוספות כלשהן%(linkEnd)s. עליך %(docLinkStart)sלהעביר בעלות%(docLinkEnd)s או למחוק את התוספות לפני "
-"שיהיה ניתן למחוק את החשבון שלך."
+"%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחוק את הפרופיל שלך אם הינך %(linkStart)sהיוצר של תוספות כלשהן%(linkEnd)s. עליך %(docLinkStart)sלהעביר בעלות%(docLinkEnd)s או למחוק את התוספות לפני "
+"שיהיה ניתן למחוק את הפרופיל שלך."
 
 #: src/amo/components/UserProfileEdit/index.js:807
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחוק חשבון משתמש אם המשתמש הוא %(linkStart)sהיוצר של תוספות כלשהן%(linkEnd)s."
+msgstr "%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחוק פרופיל משתמש אם המשתמש הוא %(linkStart)sהיוצר של תוספות כלשהן%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
