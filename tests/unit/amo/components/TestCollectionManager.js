@@ -2,15 +2,12 @@ import config from 'config';
 import * as React from 'react';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
+import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionManager, {
-  ADDON_ADDED_STATUS_PENDING,
-  ADDON_ADDED_STATUS_SUCCESS,
   CollectionManagerBase,
   extractId,
-  MESSAGE_RESET_TIME,
 } from 'amo/components/CollectionManager';
 import {
-  addAddonToCollection,
   createCollection,
   createInternalCollection,
   beginCollectionModification,
@@ -18,7 +15,6 @@ import {
   updateCollection,
 } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
-import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
 import {
   createFakeEvent,
@@ -27,24 +23,14 @@ import {
   fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
-  simulateComponentCallback,
 } from 'tests/unit/helpers';
 import {
-  createFakeAutocompleteResult,
   createFakeCollectionDetail,
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
-import Notice from 'ui/components/Notice';
-
-const simulateAutoSearchCallback = (props = {}) => {
-  return simulateComponentCallback({
-    Component: AutoSearchInput,
-    ...props,
-  });
-};
 
 describe(__filename, () => {
   let fakeRouter;
@@ -685,7 +671,6 @@ describe(__filename, () => {
     simulateCancel(root);
 
     const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(collection.name);
     expect(state.description).toEqual(collection.description);
   });
@@ -750,7 +735,6 @@ describe(__filename, () => {
     root.setProps({ collection });
 
     const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(collection.name);
     expect(state.description).toEqual(collection.description);
   });
@@ -777,145 +761,25 @@ describe(__filename, () => {
     root.setProps({ collection: secondCollection });
 
     const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(secondCollection.name);
     expect(state.description).toEqual(secondCollection.description);
   });
 
-  it('handles searching for an add-on', () => {
-    const root = render();
-
-    const search = simulateAutoSearchCallback({
-      root,
-      propName: 'onSearch',
-    });
-    search({ query: 'ad blocker' });
-    // TODO: test onSearch
-    // https://github.com/mozilla/addons-frontend/issues/4590
-  });
-
-  it('dispatches addAddonToCollection when selecting an add-on', () => {
-    const filters = { page: 2 };
-    const errorHandler = createStubErrorHandler();
-
+  it('displays a CollectionAddAddon component when not creating', () => {
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
+      detail: createFakeCollectionDetail(),
     });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection, errorHandler, filters });
+    const filters = {};
+    const root = render({ collection, creating: false, filters });
 
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      addAddonToCollection({
-        addonId: suggestion.addonId,
-        collectionId: collection.id,
-        slug: collection.slug,
-        editing: true,
-        errorHandlerId: errorHandler.id,
-        filters,
-        username: signedInUsername,
-      }),
-    );
+    expect(root.find(CollectionAddAddon)).toHaveProp('collection', collection);
+    expect(root.find(CollectionAddAddon)).toHaveProp('filters', filters);
   });
 
-  it('sets the addonAddedStatus state to pending when selecting an add-on', () => {
-    const root = render({});
+  it('does not display a CollectionAddAddon component when creating', () => {
+    const root = render({ creating: true });
 
-    const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
-
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    const newState = root.state();
-    expect(newState.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_PENDING);
-  });
-
-  it('displays a notification for 5 seconds after an add-on has been added', () => {
-    const setTimeoutSpy = sinon.spy();
-    const root = render({ setTimeout: setTimeoutSpy });
-
-    expect(root.find(Notice)).toHaveLength(0);
-
-    root.setProps({ hasAddonBeenAdded: true });
-
-    expect(root.find(Notice)).toHaveLength(1);
-    expect(root.find(Notice).children()).toHaveText('Added to collection');
-
-    expect(root).toHaveState('addonAddedStatus', ADDON_ADDED_STATUS_SUCCESS);
-    sinon.assert.calledWith(
-      setTimeoutSpy,
-      root.instance().resetMessageStatus,
-      MESSAGE_RESET_TIME,
-    );
-
-    // Simulate the setTimeout behavior.
-    root.instance().resetMessageStatus();
-    // See: https://github.com/airbnb/enzyme/blob/enzyme%403.3.0/docs/guides/migration-from-2-to-3.md#for-mount-updates-are-sometimes-required-when-they-werent-before
-    root.update();
-
-    expect(root).toHaveState('addonAddedStatus', null);
-    expect(root.find(Notice)).toHaveLength(0);
-  });
-
-  it('calls clearTimeout when unmounting and timeout is set', () => {
-    const clearTimeoutSpy = sinon.spy();
-    const root = render({ clearTimeout: clearTimeoutSpy });
-
-    const timeoutID = 123;
-    // Simulates the setTimeout behavior in which timeout is set.
-    root.instance().timeout = timeoutID;
-
-    root.unmount();
-
-    sinon.assert.calledWith(clearTimeoutSpy, timeoutID);
-  });
-
-  it('does not call clearTimeout when unmounting and there is no timeout set', () => {
-    const clearTimeoutSpy = sinon.spy();
-    const root = render({ clearTimeout: clearTimeoutSpy });
-
-    root.unmount();
-
-    sinon.assert.notCalled(clearTimeoutSpy);
-  });
-
-  it('removes the notification after a new add-on has been selected', () => {
-    const root = render({});
-
-    expect(root.find(Notice)).toHaveLength(0);
-
-    // Setting this simulates an add-on having been added previously, which
-    // will cause the notification to appear.
-    root.setProps({ hasAddonBeenAdded: true });
-
-    expect(root.find(Notice)).toHaveLength(1);
-
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    expect(root.find(Notice)).toHaveLength(0);
+    expect(root.find(CollectionAddAddon)).toHaveLength(0);
   });
 
   describe('extractId', () => {
