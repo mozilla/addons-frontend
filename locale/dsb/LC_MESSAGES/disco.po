@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2018-07-23 20:09+0000\n"
+"PO-Revision-Date: 2018-07-24 19:40+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: dsb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
@@ -20,15 +19,10 @@ msgid "Server Error"
 msgstr "Serwerowa zmólka"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Bóžko jo zmólka nastała a njejsmy mógli wašo napšašowanje dokóńcyś. Smy toś "
-"tu zmólku protokolěrowali a buźomy ju pśeslěźowaś."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Bóžko jo zmólka nastała a njejsmy mógli wašo napšašowanje dokóńcyś. Smy toś tu zmólku protokolěrowali a buźomy ju pśeslěźowaś."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Zmólkowy kod: %(status)s."
 
@@ -52,13 +46,11 @@ msgstr "Něnto maśo pśistup k %(name)s ze symboloweje rědki."
 msgid "OK!"
 msgstr "W pórěźe!"
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Drastwu instalěrowaś"
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Programoju Firefox pśidaś"
 
@@ -72,8 +64,7 @@ msgstr "%(name)s se instalěrujo."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s jo se instalěrował a zmóžnił. Klikniśo, aby jen wótinstalěrował."
+msgstr "%(name)s jo se instalěrował a zmóžnił. Klikniśo, aby jen wótinstalěrował."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
@@ -92,7 +83,6 @@ msgid "Install state for %(name)s is unknown."
 msgstr "Instalěrowański status za %(name)s jo njeznaty."
 
 #: src/disco/components/Addon/index.js:136
-#, fuzzy
 msgid "Preview of %(name)s"
 msgstr "Pśeglěd za %(name)s"
 
@@ -118,8 +108,7 @@ msgstr "Njewótcakana zmólka jo nastała."
 
 #: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
-"Toś ten dodank se wótinstalěrujo, za tym až sćo Firefox znowego startował."
+msgstr "Toś ten dodank se wótinstalěrujo, za tym až sćo Firefox znowego startował."
 
 #: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
@@ -151,17 +140,11 @@ msgstr "Pśiměŕśo swój Firefox"
 
 #: src/disco/components/DiscoPane/index.js:106
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Su towzynty dermotnych dodankwo, napóranych wót wuwijarjow z cełego swěta, "
-"kótrež wam zmóžnjaju, Firefox wašym pótrěbnosćam pśiměriś – wšykno, wót "
-"směšnych drastwow až do mócnych rědow, kótarež póspěšuju pśeglědowanje a "
-"cynje jo wěsćejše. Dodanki cynje waš wobglědowak k wašomu. Za zachopjeńk "
-"dopórucujomy wam někotare wugbałe dodanki z wjele funkcijami."
+"Su towzynty dermotnych dodankwo, napóranych wót wuwijarjow z cełego swěta, kótrež wam zmóžnjaju, Firefox wašym pótrěbnosćam pśiměriś – wšykno, wót směšnych drastwow až do mócnych rědow, kótarež "
+"póspěšuju pśeglědowanje a cynje jo wěsćejše. Dodanki cynje waš wobglědowak k wašomu. Za zachopjeńk dopórucujomy wam někotare wugbałe dodanki z wjele funkcijami."
 
 #: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
@@ -185,12 +168,10 @@ msgstr "Zacytajśo znowego, aby pókšacował"
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Toś tu noticu zachyśiś"
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Za pśeglěd špěrku myški nad tym źaržaś abo za instalěrowanje %(name)s "
-#~ "kliknuś"
+#~ msgstr "Za pśeglěd špěrku myški nad tym źaržaś abo za instalěrowanje %(name)s kliknuś"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Gibniśo myšku nad wobraz za pśeglěd"
