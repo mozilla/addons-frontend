@@ -55,6 +55,8 @@ type InternalProps = {|
 |};
 
 export class CollectionAddAddonBase extends React.Component<InternalProps> {
+  timeout: TimeoutID;
+
   static defaultProps = {
     setTimeout:
       typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
@@ -114,8 +116,6 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
     );
     this.props.setUIState({ addonWasAdded: false });
   };
-
-  timeout: TimeoutID;
 
   resetMessageStatus = () => {
     this.props.setUIState({
