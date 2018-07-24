@@ -172,6 +172,7 @@ export class CollectionManagerBase extends React.Component<
       dispatch,
       errorHandler,
       filters,
+      router,
       siteLang,
     } = this.props;
     event.preventDefault();
@@ -198,6 +199,7 @@ export class CollectionManagerBase extends React.Component<
         createCollection({
           ...payload,
           defaultLocale: siteLang,
+          includeAddonId: router.location.query.include_addon_id,
           username: currentUsername,
         }),
       );

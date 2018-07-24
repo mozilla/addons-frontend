@@ -645,6 +645,43 @@ describe(__filename, () => {
         mockApi.verify();
       });
 
+      it('also sends a request to add an add-on if includeAddonId is set', async () => {
+        const state = sagaTester.getState();
+        const id = 12344;
+        const params = {
+          ...getParams({ lang: state.api.lang }),
+          includeAddonId: id,
+        };
+
+        const collectionDetailResponse = createFakeCollectionDetail(params);
+
+        mockApi
+          .expects('createCollection')
+          .once()
+          .returns(Promise.resolve(collectionDetailResponse));
+
+        mockApi
+          .expects('createCollectionAddon')
+          .withArgs({
+            addonId: id,
+            api: state.api,
+            slug: params.slug,
+            username: params.username,
+          })
+          .once()
+          .returns(Promise.resolve());
+
+        _createCollection(params);
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`,
+        );
+
+        await sagaTester.waitFor(expectedAction.type);
+        mockApi.verify();
+      });
+
       it('redirects to the collection edit screen after create', async () => {
         const submittedSlug = 'submitted-slug';
         const returnedSlug = 'returned-slug';
