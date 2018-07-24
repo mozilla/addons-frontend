@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-14 08:15+0000\n"
+"PO-Revision-Date: 2018-07-24 21:25+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -39,8 +39,7 @@ msgstr "已添加到 %(collectionName)s"
 msgid "Add to…"
 msgstr "添加到…"
 
-#: src/amo/components/AddAddonToCollection/index.js:266
-#: src/amo/components/CollectionAddAddon/index.js:155
+#: src/amo/components/AddAddonToCollection/index.js:266 src/amo/components/CollectionAddAddon/index.js:155
 msgid "Add to collection"
 msgstr "添加到收藏集"
 
@@ -138,11 +137,8 @@ msgid "Some features may require payment"
 msgstr "某些功能可能需要付费"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"您需要 <a href=\"%(downloadUrl)s\">下载 Firefox</a> 才能安装这个附加组件。"
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "您需要 <a href=\"%(downloadUrl)s\">下载 Firefox</a> 才能安装这个附加组件。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
@@ -161,20 +157,12 @@ msgid "This add-on is not available on your platform."
 msgstr "此附加组件不适用您的平台。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"此附加组件需要 <a href=\"%(downloadUrl)s\">较新版本的 Firefox</a>（至少 "
-"%(minVersion)s）。您目前使用的是 Firefox %(yourVersion)s。"
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "此附加组件需要 <a href=\"%(downloadUrl)s\">较新版本的 Firefox</a>（至少 %(minVersion)s）。您目前使用的是 Firefox %(yourVersion)s。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:94
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"您的浏览器不支持附加组件。您可以 <a href=\"%(downloadUrl)s\">下载 Firefox</"
-"a> 以安装这个附加组件。"
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "您的浏览器不支持附加组件。您可以 <a href=\"%(downloadUrl)s\">下载 Firefox</a> 以安装这个附加组件。"
 
 #: src/amo/components/AddonMeta/index.js:30
 msgid "Users"
@@ -234,8 +222,7 @@ msgstr "附加组件链接"
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
-#: src/amo/components/CollectionDetails/index.js:66
+#: src/amo/components/AddonMoreInfo/index.js:195 src/amo/components/CollectionDetails/index.js:66
 msgid "Last updated"
 msgstr "上次更新"
 
@@ -263,9 +250,7 @@ msgstr "使用统计"
 msgid "More information"
 msgstr "更多信息"
 
-#: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/components/UserProfile/index.js:299
-#: src/amo/components/UserProfileEdit/index.js:592
+#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:299 src/amo/components/UserProfileEdit/index.js:592
 msgid "Homepage"
 msgstr "主页"
 
@@ -290,28 +275,19 @@ msgid "Other popular extensions"
 msgstr "其他流行扩展"
 
 #: src/amo/components/AddonReview/index.js:200
-msgid ""
-"Tell the world why you think this extension is fantastic! Please follow our "
-"%(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
-"告诉大家为什么您觉得这个扩展很棒吧！分享时，请遵循我们的%(linkStart)s评价指"
-"南%(linkEnd)s。"
+msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr "告诉大家为什么您觉得这个扩展很棒吧！分享时，请遵循我们的%(linkStart)s评价指南%(linkEnd)s。"
 
 #: src/amo/components/AddonReview/index.js:204
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "告诉我们您怎么看这个扩展。请保持简单明了。"
 
 #: src/amo/components/AddonReview/index.js:208
-msgid ""
-"Tell the world about this extension. Please follow our %(linkStart)sreview "
-"guidelines%(linkEnd)s."
-msgstr ""
-"与世界分享这个附加组件很棒的理由吧！也请遵循我们的%(linkStart)s评价指"
-"南%(linkEnd)s。"
+msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr "与世界分享这个附加组件很棒的理由吧！也请遵循我们的%(linkStart)s评价指南%(linkEnd)s。"
 
 #: src/amo/components/AddonReview/index.js:212
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
+msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "告诉我们您使用这个扩展的体验如何。请保持简单明了。"
 
 #: src/amo/components/AddonReview/index.js:229
@@ -467,8 +443,7 @@ msgstr "%(author)s 制作的附加组件"
 msgid "Add-ons by these developers"
 msgstr "这些开发者制作的附加组件"
 
-#: src/amo/components/App/index.js:207
-#: src/amo/components/SectionLinks/index.js:152
+#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:152
 msgid "Add-ons for Firefox"
 msgstr "Firefox 附加组件"
 
@@ -476,8 +451,7 @@ msgstr "Firefox 附加组件"
 msgid "%s – Add-ons for Firefox"
 msgstr "%s - Firefox 附加组件"
 
-#: src/amo/components/App/index.js:211
-#: src/amo/components/SectionLinks/index.js:139
+#: src/amo/components/App/index.js:211 src/amo/components/SectionLinks/index.js:139
 msgid "Add-ons for Android"
 msgstr "适用于 Android 的附加组件"
 
@@ -493,8 +467,7 @@ msgstr "正在加载"
 msgid "Find add-ons"
 msgstr "查找附加组件"
 
-#: src/amo/components/AutoSearchInput/index.js:329
-#: src/amo/components/AutoSearchInput/index.js:357
+#: src/amo/components/AutoSearchInput/index.js:329 src/amo/components/AutoSearchInput/index.js:357
 msgid "Search"
 msgstr "搜索"
 
@@ -510,85 +483,59 @@ msgstr "分类"
 msgid "Loading categories."
 msgstr "正在加载分类。"
 
-#: src/amo/components/Category/index.js:144
-#: src/amo/components/LandingPage/index.js:223
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:223 src/amo/components/SectionLinks/index.js:87
 msgid "Extensions"
 msgstr "扩展"
 
-#: src/amo/components/Category/index.js:145
-#: src/amo/components/Home/index.js:309
-#: src/amo/components/LandingPage/index.js:139
-#: src/amo/components/Search/index.js:124
+#: src/amo/components/Category/index.js:145 src/amo/components/Home/index.js:309 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:124
 msgid "Featured extensions"
 msgstr "精选扩展"
 
-#: src/amo/components/Category/index.js:154
-#: src/amo/components/Home/index.js:310
-#: src/amo/components/LandingPage/index.js:147
+#: src/amo/components/Category/index.js:154 src/amo/components/Home/index.js:310 src/amo/components/LandingPage/index.js:147
 msgid "See more featured extensions"
 msgstr "看看更多精选扩展"
 
-#: src/amo/components/Category/index.js:155
-#: src/amo/components/LandingPage/index.js:148
-#: src/amo/components/Search/index.js:137
+#: src/amo/components/Category/index.js:155 src/amo/components/LandingPage/index.js:148 src/amo/components/Search/index.js:137
 msgid "Trending extensions"
 msgstr "热门扩展"
 
-#: src/amo/components/Category/index.js:164
-#: src/amo/components/LandingPage/index.js:156
+#: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:156
 msgid "See more trending extensions"
 msgstr "看看更多热门扩展"
 
-#: src/amo/components/Category/index.js:165
-#: src/amo/components/LandingPage/index.js:157
-#: src/amo/components/Search/index.js:149
+#: src/amo/components/Category/index.js:165 src/amo/components/LandingPage/index.js:157 src/amo/components/Search/index.js:149
 msgid "Top rated extensions"
 msgstr "最受好评的扩展"
 
-#: src/amo/components/Category/index.js:174
-#: src/amo/components/LandingPage/index.js:165
+#: src/amo/components/Category/index.js:174 src/amo/components/LandingPage/index.js:165
 msgid "See more top rated extensions"
 msgstr "看看更多好评扩展"
 
-#: src/amo/components/Category/index.js:177
-#: src/amo/components/LandingPage/index.js:222
-#: src/amo/components/SectionLinks/index.js:97
+#: src/amo/components/Category/index.js:177 src/amo/components/LandingPage/index.js:222 src/amo/components/SectionLinks/index.js:97
 msgid "Themes"
 msgstr "主题"
 
-#: src/amo/components/Category/index.js:178
-#: src/amo/components/Home/index.js:272
-#: src/amo/components/LandingPage/index.js:168
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Category/index.js:178 src/amo/components/Home/index.js:272 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:127
 msgid "Featured themes"
 msgstr "精选主题"
 
-#: src/amo/components/Category/index.js:187
-#: src/amo/components/Home/index.js:262
-#: src/amo/components/LandingPage/index.js:176
+#: src/amo/components/Category/index.js:187 src/amo/components/Home/index.js:262 src/amo/components/LandingPage/index.js:176
 msgid "See more featured themes"
 msgstr "看看更多精选主题"
 
-#: src/amo/components/Category/index.js:188
-#: src/amo/components/LandingPage/index.js:177
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Category/index.js:188 src/amo/components/LandingPage/index.js:177 src/amo/components/Search/index.js:140
 msgid "Trending themes"
 msgstr "热门主题"
 
-#: src/amo/components/Category/index.js:197
-#: src/amo/components/LandingPage/index.js:182
+#: src/amo/components/Category/index.js:197 src/amo/components/LandingPage/index.js:182
 msgid "See more trending themes"
 msgstr "看看更多热门主题"
 
-#: src/amo/components/Category/index.js:198
-#: src/amo/components/LandingPage/index.js:183
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Category/index.js:198 src/amo/components/LandingPage/index.js:183 src/amo/components/Search/index.js:152
 msgid "Top rated themes"
 msgstr "最受好评的主题"
 
-#: src/amo/components/Category/index.js:207
-#: src/amo/components/LandingPage/index.js:188
+#: src/amo/components/Category/index.js:207 src/amo/components/LandingPage/index.js:188
 msgid "See more top rated themes"
 msgstr "看看更多好评主题"
 
@@ -636,8 +583,7 @@ msgstr "已添加至收藏集"
 msgid "Find an add-on to include in this collection"
 msgstr "搜索附加组件并加入此收藏集"
 
-#: src/amo/components/CollectionDetails/index.js:56
-#: src/amo/components/Footer/index.js:43
+#: src/amo/components/CollectionDetails/index.js:56 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "附加组件"
 
@@ -658,11 +604,8 @@ msgid "Log in to view your collections"
 msgstr "登录以查看您的收藏集"
 
 #: src/amo/components/CollectionList/index.js:125
-msgid ""
-"Collections make it easy to keep track of favorite add-ons and share your "
-"perfectly customized browser with others."
-msgstr ""
-"收藏集可以方便存下您喜欢的附加组件，让您可以与朋友分享彰显您个性的浏览器。"
+msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
+msgstr "收藏集可以方便存下您喜欢的附加组件，让您可以与朋友分享彰显您个性的浏览器。"
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
@@ -696,10 +639,7 @@ msgstr "描述"
 msgid "Custom URL"
 msgstr "自定义网址"
 
-#: src/amo/components/CollectionManager/index.js:317
-#: src/amo/components/UserProfileEdit/index.js:842
-#: src/ui/components/ConfirmButton/index.js:107
-#: src/ui/components/DismissibleTextForm/index.js:149
+#: src/amo/components/CollectionManager/index.js:317 src/amo/components/UserProfileEdit/index.js:842 src/ui/components/ConfirmButton/index.js:107 src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
 msgstr "取消"
 
@@ -732,15 +672,11 @@ msgid "Support these developers"
 msgstr "支持这些开发者"
 
 #: src/amo/components/ContributeCard/index.js:37
-msgid ""
-"The developer of this extension asks that you help support its continued "
-"development by making a small contribution."
+msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
 msgstr "此扩展的开发者寻求您的小小捐助以支持其持续发展。"
 
 #: src/amo/components/ContributeCard/index.js:39
-msgid ""
-"The developers of this extension ask that you help support its continued "
-"development by making a small contribution."
+msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
 msgstr "此扩展的开发者寻求您的小小捐助以支持其持续发展。"
 
 #: src/amo/components/ContributeCard/index.js:46
@@ -752,15 +688,11 @@ msgid "Support these artists"
 msgstr "支持这些作者"
 
 #: src/amo/components/ContributeCard/index.js:51
-msgid ""
-"The artist of this theme asks that you help support its continued creation "
-"by making a small contribution."
+msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
 msgstr "此主题的创作者寻求您的小小捐助以支持其继续创作。"
 
 #: src/amo/components/ContributeCard/index.js:53
-msgid ""
-"The artists of this theme ask that you help support its continued creation "
-"by making a small contribution."
+msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
 msgstr "此主题的创作者寻求您的小小捐助以支持其继续创作。"
 
 #: src/amo/components/ContributeCard/index.js:60
@@ -772,30 +704,24 @@ msgid "Support these authors"
 msgstr "支持这些作者"
 
 #: src/amo/components/ContributeCard/index.js:65
-msgid ""
-"The author of this add-on asks that you help support its continued work by "
-"making a small contribution."
+msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
 msgstr "此附加组件的作者寻求您的小小捐助以支持其继续创造。"
 
 #: src/amo/components/ContributeCard/index.js:67
-msgid ""
-"The authors of this add-on ask that you help support its continued work by "
-"making a small contribution."
+msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
 msgstr "此附加组件的作者寻求您的小小捐助以支持其继续创造。"
 
 #: src/amo/components/ContributeCard/index.js:87
 msgid "Contribute now"
 msgstr "我要捐款"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:40
-#: src/amo/components/Footer/index.js:106
+#: src/amo/components/DownloadFirefoxButton/index.js:40 src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
 msgstr "下载 Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "法律声明"
+msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
 msgid "Remove"
@@ -818,32 +744,20 @@ msgid "Edit"
 msgstr "编辑"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"若您已登录，认为这个提示有误，请<a href=\"%(url)s\">填报问题</a>。填报时请提"
-"及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "若您已登录，认为这个提示有误，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
 msgstr "尚未授权"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
 msgstr "很抱歉，但您无权访问此页面。如果您尚未登录，请使用页面顶部的链接登录。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是"
-"从哪个网址过来的、想访问什么内容，我们将修正此问题。"
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:41
 msgid "This add-on has been removed by its author."
@@ -857,34 +771,23 @@ msgstr "此附加组件已被管理员禁用。"
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:57
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "找不到页面"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
-msgstr ""
-"如果您有其他能够帮助我们修正问题的信息，请<a href=\"https://github.com/"
-"mozilla/addons-frontend/issues/new/\">填报问题</a>。在填报时中请告诉我们您做"
-"了哪些事情后发生了错误，我们将尽力修正。"
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
+msgstr "如果您有其他能够帮助我们修正问题的信息，请<a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">填报问题</a>。在填报时中请告诉我们您做了哪些事情后发生了错误，我们将尽力修正。"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "服务器错误"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"很抱歉，但目前遇到一个服务器错误，我们无法完成您的请求。我们已记录该错误，并"
-"会进行调查。"
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "很抱歉，但目前遇到一个服务器错误，我们无法完成您的请求。我们已记录该错误，并会进行调查。"
 
 #: src/amo/components/FlagReviewMenu/index.js:107
 msgid "This is a bug report or support request"
@@ -980,13 +883,9 @@ msgstr "报告商报滥用"
 
 #: src/amo/components/Footer/index.js:194
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
-msgstr ""
-"除非另有%(startNotedLink)s注明%(endNotedLink)s，否则本网站上的内容可按 "
-"%(startLicenseLink)s知识共享 署名-相同方式共享 3.0%(endLicenseLink)s 或更新版"
-"本使用。"
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
+msgstr "除非另有%(startNotedLink)s注明%(endNotedLink)s，否则本网站上的内容可按 %(startLicenseLink)s知识共享 署名-相同方式共享 3.0%(endLicenseLink)s 或更新版本使用。"
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
@@ -1032,13 +931,11 @@ msgstr "我的账户"
 msgid "View My Collections"
 msgstr "查看我的收藏集"
 
-#: src/amo/components/Header/index.js:123
-#: src/amo/components/UserProfileEdit/index.js:466
+#: src/amo/components/Header/index.js:123 src/amo/components/UserProfileEdit/index.js:466
 msgid "View My Profile"
 msgstr "查看我的个人资料"
 
-#: src/amo/components/Header/index.js:131
-#: src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/Header/index.js:131 src/amo/components/UserProfileEdit/index.js:472
 msgid "Edit My Profile"
 msgstr "编辑我的个人资料"
 
@@ -1056,14 +953,13 @@ msgstr "提交新主题"
 
 #: src/amo/components/Header/index.js:155
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "管理我的提交"
 
 #: src/amo/components/Header/index.js:165
 msgid "Reviewer Tools"
 msgstr "审核员工具"
 
-#: src/amo/components/Header/index.js:175
-#: src/core/components/AuthenticateButton/index.js:78
+#: src/amo/components/Header/index.js:175 src/core/components/AuthenticateButton/index.js:78
 msgid "Log out"
 msgstr "登出"
 
@@ -1161,11 +1057,11 @@ msgstr "必备媒体工具"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "鼠标在图像上悬停即可放大图像"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Privacy Possum"
@@ -1252,36 +1148,31 @@ msgid "IP Address and Domain Information"
 msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-msgid ""
-"See detailed info about every website you visit—IP address, location, "
-"provider & more"
+msgid "See detailed info about every website you visit—IP address, location, provider & more"
 msgstr "查看您访问的每个网站的详细信息——IP 地址，位置，提供商等"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "选择每次打开新标签页时您看到的页面"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
-msgstr ""
+msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
-#, fuzzy
 msgid "Get instant global weather information right in Firefox"
-msgstr "在 Firefox 中生成两步验证码"
+msgstr "在 Firefox 中即时获取全球天气信息"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers - 小号多开"
 
 #: src/amo/components/HomeHeroBanner/index.js:77
-msgid ""
-"Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
+msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
 msgstr "用多彩的标签页区分您不同的网络身份—办公、学校、私人"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
@@ -1297,9 +1188,7 @@ msgid "Tabliss"
 msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:90
-msgid ""
-"Enjoy a gorgeous new tab page with customizable backgrounds, local weather & "
-"more"
+msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
 msgstr "享用华丽的新标签页，您还可以自定义背景、本地天气信息等等。"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
@@ -1308,19 +1197,14 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "打开了很多的标签页？用一个整洁的边栏管理它们"
 
 #: src/amo/components/LandingPage/index.js:226
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"为浏览器换身装扮。您可以挑选成千上万的主题，使 Firefox 变成您想要的样子。"
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "为浏览器换身装扮。您可以挑选成千上万的主题，使 Firefox 变成您想要的样子。"
 
 #: src/amo/components/LandingPage/index.js:228
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
 msgstr "探索功能强大的工具与特性，让 Firefox 有你的风格。"
 
 #: src/amo/components/LandingPage/index.js:262
@@ -1340,17 +1224,11 @@ msgid "Dictionaries and Language Packs"
 msgstr "字典及语言包"
 
 #: src/amo/components/LanguageTools/index.js:153
-msgid ""
-"Installing a dictionary add-on will add a new language option to your spell-"
-"checker, which checks your spelling as you type in Firefox."
-msgstr ""
-"安装字典附加组件将为您的拼写检查器添加一个新的语言选项，拼写检查器会在您向 "
-"Firefox 输入时检查拼写。"
+msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
+msgstr "安装字典附加组件将为您的拼写检查器添加一个新的语言选项，拼写检查器会在您向 Firefox 输入时检查拼写。"
 
 #: src/amo/components/LanguageTools/index.js:158
-msgid ""
-"Language packs change your browser's interface language, including menu "
-"options and settings."
+msgid "Language packs change your browser's interface language, including menu options and settings."
 msgstr "语言包更改您的浏览器界面的语言，包括菜单、选项等。"
 
 #: src/amo/components/LanguageTools/index.js:164
@@ -1421,8 +1299,7 @@ msgstr "读取所有打开的标签页中的文本"
 msgid "Access your location"
 msgstr "获知您的位置"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
 msgstr "存取浏览历史"
 
@@ -1503,36 +1380,24 @@ msgid "You reported this add-on for abuse"
 msgstr "您已报告此附加组件的滥用"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
 msgstr "我们已收到您的报告。感谢您对此的关注。"
 
-#: src/amo/components/ReportAbuseButton/index.js:127
-#: src/amo/components/ReportUserAbuse/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "我们无法回应每份滥用报告，但将会研究提到的问题。"
 
 #: src/amo/components/ReportAbuseButton/index.js:139
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
-msgstr ""
-"如果您认为此附加组件违背了 %(linkTagStart)sMozilla 附加组件政"
-"策%(linkTagEnd)s 或存在安全或隐私问题，请使用此表单向 Mozilla 报告问题。"
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
+msgstr "如果您认为此附加组件违背了 %(linkTagStart)sMozilla 附加组件政策%(linkTagEnd)s 或存在安全或隐私问题，请使用此表单向 Mozilla 报告问题。"
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 msgid "Report this add-on for abuse"
 msgstr "举报此附加组件的滥用行为"
 
 #: src/amo/components/ReportAbuseButton/index.js:184
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
-"请勿使用此表单报告附加组件的缺陷或请求功能。此表单将发给 Mozilla 官方，而非附"
-"加组件的开发者。"
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+msgstr "请勿使用此表单报告附加组件的缺陷或请求功能。此表单将发给 Mozilla 官方，而非附加组件的开发者。"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
@@ -1542,36 +1407,25 @@ msgstr "解释此附加组件哪里违背了我们的政策。"
 msgid "Dismiss"
 msgstr "关闭"
 
-#: src/amo/components/ReportAbuseButton/index.js:223
-#: src/amo/components/ReportUserAbuse/index.js:145
+#: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "报告发送中"
 
-#: src/amo/components/ReportAbuseButton/index.js:224
-#: src/amo/components/ReportUserAbuse/index.js:144
+#: src/amo/components/ReportAbuseButton/index.js:224 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "提交滥用报告"
 
-#: src/amo/components/ReportUserAbuse/index.js:100
-#: src/amo/components/ReportUserAbuse/index.js:107
+#: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
 msgstr "举报此用户的滥用行为"
 
 #: src/amo/components/ReportUserAbuse/index.js:114
-msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
-"%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"如果您认为此用户违背了 %(linkTagStart)sMozilla 附加组件政策%(linkTagEnd)s 或"
-"存在安全或隐私问题，请使用此表单向 Mozilla 报告问题。"
+msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
+msgstr "如果您认为此用户违背了 %(linkTagStart)sMozilla 附加组件政策%(linkTagEnd)s 或存在安全或隐私问题，请使用此表单向 Mozilla 报告问题。"
 
 #: src/amo/components/ReportUserAbuse/index.js:130
-msgid ""
-"Please don't use this form to report bugs or contact this user; your report "
-"will only be sent to Mozilla and not to this user."
-msgstr ""
-"此表单只会发给 Mozilla 官方而不会发给这位用户，请不要使用此表单反馈附加组件的"
-"缺陷或联系此用户。"
+msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
+msgstr "此表单只会发给 Mozilla 官方而不会发给这位用户，请不要使用此表单反馈附加组件的缺陷或联系此用户。"
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
@@ -1582,13 +1436,10 @@ msgid "You reported this user for abuse"
 msgstr "您已报告此用户的滥用行为"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this user."
+msgid "We have received your report. Thanks for letting us know about your concerns with this user."
 msgstr "我们已收到您的报告。感谢告知。"
 
-#: src/amo/components/Search/index.js:119
-#: src/amo/components/SearchResults/index.js:73
+#: src/amo/components/Search/index.js:119 src/amo/components/SearchResults/index.js:73
 msgid "Search results"
 msgstr "搜索结果"
 
@@ -1667,8 +1518,7 @@ msgstr "搜索“%(query)s”"
 msgid "Loading add-ons"
 msgstr "正在加载附加组件"
 
-#: src/amo/components/SearchFilters/index.js:110
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
 msgid "All"
 msgstr "所有"
 
@@ -1798,9 +1648,7 @@ msgid "Explore"
 msgstr "探索"
 
 #: src/amo/components/StaticPages/About/index.js:122
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
+msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
 msgstr "如果您想要贡献但缺乏相应技术，也有些方法来帮忙："
 
 #: src/amo/components/StaticPages/About/index.js:131
@@ -1808,26 +1656,15 @@ msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "参与我们的%(startLink)s论坛%(endLink)s。"
 
 #: src/amo/components/StaticPages/About/index.js:144
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"给您喜欢的附加组件提供反馈。如果附加组件的作者知道有人欣赏他的作品，将更有可"
-"能改进附加组件和创建新作品。"
+msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgstr "给您喜欢的附加组件提供反馈。如果附加组件的作者知道有人欣赏他的作品，将更有可能改进附加组件和创建新作品。"
 
 #: src/amo/components/StaticPages/About/index.js:149
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"告诉你的朋友和家人，Firefox 是一款快速、安全的浏览器，有助保护隐私，并且可使"
-"用附加组件充分个性化！"
+msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgstr "告诉你的朋友和家人，Firefox 是一款快速、安全的浏览器，有助保护隐私，并且可使用附加组件充分个性化！"
 
 #: src/amo/components/StaticPages/About/index.js:157
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s"
+msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
 msgstr "欢迎看看 %(startLink)swiki%(endLink)s，了解您能如何为附加组件社区出力"
 
 #: src/amo/components/StaticPages/About/index.js:171
@@ -1836,46 +1673,27 @@ msgstr "获取支持"
 
 #: src/amo/components/StaticPages/About/index.js:176
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
-msgstr ""
-"若您想要详细了解如何在 Firefox 中管理附加组件，或需要更广泛的 Firefox 技术支"
-"持，请访问 Mozilla %(startSUMOLink)s技术支持站%(endSUMOLink)s。若您无法在此网"
-"站找到合适的答案，您可以%(startForumLink)s在我们的社区论坛提"
-"问%(endForumLink)s。"
+"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
+"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr "若您想要详细了解如何在 Firefox 中管理附加组件，或需要更广泛的 Firefox 技术支持，请访问 Mozilla %(startSUMOLink)s技术支持站%(endSUMOLink)s。若您无法在此网站找到合适的答案，您可以%(startForumLink)s在我们的社区论坛提问%(endForumLink)s。"
 
 #: src/amo/components/StaticPages/About/index.js:197
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
+msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
 msgstr "%(startLink)sMozilla 附加组件团队的联系方式可在这里找到%(endLink)s。"
 
-#: src/amo/components/StaticPages/About/index.js:23
-#: src/amo/components/StaticPages/About/index.js:26
+#: src/amo/components/StaticPages/About/index.js:23 src/amo/components/StaticPages/About/index.js:26
 msgid "About Firefox Add-ons"
 msgstr "关于 Firefox 附加组件"
 
 #: src/amo/components/StaticPages/About/index.js:32
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
-msgstr ""
-"Addons.mozilla.org（AMO）是 Mozilla 的官方网站，您可在此发现和安装用于 "
-"Firefox 浏览器的附加组件。通过为 Firefox 添加新特性、增强您与 Web 内容的交互"
-"与改变浏览器的外观，附加组件能帮您改进和个性化浏览体验。"
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
+"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+msgstr "Addons.mozilla.org（AMO）是 Mozilla 的官方网站，您可在此发现和安装用于 Firefox 浏览器的附加组件。通过为 Firefox 添加新特性、增强您与 Web 内容的交互与改变浏览器的外观，附加组件能帮您改进和个性化浏览体验。"
 
 #: src/amo/components/StaticPages/About/index.js:42
-msgid ""
-"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
-"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
-"您还能在 AMO 上寻找用于 Mozilla %(startTBLink)sThunderbird%(endTBLink)s 与 "
-"%(startSMLink)sSeaMonkey%(endSMLink)s 的附加组件。"
+msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "您还能在 AMO 上寻找用于 Mozilla %(startTBLink)sThunderbird%(endTBLink)s 与 %(startSMLink)sSeaMonkey%(endSMLink)s 的附加组件。"
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -1883,15 +1701,9 @@ msgstr "创作者社区"
 
 #: src/amo/components/StaticPages/About/index.js:61
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publically "
-"listed."
-msgstr ""
-"这里的附加组件为世界各地成千上万的开发者和主题设计师所打造，他们有的是个人业"
-"余爱好者，有的是大公司。AMO 上的某些附加组件是自动发布的，而公开发布后，这些"
-"附加组件可能会受到编辑团队的审核。"
+"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
+"been automatically published and may be subject to review by a team of editors once publically listed."
+msgstr "这里的附加组件为世界各地成千上万的开发者和主题设计师所打造，他们有的是个人业余爱好者，有的是大公司。AMO 上的某些附加组件是自动发布的，而公开发布后，这些附加组件可能会受到编辑团队的审核。"
 
 #: src/amo/components/StaticPages/About/index.js:70
 msgid "Get involved"
@@ -1899,41 +1711,24 @@ msgstr "参与进来"
 
 #: src/amo/components/StaticPages/About/index.js:72
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
-msgstr ""
-"Mozilla 是一个非营利的互联网拥护者，我们打造了 Firefox 来帮助保持互联网的健"
-"康、开放及人人可用。附加组件使 Firefox 可以为用户提供选择权与定制性，而您则可"
-"以通过以下方式作出贡献："
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
+"the following ways:"
+msgstr "Mozilla 是一个非营利的互联网拥护者，我们打造了 Firefox 来帮助保持互联网的健康、开放及人人可用。附加组件使 Firefox 可以为用户提供选择权与定制性，而您则可以通过以下方式作出贡献："
 
 #: src/amo/components/StaticPages/About/index.js:82
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)s制作你自己的附加组件%(endLink)s。我们提供免费的托管和更新服务，"
-"并能帮助你接触到大量的用户群体。"
+msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgstr "%(startLink)s制作你自己的附加组件%(endLink)s。我们提供免费的托管和更新服务，并能帮助你接触到大量的用户群体。"
 
 #: src/amo/components/StaticPages/About/index.js:98
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and "
-"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
-"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
-"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
-"Github."
+"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
+"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"帮助改进本网站。它是一个开源软件，您可以提报缺陷和提交修复补丁。建议您从 "
-"%(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s 开始，或查看 "
-"Github 上的 AMO 的%(startAddonsServerRepoLink)s服务"
-"器%(endAddonsServerRepoLink)s和%(startAddonsFrontendRepoLink)s前"
-"端%(endAddonsFrontendRepoLink)s。"
+"帮助改进本网站。它是一个开源软件，您可以提报缺陷和提交修复补丁。建议您从 %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s 开始，或查看 Github 上的 AMO "
+"的%(startAddonsServerRepoLink)s服务器%(endAddonsServerRepoLink)s和%(startAddonsFrontendRepoLink)s前端%(endAddonsFrontendRepoLink)s。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:102
-msgid ""
-"Include your own or anyone else’s email, phone number, or other personal "
-"details."
+msgid "Include your own or anyone else’s email, phone number, or other personal details."
 msgstr "包含您自己或他人的电子邮件地址、电话号码或其他个人信息。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:107
@@ -1942,13 +1737,9 @@ msgstr "为您或您的组织所撰写或代表的附加组件发表评价。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:112
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving "
-"a negative review of an add-on for displaying ads or requiring data "
-"gathering, when that is the intended purpose of the add-on, or the add-on "
-"requires gathering data to function."
-msgstr ""
-"批评附加组件的本来意图。例如，附加组件的功能预期将会或者无法避免显示广告或进"
-"行数据收集。"
+"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
+"add-on, or the add-on requires gathering data to function."
+msgstr "批评附加组件的本来意图。例如，附加组件的功能预期将会或者无法避免显示广告或进行数据收集。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:121
 msgid "Frequently Asked Questions about Reviews"
@@ -1960,26 +1751,17 @@ msgstr "我能报告一个有问题的评价吗？"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:125
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this "
-"review\" and it will be submitted to the site for moderation. Our moderation "
-"team will use the Review Guidelines to evaluate whether or not to delete the "
-"review or restore it back to the site."
-msgstr ""
-"请点击“举报此评价”来报告可能有问题的评价，这会将其提交给网站的审核团队。我们"
-"的审核小组将参照“评价指南”来评估是否删除评价将其还原。"
+"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
+"evaluate whether or not to delete the review or restore it back to the site."
+msgstr "请点击“举报此评价”来报告可能有问题的评价，这会将其提交给网站的审核团队。我们的审核小组将参照“评价指南”来评估是否删除评价将其还原。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:132
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "我是一个附加组件的作者，我可以回应评价吗？"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:138
-msgid ""
-"Yes, add-on authors can provide a single response to a review. You can set "
-"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
-"additional discussion or follow-up."
-msgstr ""
-"是的，附加组件作者可以对一条评价发表一次回应。您可以在我们的%(startLink)s论"
-"坛%(endLink)s中开设一个主题，以进行持续性讨论。"
+msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgstr "是的，附加组件作者可以对一条评价发表一次回应。您可以在我们的%(startLink)s论坛%(endLink)s中开设一个主题，以进行持续性讨论。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:152
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1987,27 +1769,19 @@ msgstr "我是一个附加组件的作者，我可以删除负面的评价或评
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:157
 msgid ""
-"In general, no. But if the review did not meet the review guidelines "
-"outlined above, you can click \"Report this review\" and have it moderated. "
-"If a review included a complaint that is no longer valid due to a new "
-"release of your add-on, we may consider deleting the review."
-msgstr ""
-"一般来说，不会。但如果评价不遵守上述指南，您可以点击“举报此评价”使其接受审"
-"核。如果评价已因新版本附加组件而失去效力，我们会考虑删除该评价。"
+"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
+"valid due to a new release of your add-on, we may consider deleting the review."
+msgstr "一般来说，不会。但如果评价不遵守上述指南，您可以点击“举报此评价”使其接受审核。如果评价已因新版本附加组件而失去效力，我们会考虑删除该评价。"
 
-#: src/amo/components/StaticPages/ReviewGuide/index.js:21
-#: src/amo/components/StaticPages/ReviewGuide/index.js:23
+#: src/amo/components/StaticPages/ReviewGuide/index.js:21 src/amo/components/StaticPages/ReviewGuide/index.js:23
 msgid "Review Guidelines"
 msgstr "评价指南"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:29
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons "
-"you’ve installed and used. Our review moderation team reserves the right to "
-"refuse or remove any review that does not comply with these guidelines."
-msgstr ""
-"您可以使用附加组件评价来分享对已安装和已使用附加组件的感受。我们的审核小组保"
-"留拒绝和删除不符合“评价指南”的评价的权利。"
+"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
+" with these guidelines."
+msgstr "您可以使用附加组件评价来分享对已安装和已使用附加组件的感受。我们的审核小组保留拒绝和删除不符合“评价指南”的评价的权利。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:34
 msgid "Tips for writing a great review"
@@ -2018,8 +1792,7 @@ msgid "Do:"
 msgstr "应当："
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:38
-msgid ""
-"Write like you are telling a friend about your experience with the add-on."
+msgid "Write like you are telling a friend about your experience with the add-on."
 msgstr "撰写评价时，叙述风格应该像你对朋友阐述对它的感觉。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:43
@@ -2051,8 +1824,7 @@ msgid "Will you continue to use this add-on?"
 msgstr "您将继续使用此附加组件吗？"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:64
-msgid ""
-"Take a moment to read your review before submitting it to minimize typos."
+msgid "Take a moment to read your review before submitting it to minimize typos."
 msgstr "花点时间阅读您的评价，然后再提交它。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:69
@@ -2065,32 +1837,24 @@ msgstr "只表达感受，例如：“很好”、“不错”或“不好用”
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:77
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the "
-"available support options for each add-on, if available. You can find them "
-"in the \"More information\" section in the sidebar on the add-on's detail "
-"page."
-msgstr ""
-"发表技术性问题、支持请求或功能建议。请使用附加组件提供的支持选项（如果存"
-"在），您可以在附加组件详细信息页面中侧栏的“更多信息”部分找到支持方式。"
+"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
+" on the add-on's detail page."
+msgstr "发表技术性问题、支持请求或功能建议。请使用附加组件提供的支持选项（如果存在），您可以在附加组件详细信息页面中侧栏的“更多信息”部分找到支持方式。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:82
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "为您没有亲自尝试的附加组件发表评价。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:87
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
+msgid "Use profanity, sexual language or language that can be construed as hateful."
 msgstr "使用亵渎、性意味或其他可能构成伤害的言语。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:92
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
+msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
 msgstr "包含 HTML、链接、代码。请只在评论中留下文字内容。"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:97
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
+msgid "Make false statements, disparage add-on authors or personally insult them."
 msgstr "作出虚假的陈述、贬低或者侮辱附加组件的作者或任何个体。"
 
 #: src/amo/components/SuggestedPages/index.js:20
@@ -2125,18 +1889,15 @@ msgstr "附加组件开发者"
 msgid "Theme artist"
 msgstr "主题艺术家"
 
-#: src/amo/components/UserProfile/index.js:279
-#: src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfile/index.js:279 src/amo/components/UserProfileEdit/index.js:454
 msgid "User Profile for %(user)s"
 msgstr "%(user)s 的用户资料"
 
-#: src/amo/components/UserProfile/index.js:309
-#: src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfile/index.js:309 src/amo/components/UserProfileEdit/index.js:609
 msgid "Location"
 msgstr "地址"
 
-#: src/amo/components/UserProfile/index.js:317
-#: src/amo/components/UserProfileEdit/index.js:621
+#: src/amo/components/UserProfile/index.js:317 src/amo/components/UserProfileEdit/index.js:621
 msgid "Occupation"
 msgstr "职业"
 
@@ -2152,8 +1913,7 @@ msgstr "附加组件数量"
 msgid "Average rating of developer’s add-ons"
 msgstr "开发者的附加组件平均得分"
 
-#: src/amo/components/UserProfile/index.js:355
-#: src/amo/components/UserProfileEdit/index.js:643
+#: src/amo/components/UserProfile/index.js:355 src/amo/components/UserProfileEdit/index.js:643
 msgid "Biography"
 msgstr "自我介绍"
 
@@ -2198,11 +1958,8 @@ msgid "Email address cannot be changed here"
 msgstr "电子邮件地址不可在此处更改"
 
 #: src/amo/components/UserProfileEdit/index.js:527
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"您可以更改您 Firefox 账户上的电子邮件地址。%(startLink)s需要帮助？%(endLink)s"
+msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
+msgstr "您可以更改您 Firefox 账户上的电子邮件地址。%(startLink)s需要帮助？%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:544
 #, fuzzy
@@ -2214,20 +1971,12 @@ msgid "Profile"
 msgstr "用户资料"
 
 #: src/amo/components/UserProfileEdit/index.js:556
-msgid ""
-"Tell users a bit more information about yourself. These fields are optional, "
-"but they'll help other users get to know you better."
-msgstr ""
-"请向其他用户更详细地介绍一下您。所有栏位均为选填，但能帮助其他人更好地了解"
-"您。"
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr "请向其他用户更详细地介绍一下您。所有栏位均为选填，但能帮助其他人更好地了解您。"
 
 #: src/amo/components/UserProfileEdit/index.js:562
-msgid ""
-"Tell users a bit more information about this user. These fields are "
-"optional, but they'll help other users get to know %(username)s better."
-msgstr ""
-"请向其他用户更详细地介绍一下这位用户。所有栏位均为选填，但能帮助其他人更好地"
-"了解 %(username)s。"
+msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
+msgstr "请向其他用户更详细地介绍一下这位用户。所有栏位均为选填，但能帮助其他人更好地了解 %(username)s。"
 
 #: src/amo/components/UserProfileEdit/index.js:572
 msgid "Display Name"
@@ -2254,31 +2003,20 @@ msgid "Notifications"
 msgstr "通知"
 
 #: src/amo/components/UserProfileEdit/index.js:693
-msgid ""
-"From time to time, Mozilla may send you email about upcoming releases and "
-"add-on events. Please select the topics you are interested in."
-msgstr ""
-"Mozilla 可能会不时向您寄送电子邮件，告诉您即将发布的版本和附加组件新动向。请"
-"选择您感兴趣的话题。"
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "Mozilla 可能会不时向您寄送电子邮件，告诉您即将发布的版本和附加组件新动向。请选择您感兴趣的话题。"
 
 #: src/amo/components/UserProfileEdit/index.js:698
-msgid ""
-"From time to time, Mozilla may send this user email about upcoming releases "
-"and add-on events. Please select the topics this user may be interested in."
-msgstr ""
-"Mozilla 可能会不时向此用户寄送电子邮件，告诉他有关即将发布的版本和附加组件新"
-"动向。请选择此用户可能感兴趣的话题。"
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr "Mozilla 可能会不时向此用户寄送电子邮件，告诉他有关即将发布的版本和附加组件新动向。请选择此用户可能感兴趣的话题。"
 
 #: src/amo/components/UserProfileEdit/index.js:713
-msgid ""
-"Mozilla reserves the right to contact you individually about specific "
-"concerns with your hosted add-ons."
+msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr "Mozilla 保留使用此信息与您联络，就您上架的附加组件进行询问的权利。"
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "正在更新您的账户…"
+msgstr "正在更新您的个人资料…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
 #, fuzzy
@@ -2286,26 +2024,21 @@ msgid "Update My Profile"
 msgstr "更新我的个人资料"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating profile…"
-msgstr "更新我的个人资料"
+msgstr "更新个人资料…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Update Profile"
-msgstr "更新我的个人资料"
+msgstr "更新个人资料"
 
-#: src/amo/components/UserProfileEdit/index.js:746
-#: src/amo/components/UserProfileEdit/index.js:834
+#: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:834
 #, fuzzy
 msgid "Delete My Profile"
 msgstr "删除我的个人资料"
 
-#: src/amo/components/UserProfileEdit/index.js:747
-#: src/amo/components/UserProfileEdit/index.js:835
-#, fuzzy
+#: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
 msgid "Delete Profile"
-msgstr "删除我的个人资料"
+msgstr "删除个人资料"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 #, fuzzy
@@ -2319,58 +2052,34 @@ msgstr "重要：注销此账号后无法撤销操作。"
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
-"Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
-msgstr ""
-"将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首"
-"页、自传、工作），以及通知偏好设置。您的评价与评分数据将被匿名化处理，并且无"
-"法再编辑。"
+"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
+" will be anonymised and no longer editable."
+msgstr "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。您的评价与评分数据将被匿名化处理，并且无法再编辑。"
 
 #: src/amo/components/UserProfileEdit/index.js:777
 msgid ""
-"The user’s data will be permanently removed, including profile details "
-"(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
-msgstr ""
-"将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、"
-"首页、自传、工作），以及通知偏好设置。评价与评分数据将被匿名化处理，并且无法"
-"再编辑。"
+"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
+"ratings will be anonymised and no longer editable."
+msgstr "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。评价与评分数据将被匿名化处理，并且无法再编辑。"
 
 #: src/amo/components/UserProfileEdit/index.js:787
-msgid ""
-"When you use this email address to login again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
+msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:800
 #, fuzzy
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
-msgstr ""
-"%(strongStart)s注意：%(strongEnd)s如果您是%(linkStart)s任何附加组件的作"
-"者%(linkEnd)s，则无法注销您的账户。 要注销账户，您必须先%(docLinkStart)s转移"
-"附加组件的所有权%(docLinkEnd)s或删除附加组件。"
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
+" add-ons before you can delete your profile."
+msgstr "%(strongStart)s注意：%(strongEnd)s如果您是%(linkStart)s任何附加组件的作者%(linkEnd)s，则无法注销您的账户。 要注销账户，您必须先%(docLinkStart)s转移附加组件的所有权%(docLinkEnd)s或删除附加组件。"
 
 #: src/amo/components/UserProfileEdit/index.js:807
 #, fuzzy
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
-"%(strongStart)s注意：%(strongEnd)s您无法注销%(linkStart)s任何附加组件之作"
-"者%(linkEnd)s的账号。"
+msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+msgstr "%(strongStart)s注意：%(strongEnd)s您无法注销%(linkStart)s任何附加组件之作者%(linkEnd)s的账号。"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
-msgid ""
-"stay up-to-date with news and events relevant to add-on developers "
-"(including the about:addons newsletter)"
+msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
 msgstr "关注与附加组件开发者有关的最新消息和动向（包括 about:addons 的新变化）"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
@@ -2434,15 +2143,10 @@ msgid "Register or Log in"
 msgstr "注册或登录"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行"
-"调查。"
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行调查。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "错误代码：%(status)s。"
 
@@ -2462,13 +2166,11 @@ msgstr "您现在可以从工具栏访问 %(name)s。"
 msgid "OK!"
 msgstr "了解了！"
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "安装主题"
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "添加到 Firefox"
 
@@ -2517,9 +2219,7 @@ msgid "Take short survey"
 msgstr "填写简短问卷"
 
 #: src/core/components/SurveyNotice/index.js:139
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
+msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
 msgstr "感谢您访问本网站！请花一两分钟时间告诉 Firefox 您的使用体验。"
 
 #: src/ui/components/ConfirmButton/index.js:100
@@ -2675,8 +2375,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Black Menu for Google"
 #~ msgstr "Black Menu for Google"
 
-#~ msgid ""
-#~ "Easy drop-down menu access to Google services like Search and Translate"
+#~ msgid "Easy drop-down menu access to Google services like Search and Translate"
 #~ msgstr "简便使用下拉菜单利用搜索、翻译等各样 Google 服务"
 
 #~ msgid "Image Search Options"
@@ -2712,9 +2411,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Worldwide Radio"
 #~ msgstr "全球广播"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Listen to live radio from around the "
-#~ "world"
+#~ msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
 #~ msgstr "Quantum 扩展挑战获胜者！实时收听全球广播"
 
 #~ msgid "Update user's profile"
@@ -2729,16 +2426,10 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Attention: You are about to delete a profile. Are you sure?"
 #~ msgstr "请注意：即将删除个人资料，确定要这样做吗？"
 
-#~ msgid ""
-#~ "Important: if you own add-ons, you have to transfer them to other users "
-#~ "or to delete them before you can delete your profile."
-#~ msgstr ""
-#~ "重要提示：如果您拥有附加组件，请先将其转移给其他用户或将其删除，然后才能注"
-#~ "销您的账户。"
+#~ msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
+#~ msgstr "重要提示：如果您拥有附加组件，请先将其转移给其他用户或将其删除，然后才能注销您的账户。"
 
-#~ msgid ""
-#~ "Important: a user profile can only be deleted if the user does not own "
-#~ "any add-ons."
+#~ msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
 #~ msgstr "重要提示：拥有附加组件的用户不能注销账户。"
 
 #~ msgid "Yes, delete my profile"
@@ -2756,16 +2447,13 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Envify"
 #~ msgstr "Envify"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Different tab colors for different "
-#~ "dev environments"
+#~ msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
 #~ msgstr "Quantum 扩展挑战获胜者！为不同开发环境下的标签页加上不同色彩"
 
 #~ msgid "Laser Cat"
 #~ msgstr "激光猫"
 
-#~ msgid ""
-#~ "For moments on the internet when you need to fire lasers out of a cat"
+#~ msgid "For moments on the internet when you need to fire lasers out of a cat"
 #~ msgstr "请问您今天要来点能在网页上发射激光的喵星人吗？"
 
 #~ msgid "Manage downloads from a tidy status bar"
@@ -2780,9 +2468,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Session Sync"
 #~ msgstr "Session Sync"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Save sessions as bookmarks and "
-#~ "access them across devices"
+#~ msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
 #~ msgstr "Quantum 扩展挑战获胜者！将会话保存为书签并可跨设备访问"
 
 #~ msgid "Profile successfully updated"
@@ -2957,13 +2643,10 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "SearchPreview"
 #~ msgstr "SearchPreview"
 
-#~ msgid ""
-#~ "Enhance search results with thumbnail previews, popularity ranks & more."
+#~ msgid "Enhance search results with thumbnail previews, popularity ranks & more."
 #~ msgstr "提供显示预览缩略图、知名度排名等功能，带来更好搜索体验。"
 
-#~ msgid ""
-#~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
-#~ "visit except those on your whitelist."
+#~ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
 #~ msgstr "自动清除你的隐私数据（Cookie、本地存储等），不多不少，按你所需。"
 
 #~ msgid "Zoom for Firefox"
@@ -2981,9 +2664,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Momentum"
 #~ msgstr "Momentum"
 
-#~ msgid ""
-#~ "Replace your new tab with a personal dashboard—to-do lists, weather "
-#~ "forecasts and more."
+#~ msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
 #~ msgstr "将新标签页替换为个性化的面板——待办事项、天气预报等等。"
 
 #~ msgid "Kimetrak"
@@ -3025,9 +2706,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Grammarly"
 #~ msgstr "Grammarly"
 
-#~ msgid ""
-#~ "Get grammar help anywhere you write on the web—social media, email, docs "
-#~ "and more."
+#~ msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
 #~ msgstr "随时随地获取语法上的帮助。"
 
 #~ msgid "Remove ads, promoted content, and other clutter from your feed."
@@ -3051,8 +2730,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "查看更多保护您的隐私的附加组件"
 
-#~ msgid ""
-#~ "Translate a word, phrase, even an entire page. Supports 100+ languages."
+#~ msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
 #~ msgstr "翻译字词、短语乃至整个页面。支持超过100种语言。"
 
 #~ msgid "Search by Image"
@@ -3073,9 +2751,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Decentraleyes"
 #~ msgstr "Decentraleyes"
 
-#~ msgid ""
-#~ "Tracking protection against third-party sites aiming to mark your every "
-#~ "online move."
+#~ msgid "Tracking protection against third-party sites aiming to mark your every online move."
 #~ msgstr "抗衡第三方的网络跟踪，保护您的隐私。"
 
 #~ msgid "Top privacy extensions"
@@ -3102,9 +2778,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Block ads"
 #~ msgstr "过滤广告"
 
-#~ msgid ""
-#~ "From ad blockers to anti-trackers, here are some impressive privacy "
-#~ "extensions"
+#~ msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
 #~ msgstr "从广告过滤器到防跟踪软件，这里有些不容错过的隐私扩展"
 
 #~ msgid "An extremely powerful ad blocker that’s simple to use"
@@ -3143,13 +2817,8 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Addons"
 #~ msgstr "附加组件"
 
-#~ msgid ""
-#~ "Sorry, but we can't find anything at the address you entered. If you "
-#~ "followed a link to an add-on, it's possible that add-on has been removed "
-#~ "by its author."
-#~ msgstr ""
-#~ "很抱歉，但您的网址所指向的内容似乎不存在。如果您是想打开某个附加组件的链"
-#~ "接，可能是该附加组件已被作者下架或移除。"
+#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+#~ msgstr "很抱歉，但您的网址所指向的内容似乎不存在。如果您是想打开某个附加组件的链接，可能是该附加组件已被作者下架或移除。"
 
 #~ msgid "Manage API Keys"
 #~ msgstr "管理 API 密钥"
@@ -3157,9 +2826,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Themes change how Firefox looks"
 #~ msgstr "使用主题改变 Firefox 的外观"
 
-#~ msgid ""
-#~ "This ID is useful for debugging and identifying your add-on to site "
-#~ "administrators."
+#~ msgid "This ID is useful for debugging and identifying your add-on to site administrators."
 #~ msgstr "此 ID 通常用于调试及网站管理员识别您的附加组件。"
 
 #~ msgid "Site Identifier"
@@ -3201,9 +2868,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "…or what it looks like"
 #~ msgstr "…或者改变外观"
 
-#~ msgid ""
-#~ "Install powerful tools that make browsing faster and safer, add-ons make "
-#~ "your browser yours."
+#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
 #~ msgstr "安装强大的工具，让浏览更便捷和安全，附加组件使您的浏览器更具个性。"
 
 #~ msgid "Browse in your language"
@@ -3218,9 +2883,7 @@ msgstr[0] "共 %(total)s 个附加组件"
 #~ msgid "Browse by category"
 #~ msgstr "按类别浏览"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 #~ msgstr "扩展让您可以为 Firefox 增添功能。主题则可以让您改变浏览器的外观。"
 
 #~ msgid "%(averageRating)s out of 5"
