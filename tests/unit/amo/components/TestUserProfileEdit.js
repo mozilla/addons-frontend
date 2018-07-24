@@ -134,9 +134,6 @@ describe(__filename, () => {
     expect(root.find(UserProfileEditPicture)).toHaveLength(1);
 
     expect(root.find('.UserProfileEdit-manage-account-link')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-manage-account-link')).toHaveText(
-      'Manage Firefox Accounts...',
-    );
 
     expect(root.find('.UserProfileEdit-notifications-aside'))
       .toHaveText(oneLine`From time to time, Mozilla may send you email about
@@ -588,7 +585,7 @@ describe(__filename, () => {
     const button = root.find('.UserProfileEdit-submit-button');
 
     expect(button).toHaveLength(1);
-    expect(button.dive()).toHaveText('Update My Account');
+    expect(button.dive()).toHaveText('Update My Profile');
     expect(button).toHaveProp('disabled', false);
   });
 
@@ -597,7 +594,7 @@ describe(__filename, () => {
     const button = root.find('.UserProfileEdit-delete-button');
 
     expect(button).toHaveLength(1);
-    expect(button.dive()).toHaveText('Delete My Account');
+    expect(button.dive()).toHaveText('Delete My Profile');
     expect(button).toHaveProp('disabled', false);
   });
 
@@ -608,7 +605,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
-      `Update This Account`,
+      'Update Profile',
     );
   });
 
@@ -619,7 +616,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-delete-button').dive()).toHaveText(
-      `Delete This Account`,
+      'Delete Profile',
     );
   });
 
@@ -631,7 +628,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
-      'Updating your account…',
+      'Updating your profile…',
     );
   });
 
@@ -644,7 +641,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
-      `Updating this account…`,
+      `Updating profile…`,
     );
   });
 
@@ -1254,7 +1251,7 @@ describe(__filename, () => {
     expect(modal).toHaveLength(1);
     expect(modal).toHaveProp(
       'header',
-      'IMPORTANT: Deleting your account is irreversible.',
+      'IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.',
     );
     expect(modal).toHaveProp('visibleOnLoad', true);
 
@@ -1265,16 +1262,23 @@ describe(__filename, () => {
       be anonymised and no longer editable.`,
     );
 
-    expect(modal.find('p').at(1)).toHaveHTML(
-      oneLine`<p><strong>NOTE:</strong> You cannot delete your account if you
+    expect(
+      modal
+        .find('p')
+        .at(1)
+        .text(),
+    ).toContain('When you use this email address to login again to');
+
+    expect(modal.find('p').at(2)).toHaveHTML(
+      oneLine`<p><strong>NOTE:</strong> You cannot delete your profile if you
       are the <a href="/user/tofumatt/">author of any add-ons</a>. You must
       <a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">transfer ownership</a>
-      or delete the add-ons before you can delete your account.</p>`,
+      or delete the add-ons before you can delete your profile.</p>`,
     );
 
     expect(root.find('.UserProfileEdit-confirm-button')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
-      'Delete My Account',
+      'Delete My Profile',
     );
     expect(root.find('.UserProfileEdit-confirm-button')).toHaveProp(
       'disabled',
@@ -1316,7 +1320,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveProp(
       'header',
-      'IMPORTANT: Deleting this account is irreversible.',
+      'IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.',
     );
 
     expect(
@@ -1325,11 +1329,11 @@ describe(__filename, () => {
         .find('p')
         .at(1),
     ).toHaveHTML(oneLine`<p><strong>NOTE:</strong> You cannot delete a user’s
-    account if the user is the <a href="/user/another-user/">author of any
+    profile if the user is the <a href="/user/another-user/">author of any
     add-ons</a>.</p>`);
 
     expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
-      'Delete This Account',
+      'Delete Profile',
     );
   });
 

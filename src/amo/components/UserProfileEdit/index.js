@@ -541,7 +541,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     href="https://accounts.firefox.com/settings"
                     className="UserProfileEdit-manage-account-link"
                   >
-                    {i18n.gettext('Manage Firefox Accounts...')}
+                    {i18n.gettext('Manage Firefox Accounts…')}
                   </a>
                 )}
               </div>
@@ -728,11 +728,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 {/* eslint-disable-next-line no-nested-ternary */}
                 {isEditingCurrentUser
                   ? isUpdating
-                    ? i18n.gettext('Updating your account…')
-                    : i18n.gettext('Update My Account')
+                    ? i18n.gettext('Updating your profile…')
+                    : i18n.gettext('Update My Profile')
                   : isUpdating
-                    ? i18n.gettext('Updating this account…')
-                    : i18n.gettext('Update This Account')}
+                    ? i18n.gettext('Updating profile…')
+                    : i18n.gettext('Update Profile')}
               </Button>
               <Button
                 buttonType="neutral"
@@ -743,8 +743,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 type="button"
               >
                 {isEditingCurrentUser
-                  ? i18n.gettext('Delete My Account')
-                  : i18n.gettext(`Delete This Account`)}
+                  ? i18n.gettext('Delete My Profile')
+                  : i18n.gettext(`Delete Profile`)}
               </Button>
             </div>
           </div>
@@ -756,10 +756,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             header={
               isEditingCurrentUser
                 ? i18n.gettext(
-                    `IMPORTANT: Deleting your account is irreversible.`,
+                    `IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.`,
                   )
                 : i18n.gettext(
-                    `IMPORTANT: Deleting this account is irreversible.`,
+                    `IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.`,
                   )
             }
             onEscapeOverlay={this.onCancelProfileDeletion}
@@ -782,6 +782,16 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     anonymised and no longer editable.`,
                   )}
             </p>
+            {isEditingCurrentUser && (
+              <p>
+                {i18n.gettext(
+                  `When you use this email address to login again to
+                  addons.mozilla.org, you will create a new Firefox Add-ons
+                  profile that is in no way associated with the profile you
+                  deleted.`,
+                )}
+              </p>
+            )}
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
@@ -789,14 +799,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                   isEditingCurrentUser
                     ? i18n.gettext(
                         `%(strongStart)sNOTE:%(strongEnd)s You cannot delete
-                        your account if you are the %(linkStart)sauthor of any
+                        your profile if you are the %(linkStart)sauthor of any
                         add-ons%(linkEnd)s. You must %(docLinkStart)stransfer
                         ownership%(docLinkEnd)s or delete the add-ons before
-                        you can delete your account.`,
+                        you can delete your profile.`,
                       )
                     : i18n.gettext(
                         `%(strongStart)sNOTE:%(strongEnd)s You cannot delete a
-                        user’s account if the user is the %(linkStart)sauthor
+                        user’s profile if the user is the %(linkStart)sauthor
                         of any add-ons%(linkEnd)s.`,
                       ),
                   {
@@ -821,8 +831,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 puffy
               >
                 {isEditingCurrentUser
-                  ? i18n.gettext('Delete My Account')
-                  : i18n.gettext('Delete This Account')}
+                  ? i18n.gettext('Delete My Profile')
+                  : i18n.gettext('Delete Profile')}
               </Button>
               <Button
                 buttonType="cancel"
