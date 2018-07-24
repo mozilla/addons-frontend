@@ -5,6 +5,7 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
+import Button from 'ui/components/Button';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import UserAvatar from 'ui/components/UserAvatar';
 import type { UserType } from 'amo/reducers/users';
@@ -59,14 +60,6 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
         })
       : null;
 
-    const buttonClass = makeClassName(
-      'UserProfileEditPicture-select-button',
-      'Button Button--action Button--puffy',
-      {
-        'Button--disabled': !user,
-      },
-    );
-
     const confirmButtonClassName = 'UserProfileEditPicture-delete-button';
 
     return (
@@ -93,7 +86,15 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
             onFocus={this.onFocus}
             type="file"
           />
-          <span className={buttonClass}>{i18n.gettext('Choose Photo…')}</span>
+          <Button
+            buttonType="action"
+            className="UserProfileEditPicture-select-button"
+            disabled={!user}
+            noLink
+            puffy
+          >
+            {i18n.gettext('Choose Photo…')}
+          </Button>
         </label>
 
         {user &&
