@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
 "PO-Revision-Date: 2017-08-23 19:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,6 +39,18 @@ msgstr "Strona njeje so namakała"
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
+
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "Waš přidatk je hotowy"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Nětko maće přistup na %(name)s ze symboloweje lajsty."
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "W porjadku!"
 
 #: src/core/components/InstallButton/index.js:259
 #: src/core/components/InstallButton/index.js:305
@@ -79,57 +91,40 @@ msgstr "%(name)s je wotinstalowany. Klikńće na „Instalować“."
 msgid "Install state for %(name)s is unknown."
 msgstr "Instalowanski status za %(name)s je njeznaty."
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "Waš přidatk je hotowy"
+#: src/disco/components/Addon/index.js:136
+#, fuzzy
+msgid "Preview of %(name)s"
+msgstr "Přehlad %(name)s"
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Nětko maće přistup na %(name)s ze symboloweje lajsty."
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "W porjadku!"
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
-"kliknyć"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr "Pohíbujće myšku nad wobraz za přehlad"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "Instalacija je so nimokuliła. Prošu spytajće hišće raz."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "Njewočakowany zmylk je při instalowanju wustupił."
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewočakowany zmylk je při wotinstalowanju wustupił."
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "Njewočakowany zmylk je wustupił."
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tutón přidatk so wotinstaluje, po tym zo sće Firefox znowa startował."
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Začinić"
 
@@ -145,19 +140,15 @@ msgstr "Tutón přidatk wašu wersiju wobhladowaka njepodpěruje."
 msgid "This add-on does not support your browser."
 msgstr "Tutón přidatk waš wobhladowak njepodpěruje."
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "Prawidła priwatnosće"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "Přidatki wotkryć"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "Přiměrće swój Firefox"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -171,21 +162,13 @@ msgstr ""
 "wěsćiše činja. Přidatki činja waš wobhladowak k wašemu. Za spočatk "
 "doporučamy wam někotre wukonliwe přidatki z wjele funkcijemi."
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "Klikńće, zo byšće wothrał"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "zo byšće wjace wo přidatkach zhonił"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "Widejo začinić"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "Wobhladajće sej dalše přidatki!"
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Prawidła priwatnosće"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -199,6 +182,27 @@ msgstr "Njewočakowany zmylk je wustupił"
 msgid "Reload To Continue"
 msgstr "Začitajće znowa, zo byšće pokročował"
 
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr ""
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr ""
+#~ "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje "
+#~ "%(name)s kliknyć"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr "Pohíbujće myšku nad wobraz za přehlad"
+
+#~ msgid "Click to play"
+#~ msgstr "Klikńće, zo byšće wothrał"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "zo byšće wjace wo přidatkach zhonił"
+
+#~ msgid "Close video"
+#~ msgstr "Widejo začinić"
+
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalowany a symbolowej lajsće přidaty"
 
@@ -207,6 +211,3 @@ msgstr "Začitajće znowa, zo byšće pokročował"
 
 #~ msgid "Ok"
 #~ msgstr "W porjadku"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "Přehlad %(name)s"

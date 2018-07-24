@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
 "PO-Revision-Date: 2017-08-25 14:52+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -38,6 +38,18 @@ msgstr "Pagina non trovata"
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Impossibile trovare l’URL specificato."
+
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "Il componente aggiuntivo è pronto per essere utilizzato"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Adesso è possibile accedere a %(name)s dalla barra degli strumenti."
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "OK."
 
 #: src/core/components/InstallButton/index.js:259
 #: src/core/components/InstallButton/index.js:305
@@ -78,62 +90,44 @@ msgstr ""
 msgid "Install state for %(name)s is unknown."
 msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "Il componente aggiuntivo è pronto per essere utilizzato"
+#: src/disco/components/Addon/index.js:136
+#, fuzzy
+msgid "Preview of %(name)s"
+msgstr "Anteprima di %(name)s"
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Adesso è possibile accedere a %(name)s dalla barra degli strumenti."
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "OK."
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Passa sopra col puntatore del mouse per visualizzare un’anteprima di "
-"%(name)s o fai clic per installarlo"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr ""
-"Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Non è riuscito il download del componente aggiuntivo. Controlla la "
 "connessione alla rete."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "Si è verificato un errore inatteso durante l’installazione."
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Si è verificato un errore inatteso durante la disinstallazione."
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore inatteso."
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di "
 "Firefox."
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "riavvia Firefox per utilizzare questo componente aggiuntivo."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Chiudi"
 
@@ -150,19 +144,15 @@ msgstr ""
 msgid "This add-on does not support your browser."
 msgstr "Il browser in uso non supporta questo componente aggiuntivo."
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "Informativa sulla privacy"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "Alla scoperta dei componenti aggiuntivi"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "Personalizza Firefox"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -179,21 +169,13 @@ msgstr ""
 "iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di "
 "consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "Fai clic per riprodurre"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "Per conoscere ancora meglio i componenti aggiuntivi"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "Chiudi il video"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "Scopri altri componenti aggiuntivi."
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Informativa sulla privacy"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -207,6 +189,29 @@ msgstr "Si è verificato un errore inatteso"
 msgid "Reload To Continue"
 msgstr "Ricarica per continuare"
 
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr ""
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr ""
+#~ "Passa sopra col puntatore del mouse per visualizzare un’anteprima di "
+#~ "%(name)s o fai clic per installarlo"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr ""
+#~ "Passa sopra l’immagine col puntatore del mouse per visualizzare "
+#~ "l’anteprima"
+
+#~ msgid "Click to play"
+#~ msgstr "Fai clic per riprodurre"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "Per conoscere ancora meglio i componenti aggiuntivi"
+
+#~ msgid "Close video"
+#~ msgstr "Chiudi il video"
+
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installato e aggiunto alla barra degli strumenti"
 
@@ -215,6 +220,3 @@ msgstr "Ricarica per continuare"
 
 #~ msgid "Ok"
 #~ msgstr "OK"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "Anteprima di %(name)s"

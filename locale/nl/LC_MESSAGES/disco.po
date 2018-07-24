@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
 "PO-Revision-Date: 2017-08-23 05:51+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -38,6 +38,18 @@ msgstr "Pagina niet gevonden"
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, maar we kunnen niets op de ingevoerde URL vinden."
+
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "Uw add-on is gereed"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "U kunt %(name)s nu benaderen vanaf de werkbalk."
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "OK!"
 
 #: src/core/components/InstallButton/index.js:259
 #: src/core/components/InstallButton/index.js:305
@@ -78,57 +90,40 @@ msgstr "%(name)s is verwijderd. Klik om de add-on te installeren."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installatiestatus voor %(name)s is niet bekend."
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "Uw add-on is gereed"
+#: src/disco/components/Addon/index.js:136
+#, fuzzy
+msgid "Preview of %(name)s"
+msgstr "Voorbeeld van %(name)s"
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "U kunt %(name)s nu benaderen vanaf de werkbalk."
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "OK!"
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
-"installeren"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "Installatie mislukt. Probeer het opnieuw."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislukt. Controleer uw verbinding."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het installeren."
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het verwijderen."
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "Er is een onverwachte fout opgetreden."
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Deze add-on zal worden gede-installeerd nadat u Firefox herstart."
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "Herstart Firefox om deze add-on te gebruiken."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Sluiten"
 
@@ -144,19 +139,15 @@ msgstr "Deze add-on ondersteunt uw versie van Firefox niet."
 msgid "This add-on does not support your browser."
 msgstr "Deze add-on ondersteunt uw browser niet."
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "Privacybeleid"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "Add-ons ontdekken"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "Personaliseer uw Firefox"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -171,21 +162,13 @@ msgstr ""
 "u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege "
 "hun uitstekende prestaties en functionaliteit."
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "Klik om de video af te spelen"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "en meer over add-ons te ontdekken"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "Video sluiten"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "Bekijk meer add-ons!"
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Privacybeleid"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -199,6 +182,27 @@ msgstr "Er is een onverwachte fout opgetreden"
 msgid "Reload To Continue"
 msgstr "Opnieuw laden om door te gaan"
 
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr ""
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr ""
+#~ "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
+#~ "installeren"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
+
+#~ msgid "Click to play"
+#~ msgstr "Klik om de video af te spelen"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "en meer over add-ons te ontdekken"
+
+#~ msgid "Close video"
+#~ msgstr "Video sluiten"
+
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Geïnstalleerd en aan werkbalk toegevoegd"
 
@@ -207,6 +211,3 @@ msgstr "Opnieuw laden om door te gaan"
 
 #~ msgid "Ok"
 #~ msgstr "OK"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "Voorbeeld van %(name)s"
