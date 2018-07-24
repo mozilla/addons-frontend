@@ -26,6 +26,7 @@ import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
 } from 'core/tracking';
+import { isTheme } from 'core/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
@@ -301,7 +302,7 @@ export class InstallButtonBase extends React.Component {
             this.installExtension({ event, installURL });
           };
 
-      const buttonText = ADDON_TYPE_THEMES.includes(addon.type)
+      const buttonText = isTheme(addon.type)
         ? i18n.gettext('Install Theme')
         : i18n.gettext('Add to Firefox');
 

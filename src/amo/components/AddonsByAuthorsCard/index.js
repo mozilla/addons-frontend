@@ -28,6 +28,7 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import { isTheme } from 'core/utils';
 import type { FetchAddonsByAuthorsParams } from 'amo/reducers/addonsByAuthors';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -306,7 +307,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     }
 
     const classnames = makeClassName('AddonsByAuthorsCard', className, {
-      'AddonsByAuthorsCard--theme': ADDON_TYPE_THEMES.includes(addonType),
+      'AddonsByAuthorsCard--theme': isTheme(addonType),
     });
 
     let paginator = null;

@@ -25,6 +25,7 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
+import { isTheme } from 'core/utils';
 
 export function isDoNotTrackEnabled({
   _log = log,
@@ -179,17 +180,19 @@ export function getAddonTypeForTracking(type) {
 }
 
 export const getAddonEventCategory = (type, installAction) => {
-  const isTheme = ADDON_TYPE_THEMES.includes(type);
+  const isThemeType = isTheme(type);
 
   switch (installAction) {
     case INSTALL_STARTED_ACTION:
-      return isTheme
+      return isThemeType
         ? INSTALL_THEME_STARTED_CATEGORY
         : INSTALL_EXTENSION_STARTED_CATEGORY;
     case UNINSTALL_ACTION:
-      return isTheme ? UNINSTALL_THEME_CATEGORY : UNINSTALL_EXTENSION_CATEGORY;
+      return isThemeType
+        ? UNINSTALL_THEME_CATEGORY
+        : UNINSTALL_EXTENSION_CATEGORY;
     default:
-      return isTheme ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
+      return isThemeType ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
   }
 };
 

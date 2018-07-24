@@ -9,6 +9,7 @@ import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
 import {
   addQueryParams,
   isAllowedOrigin,
+  isTheme,
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
@@ -41,11 +42,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
     showSummary: true,
   };
 
-  addonIsTheme() {
-    const { addon } = this.props;
-    return addon && ADDON_TYPE_THEMES.includes(addon.type);
-  }
-
   renderResult() {
     const {
       addon,
@@ -55,7 +51,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
       showSummary,
     } = this.props;
 
-    const isTheme = this.addonIsTheme();
     const averageDailyUsers = addon ? addon.average_daily_users : null;
 
     // Fall-back to default icon if invalid icon url.
@@ -63,7 +58,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     let imageURL = iconURL;
 
-    if (isTheme) {
+    if (addon && isTheme(addon.type)) {
       // Since only newly created static themes will have more than one preview
       // we will set up a fallback for now.
       const previewFallback = addon && addon.previews && addon.previews[0];
@@ -194,9 +189,8 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const { addon, addonInstallSource } = this.props;
 
     const result = this.renderResult();
-    const isTheme = this.addonIsTheme();
     const resultClassnames = makeClassName('SearchResult', {
-      'SearchResult--theme': isTheme,
+      'SearchResult--theme': addon && isTheme(addon.type),
       'SearchResult--persona': addon && addon.type === ADDON_TYPE_THEME,
     });
 
