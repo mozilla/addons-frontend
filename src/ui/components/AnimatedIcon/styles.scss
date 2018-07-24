@@ -1,0 +1,38 @@
+@mixin animated-icon($name, $steps, $svgWidth, $width) {
+  @keyframes #{$name} {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-($svgWidth - $width));
+    }
+  }
+
+  animation-duration: 1.05s;
+  animation-iteration-count: infinite;
+  animation-name: $name;
+  animation-timing-function: steps($steps);
+  background-image: url('./img/#{$name}.svg');
+  display: block;
+  height: 100%;
+  width: $svgWidth;
+}
+
+.AnimatedIcon-loading {
+  $width: 16.26px;
+
+  display: inline-block;
+  height: 4px;
+  overflow-x: hidden;
+  width: $width;
+
+  .Icon-loading {
+    @include animated-icon(
+      $name: 'loading',
+      $steps: 60,
+      $svgWidth: 992px,
+      $width: $width
+    );
+  }
+}
