@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-24 19:44+0000\n"
+"PO-Revision-Date: 2018-07-24 19:53+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1166,7 +1166,7 @@ msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "בחירת הדף שמופיע עם כל פתיחת לשונית חדשה"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
@@ -2085,7 +2085,7 @@ msgstr "נתוני המשתמש יוסרו לצמיתות, לרבות פרטי �
 
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "כאשר ייעשה שימוש בכתובת דוא״ל זו כדי להתחבר שוב ל־addons.mozilla.org, יווצר פרופיל Firefox Add-ons חדש שלא יהיה משוייך בשום צורה לפרופיל שמחקת."
 
 #: src/amo/components/UserProfileEdit/index.js:800
 msgid ""
