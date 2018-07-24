@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-13 17:48+0000\n"
-"PO-Revision-Date: 2018-07-21 01:01+0000\n"
+"PO-Revision-Date: 2018-07-24 13:08+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1141,11 +1141,11 @@ msgstr "Firefox'ta 2 adımlı doğrulama kodları oluşturun"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "Ziyaret ettiğiniz her sitesinin IP adresi, konumu, hizmet sağlayıcısı gibi bilgileri görün"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "uBlock Origin"
@@ -1177,7 +1177,7 @@ msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Resimleri saydam arka planlar üzerinde görüntüleyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Tabliss"
@@ -1197,7 +1197,7 @@ msgstr "Firefox araç çubuğuna sosyal medyada ‘Paylaş’ düğmesi ekleyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "View Page Archive & Cache"
-msgstr ""
+msgstr "View Page Archive & Cache"
 
 #: src/amo/components/LandingPage/index.js:225
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1908,7 +1908,7 @@ msgstr "Kısa ankete katılın"
 
 #: src/amo/components/SurveyNotice/index.js:30
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Bu siteyi ziyaret ettiğiniz için teşekkürler! Görüşlerinizi Firefox'a bildirmek için bir iki dakikanızı ayırır mısınız?"
 
 #: src/amo/components/UserProfile/index.js:205
 msgid "My reviews"
@@ -2048,7 +2048,7 @@ msgstr "Mozilla zaman zaman gelecek sürümler ve eklenti etkinlikleri hakkında
 
 #: src/amo/components/UserProfileEdit/index.js:713
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla, barındırılan eklentilerinizle ilgili özel endişeler konusunda sizinle bireysel olarak iletişim kurma hakkını saklı tutar."
 
 #: src/amo/components/UserProfileEdit/index.js:731
 msgid "Updating your account…"
@@ -2087,18 +2087,24 @@ msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"Profil bilgileriniz (resim, kullanıcı adı, görünen ad, konum, web sitesi, biyografi, meslek) ve bildirim tercihleri dahil olmak üzere verileriniz kalıcı olarak silinecektir. Yorumlarınız ve "
+"puanlarınız anonim hale getirilecek ve artık düzenlenemeyecektir."
 
 #: src/amo/components/UserProfileEdit/index.js:777
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"Kullanıcının profil bilgileri (resim, kullanıcı adı, görünen ad, konum, web sitesi, biyografi, meslek) ve bildirim tercihleri dahil olmak üzere verileri kalıcı olarak silinecektir. Yorumları ve "
+"puanları anonim hale getirilecek ve artık düzenlenemeyecektir."
 
 #: src/amo/components/UserProfileEdit/index.js:790
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your account if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your account."
 msgstr ""
+"%(strongStart)sNOT:%(strongEnd)s %(linkStart)sEklenti geliştiricisiyseniz%(linkEnd)s hesabınızı silemezsiniz. Hesabınızı silmeden önce %(docLinkStart)seklenti sahipliğini aktarmalı%(docLinkEnd)s "
+"veya eklentileri silmelisiniz."
 
 #: src/amo/components/UserProfileEdit/index.js:797
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s account if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -2302,7 +2308,7 @@ msgstr "%(param)s verilerinize erişme"
 
 #: src/ui/components/Notice/index.js:120
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Bu bildirimi kapat"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
