@@ -7,7 +7,9 @@ import invariant from 'invariant';
 import { convertBoolean } from 'core/utils';
 import log from 'core/logger';
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
@@ -168,10 +170,18 @@ export class Tracking {
 }
 
 export function getAddonTypeForTracking(type) {
+  const extensionTrackingTypes = [
+    ADDON_TYPE_DICT,
+    ADDON_TYPE_EXTENSION,
+    ADDON_TYPE_LANG,
+    ADDON_TYPE_OPENSEARCH,
+  ];
+
+  const index = extensionTrackingTypes.indexOf(type);
+
   return (
     {
-      [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
-      [ADDON_TYPE_OPENSEARCH]: TRACKING_TYPE_EXTENSION,
+      [extensionTrackingTypes[index]]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
       [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
     }[type] || TRACKING_TYPE_INVALID
