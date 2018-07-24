@@ -387,62 +387,57 @@ describe(__filename, () => {
     });
   });
 
-  describe.each([
-    {
-      type: ADDON_TYPE_THEME,
-      previews: [],
-      previewURL: 'https://addons.cdn.mozilla.net/full/54321.png',
+  describe.each([ADDON_TYPE_THEME, ADDON_TYPE_STATIC_THEME])(
+    `Addon for %s`,
+    async (type) => {
+      let root;
+
+      beforeEach(() => {
+        const data = { ...result, type };
+        root = renderAddon({ addon: data, ...data });
+      });
+
+      it("doesn't render the logo for a theme", () => {
+        expect(root.find('.logo')).toHaveLength(0);
+      });
+
+      it("doesn't render the description for a theme", () => {
+        expect(root.find('.editorial-description')).toHaveLength(0);
+      });
     },
-    {
-      type: ADDON_TYPE_STATIC_THEME,
-      previews: [
-        {
-          ...fakePreview,
-          image_url: 'https://addons.cdn.mozilla.net/full/54321.png',
-        },
-      ],
-    },
-  ])(`Addon for %o`, async (testConfig) => {
-    let root;
+  );
+
+  describe('<Addon type="statictheme"/>', () => {
+    const fullImage = 'https://addons.cdn.mozilla.net/full/54321.png';
     const newAddonName = 'Summertime';
-    const { type, previews } = testConfig;
 
-    beforeEach(() => {
-      const data = { ...result, name: newAddonName, type };
-      root = renderAddon({ addon: data, ...data });
-    });
-
-    it('renders the correct image for a theme', () => {
+    it('renders the correct image', () => {
       const shallowRoot = renderAddon({
-        addon: result,
-        name: newAddonName,
-        type,
-        previews,
-        ...testConfig,
+        addon: {
+          ...result,
+          name: newAddonName,
+          previews: [
+            {
+              ...fakePreview,
+              image_url: fullImage,
+            },
+          ],
+          type: ADDON_TYPE_STATIC_THEME,
+        },
       });
       const image = shallowRoot.find('.Addon-theme-header-image');
-      expect(image.prop('src')).toEqual(
-        'https://addons.cdn.mozilla.net/full/54321.png',
-      );
-      expect(shallowRoot.find('.Addon-theme-header-image')).toHaveProp(
-        'alt',
-        `Preview of ${newAddonName}`,
-      );
-    });
-
-    it("doesn't render the logo for a theme", () => {
-      expect(root.find('.logo')).toHaveLength(0);
-    });
-
-    it("doesn't render the description for a theme", () => {
-      expect(root.find('.editorial-description')).toHaveLength(0);
+      expect(image.prop('src')).toEqual(fullImage);
+      expect(image).toHaveProp('alt', `Preview of ${newAddonName}`);
     });
   });
 
   describe('<Addon type="theme"/>', () => {
     it('calls installTheme on click', () => {
       const installTheme = sinon.stub();
-      const addon = result;
+      const addon = {
+        ...result,
+        type: ADDON_TYPE_THEME,
+      };
       const shallowRoot = renderAddon({
         addon,
         clientApp: signedInApiState.clientApp,

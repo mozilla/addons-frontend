@@ -28,6 +28,7 @@ import {
   getCategoryColor,
   getClientApp,
   getClientConfig,
+  getPreviewImage,
   isAddonAuthor,
   isAllowedOrigin,
   isTheme,
@@ -44,7 +45,11 @@ import {
   trimAndAddProtocolToUrl,
 } from 'core/utils';
 import { createInternalAddon, loadAddons } from 'core/reducers/addons';
-import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
+import {
+  fakeAddon,
+  fakePreview,
+  signedInApiState,
+} from 'tests/unit/amo/helpers';
 import {
   createFakeHistory,
   createFakeLocation,
@@ -790,6 +795,61 @@ describe(__filename, () => {
       expect(historyWithQueryParams).toHaveProperty('location.query', {
         foo: '123',
       });
+  });
+
+  describe('getPreviewImage', () => {
+    it('returns the default first full image from the previews array', () => {
+      const fullImage = 'https://addons.cdn.mozilla.net/full/12345.png';
+      const previews = [
+        {
+          ...fakePreview,
+          image_url: fullImage,
+        },
+        {
+          ...fakePreview,
+          image_url: 'https://addons.cdn.mozilla.net/image.not.used.here.png',
+        },
+      ];
+
+      const image = getPreviewImage(previews);
+      expect(image).toEqual(fullImage);
+    });
+
+    it('returns the full image from the 2nd item in the previews array', () => {
+      const fullImage = 'https://addons.cdn.mozilla.net/full/12345.png';
+      const previews = [
+        {
+          ...fakePreview,
+          image_url: 'https://addons.cdn.mozilla.net/image.not.used.here.png',
+        },
+        {
+          ...fakePreview,
+          image_url: fullImage,
+        },
+      ];
+
+      const image = getPreviewImage(previews, { version: 1 });
+      expect(image).toEqual(fullImage);
+    });
+
+    it('returns the thumb image from the previews array', () => {
+      const thumbImage = 'https://addons.cdn.mozilla.net/full/12345.png';
+      const previews = [
+        {
+          ...fakePreview,
+          thumbnail_url: thumbImage,
+        },
+      ];
+
+      const image = getPreviewImage(previews, { full: false });
+      expect(image).toEqual(thumbImage);
+    });
+
+    it('returns null if the previews array is empty', () => {
+      const previews = [];
+
+      const image = getPreviewImage(previews);
+      expect(image).toEqual(null);
     });
   });
 });

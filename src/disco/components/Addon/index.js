@@ -31,6 +31,7 @@ import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByGUID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
+import { getPreviewImage } from 'core/utils';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
@@ -122,21 +123,13 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { type } = this.props;
+    const { type } = this.props.addon;
 
     if (ADDON_TYPE_THEMES.includes(type)) {
-      const {
-        getBrowserThemeData,
-        i18n,
-        name,
-        previewURL,
-        previews,
-      } = this.props;
+      const { addon, getBrowserThemeData, i18n } = this.props;
+      const { name, previewURL, previews } = addon;
 
-      let imageUrl =
-        previews && previews.length > 0 && previews[0].image_url
-          ? previews[0].image_url
-          : null;
+      let imageUrl = getPreviewImage(previews);
 
       if (!imageUrl && type === ADDON_TYPE_THEME) {
         imageUrl = previewURL;
@@ -161,9 +154,7 @@ export class AddonBase extends React.Component {
           {headerImage}
         </a>
       ) : (
-        <a className="theme-image" href="#">
-          {headerImage}
-        </a>
+        <React.Fragment>{headerImage}</React.Fragment>
       );
     }
 

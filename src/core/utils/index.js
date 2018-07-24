@@ -313,4 +313,13 @@ export const addQueryParamsToHistory = ({
   _stringify = stringify,
 }) => {
   return qhistory(history, _stringify, _parse);
+
+export const getPreviewImage = (
+  previews,
+  { version = 0, full = true } = {},
+) => {
+  const previewsType = full ? 'image_url' : 'thumbnail_url';
+  return previews && previews.length > 0 && previews[version][previewsType]
+    ? previews[version][previewsType]
+    : null;
 };
