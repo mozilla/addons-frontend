@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-24 19:32+0000\n"
+"PO-Revision-Date: 2018-07-24 19:33+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2107,9 +2107,8 @@ msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "WAŽNY: Zhašenje wašeho profila za přidatki Firefox njeda so cofnyć."
 
 #: src/amo/components/UserProfileEdit/index.js:761
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "WAŽNY: Zhašenje tutoho konta njeda so cofnyć."
+msgstr "WAŽNY: Zhašenje tutoho profila za přidatki Firefox njeda so cofnyć."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2132,18 +2131,16 @@ msgid "When you use this email address to login again to addons.mozilla.org, you
 msgstr "Hdyž tutu e-mejulowu adresu wužiwaće, zo byšće so zaso pola addons.mozilla.org přizjewił, wutworiće nowy profil za přidatki Firefox, kotryž njeje zwjazany z profilom, kotryž sće zhašał."
 
 #: src/amo/components/UserProfileEdit/index.js:800
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sKedźbu:%(strongEnd)s Njemóžeće swoje konto zhašeć, jeli sće %(linkStart)sawtor přidatkow%(linkEnd)s. Dyrbiće %(docLinkStart)sswójstwo přenošować%(docLinkEnd)s abo přidatki zhašeć, "
-"prjedy hač móžeće swoje konto zhašeć."
+"%(strongStart)sKedźbu:%(strongEnd)s Njemóžeće swój profil zhašeć, jeli sće %(linkStart)sawtor přidatkow%(linkEnd)s. Dyrbiće %(docLinkStart)sswójstwo přenošować%(docLinkEnd)s abo přidatki zhašeć, "
+"prjedy hač móžeće swój profil zhašeć."
 
 #: src/amo/components/UserProfileEdit/index.js:807
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sKedźbu:%(strongEnd)s Njemóžeće konto wužiwarja zhašeć, jeli wužiwar je %(linkStart)sawtor přidatkow%(linkEnd)s."
+msgstr "%(strongStart)sKedźbu:%(strongEnd)s Njemóžeće profil wužiwarja zhašeć, jeli wužiwar je %(linkStart)sawtor přidatkow%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
