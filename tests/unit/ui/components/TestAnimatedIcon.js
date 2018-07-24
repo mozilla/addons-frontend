@@ -6,18 +6,20 @@ import Icon from 'ui/components/Icon';
 
 describe(__filename, () => {
   it('renders an Icon and sets CSS classes', () => {
-    const root = shallow(<AnimatedIcon name="foo" />);
+    const name = 'foo';
+    const root = shallow(<AnimatedIcon name={name} />);
 
     expect(root.find(Icon)).toHaveLength(1);
     expect(root).toHaveClassName('AnimatedIcon');
-    expect(root).toHaveClassName('AnimatedIcon-foo');
+    expect(root).toHaveClassName(`AnimatedIcon-${name}`);
   });
 
   it('allows a custom className', () => {
-    const root = shallow(<AnimatedIcon name="bar" className="sup" />);
+    const name = 'foo';
+    const root = shallow(<AnimatedIcon name={name} className="sup" />);
 
     expect(root).toHaveClassName('AnimatedIcon');
-    expect(root).toHaveClassName('AnimatedIcon-bar');
+    expect(root).toHaveClassName(`AnimatedIcon-${name}`);
     expect(root).toHaveClassName('sup');
   });
 
