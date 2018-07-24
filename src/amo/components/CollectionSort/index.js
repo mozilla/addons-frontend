@@ -14,7 +14,7 @@ import {
   COLLECTION_SORT_DATE_ADDED_ASCENDING,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
-  COLLECTION_SORT_POPULARITY,
+  COLLECTION_SORT_POPULARITY_DESCENDING,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
@@ -91,7 +91,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
       },
       {
         label: i18n.gettext('Popularity'),
-        value: COLLECTION_SORT_POPULARITY,
+        value: COLLECTION_SORT_POPULARITY_DESCENDING,
       },
     ];
   }

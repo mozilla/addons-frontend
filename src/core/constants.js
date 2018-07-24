@@ -140,7 +140,7 @@ export const SEARCH_SORT_UPDATED = 'updated';
 export const COLLECTION_SORT_DATE_ADDED_ASCENDING = 'added';
 export const COLLECTION_SORT_DATE_ADDED_DESCENDING = '-added';
 export const COLLECTION_SORT_NAME = 'name';
-export const COLLECTION_SORT_POPULARITY = 'popularity';
+export const COLLECTION_SORT_POPULARITY_DESCENDING = '-popularity';
 
 // Operating system for add-ons and files
 export const OS_ALL = 'all';
