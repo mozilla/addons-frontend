@@ -25,7 +25,7 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
-export const MESSAGE_RESET_TIME = 25000;
+export const MESSAGE_RESET_TIME = 5000;
 const MESSAGE_FADEOUT_TIME = 450;
 
 type UIStateType = {|
