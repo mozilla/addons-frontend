@@ -26,8 +26,8 @@ export default class Button extends React.Component {
     disabled: PropTypes.bool,
     href: PropTypes.string,
     micro: PropTypes.bool,
+    noLink: PropTypes.bool,
     puffy: PropTypes.bool,
-    readOnly: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   };
 
@@ -35,8 +35,8 @@ export default class Button extends React.Component {
     buttonType: 'none',
     disabled: false,
     micro: false,
+    noLink: false,
     puffy: false,
-    readOnly: false,
   };
 
   render() {
@@ -47,7 +47,7 @@ export default class Button extends React.Component {
       href,
       micro,
       puffy,
-      readOnly,
+      noLink,
       to,
       ...rest
     } = this.props;
@@ -72,7 +72,7 @@ export default class Button extends React.Component {
       );
     };
 
-    if (readOnly) {
+    if (noLink) {
       return <span className={getClassName()}>{children}</span>;
     }
 

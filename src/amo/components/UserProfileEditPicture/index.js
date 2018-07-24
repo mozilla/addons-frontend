@@ -88,10 +88,10 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
           />
           <Button
             buttonType="action"
-            disabled={!user}
             className="UserProfileEditPicture-select-button"
+            disabled={!user}
+            noLink
             puffy
-            readOnly
           >
             {i18n.gettext('Choose Photo…')}
           </Button>

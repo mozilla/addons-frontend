@@ -119,7 +119,7 @@ describe(__filename, () => {
 
   it('renders a read only button', () => {
     const className = 'som-css-class';
-    const button = render({ readOnly: true, className });
+    const button = render({ noLink: true, className });
 
     expect(button.type()).toEqual('span');
     expect(button).toHaveClassName(className);
