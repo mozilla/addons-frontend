@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import AddonMeta, { AddonMetaBase } from 'amo/components/AddonMeta';
@@ -128,6 +129,17 @@ describe(__filename, () => {
       const root = render({ addon: null });
 
       expect(root.find(RatingsByStar)).toHaveProp('addon', null);
+    });
+
+    it('renders the average rating', () => {
+      const average = 2.34;
+      const root = renderRatings({ average });
+
+      const averageMeta = root.find(MetadataCard).prop('metadata')[2];
+      expect(shallow(averageMeta.content)).toHaveProp('rating', average);
+      expect(averageMeta.title).toEqual(
+        `${parseFloat(average).toFixed(1)} star rating`,
+      );
     });
   });
 });

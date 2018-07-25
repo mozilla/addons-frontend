@@ -79,7 +79,11 @@ export class AddonMetaBase extends React.Component<InternalProps> {
               ),
               title: (
                 <div className="AddonMeta-rating-title">
-                  {i18n.gettext('Overall Rating')}
+                  {i18n.sprintf(i18n.gettext('%(rating)s star rating'), {
+                    rating: i18n.formatNumber(
+                      parseFloat(averageRating).toFixed(1),
+                    ),
+                  })}
                 </div>
               ),
             },
