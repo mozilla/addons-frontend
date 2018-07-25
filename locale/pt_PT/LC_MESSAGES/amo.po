@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-25 02:11+0000\n"
-"Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
+"PO-Revision-Date: 2018-07-25 10:57+0000\n"
+"Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -1161,7 +1161,7 @@ msgstr "Veja informação detalhada acerca de todos os websites que visita—end
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr "Substituição de novo separador"
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
@@ -2071,19 +2071,19 @@ msgstr "Atualizar perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:834
 msgid "Delete My Profile"
-msgstr "Eliminar o meu perfil"
+msgstr "Apagar o meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
 msgid "Delete Profile"
-msgstr "Eliminar o perfil"
+msgstr "Apagar o meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "IMPORTANTE: Eliminar o seu perfil dos Extras do Firefox é irreversível."
+msgstr "IMPORTANTE: Apagar o seu perfil do Extras do Firefox é irreversível."
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "IMPORTANTE: Eliminar este perfil dos Extras do Firefox é irreversível."
+msgstr "IMPORTANTE: Apagar este perfil do Extras do Firefox é irreversível."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2104,7 +2104,7 @@ msgstr ""
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
-"Quando utiliza este endereço de e-mail para iniciar sessão novamente em addons.mozilla.org, irá criar um novo perfil de Extras do Firefox que não é, de nenhuma forma, associável ao perfil que "
+"Quando utiliza este endereço de email para iniciar sessão novamente em addons.mozilla.org, irá criar um novo perfil de Extras do Firefox que não é, de nenhuma forma, associável ao perfil que "
 "eliminou."
 
 #: src/amo/components/UserProfileEdit/index.js:800
@@ -2112,12 +2112,12 @@ msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sNOTA:%(strongEnd)s Não pode eliminar o seu perfil se é o %(linkStart)sautor de quaisquer extras%(linkEnd)s. Tem de %(docLinkStart)stransferir a propriedade%(docLinkEnd)s ou eliminar "
-"os extras antes de eliminar a sua conta."
+"%(strongStart)sNOTA:%(strongEnd)s Não pode apagar o seu perfil se é o %(linkStart)sautor de quaisquer extras%(linkEnd)s. Tem de %(docLinkStart)stransferir a propriedade%(docLinkEnd)s ou apagar os "
+"extras antes de apagar a sua conta."
 
 #: src/amo/components/UserProfileEdit/index.js:807
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sNOTA:%(strongEnd)s Não pode eliminar o perfil de um utilizador se o mesmo é o %(linkStart)sautor de quaisquer extras%(linkEnd)s."
+msgstr "%(strongStart)sNOTA:%(strongEnd)s Não pode apagar o perfil de um utilizador se o mesmo é o %(linkStart)sautor de quaisquer extras%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
