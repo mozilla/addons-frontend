@@ -1,32 +1,48 @@
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
+
+import withUIState from 'core/withUIState';
 
 import './styles.scss';
 
-export default class Overlay extends React.Component {
+const initialUIState = { visible: false };
+
+export class OverlayBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    id: PropTypes.string.isRequired,
     onEscapeOverlay: PropTypes.func,
     visibleOnLoad: PropTypes.bool,
+    uiState: PropTypes.object,
+    setUIState: PropTypes.func,
+    onClickBackground: PropTypes.func,
   };
 
   static defaultProps = {
     visibleOnLoad: false,
+    uiState: initialUIState,
+    setUIState: () => {},
+    onClickBackground: () => {},
+    onEscapeOverlay: () => {},
   };
 
-  constructor(props) {
-    super(props);
-    this.state = { visible: props.visibleOnLoad };
-  }
-
   componentWillReceiveProps(nextProps) {
-    if (nextProps.visibleOnLoad !== undefined) {
-      this.setState({ visible: nextProps.visibleOnLoad });
+    const { uiState: uiStateOld } = this.props;
+
+    if (
+      (nextProps.visibleOnLoad && !uiStateOld.visible) ||
+      uiStateOld.visible !== nextProps.uiState.visible
+    ) {
+      this.props.setUIState({ visible: nextProps.visibleOnLoad });
     }
   }
 
+  // TODO: I don't see this working on the frontend..?
+  // find out if this is expected
   onClickBackground = () => {
     if (this.props.onEscapeOverlay) {
       this.props.onEscapeOverlay();
@@ -35,31 +51,33 @@ export default class Overlay extends React.Component {
   };
 
   hide() {
-    this.setState({ visible: false });
+    this.props.setUIState({ visible: false });
   }
 
   show() {
-    this.setState({ visible: true });
+    this.props.setUIState({ visible: true });
   }
 
   toggle() {
-    this.setState({ visible: !this.state.visible });
+    this.props.setUIState({ visible: !this.props.uiState.visible });
   }
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, id, uiState } = this.props;
+
+    invariant(id, 'The id property is required');
 
     return (
       <div
         className={makeClassName('Overlay', className, {
-          'Overlay--visible': this.state.visible,
+          'Overlay--visible': uiState.visible,
         })}
         ref={(ref) => {
           this.overlayContainer = ref;
         }}
       >
         <div
-          onClick={this.onClickBackground}
+          onClick={this.props.onClickBackground}
           ref={(ref) => {
             this.overlayBackground = ref;
           }}
@@ -78,3 +96,15 @@ export default class Overlay extends React.Component {
     );
   }
 }
+
+export const extractId = (ownProps) => {
+  return ownProps.id;
+};
+
+export default compose(
+  withUIState({
+    fileName: __filename,
+    extractId,
+    initialState: initialUIState,
+  }),
+)(OverlayBase);

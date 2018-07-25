@@ -452,6 +452,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     const userProfileURL = `/user/${username}/`;
 
+    const overlayClassName = 'UserProfileEdit-deletion-modal';
+
     return (
       <div className="UserProfileEdit">
         {user && (
@@ -758,7 +760,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
         {this.state.showProfileDeletionModal && (
           <OverlayCard
-            className="UserProfileEdit-deletion-modal"
+            className={overlayClassName}
             header={
               isEditingCurrentUser
                 ? i18n.gettext(
@@ -768,6 +770,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     `IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.`,
                   )
             }
+            id={overlayClassName}
             onEscapeOverlay={this.onCancelProfileDeletion}
             visibleOnLoad
           >
