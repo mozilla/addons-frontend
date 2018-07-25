@@ -5,7 +5,9 @@ import config from 'config';
 import invariant from 'invariant';
 
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
@@ -169,7 +171,9 @@ export class Tracking {
 export function getAddonTypeForTracking(type) {
   return (
     {
+      [ADDON_TYPE_DICT]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_LANG]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_OPENSEARCH]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
       [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
