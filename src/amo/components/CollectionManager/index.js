@@ -4,7 +4,6 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { compose } from 'redux';
 import config from 'config';
 
@@ -121,7 +120,6 @@ export class CollectionManagerBase extends React.Component<
       dispatch,
       errorHandler,
       filters,
-      history,
       location,
       siteLang,
     } = this.props;
