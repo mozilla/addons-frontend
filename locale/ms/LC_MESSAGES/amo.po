@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-25 00:12+0000\n"
+"PO-Revision-Date: 2018-07-25 00:17+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -2000,9 +2000,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Anda boleh tukar alamat e-mel dalam Akaun Firefox. %(startLink)sPerlu bantuan?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:544
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "Urus Akaun Firefox..."
+msgstr "Urus Akaun Firefox…"
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -2053,44 +2052,36 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla ada hak untuk menghubungi anda secara individu perihal keprihatinan tertentu terhadap pengehosan add-on anda."
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Mengemaskini akaun anda…"
+msgstr "Mengemaskini profil anda…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
 msgid "Update My Profile"
-msgstr "Kemas kini profil saya"
+msgstr "Kemas kini Profil Saya"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Kemas kini profil saya"
+msgstr "Mengemaskini profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Update Profile"
-msgstr "Kemas kini profil saya"
+msgstr "Kemas kini Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:834
-#, fuzzy
 msgid "Delete My Profile"
-msgstr "Buang profil saya"
+msgstr "Buang Profil Saya"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Buang profil saya"
+msgstr "Buang Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:758
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "PENTING: Penghapusan akaun tidak boleh dibatalkan."
+msgstr "PENTING: Penghapusan profil Add-ons Firefox tidak boleh dibatalkan."
 
 #: src/amo/components/UserProfileEdit/index.js:761
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "PENTING: Penghapusan akaun ini tidak boleh dibatalkan."
+msgstr "PENTING: Penghapusan profil Add-ons Mozilla ini tidak boleh dibatalkan."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2113,16 +2104,14 @@ msgid "When you use this email address to login again to addons.mozilla.org, you
 msgstr "Jika anda gunakan e-mel ini untuk log masuk semula ke addons.mozilla.org, anda akan mencipta profil Add-ons Mozilla yang baru, yang tiada kaitan dengan profil yang sudah anda buang."
 
 #: src/amo/components/UserProfileEdit/index.js:800
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sNOTA: %(strongEnd)s Anda tidak boleh menghapuskan akaun jika anda %(linkStart)s pengarang add-ons%(linkEnd)s. Anda perlu %(docLinkStart)smemindahkan pemilikan%(docLinkEnd)s atau buang"
-" add-ons sebelum anda boleh menghapuskan akaun."
+"%(strongStart)sNOTA:%(strongEnd)s Anda tidak boleh menghapuskan profil jika anda %(linkStart)s pengarang add-ons%(linkEnd)s. Anda perlu %(docLinkStart)smemindahkan pemilikan%(docLinkEnd)s atau buang"
+" add-ons sebelum anda boleh menghapuskan profil."
 
 #: src/amo/components/UserProfileEdit/index.js:807
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr "%(strongStart)sNOTA:%(strongEnd)s Anda tidak boleh menghapuskan akaun pengguna sekiranya beliau %(linkStart)spengarang add-ons%(linkEnd)s."
 
