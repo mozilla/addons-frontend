@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-24 23:49+0000\n"
+"PO-Revision-Date: 2018-07-25 00:12+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -721,9 +721,8 @@ msgid "Download Firefox"
 msgstr "Muat turun Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "Notis undang-undang"
+msgstr "Catat nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
 msgid "Remove"
@@ -1175,9 +1174,8 @@ msgid "Forecastfox"
 msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
-#, fuzzy
 msgid "Get instant global weather information right in Firefox"
-msgstr "Jana kod pengesahan 2-langkah dari dalam Firefox"
+msgstr "Dapatkan maklumat segera cuaca global dalam Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
@@ -2112,7 +2110,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "Jika anda gunakan e-mel ini untuk log masuk semula ke addons.mozilla.org, anda akan mencipta profil Add-ons Mozilla yang baru, yang tiada kaitan dengan profil yang sudah anda buang."
 
 #: src/amo/components/UserProfileEdit/index.js:800
 #, fuzzy
