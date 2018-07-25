@@ -437,6 +437,7 @@ describe(__filename, () => {
       const addon = {
         ...result,
         type: ADDON_TYPE_THEME,
+        previews: [],
       };
       const shallowRoot = renderAddon({
         addon,
