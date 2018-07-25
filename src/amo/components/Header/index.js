@@ -1,4 +1,3 @@
-import config from 'config';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -24,7 +23,6 @@ import './styles.scss';
 
 export class HeaderBase extends React.Component {
   static propTypes = {
-    _config: PropTypes.object,
     api: PropTypes.object.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -36,7 +34,6 @@ export class HeaderBase extends React.Component {
   };
 
   static defaultProps = {
-    _config: config,
     isHomePage: false,
     query: '',
   };
@@ -49,7 +46,6 @@ export class HeaderBase extends React.Component {
 
   render() {
     const {
-      _config,
       i18n,
       isHomePage,
       location,
@@ -66,17 +62,6 @@ export class HeaderBase extends React.Component {
         </span>
       </Link>
     );
-
-    const enableNewCollectionsUI = _config.get('enableNewCollectionsUI');
-    let myCollectionsURL = null;
-    if (siteUser) {
-      myCollectionsURL = enableNewCollectionsUI
-        ? '/collections/'
-        : `/collections/${siteUser.username}/`;
-    }
-    const myCollectionsLinkProps = enableNewCollectionsUI
-      ? { to: myCollectionsURL }
-      : { href: myCollectionsURL };
 
     return (
       <header className="Header">
@@ -110,7 +95,7 @@ export class HeaderBase extends React.Component {
               <DropdownMenuItem>
                 <Link
                   className="Header-user-menu-collections-link"
-                  {...myCollectionsLinkProps}
+                  to="/collections/"
                 >
                   {i18n.gettext('View My Collections')}
                 </Link>

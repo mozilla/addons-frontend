@@ -44,19 +44,15 @@ export default (
       <Route path="user/:username/edit/" component={UserProfileEdit} />
       <Route path="user/:username/" component={UserProfile} />
       <Route path="collections/:username/:slug/" component={Collection} />
-      {config.get('enableNewCollectionsUI') && (
-        <React.Fragment>
-          <Route path="collections/" component={CollectionList} />
-          <Route
-            path="collections/add/"
-            component={(props) => <Collection {...props} creating />}
-          />
-          <Route
-            path="collections/:username/:slug/edit/"
-            component={CollectionEdit}
-          />
-        </React.Fragment>
-      )}
+      <Route path="collections/" component={CollectionList} />
+      <Route
+        path="collections/add/"
+        component={(props) => <Collection {...props} creating />}
+      />
+      <Route
+        path="collections/:username/:slug/edit/"
+        component={CollectionEdit}
+      />
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
 

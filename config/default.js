@@ -100,7 +100,6 @@ module.exports = {
     'enableClientConsole',
     'enableDevTools',
     'enableExperienceSurvey',
-    'enableNewCollectionsUI',
     'enableAddonRecommendations',
     'enableStaticThemes',
     'fxaConfig',
@@ -288,9 +287,6 @@ module.exports = {
 
 
   // Feature flags.
-
-  // Expose the new screen for editing a collection.
-  enableNewCollectionsUI: true,
 
   // Enable the TAAR Lite A/B test.
   enableAddonRecommendations: false,
