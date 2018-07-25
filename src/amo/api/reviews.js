@@ -156,6 +156,7 @@ export function getReviews({
   ...params
 }: GetReviewsParams = {}): Promise<GetReviewsApiResponse> {
   return new Promise((resolve) => {
+    // TODO: port to invariant()
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
     }
@@ -184,6 +185,7 @@ export function getLatestUserReview({
   version,
 }: GetLatestReviewParams = {}): Promise<null | ExternalReviewType> {
   return new Promise((resolve) => {
+    // TODO: port to invariant()
     if (!user || !addon || !version) {
       throw new Error('user, addon, and version must be specified');
     }

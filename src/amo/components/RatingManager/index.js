@@ -1,13 +1,14 @@
 /* @flow */
 /* global Node */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
 import { withRenderedErrorHandler } from 'core/errorHandler';
-import { setReview } from 'amo/actions/reviews';
+import { setReview, setLatestReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api/reviews';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
@@ -71,7 +72,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   userId: number,
-  userReview?: UserReviewType,
+  userReview?: UserReviewType | null,
 |};
 
 type State = {|
@@ -90,10 +91,20 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
   constructor(props: InternalProps) {
     super(props);
-    const { apiState, loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
-    if (userId) {
-      log.info(`loading a saved rating (if it exists) for user ${userId}`);
+  }
+
+  componentDidMount() {
+    const {
+      apiState,
+      loadSavedReview,
+      userId,
+      addon,
+      userReview,
+      version,
+    } = this.props;
+    if (userId && addon && userReview === undefined) {
+      log.debug(`loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({
         apiState,
         userId,
@@ -116,9 +127,9 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     };
 
     if (userReview) {
-      log.info(`Editing reviewId ${userReview.id}`);
+      log.debug(`Editing reviewId ${userReview.id}`);
       if (userReview.versionId === params.versionId) {
-        log.info(oneLine`Updating reviewId ${userReview.id} for
+        log.debug(oneLine`Updating reviewId ${userReview.id} for
           versionId ${params.versionId || '[empty]'}`);
         params.reviewId = userReview.id;
       } else {
@@ -127,11 +138,11 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         params.versionId =
           this.props.addon.current_version &&
           this.props.addon.current_version.id;
-        log.info(oneLine`Submitting a new review for
+        log.debug(oneLine`Submitting a new review for
           versionId ${params.versionId || '[empty]'}`);
       }
     } else {
-      log.info(oneLine`Submitting a new review for
+      log.debug(oneLine`Submitting a new review for
         versionId ${params.versionId || '[empty]'}`);
     }
     return this.props.submitReview(params).then(() => {
@@ -232,7 +243,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             <UserRating
               readOnly={!isLoggedIn}
               onSelectRating={this.onSelectRating}
-              review={userReview}
+              review={userReview || undefined}
             />
           </fieldset>
         </form>
@@ -245,29 +256,20 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
-
-  // TODO:
-  // - rewrite this using state.reviews.byAddon
-  // - make setReview() nullify byAddon so that it is re-fetched
-  // - add re-fetching of add-on reviews
-
-  // Look for the latest saved review by this user for this add-on.
-  if (userId && state.reviews && ownProps.addon) {
-    log.info(oneLine`Checking state for review by user ${userId},
-      addonId ${ownProps.addon.id}, versionId ${ownProps.version.id}`);
-
-    const allUserReviews = state.reviews[userId] || {};
-    const addonReviews = allUserReviews[ownProps.addon.id] || {};
-    const latestId = Object.keys(addonReviews).find(
-      (reviewId) => addonReviews[reviewId].isLatest,
+  if (userId && ownProps.addon) {
+    log.debug(
+      `Looking for latest review of addon:${ownProps.addon.id}/version:${
+        ownProps.version.id
+      } by user:${userId}`,
     );
-
-    if (latestId) {
-      userReview = addonReviews[latestId];
-      log.info(
-        'Found the latest review in state for this component',
-        userReview,
-      );
+    // TODO: use selector
+    const key = `user${userId}-addon${ownProps.addon.id}-version${
+      ownProps.version.id
+    }`;
+    const userReviewId = state.reviews.latest[key];
+    if (userReviewId) {
+      // TODO: use a selector.
+      userReview = state.reviews.byId[userReviewId];
     }
   }
 
@@ -289,17 +291,34 @@ export const mapDispatchToProps = (
       version: versionId,
     }).then((review) => {
       if (review) {
-        dispatch(setReview(review));
+        dispatch(setLatestReview({ userId, addonId, versionId, review }));
       } else {
-        log.info(
+        log.debug(
           `No saved review found for userId ${userId}, addonId ${addonId}`,
         );
+        dispatch(setLatestReview({ userId, addonId, versionId, review: null }));
       }
     });
   },
 
   submitReview(params) {
-    return submitReview(params).then((review) => dispatch(setReview(review)));
+    return submitReview(params).then((review) => {
+      // The API could possibly return a null review.version if that
+      // version was deleted. In that case, we fall back to the submitted
+      // versionId which came from the page data. It is highly unlikely
+      // that both of these will be empty.
+      const versionId =
+        (review.version && review.version.id) || params.versionId;
+      invariant(versionId, 'versionId cannot be empty');
+      dispatch(
+        setLatestReview({
+          addonId: review.addon.id,
+          userId: review.user.id,
+          versionId,
+          review,
+        }),
+      );
+    });
   },
 });
 

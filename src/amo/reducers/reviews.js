@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 
 import {
   CLEAR_ADDON_REVIEWS,
@@ -7,6 +8,7 @@ import {
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
   SET_USER_REVIEWS,
+  SET_LATEST_REVIEW,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -24,6 +26,7 @@ import type {
   ReviewWasFlaggedAction,
   SendReplyToReviewAction,
   SetAddonReviewsAction,
+  SetLatestReviewAction,
   SetReviewAction,
   SetReviewReplyAction,
   ShowEditReviewFormAction,
@@ -68,34 +71,25 @@ type ViewStateByReviewId = {|
   submittingReply: boolean,
 |};
 
+type LatestReview = {
+  [userIdAddonIdVersionId: string]: number | null,
+};
+
 export type ReviewsState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
+  latest: LatestReview,
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
-
-  // This is what the current data structure looks like:
-  // [userId: string]: {
-  //   [addonId: string]: {
-  //     [reviewId: string]: UserReviewType,
-  //   },
-  // },
-  //
-  // TODO: make this consistent by moving it from state[userId] to
-  // state.byUser[userId]
-  // https://github.com/mozilla/addons-frontend/issues/1791
-  //
-  // Also note that this needs to move to state.byUser before its type
-  // can be expressed in Flow without conflicting with state.byAddon.
-  //
 |};
 
 export const initialState: ReviewsState = {
   byAddon: {},
   byId: {},
   byUserId: {},
+  latest: {},
   // This stores review-related UI state.
   view: {},
 };
@@ -209,12 +203,25 @@ export const getReviewsByUserId = (
     : null;
 };
 
+const latestReviewKey = ({
+  userId,
+  addonId,
+  versionId,
+}: {|
+  userId: number,
+  addonId: number,
+  versionId: number,
+|}) => {
+  return `user${userId}-addon${addonId}-version${versionId}`;
+};
+
 type ReviewActionType =
   | ClearAddonReviewsAction
   | HideEditReviewFormAction
   | HideReplyToReviewFormAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
+  | SetLatestReviewAction
   | SetReviewAction
   | SetReviewReplyAction
   | ShowEditReviewFormAction
@@ -260,27 +267,52 @@ export default function reviewsReducer(
           submittingReply: false,
         },
       });
+    case SET_LATEST_REVIEW: {
+      const { payload } = action;
+      const { addonId, userId, review, versionId } = payload;
+      const key = latestReviewKey({
+        addonId,
+        userId,
+        versionId,
+      });
+
+      let byId = state.byId;
+      if (review) {
+        byId = storeReviewObjects({
+          state,
+          reviews: [denormalizeReview(review)],
+        });
+      }
+
+      return {
+        ...state,
+        byId,
+        byAddon: {
+          ...state.byUserId,
+          // This will trigger a refresh from the server.
+          [addonId]: undefined,
+        },
+        byUserId: {
+          ...state.byUserId,
+          // This will trigger a refresh from the server.
+          [userId]: undefined,
+        },
+        latest: {
+          ...state.latest,
+          [key]: review ? review.id : null,
+        },
+      };
+    }
     case SET_REVIEW: {
       const { payload } = action;
-      const existingReviews = state[payload.userId]
-        ? state[payload.userId][payload.addonId]
-        : {};
-      const latestReview = payload;
       return {
         ...state,
         byId: storeReviewObjects({ state, reviews: [payload] }),
+        // TODO: empty out byAddon too?
         byUserId: {
           ...state.byUserId,
           // This will trigger a refresh from the server.
           [payload.userId]: undefined,
-        },
-        [payload.userId]: {
-          ...state[payload.userId],
-          // TODO: this should be a list of review IDs, not objects. It will
-          // be complicated because we also need to preserve handling of the
-          // isLatest flag.
-          // https://github.com/mozilla/addons-frontend/issues/3221
-          [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
         },
       };
     }
