@@ -858,5 +858,19 @@ describe(__filename, () => {
       const image = getPreviewImage(addon);
       expect(image).toEqual(null);
     });
+
+    it('returns null if the isAllowedOrigin returns false', () => {
+      const addon = createInternalAddon({
+        previews: [
+          {
+            ...fakePreview,
+            image_url: 'http://www.example.com',
+          },
+        ],
+      });
+
+      const image = getPreviewImage(addon);
+      expect(image).toEqual(null);
+    });
   });
 });

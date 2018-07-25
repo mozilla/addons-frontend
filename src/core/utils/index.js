@@ -319,7 +319,9 @@ export const getPreviewImage = (addon, { version = 0, full = true } = {}) => {
   const preview = addon.previews.length && addon.previews[version];
   if (preview) {
     const previewSize = full ? 'image_url' : 'thumbnail_url';
-    return preview[previewSize] || null;
+    return preview[previewSize] && isAllowedOrigin(preview[previewSize])
+      ? preview[previewSize]
+      : null;
   }
   return null;
 };
