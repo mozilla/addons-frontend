@@ -20,5 +20,15 @@ ignore:
     - jsdom > request > hawk > cryptiles > boom > hoek:
         reason: Our app doesn't rely on HAWK
         expires: '2018-03-17T17:23:51.195Z'
-patch: {}
-version: v1.10.1
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:hoek:20180212':
+    - codecov > request > hawk > hoek:
+        patched: '2018-07-06T04:52:34.971Z'
+    - codecov > request > hawk > boom > hoek:
+        patched: '2018-07-06T04:52:34.971Z'
+    - codecov > request > hawk > sntp > hoek:
+        patched: '2018-07-06T04:52:34.971Z'
+    - codecov > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-06T04:52:34.971Z'
+version: v1.12.0
