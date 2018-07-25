@@ -8,9 +8,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
-import CollectionSort from 'amo/components/CollectionSort';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import { isFeaturedCollection } from 'amo/components/Home';
@@ -418,13 +418,11 @@ export class CollectionBase extends React.Component<InternalProps> {
             {this.renderCardContents()}
             {this.renderDeleteButton()}
           </Card>
-          {!creating && (
-            <CollectionSort
-              collection={collection}
-              editing={editing}
-              filters={filters}
-            />
-          )}
+          <CollectionControls
+            collection={collection}
+            editing={editing}
+            filters={filters}
+          />
         </div>
         <div className="Collection-items">
           {!creating && (

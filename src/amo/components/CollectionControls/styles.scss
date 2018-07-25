@@ -1,0 +1,13 @@
+@import '~core/css/inc/mixins';
+
+.CollectionControls {
+  margin-top: $padding-page;
+
+  @include respond-to(large) {
+    margin-top: $padding-page-l;
+  }
+
+  .Card-contents {
+    overflow: visible;
+  }
+}

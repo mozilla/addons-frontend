@@ -7,7 +7,6 @@ import { withRouter } from 'react-router';
 import { compose } from 'redux';
 import config from 'config';
 
-import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import {
   convertFiltersToQueryParams,
   createCollection,
@@ -212,7 +211,6 @@ export class CollectionManagerBase extends React.Component<
       creating,
       currentUsername,
       errorHandler,
-      filters,
       i18n,
       isCollectionBeingModified,
       siteLang,
@@ -296,11 +294,6 @@ export class CollectionManagerBase extends React.Component<
             value={this.state.slug}
           />
         </div>
-
-        {!creating && (
-          <CollectionAddAddon collection={collection} filters={filters} />
-        )}
-
         <footer className="CollectionManager-footer">
           {/*
             type=button is necessary to override the default
