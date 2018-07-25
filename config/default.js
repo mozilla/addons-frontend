@@ -298,6 +298,6 @@ module.exports = {
   // Enable static themes.
   enableStaticThemes: false,
 
-  enableExperienceSurvey: true,
+  enableExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 };
