@@ -75,6 +75,7 @@
 
     .SearchResult-icon {
       border-radius: $border-radius-default;
+      max-height: $theme-height-legacy;
     }
 
     @include respond-to(extraLarge) {
