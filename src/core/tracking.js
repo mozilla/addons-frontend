@@ -170,18 +170,12 @@ export class Tracking {
 }
 
 export function getAddonTypeForTracking(type) {
-  const extensionTrackingTypes = [
-    ADDON_TYPE_DICT,
-    ADDON_TYPE_EXTENSION,
-    ADDON_TYPE_LANG,
-    ADDON_TYPE_OPENSEARCH,
-  ];
-
-  const index = extensionTrackingTypes.indexOf(type);
-
   return (
     {
-      [extensionTrackingTypes[index]]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_DICT]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_LANG]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_OPENSEARCH]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
       [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
     }[type] || TRACKING_TYPE_INVALID
