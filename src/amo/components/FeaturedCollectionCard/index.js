@@ -1,15 +1,19 @@
 /* @flow */
 import * as React from 'react';
+import makeClassNames from 'classnames';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'core/constants';
 import type { AddonType } from 'core/types/addons';
+
+import './styles.scss';
 
 type Props = {|
   addons: Array<AddonType>,
   className: string,
   footerText: string,
   header: string,
+  isTheme: boolean,
   loading: boolean,
   slug: string,
   username: string,
@@ -22,6 +26,7 @@ export default class FeaturedCollectionCard extends React.Component<Props> {
       className,
       footerText,
       header,
+      isTheme,
       loading,
       slug,
       username,
@@ -31,11 +36,14 @@ export default class FeaturedCollectionCard extends React.Component<Props> {
       <LandingAddonsCard
         addonInstallSource={INSTALL_SOURCE_FEATURED_COLLECTION}
         addons={addons}
-        className={className}
+        className={makeClassNames(className, {
+          'FeaturedCollection--theme': isTheme,
+        })}
         header={header}
         footerText={footerText}
         footerLink={`/collections/${username}/${slug}/`}
         loading={loading}
+        isTheme={isTheme}
       />
     );
   }

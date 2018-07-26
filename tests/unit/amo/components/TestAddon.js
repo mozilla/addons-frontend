@@ -65,6 +65,7 @@ import {
   dispatchSignInActions,
   fakeAddon,
   fakeInstalledAddon,
+  fakePreview,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
 import {
@@ -904,39 +905,46 @@ describe(__filename, () => {
     });
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
-    expect(image).toHaveClassName('Addon-theme-header-image');
     expect(image.prop('src')).toEqual('https://amo/preview.png');
   });
 
   it('renders a static theme preview as an image', () => {
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
         type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+          },
+        ],
       }),
     });
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
-    expect(image).toHaveClassName('Addon-theme-header-image');
-    expect(image.prop('src')).toEqual(
-      'https://addons.cdn.mozilla.net/123/image.png',
-    );
+    expect(image.prop('src')).toEqual(headerImageFull);
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
 
   it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
         type: ADDON_TYPE_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+          },
+        ],
       }),
     });
     const image = root.find('.Addon-theme-header-image');
     expect(image.type()).toEqual('img');
-    expect(image).toHaveClassName('Addon-theme-header-image');
-    expect(image.prop('src')).toEqual(
-      'https://addons.cdn.mozilla.net/123/image.png',
-    );
+    expect(image.prop('src')).toEqual(headerImageFull);
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
 

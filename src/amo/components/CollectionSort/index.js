@@ -14,10 +14,9 @@ import {
   COLLECTION_SORT_DATE_ADDED_ASCENDING,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
-  COLLECTION_SORT_POPULARITY,
+  COLLECTION_SORT_POPULARITY_DESCENDING,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
-import Card from 'ui/components/Card';
 import Select from 'ui/components/Select';
 import type {
   CollectionFilters,
@@ -91,7 +90,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
       },
       {
         label: i18n.gettext('Popularity'),
-        value: COLLECTION_SORT_POPULARITY,
+        value: COLLECTION_SORT_POPULARITY_DESCENDING,
       },
     ];
   }
@@ -100,31 +99,26 @@ export class CollectionSortBase extends React.Component<InternalProps> {
     const { filters, i18n } = this.props;
 
     return (
-      <Card className="CollectionSort">
-        <form>
-          <label
-            className="CollectionSort-label"
-            htmlFor="CollectionSort-select"
-          >
-            {i18n.gettext('Sort add-ons by')}
-          </label>
-          <Select
-            className="CollectionSort-select"
-            defaultValue={filters.collectionSort}
-            id="CollectionSort-select"
-            name="sort"
-            onChange={this.onSortSelect}
-          >
-            {this.sortOptions().map((option) => {
-              return (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              );
-            })}
-          </Select>
-        </form>
-      </Card>
+      <form className="CollectionSort">
+        <label className="CollectionSort-label" htmlFor="CollectionSort-select">
+          {i18n.gettext('Sort add-ons by')}
+        </label>
+        <Select
+          className="CollectionSort-select"
+          defaultValue={filters.collectionSort}
+          id="CollectionSort-select"
+          name="sort"
+          onChange={this.onSortSelect}
+        >
+          {this.sortOptions().map((option) => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
+        </Select>
+      </form>
     );
   }
 }

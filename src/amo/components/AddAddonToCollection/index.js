@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -158,6 +159,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 
   getSelectData(): SelectData {
     const {
+      addon,
       clientApp,
       i18n,
       lang,
@@ -200,9 +202,12 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
         text: i18n.gettext('Create new collection'),
         key: 'create-new-collection',
         onSelect: () => {
-          // TODO: show create collection overlay when it's implemented.
-          // See: https://github.com/mozilla/addons-frontend/issues/3993
-          router.push(`/${lang}/${clientApp}/collections/add/`);
+          invariant(addon, 'addon is required');
+          router.push(
+            `/${lang}/${clientApp}/collections/add/?include_addon_id=${
+              addon.id
+            }`,
+          );
         },
       }),
     );

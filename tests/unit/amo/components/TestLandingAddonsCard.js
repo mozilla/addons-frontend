@@ -3,13 +3,18 @@ import { shallow } from 'enzyme';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import Link from 'amo/components/Link';
+import {
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
+} from 'amo/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   function render(customProps = {}) {
-    const addons = Array(LANDING_PAGE_ADDON_COUNT).fill(
+    const addons = Array(LANDING_PAGE_EXTENSION_COUNT).fill(
       createInternalAddon(fakeAddon),
     );
 
@@ -61,10 +66,38 @@ describe(__filename, () => {
 
   it('sets the number of placeholders to render while loading', () => {
     const root = render({ loading: true });
-    expect(root).toHaveProp('placeholderCount', LANDING_PAGE_ADDON_COUNT);
+    expect(root).toHaveProp('placeholderCount', LANDING_PAGE_EXTENSION_COUNT);
   });
 
-  it('hides the footer link when less add-ons than placeholderCount', () => {
+  it('overrides the default placeholder value when passed in', () => {
+    const root = render({ placeholderCount: LANDING_PAGE_THEME_COUNT });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      LANDING_PAGE_THEME_COUNT,
+    );
+  });
+
+  it('overrides the placeholder prop value when isTheme is passed in', () => {
+    const root = render({ isTheme: true, placeholderCount: 2 });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      LANDING_PAGE_THEME_COUNT,
+    );
+  });
+
+  it('uses the placeholder prop value when isTheme is passed in as false', () => {
+    const placeholderCount = 2;
+    const root = render({ isTheme: false, placeholderCount });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'placeholderCount',
+      placeholderCount,
+    );
+  });
+
+  it('hides the footer link when there are less add-ons than placeholderCount', () => {
     const addons = [
       createInternalAddon({
         ...fakeAddon,
@@ -73,6 +106,53 @@ describe(__filename, () => {
     ];
     const root = render({ addons, placeholderCount: 2 });
     expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
+  });
+
+  it('hides the footer link when there are less add-ons than LANDING_PAGE_THEME_COUNT', () => {
+    const root = render({
+      addons: Array(LANDING_PAGE_THEME_COUNT - 1).fill(
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+      ),
+      isTheme: true,
+    });
+    expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
+  });
+
+  it('shows the footer link when there are more or as many add-ons as LANDING_PAGE_THEME_COUNT', () => {
+    const footerLink = 'footer-link-path';
+    const footerText = 'footer link text';
+
+    const root = render({
+      addons: Array(LANDING_PAGE_THEME_COUNT).fill(
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+      ),
+      isTheme: true,
+      footerLink,
+      footerText,
+    });
+
+    expect(root.find(AddonsCard).prop('footerLink')).toEqual(
+      <Link to={footerLink}>{footerText}</Link>,
+    );
+  });
+
+  it('shows the footer link when there are more or as many add-ons as placeholderCount', () => {
+    const footerLink = 'footer-link-path';
+    const footerText = 'footer link text';
+    const placeholderCount = 2;
+
+    const root = render({
+      addons: Array(placeholderCount).fill(
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+      ),
+      placeholderCount,
+      footerLink,
+      footerText,
+    });
+
+    expect(root.find(AddonsCard).prop('footerLink')).toEqual(
+      <Link to={footerLink}>{footerText}</Link>,
+    );
   });
 
   it('accepts a string for the footer link', () => {

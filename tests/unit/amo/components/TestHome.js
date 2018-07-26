@@ -80,6 +80,7 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('slug', collectionMetadata.slug);
       expect(shelf).toHaveProp('username', collectionMetadata.username);
       expect(shelf).toHaveProp('loading', true);
+      expect(shelf).toHaveProp('isTheme', collectionMetadata.isTheme);
     },
   );
 
@@ -139,6 +140,7 @@ describe(__filename, () => {
       },
     });
     expect(shelf).toHaveProp('loading', true);
+    expect(shelf).toHaveProp('isTheme', true);
   });
 
   it('does not render a featured themes shelf if includeFeaturedThemes is false', () => {

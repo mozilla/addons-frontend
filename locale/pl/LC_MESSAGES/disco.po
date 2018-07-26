@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
-"PO-Revision-Date: 2018-06-20 23:43+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"PO-Revision-Date: 2018-07-24 20:51+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
@@ -20,15 +19,10 @@ msgid "Server Error"
 msgstr "Błąd serwera"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Wystąpił błąd i nie można ukończyć żądania. Zapisaliśmy ten błąd i postaramy "
-"się go naprawić."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Wystąpił błąd i nie można ukończyć żądania. Zapisaliśmy ten błąd i postaramy się go naprawić."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kod błędu: %(status)s."
 
@@ -40,13 +34,23 @@ msgstr "Nie odnaleziono strony"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Nie ma nic pod podanym adresem."
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "Dodatek jest gotowy"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Można używać dodatku „%(name)s” z ikony na pasku narzędzi."
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "OK"
+
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Zainstaluj motyw"
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Dodaj do Firefoksa"
 
@@ -60,8 +64,7 @@ msgstr "Instalowanie dodatku „%(name)s”."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby odinstalować."
+msgstr "Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby odinstalować."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
@@ -79,57 +82,39 @@ msgstr "Dodatek „%(name)s” jest odinstalowany. Kliknij, aby zainstalować."
 msgid "Install state for %(name)s is unknown."
 msgstr "Stan instalacji dodatku „%(name)s” jest nieznany."
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "Dodatek jest gotowy"
+#: src/disco/components/Addon/index.js:136
+msgid "Preview of %(name)s"
+msgstr "Podgląd „%(name)s”"
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Można używać dodatku „%(name)s” z ikony na pasku narzędzi."
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "OK"
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek "
-"„%(name)s”"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr "Najedź na obraz, aby wyświetlić podgląd"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "Proszę ponownie uruchomić Firefoksa, aby użyć tego dodatku."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Zamknij"
 
@@ -145,47 +130,29 @@ msgstr "Ten dodatek nie obsługuje tej wersji Firefoksa."
 msgid "This add-on does not support your browser."
 msgstr "Ten dodatek nie obsługuje tej przeglądarki."
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "Prywatność"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "Odkrywaj dodatki"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "Dostosuj Firefoksa"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Tysiące darmowych dodatków tworzonych przez programistów z całego świata "
-"umożliwia dostosowanie przeglądarki do własnych upodobań: od zabawnych "
-"motywów do niezawodnych narzędzi sprawiających, że przeglądanie Internetu "
-"jest szybsze i bezpieczniejsze. Na początek polecamy poniższe dodatki "
-"z uwagi na ich wyróżniającą się wydajność i funkcjonalność."
+"Tysiące darmowych dodatków tworzonych przez programistów z całego świata umożliwia dostosowanie przeglądarki do własnych upodobań: od zabawnych motywów do niezawodnych narzędzi sprawiających, że "
+"przeglądanie Internetu jest szybsze i bezpieczniejsze. Na początek polecamy poniższe dodatki z uwagi na ich wyróżniającą się wydajność i funkcjonalność."
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "Odtwórz"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "i dowiedz się więcej o dodatkach"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "Zamknij"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "Więcej dodatków"
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Prywatność"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -198,3 +165,22 @@ msgstr "Wystąpił nieoczekiwany błąd"
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
 msgstr "Wczytaj ponownie, aby kontynuować"
+
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr "Zamknij to powiadomienie"
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr "Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek „%(name)s”"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr "Najedź na obraz, aby wyświetlić podgląd"
+
+#~ msgid "Click to play"
+#~ msgstr "Odtwórz"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "i dowiedz się więcej o dodatkach"
+
+#~ msgid "Close video"
+#~ msgstr "Zamknij"

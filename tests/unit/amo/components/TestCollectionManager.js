@@ -1,16 +1,11 @@
 import config from 'config';
 import * as React from 'react';
 
-import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
-  ADDON_ADDED_STATUS_PENDING,
-  ADDON_ADDED_STATUS_SUCCESS,
   CollectionManagerBase,
   extractId,
-  MESSAGE_RESET_TIME,
 } from 'amo/components/CollectionManager';
 import {
-  addAddonToCollection,
   createCollection,
   createInternalCollection,
   beginCollectionModification,
@@ -18,32 +13,22 @@ import {
   updateCollection,
 } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
-import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
 import {
   createFakeEvent,
   createFakeRouter,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
-  simulateComponentCallback,
 } from 'tests/unit/helpers';
 import {
-  createFakeAutocompleteResult,
   createFakeCollectionDetail,
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
-import Notice from 'ui/components/Notice';
-
-const simulateAutoSearchCallback = (props = {}) => {
-  return simulateComponentCallback({
-    Component: AutoSearchInput,
-    ...props,
-  });
-};
 
 describe(__filename, () => {
   let fakeRouter;
@@ -76,6 +61,7 @@ describe(__filename, () => {
       creating: false,
       filters: {},
       i18n: fakeI18n(),
+      location: fakeRouterLocation(),
       router,
       store,
       ...customProps,
@@ -298,17 +284,9 @@ describe(__filename, () => {
     expect(root.find('#collectionSlug')).toHaveProp('value', 'new-slug');
   });
 
-  it('hides search add-on select when creating a collection', () => {
-    const root = render({ collection: null, creating: true });
-
-    expect(root.find(AutoSearchInput)).toHaveLength(0);
-  });
-
   it('creates a collection on submit', () => {
-    const errorHandler = createStubErrorHandler();
-
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection: null, creating: true, errorHandler });
+    const root = render({ collection: null, creating: true });
 
     // Fill in the form with values.
     const name = 'A collection name';
@@ -326,7 +304,44 @@ describe(__filename, () => {
       createCollection({
         defaultLocale: lang,
         description: { [lang]: description },
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: root.instance().props.errorHandler.id,
+        name: { [lang]: name },
+        slug,
+        username: signedInUsername,
+      }),
+    );
+  });
+
+  it('creates a collection with an add-on on submit', () => {
+    const id = 123;
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({
+      collection: null,
+      creating: true,
+      router: createFakeRouter({
+        location: fakeRouterLocation({ query: { include_addon_id: id } }),
+      }),
+    });
+
+    // Fill in the form with values.
+    const name = 'A collection name';
+    const description = 'A collection description';
+    const slug = 'collection-slug';
+
+    typeInput({ root, name: 'name', text: name });
+    typeInput({ root, name: 'description', text: description });
+    typeInput({ root, name: 'slug', text: slug });
+
+    simulateSubmit(root);
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      createCollection({
+        defaultLocale: lang,
+        description: { [lang]: description },
+        errorHandlerId: root.instance().props.errorHandler.id,
+        includeAddonId: id,
         name: { [lang]: name },
         slug,
         username: signedInUsername,
@@ -335,14 +350,13 @@ describe(__filename, () => {
   });
 
   it('updates the collection on submit', () => {
-    const errorHandler = createStubErrorHandler();
     const filters = { page: 1 };
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection, errorHandler, filters });
+    const root = render({ collection, filters });
 
     // Fill in the form with new values.
     const name = 'A new name';
@@ -361,7 +375,7 @@ describe(__filename, () => {
         collectionSlug: collection.slug,
         defaultLocale: collection.defaultLocale,
         description: { [lang]: description },
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: root.instance().props.errorHandler.id,
         filters,
         name: { [lang]: name },
         slug,
@@ -432,25 +446,81 @@ describe(__filename, () => {
   });
 
   it('disables and enables form buttons when modification status changes', () => {
-    const renderAndCheckButtons = (shouldBeDisabled) => {
-      const root = render();
+    const name = 'Collection name';
 
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ name }),
+    });
+
+    const verifyButtons = ({ root, disabled }) => {
       expect(root.find('.CollectionManager-cancel')).toHaveProp(
         'disabled',
-        shouldBeDisabled,
+        disabled,
       );
       expect(root.find('.CollectionManager-submit')).toHaveProp(
         'disabled',
-        shouldBeDisabled,
+        disabled,
       );
     };
 
-    // Buttons should be enabled by default.
-    renderAndCheckButtons(false);
+    let root = render({ collection });
+
+    // Enter a value for name in order to enable submit button.
+    typeInput({ root, name: 'name', text: `${name}-changed` });
+
+    // Buttons should be enabled now.
+    verifyButtons({ root, disabled: false });
+
     store.dispatch(beginCollectionModification());
-    renderAndCheckButtons(true);
+    root = render({ collection });
+    verifyButtons({ root, disabled: true });
+
     store.dispatch(finishCollectionModification());
-    renderAndCheckButtons(false);
+    root = render({ collection });
+    // Enter a value for name in order to enable submit button.
+    typeInput({ root, name: 'name', text: `${name}-changed` });
+
+    verifyButtons({ root, disabled: false });
+  });
+
+  it('enables and disables the submit button when form data is modified', () => {
+    const description = 'Collection name description';
+    const name = 'Collection name';
+    const slug = 'collection-slug';
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ description, name, slug }),
+    });
+
+    const verifySaveButton = ({ root, disabled }) => {
+      expect(root.find('.CollectionManager-submit')).toHaveProp(
+        'disabled',
+        disabled,
+      );
+    };
+
+    const root = render({ collection });
+
+    // Save should be disabled by default.
+    verifySaveButton({ root, disabled: true });
+
+    typeInput({ root, name: 'description', text: `${description}-changed` });
+    verifySaveButton({ root, disabled: false });
+
+    typeInput({ root, name: 'description', text: description });
+    verifySaveButton({ root, disabled: true });
+
+    typeInput({ root, name: 'name', text: `${name}-changed` });
+    verifySaveButton({ root, disabled: false });
+
+    typeInput({ root, name: 'name', text: name });
+    verifySaveButton({ root, disabled: true });
+
+    typeInput({ root, name: 'slug', text: `${slug}-changed` });
+    verifySaveButton({ root, disabled: false });
+
+    typeInput({ root, name: 'slug', text: slug });
+    verifySaveButton({ root, disabled: true });
   });
 
   it('trims leading and trailing spaces from slug and name before submitting', () => {
@@ -593,7 +663,6 @@ describe(__filename, () => {
     simulateCancel(root);
 
     const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(collection.name);
     expect(state.description).toEqual(collection.description);
   });
@@ -658,7 +727,6 @@ describe(__filename, () => {
     root.setProps({ collection });
 
     const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(collection.name);
     expect(state.description).toEqual(collection.description);
   });
@@ -685,145 +753,8 @@ describe(__filename, () => {
     root.setProps({ collection: secondCollection });
 
     const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(secondCollection.name);
     expect(state.description).toEqual(secondCollection.description);
-  });
-
-  it('handles searching for an add-on', () => {
-    const root = render();
-
-    const search = simulateAutoSearchCallback({
-      root,
-      propName: 'onSearch',
-    });
-    search({ query: 'ad blocker' });
-    // TODO: test onSearch
-    // https://github.com/mozilla/addons-frontend/issues/4590
-  });
-
-  it('dispatches addAddonToCollection when selecting an add-on', () => {
-    const filters = { page: 2 };
-    const errorHandler = createStubErrorHandler();
-
-    const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
-    });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ collection, errorHandler, filters });
-
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      addAddonToCollection({
-        addonId: suggestion.addonId,
-        collectionId: collection.id,
-        slug: collection.slug,
-        editing: true,
-        errorHandlerId: errorHandler.id,
-        filters,
-        username: signedInUsername,
-      }),
-    );
-  });
-
-  it('sets the addonAddedStatus state to pending when selecting an add-on', () => {
-    const root = render({});
-
-    const state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
-
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    const newState = root.state();
-    expect(newState.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_PENDING);
-  });
-
-  it('displays a notification for 5 seconds after an add-on has been added', () => {
-    const setTimeoutSpy = sinon.spy();
-    const root = render({ setTimeout: setTimeoutSpy });
-
-    expect(root.find(Notice)).toHaveLength(0);
-
-    root.setProps({ hasAddonBeenAdded: true });
-
-    expect(root.find(Notice)).toHaveLength(1);
-    expect(root.find(Notice).children()).toHaveText('Added to collection');
-
-    expect(root).toHaveState('addonAddedStatus', ADDON_ADDED_STATUS_SUCCESS);
-    sinon.assert.calledWith(
-      setTimeoutSpy,
-      root.instance().resetMessageStatus,
-      MESSAGE_RESET_TIME,
-    );
-
-    // Simulate the setTimeout behavior.
-    root.instance().resetMessageStatus();
-    // See: https://github.com/airbnb/enzyme/blob/enzyme%403.3.0/docs/guides/migration-from-2-to-3.md#for-mount-updates-are-sometimes-required-when-they-werent-before
-    root.update();
-
-    expect(root).toHaveState('addonAddedStatus', null);
-    expect(root.find(Notice)).toHaveLength(0);
-  });
-
-  it('calls clearTimeout when unmounting and timeout is set', () => {
-    const clearTimeoutSpy = sinon.spy();
-    const root = render({ clearTimeout: clearTimeoutSpy });
-
-    const timeoutID = 123;
-    // Simulates the setTimeout behavior in which timeout is set.
-    root.instance().timeout = timeoutID;
-
-    root.unmount();
-
-    sinon.assert.calledWith(clearTimeoutSpy, timeoutID);
-  });
-
-  it('does not call clearTimeout when unmounting and there is no timeout set', () => {
-    const clearTimeoutSpy = sinon.spy();
-    const root = render({ clearTimeout: clearTimeoutSpy });
-
-    root.unmount();
-
-    sinon.assert.notCalled(clearTimeoutSpy);
-  });
-
-  it('removes the notification after a new add-on has been selected', () => {
-    const root = render({});
-
-    expect(root.find(Notice)).toHaveLength(0);
-
-    // Setting this simulates an add-on having been added previously, which
-    // will cause the notification to appear.
-    root.setProps({ hasAddonBeenAdded: true });
-
-    expect(root.find(Notice)).toHaveLength(1);
-
-    const suggestion = createInternalSuggestion(
-      createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-    );
-    const selectSuggestion = simulateAutoSearchCallback({
-      root,
-      propName: 'onSuggestionSelected',
-    });
-    selectSuggestion(suggestion);
-
-    expect(root.find(Notice)).toHaveLength(0);
   });
 
   describe('extractId', () => {

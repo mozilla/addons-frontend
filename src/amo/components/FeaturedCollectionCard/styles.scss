@@ -1,0 +1,7 @@
+.FeaturedCollection--theme {
+  &.AddonsCard--horizontal {
+    ul.AddonsCard-list {
+      grid-template-columns: repeat(3, 33%);
+    }
+  }
+}

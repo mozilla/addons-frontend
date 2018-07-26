@@ -55,6 +55,25 @@ describe(__filename, () => {
     expect(root.find(LandingAddonsCard)).toHaveProp('className', className);
   });
 
+  it('renders a theme class name to LandingAddonsCard when isTheme is true', () => {
+    const root = render({ isTheme: true });
+    expect(root.find(LandingAddonsCard)).toHaveClassName(
+      'FeaturedCollection--theme',
+    );
+  });
+
+  it('does not render a theme class name to LandingAddonsCard when isTheme is false', () => {
+    const root = render({ isTheme: false });
+    expect(root.find(LandingAddonsCard)).not.toHaveClassName(
+      'FeaturedCollection--theme',
+    );
+  });
+
+  it('passes the same isTheme prop value to the landingAddonsCard', () => {
+    const root = render({ isTheme: true });
+    expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', true);
+  });
+
   it('passes collection related properties to LandingAddonsCard', () => {
     const collectionProperties = {
       footerText: 'Custom footer',

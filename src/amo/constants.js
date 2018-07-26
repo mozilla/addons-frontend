@@ -41,4 +41,5 @@ export const FEATURED_ADDONS_TO_LOAD = 25;
 
 // Number of add-ons in the featured, trending, and highest rated landing page
 // sections.
-export const LANDING_PAGE_ADDON_COUNT = 4;
+export const LANDING_PAGE_EXTENSION_COUNT = 4;
+export const LANDING_PAGE_THEME_COUNT = 3;

@@ -97,6 +97,7 @@ export class NoticeBase extends React.Component<InternalProps> {
         <Button
           className="Notice-button"
           micro
+          rel={actionTarget === '_blank' ? 'noopener noreferrer' : null}
           target={actionTarget}
           {...buttonProps}
         >

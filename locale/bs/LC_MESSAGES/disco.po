@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
 "PO-Revision-Date: 2017-12-07 07:04+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,6 +39,18 @@ msgstr "Stranica nije pronađena"
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Žao nam je ali ne možemo ništa pronaći na URL koji ste unijeli."
+
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "Vaš dodatak je spreman"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Sada možete pristupiti %(name)s preko alatne trake."
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "OK!"
 
 #: src/core/components/InstallButton/index.js:259
 #: src/core/components/InstallButton/index.js:305
@@ -78,55 +90,39 @@ msgstr "%(name)s je deinstalirano. Klikni za instalaciju."
 msgid "Install state for %(name)s is unknown."
 msgstr "Stanje instalacije za %(name)s je nepoznato."
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "Vaš dodatak je spreman"
+#: src/disco/components/Addon/index.js:136
+msgid "Preview of %(name)s"
+msgstr ""
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Sada možete pristupiti %(name)s preko alatne trake."
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "OK!"
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Pređite mišem za pregled ili kliknite da instalirate %(name)s"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr "Pređite mišem preko slike da je pregledate"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "Instalacija nije uspjela. Molimo pokušajte ponovo."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr "Preuzimanje nije uspjelo. Molimo provjerite vezu."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "Dogodila se neočekivana greška pri instalaciji."
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Dogodila se neočekivana greška pri deinstalaciji."
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "Dogodila se neočekivana greška."
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ovaj dodatak će biti deinstaliran nakon što restartujete Firefox."
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "Molimo restartujte Firefox da bi koristili ovaj dodatak."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Zatvori"
 
@@ -142,19 +138,15 @@ msgstr "Ovaj dodatak ne podržava verziju vašeg Firefoxa."
 msgid "This add-on does not support your browser."
 msgstr "Ovaj dodatak ne podržava vaš browser."
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "Polica privatnosti"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "Otkrijte dodatke"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "Prilagodite Firefox sebi"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -168,21 +160,13 @@ msgstr ""
 "čine vaš browser samo vašim. Za početak možete testirati sljedeće, koji se "
 "preporučuju za izuzetne performanse i upotrebljivost."
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "Kliknite za reprodukciju"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "i otkrijte više o dodacima"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "Zatvori video"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "Vidi više dodataka!"
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Polica privatnosti"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -195,3 +179,22 @@ msgstr "Dogodila se neočekivana greška"
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
 msgstr "Ponovo učitaj za nastavak"
+
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr ""
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr "Pređite mišem za pregled ili kliknite da instalirate %(name)s"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr "Pređite mišem preko slike da je pregledate"
+
+#~ msgid "Click to play"
+#~ msgstr "Kliknite za reprodukciju"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "i otkrijte više o dodacima"
+
+#~ msgid "Close video"
+#~ msgstr "Zatvori video"

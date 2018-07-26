@@ -926,6 +926,43 @@ describe(__filename, () => {
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
+  it('renders a user profile when URL contains a user ID', () => {
+    const { store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
+    _setUserReviews({
+      store,
+      userId: user.id,
+      reviews,
+      count: DEFAULT_API_PAGE_SIZE + 2,
+    });
+
+    const root = renderUserProfile({ params: { username: user.id }, store });
+    const header = getHeaderPropComponent(root);
+
+    expect(root.find('.UserProfile')).toHaveLength(1);
+    expect(header.find('.UserProfile-name')).toHaveText(user.name);
+
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorUsernames', [
+      user.username,
+    ]);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'pathname',
+      `/user/${user.username}/`,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('authorUsernames', [
+      user.username,
+    ]);
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'pathname',
+      `/user/${user.username}/`,
+    );
+
+    const paginator = shallow(root.find('.UserProfile-reviews').prop('footer'));
+    expect(paginator).toHaveProp('pathname', `/user/${user.username}/`);
+  });
+
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
       const username = 'foo';

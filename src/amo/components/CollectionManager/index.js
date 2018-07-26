@@ -1,17 +1,13 @@
 /* @flow */
-/* global window */
 import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { compose } from 'redux';
 import config from 'config';
 
-import AutoSearchInput from 'amo/components/AutoSearchInput';
 import {
-  addAddonToCollection,
   convertFiltersToQueryParams,
   createCollection,
   updateCollection,
@@ -19,15 +15,9 @@ import {
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
 import { decodeHtmlEntities } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
-import Notice from 'ui/components/Notice';
-import type {
-  SearchFilters,
-  SuggestionType,
-} from 'amo/components/AutoSearchInput';
 import type {
   CollectionFilters,
   CollectionType,
@@ -41,18 +31,6 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
-export const MESSAGE_RESET_TIME = 5000;
-const MESSAGE_FADEOUT_TIME = 450;
-
-export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING' =
-  'ADDON_ADDED_STATUS_PENDING';
-export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS' =
-  'ADDON_ADDED_STATUS_SUCCESS';
-
-export type AddonAddedStatusType =
-  | typeof ADDON_ADDED_STATUS_PENDING
-  | typeof ADDON_ADDED_STATUS_SUCCESS;
-
 type Props = {|
   collection: CollectionType | null,
   creating: boolean,
@@ -61,21 +39,17 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  clearTimeout: Function,
   clientApp: ?string,
   currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  hasAddonBeenAdded: boolean,
   i18n: I18nType,
   isCollectionBeingModified: boolean,
   router: ReactRouterType,
-  setTimeout: Function,
   siteLang: ?string,
 |};
 
 type State = {|
-  addonAddedStatus: AddonAddedStatusType | null,
   customSlug?: boolean,
   description?: string | null,
   name?: string | null,
@@ -86,15 +60,6 @@ export class CollectionManagerBase extends React.Component<
   InternalProps,
   State,
 > {
-  static defaultProps = {
-    setTimeout:
-      typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
-    clearTimeout:
-      typeof window !== 'undefined'
-        ? window.clearTimeout.bind(window)
-        : () => {},
-  };
-
   constructor(props: InternalProps) {
     super(props);
     this.state = this.propsToState(props);
@@ -102,33 +67,11 @@ export class CollectionManagerBase extends React.Component<
 
   componentWillReceiveProps(props: InternalProps) {
     const existingId = this.props.collection && this.props.collection.id;
-    const { hasAddonBeenAdded: hasAddonBeenAddedNew } = props;
-    const { hasAddonBeenAdded } = this.props;
     if (props.collection && props.collection.id !== existingId) {
       // Only reset the form when receiving a collection that the
       // user is not already editing. This prevents clearing the form
       // in a few scenarios such as pressing the submit button.
       this.setState(this.propsToState(props));
-    }
-    if (hasAddonBeenAdded !== hasAddonBeenAddedNew) {
-      this.setState({
-        addonAddedStatus: props.hasAddonBeenAdded
-          ? ADDON_ADDED_STATUS_SUCCESS
-          : null,
-      });
-    }
-
-    if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
-      this.timeout = this.props.setTimeout(
-        this.resetMessageStatus,
-        MESSAGE_RESET_TIME,
-      );
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.timeout) {
-      this.props.clearTimeout(this.timeout);
     }
   }
 
@@ -172,6 +115,7 @@ export class CollectionManagerBase extends React.Component<
       dispatch,
       errorHandler,
       filters,
+      router,
       siteLang,
     } = this.props;
     event.preventDefault();
@@ -198,6 +142,7 @@ export class CollectionManagerBase extends React.Component<
         createCollection({
           ...payload,
           defaultLocale: siteLang,
+          includeAddonId: router.location.query.include_addon_id,
           username: currentUsername,
         }),
       );
@@ -249,58 +194,9 @@ export class CollectionManagerBase extends React.Component<
     }
   };
 
-  onSearchAddon = (filters: SearchFilters) => {
-    // TODO: implement onSearchAddon
-    // https://github.com/mozilla/addons-frontend/issues/4590
-    log.debug('TODO: handle seaching for add-on', filters);
-  };
-
-  onAddonSelected = (suggestion: SuggestionType) => {
-    const {
-      collection,
-      currentUsername,
-      dispatch,
-      errorHandler,
-      filters,
-    } = this.props;
-    const { addonId } = suggestion;
-
-    invariant(addonId, 'addonId cannot be empty');
-    invariant(
-      collection,
-      'A collection must be loaded before you can add an add-on to it',
-    );
-    invariant(
-      currentUsername,
-      'Cannot add to collection because you are not signed in',
-    );
-
-    dispatch(
-      addAddonToCollection({
-        addonId,
-        collectionId: collection.id,
-        editing: true,
-        errorHandlerId: errorHandler.id,
-        filters,
-        slug: collection.slug,
-        username: currentUsername,
-      }),
-    );
-    this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
-  };
-
-  timeout: TimeoutID;
-
-  resetMessageStatus = () => {
-    this.setState({
-      addonAddedStatus: null,
-    });
-  };
-
   propsToState(props: InternalProps) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
-      addonAddedStatus: null,
       customSlug: false,
       description:
         props.collection && decodeHtmlEntities(props.collection.description),
@@ -319,18 +215,25 @@ export class CollectionManagerBase extends React.Component<
       isCollectionBeingModified,
       siteLang,
     } = this.props;
-    const { name, slug } = this.state;
+    const { description, name, slug } = this.state;
 
     const collectionUrlPrefix = oneLineTrim`${config.get(
       'apiHost',
     )}/${siteLang}/firefox/collections/
        ${(collection && collection.authorUsername) || currentUsername}/`;
 
+    const formIsUnchanged =
+      collection &&
+      (collection.name === name &&
+        collection.slug === slug &&
+        (collection.description === description ||
+          (collection.description === null && !description)));
     const formIsDisabled =
       (!collection && !creating) || isCollectionBeingModified;
     const isNameBlank = !(name && name.trim().length);
     const isSlugBlank = !(slug && slug.trim().length);
-    const isSubmitDisabled = formIsDisabled || isNameBlank || isSlugBlank;
+    const isSubmitDisabled =
+      formIsDisabled || formIsUnchanged || isNameBlank || isSlugBlank;
     const buttonText = creating
       ? i18n.gettext('Create collection')
       : i18n.gettext('Save collection');
@@ -391,31 +294,6 @@ export class CollectionManagerBase extends React.Component<
             value={this.state.slug}
           />
         </div>
-
-        <TransitionGroup className="NoticePlaceholder">
-          {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
-            <CSSTransition
-              classNames="NoticePlaceholder-transition"
-              timeout={MESSAGE_FADEOUT_TIME}
-            >
-              <Notice type="success">
-                {i18n.gettext('Added to collection')}
-              </Notice>
-            </CSSTransition>
-          )}
-        </TransitionGroup>
-
-        {!creating && (
-          <AutoSearchInput
-            inputName="collection-addon-query"
-            inputPlaceholder={i18n.gettext(
-              'Find an add-on to include in this collection',
-            )}
-            onSearch={this.onSearchAddon}
-            onSuggestionSelected={this.onAddonSelected}
-            selectSuggestionText={i18n.gettext('Add to collection')}
-          />
-        )}
         <footer className="CollectionManager-footer">
           {/*
             type=button is necessary to override the default
@@ -455,7 +333,6 @@ export const mapStateToProps = (state: AppState) => {
   const currentUser = getCurrentUser(state.users);
 
   return {
-    hasAddonBeenAdded: state.collections.hasAddonBeenAdded,
     clientApp: state.api.clientApp,
     currentUsername: currentUser && currentUser.username,
     isCollectionBeingModified: state.collections.isCollectionBeingModified,

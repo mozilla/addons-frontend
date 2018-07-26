@@ -559,46 +559,36 @@ describe(__filename, () => {
         ).not.toContain(unloadCollectionBySlug(collectionSlug).type);
       });
 
-      it('redirects to the existing slug after update', async () => {
-        mockApi.expects('updateCollection').returns(Promise.resolve());
+      it('redirects to the resulting slug after update', async () => {
+        const submittedSlug = 'submitted-slug';
+        const returnedSlug = 'returned-slug';
+
+        const collectionDetailResponse = createFakeCollectionDetail({
+          slug: returnedSlug,
+        });
+
+        mockApi
+          .expects('updateCollection')
+          .returns(Promise.resolve(collectionDetailResponse));
 
         const collectionSlug = 'some-collection';
         const updateFilters = { page: 2 };
-        // Update everything except the slug.
         _updateCollection({
           collectionSlug,
           filters: updateFilters,
-          slug: undefined,
+          slug: submittedSlug,
           username,
         });
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation({
-          pathname: `/${lang}/${clientApp}/collections/${username}/${collectionSlug}/`,
+          pathname: `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/`,
           query: convertFiltersToQueryParams(updateFilters),
         });
 
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
 
-        mockApi.verify();
-      });
-
-      it('redirects to the new slug after update', async () => {
-        mockApi.expects('updateCollection').returns(Promise.resolve());
-
-        const newSlug = 'new-slug';
-        const updateFilters = { page: 2 };
-        _updateCollection({ filters: updateFilters, slug: newSlug, username });
-
-        const { lang, clientApp } = clientData.state.api;
-        const expectedAction = pushLocation({
-          pathname: `/${lang}/${clientApp}/collections/${username}/${newSlug}/`,
-          query: convertFiltersToQueryParams(updateFilters),
-        });
-
-        const action = await sagaTester.waitFor(expectedAction.type);
-        expect(action).toEqual(expectedAction);
         mockApi.verify();
       });
     });
@@ -655,9 +645,13 @@ describe(__filename, () => {
         mockApi.verify();
       });
 
-      it('redirects to the collection edit screen after create', async () => {
+      it('also sends a request to add an add-on if includeAddonId is set', async () => {
         const state = sagaTester.getState();
-        const params = getParams({ lang: state.api.lang });
+        const id = 12344;
+        const params = {
+          ...getParams({ lang: state.api.lang }),
+          includeAddonId: id,
+        };
 
         const collectionDetailResponse = createFakeCollectionDetail(params);
 
@@ -666,11 +660,49 @@ describe(__filename, () => {
           .once()
           .returns(Promise.resolve(collectionDetailResponse));
 
+        mockApi
+          .expects('createCollectionAddon')
+          .withArgs({
+            addonId: id,
+            api: state.api,
+            slug: params.slug,
+            username: params.username,
+          })
+          .once()
+          .returns(Promise.resolve());
+
         _createCollection(params);
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
           `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`,
+        );
+
+        await sagaTester.waitFor(expectedAction.type);
+        mockApi.verify();
+      });
+
+      it('redirects to the collection edit screen after create', async () => {
+        const submittedSlug = 'submitted-slug';
+        const returnedSlug = 'returned-slug';
+        const state = sagaTester.getState();
+
+        const collectionDetailResponse = createFakeCollectionDetail({
+          slug: returnedSlug,
+        });
+
+        mockApi
+          .expects('createCollection')
+          .once()
+          .returns(Promise.resolve(collectionDetailResponse));
+
+        _createCollection(
+          getParams({ lang: state.api.lang, slug: submittedSlug }),
+        );
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/edit/`,
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);

@@ -233,9 +233,13 @@ export function* modifyCollection(
 
   let collectionSlug;
   let filters;
+  let includeAddonId;
   if (action.type === UPDATE_COLLECTION) {
     collectionSlug = action.payload.collectionSlug;
     filters = action.payload.filters;
+  }
+  if (action.type === CREATE_COLLECTION) {
+    includeAddonId = action.payload.includeAddonId;
   }
 
   try {
@@ -258,6 +262,16 @@ export function* modifyCollection(
         ...baseApiParams,
       };
       response = yield call(api.createCollection, apiParams);
+
+      if (includeAddonId) {
+        const params: CreateCollectionAddonParams = {
+          addonId: includeAddonId,
+          api: state.api,
+          slug,
+          username,
+        };
+        yield call(api.createCollectionAddon, params);
+      }
     } else {
       invariant(collectionSlug, 'collectionSlug cannot be empty when updating');
       const apiParams: $Shape<UpdateCollectionParams> = {
@@ -266,11 +280,11 @@ export function* modifyCollection(
         slug,
         ...baseApiParams,
       };
-      yield call(api.updateCollection, apiParams);
+      response = yield call(api.updateCollection, apiParams);
     }
 
     const { lang, clientApp } = state.api;
-    const effectiveSlug = slug || collectionSlug;
+    const effectiveSlug = (response && response.slug) || slug || collectionSlug;
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
     const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
 
@@ -278,18 +292,20 @@ export function* modifyCollection(
       invariant(response, 'response is required when creating');
       // If a new collection was just created, load it so that it will
       // be available when the user arrives at the collection edit screen.
-      const localizedDetail = localizeCollectionDetail({
-        detail: response,
-        lang,
-      });
+      if (!includeAddonId) {
+        const localizedDetail = localizeCollectionDetail({
+          detail: response,
+          lang,
+        });
 
-      yield put(
-        loadCurrentCollection({
-          addons: [],
-          detail: localizedDetail,
-          pageSize: null,
-        }),
-      );
+        yield put(
+          loadCurrentCollection({
+            addons: [],
+            detail: localizedDetail,
+            pageSize: null,
+          }),
+        );
+      }
 
       yield put(pushLocation(`${newLocation}edit/`));
     } else {
@@ -307,7 +323,7 @@ export function* modifyCollection(
         }),
       );
 
-      const slugWasEdited = slug && slug !== collectionSlug;
+      const slugWasEdited = effectiveSlug !== collectionSlug;
       if (!slugWasEdited) {
         // Invalidate the stored collection object. This will force each
         // component to re-fetch the collection. This is only necessary

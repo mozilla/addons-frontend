@@ -22,6 +22,7 @@ import * as helpers from 'disco/components/DiscoPane';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {
+  createFakeTracking,
   createStubErrorHandler,
   fakeI18n,
   createFakeLocation,
@@ -41,7 +42,7 @@ describe(__filename, () => {
   let fakeTracking;
 
   beforeEach(() => {
-    fakeTracking = { sendEvent: sinon.stub() };
+    fakeTracking = createFakeTracking();
   });
 
   function renderProps(customProps = {}) {

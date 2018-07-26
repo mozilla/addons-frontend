@@ -4,14 +4,13 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
 
-import { convertBoolean } from 'core/utils';
-import log from 'core/logger';
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
   INSTALL_EXTENSION_CATEGORY,
   INSTALL_EXTENSION_STARTED_CATEGORY,
   INSTALL_STARTED_ACTION,
@@ -25,6 +24,8 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
+import log from 'core/logger';
+import { convertBoolean, isTheme } from 'core/utils';
 
 export function isDoNotTrackEnabled({
   _log = log,
@@ -170,7 +171,9 @@ export class Tracking {
 export function getAddonTypeForTracking(type) {
   return (
     {
+      [ADDON_TYPE_DICT]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
+      [ADDON_TYPE_LANG]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_OPENSEARCH]: TRACKING_TYPE_EXTENSION,
       [ADDON_TYPE_STATIC_THEME]: TRACKING_TYPE_STATIC_THEME,
       [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
@@ -179,17 +182,19 @@ export function getAddonTypeForTracking(type) {
 }
 
 export const getAddonEventCategory = (type, installAction) => {
-  const isTheme = ADDON_TYPE_THEMES.includes(type);
+  const isThemeType = isTheme(type);
 
   switch (installAction) {
     case INSTALL_STARTED_ACTION:
-      return isTheme
+      return isThemeType
         ? INSTALL_THEME_STARTED_CATEGORY
         : INSTALL_EXTENSION_STARTED_CATEGORY;
     case UNINSTALL_ACTION:
-      return isTheme ? UNINSTALL_THEME_CATEGORY : UNINSTALL_EXTENSION_CATEGORY;
+      return isThemeType
+        ? UNINSTALL_THEME_CATEGORY
+        : UNINSTALL_EXTENSION_CATEGORY;
     default:
-      return isTheme ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
+      return isThemeType ? INSTALL_THEME_CATEGORY : INSTALL_EXTENSION_CATEGORY;
   }
 };
 

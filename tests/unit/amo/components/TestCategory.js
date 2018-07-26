@@ -500,6 +500,58 @@ describe(__filename, () => {
     );
   });
 
+  it('passes an isTheme prop as true to LandingAddonsCard if type is a theme', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
+    const root = render(
+      {},
+      {
+        autoDispatchCategories: false,
+        paramOverrides: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+        },
+      },
+    );
+
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect.assertions(3);
+    landingShelves.forEach((shelf) => {
+      expect(shelf).toHaveProp('isTheme', true);
+    });
+  });
+
+  it('renders a theme class name if type is a theme', () => {
+    const root = render(
+      {},
+      {
+        autoDispatchCategories: false,
+        paramOverrides: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+        },
+      },
+    );
+
+    expect(root).toHaveClassName('Category--theme');
+  });
+
+  it('renders without a theme class name if type is an extension', () => {
+    const root = render(
+      {},
+      {
+        autoDispatchCategories: false,
+        paramOverrides: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+        },
+      },
+    );
+
+    expect(root).not.toHaveClassName('Category--theme');
+  });
+
   it('sets the correct header/footer texts and links for themes', () => {
     _categoriesFetch();
     _categoriesLoad();

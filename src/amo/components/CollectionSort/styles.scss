@@ -1,14 +1,7 @@
 @import '~photon-colors/photon-colors';
 
-.CollectionSort {
-  margin-top: 12px;
-}
-
 .CollectionSort-label {
   color: $grey-50;
   display: block;
-}
-
-.CollectionSort-select {
-  margin: 0 0 6px;
+  padding-bottom: 6px;
 }

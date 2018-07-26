@@ -18,6 +18,7 @@ import { getReviewsByUserId } from 'amo/reducers/reviews';
 import {
   fetchUserAccount,
   getCurrentUser,
+  getUserById,
   getUserByUsername,
   hasPermission,
   isDeveloper,
@@ -140,10 +141,14 @@ export class UserProfileBase extends React.Component<InternalProps> {
     }
   }
 
-  getURL() {
-    const { params } = this.props;
+  getUsername() {
+    const { params, user } = this.props;
 
-    return `/user/${params.username}/`;
+    return user ? user.username : params.username;
+  }
+
+  getURL() {
+    return `/user/${this.getUsername()}/`;
   }
 
   getEditURL() {
@@ -382,7 +387,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 <AddonsByAuthorsCard
                   addonType={ADDON_TYPE_EXTENSION}
                   authorDisplayName={user ? user.name : params.username}
-                  authorUsernames={[params.username]}
+                  authorUsernames={[this.getUsername()]}
                   errorHandler={errorHandler}
                   numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
                   pageParam="page_e"
@@ -396,7 +401,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 <AddonsByAuthorsCard
                   addonType={ADDON_TYPE_THEME}
                   authorDisplayName={user ? user.name : params.username}
-                  authorUsernames={[params.username]}
+                  authorUsernames={[this.getUsername()]}
                   errorHandler={errorHandler}
                   numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
                   pageParam="page_t"
@@ -415,8 +420,18 @@ export class UserProfileBase extends React.Component<InternalProps> {
 }
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
+  const { username } = ownProps.params;
+
   const currentUser = getCurrentUser(state.users);
-  const user = getUserByUsername(state.users, ownProps.params.username);
+
+  // `getUserByUsername()` requires a string as second argument.
+  let user = getUserByUsername(state.users, `${username}`);
+
+  if (!user) {
+    const userId = parseInt(username, 10);
+    user = !Number.isNaN(userId) ? getUserById(state.users, userId) : undefined;
+  }
+
   const isOwner = currentUser && user && currentUser.id === user.id;
 
   const canEditProfile =

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
 "PO-Revision-Date: 2017-08-26 22:19+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -39,6 +39,18 @@ msgstr "Страница не найдена"
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Извините, мы не смогли ничего найти по URL, который вы ввели."
+
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "Ваше дополнение готово"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Теперь вы можете получить доступ к %(name)s из панели инструментов."
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "ОК!"
 
 #: src/core/components/InstallButton/index.js:259
 #: src/core/components/InstallButton/index.js:305
@@ -78,56 +90,40 @@ msgstr "%(name)s удалено. Щёлкните, чтобы установит
 msgid "Install state for %(name)s is unknown."
 msgstr "Состояние установки %(name)s неизвестно."
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "Ваше дополнение готово"
+#: src/disco/components/Addon/index.js:136
+#, fuzzy
+msgid "Preview of %(name)s"
+msgstr "Предпросмотр %(name)s"
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Теперь вы можете получить доступ к %(name)s из панели инструментов."
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "ОК!"
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr "Наведите мышь на изображение для предпросмотра"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "Установка не удалась. Пожалуйста, попробуйте позже."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "При установке произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "При удалении произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "Произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Это дополнение будет удалено после перезапуска вами Firefox."
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "Пожалуйста, перезапустите Firefox для использования этого дополнения."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Закрыть"
 
@@ -143,19 +139,15 @@ msgstr "Это дополнение не поддерживает вашу ве�
 msgid "This add-on does not support your browser."
 msgstr "Это дополнение не поддерживает ваш браузер."
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "Политика приватности"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "Откройте для себя дополнения"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "Настройте под себя свой Firefox"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -172,21 +164,13 @@ msgstr ""
 "Чтобы помочь вам начать, вот несколько дополнений, которые мы рекомендуем\n"
 "из-за их превосходной производительности и функциональности."
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "Щёлкните, чтобы проиграть"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "чтобы узнать больше о дополнениях"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "Закрыть видео"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "Посмотрите больше дополнений!"
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Политика приватности"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -200,6 +184,26 @@ msgstr "Произошла непредвиденная ошибка"
 msgid "Reload To Continue"
 msgstr "Перезагрузите для продолжения"
 
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr ""
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr ""
+#~ "Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr "Наведите мышь на изображение для предпросмотра"
+
+#~ msgid "Click to play"
+#~ msgstr "Щёлкните, чтобы проиграть"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "чтобы узнать больше о дополнениях"
+
+#~ msgid "Close video"
+#~ msgstr "Закрыть видео"
+
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Установлено и добавлено на панель инструментов"
 
@@ -208,6 +212,3 @@ msgstr "Перезагрузите для продолжения"
 
 #~ msgid "Ok"
 #~ msgstr "Ок"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "Предпросмотр %(name)s"

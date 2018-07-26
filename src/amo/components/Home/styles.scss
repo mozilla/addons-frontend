@@ -8,6 +8,14 @@
   @include page-padding();
 }
 
+.Home-FeaturedThemes {
+  .Card-contents {
+    .AddonsCard-list {
+      grid-template-columns: repeat(3, 33%);
+    }
+  }
+}
+
 .Home-SubjectShelf {
   .Card-header {
     display: block;

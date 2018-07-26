@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
-"PO-Revision-Date: 2017-08-22 22:56+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"PO-Revision-Date: 2018-07-25 08:10+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "サーバーエラー"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することが"
-"できませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することができませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -39,13 +34,23 @@ msgstr "ページが見つかりませんでした"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "申し訳ありませんが、入力された URL には何も見つかりませんでした。"
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "アドオンのインストールが完了しました"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "今後はツールバーから %(name)s にアクセスできます"
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "了解"
+
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "テーマをインストール"
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Firefox へ追加"
 
@@ -59,8 +64,7 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s はインストール、有効化されています。削除するにはここをクリック。"
+msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
@@ -78,56 +82,39 @@ msgstr "%(name)s は削除されています。インストールするにはこ
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s のインストール状態は不明です。"
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "アドオンのインストールが完了しました"
+#: src/disco/components/Addon/index.js:136
+msgid "Preview of %(name)s"
+msgstr "%(name)s のプレビュー"
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "今後はツールバーから %(name)s にアクセスできます"
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "了解"
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr "画像にマウスオーバーしてプレビュー"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "インストールに失敗しました。再度試してください。"
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr "ダウンロードに失敗しました。接続状況を確認してください。"
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "インストール中に予期せぬ問題が発生しました。"
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "アンインストール中に予期せぬ問題が発生しました。"
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "予期せぬ問題が発生しました。"
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "このアドオンは Firefox の再起動後に削除されます。"
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "このアドオンを使うには Firefox を再起動してください。"
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "閉じる"
 
@@ -143,47 +130,27 @@ msgstr "このアドオンはお使いのバージョンの Firefox に対応し
 msgid "This add-on does not support your browser."
 msgstr "このアドオンはお使いのブラウザーに対応していません。"
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "プライバシーポリシー"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "アドオンを見つける"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "Firefox をパーソナライズしよう"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発"
-"者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジング"
-"をより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いの"
-"ブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れ"
-"ているおすすめのアドオンをいくつか紹介します。"
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジングをより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いのブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れているおすすめのアドオンをいくつか紹介します。"
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "クリックして再生"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "し、アドオンについて詳しく知る"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "動画を閉じる"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "アドオンをもっと見る"
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "プライバシーポリシー"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -197,6 +164,25 @@ msgstr "予期せぬ問題が発生しました"
 msgid "Reload To Continue"
 msgstr "再読み込みして続ける"
 
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr "このお知らせを閉じる"
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr "画像にマウスオーバーしてプレビュー"
+
+#~ msgid "Click to play"
+#~ msgstr "クリックして再生"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "し、アドオンについて詳しく知る"
+
+#~ msgid "Close video"
+#~ msgstr "動画を閉じる"
+
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "インストールされツールバーへ追加されました"
 
@@ -205,6 +191,3 @@ msgstr "再読み込みして続ける"
 
 #~ msgid "Ok"
 #~ msgstr "OK"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "%(name)s をプレビュー"

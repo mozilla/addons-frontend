@@ -35,13 +35,12 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
-import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
+import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
@@ -138,18 +137,15 @@ export class AddonBase extends React.Component {
     }
   }
 
-  addonIsTheme() {
-    const { addon } = this.props;
-    return addon && ADDON_TYPE_THEMES.includes(addon.type);
-  }
-
   headerImage() {
     const { addon, i18n } = this.props;
 
-    if (this.addonIsTheme()) {
+    if (addon && isTheme(addon.type)) {
+      const previewHeader = addon.previews.length && addon.previews[0];
+
       let previewURL =
-        addon.previews.length > 0 && addon.previews[0].image_url
-          ? addon.previews[0].image_url
+        previewHeader && previewHeader.image_url
+          ? previewHeader.image_url
           : null;
 
       const label = addon
@@ -344,12 +340,12 @@ export class AddonBase extends React.Component {
 
   renderAddonsByAuthorsCard({ isForTheme }) {
     const { addon } = this.props;
-    const isTheme = this.addonIsTheme();
+    const isThemeType = addon && isTheme(addon.type);
     if (
       !addon ||
       !addon.authors.length ||
-      (isForTheme && !isTheme) ||
-      (!isForTheme && isTheme)
+      (isForTheme && !isThemeType) ||
+      (!isForTheme && isThemeType)
     ) {
       return null;
     }
@@ -389,7 +385,7 @@ export class AddonBase extends React.Component {
       userAgentInfo,
     } = this.props;
 
-    const isTheme = this.addonIsTheme();
+    const isThemeType = addon && isTheme(addon.type);
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
@@ -485,7 +481,7 @@ export class AddonBase extends React.Component {
     return (
       <div
         className={makeClassName('Addon', `Addon-${addonType}`, {
-          'Addon-theme': isTheme,
+          'Addon-theme': isThemeType,
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}
@@ -562,7 +558,7 @@ export class AddonBase extends React.Component {
           <div className="Addon-main-content">
             {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
-            {addonPreviews.length > 0 && !isTheme ? (
+            {addonPreviews.length > 0 && !isThemeType ? (
               <Card
                 className="Addon-screenshots"
                 header={i18n.gettext('Screenshots')}

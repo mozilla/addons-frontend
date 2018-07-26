@@ -5,10 +5,11 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import {
   addQueryParams,
   isAllowedOrigin,
+  isTheme,
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
@@ -31,23 +32,25 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  _isAllowedOrigin: Function,
 |};
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _isAllowedOrigin: isAllowedOrigin,
     showMetadata: true,
     showSummary: true,
   };
 
-  addonIsTheme() {
-    const { addon } = this.props;
-    return addon && ADDON_TYPE_THEMES.includes(addon.type);
-  }
-
   renderResult() {
-    const { addon, i18n, showMetadata, showSummary } = this.props;
+    const {
+      addon,
+      i18n,
+      _isAllowedOrigin,
+      showMetadata,
+      showSummary,
+    } = this.props;
 
-    const isTheme = this.addonIsTheme();
     const averageDailyUsers = addon ? addon.average_daily_users : null;
 
     // Fall-back to default icon if invalid icon url.
@@ -55,18 +58,21 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     let imageURL = iconURL;
 
-    if (isTheme) {
+    if (addon && isTheme(addon.type)) {
+      // Since only newly created static themes will have more than one preview
+      // we will set up a fallback for now.
+      const previewFallback = addon && addon.previews && addon.previews[0];
+      const previewSearch = addon && addon.previews && addon.previews[1];
+      const previewImage = previewSearch || previewFallback;
+
       let themeURL =
-        addon &&
-        addon.previews &&
-        addon.previews.length > 0 &&
-        isAllowedOrigin(addon.previews[0].image_url)
-          ? addon.previews[0].image_url
+        previewImage && _isAllowedOrigin(previewImage.image_url)
+          ? previewImage.image_url
           : null;
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =
-          addon.themeData && isAllowedOrigin(addon.themeData.previewURL)
+          addon.themeData && _isAllowedOrigin(addon.themeData.previewURL)
             ? addon.themeData.previewURL
             : null;
       }
@@ -109,7 +115,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
       <div className="SearchResult-result">
         <div className={iconWrapperClassnames}>
           {imageURL ? (
-            <img className="SearchResult-icon" src={imageURL} alt="" />
+            <img
+              className="SearchResult-icon"
+              src={imageURL}
+              alt={addon ? `${addon.name}` : ''}
+            />
           ) : (
             <p className="SearchResult-notheme">
               {i18n.gettext('No theme preview available')}
@@ -179,9 +189,8 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const { addon, addonInstallSource } = this.props;
 
     const result = this.renderResult();
-    const isTheme = this.addonIsTheme();
     const resultClassnames = makeClassName('SearchResult', {
-      'SearchResult--theme': isTheme,
+      'SearchResult--theme': addon && isTheme(addon.type),
       'SearchResult--persona': addon && addon.type === ADDON_TYPE_THEME,
     });
 

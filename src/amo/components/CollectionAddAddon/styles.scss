@@ -1,0 +1,51 @@
+@import '~photon-colors/photon-colors';
+@import '~amo/css/inc/vars';
+
+.CollectionAddAddon {
+  margin-bottom: 24px;
+
+  .ErrorList,
+  .CollectionAddAddon-noticePlaceholder {
+    margin-bottom: 6px;
+  }
+
+  .AutoSearchInput-label {
+    padding-bottom: 6px;
+  }
+
+  .AutoSearchInput-search-box {
+    padding-top: 6px;
+  }
+
+  .AutoSearchInput-query {
+    border: 1px solid $grey-50;
+    border-radius: $border-radius-xs;
+  }
+
+  .AutoSearchInput-icon-magnifying-glass {
+    top: 12px;
+  }
+
+  .AutoSearchInput-submit-button,
+  .SearchSuggestion-icon-arrow {
+    display: none;
+  }
+
+  .AutoSearchInput--autocompleteIsOpen .AutoSearchInput-query {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  // The Notice component creates children which are affected by these classes,
+  // which are added by the CSSTransition component.
+  .Notice {
+    &.CollectionAddAddon-noticePlaceholder-transition-appear {
+      opacity: 1;
+    }
+
+    &.CollectionAddAddon-noticePlaceholder-transition-exit-active {
+      opacity: 0;
+      transition: opacity $transition-medium ease-in-out;
+    }
+  }
+}

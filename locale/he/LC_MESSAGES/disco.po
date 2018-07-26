@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-10 19:20+0000\n"
-"PO-Revision-Date: 2017-10-06 11:22+0000\n"
+"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"PO-Revision-Date: 2018-07-24 19:35+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "שגיאת שרת"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"מצטערים, אבל אירעה שגיאה ולא הצלחנו להשלים את הבקשה שלך. תיעדנו את השגיאה "
-"הזאת ואנו נחקור אותה."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "מצטערים, אבל אירעה שגיאה ולא הצלחנו להשלים את הבקשה שלך. תיעדנו את השגיאה הזאת ואנו נחקור אותה."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "קוד שגיאה: %(status)s."
 
@@ -39,13 +34,23 @@ msgstr "הדף לא נמצא"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "מצטערים, אבל לא הצלחנו למצוא כלום בכתובת שהזנת."
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InfoDialog/index.js:37
+msgid "Your add-on is ready"
+msgstr "התוספת שלך מוכנה"
+
+#: src/core/components/InfoDialog/index.js:40
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "כעת ניתן לגשת אל %(name)s מסרגל הכלים."
+
+#: src/core/components/InfoDialog/index.js:54
+msgid "OK!"
+msgstr "בסדר!"
+
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "התקנת ערכת נושא"
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -77,55 +82,39 @@ msgstr "%(name)s הוסר. יש ללחוץ להתקנה."
 msgid "Install state for %(name)s is unknown."
 msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
-#: src/core/containers/InfoDialog/index.js:36
-msgid "Your add-on is ready"
-msgstr "התוספת שלך מוכנה"
+#: src/disco/components/Addon/index.js:136
+msgid "Preview of %(name)s"
+msgstr "תצוגה מקדימה של %(name)s"
 
-#: src/core/containers/InfoDialog/index.js:39
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "כעת ניתן לגשת אל %(name)s מסרגל הכלים."
-
-#: src/core/containers/InfoDialog/index.js:53
-msgid "OK!"
-msgstr "בסדר!"
-
-#: src/disco/components/Addon.js:135
-msgid "Hover to preview or click to install %(name)s"
-msgstr "רחפו לתצוגה מקדימה או לחצו להתקנת %(name)s"
-
-#: src/disco/components/Addon.js:152
-msgid "Hover over the image to preview"
-msgstr "רחפו על התמונה לתצוגה מקדימה"
-
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
 msgstr "ההתקנה נכשלה. נא לנסות שנית."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon/index.js:176
 msgid "Download failed. Please check your connection."
 msgstr "ההורדה נכשלה. נא לבדוק את החיבור שלך."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon/index.js:178
 msgid "An unexpected error occurred during installation."
 msgstr "אירעה שגיאה לא צפויה במהלך ההתקנה."
 
-#: src/disco/components/Addon.js:186
+#: src/disco/components/Addon/index.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 
-#: src/disco/components/Addon.js:191
+#: src/disco/components/Addon/index.js:187
 msgid "An unexpected error occurred."
 msgstr "אירעה שגיאה לא צפויה."
 
-#: src/disco/components/Addon.js:199
+#: src/disco/components/Addon/index.js:195
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."
 
-#: src/disco/components/Addon.js:203
+#: src/disco/components/Addon/index.js:199
 msgid "Please restart Firefox to use this add-on."
 msgstr "נא להפעיל מחדש את Firefox כדי להשתמש בתוספת זו."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "סגירה"
 
@@ -141,47 +130,29 @@ msgstr "תוספת זו אינה נתמכת ע״י גרסת ה־Firefox שלך."
 msgid "This add-on does not support your browser."
 msgstr "תוספת זו אינה נתמכת ע״י הדפדפן שלך."
 
-#: src/disco/components/Footer/index.js:25
-msgid "Privacy Policy"
-msgstr "מדיניות פרטיות"
-
-#: src/disco/containers/App.js:36
+#: src/disco/components/App/index.js:36
 msgid "Discover Add-ons"
 msgstr "גילוי תוספות"
 
-#: src/disco/containers/DiscoPane.js:138
+#: src/disco/components/DiscoPane/index.js:104
 msgid "Personalize Your Firefox"
 msgstr "התאמה אישית של ה־Firefox שלך"
 
-#: src/disco/containers/DiscoPane.js:140
+#: src/disco/components/DiscoPane/index.js:106
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"ישנן אלפי תוספות חינמיות שנוצרו על־ידי מפתחים מכל רחבי העולם, הניתנות להתקנה "
-"על מנת לעצב ולהתאים אישית את ה־Firefox שלך. מערכות נושא ועד כלים רבי עצמה "
-"ההופכים את הגלישה שלך למהירה ובטוחה יותר, תוספות הופכות את הדפדפן שלך – "
-"לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות "
-"הפונקציונליות והביצועים שלהן."
+"ישנן אלפי תוספות חינמיות שנוצרו על־ידי מפתחים מכל רחבי העולם, הניתנות להתקנה על מנת לעצב ולהתאים אישית את ה־Firefox שלך. מערכות נושא ועד כלים רבי עצמה ההופכים את הגלישה שלך למהירה ובטוחה יותר, "
+"תוספות הופכות את הדפדפן שלך – לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות הפונקציונליות והביצועים שלהן."
 
-#: src/disco/containers/DiscoPane.js:150
-msgid "Click to play"
-msgstr "הקישו להפעלה"
-
-#: src/disco/containers/DiscoPane.js:153
-msgid "to find out more about add-ons"
-msgstr "כדי ללמוד עוד על תוספות"
-
-#: src/disco/containers/DiscoPane.js:171
-msgid "Close video"
-msgstr "סגירת וידאו"
-
-#: src/disco/containers/DiscoPane.js:192
+#: src/disco/components/DiscoPane/index.js:139
 msgid "See more add-ons!"
 msgstr "גלו תוספות נוספות!"
+
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "מדיניות פרטיות"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -194,3 +165,22 @@ msgstr "אירעה שגיאה בלתי צפויה"
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
 msgstr "טעינה מחדש להמשך"
+
+#: src/ui/components/Notice/index.js:129
+msgid "Dismiss this notice"
+msgstr "סגירת הודעה זו"
+
+#~ msgid "Hover to preview or click to install %(name)s"
+#~ msgstr "רחפו לתצוגה מקדימה או לחצו להתקנת %(name)s"
+
+#~ msgid "Hover over the image to preview"
+#~ msgstr "רחפו על התמונה לתצוגה מקדימה"
+
+#~ msgid "Click to play"
+#~ msgstr "הקישו להפעלה"
+
+#~ msgid "to find out more about add-ons"
+#~ msgstr "כדי ללמוד עוד על תוספות"
+
+#~ msgid "Close video"
+#~ msgstr "סגירת וידאו"

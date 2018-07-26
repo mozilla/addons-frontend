@@ -6,7 +6,9 @@ import {
   getAddonTypeForTracking,
 } from 'core/tracking';
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
@@ -188,6 +190,18 @@ describe(__filename, () => {
 
     it('returns addon for TYPE_OPENSEARCH', () => {
       expect(getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH)).toEqual(
+        TRACKING_TYPE_EXTENSION,
+      );
+    });
+
+    it('returns addon for TYPE_DICT', () => {
+      expect(getAddonTypeForTracking(ADDON_TYPE_DICT)).toEqual(
+        TRACKING_TYPE_EXTENSION,
+      );
+    });
+
+    it('returns addon for TYPE_LANG', () => {
+      expect(getAddonTypeForTracking(ADDON_TYPE_LANG)).toEqual(
         TRACKING_TYPE_EXTENSION,
       );
     });

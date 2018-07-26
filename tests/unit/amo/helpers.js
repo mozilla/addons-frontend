@@ -32,6 +32,15 @@ import {
   userAuthToken,
 } from 'tests/unit/helpers';
 
+export const fakePreview = Object.freeze({
+  id: 1,
+  caption: 'Image 1',
+  image_url: 'https://addons.cdn.mozilla.net/full/1.png',
+  thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/1.png',
+  image_size: [400, 200],
+  thumbnail_size: [200, 100],
+});
+
 export const fakePlatformFile = Object.freeze({
   created: '2014-11-22T10:09:01Z',
   hash: 'a1b2c3d4',
@@ -89,16 +98,7 @@ export const fakeAddon = Object.freeze({
   is_source_public: true,
   last_updated: '2014-11-22T10:09:01Z',
   name: 'Chill Out',
-  previews: [
-    {
-      id: 1234778,
-      caption: 'Chill out control panel',
-      image_url: 'https://addons.cdn.mozilla.net/123/image.png',
-      thumbnail_url: 'https://addons.cdn.mozilla.net/7123/image.png',
-      image_size: [400, 200],
-      thumbnail_size: [200, 100],
-    },
-  ],
+  previews: [fakePreview],
   public_stats: true,
   ratings: {
     average: 3.5,

@@ -1,9 +1,13 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
+} from 'amo/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import { isTheme } from 'core/utils';
 
 export const FETCH_HOME_ADDONS: 'FETCH_HOME_ADDONS' = 'FETCH_HOME_ADDONS';
 export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
@@ -126,12 +130,13 @@ const reducer = (
       return {
         ...state,
         collections: collections.map((collection) => {
-          if (collection) {
-            return collection.results
-              .slice(0, LANDING_PAGE_ADDON_COUNT)
-              .map((item) => {
-                return createInternalAddon(item.addon);
-              });
+          if (collection && collection.results && collection.results.length) {
+            const sliceEnd = isTheme(collection.results[0].addon.type)
+              ? LANDING_PAGE_THEME_COUNT
+              : LANDING_PAGE_EXTENSION_COUNT;
+            return collection.results.slice(0, sliceEnd).map((item) => {
+              return createInternalAddon(item.addon);
+            });
           }
           return null;
         }),

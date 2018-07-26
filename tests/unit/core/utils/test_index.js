@@ -29,6 +29,7 @@ import {
   getClientConfig,
   isAddonAuthor,
   isAllowedOrigin,
+  isTheme,
   isValidClientApp,
   nl2br,
   normalizeFileNameId,
@@ -744,6 +745,20 @@ describe(__filename, () => {
       const filename = 'src/file.js';
 
       expect(normalizeFileNameId(filename)).toEqual(filename);
+    });
+  });
+
+  describe('isTheme', () => {
+    it('returns true if type is a lightweight theme', () => {
+      expect(isTheme(ADDON_TYPE_THEME)).toEqual(true);
+    });
+
+    it('returns true if type is a static theme', () => {
+      expect(isTheme(ADDON_TYPE_STATIC_THEME)).toEqual(true);
+    });
+
+    it('returns false if type is an extension', () => {
+      expect(isTheme(ADDON_TYPE_EXTENSION)).toEqual(false);
     });
   });
 });
