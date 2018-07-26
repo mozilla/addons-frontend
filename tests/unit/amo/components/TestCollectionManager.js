@@ -19,7 +19,7 @@ import {
   createFakeRouter,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -61,7 +61,7 @@ describe(__filename, () => {
       creating: false,
       filters: {},
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       router,
       store,
       ...customProps,
@@ -320,7 +320,7 @@ describe(__filename, () => {
       collection: null,
       creating: true,
       router: createFakeRouter({
-        location: fakeRouterLocation({ query: { include_addon_id: id } }),
+        location: createFakeLocation({ query: { include_addon_id: id } }),
       }),
     });
 
