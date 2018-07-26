@@ -98,10 +98,12 @@ export const extractId = (ownProps: InternalProps) => {
   return ownProps.id;
 };
 
-export default compose(
+const Overlay: React.ComponentType<InternalProps> = compose(
   withUIState({
     fileName: __filename,
     extractId,
     initialState: initialUIState,
   }),
 )(OverlayBase);
+
+export default Overlay;
