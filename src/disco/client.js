@@ -1,6 +1,6 @@
 import config from 'config';
 
-import makeClient from 'core/client/base';
+import createClient from 'core/client/base';
 // Init tracking.
 import tracking from 'core/tracking';
 import getInstallData from 'disco/tracking';
@@ -19,8 +19,14 @@ if (config.get('trackingSendInitPageView') === false) {
   });
 }
 
-makeClient(App, createStore, { sagas });
+createClient(createStore, { sagas }).then(({ renderApp }) => {
+  renderApp(App);
 
-if (module.hot) {
-  module.hot.accept();
-}
+  if (module.hot) {
+    module.hot.accept('./components/App', () => {
+      // eslint-disable-next-line global-require
+      const NextApp = require('./components/App').default;
+      renderApp(NextApp);
+    });
+  }
+});

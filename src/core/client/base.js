@@ -13,9 +13,9 @@ import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import log from 'core/logger';
 import { addQueryParamsToHistory } from 'core/utils';
 
-export default function makeClient(App, createStore, { sagas = null } = {}) {
-  // This code needs to come before anything else so we get logs/errors
-  // if anything else in this function goes wrong.
+export default async function createClient(createStore, { sagas = null } = {}) {
+  // This code needs to come before anything else so we get logs/errors if
+  // anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
   if (publicSentryDsn) {
     log.info(`Configured client-side Sentry with DSN ${publicSentryDsn}`);
@@ -34,48 +34,49 @@ export default function makeClient(App, createStore, { sagas = null } = {}) {
   const locale = langToLocale(lang);
   const appName = config.get('appName');
 
-  function renderApp(i18nData) {
-    const i18n = makeI18n(i18nData, lang);
-
-    if (initialStateContainer) {
-      try {
-        initialState = JSON.parse(initialStateContainer.textContent);
-      } catch (error) {
-        log.error('Could not load initial redux data');
-      }
+  if (initialStateContainer) {
+    try {
+      initialState = JSON.parse(initialStateContainer.textContent);
+    } catch (error) {
+      log.error('Could not load initial redux data');
     }
+  }
 
-    const history = addQueryParamsToHistory({
-      history: createBrowserHistory(),
-    });
-    const { sagaMiddleware, store } = createStore({ history, initialState });
+  const history = addQueryParamsToHistory({
+    history: createBrowserHistory(),
+  });
+  const { sagaMiddleware, store } = createStore({ history, initialState });
 
-    if (sagas && sagaMiddleware) {
-      sagaMiddleware.run(sagas);
-    } else {
-      log.warn(`sagas not found for this app (src/${appName}/sagas)`);
+  if (sagas && sagaMiddleware) {
+    sagaMiddleware.run(sagas);
+  } else {
+    log.warn(`sagas not found for this app (src/${appName}/sagas)`);
+  }
+
+  let i18nData = {};
+  try {
+    if (locale !== langToLocale(config.get('defaultLang'))) {
+      i18nData = await new Promise((resolve) => {
+        // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
+        require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(
+          resolve,
+        );
+      });
     }
+  } catch (e) {
+    log.info(oneLine`Locale not found or required for locale: "${locale}".
+      Falling back to default lang: "${config.get('defaultLang')}"`);
+  }
+  const i18n = makeI18n(i18nData, lang);
 
+  const renderApp = (App) => {
     render(
       <Root history={history} i18n={i18n} store={store}>
         <App />
       </Root>,
       document.getElementById('react-view'),
     );
-  }
+  };
 
-  try {
-    if (locale !== langToLocale(config.get('defaultLang'))) {
-      // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(
-        renderApp,
-      );
-    } else {
-      renderApp({});
-    }
-  } catch (e) {
-    log.info(oneLine`Locale not found or required for locale: "${locale}".
-      Falling back to default lang: "${config.get('defaultLang')}"`);
-    renderApp({});
-  }
+  return { renderApp };
 }
