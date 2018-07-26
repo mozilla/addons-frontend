@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-26 06:46+0000\n"
+"PO-Revision-Date: 2018-07-26 06:55+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -2102,18 +2102,16 @@ msgid "When you use this email address to login again to addons.mozilla.org, you
 msgstr "Wannear't jo dit e-mailadres opnij foar oanmelding op addons.mozilla.org brûke, wurdt in nij Firefox-Add-ons-profyl oanmakke, dat net mei it fuortsmiten profyl assosjearre wurdt."
 
 #: src/amo/components/UserProfileEdit/index.js:800
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sLET OP:%(strongEnd)s Jo kinne jo account net fuortsmite as jo de %(linkStart)sauteur binne fan ien of mear add-ons%(linkEnd)s. Jo moatte %(docLinkStart)sit eigendom "
-"oerdrage%(docLinkEnd)s of de add-ons fuortsmite eardat jo jo account fuortsmite kinne."
+"%(strongStart)sLET OP:%(strongEnd)s Jo kinne jo profyl net fuortsmite as jo de %(linkStart)sauteur binne fan ien of mear add-ons%(linkEnd)s. Jo moatte %(docLinkStart)sit eigendom "
+"oerdrage%(docLinkEnd)s of de add-ons fuortsmite eardat jo jo profyl fuortsmite kinne."
 
 #: src/amo/components/UserProfileEdit/index.js:807
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sLET OP:%(strongEnd)s Jo kinne in brûkersaccount net fuortsmite as de brûker %(linkStart)sauteur is fan ien of mear add-ons%(linkEnd)s."
+msgstr "%(strongStart)sLET OP:%(strongEnd)s Jo kinne in brûkersprofyl net fuortsmite as de brûker %(linkStart)sauteur is fan ien of mear add-ons%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
