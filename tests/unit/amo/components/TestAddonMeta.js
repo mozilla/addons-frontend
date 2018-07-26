@@ -120,6 +120,11 @@ describe(__filename, () => {
       });
 
       expect(getReviewCount(root).title).toEqual('No Ratings');
+
+      const averageMeta = root.find(MetadataCard).prop('metadata')[2];
+      const title = shallow(averageMeta.title).find('.AddonMeta-rating-title');
+
+      expect(title).toHaveText('Not rated yet');
     });
 
     it('renders RatingsByStar with an add-on', () => {
