@@ -13,7 +13,10 @@ import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import log from 'core/logger';
 import { addQueryParamsToHistory } from 'core/utils';
 
-export default async function createClient(createStore, { sagas = null } = {}) {
+export default async function createClient(
+  createStore,
+  { _FastClick = FastClick, sagas = null } = {},
+) {
   // This code needs to come before anything else so we get logs/errors if
   // anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
@@ -24,7 +27,7 @@ export default async function createClient(createStore, { sagas = null } = {}) {
     log.warn('Client-side Sentry reporting was disabled by the config');
   }
 
-  FastClick.attach(document.body);
+  _FastClick.attach(document.body);
 
   const initialStateContainer = document.getElementById('redux-store-state');
   let initialState;
@@ -78,5 +81,5 @@ export default async function createClient(createStore, { sagas = null } = {}) {
     );
   };
 
-  return { renderApp };
+  return { history, renderApp, store };
 }

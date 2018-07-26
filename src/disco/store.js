@@ -15,26 +15,26 @@ import redirectTo from 'core/reducers/redirectTo';
 import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
 
+export const reducers = {
+  addons,
+  api,
+  errors,
+  discoResults,
+  errorPage,
+  installations,
+  infoDialog,
+  redirectTo,
+  survey,
+  uiState,
+};
+
 export default function createStore({
   history = createMemoryHistory(),
   initialState = {},
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
-    connectRouter(history)(
-      combineReducers({
-        addons,
-        api,
-        errors,
-        discoResults,
-        errorPage,
-        installations,
-        infoDialog,
-        redirectTo,
-        survey,
-        uiState,
-      }),
-    ),
+    connectRouter(history)(combineReducers(reducers)),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),
