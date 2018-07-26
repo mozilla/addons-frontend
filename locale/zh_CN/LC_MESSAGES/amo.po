@@ -2041,14 +2041,12 @@ msgid "Delete Profile"
 msgstr "删除个人资料"
 
 #: src/amo/components/UserProfileEdit/index.js:758
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "重要：注销您的账户后无法撤销操作。"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:761
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "重要：注销此账号后无法撤销操作。"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
