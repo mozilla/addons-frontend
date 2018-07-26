@@ -20,7 +20,11 @@ import I18nProvider from 'core/i18n/Provider';
 import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import createStore from 'amo/store';
-import { setReview } from 'amo/actions/reviews';
+import {
+  denormalizeReview,
+  setLatestReview,
+  setReview,
+} from 'amo/actions/reviews';
 import {
   RatingManagerBase,
   RatingManagerWithI18n,
@@ -377,21 +381,30 @@ describe(__filename, () => {
     });
 
     describe('submitReview', () => {
-      it('posts the reviw and dispatches the created review', () => {
+      it('posts the review and dispatches the created review', () => {
         const params = {
           rating: fakeReview.rating,
           apiState: { ...signedInApiState, token: 'new-token' },
-          addonSlug: fakeAddon.slug,
+          addonId: fakeAddon.id,
           versionId: fakeReview.version.id,
         };
 
+        const reviewResult = { ...fakeReview };
         mockApi
           .expects('submitReview')
           .withArgs(params)
-          .returns(Promise.resolve({ ...fakeReview, ...params }));
+          .returns(Promise.resolve(reviewResult));
 
         return actions.submitReview(params).then(() => {
-          sinon.assert.calledWith(dispatch, setReview(fakeReview));
+          sinon.assert.calledWith(
+            dispatch,
+            setLatestReview({
+              addonId: reviewResult.addon.id,
+              userId: reviewResult.user.id,
+              versionId: reviewResult.version.id,
+              review: reviewResult,
+            }),
+          );
           mockApi.verify();
         });
       });
@@ -421,22 +434,41 @@ describe(__filename, () => {
           })
           .then(() => {
             mockApi.verify();
-            sinon.assert.calledWith(dispatch, setReview(fakeReview));
+            sinon.assert.calledWith(
+              dispatch,
+              setLatestReview({
+                userId,
+                addonId,
+                versionId,
+                review: fakeReview,
+              }),
+            );
           });
       });
 
-      it('does nothing when there are not any matching reviews', () => {
+      it('sets the latest review to null when none exists', () => {
+        const userId = 123;
         const addonId = 8765;
+        const versionId = 5421;
         mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
         return actions
           .loadSavedReview({
             apiState: initialApiState,
-            userId: 123,
+            userId,
             addonId,
+            versionId,
           })
           .then(() => {
-            sinon.assert.notCalled(dispatch);
+            sinon.assert.calledWith(
+              dispatch,
+              setLatestReview({
+                addonId,
+                userId,
+                versionId,
+                review: null,
+              }),
+            );
           });
       });
     });
@@ -491,72 +523,44 @@ describe(__filename, () => {
       expect(getMappedProps().userReview).toBe(undefined);
     });
 
-    it('sets a user review to the latest matching one in state', () => {
-      signIn({ userId: fakeReview.user.id });
+    it('sets a userReview', () => {
+      const userId = 91234;
+      const addon = createInternalAddon(fakeAddon);
+      const version = fakeAddon.current_version;
 
-      const action = setReview({ ...fakeReview, is_latest: true });
-      store.dispatch(action);
-      const dispatchedReview = action.payload;
-
-      const { userReview } = getMappedProps();
-      expect(userReview).toEqual(dispatchedReview);
-    });
-
-    it('ignores reviews from other users', () => {
-      const userIdOne = 1;
-      const userIdTwo = 2;
-      const savedRating = 5;
-
-      signIn({ userId: userIdOne });
-
-      // Save a review for user two.
+      signIn({ userId });
       store.dispatch(
-        setReview({
-          ...fakeReview,
-          is_latest: true,
-          user: {
-            ...fakeReview.user,
-            id: userIdTwo,
-          },
-          rating: savedRating,
+        setLatestReview({
+          addonId: addon.id,
+          userId,
+          versionId: version.id,
+          review: fakeReview,
         }),
       );
 
-      expect(getMappedProps().userReview).toBe(undefined);
+      expect(
+        getMappedProps({ componentProps: { addon, version } }).userReview,
+      ).toEqual(denormalizeReview(fakeReview));
     });
 
-    it('ignores reviews for another add-on', () => {
-      signIn({ userId: fakeReview.user.id });
+    it('sets a null userReview', () => {
+      const userId = 91234;
+      const addon = createInternalAddon(fakeAddon);
+      const version = fakeAddon.current_version;
 
+      signIn({ userId });
       store.dispatch(
-        setReview(fakeReview, {
-          isLatest: true,
-          addonId: 554433, // this is a review for an unrelated add-on
+        setLatestReview({
+          addonId: addon.id,
+          userId,
+          versionId: version.id,
+          review: null,
         }),
       );
 
-      expect(getMappedProps().userReview).toBe(undefined);
-    });
-
-    it('only finds the latest review for an add-on', () => {
-      signIn({ userId: fakeReview.user.id });
-
-      function createReview(overrides) {
-        const action = setReview({ ...fakeReview, ...overrides });
-        store.dispatch(action);
-        return action.payload;
-      }
-
-      createReview({
-        id: 1,
-        is_latest: false,
-      });
-      const latestReview = createReview({
-        id: 2,
-        is_latest: true,
-      });
-
-      expect(getMappedProps().userReview).toEqual(latestReview);
+      expect(
+        getMappedProps({ componentProps: { addon, version } }).userReview,
+      ).toEqual(null);
     });
   });
 });

@@ -262,13 +262,14 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
         ownProps.version.id
       } by user:${userId}`,
     );
-    // TODO: use selector
+    // TODO: use selector for all of this.
     const key = `user${userId}-addon${ownProps.addon.id}-version${
       ownProps.version.id
     }`;
     const userReviewId = state.reviews.latest[key];
-    if (userReviewId) {
-      // TODO: use a selector.
+    if (userReviewId === null) {
+      userReview = userReviewId;
+    } else if (userReviewId) {
       userReview = state.reviews.byId[userReviewId];
     }
   }
@@ -307,6 +308,7 @@ export const mapDispatchToProps = (
       // version was deleted. In that case, we fall back to the submitted
       // versionId which came from the page data. It is highly unlikely
       // that both of these will be empty.
+      // TODO: add tests
       const versionId =
         (review.version && review.version.id) || params.versionId;
       invariant(versionId, 'versionId cannot be empty');
