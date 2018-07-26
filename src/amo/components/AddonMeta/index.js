@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -50,13 +51,37 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     let reviewTitle;
     if (!addon) {
       reviewCount = null;
-      reviewTitle = i18n.gettext('Ratings');
+      reviewTitle = i18n.gettext('Reviews');
     } else if (addonReviewCount) {
       reviewCount = i18n.formatNumber(addonReviewCount);
       reviewTitle = i18n.ngettext('Review', 'Reviews', addonReviewCount);
     } else {
       reviewTitle = i18n.gettext('No Reviews');
     }
+
+    const reviewsContent =
+      addon && reviewCount ? (
+        <Link
+          className="AddonMeta-reviews-content-link"
+          to={`/addon/${addon.slug}/reviews/`}
+        >
+          {reviewCount}
+        </Link>
+      ) : (
+        reviewCount
+      );
+
+    const reviewsTitle =
+      addon && reviewCount ? (
+        <Link
+          className="AddonMeta-reviews-title-link"
+          to={`/addon/${addon.slug}/reviews/`}
+        >
+          {reviewTitle}
+        </Link>
+      ) : (
+        reviewTitle
+      );
 
     return (
       <div className="AddonMeta">
@@ -69,8 +94,8 @@ export class AddonMetaBase extends React.Component<InternalProps> {
               title: userTitle,
             },
             {
-              content: reviewCount,
-              title: reviewTitle,
+              content: reviewsContent,
+              title: reviewsTitle,
             },
             {
               content: (

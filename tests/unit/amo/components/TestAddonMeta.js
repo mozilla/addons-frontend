@@ -98,24 +98,66 @@ describe(__filename, () => {
     }
 
     it('renders a count of multiple reviews', () => {
-      const root = renderRatings({ count: 10, text_count: 5 });
+      const slug = 'some-slug';
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          ratings: { count: 10, text_count: 5 },
+          slug,
+        }),
+      });
 
-      expect(getReviewCount(root).content).toEqual('5');
-      expect(getReviewCount(root).title).toEqual('Reviews');
+      expect(
+        getReviewCount(root).find('.AddonMeta-reviews-content-link'),
+      ).toHaveProp('to', `/addon/${slug}/reviews/`);
+      expect(
+        getReviewCount(root)
+          .find('.AddonMeta-reviews-content-link')
+          .children(),
+      ).toHaveText('5');
+      expect(
+        getReviewCount(root).find('.AddonMeta-reviews-title-link'),
+      ).toHaveProp('to', `/addon/${slug}/reviews/`);
+      expect(
+        getReviewCount(root)
+          .find('.AddonMeta-reviews-title-link')
+          .children(),
+      ).toHaveText('Reviews');
     });
 
     it('renders a count of one review', () => {
       const root = renderRatings({ text_count: 1 });
 
-      expect(getReviewCount(root).content).toEqual('1');
-      expect(getReviewCount(root).title).toEqual('Review');
+      expect(
+        getReviewCount(root)
+          .find('.AddonMeta-reviews-content-link')
+          .children(),
+      ).toHaveText('1');
+      expect(
+        getReviewCount(root)
+          .find('.AddonMeta-reviews-title-link')
+          .children(),
+      ).toHaveText('Review');
     });
 
     it('localizes review count', () => {
       const i18n = fakeI18n({ lang: 'de' });
       const root = renderRatings({ text_count: 1000 }, { i18n });
 
-      expect(getReviewCount(root).content).toEqual('1.000');
+      expect(
+        getReviewCount(root)
+          .find('.AddonMeta-reviews-content-link')
+          .children(),
+      ).toHaveText('1.000');
+    });
+
+    it('handles no addon', () => {
+      const root = render({ addon: null });
+
+      expect(root.find(MetadataCard).prop('metadata')[1].content).toEqual(null);
+      expect(root.find(MetadataCard).prop('metadata')[1].title).toEqual(
+        'Reviews',
+      );
     });
 
     it('handles zero reviews', () => {
@@ -123,6 +165,7 @@ describe(__filename, () => {
         addon: createInternalAddon({ ...fakeAddon, ratings: null }),
       });
 
+      expect(getReviewCount(root).content).toEqual('');
       expect(getReviewCount(root).title).toEqual('No Reviews');
 
       const averageMeta = getAverageMeta(root);

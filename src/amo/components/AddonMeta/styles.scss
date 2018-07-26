@@ -42,3 +42,24 @@
   display: flex;
   justify-content: center;
 }
+
+.AddonMeta .MetadataCard-content,
+.AddonMeta .MetadataCard-title {
+  a,
+  a:link,
+  a:visited {
+    color: $grey-50;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  a:active,
+  a:hover {
+    color: $link-color;
+  }
+
+  a:focus {
+    outline: 1px dotted $link-color;
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+}
