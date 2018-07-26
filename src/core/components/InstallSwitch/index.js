@@ -10,6 +10,7 @@ import {
   ENABLING,
   INSTALLING,
   INSTALLED,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
@@ -20,6 +21,21 @@ import {
 import log from 'core/logger';
 import { getThemeData } from 'core/themeInstall';
 import Switch from 'ui/components/Switch';
+
+export const installAddon = async (event, props) => {
+  event.preventDefault();
+
+  const { enable, install, status, type } = props;
+
+  await install();
+
+  // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+  // on why we are explicitly calling the enable function
+  // after install
+  if (type === ADDON_TYPE_STATIC_THEME && status !== ENABLED) {
+    enable();
+  }
+};
 
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
@@ -53,12 +69,14 @@ export class InstallSwitchBase extends React.Component {
     uninstall: PropTypes.func.isRequired,
     updateURL: PropTypes.string,
     version: PropTypes.string,
+    _installAddon: PropTypes.func,
   };
 
   static defaultProps = {
     disabled: false,
     status: UNKNOWN,
     downloadProgress: 0,
+    _installAddon: installAddon,
   };
 
   getLabel() {
@@ -105,7 +123,7 @@ export class InstallSwitchBase extends React.Component {
     return undefined;
   }
 
-  handleClick = (e) => {
+  handleClick = async (e) => {
     e.preventDefault();
     const {
       addon,
@@ -131,7 +149,7 @@ export class InstallSwitchBase extends React.Component {
     if (type === ADDON_TYPE_THEME && [UNINSTALLED, DISABLED].includes(status)) {
       installTheme(this.themeData, { ...addon, status });
     } else if (status === UNINSTALLED) {
-      install();
+      this.props._installAddon(e, { enable, install, status, type });
     } else if (status === DISABLED) {
       enable();
     } else if ([INSTALLED, ENABLED].includes(status)) {

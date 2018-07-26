@@ -7,6 +7,7 @@ import { setInstallState } from 'core/actions/installations';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   CLIENT_APP_FIREFOX,
@@ -387,18 +388,30 @@ describe(__filename, () => {
 
   describe('<Addon type="theme"/>', () => {
     let root;
+    const newAddonName = 'Light Summer Colors';
 
     beforeEach(() => {
-      const data = { ...result, type: ADDON_TYPE_THEME };
+      const data = { ...result, type: ADDON_TYPE_THEME, name: newAddonName };
       root = renderAddon({ addon: data, ...data });
     });
 
-    it('does render the theme image for a theme', () => {
+    it('does render the theme image for a lightweight theme', () => {
       expect(root.find('.theme-image')).toHaveLength(1);
     });
 
-    it("doesn't render the logo for a theme", () => {
+    it("renders the alt tag with addon's name", () => {
+      expect(root.find('.Addon-theme-header-image')).toHaveProp(
+        'alt',
+        `Preview of ${newAddonName}`,
+      );
+    });
+
+    it("doesn't render the logo for a lightweight theme", () => {
       expect(root.find('.logo')).toHaveLength(0);
+    });
+
+    it("doesn't render the description for a lightweight theme", () => {
+      expect(root.find('.editorial-description')).toHaveLength(0);
     });
 
     it('calls installTheme on click', () => {
@@ -406,6 +419,7 @@ describe(__filename, () => {
       const addon = result;
       const shallowRoot = renderAddon({
         addon,
+        previews: [],
         clientApp: signedInApiState.clientApp,
         installTheme,
         status: UNINSTALLED,
@@ -424,6 +438,57 @@ describe(__filename, () => {
         ...addon,
         status: UNINSTALLED,
       });
+    });
+  });
+
+  describe('<Addon type="statictheme"/>', () => {
+    let root;
+    const newAddonName = 'Summer Colors';
+
+    beforeEach(() => {
+      const data = {
+        ...result,
+        type: ADDON_TYPE_STATIC_THEME,
+        name: newAddonName,
+      };
+      root = renderAddon({ addon: data, ...data });
+    });
+
+    it('does render the theme image for a static theme', () => {
+      expect(root.find('.theme-image')).toHaveLength(1);
+    });
+
+    it("renders the alt tag with addon's name", () => {
+      expect(root.find('.Addon-theme-header-image')).toHaveProp(
+        'alt',
+        `Preview of ${newAddonName}`,
+      );
+    });
+
+    it("doesn't render the logo for a static theme", () => {
+      expect(root.find('.logo')).toHaveLength(0);
+    });
+
+    it("doesn't render the description for a static theme", () => {
+      expect(root.find('.editorial-description')).toHaveLength(0);
+    });
+
+    it("calls _installStaticTheme when clicking on the static theme's header image", () => {
+      const clickEvent = createFakeEvent();
+      const _installStaticTheme = sinon.spy();
+
+      const shallowRoot = renderAddon({
+        addon: result,
+        clientApp: signedInApiState.clientApp,
+        status: UNINSTALLED,
+        type: ADDON_TYPE_STATIC_THEME,
+        userAgentInfo: signedInApiState.userAgentInfo,
+        _installStaticTheme,
+      });
+      const themeImage = shallowRoot.find('.theme-image');
+
+      themeImage.simulate('click', clickEvent);
+      sinon.assert.called(_installStaticTheme);
     });
   });
 

@@ -14,12 +14,15 @@ import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES,
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
+  ENABLED,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
+  INSTALLED,
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
   UNINSTALLING,
@@ -38,6 +41,22 @@ import './styles.scss';
 
 const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
+export const installStaticTheme = async (event, props) => {
+  event.preventDefault();
+
+  const { status } = props;
+
+  if (status !== INSTALLED) {
+    await props.install();
+    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+    // on why we are explicitly calling the enable function
+    // after install
+    if (status !== ENABLED) {
+      props.enable();
+    }
+  }
+};
+
 export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
@@ -52,16 +71,18 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    platformFiles: PropTypes.object,
     // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
+    platformFiles: PropTypes.object,
+    previews: PropTypes.Array,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     userAgentInfo: PropTypes.object.isRequired,
+    _installStaticTheme: PropTypes.func,
     _tracking: PropTypes.object,
   };
 
@@ -69,6 +90,7 @@ export class AddonBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
     platformFiles: {},
     needsRestart: false,
+    _installStaticTheme: installStaticTheme,
     _tracking: tracking,
   };
 
@@ -121,31 +143,62 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
-    if (this.props.type === ADDON_TYPE_THEME) {
+    const { type } = this.props;
+
+    if (ADDON_TYPE_THEMES.includes(type)) {
+      const {
+        getBrowserThemeData,
+        i18n,
+        name,
+        previewURL,
+        previews,
+      } = this.props;
+
+      let imageUrl =
+        previews && previews.length > 0 && previews[0].image_url
+          ? previews[0].image_url
+          : null;
+
+      if (!imageUrl && type === ADDON_TYPE_THEME) {
+        imageUrl = previewURL;
+      }
+
+      const headerImage = (
+        <img
+          alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
+          className="Addon-theme-header-image"
+          src={imageUrl}
+        />
+      );
+
       /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return (
+      return type === ADDON_TYPE_THEME ? (
         <a
-          href="#"
           className="theme-image"
           data-browsertheme={getBrowserThemeData()}
+          href="#"
           onClick={this.installTheme}
         >
-          <img
-            src={previewURL}
-            alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
-          />
+          {headerImage}
+        </a>
+      ) : (
+        <a
+          className="theme-image"
+          href="#"
+          onClick={(e) => this.props._installStaticTheme(e, this.props)}
+        >
+          {headerImage}
         </a>
       );
-      /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
+
     return null;
   }
 
   getDescription() {
     const { description, type } = this.props;
 
-    if (type === ADDON_TYPE_THEME) {
+    if (ADDON_TYPE_THEMES.includes(type)) {
       return null;
     }
 
@@ -233,7 +286,7 @@ export class AddonBase extends React.Component {
     }
 
     const addonClasses = makeClassName('addon', {
-      theme: type === ADDON_TYPE_THEME,
+      theme: ADDON_TYPE_THEMES.includes(type),
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
