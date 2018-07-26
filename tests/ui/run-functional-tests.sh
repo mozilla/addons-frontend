@@ -20,4 +20,6 @@ docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.fu
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml restart worker
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml exec web make -f Makefile-docker update_deps
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml restart web
-docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml exec --user root selenium-firefox tox -e ui-tests
+# This is done because cirlceci has permissions to not allow the user `circleci` to remove or add files created by the root, even if it is part of the root group.
+sudo chown -R circleci:circleci .
+docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml exec --user cirlceci selenium-firefox tox -e ui-tests
