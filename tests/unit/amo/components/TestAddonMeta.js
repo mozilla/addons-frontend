@@ -1,12 +1,16 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import AddonMeta, { AddonMetaBase } from 'amo/components/AddonMeta';
+import AddonMeta, {
+  AddonMetaBase,
+  roundToOneDigit,
+} from 'amo/components/AddonMeta';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
+import Rating from 'ui/components/Rating';
 
 describe(__filename, () => {
   function render({
@@ -136,10 +140,33 @@ describe(__filename, () => {
       const root = renderRatings({ average });
 
       const averageMeta = root.find(MetadataCard).prop('metadata')[2];
-      expect(shallow(averageMeta.content)).toHaveProp('rating', average);
-      expect(averageMeta.title).toEqual(
-        `${parseFloat(average).toFixed(1)} star rating`,
-      );
+      const rating = shallow(averageMeta.content).find(Rating);
+      const title = shallow(averageMeta.title).find('.AddonMeta-rating-title');
+
+      expect(rating).toHaveProp('rating', average);
+      expect(title).toHaveText(`${roundToOneDigit(average)} star average`);
+    });
+  });
+
+  describe('roundToOneDigit', () => {
+    it('returns a 0 for a null', () => {
+      expect(roundToOneDigit(null)).toEqual(0);
+    });
+
+    it('returns a 0 for a 0', () => {
+      expect(roundToOneDigit(0)).toEqual(0);
+    });
+
+    it('rounds a float down to one digit', () => {
+      expect(roundToOneDigit(2.34)).toEqual(2.3);
+    });
+
+    it('rounds a float up to one digit', () => {
+      expect(roundToOneDigit(2.36)).toEqual(2.4);
+    });
+
+    it('returns an integer with no decimal point', () => {
+      expect(roundToOneDigit(2)).toEqual(2);
     });
   });
 });
