@@ -336,33 +336,40 @@ describe(__filename, () => {
     });
   });
 
-  describe('See more add-ons link', () => {
-    it('shows a "more add-ons" link with UTM params', () => {
-      const root = render();
-      const button = root.find('.amo-link').find(Button);
+  describe('Find more add-ons links', () => {
+    it.each(['bottom', 'top'])(
+      'shows a "find more add-ons" link with UTM params on the %s of the page',
+      (position) => {
+        const root = render();
+        const button = root.find(`.amo-link-${position}`).find(Button);
 
-      expect(button).toHaveLength(1);
-      expect(button).toHaveProp(
-        'href',
-        `https://addons.mozilla.org/${makeQueryStringWithUTM({
-          utm_content: 'see-more-link',
-          src: 'api',
-        })}`,
-      );
-    });
+        expect(button).toHaveLength(1);
+        expect(button).toHaveProp(
+          'href',
+          `https://addons.mozilla.org/${makeQueryStringWithUTM({
+            utm_content: `find-more-link-${position}`,
+            src: 'api',
+          })}`,
+        );
+      },
+    );
 
-    it('tracks see more addons link being clicked', () => {
-      const root = render();
+    it.each(['bottom', 'top'])(
+      'tracks the %s "find more add-ons" link being clicked',
+      (position) => {
+        const root = render();
 
-      root
-        .find('.amo-link')
-        .find(Button)
-        .simulate('click');
-      sinon.assert.calledWith(fakeTracking.sendEvent, {
-        category: NAVIGATION_CATEGORY,
-        action: 'click',
-        label: 'See More Add-ons',
-      });
-    });
+        root
+          .find(`.amo-link-${position}`)
+          .find(Button)
+          .simulate('click');
+
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          category: NAVIGATION_CATEGORY,
+          action: 'click',
+          label: 'Find More Add-ons',
+        });
+      },
+    );
   });
 });
