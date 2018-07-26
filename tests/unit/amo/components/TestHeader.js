@@ -90,7 +90,7 @@ describe(__filename, () => {
     expect(wrapper.find(DropdownMenu)).toHaveProp('text', 'babar');
   });
 
-  it('displays link to my colections when user is signed in', () => {
+  it('displays link to my collections when user is signed in', () => {
     const { store } = dispatchSignInActions();
     const wrapper = renderHeader({ store });
     const link = wrapper.find('.Header-user-menu-collections-link');
