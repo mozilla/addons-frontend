@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-26 06:30+0000\n"
+"PO-Revision-Date: 2018-07-26 06:46+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -724,9 +724,8 @@ msgid "Download Firefox"
 msgstr "Download Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "Juridyske betingsten"
+msgstr "In berjocht efterlitte"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
 msgid "Remove"
@@ -1166,16 +1165,15 @@ msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Kies de website dy't automatysk yn in nij ljepblêd toand wurdt"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
-msgstr ""
+msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
-#, fuzzy
 msgid "Get instant global weather information right in Firefox"
-msgstr "Generearje 2-stapsferifikaasjekoaden daliks yn Firefox"
+msgstr "Krij streekrjocht yn Firefox globale waarynformaasje"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
@@ -1207,7 +1205,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Hawwe jo in hiele protte iepen ljepblêden? Organisearje se yn in praktyske sidebalke"
 
 #: src/amo/components/LandingPage/index.js:226
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2000,7 +1998,6 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Jo kinne jo e-mailadres wizigje by Firefox Accounts. %(startLink)sHelp nedich?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:544
-#, fuzzy
 msgid "Manage Firefox Accounts…"
 msgstr "Firefox-accounts beheare…"
 
@@ -2053,44 +2050,36 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla behâldt harren it rjocht foar om yndividueel kontakt mei jo op te nimmen oer spesifike oangelegenheden mei jo add-ons dy't host wurde."
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Account wurdt fernijd…"
+msgstr "Profyl wurdt fernijd…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
 msgid "Update My Profile"
 msgstr "Myn profyl bywurkje"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Myn profyl bywurkje"
+msgstr "Profyl bywurkje…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Update Profile"
-msgstr "Myn profyl bywurkje"
+msgstr "Profyl bywurkje"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:834
-#, fuzzy
 msgid "Delete My Profile"
 msgstr "Myn profyl fuortsmite"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Myn profyl fuortsmite"
+msgstr "Profyl fuortsmite"
 
 #: src/amo/components/UserProfileEdit/index.js:758
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "WICHTICH: It fuortsmiten fan jo account kin net ûngedien makke wurde."
+msgstr "WICHTICH: It fuortsmiten fan jo Firefox-add-ons-profyl kin net ûngedien makke wurde."
 
 #: src/amo/components/UserProfileEdit/index.js:761
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "WICHTICH: It fuortsmiten fan dit account kin net ûngedien makke wurde."
+msgstr "WICHTICH: It fuortsmiten fan dit Firefox-add-ons-profyl kin net ûngedien makke wurde."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2110,7 +2099,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "Wannear't jo dit e-mailadres opnij foar oanmelding op addons.mozilla.org brûke, wurdt in nij Firefox-Add-ons-profyl oanmakke, dat net mei it fuortsmiten profyl assosjearre wurdt."
 
 #: src/amo/components/UserProfileEdit/index.js:800
 #, fuzzy
