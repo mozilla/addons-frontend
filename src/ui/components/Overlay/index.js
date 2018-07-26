@@ -1,35 +1,47 @@
+/* @flow */
 import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import withUIState from 'core/withUIState';
 
 import './styles.scss';
 
-const initialUIState = { visible: false };
-
-// TODO: I don't see this working on the frontend
+// TODO: look into this as I don't see this working on the frontend
 // even in other envs.
-export const onClickBackground = (event, _this) => {
+export const onClickBackground = (
+  event: SyntheticEvent<HTMLButtonElement>,
+  _this: OverlayBase,
+) => {
   if (_this.props.onEscapeOverlay) {
     _this.props.onEscapeOverlay();
   }
   _this.hide();
 };
 
-export class OverlayBase extends React.Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    visibleOnLoad: PropTypes.bool,
-    uiState: PropTypes.object,
-    setUIState: PropTypes.func,
-    _onClickBackground: PropTypes.func,
-  };
+type Props = {|
+  className?: string,
+  children: React.Element<any> | string,
+  id: string,
+  onEscapeOverlay: Function,
+  visibleOnLoad?: boolean,
+  _onClickBackground: Function,
+|};
 
+type UIStateType = {|
+  visible: boolean,
+|};
+
+const initialUIState: UIStateType = { visible: false };
+
+type InternalProps = {|
+  ...Props,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
+|};
+
+export class OverlayBase extends React.Component<InternalProps> {
   static defaultProps = {
     visibleOnLoad: false,
     uiState: initialUIState,
@@ -37,7 +49,7 @@ export class OverlayBase extends React.Component {
     _onClickBackground: onClickBackground,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: InternalProps) {
     const { uiState: uiStateOld } = this.props;
 
     if (
@@ -76,20 +88,13 @@ export class OverlayBase extends React.Component {
           onClick={(e) => this.props._onClickBackground(e, this)}
           role="presentation"
         />
-        <div
-          className="Overlay-contents"
-          ref={(ref) => {
-            this.overlayContents = ref;
-          }}
-        >
-          {children}
-        </div>
+        <div className="Overlay-contents">{children}</div>
       </div>
     );
   }
 }
 
-export const extractId = (ownProps) => {
+export const extractId = (ownProps: InternalProps) => {
   return ownProps.id;
 };
 
