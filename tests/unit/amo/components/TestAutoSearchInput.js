@@ -25,7 +25,7 @@ import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
   simulateComponentCallback,
 } from 'tests/unit/helpers';
@@ -41,7 +41,7 @@ describe(__filename, () => {
       debounce: (callback) => (...args) => callback(...args),
       i18n: fakeI18n(),
       inputName: 'query',
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       onSearch: sinon.stub(),
       onSuggestionSelected: sinon.stub(),
       selectSuggestionText: 'Go to the extension detail page',
@@ -256,7 +256,7 @@ describe(__filename, () => {
       const dispatchSpy = sinon.stub(store, 'dispatch');
       const root = render({
         store,
-        location: fakeRouterLocation({ query: { page: 3 } }),
+        location: createFakeLocation({ query: { page: 3 } }),
       });
 
       fetchSuggestions({ root, query: 'ad blocker' });
@@ -279,7 +279,7 @@ describe(__filename, () => {
       const locationQuery = { type: ADDON_TYPE_EXTENSION };
       const root = render({
         store,
-        location: fakeRouterLocation({ query: locationQuery }),
+        location: createFakeLocation({ query: locationQuery }),
       });
 
       const query = 'ad blocker';
@@ -328,7 +328,7 @@ describe(__filename, () => {
       const locationQuery = { platform: OS_LINUX };
       const root = render({
         store,
-        location: fakeRouterLocation({ query: locationQuery }),
+        location: createFakeLocation({ query: locationQuery }),
       });
 
       const query = 'ad blocker';

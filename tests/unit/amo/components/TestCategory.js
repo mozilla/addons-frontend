@@ -23,7 +23,7 @@ import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -98,7 +98,7 @@ describe(__filename, () => {
     return {
       errorHandler,
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       params: {
         slug: fakeCategory.slug,
         visibleAddonType: visibleAddonType(fakeCategory.type),

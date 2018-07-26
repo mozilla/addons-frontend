@@ -497,7 +497,7 @@ export const urlWithTheseParams = (params) => {
  *
  * See ReactRouterLocation in 'core/types/router';
  */
-export const fakeRouterLocation = (props = {}) => {
+export const createFakeLocation = (props = {}) => {
   return {
     action: 'PUSH',
     hash: '',
@@ -515,7 +515,7 @@ export const fakeRouterLocation = (props = {}) => {
  * See ReactRouterType in 'core/types/router';
  */
 export const createFakeRouter = ({
-  location = fakeRouterLocation(),
+  location = createFakeLocation(),
   params = {},
 } = {}) => {
   return {

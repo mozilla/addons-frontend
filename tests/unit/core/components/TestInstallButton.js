@@ -31,7 +31,7 @@ import {
   createFakeEvent,
   createFakeMozWindow,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -55,7 +55,7 @@ describe(__filename, () => {
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: fakeI18n(),
-    location: fakeRouterLocation(),
+    location: createFakeLocation(),
     store: createStore().store,
     userAgentInfo: sampleUserAgentParsed,
     ...customProps,
@@ -218,7 +218,7 @@ describe(__filename, () => {
         }),
       ),
       defaultInstallSource: 'this-should-be-overidden',
-      location: fakeRouterLocation({ query: { src: externalSource } }),
+      location: createFakeLocation({ query: { src: externalSource } }),
     });
 
     const button = root.childAt(1);

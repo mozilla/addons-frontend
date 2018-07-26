@@ -37,7 +37,7 @@ import {
   createStubErrorHandler,
   createUserAccountResponse,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -62,7 +62,7 @@ describe(__filename, () => {
 
   function renderUserProfile({
     i18n = fakeI18n(),
-    location = fakeRouterLocation(),
+    location = createFakeLocation(),
     params = { username: 'tofumatt' },
     store = dispatchSignInActions({
       userProps: defaultUserProps(),
@@ -721,7 +721,7 @@ describe(__filename, () => {
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
-    const location = fakeRouterLocation({ query: { page: 1 } });
+    const location = createFakeLocation({ query: { page: 1 } });
 
     const root = renderUserProfile({
       errorHandler,
@@ -735,7 +735,7 @@ describe(__filename, () => {
     const newPage = 2;
 
     root.setProps({
-      location: fakeRouterLocation({ query: { page: newPage } }),
+      location: createFakeLocation({ query: { page: newPage } }),
       params,
     });
 
@@ -758,7 +758,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
 
     const page = 123;
-    const location = fakeRouterLocation({ query: { page } });
+    const location = createFakeLocation({ query: { page } });
 
     renderUserProfile({ errorHandler, location, params, store });
 
@@ -793,7 +793,7 @@ describe(__filename, () => {
     const reviews = [fakeReview];
     _setUserReviews({ store, userId: user.id, reviews });
 
-    const location = fakeRouterLocation({ query: { foo: 'bar' } });
+    const location = createFakeLocation({ query: { foo: 'bar' } });
 
     const root = renderUserProfile({ location, params, store });
 
@@ -833,7 +833,7 @@ describe(__filename, () => {
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
 
-    const location = fakeRouterLocation({ query: { foo: 'bar' } });
+    const location = createFakeLocation({ query: { foo: 'bar' } });
 
     const root = renderUserProfile({ location, params, store });
 
@@ -888,7 +888,7 @@ describe(__filename, () => {
     store.dispatch(loadUserAccount({ user }));
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const location = fakeRouterLocation({ query: { page: 1 } });
+    const location = createFakeLocation({ query: { page: 1 } });
 
     // See this other user profile page.
     const params = { username: user.username };
@@ -899,7 +899,7 @@ describe(__filename, () => {
     const newPage = 2;
 
     root.setProps({
-      location: fakeRouterLocation({ query: { page: newPage } }),
+      location: createFakeLocation({ query: { page: newPage } }),
       params,
     });
 

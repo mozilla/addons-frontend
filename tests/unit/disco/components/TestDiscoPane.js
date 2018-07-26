@@ -24,7 +24,7 @@ import { makeQueryStringWithUTM } from 'disco/utils';
 import {
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   MockedSubComponent,
 } from 'tests/unit/helpers';
 import {
@@ -69,7 +69,7 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       dispatch: sinon.stub(),
       i18n,
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       params: { platform: 'Darwin' },
       results,
       _tracking: fakeTracking,
@@ -203,7 +203,7 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry client ID if there is one', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: {
           clientId: 'telemetry-client-id',
         },
@@ -228,7 +228,7 @@ describe(__filename, () => {
     });
 
     it('dispatches all query params', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: {
           branch: 'foo',
           clientId: 'telemetry-client-id',
@@ -257,7 +257,7 @@ describe(__filename, () => {
     });
 
     it('does not allow platform to be overriden', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: {
           platform: 'bar',
         },
