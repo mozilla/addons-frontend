@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-26 06:50+0000\n"
+"PO-Revision-Date: 2018-07-26 06:54+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -908,6 +908,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"في حال %(startNotedLink)sورد غير ذلك%(endNotedLink)s، فالمحتوى في هذا الموقع مرخّص %(startLicenseLink)sبرخصة المشاع الإبداعي نَسب المُصنَّف والترخيص بالمثل، الإصدارة الثالثة%(endLicenseLink)sأو أية "
+"إصدارة بعدها."
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
@@ -975,7 +977,7 @@ msgstr "أرسِل سمة جديدة"
 
 #: src/amo/components/Header/index.js:155
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "أدِر ما أرسلت"
 
 #: src/amo/components/Header/index.js:165
 msgid "Reviewer Tools"
@@ -1035,7 +1037,7 @@ msgstr "الموسيقى"
 
 #: src/amo/components/Home/index.js:194
 msgid "Seasonal"
-msgstr ""
+msgstr "موسميّات"
 
 #: src/amo/components/Home/index.js:225
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
