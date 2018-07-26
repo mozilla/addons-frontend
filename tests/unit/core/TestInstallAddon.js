@@ -45,7 +45,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   createFakeTracking,
-  fakeRouterLocation,
+  createFakeLocation,
   getFakeAddonManagerWrapper,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -95,7 +95,7 @@ const defaultProps = (overrides = {}) => {
     _addonManager: getFakeAddonManagerWrapper(),
     dispatch: store.dispatch,
     store,
-    location: fakeRouterLocation(),
+    location: createFakeLocation(),
     userAgentInfo: sampleUserAgentParsed,
     ...overrides,
   };
@@ -262,7 +262,7 @@ describe(__filename, () => {
   describe('findInstallURL', () => {
     const _findInstallURL = ({
       addonFiles = [],
-      location = fakeRouterLocation(),
+      location = createFakeLocation(),
       userAgent = userAgentsByPlatform.windows.firefox40,
       ...params
     } = {}) => {
@@ -533,7 +533,7 @@ describe(__filename, () => {
       expect(
         _findInstallURL({
           addonFiles: [{ platform: OS_ALL, url: baseURL }],
-          location: fakeRouterLocation({ query: { src: externalSource } }),
+          location: createFakeLocation({ query: { src: externalSource } }),
           defaultInstallSource: 'default-source',
         }),
       ).toEqual(`${baseURL}?src=${externalSource}`);

@@ -30,7 +30,7 @@ import { loadErrorPage } from 'core/reducers/errorPage';
 import {
   fakeCookie,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -69,7 +69,7 @@ describe(__filename, () => {
     return {
       i18n: fakeI18n(),
       logOutUser: sinon.stub(),
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       isAuthenticated: true,
       store: createStore().store,
       ...customProps,
@@ -194,7 +194,7 @@ describe(__filename, () => {
       ErrorPage: DefaultErrorPage,
       clientApp: 'android',
       lang: 'en-GB',
-      location: fakeRouterLocation({ pathname: '/en-GB/android/' }),
+      location: createFakeLocation({ pathname: '/en-GB/android/' }),
       store,
     });
     const rootNode = findDOMNode(root);

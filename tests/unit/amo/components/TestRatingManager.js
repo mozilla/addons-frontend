@@ -36,7 +36,7 @@ import {
   createStubErrorHandler,
   createUserAccountResponse,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   userAuthToken,
 } from 'tests/unit/helpers';
 
@@ -55,7 +55,7 @@ describe(__filename, () => {
       addon: createInternalAddon(fakeAddon),
       apiState: signedInApiState,
       errorHandler: createStubErrorHandler(),
-      location: fakeRouterLocation({ pathname: '/some/location/' }),
+      location: createFakeLocation({ pathname: '/some/location/' }),
       version: fakeAddon.current_version,
       userId: 91234,
       submitReview: () => Promise.resolve(),
@@ -306,7 +306,7 @@ describe(__filename, () => {
 
     it('renders an AuthenticateButton', () => {
       const AuthenticateButton = sinon.spy(() => <div />);
-      const location = fakeRouterLocation();
+      const location = createFakeLocation();
       renderWithoutUser({ AuthenticateButton, location });
 
       sinon.assert.called(AuthenticateButton);

@@ -72,7 +72,7 @@ import {
   createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -96,7 +96,7 @@ function renderProps({
     errorHandler: createStubErrorHandler(),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     i18n,
-    location: fakeRouterLocation(),
+    location: createFakeLocation(),
     params: params || { slug: addon ? addon.slug : fakeAddon.slug },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
@@ -827,7 +827,7 @@ describe(__filename, () => {
   });
 
   it('configures the overall ratings section', () => {
-    const location = fakeRouterLocation();
+    const location = createFakeLocation();
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon, location }).find(RatingManagerWithI18n);
     expect(root.prop('addon')).toEqual(addon);

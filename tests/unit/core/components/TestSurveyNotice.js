@@ -17,7 +17,7 @@ import {
   createFakeTracking,
   fakeCookie,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -33,7 +33,7 @@ describe(__filename, () => {
         enableExperienceSurvey: true,
       }),
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       store,
       ...customProps,
     };
@@ -97,7 +97,7 @@ describe(__filename, () => {
   });
 
   it('links to a survey with location source', () => {
-    const location = fakeRouterLocation({ pathname: '/en-US/firefox/themes/' });
+    const location = createFakeLocation({ pathname: '/en-US/firefox/themes/' });
     const root = render({ location });
 
     const actionHref = getNoticeProp(root, 'actionHref');

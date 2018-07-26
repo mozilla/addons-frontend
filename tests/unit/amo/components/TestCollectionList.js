@@ -14,7 +14,7 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -27,7 +27,7 @@ import UserCollection from 'ui/components/UserCollection';
 describe(__filename, () => {
   const getProps = () => ({
     i18n: fakeI18n(),
-    location: fakeRouterLocation(),
+    location: createFakeLocation(),
     store: dispatchClientMetadata().store,
   });
 
@@ -116,7 +116,7 @@ describe(__filename, () => {
 
     const button = root.find(AuthenticateButton);
     expect(button).toHaveLength(1);
-    expect(button).toHaveProp('location', fakeRouterLocation());
+    expect(button).toHaveProp('location', createFakeLocation());
     expect(button).toHaveProp('logInText', 'Log in to view your collections');
   });
 
