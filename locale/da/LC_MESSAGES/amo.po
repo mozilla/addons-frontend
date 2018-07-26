@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-26 09:27+0000\n"
+"PO-Revision-Date: 2018-07-26 13:30+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -649,7 +649,7 @@ msgstr "Annuller"
 
 #: src/amo/components/CollectionSort/index.js:109
 msgid "Sort add-ons by"
-msgstr "Sorter tilføjelser efter"
+msgstr "Sortér tilføjelser efter"
 
 #: src/amo/components/CollectionSort/index.js:81
 msgid "Newest first"
@@ -1149,7 +1149,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Authenticator"
-msgstr ""
+msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
@@ -1209,7 +1209,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Har du tonsvis af åbne faneblade? Sortér dem i et sidepanel"
 
 #: src/amo/components/LandingPage/index.js:226
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2102,7 +2102,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "Hvis du senere bruger denne mailadresse til at logge ind på addons.mozilla.org, vil du få oprettet en helt ny profil på webstedet. Den vil ikke indeholde oplysninger fra den gamle profil."
 
 #: src/amo/components/UserProfileEdit/index.js:800
 msgid ""
@@ -2122,7 +2122,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla skal kontakte mig om min tilføjelse"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
