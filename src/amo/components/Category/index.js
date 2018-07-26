@@ -79,7 +79,7 @@ export class CategoryBase extends React.Component {
       dispatch,
       errorHandler,
       loading,
-      match,
+      match: { params },
       resultsLoaded,
     } = {
       ...this.props,
@@ -90,8 +90,6 @@ export class CategoryBase extends React.Component {
       log.warn('Not loading data because of an error.');
       return;
     }
-
-    const { params } = match;
 
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
       log.warn(oneLine`Skipping componentWillMount() because visibleAddonType
@@ -138,8 +136,10 @@ export class CategoryBase extends React.Component {
   }
 
   contentForType = (addonType) => {
-    const { i18n, match } = this.props;
-    const { params } = match;
+    const {
+      i18n,
+      match: { params },
+    } = this.props;
 
     const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, {
       _config: this.props._config,
@@ -233,24 +233,22 @@ export class CategoryBase extends React.Component {
       featuredAddons,
       highlyRatedAddons,
       loading,
-      match,
+      match: { params },
       trendingAddons,
     } = this.props;
 
     let addonType;
     try {
-      addonType = apiAddonType(match.params.visibleAddonType);
+      addonType = apiAddonType(params.visibleAddonType);
     } catch (error) {
-      log.info(
-        `addonType ${match.params.visibleAddonType} threw an error: ${error}`,
-      );
+      log.info(`addonType ${params.visibleAddonType} threw an error: ${error}`);
       return <NotFound />;
     }
 
     let category;
     if (categories) {
       if (categories[clientApp] && categories[clientApp][addonType]) {
-        category = categories[clientApp][addonType][match.params.slug];
+        category = categories[clientApp][addonType][params.slug];
       }
 
       if (!errorHandler.hasError() && !category) {

@@ -84,7 +84,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       errorHandler,
       isOwner,
       location,
-      match,
+      match: { params },
       reviews,
       user,
     } = this.props;
@@ -98,7 +98,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
-          username: match.params.username,
+          username: params.username,
         }),
       );
     } else if (isOwner && !reviews) {
@@ -115,7 +115,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
   componentWillReceiveProps({
     isOwner,
     location: newLocation,
-    match: newMatch,
+    match: { params: newParams },
     reviews,
     user,
   }: InternalProps) {
@@ -123,14 +123,14 @@ export class UserProfileBase extends React.Component<InternalProps> {
       dispatch,
       errorHandler,
       location: oldLocation,
-      match: oldMatch,
+      match: { params: oldParams },
     } = this.props;
 
-    if (oldMatch.params.username !== newMatch.params.username) {
+    if (oldParams.username !== newParams.username) {
       dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
-          username: newMatch.params.username,
+          username: newParams.username,
         }),
       );
     } else if (
@@ -149,8 +149,10 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 
   getUsername() {
-    const { match, user } = this.props;
-    const { params } = match;
+    const {
+      match: { params },
+      user,
+    } = this.props;
 
     return user ? user.username : params.username;
   }
@@ -238,7 +240,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       errorHandler,
       i18n,
       isOwner,
-      match,
+      match: { params },
       user,
     } = this.props;
 
@@ -252,8 +254,6 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
       errorMessage = errorHandler.renderError();
     }
-
-    const { params } = match;
 
     const userProfileHeader = (
       <div className="UserProfile-header">

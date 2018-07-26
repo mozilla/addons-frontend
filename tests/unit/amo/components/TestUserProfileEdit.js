@@ -42,8 +42,6 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  let fakeHistory;
-
   const defaultUserProps = {
     _window: {},
     biography: 'Saved the world, too many times.',
@@ -72,10 +70,11 @@ describe(__filename, () => {
   }
 
   function renderUserProfileEdit({
+    history = createFakeHistory(),
     i18n = fakeI18n(),
     params = { username: 'tofumatt' },
-    userProps = { ...defaultUserProps },
     store = null,
+    userProps = { ...defaultUserProps },
     ...props
   } = {}) {
     if (!store) {
@@ -83,11 +82,9 @@ describe(__filename, () => {
       store = dispatchSignInActions({ userProps }).store;
     }
 
-    fakeHistory = createFakeHistory();
-
     return shallowUntilTarget(
       <UserProfileEdit
-        history={fakeHistory}
+        history={history}
         i18n={i18n}
         match={{ params }}
         store={store}
@@ -763,6 +760,7 @@ describe(__filename, () => {
       },
     });
     const user = getCurrentUser(store.getState().users);
+    const history = createFakeHistory();
 
     const occupation = 'new occupation';
 
@@ -774,7 +772,7 @@ describe(__filename, () => {
       userId: user.id,
     });
 
-    const root = renderUserProfileEdit({ store });
+    const root = renderUserProfileEdit({ history, store });
 
     expect(root.find(Notice)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
@@ -794,7 +792,7 @@ describe(__filename, () => {
     );
 
     sinon.assert.calledWith(
-      fakeHistory.push,
+      history.push,
       `/${lang}/${clientApp}/user/${username}/`,
     );
   });
@@ -804,8 +802,10 @@ describe(__filename, () => {
     const newUsername = oldUsername;
 
     const { store } = signInUserWithUsername(oldUsername);
+    const history = createFakeHistory();
 
     const root = renderUserProfileEdit({
+      history,
       params: { username: oldUsername },
       store,
     });
@@ -815,7 +815,7 @@ describe(__filename, () => {
       username: newUsername,
     });
 
-    sinon.assert.notCalled(fakeHistory.push);
+    sinon.assert.notCalled(history.push);
   });
 
   it('changes the URL when username has changed', () => {
@@ -833,8 +833,10 @@ describe(__filename, () => {
         username: oldUsername,
       },
     });
+    const history = createFakeHistory();
 
     const root = renderUserProfileEdit({
+      history,
       params: { username: oldUsername },
       store,
     });
@@ -845,7 +847,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.calledWith(
-      fakeHistory.push,
+      history.push,
       `/${lang}/${clientApp}/user/${newUsername}/edit/`,
     );
   });
@@ -858,11 +860,13 @@ describe(__filename, () => {
     const newUsername = 'tofumatt-123';
 
     const { store } = signInUserWithUsername(oldUsername);
-    const root = renderUserProfileEdit({ store, params: {} });
+    const history = createFakeHistory();
+
+    const root = renderUserProfileEdit({ history, store, params: {} });
 
     root.setProps({ username: newUsername, params: {} });
 
-    sinon.assert.notCalled(fakeHistory.push);
+    sinon.assert.notCalled(history.push);
   });
 
   it('does not render a success message when an error occured', () => {
@@ -1387,8 +1391,14 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const preventDefaultSpy = sinon.spy();
     const errorHandler = createStubErrorHandler();
+    const history = createFakeHistory();
 
-    const root = renderUserProfileEdit({ errorHandler, params, store });
+    const root = renderUserProfileEdit({
+      errorHandler,
+      history,
+      params,
+      store,
+    });
 
     dispatchSpy.resetHistory();
 
@@ -1418,7 +1428,7 @@ describe(__filename, () => {
     );
     sinon.assert.calledWith(dispatchSpy, logOutUser());
 
-    sinon.assert.calledWith(fakeHistory.push, `/${lang}/${clientApp}`);
+    sinon.assert.calledWith(history.push, `/${lang}/${clientApp}`);
 
     sinon.assert.calledOnce(preventDefaultSpy);
   });

@@ -787,7 +787,7 @@ describe(__filename, () => {
 
       const historyWithQueryParams = addQueryParamsToHistory({ history });
 
-      expect(historyWithQueryParams.location.query).toEqual({
+      expect(historyWithQueryParams).toHaveProperty('location.query', {
         foo: '123',
       });
     });

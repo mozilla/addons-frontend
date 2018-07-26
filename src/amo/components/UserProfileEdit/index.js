@@ -40,6 +40,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type {
   ReactRouterHistoryType,
+  ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
 
@@ -48,18 +49,20 @@ import './styles.scss';
 type Props = {|
   _window: typeof window | Object,
   clientApp: string,
+  history: ReactRouterHistoryType,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isUpdating: boolean,
   lang: string,
+  location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
     params: {| username: string |},
   |},
-  history: ReactRouterHistoryType,
   user: UserType | null,
   username: string,
 |};
@@ -142,11 +145,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       clientApp,
       dispatch,
       errorHandler,
+      history,
       i18n,
       isUpdating,
       lang,
-      match,
-      history,
+      match: { params },
       user: newUser,
       username: newUsername,
     } = props;
@@ -193,7 +196,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       return;
     }
 
-    if (match.params.username && oldUsername !== newUsername) {
+    if (params.username && oldUsername !== newUsername) {
       history.push(`/${lang}/${clientApp}/user/${newUsername}/edit/`);
     }
   }
@@ -232,8 +235,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       currentUser,
       dispatch,
       errorHandler,
-      lang,
       history,
+      lang,
       user,
     } = this.props;
 
@@ -410,7 +413,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       hasEditPermission,
       i18n,
       isUpdating,
-      history,
+      location,
       user,
       username,
     } = this.props;
@@ -421,7 +424,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           <Card className="UserProfileEdit-authenticate">
             <AuthenticateButton
               noIcon
-              location={history.location}
+              location={location}
               logInText={i18n.gettext('Log in to edit the profile')}
             />
           </Card>

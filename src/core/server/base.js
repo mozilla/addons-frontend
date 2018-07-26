@@ -306,8 +306,7 @@ function baseServer(
         return hydrateOnClient({ res, pageProps });
       }
     } catch (preLoadError) {
-      log.info(oneLine`Caught an error in match() before rendering:
-          ${preLoadError}`);
+      log.info(`Caught an error before rendering: ${preLoadError}`);
       return next(preLoadError);
     }
 

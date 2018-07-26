@@ -161,11 +161,16 @@ export class CollectionBase extends React.Component<InternalProps> {
   };
 
   loadDataIfNeeded(nextProps?: InternalProps) {
-    const { collection, creating, errorHandler, loading, match } = {
+    const {
+      collection,
+      creating,
+      errorHandler,
+      loading,
+      match: { params },
+    } = {
       ...this.props,
       ...nextProps,
     };
-    const { params } = match;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');

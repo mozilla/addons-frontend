@@ -98,14 +98,14 @@ export class LandingPageBase extends React.Component {
       dispatch,
       errorHandler,
       loading,
-      match,
+      match: { params },
       resultsLoaded,
     } = {
       ...this.props,
       ...nextProps,
     };
 
-    const requestedAddonType = apiAddonType(match.params.visibleAddonType);
+    const requestedAddonType = apiAddonType(params.visibleAddonType);
 
     if (
       !loading &&
@@ -122,8 +122,11 @@ export class LandingPageBase extends React.Component {
   }
 
   setViewContextType(nextProps = {}) {
-    const { context, match } = { ...this.props, ...nextProps };
-    const addonType = apiAddonType(match.params.visibleAddonType);
+    const {
+      context,
+      match: { params },
+    } = { ...this.props, ...nextProps };
+    const addonType = apiAddonType(params.visibleAddonType);
 
     if (context !== addonType) {
       this.props.dispatch(setViewContext(addonType));

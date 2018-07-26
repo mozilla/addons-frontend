@@ -101,24 +101,6 @@ describe(__filename, () => {
   };
 
   describe('<AddonReviewList/>', () => {
-    it('requires location params', () => {
-      expect(() => render({ match: null })).toThrowError(
-        /component had a falsey match\.params\.addonSlug/,
-      );
-    });
-
-    it('requires an addonSlug param', () => {
-      expect(() => render({ match: { params: {} } })).toThrowError(
-        /component had a falsey match\.params\.addonSlug/,
-      );
-    });
-
-    it('requires a non-empty addonSlug param', () => {
-      expect(() =>
-        render({ match: { params: { addonSlug: null } } }),
-      ).toThrowError(/component had a falsey match\.params\.addonSlug/);
-    });
-
     it('waits for an addon and reviews to load', () => {
       const location = fakeRouterLocation();
       const root = render({ addon: null, location });

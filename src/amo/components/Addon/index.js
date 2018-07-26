@@ -95,13 +95,13 @@ export class AddonBase extends React.Component {
       dispatch,
       errorHandler,
       lang,
-      match,
+      match: { params },
     } = this.props;
 
     // This makes sure we do not try to dispatch any new actions in the case
     // of an error.
     if (!errorHandler.hasError()) {
-      const { slug } = match.params;
+      const { slug } = params;
 
       if (addon) {
         // We want to make sure the slug converts to a positive
@@ -125,16 +125,21 @@ export class AddonBase extends React.Component {
     }
   }
 
-  componentWillReceiveProps({ addon: newAddon, match: newMatch }) {
-    const { addon: oldAddon, dispatch, errorHandler, match } = this.props;
+  componentWillReceiveProps({ addon: newAddon, match: { params: newParams } }) {
+    const {
+      addon: oldAddon,
+      dispatch,
+      errorHandler,
+      match: { params },
+    } = this.props;
 
     const oldAddonType = oldAddon ? oldAddon.type : null;
     if (newAddon && newAddon.type !== oldAddonType) {
       dispatch(setViewContext(newAddon.type));
     }
 
-    if (match.params.slug !== newMatch.params.slug) {
-      dispatch(fetchAddon({ slug: newMatch.params.slug, errorHandler }));
+    if (params.slug !== newParams.slug) {
+      dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
     }
   }
 

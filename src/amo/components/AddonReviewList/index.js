@@ -70,7 +70,13 @@ export class AddonReviewListBase extends React.Component<Props> {
   loadDataIfNeeded(nextProps?: Props) {
     const lastAddon = this.props.addon;
     const nextAddon = nextProps && nextProps.addon;
-    const { addon, dispatch, errorHandler, match, reviews } = {
+    const {
+      addon,
+      dispatch,
+      errorHandler,
+      match: { params },
+      reviews,
+    } = {
       ...this.props,
       ...nextProps,
     };
@@ -81,7 +87,7 @@ export class AddonReviewListBase extends React.Component<Props> {
     }
 
     if (!addon) {
-      dispatch(fetchAddon({ slug: match.params.addonSlug, errorHandler }));
+      dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
     } else if (
       // This is the first time rendering the component.
       !nextProps ||
@@ -103,13 +109,13 @@ export class AddonReviewListBase extends React.Component<Props> {
     if (!reviews || locationChanged) {
       dispatch(
         fetchReviews({
-          addonSlug: match.params.addonSlug,
+          addonSlug: params.addonSlug,
           errorHandlerId: errorHandler.id,
           // TODO: so, there is a test case (`it dispatches fetchReviews with
           // an invalid page variable`) that conflicts with `fetchReviews()`
           // requiring a page of type `number`. We should decide whether `page`
           // can be anything OR restrict to integer values.
-          // $FLOW_FIXME
+          // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
           page: this.getCurrentPage(location),
         }),
       );
@@ -133,10 +139,17 @@ export class AddonReviewListBase extends React.Component<Props> {
   }
 
   onReviewSubmitted = () => {
-    const { clientApp, dispatch, lang, location, match, history } = this.props;
+    const {
+      clientApp,
+      dispatch,
+      lang,
+      location,
+      match: { params },
+      history,
+    } = this.props;
     // Now that a new review has been submitted, reset the list
     // so that it gets reloaded.
-    dispatch(clearAddonReviews({ addonSlug: match.params.addonSlug }));
+    dispatch(clearAddonReviews({ addonSlug: params.addonSlug }));
 
     if (this.getCurrentPage(location) !== 1) {
       history.push({
@@ -326,16 +339,6 @@ export class AddonReviewListBase extends React.Component<Props> {
 }
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
-  if (
-    !ownProps ||
-    !ownProps.match ||
-    !ownProps.match.params ||
-    !ownProps.match.params.addonSlug
-  ) {
-    throw new Error(
-      'The component had a falsey match.params.addonSlug parameter',
-    );
-  }
   const { addonSlug } = ownProps.match.params;
   const reviewData = state.reviews.byAddon[addonSlug];
 
@@ -355,9 +358,12 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 }
 
 export const extractId = (ownProps: Props) => {
-  const { location, match } = ownProps;
+  const {
+    location,
+    match: { params },
+  } = ownProps;
 
-  return `${match.params.addonSlug}-${location.query.page || ''}`;
+  return `${params.addonSlug}-${location.query.page || ''}`;
 };
 
 const AddonReviewList: React.ComponentType<Props> = compose(

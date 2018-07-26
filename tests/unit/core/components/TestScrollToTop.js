@@ -40,6 +40,8 @@ describe(__filename, () => {
     const _window = null;
 
     const root = render({ _window });
+
+    // Make sure this doesn't throw.
     root.setProps({ location: createFakeLocation() });
   });
 

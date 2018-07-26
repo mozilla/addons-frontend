@@ -18,7 +18,7 @@ import {
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeHistory,
-  createFakeLocation,
+  fakeRouterLocation,
   createStubErrorHandler,
   fakeI18n,
   shallowUntilTarget,
@@ -63,7 +63,7 @@ describe(__filename, () => {
       filters: {},
       history,
       i18n: fakeI18n(),
-      location: createFakeLocation(),
+      location: fakeRouterLocation(),
       store,
       ...customProps,
     };
@@ -323,7 +323,7 @@ describe(__filename, () => {
       collection: null,
       creating: true,
       history: createFakeHistory({
-        location: createFakeLocation({ query: { include_addon_id: id } }),
+        location: fakeRouterLocation({ query: { include_addon_id: id } }),
       }),
     });
 

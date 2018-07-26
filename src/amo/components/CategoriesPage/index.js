@@ -18,8 +18,8 @@ type Props = {|
 
 export class CategoriesPageBase extends React.Component<Props> {
   render() {
-    const { match } = this.props;
-    const addonType = apiAddonType(match.params.visibleAddonType);
+    const { params } = this.props.match;
+    const addonType = apiAddonType(params.visibleAddonType);
 
     return <Categories addonType={addonType} className="CategoriesPage" />;
   }

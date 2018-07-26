@@ -50,7 +50,6 @@ type InternalProps = {|
   i18n: I18nType,
   isCollectionBeingModified: boolean,
   location: ReactRouterLocationType,
-  setTimeout: Function,
   siteLang: ?string,
 |};
 
@@ -147,7 +146,8 @@ export class CollectionManagerBase extends React.Component<
         createCollection({
           ...payload,
           defaultLocale: siteLang,
-          // $FLOW_FIXME: query parameter values are string, not number.
+          // query parameter values are string, not number.
+          // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
           includeAddonId: location.query.include_addon_id,
           username: currentUsername,
         }),

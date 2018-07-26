@@ -16,16 +16,20 @@ import type {
 } from 'amo/components/AutoSearchInput';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterHistoryType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  ReactRouterLocationType,
+} from 'core/types/router';
 
 type Props = {|
   apiLang: string | null,
   className?: string,
   clientApp: string | null,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
+  location: ReactRouterLocationType,
   pathname: string,
   query?: string,
-  history: ReactRouterHistoryType,
 |};
 
 export class SearchFormBase extends React.Component<Props> {
@@ -50,7 +54,7 @@ export class SearchFormBase extends React.Component<Props> {
   }
 
   render() {
-    const { className, i18n, query, history } = this.props;
+    const { className, i18n, location, query } = this.props;
 
     return (
       <form
@@ -61,7 +65,7 @@ export class SearchFormBase extends React.Component<Props> {
       >
         <AutoSearchInput
           inputName="q"
-          location={history.location}
+          location={location}
           onSearch={this.onSearch}
           onSuggestionSelected={this.onSuggestionSelected}
           query={query}
