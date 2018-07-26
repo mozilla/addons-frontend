@@ -44,6 +44,7 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
+  createFakeTracking,
   createFakeLocation,
   getFakeAddonManagerWrapper,
   sampleUserAgentParsed,
