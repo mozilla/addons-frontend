@@ -30,6 +30,8 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     const averageRating = addon && addon.ratings ? addon.ratings.average : null;
     const addonRatingCount =
       addon && addon.ratings ? addon.ratings.count : null;
+    const addonReviewCount =
+      addon && addon.ratings ? addon.ratings.text_count : null;
     const averageDailyUsers = addon ? addon.average_daily_users : null;
 
     let userCount = '';
@@ -49,11 +51,11 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     if (!addon) {
       reviewCount = null;
       reviewTitle = i18n.gettext('Ratings');
-    } else if (addonRatingCount) {
-      reviewCount = i18n.formatNumber(addonRatingCount);
-      reviewTitle = i18n.ngettext('Rating', 'Ratings', addonRatingCount);
+    } else if (addonReviewCount) {
+      reviewCount = i18n.formatNumber(addonReviewCount);
+      reviewTitle = i18n.ngettext('Review', 'Reviews', addonReviewCount);
     } else {
-      reviewTitle = i18n.gettext('No Ratings');
+      reviewTitle = i18n.gettext('No Reviews');
     }
 
     return (

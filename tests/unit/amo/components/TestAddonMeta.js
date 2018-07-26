@@ -97,33 +97,33 @@ describe(__filename, () => {
       return root.find(MetadataCard).prop('metadata')[2];
     }
 
-    it('renders a count of multiple ratings', () => {
-      const root = renderRatings({ count: 5 });
+    it('renders a count of multiple reviews', () => {
+      const root = renderRatings({ count: 10, text_count: 5 });
 
       expect(getReviewCount(root).content).toEqual('5');
-      expect(getReviewCount(root).title).toEqual('Ratings');
+      expect(getReviewCount(root).title).toEqual('Reviews');
     });
 
-    it('renders a count of one rating', () => {
-      const root = renderRatings({ count: 1 });
+    it('renders a count of one review', () => {
+      const root = renderRatings({ text_count: 1 });
 
       expect(getReviewCount(root).content).toEqual('1');
-      expect(getReviewCount(root).title).toEqual('Rating');
+      expect(getReviewCount(root).title).toEqual('Review');
     });
 
     it('localizes review count', () => {
       const i18n = fakeI18n({ lang: 'de' });
-      const root = renderRatings({ count: 1000 }, { i18n });
+      const root = renderRatings({ text_count: 1000 }, { i18n });
 
       expect(getReviewCount(root).content).toEqual('1.000');
     });
 
-    it('handles zero ratings', () => {
+    it('handles zero reviews', () => {
       const root = render({
         addon: createInternalAddon({ ...fakeAddon, ratings: null }),
       });
 
-      expect(getReviewCount(root).title).toEqual('No Ratings');
+      expect(getReviewCount(root).title).toEqual('No Reviews');
 
       const averageMeta = getAverageMeta(root);
       const rating = shallow(averageMeta.content).find(Rating);
