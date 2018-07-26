@@ -10,24 +10,31 @@ import './styles.scss';
 
 const initialUIState = { visible: false };
 
+// TODO: I don't see this working on the frontend
+// even in other envs.
+export const onClickBackground = (event, _this) => {
+  if (_this.props.onEscapeOverlay) {
+    _this.props.onEscapeOverlay();
+  }
+  _this.hide();
+};
+
 export class OverlayBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     id: PropTypes.string.isRequired,
-    onEscapeOverlay: PropTypes.func,
     visibleOnLoad: PropTypes.bool,
     uiState: PropTypes.object,
     setUIState: PropTypes.func,
-    onClickBackground: PropTypes.func,
+    _onClickBackground: PropTypes.func,
   };
 
   static defaultProps = {
     visibleOnLoad: false,
     uiState: initialUIState,
     setUIState: () => {},
-    onClickBackground: () => {},
-    onEscapeOverlay: () => {},
+    _onClickBackground: onClickBackground,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -40,15 +47,6 @@ export class OverlayBase extends React.Component {
       this.props.setUIState({ visible: nextProps.visibleOnLoad });
     }
   }
-
-  // TODO: I don't see this working on the frontend..?
-  // find out if this is expected
-  onClickBackground = () => {
-    if (this.props.onEscapeOverlay) {
-      this.props.onEscapeOverlay();
-    }
-    this.hide();
-  };
 
   hide() {
     this.props.setUIState({ visible: false });
@@ -72,16 +70,10 @@ export class OverlayBase extends React.Component {
         className={makeClassName('Overlay', className, {
           'Overlay--visible': uiState.visible,
         })}
-        ref={(ref) => {
-          this.overlayContainer = ref;
-        }}
       >
         <div
-          onClick={this.props.onClickBackground}
-          ref={(ref) => {
-            this.overlayBackground = ref;
-          }}
           className="Overlay-background"
+          onClick={(e) => this.props._onClickBackground(e, this)}
           role="presentation"
         />
         <div

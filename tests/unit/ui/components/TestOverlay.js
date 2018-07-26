@@ -28,7 +28,6 @@ describe(__filename, () => {
   it('renders an Overlay', () => {
     const root = render();
     expect(root).toHaveClassName('Overlay');
-    expect(root.find('.Overlay')).toHaveLength(1);
     expect(root.find('.Overlay-background')).toHaveLength(1);
     expect(root.find('.Overlay-contents')).toHaveLength(1);
   });
@@ -36,18 +35,23 @@ describe(__filename, () => {
   it('renders extra className if provided', () => {
     const className = 'I-am-so-over-it';
     const root = render({ className });
-    expect(root.find(`.${className}`)).toHaveLength(1);
+    expect(root).toHaveClassName(className);
   });
 
   it('renders children', () => {
     const html = '<div>a child div</div>';
     const root = render({ children: html });
-    expect(root.html()).toContain('a child div');
+    expect(
+      root
+        .children()
+        .at(1)
+        .props().children,
+    ).toEqual(html);
   });
 
   it('is hidden by default', () => {
     const root = render();
-    expect(root.instance().props.uiState.visible).toEqual(false);
+    expect(root).not.toHaveClassName('Overlay--visible');
   });
 
   it('is visible when the `visibleOnLoad` prop is passed', () => {
@@ -59,40 +63,49 @@ describe(__filename, () => {
       uiState: { visible: false },
     });
 
-    expect(root.instance().props.uiState.visible).toEqual(false);
+    expect(root).not.toHaveClassName('Overlay--visible');
 
     applyUIStateChanges({ root, store });
 
-    // Applying this 2 times here to mimic componentWillReceiveProps
-    // in that it see the uiState changes till the 2nd run through
+    // Applying this 2 times here to mimic how uiState works in componentWillReceiveProps:
+    // The first time through, the visible state gets changed but these changes
+    // aren't shown in uiState till the 2 time through
     applyUIStateChanges({ root, store });
 
-    expect(root.instance().props.uiState.visible).toEqual(true);
+    expect(root).toHaveClassName('Overlay--visible');
   });
 
   it('hides when you click the background', () => {
-    const onClickBackground = sinon.stub();
-    const root = render({ visibleOnLoad: true, onClickBackground });
+    const onClickBackgroundSpy = sinon.stub();
+    const root = render({
+      visibleOnLoad: true,
+      _onClickBackground: onClickBackgroundSpy,
+    });
     const btn = root.find('.Overlay-background');
     btn.simulate('click', createFakeEvent());
-    sinon.assert.called(onClickBackground);
+    sinon.assert.called(onClickBackgroundSpy);
+    expect(root).not.toHaveClassName('Overlay--visible');
   });
 
   it('calls onEscapeOverlay when clicking the background', () => {
+    const clickEvent = createFakeEvent();
     const onEscapeOverlay = sinon.stub();
     const root = render({
       visibleOnLoad: true,
       onEscapeOverlay,
     });
     const btn = root.find('.Overlay-background');
-    btn.simulate('click', createFakeEvent());
-    root.instance().onClickBackground();
+    btn.simulate('click', clickEvent);
+    const rootInstance = root.instance();
+    rootInstance.props._onClickBackground(clickEvent, rootInstance);
     sinon.assert.called(onEscapeOverlay);
   });
 
   it('is shown and hidden when `hide()` and `show()` are called', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
+
+    expect(root).not.toHaveClassName('Overlay--visible');
 
     root.instance().show();
     applyUIStateChanges({ root, store });
@@ -106,6 +119,8 @@ describe(__filename, () => {
   it('is toggled', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
+
+    expect(root).not.toHaveClassName('Overlay--visible');
 
     root.instance().toggle();
     applyUIStateChanges({ root, store });

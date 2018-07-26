@@ -220,7 +220,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
       linkEnd: '</a>',
     });
 
-    const overlayClassName = 'AddonReview';
+    const overlayClassName = 'AddonReview-overlay';
 
     return (
       <OverlayCard
