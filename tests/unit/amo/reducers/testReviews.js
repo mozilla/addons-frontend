@@ -65,8 +65,7 @@ describe(__filename, () => {
   it('stores a user review', () => {
     const action = setFakeReview();
     const state = reviewsReducer(undefined, action);
-    const storedReview =
-      state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
+    const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview).toEqual({
       addonId: fakeReview.addon.id,
@@ -93,8 +92,7 @@ describe(__filename, () => {
       },
     });
     const state = reviewsReducer(undefined, action);
-    const storedReview =
-      state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
+    const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview.reply.body).toEqual(replyBody);
   });
@@ -155,45 +153,6 @@ describe(__filename, () => {
     }).toThrow(/review ID 3 .* does not exist/);
   });
 
-  it('preserves existing user rating data', () => {
-    let state;
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 1,
-        userId: 1,
-        addonId: 1,
-        rating: 1,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 2,
-        userId: 1,
-        addonId: 2,
-        rating: 5,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 3,
-        userId: 2,
-        addonId: 2,
-        rating: 4,
-      }),
-    );
-
-    // Make sure all reviews co-exist by userId, addonId, review ID.
-    expect(state[1][1][1].rating).toEqual(1);
-    expect(state[1][2][2].rating).toEqual(5);
-    expect(state[2][2][3].rating).toEqual(4);
-  });
-
   it('preserves existing add-on reviews', () => {
     let state;
     const userId = fakeReview.user.id;
@@ -223,76 +182,15 @@ describe(__filename, () => {
       }),
     );
 
-    // Make sure all reviews co-exist by userId, addonId, review ID.
-    expect(state[userId][addonId][1].id).toEqual(1);
-    expect(state[userId][addonId][2].id).toEqual(2);
-    expect(state[userId][addonId][3].id).toEqual(3);
+    expect(state.byId[1].id).toEqual(1);
+    expect(state.byId[2].id).toEqual(2);
+    expect(state.byId[3].id).toEqual(3);
   });
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
     state = reviewsReducer(state, setFakeReview());
     expect(state.somethingUnrelated).toEqual('erp');
-  });
-
-  it('only allows one review to be the latest', () => {
-    const addonId = fakeReview.addon.id;
-    const userId = fakeReview.user.id;
-    let state;
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 1,
-        is_latest: true,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 2,
-        is_latest: true,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 3,
-        is_latest: true,
-      }),
-    );
-
-    // Make sure only the newest submitted one is the latest:
-    expect(state[userId][addonId][1].isLatest).toEqual(false);
-    expect(state[userId][addonId][2].isLatest).toEqual(false);
-    expect(state[userId][addonId][3].isLatest).toEqual(true);
-  });
-
-  it('preserves an older latest review', () => {
-    const addonId = fakeReview.addon.id;
-    const userId = fakeReview.user.id;
-    let state;
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 1,
-        is_latest: true,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 2,
-        is_latest: false,
-      }),
-    );
-
-    expect(state[userId][addonId][1].isLatest).toEqual(true);
-    expect(state[userId][addonId][2].isLatest).toEqual(false);
   });
 
   describe('setAddonReviews', () => {
