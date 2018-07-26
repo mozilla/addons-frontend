@@ -44,10 +44,10 @@ export class AboutBase extends React.Component {
                       %(startSMLink)sSeaMonkey%(endSMLink)s.`),
                   {
                     startTBLink:
-                      '<a href="https://addons.mozilla.org/thunderbird/">',
+                      '<a href="https://addons.thunderbird.net/thunderbird/">',
                     endTBLink: '</a>',
                     startSMLink:
-                      '<a href="https://addons.mozilla.org/seamonkey/">',
+                      '<a href="https://addons.thunderbird.net/seamonkey/">',
                     endSMLink: '</a>',
                   },
                 ),
