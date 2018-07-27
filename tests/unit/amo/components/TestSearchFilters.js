@@ -17,7 +17,7 @@ import {
   createFakeHistory,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -41,7 +41,7 @@ describe(__filename, () => {
       {
         shallowOptions: createContextWithFakeRouter({
           history: fakeHistory,
-          location: fakeRouterLocation({ pathname }),
+          location: createFakeLocation({ pathname }),
         }),
       },
     );

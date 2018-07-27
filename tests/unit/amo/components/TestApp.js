@@ -33,7 +33,7 @@ import {
   createContextWithFakeRouter,
   fakeCookie,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -203,7 +203,7 @@ describe(__filename, () => {
       ErrorPage: DefaultErrorPage,
       clientApp: 'android',
       lang: 'en-GB',
-      location: fakeRouterLocation({ pathname: '/en-GB/android/' }),
+      location: createFakeLocation({ pathname: '/en-GB/android/' }),
       store,
     });
     const rootNode = findDOMNode(root);

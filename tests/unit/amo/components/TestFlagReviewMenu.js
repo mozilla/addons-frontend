@@ -20,7 +20,7 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 import {
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ListItem from 'ui/components/ListItem';
@@ -36,7 +36,7 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       review: denormalizeReview(fakeReview),
       store,
       ...customProps,
@@ -69,7 +69,7 @@ describe(__filename, () => {
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
-      const location = fakeRouterLocation();
+      const location = createFakeLocation();
       const { menu } = renderMenu({ location });
 
       // Only the button item should be rendered.

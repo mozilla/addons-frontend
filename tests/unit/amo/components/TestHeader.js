@@ -13,7 +13,7 @@ import {
 import {
   createFakeEvent,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -24,7 +24,7 @@ describe(__filename, () => {
   } = {}) {
     const allProps = {
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       query: '',
       ...props,
     };
