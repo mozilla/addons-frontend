@@ -1,5 +1,7 @@
 /* global Node */
+import { createMemoryHistory } from 'history';
 import * as React from 'react';
+import { Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 
 import createStore from 'amo/store';
@@ -27,7 +29,9 @@ import { getAddonIconUrl } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
 import * as themeInstall from 'core/themeInstall';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
+import { addQueryParamsToHistory } from 'core/utils';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
   createFakeMozWindow,
   fakeI18n,
@@ -55,17 +59,22 @@ describe(__filename, () => {
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: fakeI18n(),
-    location: fakeRouterLocation(),
     store: createStore().store,
     userAgentInfo: sampleUserAgentParsed,
     ...customProps,
   });
 
-  const render = (props) =>
-    shallowUntilTarget(
-      <InstallButton {...renderProps(props)} />,
+  const render = (props) => {
+    const { location, ...otherProps } = renderProps(props);
+
+    return shallowUntilTarget(
+      <InstallButton {...otherProps} />,
       InstallButtonBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
+  };
 
   const renderOpenSearch = (customProps = {}) => {
     const props = {
@@ -82,10 +91,17 @@ describe(__filename, () => {
   };
 
   const renderToDom = (customProps = {}) => {
-    const props = renderProps(customProps);
+    const { i18n, location, ...props } = renderProps(customProps);
+
+    const history = addQueryParamsToHistory({
+      history: createMemoryHistory(),
+    });
+
     return mount(
-      <I18nProvider i18n={props.i18n}>
-        <InstallButtonBase {...props} />
+      <I18nProvider i18n={i18n}>
+        <Router history={history}>
+          <InstallButton {...props} />
+        </Router>
       </I18nProvider>,
     );
   };

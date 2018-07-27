@@ -5,16 +5,22 @@ import { compose } from 'redux';
 import Categories from 'amo/components/Categories';
 import { apiAddonType } from 'core/utils';
 import translate from 'core/i18n/translate';
+import type { ReactRouterMatchType } from 'core/types/router';
 
 import './styles.scss';
 
 type Props = {|
-  params: {| visibleAddonType: string |},
+  match: {|
+    ...ReactRouterMatchType,
+    params: {| visibleAddonType: string |},
+  |},
 |};
 
 export class CategoriesPageBase extends React.Component<Props> {
   render() {
-    const addonType = apiAddonType(this.props.params.visibleAddonType);
+    const { params } = this.props.match;
+    const addonType = apiAddonType(params.visibleAddonType);
+
     return <Categories addonType={addonType} className="CategoriesPage" />;
   }
 }

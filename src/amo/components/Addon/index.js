@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import AddAddonToCollection from 'amo/components/AddAddonToCollection';
@@ -72,9 +71,11 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     platformFiles: PropTypes.object,
     lang: PropTypes.string.isRequired,
-    // See ReactRouterLocation in 'core/types/router'
+    // See ReactRouterLocationType in 'core/types/router'
     location: PropTypes.object.isRequired,
-    params: PropTypes.object.isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.object.isRequired,
+    }).isRequired,
     installStatus: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     addonsByAuthors: PropTypes.array.isRequired,
@@ -94,15 +95,15 @@ export class AddonBase extends React.Component {
       dispatch,
       errorHandler,
       lang,
-      params,
+      match: { params },
     } = this.props;
 
     // This makes sure we do not try to dispatch any new actions in the case
     // of an error.
     if (!errorHandler.hasError()) {
-      if (addon) {
-        const { slug } = params;
+      const { slug } = params;
 
+      if (addon) {
         // We want to make sure the slug converts to a positive
         // number/ID before we try redirecting.
         if (slugIsPositiveID(slug)) {
@@ -119,13 +120,18 @@ export class AddonBase extends React.Component {
 
         dispatch(setViewContext(addon.type));
       } else {
-        dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+        dispatch(fetchAddon({ slug, errorHandler }));
       }
     }
   }
 
-  componentWillReceiveProps({ addon: newAddon, params: newParams }) {
-    const { addon: oldAddon, dispatch, errorHandler, params } = this.props;
+  componentWillReceiveProps({ addon: newAddon, match: { params: newParams } }) {
+    const {
+      addon: oldAddon,
+      dispatch,
+      errorHandler,
+      match: { params },
+    } = this.props;
 
     const oldAddonType = oldAddon ? oldAddon.type : null;
     if (newAddon && newAddon.type !== oldAddonType) {
@@ -522,9 +528,6 @@ export class AddonBase extends React.Component {
                     <InstallButton
                       {...this.props}
                       disabled={!isCompatible}
-                      ref={(ref) => {
-                        this.installButton = ref;
-                      }}
                       defaultInstallSource={defaultInstallSource}
                       status={installStatus}
                       useButton
@@ -595,7 +598,7 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const { slug } = ownProps.params;
+  const { slug } = ownProps.match.params;
   let addon = getAddonBySlug(state, slug);
 
   // It is possible to load an add-on by its ID but in the routing parameters,
@@ -637,11 +640,10 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export const extractId = (ownProps) => {
-  return ownProps.params.slug;
+  return ownProps.match.params.slug;
 };
 
 export default compose(
-  withRouter,
   translate(),
   connect(mapStateToProps),
   withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),

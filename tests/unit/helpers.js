@@ -1,6 +1,7 @@
 /* global Response */
 import url from 'url';
 
+import PropTypes from 'prop-types';
 import base64url from 'base64url';
 import config, { util as configUtil } from 'config';
 import invariant from 'invariant';
@@ -495,9 +496,9 @@ export const urlWithTheseParams = (params) => {
 /*
  * Returns a fake ReactRouter location object.
  *
- * See ReactRouterLocation in 'core/types/router';
+ * See ReactRouterLocationType in 'core/types/router';
  */
-export const fakeRouterLocation = (props = {}) => {
+export const createFakeLocation = (props = {}) => {
   return {
     action: 'PUSH',
     hash: '',
@@ -509,20 +510,43 @@ export const fakeRouterLocation = (props = {}) => {
   };
 };
 
+// TODO: remove this alias and use `createFakeLocation()` only.
+export const fakeRouterLocation = createFakeLocation;
+
 /*
- * Returns a fake ReactRouter object.
+ * Returns a fake ReactRouter history object.
  *
- * See ReactRouterType in 'core/types/router';
+ * See ReactRouterHistoryType in 'core/types/router';
  */
-export const createFakeRouter = ({
-  location = fakeRouterLocation(),
-  params = {},
-} = {}) => {
+export const createFakeHistory = ({ location = createFakeLocation() } = {}) => {
   return {
     location,
-    params,
-    push: sinon.spy(),
     goBack: sinon.spy(),
+    listen: sinon.spy(),
+    push: sinon.spy(),
+  };
+};
+
+export const createContextWithFakeRouter = ({
+  history = createFakeHistory(),
+  location = history.location,
+  match = {},
+  ...overrides
+} = {}) => {
+  return {
+    context: {
+      router: {
+        history,
+        route: {
+          location,
+          match,
+        },
+      },
+    },
+    childContextTypes: {
+      router: PropTypes.object.isRequired,
+    },
+    ...overrides,
   };
 };
 

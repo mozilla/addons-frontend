@@ -96,6 +96,7 @@ export default class ServerHtml extends Component {
 
   render() {
     const { component, htmlLang, htmlDir, noScriptStyles, store } = this.props;
+
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
     const content = component ? ReactDOM.renderToString(component) : '';

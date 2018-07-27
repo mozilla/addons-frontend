@@ -6,7 +6,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
@@ -34,7 +34,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -63,7 +63,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   i18n: I18nType,
   loading?: boolean,
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
 |};
 
 type DispatchFetchAddonsByAuthorsParams = {|
@@ -143,7 +143,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     paginate,
     pageParam,
   }: {|
-    location: ReactRouterLocation,
+    location: ReactRouterLocationType,
     pageParam: string,
     paginate: boolean,
   |}): number | void {
@@ -383,10 +383,10 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 };
 
 const AddonsByAuthorsCard: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ name: 'AddonsByAuthorsCard' }),
-  withRouter,
 )(AddonsByAuthorsCardBase);
 
 export default AddonsByAuthorsCard;

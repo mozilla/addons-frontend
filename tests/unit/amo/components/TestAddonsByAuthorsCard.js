@@ -31,6 +31,7 @@ import {
   fakeAuthor,
 } from 'tests/unit/amo/helpers';
 import {
+  createContextWithFakeRouter,
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
@@ -122,11 +123,10 @@ describe(__filename, () => {
     });
   }
 
-  function render(customProps = {}) {
+  function render({ location, ...customProps } = {}) {
     const props = {
       authorDisplayName: fakeAuthorOne.name,
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
       numberOfAddons: 4,
       store: dispatchClientMetadata().store,
       ...customProps,
@@ -135,6 +135,9 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <AddonsByAuthorsCard {...props} />,
       AddonsByAuthorsCardBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   }
 

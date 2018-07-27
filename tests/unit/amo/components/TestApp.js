@@ -1,4 +1,5 @@
 /* eslint-disable react/no-multi-comp */
+import { createMemoryHistory } from 'history';
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -7,6 +8,7 @@ import {
 } from 'react-dom/test-utils';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
 import App, {
@@ -28,13 +30,17 @@ import {
 import I18nProvider from 'core/i18n/Provider';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import {
+  createContextWithFakeRouter,
   fakeCookie,
   fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   class FakeErrorPageComponent extends React.Component {
@@ -57,42 +63,34 @@ describe(__filename, () => {
     }
   }
 
-  class FakeSearchFormComponent extends React.Component {
-    render() {
-      return <form />;
-    }
-  }
-
   const FakeInfoDialogComponent = () => <div />;
 
   function renderProps(customProps = {}) {
     return {
+      history: createMemoryHistory(),
       i18n: fakeI18n(),
-      logOutUser: sinon.stub(),
-      location: fakeRouterLocation(),
-      isAuthenticated: true,
       store: createStore().store,
       ...customProps,
     };
   }
 
-  function render({ children = [], ...customProps } = {}) {
-    const props = renderProps(customProps);
+  function render({ ...customProps } = {}) {
+    const { history, i18n, store, ...props } = renderProps(customProps);
+
     return findRenderedComponentWithType(
       renderIntoDocument(
-        <Provider store={props.store}>
-          <I18nProvider i18n={props.i18n}>
-            <AppBase
-              FooterComponent={FakeFooterComponent}
-              InfoDialogComponent={FakeInfoDialogComponent}
-              HeaderComponent={FakeHeaderComponent}
-              SearchFormComponent={FakeSearchFormComponent}
-              ErrorPage={FakeErrorPageComponent}
-              setUserAgent={sinon.stub()}
-              {...props}
-            >
-              {children}
-            </AppBase>
+        <Provider store={store}>
+          <I18nProvider i18n={i18n}>
+            <Router history={history}>
+              <App
+                FooterComponent={FakeFooterComponent}
+                InfoDialogComponent={FakeInfoDialogComponent}
+                HeaderComponent={FakeHeaderComponent}
+                ErrorPage={FakeErrorPageComponent}
+                setUserAgent={sinon.stub()}
+                {...props}
+              />
+            </Router>
           </I18nProvider>
         </Provider>,
       ),
@@ -106,15 +104,10 @@ describe(__filename, () => {
       ...props,
     };
 
-    return shallowUntilTarget(<App {...allProps} />, AppBase);
-  };
-
-  it('renders its children', () => {
-    const root = shallowRender({
-      children: <p className="child">The component</p>,
+    return shallowUntilTarget(<App {...allProps} />, AppBase, {
+      shallowOptions: createContextWithFakeRouter(),
     });
-    expect(root.find('.child').text()).toEqual('The component');
-  });
+  };
 
   it('sets the mamo cookie to "off"', () => {
     const fakeEvent = {
@@ -165,20 +158,36 @@ describe(__filename, () => {
   });
 
   it('uses navigator.userAgent if userAgent prop is empty', () => {
-    const setUserAgent = sinon.stub();
+    const { store } = dispatchClientMetadata({
+      userAgent: '',
+    });
     const _navigator = { userAgent: 'Firefox 10000000.0' };
-    render({ _navigator, setUserAgent, userAgent: '' });
 
-    sinon.assert.calledWith(setUserAgent, _navigator.userAgent);
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ _navigator, store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      setUserAgentAction(_navigator.userAgent),
+    );
   });
 
   it('ignores a falsey navigator', () => {
-    const setUserAgent = sinon.stub();
-    render({ _navigator: null, setUserAgent, userAgent: '' });
+    const { store } = dispatchClientMetadata({
+      userAgent: '',
+    });
+    const _navigator = null;
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ _navigator, store });
 
     // This simulates a server side scenario where we do not have a user
     // agent and do not have a global navigator.
-    sinon.assert.notCalled(setUserAgent);
+    sinon.assert.neverCalledWithMatch(dispatchSpy, {
+      type: 'SET_USER_AGENT',
+    });
   });
 
   it('renders an error component on error', () => {
@@ -221,17 +230,19 @@ describe(__filename, () => {
 
   describe('handling expired auth tokens', () => {
     let clock;
+    let store;
 
-    function renderAppWithAuth(customProps = {}) {
+    function renderAppWithAuth({ ...customProps } = {}) {
       const props = {
-        authToken: userAuthToken(),
-        logOutUser: sinon.stub(),
+        store,
         ...customProps,
       };
+
       return render(props);
     }
 
     beforeEach(() => {
+      store = dispatchSignInActions().store;
       clock = sinon.useFakeTimers(Date.now());
     });
 
@@ -241,64 +252,67 @@ describe(__filename, () => {
 
     it('logs out when the token expires', () => {
       const authTokenValidFor = 10; // seconds
-      const logOutUser = sinon.stub();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      renderAppWithAuth({ authTokenValidFor, logOutUser });
+      renderAppWithAuth({ authTokenValidFor });
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
 
-      sinon.assert.called(logOutUser);
+      sinon.assert.calledWith(dispatchSpy, logOutUserAction());
     });
 
     it('only sets one timer when receiving new props', () => {
       const authTokenValidFor = 10; // seconds
-      const authToken = userAuthToken();
-      const logOutUser = sinon.stub();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      const root = render({ authToken, authTokenValidFor, logOutUser });
+      const root = renderAppWithAuth({ authTokenValidFor });
       // Simulate updating the component with new properties.
-      root.componentWillReceiveProps({ authToken });
+      root.componentWillReceiveProps({});
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
 
-      sinon.assert.calledOnce(logOutUser);
+      sinon.assert.calledWith(dispatchSpy, logOutUserAction());
     });
 
     it('does not set a timer when receiving an empty auth token', () => {
       const authTokenValidFor = 10; // seconds
-      const logOutUser = sinon.stub();
+      store = dispatchClientMetadata().store;
 
-      const root = render({ authTokenValidFor, logOutUser });
-      root.componentWillReceiveProps({ authToken: null });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ authTokenValidFor, store });
+      dispatchSpy.resetHistory();
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
-      // Make sure log out was not called since the component
-      // does not have an auth token.
-      sinon.assert.notCalled(logOutUser);
+      // Make sure log out was not called since the component does not have an
+      // auth token.
+      sinon.assert.notCalled(dispatchSpy);
     });
 
     it('does not log out until the token expires', () => {
       const authTokenValidFor = 10; // seconds
-      const logOutUser = sinon.stub();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      renderAppWithAuth({ authTokenValidFor, logOutUser });
+      renderAppWithAuth({ authTokenValidFor });
+      dispatchSpy.resetHistory();
 
       clock.tick(5 * 1000); // 5 seconds
 
-      sinon.assert.notCalled(logOutUser);
+      sinon.assert.notCalled(dispatchSpy);
     });
 
     it('only starts a timer when authTokenValidFor is configured', () => {
-      const logOutUser = sinon.stub();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      renderAppWithAuth({ authTokenValidFor: null, logOutUser });
+      renderAppWithAuth({ authTokenValidFor: null });
+      dispatchSpy.resetHistory();
 
       clock.tick(100 * 1000);
 
-      sinon.assert.notCalled(logOutUser);
+      sinon.assert.notCalled(dispatchSpy);
     });
 
     it('ignores malformed timestamps', () => {
@@ -309,56 +323,59 @@ describe(__filename, () => {
           tokenCreatedAt: 'bogus-timestamp',
         },
       );
-      const logOutUser = sinon.stub();
 
-      render({ authToken, authTokenValidFor, logOutUser });
+      store = dispatchSignInActions({ authToken }).store;
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ authTokenValidFor, store });
+      dispatchSpy.resetHistory();
 
       clock.tick(authTokenValidFor * 1000);
 
-      sinon.assert.notCalled(logOutUser);
+      sinon.assert.notCalled(dispatchSpy);
     });
 
     it('ignores empty timestamps', () => {
       const authTokenValidFor = 10; // seconds
       const authToken = 'this-is-a-token-with-an-empty-timestamp';
-      const logOutUser = sinon.stub();
 
-      render({ authToken, authTokenValidFor, logOutUser });
+      store = dispatchSignInActions({ authToken }).store;
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ authTokenValidFor, store });
+      dispatchSpy.resetHistory();
 
       clock.tick(authTokenValidFor * 1000);
 
-      sinon.assert.notCalled(logOutUser);
+      sinon.assert.notCalled(dispatchSpy);
     });
 
     it('ignores malformed tokens', () => {
       const authTokenValidFor = 10; // seconds
       const authToken = 'not-auth-data:^&invalid-characters:not-a-signature';
-      const logOutUser = sinon.stub();
 
-      render({ authToken, authTokenValidFor, logOutUser });
+      store = dispatchSignInActions({ authToken }).store;
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ authTokenValidFor, store });
+      dispatchSpy.resetHistory();
 
       clock.tick(authTokenValidFor * 1000);
 
-      sinon.assert.notCalled(logOutUser);
+      sinon.assert.notCalled(dispatchSpy);
     });
 
     it('does not set a timeout for expirations too far in the future', () => {
       const authTokenValidFor = maximumSetTimeoutDelay / 1000 + 1;
-      const logOutUser = sinon.stub();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      renderAppWithAuth({ authTokenValidFor, logOutUser });
+      renderAppWithAuth({ authTokenValidFor });
+      dispatchSpy.resetHistory();
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
 
-      sinon.assert.notCalled(logOutUser);
-    });
-
-    it('maps a logOutUser action', () => {
-      const dispatch = sinon.stub();
-      const { logOutUser } = mapDispatchToProps(dispatch);
-      logOutUser();
-      expect(dispatch.firstCall.args[0]).toEqual(logOutUserAction());
+      sinon.assert.notCalled(dispatchSpy);
     });
   });
 });

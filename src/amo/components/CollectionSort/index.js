@@ -2,7 +2,7 @@
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import {
@@ -24,7 +24,7 @@ import type {
 } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterType } from 'core/types/router';
+import type { ReactRouterHistoryType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -39,7 +39,7 @@ type InternalProps = {|
   clientApp: string,
   i18n: I18nType,
   lang: string,
-  router: ReactRouterType,
+  history: ReactRouterHistoryType,
 |};
 
 export class CollectionSortBase extends React.Component<InternalProps> {
@@ -50,7 +50,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
       editing,
       filters,
       lang,
-      router,
+      history,
     } = this.props;
 
     invariant(collection, 'A collection is required.');
@@ -66,7 +66,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
         ? collectionEditUrl({ collection })
         : collectionUrl({ collection })
     }`;
-    router.push({
+    history.push({
       pathname,
       query: convertFiltersToQueryParams(newFilters),
     });
@@ -131,9 +131,9 @@ export const mapStateToProps = (state: AppState) => {
 };
 
 const CollectionSort: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
-  withRouter,
 )(CollectionSortBase);
 
 export default CollectionSort;

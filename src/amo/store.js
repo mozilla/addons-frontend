@@ -1,8 +1,8 @@
 /* @flow */
+import { createMemoryHistory } from 'history';
 import { createStore as _createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { browserHistory } from 'react-router';
-import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
@@ -49,6 +49,7 @@ import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
+import type { ReactRouterHistoryType } from 'core/types/router';
 
 export type AppState = {|
   abuse: AbuseState,
@@ -70,7 +71,6 @@ export type AppState = {|
   recommendations: RecommendationsState,
   redirectTo: RedirectToState,
   reviews: ReviewsState,
-  routing: Object,
   search: SearchState,
   survey: SurveyState,
   uiState: UIStateState,
@@ -92,12 +92,12 @@ type CreateReducerType = <AnyState>(
 type AppReducersType = $ObjMap<AppState, CreateReducerType>;
 
 type CreateStoreParams = {|
-  history: Object,
+  history: ReactRouterHistoryType,
   initialState: Object,
 |};
 
 export default function createStore({
-  history = browserHistory,
+  history = createMemoryHistory(),
   initialState = {},
 }: CreateStoreParams = {}) {
   const sagaMiddleware = createSagaMiddleware();
@@ -121,7 +121,6 @@ export default function createStore({
     recommendations,
     redirectTo,
     reviews,
-    routing,
     search,
     survey,
     uiState,
@@ -130,7 +129,7 @@ export default function createStore({
     viewContext,
   };
   const store = _createStore(
-    combineReducers(reducers),
+    connectRouter(history)(combineReducers(reducers)),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),

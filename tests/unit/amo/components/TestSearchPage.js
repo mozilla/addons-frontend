@@ -15,16 +15,10 @@ describe(__filename, () => {
 
   function render({
     location = fakeRouterLocation({ query: { page: 2, q: 'burger' } }),
-    pathname = '/testingsearch/',
     ...props
   } = {}) {
     return shallowUntilTarget(
-      <SearchPage
-        location={location}
-        pathname={pathname}
-        store={store}
-        {...props}
-      />,
+      <SearchPage location={location} store={store} {...props} />,
       SearchPageBase,
     );
   }

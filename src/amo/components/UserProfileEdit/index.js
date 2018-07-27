@@ -5,7 +5,6 @@ import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
@@ -39,24 +38,31 @@ import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  ReactRouterLocationType,
+  ReactRouterMatchType,
+} from 'core/types/router';
 
 import './styles.scss';
 
 type Props = {|
   _window: typeof window | Object,
   clientApp: string,
+  history: ReactRouterHistoryType,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isUpdating: boolean,
   lang: string,
-  // The routing `params` prop is used in `mapStateToProps()`.
-  // eslint-disable-next-line react/no-unused-prop-types
-  params: {| username: string |},
-  router: ReactRouterType,
+  location: ReactRouterLocationType,
+  match: {|
+    ...ReactRouterMatchType,
+    params: {| username: string |},
+  |},
   user: UserType | null,
   username: string,
 |};
@@ -139,11 +145,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       clientApp,
       dispatch,
       errorHandler,
+      history,
       i18n,
       isUpdating,
       lang,
-      params,
-      router,
+      match: { params },
       user: newUser,
       username: newUsername,
     } = props;
@@ -186,12 +192,12 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      router.push(`/${lang}/${clientApp}/user/${newUsername}/`);
+      history.push(`/${lang}/${clientApp}/user/${newUsername}/`);
       return;
     }
 
     if (params.username && oldUsername !== newUsername) {
-      router.push(`/${lang}/${clientApp}/user/${newUsername}/edit/`);
+      history.push(`/${lang}/${clientApp}/user/${newUsername}/edit/`);
     }
   }
 
@@ -229,8 +235,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       currentUser,
       dispatch,
       errorHandler,
+      history,
       lang,
-      router,
       user,
     } = this.props;
 
@@ -248,7 +254,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       dispatch(logOutUser());
     }
 
-    router.push(`/${lang}/${clientApp}`);
+    history.push(`/${lang}/${clientApp}`);
   };
 
   onPictureLoaded = (e: FileReaderEvent) => {
@@ -407,7 +413,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       hasEditPermission,
       i18n,
       isUpdating,
-      router,
+      location,
       user,
       username,
     } = this.props;
@@ -418,7 +424,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           <Card className="UserProfileEdit-authenticate">
             <AuthenticateButton
               noIcon
-              location={router.location}
+              location={location}
               logInText={i18n.gettext('Log in to edit the profile')}
             />
           </Card>
@@ -851,10 +857,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
   const { clientApp, lang } = state.api;
+  const { params } = ownProps.match;
 
   const currentUser = getCurrentUser(state.users);
-  const user = ownProps.params.username
-    ? getUserByUsername(state.users, ownProps.params.username)
+  const user = params.username
+    ? getUserByUsername(state.users, params.username)
     : currentUser;
 
   let hasEditPermission = currentUser && user && currentUser.id === user.id;
@@ -869,16 +876,15 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     isUpdating: state.users.isUpdating,
     lang,
     user,
-    username: user ? user.username : ownProps.params.username,
+    username: user ? user.username : params.username,
   };
 }
 
 export const extractId = (ownProps: Props) => {
-  return ownProps.params.username;
+  return ownProps.match.params.username;
 };
 
 const UserProfileEdit: React.ComponentType<Props> = compose(
-  withRouter,
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),

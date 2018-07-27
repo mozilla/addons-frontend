@@ -52,7 +52,10 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type {
+  ReactRouterLocationType,
+  ReactRouterMatchType,
+} from 'core/types/router';
 
 import './styles.scss';
 
@@ -76,10 +79,14 @@ type InternalProps = {|
   i18n: I18nType,
   isLoggedIn: boolean,
   isOwner: boolean,
-  location: ReactRouterLocation,
-  params: {|
-    slug: string,
-    username: string,
+  lang: string,
+  location: ReactRouterLocationType,
+  match: {|
+    ...ReactRouterMatchType,
+    params: {|
+      slug: string,
+      username: string,
+    |},
   |},
   showEditButton: boolean,
 |};
@@ -154,7 +161,13 @@ export class CollectionBase extends React.Component<InternalProps> {
   };
 
   loadDataIfNeeded(nextProps?: InternalProps) {
-    const { collection, creating, errorHandler, loading, params } = {
+    const {
+      collection,
+      creating,
+      errorHandler,
+      loading,
+      match: { params },
+    } = {
       ...this.props,
       ...nextProps,
     };
@@ -519,8 +532,8 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
 
 export const extractId = (ownProps: InternalProps) => {
   return [
-    ownProps.params.username,
-    ownProps.params.slug,
+    ownProps.match.params.username,
+    ownProps.match.params.slug,
     ownProps.location.query.page,
   ].join('/');
 };

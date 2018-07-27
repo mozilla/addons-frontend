@@ -21,10 +21,10 @@ import {
 import type { AppState } from 'amo/store';
 import type { FiltersType } from 'core/reducers/search';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 type Props = {|
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
 |};
 
 type InternalProps = {|
@@ -33,7 +33,6 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   filters: FiltersType,
   lang: string,
-  pathname: string,
 |};
 
 export class SearchPageBase extends React.Component<InternalProps> {
@@ -98,14 +97,13 @@ export class SearchPageBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { filters, pathname } = this.props;
+    const { filters } = this.props;
 
     return (
       <Search
         enableSearchFilters
         filters={filters}
         paginationQueryParams={convertFiltersToQueryParams(filters)}
-        pathname={pathname}
       />
     );
   }

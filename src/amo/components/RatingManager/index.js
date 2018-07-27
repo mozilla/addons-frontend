@@ -34,7 +34,7 @@ import type {
 import type { DispatchFunc } from 'core/types/redux';
 import type { ApiState } from 'core/reducers/api';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -50,7 +50,7 @@ type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
 type Props = {|
   addon: AddonType,
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
   onReviewSubmitted?: () => void,
   version: AddonVersionType,
 |};

@@ -63,14 +63,14 @@ const babelL10nPlugins = [
   ],
 ];
 
-const BABEL_QUERY = Object.assign({}, babelrcObject, {
+const babelOptions = Object.assign({}, babelrcObject, {
   plugins: babelPlugins.concat(babelL10nPlugins),
 });
 
 export default Object.assign({}, webpackConfig, {
   entry: { [appName]: `${appName}/client` },
   module: {
-    rules: getRules({ babelQuery: BABEL_QUERY }),
+    rules: getRules({ babelOptions }),
   },
   plugins: [
     // Don't generate modules for locale files.

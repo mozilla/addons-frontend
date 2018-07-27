@@ -18,7 +18,7 @@ import {
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 const { Entity } = normalizrSchema;
@@ -236,7 +236,7 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
 export function startLoginUrl({
   location,
 }: {|
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
 |}) {
   const configName = config.get('fxaConfig');
   const params = {

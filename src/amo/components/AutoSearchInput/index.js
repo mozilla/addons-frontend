@@ -27,7 +27,7 @@ import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 import type { ErrorHandlerType } from 'core/errorHandler';
 
 import './styles.scss';
@@ -53,7 +53,7 @@ type Props = {|
   // This is the name property of the <input> tag.
   inputName: string,
   inputPlaceholder?: string,
-  location?: ReactRouterLocation,
+  location?: ReactRouterLocationType,
   onSearch: (SearchFilters) => void,
   onSuggestionSelected: (SuggestionType) => void,
   query?: string,

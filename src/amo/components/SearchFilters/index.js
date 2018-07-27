@@ -3,7 +3,7 @@ import config from 'config';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import {
@@ -34,12 +34,10 @@ const NO_FILTER = '';
 export class SearchFiltersBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
-    clientApp: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
-    pathname: PropTypes.string.isRequired,
-    router: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
@@ -89,7 +87,7 @@ export class SearchFiltersBase extends React.Component {
   };
 
   doSearch({ newFilters }) {
-    const { clientApp, lang, pathname, router } = this.props;
+    const { location, history } = this.props;
 
     if (newFilters.page) {
       // Since it's now a new search, reset the page.
@@ -97,8 +95,8 @@ export class SearchFiltersBase extends React.Component {
       newFilters.page = 1;
     }
 
-    router.push({
-      pathname: `/${lang}/${clientApp}${pathname}`,
+    history.push({
+      pathname: location.pathname,
       query: convertFiltersToQueryParams(newFilters),
     });
   }
@@ -233,15 +231,15 @@ export class SearchFiltersBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    clientApp: state.api.clientApp,
     filters: state.search.filters,
-    lang: state.api.lang,
   };
 }
 
-export default compose(
+const SearchFilters = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ name: 'SearchFilters' }),
 )(SearchFiltersBase);
+
+export default SearchFilters;

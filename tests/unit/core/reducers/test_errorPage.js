@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 import { createApiError } from 'core/api';
 import errorPage, {

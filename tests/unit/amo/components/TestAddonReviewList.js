@@ -39,6 +39,7 @@ import {
   createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
+  createFakeHistory,
   fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -57,20 +58,16 @@ describe(__filename, () => {
   const getProps = ({
     location = fakeRouterLocation(),
     params,
-    router,
     ...customProps
   } = {}) => {
     return {
       i18n: fakeI18n(),
-      // The `withRouter()` HOC uses the `router` to pass `params` and
-      // `location` to its children.
-      router: {
-        location,
+      location,
+      match: {
         params: {
           addonSlug: fakeAddon.slug,
           ...params,
         },
-        ...router,
       },
       store,
       ...customProps,
@@ -104,24 +101,6 @@ describe(__filename, () => {
   };
 
   describe('<AddonReviewList/>', () => {
-    it('requires location params', () => {
-      expect(() => render({ router: { params: null } })).toThrowError(
-        /component had a falsey params\.addonSlug/,
-      );
-    });
-
-    it('requires an addonSlug param', () => {
-      expect(() => render({ router: { params: {} } })).toThrowError(
-        /component had a falsey params\.addonSlug/,
-      );
-    });
-
-    it('requires a non-empty addonSlug param', () => {
-      expect(() =>
-        render({ router: { params: { addonSlug: null } } }),
-      ).toThrowError(/component had a falsey params\.addonSlug/);
-    });
-
     it('waits for an addon and reviews to load', () => {
       const location = fakeRouterLocation();
       const root = render({ addon: null, location });
@@ -704,19 +683,21 @@ describe(__filename, () => {
     });
 
     it('resets the page after submitting a review', () => {
-      const router = {
+      const history = createFakeHistory();
+      const props = {
+        history,
         location: fakeRouterLocation({
           query: { page: 2 },
         }),
         params: {
           addonSlug: fakeAddon.slug,
         },
-        push: sinon.stub(),
+        reviews: null,
       };
 
       dispatchAddon({ ...fakeAddon });
 
-      const root = render({ reviews: null, router });
+      const root = render(props);
 
       const manager = root.find(RatingManager);
       expect(manager).toHaveProp('onReviewSubmitted');
@@ -725,7 +706,7 @@ describe(__filename, () => {
       // Simulate a review submission.
       onReviewSubmitted();
 
-      sinon.assert.calledWith(router.push, {
+      sinon.assert.calledWith(history.push, {
         pathname: `/${lang}/${clientApp}${root.instance().url()}`,
         query: { page: 1 },
       });

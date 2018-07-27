@@ -18,14 +18,15 @@ const compiler = webpack(webpackDevConfig);
 
 const serverOptions = {
   contentBase: `http://${host}:${port}`,
-  quiet: true,
-  noInfo: true,
   headers: { 'Access-Control-Allow-Origin': '*' },
   hot: true,
   inline: true,
   lazy: false,
-  stats: { colors: true },
+  noInfo: true,
+  progress: true,
   publicPath: webpackDevConfig.output.publicPath,
+  quiet: true,
+  stats: { colors: true },
 };
 
 const app = new Express();

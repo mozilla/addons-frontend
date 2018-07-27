@@ -10,20 +10,17 @@ import type { SearchFilters } from 'amo/components/AutoSearchInput';
 
 type Props = {|
   filters: SearchFilters,
-  pathname: string,
 |};
 
 export class SearchToolsBase extends React.Component<Props> {
   render() {
-    const { filters, pathname, ...otherProps } = this.props;
+    const { filters } = this.props;
 
     return (
       <Search
-        {...otherProps}
         enableSearchFilters
         filters={filters}
         paginationQueryParams={convertFiltersToQueryParams(filters)}
-        pathname={pathname}
       />
     );
   }
