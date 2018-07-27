@@ -12,7 +12,7 @@ describe(__filename, () => {
     return shallow(<Routes {...props} />);
   };
 
-  it('renders the routes for the amo app', () => {
+  it('renders the routes for the disco app', () => {
     const root = render();
     expect(root.find(Route)).toHaveLength(7);
   });
