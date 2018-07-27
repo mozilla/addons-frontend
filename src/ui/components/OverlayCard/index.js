@@ -1,13 +1,15 @@
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
 
+import withUIState from 'core/withUIState';
 import Card from 'ui/components/Card';
 import Overlay from 'ui/components/Overlay';
 
 import './styles.scss';
 
-export default class OverlayCard extends React.Component {
+export class OverlayCardBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
@@ -22,18 +24,6 @@ export default class OverlayCard extends React.Component {
   static defaultProps = {
     visibleOnLoad: false,
   };
-
-  hide() {
-    this.overlay.hide();
-  }
-
-  show() {
-    this.overlay.show();
-  }
-
-  toggle() {
-    this.overlay.toggle();
-  }
 
   render() {
     const {
@@ -70,3 +60,17 @@ export default class OverlayCard extends React.Component {
     );
   }
 }
+
+export const extractId = (ownProps) => {
+  return ownProps.id;
+};
+
+const OverlayCard = compose(
+  withUIState({
+    fileName: __filename,
+    extractId,
+    initialState: {},
+  }),
+)(OverlayCardBase);
+
+export default OverlayCard;
