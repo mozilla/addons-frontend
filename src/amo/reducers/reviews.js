@@ -70,15 +70,15 @@ type ViewStateByReviewId = {|
   submittingReply: boolean,
 |};
 
-type LatestReview = {
-  [userIdAddonIdVersionId: string]: number | null,
-};
-
 export type ReviewsState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
-  latest: LatestReview,
+  latestByAddonVersion: {
+    // The latest user review for add-on / version
+    // or null if one does not exist yet.
+    [userIdAddonIdVersionId: string]: number | null,
+  },
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
@@ -88,7 +88,7 @@ export const initialState: ReviewsState = {
   byAddon: {},
   byId: {},
   byUserId: {},
-  latest: {},
+  latestByAddonVersion: {},
   // This stores review-related UI state.
   view: {},
 };
@@ -189,7 +189,7 @@ export const getReviewsByUserId = (
     : null;
 };
 
-const latestReviewKey = ({
+const latestByAddonVersionKey = ({
   userId,
   addonId,
   versionId,
@@ -212,8 +212,8 @@ export const selectLatestUserReview = ({
   addonId: number,
   versionId: number,
 |}): UserReviewType | null | void => {
-  const key = latestReviewKey({ userId, addonId, versionId });
-  const userReviewId = reviewsState.latest[key];
+  const key = latestByAddonVersionKey({ userId, addonId, versionId });
+  const userReviewId = reviewsState.latestByAddonVersion[key];
 
   if (userReviewId === null) {
     // This means an action had previously attempted to fetch the latest
@@ -281,7 +281,7 @@ export default function reviewsReducer(
     case SET_LATEST_REVIEW: {
       const { payload } = action;
       const { addonId, userId, review, versionId } = payload;
-      const key = latestReviewKey({
+      const key = latestByAddonVersionKey({
         addonId,
         userId,
         versionId,
@@ -308,8 +308,8 @@ export default function reviewsReducer(
           // This will trigger a refresh from the server.
           [userId]: undefined,
         },
-        latest: {
-          ...state.latest,
+        latestByAddonVersion: {
+          ...state.latestByAddonVersion,
           [key]: review ? review.id : null,
         },
       };
