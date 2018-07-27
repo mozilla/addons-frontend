@@ -23,7 +23,7 @@ import {
   createFakeEvent,
   createUserAccountResponse,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -83,7 +83,7 @@ describe(__filename, () => {
 
   it('shows a log in button when unauthenticated', () => {
     const handleLogIn = sinon.spy();
-    const location = fakeRouterLocation();
+    const location = createFakeLocation();
     const root = render({ handleLogIn, location, siteUser: null });
 
     expect(root.textContent).toEqual('Register or Log in');
@@ -104,7 +104,7 @@ describe(__filename, () => {
   it('updates the location on handleLogIn', () => {
     const { store } = dispatchSignInActions();
     const _window = { location: '/foo' };
-    const location = fakeRouterLocation({
+    const location = createFakeLocation({
       pathname: '/bar',
       query: { q: 'wat' },
     });

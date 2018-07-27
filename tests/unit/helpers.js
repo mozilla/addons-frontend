@@ -510,9 +510,6 @@ export const createFakeLocation = (props = {}) => {
   };
 };
 
-// TODO: remove this alias and use `createFakeLocation()` only.
-export const fakeRouterLocation = createFakeLocation;
-
 /*
  * Returns a fake ReactRouter history object.
  *

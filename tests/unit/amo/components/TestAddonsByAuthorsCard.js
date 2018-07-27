@@ -34,7 +34,7 @@ import {
   createContextWithFakeRouter,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -803,7 +803,7 @@ describe(__filename, () => {
 
     it('shows a paginator when `count` is greater than the number of add-ons to display', () => {
       const count = 4;
-      const location = fakeRouterLocation();
+      const location = createFakeLocation();
       const numberOfAddons = 1;
       const pathname = '/some/pathname';
 
@@ -835,7 +835,7 @@ describe(__filename, () => {
     });
 
     it('passes all the query parameters to the Paginate component', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: {
           page: 2,
           other: 'param',
@@ -856,7 +856,7 @@ describe(__filename, () => {
 
     it('sets the current page based on the `pageParam`', () => {
       const pageParam = 'my-page-parameter';
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: { [pageParam]: 123 },
       });
 
@@ -869,7 +869,7 @@ describe(__filename, () => {
     });
 
     it('sets the current page to 1 when there is no query parameter', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: {},
       });
 
@@ -882,7 +882,7 @@ describe(__filename, () => {
     });
 
     it('sets the current page to 1 when query parameter has an incorrect value', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: { page: 'invalid' },
       });
 
@@ -895,7 +895,7 @@ describe(__filename, () => {
     });
 
     it('sets the current page to 1 when query parameter has a negative value', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         query: { page: -11 },
       });
 
@@ -943,7 +943,7 @@ describe(__filename, () => {
 
       const authorUsernames = ['test2'];
       const numberOfAddons = 4;
-      const location = fakeRouterLocation({ query: { page: 1 } });
+      const location = createFakeLocation({ query: { page: 1 } });
 
       const root = renderWithPagination({
         addonType: ADDON_TYPE_EXTENSION,
@@ -958,7 +958,7 @@ describe(__filename, () => {
 
       const newPage = 2;
       root.setProps({
-        location: fakeRouterLocation({ query: { page: newPage } }),
+        location: createFakeLocation({ query: { page: newPage } }),
       });
 
       sinon.assert.calledWith(

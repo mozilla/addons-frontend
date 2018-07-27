@@ -12,7 +12,7 @@ import {
   LanguagePickerBase,
   changeLocaleURL,
 } from 'amo/components/LanguagePicker';
-import { fakeI18n, fakeRouterLocation } from 'tests/unit/helpers';
+import { fakeI18n, createFakeLocation } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('LanguagePicker', () => {
@@ -48,7 +48,7 @@ describe(__filename, () => {
       const _window = { location: '/fr/firefox/' };
       const root = renderLanguagePicker({
         currentLocale: 'fr',
-        location: fakeRouterLocation({ pathname: _window.location }),
+        location: createFakeLocation({ pathname: _window.location }),
         _window,
       });
       const fakeEvent = {
@@ -65,7 +65,7 @@ describe(__filename, () => {
     it('changes the URL', () => {
       const newURL = changeLocaleURL({
         currentLocale: 'en-US',
-        location: fakeRouterLocation({
+        location: createFakeLocation({
           pathname: '/en-US/firefox/nowhere/',
           query: { page: 1, q: 'search' },
         }),
@@ -78,7 +78,7 @@ describe(__filename, () => {
     it('handles URLs without query params', () => {
       const newURL = changeLocaleURL({
         currentLocale: 'en-US',
-        location: fakeRouterLocation({ pathname: '/en-US/firefox/nowhere/' }),
+        location: createFakeLocation({ pathname: '/en-US/firefox/nowhere/' }),
         newLocale: 'ar',
       });
 
@@ -88,7 +88,7 @@ describe(__filename, () => {
     it('only changes the locale section of the URL', () => {
       const newURL = changeLocaleURL({
         currentLocale: 'en-US',
-        location: fakeRouterLocation({
+        location: createFakeLocation({
           pathname: '/en-US/firefox/en-US-to-en-GB-guide/',
           query: { foo: 'en-US' },
         }),

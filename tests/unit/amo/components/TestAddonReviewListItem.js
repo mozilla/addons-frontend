@@ -27,7 +27,7 @@ import {
 import {
   createFakeEvent,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -44,7 +44,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -229,7 +229,7 @@ describe(__filename, () => {
 
   it('lets you flag a review', () => {
     const review = _setReview(fakeReview);
-    const location = fakeRouterLocation();
+    const location = createFakeLocation();
     const root = render({ location, review });
 
     const flag = renderByLine(root).find(FlagReviewMenu);
