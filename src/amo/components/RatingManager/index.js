@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
 import { withRenderedErrorHandler } from 'core/errorHandler';
-import { setReview, setLatestReview } from 'amo/actions/reviews';
+import { setLatestReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api/reviews';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';

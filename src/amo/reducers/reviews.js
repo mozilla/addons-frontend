@@ -1,6 +1,5 @@
 /* @flow */
 import { oneLine } from 'common-tags';
-import invariant from 'invariant';
 
 import {
   CLEAR_ADDON_REVIEWS,
@@ -111,24 +110,6 @@ export const expandReviewObjects = ({
     return review;
   });
 };
-
-function mergeInNewReview(
-  latestReview: UserReviewType,
-  oldReviews: { [reviewId: string]: UserReviewType } = {},
-): { [id: string]: Array<UserReviewType> } {
-  const mergedReviews = {};
-
-  Object.keys(oldReviews).forEach((id) => {
-    mergedReviews[id] = oldReviews[id];
-    if (latestReview.isLatest) {
-      // Reset the 'latest' flag for all old reviews.
-      mergedReviews[id].isLatest = false;
-    }
-  });
-
-  mergedReviews[latestReview.id] = latestReview;
-  return mergedReviews;
-}
 
 type StoreReviewObjectsParams = {|
   state: ReviewsState,
@@ -276,7 +257,7 @@ export default function reviewsReducer(
         versionId,
       });
 
-      let byId = state.byId;
+      let { byId } = state;
       if (review) {
         byId = storeReviewObjects({
           state,

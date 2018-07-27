@@ -155,8 +155,6 @@ describe(__filename, () => {
 
   it('preserves existing add-on reviews', () => {
     let state;
-    const userId = fakeReview.user.id;
-    const addonId = fakeReview.addon.id;
 
     state = reviewsReducer(
       state,
