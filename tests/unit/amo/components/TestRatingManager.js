@@ -115,6 +115,27 @@ describe(__filename, () => {
     });
   });
 
+  it('does not load a saved review when none exists', () => {
+    const userId = 12889;
+    const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
+    const version = {
+      ...fakeAddon.current_version,
+      id: 9966,
+    };
+    const loadSavedReview = sinon.spy();
+
+    render({
+      apiState: signedInApiState,
+      userId,
+      addon,
+      version,
+      loadSavedReview,
+      userReview: null,
+    });
+
+    sinon.assert.notCalled(loadSavedReview);
+  });
+
   it('creates a rating with add-on and version info', () => {
     const errorHandler = sinon.stub();
     const submitReview = sinon.spy(() => Promise.resolve());
@@ -267,6 +288,16 @@ describe(__filename, () => {
     const props = UserRatingStub.firstCall.args[0];
     expect(props.onSelectRating).toEqual(root.onSelectRating);
     expect(props.review).toEqual(userReview);
+  });
+
+  it('sets an undefined UserRating review when none exists', () => {
+    const UserRatingStub = sinon.spy(() => <div />);
+
+    const root = render({ UserRating: UserRatingStub, userReview: null });
+
+    sinon.assert.calledWithMatch(UserRatingStub, {
+      review: undefined,
+    });
   });
 
   it('sets a blank rating when there is no saved review', () => {
