@@ -726,6 +726,7 @@ describe(__filename, () => {
     } = {}) => {
       return setLatestReview({
         addonId: 9,
+        addonSlug: 'some-slug',
         versionId: 8,
         userId: 7,
         review,
@@ -825,7 +826,7 @@ describe(__filename, () => {
           reviewCount: 1,
         }),
       );
-      state = reviewsReducer(state, _setLatestReview());
+      state = reviewsReducer(state, _setLatestReview({ addonSlug }));
 
       expect(state.byAddon[addonSlug]).toBeUndefined();
     });

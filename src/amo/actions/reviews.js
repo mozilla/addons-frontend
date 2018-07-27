@@ -436,6 +436,7 @@ export const clearAddonReviews = ({
 type SetLatestReviewParams = {|
   review: ExternalReviewType | null,
   addonId: number,
+  addonSlug: string,
   versionId: number,
   userId: number,
 |};
@@ -450,6 +451,7 @@ export const setLatestReview = (
 ): SetLatestReviewAction => {
   invariant(params.userId, 'userId is required');
   invariant(params.addonId, 'addonId is required');
+  invariant(params.addonSlug, 'addonSlug is required');
   invariant(params.versionId, 'versionId is required');
   invariant(params.review !== undefined, 'review is required');
   return {

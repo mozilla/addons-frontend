@@ -280,12 +280,8 @@ export default function reviewsReducer(
       });
     case SET_LATEST_REVIEW: {
       const { payload } = action;
-      const { addonId, userId, review, versionId } = payload;
-      const key = latestByAddonVersionKey({
-        addonId,
-        userId,
-        versionId,
-      });
+      const { addonId, addonSlug, userId, review, versionId } = payload;
+      const key = latestByAddonVersionKey({ addonId, userId, versionId });
 
       let { byId } = state;
       if (review) {
@@ -298,10 +294,11 @@ export default function reviewsReducer(
       return {
         ...state,
         byId,
-        // Reset all add-on reviews to trigger a refresh from the server.
-        // Since we don't know the exact add-on slug we can't erase only
-        // the relevant reviews.
-        byAddon: initialState.byAddon,
+        byAddon: {
+          ...state.byAddon,
+          // Reset all add-on reviews to trigger a refresh from the server.
+          [addonSlug]: undefined,
+        },
         byUserId: {
           ...state.byUserId,
           // Reset all user reviews to trigger a refresh from the server.

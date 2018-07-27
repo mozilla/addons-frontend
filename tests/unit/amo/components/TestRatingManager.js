@@ -68,7 +68,6 @@ describe(__filename, () => {
       ...customProps,
     };
 
-    // TODO: port to shallowUntilTarget
     const root = findRenderedComponentWithType(
       renderIntoDocument(
         <I18nProvider i18n={fakeI18n()}>
@@ -111,6 +110,7 @@ describe(__filename, () => {
       apiState: signedInApiState,
       userId,
       addonId: addon.id,
+      addonSlug: addon.slug,
       versionId: version.id,
     });
   });
@@ -401,6 +401,7 @@ describe(__filename, () => {
             dispatch,
             setLatestReview({
               addonId: reviewResult.addon.id,
+              addonSlug: reviewResult.addon.slug,
               userId: reviewResult.user.id,
               versionId: reviewResult.version.id,
               review: reviewResult,
@@ -409,12 +410,40 @@ describe(__filename, () => {
           mockApi.verify();
         });
       });
+
+      it('falls back to version ID parameter', () => {
+        const versionId = 54321;
+        const params = {
+          rating: fakeReview.rating,
+          apiState: { ...signedInApiState, token: 'new-token' },
+          addonId: fakeAddon.id,
+          versionId,
+        };
+
+        // Simulate a review for a deleted add-on version.
+        const reviewResult = { ...fakeReview, version: undefined };
+        mockApi.expects('submitReview').returns(Promise.resolve(reviewResult));
+
+        return actions.submitReview(params).then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setLatestReview({
+              addonId: reviewResult.addon.id,
+              addonSlug: reviewResult.addon.slug,
+              userId: reviewResult.user.id,
+              versionId,
+              review: reviewResult,
+            }),
+          );
+        });
+      });
     });
 
     describe('loadSavedReview', () => {
       it('finds and dispatches a review', () => {
         const userId = fakeReview.user.id;
         const addonId = fakeReview.addon.id;
+        const addonSlug = fakeReview.addon.slug;
         const versionId = fakeReview.version.id;
         mockApi
           .expects('getLatestUserReview')
@@ -431,6 +460,7 @@ describe(__filename, () => {
             apiState: signedInApiState,
             userId,
             addonId,
+            addonSlug,
             versionId,
           })
           .then(() => {
@@ -440,6 +470,7 @@ describe(__filename, () => {
               setLatestReview({
                 userId,
                 addonId,
+                addonSlug,
                 versionId,
                 review: fakeReview,
               }),
@@ -450,6 +481,7 @@ describe(__filename, () => {
       it('sets the latest review to null when none exists', () => {
         const userId = 123;
         const addonId = 8765;
+        const addonSlug = 'some-slug';
         const versionId = 5421;
         mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
@@ -458,6 +490,7 @@ describe(__filename, () => {
             apiState: initialApiState,
             userId,
             addonId,
+            addonSlug,
             versionId,
           })
           .then(() => {
@@ -465,6 +498,7 @@ describe(__filename, () => {
               dispatch,
               setLatestReview({
                 addonId,
+                addonSlug,
                 userId,
                 versionId,
                 review: null,
@@ -533,6 +567,7 @@ describe(__filename, () => {
       store.dispatch(
         setLatestReview({
           addonId: addon.id,
+          addonSlug: addon.slug,
           userId,
           versionId: version.id,
           review: fakeReview,
@@ -553,6 +588,7 @@ describe(__filename, () => {
       store.dispatch(
         setLatestReview({
           addonId: addon.id,
+          addonSlug: addon.slug,
           userId,
           versionId: version.id,
           review: null,

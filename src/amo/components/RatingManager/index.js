@@ -43,6 +43,7 @@ import './styles.scss';
 
 type LoadSavedReviewFunc = ({|
   addonId: $PropertyType<GetLatestReviewParams, 'addon'>,
+  addonSlug: string,
   apiState: ApiState,
   userId: $PropertyType<GetLatestReviewParams, 'user'>,
   versionId: $PropertyType<GetLatestReviewParams, 'version'>,
@@ -110,6 +111,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         apiState,
         userId,
         addonId: addon.id,
+        addonSlug: addon.slug,
         versionId: version.id,
       });
     }
@@ -281,7 +283,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 export const mapDispatchToProps = (
   dispatch: DispatchFunc,
 ): DispatchMappedProps => ({
-  loadSavedReview({ apiState, userId, addonId, versionId }) {
+  loadSavedReview({ apiState, userId, addonId, addonSlug, versionId }) {
     return getLatestUserReview({
       apiState,
       user: userId,
@@ -289,12 +291,22 @@ export const mapDispatchToProps = (
       version: versionId,
     }).then((review) => {
       if (review) {
-        dispatch(setLatestReview({ userId, addonId, versionId, review }));
+        dispatch(
+          setLatestReview({ userId, addonId, addonSlug, versionId, review }),
+        );
       } else {
         log.debug(
           `No saved review found for userId ${userId}, addonId ${addonId}`,
         );
-        dispatch(setLatestReview({ userId, addonId, versionId, review: null }));
+        dispatch(
+          setLatestReview({
+            userId,
+            addonId,
+            addonSlug,
+            versionId,
+            review: null,
+          }),
+        );
       }
     });
   },
@@ -305,13 +317,13 @@ export const mapDispatchToProps = (
       // version was deleted. In that case, we fall back to the submitted
       // versionId which came from the page data. It is highly unlikely
       // that both of these will be empty.
-      // TODO: add tests
       const versionId =
         (review.version && review.version.id) || params.versionId;
       invariant(versionId, 'versionId cannot be empty');
       dispatch(
         setLatestReview({
           addonId: review.addon.id,
+          addonSlug: review.addon.slug,
           userId: review.user.id,
           versionId,
           review,
