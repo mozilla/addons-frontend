@@ -189,7 +189,7 @@ export const getReviewsByUserId = (
     : null;
 };
 
-const latestByAddonVersionKey = ({
+export const latestByAddonVersionKey = ({
   userId,
   addonId,
   versionId,
@@ -298,14 +298,13 @@ export default function reviewsReducer(
       return {
         ...state,
         byId,
-        byAddon: {
-          ...state.byUserId,
-          // This will trigger a refresh from the server.
-          [addonId]: undefined,
-        },
+        // Reset all add-on reviews to trigger a refresh from the server.
+        // Since we don't know the exact add-on slug we can't erase only
+        // the relevant reviews.
+        byAddon: initialState.byAddon,
         byUserId: {
           ...state.byUserId,
-          // This will trigger a refresh from the server.
+          // Reset all user reviews to trigger a refresh from the server.
           [userId]: undefined,
         },
         latestByAddonVersion: {
@@ -319,7 +318,6 @@ export default function reviewsReducer(
       return {
         ...state,
         byId: storeReviewObjects({ state, reviews: [payload] }),
-        // TODO: empty out byAddon too?
         byUserId: {
           ...state.byUserId,
           // This will trigger a refresh from the server.

@@ -6,6 +6,7 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
+  setLatestReview,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -19,6 +20,7 @@ import reviewsReducer, {
   expandReviewObjects,
   getReviewsByUserId,
   initialState,
+  latestByAddonVersionKey,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
@@ -706,6 +708,144 @@ describe(__filename, () => {
         reviewCount: reviews.length,
         reviews: reviews.map(denormalizeReview),
       });
+    });
+  });
+
+  describe('latestByAddonVersionKey', () => {
+    it('generates a key', () => {
+      expect(
+        latestByAddonVersionKey({ userId: 1, addonId: 2, versionId: 3 }),
+      ).toEqual('user1-addon2-version3');
+    });
+  });
+
+  describe('setLatestReview()', () => {
+    const _setLatestReview = ({
+      review = { ...fakeReview, id: 1 },
+      ...params
+    } = {}) => {
+      return setLatestReview({
+        addonId: 9,
+        versionId: 8,
+        userId: 7,
+        review,
+        ...params,
+      });
+    };
+
+    it('sets a review object', () => {
+      const review = { ...fakeReview, id: 2 };
+
+      const state = reviewsReducer(undefined, _setLatestReview({ review }));
+
+      expect(state.byId[review.id]).toEqual(denormalizeReview(review));
+    });
+
+    it('sets the latest review', () => {
+      const addonId = 1;
+      const versionId = 2;
+      const userId = 3;
+      const review = { ...fakeReview, id: 2 };
+
+      const state = reviewsReducer(
+        undefined,
+        _setLatestReview({ addonId, versionId, userId, review }),
+      );
+
+      expect(
+        state.latestByAddonVersion[
+          latestByAddonVersionKey({ addonId, userId, versionId })
+        ],
+      ).toEqual(review.id);
+    });
+
+    it('can set the latest review to null', () => {
+      const addonId = 1;
+      const versionId = 2;
+      const userId = 3;
+
+      const state = reviewsReducer(
+        undefined,
+        _setLatestReview({ addonId, versionId, userId, review: null }),
+      );
+
+      expect(
+        state.latestByAddonVersion[
+          latestByAddonVersionKey({ addonId, userId, versionId })
+        ],
+      ).toBeNull();
+    });
+
+    it('preserves other latest reviews', () => {
+      const userId = 1;
+      const addonId = 1;
+
+      let state;
+      state = reviewsReducer(
+        state,
+        _setLatestReview({
+          userId,
+          addonId,
+          versionId: 1,
+          review: { ...fakeReview, id: 1 },
+        }),
+      );
+      state = reviewsReducer(
+        state,
+        _setLatestReview({
+          userId,
+          addonId,
+          versionId: 2,
+          review: { ...fakeReview, id: 2 },
+        }),
+      );
+
+      expect(
+        state.latestByAddonVersion[
+          latestByAddonVersionKey({ userId, addonId, versionId: 1 })
+        ],
+      ).toEqual(1);
+      expect(
+        state.latestByAddonVersion[
+          latestByAddonVersionKey({ userId, addonId, versionId: 2 })
+        ],
+      ).toEqual(2);
+    });
+
+    it('resets all related add-on reviews', () => {
+      const addonSlug = 'some-slug';
+
+      let state;
+      state = reviewsReducer(
+        state,
+        setAddonReviews({
+          addonSlug,
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [{ ...fakeReview, id: 1 }],
+          reviewCount: 1,
+        }),
+      );
+      state = reviewsReducer(state, _setLatestReview());
+
+      expect(state.byAddon[addonSlug]).toBeUndefined();
+    });
+
+    it('resets all related user reviews', () => {
+      const userId = 123;
+
+      let state;
+      state = reviewsReducer(
+        state,
+        setUserReviews({
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [fakeReview],
+          reviewCount: 1,
+          userId,
+        }),
+      );
+      state = reviewsReducer(state, _setLatestReview({ userId }));
+
+      expect(state.byUserId[userId]).toBeUndefined();
     });
   });
 });

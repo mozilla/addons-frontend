@@ -448,6 +448,10 @@ export type SetLatestReviewAction = {|
 export const setLatestReview = (
   params: SetLatestReviewParams,
 ): SetLatestReviewAction => {
+  invariant(params.userId, 'userId is required');
+  invariant(params.addonId, 'addonId is required');
+  invariant(params.versionId, 'versionId is required');
+  invariant(params.review !== undefined, 'review is required');
   return {
     type: SET_LATEST_REVIEW,
     payload: params,
