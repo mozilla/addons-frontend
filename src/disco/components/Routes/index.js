@@ -9,18 +9,23 @@ import DiscoPane from 'disco/components/DiscoPane';
 import SimulateAsyncError from 'core/components/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'core/components/error-simulation/SimulateClientError';
 import SimulateSyncError from 'core/components/error-simulation/SimulateSyncError';
+import type { ConfigType } from 'core/types/config';
+
+type Props = {|
+  _config?: ConfigType,
+|};
 
 export const DISCO_PANE_PATH =
   '/:lang/firefox/discovery/pane/:version/:platform/:compatibilityMode';
 
-const Routes = () => (
+const Routes = ({ _config = config }: Props = {}) => (
   <Switch>
     <Route exact path={DISCO_PANE_PATH} component={DiscoPane} />
     <Route exact path="/:lang/firefox/404" component={NotFound} />
     <Route
       exact
       path="/:lang/firefox/500"
-      component={config.get('isDevelopment') ? GenericError : NotFound}
+      component={_config.get('isDevelopment') ? GenericError : NotFound}
     />
     <Route
       exact

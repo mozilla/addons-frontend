@@ -25,9 +25,14 @@ import UserProfileEdit from 'amo/components/UserProfileEdit';
 import SimulateAsyncError from 'core/components/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'core/components/error-simulation/SimulateClientError';
 import SimulateSyncError from 'core/components/error-simulation/SimulateSyncError';
+import type { ConfigType } from 'core/types/config';
+
+type Props = {|
+  _config?: ConfigType,
+|};
 
 // If you add a new route here, check that the nginx rules maintained by ops
-const Routes = () => (
+const Routes = ({ _config = config }: Props = {}) => (
   <Switch>
     <Route exact path="/:lang/about" component={About} />
     {/* TODO: Post launch update this URL and redirect see #3374/ */}
@@ -107,13 +112,13 @@ const Routes = () => (
     <Route
       exact
       path="/:lang/:application/401/"
-      component={config.get('isDevelopment') ? NotAuthorized : NotFound}
+      component={_config.get('isDevelopment') ? NotAuthorized : NotFound}
     />
     <Route exact path="/:lang/:application/404/" component={NotFound} />
     <Route
       exact
       path="/:lang/:application/500/"
-      component={config.get('isDevelopment') ? ServerError : NotFound}
+      component={_config.get('isDevelopment') ? ServerError : NotFound}
     />
 
     <Route
