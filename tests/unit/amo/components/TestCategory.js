@@ -23,7 +23,6 @@ import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -39,11 +38,10 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    const clientData = dispatchClientMetadata({
+    store = dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
-    });
+    }).store;
     errorHandler = createStubErrorHandler();
-    store = clientData.store;
   });
 
   function _categoriesLoad(actionParams = {}) {
@@ -98,11 +96,12 @@ describe(__filename, () => {
     return {
       errorHandler,
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
-      params: {
-        slug: fakeCategory.slug,
-        visibleAddonType: visibleAddonType(fakeCategory.type),
-        ...paramOverrides,
+      match: {
+        params: {
+          slug: fakeCategory.slug,
+          visibleAddonType: visibleAddonType(fakeCategory.type),
+          ...paramOverrides,
+        },
       },
       store,
       ...customProps,
@@ -113,10 +112,6 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <Category {...renderProps(props, options)} />,
       CategoryBase,
-      // TODO: ideally, we would like to enable the lifecycle methods, but it
-      // produces unexpected errors, related to Enzyme 3.
-      // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
-      { shallowOptions: { disableLifecycleMethods: true } },
     );
   }
 
@@ -207,10 +202,11 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when nothing has changed', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
+    _categoriesLoad();
+    _getLanding();
 
-    const root = render();
-    fakeDispatch.resetHistory();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({}, { autoDispatchCategories: false });
 
     // This will trigger the componentWillReceiveProps() method.
     root.setProps();
@@ -718,12 +714,15 @@ describe(__filename, () => {
     it('looks for a category by slug, addonType, and clientApp', () => {
       _dispatchClientApp(targetCategory.application);
 
-      const root = _render({
-        params: {
-          slug: targetCategory.slug,
-          visibleAddonType: visibleAddonType(targetCategory.type),
+      const root = _render(
+        {},
+        {
+          paramOverrides: {
+            slug: targetCategory.slug,
+            visibleAddonType: visibleAddonType(targetCategory.type),
+          },
         },
-      });
+      );
 
       expect(root.find(CategoryHeader)).toHaveProp('category', targetCategory);
     });

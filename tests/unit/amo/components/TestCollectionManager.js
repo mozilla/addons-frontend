@@ -15,11 +15,12 @@ import {
 import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import { decodeHtmlEntities } from 'core/utils';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
-  createFakeRouter,
+  createFakeHistory,
+  createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -31,7 +32,7 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
-  let fakeRouter;
+  let fakeHistory;
   let store;
   const apiHost = config.get('apiHost');
   const signedInUserId = 123;
@@ -39,7 +40,7 @@ describe(__filename, () => {
   const lang = 'en-US';
 
   beforeEach(() => {
-    fakeRouter = createFakeRouter();
+    fakeHistory = createFakeHistory();
     store = dispatchClientMetadata().store;
     dispatchSignInActions({
       lang,
@@ -53,26 +54,28 @@ describe(__filename, () => {
     collection = createInternalCollection({
       detail: createFakeCollectionDetail(),
     }),
-    router = fakeRouter,
+    history = fakeHistory,
     ...customProps
   }) => {
     return {
       collection,
       creating: false,
       filters: {},
+      history,
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
-      router,
+      location: createFakeLocation(),
       store,
       ...customProps,
     };
   };
 
   const render = (customProps = {}) => {
-    const props = getProps(customProps);
+    const { history, ...props } = getProps(customProps);
+
     return shallowUntilTarget(
       <CollectionManager {...props} />,
       CollectionManagerBase,
+      { shallowOptions: createContextWithFakeRouter({ history }) },
     );
   };
 
@@ -319,8 +322,8 @@ describe(__filename, () => {
     const root = render({
       collection: null,
       creating: true,
-      router: createFakeRouter({
-        location: fakeRouterLocation({ query: { include_addon_id: id } }),
+      history: createFakeHistory({
+        location: createFakeLocation({ query: { include_addon_id: id } }),
       }),
     });
 
@@ -701,18 +704,18 @@ describe(__filename, () => {
 
     simulateCancel(root);
 
-    sinon.assert.calledWith(fakeRouter.push, {
+    sinon.assert.calledWith(fakeHistory.push, {
       pathname: `/${newLang}/${clientApp}/collections/${username}/${slug}/`,
       query: { collection_sort: sort, page },
     });
   });
 
-  it('calls router.goBack() on cancel when creating', () => {
+  it('calls history.goBack() on cancel when creating', () => {
     const root = render({ creating: true });
 
     simulateCancel(root);
 
-    sinon.assert.called(fakeRouter.goBack);
+    sinon.assert.called(fakeHistory.goBack);
   });
 
   it('populates form state when updating to a new collection', () => {

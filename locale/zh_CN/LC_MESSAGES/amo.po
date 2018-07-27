@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-26 12:52+0000\n"
+"PO-Revision-Date: 2018-07-26 12:56+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -721,7 +721,7 @@ msgstr "下载 Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
 msgid "Leave a note"
-msgstr ""
+msgstr "留下注释"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
 msgid "Remove"
@@ -2039,11 +2039,11 @@ msgstr "删除个人资料"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "重要：此操作无法撤销，您将删除您在 Firefox 附加组件网站的个人资料（账号）。"
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "重要：此操作无法撤销，您将删除在 Firefox 附加组件网站的个人资料（账号）。"
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2059,17 +2059,17 @@ msgstr "将永久移除该用户的数据，包括详细个人资料（头像、
 
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "当您再次使用此电子邮件地址登录 addons.mozilla.org 时，您将需要为 Firefox 附加组件网站创建新的个人资料，它与现有将要删除的个人资料毫无关联。"
 
 #: src/amo/components/UserProfileEdit/index.js:800
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
-msgstr ""
+msgstr "%(strongStart)s注意：%(strongEnd)s如果您是%(linkStart)s任何附加组件的作者%(linkEnd)s，则无法删除您的个人资料。 要删除个人资料，您必须先%(docLinkStart)s转移附加组件的所有权%(docLinkEnd)s或删除附加组件。"
 
 #: src/amo/components/UserProfileEdit/index.js:807
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)s注意：%(strongEnd)s您无法注销%(linkStart)s任何附加组件之作者%(linkEnd)s的个人资料。"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"

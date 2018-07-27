@@ -17,10 +17,24 @@
   display: block;
   height: 100%;
   width: $svgWidth;
+
+  [dir='rtl'] & {
+    @keyframes #{$name}-rtl {
+      from {
+        transform: scaleX(-1) translateX(0);
+      }
+
+      to {
+        transform: scaleX(-1) translateX(-($svgWidth - $width));
+      }
+    }
+
+    animation-name: '#{$name}-rtl';
+  }
 }
 
 .AnimatedIcon-loading {
-  $width: 16.26px;
+  $width: 16px;
 
   display: inline-block;
   height: 4px;
@@ -34,5 +48,10 @@
       $svgWidth: 992px,
       $width: $width
     );
+  }
+
+  [dir='rtl'] & {
+    // For some reasons, there is a small horizontal offset in RTL mode.
+    margin-left: -1px;
   }
 }

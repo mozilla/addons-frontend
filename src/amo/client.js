@@ -1,10 +1,20 @@
-import makeClient from 'core/client/base';
+import createClient from 'core/client/base';
 
 // Initialize the tracking.
 import 'core/tracking';
 
-import routes from './routes';
+import App from './components/App';
 import sagas from './sagas';
 import createStore from './store';
 
-makeClient(routes, createStore, { sagas });
+createClient(createStore, { sagas }).then(({ renderApp }) => {
+  renderApp(App);
+
+  if (module.hot) {
+    module.hot.accept('./components/App', () => {
+      // eslint-disable-next-line global-require
+      const NextApp = require('./components/App').default;
+      renderApp(NextApp);
+    });
+  }
+});

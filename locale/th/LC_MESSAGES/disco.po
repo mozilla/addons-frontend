@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2018-03-17 09:50+0000\n"
+"PO-Revision-Date: 2018-07-27 13:30+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -19,13 +19,10 @@ msgid "Server Error"
 msgstr "ข้อผิดพลาดเซิร์ฟเวอร์"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "รหัสข้อผิดพลาด: %(status)s"
 
@@ -49,13 +46,11 @@ msgstr "ตอนนี้คุณสามารถเข้าถึง %(nam
 msgid "OK!"
 msgstr "ตกลง!"
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "ติดตั้งชุดตกแต่ง"
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 
@@ -89,7 +84,7 @@ msgstr "ไม่ทราบสถานะการติดตั้ง %(nam
 
 #: src/disco/components/Addon/index.js:136
 msgid "Preview of %(name)s"
-msgstr ""
+msgstr "ตัวอย่างของ %(name)s"
 
 #: src/disco/components/Addon/index.js:174
 msgid "Installation failed. Please try again."
@@ -145,15 +140,11 @@ msgstr "ปรับแต่ง Firefox ของคุณ"
 
 #: src/disco/components/DiscoPane/index.js:106
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 "มีส่วนเสริมฟรีนับพันที่สร้างขึ้นโดยนักพัฒนาจากทั่วโลกที่คุณสามารถติดตั้งเพื่อปรับแต่ง Firefox ของคุณ "
-"ตั้งแต่ชุดตกแต่งอันสนุกสนานไปจนถึงเครื่องมือทรงประสิทธิภาพที่ทำให้การท่องเว็บเร็วขึ้นและปลอดภัยขึ้น "
-"ส่วนเสริมทำให้เบราว์เซอร์ของคุณเป็นของคุณ เพื่อช่วยคุณเริ่มต้น "
+"ตั้งแต่ชุดตกแต่งอันสนุกสนานไปจนถึงเครื่องมือทรงประสิทธิภาพที่ทำให้การท่องเว็บเร็วขึ้นและปลอดภัยขึ้น ส่วนเสริมทำให้เบราว์เซอร์ของคุณเป็นของคุณ เพื่อช่วยคุณเริ่มต้น "
 "นี่คือบางส่วนที่เราแนะนำสำหรับประสิทธิภาพและการทำงานที่โดดเด่น"
 
 #: src/disco/components/DiscoPane/index.js:139

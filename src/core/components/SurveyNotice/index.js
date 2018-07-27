@@ -16,7 +16,7 @@ import {
 import tracking from 'core/tracking';
 import { addQueryParams } from 'core/utils';
 import Notice from 'ui/components/Notice';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AppState } from 'amo/store';
@@ -24,7 +24,7 @@ import type { AppState } from 'amo/store';
 import './styles.scss';
 
 type Props = {|
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
 |};
 
 type InternalProps = {|

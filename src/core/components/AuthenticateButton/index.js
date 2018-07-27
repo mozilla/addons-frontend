@@ -15,11 +15,11 @@ import type { AppState } from 'amo/store';
 import type { ApiState } from 'core/reducers/api';
 import type { UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 type HandleLogInFunc = (
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
   options?: {| _window: typeof window |},
 ) => void;
 
@@ -29,7 +29,7 @@ type Props = {|
   buttonType?: string,
   className?: string,
   handleLogOut?: HandleLogOutFunction,
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
   logInText?: string,
   logOutText?: string,
   noIcon?: boolean,

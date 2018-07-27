@@ -1,4 +1,5 @@
 /* global navigator */
+import invariant from 'invariant';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { camelizeKeys as camelCaseKeys } from 'humps';
@@ -30,8 +31,10 @@ export class DiscoPaneBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
-    params: PropTypes.shape({
-      platform: PropTypes.string.isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        platform: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
@@ -48,7 +51,14 @@ export class DiscoPaneBase extends React.Component {
   constructor(props) {
     super(props);
 
-    const { dispatch, errorHandler, location, params, results } = props;
+    const {
+      dispatch,
+      errorHandler,
+      location,
+      match: { params },
+      results,
+    } = props;
+
     // TODO: fix this; it's not the right way to detect whether a
     // dispatch is needed. This should look for an undefined value
     // instead of an empty list because an empty list could be a valid
@@ -80,12 +90,39 @@ export class DiscoPaneBase extends React.Component {
 
   showMoreAddons = () => {
     const { _tracking } = this.props;
+
     _tracking.sendEvent({
       action: 'click',
       category: NAVIGATION_CATEGORY,
-      label: 'See More Add-ons',
+      label: 'Find More Add-ons',
     });
   };
+
+  renderFindMoreButton({ position }) {
+    const { i18n } = this.props;
+
+    invariant(position, 'position is required');
+
+    return (
+      <div className={`amo-link amo-link-${position}`}>
+        <Button
+          buttonType="action"
+          href={`https://addons.mozilla.org/${makeQueryStringWithUTM({
+            utm_content: `find-more-link-${position}`,
+            // The parameter below is not an UTM parameter, but it's used
+            // internally by AMO to track downloads in the stats dashboards for
+            // developers.
+            src: 'api',
+          })}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={this.showMoreAddons}
+        >
+          {i18n.gettext('Find more add-ons')}
+        </Button>
+      </div>
+    );
+  }
 
   render() {
     const { AddonComponent, errorHandler, results, i18n } = this.props;
@@ -115,6 +152,9 @@ export class DiscoPaneBase extends React.Component {
             </div>
           </div>
         </header>
+
+        {this.renderFindMoreButton({ position: 'top' })}
+
         {results.map((item) => (
           <AddonComponent
             addon={item}
@@ -122,23 +162,8 @@ export class DiscoPaneBase extends React.Component {
             key={item.guid}
           />
         ))}
-        <div className="amo-link">
-          <Button
-            buttonType="action"
-            href={`https://addons.mozilla.org/${makeQueryStringWithUTM({
-              utm_content: 'see-more-link',
-              // The parameter below is not an UTM parameter, but it's used
-              // internally by AMO to track downloads in the stats dashboards
-              // for developers.
-              src: 'api',
-            })}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={this.showMoreAddons}
-          >
-            {i18n.gettext('See more add-ons!')}
-          </Button>
-        </div>
+
+        {this.renderFindMoreButton({ position: 'bottom' })}
         <InfoDialog />
       </div>
     );

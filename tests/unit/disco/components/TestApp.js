@@ -1,3 +1,4 @@
+import { createMemoryHistory } from 'history';
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import { findDOMNode } from 'react-dom';
@@ -7,52 +8,45 @@ import {
 } from 'react-dom/test-utils';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 
-import { AppBase, mapStateToProps } from 'disco/components/App';
+import App, { AppBase } from 'disco/components/App';
 import createStore from 'disco/store';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { fakeI18n } from 'tests/unit/helpers';
 
-class MyComponent extends React.Component {
-  render() {
-    return <p>The component</p>;
-  }
-}
+function renderApp({ browserVersion = '50', ...customProps } = {}) {
+  const history = createMemoryHistory({
+    initialEntries: [
+      `/en-US/firefox/discovery/pane/${browserVersion}/Darwin/normal/`,
+    ],
+  });
 
-function renderProps(customProps = {}) {
-  return {
-    browserVersion: '50',
-    i18n: fakeI18n(),
-    store: createStore().store,
-    ...customProps,
-  };
-}
+  const store = customProps.store || createStore({ history }).store;
 
-function renderApp(customProps = {}) {
-  const props = renderProps(customProps);
   const root = findRenderedComponentWithType(
     renderIntoDocument(
-      <Provider store={props.store}>
-        <I18nProvider i18n={props.i18n}>
-          <AppBase {...props}>
-            <MyComponent />
-          </AppBase>
+      <Provider store={store}>
+        <I18nProvider i18n={fakeI18n()}>
+          <Router history={history}>
+            <App {...customProps} />
+          </Router>
         </I18nProvider>
       </Provider>,
     ),
     AppBase,
   );
+
   return findDOMNode(root);
 }
 
 describe(__filename, () => {
   describe('App', () => {
-    it('renders its children', () => {
+    it('renders correctly', () => {
       const rootNode = renderApp();
-      expect(rootNode.tagName.toLowerCase()).toEqual('div');
-      expect(rootNode.querySelector('p').textContent).toEqual('The component');
+      expect(rootNode.textContent).toContain('Personalize Your Firefox');
     });
 
     it('renders padding compensation class for FF < 50', () => {
@@ -81,7 +75,7 @@ describe(__filename, () => {
     });
 
     it('renders a response with a 200 status', () => {
-      const root = shallow(<AppBase {...renderProps()} />);
+      const root = shallow(<AppBase i18n={fakeI18n()} browserVersion="50" />);
       expect(root.find(NestedStatus)).toHaveProp('code', 200);
     });
   });
@@ -96,7 +90,7 @@ describe(__filename, () => {
       store.dispatch(loadErrorPage({ error }));
 
       const rootNode = renderApp({ store });
-      expect(rootNode.textContent).not.toContain('The component');
+      expect(rootNode.textContent).not.toContain('Discover Add-ons');
       expect(rootNode.textContent).toContain('Page not found');
     });
 
@@ -109,22 +103,8 @@ describe(__filename, () => {
       store.dispatch(loadErrorPage({ error }));
 
       const rootNode = renderApp({ store });
-      expect(rootNode.textContent).not.toContain('The component');
+      expect(rootNode.textContent).not.toContain('Discover Add-ons');
       expect(rootNode.textContent).toContain('Server Error');
-    });
-  });
-
-  describe('mapStateToProps', () => {
-    const fakeRouterParams = {
-      params: {
-        version: '49.0',
-      },
-    };
-
-    it('returns browserVersion', () => {
-      expect(mapStateToProps(null, fakeRouterParams).browserVersion).toEqual(
-        '49.0',
-      );
     });
   });
 });

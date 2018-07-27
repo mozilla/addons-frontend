@@ -8,23 +8,17 @@ import SearchPage, {
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX, OS_MAC } from 'core/constants';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { fakeRouterLocation, shallowUntilTarget } from 'tests/unit/helpers';
+import { createFakeLocation, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
 
   function render({
-    location = fakeRouterLocation({ query: { page: 2, q: 'burger' } }),
-    pathname = '/testingsearch/',
+    location = createFakeLocation({ query: { page: 2, q: 'burger' } }),
     ...props
   } = {}) {
     return shallowUntilTarget(
-      <SearchPage
-        location={location}
-        pathname={pathname}
-        store={store}
-        {...props}
-      />,
+      <SearchPage location={location} store={store} {...props} />,
       SearchPageBase,
     );
   }
@@ -47,7 +41,7 @@ describe(__filename, () => {
 
   it("doesn't duplicate the clientApp in the URL in the queryParams", () => {
     const root = render({
-      location: fakeRouterLocation({ query: { page: 3, q: 'fries' } }),
+      location: createFakeLocation({ query: { page: 3, q: 'fries' } }),
     });
 
     expect(root.find(Search).prop('paginationQueryParams')).toEqual({
@@ -58,7 +52,7 @@ describe(__filename, () => {
 
   it('sets the paginationQueryParams from filters', () => {
     const root = render({
-      location: fakeRouterLocation({
+      location: createFakeLocation({
         query: {
           featured: true,
           page: 2,
@@ -83,7 +77,7 @@ describe(__filename, () => {
     };
 
     const root = render({
-      location: fakeRouterLocation({
+      location: createFakeLocation({
         query: { ...query, q: 'search term' },
       }),
     });
@@ -96,7 +90,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 1 } }),
+      location: createFakeLocation({ query: { atype: 1 } }),
       store,
     });
 
@@ -114,7 +108,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 3 } }),
+      location: createFakeLocation({ query: { atype: 3 } }),
       store,
     });
 
@@ -132,7 +126,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 4 } }),
+      location: createFakeLocation({ query: { atype: 4 } }),
       store,
     });
 
@@ -150,7 +144,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 5 } }),
+      location: createFakeLocation({ query: { atype: 5 } }),
       store,
     });
 
@@ -168,7 +162,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { atype: 9 } }),
+      location: createFakeLocation({ query: { atype: 9 } }),
       store,
     });
 
@@ -187,7 +181,7 @@ describe(__filename, () => {
 
     // The `atype` value has no corresponding `addonType`.
     render({
-      location: fakeRouterLocation({ query: { atype: 123 } }),
+      location: createFakeLocation({ query: { atype: 123 } }),
       store,
     });
 
@@ -198,7 +192,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { platform: 'all' } }),
+      location: createFakeLocation({ query: { platform: 'all' } }),
       store,
     });
 
@@ -216,7 +210,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: fakeRouterLocation({ query: { platform: OS_MAC } }),
+      location: createFakeLocation({ query: { platform: OS_MAC } }),
       store,
     });
 
@@ -227,7 +221,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const query = { page: 123, platform: 'all' };
 
-    render({ location: fakeRouterLocation({ query }), store });
+    render({ location: createFakeLocation({ query }), store });
 
     sinon.assert.calledWith(
       fakeDispatch,
@@ -242,7 +236,7 @@ describe(__filename, () => {
   describe('mapStateToProps()', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { state } = dispatchClientMetadata({ clientApp });
-    const location = fakeRouterLocation({
+    const location = createFakeLocation({
       query: {
         page: 2,
         q: 'burger',

@@ -14,7 +14,9 @@ import {
 } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
+  createFakeHistory,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -27,13 +29,15 @@ describe(__filename, () => {
     _store = dispatchClientMetadata().store;
   });
 
-  function render(customProps = {}) {
+  function render({ history, ...customProps } = {}) {
     const props = {
       store: _store,
       i18n: fakeI18n(),
       ...customProps,
     };
-    return shallowUntilTarget(<SectionLinks {...props} />, SectionLinksBase);
+    return shallowUntilTarget(<SectionLinks {...props} />, SectionLinksBase, {
+      shallowOptions: createContextWithFakeRouter({ history }),
+    });
   }
 
   it('renders four sections', () => {
@@ -179,9 +183,11 @@ describe(__filename, () => {
       },
     });
     const getAttributeSpy = sinon.spy(fakeEvent.currentTarget, 'getAttribute');
-    const fakeRouter = { push: sinon.stub() };
+    const fakeHistory = createFakeHistory();
+
     _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
-    const root = render({ router: fakeRouter });
+
+    const root = render({ history: fakeHistory });
 
     root.find(`.SectionLinks-clientApp-android`).simulate('click', fakeEvent);
 
@@ -189,6 +195,6 @@ describe(__filename, () => {
     sinon.assert.calledWith(getAttributeSpy, 'data-clientapp');
     sinon.assert.calledWith(getAttributeSpy, 'href');
     sinon.assert.calledWith(dispatchSpy, setClientApp(CLIENT_APP_ANDROID));
-    sinon.assert.calledWith(fakeRouter.push, `/en-US/${CLIENT_APP_ANDROID}/`);
+    sinon.assert.calledWith(fakeHistory.push, `/en-US/${CLIENT_APP_ANDROID}/`);
   });
 });

@@ -65,7 +65,7 @@ describe(__filename, () => {
     const root = render(props);
 
     expect(root.find('.UserCollection')).toHaveLength(1);
-    expect(root.find('.UserCollection-link')).toHaveProp('to', null);
+    expect(root.find('.UserCollection-link')).toHaveProp('href', '');
     expect(root.find('.UserCollection-name').find(LoadingText)).toHaveLength(1);
     expect(root.find('.UserCollection-number').find(LoadingText)).toHaveLength(
       1,

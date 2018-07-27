@@ -15,7 +15,7 @@ import {
   apiResponsePage,
   createApiResponse,
   createStubErrorHandler,
-  fakeRouterLocation,
+  createFakeLocation,
   generateHeaders,
   getFakeConfig,
   signedInApiState,
@@ -525,7 +525,7 @@ describe(__filename, () => {
       querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
 
     it('includes the next path', () => {
-      const location = fakeRouterLocation({
+      const location = createFakeLocation({
         pathname: '/foo',
         query: { bar: 'BAR' },
       });
@@ -537,7 +537,7 @@ describe(__filename, () => {
         .stub(config, 'get')
         .withArgs('fxaConfig')
         .returns('my-config');
-      const location = fakeRouterLocation({ pathname: '/foo' });
+      const location = createFakeLocation({ pathname: '/foo' });
       expect(getStartLoginQs(location)).toEqual({
         to: '/foo',
         config: 'my-config',

@@ -41,10 +41,10 @@ import {
 import { ErrorHandler } from 'core/errorHandler';
 import {
   createFakeEvent,
-  createFakeRouter,
+  createFakeHistory,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -65,12 +65,14 @@ describe(__filename, () => {
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
-    location: fakeRouterLocation(),
-    params: {
-      username: defaultUser,
-      slug: defaultSlug,
+    location: createFakeLocation(),
+    match: {
+      params: {
+        username: defaultUser,
+        slug: defaultSlug,
+      },
     },
-    router: createFakeRouter(),
+    history: createFakeHistory(),
     store: dispatchClientMetadata().store,
     ...otherProps,
   });
@@ -88,7 +90,7 @@ describe(__filename, () => {
     // This is needed because shallowUntilTarget() does not trigger any
     // lifecycle methods.
     wrapper.setProps(
-      mapStateToProps(store.getState(), { location: fakeRouterLocation() }),
+      mapStateToProps(store.getState(), { location: createFakeLocation() }),
     );
   };
 
@@ -197,8 +199,9 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
     const username = 'some-user';
+    const params = { slug, username };
 
-    renderComponent({ errorHandler, params: { slug, username }, store });
+    renderComponent({ errorHandler, match: { params }, store });
 
     // These are the expected default values for filters.
     const filters = {
@@ -253,8 +256,8 @@ describe(__filename, () => {
 
     renderComponent({
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
-      params: { slug, username },
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
+      match: { params: { slug, username } },
       store,
     });
 
@@ -291,7 +294,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({ store });
 
-    const location = fakeRouterLocation();
+    const location = createFakeLocation();
 
     const wrapper = renderComponent({ location, store });
     fakeDispatch.resetHistory();
@@ -372,7 +375,7 @@ describe(__filename, () => {
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
-    const location = fakeRouterLocation({
+    const location = createFakeLocation({
       pathname: `/collections/${username}/${slug}/`,
       query: { page, collection_sort: sort },
     });
@@ -386,7 +389,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({
       errorHandler,
       location,
-      params: { slug, username },
+      match: { params: { slug, username } },
       store,
     });
     fakeDispatch.resetHistory();
@@ -394,7 +397,7 @@ describe(__filename, () => {
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps({
       location: newLocation,
-      params: { slug: newSlug, username },
+      match: { params: { slug: newSlug, username } },
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -421,7 +424,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
       store,
     });
     fakeDispatch.resetHistory();
@@ -455,7 +458,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
       store,
     });
     fakeDispatch.resetHistory();
@@ -491,7 +494,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
       store,
     });
     fakeDispatch.resetHistory();
@@ -500,7 +503,7 @@ describe(__filename, () => {
       slug: defaultSlug,
       username: 'another-user',
     };
-    wrapper.setProps({ params: newParams });
+    wrapper.setProps({ match: { params: newParams } });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(
@@ -529,7 +532,9 @@ describe(__filename, () => {
     fakeDispatch.resetHistory();
 
     wrapper.setProps({
-      params: { slug: defaultSlug, username: username.toLowerCase() },
+      match: {
+        params: { slug: defaultSlug, username: username.toLowerCase() },
+      },
     });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -546,7 +551,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
       store,
     });
     fakeDispatch.resetHistory();
@@ -555,7 +560,7 @@ describe(__filename, () => {
       slug: 'some-other-collection-slug',
       username: defaultUser,
     };
-    wrapper.setProps({ params: newParams });
+    wrapper.setProps({ match: { params: newParams } });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(
@@ -586,8 +591,8 @@ describe(__filename, () => {
     _loadCurrentCollection({ store, detail });
 
     const wrapper = renderComponent({
-      location: fakeRouterLocation({ query: queryParams }),
-      params: { username, slug },
+      location: createFakeLocation({ query: queryParams }),
+      match: { params: { username, slug } },
       store,
     });
 
@@ -675,7 +680,7 @@ describe(__filename, () => {
     _loadCurrentCollection({ addons, detail, pageSize, store });
 
     const wrapper = renderComponent({
-      location: fakeRouterLocation({ query: queryParams }),
+      location: createFakeLocation({ query: queryParams }),
       params: { username, slug },
       store,
     });
@@ -705,8 +710,8 @@ describe(__filename, () => {
     _loadCurrentCollection({ store, detail, pageSize: 5 });
 
     const wrapper = renderComponent({
-      location: fakeRouterLocation({ query: filters }),
-      params: { username, slug },
+      location: createFakeLocation({ query: filters }),
+      match: { params: { username, slug } },
       store,
     });
 
@@ -789,7 +794,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       editing,
-      location: fakeRouterLocation({ query: { collection_sort: sort, page } }),
+      location: createFakeLocation({ query: { collection_sort: sort, page } }),
       params: { username, slug },
       store,
     });
@@ -833,8 +838,8 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       editing: true,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
-      params: { username, slug },
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
+      match: { params: { username, slug } },
       store,
     });
 
@@ -922,7 +927,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
-      params: { slug, username },
+      match: { params: { slug, username } },
       store,
     });
 
@@ -1187,7 +1192,7 @@ describe(__filename, () => {
 
   it('renders AuthenticateButton when creating and not signed in', () => {
     const { store } = dispatchClientMetadata();
-    const location = fakeRouterLocation({
+    const location = createFakeLocation({
       pathname: '/create/url/',
     });
     const root = renderComponent({ store, creating: true, location });
@@ -1202,7 +1207,7 @@ describe(__filename, () => {
 
   it('renders AuthenticateButton when editing and not signed in', () => {
     const { store } = dispatchClientMetadata();
-    const location = fakeRouterLocation({
+    const location = createFakeLocation({
       pathname: '/current/edit/url/',
     });
     const root = renderComponent({ store, editing: true, location });
@@ -1243,7 +1248,7 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
       store,
     });
 
@@ -1331,7 +1336,7 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
       store,
     });
 
@@ -1379,7 +1384,7 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: fakeRouterLocation({ query: { page, collection_sort: sort } }),
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
       store,
     });
 
@@ -1405,11 +1410,13 @@ describe(__filename, () => {
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
       const props = getProps({
-        params: {
-          username: 'foo',
-          slug: 'collection-bar',
+        match: {
+          params: {
+            username: 'foo',
+            slug: 'collection-bar',
+          },
         },
-        location: fakeRouterLocation(),
+        location: createFakeLocation(),
       });
 
       expect(extractId(props)).toEqual('foo/collection-bar/');
@@ -1417,11 +1424,13 @@ describe(__filename, () => {
 
     it('adds the page as part of unique ID', () => {
       const props = getProps({
-        params: {
-          username: 'foo',
-          slug: 'collection-bar',
+        match: {
+          params: {
+            username: 'foo',
+            slug: 'collection-bar',
+          },
         },
-        location: fakeRouterLocation({ query: { page: 124 } }),
+        location: createFakeLocation({ query: { page: 124 } }),
       });
 
       expect(extractId(props)).toEqual('foo/collection-bar/124');

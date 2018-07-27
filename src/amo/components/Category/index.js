@@ -48,9 +48,11 @@ export class CategoryBase extends React.Component {
     highlyRatedAddons: PropTypes.array,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
-    params: PropTypes.shape({
-      slug: PropTypes.string,
-      visibleAddonType: PropTypes.string,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        slug: PropTypes.string,
+        visibleAddonType: PropTypes.string,
+      }).isRequired,
     }).isRequired,
     trendingAddons: PropTypes.array,
     resultsLoaded: PropTypes.bool.isRequired,
@@ -77,7 +79,7 @@ export class CategoryBase extends React.Component {
       dispatch,
       errorHandler,
       loading,
-      params,
+      match: { params },
       resultsLoaded,
     } = {
       ...this.props,
@@ -134,7 +136,11 @@ export class CategoryBase extends React.Component {
   }
 
   contentForType = (addonType) => {
-    const { i18n, params } = this.props;
+    const {
+      i18n,
+      match: { params },
+    } = this.props;
+
     const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, {
       _config: this.props._config,
     });
@@ -227,7 +233,7 @@ export class CategoryBase extends React.Component {
       featuredAddons,
       highlyRatedAddons,
       loading,
-      params,
+      match: { params },
       trendingAddons,
     } = this.props;
 

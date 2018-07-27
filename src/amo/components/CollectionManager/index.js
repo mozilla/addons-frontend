@@ -3,7 +3,7 @@ import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import config from 'config';
 
@@ -27,7 +27,10 @@ import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  ReactRouterLocationType,
+} from 'core/types/router';
 
 import './styles.scss';
 
@@ -43,9 +46,10 @@ type InternalProps = {|
   currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isCollectionBeingModified: boolean,
-  router: ReactRouterType,
+  location: ReactRouterLocationType,
   siteLang: ?string,
 |};
 
@@ -82,14 +86,14 @@ export class CollectionManagerBase extends React.Component<
       creating,
       errorHandler,
       filters,
-      router,
+      history,
       siteLang,
     } = this.props;
     event.preventDefault();
     event.stopPropagation();
 
     if (creating) {
-      router.goBack();
+      history.goBack();
     }
 
     invariant(collection, 'A collection must be loaded before you can cancel');
@@ -101,7 +105,7 @@ export class CollectionManagerBase extends React.Component<
     errorHandler.clear();
 
     const { authorUsername, slug } = collection;
-    router.push({
+    history.push({
       pathname: `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`,
       query: convertFiltersToQueryParams(filters),
     });
@@ -109,13 +113,13 @@ export class CollectionManagerBase extends React.Component<
 
   onSubmit = (event: SyntheticEvent<any>) => {
     const {
-      creating,
       collection,
+      creating,
       currentUsername,
       dispatch,
       errorHandler,
       filters,
-      router,
+      location,
       siteLang,
     } = this.props;
     event.preventDefault();
@@ -142,7 +146,9 @@ export class CollectionManagerBase extends React.Component<
         createCollection({
           ...payload,
           defaultLocale: siteLang,
-          includeAddonId: router.location.query.include_addon_id,
+          // query parameter values are string, not number.
+          // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
+          includeAddonId: location.query.include_addon_id,
           username: currentUsername,
         }),
       );

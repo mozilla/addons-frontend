@@ -20,12 +20,12 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
 export type Props = {|
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
 |};
 
 export type InternalProps = {|

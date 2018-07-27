@@ -1,10 +1,11 @@
+import { createMemoryHistory } from 'history';
 import * as React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
-import { Link as ReactRouterLink } from 'react-router';
+import { Router, Link as ReactRouterLink } from 'react-router-dom';
 
 import Link, { LinkBase, mapStateToProps } from 'amo/components/Link';
 import createStore from 'amo/store';
@@ -17,7 +18,11 @@ describe(__filename, () => {
 
   function render(props) {
     // eslint-disable-next-line jsx-a11y/anchor-has-content
-    return renderIntoDocument(<Link store={store} {...props} />);
+    return renderIntoDocument(
+      <Router history={createMemoryHistory()}>
+        <Link store={store} {...props} />
+      </Router>,
+    );
   }
 
   function shallowRender(props) {
@@ -43,14 +48,6 @@ describe(__filename, () => {
     expect(
       findRenderedComponentWithType(root, ReactRouterLink).props.to,
     ).toEqual({ pathname: '/fr/android/categories' });
-  });
-
-  it('passes other `to` types through to link', () => {
-    const root = render({ base: null, to: null });
-
-    expect(
-      findRenderedComponentWithType(root, ReactRouterLink).props.to,
-    ).toEqual(null);
   });
 
   it('passes `to` without leading slash without base', () => {
@@ -106,7 +103,7 @@ describe(__filename, () => {
   });
 
   it('ignores `href` if not a string type', () => {
-    const root = render({ base: null, href: null });
+    const root = render({ base: null, href: null, to: '/' });
 
     // If no href attribute is supplied the component will render a Link
     // component instead of an <a> tag.

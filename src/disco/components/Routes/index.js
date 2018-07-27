@@ -1,38 +1,44 @@
+/* @flow */
 import config from 'config';
 import * as React from 'react';
-import { Router, Route } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
+import DiscoPane from 'disco/components/DiscoPane';
 import SimulateAsyncError from 'core/components/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'core/components/error-simulation/SimulateClientError';
 import SimulateSyncError from 'core/components/error-simulation/SimulateSyncError';
-import App from 'disco/components/App';
-import DiscoPane from 'disco/components/DiscoPane';
 
-export default (
-  <Router component={App}>
+export const DISCO_PANE_PATH =
+  '/:lang/firefox/discovery/pane/:version/:platform/:compatibilityMode';
+
+const Routes = () => (
+  <Switch>
+    <Route exact path={DISCO_PANE_PATH} component={DiscoPane} />
+    <Route exact path="/:lang/firefox/404" component={NotFound} />
     <Route
-      path="/:lang/firefox/discovery/pane/:version/:platform/:compatibilityMode"
-      component={DiscoPane}
-    />
-    <Route path="/:lang/firefox/404" component={NotFound} />
-    <Route
+      exact
       path="/:lang/firefox/500"
       component={config.get('isDevelopment') ? GenericError : NotFound}
     />
     <Route
+      exact
       path="/:lang/:app/simulate-async-error/"
       component={SimulateAsyncError}
     />
     <Route
+      exact
       path="/:lang/:app/simulate-client-error/"
       component={SimulateClientError}
     />
     <Route
+      exact
       path="/:lang/:app/simulate-sync-error/"
       component={SimulateSyncError}
     />
-    <Route path="*" component={NotFound} />
-  </Router>
+    <Route component={NotFound} />
+  </Switch>
 );
+
+export default Routes;

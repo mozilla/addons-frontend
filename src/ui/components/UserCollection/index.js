@@ -35,10 +35,12 @@ export const UserCollectionBase = (props: InternalProps) => {
     i18n,
   } = props;
 
-  let linkTo = null;
+  const linkProps = {};
   let numberText;
 
-  if (!loading) {
+  if (loading) {
+    linkProps.href = '';
+  } else {
     invariant(authorUsername, 'authorUsername is required');
     invariant(name, 'name is required');
     invariant(slug, 'slug is required');
@@ -47,7 +49,7 @@ export const UserCollectionBase = (props: InternalProps) => {
       'numberOfAddons must be a number',
     );
 
-    linkTo = `/collections/${authorUsername}/${slug}/`;
+    linkProps.to = `/collections/${authorUsername}/${slug}/`;
     numberText = i18n.sprintf(
       i18n.ngettext('%(total)s add-on', '%(total)s add-ons', numberOfAddons),
       { total: i18n.formatNumber(numberOfAddons) },
@@ -56,7 +58,7 @@ export const UserCollectionBase = (props: InternalProps) => {
 
   return (
     <li className="UserCollection" key={id}>
-      <Link className="UserCollection-link" to={linkTo}>
+      <Link className="UserCollection-link" {...linkProps}>
         <h2 className="UserCollection-name">{name || <LoadingText />}</h2>
         <p className="UserCollection-number">{numberText || <LoadingText />}</p>
       </Link>

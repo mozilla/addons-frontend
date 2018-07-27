@@ -12,7 +12,7 @@ describe(__filename, () => {
       'infoDialog',
       'installations',
       'redirectTo',
-      'routing',
+      'router',
       'survey',
       'uiState',
     ]);
