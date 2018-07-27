@@ -90,7 +90,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
   constructor(props: InternalProps) {
     super(props);
-    const { apiState, loadSavedReview, userId, addon, version } = props;
+    const { addon, apiState, loadSavedReview, userId, version } = props;
     this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
@@ -196,10 +196,10 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   render() {
     const {
       AddonReview,
-      UserRating,
       ReportAbuseButton,
-      i18n,
+      UserRating,
       addon,
+      i18n,
       userId,
       userReview,
     } = this.props;
@@ -276,7 +276,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 export const mapDispatchToProps = (
   dispatch: DispatchFunc,
 ): DispatchMappedProps => ({
-  loadSavedReview({ apiState, userId, addonId, versionId }) {
+  loadSavedReview({ addonId, apiState, userId, versionId }) {
     return getLatestUserReview({
       apiState,
       user: userId,

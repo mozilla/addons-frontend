@@ -38,9 +38,9 @@ export default class OverlayCard extends React.Component {
     const {
       children,
       className,
-      header,
       footerLink,
       footerText,
+      header,
       visibleOnLoad,
     } = this.props;
 

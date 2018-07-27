@@ -181,7 +181,7 @@ describe(__filename, () => {
   });
 
   it('adds a CSS class when file input has focus', () => {
-    const { store, state } = dispatchSignInActions();
+    const { state, store } = dispatchSignInActions();
     const user = getCurrentUser(state.users);
 
     const root = render({ user, store });
@@ -199,7 +199,7 @@ describe(__filename, () => {
   });
 
   it('removes a CSS class when file input looses focus', () => {
-    const { store, state } = dispatchSignInActions();
+    const { state, store } = dispatchSignInActions();
     const user = getCurrentUser(state.users);
 
     const root = render({ user, store });

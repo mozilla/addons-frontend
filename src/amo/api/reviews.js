@@ -57,12 +57,12 @@ export type SubmitReviewParams = {|
  */
 export function submitReview({
   addonId,
-  rating,
   apiState,
+  body,
+  rating,
+  reviewId,
   title,
   versionId,
-  body,
-  reviewId,
   ...apiCallParams
 }: SubmitReviewParams): Promise<ExternalReviewType> {
   return new Promise((resolve) => {
@@ -150,9 +150,9 @@ export type GetReviewsParams = {|
 type GetReviewsApiResponse = PaginatedApiResponse<ExternalReviewType>;
 
 export function getReviews({
+  addon,
   apiState,
   user,
-  addon,
   ...params
 }: GetReviewsParams = {}): Promise<GetReviewsApiResponse> {
   return new Promise((resolve) => {
@@ -178,9 +178,9 @@ export type GetLatestReviewParams = {|
 |};
 
 export function getLatestUserReview({
+  addon,
   apiState,
   user,
-  addon,
   version,
 }: GetLatestReviewParams = {}): Promise<null | ExternalReviewType> {
   return new Promise((resolve) => {

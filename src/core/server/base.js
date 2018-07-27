@@ -45,7 +45,7 @@ export const createHistory = ({ req }) => {
   });
 };
 
-export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
+export function getPageProps({ config, noScriptStyles = '', req, res, store }) {
   const appName = config.get('appName');
   const isDeployed = config.get('isDeployed');
 
@@ -92,11 +92,11 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
   };
 }
 
-function renderHTML({ props = {}, pageProps }) {
+function renderHTML({ pageProps, props = {} }) {
   return ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
 }
 
-function showErrorPage({ createStore, error = {}, req, res, status, config }) {
+function showErrorPage({ config, createStore, error = {}, req, res, status }) {
   const { store } = createStore({ history: createHistory({ req }) });
   const pageProps = getPageProps({ store, req, res, config });
 
@@ -116,7 +116,7 @@ function showErrorPage({ createStore, error = {}, req, res, status, config }) {
     .end();
 }
 
-function sendHTML({ res, html }) {
+function sendHTML({ html, res }) {
   const componentDeclaredStatus = NestedStatus.rewind();
   return res
     .status(componentDeclaredStatus)
@@ -124,7 +124,7 @@ function sendHTML({ res, html }) {
     .end();
 }
 
-function hydrateOnClient({ res, props = {}, pageProps }) {
+function hydrateOnClient({ pageProps, props = {}, res }) {
   return sendHTML({
     html: renderHTML({ props, pageProps }),
     res,
@@ -134,7 +134,7 @@ function hydrateOnClient({ res, props = {}, pageProps }) {
 function baseServer(
   App,
   createStore,
-  { appSagas, appInstanceName = null, config = defaultConfig, _HotShots } = {},
+  { _HotShots, appInstanceName = null, appSagas, config = defaultConfig } = {},
 ) {
   const appName =
     appInstanceName !== null ? appInstanceName : config.get('appName');
@@ -387,9 +387,9 @@ function baseServer(
 }
 
 export function runServer({
-  listen = true,
-  exitProcess = true,
   config = defaultConfig,
+  exitProcess = true,
+  listen = true,
 } = {}) {
   const port = config.get('serverPort');
   const host = config.get('serverHost');

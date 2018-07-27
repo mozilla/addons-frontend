@@ -11,10 +11,10 @@ import config from 'config';
 export function bindConsoleMethod(
   consoleMethodName,
   {
+    _config = config,
     _consoleObj = window.console,
     _function = Function,
     _noop = () => {},
-    _config = config,
   } = {},
 ) {
   if (typeof _consoleObj[consoleMethodName] === 'undefined') {

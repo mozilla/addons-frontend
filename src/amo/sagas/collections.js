@@ -82,7 +82,7 @@ export function* fetchCurrentCollection({
       filters,
     };
 
-    const { detail, addons } = yield all({
+    const { addons, detail } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
       addons: call(api.getCollectionAddons, addonsParams),
     });
@@ -214,7 +214,7 @@ export function* addAddonToCollection({
 export function* modifyCollection(
   action: CreateCollectionAction | UpdateCollectionAction,
 ): Generator<any, any, any> {
-  const { type, payload } = action;
+  const { payload, type } = action;
   const creating = type === CREATE_COLLECTION;
 
   const {
@@ -283,7 +283,7 @@ export function* modifyCollection(
       response = yield call(api.updateCollection, apiParams);
     }
 
-    const { lang, clientApp } = state.api;
+    const { clientApp, lang } = state.api;
     const effectiveSlug = (response && response.slug) || slug || collectionSlug;
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
     const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
@@ -378,7 +378,7 @@ export function* deleteCollection({
 
   try {
     const state = yield select(getState);
-    const { lang, clientApp } = state.api;
+    const { clientApp, lang } = state.api;
 
     const params: DeleteCollectionParams = {
       api: state.api,

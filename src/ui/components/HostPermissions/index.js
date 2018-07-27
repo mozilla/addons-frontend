@@ -39,8 +39,8 @@ type GenerateHostPermissionsParams = {|
 export class HostPermissionsBase extends React.Component<InternalProps> {
   getPermissionString({
     messageType,
-    param,
     multiple = false,
+    param,
   }: GetPermissionStringParams): string {
     const { i18n } = this.props;
 
@@ -94,8 +94,8 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
   // fewer, display them all, otherwise display the first 3 followed by an item
   // that says "...plus N others".
   generateHostPermissions({
-    permissions,
     messageType,
+    permissions,
   }: GenerateHostPermissionsParams): Array<React.Element<typeof Permission>> {
     const hostPermissions = [];
     for (const item of permissions.slice(0, 4)) {

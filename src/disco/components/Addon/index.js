@@ -189,7 +189,7 @@ export class AddonBase extends React.Component {
   }
 
   restartMessage() {
-    const { status, i18n } = this.props;
+    const { i18n, status } = this.props;
     switch (status) {
       case UNINSTALLING:
         return i18n.gettext(
@@ -206,7 +206,7 @@ export class AddonBase extends React.Component {
   };
 
   clickHeadingLink = (e) => {
-    const { type, name, _tracking } = this.props;
+    const { _tracking, name, type } = this.props;
 
     if (e.target.nodeName.toLowerCase() === 'a') {
       _tracking.sendEvent({

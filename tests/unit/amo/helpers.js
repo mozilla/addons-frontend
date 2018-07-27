@@ -214,9 +214,9 @@ export const signedInApiState = Object.freeze({
 });
 
 export function dispatchClientMetadata({
-  store = createStore().store,
   clientApp = CLIENT_APP_ANDROID,
   lang = 'en-US',
+  store = createStore().store,
   userAgent = sampleUserAgent,
 } = {}) {
   store.dispatch(setClientApp(clientApp));
@@ -305,8 +305,8 @@ export function createFakeAutocompleteResult({
 }
 
 export function createFakeAddon({
-  files = [...fakeAddon.current_version.files],
   compatibility = { ...fakeAddon.current_version.compatibility },
+  files = [...fakeAddon.current_version.files],
   // eslint-disable-next-line camelcase
   is_strict_compatibility_enabled = fakeAddon.current_version
     .is_strict_compatibility_enabled,
@@ -331,8 +331,8 @@ export function createFakeAddon({
 
 export function dispatchAutocompleteResults({
   filters = { query: 'test' },
-  store = dispatchClientMetadata().store,
   results = [],
+  store = dispatchClientMetadata().store,
 } = {}) {
   store.dispatch(
     autocompleteStart({
@@ -346,11 +346,11 @@ export function dispatchAutocompleteResults({
 }
 
 export const createFakeCollectionDetail = ({
-  name = 'My Addons',
-  count = 123,
   authorId = 99999,
   authorName = 'John Doe',
   authorUsername = 'johndoe',
+  count = 123,
+  name = 'My Addons',
   ...params
 } = {}) => {
   return {

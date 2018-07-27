@@ -211,8 +211,8 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      errorHandler,
       collections,
+      errorHandler,
       featuredExtensions,
       featuredThemes,
       i18n,

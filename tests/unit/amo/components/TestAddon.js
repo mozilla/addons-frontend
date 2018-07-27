@@ -110,7 +110,7 @@ function renderProps({
 }
 
 function render(...args) {
-  const { store, i18n, ...props } = renderProps(...args);
+  const { i18n, store, ...props } = renderProps(...args);
   props.i18n = i18n;
 
   const history = addQueryParamsToHistory({

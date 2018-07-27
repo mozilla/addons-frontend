@@ -48,8 +48,8 @@ export class LinkBase extends React.Component {
 
   render() {
     const {
-      clientApp,
       children,
+      clientApp,
       dispatch,
       external,
       externalDark,

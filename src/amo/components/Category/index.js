@@ -73,8 +73,8 @@ export class CategoryBase extends React.Component {
   loadDataIfNeeded(nextProps = {}) {
     const {
       addonTypeOfResults,
-      categoryOfResults,
       categories,
+      categoryOfResults,
       clientApp,
       dispatch,
       errorHandler,

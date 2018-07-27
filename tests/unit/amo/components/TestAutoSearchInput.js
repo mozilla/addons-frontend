@@ -70,7 +70,7 @@ describe(__filename, () => {
     });
   };
 
-  const fetchSuggestions = ({ root, query, reason = 'input-changed' }) => {
+  const fetchSuggestions = ({ query, reason = 'input-changed', root }) => {
     const onSuggestionsFetchRequested = simulateAutosuggestCallback({
       root,
       propName: 'onSuggestionsFetchRequested',

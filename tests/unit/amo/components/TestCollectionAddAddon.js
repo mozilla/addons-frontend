@@ -37,7 +37,7 @@ const simulateAutoSearchCallback = (props = {}) => {
   });
 };
 
-const _addonAddedToCollection = ({ username, root, store }) => {
+const _addonAddedToCollection = ({ root, store, username }) => {
   store.dispatch(
     addonAddedToCollection({
       addonId: 123,

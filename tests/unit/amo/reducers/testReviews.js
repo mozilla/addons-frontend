@@ -26,9 +26,9 @@ import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   function setFakeReview({
-    userId = fakeReview.user.id,
     addonId = fakeReview.addon.id,
     reply = null,
+    userId = fakeReview.user.id,
     versionId = fakeReview.version.id,
     ...overrides
   } = {}) {

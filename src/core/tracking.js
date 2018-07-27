@@ -122,7 +122,7 @@ export class Tracking {
   * obj.value      Number  No        Values must be non-negative.
   *                                  Useful to pass counts (e.g. 4 times)
   */
-  sendEvent({ category, action, label, value } = {}) {
+  sendEvent({ action, category, label, value } = {}) {
     if (!category) {
       throw new Error('sendEvent: category is required');
     }

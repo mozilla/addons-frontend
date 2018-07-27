@@ -31,7 +31,7 @@ export function getNoScriptStyles(
   return undefined;
 }
 
-export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
+export function csp({ _config = config, _log = log, noScriptStyles } = {}) {
   const cspConfig = _config.get('CSP') !== 'false' ? _config.get('CSP') : false;
 
   if (cspConfig) {

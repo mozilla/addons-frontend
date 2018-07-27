@@ -475,7 +475,7 @@ export class WithInstallHelpers extends React.Component {
       });
   }
 
-  showInfo({ name, iconUrl }) {
+  showInfo({ iconUrl, name }) {
     const { dispatch } = this.props;
     dispatch({
       type: SHOW_INFO,

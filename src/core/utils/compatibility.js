@@ -48,12 +48,12 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
 }
 
 export function isCompatibleWithUserAgent({
+  _log = log,
+  _window = typeof window !== 'undefined' ? window : {},
   addon,
   maxVersion,
   minVersion,
   userAgentInfo,
-  _log = log,
-  _window = typeof window !== 'undefined' ? window : {},
 } = {}) {
   // If the userAgent is false there was likely a programming error.
   if (!userAgentInfo) {
@@ -141,13 +141,13 @@ export function isCompatibleWithUserAgent({
 }
 
 export function getClientCompatibility({
+  _window = typeof window !== 'undefined' ? window : {},
   addon,
   clientApp,
   userAgentInfo,
-  _window = typeof window !== 'undefined' ? window : {},
 } = {}) {
   // Check compatibility with client app.
-  const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
+  const { maxVersion, minVersion, supportsClientApp } = getCompatibleVersions({
     addon,
     clientApp,
   });

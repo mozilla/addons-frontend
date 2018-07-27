@@ -182,12 +182,12 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
   renderReviews() {
     const {
-      location,
       i18n,
       isOwner,
+      location,
       pageSize,
-      reviews,
       reviewCount,
+      reviews,
     } = this.props;
 
     if (!isOwner || !reviews || reviews.length < 1) {

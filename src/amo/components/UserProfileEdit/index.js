@@ -108,7 +108,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 
   componentWillMount() {
-    const { dispatch, errorHandler, username, user } = this.props;
+    const { dispatch, errorHandler, user, username } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
@@ -281,7 +281,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   onNotificationChange = (event: SyntheticEvent<HTMLInputElement>) => {
     event.stopPropagation();
 
-    const { name, checked } = event.currentTarget;
+    const { checked, name } = event.currentTarget;
 
     this.setState((prevState) => ({
       notifications: {
@@ -398,7 +398,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   };
 
   preventSubmit() {
-    const { user, isUpdating } = this.props;
+    const { isUpdating, user } = this.props;
     const { username } = this.state;
 
     return (

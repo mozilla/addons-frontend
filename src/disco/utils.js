@@ -9,9 +9,9 @@ export const sanitizeHTMLWithExternalLinks = (text, allowTags = []) => {
 };
 
 export const makeQueryStringWithUTM = ({
-  utm_source = 'discovery.addons.mozilla.org',
-  utm_medium = 'firefox-browser',
   utm_content,
+  utm_medium = 'firefox-browser',
+  utm_source = 'discovery.addons.mozilla.org',
   ...otherParams
 }) => {
   return makeQueryString({

@@ -86,7 +86,7 @@ describe(__filename, () => {
     return shallowUntilTarget(<Collection {...allProps} />, CollectionBase);
   };
 
-  const simulateReduxStateChange = ({ wrapper, store }) => {
+  const simulateReduxStateChange = ({ store, wrapper }) => {
     // This is needed because shallowUntilTarget() does not trigger any
     // lifecycle methods.
     wrapper.setProps(
@@ -107,10 +107,10 @@ describe(__filename, () => {
   };
 
   const _loadCurrentCollection = ({
-    store,
     addons = createFakeCollectionAddons(),
     detail = defaultCollectionDetail,
     pageSize = DEFAULT_API_PAGE_SIZE,
+    store,
   }) => {
     store.dispatch(
       loadCurrentCollection({
@@ -610,7 +610,7 @@ describe(__filename, () => {
 
   it('initializes add-on placeholder count with collection add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const { detail, addons } = createCollectionWithTwoAddons();
+    const { addons, detail } = createCollectionWithTwoAddons();
 
     _loadCurrentCollection({
       store,
@@ -631,7 +631,7 @@ describe(__filename, () => {
 
   it('updates add-on placeholder count with collection add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const { detail, addons } = createCollectionWithTwoAddons();
+    const { addons, detail } = createCollectionWithTwoAddons();
 
     const wrapper = renderComponent({
       params: { username: detail.author.username, slug: detail.slug },

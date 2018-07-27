@@ -1,6 +1,6 @@
 import { CLOSE_INFO, SHOW_INFO } from 'core/constants';
 
-export default function infoDialog(state = {}, { type, payload }) {
+export default function infoDialog(state = {}, { payload, type }) {
   switch (type) {
     case SHOW_INFO:
       return {

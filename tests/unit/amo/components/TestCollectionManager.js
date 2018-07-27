@@ -88,7 +88,7 @@ describe(__filename, () => {
     root.find('.CollectionManager').simulate('submit', createFakeEvent());
   };
 
-  const typeInput = ({ root, name, text }) => {
+  const typeInput = ({ name, root, text }) => {
     // Look for input or textarea, etc. Example:
     // <form><input name="description' /></form>
     root.find(`[name="${name}"]`).simulate(
@@ -455,7 +455,7 @@ describe(__filename, () => {
       detail: createFakeCollectionDetail({ name }),
     });
 
-    const verifyButtons = ({ root, disabled }) => {
+    const verifyButtons = ({ disabled, root }) => {
       expect(root.find('.CollectionManager-cancel')).toHaveProp(
         'disabled',
         disabled,
@@ -495,7 +495,7 @@ describe(__filename, () => {
       detail: createFakeCollectionDetail({ description, name, slug }),
     });
 
-    const verifySaveButton = ({ root, disabled }) => {
+    const verifySaveButton = ({ disabled, root }) => {
       expect(root.find('.CollectionManager-submit')).toHaveProp(
         'disabled',
         disabled,

@@ -580,7 +580,7 @@ describe(__filename, () => {
           username,
         });
 
-        const { lang, clientApp } = clientData.state.api;
+        const { clientApp, lang } = clientData.state.api;
         const expectedAction = pushLocation({
           pathname: `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/`,
           query: convertFiltersToQueryParams(updateFilters),
@@ -636,7 +636,7 @@ describe(__filename, () => {
         const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
         expect(loadAction).toEqual(expectedLoadAction);
 
-        const { lang, clientApp } = clientData.state.api;
+        const { clientApp, lang } = clientData.state.api;
         const expectedAction = pushLocation(
           `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`,
         );
@@ -673,7 +673,7 @@ describe(__filename, () => {
 
         _createCollection(params);
 
-        const { lang, clientApp } = clientData.state.api;
+        const { clientApp, lang } = clientData.state.api;
         const expectedAction = pushLocation(
           `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`,
         );
@@ -700,7 +700,7 @@ describe(__filename, () => {
           getParams({ lang: state.api.lang, slug: submittedSlug }),
         );
 
-        const { lang, clientApp } = clientData.state.api;
+        const { clientApp, lang } = clientData.state.api;
         const expectedAction = pushLocation(
           `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/edit/`,
         );
@@ -803,7 +803,7 @@ describe(__filename, () => {
         username: 'some-other-user',
       };
       const state = sagaTester.getState();
-      const { lang, clientApp } = state.api;
+      const { clientApp, lang } = state.api;
 
       mockApi
         .expects('deleteCollection')

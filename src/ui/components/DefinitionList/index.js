@@ -24,7 +24,7 @@ type DefinitionListProps = {|
   children: React.ChildrenArray<React.Element<typeof Definition> | null>,
 |};
 
-const DefinitionList = ({ className, children }: DefinitionListProps) => {
+const DefinitionList = ({ children, className }: DefinitionListProps) => {
   return (
     <dl className={makeClassName('DefinitionList', className)}>{children}</dl>
   );

@@ -81,11 +81,11 @@ type GetAllCollectionAddonsParams = {|
 |};
 
 export const getAllCollectionAddons = async ({
+  _allPages = allPages,
+  _getCollectionAddons = getCollectionAddons,
   api,
   slug,
   username,
-  _allPages = allPages,
-  _getCollectionAddons = getCollectionAddons,
 }: GetAllCollectionAddonsParams): Promise<Array<ExternalCollectionAddon>> => {
   const { results } = await _allPages((nextURL) =>
     _getCollectionAddons({ api, nextURL, slug, username }),
@@ -121,10 +121,10 @@ export type GetAllUserCollectionsParams = {|
 |};
 
 export const getAllUserCollections = async ({
-  api,
-  username,
   _allPages = allPages,
   _listCollections = listCollections,
+  api,
+  username,
 }: GetAllUserCollectionsParams): Promise<Array<ExternalCollectionDetail>> => {
   const { results } = await _allPages((nextURL) =>
     _listCollections({ api, nextURL, username }),
@@ -172,6 +172,7 @@ export const modifyCollection = (
   },
 ): Promise<void> => {
   const {
+    _validateLocalizedString = validateLocalizedString,
     api,
     collectionSlug = '',
     defaultLocale,
@@ -179,7 +180,6 @@ export const modifyCollection = (
     name,
     slug,
     username,
-    _validateLocalizedString = validateLocalizedString,
   } = params;
 
   const creating = action === 'create';
@@ -222,6 +222,8 @@ export const modifyCollection = (
 };
 
 export const updateCollection = ({
+  _modifyCollection = modifyCollection,
+  _validateLocalizedString = validateLocalizedString,
   api,
   collectionSlug,
   defaultLocale,
@@ -229,8 +231,6 @@ export const updateCollection = ({
   name,
   slug,
   username,
-  _modifyCollection = modifyCollection,
-  _validateLocalizedString = validateLocalizedString,
 }: UpdateCollectionParams): Promise<void> => {
   return _modifyCollection('update', {
     api,
@@ -245,14 +245,14 @@ export const updateCollection = ({
 };
 
 export const createCollection = ({
+  _modifyCollection = modifyCollection,
+  _validateLocalizedString = validateLocalizedString,
   api,
   defaultLocale,
   description,
   name,
   slug,
   username,
-  _modifyCollection = modifyCollection,
-  _validateLocalizedString = validateLocalizedString,
 }: CreateCollectionParams): Promise<void> => {
   return _modifyCollection('create', {
     api,
@@ -317,12 +317,12 @@ export const modifyCollectionAddon = (
 };
 
 export const createCollectionAddon = ({
+  _modifyCollectionAddon = modifyCollectionAddon,
   addonId,
   api,
-  slug,
   notes,
+  slug,
   username,
-  _modifyCollectionAddon = modifyCollectionAddon,
 }: CreateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
     action: 'create',
@@ -335,12 +335,12 @@ export const createCollectionAddon = ({
 };
 
 export const updateCollectionAddon = ({
+  _modifyCollectionAddon = modifyCollectionAddon,
   addonId,
   api,
-  slug,
   notes,
+  slug,
   username,
-  _modifyCollectionAddon = modifyCollectionAddon,
 }: UpdateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
     action: 'update',

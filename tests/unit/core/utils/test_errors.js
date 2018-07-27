@@ -31,9 +31,9 @@ describe(__filename, () => {
     const render = (
       props = {},
       {
-        configKey = 'someConfigKey',
-        _config = { get: () => true },
         SomeComponent = () => <div />,
+        _config = { get: () => true },
+        configKey = 'someConfigKey',
       } = {},
     ) => {
       const WrappedComponent = compose(

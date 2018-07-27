@@ -16,8 +16,8 @@ type Props = {|
 const DropdownMenuItem = ({
   children,
   className,
-  onClick,
   detached = false,
+  onClick,
 }: Props) => {
   const childIsComponent = typeof children === 'object';
   const _classNames = makeClassName(

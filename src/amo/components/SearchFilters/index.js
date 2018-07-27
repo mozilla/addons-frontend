@@ -87,7 +87,7 @@ export class SearchFiltersBase extends React.Component {
   };
 
   doSearch({ newFilters }) {
-    const { location, history } = this.props;
+    const { history, location } = this.props;
 
     if (newFilters.page) {
       // Since it's now a new search, reset the page.

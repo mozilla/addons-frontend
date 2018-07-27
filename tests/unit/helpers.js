@@ -240,8 +240,8 @@ export const userAgents = {
 export function apiResponsePage({
   count,
   next,
-  previous,
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
+  previous,
   results = [],
 } = {}) {
   return {
@@ -284,7 +284,7 @@ export function createFetchAllAddonsResult(addons) {
 export function shallowUntilTarget(
   componentInstance,
   TargetComponent,
-  { maxTries = 10, shallowOptions, _shallow = shallow } = {},
+  { _shallow = shallow, maxTries = 10, shallowOptions } = {},
 ) {
   if (!componentInstance) {
     throw new Error('componentInstance parameter is required');
@@ -348,8 +348,8 @@ export function generateHeaders(
 }
 
 export function createApiResponse({
-  ok = true,
   jsonData = {},
+  ok = true,
   ...responseProps
 } = {}) {
   const response = {
@@ -377,23 +377,28 @@ export function createFakeLanguageTool(otherProps = {}) {
 }
 
 export function createUserAccountResponse({
-  id = 123456,
-  biography = 'I love making add-ons!',
-  username = 'user-1234',
-  created = '2017-08-15T12:01:13Z',
-  /* eslint-disable camelcase */
+  // eslint-disable-next-line camelcase
   average_addon_rating = 4.3,
+  biography = 'I love making add-ons!',
+  created = '2017-08-15T12:01:13Z',
+  // eslint-disable-next-line camelcase
   display_name = null,
-  is_addon_developer = false,
-  is_artist = false,
-  num_addons_listed = 1,
-  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
-  picture_type = '',
-  /* eslint-enable camelcase */
   homepage = null,
-  permissions = [],
-  occupation = null,
+  id = 123456,
+  // eslint-disable-next-line camelcase
+  is_addon_developer = false,
+  // eslint-disable-next-line camelcase
+  is_artist = false,
   location = null,
+  // eslint-disable-next-line camelcase
+  num_addons_listed = 1,
+  occupation = null,
+  permissions = [],
+  // eslint-disable-next-line camelcase
+  picture_type = '',
+  // eslint-disable-next-line camelcase
+  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+  username = 'user-1234',
 } = {}) {
   return {
     average_addon_rating,
@@ -562,7 +567,7 @@ export const createContextWithFakeRouter = ({
  *   propName: string,
  * |};
  */
-export const simulateComponentCallback = ({ Component, root, propName }) => {
+export const simulateComponentCallback = ({ Component, propName, root }) => {
   const component = root.find(Component);
   expect(component).toHaveProp(propName);
 
@@ -667,7 +672,7 @@ export function applyUIStateChanges({ root, store }) {
 /*
  * Change a component's uiState.
  */
-export function setUIState({ root, change, store }) {
+export function setUIState({ change, root, store }) {
   root.instance().props.setUIState(change);
   applyUIStateChanges({ root, store });
 }

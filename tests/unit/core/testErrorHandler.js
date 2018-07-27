@@ -39,10 +39,10 @@ function createErrorStore() {
 }
 
 function createWrappedComponent({
+  customProps = {},
+  decorator = withErrorHandler,
   id,
   store = createErrorStore(),
-  decorator = withErrorHandler,
-  customProps = {},
   ...options
 } = {}) {
   const SomeComponent = translate()(SomeComponentBase);

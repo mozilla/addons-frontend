@@ -60,6 +60,7 @@ describe(__filename, () => {
     );
   };
 
+  // eslint-disable-next-line amo/sort-destructured-props
   const signInAndDispatchCollections = ({
     username = 'some-user',
     clientApp,

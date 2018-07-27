@@ -28,8 +28,8 @@ export default class ServerHtml extends Component {
     _config: config,
   };
 
-  getStatic({ filePath, type, index }) {
-    const { includeSri, sriData, appName } = this.props;
+  getStatic({ filePath, index, type }) {
+    const { appName, includeSri, sriData } = this.props;
     const leafName = filePath.split('/').pop();
     let sriProps = {};
     // Only output files for the current app.
@@ -95,7 +95,7 @@ export default class ServerHtml extends Component {
   }
 
   render() {
-    const { component, htmlLang, htmlDir, noScriptStyles, store } = this.props;
+    const { component, htmlDir, htmlLang, noScriptStyles, store } = this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.

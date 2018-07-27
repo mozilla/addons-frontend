@@ -13,8 +13,8 @@ export function middleware({
   _config = config,
   _createLogger = createLogger,
   _window = typeof window !== 'undefined' ? window : null,
-  sagaMiddleware = null,
   routerMiddleware = null,
+  sagaMiddleware = null,
 } = {}) {
   const isDev = _config.get('isDevelopment');
 

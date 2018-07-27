@@ -519,9 +519,9 @@ export type UpdateCollectionAction = {|
 |};
 
 export const createCollection = ({
-  errorHandlerId,
   defaultLocale,
   description,
+  errorHandlerId,
   includeAddonId,
   name,
   slug,
@@ -703,8 +703,8 @@ export type UpdateCollectionAddonAction = {|
 export const updateCollectionAddon = ({
   addonId,
   errorHandlerId,
-  notes,
   filters,
+  notes,
   slug,
   username,
 }: UpdateCollectionAddonParams = {}): UpdateCollectionAddonAction => {
@@ -852,10 +852,10 @@ type LoadCollectionIntoStateParams = {|
 |};
 
 export const loadCollectionIntoState = ({
-  state,
-  collection,
   addons,
+  collection,
   pageSize,
+  state,
 }: LoadCollectionIntoStateParams): CollectionsState => {
   const existingCollection = state.byId[collection.id];
   const internalCollection = createInternalCollection({
@@ -1012,10 +1012,10 @@ export const collectionUrl = ({
 };
 
 export const collectionEditUrl = ({
+  _collectionUrl = collectionUrl,
   authorUsername,
   collection,
   collectionSlug,
-  _collectionUrl = collectionUrl,
 }: CollectionUrlParams): string => {
   return `${_collectionUrl({
     authorUsername,

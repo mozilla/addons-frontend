@@ -13,7 +13,7 @@ export function setError({ error, id } = {}) {
   };
 }
 
-export function setErrorMessage({ message, id } = {}) {
+export function setErrorMessage({ id, message } = {}) {
   if (!id) {
     throw new Error('id cannot be empty');
   }

@@ -125,7 +125,7 @@ export class DiscoPaneBase extends React.Component {
   }
 
   render() {
-    const { AddonComponent, errorHandler, results, i18n } = this.props;
+    const { AddonComponent, errorHandler, i18n, results } = this.props;
 
     return (
       <div

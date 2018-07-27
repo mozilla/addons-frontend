@@ -82,10 +82,10 @@ describe(__filename, () => {
   }
 
   function _setUserReviews({
+    count = null,
+    reviews = [fakeReview],
     store,
     userId,
-    reviews = [fakeReview],
-    count = null,
   }) {
     store.dispatch(
       setUserReviews({

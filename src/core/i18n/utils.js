@@ -199,7 +199,7 @@ type GetLanguageParams = {|
  * - Return object with lang and isLangFromHeader hint.
  *
  */
-export function getLanguage({ lang, acceptLanguage }: GetLanguageParams = {}) {
+export function getLanguage({ acceptLanguage, lang }: GetLanguageParams = {}) {
   let userLang = lang;
   let isLangFromHeader = false;
   // If we don't have a supported userLang yet try accept-language.

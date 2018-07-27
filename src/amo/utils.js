@@ -34,10 +34,10 @@ export function getDjangoBase62() {
 }
 
 export const makeQueryStringWithUTM = ({
-  utm_source = 'addons.mozilla.org',
-  utm_medium = 'referral',
   utm_campaign = 'non-fx-button',
   utm_content,
+  utm_medium = 'referral',
+  utm_source = 'addons.mozilla.org',
 }) => {
   return makeQueryString({
     utm_source,

@@ -25,7 +25,7 @@ export class ErrorListBase extends React.Component {
   };
 
   render() {
-    const { _window, code, className, i18n, messages } = this.props;
+    const { _window, className, code, i18n, messages } = this.props;
     const items = [];
 
     messages.forEach((messageItem) => {

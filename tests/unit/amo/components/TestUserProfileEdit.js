@@ -95,12 +95,12 @@ describe(__filename, () => {
   }
 
   function _updateUserAccount({
-    store,
+    errorHandlerId = createStubErrorHandler().id,
     notifications = {},
     picture = null,
+    store,
     userFields = {},
     userId = 'user-id',
-    errorHandlerId = createStubErrorHandler().id,
   }) {
     store.dispatch(
       updateUserAccount({

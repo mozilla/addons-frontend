@@ -106,8 +106,8 @@ type ExpandReviewObjectsParams = {|
 |};
 
 export const expandReviewObjects = ({
-  state,
   reviews,
+  state,
 }: ExpandReviewObjectsParams): Array<UserReviewType> => {
   return reviews.map((id) => {
     const review = state.byId[id];
@@ -142,8 +142,8 @@ type StoreReviewObjectsParams = {|
 |};
 
 export const storeReviewObjects = ({
-  state,
   reviews,
+  state,
 }: StoreReviewObjectsParams): ReviewsById => {
   const byId = { ...state.byId };
 
@@ -164,8 +164,8 @@ type ChangeViewStateParams = {|
 |};
 
 export const changeViewState = ({
-  state,
   reviewId,
+  state,
   stateChange,
 }: ChangeViewStateParams = {}): ReviewsState => {
   const change = { ...stateChange };

@@ -48,10 +48,10 @@ export class HeaderBase extends React.Component {
     const {
       i18n,
       isHomePage,
+      isReviewer,
       location,
       query,
       siteUser,
-      isReviewer,
     } = this.props;
 
     const headerLink = (

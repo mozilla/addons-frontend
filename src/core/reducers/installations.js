@@ -49,7 +49,7 @@ export type InstallationsState = {
 
 export default function installations(
   state: InstallationsState = {},
-  { type, payload }: InstallationAction,
+  { payload, type }: InstallationAction,
 ) {
   function updateAddon(newProps: Object): InstalledAddon {
     const { guid } = payload;
