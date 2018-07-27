@@ -293,7 +293,7 @@ describe(__filename, () => {
   it('sets an undefined UserRating review when none exists', () => {
     const UserRatingStub = sinon.spy(() => <div />);
 
-    const root = render({ UserRating: UserRatingStub, userReview: null });
+    render({ UserRating: UserRatingStub, userReview: null });
 
     sinon.assert.calledWithMatch(UserRatingStub, {
       review: undefined,
