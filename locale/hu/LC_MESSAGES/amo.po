@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-27 13:51+0000\n"
+"PO-Revision-Date: 2018-07-27 13:58+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -961,7 +961,7 @@ msgstr "Új téma beküldése"
 
 #: src/amo/components/Header/index.js:155
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Beküldései kezelése"
 
 #: src/amo/components/Header/index.js:165
 msgid "Reviewer Tools"
@@ -1065,11 +1065,11 @@ msgstr "Kihagyhatatlan média"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Nagyítsa ki a képeket azáltal, hogy föléjük húzza az egeret"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Privacy Possum"
@@ -1161,15 +1161,15 @@ msgstr "Részletes információk minden felkeresett weboldalról – IP-cím, he
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Válassza ki az oldalt, amit minden új lapon látni fog"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
-msgstr ""
+msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get instant global weather information right in Firefox"
@@ -1205,7 +1205,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Tonnányi nyitott lapja van? Rendezze el őket egy praktikus oldalsávon"
 
 #: src/amo/components/LandingPage/index.js:226
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2056,39 +2056,32 @@ msgid "Updating your profile…"
 msgstr "Saját profil frissítése…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
 msgid "Update My Profile"
 msgstr "Saját profil frissítése"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Saját profil frissítése"
+msgstr "Profil frissítése…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Update Profile"
 msgstr "Saját profil frissítése"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:834
-#, fuzzy
 msgid "Delete My Profile"
 msgstr "Saját profil törlése"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Saját profil törlése"
+msgstr "Profil törlése"
 
 #: src/amo/components/UserProfileEdit/index.js:758
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "FONTOS: A fiók törlése nem vonható vissza."
+msgstr "FONTOS: A Firefox kiegészítők fiók törlése nem vonható vissza."
 
 #: src/amo/components/UserProfileEdit/index.js:761
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "FONTOS: A fiókja törlése nem vonható vissza."
+msgstr "FONTOS: A Firefox kiegészítők fiókja törlése nem vonható vissza."
 
 #: src/amo/components/UserProfileEdit/index.js:770
 msgid ""
@@ -2111,18 +2104,16 @@ msgid "When you use this email address to login again to addons.mozilla.org, you
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:800
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a fiókját, ha %(linkStart)skiegészítők szerzője%(linkEnd)s. %(docLinkStart)sÁt kell adnia a tulajdonjogukat%(docLinkEnd)s, vagy törölnie kell a "
-"kiegészítőit, mielőtt törölheti a fiókját."
+"%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a profilját, ha %(linkStart)skiegészítők szerzője%(linkEnd)s. %(docLinkStart)sÁt kell adnia a tulajdonjogukat%(docLinkEnd)s, vagy törölnie kell "
+"a kiegészítőit, mielőtt törölheti a profiljét."
 
 #: src/amo/components/UserProfileEdit/index.js:807
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a felhasználói fiókot, ha a felhasználó %(linkStart)skiegészítők szerzője%(linkEnd)s."
+msgstr "%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a felhasználói profilt, ha a felhasználó %(linkStart)skiegészítők szerzője%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
