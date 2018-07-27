@@ -3009,11 +3009,12 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-amo@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.3.2.tgz#6669bcfb3182256334ef9c1fd058d5dc795b45bb"
+eslint-plugin-amo@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.5.0.tgz#d027c72e1b994af8d9b023cf7599697121b4866b"
   dependencies:
     requireindex "~1.1.0"
+    string-natural-compare "^2.0.2"
 
 eslint-plugin-import@2.8.0:
   version "2.8.0"
@@ -4096,9 +4097,9 @@ hosted-git-info@^2.1.4:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.0.tgz#23235b29ab230c576aab0d4f13fc046b0b038222"
 
-hot-shots@5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-5.8.0.tgz#5838d03f73bf1e03af86d934e21b54373c60aad2"
+hot-shots@5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-5.9.0.tgz#2d3549103762d70960a316e57d34d7fb63336412"
 
 hpkp@2.0.0:
   version "2.0.0"
@@ -8818,6 +8819,10 @@ string-length@^2.0.0:
   dependencies:
     astral-regex "^1.0.0"
     strip-ansi "^4.0.0"
+
+string-natural-compare@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/string-natural-compare/-/string-natural-compare-2.0.2.tgz#c5ce4e278ab5d1265ae6fc55435aeb7b76fcb001"
 
 string-width@^1.0.1, string-width@^1.0.2:
   version "1.0.2"
