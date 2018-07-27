@@ -12,6 +12,7 @@ import './styles.scss';
 // even in other envs.
 export const onClickBackground = (
   event: SyntheticEvent<HTMLButtonElement>,
+  // eslint-disable-next-line no-use-before-define
   _this: OverlayBase,
 ) => {
   if (_this.props.onEscapeOverlay) {
@@ -22,9 +23,9 @@ export const onClickBackground = (
 
 type Props = {|
   className?: string,
-  children: React.Element<any> | string,
+  children: React.Element<any>,
   id: string,
-  onEscapeOverlay: Function,
+  onEscapeOverlay?: Function,
   visibleOnLoad?: boolean,
   _onClickBackground: Function,
 |};
@@ -44,19 +45,18 @@ type InternalProps = {|
 export class OverlayBase extends React.Component<InternalProps> {
   static defaultProps = {
     visibleOnLoad: false,
-    uiState: initialUIState,
-    setUIState: () => {},
     _onClickBackground: onClickBackground,
   };
 
   componentWillReceiveProps(nextProps: InternalProps) {
     const { uiState: uiStateOld } = this.props;
+    const { visibleOnLoad: visibleOnLoadNew } = nextProps;
 
     if (
-      (nextProps.visibleOnLoad && !uiStateOld.visible) ||
+      (visibleOnLoadNew && !uiStateOld.visible) ||
       uiStateOld.visible !== nextProps.uiState.visible
     ) {
-      this.props.setUIState({ visible: nextProps.visibleOnLoad });
+      this.props.setUIState({ visible: visibleOnLoadNew });
     }
   }
 
@@ -75,6 +75,7 @@ export class OverlayBase extends React.Component<InternalProps> {
   render() {
     const { children, className, id, uiState } = this.props;
 
+    invariant(children, 'The children property is required');
     invariant(id, 'The id property is required');
 
     return (

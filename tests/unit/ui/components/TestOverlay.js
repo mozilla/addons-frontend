@@ -19,8 +19,9 @@ describe(__filename, () => {
   };
 
   const render = ({ children, ...otherProps } = {}) => {
+    const html = '<div>a child div</div>';
     return shallowUntilTarget(
-      <Overlay {...getProps(otherProps)}>{children}</Overlay>,
+      <Overlay {...getProps(otherProps)}>{children || html}</Overlay>,
       OverlayBase,
     );
   };
@@ -39,7 +40,7 @@ describe(__filename, () => {
   });
 
   it('renders children', () => {
-    const html = '<div>a child div</div>';
+    const html = '<div>overriding child div</div>';
     const root = render({ children: html });
     expect(
       root
