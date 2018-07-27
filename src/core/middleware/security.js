@@ -40,14 +40,18 @@ export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
         .createHash('sha256')
         .update(noScriptStyles)
         .digest('base64');
+
       const cspValue = `'sha256-${hash}'`;
-      if (
-        cspConfig.directives &&
-        !cspConfig.directives.styleSrc.includes(cspValue)
-      ) {
-        cspConfig.directives.styleSrc.push(cspValue);
+      const { directives } = cspConfig;
+
+      if (directives && !directives.styleSrc.includes(cspValue)) {
+        const styleSrc = [...directives.styleSrc];
+        styleSrc.push(cspValue);
+
+        config.util.extendDeep(cspConfig, { directives: { styleSrc } });
       }
     }
+
     return helmet.contentSecurityPolicy(cspConfig);
   }
 
