@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2018-07-24 18:34+0000\n"
+"PO-Revision-Date: 2018-07-27 08:31+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -168,7 +168,7 @@ msgstr "Перезавантажте для продовження"
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Відхилити це сповіщення"
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr "Наведіть для перегляду, або натисніть для встановлення %(name)s"
