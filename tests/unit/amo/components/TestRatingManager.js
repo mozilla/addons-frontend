@@ -68,6 +68,7 @@ describe(__filename, () => {
       ...customProps,
     };
 
+    // TODO: port to shallowUntilTarget
     const root = findRenderedComponentWithType(
       renderIntoDocument(
         <I18nProvider i18n={fakeI18n()}>

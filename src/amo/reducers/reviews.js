@@ -93,17 +93,22 @@ export const initialState: ReviewsState = {
   view: {},
 };
 
-type ExpandReviewObjectsParams = {|
-  state: ReviewsState,
-  reviews: Array<number>,
-|};
+export const selectReview = (
+  reviewsState: ReviewsState,
+  id: number,
+): UserReviewType | void => {
+  return reviewsState.byId[id];
+};
 
 export const expandReviewObjects = ({
   state,
   reviews,
-}: ExpandReviewObjectsParams): Array<UserReviewType> => {
+}: {|
+  state: ReviewsState,
+  reviews: Array<number>,
+|}): Array<UserReviewType> => {
   return reviews.map((id) => {
-    const review = state.byId[id];
+    const review = selectReview(state, id);
     if (!review) {
       throw new Error(`No stored review exists for ID ${id}`);
     }
@@ -194,6 +199,31 @@ const latestReviewKey = ({
   versionId: number,
 |}) => {
   return `user${userId}-addon${addonId}-version${versionId}`;
+};
+
+export const selectLatestUserReview = ({
+  reviewsState,
+  userId,
+  addonId,
+  versionId,
+}: {|
+  reviewsState: ReviewsState,
+  userId: number,
+  addonId: number,
+  versionId: number,
+|}): UserReviewType | null | void => {
+  const key = latestReviewKey({ userId, addonId, versionId });
+  const userReviewId = reviewsState.latest[key];
+
+  if (userReviewId === null) {
+    // This means an action had previously attempted to fetch the latest
+    // user review but one does not exist.
+    return null;
+  }
+
+  // Return the review object or undefined if no attempt has been made
+  // to fetch the latest user review.
+  return selectReview(reviewsState, userReviewId);
 };
 
 type ReviewActionType =

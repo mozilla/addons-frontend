@@ -9,6 +9,7 @@ import { oneLine } from 'common-tags';
 
 import { withRenderedErrorHandler } from 'core/errorHandler';
 import { setLatestReview } from 'amo/actions/reviews';
+import { selectLatestUserReview } from 'amo/reducers/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api/reviews';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
@@ -262,16 +263,12 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
         ownProps.version.id
       } by user:${userId}`,
     );
-    // TODO: use selector for all of this.
-    const key = `user${userId}-addon${ownProps.addon.id}-version${
-      ownProps.version.id
-    }`;
-    const userReviewId = state.reviews.latest[key];
-    if (userReviewId === null) {
-      userReview = userReviewId;
-    } else if (userReviewId) {
-      userReview = state.reviews.byId[userReviewId];
-    }
+    userReview = selectLatestUserReview({
+      reviewsState: state.reviews,
+      userId,
+      addonId: ownProps.addon.id,
+      versionId: ownProps.version.id,
+    });
   }
 
   return {
