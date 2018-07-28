@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-28 21:05+0000\n"
+"PO-Revision-Date: 2018-07-28 21:27+0000\n"
 "Last-Translator: Uccen Marzuq <merzouk.ouchene@laposte.net>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -961,7 +961,7 @@ msgstr "Azen asentel amaynut"
 
 #: src/amo/components/Header/index.js:155
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Mhel isumeren-iw"
 
 #: src/amo/components/Header/index.js:165
 msgid "Reviewer Tools"
@@ -1065,11 +1065,11 @@ msgstr "Taywalt i yellaqen"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Simɣer tugniwin s usɛeddi n tɣerdayt-ik fell-as"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Privacy Possum"
@@ -1161,20 +1161,19 @@ msgstr "Wali ugar n isallen s telqey n yal asmel web ɣef i terziḍ—tansa IP,
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Fren asevtar tettwaliḍ yal tikelt m'ara teldiḍ iccer amaynut"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
-msgstr ""
+msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
-#, fuzzy
 msgid "Get instant global weather information right in Firefox"
-msgstr "Slal-d s snat n tsedarin tangalin n usenqed deg Firefox"
+msgstr "Awi-d isallen n tegnawt n umaḍal srid seg Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
@@ -1202,11 +1201,11 @@ msgstr "Faṛes tagnit seg usebter n yiccer amaynut s igilalen udmawanen, tagnaw
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Sɛu yiwen n ṭun n yiccaren yeldin? Suddes-iten deg yiwen n ugalis adisan yemsawin"
 
 #: src/amo/components/LandingPage/index.js:226
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1987,9 +1986,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Tzemreḍ ad tbeddleḍ tansa-ik n yimayl di Firefox Accounts. %(startLink)s Teriḍ tallelt? %(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:544
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "Sefrek Imiḍanen Firefox..."
+msgstr "Sefrek imiḍanen Firefox..."
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -2100,7 +2098,6 @@ msgstr ""
 "neɣ ad tekkseḍ izegrar send ad tizmireḍ ad tekkseḍ amiḍan-ik."
 
 #: src/amo/components/UserProfileEdit/index.js:807
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr "%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan n useqdac ma yella aseqdac d %(linkStart)sameskar n walbaɛḍ n yizegrar%(linkEnd)s."
 
