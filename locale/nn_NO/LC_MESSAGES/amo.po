@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-28 09:22+0000\n"
+"PO-Revision-Date: 2018-07-28 12:28+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1047,7 +1047,7 @@ msgstr "Vis fleire dynamiske nedlastingsverktøy"
 
 #: src/amo/components/Home/index.js:59
 msgid "Dynamic downloaders"
-msgstr "Dynamiske nedlastarar"
+msgstr "Dynamiske nedlastingsverktøy"
 
 #: src/amo/components/Home/index.js:64
 msgid "See more summer themes"
@@ -1059,11 +1059,11 @@ msgstr "Sommartema"
 
 #: src/amo/components/Home/index.js:70
 msgid "See more must-have media extensions"
-msgstr "Vis fleire må-ha-mediautvidingar"
+msgstr "Vis fleire må ha-mediautvidingar"
 
 #: src/amo/components/Home/index.js:71
 msgid "Must-have media"
-msgstr "Må ha-media"
+msgstr "Må ha-mediautvidingar"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
