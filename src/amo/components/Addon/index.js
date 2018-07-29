@@ -146,6 +146,12 @@ export class AddonBase extends React.Component {
   headerImage() {
     const { addon, i18n } = this.props;
 
+    const label = addon
+      ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+          title: addon.name,
+        })
+      : '';
+
     if (addon && isTheme(addon.type)) {
       const previewHeader = addon.previews.length && addon.previews[0];
 
@@ -154,43 +160,31 @@ export class AddonBase extends React.Component {
           ? previewHeader.image_url
           : null;
 
-      const label = addon
-        ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
-            title: addon.name,
-          })
-        : '';
-
-      const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-
-      if (!previewURL && type === ADDON_TYPE_THEME) {
+      if (!previewURL && addon.type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
       }
 
-      const headerImage = (
-        <img
-          alt={label}
-          className="Addon-theme-header-image"
-          src={previewURL}
-        />
-      );
+      const themeClassName = 'Addon-theme-header';
 
       return (
-        <div
-          className="Addon-theme-header"
-          id="Addon-theme-header"
-          role="presentation"
-        >
-          {headerImage}
+        <div className={themeClassName} id={themeClassName} role="presentation">
+          <img
+            alt={label}
+            className="Addon-theme-header-image"
+            src={previewURL}
+          />
         </div>
       );
     }
 
-    const iconUrl = getAddonIconUrl(addon);
-
     return (
-      <div className="Addon-icon">
-        <img className="Addon-icon-image" alt="" src={iconUrl} />
-      </div>
+      <span className="Addon-icon">
+        <img
+          alt={label}
+          className="Addon-icon-image"
+          src={getAddonIconUrl(addon)}
+        />
+      </span>
     );
   }
 
@@ -490,6 +484,7 @@ export class AddonBase extends React.Component {
           'Addon-theme': isThemeType,
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
+          'Addon--loading': !addon,
         })}
         data-site-identifier={addon ? addon.id : null}
       >
