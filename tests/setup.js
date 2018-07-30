@@ -73,6 +73,11 @@ global.sinon = sinon.createSandbox();
 // Stub the magic constant webpack normally supplies.
 global.CLIENT_CONFIG = require('core/utils').getClientConfig(config);
 
+// See: https://github.com/mozilla/addons-frontend/issues/1138
+global.fetch = () => {
+  throw new Error('API calls MUST be mocked.');
+};
+
 afterEach(() => {
   global.sinon.restore();
 });
