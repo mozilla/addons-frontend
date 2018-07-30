@@ -71,6 +71,7 @@ export default Object.assign({}, webpackConfig, {
       'react-dom/umd/react-dom.development.js',
     ),
     new webpack.NormalModuleReplacementPlugin(/^redux$/, 'redux/dist/redux.js'),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),
