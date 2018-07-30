@@ -791,7 +791,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             {isEditingCurrentUser && (
               <p>
                 {i18n.gettext(
-                  `When you use this email address to login again to
+                  `When you use this email address to log in again to
                   addons.mozilla.org, you will create a new Firefox Add-ons
                   profile that is in no way associated with the profile you
                   deleted.`,
