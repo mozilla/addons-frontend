@@ -72,7 +72,34 @@ export const mergeUIStateProps = (
   };
 };
 
-type withUIStateParams = {|
+/*
+ * This HOC can be used to somewhat mimic the behavior of this.setState()
+ * but with Redux reducers/actions instead.
+ *
+ * It provides your component props.setUIState() which can be used just
+ * like this.setState() to dispatch actions that change the internal
+ * state of the component.
+ *
+ * It provides props.uiState which can be used to read internal state
+ * like you would read this.state.
+ *
+ * One key difference from this.setState() is that by default your
+ * component will not reset its state when mounted. Instead, it uses
+ * the ID returned from extractID(props) to get its state from the
+ * Redux store.
+ *
+ * You can make the component always reset its state by configuring it
+ * with newStatePerInstance: true. This will behave more like
+ * this.setState() but you will lose some features of Redux persistence
+ * such as predictable time travel, predictable hot reloading, and
+ * possibly other state replay features.
+ */
+const withUIState = ({
+  fileName,
+  extractId,
+  initialState,
+  newStatePerInstance = false,
+}: {|
   // This should always be set to __filename for ID purposes.
   fileName: string,
   // A function that takes component props and returns a string to identify this state.
@@ -84,16 +111,7 @@ type withUIStateParams = {|
   // works but the component will then no longer be able to initialize
   // itself from pure Redux state. Try to avoid setting this to true if you can.
   newStatePerInstance?: boolean,
-|};
-
-const withUIState = ({
-  fileName,
-  extractId,
-  initialState,
-  newStatePerInstance = false,
-}: withUIStateParams): ((
-  React.ComponentType<any>,
-) => React.ComponentType<any>) => {
+|}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
   invariant(initialState, 'initialState is required');
