@@ -62,28 +62,6 @@
   }
 }
 
-.SearchResult-icon {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-
-  &.SearchResult-icon--loading {
-    .SearchResult--theme & {
-      width: auto;
-      height: 32px;
-    }
-  }
-
-  .SearchResult--theme & {
-    border-radius: $border-radius-default;
-    display: block;
-    height: auto;
-    object-fit: cover;
-    object-position: top left;
-    width: 100%;
-  }
-}
-
 .SearchResult-contents {
   display: flex;
   flex-flow: row wrap;
