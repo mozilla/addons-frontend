@@ -2080,9 +2080,9 @@ concurrently@^3.4.0:
     supports-color "^3.2.3"
     tree-kill "^1.1.0"
 
-config@1.31.0:
-  version "1.31.0"
-  resolved "https://registry.yarnpkg.com/config/-/config-1.31.0.tgz#ab08aeba6536015d220cd0afe14b3e0501082542"
+config@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/config/-/config-2.0.0.tgz#f9f079477f3e07a3c118fa3adfccc36f5d3adff1"
   dependencies:
     json5 "^1.0.1"
 
