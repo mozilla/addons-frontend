@@ -32,7 +32,7 @@ export class LanguagePickerBase extends React.Component {
   };
 
   changeLanguage(newLocale) {
-    const { currentLocale, location, _window } = this.props;
+    const { _window, currentLocale, location } = this.props;
 
     if (currentLocale !== newLocale) {
       const newURL = changeLocaleURL({ currentLocale, location, newLocale });

@@ -23,9 +23,9 @@ export const generateId = ({
 };
 
 export const createUIStateMapper = ({
-  initialState,
   extractId,
   fileName,
+  initialState,
   uiStateID,
 }: {|
   initialState: Object,
@@ -70,8 +70,8 @@ export const mergeUIStateProps = (
 };
 
 const withUIState = ({
-  fileName,
   extractId,
+  fileName,
   initialState,
 }: {|
   fileName: string,

@@ -77,11 +77,11 @@ export class ServerTestHelper {
 
   testClient({
     App = StubApp,
-    store = null,
-    sagaMiddleware = null,
     appSagas = null,
-    config = defaultConfig,
     baseServerParams = {},
+    config = defaultConfig,
+    sagaMiddleware = null,
+    store = null,
   } = {}) {
     function _createStoreAndSagas({ history }) {
       if (store === null) {
@@ -158,7 +158,7 @@ describe(__filename, () => {
     });
 
     it('does not dispatch setAuthToken() if cookie is not found', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
 
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
@@ -172,7 +172,7 @@ describe(__filename, () => {
 
     it('dispatches setAuthToken() if cookie is present', async () => {
       const token = userAuthToken();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
@@ -185,7 +185,7 @@ describe(__filename, () => {
     });
 
     it('dispatches dismissSurvey() if cookie is present', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
         // Set a cookie with an empty string value.
@@ -202,7 +202,7 @@ describe(__filename, () => {
     });
 
     it('does not dispatch dismissSurvey() if no cookie is present', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
         .end();
@@ -222,7 +222,7 @@ describe(__filename, () => {
         .returns(Promise.resolve(user));
 
       const token = userAuthToken();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({
         store,
         sagaMiddleware,
@@ -248,7 +248,7 @@ describe(__filename, () => {
         .rejects(new Error('example of an API error'));
 
       const token = userAuthToken();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({
         store,
         sagaMiddleware,
@@ -271,7 +271,7 @@ describe(__filename, () => {
         .returns(Promise.resolve(user));
 
       const token = userAuthToken();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
       // We use `cloneDeep()` to allow modifications on the `config` object,
       // since a call to `get()` makes it immutable. This is the case in the
       // previous test cases (on `defaultConfig`).
@@ -318,7 +318,7 @@ describe(__filename, () => {
         .returns(Promise.resolve(user));
 
       const token = userAuthToken();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { sagaMiddleware, store } = createStoreAndSagas();
 
       const client = testClient({
         store,
@@ -343,7 +343,7 @@ describe(__filename, () => {
     });
 
     it('performs a server redirect when requested by the app', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas({
+      const { sagaMiddleware, store } = createStoreAndSagas({
         reducers: {
           redirectTo: redirectToReducer,
         },

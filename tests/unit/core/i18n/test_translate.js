@@ -30,8 +30,8 @@ class InnerComponent extends React.Component {
 describe(__filename, () => {
   const render = ({
     Component = translate()(InnerComponent),
-    i18n = fakeI18n(),
     componentProps = {},
+    i18n = fakeI18n(),
   } = {}) => {
     return mount(
       <I18nProvider i18n={i18n}>

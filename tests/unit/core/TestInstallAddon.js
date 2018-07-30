@@ -58,8 +58,8 @@ import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 const {
   WithInstallHelpers,
   installTheme,
-  makeProgressHandler,
   makeMapDispatchToProps,
+  makeProgressHandler,
   mapStateToProps,
   withInstallHelpers,
 } = installAddon;
@@ -611,7 +611,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           defaultInstallSource: null,
         });
@@ -637,7 +637,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           defaultInstallSource: null,
         });
@@ -664,7 +664,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           defaultInstallSource: null,
           _addonManager: getFakeAddonManagerWrapper({
@@ -697,7 +697,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           defaultInstallSource: null,
           _addonManager: getFakeAddonManagerWrapper({
@@ -737,7 +737,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
           defaultInstallSource: null,
@@ -771,7 +771,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
           defaultInstallSource: null,
@@ -805,7 +805,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
           defaultInstallSource: null,
@@ -835,7 +835,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
           defaultInstallSource: null,
@@ -861,7 +861,7 @@ describe(__filename, () => {
         });
         const addon = createInternalAddon(fakeAddon);
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });
@@ -887,7 +887,7 @@ describe(__filename, () => {
           }),
         );
 
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           defaultInstallSource,
         });
@@ -1056,7 +1056,7 @@ describe(__filename, () => {
             .stub()
             .returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
         };
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
         });
         const { enable } = root.instance().props;
@@ -1196,7 +1196,7 @@ describe(__filename, () => {
 
       it('should dispatch START_DOWNLOAD', () => {
         const addon = createInternalAddon(fakeAddon);
-        const { root, dispatch } = renderWithInstallHelpers(addon);
+        const { dispatch, root } = renderWithInstallHelpers(addon);
         const { install } = root.instance().props;
 
         return install(addon).then(() => {
@@ -1219,7 +1219,7 @@ describe(__filename, () => {
             permissionPromptsEnabled: false,
           }),
         };
-        const { root, dispatch } = renderWithInstallHelpers(props);
+        const { dispatch, root } = renderWithInstallHelpers(props);
         const { install } = root.instance().props;
 
         return install(addon).then(() => {
@@ -1257,7 +1257,7 @@ describe(__filename, () => {
             permissionPromptsEnabled: true,
           }),
         };
-        const { root, dispatch } = renderWithInstallHelpers(props);
+        const { dispatch, root } = renderWithInstallHelpers(props);
         const { install } = root.instance().props;
 
         return install(addon).then(() => {
@@ -1277,7 +1277,7 @@ describe(__filename, () => {
         fakeAddonManager.install = sinon.stub().returns(Promise.reject());
 
         const addon = createInternalAddon(fakeAddon);
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });
@@ -1300,7 +1300,7 @@ describe(__filename, () => {
       it('calls addonManager.uninstall()', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const addon = createInternalAddon(fakeAddon);
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });
@@ -1321,7 +1321,7 @@ describe(__filename, () => {
           .stub()
           .returns(Promise.reject(new Error('Add-on Manager uninstall error')));
         const addon = createInternalAddon(fakeAddon);
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { dispatch, root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });

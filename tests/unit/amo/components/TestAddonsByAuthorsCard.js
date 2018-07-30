@@ -91,8 +91,8 @@ describe(__filename, () => {
 
   function addonsWithAuthorsOfType({
     addonType,
-    multipleAuthors = false,
     count = null,
+    multipleAuthors = false,
   }) {
     const pageSize =
       addonType === ADDON_TYPE_THEME
@@ -143,10 +143,10 @@ describe(__filename, () => {
 
   function renderAddonsWithType({
     addonType,
-    showMore,
+    count = null,
     multipleAuthors = false,
     numberOfAddons = 6,
-    count = null,
+    showMore,
     ...otherProps
   } = {}) {
     const authorUsernames = multipleAuthors

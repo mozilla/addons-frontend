@@ -27,12 +27,12 @@ type InternalProps = {|
 export const UserCollectionBase = (props: InternalProps) => {
   const {
     authorUsername,
+    i18n,
     id,
     loading,
     name,
     numberOfAddons,
     slug,
-    i18n,
   } = props;
 
   const linkProps = {};

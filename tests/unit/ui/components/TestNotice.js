@@ -11,8 +11,8 @@ import {
 import Notice, { NoticeBase } from 'ui/components/Notice';
 
 const render = ({
-  store = dispatchClientMetadata().store,
   children,
+  store = dispatchClientMetadata().store,
   ...customProps
 } = {}) => {
   const props = {

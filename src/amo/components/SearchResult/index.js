@@ -44,9 +44,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
   renderResult() {
     const {
+      _isAllowedOrigin,
       addon,
       i18n,
-      _isAllowedOrigin,
       showMetadata,
       showSummary,
     } = this.props;

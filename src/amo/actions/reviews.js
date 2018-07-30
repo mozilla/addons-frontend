@@ -148,8 +148,8 @@ export type FetchUserReviewsAction = {|
 
 export function fetchUserReviews({
   errorHandlerId,
-  userId,
   page = 1,
+  userId,
 }: FetchUserReviewsParams): FetchUserReviewsAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
@@ -257,9 +257,9 @@ export type SendReplyToReviewAction = {|
 |};
 
 export const sendReplyToReview = ({
+  body,
   errorHandlerId,
   originalReviewId,
-  body,
   title,
 }: SendReplyToReviewParams = {}): SendReplyToReviewAction => {
   if (!errorHandlerId) {

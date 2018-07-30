@@ -184,12 +184,12 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       editingReview,
       errorHandler,
       i18n,
-      siteUserHasReplyPerm,
       isReplyToReviewId,
       location,
       replyingToReview,
       review,
       siteUser,
+      siteUserHasReplyPerm,
     } = this.props;
 
     let authorAndTime;

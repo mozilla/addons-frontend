@@ -28,7 +28,7 @@ type Props = {|
 
 export class AddonMoreInfoBase extends React.Component<Props> {
   listContent() {
-    const { addon, i18n, userId, hasStatsPermission } = this.props;
+    const { addon, hasStatsPermission, i18n, userId } = this.props;
 
     if (!addon) {
       return this.renderDefinitions({
@@ -162,16 +162,16 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }
 
   renderDefinitions({
-    homepage = null,
-    supportUrl = null,
-    supportEmail = null,
-    statsLink = null,
-    privacyPolicyLink = null,
     eulaLink = null,
+    homepage = null,
+    privacyPolicyLink = null,
+    statsLink = null,
+    supportEmail = null,
+    supportUrl = null,
     version = null,
+    versionHistoryLink = null,
     versionLastUpdated,
     versionLicenseLink = null,
-    versionHistoryLink = null,
   }: Object) {
     const { i18n } = this.props;
     return (

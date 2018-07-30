@@ -45,12 +45,12 @@ type InternalProps = {|
 export class CollectionSortBase extends React.Component<InternalProps> {
   onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
     const {
-      collection,
       clientApp,
+      collection,
       editing,
       filters,
-      lang,
       history,
+      lang,
     } = this.props;
 
     invariant(collection, 'A collection is required.');

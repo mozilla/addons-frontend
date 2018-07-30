@@ -308,9 +308,9 @@ export const getDisplayName = (component) => {
 };
 
 export const addQueryParamsToHistory = ({
-  history,
   _parse = parse,
   _stringify = stringify,
+  history,
 }) => {
   return qhistory(history, _stringify, _parse);
 };

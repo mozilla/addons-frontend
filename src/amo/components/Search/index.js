@@ -114,7 +114,7 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 
   renderHelmetTitle() {
-    const { i18n, filters } = this.props;
+    const { filters, i18n } = this.props;
 
     let title = i18n.gettext('Search results');
 

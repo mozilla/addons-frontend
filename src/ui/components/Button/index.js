@@ -46,8 +46,8 @@ export default class Button extends React.Component {
       className,
       href,
       micro,
-      puffy,
       noLink,
+      puffy,
       to,
       ...rest
     } = this.props;

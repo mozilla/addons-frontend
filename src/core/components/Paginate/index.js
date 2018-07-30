@@ -26,8 +26,8 @@ type InternalProps = {|
 |};
 
 function makePageNumbers({
-  start,
   end,
+  start,
 }: {|
   start: number,
   end: number,

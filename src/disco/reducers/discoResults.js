@@ -1,6 +1,6 @@
 import { LOAD_DISCO_RESULTS } from 'disco/constants';
 
-export default function discoResults(state = [], { type, payload }) {
+export default function discoResults(state = [], { payload, type }) {
   switch (type) {
     case LOAD_DISCO_RESULTS: {
       const { entities, result } = payload;

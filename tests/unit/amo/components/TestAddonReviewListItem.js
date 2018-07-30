@@ -111,10 +111,11 @@ describe(__filename, () => {
     });
   };
 
+  // eslint-disable-next-line amo/sort-destructured-props
   const signInAndDispatchSavedReview = ({
     siteUserId = 123,
-    reviewUserId = siteUserId,
     externalReview = fakeReview,
+    reviewUserId = siteUserId,
   } = {}) => {
     dispatchSignInActions({ store, userId: siteUserId });
     return _setReview({
@@ -655,7 +656,7 @@ describe(__filename, () => {
   describe('Developer reply to a review', () => {
     it('renders a nested reply', () => {
       const addon = createInternalAddon(fakeAddon);
-      const { review, reply } = _setReviewReply({ addon });
+      const { reply, review } = _setReviewReply({ addon });
       const root = render({ addon, review });
 
       const replyComponent = root.find(AddonReviewListItem);

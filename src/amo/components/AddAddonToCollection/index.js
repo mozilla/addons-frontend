@@ -136,9 +136,9 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 
   createOption({
-    text,
     key,
     onSelect,
+    text,
   }: {
     // eslint-disable-next-line react/no-unused-prop-types
     text: string,
@@ -161,11 +161,11 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     const {
       addon,
       clientApp,
+      history,
       i18n,
       lang,
       loadingAddonsInCollections,
       loadingUserCollections,
-      history,
       userCollections,
     } = this.props;
 
@@ -235,7 +235,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { errorHandler, i18n, addonInCollections } = this.props;
+    const { addonInCollections, errorHandler, i18n } = this.props;
     const { actionOptions, collectionOptions, disabled } = this.getSelectData();
 
     let addedNotices = [];

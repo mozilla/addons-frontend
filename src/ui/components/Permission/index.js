@@ -11,7 +11,7 @@ type PermissionProps = {|
 
 export default class Permission extends React.Component<PermissionProps> {
   render() {
-    const { type, description } = this.props;
+    const { description, type } = this.props;
     return (
       <li className={makeClassName('Permission')}>
         <Icon name={`permission-${type.replace(/\./g, '-')}`} />

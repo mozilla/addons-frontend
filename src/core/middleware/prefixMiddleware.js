@@ -22,7 +22,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   // Get language from URL or fall-back to detecting it from accept-language
   // header.
   const acceptLanguage = req.headers['accept-language'];
-  const { lang, isLangFromHeader } = getLanguage({
+  const { isLangFromHeader, lang } = getLanguage({
     lang: langFromURL,
     acceptLanguage,
   });

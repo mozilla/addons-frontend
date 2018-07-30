@@ -444,11 +444,11 @@ describe(__filename, () => {
 
   describe('mapStateToProps', () => {
     function getMappedProps({
-      state = store.getState(),
       componentProps = {
         addon: createInternalAddon(fakeAddon),
         version: fakeAddon.current_version,
       },
+      state = store.getState(),
     } = {}) {
       return mapStateToProps(state, componentProps);
     }

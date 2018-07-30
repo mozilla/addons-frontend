@@ -91,7 +91,7 @@ describe(__filename, () => {
   }
 
   function renderAndMount(customProps = {}) {
-    const { store, i18n, ...props } = renderProps(customProps);
+    const { i18n, store, ...props } = renderProps(customProps);
 
     return mount(
       <Provider store={store}>

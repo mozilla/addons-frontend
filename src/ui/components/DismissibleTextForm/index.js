@@ -105,8 +105,8 @@ export class DismissibleTextFormBase extends React.Component<
       onDelete,
       placeholder,
       submitButtonClassName,
-      submitButtonText,
       submitButtonInProgressText,
+      submitButtonText,
     } = this.props;
 
     const submitButtonIsDisabled =

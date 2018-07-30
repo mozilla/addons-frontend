@@ -155,7 +155,7 @@ describe(__filename, () => {
     it('logs out a signed-in user on the server and client sides', () => {
       sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
 
-      const { store, state } = dispatchSignInActions();
+      const { state, store } = dispatchSignInActions();
       const dispatchSpy = sinon.spy(store, 'dispatch');
 
       const handleLogOut = createHandleLogOutFunction(dispatchSpy);

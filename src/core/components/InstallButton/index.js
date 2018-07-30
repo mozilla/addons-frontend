@@ -120,12 +120,12 @@ export class InstallButtonBase extends React.Component {
 
   installTheme = (event) => {
     event.preventDefault();
-    const { addon, status, installTheme } = this.props;
+    const { addon, installTheme, status } = this.props;
     installTheme(event.currentTarget, { ...addon, status });
   };
 
-  installExtension = ({ installURL, event }) => {
-    const { addon, _InstallTrigger } = this.props;
+  installExtension = ({ event, installURL }) => {
+    const { _InstallTrigger, addon } = this.props;
     const { name, type } = addon;
 
     this.trackInstallStarted({ addonName: name, type });
@@ -196,18 +196,18 @@ export class InstallButtonBase extends React.Component {
 
   render() {
     const {
+      _config,
+      _log,
+      _window,
       addon,
-      clientApp,
       className,
+      clientApp,
       defaultInstallSource,
       getClientCompatibility,
       hasAddonManager,
       i18n,
       location,
       userAgentInfo,
-      _config,
-      _log,
-      _window,
     } = this.props;
 
     if (addon.type === ADDON_TYPE_OPENSEARCH && _config.get('server')) {

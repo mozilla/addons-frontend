@@ -177,8 +177,8 @@ export class AppBase extends React.Component<Props> {
   onViewDesktop = (
     event: Event,
     {
-      _window = window,
       _cookie = cookie,
+      _window = window,
     }: {|
       _window: typeof window,
       _cookie: typeof cookie,

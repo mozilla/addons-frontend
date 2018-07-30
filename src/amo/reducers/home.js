@@ -103,7 +103,7 @@ type Action = FetchHomeAddonsAction | LoadHomeAddonsAction;
 const createInternalAddons = (
   response: ApiAddonsResponse,
 ): Array<AddonType> => {
-  const { result, entities } = response;
+  const { entities, result } = response;
   return result.results.map((slug) =>
     createInternalAddon(entities.addons[slug]),
   );

@@ -24,7 +24,7 @@ function getMessagesFromError(error) {
   };
   log.info('Extracting messages from error object:', error);
 
-  const logCodeChange = ({ oldCode, newCode }) => {
+  const logCodeChange = ({ newCode, oldCode }) => {
     log.warn(`Replacing error code ${oldCode} with ${newCode}`);
   };
 

@@ -113,10 +113,10 @@ export class InstallSwitchBase extends React.Component {
       enable,
       guid,
       install,
+      installTheme,
       installURL,
       name,
       status,
-      installTheme,
       type,
       uninstall,
     } = this.props;

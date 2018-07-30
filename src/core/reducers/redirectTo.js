@@ -28,9 +28,9 @@ type SendServerRedirectAction = {|
 |};
 
 export const sendServerRedirect = ({
+  _config = config,
   status,
   url,
-  _config = config,
 }: SendServerRedirectParams): SendServerRedirectAction => {
   if (!status) {
     throw new Error('status is required');

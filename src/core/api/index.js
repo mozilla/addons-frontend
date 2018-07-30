@@ -49,8 +49,8 @@ type CreateApiErrorParams = {|
 
 export function createApiError({
   apiURL,
-  response,
   jsonResponse,
+  response,
 }: CreateApiErrorParams) {
   let urlId = '[unknown URL]';
   if (apiURL) {
@@ -85,16 +85,16 @@ type CallApiParams = {|
 |};
 
 export function callApi({
-  endpoint,
-  schema,
-  params = {},
-  auth = false,
+  _config = config,
   apiState = initialApiState,
-  method = 'GET',
+  auth = false,
   body,
   credentials,
+  endpoint,
   errorHandler,
-  _config = config,
+  method = 'GET',
+  params = {},
+  schema,
 }: CallApiParams): Promise<any> {
   if (!endpoint) {
     return Promise.reject(
@@ -195,7 +195,7 @@ export function callApi({
       });
     })
     .then(
-      ({ response, jsonResponse }) => {
+      ({ jsonResponse, response }) => {
         if (response.ok) {
           return jsonResponse;
         }

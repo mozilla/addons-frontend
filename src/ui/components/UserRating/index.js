@@ -23,8 +23,8 @@ export const UserRatingBase = (props: Props) => {
   const {
     className,
     isOwner,
-    readOnly,
     onSelectRating,
+    readOnly,
     review,
     styleSize,
   } = props;

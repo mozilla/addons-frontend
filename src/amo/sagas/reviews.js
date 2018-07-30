@@ -30,7 +30,7 @@ import type {
 } from 'amo/actions/reviews';
 
 function* fetchReviews({
-  payload: { errorHandlerId, addonSlug, page },
+  payload: { addonSlug, errorHandlerId, page },
 }: FetchReviewsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
@@ -91,7 +91,7 @@ function* fetchUserReviews({
 }
 
 function* handleReplyToReview({
-  payload: { errorHandlerId, originalReviewId, body, title },
+  payload: { body, errorHandlerId, originalReviewId, title },
 }: SendReplyToReviewAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 

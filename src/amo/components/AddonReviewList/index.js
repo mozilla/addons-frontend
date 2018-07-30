@@ -142,10 +142,10 @@ export class AddonReviewListBase extends React.Component<Props> {
     const {
       clientApp,
       dispatch,
+      history,
       lang,
       location,
       match: { params },
-      history,
     } = this.props;
     // Now that a new review has been submitted, reset the list
     // so that it gets reloaded.
@@ -163,8 +163,8 @@ export class AddonReviewListBase extends React.Component<Props> {
     const {
       addon,
       errorHandler,
-      location,
       i18n,
+      location,
       pageSize,
       reviewCount,
       reviews,

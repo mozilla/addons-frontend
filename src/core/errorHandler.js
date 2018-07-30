@@ -22,7 +22,7 @@ function generateHandlerId({ name = '' } = {}) {
  * information from the Redux state.
  */
 export class ErrorHandler {
-  constructor({ id, dispatch = null, capturedError = null } = {}) {
+  constructor({ capturedError = null, dispatch = null, id } = {}) {
     this.id = id;
     this.dispatch = dispatch;
     this.capturedError = capturedError;
@@ -111,7 +111,7 @@ export type ErrorHandlerType = typeof ErrorHandler;
  *   withErrorHandler({ name: 'SomeComponent' }),
  * )(SomeComponent);
  */
-export function withErrorHandler({ name, id, extractId = null }) {
+export function withErrorHandler({ extractId = null, id, name }) {
   if (id && extractId) {
     throw new Error('You can define either `id` or `extractId` but not both.');
   }
@@ -192,7 +192,7 @@ export function withErrorHandler({ name, id, extractId = null }) {
  * return a unique string based on these props (e.g., based on the `slug`,
  * `uniqueId`, `page`, etc.).
  */
-export const withFixedErrorHandler = ({ fileName, extractId }) => {
+export const withFixedErrorHandler = ({ extractId, fileName }) => {
   if (!fileName) {
     throw new Error('`fileName` parameter is required.');
   }
@@ -228,7 +228,7 @@ export const withFixedErrorHandler = ({ fileName, extractId }) => {
  *   withRenderedErrorHandler({ name: 'SomeComponent' }),
  * )(SomeComponent);
  */
-export function withRenderedErrorHandler({ name, id } = {}) {
+export function withRenderedErrorHandler({ id, name } = {}) {
   return (WrappedComponent) => {
     function ErrorBanner(props) {
       // eslint-disable-next-line react/prop-types

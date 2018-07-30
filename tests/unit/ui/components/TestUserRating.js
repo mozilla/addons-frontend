@@ -26,7 +26,7 @@ function render(customProps = {}) {
   return shallowUntilTarget(<UserRating {...props} />, UserRatingBase);
 }
 
-function signInAndReturnReview({ siteUserId, reviewUserId }) {
+function signInAndReturnReview({ reviewUserId, siteUserId }) {
   dispatchSignInActions({ store, userId: siteUserId });
   return denormalizeReview({
     ...fakeReview,

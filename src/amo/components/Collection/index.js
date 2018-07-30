@@ -142,11 +142,11 @@ export class CollectionBase extends React.Component<InternalProps> {
   onDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    const { dispatch, errorHandler, collection } = this.props;
+    const { collection, dispatch, errorHandler } = this.props;
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { authorUsername: username, slug } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
@@ -242,7 +242,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { authorUsername: username, slug } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
@@ -266,7 +266,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { authorUsername: username, slug } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
@@ -291,7 +291,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { authorUsername: username, slug } = collection;
 
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');

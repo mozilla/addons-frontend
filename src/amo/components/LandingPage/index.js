@@ -211,9 +211,9 @@ export class LandingPageBase extends React.Component {
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
+      i18n,
       loading,
       trendingAddons,
-      i18n,
     } = this.props;
     const { visibleAddonType } = this.props.match.params;
 

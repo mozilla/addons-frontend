@@ -89,7 +89,7 @@ export function uninstall(
 
 export function addChangeListeners(callback, mozAddonManager) {
   function handleChangeEvent(e) {
-    const { id, type, needsRestart } = e;
+    const { id, needsRestart, type } = e;
     log.info('Event received', { type, id, needsRestart });
     // eslint-disable-next-line no-prototype-builtins
     if (GLOBAL_EVENT_STATUS_MAP.hasOwnProperty(type)) {

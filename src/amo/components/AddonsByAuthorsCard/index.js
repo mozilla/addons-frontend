@@ -140,8 +140,8 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
 
   getCurrentPage({
     location,
-    paginate,
     pageParam,
+    paginate,
   }: {|
     location: ReactRouterLocationType,
     pageParam: string,

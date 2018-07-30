@@ -36,7 +36,7 @@ export class FormOverlayBase extends React.Component<Props> {
   };
 
   closeOverlay(event: SyntheticEvent<any>) {
-    const { id, dispatch } = this.props;
+    const { dispatch, id } = this.props;
     event.preventDefault();
     event.stopPropagation();
     dispatch(closeFormOverlay(id));

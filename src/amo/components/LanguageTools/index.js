@@ -137,7 +137,7 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 
   render() {
-    const { languageTools, errorHandler, i18n } = this.props;
+    const { errorHandler, i18n, languageTools } = this.props;
 
     const header = i18n.gettext('Dictionaries and Language Packs');
 

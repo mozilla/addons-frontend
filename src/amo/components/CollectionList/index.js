@@ -60,7 +60,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 
   renderCollections() {
-    const { i18n, collections } = this.props;
+    const { collections, i18n } = this.props;
     const noCollectionsText = i18n.gettext('You do not have any collections.');
 
     const collectionElements = [];
