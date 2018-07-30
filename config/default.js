@@ -165,6 +165,7 @@ module.exports = {
     'af',
     'ar',
     'ast',
+    'az',
     'bg',
     'bn-BD',
     'bs',
