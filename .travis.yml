@@ -76,10 +76,3 @@ jobs:
     - stage:
       <<: *tox
       env: TOXENV=dennis-lint
-
-# TODO: remove this configuration when we switch back to `firefox-nightly`
-# See: https://github.com/mozilla/addons-frontend/issues/5781
-matrix:
-  fast_finish: true
-  allow_failures:
-    - env: TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
