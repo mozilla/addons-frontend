@@ -77,14 +77,11 @@ describe(__filename, () => {
   });
 
   it('hides when you click the background', () => {
-    const onClickBackgroundSpy = sinon.stub();
     const root = render({
       visibleOnLoad: true,
-      _onClickBackground: onClickBackgroundSpy,
     });
     const btn = root.find('.Overlay-background');
     btn.simulate('click', createFakeEvent());
-    sinon.assert.called(onClickBackgroundSpy);
     expect(root).not.toHaveClassName('Overlay--visible');
   });
 
