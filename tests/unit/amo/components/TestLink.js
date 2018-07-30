@@ -104,6 +104,9 @@ describe(__filename, () => {
 
   it('ignores `href` if not a string type', () => {
     const root = render({ base: null, href: null, to: '/' });
+
+    // If no href attribute is supplied the component will render a Link
+    // component instead of an <a> tag.
     expect(findRenderedComponentWithType(root, ReactRouterLink)).toBeTruthy();
   });
 
