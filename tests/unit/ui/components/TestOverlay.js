@@ -60,17 +60,17 @@ describe(__filename, () => {
 
     const root = render({
       store,
-      visibleOnLoad: true,
-      uiState: { visible: false },
+      visibleOnLoad: false,
     });
 
     expect(root).not.toHaveClassName('Overlay--visible');
 
-    applyUIStateChanges({ root, store });
+    const newProps = {
+      visibleOnLoad: true,
+    };
 
-    // Applying this 2 times here to mimic how uiState works in componentWillReceiveProps:
-    // The first time through, the visible state gets changed but these changes
-    // aren't shown in uiState till the 2 time through
+    root.setProps(newProps);
+
     applyUIStateChanges({ root, store });
 
     expect(root).toHaveClassName('Overlay--visible');
@@ -86,47 +86,14 @@ describe(__filename, () => {
   });
 
   it('calls onEscapeOverlay when clicking the background', () => {
-    const clickEvent = createFakeEvent();
     const onEscapeOverlay = sinon.stub();
     const root = render({
       visibleOnLoad: true,
       onEscapeOverlay,
     });
     const btn = root.find('.Overlay-background');
-    btn.simulate('click', clickEvent);
-    const rootInstance = root.instance();
-    rootInstance.props._onClickBackground(clickEvent, rootInstance);
+    btn.simulate('click', createFakeEvent());
     sinon.assert.called(onEscapeOverlay);
-  });
-
-  it('is shown and hidden when `hide()` and `show()` are called', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
-
-    expect(root).not.toHaveClassName('Overlay--visible');
-
-    root.instance().show();
-    applyUIStateChanges({ root, store });
-    expect(root).toHaveClassName('Overlay--visible');
-
-    root.instance().hide();
-    applyUIStateChanges({ root, store });
-    expect(root).not.toHaveClassName('Overlay--visible');
-  });
-
-  it('is toggled', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
-
-    expect(root).not.toHaveClassName('Overlay--visible');
-
-    root.instance().toggle();
-    applyUIStateChanges({ root, store });
-    expect(root).toHaveClassName('Overlay--visible');
-
-    root.instance().toggle();
-    applyUIStateChanges({ root, store });
-    expect(root).not.toHaveClassName('Overlay--visible');
   });
 
   describe('extractId', () => {

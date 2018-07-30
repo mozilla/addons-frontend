@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
 import Overlay from 'ui/components/Overlay';
-import OverlayCard, { OverlayCardBase } from 'ui/components/OverlayCard';
+import OverlayCard from 'ui/components/OverlayCard';
 
 describe(__filename, () => {
   const { store } = createStore();
@@ -29,13 +29,13 @@ describe(__filename, () => {
           <OverlayCard {...getProps(props)} />
         </Provider>,
       ),
-      OverlayCardBase,
+      OverlayCard,
     );
   }
 
   it('renders an OverlayCard', () => {
     const root = render();
-    expect(root.overlayCard).toBeTruthy();
+    expect(root.props.className).toEqual('OverlayCard');
   });
 
   it('passes onEscapeOverlay to Overlay', () => {

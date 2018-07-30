@@ -8,26 +8,12 @@ import withUIState from 'core/withUIState';
 
 import './styles.scss';
 
-// TODO: look into this as I don't see this working on the frontend
-// even in other envs.
-export const onClickBackground = (
-  event: SyntheticEvent<HTMLButtonElement>,
-  // eslint-disable-next-line no-use-before-define
-  _this: OverlayBase,
-) => {
-  if (_this.props.onEscapeOverlay) {
-    _this.props.onEscapeOverlay();
-  }
-  _this.hide();
-};
-
 type Props = {|
   className?: string,
   children: React.Element<any>,
   id: string,
-  onEscapeOverlay?: Function,
+  onEscapeOverlay?: () => void,
   visibleOnLoad?: boolean,
-  _onClickBackground: Function,
 |};
 
 type UIStateType = {|
@@ -45,7 +31,6 @@ type InternalProps = {|
 export class OverlayBase extends React.Component<InternalProps> {
   static defaultProps = {
     visibleOnLoad: false,
-    _onClickBackground: onClickBackground,
   };
 
   componentWillReceiveProps(nextProps: InternalProps) {
@@ -64,13 +49,14 @@ export class OverlayBase extends React.Component<InternalProps> {
     this.props.setUIState({ visible: false });
   }
 
-  show() {
-    this.props.setUIState({ visible: true });
-  }
-
-  toggle() {
-    this.props.setUIState({ visible: !this.props.uiState.visible });
-  }
+  // TODO: look into this as I don't see this working on the frontend
+  // even in other envs.
+  onClickBackground = () => {
+    if (this.props.onEscapeOverlay) {
+      this.props.onEscapeOverlay();
+    }
+    this.hide();
+  };
 
   render() {
     const { children, className, id, uiState } = this.props;
@@ -86,7 +72,7 @@ export class OverlayBase extends React.Component<InternalProps> {
       >
         <div
           className="Overlay-background"
-          onClick={(e) => this.props._onClickBackground(e, this)}
+          onClick={this.onClickBackground}
           role="presentation"
         />
         <div className="Overlay-contents">{children}</div>
