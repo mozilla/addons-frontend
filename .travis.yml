@@ -54,10 +54,15 @@ jobs:
     # Run the functional tests.
     - stage:
       <<: *tox
+      # TODO: remove this stage when we switch back to `firefox-nightly`
+      # See: https://github.com/mozilla/addons-frontend/issues/5781
       addons:
         firefox: latest-dev
         hosts: example.com
-      env: TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
+      # We need to specify `IS_TEMPORARY=1` so that the `env` value is
+      # different than the stage right after (which is currently allowed to
+      # fail until we fix the issue with FF Nightly)
+      env: IS_TEMPORARY=1 TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
       install:
         - yarn
         - yarn start-func-test-server &
@@ -75,7 +80,7 @@ jobs:
       addons:
         firefox: latest-nightly
         hosts: example.com
-      env: ALLOWED_TO_FAIL=1 TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
+      env: TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
       install:
         - yarn
         - yarn start-func-test-server &
@@ -95,7 +100,9 @@ jobs:
       <<: *tox
       env: TOXENV=dennis-lint
 
+# TODO: remove this configuration when we switch back to `firefox-nightly`
+# See: https://github.com/mozilla/addons-frontend/issues/5781
 matrix:
   fast_finish: true
   allow_failures:
-    - env: ALLOWED_TO_FAIL=1 TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
+    - env: TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
