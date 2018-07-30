@@ -47,6 +47,7 @@ config/local*
 .tox
 tests/ui/.cache
 tests/ui/__pycache__
+tests/ui/.pytest_cache/
 *.pyc
 
 .DS_Store
