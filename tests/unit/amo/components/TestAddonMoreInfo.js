@@ -194,7 +194,9 @@ describe(__filename, () => {
       },
     });
     const root = render({ addon });
-    const link = root.find('.AddonMoreInfo-license-type');
+    expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
+
+    const link = root.find('.AddonMoreInfo-license-name');
     expect(link.children()).toIncludeText('justText');
   });
 
