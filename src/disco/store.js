@@ -28,13 +28,18 @@ export const reducers = {
   uiState,
 };
 
+// eslint-disable-next-line no-shadow
+export const createRootReducer = ({ history, reducers }) => {
+  return connectRouter(history)(combineReducers(reducers));
+};
+
 export default function createStore({
   history = createMemoryHistory(),
   initialState = {},
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
-    connectRouter(history)(combineReducers(reducers)),
+    createRootReducer({ history, reducers }),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),

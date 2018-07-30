@@ -2,20 +2,25 @@ import createClient from 'core/client/base';
 
 describe(__filename, () => {
   describe('createClient()', () => {
-    const fakeCreateStore = () => {
-      return {
-        sagaMiddleware: null,
-        store: null,
-      };
-    };
+    let fakeCreateStore;
+    let fakeFastClick;
 
-    const fakeFastClick = {
-      attach: sinon.stub(),
-    };
+    beforeEach(() => {
+      fakeCreateStore = () => {
+        return {
+          sagaMiddleware: null,
+          store: null,
+        };
+      };
+
+      fakeFastClick = {
+        attach: sinon.stub(),
+      };
+    });
 
     const _createClient = ({
-      createStore = fakeCreateStore,
       _FastClick = fakeFastClick,
+      createStore = fakeCreateStore,
       ...others
     } = {}) => {
       return createClient(createStore, { _FastClick, ...others });

@@ -1,6 +1,3 @@
-import { connectRouter } from 'connected-react-router';
-import { combineReducers } from 'redux';
-
 import createClient from 'core/client/base';
 
 // Initialize the tracking.
@@ -8,17 +5,19 @@ import 'core/tracking';
 
 import App from './components/App';
 import sagas from './sagas';
-import createStore from './store';
+import createStore, { createRootReducer } from './store';
 
 createClient(createStore, { sagas }).then(({ history, renderApp, store }) => {
   renderApp(App);
 
   if (module.hot) {
+    // Sagas are not hot-reloadable but this is needed because reducers/store
+    // depend on sagas (without this code, the update won't be accepted by Hot
+    // React Loader).
     module.hot.accept(['./sagas', './store'], () => {
       // eslint-disable-next-line global-require
       const { reducers } = require('./store');
-      const nextRootReducer = connectRouter(history)(combineReducers(reducers));
-      store.replaceReducer(nextRootReducer);
+      store.replaceReducer(createRootReducer({ history, reducers }));
     });
 
     module.hot.accept(['./components/App'], () => {
