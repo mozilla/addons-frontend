@@ -91,12 +91,13 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       );
     }
 
-    const currentVersion = addon.current_version;
     const lastUpdated = addon.last_updated;
+    const currentVersion = addon.current_version;
     const { license } = currentVersion;
-    let licenseHasUrl = null;
+    let licenseHtml = null;
+
     if (license) {
-      licenseHasUrl = license.url ? (
+      licenseHtml = license.url ? (
         <Link
           className="AddonMoreInfo-license-link"
           href={license.url}
@@ -130,7 +131,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             },
           )
         : null,
-      versionLicenseLink: currentVersion ? licenseHasUrl : null,
+      versionLicenseLink: licenseHtml,
       privacyPolicyLink: addon.has_privacy_policy ? (
         <Link
           className="AddonMoreInfo-privacy-policy-link"
