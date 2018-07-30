@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-30 14:54+0000\n"
+"PO-Revision-Date: 2018-07-30 15:02+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -780,7 +780,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Səhifə tapılmadı"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -790,7 +790,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Server Xətası"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -874,19 +874,19 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:160
 msgid "Privacy"
-msgstr ""
+msgstr "Məxfilik"
 
 #: src/amo/components/Footer/index.js:168
 msgid "Cookies"
-msgstr ""
+msgstr "Çərəzlər"
 
 #: src/amo/components/Footer/index.js:176
 msgid "Legal"
-msgstr ""
+msgstr "Qanuni"
 
 #: src/amo/components/Footer/index.js:184
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "Əmtəə Nişanının Qanunsuz İstifadəsi Haqqında Xəbər Ver"
 
 #: src/amo/components/Footer/index.js:194
 msgid ""
@@ -896,27 +896,27 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Mozillanın ana səhifəsinə get"
 
 #: src/amo/components/Footer/index.js:48
 msgid "About"
-msgstr ""
+msgstr "Haqqında"
 
 #: src/amo/components/Footer/index.js:53
 msgid "Blog"
-msgstr ""
+msgstr "Bloq"
 
 #: src/amo/components/Footer/index.js:58 src/amo/components/Header/index.js:100
 msgid "Developer Hub"
-msgstr ""
+msgstr "Tərtibatçı Mərkəzi"
 
 #: src/amo/components/Footer/index.js:63
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 #: src/amo/components/Footer/index.js:71
 msgid "Report a bug"
-msgstr ""
+msgstr "Qüsur xəbər et"
 
 #: src/amo/components/Footer/index.js:76
 msgid "Review Guide"
@@ -924,7 +924,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:81
 msgid "Site Status"
-msgstr ""
+msgstr "Sayt Statusu"
 
 #: src/amo/components/Footer/index.js:93
 msgid "View classic desktop site"
@@ -932,7 +932,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:109
 msgid "My Account"
-msgstr ""
+msgstr "Hesabım"
 
 #: src/amo/components/Header/index.js:115
 msgid "View My Collections"
@@ -948,7 +948,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:135
 msgid "Tools"
-msgstr ""
+msgstr "Alətlər"
 
 #: src/amo/components/Header/index.js:141
 msgid "Submit a New Add-on"
@@ -968,16 +968,16 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:175 src/core/components/AuthenticateButton/index.js:78
 msgid "Log out"
-msgstr ""
+msgstr "Çıx"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:65
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox Əlavələri"
 
 #: src/amo/components/Home/index.js:121
 msgid "Bookmarks"
-msgstr ""
+msgstr "Əlfəcinlər"
 
 #: src/amo/components/Home/index.js:125
 msgid "Password managers"
@@ -993,7 +993,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:137
 msgid "Productivity"
-msgstr ""
+msgstr "Məhsuldarlıq"
 
 #: src/amo/components/Home/index.js:141
 msgid "Watching Videos"
@@ -1017,7 +1017,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:189
 msgid "Music"
-msgstr ""
+msgstr "Musiqi"
 
 #: src/amo/components/Home/index.js:194
 msgid "Seasonal"
@@ -1242,23 +1242,23 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:164
 msgid "All Locales"
-msgstr ""
+msgstr "Bütün Dillər"
 
 #: src/amo/components/LanguageTools/index.js:170
 msgid "Locale Name"
-msgstr ""
+msgstr "Dil Adı"
 
 #: src/amo/components/LanguageTools/index.js:173
 msgid "Language Packs"
-msgstr ""
+msgstr "Dil Paketləri"
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Dictionaries"
-msgstr ""
+msgstr "Lüğətlər"
 
 #: src/amo/components/PermissionsCard/index.js:48
 msgid "Permissions"
-msgstr ""
+msgstr "İcazələr"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
@@ -1450,7 +1450,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:119 src/amo/components/SearchResults/index.js:73
 msgid "Search results"
-msgstr ""
+msgstr "Axtarış nəticələri"
 
 #: src/amo/components/Search/index.js:130
 msgid "Featured add-ons"
@@ -1536,31 +1536,31 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
 msgid "All"
-msgstr ""
+msgstr "Hamısı"
 
 #: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
-msgstr ""
+msgstr "Uzantı"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
-msgstr ""
+msgstr "Axtarış Aləti"
 
 #: src/amo/components/SearchFilters/index.js:114
 msgid "Theme"
-msgstr ""
+msgstr "Mövzu"
 
 #: src/amo/components/SearchFilters/index.js:127
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:128
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:129
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:137
 msgid "Relevance"
@@ -1572,7 +1572,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Most Users"
-msgstr ""
+msgstr "Əksər İstifadəçilər"
 
 #: src/amo/components/SearchFilters/index.js:143
 msgid "Top Rated"
@@ -1638,15 +1638,15 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:103
 msgid "More…"
-msgstr ""
+msgstr "Ətraflı…"
 
 #: src/amo/components/SectionLinks/index.js:117
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Lüğətlər və Dil Paketləri"
 
 #: src/amo/components/SectionLinks/index.js:123
 msgid "Search Tools"
-msgstr ""
+msgstr "Axtarış Alətləri"
 
 #: src/amo/components/SectionLinks/index.js:128
 msgid "Other Browser Sites"
@@ -1654,11 +1654,11 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:59
 msgid "for Firefox"
-msgstr ""
+msgstr "Firefox üçün"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "Android üçün"
 
 #: src/amo/components/SectionLinks/index.js:77
 msgid "Explore"
@@ -1910,7 +1910,7 @@ msgstr ""
 
 #: src/amo/components/UserProfile/index.js:309 src/amo/components/UserProfileEdit/index.js:609
 msgid "Location"
-msgstr ""
+msgstr "Mövqe"
 
 #: src/amo/components/UserProfile/index.js:317 src/amo/components/UserProfileEdit/index.js:621
 msgid "Occupation"
@@ -1954,19 +1954,19 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:491
 msgid "Account"
-msgstr ""
+msgstr "Hesab"
 
 #: src/amo/components/UserProfileEdit/index.js:492
 msgid "Account for %(username)s"
-msgstr ""
+msgstr "%(username)s hesabı"
 
 #: src/amo/components/UserProfileEdit/index.js:498
 msgid "Username"
-msgstr ""
+msgstr "İstifadəçi adı"
 
 #: src/amo/components/UserProfileEdit/index.js:511
 msgid "Email Address"
-msgstr ""
+msgstr "E-poçt ünvanı"
 
 #: src/amo/components/UserProfileEdit/index.js:518
 msgid "Email address cannot be changed here"
@@ -1982,7 +1982,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:556
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -2014,7 +2014,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:689
 msgid "Notifications"
-msgstr ""
+msgstr "Bildirişlər"
 
 #: src/amo/components/UserProfileEdit/index.js:693
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2050,7 +2050,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
 msgid "Delete Profile"
-msgstr ""
+msgstr "Profili Sil"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
@@ -2172,7 +2172,7 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:54
 msgid "OK!"
-msgstr ""
+msgstr "Tamam!"
 
 #: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -2184,11 +2184,11 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s endirilir."
 
 #: src/core/components/InstallSwitch/index.js:72
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s qurulur."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
@@ -2200,7 +2200,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s silinir."
 
 #: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
@@ -2212,11 +2212,11 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:135
 msgid "Previous"
-msgstr ""
+msgstr "Əvvəlki"
 
 #: src/core/components/Paginate/index.js:152
 msgid "Next"
-msgstr ""
+msgstr "Sonrakı"
 
 #: src/core/components/Paginate/index.js:158
 msgid "Page %(currentPage)s of %(totalPages)s"
@@ -2232,7 +2232,7 @@ msgstr ""
 
 #: src/ui/components/ConfirmButton/index.js:100
 msgid "Confirm"
-msgstr ""
+msgstr "Təsdiqlə"
 
 #: src/ui/components/DismissibleTextForm/index.js:119
 msgid "Enter text."
@@ -2240,15 +2240,15 @@ msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:120
 msgid "Submit"
-msgstr ""
+msgstr "Göndər"
 
 #: src/ui/components/DismissibleTextForm/index.js:122
 msgid "Submitting"
-msgstr ""
+msgstr "Göndərilir"
 
 #: src/ui/components/DismissibleTextForm/index.js:161
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -2317,5 +2317,5 @@ msgstr ""
 #: src/ui/components/UserCollection/index.js:52
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s əlavə"
+msgstr[1] "%(total)s əlavə"
