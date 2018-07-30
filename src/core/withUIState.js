@@ -4,7 +4,7 @@ import invariant from 'invariant';
 import { connect } from 'react-redux';
 
 import { getDisplayName, normalizeFileNameId } from 'core/utils';
-import { setUIState } from 'core/reducers/uiState';
+import { selectUIState, setUIState } from 'core/reducers/uiState';
 import type { AppState } from 'amo/store';
 
 type ExtractIdFunc = (props: Object) => string;
@@ -33,6 +33,7 @@ export const createUIStateMapper = ({
   fileName?: string,
   uiStateID?: string,
 |}) => {
+  invariant(initialState, 'initialState is required');
   const mapStateToProps = (state: AppState, props: Object) => {
     let computedUIStateID;
     if (uiStateID) {
@@ -43,7 +44,9 @@ export const createUIStateMapper = ({
       computedUIStateID =
         props.uiStateID || generateId({ fileName, id: extractId(props) });
     }
-    const uiState = state.uiState[computedUIStateID] || initialState;
+    const uiState =
+      selectUIState({ uiState: state.uiState, uiStateID: computedUIStateID }) ||
+      initialState;
     return {
       uiState,
       uiStateID: computedUIStateID,
@@ -69,15 +72,28 @@ export const mergeUIStateProps = (
   };
 };
 
+type withUIStateParams = {|
+  // This should always be set to __filename for ID purposes.
+  fileName: string,
+  // A function that takes component props and returns a string to identify this state.
+  extractId: ExtractIdFunc,
+  // An Object that defines the initial state.
+  initialState: Object,
+  // When true, new component instances will be reset to initialState.
+  // Setting this to true will closely mimic how React's this.setState()
+  // works but the component will then no longer be able to initialize
+  // itself from pure Redux state. Try to avoid setting this to true if you can.
+  newStatePerInstance?: boolean,
+|};
+
 const withUIState = ({
   fileName,
   extractId,
   initialState,
-}: {|
-  fileName: string,
-  extractId: ExtractIdFunc,
-  initialState: Object,
-|}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
+  newStatePerInstance = false,
+}: withUIStateParams): ((
+  React.ComponentType<any>,
+) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
   invariant(initialState, 'initialState is required');
@@ -91,15 +107,17 @@ const withUIState = ({
   return (WrappedComponent) => {
     class WithUIState extends React.Component<any> {
       componentDidMount() {
-        // Every time the component mounts, reset the state regardless
-        // of what is saved in the Redux store. This makes the
-        // implementation behave more like this.setState() whereby
-        // the component constructor() would always initialize
-        // like this.state = {...}.
-        //
-        // TODO: Optimize this by only dispatching if
-        // props.uiState doesn't match initialState?
-        this.props.setUIState(initialState);
+        if (newStatePerInstance) {
+          // Every time the component mounts, reset the state regardless
+          // of what is saved in the Redux store. This makes the
+          // implementation behave more like this.setState() whereby
+          // the component constructor() would always initialize
+          // like this.state = {...}.
+          //
+          // TODO: Optimize this by only dispatching if
+          // props.uiState doesn't match initialState?
+          this.props.setUIState(initialState);
+        }
       }
 
       render() {

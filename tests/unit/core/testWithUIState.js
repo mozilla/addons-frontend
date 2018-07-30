@@ -43,8 +43,6 @@ describe(__filename, () => {
         <Overlay id={id} store={store} {...props} />,
         OverlayBase,
       );
-      // Apply initial state change from componentWillMount.
-      applyUIStateChanges({ root, store });
       return root;
     };
 
@@ -68,8 +66,22 @@ describe(__filename, () => {
     });
 
     it('separates state by instance', () => {
-      const root1 = render({ id: 'one' });
-      const root2 = render({ id: 'two' });
+      const AutoResettingOverlay = withUIState({
+        fileName: __filename,
+        extractId: (props) => props.id,
+        initialState: { isOpen: true },
+        newStatePerInstance: true,
+      })(OverlayBase);
+
+      const autoResettingOverlay = (props = {}) => {
+        return shallowUntilTarget(
+          <AutoResettingOverlay store={store} {...props} />,
+          OverlayBase,
+        );
+      };
+
+      const root1 = autoResettingOverlay({ id: 'one' });
+      const root2 = autoResettingOverlay({ id: 'two' });
 
       // The first overlay should be open.
       expect(root1.find('.overlay')).toHaveLength(1);
@@ -103,7 +115,35 @@ describe(__filename, () => {
       expect(root.instance().props.uiState).toEqual(initialState);
     });
 
-    it('always resets initial state per component instance', () => {
+    it('can reset initial state per component instance', () => {
+      class ThingBase extends React.Component {
+        render() {
+          return <div />;
+        }
+      }
+      const initialState = { visible: true };
+
+      const Thing = withUIState({
+        fileName: __filename,
+        // Each instance will share this same ID.
+        extractId: () => 'shared-ID',
+        initialState,
+        newStatePerInstance: true,
+      })(ThingBase);
+
+      // Create an instance and change its state.
+      const root1 = shallowUntilTarget(<Thing store={store} />, ThingBase);
+      root1.instance().props.setUIState({ visible: false });
+      applyUIStateChanges({ root: root1, store });
+      expect(root1.instance().props.uiState.visible).toEqual(false);
+
+      // Create a second instance and make sure the state was reset.
+      const root2 = shallowUntilTarget(<Thing store={store} />, ThingBase);
+      applyUIStateChanges({ root: root2, store });
+      expect(root2.instance().props.uiState).toEqual(initialState);
+    });
+
+    it('shares state across instances by default', () => {
       class ThingBase extends React.Component {
         render() {
           return <div />;
@@ -124,10 +164,11 @@ describe(__filename, () => {
       applyUIStateChanges({ root: root1, store });
       expect(root1.instance().props.uiState.visible).toEqual(false);
 
-      // Create a second instance and make sure the state was reset.
+      // Create a second instance.
       const root2 = shallowUntilTarget(<Thing store={store} />, ThingBase);
       applyUIStateChanges({ root: root2, store });
-      expect(root2.instance().props.uiState).toEqual(initialState);
+      // Make sure the state is shared between the two instances.
+      expect(root2.instance().props.uiState.visible).toEqual(false);
     });
 
     it('lets you set a custom uiStateID', () => {
@@ -141,9 +182,10 @@ describe(__filename, () => {
         dispatchSpy,
         setUIState({
           id: uiStateID,
-          change: { isOpen: true },
+          change: { isOpen: false },
         }),
       );
+      sinon.assert.callCount(dispatchSpy, 1);
     });
   });
 
