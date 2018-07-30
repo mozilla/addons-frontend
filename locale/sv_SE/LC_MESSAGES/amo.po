@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-30 15:11+0000\n"
+"PO-Revision-Date: 2018-07-30 15:23+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -2001,9 +2001,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Du kan ändra din e-postadress från ditt Firefox-konto. %(startLink)sBehöver du hjälp?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:544
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "Hantera Firefox-konto..."
+msgstr "Hantera Firefox-konton…"
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Profile"
@@ -2054,74 +2053,68 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla förbehåller sig rätten att kontakta dig individuellt om specifika problem med dina hostade tillägg."
 
 #: src/amo/components/UserProfileEdit/index.js:731
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Uppdaterar ditt konto…"
+msgstr "Uppdaterar din profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:732
-#, fuzzy
 msgid "Update My Profile"
-msgstr "Uppdatera din profil"
+msgstr "Uppdatera min profil"
 
 #: src/amo/components/UserProfileEdit/index.js:734
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Uppdatera din profil"
+msgstr "Uppdaterar profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Update Profile"
-msgstr "Uppdatera din profil"
+msgstr "Uppdatera profil"
 
 #: src/amo/components/UserProfileEdit/index.js:746 src/amo/components/UserProfileEdit/index.js:834
-#, fuzzy
 msgid "Delete My Profile"
 msgstr "Ta bort min profil"
 
 #: src/amo/components/UserProfileEdit/index.js:747 src/amo/components/UserProfileEdit/index.js:835
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Ta bort min profil"
+msgstr "Ta bort profil"
 
 #: src/amo/components/UserProfileEdit/index.js:758
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VIKTIGT: Att ta bort Firefox tilläggsprofil är oåterkallelig."
 
 #: src/amo/components/UserProfileEdit/index.js:761
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VIKTIGT: Att ta bort Firefox tilläggsprofil är oåterkallelig."
 
 #: src/amo/components/UserProfileEdit/index.js:770
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Om du bekräftar den här %(startStrong)sirreversibla åtgärden%(endStrong)s, kommer följande data att tas bort: profilbild, profiluppgifter (inklusive användarnamn, e-post, visningsnamn, plats, "
-"hemsida, biografi, yrke) och aviseringsinställningar. Övriga data som betyg och recensioner kommer att anonymiseras."
+"Dina uppgifter kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke) och aviseringsinställningar. Dina recensioner och betyg "
+"kommer att bli anonymiserade och inte längre redigerbara."
 
 #: src/amo/components/UserProfileEdit/index.js:777
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Om du bekräftar den här %(startStrong)sirreversibla åtgärden%(endStrong)s, kommer följande data att tas bort: profilbild, profiluppgifter (inklusive användarnamn, e-post, visningsnamn, plats, "
-"hemsida, biografi, yrke) och aviseringsinställningar. Övriga data som betyg och recensioner kommer att anonymiseras."
+"Användarens data kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke) och aviseringsinställningar. Recensioner och betyg "
+"kommer att anonymiseras och kan inte redigeras längre."
 
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "När du använder den här e-postadressen för att logga in igen till addons.mozilla.org, skapar du en ny Firefox tilläggsprofil som inte på något sätt är associerad med den profil du raderade."
 
 #: src/amo/components/UserProfileEdit/index.js:800
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
+"%(strongStart)sOBS:%(strongEnd)s Du kan inte radera din profil om du är %(linkStart)sförfattare för något tillägg%(linkEnd)s. Du måste %(docLinkStart)söverföra ägande%(docLinkEnd)s eller ta bort "
+"tillägget innan du kan radera din profil."
 
 #: src/amo/components/UserProfileEdit/index.js:807
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sOBS:%(strongEnd)s Du kan inte radera en användares profil om användaren är %(linkStart)sförfattare till något tillägg%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2261,11 +2254,11 @@ msgstr "Sida %(currentPage)s av %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:132
 msgid "Take short survey"
-msgstr ""
+msgstr "Gör en kort undersökning"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Tack för att du besökt denna webbplats! Vänligen ta en minut eller två för att berätta för Firefox om din upplevelse."
 
 #: src/ui/components/ConfirmButton/index.js:100
 msgid "Confirm"
@@ -2329,7 +2322,7 @@ msgstr "Åtkomst till dina data för %(param)s"
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Avvisa detta meddelande"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
