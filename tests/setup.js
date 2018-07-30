@@ -74,8 +74,10 @@ global.sinon = sinon.createSandbox();
 global.CLIENT_CONFIG = require('core/utils').getClientConfig(config);
 
 // See: https://github.com/mozilla/addons-frontend/issues/1138
-global.fetch = () => {
-  throw new Error('API calls MUST be mocked.');
+global.fetch = (input) => {
+  throw new Error(
+    `API calls MUST be mocked. URL fetched: ${input.url || input}`,
+  );
 };
 
 afterEach(() => {
