@@ -290,7 +290,8 @@ export class CollectionManagerBase extends React.Component<
               trailing slash character (in the URL) from getting
               reversed when using direction: rtl.
             */}
-            {collectionUrlPrefix}&lrm;
+            {collectionUrlPrefix}
+            &lrm;
           </div>
           <input
             onChange={this.onTextInput}
