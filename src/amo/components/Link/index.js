@@ -85,7 +85,7 @@ export class LinkBase extends React.Component {
       );
     }
 
-    if (typeof href === 'string' || href === null) {
+    if (typeof href === 'string') {
       const linkHref = urlPrefix ? joinUrl.pathname(urlPrefix, href) : href;
       return (
         <a {...customProps} href={linkHref}>

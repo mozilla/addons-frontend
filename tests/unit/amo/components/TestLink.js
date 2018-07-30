@@ -102,20 +102,8 @@ describe(__filename, () => {
     expect(props.prependLang).toEqual(undefined);
   });
 
-  it('renders an a tag if href is a string', () => {
-    const root = shallowRender({ href: 'my-link', to: undefined });
-
-    expect(root.find(ReactRouterLink)).toHaveLength(0);
-  });
-
-  it('renders an a tag if href is null', () => {
-    const root = shallowRender({ href: null, to: undefined });
-
-    expect(root.find(ReactRouterLink)).toHaveLength(0);
-  });
-
-  it("ignores `href` if it's undefined", () => {
-    const root = render({ base: null, href: undefined, to: '/' });
+  it('ignores `href` if not a string type', () => {
+    const root = render({ base: null, href: null, to: '/' });
     expect(findRenderedComponentWithType(root, ReactRouterLink)).toBeTruthy();
   });
 
