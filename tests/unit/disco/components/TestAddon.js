@@ -407,7 +407,7 @@ describe(__filename, () => {
     },
   );
 
-  describe('<Addon type="statictheme"/>', () => {
+  describe('addon with type static theme', () => {
     const fullImage = 'https://addons.cdn.mozilla.net/full/54321.png';
     const newAddonName = 'Summertime';
 
@@ -431,7 +431,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('<Addon type="theme"/>', () => {
+  describe('addon with type lightweight theme', () => {
     it('calls installTheme on click', () => {
       const installTheme = sinon.stub();
       const addon = {
