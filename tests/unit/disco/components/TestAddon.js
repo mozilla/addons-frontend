@@ -7,6 +7,7 @@ import { setInstallState } from 'core/actions/installations';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   CLIENT_APP_FIREFOX,
@@ -33,6 +34,7 @@ import {
 import {
   dispatchClientMetadata,
   fakeInstalledAddon,
+  fakePreview,
 } from 'tests/unit/amo/helpers';
 import {
   fakeDiscoAddon,
@@ -385,25 +387,58 @@ describe(__filename, () => {
     });
   });
 
-  describe('<Addon type="theme"/>', () => {
-    let root;
+  describe.each([ADDON_TYPE_THEME, ADDON_TYPE_STATIC_THEME])(
+    `Addon with type = %s`,
+    async (type) => {
+      let root;
 
-    beforeEach(() => {
-      const data = { ...result, type: ADDON_TYPE_THEME };
-      root = renderAddon({ addon: data, ...data });
+      beforeEach(() => {
+        const data = { ...result, type };
+        root = renderAddon({ addon: data, ...data });
+      });
+
+      it("doesn't render the logo", () => {
+        expect(root.find('.logo')).toHaveLength(0);
+      });
+
+      it("doesn't render the description", () => {
+        expect(root.find('.editorial-description')).toHaveLength(0);
+      });
+    },
+  );
+
+  describe('addon with type static theme', () => {
+    const fullImage = 'https://addons.cdn.mozilla.net/full/54321.png';
+    const newAddonName = 'Summertime';
+
+    it('renders the correct image', () => {
+      const shallowRoot = renderAddon({
+        addon: {
+          ...result,
+          name: newAddonName,
+          previews: [
+            {
+              ...fakePreview,
+              image_url: fullImage,
+            },
+          ],
+          type: ADDON_TYPE_STATIC_THEME,
+        },
+      });
+      const image = shallowRoot.find('.Addon-theme-header-image');
+      expect(image).toHaveProp('src', fullImage);
+      expect(image).toHaveProp('alt', `Preview of ${newAddonName}`);
     });
+  });
 
-    it('does render the theme image for a theme', () => {
-      expect(root.find('.theme-image')).toHaveLength(1);
-    });
-
-    it("doesn't render the logo for a theme", () => {
-      expect(root.find('.logo')).toHaveLength(0);
-    });
-
+  describe('addon with type lightweight theme', () => {
     it('calls installTheme on click', () => {
       const installTheme = sinon.stub();
-      const addon = result;
+      const addon = {
+        ...result,
+        type: ADDON_TYPE_THEME,
+        previews: [],
+      };
       const shallowRoot = renderAddon({
         addon,
         clientApp: signedInApiState.clientApp,

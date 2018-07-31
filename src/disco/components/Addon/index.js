@@ -27,9 +27,11 @@ import {
   validInstallStates,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { getPreviewImage } from 'core/imageUtils';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByGUID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
+import { isTheme } from 'core/utils';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
@@ -52,10 +54,10 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    platformFiles: PropTypes.object,
-    // See ReactRouterLocationType in 'core/types/router'
     location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
+    platformFiles: PropTypes.object,
+    previews: PropTypes.Array,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
@@ -121,31 +123,49 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
-    if (this.props.type === ADDON_TYPE_THEME) {
+    const { addon } = this.props;
+    const { type } = addon;
+
+    if (isTheme(type)) {
+      const { getBrowserThemeData, i18n } = this.props;
+      const { name, previewURL } = addon;
+
+      let imageUrl = getPreviewImage(addon);
+
+      if (!imageUrl && type === ADDON_TYPE_THEME) {
+        imageUrl = previewURL;
+      }
+
+      const headerImage = (
+        <img
+          alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
+          className="Addon-theme-header-image"
+          src={imageUrl}
+        />
+      );
+
       /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return (
+      return type === ADDON_TYPE_THEME ? (
         <a
-          href="#"
           className="theme-image"
           data-browsertheme={getBrowserThemeData()}
+          href="#"
           onClick={this.installTheme}
         >
-          <img
-            src={previewURL}
-            alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
-          />
+          {headerImage}
         </a>
+      ) : (
+        headerImage
       );
-      /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
+
     return null;
   }
 
   getDescription() {
     const { description, type } = this.props;
 
-    if (type === ADDON_TYPE_THEME) {
+    if (isTheme(type)) {
       return null;
     }
 
@@ -233,7 +253,7 @@ export class AddonBase extends React.Component {
     }
 
     const addonClasses = makeClassName('addon', {
-      theme: type === ADDON_TYPE_THEME,
+      theme: isTheme(type),
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
