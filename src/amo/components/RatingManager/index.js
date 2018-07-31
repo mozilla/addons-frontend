@@ -106,7 +106,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       version,
     } = this.props;
     if (userId && addon && userReview === undefined) {
-      log.debug(`loading a saved rating (if it exists) for user ${userId}`);
+      log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({
         apiState,
         userId,
@@ -260,16 +260,16 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
   if (userId && ownProps.addon) {
+    const addonId = ownProps.addon.id;
+    const versionId = ownProps.version.id;
     log.debug(
-      `Looking for latest review of addon:${ownProps.addon.id}/version:${
-        ownProps.version.id
-      } by user:${userId}`,
+      `Looking for latest review of addon:${addonId}/version:${versionId} by user:${userId}`,
     );
     userReview = selectLatestUserReview({
       reviewsState: state.reviews,
       userId,
-      addonId: ownProps.addon.id,
-      versionId: ownProps.version.id,
+      addonId,
+      versionId,
     });
   }
 
@@ -290,23 +290,23 @@ export const mapDispatchToProps = (
       addon: addonId,
       version: versionId,
     }).then((review) => {
+      const _setLatestReview = (value) => {
+        return setLatestReview({
+          userId,
+          addonId,
+          addonSlug,
+          versionId,
+          review: value,
+        });
+      };
+
       if (review) {
-        dispatch(
-          setLatestReview({ userId, addonId, addonSlug, versionId, review }),
-        );
+        dispatch(_setLatestReview(review));
       } else {
         log.debug(
           `No saved review found for userId ${userId}, addonId ${addonId}`,
         );
-        dispatch(
-          setLatestReview({
-            userId,
-            addonId,
-            addonSlug,
-            versionId,
-            review: null,
-          }),
-        );
+        dispatch(_setLatestReview(null));
       }
     });
   },

@@ -155,7 +155,7 @@ describe(__filename, () => {
     }).toThrow(/review ID 3 .* does not exist/);
   });
 
-  it('preserves existing add-on reviews', () => {
+  it('preserves existing reviews', () => {
     let state;
 
     state = reviewsReducer(
