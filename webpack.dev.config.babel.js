@@ -44,7 +44,7 @@ for (const app of appsBuildList) {
 }
 
 export default Object.assign({}, webpackConfig, {
-  devtool: 'heap-module-eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   context: path.resolve(__dirname),
   entry: entryPoints,
   output: Object.assign({}, webpackConfig.output, {
