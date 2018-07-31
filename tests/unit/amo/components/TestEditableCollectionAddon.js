@@ -317,22 +317,6 @@ describe(__filename, () => {
     });
   });
 
-  it('hides the notes form when unmounting', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
-
-    // Show the notes form.
-    root
-      .find('.EditableCollectionAddon-leaveNote-button')
-      .simulate('click', createFakeEvent());
-
-    const rootProps = root.instance().props;
-    root.unmount();
-    applyUIStateChanges({ root, rootProps, store });
-
-    expect(root.find('.EditableCollectionAddon-notes')).toHaveLength(0);
-  });
-
   describe('errorHandler - extractId', () => {
     it('returns a unique ID with an add-on', () => {
       const addon = fakeAddon;

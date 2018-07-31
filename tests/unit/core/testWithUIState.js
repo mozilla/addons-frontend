@@ -1,4 +1,5 @@
 /* eslint-disable react/no-multi-comp, react/prop-types */
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import withUIState, { generateId } from 'core/withUIState';
@@ -84,7 +85,7 @@ describe(__filename, () => {
       expect(root.instance().props.uiState).toEqual(initialState);
     });
 
-    it('shares state across instances by default', () => {
+    it('shares state across instances', () => {
       class ThingBase extends React.Component {
         render() {
           return <div />;
@@ -110,6 +111,54 @@ describe(__filename, () => {
       applyUIStateChanges({ root: root2, store });
       // Make sure the state is shared between the two instances.
       expect(root2.instance().props.uiState.visible).toEqual(false);
+    });
+
+    it('does not reset state when unmounting', () => {
+      const NonResettingOverlay = withUIState({
+        fileName: __filename,
+        extractId: (props) => props.id,
+        initialState: { isOpen: true },
+      })(OverlayBase);
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = shallow(
+        <NonResettingOverlay store={store} id="some-component-id" />,
+      )
+        .find('WithUIState')
+        .dive();
+
+      root.unmount();
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('can reset state when unmounting', () => {
+      const initialState = { isOpen: true };
+
+      const AutoResettingOverlay = withUIState({
+        fileName: __filename,
+        extractId: (props) => props.id,
+        initialState,
+        resetOnUnmount: true,
+      })(OverlayBase);
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = shallow(
+        <AutoResettingOverlay store={store} id="some-component-id" />,
+      )
+        .find('WithUIState')
+        .dive();
+
+      const { uiStateID } = root.instance().props;
+      root.unmount();
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        setUIState({
+          id: uiStateID,
+          change: initialState,
+        }),
+      );
     });
 
     it('lets you set a custom uiStateID', () => {

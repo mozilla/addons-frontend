@@ -49,10 +49,6 @@ type InternalProps = {|
 export class EditableCollectionAddonBase extends React.Component<
   InternalProps,
 > {
-  componentWillUnmount() {
-    this.props.setUIState(initialUIState);
-  }
-
   onEditNote = (event: SyntheticEvent<HTMLElement>) => {
     event.preventDefault();
     this.props.setUIState({ editingNote: true });
@@ -206,6 +202,7 @@ const EditableCollectionAddon: React.ComponentType<Props> = compose(
     fileName: __filename,
     extractId,
     initialState: initialUIState,
+    resetOnUnmount: true,
   }),
 )(EditableCollectionAddonBase);
 

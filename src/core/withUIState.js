@@ -88,11 +88,8 @@ export const mergeUIStateProps = (
  * the ID returned from extractID(props) to get its state from the
  * Redux store.
  *
- * You can make the component always reset its state by adding:
- *
- * componentWillUnmount() {
- *   this.props.setUIState(initialUIState);
- * }
+ * You can make the component always reset its state by configuring
+ * withUIState({ ..., resetOnUnmount: true }).
  *
  * This will behave more like this.setState() but you will lose some
  * features of Redux persistence such as predictable hot reloading and
@@ -102,6 +99,7 @@ const withUIState = ({
   fileName,
   extractId,
   initialState,
+  resetOnUnmount = false,
 }: {|
   // This should always be set to __filename for ID purposes.
   fileName: string,
@@ -109,6 +107,11 @@ const withUIState = ({
   extractId: ExtractIdFunc,
   // An Object that defines the initial state.
   initialState: Object,
+  // When false (the default), every component instance will always
+  // render using persistent Redux state. When true, component state will
+  // be reset when it is unmounted. Set this to true to more closely
+  // mimic this.setState() behavior.
+  resetOnUnmount?: boolean,
 |}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
@@ -122,6 +125,12 @@ const withUIState = ({
 
   return (WrappedComponent) => {
     class WithUIState extends React.Component<any> {
+      componentWillUnmount() {
+        if (resetOnUnmount) {
+          this.props.setUIState(initialState);
+        }
+      }
+
       render() {
         return <WrappedComponent {...this.props} />;
       }
