@@ -21,7 +21,7 @@ import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import createStore from 'amo/store';
 import {
-  denormalizeReview,
+  createInternalReview,
   setLatestReview,
   setReview,
 } from 'amo/actions/reviews';
@@ -607,7 +607,7 @@ describe(__filename, () => {
 
       expect(
         getMappedProps({ componentProps: { addon, version } }).userReview,
-      ).toEqual(denormalizeReview(fakeReview));
+      ).toEqual(createInternalReview(fakeReview));
     });
 
     it('sets a null userReview', () => {

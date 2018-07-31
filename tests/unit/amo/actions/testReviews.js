@@ -1,6 +1,6 @@
 import {
   clearAddonReviews,
-  denormalizeReview,
+  createInternalReview,
   fetchReviews,
   flagReview,
   reviewIdAction,
@@ -52,7 +52,7 @@ describe(__filename, () => {
 
     it('denormalizes a review', () => {
       const action = setReview(fakeReview);
-      expect(action.payload).toEqual(denormalizeReview(fakeReview));
+      expect(action.payload).toEqual(createInternalReview(fakeReview));
     });
 
     it('sets an action type', () => {
@@ -96,13 +96,13 @@ describe(__filename, () => {
     });
 
     it('creates an action with the exact review object', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       const action = setDenormalizedReview(review);
       expect(action.payload).toEqual(review);
     });
 
     it('sets an action type', () => {
-      const action = setDenormalizedReview(denormalizeReview(fakeReview));
+      const action = setDenormalizedReview(createInternalReview(fakeReview));
       expect(action.type).toEqual(SET_REVIEW);
     });
   });

@@ -16,7 +16,7 @@ import {
   HIDE_EDIT_REVIEW_FORM,
   HIDE_REPLY_TO_REVIEW_FORM,
 } from 'amo/constants';
-import { denormalizeReview } from 'amo/actions/reviews';
+import { createInternalReview } from 'amo/actions/reviews';
 import type {
   ClearAddonReviewsAction,
   FlagReviewAction,
@@ -288,7 +288,7 @@ export default function reviewsReducer(
       if (review) {
         byId = storeReviewObjects({
           state,
-          reviews: [denormalizeReview(review)],
+          reviews: [createInternalReview(review)],
         });
       }
 
@@ -336,7 +336,7 @@ export default function reviewsReducer(
           ...state.byId,
           [review.id]: {
             ...review,
-            reply: denormalizeReview(action.payload.reply),
+            reply: createInternalReview(action.payload.reply),
           },
         },
       };
@@ -378,7 +378,7 @@ export default function reviewsReducer(
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        denormalizeReview(review),
+        createInternalReview(review),
       );
 
       return {
@@ -397,7 +397,7 @@ export default function reviewsReducer(
     case SET_USER_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        denormalizeReview(review),
+        createInternalReview(review),
       );
 
       return {
