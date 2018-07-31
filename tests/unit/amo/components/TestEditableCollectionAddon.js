@@ -224,7 +224,6 @@ describe(__filename, () => {
     it('changes UI state when the leave a note button is clicked', () => {
       const { store } = dispatchClientMetadata();
       const root = render({ store });
-      applyUIStateChanges({ root, store });
 
       expect(root.instance().props.uiState.editingNote).toEqual(false);
 
@@ -316,6 +315,22 @@ describe(__filename, () => {
       sinon.assert.callCount(saveNote, 1);
       sinon.assert.calledWith(saveNote, addon.id, errorHandler, notes);
     });
+  });
+
+  it('hides the notes form when unmounting', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+
+    // Show the notes form.
+    root
+      .find('.EditableCollectionAddon-leaveNote-button')
+      .simulate('click', createFakeEvent());
+
+    const rootProps = root.instance().props;
+    root.unmount();
+    applyUIStateChanges({ root, rootProps, store });
+
+    expect(root.find('.EditableCollectionAddon-notes')).toHaveLength(0);
   });
 
   describe('errorHandler - extractId', () => {
