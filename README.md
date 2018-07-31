@@ -47,7 +47,6 @@ Here are some commands you can run:
 | yarn start-func-test-server | Start a Docker container for functional tests                                                              |
 | yarn stylelint              | Lint the SCSS                                                                                              |
 | yarn lint                   | Run all the JS + SCSS linters                                                                              |
-| yarn nsp-check              | Run [nsp][] to detect dependencies with known vulnerabilities                                              |
 | yarn prettier               | Run [Prettier][] to automatically format the entire codebase                                               |
 | yarn prettier-dev           | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch   |
 | yarn prettier-ci            | Run [Prettier][] and fail if some code has been changed without being formatted                            |
@@ -375,6 +374,5 @@ At a later date if we need to move things out into their own project we still ca
 - Unit tests with high coverage (aiming for 100%)
 
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
-[nsp]: https://github.com/nodesecurity/nsp
 [prettier]: https://prettier.io/
 [pretty-quick]: https://www.npmjs.com/package/pretty-quick

@@ -20,5 +20,94 @@ ignore:
     - jsdom > request > hawk > cryptiles > boom > hoek:
         reason: Our app doesn't rely on HAWK
         expires: '2018-03-17T17:23:51.195Z'
+    - node-pre-gyp > request > hawk > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+    - node-pre-gyp > request > hawk > boom > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+    - node-pre-gyp > request > hawk > sntp > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+    - node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+    - node-pre-gyp > hawk > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+    - node-pre-gyp > hawk > boom > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+    - node-pre-gyp > hawk > sntp > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+    - node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:19:55.118Z'
+  'npm:cryptiles:20180710':
+    - request > hawk > cryptiles:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:03:16.635Z'
+    - node-pre-gyp > hawk > cryptiles:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:03:16.635Z'
+    - node-pre-gyp > request > hawk > cryptiles:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-08-30T15:03:16.635Z'
+    - jsdom > hawk > cryptiles:
+        reason: Our app doesn't rely on hawk
+        expires: '2018-08-30T15:19:55.118Z'
+    - jsdom > request > hawk > cryptiles:
+        reason: Our app doesn't rely on hawk
+        expires: '2018-08-30T15:19:55.118Z'
+    - cryptiles:
+        reason: Our app doesn't rely on cryptiles
+        expires: '2018-08-30T15:19:55.117Z'
+    - hawk > cryptiles:
+        reason: Our app doesn't rely on hawk
+        expires: '2018-08-30T15:19:55.117Z'
+    - jsdom > cryptiles:
+        reason: Our app doesn't rely on hawk
+        expires: '2018-08-30T15:19:55.118Z'
+  'npm:deep-extend:20180409':
+    - node-pre-gyp > rc > deep-extend:
+        reason: Our app doesn't rely on node-pre-gyp
+        expires: '2018-08-30T15:03:16.635Z'
+  'npm:extend:20180424':
+    - node-pre-gyp > request > extend:
+        reason: Our app doesn't rely on request
+        expires: '2018-08-30T15:03:16.635Z'
+    - request > extend:
+        reason: Our app doesn't rely on request
+        expires: '2018-08-30T15:03:16.635Z'
+    - jsdom > request > extend:
+        reason: Our app doesn't rely on hawk
+        expires: '2018-08-30T15:19:55.118Z'
+  'npm:ua-parser-js:20180227':
+    - react > fbjs > ua-parser-js:
+        reason: Our app uses the correct version
+        expires: '2018-08-30T15:19:55.118Z'
+    - react > prop-types > fbjs > ua-parser-js:
+        reason: Our app uses the correct version
+        expires: '2018-08-30T15:19:55.118Z'
+    - react-dom > fbjs > ua-parser-js:
+        reason: Our app uses the correct version
+        expires: '2018-08-30T15:19:55.118Z'
+    - react-dom > prop-types > fbjs > ua-parser-js:
+        reason: Our app uses the correct version
+        expires: '2018-08-30T15:19:55.118Z'
+    - react-redux > prop-types > fbjs > ua-parser-js:
+        reason: Our app uses the correct version
+        expires: '2018-08-30T15:19:55.118Z'
+    - react-textarea-autosize > prop-types > fbjs > ua-parser-js:
+        reason: Our app uses the correct version
+        expires: '2018-08-30T15:19:55.118Z'
+  'npm:stringstream:20180511':
+    - node-pre-gyp > request > stringstream:
+        reason: Our app doesn't rely on request
+        expires: '2018-08-30T15:35:04.333Z'
+    - request > stringstream:
+        reason: Our app doesn't rely on request
+        expires: '2018-08-30T15:35:04.333Z'
 patch: {}
-version: v1.10.1
+version: v1.10.2
