@@ -42,12 +42,7 @@ describe(__filename, () => {
   it('renders children', () => {
     const html = '<div>overriding child div</div>';
     const root = render({ children: html });
-    expect(
-      root
-        .children()
-        .at(1)
-        .props().children,
-    ).toEqual(html);
+    expect(root.find('.Overlay-contents').children()).toHaveText(html);
   });
 
   it('is hidden by default', () => {
@@ -65,11 +60,7 @@ describe(__filename, () => {
 
     expect(root).not.toHaveClassName('Overlay--visible');
 
-    const newProps = {
-      visibleOnLoad: true,
-    };
-
-    root.setProps(newProps);
+    root.setProps({ visibleOnLoad: true });
 
     applyUIStateChanges({ root, store });
 
