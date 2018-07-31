@@ -1,6 +1,6 @@
 import {
   clearAddonReviews,
-  denormalizeReview,
+  createInternalReview,
   flagReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
@@ -103,7 +103,7 @@ describe(__filename, () => {
     const review = { ...fakeReview, id: 1 };
     const action = setReview(review);
     const state = reviewsReducer(undefined, action);
-    expect(state.byId[review.id]).toEqual(denormalizeReview(review));
+    expect(state.byId[review.id]).toEqual(createInternalReview(review));
   });
 
   it('resets the byUserId data when adding a new review', () => {
@@ -139,7 +139,7 @@ describe(__filename, () => {
 
     expect(newState.byId[review.id].body).toEqual('Original review body');
     expect(newState.byId[review.id].reply.body).toEqual('A developer reply');
-    expect(newState.byId[review.id].reply).toEqual(denormalizeReview(reply));
+    expect(newState.byId[review.id].reply).toEqual(createInternalReview(reply));
   });
 
   it('cannot store a reply to a non-existant review', () => {
@@ -252,8 +252,8 @@ describe(__filename, () => {
         reviewCount: 2,
       });
       const state = reviewsReducer(undefined, action);
-      expect(state.byId[review1.id]).toEqual(denormalizeReview(review1));
-      expect(state.byId[review2.id]).toEqual(denormalizeReview(review2));
+      expect(state.byId[review1.id]).toEqual(createInternalReview(review1));
+      expect(state.byId[review2.id]).toEqual(createInternalReview(review2));
     });
 
     it('stores review counts', () => {
@@ -339,8 +339,8 @@ describe(__filename, () => {
         reviews: state.byAddon[fakeAddon.slug].reviews,
       });
 
-      expect(expanded[0]).toEqual(denormalizeReview(review1));
-      expect(expanded[1]).toEqual(denormalizeReview(review2));
+      expect(expanded[0]).toEqual(createInternalReview(review1));
+      expect(expanded[1]).toEqual(createInternalReview(review2));
     });
 
     it('throws an error if the review does not exist', () => {
@@ -357,8 +357,8 @@ describe(__filename, () => {
   describe('storeReviewObjects', () => {
     it('stores review objects by ID', () => {
       const reviews = [
-        denormalizeReview({ ...fakeReview, id: 1 }),
-        denormalizeReview({ ...fakeReview, id: 2 }),
+        createInternalReview({ ...fakeReview, id: 1 }),
+        createInternalReview({ ...fakeReview, id: 2 }),
       ];
       expect(storeReviewObjects({ state: initialState, reviews })).toEqual({
         [reviews[0].id]: reviews[0],
@@ -367,8 +367,8 @@ describe(__filename, () => {
     });
 
     it('preserves existing reviews', () => {
-      const review1 = denormalizeReview({ ...fakeReview, id: 1 });
-      const review2 = denormalizeReview({ ...fakeReview, id: 2 });
+      const review1 = createInternalReview({ ...fakeReview, id: 1 });
+      const review2 = createInternalReview({ ...fakeReview, id: 2 });
 
       const state = initialState;
       const byId = storeReviewObjects({ state, reviews: [review1] });
@@ -385,7 +385,7 @@ describe(__filename, () => {
     });
 
     it('throws an error for falsy IDs', () => {
-      const reviews = [denormalizeReview({ ...fakeReview, id: undefined })];
+      const reviews = [createInternalReview({ ...fakeReview, id: undefined })];
       expect(() => {
         storeReviewObjects({ state: initialState, reviews });
       }).toThrow(/Cannot store review because review.id is falsy/);
@@ -643,8 +643,8 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byId[review1.id]).toEqual(denormalizeReview(review1));
-      expect(state.byId[review2.id]).toEqual(denormalizeReview(review2));
+      expect(state.byId[review1.id]).toEqual(createInternalReview(review1));
+      expect(state.byId[review2.id]).toEqual(createInternalReview(review2));
     });
 
     it('stores multiple reviews for a user ID', () => {
@@ -706,7 +706,7 @@ describe(__filename, () => {
       expect(getReviewsByUserId(state, userId)).toEqual({
         pageSize,
         reviewCount: reviews.length,
-        reviews: reviews.map(denormalizeReview),
+        reviews: reviews.map(createInternalReview),
       });
     });
   });
@@ -739,7 +739,7 @@ describe(__filename, () => {
 
       const state = reviewsReducer(undefined, _setLatestReview({ review }));
 
-      expect(state.byId[review.id]).toEqual(denormalizeReview(review));
+      expect(state.byId[review.id]).toEqual(createInternalReview(review));
     });
 
     it('sets the latest review', () => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { denormalizeReview } from 'amo/actions/reviews';
+import { createInternalReview } from 'amo/actions/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import Rating from 'ui/components/Rating';
 import UserRating, { UserRatingBase } from 'ui/components/UserRating';
@@ -28,7 +28,7 @@ function render(customProps = {}) {
 
 function signInAndReturnReview({ siteUserId, reviewUserId }) {
   dispatchSignInActions({ store, userId: siteUserId });
-  return denormalizeReview({
+  return createInternalReview({
     ...fakeReview,
     user: {
       ...fakeReview.user,
@@ -52,7 +52,7 @@ describe(__filename, () => {
   });
 
   it('passes the rating from the review to Rating', () => {
-    const root = render({ review: denormalizeReview(fakeReview) });
+    const root = render({ review: createInternalReview(fakeReview) });
     expect(root).toHaveProp('rating', fakeReview.rating);
   });
 

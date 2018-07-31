@@ -40,7 +40,7 @@ export type UserReviewType = {|
   versionId: number | null,
 |};
 
-export function denormalizeReview(
+export function createInternalReview(
   review: ExternalReviewType | ExternalReviewReplyType,
 ): UserReviewType {
   return {
@@ -51,7 +51,7 @@ export function denormalizeReview(
     id: review.id,
     isLatest: review.is_latest,
     rating: review.rating || null,
-    reply: review.reply ? denormalizeReview(review.reply) : null,
+    reply: review.reply ? createInternalReview(review.reply) : null,
     title: review.title,
     userId: review.user.id,
     userName: review.user.name,
@@ -69,9 +69,9 @@ export const setReview = (review: ExternalReviewType): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  // TODO: move denormalizeReview() to the reducer.
+  // TODO: move createInternalReview() to the reducer.
   // https://github.com/mozilla/addons-frontend/issues/3342
-  return { type: SET_REVIEW, payload: denormalizeReview(review) };
+  return { type: SET_REVIEW, payload: createInternalReview(review) };
 };
 
 type SetReviewReplyParams = {|

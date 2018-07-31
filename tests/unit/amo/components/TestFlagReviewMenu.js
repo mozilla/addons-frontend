@@ -7,7 +7,7 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import {
-  denormalizeReview,
+  createInternalReview,
   setReviewWasFlagged,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
@@ -37,7 +37,7 @@ describe(__filename, () => {
     const props = {
       i18n: fakeI18n(),
       location: createFakeLocation(),
-      review: denormalizeReview(fakeReview),
+      review: createInternalReview(fakeReview),
       store,
       ...customProps,
     };
@@ -103,7 +103,7 @@ describe(__filename, () => {
     });
 
     it('does not let you flag your own review', () => {
-      const review = denormalizeReview({ ...fakeReview });
+      const review = createInternalReview({ ...fakeReview });
       dispatchSignInActions({ store, userId: review.userId });
       const { menu } = renderMenu({ review });
 
@@ -113,7 +113,7 @@ describe(__filename, () => {
     });
 
     it('does not let you flag your own response', () => {
-      const review = denormalizeReview({ ...fakeReview });
+      const review = createInternalReview({ ...fakeReview });
       dispatchSignInActions({ store, userId: review.userId });
       const { menu } = renderMenu({ review, isDeveloperReply: true });
 
@@ -143,7 +143,7 @@ describe(__filename, () => {
     });
 
     it('configures FlagReview to flag as spam', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       const { menu } = renderMenu({ review });
 
       const flag = menu.find('.FlagReviewMenu-flag-spam-item').find(FlagReview);
@@ -154,7 +154,7 @@ describe(__filename, () => {
     });
 
     it('configures FlagReview to flag for language', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       const { menu } = renderMenu({ review });
 
       const flag = menu
@@ -167,7 +167,7 @@ describe(__filename, () => {
     });
 
     it('configures FlagReview to flag as bug/support', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       const { menu } = renderMenu({ review });
 
       const flag = menu
@@ -188,7 +188,7 @@ describe(__filename, () => {
     });
 
     it('changes prompt after review has been flagged', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       store.dispatch(
         setReviewWasFlagged({
           reason: REVIEW_FLAG_REASON_SPAM,
@@ -202,7 +202,7 @@ describe(__filename, () => {
     });
 
     it('does not change Flag prompt for other view state changes', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       // This initializes the flag view state which was triggering a bug.
       store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
 
