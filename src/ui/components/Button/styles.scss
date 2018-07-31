@@ -141,8 +141,8 @@ $puffy-font-size: 15px;
 
 .Button--action {
   @include button(
-    $background: $blue-50,
-    $background-active: $blue-60,
+    $background: $blue-60,
+    $background-active: $blue-80,
     $background-hover: $blue-70
   );
 }
@@ -165,8 +165,8 @@ $puffy-font-size: 15px;
 
 .Button--alert {
   @include button(
-    $background: $red-50,
-    $background-active: $red-60,
+    $background: $red-60,
+    $background-active: $red-80,
     $background-hover: $red-70
   );
 }
