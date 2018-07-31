@@ -150,7 +150,7 @@ export class AddonBase extends React.Component {
       ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
           title: addon.name,
         })
-      : '';
+      : null;
 
     if (addon && isTheme(addon.type)) {
       const previewHeader = addon.previews.length && addon.previews[0];
@@ -167,7 +167,12 @@ export class AddonBase extends React.Component {
       const themeClassName = 'Addon-theme-header';
 
       return (
-        <div className={themeClassName} id={themeClassName} role="presentation">
+        <div
+          key="Addon-theme-image"
+          className={themeClassName}
+          id={themeClassName}
+          role="presentation"
+        >
           <img
             alt={label}
             className="Addon-theme-header-image"
@@ -178,13 +183,13 @@ export class AddonBase extends React.Component {
     }
 
     return (
-      <span className="Addon-icon">
+      <div className="Addon-icon">
         <img
           alt={label}
           className="Addon-icon-image"
           src={getAddonIconUrl(addon)}
         />
-      </span>
+      </div>
     );
   }
 

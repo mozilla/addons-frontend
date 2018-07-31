@@ -299,7 +299,7 @@ describe(__filename, () => {
     // Since withInstallHelpers relies on this, make sure it's initialized.
     expect(root.instance().props.platformFiles).toEqual({});
 
-    expect(root.find('.Addon-icon img').prop('alt')).toEqual('');
+    expect(root.find('.Addon-icon img').prop('alt')).toEqual(null);
   });
 
   it('does not dispatch fetchAddon action when slug is the same', () => {
