@@ -61,9 +61,15 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
       },
     ];
   } else {
-    // In production, we create a separate CSS bundle rather than
-    // include styles with the JS bundle. This lets the style bundle
-    // load in parallel.
+    // In production, we create a separate CSS bundle rather than include
+    // styles with the JS bundle. This lets the style bundle load in parallel.
+
+    const cssLoaderOptions = {
+      importLoaders: 2,
+      sourceMap: true,
+      minimize: true,
+    };
+
     styleRules = [
       {
         test: /\.css$/,
@@ -72,7 +78,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
           use: [
             {
               loader: 'css-loader',
-              options: { importLoaders: 2, sourceMap: true },
+              options: cssLoaderOptions,
             },
             {
               loader: 'postcss-loader',
@@ -93,7 +99,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
           use: [
             {
               loader: 'css-loader',
-              options: { importLoaders: 2, sourceMap: true },
+              options: cssLoaderOptions,
             },
             {
               loader: 'postcss-loader',
