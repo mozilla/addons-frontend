@@ -23,6 +23,7 @@ import {
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
   UNINSTALLING,
+  UNKNOWN,
   validAddonTypes,
   validInstallStates,
 } from 'core/constants';
@@ -42,36 +43,36 @@ const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
 export class AddonBase extends React.Component {
   static propTypes = {
+    _tracking: PropTypes.object,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
     // This is added by withInstallHelpers()
     defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
+    enable: PropTypes.func.isRequired,
     error: PropTypes.string,
-    heading: PropTypes.string.isRequired,
     getBrowserThemeData: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
+    heading: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
+    install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
+    // eslint-disable-next-line react/no-unused-prop-types
     platformFiles: PropTypes.object,
-    previews: PropTypes.Array,
-    previewURL: PropTypes.string,
-    name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
+    uninstall: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
-    _tracking: PropTypes.object,
   };
 
   static defaultProps = {
-    getClientCompatibility: _getClientCompatibility,
-    platformFiles: {},
-    needsRestart: false,
     _tracking: tracking,
+    getClientCompatibility: _getClientCompatibility,
+    needsRestart: false,
+    platformFiles: {},
   };
 
   getError() {
@@ -226,13 +227,13 @@ export class AddonBase extends React.Component {
   };
 
   clickHeadingLink = (e) => {
-    const { type, name, _tracking } = this.props;
+    const { addon, _tracking } = this.props;
 
     if (e.target.nodeName.toLowerCase() === 'a') {
       _tracking.sendEvent({
-        action: getAddonTypeForTracking(type),
+        action: getAddonTypeForTracking(addon.type),
         category: CLICK_CATEGORY,
-        label: name,
+        label: addon.name,
       });
     }
   };
@@ -242,9 +243,14 @@ export class AddonBase extends React.Component {
       addon,
       clientApp,
       defaultInstallSource,
+      enable,
       getClientCompatibility,
       heading,
+      install,
+      installTheme,
+      status,
       type,
+      uninstall,
       userAgentInfo,
     } = this.props;
 
@@ -299,12 +305,16 @@ export class AddonBase extends React.Component {
             />
             {this.getDescription()}
           </div>
-          {/* TODO: find the courage to remove {...this.props} */}
           <InstallButton
-            {...this.props}
+            addon={addon}
             className="Addon-install-button"
             defaultInstallSource={defaultInstallSource}
-            size="small"
+            disabled={!compatible}
+            enable={enable}
+            install={install}
+            installTheme={installTheme}
+            status={status || UNKNOWN}
+            uninstall={uninstall}
           />
         </div>
         {!compatible ? (
@@ -328,6 +338,7 @@ export function mapStateToProps(state, ownProps) {
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,
+    // This is required by the `withInstallHelpers()` HOC, apparently...
     platformFiles: addon ? addon.platformFiles : {},
     userAgentInfo: state.api.userAgentInfo,
   };
