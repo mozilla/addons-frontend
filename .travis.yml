@@ -47,7 +47,7 @@ jobs:
       env: COMMAND=lint
     - stage:
       <<: *node-prod
-      env: COMMAND=snyk
+      env: COMMAND=snyk-ci
     - stage:
       <<: *node-prod
       env: COMMAND=prettier-ci
