@@ -20,7 +20,7 @@ import reviewsReducer, {
   expandReviewObjects,
   getReviewsByUserId,
   initialState,
-  latestByAddonVersionKey,
+  makeLatestUserReviewKey,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
@@ -711,10 +711,10 @@ describe(__filename, () => {
     });
   });
 
-  describe('latestByAddonVersionKey', () => {
+  describe('makeLatestUserReviewKey', () => {
     it('generates a key', () => {
       expect(
-        latestByAddonVersionKey({ userId: 1, addonId: 2, versionId: 3 }),
+        makeLatestUserReviewKey({ userId: 1, addonId: 2, versionId: 3 }),
       ).toEqual('user1-addon2-version3');
     });
   });
@@ -754,8 +754,8 @@ describe(__filename, () => {
       );
 
       expect(
-        state.latestByAddonVersion[
-          latestByAddonVersionKey({ addonId, userId, versionId })
+        state.latestUserReview[
+          makeLatestUserReviewKey({ addonId, userId, versionId })
         ],
       ).toEqual(review.id);
     });
@@ -771,8 +771,8 @@ describe(__filename, () => {
       );
 
       expect(
-        state.latestByAddonVersion[
-          latestByAddonVersionKey({ addonId, userId, versionId })
+        state.latestUserReview[
+          makeLatestUserReviewKey({ addonId, userId, versionId })
         ],
       ).toBeNull();
     });
@@ -802,13 +802,13 @@ describe(__filename, () => {
       );
 
       expect(
-        state.latestByAddonVersion[
-          latestByAddonVersionKey({ userId, addonId, versionId: 1 })
+        state.latestUserReview[
+          makeLatestUserReviewKey({ userId, addonId, versionId: 1 })
         ],
       ).toEqual(1);
       expect(
-        state.latestByAddonVersion[
-          latestByAddonVersionKey({ userId, addonId, versionId: 2 })
+        state.latestUserReview[
+          makeLatestUserReviewKey({ userId, addonId, versionId: 2 })
         ],
       ).toEqual(2);
     });

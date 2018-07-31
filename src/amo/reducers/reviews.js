@@ -74,7 +74,7 @@ export type ReviewsState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
-  latestByAddonVersion: {
+  latestUserReview: {
     // The latest user review for add-on / version
     // or null if one does not exist yet.
     [userIdAddonIdVersionId: string]: number | null,
@@ -88,7 +88,7 @@ export const initialState: ReviewsState = {
   byAddon: {},
   byId: {},
   byUserId: {},
-  latestByAddonVersion: {},
+  latestUserReview: {},
   // This stores review-related UI state.
   view: {},
 };
@@ -189,7 +189,7 @@ export const getReviewsByUserId = (
     : null;
 };
 
-export const latestByAddonVersionKey = ({
+export const makeLatestUserReviewKey = ({
   userId,
   addonId,
   versionId,
@@ -212,8 +212,8 @@ export const selectLatestUserReview = ({
   addonId: number,
   versionId: number,
 |}): UserReviewType | null | void => {
-  const key = latestByAddonVersionKey({ userId, addonId, versionId });
-  const userReviewId = reviewsState.latestByAddonVersion[key];
+  const key = makeLatestUserReviewKey({ userId, addonId, versionId });
+  const userReviewId = reviewsState.latestUserReview[key];
 
   if (userReviewId === null) {
     // This means an action had previously attempted to fetch the latest
@@ -281,7 +281,7 @@ export default function reviewsReducer(
     case SET_LATEST_REVIEW: {
       const { payload } = action;
       const { addonId, addonSlug, userId, review, versionId } = payload;
-      const key = latestByAddonVersionKey({ addonId, userId, versionId });
+      const key = makeLatestUserReviewKey({ addonId, userId, versionId });
 
       let { byId } = state;
       if (review) {
@@ -304,8 +304,8 @@ export default function reviewsReducer(
           // Reset all user reviews to trigger a refresh from the server.
           [userId]: undefined,
         },
-        latestByAddonVersion: {
-          ...state.latestByAddonVersion,
+        latestUserReview: {
+          ...state.latestUserReview,
           [key]: review ? review.id : null,
         },
       };
