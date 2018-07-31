@@ -314,4 +314,3 @@ export const addQueryParamsToHistory = ({
 }) => {
   return qhistory(history, _stringify, _parse);
 };
-
