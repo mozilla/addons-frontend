@@ -10,6 +10,13 @@ import { withRouter } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
+// We have to import these styles first to have them listed first in the final
+// CSS file. See: https://github.com/mozilla/addons-frontend/issues/3565
+import 'core/fonts/fira.scss';
+import 'core/fonts/opensans.scss';
+import './styles.scss';
+
+/* eslint-disable import/first */
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
@@ -34,10 +41,7 @@ import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 import type { I18nType } from 'core/types/i18n';
-
-import 'core/fonts/fira.scss';
-import 'core/fonts/opensans.scss';
-import './styles.scss';
+/* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {
   mozAddonManager?: Object;
