@@ -7,12 +7,16 @@ import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 import makeClassName from 'classnames';
 
+// We have to import this style first to have it listed first in the final CSS
+// file. See: https://github.com/mozilla/addons-frontend/issues/3565
+import './styles.scss';
+
+/* eslint-disable import/first */
 import DefaultErrorPage from 'core/components/ErrorPage';
 import Footer from 'disco/components/Footer';
 import Routes, { DISCO_PANE_PATH } from 'disco/components/Routes';
 import translate from 'core/i18n/translate';
-
-import './styles.scss';
+/* eslint-enable import/first */
 
 export class AppBase extends React.Component {
   static propTypes = {
