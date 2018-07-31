@@ -109,5 +109,12 @@ ignore:
     - request > stringstream:
         reason: Our app doesn't rely on request
         expires: '2018-08-30T15:35:04.333Z'
+  'npm:chownr:20180731':
+    - chokidar > node-pre-gyp > tar > chownr:
+        reason: Our production app does not use chokidar
+        expires: '2018-08-30T21:19:40.011Z'
+    - chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: Our production app does not use chokidar
+        expires: '2018-08-30T21:19:40.012Z'
 patch: {}
 version: v1.10.2
