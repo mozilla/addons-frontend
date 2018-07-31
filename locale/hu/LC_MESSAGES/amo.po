@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-27 13:58+0000\n"
+"PO-Revision-Date: 2018-07-31 08:31+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -2102,6 +2102,8 @@ msgstr ""
 #: src/amo/components/UserProfileEdit/index.js:787
 msgid "When you use this email address to login again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
+"Ha ezt az e-mail címet újra az addons.mozilla.org oldalon történő bejelentkezéshez használja, akkor egy új Firefox kiegészítők profilt hoz létre, amely semmilyen módon nem kapcsolódik a törölt "
+"profilhoz."
 
 #: src/amo/components/UserProfileEdit/index.js:800
 msgid ""
