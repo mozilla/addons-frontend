@@ -645,11 +645,8 @@ export const createUserNotificationsResponse = () => {
  * It's necessary because shallow Enzyme wrapper updates do not
  * propagate to all HOCs.
  */
-export function applyUIStateChanges({
-  root,
-  rootProps = root.instance().props,
-  store,
-}) {
+export function applyUIStateChanges({ root, store }) {
+  const rootProps = root.instance().props;
   const { uiStateID } = rootProps;
   invariant(
     uiStateID,
