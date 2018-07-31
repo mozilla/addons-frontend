@@ -10,11 +10,12 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
-  SET_USER_REVIEWS,
+  SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
+  SET_USER_REVIEWS,
   SHOW_EDIT_REVIEW_FORM,
   SHOW_REPLY_TO_REVIEW_FORM,
 } from 'amo/constants';
@@ -62,16 +63,15 @@ export function createInternalReview(
 
 export type SetReviewAction = {|
   type: typeof SET_REVIEW,
-  payload: UserReviewType,
+  payload: ExternalReviewType,
 |};
 
 export const setReview = (review: ExternalReviewType): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  // TODO: move createInternalReview() to the reducer.
-  // https://github.com/mozilla/addons-frontend/issues/3342
-  return { type: SET_REVIEW, payload: createInternalReview(review) };
+
+  return { type: SET_REVIEW, payload: review };
 };
 
 type SetReviewReplyParams = {|
@@ -202,13 +202,18 @@ export const setUserReviews = ({
   };
 };
 
-export const setDenormalizedReview = (
+export type SetInternalReviewAction = {|
+  type: typeof SET_INTERNAL_REVIEW,
+  payload: UserReviewType,
+|};
+
+export const setInternalReview = (
   review: UserReviewType,
-): SetReviewAction => {
+): SetInternalReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  return { type: SET_REVIEW, payload: review };
+  return { type: SET_INTERNAL_REVIEW, payload: review };
 };
 
 type SetAddonReviewsParams = {|

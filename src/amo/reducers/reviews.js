@@ -6,11 +6,12 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
-  SET_USER_REVIEWS,
+  SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
+  SET_USER_REVIEWS,
   SHOW_EDIT_REVIEW_FORM,
   SHOW_REPLY_TO_REVIEW_FORM,
   HIDE_EDIT_REVIEW_FORM,
@@ -25,6 +26,7 @@ import type {
   ReviewWasFlaggedAction,
   SendReplyToReviewAction,
   SetAddonReviewsAction,
+  SetInternalReviewAction,
   SetLatestReviewAction,
   SetReviewAction,
   SetReviewReplyAction,
@@ -233,6 +235,7 @@ type ReviewActionType =
   | HideReplyToReviewFormAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
+  | SetInternalReviewAction
   | SetLatestReviewAction
   | SetReviewAction
   | SetReviewReplyAction
@@ -313,6 +316,21 @@ export default function reviewsReducer(
     }
     case SET_REVIEW: {
       const { payload } = action;
+      const review = createInternalReview(payload);
+
+      return {
+        ...state,
+        byId: storeReviewObjects({ state, reviews: [review] }),
+        byUserId: {
+          ...state.byUserId,
+          // This will trigger a refresh from the server.
+          [review.userId]: undefined,
+        },
+      };
+    }
+    case SET_INTERNAL_REVIEW: {
+      const { payload } = action;
+
       return {
         ...state,
         byId: storeReviewObjects({ state, reviews: [payload] }),

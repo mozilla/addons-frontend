@@ -20,11 +20,7 @@ import I18nProvider from 'core/i18n/Provider';
 import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import createStore from 'amo/store';
-import {
-  createInternalReview,
-  setLatestReview,
-  setReview,
-} from 'amo/actions/reviews';
+import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
 import {
   RatingManagerBase,
   RatingManagerWithI18n,
@@ -169,7 +165,7 @@ describe(__filename, () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: fakeReview.version.id },
       userId: 92345,
-      userReview: setReview(fakeReview).payload,
+      userReview: createInternalReview(fakeReview),
     });
     return root.onSelectRating(5).then(() => {
       sinon.assert.called(submitReview);
@@ -203,7 +199,7 @@ describe(__filename, () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: oldVersionId },
       userId: 92345,
-      userReview: setReview(newReview).payload,
+      userReview: createInternalReview(newReview),
       submitReview,
       addon,
     });
@@ -221,7 +217,7 @@ describe(__filename, () => {
   });
 
   it('renders and configures AddonReview after submitting a rating', () => {
-    const userReview = setReview(fakeReview).payload;
+    const userReview = createInternalReview(fakeReview);
     const FakeAddonReview = sinon.spy(() => <div />);
     const root = render({ AddonReview: FakeAddonReview, userReview });
 
@@ -243,7 +239,7 @@ describe(__filename, () => {
   });
 
   it('calls back to the parent component after submitting a review', () => {
-    const userReview = setReview(fakeReview).payload;
+    const userReview = createInternalReview(fakeReview);
     const FakeAddonReview = sinon.spy(() => <div />);
     const parentOnReviewSubmitted = sinon.stub();
     const root = render({
@@ -266,7 +262,7 @@ describe(__filename, () => {
   });
 
   it('does not render an AddonReview when logged out', () => {
-    const userReview = setReview(fakeReview).payload;
+    const userReview = createInternalReview(fakeReview);
     const FakeAddonReview = sinon.spy(() => <div />);
     const userId = null; // logged out
     const root = render({ AddonReview: FakeAddonReview, userReview, userId });
@@ -279,7 +275,7 @@ describe(__filename, () => {
   });
 
   it('configures a rating component', () => {
-    const userReview = setReview(fakeReview).payload;
+    const userReview = createInternalReview(fakeReview);
     const UserRatingStub = sinon.spy(() => <div />);
 
     const root = render({ UserRating: UserRatingStub, userReview });

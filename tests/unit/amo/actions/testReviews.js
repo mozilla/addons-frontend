@@ -5,12 +5,16 @@ import {
   flagReview,
   reviewIdAction,
   sendReplyToReview,
-  setDenormalizedReview,
+  setInternalReview,
   setReview,
   setReviewWasFlagged,
   setReviewReply,
 } from 'amo/actions/reviews';
-import { REVIEW_FLAG_REASON_SPAM, SET_REVIEW } from 'amo/constants';
+import {
+  REVIEW_FLAG_REASON_SPAM,
+  SET_INTERNAL_REVIEW,
+  SET_REVIEW,
+} from 'amo/constants';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 // See reducer tests for more coverage of review actions.
@@ -50,11 +54,6 @@ describe(__filename, () => {
       expect(() => setReview()).toThrowError(/review cannot be empty/);
     });
 
-    it('denormalizes a review', () => {
-      const action = setReview(fakeReview);
-      expect(action.payload).toEqual(createInternalReview(fakeReview));
-    });
-
     it('sets an action type', () => {
       const action = setReview(fakeReview);
       expect(action.type).toEqual(SET_REVIEW);
@@ -88,22 +87,20 @@ describe(__filename, () => {
     });
   });
 
-  describe('setDenormalizedReview', () => {
+  describe('setInternalReview', () => {
     it('requires a truthy review', () => {
-      expect(() => setDenormalizedReview()).toThrowError(
-        /review cannot be empty/,
-      );
+      expect(() => setInternalReview()).toThrowError(/review cannot be empty/);
     });
 
     it('creates an action with the exact review object', () => {
       const review = createInternalReview(fakeReview);
-      const action = setDenormalizedReview(review);
+      const action = setInternalReview(review);
       expect(action.payload).toEqual(review);
     });
 
     it('sets an action type', () => {
-      const action = setDenormalizedReview(createInternalReview(fakeReview));
-      expect(action.type).toEqual(SET_REVIEW);
+      const action = setInternalReview(createInternalReview(fakeReview));
+      expect(action.type).toEqual(SET_INTERNAL_REVIEW);
     });
   });
 
