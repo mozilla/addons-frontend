@@ -33,29 +33,40 @@ export class OverlayBase extends React.Component<InternalProps> {
     visibleOnLoad: false,
   };
 
+  componentDidMount() {
+    const { uiState, visibleOnLoad } = this.props;
+    if (visibleOnLoad !== uiState.visible) {
+      this.props.setUIState({ visible: visibleOnLoad });
+    }
+  }
+
   componentWillReceiveProps(nextProps: InternalProps) {
-    const { uiState: uiStateOld } = this.props;
+    const { uiState } = this.props;
     const { visibleOnLoad: visibleOnLoadNew } = nextProps;
 
     if (
-      (visibleOnLoadNew && !uiStateOld.visible) ||
-      uiStateOld.visible !== nextProps.uiState.visible
+      visibleOnLoadNew !== undefined &&
+      visibleOnLoadNew !== uiState.visible
     ) {
       this.props.setUIState({ visible: visibleOnLoadNew });
     }
   }
 
-  hide() {
-    this.props.setUIState({ visible: false });
+  componentWillUnmount() {
+    this.hide();
   }
 
-  // TODO: look into this as I don't see this working on the frontend
-  // even in other envs.
-  onClickBackground = () => {
+  onClickBackground = (event: SyntheticEvent<any>) => {
+    event.preventDefault();
     if (this.props.onEscapeOverlay) {
       this.props.onEscapeOverlay();
     }
+
     this.hide();
+  };
+
+  hide = () => {
+    this.props.setUIState({ visible: false });
   };
 
   render() {

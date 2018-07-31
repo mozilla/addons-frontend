@@ -221,8 +221,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     this.setState({ showProfileDeletionModal: true });
   };
 
-  onCancelProfileDeletion = (e: SyntheticEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  onCancelProfileDeletion = (event?: SyntheticEvent<any>) => {
+    if (event) {
+      event.preventDefault();
+    }
 
     this.setState({ showProfileDeletionModal: false });
   };
