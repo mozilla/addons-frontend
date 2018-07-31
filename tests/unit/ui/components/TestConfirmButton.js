@@ -171,6 +171,22 @@ describe(__filename, () => {
     sinon.assert.calledWith(onConfirmSpy, event);
   });
 
+  it('hides the confirmation when unmounting', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+
+    // Enter the confirmation state.
+    root
+      .find('.ConfirmButton-default-button')
+      .simulate('click', createFakeEvent());
+
+    const rootProps = root.instance().props;
+    root.unmount();
+    applyUIStateChanges({ root, rootProps, store });
+
+    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
+  });
+
   describe('extractId', () => {
     it('returns a unique ID provided by the ID prop', () => {
       const id = 'special-button';

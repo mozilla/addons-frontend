@@ -46,6 +46,10 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
     confirmButtonType: 'alert',
   };
 
+  componentWillUnmount() {
+    this.props.setUIState({ showConfirmation: false });
+  }
+
   onConfirm = (e: SyntheticEvent<HTMLButtonElement>) => {
     this.props.setUIState({ showConfirmation: false });
     this.props.onConfirm(e);
