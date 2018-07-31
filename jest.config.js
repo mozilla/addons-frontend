@@ -38,5 +38,9 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
+  watchPathIgnorePatterns: [
+    '<rootDir>/bin/server.js',
+    '<rootDir>/webpack-assets.json',
+  ],
   verbose: false,
 };
