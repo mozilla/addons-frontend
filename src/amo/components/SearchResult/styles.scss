@@ -2,6 +2,8 @@
 @import '~core/css/inc/mixins';
 @import '~ui/css/vars';
 
+$icon-default-size: 32px;
+
 .SearchResult {
   list-style-type: none;
   margin: 0 0 1px;
@@ -49,8 +51,8 @@
 
 .SearchResult-icon {
   display: inline-block;
-  height: 32px;
-  width: 32px;
+  height: $icon-default-size;
+  width: $icon-default-size;
 
   .SearchResult--theme & {
     border-radius: $border-radius-default;
@@ -59,6 +61,13 @@
     object-fit: cover;
     object-position: top left;
     width: 100%;
+  }
+
+  &.SearchResult-icon--loading {
+    .SearchResult--theme & {
+      height: $icon-default-size;
+      width: $icon-default-size;
+    }
   }
 }
 

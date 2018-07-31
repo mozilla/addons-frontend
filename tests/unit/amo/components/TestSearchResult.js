@@ -177,6 +177,14 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-icon')).not.toHaveProp('alt', '');
   });
 
+  it('renders a loading class name while there is no addon', () => {
+    const root = render({ addon: null });
+
+    expect(root.find('.SearchResult-icon')).toHaveClassName(
+      '.SearchResult-icon--loading',
+    );
+  });
+
   it('displays the thumbnail image as the default src for static theme', () => {
     const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
 

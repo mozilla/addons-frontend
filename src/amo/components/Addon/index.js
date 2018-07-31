@@ -146,6 +146,12 @@ export class AddonBase extends React.Component {
   headerImage() {
     const { addon, i18n } = this.props;
 
+    const label = addon
+      ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+          title: addon.name,
+        })
+      : null;
+
     if (addon && isTheme(addon.type)) {
       const previewHeader = addon.previews.length && addon.previews[0];
 
@@ -154,42 +160,32 @@ export class AddonBase extends React.Component {
           ? previewHeader.image_url
           : null;
 
-      const label = addon
-        ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
-            title: addon.name,
-          })
-        : '';
-
-      const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-
-      if (!previewURL && type === ADDON_TYPE_THEME) {
+      if (!previewURL && addon.type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
       }
-
-      const headerImage = (
-        <img
-          alt={label}
-          className="Addon-theme-header-image"
-          src={previewURL}
-        />
-      );
 
       return (
         <div
           className="Addon-theme-header"
-          id="Addon-theme-header"
+          key="Addon-theme-image"
           role="presentation"
         >
-          {headerImage}
+          <img
+            alt={label}
+            className="Addon-theme-header-image"
+            src={previewURL}
+          />
         </div>
       );
     }
 
-    const iconUrl = getAddonIconUrl(addon);
-
     return (
-      <div className="Addon-icon">
-        <img className="Addon-icon-image" alt="" src={iconUrl} />
+      <div className="Addon-icon" key="Addon-icon-header">
+        <img
+          alt={label}
+          className="Addon-icon-image"
+          src={getAddonIconUrl(addon)}
+        />
       </div>
     );
   }

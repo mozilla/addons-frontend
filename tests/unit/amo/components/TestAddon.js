@@ -298,6 +298,8 @@ describe(__filename, () => {
 
     // Since withInstallHelpers relies on this, make sure it's initialized.
     expect(root.instance().props.platformFiles).toEqual({});
+
+    expect(root.find('.Addon-icon img').prop('alt')).toEqual(null);
   });
 
   it('does not dispatch fetchAddon action when slug is the same', () => {
@@ -878,14 +880,17 @@ describe(__filename, () => {
 
   it('renders an amo CDN icon image', () => {
     const iconURL = 'https://addons.cdn.mozilla.net/foo.jpg';
+    const addonName = 'some-addon-name';
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
         icon_url: iconURL,
+        name: addonName,
       }),
     });
-    const src = root.find('.Addon-icon img').prop('src');
-    expect(src).toEqual(iconURL);
+    const image = root.find('.Addon-icon img');
+    expect(image.prop('src')).toEqual(iconURL);
+    expect(image.prop('alt')).toEqual(`Preview of ${addonName}`);
   });
 
   it('renders a fall-back asset', () => {

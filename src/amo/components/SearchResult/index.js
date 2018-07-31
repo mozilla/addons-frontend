@@ -116,7 +116,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
         <div className={iconWrapperClassnames}>
           {imageURL ? (
             <img
-              className="SearchResult-icon"
+              className={makeClassName('SearchResult-icon', {
+                'SearchResult-icon--loading': !addon,
+              })}
               src={imageURL}
               alt={addon ? `${addon.name}` : ''}
             />
