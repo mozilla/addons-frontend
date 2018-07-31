@@ -198,7 +198,7 @@ export const makeLatestUserReviewKey = ({
   addonId: number,
   versionId: number,
 |}) => {
-  return `user${userId}-addon${addonId}-version${versionId}`;
+  return `user-${userId}/addon-${addonId}/version-${versionId}`;
 };
 
 export const selectLatestUserReview = ({

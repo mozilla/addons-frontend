@@ -712,10 +712,10 @@ describe(__filename, () => {
   });
 
   describe('makeLatestUserReviewKey', () => {
-    it('generates a key', () => {
+    it('makes a key', () => {
       expect(
         makeLatestUserReviewKey({ userId: 1, addonId: 2, versionId: 3 }),
-      ).toEqual('user1-addon2-version3');
+      ).toEqual('user-1/addon-2/version-3');
     });
   });
 
