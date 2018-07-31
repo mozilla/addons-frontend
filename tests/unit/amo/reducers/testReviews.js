@@ -6,6 +6,7 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
+  setLatestReview,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -19,6 +20,7 @@ import reviewsReducer, {
   expandReviewObjects,
   getReviewsByUserId,
   initialState,
+  makeLatestUserReviewKey,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
@@ -65,8 +67,7 @@ describe(__filename, () => {
   it('stores a user review', () => {
     const action = setFakeReview();
     const state = reviewsReducer(undefined, action);
-    const storedReview =
-      state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
+    const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview).toEqual({
       addonId: fakeReview.addon.id,
@@ -93,8 +94,7 @@ describe(__filename, () => {
       },
     });
     const state = reviewsReducer(undefined, action);
-    const storedReview =
-      state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
+    const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview.reply.body).toEqual(replyBody);
   });
@@ -155,49 +155,8 @@ describe(__filename, () => {
     }).toThrow(/review ID 3 .* does not exist/);
   });
 
-  it('preserves existing user rating data', () => {
+  it('preserves existing reviews', () => {
     let state;
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 1,
-        userId: 1,
-        addonId: 1,
-        rating: 1,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 2,
-        userId: 1,
-        addonId: 2,
-        rating: 5,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 3,
-        userId: 2,
-        addonId: 2,
-        rating: 4,
-      }),
-    );
-
-    // Make sure all reviews co-exist by userId, addonId, review ID.
-    expect(state[1][1][1].rating).toEqual(1);
-    expect(state[1][2][2].rating).toEqual(5);
-    expect(state[2][2][3].rating).toEqual(4);
-  });
-
-  it('preserves existing add-on reviews', () => {
-    let state;
-    const userId = fakeReview.user.id;
-    const addonId = fakeReview.addon.id;
 
     state = reviewsReducer(
       state,
@@ -223,76 +182,15 @@ describe(__filename, () => {
       }),
     );
 
-    // Make sure all reviews co-exist by userId, addonId, review ID.
-    expect(state[userId][addonId][1].id).toEqual(1);
-    expect(state[userId][addonId][2].id).toEqual(2);
-    expect(state[userId][addonId][3].id).toEqual(3);
+    expect(state.byId[1].id).toEqual(1);
+    expect(state.byId[2].id).toEqual(2);
+    expect(state.byId[3].id).toEqual(3);
   });
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
     state = reviewsReducer(state, setFakeReview());
     expect(state.somethingUnrelated).toEqual('erp');
-  });
-
-  it('only allows one review to be the latest', () => {
-    const addonId = fakeReview.addon.id;
-    const userId = fakeReview.user.id;
-    let state;
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 1,
-        is_latest: true,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 2,
-        is_latest: true,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 3,
-        is_latest: true,
-      }),
-    );
-
-    // Make sure only the newest submitted one is the latest:
-    expect(state[userId][addonId][1].isLatest).toEqual(false);
-    expect(state[userId][addonId][2].isLatest).toEqual(false);
-    expect(state[userId][addonId][3].isLatest).toEqual(true);
-  });
-
-  it('preserves an older latest review', () => {
-    const addonId = fakeReview.addon.id;
-    const userId = fakeReview.user.id;
-    let state;
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 1,
-        is_latest: true,
-      }),
-    );
-
-    state = reviewsReducer(
-      state,
-      setFakeReview({
-        id: 2,
-        is_latest: false,
-      }),
-    );
-
-    expect(state[userId][addonId][1].isLatest).toEqual(true);
-    expect(state[userId][addonId][2].isLatest).toEqual(false);
   });
 
   describe('setAddonReviews', () => {
@@ -810,6 +708,145 @@ describe(__filename, () => {
         reviewCount: reviews.length,
         reviews: reviews.map(denormalizeReview),
       });
+    });
+  });
+
+  describe('makeLatestUserReviewKey', () => {
+    it('makes a key', () => {
+      expect(
+        makeLatestUserReviewKey({ userId: 1, addonId: 2, versionId: 3 }),
+      ).toEqual('user-1/addon-2/version-3');
+    });
+  });
+
+  describe('setLatestReview()', () => {
+    const _setLatestReview = ({
+      review = { ...fakeReview, id: 1 },
+      ...params
+    } = {}) => {
+      return setLatestReview({
+        addonId: 9,
+        addonSlug: 'some-slug',
+        versionId: 8,
+        userId: 7,
+        review,
+        ...params,
+      });
+    };
+
+    it('sets a review object', () => {
+      const review = { ...fakeReview, id: 2 };
+
+      const state = reviewsReducer(undefined, _setLatestReview({ review }));
+
+      expect(state.byId[review.id]).toEqual(denormalizeReview(review));
+    });
+
+    it('sets the latest review', () => {
+      const addonId = 1;
+      const versionId = 2;
+      const userId = 3;
+      const review = { ...fakeReview, id: 2 };
+
+      const state = reviewsReducer(
+        undefined,
+        _setLatestReview({ addonId, versionId, userId, review }),
+      );
+
+      expect(
+        state.latestUserReview[
+          makeLatestUserReviewKey({ addonId, userId, versionId })
+        ],
+      ).toEqual(review.id);
+    });
+
+    it('can set the latest review to null', () => {
+      const addonId = 1;
+      const versionId = 2;
+      const userId = 3;
+
+      const state = reviewsReducer(
+        undefined,
+        _setLatestReview({ addonId, versionId, userId, review: null }),
+      );
+
+      expect(
+        state.latestUserReview[
+          makeLatestUserReviewKey({ addonId, userId, versionId })
+        ],
+      ).toBeNull();
+    });
+
+    it('preserves other latest reviews', () => {
+      const userId = 1;
+      const addonId = 1;
+
+      let state;
+      state = reviewsReducer(
+        state,
+        _setLatestReview({
+          userId,
+          addonId,
+          versionId: 1,
+          review: { ...fakeReview, id: 1 },
+        }),
+      );
+      state = reviewsReducer(
+        state,
+        _setLatestReview({
+          userId,
+          addonId,
+          versionId: 2,
+          review: { ...fakeReview, id: 2 },
+        }),
+      );
+
+      expect(
+        state.latestUserReview[
+          makeLatestUserReviewKey({ userId, addonId, versionId: 1 })
+        ],
+      ).toEqual(1);
+      expect(
+        state.latestUserReview[
+          makeLatestUserReviewKey({ userId, addonId, versionId: 2 })
+        ],
+      ).toEqual(2);
+    });
+
+    it('resets all related add-on reviews', () => {
+      const addonSlug = 'some-slug';
+
+      let state;
+      state = reviewsReducer(
+        state,
+        setAddonReviews({
+          addonSlug,
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [{ ...fakeReview, id: 1 }],
+          reviewCount: 1,
+        }),
+      );
+      state = reviewsReducer(state, _setLatestReview({ addonSlug }));
+
+      expect(state.byAddon[addonSlug]).toBeUndefined();
+    });
+
+    it('resets all related user reviews', () => {
+      const userId = 123;
+
+      let state;
+      state = reviewsReducer(
+        state,
+        setUserReviews({
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [fakeReview],
+          reviewCount: 1,
+          userId,
+        }),
+      );
+      state = reviewsReducer(state, _setLatestReview({ userId }));
+
+      expect(state.byUserId[userId]).toBeUndefined();
     });
   });
 });

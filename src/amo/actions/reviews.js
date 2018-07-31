@@ -11,6 +11,7 @@ import {
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
   SET_USER_REVIEWS,
+  SET_LATEST_REVIEW,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -429,5 +430,37 @@ export const clearAddonReviews = ({
   return {
     type: CLEAR_ADDON_REVIEWS,
     payload: { addonSlug },
+  };
+};
+
+type SetLatestReviewParams = {|
+  addonId: number,
+  addonSlug: string,
+  review: ExternalReviewType | null,
+  userId: number,
+  versionId: number,
+|};
+
+export type SetLatestReviewAction = {|
+  type: typeof SET_LATEST_REVIEW,
+  payload: SetLatestReviewParams,
+|};
+
+export const setLatestReview = ({
+  addonId,
+  addonSlug,
+  versionId,
+  review,
+  userId,
+}: SetLatestReviewParams): SetLatestReviewAction => {
+  invariant(addonId, 'addonId is required');
+  invariant(addonSlug, 'addonSlug is required');
+  invariant(review !== undefined, 'review is required');
+  invariant(userId, 'userId is required');
+  invariant(versionId, 'versionId is required');
+
+  return {
+    type: SET_LATEST_REVIEW,
+    payload: { addonId, addonSlug, review, userId, versionId },
   };
 };

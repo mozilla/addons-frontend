@@ -7,6 +7,7 @@ import {
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
   SET_USER_REVIEWS,
+  SET_LATEST_REVIEW,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -24,6 +25,7 @@ import type {
   ReviewWasFlaggedAction,
   SendReplyToReviewAction,
   SetAddonReviewsAction,
+  SetLatestReviewAction,
   SetReviewAction,
   SetReviewReplyAction,
   ShowEditReviewFormAction,
@@ -72,69 +74,47 @@ export type ReviewsState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
+  latestUserReview: {
+    // The latest user review for add-on / version
+    // or null if one does not exist yet.
+    [userIdAddonIdVersionId: string]: number | null,
+  },
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
-
-  // This is what the current data structure looks like:
-  // [userId: string]: {
-  //   [addonId: string]: {
-  //     [reviewId: string]: UserReviewType,
-  //   },
-  // },
-  //
-  // TODO: make this consistent by moving it from state[userId] to
-  // state.byUser[userId]
-  // https://github.com/mozilla/addons-frontend/issues/1791
-  //
-  // Also note that this needs to move to state.byUser before its type
-  // can be expressed in Flow without conflicting with state.byAddon.
-  //
 |};
 
 export const initialState: ReviewsState = {
   byAddon: {},
   byId: {},
   byUserId: {},
+  latestUserReview: {},
   // This stores review-related UI state.
   view: {},
 };
 
-type ExpandReviewObjectsParams = {|
-  state: ReviewsState,
-  reviews: Array<number>,
-|};
+export const selectReview = (
+  reviewsState: ReviewsState,
+  id: number,
+): UserReviewType | void => {
+  return reviewsState.byId[id];
+};
 
 export const expandReviewObjects = ({
   state,
   reviews,
-}: ExpandReviewObjectsParams): Array<UserReviewType> => {
+}: {|
+  state: ReviewsState,
+  reviews: Array<number>,
+|}): Array<UserReviewType> => {
   return reviews.map((id) => {
-    const review = state.byId[id];
+    const review = selectReview(state, id);
     if (!review) {
       throw new Error(`No stored review exists for ID ${id}`);
     }
     return review;
   });
 };
-
-function mergeInNewReview(
-  latestReview: UserReviewType,
-  oldReviews: { [reviewId: string]: UserReviewType } = {},
-): { [id: string]: Array<UserReviewType> } {
-  const mergedReviews = {};
-
-  Object.keys(oldReviews).forEach((id) => {
-    mergedReviews[id] = oldReviews[id];
-    if (latestReview.isLatest) {
-      // Reset the 'latest' flag for all old reviews.
-      mergedReviews[id].isLatest = false;
-    }
-  });
-
-  mergedReviews[latestReview.id] = latestReview;
-  return mergedReviews;
-}
 
 type StoreReviewObjectsParams = {|
   state: ReviewsState,
@@ -209,12 +189,51 @@ export const getReviewsByUserId = (
     : null;
 };
 
+export const makeLatestUserReviewKey = ({
+  userId,
+  addonId,
+  versionId,
+}: {|
+  userId: number,
+  addonId: number,
+  versionId: number,
+|}) => {
+  return `user-${userId}/addon-${addonId}/version-${versionId}`;
+};
+
+export const selectLatestUserReview = ({
+  reviewsState,
+  userId,
+  addonId,
+  versionId,
+}: {|
+  reviewsState: ReviewsState,
+  userId: number,
+  addonId: number,
+  versionId: number,
+|}): UserReviewType | null | void => {
+  const key = makeLatestUserReviewKey({ userId, addonId, versionId });
+  const userReviewId = reviewsState.latestUserReview[key];
+
+  if (userReviewId === null) {
+    // This means we had previously attempted to fetch the latest
+    // user review but it does not exist.
+    return null;
+  }
+
+  // This either means we have not yet fetched a user review
+  // (return undefined) or we fetched and retrieved a user review
+  // (return the object).
+  return selectReview(reviewsState, userReviewId);
+};
+
 type ReviewActionType =
   | ClearAddonReviewsAction
   | HideEditReviewFormAction
   | HideReplyToReviewFormAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
+  | SetLatestReviewAction
   | SetReviewAction
   | SetReviewReplyAction
   | ShowEditReviewFormAction
@@ -260,12 +279,40 @@ export default function reviewsReducer(
           submittingReply: false,
         },
       });
+    case SET_LATEST_REVIEW: {
+      const { payload } = action;
+      const { addonId, addonSlug, userId, review, versionId } = payload;
+      const key = makeLatestUserReviewKey({ addonId, userId, versionId });
+
+      let { byId } = state;
+      if (review) {
+        byId = storeReviewObjects({
+          state,
+          reviews: [denormalizeReview(review)],
+        });
+      }
+
+      return {
+        ...state,
+        byId,
+        byAddon: {
+          ...state.byAddon,
+          // Reset all add-on reviews to trigger a refresh from the server.
+          [addonSlug]: undefined,
+        },
+        byUserId: {
+          ...state.byUserId,
+          // Reset all user reviews to trigger a refresh from the server.
+          [userId]: undefined,
+        },
+        latestUserReview: {
+          ...state.latestUserReview,
+          [key]: review ? review.id : null,
+        },
+      };
+    }
     case SET_REVIEW: {
       const { payload } = action;
-      const existingReviews = state[payload.userId]
-        ? state[payload.userId][payload.addonId]
-        : {};
-      const latestReview = payload;
       return {
         ...state,
         byId: storeReviewObjects({ state, reviews: [payload] }),
@@ -273,14 +320,6 @@ export default function reviewsReducer(
           ...state.byUserId,
           // This will trigger a refresh from the server.
           [payload.userId]: undefined,
-        },
-        [payload.userId]: {
-          ...state[payload.userId],
-          // TODO: this should be a list of review IDs, not objects. It will
-          // be complicated because we also need to preserve handling of the
-          // isLatest flag.
-          // https://github.com/mozilla/addons-frontend/issues/3221
-          [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
         },
       };
     }
