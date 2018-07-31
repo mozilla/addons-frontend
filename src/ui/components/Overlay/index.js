@@ -81,11 +81,11 @@ export class OverlayBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: Props) => {
   return ownProps.id;
 };
 
-const Overlay: React.ComponentType<InternalProps> = compose(
+const Overlay: React.ComponentType<Props> = compose(
   withUIState({
     fileName: __filename,
     extractId,
