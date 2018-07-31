@@ -216,13 +216,14 @@ export const selectLatestUserReview = ({
   const userReviewId = reviewsState.latestUserReview[key];
 
   if (userReviewId === null) {
-    // This means an action had previously attempted to fetch the latest
-    // user review but one does not exist.
+    // This means we had previously attempted to fetch the latest
+    // user review but it does not exist.
     return null;
   }
 
-  // Return the review object or undefined if no attempt has been made
-  // to fetch the latest user review.
+  // This either means we have not yet fetched a user review
+  // (return undefined) or we fetched and retrieved a user review
+  // (return the object).
   return selectReview(reviewsState, userReviewId);
 };
 
