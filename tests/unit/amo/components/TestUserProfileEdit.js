@@ -1272,7 +1272,7 @@ describe(__filename, () => {
         .find('p')
         .at(1)
         .text(),
-    ).toContain('When you use this email address to login again to');
+    ).toContain('When you use this email address to log in again to');
 
     expect(modal.find('p').at(2)).toHaveHTML(
       oneLine`<p><strong>NOTE:</strong> You cannot delete your profile if you

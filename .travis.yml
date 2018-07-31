@@ -57,7 +57,7 @@ jobs:
       addons:
         firefox: latest-nightly
         hosts: example.com
-      env: TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
+      env: TOXENV=discopane-ui-tests GECKODRIVER=0.21.0 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
       install:
         - yarn
         - yarn start-func-test-server &

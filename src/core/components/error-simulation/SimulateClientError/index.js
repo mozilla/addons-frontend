@@ -49,9 +49,8 @@ export class SimulateClientErrorBase extends React.Component {
 
           <ul>
             <li>
-              The grey button allows to throw an error in the button handler{' '}
-              {/* prettier-ignore */}
-              (<code>onClick()</code>) and can be used multiple times. It throws
+              The grey button allows to throw an error in the button handler (
+              <code>onClick()</code>) and can be used multiple times. It throws
               unhandled errors, which should be automatically logged by Sentry.
             </li>
             <li>

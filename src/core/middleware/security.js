@@ -4,6 +4,7 @@ import path from 'path';
 
 import helmet from 'helmet';
 import config from 'config';
+import deepcopy from 'deepcopy';
 
 import log from 'core/logger';
 
@@ -32,7 +33,8 @@ export function getNoScriptStyles(
 }
 
 export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
-  const cspConfig = _config.get('CSP') !== 'false' ? _config.get('CSP') : false;
+  const cspConfig =
+    _config.get('CSP') !== 'false' ? deepcopy(_config.get('CSP')) : false;
 
   if (cspConfig) {
     if (noScriptStyles) {
@@ -40,6 +42,7 @@ export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
         .createHash('sha256')
         .update(noScriptStyles)
         .digest('base64');
+
       const cspValue = `'sha256-${hash}'`;
       if (
         cspConfig.directives &&
@@ -48,6 +51,7 @@ export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
         cspConfig.directives.styleSrc.push(cspValue);
       }
     }
+
     return helmet.contentSecurityPolicy(cspConfig);
   }
 

@@ -91,45 +91,58 @@ type CreateReducerType = <AnyState>(
 // See https://flow.org/en/docs/types/utilities/#toc-objmap
 type AppReducersType = $ObjMap<AppState, CreateReducerType>;
 
+type CreateRootReducerParams = {|
+  history: ReactRouterHistoryType,
+  reducers: AppReducersType,
+|};
+
+export const createRootReducer = ({
+  history,
+  reducers,
+}: CreateRootReducerParams) => {
+  return connectRouter(history)(combineReducers(reducers));
+};
+
 type CreateStoreParams = {|
   history: ReactRouterHistoryType,
   initialState: Object,
 |};
+
+export const reducers: AppReducersType = {
+  abuse,
+  addons,
+  addonsByAuthors,
+  api,
+  autocomplete,
+  categories,
+  collections,
+  errors,
+  errorPage,
+  formOverlay,
+  heroBanners,
+  home,
+  infoDialog,
+  installations,
+  landing,
+  languageTools,
+  recommendations,
+  redirectTo,
+  reviews,
+  search,
+  survey,
+  uiState,
+  userAbuseReports,
+  users,
+  viewContext,
+};
 
 export default function createStore({
   history = createMemoryHistory(),
   initialState = {},
 }: CreateStoreParams = {}) {
   const sagaMiddleware = createSagaMiddleware();
-  const reducers: AppReducersType = {
-    abuse,
-    addons,
-    addonsByAuthors,
-    api,
-    autocomplete,
-    categories,
-    collections,
-    errors,
-    errorPage,
-    formOverlay,
-    heroBanners,
-    home,
-    infoDialog,
-    installations,
-    landing,
-    languageTools,
-    recommendations,
-    redirectTo,
-    reviews,
-    search,
-    survey,
-    uiState,
-    userAbuseReports,
-    users,
-    viewContext,
-  };
   const store = _createStore(
-    connectRouter(history)(combineReducers(reducers)),
+    createRootReducer({ history, reducers }),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),

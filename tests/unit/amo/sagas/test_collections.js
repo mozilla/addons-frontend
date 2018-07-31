@@ -127,6 +127,11 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
+      mockApi
+        .expects('getCollectionAddons')
+        .once()
+        .returns(Promise.reject(error));
+
       _fetchCurrentCollection({ slug, username });
 
       const expectedAction = errorHandler.createErrorAction(error);
