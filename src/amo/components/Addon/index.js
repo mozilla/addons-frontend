@@ -164,13 +164,10 @@ export class AddonBase extends React.Component {
         previewURL = addon.previewURL;
       }
 
-      const themeClassName = 'Addon-theme-header';
-
       return (
         <div
+          className="Addon-theme-header"
           key="Addon-theme-image"
-          className={themeClassName}
-          id={themeClassName}
           role="presentation"
         >
           <img
@@ -183,7 +180,7 @@ export class AddonBase extends React.Component {
     }
 
     return (
-      <div className="Addon-icon">
+      <div className="Addon-icon" key="Addon-icon-header">
         <img
           alt={label}
           className="Addon-icon-image"

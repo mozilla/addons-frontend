@@ -178,9 +178,7 @@ describe(__filename, () => {
   });
 
   it('renders a loading class name while there is no addon', () => {
-    const root = render({
-      addon: null,
-    });
+    const root = render({ addon: null });
 
     expect(root.find('.SearchResult-icon')).toHaveClassName(
       '.SearchResult-icon--loading',
