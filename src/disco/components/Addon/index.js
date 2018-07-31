@@ -14,7 +14,6 @@ import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
@@ -28,10 +27,11 @@ import {
   validInstallStates,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { getPreviewImage } from 'core/imageUtils';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByGUID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
-import { getPreviewImage, isTheme } from 'core/utils';
+import { isTheme } from 'core/utils';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
@@ -155,7 +155,7 @@ export class AddonBase extends React.Component {
           {headerImage}
         </a>
       ) : (
-        <React.Fragment>{headerImage}</React.Fragment>
+        headerImage
       );
     }
 
@@ -253,7 +253,7 @@ export class AddonBase extends React.Component {
     }
 
     const addonClasses = makeClassName('addon', {
-      theme: ADDON_TYPE_THEMES.includes(type),
+      theme: isTheme(type),
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
