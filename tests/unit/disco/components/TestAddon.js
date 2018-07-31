@@ -426,7 +426,7 @@ describe(__filename, () => {
         },
       });
       const image = shallowRoot.find('.Addon-theme-header-image');
-      expect(image.prop('src')).toEqual(fullImage);
+      expect(image).toHaveProp('src', fullImage);
       expect(image).toHaveProp('alt', `Preview of ${newAddonName}`);
     });
   });
