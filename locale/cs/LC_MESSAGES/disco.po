@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2018-07-24 18:34+0000\n"
+"PO-Revision-Date: 2018-04-28 12:36+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -48,7 +48,7 @@ msgstr "OK!"
 
 #: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
-msgstr "Nainstalovat motiv"
+msgstr "Nainstalovat vzhled"
 
 #: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
