@@ -434,11 +434,11 @@ export const clearAddonReviews = ({
 };
 
 type SetLatestReviewParams = {|
-  review: ExternalReviewType | null,
   addonId: number,
   addonSlug: string,
-  versionId: number,
+  review: ExternalReviewType | null,
   userId: number,
+  versionId: number,
 |};
 
 export type SetLatestReviewAction = {|
@@ -446,16 +446,21 @@ export type SetLatestReviewAction = {|
   payload: SetLatestReviewParams,
 |};
 
-export const setLatestReview = (
-  params: SetLatestReviewParams,
-): SetLatestReviewAction => {
-  invariant(params.userId, 'userId is required');
-  invariant(params.addonId, 'addonId is required');
-  invariant(params.addonSlug, 'addonSlug is required');
-  invariant(params.versionId, 'versionId is required');
-  invariant(params.review !== undefined, 'review is required');
+export const setLatestReview = ({
+  addonId,
+  addonSlug,
+  versionId,
+  review,
+  userId,
+}: SetLatestReviewParams): SetLatestReviewAction => {
+  invariant(addonId, 'addonId is required');
+  invariant(addonSlug, 'addonSlug is required');
+  invariant(review !== undefined, 'review is required');
+  invariant(userId, 'userId is required');
+  invariant(versionId, 'versionId is required');
+
   return {
     type: SET_LATEST_REVIEW,
-    payload: params,
+    payload: { addonId, addonSlug, review, userId, versionId },
   };
 };
