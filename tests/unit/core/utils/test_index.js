@@ -795,6 +795,7 @@ describe(__filename, () => {
       expect(historyWithQueryParams).toHaveProperty('location.query', {
         foo: '123',
       });
+    });
   });
 
   describe('getPreviewImage', () => {

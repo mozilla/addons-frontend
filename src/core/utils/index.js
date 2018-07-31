@@ -313,7 +313,7 @@ export const addQueryParamsToHistory = ({
   _stringify = stringify,
 }) => {
   return qhistory(history, _stringify, _parse);
-
+};
 
 export const getPreviewImage = (addon, { version = 0, full = true } = {}) => {
   const preview = addon.previews.length && addon.previews[version];
