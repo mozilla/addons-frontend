@@ -44,9 +44,9 @@ Here are some commands you can run:
 | yarn flow:check             | Explicitly check for Flow errors and exit                                                                  |
 | yarn flow:dev               | Continuously check for Flow errors                                                                         |
 | yarn eslint                 | Lint the JS                                                                                                |
-| yarn snyk                   | Run [snyk][] (without a command)                                                                           |
-| yarn snyk-ci                | Run [snyk][] `test` and `monitor`                                                                          |
-| yarn snyk-wizard            | Run [snyk][] `wizard` to fix an issue reported by snyk                                                     |
+| yarn snyk                   | Run [snyk](#snyk) (without a command)                                                                      |
+| yarn snyk-ci                | Run [snyk](#snyk) `test` and `monitor`                                                                     |
+| yarn snyk-wizard            | Run [snyk](#snyk) `wizard` to fix an issue reported by snyk                                                |
 | yarn start-func-test-server | Start a Docker container for functional tests                                                              |
 | yarn stylelint              | Lint the SCSS                                                                                              |
 | yarn lint                   | Run all the JS + SCSS linters                                                                              |
