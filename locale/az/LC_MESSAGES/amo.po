@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-08-01 17:11+0000\n"
+"PO-Revision-Date: 2018-08-01 17:20+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -460,11 +460,11 @@ msgstr ""
 
 #: src/amo/components/App/index.js:211 src/amo/components/SectionLinks/index.js:139
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Android üçün Əlavələr"
 
 #: src/amo/components/App/index.js:212
 msgid "%s – Add-ons for Android"
-msgstr ""
+msgstr "%s – Android üçün Əlavələr"
 
 #: src/amo/components/AutoSearchInput/index.js:214
 msgid "Loading"
@@ -496,11 +496,11 @@ msgstr "Uzantılar"
 
 #: src/amo/components/Category/index.js:145 src/amo/components/Home/index.js:309 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:124
 msgid "Featured extensions"
-msgstr ""
+msgstr "Seçilmiş uzantılar"
 
 #: src/amo/components/Category/index.js:154 src/amo/components/Home/index.js:310 src/amo/components/LandingPage/index.js:147
 msgid "See more featured extensions"
-msgstr ""
+msgstr "Daha çox seçilmiş uzantı gör"
 
 #: src/amo/components/Category/index.js:155 src/amo/components/LandingPage/index.js:148 src/amo/components/Search/index.js:137
 msgid "Trending extensions"
@@ -854,7 +854,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:111
 msgid "Android Browser"
-msgstr ""
+msgstr "Android Səyyahı"
 
 #: src/amo/components/Footer/index.js:116
 msgid "iOS Browser"
@@ -981,15 +981,15 @@ msgstr "Əlfəcinlər"
 
 #: src/amo/components/Home/index.js:125
 msgid "Password managers"
-msgstr ""
+msgstr "Parol idarəçiləri"
 
 #: src/amo/components/Home/index.js:129
 msgid "Ad blockers"
-msgstr ""
+msgstr "Reklam əngəlləyiciləri"
 
 #: src/amo/components/Home/index.js:133
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Ağıllı alış-veriş"
 
 #: src/amo/components/Home/index.js:137
 msgid "Productivity"
@@ -997,7 +997,7 @@ msgstr "Məhsuldarlıq"
 
 #: src/amo/components/Home/index.js:141
 msgid "Watching Videos"
-msgstr ""
+msgstr "Videolara baxma"
 
 #: src/amo/components/Home/index.js:169
 msgid "Abstract"
@@ -1026,35 +1026,35 @@ msgstr ""
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/components/Home/index.js:225
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Firefox-un necə işlədiyini uzantılarla fərdiləşdirin. Hansı sizə maraqlıdır?"
 
 #: src/amo/components/Home/index.js:227
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Firefox-un necə göründüyünü mövzularla dəyişdirin."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more social media customization extensions"
-msgstr ""
+msgstr "Daha çox sosial şəbəkə fərdiləşdirmələri uzantıları görün"
 
 #: src/amo/components/Home/index.js:53
 msgid "Social media customization"
-msgstr ""
+msgstr "Sosial şəbəkə fərdiləşdirmələri"
 
 #: src/amo/components/Home/index.js:58
 msgid "See more dynamic downloaders"
-msgstr ""
+msgstr "Daha çox dinamik endirənlər gör"
 
 #: src/amo/components/Home/index.js:59
 msgid "Dynamic downloaders"
-msgstr ""
+msgstr "Dinamik endirənlər"
 
 #: src/amo/components/Home/index.js:64
 msgid "See more summer themes"
-msgstr ""
+msgstr "Daha çox yay mövzuları gör"
 
 #: src/amo/components/Home/index.js:65
 msgid "Summer themes"
-msgstr ""
+msgstr "Yay mövzuları"
 
 #: src/amo/components/Home/index.js:70
 msgid "See more must-have media extensions"
@@ -1218,7 +1218,7 @@ msgstr "Firefox-u fərdiləşdirmək və sizin səyyahınız etmək üçün güc
 
 #: src/amo/components/LandingPage/index.js:262
 msgid "Explore all categories"
-msgstr ""
+msgstr "Bütün kateqoriyaları kəşf et"
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1650,7 +1650,7 @@ msgstr "Axtarış Alətləri"
 
 #: src/amo/components/SectionLinks/index.js:128
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Digər Səyyah Saytları"
 
 #: src/amo/components/SectionLinks/index.js:59
 msgid "for Firefox"
