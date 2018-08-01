@@ -18,6 +18,7 @@ import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
+import { selectUIState } from 'core/reducers/uiState';
 import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
@@ -645,20 +646,32 @@ export const createUserNotificationsResponse = () => {
  * propagate to all HOCs.
  */
 export function applyUIStateChanges({ root, store }) {
-  const ownProps = root.instance().props;
+  const rootProps = root.instance().props;
+  const { uiStateID } = rootProps;
   invariant(
-    ownProps.uiStateID,
+    uiStateID,
     'uiStateID cannot be undefined; was the component wrapped in withUIState()?',
   );
 
+  const state = store.getState();
+
+  if (selectUIState({ uiState: state.uiState, uiStateID }) === undefined) {
+    throw new Error(
+      'Cannot apply UI state changes because the component has not dispatched any setUIState() actions yet',
+    );
+  }
+
   const mapStateToProps = createUIStateMapper({
-    uiStateID: ownProps.uiStateID,
+    // This value is never used. The state is always selected from the
+    // Redux store.
+    initialState: {},
+    uiStateID,
   });
-  const stateProps = mapStateToProps(store.getState(), ownProps);
+  const stateProps = mapStateToProps(state, rootProps);
   const mappedProps = mergeUIStateProps(
     stateProps,
     { dispatch: store.dispatch },
-    ownProps,
+    rootProps,
   );
 
   root.setProps(mappedProps);

@@ -224,7 +224,6 @@ describe(__filename, () => {
     it('changes UI state when the leave a note button is clicked', () => {
       const { store } = dispatchClientMetadata();
       const root = render({ store });
-      applyUIStateChanges({ root, store });
 
       expect(root.instance().props.uiState.editingNote).toEqual(false);
 

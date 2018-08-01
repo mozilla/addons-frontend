@@ -1,4 +1,5 @@
 /* eslint-disable react/no-multi-comp, react/prop-types */
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import withUIState, { generateId } from 'core/withUIState';
@@ -43,8 +44,6 @@ describe(__filename, () => {
         <Overlay id={id} store={store} {...props} />,
         OverlayBase,
       );
-      // Apply initial state change from componentWillMount.
-      applyUIStateChanges({ root, store });
       return root;
     };
 
@@ -67,23 +66,6 @@ describe(__filename, () => {
       expect(root.find('.overlay')).toHaveLength(0);
     });
 
-    it('separates state by instance', () => {
-      const root1 = render({ id: 'one' });
-      const root2 = render({ id: 'two' });
-
-      // The first overlay should be open.
-      expect(root1.find('.overlay')).toHaveLength(1);
-
-      // Close the second overlay.
-      root2.find('.close-button').simulate('click');
-
-      applyUIStateChanges({ root: root1, store });
-      applyUIStateChanges({ root: root2, store });
-
-      // The first overlay should still be open.
-      expect(root1.find('.overlay')).toHaveLength(1);
-    });
-
     it('begins with an initial state', () => {
       class ThingBase extends React.Component {
         render() {
@@ -103,7 +85,7 @@ describe(__filename, () => {
       expect(root.instance().props.uiState).toEqual(initialState);
     });
 
-    it('always resets initial state per component instance', () => {
+    it('shares state across instances', () => {
       class ThingBase extends React.Component {
         render() {
           return <div />;
@@ -124,10 +106,59 @@ describe(__filename, () => {
       applyUIStateChanges({ root: root1, store });
       expect(root1.instance().props.uiState.visible).toEqual(false);
 
-      // Create a second instance and make sure the state was reset.
+      // Create a second instance.
       const root2 = shallowUntilTarget(<Thing store={store} />, ThingBase);
       applyUIStateChanges({ root: root2, store });
-      expect(root2.instance().props.uiState).toEqual(initialState);
+      // Make sure the state is shared between the two instances.
+      expect(root2.instance().props.uiState.visible).toEqual(false);
+    });
+
+    it('does not reset state when unmounting', () => {
+      const NonResettingOverlay = withUIState({
+        fileName: __filename,
+        extractId: (props) => props.id,
+        initialState: { isOpen: true },
+      })(OverlayBase);
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = shallow(
+        <NonResettingOverlay store={store} id="some-component-id" />,
+      )
+        .find('WithUIState')
+        .dive();
+
+      root.unmount();
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('can reset state when unmounting', () => {
+      const initialState = { isOpen: true };
+
+      const AutoResettingOverlay = withUIState({
+        fileName: __filename,
+        extractId: (props) => props.id,
+        initialState,
+        resetOnUnmount: true,
+      })(OverlayBase);
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = shallow(
+        <AutoResettingOverlay store={store} id="some-component-id" />,
+      )
+        .find('WithUIState')
+        .dive();
+
+      const { uiStateID } = root.instance().props;
+      root.unmount();
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        setUIState({
+          id: uiStateID,
+          change: initialState,
+        }),
+      );
     });
 
     it('lets you set a custom uiStateID', () => {
@@ -141,9 +172,10 @@ describe(__filename, () => {
         dispatchSpy,
         setUIState({
           id: uiStateID,
-          change: { isOpen: true },
+          change: { isOpen: false },
         }),
       );
+      sinon.assert.callCount(dispatchSpy, 1);
     });
   });
 

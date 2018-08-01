@@ -4,7 +4,7 @@ import invariant from 'invariant';
 import { connect } from 'react-redux';
 
 import { getDisplayName, normalizeFileNameId } from 'core/utils';
-import { setUIState } from 'core/reducers/uiState';
+import { selectUIState, setUIState } from 'core/reducers/uiState';
 import type { AppState } from 'amo/store';
 
 type ExtractIdFunc = (props: Object) => string;
@@ -33,6 +33,7 @@ export const createUIStateMapper = ({
   fileName?: string,
   uiStateID?: string,
 |}) => {
+  invariant(initialState, 'initialState is required');
   const mapStateToProps = (state: AppState, props: Object) => {
     let computedUIStateID;
     if (uiStateID) {
@@ -43,7 +44,9 @@ export const createUIStateMapper = ({
       computedUIStateID =
         props.uiStateID || generateId({ fileName, id: extractId(props) });
     }
-    const uiState = state.uiState[computedUIStateID] || initialState;
+    const uiState =
+      selectUIState({ uiState: state.uiState, uiStateID: computedUIStateID }) ||
+      initialState;
     return {
       uiState,
       uiStateID: computedUIStateID,
@@ -69,14 +72,46 @@ export const mergeUIStateProps = (
   };
 };
 
+/*
+ * This HOC can be used to somewhat mimic the behavior of this.setState()
+ * with Redux reducers/actions.
+ *
+ * It renders your component with a setUIState() prop that can be used
+ * just like this.setState() to dispatch actions that change the internal
+ * state of the component.
+ *
+ * It provides a uiState prop which can be used to read internal state
+ * like you would read this.state.
+ *
+ * One key difference from this.setState() is that your component will
+ * not reset its state when mounted. Instead, it uses
+ * the ID returned from extractID(props) to get its state from the
+ * Redux store.
+ *
+ * You can make the component always reset its state by configuring
+ * withUIState({ ..., resetOnUnmount: true }).
+ *
+ * This will behave more like this.setState() but you will lose some
+ * features of Redux persistence such as predictable hot reloading and
+ * possibly other state replay features.
+ */
 const withUIState = ({
   fileName,
   extractId,
   initialState,
+  resetOnUnmount = false,
 }: {|
+  // This should always be set to __filename for ID purposes.
   fileName: string,
+  // A function that takes component props and returns a string to identify this state.
   extractId: ExtractIdFunc,
+  // An Object that defines the initial state.
   initialState: Object,
+  // When false (the default), every component instance will always
+  // render using persistent Redux state. When true, component state will
+  // be reset when it is unmounted. Set this to true to more closely
+  // mimic this.setState() behavior.
+  resetOnUnmount?: boolean,
 |}): ((React.ComponentType<any>) => React.ComponentType<any>) => {
   invariant(fileName, 'fileName is required');
   invariant(extractId, 'extractId is required');
@@ -90,16 +125,10 @@ const withUIState = ({
 
   return (WrappedComponent) => {
     class WithUIState extends React.Component<any> {
-      componentDidMount() {
-        // Every time the component mounts, reset the state regardless
-        // of what is saved in the Redux store. This makes the
-        // implementation behave more like this.setState() whereby
-        // the component constructor() would always initialize
-        // like this.state = {...}.
-        //
-        // TODO: Optimize this by only dispatching if
-        // props.uiState doesn't match initialState?
-        this.props.setUIState(initialState);
+      componentWillUnmount() {
+        if (resetOnUnmount) {
+          this.props.setUIState(initialState);
+        }
       }
 
       render() {
