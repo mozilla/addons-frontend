@@ -17,6 +17,7 @@ import {
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
 import reviewsReducer, {
+  addReviewToState,
   changeViewState,
   expandReviewObjects,
   getReviewsByUserId,
@@ -100,62 +101,36 @@ describe(__filename, () => {
     expect(storedReview.reply.body).toEqual(replyBody);
   });
 
-  it('stores a review object', () => {
-    const review = { ...fakeReview, id: 1 };
-    const action = setReview(review);
-    const state = reviewsReducer(undefined, action);
-    expect(state.byId[review.id]).toEqual(createInternalReview(review));
-  });
+  describe('SET_REVIEW', () => {
+    it('calls _addReviewToState()', () => {
+      const _addReviewToState = sinon.spy();
 
-  it('stores an internal review object', () => {
-    const review = createInternalReview({ ...fakeReview, id: 1 });
-    const action = setInternalReview(review);
-    const state = reviewsReducer(undefined, action);
-    expect(state.byId[review.id]).toEqual(review);
-  });
+      const review = fakeReview;
+      reviewsReducer(undefined, setReview(review), {
+        _addReviewToState,
+      });
 
-  it('resets the byUserId data when adding a new review', () => {
-    const userId = 123;
-
-    const prevState = reviewsReducer(
-      undefined,
-      setUserReviews({
-        pageSize: DEFAULT_API_PAGE_SIZE,
-        reviews: [fakeReview],
-        reviewCount: 1,
-        userId,
-      }),
-    );
-    expect(prevState.byUserId[userId]).toBeDefined();
-
-    const state = reviewsReducer(prevState, setFakeReview({ userId }));
-    expect(state.byUserId[userId]).not.toBeDefined();
-  });
-
-  it('resets the byUserId data when adding an internal review', () => {
-    const userId = 123;
-
-    const prevState = reviewsReducer(
-      undefined,
-      setUserReviews({
-        pageSize: DEFAULT_API_PAGE_SIZE,
-        reviews: [fakeReview],
-        reviewCount: 1,
-        userId,
-      }),
-    );
-    expect(prevState.byUserId[userId]).toBeDefined();
-
-    const review = createInternalReview({
-      ...fakeReview,
-      user: {
-        ...fakeReview.user,
-        id: userId,
-      },
+      sinon.assert.calledWith(_addReviewToState, {
+        state: initialState,
+        review: createInternalReview(review),
+      });
     });
-    const state = reviewsReducer(prevState, setInternalReview(review));
+  });
 
-    expect(state.byUserId[userId]).not.toBeDefined();
+  describe('SET_INTERNAL_REVIEW', () => {
+    it('calls _addReviewToState()', () => {
+      const _addReviewToState = sinon.spy();
+
+      const review = createInternalReview(fakeReview);
+      reviewsReducer(undefined, setInternalReview(review), {
+        _addReviewToState,
+      });
+
+      sinon.assert.calledWith(_addReviewToState, {
+        state: initialState,
+        review,
+      });
+    });
   });
 
   it('stores a review reply object', () => {
@@ -881,6 +856,40 @@ describe(__filename, () => {
       state = reviewsReducer(state, _setLatestReview({ userId }));
 
       expect(state.byUserId[userId]).toBeUndefined();
+    });
+  });
+
+  describe('addReviewToState', () => {
+    it('stores an internal review object', () => {
+      const review = createInternalReview({ ...fakeReview, id: 1 });
+      const state = addReviewToState({ state: {}, review });
+
+      expect(state.byId[review.id]).toEqual(review);
+    });
+
+    it('resets the byUserId data when adding a new review', () => {
+      const userId = 123;
+
+      const prevState = reviewsReducer(
+        undefined,
+        setUserReviews({
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [fakeReview],
+          reviewCount: 1,
+          userId,
+        }),
+      );
+      expect(prevState.byUserId[userId]).toBeDefined();
+
+      const review = createInternalReview({
+        ...fakeReview,
+        user: {
+          ...fakeReview.user,
+          id: userId,
+        },
+      });
+      const state = addReviewToState({ state: prevState, review });
+      expect(state.byUserId[userId]).not.toBeDefined();
     });
   });
 });

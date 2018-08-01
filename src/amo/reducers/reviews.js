@@ -229,8 +229,7 @@ export const selectLatestUserReview = ({
   return selectReview(reviewsState, userReviewId);
 };
 
-// This is used in the SET_REVIEW and SET_INTERNAL_REVIEW cases.
-const addReviewInState = ({
+export const addReviewToState = ({
   state,
   review,
 }: {|
@@ -266,6 +265,9 @@ type ReviewActionType =
 export default function reviewsReducer(
   state: ReviewsState = initialState,
   action: ReviewActionType,
+  {
+    _addReviewToState = addReviewToState,
+  }: {| _addReviewToState: typeof addReviewToState |} = {},
 ) {
   switch (action.type) {
     case SEND_REPLY_TO_REVIEW:
@@ -337,12 +339,12 @@ export default function reviewsReducer(
       const { payload } = action;
       const review = createInternalReview(payload);
 
-      return addReviewInState({ state, review });
+      return _addReviewToState({ state, review });
     }
     case SET_INTERNAL_REVIEW: {
       const { payload } = action;
 
-      return addReviewInState({ state, review: payload });
+      return _addReviewToState({ state, review: payload });
     }
     case SET_REVIEW_REPLY: {
       const reviewId = action.payload.originalReviewId;
