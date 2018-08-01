@@ -34,10 +34,8 @@ export class OverlayBase extends React.Component<InternalProps> {
   };
 
   componentDidMount() {
-    const { uiState, visibleOnLoad } = this.props;
-    if (visibleOnLoad !== uiState.visible) {
-      this.props.setUIState({ visible: visibleOnLoad });
-    }
+    const { visibleOnLoad } = this.props;
+    this.props.setUIState({ visible: visibleOnLoad });
   }
 
   componentWillReceiveProps(nextProps: InternalProps) {
@@ -50,10 +48,6 @@ export class OverlayBase extends React.Component<InternalProps> {
     ) {
       this.props.setUIState({ visible: visibleOnLoadNew });
     }
-  }
-
-  componentWillUnmount() {
-    this.hide();
   }
 
   onClickBackground = (event: SyntheticEvent<any>) => {

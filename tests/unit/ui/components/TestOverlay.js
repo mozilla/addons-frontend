@@ -26,20 +26,37 @@ describe(__filename, () => {
       OverlayBase,
     );
 
-    // return root;
-
     // Apply initial UI state.
     applyUIStateChanges({ root, store: props.store });
     return root;
   };
 
-  it('renders an Overlay when visibleOnLoad is true', () => {
+  it('is hidden by default', () => {
+    const root = render();
+    expect(root).not.toHaveClassName('Overlay--visible');
+  });
+
+  it('becomes visible when its mounted with visibleOnLoad prop as true', () => {
     const root = render({ visibleOnLoad: true });
 
     expect(root).toHaveClassName('Overlay');
     expect(root).toHaveClassName('Overlay--visible');
     expect(root.find('.Overlay-background')).toHaveLength(1);
     expect(root.find('.Overlay-contents')).toHaveLength(1);
+  });
+
+  it('becomes visible once the visibleOnLoad prop of true is passed', () => {
+    const { store } = dispatchClientMetadata();
+
+    const root = render({ store });
+
+    expect(root).not.toHaveClassName('Overlay--visible');
+
+    root.setProps({ visibleOnLoad: true });
+
+    applyUIStateChanges({ root, store });
+
+    expect(root).toHaveClassName('Overlay--visible');
   });
 
   it('renders extra className if provided', () => {
@@ -61,28 +78,6 @@ describe(__filename, () => {
     ).toContain(text);
   });
 
-  it('is hidden by default', () => {
-    const root = render();
-    expect(root).not.toHaveClassName('Overlay--visible');
-  });
-
-  it('becomes visible once the `visibleOnLoad` prop is passed', () => {
-    const { store } = dispatchClientMetadata();
-
-    const root = render({
-      store,
-      visibleOnLoad: false,
-    });
-
-    expect(root).not.toHaveClassName('Overlay--visible');
-
-    root.setProps({ visibleOnLoad: true });
-
-    applyUIStateChanges({ root, store });
-
-    expect(root).toHaveClassName('Overlay--visible');
-  });
-
   it('calls onEscapeOverlay when clicking the background', () => {
     const onEscapeOverlay = sinon.stub();
     const root = render({
@@ -96,10 +91,7 @@ describe(__filename, () => {
 
   it('hides when you click the background', () => {
     const { store } = dispatchClientMetadata();
-    const root = render({
-      visibleOnLoad: true,
-      store,
-    });
+    const root = render({ visibleOnLoad: true, store });
     const btn = root.find('.Overlay-background');
     btn.simulate('click', createFakeEvent());
     applyUIStateChanges({ root, store });
