@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
+import { SET_INTERNAL_REVIEW } from 'amo/constants';
 import { setInternalReview, setReview } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import * as coreUtils from 'core/utils';
@@ -441,6 +442,21 @@ describe(__filename, () => {
         return actions
           .refreshAddon({ addonSlug: 'some-slug', apiState })
           .then(() => mockUtils.verify());
+      });
+    });
+
+    describe('setInternalReview', () => {
+      it('dispatches a setInternalReview action', () => {
+        const review = {
+          ...defaultReview,
+          body: 'some body',
+        };
+        actions.setInternalReview(review);
+
+        sinon.assert.called(dispatch);
+        const action = dispatch.firstCall.args[0];
+        expect(action.type).toEqual(SET_INTERNAL_REVIEW);
+        expect(action.payload).toEqual(review);
       });
     });
   });

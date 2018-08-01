@@ -6,6 +6,7 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
+  setInternalReview,
   setLatestReview,
   setReview,
   setReviewReply,
@@ -106,6 +107,13 @@ describe(__filename, () => {
     expect(state.byId[review.id]).toEqual(createInternalReview(review));
   });
 
+  it('stores an internal review object', () => {
+    const review = createInternalReview({ ...fakeReview, id: 1 });
+    const action = setInternalReview(review);
+    const state = reviewsReducer(undefined, action);
+    expect(state.byId[review.id]).toEqual(review);
+  });
+
   it('resets the byUserId data when adding a new review', () => {
     const userId = 123;
 
@@ -121,6 +129,32 @@ describe(__filename, () => {
     expect(prevState.byUserId[userId]).toBeDefined();
 
     const state = reviewsReducer(prevState, setFakeReview({ userId }));
+    expect(state.byUserId[userId]).not.toBeDefined();
+  });
+
+  it('resets the byUserId data when adding an internal review', () => {
+    const userId = 123;
+
+    const prevState = reviewsReducer(
+      undefined,
+      setUserReviews({
+        pageSize: DEFAULT_API_PAGE_SIZE,
+        reviews: [fakeReview],
+        reviewCount: 1,
+        userId,
+      }),
+    );
+    expect(prevState.byUserId[userId]).toBeDefined();
+
+    const review = createInternalReview({
+      ...fakeReview,
+      user: {
+        ...fakeReview.user,
+        id: userId,
+      },
+    });
+    const state = reviewsReducer(prevState, setInternalReview(review));
+
     expect(state.byUserId[userId]).not.toBeDefined();
   });
 

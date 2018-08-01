@@ -229,6 +229,25 @@ export const selectLatestUserReview = ({
   return selectReview(reviewsState, userReviewId);
 };
 
+// This is used in the SET_REVIEW and SET_INTERNAL_REVIEW cases.
+const addReviewInState = ({
+  state,
+  review,
+}: {|
+  state: ReviewsState,
+  review: UserReviewType,
+|}) => {
+  return {
+    ...state,
+    byId: storeReviewObjects({ state, reviews: [review] }),
+    byUserId: {
+      ...state.byUserId,
+      // This will trigger a refresh from the server.
+      [review.userId]: undefined,
+    },
+  };
+};
+
 type ReviewActionType =
   | ClearAddonReviewsAction
   | HideEditReviewFormAction
@@ -318,28 +337,12 @@ export default function reviewsReducer(
       const { payload } = action;
       const review = createInternalReview(payload);
 
-      return {
-        ...state,
-        byId: storeReviewObjects({ state, reviews: [review] }),
-        byUserId: {
-          ...state.byUserId,
-          // This will trigger a refresh from the server.
-          [review.userId]: undefined,
-        },
-      };
+      return addReviewInState({ state, review });
     }
     case SET_INTERNAL_REVIEW: {
       const { payload } = action;
 
-      return {
-        ...state,
-        byId: storeReviewObjects({ state, reviews: [payload] }),
-        byUserId: {
-          ...state.byUserId,
-          // This will trigger a refresh from the server.
-          [payload.userId]: undefined,
-        },
-      };
+      return addReviewInState({ state, review: payload });
     }
     case SET_REVIEW_REPLY: {
       const reviewId = action.payload.originalReviewId;
