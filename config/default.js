@@ -293,7 +293,7 @@ module.exports = {
   enableAddonRecommendations: false,
 
   // Enable static themes.
-  enableStaticThemes: false,
+  enableStaticThemes: true,
 
   enableExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
