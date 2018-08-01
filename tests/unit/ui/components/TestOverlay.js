@@ -83,6 +83,17 @@ describe(__filename, () => {
     expect(root).toHaveClassName('Overlay--visible');
   });
 
+  it('calls onEscapeOverlay when clicking the background', () => {
+    const onEscapeOverlay = sinon.stub();
+    const root = render({
+      visibleOnLoad: true,
+      onEscapeOverlay,
+    });
+    const btn = root.find('.Overlay-background');
+    btn.simulate('click', createFakeEvent());
+    sinon.assert.called(onEscapeOverlay);
+  });
+
   it('hides when you click the background', () => {
     const { store } = dispatchClientMetadata();
     const root = render({
