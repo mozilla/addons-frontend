@@ -4,7 +4,6 @@ import path from 'path';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SriPlugin from 'webpack-subresource-integrity';
-import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
