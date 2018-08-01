@@ -26,10 +26,9 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
+  { slug: 'refined-reading', username: 'mozilla' },
+  { slug: 're-imagine-search', username: 'mozilla' },
   { slug: 'social-media-customization', username: 'mozilla' },
-  { slug: 'dynamic-media-downloaders', username: 'mozilla' },
-  { slug: 'summer-themes', username: 'mozilla' },
-  { slug: 'must-have-media', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -47,30 +46,24 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
+      footerText: i18n.gettext('See more reading extensions'),
+      header: i18n.gettext('Refined reading'),
+      isTheme: false,
+      ...FEATURED_COLLECTIONS[0],
+    },
+    {
+      footerText: i18n.gettext('See more exceptional search tools'),
+      header: i18n.gettext('Exceptional search tools'),
+      isTheme: false,
+      ...FEATURED_COLLECTIONS[1],
+    },
+    {
       footerText: i18n.gettext(
         'See more social media customization extensions',
       ),
       header: i18n.gettext('Social media customization'),
       isTheme: false,
-      ...FEATURED_COLLECTIONS[0],
-    },
-    {
-      footerText: i18n.gettext('See more dynamic downloaders'),
-      header: i18n.gettext('Dynamic downloaders'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[1],
-    },
-    {
-      footerText: i18n.gettext('See more summer themes'),
-      header: i18n.gettext('Summer themes'),
-      isTheme: true,
       ...FEATURED_COLLECTIONS[2],
-    },
-    {
-      footerText: i18n.gettext('See more must-have media extensions'),
-      header: i18n.gettext('Must-have media'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[3],
     },
   ];
 };
@@ -90,7 +83,7 @@ export class HomeBase extends React.Component {
 
   static defaultProps = {
     _config: config,
-    includeFeaturedThemes: false,
+    includeFeaturedThemes: true,
   };
 
   componentWillMount() {
@@ -254,6 +247,31 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredExtensions}
+          className="Home-FeaturedExtensions"
+          header={i18n.gettext('Featured extensions')}
+          footerText={i18n.gettext('See more featured extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+            },
+          }}
+          loading={loading}
+        />
+
+        {(loading || collections[0]) && (
+          <FeaturedCollectionCard
+            addons={collections[0]}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...featuredCollectionsMetadata[0]}
+          />
+        )}
+
         {includeFeaturedThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
@@ -275,15 +293,6 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        {(loading || collections[0]) && (
-          <FeaturedCollectionCard
-            addons={collections[0]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[0]}
-          />
-        )}
-
         {(loading || collections[1]) && (
           <FeaturedCollectionCard
             addons={collections[1]}
@@ -299,31 +308,6 @@ export class HomeBase extends React.Component {
             className="Home-FeaturedCollection"
             loading={loading}
             {...featuredCollectionsMetadata[2]}
-          />
-        )}
-
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={featuredExtensions}
-          className="Home-FeaturedExtensions"
-          header={i18n.gettext('Featured extensions')}
-          footerText={i18n.gettext('See more featured extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              featured: true,
-            },
-          }}
-          loading={loading}
-        />
-
-        {(loading || collections[3]) && (
-          <FeaturedCollectionCard
-            addons={collections[3]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[3]}
           />
         )}
 
