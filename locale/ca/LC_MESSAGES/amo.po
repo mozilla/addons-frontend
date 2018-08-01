@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 18:32+0000\n"
+"POT-Creation-Date: 2018-08-01 18:51+0000\n"
 "PO-Revision-Date: 2018-02-07 11:39+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -44,69 +44,69 @@ msgstr ""
 msgid "Add to collection"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:158
+#: src/amo/components/Addon/index.js:150
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:214
+#: src/amo/components/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:223
+#: src/amo/components/Addon/index.js:219
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/Addon/index.js:243
+#: src/amo/components/Addon/index.js:239
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:253
+#: src/amo/components/Addon/index.js:249
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:272
+#: src/amo/components/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "Quant a aquest diccionari"
 
-#: src/amo/components/Addon/index.js:275
+#: src/amo/components/Addon/index.js:271
 msgid "About this extension"
 msgstr "Quant a aquesta extensió"
 
-#: src/amo/components/Addon/index.js:278
+#: src/amo/components/Addon/index.js:274
 msgid "About this language pack"
 msgstr "Quant a aquest paquet de llengua"
 
-#: src/amo/components/Addon/index.js:281
+#: src/amo/components/Addon/index.js:277
 msgid "About this search plugin"
 msgstr "Quant a aquest connector de cerca"
 
-#: src/amo/components/Addon/index.js:285
+#: src/amo/components/Addon/index.js:281
 msgid "About this theme"
 msgstr "Quant a aquest tema"
 
-#: src/amo/components/Addon/index.js:288
+#: src/amo/components/Addon/index.js:284
 msgid "About this add-on"
 msgstr "Quant a aquest complement"
 
-#: src/amo/components/Addon/index.js:333
+#: src/amo/components/Addon/index.js:329
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:445
+#: src/amo/components/Addon/index.js:441
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:547
+#: src/amo/components/Addon/index.js:540
 msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:553
+#: src/amo/components/Addon/index.js:546
 msgid "Extension Metadata"
 msgstr "Metadades de l'extensió"
 
-#: src/amo/components/Addon/index.js:570
+#: src/amo/components/Addon/index.js:563
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 
@@ -208,62 +208,62 @@ msgstr ""
 msgid "Overall Rating"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:110
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:133
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:141
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Read the license agreement for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:157
 msgid "See all versions"
 msgstr "Mostra totes les versions"
 
-#: src/amo/components/AddonMoreInfo/index.js:175
+#: src/amo/components/AddonMoreInfo/index.js:182
 msgid "Add-on Links"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:187
+#: src/amo/components/AddonMoreInfo/index.js:194
 msgid "Version"
 msgstr "Versió"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:202
 #: src/amo/components/CollectionDetails/index.js:66
 msgid "Last updated"
 msgstr "Última actualització"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:210
 msgid "License"
 msgstr "Llicència"
 
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:218
 msgid "Privacy Policy"
 msgstr "Política de privadesa"
 
-#: src/amo/components/AddonMoreInfo/index.js:219
+#: src/amo/components/AddonMoreInfo/index.js:226
 msgid "End-User License Agreement"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:227
+#: src/amo/components/AddonMoreInfo/index.js:234
 msgid "Version History"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:237
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "Usage Statistics"
 msgstr "Estadístiques d'ús"
 
-#: src/amo/components/AddonMoreInfo/index.js:250
+#: src/amo/components/AddonMoreInfo/index.js:257
 msgid "More information"
 msgstr "Més informació"
 
 #: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/components/UserProfile/index.js:299
-#: src/amo/components/UserProfileEdit/index.js:592
+#: src/amo/components/UserProfile/index.js:307
+#: src/amo/components/UserProfileEdit/index.js:598
 msgid "Homepage"
 msgstr ""
 
@@ -320,22 +320,22 @@ msgstr ""
 msgid "Submit review"
 msgstr ""
 
-#: src/amo/components/AddonReviewList/index.js:174
+#: src/amo/components/AddonReviewList/index.js:200
 msgid "Add-on icon"
 msgstr ""
 
-#: src/amo/components/AddonReviewList/index.js:180
+#: src/amo/components/AddonReviewList/index.js:206
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList/index.js:194
+#: src/amo/components/AddonReviewList/index.js:220
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] ""
 msgstr[1] ""
 
 # Example: by The Author, The Next Author
-#: src/amo/components/AddonReviewList/index.js:223
+#: src/amo/components/AddonReviewList/index.js:249
 msgid "by %(authorList)s"
 msgstr ""
 
@@ -473,21 +473,21 @@ msgstr "Més temes de %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Més extensions d'aquests desenvolupadors"
 
-#: src/amo/components/App/index.js:207
-#: src/amo/components/SectionLinks/index.js:152
+#: src/amo/components/App/index.js:212
+#: src/amo/components/SectionLinks/index.js:153
 msgid "Add-ons for Firefox"
 msgstr ""
 
-#: src/amo/components/App/index.js:208
+#: src/amo/components/App/index.js:213
 msgid "%s – Add-ons for Firefox"
 msgstr ""
 
-#: src/amo/components/App/index.js:211
-#: src/amo/components/SectionLinks/index.js:139
+#: src/amo/components/App/index.js:216
+#: src/amo/components/SectionLinks/index.js:140
 msgid "Add-ons for Android"
 msgstr ""
 
-#: src/amo/components/App/index.js:212
+#: src/amo/components/App/index.js:217
 msgid "%s – Add-ons for Android"
 msgstr ""
 
@@ -516,85 +516,85 @@ msgstr ""
 msgid "Loading categories."
 msgstr ""
 
-#: src/amo/components/Category/index.js:144
-#: src/amo/components/LandingPage/index.js:223
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/Category/index.js:150
+#: src/amo/components/LandingPage/index.js:229
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:145
+#: src/amo/components/Category/index.js:151
 #: src/amo/components/Home/index.js:309
-#: src/amo/components/LandingPage/index.js:139
+#: src/amo/components/LandingPage/index.js:145
 #: src/amo/components/Search/index.js:124
 msgid "Featured extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:154
+#: src/amo/components/Category/index.js:160
 #: src/amo/components/Home/index.js:310
-#: src/amo/components/LandingPage/index.js:147
+#: src/amo/components/LandingPage/index.js:153
 msgid "See more featured extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:155
-#: src/amo/components/LandingPage/index.js:148
+#: src/amo/components/Category/index.js:161
+#: src/amo/components/LandingPage/index.js:154
 #: src/amo/components/Search/index.js:137
 msgid "Trending extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:164
-#: src/amo/components/LandingPage/index.js:156
+#: src/amo/components/Category/index.js:170
+#: src/amo/components/LandingPage/index.js:162
 msgid "See more trending extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:165
-#: src/amo/components/LandingPage/index.js:157
+#: src/amo/components/Category/index.js:171
+#: src/amo/components/LandingPage/index.js:163
 #: src/amo/components/Search/index.js:149
 msgid "Top rated extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:174
-#: src/amo/components/LandingPage/index.js:165
+#: src/amo/components/Category/index.js:180
+#: src/amo/components/LandingPage/index.js:171
 msgid "See more top rated extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:177
-#: src/amo/components/LandingPage/index.js:222
-#: src/amo/components/SectionLinks/index.js:97
+#: src/amo/components/Category/index.js:183
+#: src/amo/components/LandingPage/index.js:228
+#: src/amo/components/SectionLinks/index.js:98
 msgid "Themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:178
+#: src/amo/components/Category/index.js:184
 #: src/amo/components/Home/index.js:272
-#: src/amo/components/LandingPage/index.js:168
+#: src/amo/components/LandingPage/index.js:174
 #: src/amo/components/Search/index.js:127
 msgid "Featured themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:187
+#: src/amo/components/Category/index.js:193
 #: src/amo/components/Home/index.js:262
-#: src/amo/components/LandingPage/index.js:176
+#: src/amo/components/LandingPage/index.js:182
 msgid "See more featured themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:188
-#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/Category/index.js:194
+#: src/amo/components/LandingPage/index.js:183
 #: src/amo/components/Search/index.js:140
 msgid "Trending themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:197
-#: src/amo/components/LandingPage/index.js:182
+#: src/amo/components/Category/index.js:203
+#: src/amo/components/LandingPage/index.js:188
 msgid "See more trending themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:198
-#: src/amo/components/LandingPage/index.js:183
+#: src/amo/components/Category/index.js:204
+#: src/amo/components/LandingPage/index.js:189
 #: src/amo/components/Search/index.js:152
 msgid "Top rated themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:207
-#: src/amo/components/LandingPage/index.js:188
+#: src/amo/components/Category/index.js:213
+#: src/amo/components/LandingPage/index.js:194
 msgid "See more top rated themes"
 msgstr ""
 
@@ -610,27 +610,27 @@ msgstr ""
 msgid "Browse all themes in this category."
 msgstr ""
 
-#: src/amo/components/Collection/index.js:340
+#: src/amo/components/Collection/index.js:353
 msgid "Do you really want to delete this collection?"
 msgstr ""
 
-#: src/amo/components/Collection/index.js:343
+#: src/amo/components/Collection/index.js:356
 msgid "Delete this collection"
 msgstr ""
 
-#: src/amo/components/Collection/index.js:363
+#: src/amo/components/Collection/index.js:376
 msgid "Log in to create a collection"
 msgstr ""
 
-#: src/amo/components/Collection/index.js:364
+#: src/amo/components/Collection/index.js:377
 msgid "Log in to edit this collection"
 msgstr ""
 
-#: src/amo/components/Collection/index.js:401
+#: src/amo/components/Collection/index.js:414
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/Collection/index.js:404
+#: src/amo/components/Collection/index.js:417
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
@@ -681,50 +681,50 @@ msgstr ""
 msgid "My collections"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:244
 msgid "Create collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:241
+#: src/amo/components/CollectionManager/index.js:245
 msgid "Save collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:250
+#: src/amo/components/CollectionManager/index.js:254
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:264
+#: src/amo/components/CollectionManager/index.js:268
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:280
 msgid "Custom URL"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:317
-#: src/amo/components/UserProfileEdit/index.js:842
+#: src/amo/components/UserProfileEdit/index.js:848
 #: src/ui/components/ConfirmButton/index.js:107
 #: src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
 msgstr ""
 
-#: src/amo/components/CollectionSort/index.js:109
+#: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
 msgstr ""
 
-#: src/amo/components/CollectionSort/index.js:81
+#: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
 msgstr ""
 
-#: src/amo/components/CollectionSort/index.js:85
+#: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
 msgstr ""
 
-#: src/amo/components/CollectionSort/index.js:89
+#: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
 msgstr ""
 
-#: src/amo/components/CollectionSort/index.js:93
+#: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
 msgstr ""
 
@@ -994,7 +994,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:58 src/amo/components/Header/index.js:100
+#: src/amo/components/Footer/index.js:58 src/amo/components/Header/index.js:85
 msgid "Developer Hub"
 msgstr ""
 
@@ -1018,51 +1018,51 @@ msgstr ""
 msgid "View classic desktop site"
 msgstr ""
 
-#: src/amo/components/Header/index.js:109
-msgid "My Account"
-msgstr ""
-
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:100
 msgid "View My Collections"
 msgstr ""
 
-#: src/amo/components/Header/index.js:123
-#: src/amo/components/UserProfileEdit/index.js:466
+#: src/amo/components/Header/index.js:108
+#: src/amo/components/UserProfileEdit/index.js:472
 msgid "View My Profile"
 msgstr ""
 
-#: src/amo/components/Header/index.js:131
-#: src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/Header/index.js:116
+#: src/amo/components/UserProfileEdit/index.js:478
 msgid "Edit My Profile"
 msgstr ""
 
-#: src/amo/components/Header/index.js:135
+#: src/amo/components/Header/index.js:120
 msgid "Tools"
 msgstr ""
 
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:126
 msgid "Submit a New Add-on"
 msgstr ""
 
-#: src/amo/components/Header/index.js:146
+#: src/amo/components/Header/index.js:131
 msgid "Submit a New Theme"
 msgstr ""
 
-#: src/amo/components/Header/index.js:155
+#: src/amo/components/Header/index.js:140
 msgid "Manage My Submissions"
 msgstr ""
 
-#: src/amo/components/Header/index.js:165
+#: src/amo/components/Header/index.js:150
 msgid "Reviewer Tools"
 msgstr ""
 
-#: src/amo/components/Header/index.js:175
+#: src/amo/components/Header/index.js:160
 #: src/core/components/AuthenticateButton/index.js:78
 msgid "Log out"
 msgstr ""
 
-#: src/amo/components/Header/index.js:65
+#: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
+msgstr ""
+
+#: src/amo/components/Header/index.js:94
+msgid "My Account"
 msgstr ""
 
 #: src/amo/components/Home/index.js:121
@@ -1306,19 +1306,19 @@ msgstr ""
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:226
+#: src/amo/components/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:228
+#: src/amo/components/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:262
+#: src/amo/components/LandingPage/index.js:268
 msgid "Explore all categories"
 msgstr ""
 
@@ -1465,31 +1465,31 @@ msgstr ""
 msgid "Access browser activity during navigation"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:153
+#: src/amo/components/RatingManager/index.js:167
 msgid "Log in to rate this dictionary"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:155
+#: src/amo/components/RatingManager/index.js:169
 msgid "Log in to rate this language pack"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:157
+#: src/amo/components/RatingManager/index.js:171
 msgid "Log in to rate this search plugin"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:174
 msgid "Log in to rate this theme"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:162
+#: src/amo/components/RatingManager/index.js:176
 msgid "Log in to rate this extension"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:170
+#: src/amo/components/RatingManager/index.js:184
 msgid "Log in to rate this add-on"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:210
+#: src/amo/components/RatingManager/index.js:224
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr ""
 
@@ -1661,88 +1661,88 @@ msgstr ""
 msgid "Loading add-ons"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:110
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:108
+#: src/amo/components/SearchFilters/index.js:124
 msgid "All"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:109
 msgid "Extension"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:110
 msgid "Search Tool"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Theme"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Windows"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:126
 msgid "macOS"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:129
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Linux"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:137
+#: src/amo/components/SearchFilters/index.js:135
 msgid "Relevance"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:139
+#: src/amo/components/SearchFilters/index.js:137
 msgid "Recently Updated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Most Users"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:141
 msgid "Top Rated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Trending"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:152
 msgid "Filter results"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Sort by"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:178
 msgid "Add-on Type"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:198
 msgid "Operating System"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:224
 msgid "Featured add-ons only"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:62
+#: src/amo/components/SearchForm/index.js:72
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:130
+#: src/amo/components/SearchResult/index.js:127
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:159
+#: src/amo/components/SearchResult/index.js:156
 msgid "Add-on note"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:177
+#: src/amo/components/SearchResult/index.js:174
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] ""
@@ -1764,31 +1764,31 @@ msgstr ""
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:103
+#: src/amo/components/SectionLinks/index.js:104
 msgid "More…"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:117
+#: src/amo/components/SectionLinks/index.js:118
 msgid "Dictionaries & Language Packs"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:123
+#: src/amo/components/SectionLinks/index.js:124
 msgid "Search Tools"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:128
+#: src/amo/components/SectionLinks/index.js:129
 msgid "Other Browser Sites"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:59
+#: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:77
+#: src/amo/components/SectionLinks/index.js:78
 msgid "Explore"
 msgstr ""
 
@@ -2066,201 +2066,201 @@ msgstr ""
 msgid "Add-ons Home Page"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:205
+#: src/amo/components/UserProfile/index.js:213
 msgid "My reviews"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:211
+#: src/amo/components/UserProfile/index.js:219
 msgid "Browse the reviews for this add-on"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:259
+#: src/amo/components/UserProfile/index.js:267
 #, fuzzy
 msgid "Add-ons developer"
 msgstr "Més extensions d'aquests desenvolupadors"
 
-#: src/amo/components/UserProfile/index.js:265
+#: src/amo/components/UserProfile/index.js:273
 #, fuzzy
 msgid "Theme artist"
 msgstr "Més temes d'aquests artistes"
 
-#: src/amo/components/UserProfile/index.js:279
-#: src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfile/index.js:287
+#: src/amo/components/UserProfileEdit/index.js:460
 msgid "User Profile for %(user)s"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:309
-#: src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfile/index.js:317
+#: src/amo/components/UserProfileEdit/index.js:615
 msgid "Location"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:317
-#: src/amo/components/UserProfileEdit/index.js:621
+#: src/amo/components/UserProfile/index.js:325
+#: src/amo/components/UserProfileEdit/index.js:627
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:324
+#: src/amo/components/UserProfile/index.js:332
 #, fuzzy
 msgid "User since"
 msgstr "Usuaris"
 
-#: src/amo/components/UserProfile/index.js:334
+#: src/amo/components/UserProfile/index.js:342
 msgid "Number of add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:340
+#: src/amo/components/UserProfile/index.js:348
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:355
-#: src/amo/components/UserProfileEdit/index.js:643
+#: src/amo/components/UserProfile/index.js:363
+#: src/amo/components/UserProfileEdit/index.js:649
 msgid "Biography"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:379
+#: src/amo/components/UserProfile/index.js:387
 msgid "Edit profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:184
+#: src/amo/components/UserProfileEdit/index.js:190
 msgid "Picture successfully deleted"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:422
+#: src/amo/components/UserProfileEdit/index.js:428
 msgid "Log in to edit the profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:467
+#: src/amo/components/UserProfileEdit/index.js:473
 msgid "View user's profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:473
+#: src/amo/components/UserProfileEdit/index.js:479
 msgid "Edit user's profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:497
 msgid "Account"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:492
+#: src/amo/components/UserProfileEdit/index.js:498
 msgid "Account for %(username)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:504
 #, fuzzy
 msgid "Username"
 msgstr "Usuari"
 
-#: src/amo/components/UserProfileEdit/index.js:511
+#: src/amo/components/UserProfileEdit/index.js:517
 msgid "Email Address"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:518
+#: src/amo/components/UserProfileEdit/index.js:524
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:527
+#: src/amo/components/UserProfileEdit/index.js:533
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:544
+#: src/amo/components/UserProfileEdit/index.js:550
 msgid "Manage Firefox Accounts…"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:552
+#: src/amo/components/UserProfileEdit/index.js:558
 msgid "Profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:556
+#: src/amo/components/UserProfileEdit/index.js:562
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:562
+#: src/amo/components/UserProfileEdit/index.js:568
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:572
+#: src/amo/components/UserProfileEdit/index.js:578
 msgid "Display Name"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:604
+#: src/amo/components/UserProfileEdit/index.js:610
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:647
+#: src/amo/components/UserProfileEdit/index.js:653
 msgid "Introduce yourself to the community if you like"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:651
+#: src/amo/components/UserProfileEdit/index.js:657
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:665
+#: src/amo/components/UserProfileEdit/index.js:671
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:689
+#: src/amo/components/UserProfileEdit/index.js:695
 msgid "Notifications"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:693
+#: src/amo/components/UserProfileEdit/index.js:699
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:698
+#: src/amo/components/UserProfileEdit/index.js:704
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:713
+#: src/amo/components/UserProfileEdit/index.js:719
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:731
+#: src/amo/components/UserProfileEdit/index.js:737
 msgid "Updating your profile…"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:732
+#: src/amo/components/UserProfileEdit/index.js:738
 msgid "Update My Profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:734
+#: src/amo/components/UserProfileEdit/index.js:740
 msgid "Updating profile…"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:735
+#: src/amo/components/UserProfileEdit/index.js:741
 msgid "Update Profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:746
-#: src/amo/components/UserProfileEdit/index.js:834
+#: src/amo/components/UserProfileEdit/index.js:752
+#: src/amo/components/UserProfileEdit/index.js:840
 msgid "Delete My Profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:747
-#: src/amo/components/UserProfileEdit/index.js:835
+#: src/amo/components/UserProfileEdit/index.js:753
+#: src/amo/components/UserProfileEdit/index.js:841
 msgid "Delete Profile"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:758
+#: src/amo/components/UserProfileEdit/index.js:764
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:761
+#: src/amo/components/UserProfileEdit/index.js:767
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:770
+#: src/amo/components/UserProfileEdit/index.js:776
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -2268,7 +2268,7 @@ msgid ""
 "longer editable."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:777
+#: src/amo/components/UserProfileEdit/index.js:783
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -2276,14 +2276,14 @@ msgid ""
 "anonymised and no longer editable."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:787
+#: src/amo/components/UserProfileEdit/index.js:793
 msgid ""
-"When you use this email address to login again to addons.mozilla.org, you "
+"When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
 "the profile you deleted."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:800
+#: src/amo/components/UserProfileEdit/index.js:806
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -2291,7 +2291,7 @@ msgid ""
 "before you can delete your profile."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:807
+#: src/amo/components/UserProfileEdit/index.js:813
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -2534,7 +2534,7 @@ msgstr ""
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
-#: src/ui/components/UserCollection/index.js:52
+#: src/ui/components/UserCollection/index.js:54
 #, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
