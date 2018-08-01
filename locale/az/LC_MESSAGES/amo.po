@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-24 18:32+0000\n"
-"PO-Revision-Date: 2018-07-30 15:02+0000\n"
+"PO-Revision-Date: 2018-08-01 17:11+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -1214,7 +1214,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:228
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Firefox-u fərdiləşdirmək və sizin səyyahınız etmək üçün güclü alətləri və özəllikləri kəşf edin."
 
 #: src/amo/components/LandingPage/index.js:262
 msgid "Explore all categories"
@@ -1662,7 +1662,7 @@ msgstr "Android üçün"
 
 #: src/amo/components/SectionLinks/index.js:77
 msgid "Explore"
-msgstr ""
+msgstr "Kəşf et"
 
 #: src/amo/components/StaticPages/About/index.js:122
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2148,7 +2148,7 @@ msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:79
 msgid "Register or Log in"
-msgstr ""
+msgstr "Qeyd və ya Daxil olun"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
