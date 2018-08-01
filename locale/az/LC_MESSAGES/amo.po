@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-01 21:49+0000\n"
+"PO-Revision-Date: 2018-08-01 22:10+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -54,8 +54,8 @@ msgstr ""
 #: src/amo/components/Addon/index.js:219
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s rəyi oxu"
+msgstr[1] "%(count)s rəyi oxu"
 
 #: src/amo/components/Addon/index.js:239
 msgid "No reviews yet"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:249
 msgid "Rate your experience"
-msgstr ""
+msgstr "Təcrübənizi qiymətləndirin"
 
 #: src/amo/components/Addon/index.js:268
 msgid "About this dictionary"
@@ -112,7 +112,7 @@ msgstr "Ekran Görüntüləri"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
-msgstr ""
+msgstr "Seçilmiş Uzantı"
 
 #: src/amo/components/AddonBadges/index.js:36
 msgid "Featured Theme"
@@ -217,15 +217,15 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:157
 msgid "See all versions"
-msgstr ""
+msgstr "Bütün versiyaları göstər"
 
 #: src/amo/components/AddonMoreInfo/index.js:182
 msgid "Add-on Links"
-msgstr ""
+msgstr "Əlavə Keçidləri"
 
 #: src/amo/components/AddonMoreInfo/index.js:194
 msgid "Version"
-msgstr "Buraxılış"
+msgstr "Versiya"
 
 #: src/amo/components/AddonMoreInfo/index.js:202 src/amo/components/CollectionDetails/index.js:66
 msgid "Last updated"
@@ -568,11 +568,11 @@ msgstr ""
 
 #: src/amo/components/Collection/index.js:376
 msgid "Log in to create a collection"
-msgstr ""
+msgstr "Kolleksiya yaratmaq üçün daxil olun"
 
 #: src/amo/components/Collection/index.js:377
 msgid "Log in to edit this collection"
-msgstr ""
+msgstr "Bu kolleksiyanı redaktə etmək üçün daxil olun"
 
 #: src/amo/components/Collection/index.js:414
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -608,7 +608,7 @@ msgstr "Kolleksiyalar"
 
 #: src/amo/components/CollectionList/index.js:120
 msgid "Log in to view your collections"
-msgstr ""
+msgstr "Kolleksiyalarınızı görmək üçün daxil olun"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -794,7 +794,7 @@ msgstr "Server Xətası"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Üzr istəyirik, serverimizdə bir xəta oldu və istəyinizi tamamlaya bilmədik. Bu xətanı qeydə aldıq və tədqiqat aparacıq."
 
 #: src/amo/components/FlagReviewMenu/index.js:107
 msgid "This is a bug report or support request"
@@ -822,11 +822,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:62
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Bu cavabı işarələmək üçün daxil olun"
 
 #: src/amo/components/FlagReviewMenu/index.js:63
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "Bu rəyi işarələmək üçün daxil olun"
 
 #: src/amo/components/FlagReviewMenu/index.js:72
 msgid "You cannot flag your own response"
@@ -893,6 +893,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Əlavə %(startNotedLink)sqeydlər%(endNotedLink)s olan yerlər xaric, bu saytda olan bütün məzmunlar %(startLicenseLink)ssCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s və ya "
+"daha yeni versiyası altında lisenziyalaşdırılıb."
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
@@ -1001,19 +1003,19 @@ msgstr "Videolara baxma"
 
 #: src/amo/components/Home/index.js:169
 msgid "Abstract"
-msgstr ""
+msgstr "Mücərrəd"
 
 #: src/amo/components/Home/index.js:174
 msgid "Nature"
-msgstr ""
+msgstr "Təbiət"
 
 #: src/amo/components/Home/index.js:179
 msgid "Film & TV"
-msgstr ""
+msgstr "Kino və TV"
 
 #: src/amo/components/Home/index.js:184
 msgid "Scenery"
-msgstr ""
+msgstr "Mənzərə"
 
 #: src/amo/components/Home/index.js:189
 msgid "Music"
@@ -1021,7 +1023,7 @@ msgstr "Musiqi"
 
 #: src/amo/components/Home/index.js:194
 msgid "Seasonal"
-msgstr ""
+msgstr "Fəsillik"
 
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/components/Home/index.js:225
@@ -1302,7 +1304,7 @@ msgstr "Kompüterə endirilmiş faylları aç"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Bütün açıq vərəqlərin yazılarını oxu"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
@@ -1338,7 +1340,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Son qapatılan vərəqlərə bax"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
@@ -1358,27 +1360,27 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:167
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Bu lüğəti qiymətləndirmək üçün daxil olun"
 
 #: src/amo/components/RatingManager/index.js:169
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Bu dil paketini qiymətləndirmək üçün daxil olun"
 
 #: src/amo/components/RatingManager/index.js:171
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "Bu axtarış qoşmasını qiymətləndirmək üçün daxil olun"
 
 #: src/amo/components/RatingManager/index.js:174
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Bu mövzunu qiymətləndirmək üçün daxil olun"
 
 #: src/amo/components/RatingManager/index.js:176
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Bu uzantını qiymətləndirmək üçün daxil olun"
 
 #: src/amo/components/RatingManager/index.js:184
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Bu əlavəni qiymətləndirmək üçün daxil olun"
 
 #: src/amo/components/RatingManager/index.js:224
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -1386,7 +1388,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Bu əlavə üçün sui-istifadə xəbər verdiniz"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1402,7 +1404,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Bu əlavə üçün sui-istifadə xəbər ver"
 
 #: src/amo/components/ReportAbuseButton/index.js:184
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1942,7 +1944,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:428
 msgid "Log in to edit the profile"
-msgstr ""
+msgstr "Profili redaktə etmək üçün daxil olun"
 
 #: src/amo/components/UserProfileEdit/index.js:473
 msgid "View user's profile"
@@ -2152,7 +2154,7 @@ msgstr "Qeyd və ya Daxil olun"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Üzr istəyirik, bir xəta oldu və istəyinizi tamamlaya bilmədik. Bu xətanı qeydə aldıq və tədqiqat aparacıq."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -2180,7 +2182,7 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Firefox-a Qur"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
