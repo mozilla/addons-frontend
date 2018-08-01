@@ -8,8 +8,12 @@
     "node": ">=6 <=8"
   },
   "scripts": {
-    "build": "bin/build-checks.js && better-npm-run build",
+    "build": "npm run clean && better-npm-run build",
+    "build-all": "npm run clean && NODE_APP_INSTANCE=amo better-npm-run build && NODE_APP_INSTANCE=disco better-npm-run build",
+    "build-check": "bin/build-checks.js",
+    "build-ci": "npm run build-all && npm run bundlesize",
     "build-locales": "bin/build-locales",
+    "bundlesize": "bundlesize",
     "extract-locales": "better-npm-run extract-locales",
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
     "amo": "better-npm-run amo",
@@ -41,7 +45,7 @@
   },
   "betterScripts": {
     "build": {
-      "command": "npm run clean && npm run version-check && npm run build-locales && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
+      "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
@@ -237,6 +241,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "bundle-loader": "^0.5.5",
+    "bundlesize": "^0.17.0",
     "chalk": "^2.0.1",
     "cheerio": "^1.0.0-rc.2",
     "chokidar-cli": "^1.2.0",
@@ -297,5 +302,15 @@
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"
   },
+  "bundlesize": [
+    {
+      "path": "./dist/@(amo|disco)-!(i18n-)*.js",
+      "maxSize": "400 kB"
+    },
+    {
+      "path": "./dist/@(amo|disco)-i18n-*.js",
+      "maxSize": "25 kB"
+    }
+  ],
   "snyk": true
 }
