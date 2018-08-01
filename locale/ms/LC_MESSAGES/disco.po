@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"POT-Creation-Date: 2018-08-01 18:54+0000\n"
 "PO-Revision-Date: 2018-07-24 23:53+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "Ralat Pelayan"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Maaf, kami tidak dapat menyiapkan permintaan anda disebabkan ralat. Kami telah logkan ralat ini dan akan siasatnya."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Maaf, kami tidak dapat menyiapkan permintaan anda disebabkan ralat. Kami "
+"telah logkan ralat ini dan akan siasatnya."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kod ralat: %(status)s."
 
@@ -46,11 +51,13 @@ msgstr "Kini anda boleh akses %(name)s di bar alatan."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Tambah ke Firefox"
 
@@ -82,39 +89,39 @@ msgstr "%(name)s telah dinyahpasang. Klik untuk pasang."
 msgid "Install state for %(name)s is unknown."
 msgstr "Keadaan pemasangan untuk %(name)s tidak diketahui."
 
-#: src/disco/components/Addon/index.js:136
+#: src/disco/components/Addon/index.js:141
 msgid "Preview of %(name)s"
 msgstr "Previu %(name)s"
 
-#: src/disco/components/Addon/index.js:174
+#: src/disco/components/Addon/index.js:194
 msgid "Installation failed. Please try again."
 msgstr "Pemasangan gagal. Sila cuba lagi."
 
-#: src/disco/components/Addon/index.js:176
+#: src/disco/components/Addon/index.js:196
 msgid "Download failed. Please check your connection."
 msgstr "Muat turun gagal. Sila semak sambungan anda."
 
-#: src/disco/components/Addon/index.js:178
+#: src/disco/components/Addon/index.js:198
 msgid "An unexpected error occurred during installation."
 msgstr "Ada ralat tidak dijangka semasa pemasangan."
 
-#: src/disco/components/Addon/index.js:182
+#: src/disco/components/Addon/index.js:202
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ada ralat tidak dijangka semasa nyahpasang."
 
-#: src/disco/components/Addon/index.js:187
+#: src/disco/components/Addon/index.js:207
 msgid "An unexpected error occurred."
 msgstr "Ada ralat tidak dijangka."
 
-#: src/disco/components/Addon/index.js:195
+#: src/disco/components/Addon/index.js:215
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Add-on ini akan dinyahpasang selepas anda mula semua Firefox."
 
-#: src/disco/components/Addon/index.js:199
+#: src/disco/components/Addon/index.js:219
 msgid "Please restart Firefox to use this add-on."
 msgstr "Sila mula semula Firefox untuk guna add-on ini."
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:91
 msgid "Close"
 msgstr "Tutup"
 
@@ -130,26 +137,33 @@ msgstr "Add-on ini tidak disokong dalam versi Firefox anda."
 msgid "This add-on does not support your browser."
 msgstr "Add-on ini tidak disokong oleh pelayar anda."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Temui Add-on"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/DiscoPane/index.js:121
+#, fuzzy
+msgid "Find more add-ons"
+msgstr "Lihat lebih banyak add-ons!"
+
+#: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
 msgstr "Peribadikan Firefox Anda"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Ada beribu-ribu add-ons percuma, dicipta oleh pembangun dari seluruh dunia yang anda boleh pasang untuk memperibadikan Firefox anda. Daripada tema visual keseronokan hinggal ke alatan berkuasa yang "
-"membuat pelayaran lebih cepat dan lebih selamat, add-ons menjadikan pelayar anda milik anda. Untuk membantu anda memulakan, di sini ada beberapa add-ons yang kami syorkan kerana prestasi dan "
-"fungsinya yang luar biasa."
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "Lihat lebih banyak add-ons!"
+"Ada beribu-ribu add-ons percuma, dicipta oleh pembangun dari seluruh dunia "
+"yang anda boleh pasang untuk memperibadikan Firefox anda. Daripada tema "
+"visual keseronokan hinggal ke alatan berkuasa yang membuat pelayaran lebih "
+"cepat dan lebih selamat, add-ons menjadikan pelayar anda milik anda. Untuk "
+"membantu anda memulakan, di sini ada beberapa add-ons yang kami syorkan "
+"kerana prestasi dan fungsinya yang luar biasa."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"

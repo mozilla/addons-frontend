@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"POT-Creation-Date: 2018-08-01 18:54+0000\n"
 "PO-Revision-Date: 2018-07-05 06:37+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,40 +87,40 @@ msgstr ""
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/disco/components/Addon/index.js:136
+#: src/disco/components/Addon/index.js:141
 msgid "Preview of %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon/index.js:174
+#: src/disco/components/Addon/index.js:194
 msgid "Installation failed. Please try again."
 msgstr "تنصیب کاری ناکام ہوگئی۔ براہ مہربانی پھر کوشش کریں۔"
 
-#: src/disco/components/Addon/index.js:176
+#: src/disco/components/Addon/index.js:196
 msgid "Download failed. Please check your connection."
 msgstr "ڈائونلوڈ ناکام ہو گئی، براہ مہربانی اپنے کنکشن کی بڑتال کریں۔"
 
-#: src/disco/components/Addon/index.js:178
+#: src/disco/components/Addon/index.js:198
 msgid "An unexpected error occurred during installation."
 msgstr "تنصیب کے دوران ایک غیر متوقع نقص پہش آیا ہے۔"
 
-#: src/disco/components/Addon/index.js:182
+#: src/disco/components/Addon/index.js:202
 msgid "An unexpected error occurred during uninstallation."
 msgstr ""
 
-#: src/disco/components/Addon/index.js:187
+#: src/disco/components/Addon/index.js:207
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: src/disco/components/Addon/index.js:195
+#: src/disco/components/Addon/index.js:215
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 
-#: src/disco/components/Addon/index.js:199
+#: src/disco/components/Addon/index.js:219
 msgid "Please restart Firefox to use this add-on."
 msgstr ""
 "براہ مہربانی اس ایڈ-اون کو استعمال کرنے کے لیئے Firefox کو دوبارہ شروع کریں۔"
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:91
 msgid "Close"
 msgstr "بند کریں"
 
@@ -136,25 +136,26 @@ msgstr ""
 msgid "This add-on does not support your browser."
 msgstr ""
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "اظافہ جات دریافت کریں"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/DiscoPane/index.js:121
+#, fuzzy
+msgid "Find more add-ons"
+msgstr "ایڈ-اون کے متعلق مزید جاننے کے لیئے"
+
+#: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
 msgstr ""
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/components/DiscoPane/index.js:143
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
 "themes to powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours. To help you get started, here are some we recommend for "
 "their stand-out performance and functionality."
-msgstr ""
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
 msgstr ""
 
 #: src/disco/components/Footer/index.js:30
@@ -176,9 +177,6 @@ msgstr "جاری رکھنے کے لیئے پھر لوڈ کریں"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
-
-#~ msgid "to find out more about add-ons"
-#~ msgstr "ایڈ-اون کے متعلق مزید جاننے کے لیئے"
 
 #~ msgid "Close video"
 #~ msgstr "وڈیو بند کریں"

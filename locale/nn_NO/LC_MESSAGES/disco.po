@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"POT-Creation-Date: 2018-08-01 18:54+0000\n"
 "PO-Revision-Date: 2018-07-24 18:57+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "Tenarfeil"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre "
+"førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Feilkode: %(status)s."
 
@@ -46,11 +51,13 @@ msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -82,39 +89,39 @@ msgstr "%(name)s er avinstallert. Klikk for å installere."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installasjonsstatus for %(name)s er ukjend."
 
-#: src/disco/components/Addon/index.js:136
+#: src/disco/components/Addon/index.js:141
 msgid "Preview of %(name)s"
 msgstr "Førehandsvising av %(name)s"
 
-#: src/disco/components/Addon/index.js:174
+#: src/disco/components/Addon/index.js:194
 msgid "Installation failed. Please try again."
 msgstr "Installasjonen feila. Prøv igjen."
 
-#: src/disco/components/Addon/index.js:176
+#: src/disco/components/Addon/index.js:196
 msgid "Download failed. Please check your connection."
 msgstr "Mislykka nedlasting. Kontroller tilkoplinga di."
 
-#: src/disco/components/Addon/index.js:178
+#: src/disco/components/Addon/index.js:198
 msgid "An unexpected error occurred during installation."
 msgstr "Det oppstod ein uventa feil under installeringa."
 
-#: src/disco/components/Addon/index.js:182
+#: src/disco/components/Addon/index.js:202
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Det oppstod ein uventa feil under avinstalleringa."
 
-#: src/disco/components/Addon/index.js:187
+#: src/disco/components/Addon/index.js:207
 msgid "An unexpected error occurred."
 msgstr "Det oppstod ein uventa feil."
 
-#: src/disco/components/Addon/index.js:195
+#: src/disco/components/Addon/index.js:215
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Denne utvidinga vert avinstallert etter omstart av Firefox."
 
-#: src/disco/components/Addon/index.js:199
+#: src/disco/components/Addon/index.js:219
 msgid "Please restart Firefox to use this add-on."
 msgstr "Start Firefox på nytt for å bruke denne utvidinga."
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:91
 msgid "Close"
 msgstr "Lat att"
 
@@ -130,25 +137,30 @@ msgstr "Denne utvidinga støttar ikkje din versjon av Firefox."
 msgid "This add-on does not support your browser."
 msgstr "Denne utvidinga støttar ikkje nettlesaren din."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Oppdag utvidingar"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/DiscoPane/index.js:121
+#, fuzzy
+msgid "Find more add-ons"
+msgstr "Vis fleire utvidingar!"
+
+#: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
 msgstr "Tilpass Firefox"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan personleggjere surfinga di på nettet — du kan legge til alt frå artige tema til kraftfulle verktøy og funksjonar. Her er "
-"nokre du kan prøve."
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "Vis fleire utvidingar!"
+"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan "
+"personleggjere surfinga di på nettet — du kan legge til alt frå artige tema "
+"til kraftfulle verktøy og funksjonar. Her er nokre du kan prøve."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -171,7 +183,9 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Hald musepeikaren over for å førehandsvise eller klikk for å installere %(name)s"
+#~ msgstr ""
+#~ "Hald musepeikaren over for å førehandsvise eller klikk for å installere "
+#~ "%(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Hald musepeikaren over bildet for å førehandsvise"

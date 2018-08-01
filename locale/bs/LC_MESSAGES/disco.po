@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"POT-Creation-Date: 2018-08-01 18:54+0000\n"
 "PO-Revision-Date: 2017-12-07 07:04+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,39 +90,39 @@ msgstr "%(name)s je deinstalirano. Klikni za instalaciju."
 msgid "Install state for %(name)s is unknown."
 msgstr "Stanje instalacije za %(name)s je nepoznato."
 
-#: src/disco/components/Addon/index.js:136
+#: src/disco/components/Addon/index.js:141
 msgid "Preview of %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon/index.js:174
+#: src/disco/components/Addon/index.js:194
 msgid "Installation failed. Please try again."
 msgstr "Instalacija nije uspjela. Molimo pokušajte ponovo."
 
-#: src/disco/components/Addon/index.js:176
+#: src/disco/components/Addon/index.js:196
 msgid "Download failed. Please check your connection."
 msgstr "Preuzimanje nije uspjelo. Molimo provjerite vezu."
 
-#: src/disco/components/Addon/index.js:178
+#: src/disco/components/Addon/index.js:198
 msgid "An unexpected error occurred during installation."
 msgstr "Dogodila se neočekivana greška pri instalaciji."
 
-#: src/disco/components/Addon/index.js:182
+#: src/disco/components/Addon/index.js:202
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Dogodila se neočekivana greška pri deinstalaciji."
 
-#: src/disco/components/Addon/index.js:187
+#: src/disco/components/Addon/index.js:207
 msgid "An unexpected error occurred."
 msgstr "Dogodila se neočekivana greška."
 
-#: src/disco/components/Addon/index.js:195
+#: src/disco/components/Addon/index.js:215
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ovaj dodatak će biti deinstaliran nakon što restartujete Firefox."
 
-#: src/disco/components/Addon/index.js:199
+#: src/disco/components/Addon/index.js:219
 msgid "Please restart Firefox to use this add-on."
 msgstr "Molimo restartujte Firefox da bi koristili ovaj dodatak."
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:91
 msgid "Close"
 msgstr "Zatvori"
 
@@ -138,15 +138,20 @@ msgstr "Ovaj dodatak ne podržava verziju vašeg Firefoxa."
 msgid "This add-on does not support your browser."
 msgstr "Ovaj dodatak ne podržava vaš browser."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Otkrijte dodatke"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/DiscoPane/index.js:121
+#, fuzzy
+msgid "Find more add-ons"
+msgstr "Vidi više dodataka!"
+
+#: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
 msgstr "Prilagodite Firefox sebi"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/components/DiscoPane/index.js:143
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -159,10 +164,6 @@ msgstr ""
 "tema do moćnih alata koji čine vaše pretraživanje bržim i sigurnijim, dodaci "
 "čine vaš browser samo vašim. Za početak možete testirati sljedeće, koji se "
 "preporučuju za izuzetne performanse i upotrebljivost."
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "Vidi više dodataka!"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
