@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"POT-Creation-Date: 2018-08-01 18:54+0000\n"
 "PO-Revision-Date: 2017-10-10 22:31+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
@@ -89,40 +89,40 @@ msgstr "%(name)s a été désinstallé. Cliquez pour l’installer."
 msgid "Install state for %(name)s is unknown."
 msgstr "État d’installation inconnu pour %(name)s."
 
-#: src/disco/components/Addon/index.js:136
+#: src/disco/components/Addon/index.js:141
 #, fuzzy
 msgid "Preview of %(name)s"
 msgstr "Prévisualiser %(name)s"
 
-#: src/disco/components/Addon/index.js:174
+#: src/disco/components/Addon/index.js:194
 msgid "Installation failed. Please try again."
 msgstr "Échec de l’installation. Veuillez réessayer."
 
-#: src/disco/components/Addon/index.js:176
+#: src/disco/components/Addon/index.js:196
 msgid "Download failed. Please check your connection."
 msgstr "Échec du téléchargement. Veuillez vérifier votre connexion."
 
-#: src/disco/components/Addon/index.js:178
+#: src/disco/components/Addon/index.js:198
 msgid "An unexpected error occurred during installation."
 msgstr "Une erreur inattendue s’est produite pendant l’installation."
 
-#: src/disco/components/Addon/index.js:182
+#: src/disco/components/Addon/index.js:202
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Une erreur inattendue s’est produite pendant la désinstallation."
 
-#: src/disco/components/Addon/index.js:187
+#: src/disco/components/Addon/index.js:207
 msgid "An unexpected error occurred."
 msgstr "Une erreur inattendue s’est produite."
 
-#: src/disco/components/Addon/index.js:195
+#: src/disco/components/Addon/index.js:215
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ce module sera désinstallé au prochain démarrage de Firefox."
 
-#: src/disco/components/Addon/index.js:199
+#: src/disco/components/Addon/index.js:219
 msgid "Please restart Firefox to use this add-on."
 msgstr "Veuillez redémarrer Firefox pour utiliser ce module."
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:91
 msgid "Close"
 msgstr "Fermer"
 
@@ -138,15 +138,20 @@ msgstr "Ce module ne prend pas en charge votre version de Firefox."
 msgid "This add-on does not support your browser."
 msgstr "Ce module ne prend pas en charge votre navigateur."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Découvrez des modules"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/DiscoPane/index.js:121
+#, fuzzy
+msgid "Find more add-ons"
+msgstr "Découvrez davantage de modules"
+
+#: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
 msgstr "Personnalisez Firefox"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/components/DiscoPane/index.js:143
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -161,10 +166,6 @@ msgstr ""
 "complètement votre navigation. Pour vous aider à bien démarrer, nous en "
 "avons sélectionné quelques-uns selon leurs performances et leurs "
 "fonctionnalités."
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "Découvrez davantage de modules"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
