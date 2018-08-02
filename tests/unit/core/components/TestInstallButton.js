@@ -1,39 +1,37 @@
 /* global Node */
-import { createMemoryHistory } from 'history';
 import * as React from 'react';
-import { Router } from 'react-router-dom';
-import { mount } from 'enzyme';
 
 import createStore from 'amo/store';
 import InstallButton, {
-  getFileHash,
   InstallButtonBase,
 } from 'core/components/InstallButton';
-import InstallSwitch from 'core/components/InstallSwitch';
-import I18nProvider from 'core/i18n/Provider';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
-  INCOMPATIBLE_NO_OPENSEARCH,
-  INCOMPATIBLE_NOT_FIREFOX,
+  DISABLED,
+  DOWNLOADING,
+  ENABLED,
+  ENABLING,
+  INSTALLED,
+  INSTALLING,
   INSTALL_ACTION,
   INSTALL_STARTED_ACTION,
   OS_ALL,
-  OS_MAC,
-  OS_WINDOWS,
+  UNINSTALLED,
+  UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import { getAddonIconUrl } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
 import * as themeInstall from 'core/themeInstall';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
-import { addQueryParamsToHistory } from 'core/utils';
+import AnimatedIcon from 'ui/components/AnimatedIcon';
+import Icon from 'ui/components/Icon';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeMozWindow,
+  createFakeTracking,
   fakeI18n,
   createFakeLocation,
   getFakeConfig,
@@ -44,22 +42,47 @@ import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
 describe(__filename, () => {
-  const getClientCompatibilityFalse = () => ({
-    compatible: false,
-    reason: INCOMPATIBLE_NOT_FIREFOX,
-  });
+  const createFakeEventWithURL = ({ url }) => {
+    return createFakeEvent({
+      currentTarget: {
+        href: url,
+      },
+    });
+  };
 
-  const getClientCompatibilityFalseOpenSearch = () => ({
-    compatible: false,
-    reason: INCOMPATIBLE_NO_OPENSEARCH,
-  });
+  const createInternalAddonWithInstallURL = ({
+    addon = fakeAddon,
+    installURL = 'https://a.m.o/files/addon.xpi',
+  }) => {
+    // This can't use createFakeAddon({ files: [...] }) because it needs to
+    // specify a custom object for addon.current_version.
+    return createInternalAddon({
+      ...addon,
+      current_version: {
+        ...addon.current_version,
+        files: [
+          {
+            ...addon.current_version.files[0],
+            platform: OS_ALL,
+            url: installURL,
+          },
+        ],
+      },
+    });
+  };
 
   const renderProps = (customProps = {}) => ({
     addon: createInternalAddon(fakeAddon),
-    getClientCompatibility: () => ({ compatible: true }),
-    hasAddonManager: true,
+    defaultInstallSource: '',
+    disabled: false,
+    enable: sinon.stub(),
     i18n: fakeI18n(),
+    install: sinon.stub(),
+    installTheme: sinon.stub(),
+    location: createFakeLocation(),
+    status: UNINSTALLED,
     store: createStore().store,
+    uninstall: sinon.stub(),
     userAgentInfo: sampleUserAgentParsed,
     ...customProps,
   });
@@ -82,84 +105,75 @@ describe(__filename, () => {
         ...fakeAddon,
         type: ADDON_TYPE_OPENSEARCH,
       }),
-      // Install buttons for opensearch add-ons are not rendered on
-      // the server.
+      // Install buttons for opensearch add-ons are not rendered on the server.
       _config: getFakeConfig({ server: false }),
       ...customProps,
     };
+
     return render(props);
   };
 
-  const renderToDom = (customProps = {}) => {
-    const { i18n, location, ...props } = renderProps(customProps);
-
-    const history = addQueryParamsToHistory({
-      history: createMemoryHistory(),
-    });
-
-    return mount(
-      <I18nProvider i18n={i18n}>
-        <Router history={history}>
-          <InstallButton {...props} />
-        </Router>
-      </I18nProvider>,
-    );
-  };
-
-  it('renders InstallSwitch when mozAddonManager is available', () => {
+  it('renders a Button for extensions', () => {
     const installURL = 'https://a.m.o/files/addon.xpi';
-    // This can't use createFakeAddon({ files: [...] }) because it needs
-    // to specify a custom object for addon.current_version.
-    const addon = createInternalAddon({
-      ...fakeTheme,
-      current_version: {
-        ...fakeTheme.current_version,
-        files: [
-          {
-            ...fakeTheme.current_version.files[0],
-            platform: OS_ALL,
-            url: installURL,
-          },
-        ],
-      },
-    });
-    const root = render({
-      hasAddonManager: true,
-      addon,
-      // Simulate how disco/components/Addon spreads addon theme data.
-      ...addon,
-    });
+    const addon = createInternalAddonWithInstallURL({ installURL });
+
+    const root = render({ addon });
+
     expect(root.type()).toEqual('div');
     expect(root).toHaveClassName('InstallButton');
-    expect(root).toHaveClassName('InstallButton--use-switch');
 
-    const switchComponent = root.childAt(0);
-    expect(switchComponent.type()).toEqual(InstallSwitch);
+    const button = root.find(Button);
 
-    expect(switchComponent).toHaveClassName('InstallButton-switch');
-    expect(switchComponent).toHaveProp('addon', addon);
-    expect(switchComponent).toHaveProp('installURL', installURL);
+    expect(button).toHaveLength(1);
+    expect(button.childAt(1)).toHaveText('Add to Firefox');
+    expect(button).toHaveClassName('InstallButton-button');
+    expect(button).not.toHaveClassName('InstallButton-button--uninstall');
+    expect(button).toHaveProp('buttonType', 'action');
+    expect(button).toHaveProp('className', 'InstallButton-button');
+    expect(button).toHaveProp('disabled', false);
+    expect(button).not.toHaveProp('data-browsertheme');
+    expect(button).toHaveProp('href', installURL);
+    expect(button).toHaveProp('onClick', root.instance().installExtension);
+    expect(button).toHaveProp('prependClientApp', false);
+    expect(button).toHaveProp('prependLang', false);
 
-    // Make sure it passes all theme properties.
-    expect(switchComponent.props()).toMatchObject(addon.themeData);
+    const icon = button.find(Icon);
+    expect(icon).toHaveLength(1);
+    expect(icon).toHaveProp('name', 'plus');
   });
 
-  it('renders a theme button when mozAddonManager is not available', () => {
-    const addon = createInternalAddon(fakeTheme);
-    const root = render({ hasAddonManager: false, addon });
+  it('renders a button for themes', () => {
+    const installURL = 'https://a.m.o/files/addon.xpi';
+    const addon = createInternalAddonWithInstallURL({
+      addon: fakeTheme,
+      installURL,
+    });
+
+    const root = render({ addon });
 
     expect(root.type()).toEqual('div');
     expect(root).toHaveClassName('InstallButton');
-    expect(root).toHaveClassName('InstallButton--use-button');
 
-    const button = root.childAt(1);
+    const button = root.find(Button);
 
-    expect(button.type()).toEqual(Button);
-    expect(button.children().at(1)).toHaveText('Install Theme');
+    expect(button).toHaveLength(1);
+    expect(button.childAt(1)).toHaveText('Install Theme');
+    expect(button).toHaveClassName('InstallButton-button');
+    expect(button).toHaveProp('buttonType', 'action');
+    expect(button).toHaveProp('className', 'InstallButton-button');
+    expect(button).toHaveProp('disabled', false);
     expect(button).toHaveProp(
       'data-browsertheme',
       JSON.stringify(themeInstall.getThemeData(addon)),
     );
+    expect(button).toHaveProp('href', installURL);
+    expect(button).toHaveProp('onClick', root.instance().installTheme);
+    expect(button).not.toHaveProp('prependClientApp');
+    expect(button).not.toHaveProp('prependLang');
+
+    const icon = button.find(Icon);
+    expect(icon).toHaveLength(1);
+    expect(icon).toHaveProp('name', 'plus');
   });
 
   it('renders Install Theme text on button when it is a static theme', () => {
@@ -167,61 +181,37 @@ describe(__filename, () => {
       ...fakeTheme,
       type: ADDON_TYPE_STATIC_THEME,
     });
-    const root = render({ hasAddonManager: false, addon });
+    const root = render({ addon });
 
-    expect(root.type()).toEqual('div');
-    expect(root).toHaveClassName('InstallButton');
-    expect(root).toHaveClassName('InstallButton--use-button');
-
-    const button = root.childAt(1);
-
-    expect(button.type()).toEqual(Button);
-    expect(button.children().at(1)).toHaveText('Install Theme');
+    expect(root.find(Button).childAt(1)).toHaveText('Install Theme');
   });
 
-  it('calls installTheme when clicked', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_THEME,
-    });
+  it('configures a different install method for search providers', () => {
+    const root = renderOpenSearch();
+
+    expect(root.find(Button)).toHaveProp(
+      'onClick',
+      root.instance().installOpenSearch,
+    );
+  });
+
+  it('calls the `installTheme` helper to install a theme', () => {
+    const addon = createInternalAddon(fakeTheme);
+
     const installTheme = sinon.spy();
-    const root = renderToDom({ addon, installTheme, status: UNKNOWN });
+    const root = render({ addon, installTheme });
 
-    const preventDefault = sinon.spy();
-    const button = root.find('button.InstallButton-button');
-    button.simulate('click', createFakeEvent({ preventDefault }));
+    const button = root.find('.InstallButton-button');
+    const clickEvent = createFakeEvent();
+    button.simulate('click', clickEvent);
 
-    sinon.assert.called(preventDefault);
-    sinon.assert.calledWith(installTheme, sinon.match.instanceOf(Node), {
+    sinon.assert.calledOnce(clickEvent.preventDefault);
+    sinon.assert.calledOnce(clickEvent.stopPropagation);
+
+    sinon.assert.calledWith(installTheme, clickEvent.currentTarget, {
       ...addon,
-      status: UNKNOWN,
+      status: UNINSTALLED,
     });
-  });
-
-  it('renders an add-on button when mozAddonManager is not available', () => {
-    const installURL = 'https://addons.mozilla.org/download';
-    const root = render({
-      addon: createInternalAddon(
-        createFakeAddon({
-          type: ADDON_TYPE_EXTENSION,
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      ),
-      hasAddonManager: false,
-    });
-
-    expect(root.type()).toEqual('div');
-    expect(root).toHaveClassName('InstallButton');
-    expect(root).toHaveClassName('InstallButton--use-button');
-
-    const button = root.childAt(1);
-
-    expect(button.type()).toEqual(Button);
-
-    expect(button.children().at(1)).toHaveText('Add to Firefox');
-    expect(button).toHaveClassName('InstallButton-button');
-    expect(button).not.toHaveClassName('Button--micro');
-    expect(button).toHaveProp('href', installURL);
   });
 
   it('uses router location to create install URLs', () => {
@@ -237,11 +227,11 @@ describe(__filename, () => {
       location: createFakeLocation({ query: { src: externalSource } }),
     });
 
-    const button = root.childAt(1);
+    const button = root.find(Button);
     expect(button).toHaveProp('href', `${installURL}?src=${externalSource}`);
   });
 
-  it('disables add-on install when client does not support addons', () => {
+  it('disables the button when disabled prop is true', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const root = render({
       addon: createInternalAddon(
@@ -250,15 +240,12 @@ describe(__filename, () => {
           files: [{ platform: OS_ALL, url: installURL }],
         }),
       ),
-      getClientCompatibility: getClientCompatibilityFalse,
+      disabled: true,
     });
 
-    expect(root.type()).toEqual('div');
+    const button = root.find('.InstallButton-button');
 
-    const button = root.childAt(1);
-
-    expect(button.type()).toEqual(Button);
-    expect(button).toHaveClassName('InstallButton-button--disabled');
+    expect(button).toHaveProp('disabled', true);
     expect(button).toHaveProp('href', installURL);
 
     const onClick = button.prop('onClick');
@@ -275,21 +262,10 @@ describe(__filename, () => {
     sinon.assert.called(event.stopPropagation);
   });
 
-  it('disables theme install when client does not support addons', () => {
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-      getClientCompatibility: getClientCompatibilityFalse,
-    });
+  it('disables the button when status is UNKNOWN', () => {
+    const root = render({ status: UNKNOWN });
 
-    expect(root.type()).toEqual('div');
-
-    const button = root.childAt(1);
-
-    expect(button.type()).toEqual(Button);
-    expect(button).toHaveProp('disabled', true);
+    expect(root.find(Button)).toHaveProp('disabled', true);
   });
 
   it('adds defaultInstallSource to extension buttons', () => {
@@ -303,11 +279,9 @@ describe(__filename, () => {
         }),
       ),
       defaultInstallSource,
-      hasAddonManager: false,
     });
 
-    const button = root.childAt(1);
-    expect(button).toHaveProp(
+    expect(root.find(Button)).toHaveProp(
       'href',
       `${installURL}?src=${defaultInstallSource}`,
     );
@@ -324,74 +298,20 @@ describe(__filename, () => {
         }),
       ),
       defaultInstallSource,
-      hasAddonManager: false,
     });
 
-    const button = root.childAt(1);
-    expect(button).toHaveProp(
+    expect(root.find(Button)).toHaveProp(
       'href',
       `${installURL}?src=${defaultInstallSource}`,
     );
   });
 
-  it('renders a switch button if useButton is false', () => {
-    const root = render({ useButton: false });
-
-    expect(root).toHaveClassName('InstallButton--use-switch');
-  });
-
-  it('renders a button if useButton is true', () => {
-    const root = render({ useButton: true });
-
-    expect(root).toHaveClassName('InstallButton--use-button');
-
-    const button = root.childAt(1);
-
-    expect(button.type()).toEqual(Button);
-    expect(button).toHaveClassName('Button--action');
-    expect(button).toHaveClassName('InstallButton-button');
-    expect(button.children().at(1)).toHaveText('Add to Firefox');
-  });
-
-  it('renders a button for OpenSearch regardless of mozAddonManager', () => {
-    const root = renderOpenSearch({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        hasAddonManager: true,
-        type: ADDON_TYPE_OPENSEARCH,
-      }),
-    });
-
-    expect(root.type()).toEqual('div');
-
-    const button = root.childAt(1);
-
-    expect(button.type()).toEqual(Button);
-    expect(button).toHaveClassName('Button--action');
-    expect(button).toHaveClassName('InstallButton-button');
-    expect(button.children().at(1)).toHaveText('Add to Firefox');
-  });
-
-  it('disables the OpenSearch button if not compatible', () => {
-    const root = renderOpenSearch({
-      getClientCompatibility: getClientCompatibilityFalseOpenSearch,
-    });
-
-    expect(root.type()).toEqual('div');
-
-    const button = root.childAt(1);
-
-    expect(button.type()).toEqual(Button);
-    expect(button).toHaveClassName('InstallButton-button--disabled');
-    expect(button.children().at(1)).toHaveText('Add to Firefox');
-  });
-
-  it('disables install switch and uses button for OpenSearch plugins', () => {
+  it('calls `window.external.AddSearchProvider` to install a search provider', () => {
     const fakeLog = { info: sinon.stub() };
     const fakeWindow = createFakeMozWindow();
     const installURL = 'https://a.m.o/files/addon.xpi';
 
-    const rootNode = renderOpenSearch({
+    const root = renderOpenSearch({
       addon: createInternalAddon(
         createFakeAddon({
           files: [{ platform: OS_ALL, url: installURL }],
@@ -402,24 +322,29 @@ describe(__filename, () => {
       _window: fakeWindow,
     });
 
-    const installButton = rootNode.find('.InstallButton-button');
-    expect(installButton.children().at(1)).toHaveText('Add to Firefox');
-    installButton.simulate('click', createFakeEvent());
+    const installButton = root.find('.InstallButton-button');
+    expect(installButton.childAt(1)).toHaveText('Add to Firefox');
+
+    const clickEvent = createFakeEventWithURL({ url: installURL });
+    installButton.simulate('click', clickEvent);
+
+    sinon.assert.calledOnce(clickEvent.preventDefault);
+    sinon.assert.calledOnce(clickEvent.stopPropagation);
 
     sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
     sinon.assert.calledWith(fakeWindow.external.AddSearchProvider, installURL);
   });
 
-  it('does not render open search plugins on the server', () => {
-    const rootNode = renderOpenSearch({
+  it('does not render anything on the server when add-on is a search provider', () => {
+    const root = renderOpenSearch({
       _config: getFakeConfig({ server: true }),
     });
 
-    expect(rootNode.find('.InstallButton-button')).toHaveLength(0);
+    expect(root.find('.InstallButton-button')).toHaveLength(0);
   });
 
   it('tracks install analytics when installing an extension', () => {
-    const _tracking = { sendEvent: sinon.stub() };
+    const _tracking = createFakeTracking();
     const addon = createInternalAddon(
       createFakeAddon({
         name: 'some-extension',
@@ -428,9 +353,9 @@ describe(__filename, () => {
       }),
     );
 
-    const rootNode = render({ addon, useButton: true, _tracking });
+    const root = render({ addon, _tracking });
 
-    const installButton = rootNode.find('.InstallButton-button');
+    const installButton = root.find('.InstallButton-button');
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
@@ -444,7 +369,7 @@ describe(__filename, () => {
   });
 
   it('tracks install analytics when installing a search provider', () => {
-    const _tracking = { sendEvent: sinon.stub() };
+    const _tracking = createFakeTracking();
     const _window = createFakeMozWindow();
     const addon = createInternalAddon(
       createFakeAddon({
@@ -454,14 +379,13 @@ describe(__filename, () => {
       }),
     );
 
-    const rootNode = renderOpenSearch({
+    const root = renderOpenSearch({
       addon,
-      useButton: true,
       _tracking,
       _window,
     });
 
-    const installButton = rootNode.find('.InstallButton-button');
+    const installButton = root.find('.InstallButton-button');
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
@@ -474,65 +398,56 @@ describe(__filename, () => {
     });
   });
 
-  it('uses InstallTrigger for extension installs when available', () => {
-    const url = 'https://a.m.o/files/addon.xpi';
-    const hash = 'hash-of-file-contents';
+  it('calls the `install` helper to install an extension', async () => {
+    const addon = createInternalAddon(fakeAddon);
+    const enable = sinon.spy();
+    const install = sinon.spy();
 
-    const _InstallTrigger = { install: sinon.stub() };
-
-    const addon = createInternalAddon(
-      createFakeAddon({
-        name: 'some-extension',
-        files: [{ platform: OS_ALL, url, hash }],
-        type: ADDON_TYPE_EXTENSION,
-      }),
-    );
-
-    const rootNode = render({ addon, useButton: true, _InstallTrigger });
+    const root = render({ addon, enable, install });
 
     const event = createFakeEvent();
-    const installButton = rootNode.find('.InstallButton-button');
-    installButton.simulate('click', event);
+    const installButton = root.find('.InstallButton-button');
+    await installButton.simulate('click', event);
 
-    sinon.assert.called(_InstallTrigger.install);
-    const params = _InstallTrigger.install.firstCall.args[0];
-    expect(params[addon.name]).toBeDefined();
-    expect(params[addon.name].Hash).toEqual(hash);
-    expect(params[addon.name].URL).toEqual(url);
-    expect(params[addon.name].IconURL).toEqual(getAddonIconUrl(addon));
-    expect(params[addon.name].toString()).toEqual(url);
-
-    sinon.assert.called(event.preventDefault);
-    sinon.assert.called(event.stopPropagation);
+    sinon.assert.calledOnce(install);
+    sinon.assert.notCalled(enable);
+    sinon.assert.calledOnce(event.preventDefault);
+    sinon.assert.calledOnce(event.stopPropagation);
   });
 
-  it('tracks install started/completed with InstallTrigger', () => {
-    const url = 'https://a.m.o/addons/file.xpi';
-    const _tracking = { sendEvent: sinon.stub() };
-    const _InstallTrigger = { install: sinon.stub() };
+  it('calls the `install` and `enable` helpers to install a static theme', async () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const enable = sinon.spy();
+    const install = sinon.spy();
 
-    const addon = createInternalAddon(
-      createFakeAddon({
-        name: 'some-extension',
-        files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
-        type: ADDON_TYPE_EXTENSION,
-      }),
-    );
+    const root = render({ addon, enable, install });
 
-    const rootNode = render({
-      addon,
-      useButton: true,
+    const event = createFakeEvent();
+
+    const installButton = root.find('.InstallButton-button');
+    await installButton.simulate('click', event);
+
+    sinon.assert.calledOnce(install);
+    sinon.assert.calledOnce(enable);
+    sinon.assert.calledOnce(event.preventDefault);
+    sinon.assert.calledOnce(event.stopPropagation);
+  });
+
+  it('tracks install started/completed', async () => {
+    const _tracking = createFakeTracking();
+    const addon = createInternalAddon(fakeAddon);
+
+    const root = render({
       _tracking,
-      _InstallTrigger,
+      addon,
     });
 
-    const installButton = rootNode.find('.InstallButton-button');
-    installButton.simulate('click', createFakeEvent());
+    const installButton = root.find('.InstallButton-button');
+    await installButton.simulate('click', createFakeEvent());
 
-    sinon.assert.called(_InstallTrigger.install);
-    const onInstalled = _InstallTrigger.install.firstCall.args[1];
-
-    sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
       category: getAddonEventCategory(
@@ -541,121 +456,149 @@ describe(__filename, () => {
       ),
       label: addon.name,
     });
-
-    _tracking.sendEvent.resetHistory();
-    // Simulate the InstallTrigger callback.
-    const successStatus = 0;
-    onInstalled(url, successStatus);
-
-    sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
       category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
       label: addon.name,
     });
+    sinon.assert.calledTwice(_tracking.sendEvent);
   });
 
-  describe('getFileHash', () => {
-    const _getFileHash = ({
-      addon = createInternalAddon(fakeAddon),
-      installURL = 'https://a.m.o/addons/file.xpi',
-    } = {}) => {
-      return getFileHash({ addon, installURL });
-    };
+  it.each([ENABLED, INSTALLED])(
+    'renders a "remove" button when add-on is %s',
+    (status) => {
+      const root = render({ status });
 
-    it('requires an addon parameter', () => {
-      expect(() => _getFileHash({ addon: null })).toThrow(
-        /addon parameter cannot be empty/,
-      );
+      const button = root.find(Button);
+      expect(button).toHaveLength(1);
+      expect(button).toHaveProp('buttonType', 'neutral');
+      expect(button).toHaveProp('onClick', root.instance().uninstallAddon);
+      expect(button).toHaveClassName('InstallButton-button');
+      expect(button).toHaveClassName('InstallButton-button--uninstall');
+
+      const icon = button.find(Icon);
+      expect(icon).toHaveLength(1);
+      expect(icon).toHaveProp('name', 'delete');
+
+      expect(root.find(AnimatedIcon)).toHaveLength(0);
+    },
+  );
+
+  it('renders an "enable" button when add-on is DISABLED', () => {
+    const root = render({ status: DISABLED });
+
+    const button = root.find(Button);
+    expect(button).toHaveLength(1);
+    expect(button).toHaveProp('buttonType', 'neutral');
+    expect(button).toHaveProp('onClick', root.instance().enableAddon);
+    expect(button).toHaveClassName('InstallButton-button');
+    expect(button).toHaveClassName('InstallButton-button--enable');
+
+    const icon = button.find(Icon);
+    expect(icon).toHaveLength(1);
+    expect(icon).toHaveProp('name', 'plus-dark');
+
+    expect(root.find(AnimatedIcon)).toHaveLength(0);
+  });
+
+  it.each([DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING])(
+    'renders an AnimatedIcon when add-on is %s',
+    (status) => {
+      const root = render({ status });
+
+      expect(root).toHaveClassName('InstallButton');
+      expect(root.find('.InstallButton-button')).toHaveLength(0);
+
+      expect(root.find('.InstallButton-loading')).toHaveLength(1);
+      expect(root.find(AnimatedIcon)).toHaveLength(1);
+      expect(root.find(AnimatedIcon)).toHaveProp('name', 'loading');
+    },
+  );
+
+  it('renders an AnimatedIcon when add-on is a static theme and status is INSTALLED', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+      status: INSTALLED,
     });
 
-    it('requires an installURL parameter', () => {
-      expect(() => _getFileHash({ installURL: null })).toThrow(
-        /installURL parameter cannot be empty/,
-      );
+    expect(root).toHaveClassName('InstallButton');
+    expect(root.find('.InstallButton-button')).toHaveLength(0);
+
+    expect(root.find('.InstallButton-loading')).toHaveLength(1);
+    expect(root.find(AnimatedIcon)).toHaveLength(1);
+  });
+
+  it('sets a `alt` prop to the AnimatedIcon when status is DOWNLOADING', () => {
+    const root = render({ status: DOWNLOADING });
+
+    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Downloading');
+  });
+
+  it('sets a `alt` prop to the AnimatedIcon when status is ENABLING', () => {
+    const root = render({ status: ENABLING });
+
+    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Enabling');
+  });
+
+  it('sets a `alt` prop to the AnimatedIcon when status is INSTALLING', () => {
+    const root = render({ status: INSTALLING });
+
+    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Installing');
+  });
+
+  it('sets a `alt` prop to the AnimatedIcon when status is UNINSTALLING', () => {
+    const root = render({ status: UNINSTALLING });
+
+    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Uninstalling');
+  });
+
+  it('calls the `uninstall` helper when uninstalling an add-on', () => {
+    const installURL = 'http://example.org/install/url';
+    const addon = createInternalAddonWithInstallURL({ installURL });
+    const uninstall = sinon.spy();
+
+    const root = render({ addon, uninstall, status: INSTALLED });
+    sinon.assert.notCalled(uninstall);
+
+    const clickEvent = createFakeEventWithURL({ url: installURL });
+
+    root.find(Button).simulate('click', clickEvent);
+
+    sinon.assert.calledWith(uninstall, {
+      guid: addon.guid,
+      installURL,
+      name: addon.name,
+      type: addon.type,
     });
+    sinon.assert.calledOnce(uninstall);
 
-    it('finds a file hash matching the URL', () => {
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [
-            {
-              platform: OS_MAC,
-              url: 'https://first-url',
-              hash: 'hash-of-first-file',
-            },
-            {
-              platform: OS_WINDOWS,
-              url: 'https://second-url',
-              hash: 'hash-of-second-file',
-            },
-          ],
-        }),
-      );
+    sinon.assert.calledOnce(clickEvent.preventDefault);
+    sinon.assert.calledOnce(clickEvent.stopPropagation);
+  });
 
-      expect(_getFileHash({ addon, installURL: 'https://second-url' })).toEqual(
-        'hash-of-second-file',
-      );
-    });
+  it('calls the `enable` helper when enabling an add-on', () => {
+    const enable = sinon.spy();
 
-    it('strips query string parameters from the URL', () => {
-      const url = 'https://a.m.o/addons/file.xpi';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
-        }),
-      );
+    const root = render({ enable, status: DISABLED });
+    sinon.assert.notCalled(enable);
 
-      expect(
-        _getFileHash({
-          addon,
-          installURL: `${url}?src=some-install-source`,
-        }),
-      ).toEqual('hash-of-file');
-    });
+    const clickEvent = createFakeEvent();
+    root.find(Button).simulate('click', clickEvent);
 
-    it('handles addon file URLs with unrelated query strings', () => {
-      const url = 'https://a.m.o/addons/file.xpi';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [
-            {
-              platform: OS_ALL,
-              url: `${url}?src=some-install-source`,
-              hash: 'hash-of-file',
-            },
-          ],
-        }),
-      );
+    sinon.assert.calledOnce(enable);
 
-      expect(
-        _getFileHash({
-          addon,
-          installURL: `${url}?src=some-install-source`,
-        }),
-      ).toEqual('hash-of-file');
-    });
+    sinon.assert.calledOnce(clickEvent.preventDefault);
+    sinon.assert.calledOnce(clickEvent.stopPropagation);
+  });
 
-    it('does not find a file hash without a current version', () => {
-      const addon = createInternalAddon(
-        createFakeAddon({
-          current_version: undefined,
-        }),
-      );
+  it('accepts an extra CSS class name', () => {
+    const className = 'foo-bar';
+    const root = render({ className });
 
-      expect(_getFileHash({ addon })).toBeUndefined();
-    });
-
-    it('does not find a file hash without files', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        current_version: {
-          ...fakeAddon.current_version,
-          files: [],
-        },
-      });
-
-      expect(_getFileHash({ addon })).toBeUndefined();
-    });
+    expect(root).toHaveClassName('InstallButton');
+    expect(root).toHaveClassName(className);
   });
 });

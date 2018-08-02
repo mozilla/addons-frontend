@@ -24,6 +24,7 @@
     "TimeoutID": true,
     // Standard DOM globals:
     "Generator": true,
+    "HTMLAnchorElement": true,
     "HTMLButtonElement": true,
     "HTMLElement": true,
     "HTMLInputElement": true,
