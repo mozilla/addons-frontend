@@ -247,15 +247,34 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
+    const pages = (collection.numberOfAddons - 1) / collection.pageSize;
+    const isNewPage = pages % 1 === 0;
+    const filter = Math.ceil(pages) || 1;
+
     dispatch(
       removeAddonFromCollection({
         addonId,
         errorHandlerId: errorHandler.id,
-        filters,
+        filters: {
+          ...filters,
+          page: isNewPage ? filter : filters.page,
+        },
         slug,
         username,
       }),
     );
+
+    if (isNewPage) {
+      const { location } = this.props.history;
+
+      history.push({
+        ...location,
+        query: {
+          ...location.query,
+          page: filter,
+        },
+      });
+    }
   };
 
   deleteNote: DeleteAddonNoteFunc = (
