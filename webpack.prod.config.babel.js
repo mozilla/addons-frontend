@@ -46,6 +46,8 @@ export default {
     }),
     // optimizations
     new UglifyJsPlugin({
+      // Do not change these options without busting the cache.
+      // See: https://github.com/mozilla/addons-frontend/issues/5796
       uglifyOptions: {
         output: {
           comments: false,
