@@ -33,11 +33,6 @@ describe(__filename, () => {
     );
   }
 
-  it('renders an OverlayCard', () => {
-    const root = render();
-    expect(root.props.className).toEqual('OverlayCard');
-  });
-
   it('passes onEscapeOverlay to Overlay', () => {
     const onEscapeOverlay = sinon.stub();
     const root = render({ onEscapeOverlay });

@@ -67,15 +67,8 @@ describe(__filename, () => {
 
   it('renders children', () => {
     const text = 'overriding div text..';
-    const html = <div>{text}</div>;
-    const root = render({ visibleOnLoad: true, children: html });
-
-    expect(
-      root
-        .find('.Overlay-contents')
-        .children()
-        .html(),
-    ).toContain(text);
+    const root = render({ visibleOnLoad: true, children: text });
+    expect(root.find('.Overlay-contents')).toHaveText(text);
   });
 
   it('calls onEscapeOverlay when clicking the background', () => {
