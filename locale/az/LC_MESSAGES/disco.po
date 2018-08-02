@@ -16,18 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Server Xətası"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Üzr istəyirik, bir xəta oldu və istəyinizi tamamlaya bilmədik. Bu xətanı qeydə aldıq və tədqiqat aparacıq."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Xəta kodu: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -49,13 +46,11 @@ msgstr ""
 msgid "OK!"
 msgstr "Tamam!"
 
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr ""
 
@@ -109,7 +104,7 @@ msgstr ""
 
 #: src/disco/components/Addon/index.js:207
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Gözlənilməz xəta baş verdi."
 
 #: src/disco/components/Addon/index.js:215
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -125,7 +120,7 @@ msgstr "Qapat"
 
 #: src/disco/components/AddonCompatibilityError/index.js:37
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "iOS üçün Firefox hazırda əlavələri dəstəkləmir."
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "This add-on does not support your version of Firefox."
@@ -149,11 +144,8 @@ msgstr ""
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 
 #: src/disco/components/Footer/index.js:30
