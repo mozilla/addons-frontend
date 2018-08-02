@@ -25,7 +25,11 @@ import {
 } from 'amo/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { GetReviewsApiResponse, GetReviewsParams } from 'amo/api/reviews';
+import type {
+  ExternalReviewReplyType,
+  GetReviewsApiResponse,
+  GetReviewsParams,
+} from 'amo/api/reviews';
 import type {
   FetchRatingSummaryAction,
   FetchReviewsAction,
@@ -139,7 +143,7 @@ function* handleReplyToReview({
 
   try {
     const state = yield select(getState);
-    const reviewResponse = yield call(replyToReview, {
+    const reviewResponse: ExternalReviewReplyType = yield call(replyToReview, {
       apiState: state.api,
       body,
       originalReviewId,
