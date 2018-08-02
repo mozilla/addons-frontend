@@ -291,6 +291,7 @@
     "svg-url-loader": "^2.0.2",
     "tmp": "^0.0.33",
     "tosource": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^3.1.0",
     "webpack-dev-middleware": "^2.0.6",
     "webpack-hot-middleware": "^2.18.0",

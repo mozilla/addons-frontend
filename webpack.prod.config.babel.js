@@ -4,8 +4,8 @@ import path from 'path';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SriPlugin from 'webpack-subresource-integrity';
-import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 import SriDataPlugin from './src/core/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
@@ -45,11 +45,16 @@ export default {
       allChunks: true,
     }),
     // optimizations
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      comments: false,
-      compress: {
-        drop_console: true,
+    new UglifyJsPlugin({
+      // Do not change these options without busting the cache.
+      // See: https://github.com/mozilla/addons-frontend/issues/5796
+      uglifyOptions: {
+        output: {
+          comments: false,
+        },
+        compress: {
+          drop_console: true,
+        },
       },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
