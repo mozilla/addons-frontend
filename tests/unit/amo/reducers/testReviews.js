@@ -892,6 +892,32 @@ describe(__filename, () => {
       const state = addReviewToState({ state: prevState, review });
       expect(state.byUserId[userId]).not.toBeDefined();
     });
+
+    it('resets ratingSummary when adding a new rating', () => {
+      const addonId = 44231;
+      let state;
+
+      state = reviewsReducer(
+        state,
+        setRatingSummary({
+          addonId,
+          summary: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+        }),
+      );
+
+      state = addReviewToState({
+        state,
+        review: createInternalReview({
+          ...fakeReview,
+          addon: {
+            ...fakeReview.addon,
+            id: addonId,
+          },
+        }),
+      });
+
+      expect(state.ratingSummary[addonId]).not.toBeDefined();
+    });
   });
 
   describe('setRatingSummary', () => {

@@ -252,7 +252,12 @@ export const addReviewToState = ({
       // This will trigger a refresh from the server.
       [review.userId]: undefined,
     },
-    // TODO: reset ratingSummary
+    ratingSummary: {
+      ...state.ratingSummary,
+      // When adding a new rating, reset the cache of rating summaries.
+      // This will trigger a refresh from the server.
+      [review.addonId]: undefined,
+    },
   };
 };
 
