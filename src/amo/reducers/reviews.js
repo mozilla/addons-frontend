@@ -37,7 +37,7 @@ import type {
   ShowReplyToReviewFormAction,
   UserReviewType,
 } from 'amo/actions/reviews';
-import type { ExternalRatingSummary } from 'amo/api/reviews';
+import type { RatingSummaryType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 
 type ReviewsById = {
@@ -86,7 +86,7 @@ export type ReviewsState = {|
     [userIdAddonIdVersionId: string]: number | null,
   },
   ratingSummary: {
-    [addonId: string]: ExternalRatingSummary,
+    [addonId: string]: RatingSummaryType,
   },
   view: {
     [reviewId: number]: ViewStateByReviewId,

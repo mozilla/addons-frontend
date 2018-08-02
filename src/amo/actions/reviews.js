@@ -23,9 +23,9 @@ import {
 } from 'amo/constants';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type {
-  ExternalRatingSummary,
   ExternalReviewReplyType,
   ExternalReviewType,
+  RatingSummaryType,
 } from 'amo/api/reviews';
 
 export type UserReviewType = {|
@@ -159,7 +159,7 @@ export function fetchRatingSummary({
 
 type SetRatingSummaryParams = {|
   addonId: number,
-  summary: ExternalRatingSummary,
+  summary: RatingSummaryType,
 |};
 
 export type SetRatingSummaryAction = {|
