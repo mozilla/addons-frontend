@@ -107,58 +107,27 @@ export function* fetchCurrentCollectionPage({
   payload: { errorHandlerId, filters, slug, username },
 }: FetchCurrentCollectionPageAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
-  const state = yield select(getState);
 
   yield put(errorHandler.createClearingAction());
 
   try {
-    try {
-      const params: GetCollectionAddonsParams = {
-        api: state.api,
-        filters,
-        slug,
-        username,
-      };
-      const addons = yield call(api.getCollectionAddons, params);
+    const state = yield select(getState);
 
-      yield put(
-        loadCurrentCollectionPage({
-          addons: addons.results,
-          numberOfAddons: addons.count,
-          pageSize: addons.page_size,
-        }),
-      );
-    } catch (error) {
-      // If getting 404 then try again with updated an filter page value.
-      if (error.response && error.response.status === 404) {
-        const prevPage = filters && filters.page - 1;
-        const pageFilter = prevPage && prevPage - 1 > 0 ? prevPage : 1;
-        const { lang, clientApp } = state.api;
-        const location = `/${lang}/${clientApp}/collections/${username}/${slug}/`;
+    const params: GetCollectionAddonsParams = {
+      api: state.api,
+      filters,
+      slug,
+      username,
+    };
+    const addons = yield call(api.getCollectionAddons, params);
 
-        yield put(
-          pushLocation(
-            `${location}edit/?collection_sort=-added&page=${pageFilter}`,
-          ),
-        );
-
-        yield put(
-          fetchCurrentCollectionPageAction({
-            errorHandlerId: errorHandler.id,
-            filters: {
-              ...filters,
-              page: pageFilter,
-            },
-            slug,
-            username,
-          }),
-        );
-      } else {
-        log.warn(`Collection page failed to load: ${error}`);
-        yield put(errorHandler.createErrorAction(error));
-        yield put(abortFetchCurrentCollection());
-      }
-    }
+    yield put(
+      loadCurrentCollectionPage({
+        addons: addons.results,
+        numberOfAddons: addons.count,
+        pageSize: addons.page_size,
+      }),
+    );
   } catch (error) {
     log.warn(`Collection page failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
