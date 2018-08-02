@@ -297,7 +297,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:229
 msgid "Write a review"
-msgstr ""
+msgstr "Rəy yazın"
 
 #: src/amo/components/AddonReview/index.js:245
 msgid "Review text"
@@ -962,7 +962,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:150
 msgid "Reviewer Tools"
-msgstr ""
+msgstr "Rəyçi Alətləri"
 
 #: src/amo/components/Header/index.js:160 src/core/components/AuthenticateButton/index.js:78
 msgid "Log out"
@@ -1268,95 +1268,95 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:62
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "İcazələr haqqında ətraflı öyrənin"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Əlfəcinləri oxumaq və dəyişdirmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Səyyah tənzimləmələrini oxumaq və dəyişdirmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Son səyahət tarixçəsini, çərəzləri və bağlı məlumatları təmizləmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Məlumatı mübadilə buferindən almaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Məlumatı mübadilə buferinə daxil etmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Açıq vərəqlərdəki məlumatlarınız üçün tərtibatçı alətlərini genişlətmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Download files and read and modify the browser’s download history"
-msgstr "Faylları endirin və səyyahın endirmə tarixçəsini oxuyun və dəyişdirin"
+msgstr "Faylları endirmək və səyyahın endirmə tarixçəsini oxumaq və dəyişdirmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Open files downloaded to your computer"
-msgstr "Kompüterə endirilmiş faylları aç"
+msgstr "Kompüterə endirilmiş faylları açmaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr "Bütün açıq vərəqlərin yazılarını oxu"
+msgstr "Bütün açıq vərəqlərin yazılarını oxumaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
-msgstr ""
+msgstr "Məkanınızı öyrənmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
-msgstr ""
+msgstr "Səyahət tarixçəsinə baxmaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Uzantı istifadəsini izləmək və mövzuları idarə etmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Firefox xaricindəki proqramlarla mesaj mübadilə etmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Bildirişləri sizə göstərmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Kriptoqrafik təsdiqləmə xidmətləri təmin etmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Səyyah proksi tənzimləmələrini idarə etmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Məxfilik tənzimləmələrini oxumaq və dəyişdirmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
-msgstr "Son qapatılan vərəqlərə bax"
+msgstr "Son qapatılan vərəqlərə baxmaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Səyyah vərəqlərinə baxmaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Səyyah vərəqlərini gizlətmək və göstərmək"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Alıcı tərəfində limitsiz məlumat saxlamaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Naviqasiya vaxtı səyyah aktivliyinə baxmaq"
 
 #: src/amo/components/RatingManager/index.js:167
 msgid "Log in to rate this dictionary"
@@ -1416,7 +1416,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:213
 msgid "Dismiss"
-msgstr ""
+msgstr "Qapat"
 
 #: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
@@ -1582,7 +1582,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Trending"
-msgstr ""
+msgstr "Populyar"
 
 #: src/amo/components/SearchFilters/index.js:152
 msgid "Filter results"
@@ -1598,7 +1598,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:198
 msgid "Operating System"
-msgstr ""
+msgstr "Əməliyyat Sistemi"
 
 #: src/amo/components/SearchFilters/index.js:224
 msgid "Featured add-ons only"
@@ -1726,7 +1726,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About/index.js:70
 msgid "Get involved"
-msgstr ""
+msgstr "Qoşul"
 
 #: src/amo/components/StaticPages/About/index.js:72
 msgid ""
@@ -1996,7 +1996,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "Display Name"
-msgstr ""
+msgstr "Ekran Adı"
 
 #: src/amo/components/UserProfileEdit/index.js:610
 msgid "This URL will only be visible for users who are developers."
@@ -2270,23 +2270,23 @@ msgstr ""
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Bütün saytlar üçün olan məlumatlarınıza baxmaq"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Məlumatlarınıza %(param)s digər domain-də baxmaq"
+msgstr[1] "Məlumatlarınıza %(param)s digər domain-də baxmaq"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Məlumatlarınıza %(param)s domain içindəki saytlar üçün baxmaq"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Məlumatlarınıza %(param)s digər saytda baxmaq"
+msgstr[1] "Məlumatlarınıza %(param)s digər saytda baxmaq"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
@@ -2294,7 +2294,7 @@ msgstr ""
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Bu bildirişi qapat"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
