@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-02 07:49+0000\n"
+"PO-Revision-Date: 2018-08-02 08:12+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -180,7 +180,7 @@ msgstr[0] "لا مستخدمين"
 msgstr[1] "مستخدم واحد"
 msgstr[2] "مستخدمان اثنان"
 msgstr[3] "مستخدمين"
-msgstr[4] "مستخدما"
+msgstr[4] "مستخدمًا"
 msgstr[5] "مستخدم"
 
 #: src/amo/components/AddonMeta/index.js:35
@@ -1107,7 +1107,7 @@ msgstr "ترجِم صفحة وِب كاملة ببضع نقرات"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
-msgstr ""
+msgstr "إبراز النصوص"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Highly customizable text highlighter"
@@ -1127,7 +1127,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "علامات مرئية لأفضل الأماكن لديك في الوِب"
 
 #: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Stylus"
@@ -1180,11 +1180,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr ""
+msgstr "تجاوز اللسان الجديد"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "اختر الصفحة التي تريد رؤيتها عند فتح لسان جديد"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
@@ -1224,7 +1224,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "ألديك مئات الألسنة؟ رتّبها في شريط جانبي أنيق"
 
 #: src/amo/components/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1668,7 +1668,7 @@ msgstr[0] "لا مستخدمين"
 msgstr[1] "مستخدم واحد"
 msgstr[2] "مستخدمان"
 msgstr[3] "%(total)s مستخدمين"
-msgstr[4] "%(total)s مستخدما"
+msgstr[4] "%(total)s مستخدمًا"
 msgstr[5] "%(total)s مستخدم"
 
 #: src/amo/components/SearchResults/index.js:43
@@ -1769,7 +1769,7 @@ msgstr "يمكنك أيضا استخدام الموقع للبحث عن إضاف
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
-msgstr ""
+msgstr "مجتمع مبدعين"
 
 #: src/amo/components/StaticPages/About/index.js:61
 msgid ""
