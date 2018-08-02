@@ -48,6 +48,7 @@ jobs:
     - stage:
       <<: *node-prod
       env: COMMAND=snyk-ci
+      if: fork = false
     - stage:
       <<: *node-prod
       env: COMMAND=prettier-ci
