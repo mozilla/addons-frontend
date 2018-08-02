@@ -1,4 +1,6 @@
 /* @flow */
+import { oneLine } from 'common-tags';
+
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
@@ -80,7 +82,8 @@ function* fetchRatingSummary({
     if (!response.grouped_ratings) {
       // This is unlikely to happen but if it does we should stop the show.
       throw new Error(
-        'The request to getReviews({ show_grouped_ratings: true }) unexpectedly returned an empty grouped_ratings object',
+        oneLine`The request to getReviews({ show_grouped_ratings: true })
+        unexpectedly returned an empty grouped_ratings object`,
       );
     }
     yield put(
