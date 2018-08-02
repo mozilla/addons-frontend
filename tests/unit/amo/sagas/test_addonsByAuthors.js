@@ -50,6 +50,8 @@ describe(__filename, () => {
   }
 
   it('calls the API with addonType if set', async () => {
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const root = render({ _config: fakeConfig };
     const addons = [fakeAddon];
     const authorUsernames = ['mozilla'];
     const pageSize = THEMES_BY_AUTHORS_PAGE_SIZE;

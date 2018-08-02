@@ -308,9 +308,12 @@ describe(__filename, () => {
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
+
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+
     const match = { params: fakeParams };
 
-    const root = render({ match });
+    const root = render({ _config: fakeConfig }, { match });
 
     const addonCards = root.find(LandingAddonsCard);
     expect(addonCards.at(0)).toHaveProp('footerLink', {

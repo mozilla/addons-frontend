@@ -554,7 +554,9 @@ describe(__filename, () => {
     _getLanding();
     _loadLanding();
 
-    const root = render({}, { autoDispatchCategories: false });
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+
+    const root = render({ _config: fakeConfig }, { autoDispatchCategories: false });
 
     const landingShelves = root.find(LandingAddonsCard);
     expect(landingShelves).toHaveLength(3);

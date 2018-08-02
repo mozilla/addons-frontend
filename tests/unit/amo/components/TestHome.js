@@ -127,6 +127,9 @@ describe(__filename, () => {
 
   it('renders a featured themes shelf if includeFeaturedThemes is true', () => {
     const root = render({ includeFeaturedThemes: true });
+    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+
+    const root = render({ _config: fakeConfig });
 
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedThemes');
