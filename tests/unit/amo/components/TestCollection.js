@@ -1322,7 +1322,7 @@ describe(__filename, () => {
     );
 
     sinon.assert.calledWith(root.instance().props.history.push, {
-      ...history.location,
+      pathname: history.location.pathname,
       query: {
         ...history.location.query,
         page: 1,

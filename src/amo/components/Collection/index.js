@@ -53,6 +53,7 @@ import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
+  ReactRouterHistoryType,
   ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
@@ -76,6 +77,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   filters: CollectionFilters,
   hasEditPermission: boolean,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isLoggedIn: boolean,
   isOwner: boolean,
@@ -247,9 +249,11 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    const pages = (collection.numberOfAddons - 1) / collection.pageSize;
-    const isNewPage = pages % 1 === 0;
-    const newFilter = Math.ceil(pages) || 1;
+    const { pageSize } = collection;
+    const pages = pageSize ? (collection.numberOfAddons - 1) / pageSize : null;
+    const isNewPage = pages && pages % 1 === 0;
+    const newFilter = (pages && Math.ceil(pages)) || 1;
+    const filter = isNewPage ? newFilter : filters.page;
 
     dispatch(
       removeAddonFromCollection({
@@ -257,7 +261,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         filters: {
           ...filters,
-          page: isNewPage ? newFilter : filters.page,
+          page: filter,
         },
         slug,
         username,
@@ -268,10 +272,10 @@ export class CollectionBase extends React.Component<InternalProps> {
       const { location } = history;
 
       history.push({
-        ...location,
+        pathname: location.pathname,
         query: {
           ...location.query,
-          page: newFilter,
+          page: filter,
         },
       });
     }
