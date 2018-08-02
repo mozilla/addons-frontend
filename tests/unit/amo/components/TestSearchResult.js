@@ -145,12 +145,13 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchResult--theme');
   });
 
-  it('does not render an image if the isAllowedOrigin is false', () => {
+  it('does not render a theme image if the isAllowedOrigin is false', () => {
     const root = render({
       _isAllowedOrigin: sinon.stub().returns(false),
       addon: createInternalAddon({
         ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
+        previews: [],
+        type: ADDON_TYPE_THEME,
       }),
     });
 
