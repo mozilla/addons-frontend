@@ -25,4 +25,6 @@ module.exports = {
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-dev/
   publicSentryDsn: 'https://560fc81d9fd14266b99bda032de23c52@sentry.prod.mozaws.net/184',
+
+  enableNewInstallButton: true,
 };

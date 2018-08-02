@@ -22,6 +22,7 @@ module.exports = {
     'discoParamsToUse',
     'enableClientConsole',
     'enableDevTools',
+    'enableNewInstallButton',
     'isDeployed',
     'isDevelopment',
     'langMap',

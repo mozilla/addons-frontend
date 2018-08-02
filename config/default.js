@@ -103,6 +103,7 @@ module.exports = {
     'enableClientConsole',
     'enableDevTools',
     'enableExperienceSurvey',
+    'enableNewInstallButton',
     'enableStaticThemes',
     'fxaConfig',
     'isDeployed',
@@ -302,4 +303,7 @@ module.exports = {
 
   enableExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
+
+  // Enable new InstallButton.
+  enableNewInstallButton: false,
 };

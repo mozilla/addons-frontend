@@ -50,6 +50,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
+import NewInstallButton from 'core/components/NewInstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
@@ -1047,7 +1048,7 @@ describe(__filename, () => {
     expect(root.find(Button)).toHaveLength(1);
   });
 
-  it('passes installStatus to installButton, not add-on status', () => {
+  it('passes installStatus to InstallButton, not add-on status', () => {
     const root = shallowRender({
       addon: createInternalAddon(fakeAddon),
       installStatus: UNKNOWN,
@@ -1584,6 +1585,49 @@ describe(__filename, () => {
       const { addon } = _mapStateToProps();
 
       expect(addon).toEqual(null);
+    });
+  });
+
+  describe('NewInstallButton', () => {
+    const renderWithNewInstallButton = (props = {}) => {
+      return shallowRender({
+        ...props,
+        config: getFakeConfig({ enableNewInstallButton: true }),
+      });
+    };
+
+    it('renders the NewInstallButton when config allows it', () => {
+      const root = renderWithNewInstallButton();
+
+      expect(root.find(InstallButton)).toHaveLength(0);
+      expect(root.find(NewInstallButton)).toHaveLength(1);
+    });
+
+    it('passes the addon to the InstallButton', () => {
+      const addon = createInternalAddon(fakeAddon);
+      const root = renderWithNewInstallButton({ addon });
+
+      expect(root.find(NewInstallButton)).toHaveProp('addon', addon);
+    });
+
+    it('passes install helper functions to the install button', () => {
+      const enable = sinon.stub();
+      const install = sinon.stub();
+      const installTheme = sinon.stub();
+      const uninstall = sinon.stub();
+
+      const root = renderWithNewInstallButton({
+        enable,
+        install,
+        installTheme,
+        uninstall,
+      });
+
+      const installButton = root.find(NewInstallButton);
+      expect(installButton).toHaveProp('enable', enable);
+      expect(installButton).toHaveProp('install', install);
+      expect(installButton).toHaveProp('installTheme', installTheme);
+      expect(installButton).toHaveProp('uninstall', uninstall);
     });
   });
 });
