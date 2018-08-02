@@ -177,7 +177,7 @@ As a member of the `add-ons-team`, you can fix an issue reported by running:
 yarn snyk-wizard
 ```
 
-The wizard allows you to decide whether you want to upgrade dependencies or ignore the issue for 30 days. See the existing reasons to ignore an issue in the [`.snyk`](.snyk) file. Snyk is a bit intrusive and changes many things (like re-adding `snyk test` to the npm `test` script): double check your changes before submitting a Pull Request. You have successfully fixed an issue when `yarn snyk-ci` does not complain.
+The wizard allows you to decide whether you want to upgrade dependencies or ignore the issue for 30 days. See the existing reasons to ignore an issue in the [`.snyk`](.snyk) file. Snyk is a bit intrusive and changes many things (like re-adding `snyk test` to the npm `test` script): double check your changes before submitting a Pull Request. You have successfully fixed an issue when `yarn snyk-ci` does not complain. Make sure you open a Pull Request with a branch pushed to this repository and not from your fork, because the `snyk-ci` job (Travis CI) does not run on forks.
 
 Note: You should authenticate yourself once by running `yarn snyk auth` (no dash). It will open a link in your favorite browser and authenticate you locally.
 
