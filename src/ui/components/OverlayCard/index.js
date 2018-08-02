@@ -12,6 +12,7 @@ export default class OverlayCard extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     header: PropTypes.node,
+    id: PropTypes.string.isRequired,
     footerLink: PropTypes.node,
     footerText: PropTypes.node,
     onEscapeOverlay: PropTypes.func,
@@ -22,23 +23,12 @@ export default class OverlayCard extends React.Component {
     visibleOnLoad: false,
   };
 
-  hide() {
-    this.overlay.hide();
-  }
-
-  show() {
-    this.overlay.show();
-  }
-
-  toggle() {
-    this.overlay.toggle();
-  }
-
   render() {
     const {
       children,
       className,
       header,
+      id,
       footerLink,
       footerText,
       visibleOnLoad,
@@ -47,19 +37,14 @@ export default class OverlayCard extends React.Component {
     return (
       <Overlay
         onEscapeOverlay={this.props.onEscapeOverlay}
+        id={id}
         visibleOnLoad={visibleOnLoad}
-        ref={(ref) => {
-          this.overlay = ref;
-        }}
       >
         <Card
           className={makeClassName('OverlayCard', className)}
           header={header}
           footerLink={footerLink}
           footerText={footerText}
-          ref={(ref) => {
-            this.overlayCard = ref;
-          }}
         >
           {children}
         </Card>

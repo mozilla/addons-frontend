@@ -1,7 +1,7 @@
 @import '~amo/css/inc/vars';
 @import '~core/css/inc/mixins';
 
-.Overlay-contents .AddonReview {
+.Overlay-contents .AddonReview-overlay {
   .Card-contents {
     background: $base-color;
     max-height: 80vh;

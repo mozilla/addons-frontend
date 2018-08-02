@@ -1,73 +1,100 @@
 import * as React from 'react';
-import { renderIntoDocument, Simulate } from 'react-dom/test-utils';
 
-import Overlay from 'ui/components/Overlay';
+import {
+  applyUIStateChanges,
+  createFakeEvent,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import Overlay, { OverlayBase, extractId } from 'ui/components/Overlay';
 
 describe(__filename, () => {
-  function render(props = {}) {
-    return renderIntoDocument(<Overlay {...props} />);
-  }
+  const getProps = ({ ...props } = {}) => {
+    return {
+      id: 'Overlay',
+      className: 'Overlay',
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
+  };
 
-  it('renders an Overlay', () => {
-    const root = render();
-    expect(root.overlayContainer).toBeTruthy();
-    expect(root.overlayBackground).toBeTruthy();
-    expect(root.overlayContainer.tagName).toEqual('DIV');
-    expect(root.overlayContainer.className).toContain('Overlay');
-  });
+  const render = ({ children, ...otherProps } = {}) => {
+    const html = <div>a child div</div>;
+    const props = getProps(otherProps);
+    const root = shallowUntilTarget(
+      <Overlay {...props}>{children || html}</Overlay>,
+      OverlayBase,
+    );
 
-  it('renders extra className if provided', () => {
-    const root = render({ className: 'I-am-so-over-it' });
-    expect(root.overlayContainer.className).toContain('Overlay');
-    expect(root.overlayContainer.className).toContain('I-am-so-over-it');
-  });
-
-  it('renders children', () => {
-    const root = render({ children: 'hello' });
-    expect(root.overlayContents).toBeTruthy();
-    expect(root.overlayContents.textContent).toContain('hello');
-  });
+    // Apply initial UI state.
+    applyUIStateChanges({ root, store: props.store });
+    return root;
+  };
 
   it('is hidden by default', () => {
     const root = render();
-    expect(root.overlayContainer.className).not.toContain('Overlay--visible');
+    expect(root).not.toHaveClassName('Overlay--visible');
   });
 
-  it('is visible when the `visibleOnLoad` prop is passed', () => {
+  it('becomes visible when its mounted with visibleOnLoad prop as true', () => {
     const root = render({ visibleOnLoad: true });
-    expect(root.overlayContainer.className).toContain('Overlay--visible');
+
+    expect(root).toHaveClassName('Overlay');
+    expect(root).toHaveClassName('Overlay--visible');
+    expect(root.find('.Overlay-background')).toHaveLength(1);
+    expect(root.find('.Overlay-contents')).toHaveLength(1);
   });
 
-  it('hides when you click the background', () => {
-    const root = render({ visibleOnLoad: true });
-    Simulate.click(root.overlayBackground);
-    expect(root.overlayContainer.className).not.toContain('Overlay--visible');
+  it('becomes visible once the visibleOnLoad prop of true is passed', () => {
+    const { store } = dispatchClientMetadata();
+
+    const root = render({ store });
+
+    expect(root).not.toHaveClassName('Overlay--visible');
+
+    root.setProps({ visibleOnLoad: true });
+
+    applyUIStateChanges({ root, store });
+
+    expect(root).toHaveClassName('Overlay--visible');
+  });
+
+  it('renders extra className if provided', () => {
+    const className = 'I-am-so-over-it';
+    const root = render({ visibleOnLoad: true, className });
+    expect(root).toHaveClassName(className);
+  });
+
+  it('renders children', () => {
+    const text = 'overriding div text..';
+    const root = render({ visibleOnLoad: true, children: text });
+    expect(root.find('.Overlay-contents')).toHaveText(text);
   });
 
   it('calls onEscapeOverlay when clicking the background', () => {
     const onEscapeOverlay = sinon.stub();
-    const root = render({ visibleOnLoad: true, onEscapeOverlay });
-    Simulate.click(root.overlayBackground);
+    const root = render({
+      visibleOnLoad: true,
+      onEscapeOverlay,
+    });
+    const btn = root.find('.Overlay-background');
+    btn.simulate('click', createFakeEvent());
     sinon.assert.called(onEscapeOverlay);
   });
 
-  it('is shown and hidden when `hide()` and `show()` are called', () => {
-    const root = render();
-
-    root.show();
-    expect(root.overlayContainer.className).toContain('Overlay--visible');
-
-    root.hide();
-    expect(root.overlayContainer.className).not.toContain('Overlay--visible');
+  it('hides when you click the background', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ visibleOnLoad: true, store });
+    const btn = root.find('.Overlay-background');
+    btn.simulate('click', createFakeEvent());
+    applyUIStateChanges({ root, store });
+    expect(root).not.toHaveClassName('Overlay--visible');
   });
 
-  it('is toggled', () => {
-    const root = render();
-
-    root.toggle();
-    expect(root.overlayContainer.className).toContain('Overlay--visible');
-
-    root.toggle();
-    expect(root.overlayContainer.className).not.toContain('Overlay--visible');
+  describe('extractId', () => {
+    it('returns a unique ID provided by the ID prop', () => {
+      const id = 'custom-overlay';
+      expect(extractId(getProps({ id }))).toEqual(id);
+    });
   });
 });
