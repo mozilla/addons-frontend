@@ -453,10 +453,7 @@ describe(__filename, () => {
         };
         actions.setInternalReview(review);
 
-        sinon.assert.called(dispatch);
-        const action = dispatch.firstCall.args[0];
-        expect(action.type).toEqual(SET_INTERNAL_REVIEW);
-        expect(action.payload).toEqual(review);
+        sinon.assert.calledWith(dispatch, setInternalReview(review));
       });
     });
   });
