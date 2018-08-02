@@ -162,7 +162,7 @@ type SetRatingSummaryParams = {|
   summary: ExternalRatingSummary,
 |};
 
-type SetRatingSummaryAction = {|
+export type SetRatingSummaryAction = {|
   type: typeof SET_RATING_SUMMARY,
   payload: SetRatingSummaryParams,
 |};

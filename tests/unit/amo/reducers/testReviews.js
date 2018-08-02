@@ -8,6 +8,7 @@ import {
   setAddonReviews,
   setInternalReview,
   setLatestReview,
+  setRatingSummary,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -890,6 +891,56 @@ describe(__filename, () => {
       });
       const state = addReviewToState({ state: prevState, review });
       expect(state.byUserId[userId]).not.toBeDefined();
+    });
+  });
+
+  describe('setRatingSummary', () => {
+    it('stores a rating summary', () => {
+      const addonId = 432;
+      const summary = {
+        1: 64,
+        2: 122,
+        3: 456,
+        4: 1243,
+        5: 922,
+      };
+
+      const state = reviewsReducer(
+        undefined,
+        setRatingSummary({
+          addonId,
+          summary,
+        }),
+      );
+
+      expect(state.ratingSummary[addonId]).toEqual(summary);
+    });
+
+    it('preserves existing rating summaries', () => {
+      let state;
+
+      const firstAddonId = 1;
+      const firstSummary = { 1: 0, 2: 0, 3: 0, 4: 2, 5: 6 };
+
+      const secondAddonId = 2;
+      const secondSummary = { 1: 0, 2: 0, 3: 3, 4: 4, 5: 4 };
+
+      state = reviewsReducer(
+        state,
+        setRatingSummary({
+          addonId: firstAddonId,
+          summary: firstSummary,
+        }),
+      );
+      state = reviewsReducer(
+        state,
+        setRatingSummary({
+          addonId: secondAddonId,
+          summary: secondSummary,
+        }),
+      );
+
+      expect(state.ratingSummary[firstAddonId]).toEqual(firstSummary);
     });
   });
 });
