@@ -6,11 +6,12 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
-  SET_USER_REVIEWS,
+  SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
+  SET_USER_REVIEWS,
   SHOW_EDIT_REVIEW_FORM,
   SHOW_REPLY_TO_REVIEW_FORM,
   HIDE_EDIT_REVIEW_FORM,
@@ -25,6 +26,7 @@ import type {
   ReviewWasFlaggedAction,
   SendReplyToReviewAction,
   SetAddonReviewsAction,
+  SetInternalReviewAction,
   SetLatestReviewAction,
   SetReviewAction,
   SetReviewReplyAction,
@@ -227,12 +229,31 @@ export const selectLatestUserReview = ({
   return selectReview(reviewsState, userReviewId);
 };
 
+export const addReviewToState = ({
+  state,
+  review,
+}: {|
+  state: ReviewsState,
+  review: UserReviewType,
+|}) => {
+  return {
+    ...state,
+    byId: storeReviewObjects({ state, reviews: [review] }),
+    byUserId: {
+      ...state.byUserId,
+      // This will trigger a refresh from the server.
+      [review.userId]: undefined,
+    },
+  };
+};
+
 type ReviewActionType =
   | ClearAddonReviewsAction
   | HideEditReviewFormAction
   | HideReplyToReviewFormAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
+  | SetInternalReviewAction
   | SetLatestReviewAction
   | SetReviewAction
   | SetReviewReplyAction
@@ -244,6 +265,9 @@ type ReviewActionType =
 export default function reviewsReducer(
   state: ReviewsState = initialState,
   action: ReviewActionType,
+  {
+    _addReviewToState = addReviewToState,
+  }: {| _addReviewToState: typeof addReviewToState |} = {},
 ) {
   switch (action.type) {
     case SEND_REPLY_TO_REVIEW:
@@ -313,15 +337,14 @@ export default function reviewsReducer(
     }
     case SET_REVIEW: {
       const { payload } = action;
-      return {
-        ...state,
-        byId: storeReviewObjects({ state, reviews: [payload] }),
-        byUserId: {
-          ...state.byUserId,
-          // This will trigger a refresh from the server.
-          [payload.userId]: undefined,
-        },
-      };
+      const review = createInternalReview(payload);
+
+      return _addReviewToState({ state, review });
+    }
+    case SET_INTERNAL_REVIEW: {
+      const { payload } = action;
+
+      return _addReviewToState({ state, review: payload });
     }
     case SET_REVIEW_REPLY: {
       const reviewId = action.payload.originalReviewId;

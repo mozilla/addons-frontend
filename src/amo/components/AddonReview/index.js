@@ -8,7 +8,7 @@ import { compose } from 'redux';
 
 import { submitReview } from 'amo/api/reviews';
 import {
-  setDenormalizedReview as _setDenormalizedReview,
+  setInternalReview as _setInternalReview,
   setReview,
 } from 'amo/actions/reviews';
 import { refreshAddon as _refreshAddon, sanitizeHTML } from 'core/utils';
@@ -29,7 +29,7 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type SetDenormalizedReviewFunction = (review: $Shape<UserReviewType>) => void;
+type SetInternalReviewFunction = (review: $Shape<UserReviewType>) => void;
 
 type RefreshAddonFunction = (params: {|
   addonSlug: string,
@@ -42,7 +42,7 @@ type UpdateReviewTextFunction = (
 
 type DispatchMappedProps = {|
   refreshAddon?: RefreshAddonFunction,
-  setDenormalizedReview?: SetDenormalizedReviewFunction,
+  setInternalReview?: SetInternalReviewFunction,
   updateReviewText?: UpdateReviewTextFunction,
 |};
 
@@ -117,12 +117,12 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
       onReviewSubmitted,
       refreshAddon,
       review,
-      setDenormalizedReview,
+      setInternalReview,
       updateReviewText,
     } = this.props;
     invariant(refreshAddon, 'refreshAddon() is undefined');
     invariant(updateReviewText, 'updateReviewText() is undefined');
-    invariant(setDenormalizedReview, 'setDenormalizedReview() is undefined');
+    invariant(setInternalReview, 'setInternalReview() is undefined');
 
     const { reviewBody } = this.state;
     event.preventDefault();
@@ -145,7 +145,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     // Dispatch the new review to state so that the
     // component doesn't re-render with stale data while
     // the API request is in progress.
-    setDenormalizedReview(updatedReview);
+    setInternalReview(updatedReview);
 
     // Next, update the review with an actual API request.
     return updateReviewText(params).then(() =>
@@ -176,11 +176,8 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
   onSelectRating = (rating: number) => {
     // Update the review object with a new rating but don't submit it
     // to the API yet.
-    invariant(
-      this.props.setDenormalizedReview,
-      'setDenormalizedReview() is undefined',
-    );
-    this.props.setDenormalizedReview({
+    invariant(this.props.setInternalReview, 'setInternalReview() is undefined');
+    this.props.setInternalReview({
       ...this.props.review,
       body: this.state.reviewBody || undefined,
       rating,
@@ -282,8 +279,8 @@ export const mapDispatchToProps = (
       (({ addonSlug, apiState }) => {
         return _refreshAddon({ addonSlug, apiState, dispatch });
       }),
-    setDenormalizedReview: (review) => {
-      dispatch(_setDenormalizedReview(review));
+    setInternalReview: (review) => {
+      dispatch(_setInternalReview(review));
     },
     updateReviewText:
       ownProps.updateReviewText ||

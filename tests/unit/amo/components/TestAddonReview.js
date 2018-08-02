@@ -3,8 +3,7 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
-import { SET_REVIEW } from 'amo/constants';
-import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
+import { setInternalReview, setReview } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import * as coreUtils from 'core/utils';
 import AddonReview, {
@@ -111,7 +110,7 @@ describe(__filename, () => {
 
         sinon.assert.calledWith(
           fakeDispatch,
-          setDenormalizedReview({
+          setInternalReview({
             ...defaultReview,
             body: 'some review',
           }),
@@ -354,7 +353,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeDispatch,
-      setDenormalizedReview({
+      setInternalReview({
         ...review,
         rating: newRating,
       }),
@@ -381,7 +380,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeDispatch,
-      setDenormalizedReview({
+      setInternalReview({
         ...review,
         body: enteredReviewText,
         rating: newRating,
@@ -445,18 +444,15 @@ describe(__filename, () => {
       });
     });
 
-    describe('setDenormalizedReview', () => {
-      it('dispatches a setReview action', () => {
+    describe('setInternalReview', () => {
+      it('dispatches a setInternalReview action', () => {
         const review = {
           ...defaultReview,
           body: 'some body',
         };
-        actions.setDenormalizedReview(review);
+        actions.setInternalReview(review);
 
-        sinon.assert.called(dispatch);
-        const action = dispatch.firstCall.args[0];
-        expect(action.type).toEqual(SET_REVIEW);
-        expect(action.payload).toEqual(review);
+        sinon.assert.calledWith(dispatch, setInternalReview(review));
       });
     });
   });

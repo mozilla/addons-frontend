@@ -6,6 +6,7 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
+  setInternalReview,
   setLatestReview,
   setReview,
   setReviewReply,
@@ -16,6 +17,7 @@ import {
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
 import reviewsReducer, {
+  addReviewToState,
   changeViewState,
   expandReviewObjects,
   getReviewsByUserId,
@@ -99,29 +101,36 @@ describe(__filename, () => {
     expect(storedReview.reply.body).toEqual(replyBody);
   });
 
-  it('stores a review object', () => {
-    const review = { ...fakeReview, id: 1 };
-    const action = setReview(review);
-    const state = reviewsReducer(undefined, action);
-    expect(state.byId[review.id]).toEqual(createInternalReview(review));
+  describe('SET_REVIEW', () => {
+    it('calls _addReviewToState()', () => {
+      const _addReviewToState = sinon.spy();
+
+      const review = fakeReview;
+      reviewsReducer(undefined, setReview(review), {
+        _addReviewToState,
+      });
+
+      sinon.assert.calledWith(_addReviewToState, {
+        state: initialState,
+        review: createInternalReview(review),
+      });
+    });
   });
 
-  it('resets the byUserId data when adding a new review', () => {
-    const userId = 123;
+  describe('SET_INTERNAL_REVIEW', () => {
+    it('calls _addReviewToState()', () => {
+      const _addReviewToState = sinon.spy();
 
-    const prevState = reviewsReducer(
-      undefined,
-      setUserReviews({
-        pageSize: DEFAULT_API_PAGE_SIZE,
-        reviews: [fakeReview],
-        reviewCount: 1,
-        userId,
-      }),
-    );
-    expect(prevState.byUserId[userId]).toBeDefined();
+      const review = createInternalReview(fakeReview);
+      reviewsReducer(undefined, setInternalReview(review), {
+        _addReviewToState,
+      });
 
-    const state = reviewsReducer(prevState, setFakeReview({ userId }));
-    expect(state.byUserId[userId]).not.toBeDefined();
+      sinon.assert.calledWith(_addReviewToState, {
+        state: initialState,
+        review,
+      });
+    });
   });
 
   it('stores a review reply object', () => {
@@ -847,6 +856,40 @@ describe(__filename, () => {
       state = reviewsReducer(state, _setLatestReview({ userId }));
 
       expect(state.byUserId[userId]).toBeUndefined();
+    });
+  });
+
+  describe('addReviewToState', () => {
+    it('stores an internal review object', () => {
+      const review = createInternalReview({ ...fakeReview, id: 1 });
+      const state = addReviewToState({ state: {}, review });
+
+      expect(state.byId[review.id]).toEqual(review);
+    });
+
+    it('resets the byUserId data when adding a new review', () => {
+      const userId = 123;
+
+      const prevState = reviewsReducer(
+        undefined,
+        setUserReviews({
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [fakeReview],
+          reviewCount: 1,
+          userId,
+        }),
+      );
+      expect(prevState.byUserId[userId]).toBeDefined();
+
+      const review = createInternalReview({
+        ...fakeReview,
+        user: {
+          ...fakeReview.user,
+          id: userId,
+        },
+      });
+      const state = addReviewToState({ state: prevState, review });
+      expect(state.byUserId[userId]).not.toBeDefined();
     });
   });
 });
