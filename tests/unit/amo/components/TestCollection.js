@@ -1268,6 +1268,66 @@ describe(__filename, () => {
         username: detail.author.username,
       }),
     );
+
+    sinon.assert.notCalled(root.instance().props.history.push);
+  });
+
+  it('set up new filters and a page when removeAddon removes the last addon on the page', () => {
+    const history = createFakeHistory();
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
+      // This will simulate only 1 item on the 2nd page.
+      count: DEFAULT_API_PAGE_SIZE + 1,
+    });
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 2;
+    const sort = COLLECTION_SORT_NAME;
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
+      }),
+    );
+
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      location: createFakeLocation({ query: { page, collection_sort: sort } }),
+      store,
+    });
+
+    fakeDispatch.resetHistory();
+
+    // This simulates the user clicking the "Remove" button on the
+    // EditableCollectionAddon component.
+    root.instance().removeAddon(addonId);
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      removeAddonFromCollection({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        filters: { page: 1, collectionSort: sort },
+        slug: detail.slug,
+        username: detail.author.username,
+      }),
+    );
+
+    sinon.assert.calledWith(root.instance().props.history.push, {
+      ...history.location,
+      query: {
+        ...history.location.query,
+        page: 1,
+      },
+    });
   });
 
   it('dispatches deleteCollection when onDelete is called', () => {
