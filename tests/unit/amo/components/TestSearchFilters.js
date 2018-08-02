@@ -25,18 +25,19 @@ import {
 describe(__filename, () => {
   let fakeHistory;
 
-  function render({
-    filters = {},
-    pathname = '/en-US/android/search/',
-    ...props
-  } = {}) {
+  function render({ filters = {}, pathname = '/search/', ...props } = {}) {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
     store.dispatch(searchStart({ errorHandlerId: errorHandler.id, filters }));
 
     return shallowUntilTarget(
-      <SearchFilters i18n={fakeI18n()} store={store} {...props} />,
+      <SearchFilters
+        i18n={fakeI18n()}
+        pathname={pathname}
+        store={store}
+        {...props}
+      />,
       SearchFiltersBase,
       {
         shallowOptions: createContextWithFakeRouter({

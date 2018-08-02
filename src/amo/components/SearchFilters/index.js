@@ -34,10 +34,12 @@ const NO_FILTER = '';
 export class SearchFiltersBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
+    clientApp: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
+    lang: PropTypes.string.isRequired,
+    pathname: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -87,7 +89,7 @@ export class SearchFiltersBase extends React.Component {
   };
 
   doSearch({ newFilters }) {
-    const { location, history } = this.props;
+    const { clientApp, lang, history, pathname } = this.props;
 
     if (newFilters.page) {
       // Since it's now a new search, reset the page.
@@ -96,7 +98,7 @@ export class SearchFiltersBase extends React.Component {
     }
 
     history.push({
-      pathname: location.pathname,
+      pathname: `/${lang}/${clientApp}${pathname}`,
       query: convertFiltersToQueryParams(newFilters),
     });
   }
@@ -231,7 +233,9 @@ export class SearchFiltersBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    clientApp: state.api.clientApp,
     filters: state.search.filters,
+    lang: state.api.lang,
   };
 }
 
