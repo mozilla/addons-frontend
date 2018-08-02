@@ -64,7 +64,7 @@ describe(__filename, () => {
     expect(root.find(HomeHeroBanner)).toHaveLength(1);
   });
 
-  it.each([0, 1, 2, 3])(
+  it.each([0, 1, 2])(
     `renders a featured collection shelf at position %s`,
     (index) => {
       const collectionMetadata = getFeaturedCollectionsMetadata(fakeI18n())[
@@ -221,7 +221,7 @@ describe(__filename, () => {
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: false,
+        includeFeaturedThemes: true,
       }),
     );
   });
@@ -284,9 +284,7 @@ describe(__filename, () => {
     );
 
     const root = render({ store });
-
     const shelves = root.find(LandingAddonsCard);
-    expect(shelves).toHaveLength(1);
 
     const collectionShelves = shelves.find('.Home-FeaturedCollection');
     expect(collectionShelves).toHaveLength(0);

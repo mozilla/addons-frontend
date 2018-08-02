@@ -110,11 +110,11 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
         <p>{i18n.gettext('Protect yourself against the sneakiest trackers')}</p>
       </HeroSection>,
-      <HeroSection key="hero-14" linkTo="/addon/page-translate/">
-        <h3>{i18n.gettext('Page Translate')}</h3>
+      <HeroSection key="hero-14" linkTo="/addon/default-bookmark-folder/">
+        <h3>{i18n.gettext('Default Bookmark Folder')}</h3>
 
         <p>
-          {i18n.gettext('Translate an entire web page with a couple clicks')}
+          {i18n.gettext('Change the default destination for your bookmarks')}
         </p>
       </HeroSection>,
       <HeroSection key="hero-15" linkTo="/addon/textmarkerpro/">
@@ -122,26 +122,95 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
         <p>{i18n.gettext('Highly customizable text highlighter')}</p>
       </HeroSection>,
-      <HeroSection key="hero-16" linkTo="/addon/forget_me_not/">
-        <h3>{i18n.gettext('Forget Me Not')}</h3>
+      <HeroSection key="hero-16" linkTo="/addon/w2g/">
+        <h3>{i18n.gettext('Watch2Gether')}</h3>
 
-        <p>
-          {i18n.gettext(`Make Firefox forget website data like cookies
-              & local storage`)}
-        </p>
+        <p>{i18n.gettext('Watch videos simultaneously with others')}</p>
       </HeroSection>,
-      <HeroSection key="hero-17" linkTo="/addon/groupspeeddial/">
-        <h3>{i18n.gettext('Group Speed Dial')}</h3>
+      <HeroSection key="hero-17" linkTo="/addon/contextual-search/">
+        <h3>{i18n.gettext('Context Search')}</h3>
 
         <p>
-          {i18n.gettext(`Visual bookmarks for your favorite places on the
-              web`)}
+          {i18n.gettext(
+            'Highlight text on any webpage to easily search the term',
+          )}
         </p>
       </HeroSection>,
       <HeroSection key="hero-18" linkTo="/addon/styl-us/">
         <h3>{i18n.gettext('Stylus')}</h3>
 
         <p>{i18n.gettext('Give your favorite websites a new look')}</p>
+      </HeroSection>,
+      <HeroSection key="hero-19" linkTo="/addon/search-encrypt/">
+        <h3>{i18n.gettext('Search Encrypt')}</h3>
+
+        <p>{i18n.gettext('Privacy protection for your search data')}</p>
+      </HeroSection>,
+      <HeroSection key="hero-20" linkTo="/addon/auto-tab-discard/">
+        <h3>{i18n.gettext('Auto Tab Discard')}</h3>
+
+        <p>{i18n.gettext('Save memory by disabling inactive tabs')}</p>
+      </HeroSection>,
+      <HeroSection key="hero-21" linkTo="/addon/update-scanner/">
+        <h3>{i18n.gettext('Update Scanner')}</h3>
+
+        <p>
+          {i18n.gettext(
+            'Get notified when your selected websites update with new content',
+          )}
+        </p>
+      </HeroSection>,
+      <HeroSection key="hero-22" linkTo="/addon/autofullscreen/">
+        <h3>{i18n.gettext('Auto Fullscreen')}</h3>
+
+        <p>{i18n.gettext('Automatically start Firefox in full screen mode')}</p>
+      </HeroSection>,
+      <HeroSection key="hero-23" linkTo="/addon/videospeed/">
+        <h3>{i18n.gettext('Video Speed Controller')}</h3>
+
+        <p>{i18n.gettext('Adjust video playback speeds with shortcuts')}</p>
+      </HeroSection>,
+      <HeroSection key="hero-24" linkTo="/addon/view-image/">
+        <h3>{i18n.gettext('View Image')}</h3>
+
+        <p>
+          {i18n.gettext(
+            `Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images`,
+          )}
+        </p>
+      </HeroSection>,
+      <HeroSection key="hero-25" linkTo="/addon/neat-url/">
+        <h3>{i18n.gettext('Neat URL')}</h3>
+
+        <p>{i18n.gettext('Clean up links for easy sharing')}</p>
+      </HeroSection>,
+      <HeroSection key="hero-26" linkTo="/addon/glitterdrag/">
+        <h3>{i18n.gettext('Glitter Drag')}</h3>
+
+        <p>
+          {i18n.gettext(
+            'Drag text, images, or links to perform actions like copy, open, search, and more',
+          )}
+        </p>
+      </HeroSection>,
+      <HeroSection key="hero-27" linkTo="/addon/behind-the-overlay-revival/">
+        <h3>{i18n.gettext('Behind The Overlay Revival')}</h3>
+
+        <p>{i18n.gettext('Click a button to close annoying pop-ups')}</p>
+      </HeroSection>,
+      <HeroSection key="hero-28" linkTo="/addon/auto-sort-bookmarks/">
+        <h3>{i18n.gettext('Auto-Sort Bookmarks')}</h3>
+
+        <p>
+          {i18n.gettext(
+            'Automatically sorts bookmarks so they’re in your preferred position',
+          )}
+        </p>
+      </HeroSection>,
+      <HeroSection key="hero-29" linkTo="/addon/britannica-insights/">
+        <h3>{i18n.gettext('Britannica Insights')}</h3>
+
+        <p>{i18n.gettext('Add Britannica facts to your search results')}</p>
       </HeroSection>,
     ];
   }
