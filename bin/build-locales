@@ -80,7 +80,7 @@ for (const appName of appsBuildList) {
 
     // This is used to force cache-busting of the JS via changing all locale JS.
     // DO NOT REMOVE! See https://github.com/mozilla/addons-frontend/issues/4927
-    localeObject._cacheBust = '2018.05.04';
+    localeObject._cacheBust = '2018.08.02';
 
     fs.writeFileSync(
       localeOutputFilePath, `module.exports = ${toSource(localeObject)}`);
