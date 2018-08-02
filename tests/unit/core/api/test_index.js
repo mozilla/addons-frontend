@@ -271,6 +271,32 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
+    it('converts true boolean to a string literal', async () => {
+      mockWindow
+        .expects('fetch')
+        .withArgs(sinon.match('?anyBoolean=true'))
+        .returns(createApiResponse());
+
+      await api.callApi({
+        endpoint: 'some-endpoint/',
+        params: { anyBoolean: true },
+      });
+      mockWindow.verify();
+    });
+
+    it('converts false boolean to a string literal', async () => {
+      mockWindow
+        .expects('fetch')
+        .withArgs(sinon.match('?anyBoolean=false'))
+        .returns(createApiResponse());
+
+      await api.callApi({
+        endpoint: 'some-endpoint/',
+        params: { anyBoolean: false },
+      });
+      mockWindow.verify();
+    });
+
     it('converts absolute URLs to relative', async () => {
       const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
       mockWindow

@@ -485,7 +485,10 @@ export const urlWithTheseParams = (params) => {
     const { query } = url.parse(urlString, true);
 
     for (const param in params) {
-      if (!query[param] || query[param] !== params[param].toString()) {
+      if (
+        query[param] === undefined ||
+        query[param] !== params[param].toString()
+      ) {
         return false;
       }
     }
