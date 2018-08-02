@@ -84,11 +84,10 @@ describe(__filename, () => {
 
       _fetchReviews();
 
-      await sagaTester.waitFor(SET_ADDON_REVIEWS);
+      const action = await sagaTester.waitFor(SET_ADDON_REVIEWS);
       mockApi.verify();
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(
+      expect(action).toEqual(
         setAddonReviews({
           addonSlug: fakeAddon.slug,
           pageSize: DEFAULT_API_PAGE_SIZE,
@@ -104,10 +103,9 @@ describe(__filename, () => {
 
       _fetchReviews();
 
-      const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
     });
   });
 
@@ -259,11 +257,10 @@ describe(__filename, () => {
         reviewId: originalReviewId,
       });
 
-      await sagaTester.waitFor(lastExpectedAction.type);
+      const action = await sagaTester.waitFor(lastExpectedAction.type);
       mockApi.verify();
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions.slice(-1).pop()).toEqual(lastExpectedAction);
+      expect(action).toEqual(lastExpectedAction);
     });
 
     it('loads a review from the reply response', async () => {
@@ -289,11 +286,10 @@ describe(__filename, () => {
         reply: reviewFromResponse,
       });
 
-      await sagaTester.waitFor(expectedSetReviewAction.type);
+      const action = await sagaTester.waitFor(expectedSetReviewAction.type);
       mockApi.verify();
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[3]).toEqual(expectedSetReviewAction);
+      expect(action).toEqual(expectedSetReviewAction);
     });
 
     it('dispatches an error', async () => {
@@ -302,11 +298,10 @@ describe(__filename, () => {
 
       _sendReplyToReview();
 
-      const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
+      expect(action).toEqual(expectedAction);
       mockApi.verify();
     });
 
@@ -321,10 +316,8 @@ describe(__filename, () => {
 
       const expectedAction = errorHandler.createClearingAction();
 
-      await sagaTester.waitFor(expectedAction.type);
-      expect(sagaTester.getCalledActions()[2]).toEqual(
-        errorHandler.createClearingAction(),
-      );
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
       mockApi.verify();
     });
   });
@@ -346,8 +339,8 @@ describe(__filename, () => {
 
       const expectedAction = errorHandler.createClearingAction();
 
-      await sagaTester.waitFor(expectedAction.type);
-      expect(sagaTester.getCalledActions()[1]).toEqual(expectedAction);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
     });
 
     it('posts a review flag to the API', async () => {
@@ -369,7 +362,8 @@ describe(__filename, () => {
       _flagReview({ note, reason, reviewId });
 
       const expectedAction = setReviewWasFlagged({ reason, reviewId });
-      await sagaTester.waitFor(expectedAction.type);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
       mockApi.verify();
     });
 
@@ -379,11 +373,10 @@ describe(__filename, () => {
 
       _flagReview();
 
-      const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
+      expect(action).toEqual(expectedAction);
       mockApi.verify();
     });
   });
@@ -429,11 +422,10 @@ describe(__filename, () => {
         userId,
       });
 
-      await sagaTester.waitFor(expectedAction.type);
+      const action = await sagaTester.waitFor(expectedAction.type);
       mockApi.verify();
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(expectedAction);
+      expect(action).toEqual(expectedAction);
     });
 
     it('dispatches an error', async () => {
@@ -442,11 +434,10 @@ describe(__filename, () => {
 
       _fetchUserReviews();
 
-      const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
+      expect(action).toEqual(expectedAction);
     });
   });
 });
