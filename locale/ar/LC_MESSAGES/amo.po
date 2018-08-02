@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-02 08:12+0000\n"
+"PO-Revision-Date: 2018-08-02 08:19+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1791,7 +1791,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About/index.js:82
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sاصنع إضافاتك الخاصة%(endLink)s. نوفّر لك الاستضافة المجانية وخدمات التحديث وأيضًا نساعدك بأن تصل إلى شريحة أكبر من المستخدمين."
 
 #: src/amo/components/StaticPages/About/index.js:98
 msgid ""
@@ -1857,7 +1857,7 @@ msgstr "إرشادات المراجعات"
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
-msgstr ""
+msgstr "تُعتبر مراجعات الإضافات طريقة لتشارك فيها رأيك عن الإضافات التي ثبّتها واستخدمتها. يحتفظ الفريق المختص بالموقع بحق رفض أو إزالة أية مراجعة لا تتماشى مع هذه الإرشادات."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:34
 msgid "Tips for writing a great review"
@@ -2038,7 +2038,6 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "يمكنك تغيير بريدك الإلكتروني في حسابات فَيَرفُكس. %(startLink)sأتحتاج مساعدة؟%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:550
-#, fuzzy
 msgid "Manage Firefox Accounts…"
 msgstr "أدِر حسابات فَيَرفُكس…"
 
@@ -2091,44 +2090,36 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "تحتفظ موزيلا بحقها في التواصل معك شخصيًا بخصوص أمور معينة تتعلق بإضافاتك المُستضافة عندها."
 
 #: src/amo/components/UserProfileEdit/index.js:737
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "يُحدّث حسابك…"
+msgstr "يُحدّث الملف الشخصي…"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Update My Profile"
-msgstr "حدّث الرد"
+msgstr "حدّث ملفي الشخصي"
 
 #: src/amo/components/UserProfileEdit/index.js:740
-#, fuzzy
 msgid "Updating profile…"
-msgstr "حدّث الرد"
+msgstr "يُحدّث الملف الشخصي…"
 
 #: src/amo/components/UserProfileEdit/index.js:741
-#, fuzzy
 msgid "Update Profile"
-msgstr "حدّث الرد"
+msgstr "حدّث الملف الشخصي"
 
 #: src/amo/components/UserProfileEdit/index.js:752 src/amo/components/UserProfileEdit/index.js:840
-#, fuzzy
 msgid "Delete My Profile"
-msgstr "حدّث الرد"
+msgstr "احذف ملفي الشخصي"
 
 #: src/amo/components/UserProfileEdit/index.js:753 src/amo/components/UserProfileEdit/index.js:841
-#, fuzzy
 msgid "Delete Profile"
-msgstr "حدّث الرد"
+msgstr "احذف الملف الشخصي"
 
 #: src/amo/components/UserProfileEdit/index.js:764
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "هام: حذف حسابك إجراء لا عودة فيه."
+msgstr "هام: حذف إضافات فَيَرفُكس التي كتبتها إجراء لا عودة فيه."
 
 #: src/amo/components/UserProfileEdit/index.js:767
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "هام: حذف هذا الحساب إجراء لا عودة فيه."
+msgstr "هام: حذف ملف إضافات فَيَرفُكس الشخصي إجراء لا عودة فيه."
 
 #: src/amo/components/UserProfileEdit/index.js:776
 msgid ""
@@ -2148,7 +2139,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:793
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "عندما تستخدم عنوان البريد هذا للولوج ثانيةً إلى addons.mozilla.org، ستكون بذلك أنشأت ملف إضافات فَيَرفُكس جديد لا يرتبط بأي شكل بالملف الشخصي الذي حذفته."
 
 #: src/amo/components/UserProfileEdit/index.js:806
 #, fuzzy
