@@ -238,7 +238,7 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 
   removeAddon: RemoveCollectionAddonFunc = (addonId: number) => {
-    const { collection, dispatch, errorHandler, filters } = this.props;
+    const { collection, dispatch, errorHandler, filters, history } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -249,7 +249,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     const pages = (collection.numberOfAddons - 1) / collection.pageSize;
     const isNewPage = pages % 1 === 0;
-    const filter = Math.ceil(pages) || 1;
+    const newFilter = Math.ceil(pages) || 1;
 
     dispatch(
       removeAddonFromCollection({
@@ -257,7 +257,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         filters: {
           ...filters,
-          page: isNewPage ? filter : filters.page,
+          page: isNewPage ? newFilter : filters.page,
         },
         slug,
         username,
@@ -265,13 +265,13 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
 
     if (isNewPage) {
-      const { location } = this.props.history;
+      const { location } = history;
 
       history.push({
         ...location,
         query: {
           ...location.query,
-          page: filter,
+          page: newFilter,
         },
       });
     }
