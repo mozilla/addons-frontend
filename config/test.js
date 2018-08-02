@@ -6,4 +6,5 @@ module.exports = {
   allowErrorSimulation: true,
   enableClientConsole: true,
   isDeployed: false,
+  enableLogging: false,
 };

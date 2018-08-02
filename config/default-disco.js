@@ -20,6 +20,7 @@ module.exports = {
     'cookieSecure',
     'enableClientConsole',
     'enableDevTools',
+    'enableLogging',
     'defaultLang',
     'isDeployed',
     'isDevelopment',

@@ -38,6 +38,8 @@ module.exports = {
   enableClientConsole: false,
   // Enable devtools for: Redux.
   enableDevTools: false,
+  // Enable the logging layer.
+  enableLogging: true,
 
   // If true node will serve the static files.
   enableNodeStatics: false,
@@ -99,6 +101,7 @@ module.exports = {
     'dismissedExperienceSurveyCookieName',
     'enableClientConsole',
     'enableDevTools',
+    'enableLogging',
     'enableExperienceSurvey',
     'enableAddonRecommendations',
     'enableStaticThemes',

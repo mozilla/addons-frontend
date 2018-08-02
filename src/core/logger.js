@@ -1,14 +1,9 @@
 import config from 'config';
-import bunyan from 'bunyan';
+import pino from 'pino';
 
-/*
- * NOTE: the client version of this is loaded from
- * core/client/logger when running client code.
- * This magical substitution is orchestrated by webpack.
- */
+const appName = config.get('appName');
 
-export default bunyan.createLogger({
-  name: 'server',
-  app: config.get('appName'),
-  serializers: bunyan.stdSerializers,
+export default pino({
+  name: appName,
+  enabled: config.get('enableLogging'),
 });

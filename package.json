@@ -99,7 +99,7 @@
       }
     },
     "start-dev": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | bunyan'",
+      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | pino'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
@@ -108,7 +108,7 @@
       }
     },
     "start-dev-proxy": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | bunyan' 'node bin/proxy.js | bunyan'",
+      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | pino' 'node bin/proxy.js | pino'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
@@ -162,7 +162,6 @@
     "base62": "1.2.8",
     "base64url": "3.0.0",
     "better-npm-run": "0.1.1",
-    "bunyan": "1.8.12",
     "chokidar": "2.0.4",
     "classnames": "2.2.6",
     "common-tags": "1.8.0",
@@ -193,6 +192,7 @@
     "mozilla-version-comparator": "1.0.2",
     "normalize.css": "8.0.0",
     "normalizr": "3.2.2",
+    "pino": "4.17.6",
     "prop-types": "15.6.2",
     "qhistory": "1.0.2",
     "qs": "6.5.2",
