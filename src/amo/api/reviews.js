@@ -147,7 +147,21 @@ export type GetReviewsParams = {|
   version?: number,
 |};
 
-type GetReviewsApiResponse = PaginatedApiResponse<ExternalReviewType>;
+// A count of add-on ratings per star. These will all be 0 for add-ons
+// that have not yet been rated.
+export type ExternalRatingSummary = {|
+  '1': number,
+  '2': number,
+  '3': number,
+  '4': number,
+  '5': number,
+|};
+
+export type GetReviewsApiResponse = {|
+  ...PaginatedApiResponse<ExternalReviewType>,
+  // This is undefined unless the request contained ?show_grouped_ratings=true.
+  grouped_ratings?: ExternalRatingSummary,
+|};
 
 export function getReviews({
   apiState,

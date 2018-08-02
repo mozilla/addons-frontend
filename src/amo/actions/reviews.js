@@ -3,6 +3,7 @@ import invariant from 'invariant';
 
 import {
   CLEAR_ADDON_REVIEWS,
+  FETCH_RATING_SUMMARY,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   HIDE_EDIT_REVIEW_FORM,
@@ -12,6 +13,7 @@ import {
   SET_ADDON_REVIEWS,
   SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
+  SET_RATING_SUMMARY,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -21,6 +23,7 @@ import {
 } from 'amo/constants';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type {
+  ExternalRatingSummary,
   ExternalReviewReplyType,
   ExternalReviewType,
 } from 'amo/api/reviews';
@@ -129,6 +132,50 @@ export function fetchReviews({
   return {
     type: FETCH_REVIEWS,
     payload: { addonSlug, errorHandlerId, page },
+  };
+}
+
+type FetchRatingSummaryParams = {|
+  addonId: number,
+  errorHandlerId: string,
+|};
+
+export type FetchRatingSummaryAction = {|
+  type: typeof FETCH_RATING_SUMMARY,
+  payload: FetchRatingSummaryParams,
+|};
+
+export function fetchRatingSummary({
+  addonId,
+  errorHandlerId,
+}: FetchRatingSummaryParams): FetchRatingSummaryAction {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  return {
+    type: FETCH_RATING_SUMMARY,
+    payload: { addonId, errorHandlerId },
+  };
+}
+
+type SetRatingSummaryParams = {|
+  addonId: number,
+  summary: ExternalRatingSummary,
+|};
+
+type SetRatingSummaryAction = {|
+  type: typeof SET_RATING_SUMMARY,
+  payload: SetRatingSummaryParams,
+|};
+
+export function setRatingSummary({
+  addonId,
+  summary,
+}: SetRatingSummaryParams): SetRatingSummaryAction {
+  invariant(addonId, 'addonId is required');
+  invariant(summary, 'summary is required');
+  return {
+    type: SET_RATING_SUMMARY,
+    payload: { addonId, summary },
   };
 }
 

@@ -9,11 +9,13 @@ import { flagReview, getReviews, replyToReview } from 'amo/api/reviews';
 import {
   hideReplyToReviewForm,
   setAddonReviews,
+  setRatingSummary,
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
 } from 'amo/actions/reviews';
 import {
+  FETCH_RATING_SUMMARY,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   SEND_REPLY_TO_REVIEW,
@@ -21,8 +23,9 @@ import {
 } from 'amo/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { GetReviewsParams } from 'amo/api/reviews';
+import type { GetReviewsApiResponse, GetReviewsParams } from 'amo/api/reviews';
 import type {
+  FetchRatingSummaryAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
@@ -44,7 +47,7 @@ function* fetchReviews({
       page,
     };
 
-    const response = yield call(getReviews, params);
+    const response: GetReviewsApiResponse = yield call(getReviews, params);
 
     yield put(
       setAddonReviews({
@@ -56,6 +59,40 @@ function* fetchReviews({
     );
   } catch (error) {
     log.warn(`Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
+function* fetchRatingSummary({
+  payload: { errorHandlerId, addonId },
+}: FetchRatingSummaryAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  try {
+    const state = yield select(getState);
+
+    const params: GetReviewsParams = {
+      addon: addonId,
+      apiState: state.api,
+      show_grouped_ratings: true,
+    };
+    const response: GetReviewsApiResponse = yield call(getReviews, params);
+
+    if (!response.grouped_ratings) {
+      // This is unlikely to happen but if it does we should stop the show.
+      throw new Error(
+        'The request to getReviews({ show_grouped_ratings: true }) unexpectedly returned an empty grouped_ratings object',
+      );
+    }
+    yield put(
+      setRatingSummary({
+        addonId,
+        summary: response.grouped_ratings,
+      }),
+    );
+  } catch (error) {
+    log.warn(
+      `Failed to load rating summary for add-on ID ${addonId}: ${error}`,
+    );
     yield put(errorHandler.createErrorAction(error));
   }
 }
@@ -74,7 +111,7 @@ function* fetchUserReviews({
       user: userId,
     };
 
-    const response = yield call(getReviews, params);
+    const response: GetReviewsApiResponse = yield call(getReviews, params);
 
     yield put(
       setUserReviews({
@@ -139,6 +176,7 @@ function* handleFlagReview({
 }
 
 export default function* reviewsSaga(): Generator<any, any, any> {
+  yield takeLatest(FETCH_RATING_SUMMARY, fetchRatingSummary);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);

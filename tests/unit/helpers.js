@@ -244,6 +244,7 @@ export function apiResponsePage({
   previous,
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
   results = [],
+  ...customResponseParams
 } = {}) {
   return {
     count: typeof count !== 'undefined' ? count : results.length,
@@ -251,6 +252,7 @@ export function apiResponsePage({
     page_size: pageSize,
     previous,
     results,
+    ...customResponseParams,
   };
 }
 
