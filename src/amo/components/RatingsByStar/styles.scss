@@ -8,12 +8,12 @@
   font-size: $font-size-default;
   grid-gap: 12px;
   grid-template-columns: max-content auto max-content;
+  line-height: normal;
 }
 
 .RatingsByStar-star {
   align-items: center;
   display: flex;
-  line-height: normal;
 
   .Icon {
     @include margin-start(6px);
@@ -26,11 +26,31 @@
 }
 
 .RatingsByStar-bar {
-  background-color: $yellow-50;
   border-radius: 2px;
-  opacity: 0.25;
-  width: 100%;
   height: 16px;
+}
+
+.RatingsByStar-barFrame {
+  background-color: rgba($yellow-50, 0.25);
+  width: 100%;
+}
+
+.RatingsByStar-barValue {
+  background-color: rgba($yellow-50, 0.75);
+
+  // For values less than 100%, remove the border radius in the middle
+  // of barFrame.
+  &.RatingsByStar-barValueLessThan100 {
+    [dir='ltr'] & {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    [dir='rtl'] & {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
 }
 
 .RatingsByStar-count {

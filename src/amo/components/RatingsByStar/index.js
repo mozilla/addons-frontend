@@ -1,4 +1,6 @@
 /* @flow */
+import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -31,7 +33,15 @@ type InternalProps = {|
 
 class RatingsByStarBase extends React.Component<InternalProps> {
   componentWillMount() {
-    const { addon, dispatch, errorHandler, groupedRatings } = this.props;
+    this.loadDataIfNeeded(this.props);
+  }
+
+  componentWillReceiveProps(nextProps: InternalProps) {
+    this.loadDataIfNeeded(nextProps);
+  }
+
+  loadDataIfNeeded(props: InternalProps) {
+    const { addon, dispatch, errorHandler, groupedRatings } = props;
     if (addon && !groupedRatings) {
       dispatch(
         fetchGroupedRatings({
@@ -42,29 +52,63 @@ class RatingsByStarBase extends React.Component<InternalProps> {
     }
   }
 
+  renderBarValue(starCount: number) {
+    const { addon } = this.props;
+    invariant(addon, 'addon cannot be falsy when calling renderBarValue()');
+    // TODO: handle non-existant ratings properly.
+    invariant(addon.ratings, '');
+
+    const width = Math.round((starCount / addon.ratings.count) * 100);
+    const lessThan100 = width < 100;
+    return (
+      <div
+        className={makeClassName(
+          'RatingsByStar-bar',
+          'RatingsByStar-barValue',
+          {
+            'RatingsByStar-barValueLessThan100': lessThan100,
+          },
+        )}
+        style={{ width: `${width}%` }}
+      />
+    );
+  }
+
   render() {
-    const { addon, groupedRatings } = this.props;
+    const { addon, errorHandler, groupedRatings } = this.props;
     const loading = !addon || !groupedRatings;
 
     // TODO: handle 404 API response?
     // TODO: render errors
     return (
       <div className="RatingsByStar">
-        {[5, 4, 3, 2, 1].map((star) => (
-          <React.Fragment>
-            <div className="RatingsByStar-star">
-              {star}
-              <Icon name="star-active" />
-            </div>
-            <div className="RatingsByStar-barContainer">
-              <div className="RatingsByStar-bar" />
-            </div>
-            <div className="RatingsByStar-count">
-              {/* TODO: localize number */}
-              {loading ? <LoadingText minWidth={95} /> : groupedRatings[star]}
-            </div>
-          </React.Fragment>
-        ))}
+        {errorHandler.renderErrorIfPresent()}
+        {[5, 4, 3, 2, 1].map((star) => {
+          let starCount;
+          if (groupedRatings) {
+            starCount = groupedRatings[star];
+          }
+
+          return (
+            <React.Fragment>
+              <div className="RatingsByStar-star">
+                {star}
+                <Icon name="star-active" />
+              </div>
+              <div className="RatingsByStar-barContainer">
+                <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                  {starCount !== undefined
+                    ? this.renderBarValue(starCount)
+                    : null}
+                </div>
+              </div>
+              <div className="RatingsByStar-count">
+                {/* TODO: localize number */}
+                {loading ? <LoadingText minWidth={95} /> : starCount}
+              </div>
+            </React.Fragment>
+          );
+        })}
       </div>
     );
   }
@@ -82,7 +126,7 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
 
 const extractId = (props: Props) => {
   const { addon } = props;
-  return addon ? addon.id.toString() : '';
+  return addon ? `addon-${addon.id.toString()}` : '';
 };
 
 const RatingsByStar: React.ComponentType<Props> = compose(
