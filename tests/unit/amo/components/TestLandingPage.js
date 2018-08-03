@@ -298,8 +298,6 @@ describe(__filename, () => {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
 
-    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
-
     const match = { params: fakeParams };
 
     const root = render({ match });
