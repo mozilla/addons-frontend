@@ -104,28 +104,29 @@ export type SaveAddonNoteFunc = (
   notes: string,
 ) => void;
 
-// Let's find out what page we'll be on after we remove
-// the item from the collection.
-const getCollectionPage = (collection) => {
+// This gets the new collection page.
+const getNewCollectionPage = (collection) => {
   const { numberOfAddons, pageSize } = collection;
 
   if (pageSize) {
-    return (numberOfAddons - 1) / pageSize;
+    return Math.ceil((numberOfAddons - 1) / pageSize) || 1;
   }
 
   return 1;
 };
 
-const getNewCollectionPage = (collection) => {
-  // We should round up to the nearest page number,
-  // but default to 1 as the lowest page we can go.
-  return Math.ceil(getCollectionPage(collection)) || 1;
-};
-
 const shouldChangePage = (collection) => {
+  const { numberOfAddons, pageSize } = collection;
+
+  let page = 1;
+
+  if (pageSize) {
+    page = (numberOfAddons - 1) / pageSize;
+  }
+
   // If the number is an integer, then we should
   // change the page.
-  return Number.isInteger(getCollectionPage(collection));
+  return Number.isInteger(page);
 };
 
 export class CollectionBase extends React.Component<InternalProps> {
