@@ -129,7 +129,7 @@ describe(__filename, () => {
         5: 0,
       },
     ) => {
-      // When requesting with show_grouped_ratings=true, a specical
+      // When requesting with show_grouped_ratings=true, a special
       // response page is returned with 0 results and a new
       // grouped_ratings object.
       return apiResponsePage({
