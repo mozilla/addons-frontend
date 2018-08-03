@@ -388,10 +388,10 @@ export function* deleteCollection({
 
     yield call(api.deleteCollection, params);
 
+    yield put(pushLocation(`/${lang}/${clientApp}/collections/`));
+
     // Unload the collection from state.
     yield put(unloadCollectionBySlug(slug));
-
-    yield put(pushLocation(`/${lang}/${clientApp}/collections/`));
   } catch (error) {
     log.warn(`Failed to delete collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
