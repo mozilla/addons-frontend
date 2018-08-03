@@ -156,6 +156,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
         // Clear the locally stored state since we are in sync with
         // the API now.
         this.localState.clear(),
+        // TODO: setReview/setInternalReview should be responsible for this.
         refreshAddon({ addonSlug: review.addonSlug, apiState }),
       ]),
     );
