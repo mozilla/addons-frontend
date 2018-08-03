@@ -22,8 +22,6 @@ import {
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import { getAddonTypeFilter } from 'core/utils';
 
-
-
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
