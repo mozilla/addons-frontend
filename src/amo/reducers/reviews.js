@@ -86,7 +86,7 @@ export type ReviewsState = {|
     [userIdAddonIdVersionId: string]: number | null,
   },
   ratingSummary: {
-    [addonId: string]: RatingSummaryType,
+    [addonId: number]: RatingSummaryType,
   },
   view: {
     [reviewId: number]: ViewStateByReviewId,
