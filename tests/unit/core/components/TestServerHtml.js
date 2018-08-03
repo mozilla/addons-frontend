@@ -64,12 +64,12 @@ describe(__filename, () => {
   });
 
   it("doesn't render GA script when trackingEnabled is false", () => {
-    const root = render({ trackingEnabled: true });
+    const root = render({ trackingEnabled: false });
     const ga = root.find({
       src: 'https://www.google-analytics.com/analytics.js',
     });
 
-    expect(ga).toHaveLength(1);
+    expect(ga).toHaveLength(0);
   });
 
   it('renders css provided', () => {

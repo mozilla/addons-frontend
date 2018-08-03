@@ -27,7 +27,6 @@ describe(__filename, () => {
     root.setState({ expanded: false });
 
     expect(root).not.toHaveClassName('ShowMoreCard--expanded');
-    expect(root).toHaveState('expanded', false);
 
     // We have to shallow this prop because we pass a component to it.
     expect(shallow(root.prop('footerLink')).html()).toContain(
@@ -39,7 +38,6 @@ describe(__filename, () => {
     root.update();
 
     expect(root).toHaveClassName('ShowMoreCard--expanded');
-    expect(root).toHaveState('expanded', true);
 
     expect(root).toHaveProp('footerLink', null);
   });
@@ -47,15 +45,16 @@ describe(__filename, () => {
   it('is expanded by default', () => {
     const root = render({ children: 'Hello I am description' });
 
-    expect(root).toHaveState('expanded', true);
+    expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('truncates the contents if they are too long', () => {
     const root = render({ children: 'Hello I am description' });
 
     root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+    root.update();
 
-    expect(root).toHaveState('expanded', false);
+    expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('renders className', () => {
