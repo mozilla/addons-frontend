@@ -4,19 +4,34 @@ import {
   renderIntoDocument,
 } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
+import { Provider } from 'react-redux';
 
+import createStore from 'amo/store';
 import Overlay from 'ui/components/Overlay';
 import OverlayCard from 'ui/components/OverlayCard';
 
 describe(__filename, () => {
-  function render(props = {}) {
-    return renderIntoDocument(<OverlayCard {...props} />);
-  }
+  const { store } = createStore();
 
-  it('renders an OverlayCard', () => {
-    const root = render();
-    expect(root.overlayCard).toBeTruthy();
-  });
+  const getProps = ({ ...props } = {}) => {
+    return {
+      className: 'OverlayCard',
+      id: 'OverlayCard',
+      store,
+      ...props,
+    };
+  };
+
+  function render(props = {}) {
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={store}>
+          <OverlayCard {...getProps(props)} />
+        </Provider>,
+      ),
+      OverlayCard,
+    );
+  }
 
   it('passes onEscapeOverlay to Overlay', () => {
     const onEscapeOverlay = sinon.stub();
@@ -57,47 +72,5 @@ describe(__filename, () => {
     const rootNode = findDOMNode(root);
 
     expect(rootNode.querySelector('.kids').textContent).toContain('hi');
-  });
-
-  it('is hidden by default', () => {
-    const root = render();
-    expect(root.overlay.overlayContainer.className).not.toContain(
-      'Overlay--visible',
-    );
-  });
-
-  it('is visible when the `visibleOnLoad` prop is passed', () => {
-    const root = render({ visibleOnLoad: true });
-    expect(root.overlay.overlayContainer.className).toContain(
-      'Overlay--visible',
-    );
-  });
-
-  it('is shown and hidden when `hide()` and `show()` are called', () => {
-    const root = render();
-
-    root.show();
-    expect(root.overlay.overlayContainer.className).toContain(
-      'Overlay--visible',
-    );
-
-    root.hide();
-    expect(root.overlay.overlayContainer.className).not.toContain(
-      'Overlay--visible',
-    );
-  });
-
-  it('is toggled', () => {
-    const root = render();
-
-    root.toggle();
-    expect(root.overlay.overlayContainer.className).toContain(
-      'Overlay--visible',
-    );
-
-    root.toggle();
-    expect(root.overlay.overlayContainer.className).not.toContain(
-      'Overlay--visible',
-    );
   });
 });

@@ -217,11 +217,14 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
       linkEnd: '</a>',
     });
 
+    const overlayClassName = 'AddonReview-overlay';
+
     return (
       <OverlayCard
         visibleOnLoad
         onEscapeOverlay={this.props.onEscapeOverlay}
-        className="AddonReview"
+        className={overlayClassName}
+        id={overlayClassName}
       >
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         {/* eslint-disable react/no-danger */}

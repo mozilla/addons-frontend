@@ -41,7 +41,7 @@ import {
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
-import { getAddonIconUrl } from 'core/imageUtils';
+import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
@@ -153,12 +153,7 @@ export class AddonBase extends React.Component {
       : null;
 
     if (addon && isTheme(addon.type)) {
-      const previewHeader = addon.previews.length && addon.previews[0];
-
-      let previewURL =
-        previewHeader && previewHeader.image_url
-          ? previewHeader.image_url
-          : null;
+      let previewURL = getPreviewImage(addon);
 
       if (!previewURL && addon.type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
