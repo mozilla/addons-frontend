@@ -1,14 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import { createMemoryHistory } from 'history';
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-dom/test-utils';
 import NestedStatus from 'react-nested-status';
-import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
 import App, {
@@ -19,21 +12,16 @@ import App, {
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
-import { createApiError } from 'core/api';
-import DefaultErrorPage from 'core/components/ErrorPage';
 import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INSTALL_STATE,
   maximumSetTimeoutDelay,
 } from 'core/constants';
-import I18nProvider from 'core/i18n/Provider';
-import { loadErrorPage } from 'core/reducers/errorPage';
 import {
   createContextWithFakeRouter,
   fakeCookie,
   fakeI18n,
-  createFakeLocation,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -43,28 +31,6 @@ import {
 } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  class FakeErrorPageComponent extends React.Component {
-    render() {
-      // eslint-disable-next-line react/prop-types
-      return <div>{this.props.children}</div>;
-    }
-  }
-
-  class FakeFooterComponent extends React.Component {
-    render() {
-      return <footer />;
-    }
-  }
-
-  class FakeHeaderComponent extends React.Component {
-    render() {
-      // eslint-disable-next-line react/prop-types
-      return <div>{this.props.children}</div>;
-    }
-  }
-
-  const FakeInfoDialogComponent = () => <div />;
-
   function renderProps(customProps = {}) {
     return {
       history: createMemoryHistory(),
@@ -74,31 +40,7 @@ describe(__filename, () => {
     };
   }
 
-  function render({ ...customProps } = {}) {
-    const { history, i18n, store, ...props } = renderProps(customProps);
-
-    return findRenderedComponentWithType(
-      renderIntoDocument(
-        <Provider store={store}>
-          <I18nProvider i18n={i18n}>
-            <Router history={history}>
-              <App
-                FooterComponent={FakeFooterComponent}
-                InfoDialogComponent={FakeInfoDialogComponent}
-                HeaderComponent={FakeHeaderComponent}
-                ErrorPage={FakeErrorPageComponent}
-                setUserAgent={sinon.stub()}
-                {...props}
-              />
-            </Router>
-          </I18nProvider>
-        </Provider>,
-      ),
-      AppBase,
-    );
-  }
-
-  const shallowRender = ({ ...props }) => {
+  const render = ({ ...props }) => {
     const allProps = {
       ...renderProps(),
       ...props,
@@ -121,7 +63,7 @@ describe(__filename, () => {
     const _cookie = fakeCookie();
 
     const root = render();
-    root.onViewDesktop(fakeEvent, {
+    root.instance().onViewDesktop(fakeEvent, {
       _window: fakeWindow,
       _cookie,
     });
@@ -190,41 +132,27 @@ describe(__filename, () => {
     });
   });
 
-  it('renders an error component on error', () => {
-    const { store } = createStore();
-    const apiError = createApiError({
-      apiURL: 'https://some-url',
-      response: { status: 404 },
-    });
+  it('renders an ErrorPage component', () => {
+    const SomeErrorPage = () => <p />;
+    const root = render({ ErrorPage: SomeErrorPage });
 
-    store.dispatch(loadErrorPage({ error: apiError }));
-
-    const root = render({
-      ErrorPage: DefaultErrorPage,
-      clientApp: 'android',
-      lang: 'en-GB',
-      location: createFakeLocation({ pathname: '/en-GB/android/' }),
-      store,
-    });
-    const rootNode = findDOMNode(root);
-
-    expect(rootNode.textContent).toContain('Page not found');
+    expect(root.find(SomeErrorPage)).toHaveLength(1);
   });
 
   it('renders a response with a 200 status', () => {
-    const root = shallowRender();
+    const root = render();
     expect(root.find(NestedStatus)).toHaveProp('code', 200);
   });
 
   it('configures a default HTML title for Firefox', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const root = shallowRender({ store });
+    const root = render({ store });
     expect(root.find(Helmet)).toHaveProp('defaultTitle', 'Add-ons for Firefox');
   });
 
   it('configures a default HTML title for Android', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const root = shallowRender({ store });
+    const root = render({ store });
     expect(root.find(Helmet)).toHaveProp('defaultTitle', 'Add-ons for Android');
   });
 
@@ -268,7 +196,7 @@ describe(__filename, () => {
 
       const root = renderAppWithAuth({ authTokenValidFor });
       // Simulate updating the component with new properties.
-      root.componentWillReceiveProps({});
+      root.setProps();
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);

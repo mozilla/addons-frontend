@@ -1,31 +1,32 @@
 import * as React from 'react';
-import {
-  Simulate,
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-dom/test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
 
-import createStore from 'amo/store';
-import {
+import LanguagePicker, {
   LanguagePickerBase,
   changeLocaleURL,
 } from 'amo/components/LanguagePicker';
-import { fakeI18n, createFakeLocation } from 'tests/unit/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  fakeI18n,
+  createFakeLocation,
+  createFakeEvent,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('LanguagePicker', () => {
-    function renderLanguagePicker({ ...props }) {
-      const initialState = { api: { clientApp: 'android', lang: 'fr' } };
-      const { store } = createStore({ initialState });
+    function renderLanguagePicker({
+      currentLocale = 'en-US',
+      ...otherProps
+    } = {}) {
+      const props = {
+        i18n: fakeI18n(),
+        location: createFakeLocation(),
+        store: dispatchClientMetadata({ lang: currentLocale }).store,
+        ...otherProps,
+      };
 
-      return findRenderedComponentWithType(
-        renderIntoDocument(
-          <Provider store={store}>
-            <LanguagePickerBase i18n={fakeI18n()} {...props} />
-          </Provider>,
-        ),
+      return shallowUntilTarget(
+        <LanguagePicker {...props} />,
         LanguagePickerBase,
       );
     }
@@ -33,30 +34,30 @@ describe(__filename, () => {
     it('renders a LanguagePicker', () => {
       const root = renderLanguagePicker();
 
-      expect(root.selector.tagName).toEqual('SELECT');
+      expect(root.find('.LanguagePicker')).toHaveLength(1);
     });
 
     it('selects the current locale', () => {
-      const root = renderLanguagePicker({ currentLocale: 'fr' });
+      const currentLocale = 'fr';
+      const root = renderLanguagePicker({ currentLocale });
 
-      expect(findDOMNode(root).querySelector('option:checked').value).toEqual(
-        'fr',
-      );
+      expect(root.find('select')).toHaveProp('defaultValue', currentLocale);
     });
 
     it('changes the language on change', () => {
       const _window = { location: '/fr/firefox/' };
+
       const root = renderLanguagePicker({
         currentLocale: 'fr',
         location: createFakeLocation({ pathname: _window.location }),
         _window,
       });
-      const fakeEvent = {
-        preventDefault: sinon.stub(),
-        target: { value: 'es' },
-      };
-      Simulate.change(root.selector, fakeEvent);
 
+      const fakeEvent = createFakeEvent({ target: { value: 'es' } });
+
+      root.find('select').simulate('change', fakeEvent);
+
+      sinon.assert.calledOnce(fakeEvent.preventDefault);
       expect(_window.location).toEqual('/es/firefox/');
     });
   });

@@ -1,12 +1,6 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { createMemoryHistory } from 'history';
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-  scryRenderedComponentsWithType,
-} from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
@@ -23,7 +17,6 @@ import AddonRecommendations from 'amo/components/AddonRecommendations';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
-import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import RatingManager, {
   RatingManagerWithI18n,
@@ -103,13 +96,22 @@ function renderProps({
     },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
-    setCurrentStatus,
     store: dispatchSignInActions().store,
+    // withInstallHelpers HOC injected props
+    defaultInstallSource: 'default install source',
+    enable: sinon.stub(),
+    install: sinon.stub(),
+    installTheme: sinon.stub(),
+    setCurrentStatus,
+    status: UNKNOWN,
+    uninstall: sinon.stub(),
+    // Other props
+    id: 'some id',
     ...customProps,
   };
 }
 
-function render(...args) {
+function renderAsDOMNode(...args) {
   const { store, i18n, ...props } = renderProps(...args);
   props.i18n = i18n;
 
@@ -117,23 +119,15 @@ function render(...args) {
     history: createMemoryHistory(),
   });
 
-  return findRenderedComponentWithType(
-    renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={i18n}>
-          <Router history={history}>
-            <AddonBase store={store} {...props} />
-          </Router>
-        </I18nProvider>
-      </Provider>,
-    ),
-    AddonBase,
+  return mount(
+    <Provider store={store}>
+      <I18nProvider i18n={i18n}>
+        <Router history={history}>
+          <AddonBase store={store} {...props} />
+        </Router>
+      </I18nProvider>
+    </Provider>,
   );
-}
-
-function renderAsDOMNode(...args) {
-  const root = render(...args);
-  return findDOMNode(root);
 }
 
 function renderComponent(...args) {
@@ -593,37 +587,45 @@ describe(__filename, () => {
 
   it('sanitizes bad description HTML', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
-    const root = renderAsDOMNode({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        description: scriptHTML,
-      }),
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      description: scriptHTML,
     });
-    // Make sure an actual script tag was not created.
-    expect(root.querySelector('.AddonDescription script')).toEqual(null);
-    // Make sure the script has been removed.
-    expect(root.querySelector('.AddonDescription').innerHTML).not.toContain(
-      '<script>',
+
+    const { store } = dispatchClientMetadata();
+    store.dispatch(_loadAddons({ addon }));
+
+    const root = renderComponent({ params: { slug: addon.slug }, store });
+
+    // Make sure an actual script tag was not created and make sure the script
+    // has been removed.
+    expect(root.find('.AddonDescription-contents').html()).toEqual(
+      '<div class="AddonDescription-contents"></div>',
     );
   });
 
   it('allows certain HTML tags in the title', () => {
-    const rootNode = renderAsDOMNode({
+    const name = 'Krupa';
+    const url = 'http://olympia.test/en-US/firefox/user/krupa/';
+
+    const root = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
         authors: [
           {
-            name: 'Krupa',
-            url: 'http://olympia.test/en-US/firefox/user/krupa/',
+            name,
+            url,
           },
         ],
       }),
     });
-    // Make sure these tags were whitelisted.
-    expect(rootNode.querySelector('h1 span a').textContent).toEqual('Krupa');
-    // Make sure the santizer didn't strip the class attribute:
-    const byline = rootNode.querySelector('h1 span');
-    expect(byline.attributes.class).toBeTruthy();
+
+    const title = root.find('.Addon-title');
+    // Make sure these tags were whitelisted and make sure the santizer didn't
+    // strip the class attribute:
+    expect(title.html()).toContain(
+      `<span class="Addon-author">by <a href="${url}">${name}</a></span>`,
+    );
   });
 
   it('configures the install button', () => {
@@ -709,8 +711,8 @@ describe(__filename, () => {
       description: null,
       summary: null,
     });
-    const rootNode = renderAsDOMNode({ addon });
-    expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
+    const root = renderAsDOMNode({ addon });
+    expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
   it('hides the description if description and summary are blank', () => {
@@ -719,8 +721,8 @@ describe(__filename, () => {
       description: '',
       summary: '',
     });
-    const rootNode = renderAsDOMNode({ addon });
-    expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
+    const root = renderAsDOMNode({ addon });
+    expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
   it("does not display a lightweight theme's summary", () => {
@@ -803,13 +805,15 @@ describe(__filename, () => {
   });
 
   it('converts new lines in the description to breaks', () => {
-    const rootNode = renderAsDOMNode({
+    const root = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
         description: '\n\n\n',
       }),
     });
-    expect(rootNode.querySelectorAll('.AddonDescription br').length).toBe(3);
+    expect(root.find('.AddonDescription-contents').html()).toContain(
+      '<br>'.repeat(3),
+    );
   });
 
   it('allows some HTML tags in the description', () => {
@@ -826,16 +830,20 @@ describe(__filename, () => {
   });
 
   it('strips dangerous HTML tag attributes from description', () => {
-    const rootNode = renderAsDOMNode({
+    const root = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
         description:
           '<a href="javascript:alert(document.cookie)" onclick="sneaky()">placeholder</a>',
       }),
     });
-    const anchor = rootNode.querySelector('.AddonDescription a');
-    expect(anchor.getAttribute('onclick')).toEqual(null);
-    expect(anchor.getAttribute('href')).toEqual(null);
+
+    expect(
+      root
+        .find('.AddonDescription')
+        .at(0)
+        .html(),
+    ).toContain('<a>placeholder</a>');
   });
 
   it('configures the overall ratings section', () => {
@@ -863,19 +871,15 @@ describe(__filename, () => {
   });
 
   it('renders a summary with links', () => {
-    const rootNode = renderAsDOMNode({
+    const summary = '<a href="http://foo.com/">my website</a>';
+    const root = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
-        summary: '<a href="http://foo.com/">my website</a>',
+        summary,
       }),
     });
-    expect(rootNode.querySelector('.Addon-summary').textContent).toContain(
-      'my website',
-    );
-    expect(rootNode.querySelectorAll('.Addon-summary a').length).toEqual(1);
-    expect(rootNode.querySelector('.Addon-summary a').href).toEqual(
-      'http://foo.com/',
-    );
+
+    expect(root.find('.Addon-summary').html()).toContain(summary);
   });
 
   it('renders an amo CDN icon image', () => {
@@ -1165,9 +1169,9 @@ describe(__filename, () => {
         ratingsCount: 0,
       });
 
-      const footer = root.querySelector('.Addon-read-reviews-footer');
-      expect(footer.textContent).toEqual('No reviews yet');
-      expect(root.querySelector('footer').className).toEqual(
+      const footer = root.find('.Addon-read-reviews-footer');
+      expect(footer).toHaveText('No reviews yet');
+      expect(root.find('footer')).toHaveClassName(
         'Card-footer Card-footer-text',
       );
     });
@@ -1177,9 +1181,9 @@ describe(__filename, () => {
         ratingsCount: 1,
       });
 
-      const footer = root.querySelector('.Addon-read-reviews-footer');
-      expect(footer.textContent).toEqual('Read 1 review');
-      expect(root.querySelector('footer').className).toEqual(
+      const footer = root.find('.Addon-read-reviews-footer');
+      expect(footer).toHaveText('Read 1 review');
+      expect(root.find('footer')).toHaveClassName(
         'Card-footer Card-footer-link',
       );
     });
@@ -1188,36 +1192,38 @@ describe(__filename, () => {
       const root = reviewFooterDOM({
         ratingsCount: 5,
       });
-      const footer = root.querySelector('.Addon-read-reviews-footer');
-      expect(footer.textContent).toEqual('Read all 5 reviews');
+      const footer = root.find('.Addon-read-reviews-footer');
+      expect(footer).toHaveText('Read all 5 reviews');
     });
 
     it('localizes the review count', () => {
       const root = reviewFooterDOM({
         ratingsCount: 10000,
       });
-      const footer = root.querySelector('.Addon-read-reviews-footer');
-      expect(footer.textContent).toContain('10,000');
+      const footer = root.find('.Addon-read-reviews-footer');
+      expect(footer).toIncludeText('10,000');
     });
 
     it('links to all reviews', () => {
-      const root = render({
-        addon: createInternalAddon({
-          ...fakeAddon,
-          ratings: {
-            ...fakeAddon.ratings,
-            text_count: 2,
-          },
-        }),
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          text_count: 2,
+        },
       });
-      const allLinks = scryRenderedComponentsWithType(root, Link).filter(
-        (component) => component.props.className === 'Addon-all-reviews-link',
-      );
-      expect(allLinks.length).toEqual(1);
 
-      const link = allLinks[0];
-      const path = link.props.to;
-      expect(path).toEqual('/addon/chill-out/reviews/');
+      const { store } = dispatchClientMetadata();
+      store.dispatch(_loadAddons({ addon }));
+
+      const root = renderComponent({ params: { slug: addon.slug }, store });
+
+      const allReviewsLink = shallow(
+        root.find('.Addon-overall-rating').prop('footerLink'),
+      ).find('.Addon-all-reviews-link');
+
+      expect(allReviewsLink).toHaveLength(1);
+      expect(allReviewsLink).toHaveProp('to', '/addon/chill-out/reviews/');
     });
   });
 

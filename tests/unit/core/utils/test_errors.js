@@ -1,18 +1,13 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-dom/test-utils';
 import { compose } from 'redux';
 
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
-import I18nProvider from 'core/i18n/Provider';
 import {
   getErrorComponent,
   render404IfConfigKeyIsFalse,
 } from 'core/utils/errors';
-import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getErrorComponent', () => {
@@ -28,23 +23,17 @@ describe(__filename, () => {
   });
 
   describe('render404IfConfigKeyIsFalse', () => {
-    const render = (
+    const render = ({
+      SomeComponent = () => <div />,
+      _config = { get: () => true },
+      configKey = 'someConfigKey',
       props = {},
-      {
-        configKey = 'someConfigKey',
-        _config = { get: () => true },
-        SomeComponent = () => <div />,
-      } = {},
-    ) => {
+    } = {}) => {
       const WrappedComponent = compose(
         render404IfConfigKeyIsFalse(configKey, { _config }),
       )(SomeComponent);
 
-      return renderIntoDocument(
-        <I18nProvider i18n={fakeI18n()}>
-          <WrappedComponent {...props} />
-        </I18nProvider>,
-      );
+      return shallow(<WrappedComponent {...props} />);
     };
 
     it('requires a config key', () => {
@@ -58,22 +47,26 @@ describe(__filename, () => {
       const _config = {
         get: sinon.spy(() => false),
       };
-      const root = render({}, { _config, configKey });
-      const node = findRenderedComponentWithType(root, NotFound);
+      const SomeComponent = sinon.spy(() => <div />);
 
-      expect(node).toBeTruthy();
+      const root = render({ _config, SomeComponent, configKey });
+
+      expect(root.find(SomeComponent)).toHaveLength(0);
+      expect(root.find(NotFound)).toHaveLength(1);
       sinon.assert.calledWith(_config.get, configKey);
     });
 
     it('passes through component and props when enabled', () => {
       const _config = { get: () => true };
       const SomeComponent = sinon.spy(() => <div />);
-      render({ color: 'orange', size: 'large' }, { SomeComponent, _config });
+      const props = { color: 'orange', size: 'large' };
 
-      sinon.assert.called(SomeComponent);
-      const props = SomeComponent.firstCall.args[0];
-      expect(props.color).toEqual('orange');
-      expect(props.size).toEqual('large');
+      const root = render({ _config, SomeComponent, props });
+
+      expect(root.find(NotFound)).toHaveLength(0);
+
+      expect(root.find(SomeComponent)).toHaveLength(1);
+      expect(root.find(SomeComponent)).toHaveProp(props);
     });
   });
 });

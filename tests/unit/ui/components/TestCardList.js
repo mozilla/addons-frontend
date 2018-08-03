@@ -1,26 +1,28 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
-import { renderIntoDocument } from 'react-dom/test-utils';
 
 import CardList from 'ui/components/CardList';
 
-function renderToDOM(props) {
-  return findDOMNode(renderIntoDocument(<CardList {...props} />));
-}
-
 describe(__filename, () => {
+  const render = (props) => {
+    return shallow(<CardList {...props} />);
+  };
+
   it('adds a CardList class', () => {
-    const root = renderToDOM();
-    expect(root.className).toContain('CardList');
+    const root = render();
+
+    expect(root).toHaveClassName('CardList');
   });
 
   it('adds a custom CSS class', () => {
-    const root = renderToDOM({ className: 'SystematicDysfunctioner' });
-    expect(root.className).toContain('SystematicDysfunctioner');
+    const root = render({ className: 'SystematicDysfunctioner' });
+
+    expect(root).toHaveClassName('SystematicDysfunctioner');
   });
 
   it('renders children', () => {
-    const root = renderToDOM({ children: <div>Child Content</div> });
-    expect(root.textContent).toEqual('Child Content');
+    const root = render({ children: <div>Child Content</div> });
+
+    expect(root.children()).toHaveText('Child Content');
   });
 });
