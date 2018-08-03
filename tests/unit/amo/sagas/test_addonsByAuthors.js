@@ -20,6 +20,9 @@ import {
   fakeAddon,
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
+import { getAddonTypeFilter } from 'core/utils';
+
+
 
 describe(__filename, () => {
   let errorHandler;
@@ -50,8 +53,6 @@ describe(__filename, () => {
   }
 
   it('calls the API with addonType if set', async () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
-    const root = render({ _config: fakeConfig };
     const addons = [fakeAddon];
     const authorUsernames = ['mozilla'];
     const pageSize = THEMES_BY_AUTHORS_PAGE_SIZE;
@@ -63,7 +64,7 @@ describe(__filename, () => {
       .withArgs({
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
+          addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
           author: authorUsernames.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
           page: 1,
@@ -76,12 +77,12 @@ describe(__filename, () => {
 
     _fetchAddonsByAuthors({
       authorUsernames,
-      addonType: ADDON_TYPE_THEME,
+      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       pageSize,
     });
 
     const expectedLoadAction = loadAddonsByAuthors({
-      addonType: ADDON_TYPE_THEME,
+      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       addons,
       authorUsernames,
       count: addons.length,
