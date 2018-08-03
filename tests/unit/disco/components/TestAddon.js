@@ -564,9 +564,10 @@ describe(__filename, () => {
   describe('NewInstallButton', () => {
     const renderWithNewInstallButton = (props = {}) => {
       return renderAddon({
-        addon: { ...result },
-        ...props,
         _config: getFakeConfig({ enableNewInstallButton: true }),
+        addon: { ...result },
+        hasAddonManager: true,
+        ...props,
       });
     };
 
@@ -576,6 +577,7 @@ describe(__filename, () => {
       expect(root.find(InstallButton)).toHaveLength(0);
       expect(root.find(NewInstallButton)).toHaveLength(1);
       expect(root.find(NewInstallButton)).toHaveProp('puffy', false);
+      expect(root.find(NewInstallButton)).toHaveProp('hasAddonManager', true);
     });
 
     it('passes install helper functions to the install button', () => {

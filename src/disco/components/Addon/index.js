@@ -55,6 +55,7 @@ export class AddonBase extends React.Component {
     error: PropTypes.string,
     getBrowserThemeData: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
+    hasAddonManager: PropTypes.bool.isRequired,
     heading: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
@@ -249,6 +250,7 @@ export class AddonBase extends React.Component {
       defaultInstallSource,
       enable,
       getClientCompatibility,
+      hasAddonManager,
       heading,
       install,
       installTheme,
@@ -316,6 +318,7 @@ export class AddonBase extends React.Component {
               defaultInstallSource={defaultInstallSource}
               disabled={!compatible}
               enable={enable}
+              hasAddonManager={hasAddonManager}
               install={install}
               installTheme={installTheme}
               puffy={false}

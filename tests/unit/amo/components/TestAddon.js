@@ -1591,8 +1591,9 @@ describe(__filename, () => {
   describe('NewInstallButton', () => {
     const renderWithNewInstallButton = (props = {}) => {
       return shallowRender({
-        ...props,
         config: getFakeConfig({ enableNewInstallButton: true }),
+        hasAddonManager: true,
+        ...props,
       });
     };
 
@@ -1608,6 +1609,7 @@ describe(__filename, () => {
       const root = renderWithNewInstallButton({ addon });
 
       expect(root.find(NewInstallButton)).toHaveProp('addon', addon);
+      expect(root.find(NewInstallButton)).toHaveProp('hasAddonManager', true);
     });
 
     it('passes install helper functions to the install button', () => {
