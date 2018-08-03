@@ -116,9 +116,15 @@ const getCollectionPage = (collection) => {
   return 1;
 };
 
-const switchCollectionPage = (collection) => {
-  // If the number is an integer, then we can
-  // switch the page.
+const getNewCollectionPage = (collection) => {
+  // We should round up to the nearest page number,
+  // but default to 1 as the lowest page we can go.
+  return Math.ceil(getCollectionPage(collection)) || 1;
+};
+
+const shouldChangePage = (collection) => {
+  // If the number is an integer, then we should
+  // change the page.
   return Number.isInteger(getCollectionPage(collection));
 };
 
@@ -267,12 +273,12 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    const isNewPage = switchCollectionPage(collection);
+    const isNewPage = shouldChangePage(collection);
 
-    let page = filters.page;
+    let { page } = filters;
 
     if (isNewPage) {
-      page = Math.ceil(getCollectionPage(collection)) || 1;
+      page = getNewCollectionPage(collection);
     }
 
     dispatch(
