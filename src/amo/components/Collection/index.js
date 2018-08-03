@@ -104,6 +104,24 @@ export type SaveAddonNoteFunc = (
   notes: string,
 ) => void;
 
+// Let's find out what page we'll be on after we remove
+// the item from the collection.
+const getCollectionPage = (collection) => {
+  const { numberOfAddons, pageSize } = collection;
+
+  if (pageSize) {
+    return (numberOfAddons - 1) / pageSize;
+  }
+
+  return 1;
+};
+
+const switchCollectionPage = (collection) => {
+  // If the number is an integer, then we can
+  // switch the page.
+  return Number.isInteger(getCollectionPage(collection));
+};
+
 export class CollectionBase extends React.Component<InternalProps> {
   addonPlaceholderCount: number;
 
@@ -249,11 +267,13 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    const { pageSize } = collection;
-    const pages = pageSize ? (collection.numberOfAddons - 1) / pageSize : null;
-    const isNewPage = pages && pages % 1 === 0;
-    const newFilter = (pages && Math.ceil(pages)) || 1;
-    const filter = isNewPage ? newFilter : filters.page;
+    const isNewPage = switchCollectionPage(collection);
+
+    let page = filters.page;
+
+    if (isNewPage) {
+      page = Math.ceil(getCollectionPage(collection)) || 1;
+    }
 
     dispatch(
       removeAddonFromCollection({
@@ -261,7 +281,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         filters: {
           ...filters,
-          page: filter,
+          page,
         },
         slug,
         username,
@@ -275,7 +295,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         pathname: location.pathname,
         query: {
           ...location.query,
-          page: filter,
+          page,
         },
       });
     }

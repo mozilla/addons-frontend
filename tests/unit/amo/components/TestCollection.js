@@ -1272,7 +1272,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(root.instance().props.history.push);
   });
 
-  it('set up new filters and a page when removeAddon removes the last addon on the page', () => {
+  it('updates the page when removeAddon removes the last addon on the page', () => {
     const history = createFakeHistory();
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
