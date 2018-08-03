@@ -3,6 +3,7 @@ import invariant from 'invariant';
 
 import {
   CLEAR_ADDON_REVIEWS,
+  FETCH_GROUPED_RATINGS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   HIDE_EDIT_REVIEW_FORM,
@@ -10,6 +11,7 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
+  SET_GROUPED_RATINGS,
   SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
   SET_REVIEW,
@@ -23,6 +25,7 @@ import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   ExternalReviewReplyType,
   ExternalReviewType,
+  GroupedRatingsType,
 } from 'amo/api/reviews';
 
 export type UserReviewType = {|
@@ -129,6 +132,50 @@ export function fetchReviews({
   return {
     type: FETCH_REVIEWS,
     payload: { addonSlug, errorHandlerId, page },
+  };
+}
+
+type FetchGroupedRatingsParams = {|
+  addonId: number,
+  errorHandlerId: string,
+|};
+
+export type FetchGroupedRatingsAction = {|
+  type: typeof FETCH_GROUPED_RATINGS,
+  payload: FetchGroupedRatingsParams,
+|};
+
+export function fetchGroupedRatings({
+  addonId,
+  errorHandlerId,
+}: FetchGroupedRatingsParams): FetchGroupedRatingsAction {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  return {
+    type: FETCH_GROUPED_RATINGS,
+    payload: { addonId, errorHandlerId },
+  };
+}
+
+type SetGroupedRatingsParams = {|
+  addonId: number,
+  grouping: GroupedRatingsType,
+|};
+
+export type SetGroupedRatingsAction = {|
+  type: typeof SET_GROUPED_RATINGS,
+  payload: SetGroupedRatingsParams,
+|};
+
+export function setGroupedRatings({
+  addonId,
+  grouping,
+}: SetGroupedRatingsParams): SetGroupedRatingsAction {
+  invariant(addonId, 'addonId is required');
+  invariant(grouping, 'grouping is required');
+  return {
+    type: SET_GROUPED_RATINGS,
+    payload: { addonId, grouping },
   };
 }
 

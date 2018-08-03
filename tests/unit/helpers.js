@@ -244,6 +244,7 @@ export function apiResponsePage({
   previous,
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
   results = [],
+  ...customResponseParams
 } = {}) {
   return {
     count: typeof count !== 'undefined' ? count : results.length,
@@ -251,6 +252,7 @@ export function apiResponsePage({
     page_size: pageSize,
     previous,
     results,
+    ...customResponseParams,
   };
 }
 
@@ -485,7 +487,10 @@ export const urlWithTheseParams = (params) => {
     const { query } = url.parse(urlString, true);
 
     for (const param in params) {
-      if (!query[param] || query[param] !== params[param].toString()) {
+      if (
+        query[param] === undefined ||
+        query[param] !== params[param].toString()
+      ) {
         return false;
       }
     }

@@ -6,6 +6,7 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
+  SET_GROUPED_RATINGS,
   SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
   SET_REVIEW,
@@ -28,12 +29,15 @@ import type {
   SetAddonReviewsAction,
   SetInternalReviewAction,
   SetLatestReviewAction,
+  SetGroupedRatingsAction,
   SetReviewAction,
   SetReviewReplyAction,
+  SetUserReviewsAction,
   ShowEditReviewFormAction,
   ShowReplyToReviewFormAction,
   UserReviewType,
 } from 'amo/actions/reviews';
+import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 
 type ReviewsById = {
@@ -81,6 +85,9 @@ export type ReviewsState = {|
     // or null if one does not exist yet.
     [userIdAddonIdVersionId: string]: number | null,
   },
+  groupedRatings: {
+    [addonId: number]: GroupedRatingsType,
+  },
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
@@ -91,6 +98,7 @@ export const initialState: ReviewsState = {
   byId: {},
   byUserId: {},
   latestUserReview: {},
+  groupedRatings: {},
   // This stores review-related UI state.
   view: {},
 };
@@ -244,6 +252,12 @@ export const addReviewToState = ({
       // This will trigger a refresh from the server.
       [review.userId]: undefined,
     },
+    groupedRatings: {
+      ...state.groupedRatings,
+      // When adding a new rating, reset the cache of groupedRatings.
+      // This will trigger a refresh from the server.
+      [review.addonId]: undefined,
+    },
   };
 };
 
@@ -253,10 +267,12 @@ type ReviewActionType =
   | HideReplyToReviewFormAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
+  | SetGroupedRatingsAction
   | SetInternalReviewAction
   | SetLatestReviewAction
   | SetReviewAction
   | SetReviewReplyAction
+  | SetUserReviewsAction
   | ShowEditReviewFormAction
   | ShowReplyToReviewFormAction
   | FlagReviewAction
@@ -433,6 +449,16 @@ export default function reviewsReducer(
             reviewCount: payload.reviewCount,
             reviews: reviews.map((review) => review.id),
           },
+        },
+      };
+    }
+    case SET_GROUPED_RATINGS: {
+      const { payload } = action;
+      return {
+        ...state,
+        groupedRatings: {
+          ...state.groupedRatings,
+          [payload.addonId]: payload.grouping,
         },
       };
     }

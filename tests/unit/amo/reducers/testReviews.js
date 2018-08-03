@@ -6,6 +6,7 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
+  setGroupedRatings,
   setInternalReview,
   setLatestReview,
   setReview,
@@ -890,6 +891,101 @@ describe(__filename, () => {
       });
       const state = addReviewToState({ state: prevState, review });
       expect(state.byUserId[userId]).not.toBeDefined();
+    });
+
+    it('resets groupedRatings when adding a new rating', () => {
+      const addonId = 44231;
+      let state;
+
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({
+          addonId,
+          grouping: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+        }),
+      );
+
+      state = addReviewToState({
+        state,
+        review: createInternalReview({
+          ...fakeReview,
+          addon: {
+            ...fakeReview.addon,
+            id: addonId,
+          },
+        }),
+      });
+
+      expect(state.groupedRatings[addonId]).not.toBeDefined();
+    });
+
+    it('updates groupedRatings', () => {
+      const addonId = 44231;
+      let state;
+
+      const grouping1 = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      const grouping2 = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 };
+
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({ addonId, grouping: grouping1 }),
+      );
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({ addonId, grouping: grouping2 }),
+      );
+
+      expect(state.groupedRatings[addonId]).toEqual(grouping2);
+    });
+  });
+
+  describe('setGroupedRatings', () => {
+    it('stores grouped ratings', () => {
+      const addonId = 432;
+      const grouping = {
+        1: 64,
+        2: 122,
+        3: 456,
+        4: 1243,
+        5: 922,
+      };
+
+      const state = reviewsReducer(
+        undefined,
+        setGroupedRatings({
+          addonId,
+          grouping,
+        }),
+      );
+
+      expect(state.groupedRatings[addonId]).toEqual(grouping);
+    });
+
+    it('preserves existing groupings', () => {
+      let state;
+
+      const firstAddonId = 1;
+      const firstGrouping = { 1: 0, 2: 0, 3: 0, 4: 2, 5: 6 };
+
+      const secondAddonId = 2;
+      const secondGrouping = { 1: 0, 2: 0, 3: 3, 4: 4, 5: 4 };
+
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({
+          addonId: firstAddonId,
+          grouping: firstGrouping,
+        }),
+      );
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({
+          addonId: secondAddonId,
+          grouping: secondGrouping,
+        }),
+      );
+
+      expect(state.groupedRatings[firstAddonId]).toEqual(firstGrouping);
     });
   });
 });
