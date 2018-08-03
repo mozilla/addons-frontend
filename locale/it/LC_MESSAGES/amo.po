@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-02 21:19+0000\n"
+"PO-Revision-Date: 2018-08-02 21:33+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1076,7 +1076,7 @@ msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Ingrandire le immagini passandoci sopra il mouse"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Privacy Possum"
@@ -2081,7 +2081,6 @@ msgid "Updating profile…"
 msgstr "Aggiorna profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:741
-#, fuzzy
 msgid "Update Profile"
 msgstr "Aggiorna profilo"
 
@@ -2091,9 +2090,8 @@ msgid "Delete My Profile"
 msgstr "Elimina il mio profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:753 src/amo/components/UserProfileEdit/index.js:841
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Elimina il mio profilo"
+msgstr "Elimina profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:764
 #, fuzzy
