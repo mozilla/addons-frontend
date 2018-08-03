@@ -2,14 +2,14 @@ import SagaTester from 'redux-saga-tester';
 
 import * as reviewsApi from 'amo/api/reviews';
 import {
-  fetchRatingSummary,
+  fetchGroupedRatings,
   fetchReviews,
   fetchUserReviews,
   flagReview,
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
-  setRatingSummary,
+  setGroupedRatings,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -109,10 +109,10 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchRatingSummary', () => {
-    function _fetchRatingSummary(params = {}) {
+  describe('fetchGroupedRatings', () => {
+    function _fetchGroupedRatings(params = {}) {
       sagaTester.dispatch(
-        fetchRatingSummary({
+        fetchGroupedRatings({
           errorHandlerId: errorHandler.id,
           addonId: fakeAddon.id,
           ...params,
@@ -120,8 +120,8 @@ describe(__filename, () => {
       );
     }
 
-    const ratingSummaryResponse = (
-      summary = {
+    const groupedRatingsResponse = (
+      grouping = {
         1: 0,
         2: 0,
         3: 0,
@@ -134,13 +134,13 @@ describe(__filename, () => {
       // grouped_ratings object.
       return apiResponsePage({
         results: [],
-        grouped_ratings: summary,
+        grouped_ratings: grouping,
       });
     };
 
-    it('fetches and sets a rating summary', async () => {
+    it('fetches and sets grouped ratings', async () => {
       const addonId = 54123;
-      const summary = {
+      const grouping = {
         1: 5,
         2: 9,
         3: 22,
@@ -155,13 +155,13 @@ describe(__filename, () => {
           apiState,
           show_grouped_ratings: true,
         })
-        .returns(Promise.resolve(ratingSummaryResponse(summary)));
+        .returns(Promise.resolve(groupedRatingsResponse(grouping)));
 
-      _fetchRatingSummary({ addonId });
+      _fetchGroupedRatings({ addonId });
 
-      const expectedAction = setRatingSummary({
+      const expectedAction = setGroupedRatings({
         addonId,
-        summary,
+        grouping,
       });
       const action = await sagaTester.waitFor(expectedAction.type);
       mockApi.verify();
@@ -173,7 +173,7 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
       mockApi.expects('getReviews').returns(Promise.reject(error));
 
-      _fetchRatingSummary();
+      _fetchGroupedRatings();
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -182,9 +182,9 @@ describe(__filename, () => {
     });
 
     it('handles an empty grouped_ratings response', async () => {
-      mockApi.expects('getReviews').returns(ratingSummaryResponse(null));
+      mockApi.expects('getReviews').returns(groupedRatingsResponse(null));
 
-      _fetchRatingSummary();
+      _fetchGroupedRatings();
 
       const exampleErrorAction = errorHandler.createErrorAction(new Error());
       const errorAction = await sagaTester.waitFor(exampleErrorAction.type);

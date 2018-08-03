@@ -3,7 +3,7 @@ import invariant from 'invariant';
 
 import {
   CLEAR_ADDON_REVIEWS,
-  FETCH_RATING_SUMMARY,
+  FETCH_GROUPED_RATINGS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   HIDE_EDIT_REVIEW_FORM,
@@ -11,9 +11,9 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
+  SET_GROUPED_RATINGS,
   SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
-  SET_RATING_SUMMARY,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -25,7 +25,7 @@ import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   ExternalReviewReplyType,
   ExternalReviewType,
-  RatingSummaryType,
+  GroupedRatingsType,
 } from 'amo/api/reviews';
 
 export type UserReviewType = {|
@@ -135,47 +135,47 @@ export function fetchReviews({
   };
 }
 
-type FetchRatingSummaryParams = {|
+type FetchGroupedRatingsParams = {|
   addonId: number,
   errorHandlerId: string,
 |};
 
-export type FetchRatingSummaryAction = {|
-  type: typeof FETCH_RATING_SUMMARY,
-  payload: FetchRatingSummaryParams,
+export type FetchGroupedRatingsAction = {|
+  type: typeof FETCH_GROUPED_RATINGS,
+  payload: FetchGroupedRatingsParams,
 |};
 
-export function fetchRatingSummary({
+export function fetchGroupedRatings({
   addonId,
   errorHandlerId,
-}: FetchRatingSummaryParams): FetchRatingSummaryAction {
+}: FetchGroupedRatingsParams): FetchGroupedRatingsAction {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   return {
-    type: FETCH_RATING_SUMMARY,
+    type: FETCH_GROUPED_RATINGS,
     payload: { addonId, errorHandlerId },
   };
 }
 
-type SetRatingSummaryParams = {|
+type SetGroupedRatingsParams = {|
   addonId: number,
-  summary: RatingSummaryType,
+  grouping: GroupedRatingsType,
 |};
 
-export type SetRatingSummaryAction = {|
-  type: typeof SET_RATING_SUMMARY,
-  payload: SetRatingSummaryParams,
+export type SetGroupedRatingsAction = {|
+  type: typeof SET_GROUPED_RATINGS,
+  payload: SetGroupedRatingsParams,
 |};
 
-export function setRatingSummary({
+export function setGroupedRatings({
   addonId,
-  summary,
-}: SetRatingSummaryParams): SetRatingSummaryAction {
+  grouping,
+}: SetGroupedRatingsParams): SetGroupedRatingsAction {
   invariant(addonId, 'addonId is required');
-  invariant(summary, 'summary is required');
+  invariant(grouping, 'grouping is required');
   return {
-    type: SET_RATING_SUMMARY,
-    payload: { addonId, summary },
+    type: SET_GROUPED_RATINGS,
+    payload: { addonId, grouping },
   };
 }
 

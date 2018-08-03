@@ -6,9 +6,9 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
+  SET_GROUPED_RATINGS,
   SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
-  SET_RATING_SUMMARY,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
@@ -29,7 +29,7 @@ import type {
   SetAddonReviewsAction,
   SetInternalReviewAction,
   SetLatestReviewAction,
-  SetRatingSummaryAction,
+  SetGroupedRatingsAction,
   SetReviewAction,
   SetReviewReplyAction,
   SetUserReviewsAction,
@@ -37,7 +37,7 @@ import type {
   ShowReplyToReviewFormAction,
   UserReviewType,
 } from 'amo/actions/reviews';
-import type { RatingSummaryType } from 'amo/api/reviews';
+import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 
 type ReviewsById = {
@@ -85,8 +85,8 @@ export type ReviewsState = {|
     // or null if one does not exist yet.
     [userIdAddonIdVersionId: string]: number | null,
   },
-  ratingSummary: {
-    [addonId: number]: RatingSummaryType,
+  groupedRatings: {
+    [addonId: number]: GroupedRatingsType,
   },
   view: {
     [reviewId: number]: ViewStateByReviewId,
@@ -98,7 +98,7 @@ export const initialState: ReviewsState = {
   byId: {},
   byUserId: {},
   latestUserReview: {},
-  ratingSummary: {},
+  groupedRatings: {},
   // This stores review-related UI state.
   view: {},
 };
@@ -252,8 +252,8 @@ export const addReviewToState = ({
       // This will trigger a refresh from the server.
       [review.userId]: undefined,
     },
-    ratingSummary: {
-      ...state.ratingSummary,
+    groupedRatings: {
+      ...state.groupedRatings,
       // When adding a new rating, reset the cache of rating summaries.
       // This will trigger a refresh from the server.
       [review.addonId]: undefined,
@@ -267,9 +267,9 @@ type ReviewActionType =
   | HideReplyToReviewFormAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
+  | SetGroupedRatingsAction
   | SetInternalReviewAction
   | SetLatestReviewAction
-  | SetRatingSummaryAction
   | SetReviewAction
   | SetReviewReplyAction
   | SetUserReviewsAction
@@ -452,13 +452,13 @@ export default function reviewsReducer(
         },
       };
     }
-    case SET_RATING_SUMMARY: {
+    case SET_GROUPED_RATINGS: {
       const { payload } = action;
       return {
         ...state,
-        ratingSummary: {
-          ...state.ratingSummary,
-          [payload.addonId]: payload.summary,
+        groupedRatings: {
+          ...state.groupedRatings,
+          [payload.addonId]: payload.grouping,
         },
       };
     }

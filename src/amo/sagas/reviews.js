@@ -11,13 +11,13 @@ import { flagReview, getReviews, replyToReview } from 'amo/api/reviews';
 import {
   hideReplyToReviewForm,
   setAddonReviews,
-  setRatingSummary,
+  setGroupedRatings,
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
 } from 'amo/actions/reviews';
 import {
-  FETCH_RATING_SUMMARY,
+  FETCH_GROUPED_RATINGS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   SEND_REPLY_TO_REVIEW,
@@ -31,7 +31,7 @@ import type {
   GetReviewsParams,
 } from 'amo/api/reviews';
 import type {
-  FetchRatingSummaryAction,
+  FetchGroupedRatingsAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
@@ -69,9 +69,9 @@ function* fetchReviews({
   }
 }
 
-function* fetchRatingSummary({
+function* fetchGroupedRatings({
   payload: { errorHandlerId, addonId },
-}: FetchRatingSummaryAction): Generator<any, any, any> {
+}: FetchGroupedRatingsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
@@ -91,14 +91,14 @@ function* fetchRatingSummary({
       );
     }
     yield put(
-      setRatingSummary({
+      setGroupedRatings({
         addonId,
-        summary: response.grouped_ratings,
+        grouping: response.grouped_ratings,
       }),
     );
   } catch (error) {
     log.warn(
-      `Failed to load rating summary for add-on ID ${addonId}: ${error}`,
+      `Failed to fetch grouped ratings for add-on ID ${addonId}: ${error}`,
     );
     yield put(errorHandler.createErrorAction(error));
   }
@@ -183,7 +183,7 @@ function* handleFlagReview({
 }
 
 export default function* reviewsSaga(): Generator<any, any, any> {
-  yield takeLatest(FETCH_RATING_SUMMARY, fetchRatingSummary);
+  yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);

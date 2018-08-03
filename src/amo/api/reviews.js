@@ -149,7 +149,7 @@ export type GetReviewsParams = {|
 
 // A count of add-on ratings per star. These will all be 0 for add-ons
 // that have not yet been rated.
-export type RatingSummaryType = {|
+export type GroupedRatingsType = {|
   '1': number,
   '2': number,
   '3': number,
@@ -160,7 +160,7 @@ export type RatingSummaryType = {|
 export type GetReviewsApiResponse = {|
   ...PaginatedApiResponse<ExternalReviewType>,
   // This is undefined unless the request contained ?show_grouped_ratings=true.
-  grouped_ratings?: RatingSummaryType,
+  grouped_ratings?: GroupedRatingsType,
 |};
 
 export function getReviews({

@@ -6,9 +6,9 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
+  setGroupedRatings,
   setInternalReview,
   setLatestReview,
-  setRatingSummary,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -893,15 +893,15 @@ describe(__filename, () => {
       expect(state.byUserId[userId]).not.toBeDefined();
     });
 
-    it('resets ratingSummary when adding a new rating', () => {
+    it('resets groupedRatings when adding a new rating', () => {
       const addonId = 44231;
       let state;
 
       state = reviewsReducer(
         state,
-        setRatingSummary({
+        setGroupedRatings({
           addonId,
-          summary: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+          grouping: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
         }),
       );
 
@@ -916,33 +916,33 @@ describe(__filename, () => {
         }),
       });
 
-      expect(state.ratingSummary[addonId]).not.toBeDefined();
+      expect(state.groupedRatings[addonId]).not.toBeDefined();
     });
 
-    it('updates ratingSummary', () => {
+    it('updates groupedRatings', () => {
       const addonId = 44231;
       let state;
 
-      const summary1 = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-      const summary2 = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 };
+      const grouping1 = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      const grouping2 = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 };
 
       state = reviewsReducer(
         state,
-        setRatingSummary({ addonId, summary: summary1 }),
+        setGroupedRatings({ addonId, grouping: grouping1 }),
       );
       state = reviewsReducer(
         state,
-        setRatingSummary({ addonId, summary: summary2 }),
+        setGroupedRatings({ addonId, grouping: grouping2 }),
       );
 
-      expect(state.ratingSummary[addonId]).toEqual(summary2);
+      expect(state.groupedRatings[addonId]).toEqual(grouping2);
     });
   });
 
-  describe('setRatingSummary', () => {
-    it('stores a rating summary', () => {
+  describe('setGroupedRatings', () => {
+    it('stores grouped ratings', () => {
       const addonId = 432;
-      const summary = {
+      const grouping = {
         1: 64,
         2: 122,
         3: 456,
@@ -952,40 +952,40 @@ describe(__filename, () => {
 
       const state = reviewsReducer(
         undefined,
-        setRatingSummary({
+        setGroupedRatings({
           addonId,
-          summary,
+          grouping,
         }),
       );
 
-      expect(state.ratingSummary[addonId]).toEqual(summary);
+      expect(state.groupedRatings[addonId]).toEqual(grouping);
     });
 
-    it('preserves existing rating summaries', () => {
+    it('preserves existing groupings', () => {
       let state;
 
       const firstAddonId = 1;
-      const firstSummary = { 1: 0, 2: 0, 3: 0, 4: 2, 5: 6 };
+      const firstGrouping = { 1: 0, 2: 0, 3: 0, 4: 2, 5: 6 };
 
       const secondAddonId = 2;
-      const secondSummary = { 1: 0, 2: 0, 3: 3, 4: 4, 5: 4 };
+      const secondGrouping = { 1: 0, 2: 0, 3: 3, 4: 4, 5: 4 };
 
       state = reviewsReducer(
         state,
-        setRatingSummary({
+        setGroupedRatings({
           addonId: firstAddonId,
-          summary: firstSummary,
+          grouping: firstGrouping,
         }),
       );
       state = reviewsReducer(
         state,
-        setRatingSummary({
+        setGroupedRatings({
           addonId: secondAddonId,
-          summary: secondSummary,
+          grouping: secondGrouping,
         }),
       );
 
-      expect(state.ratingSummary[firstAddonId]).toEqual(firstSummary);
+      expect(state.groupedRatings[firstAddonId]).toEqual(firstGrouping);
     });
   });
 });
