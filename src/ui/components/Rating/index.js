@@ -84,6 +84,7 @@ export class RatingBase extends React.Component {
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
+        // TODO: switch this to use Icons?
         className: makeClassName('Rating-choice', {
           'Rating-selected-star': thisRating - rating <= 0.25,
           'Rating-half-star':

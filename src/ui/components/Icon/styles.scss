@@ -106,6 +106,10 @@
   @include icon($name: 'star');
 }
 
+.Icon-star-active {
+  @include icon($name: 'star-active');
+}
+
 .Icon-star-empty {
   @include icon($name: 'star-empty');
 }

@@ -32,7 +32,11 @@
   padding: 0;
 }
 
-.AddonMeta .Rating-star-group {
-  @include margin-end(-2.5px);
-  @include margin-start(-2.5px);
+.AddonMeta-overallRating {
+  margin-bottom: 24px;
+
+  .Rating-star-group {
+    @include margin-end(-2.5px);
+    @include margin-start(-2.5px);
+  }
 }

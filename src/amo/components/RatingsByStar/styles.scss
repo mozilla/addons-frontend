@@ -1,0 +1,40 @@
+@import '~photon-colors/photon-colors';
+@import '~core/css/inc/vars';
+@import '~core/css/inc/mixins';
+
+.RatingsByStar {
+  color: $grey-50;
+  display: grid;
+  font-size: $font-size-default;
+  grid-gap: 12px;
+  grid-template-columns: max-content auto max-content;
+}
+
+.RatingsByStar-star {
+  align-items: center;
+  display: flex;
+  line-height: normal;
+
+  .Icon {
+    @include margin-start(6px);
+  }
+}
+
+.RatingsByStar-barContainer {
+  align-items: center;
+  display: flex;
+}
+
+.RatingsByStar-bar {
+  background-color: $yellow-50;
+  border-radius: 2px;
+  opacity: 0.25;
+  width: 100%;
+  height: 16px;
+}
+
+.RatingsByStar-count {
+  display: flex;
+  justify-content: end;
+  min-width: 12px;
+}
