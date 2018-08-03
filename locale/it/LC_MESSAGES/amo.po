@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-02 21:33+0000\n"
+"PO-Revision-Date: 2018-08-02 17:14+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -2085,7 +2085,6 @@ msgid "Update Profile"
 msgstr "Aggiorna profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:752 src/amo/components/UserProfileEdit/index.js:840
-#, fuzzy
 msgid "Delete My Profile"
 msgstr "Elimina il mio profilo"
 
