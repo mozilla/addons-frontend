@@ -15,6 +15,7 @@ import {
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
+  HCT_DISCO_CATEGORY,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
   INSTALL_CANCELLED_THEME_CATEGORY,
@@ -98,7 +99,6 @@ export class Tracking {
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
   } = {}) {
     if (typeof window === 'undefined') {
-      /* istanbul ignore next */
       return;
     }
 
@@ -130,7 +130,6 @@ export class Tracking {
       window.ga =
         window.ga ||
         function() {
-          /* istanbul ignore next */
           (ga.q = ga.q || []).push(arguments);
         };
       ga.l = +new Date();
@@ -154,31 +153,38 @@ export class Tracking {
       log.info('Setting up the Hybrid Content Telemetry lib');
       // Note: special webpack comments must be after the module name or
       // babel-plugin-dynamic-import-node will blow-up.
-      const hybridContentTelemetry = await import('mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib');
-      /* webpackChunkName: "disco-hct" */
-      await hybridContentTelemetry.initPromise();
-      let logHctReason;
-      if (!hybridContentTelemetry) {
-        /* istanbul ignore next */
-        logHctReason =
-          'HCT disabled because hctEnabled or hct object is not available';
-      } else {
-        logHctReason = 'HCT enabled';
-        this.hctEnabled = true;
-        hybridContentTelemetry.registerEvents('disco.interaction', {
-          click: {
-            methods: telemetryMethods,
-            objects: telemetryObjects,
-          },
-        });
+      try {
+        // prettier-ignore-start
+        const hybridContentTelemetry = await import(
+          'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib'
+          /* webpackChunkName: "disco-hct" */
+        );
+        // prettier-ignore-end
+        await hybridContentTelemetry.initPromise();
+        let logHctReason;
+        if (!hybridContentTelemetry) {
+          /* istanbul ignore next */
+          logHctReason =
+            'HCT disabled because hctEnabled or hct object is not available';
+        } else {
+          logHctReason = 'HCT enabled';
+          this.hctEnabled = true;
+          hybridContentTelemetry.registerEvents(HCT_DISCO_CATEGORY, {
+            click: {
+              methods: telemetryMethods,
+              objects: telemetryObjects,
+            },
+          });
+        }
+        // Update the logging prefix to include HCT status.
+        this.logPrefix = oneLine`[GA: ${this.trackingEnabled ? 'ON' : 'OFF'}
+        | HCT: ${this.hctEnabled ? 'ON' : 'OFF'}]`;
+        this.log(logHctReason);
+        return hybridContentTelemetry;
+      } catch (err) {
+        log.error('Initialization failed', err);
       }
-      // Update the logging prefix to include HCT status.
-      this.logPrefix = oneLine`[GA: ${this.trackingEnabled ? 'ON' : 'OFF'}
-      | HCT: ${this.hctEnabled ? 'ON' : 'OFF'}]`;
-      this.log(logHctReason);
-      return hybridContentTelemetry;
     }
-
     log.info(`Not importing the HCT lib: hctEnabled: ${hctEnabled}`);
     return Promise.resolve(null);
   }
@@ -215,13 +221,13 @@ export class Tracking {
           )}`,
         );
         hybridContentTelemetry.recordEvent(
-          'disco.interaction',
+          HCT_DISCO_CATEGORY,
           method,
           object,
           data.value,
         );
       } else {
-        this.log(`Not logging to telemetry canUpload(): ${canUpload}`);
+        this.log(`Not logging to telemetry because canUpload() returned: ${canUpload}`);
       }
     } else {
       this.log(`Not logging to telemetry since hctEnabled: ${this.hctEnabled}`);

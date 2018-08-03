@@ -19,6 +19,7 @@ import {
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
   CLICK_CATEGORY,
+  HCT_DISCO_CATEGORY,
   INSTALL_ACTION,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
@@ -39,21 +40,18 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
+import { getFakeConfig } from 'tests/unit/helpers';
 
-function stubConfig(overrides = {}) {
-  const config = {
-    trackingEnabled: true,
-    trackingId: 'sample-tracking-id',
-    ...overrides,
-  };
-  return { get: sinon.spy((key) => config[key]) };
-}
 
-function createTracking(overrides = {}) {
+function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
   return new Tracking({
     _isDoNotTrackEnabled: () => false,
-    _config: stubConfig(),
-    ...overrides,
+    _config: getFakeConfig({
+      trackingEnabled: true,
+      trackingId: 'sample-tracking-id',
+      ...configOverrides,
+    }),
+    ...paramOverrides,
   });
 }
 
@@ -65,14 +63,14 @@ describe(__filename, () => {
 
     it('should not enable GA when configured off', () => {
       createTracking({
-        _config: stubConfig({ trackingEnabled: false }),
+        configOverrides: { trackingEnabled: false },
       });
       sinon.assert.notCalled(window.ga);
     });
 
     it('should not send events when tracking is configured off', () => {
       const tracking = createTracking({
-        _config: stubConfig({ trackingEnabled: false }),
+        configOverrides: { trackingEnabled: false },
       });
       tracking.sendEvent({
         category: 'whatever',
@@ -83,27 +81,28 @@ describe(__filename, () => {
 
     it('should disable GA due to missing id', () => {
       createTracking({
-        _isDoNotTrackEnabled: () => false,
-        _config: stubConfig({
-          trackingEnabled: true,
-          trackingId: null,
-        }),
+        configOverrides: { trackingId: null },
+        paramOverrides: {
+          _isDoNotTrackEnabled: () => false,
+        },
       });
       sinon.assert.notCalled(window.ga);
     });
 
     it('should disable GA due to Do Not Track', () => {
       createTracking({
-        _isDoNotTrackEnabled: () => true,
-        _config: stubConfig({ trackingEnabled: true }),
-        trackingEnabled: true,
+        paramOverrides: {
+          _isDoNotTrackEnabled: () => true,
+        },
       });
       sinon.assert.notCalled(window.ga);
     });
 
     it('should send initial page view when enabled', () => {
       createTracking({
-        _config: stubConfig({ trackingSendInitPageView: true }),
+        configOverrides: {
+          trackingSendInitPageView: true,
+        },
       });
       sinon.assert.calledWith(window.ga, 'send', 'pageview');
     });
@@ -119,7 +118,11 @@ describe(__filename, () => {
     });
 
     it('should not send initial page view when disabled', () => {
-      createTracking({ trackingSendInitPageView: false });
+      createTracking({
+        configOverrides: {
+          trackingSendInitPageView: false,
+        },
+      });
       // Make sure only 'create' and 'set' were called, not 'send'.
       sinon.assert.calledWith(window.ga, 'create');
       sinon.assert.calledWith(
@@ -432,13 +435,13 @@ describe(__filename, () => {
 
   describe('Hybrid Content Telemetry filterIdentifier()', () => {
     it('should return content up to the default max length', () => {
-      expect(filterIdentifier('abcdefghijklmnopqrstuvwxyz').length).toEqual(20);
+      expect(filterIdentifier('a'.repeat(26))).toHaveLength(20);
     });
 
-    it('should return content up to the supplie max length', () => {
+    it('should return content up to the supplied max length', () => {
       expect(
-        filterIdentifier('abcdefghijklmnopqrstuvwxyz', { maxLen: 10 }).length,
-      ).toEqual(10);
+        filterIdentifier('a'.repeat(26), { maxLen: 10 }),
+      ).toHaveLength(10);
     });
 
     it('should return content filtered for telemetry', () => {
@@ -516,7 +519,7 @@ describe(__filename, () => {
 
     it('should return null from the init promise if hctEnabled is false', async () => {
       const tracking = createTracking({
-        _config: stubConfig({ hctEnabled: false }),
+        configOverrides: { hctEnabled: false },
       });
       const hctLib = await tracking.hctInitPromise;
       expect(hctLib).toEqual(null);
@@ -524,7 +527,7 @@ describe(__filename, () => {
 
     it('should return hct object from the init promise if hctEnabled is true', async () => {
       const tracking = createTracking({
-        _config: stubConfig({ hctEnabled: true }),
+        configOverrides: { hctEnabled: true },
       });
       const hctLib = await tracking.hctInitPromise;
       expect(hctLib).toHaveProperty('canUpload');
@@ -535,7 +538,7 @@ describe(__filename, () => {
 
     it('should call registerEvents if hctEnabled is true', async () => {
       const tracking = createTracking({
-        _config: stubConfig({ hctEnabled: true }),
+        configOverrides: { hctEnabled: true },
       });
       await tracking.hctInitPromise;
       sinon.assert.calledOnce(registerEventsSpy);
@@ -569,7 +572,7 @@ describe(__filename, () => {
     it('should not call recordEvent if canUpload returns false', async () => {
       canUploadStub.callsFake(() => false);
       const tracking = createTracking({
-        _config: stubConfig({ hctEnabled: true }),
+        configOverrides: { hctEnabled: true },
       });
 
       await tracking._hct(trackingData);
@@ -579,43 +582,17 @@ describe(__filename, () => {
     it('should call recordEvent if canUpload is true', async () => {
       canUploadStub.callsFake(() => true);
       const tracking = createTracking({
-        _config: stubConfig({ hctEnabled: true }),
+        configOverrides: { hctEnabled: true },
       });
 
       await tracking._hct(trackingData);
       sinon.assert.calledOnce(recordEventSpy);
       sinon.assert.calledWith(
         recordEventSpy,
-        'disco.interaction',
+        HCT_DISCO_CATEGORY,
         filterIdentifier(INSTALL_EXTENSION_CATEGORY),
         filterIdentifier(TRACKING_TYPE_EXTENSION),
         'value',
-      );
-    });
-
-    it('should throw if unregistered method is used', () => {
-      canUploadStub.callsFake(() => true);
-      const tracking = createTracking({
-        _config: stubConfig({ hctEnabled: true }),
-      });
-      const badTrackingData = Object.assign({}, trackingData, {
-        method: 'failMethod',
-      });
-      return expect(tracking._hct(badTrackingData)).rejects.toThrow(
-        /Method "failmethod" must be one of the registered values/,
-      );
-    });
-
-    it('should throw if unregistered object is used', () => {
-      canUploadStub.callsFake(() => true);
-      const tracking = createTracking({
-        _config: stubConfig({ hctEnabled: true }),
-      });
-      const badTrackingData = Object.assign({}, trackingData, {
-        object: 'failObject',
-      });
-      return expect(tracking._hct(badTrackingData)).rejects.toThrow(
-        /Object "failobject" must be one of the registered values/,
       );
     });
   });
