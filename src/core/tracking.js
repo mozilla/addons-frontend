@@ -154,12 +154,11 @@ export class Tracking {
       // Note: special webpack comments must be after the module name or
       // babel-plugin-dynamic-import-node will blow-up.
       try {
-        // prettier-ignore-start
+        // prettier-ignore
         const hybridContentTelemetry = await import(
           'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib'
           /* webpackChunkName: "disco-hct" */
         );
-        // prettier-ignore-end
         await hybridContentTelemetry.initPromise();
         let logHctReason;
         if (!hybridContentTelemetry) {
@@ -227,7 +226,9 @@ export class Tracking {
           data.value,
         );
       } else {
-        this.log(`Not logging to telemetry because canUpload() returned: ${canUpload}`);
+        this.log(
+          `Not logging to telemetry because canUpload() returned: ${canUpload}`,
+        );
       }
     } else {
       this.log(`Not logging to telemetry since hctEnabled: ${this.hctEnabled}`);

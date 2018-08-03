@@ -42,7 +42,6 @@ import {
 } from 'core/constants';
 import { getFakeConfig } from 'tests/unit/helpers';
 
-
 function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
   return new Tracking({
     _isDoNotTrackEnabled: () => false,
@@ -439,9 +438,7 @@ describe(__filename, () => {
     });
 
     it('should return content up to the supplied max length', () => {
-      expect(
-        filterIdentifier('a'.repeat(26), { maxLen: 10 }),
-      ).toHaveLength(10);
+      expect(filterIdentifier('a'.repeat(26), { maxLen: 10 })).toHaveLength(10);
     });
 
     it('should return content filtered for telemetry', () => {
