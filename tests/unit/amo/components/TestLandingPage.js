@@ -13,7 +13,7 @@ import {
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { visibleAddonType } from 'core/utils';
+import { visibleAddonType, getAddonTypeFilter } from 'core/utils';
 import {
   createAddonsApiResult,
   dispatchClientMetadata,
@@ -290,24 +290,14 @@ describe(__filename, () => {
   });
 
   it('sets the links in each footer for themes', () => {
-    store.dispatch(
-      landingActions.loadLanding({
-        addonType: ADDON_TYPE_THEME,
-        featured: createAddonsApiResult([
-          { ...fakeAddon, name: 'Featured', slug: 'featured' },
-        ]),
-        highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: 'High', slug: 'high' },
-        ]),
-        trending: createAddonsApiResult([
-          { ...fakeAddon, name: 'Trending', slug: 'trending' },
-        ]),
-      }),
-    );
+    const addonType = getAddonTypeFilter(ADDON_TYPE_THEME);
+
+    _getAndLoadLandingAddons({ addonType });
 
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
+
     const match = { params: fakeParams };
 
     const root = render({ match });
@@ -315,15 +305,15 @@ describe(__filename, () => {
     const addonCards = root.find(LandingAddonsCard);
     expect(addonCards.at(0)).toHaveProp('footerLink', {
       pathname: '/search/',
-      query: { addonType: ADDON_TYPE_THEME, featured: true },
+      query: { addonType, featured: true },
     });
     expect(addonCards.at(1)).toHaveProp('footerLink', {
       pathname: '/search/',
-      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
+      query: { addonType, sort: SEARCH_SORT_TOP_RATED },
     });
     expect(addonCards.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
-      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
+      query: { addonType, sort: SEARCH_SORT_TRENDING },
     });
   });
 

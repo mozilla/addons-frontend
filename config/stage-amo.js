@@ -24,6 +24,4 @@ module.exports = {
       ],
     },
   },
-
-  enableStaticThemes: true,
 };
