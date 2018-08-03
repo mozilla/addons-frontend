@@ -254,7 +254,7 @@ export const addReviewToState = ({
     },
     groupedRatings: {
       ...state.groupedRatings,
-      // When adding a new rating, reset the cache of rating summaries.
+      // When adding a new rating, reset the cache of groupedRatings.
       // This will trigger a refresh from the server.
       [review.addonId]: undefined,
     },
