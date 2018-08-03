@@ -918,6 +918,25 @@ describe(__filename, () => {
 
       expect(state.ratingSummary[addonId]).not.toBeDefined();
     });
+
+    it('updates ratingSummary', () => {
+      const addonId = 44231;
+      let state;
+
+      const summary1 = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      const summary2 = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 };
+
+      state = reviewsReducer(
+        state,
+        setRatingSummary({ addonId, summary: summary1 }),
+      );
+      state = reviewsReducer(
+        state,
+        setRatingSummary({ addonId, summary: summary2 }),
+      );
+
+      expect(state.ratingSummary[addonId]).toEqual(summary2);
+    });
   });
 
   describe('setRatingSummary', () => {
