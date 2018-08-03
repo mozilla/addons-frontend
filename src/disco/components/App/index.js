@@ -20,7 +20,7 @@ import translate from 'core/i18n/translate';
 
 export class AppBase extends React.Component {
   static propTypes = {
-    ErrorPage: PropTypes.node,
+    ErrorPage: PropTypes.func,
     browserVersion: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
   };

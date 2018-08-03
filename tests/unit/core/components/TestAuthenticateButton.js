@@ -1,11 +1,4 @@
 import * as React from 'react';
-import {
-  Simulate,
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-dom/test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
 
 import { setAuthToken } from 'core/actions';
 import { loadCurrentUserAccount, logOutUser } from 'amo/reducers/users';
@@ -30,75 +23,83 @@ import {
 import Icon from 'ui/components/Icon';
 
 describe(__filename, () => {
-  function renderTree(customProps = {}) {
+  function render(customProps = {}) {
     const { store } = dispatchSignInActions();
     const props = {
       handleLogOut: sinon.stub(),
       i18n: fakeI18n(),
+      store,
       ...customProps,
     };
 
-    return findRenderedComponentWithType(
-      renderIntoDocument(
-        <Provider store={store}>
-          <AuthenticateButtonBase {...props} />
-        </Provider>,
-      ),
+    return shallowUntilTarget(
+      <AuthenticateButton {...props} />,
       AuthenticateButtonBase,
     );
   }
 
-  const render = (props) => findDOMNode(renderTree(props));
-
   it('passes along a className', () => {
-    const root = render({ className: 'MyComponent-auth-button' });
-    expect(root.classList.contains('MyComponent-auth-button')).toBeTruthy();
+    const className = 'MyComponent-auth-button';
+    const root = render({ className });
+
+    expect(root).toHaveClassName(className);
   });
 
   it('renders an Icon by default', () => {
-    const root = renderTree();
-    const icon = findRenderedComponentWithType(root, Icon);
-    expect(icon).toBeTruthy();
+    const root = render();
+
+    expect(root.find(Icon)).toHaveLength(1);
   });
 
   it('lets you hide the Icon', () => {
-    const root = renderTree({ noIcon: true });
-    expect(() => findRenderedComponentWithType(root, Icon)).toThrowError(
-      /Did not find exactly one match/,
-    );
+    const root = render({ noIcon: true });
+
+    expect(root.find(Icon)).toHaveLength(0);
   });
 
   it('lets you customize the log in text', () => {
-    const root = render({ logInText: 'Maybe log in?', siteUser: null });
-    expect(root.textContent).toEqual('Maybe log in?');
-    expect(root.href).toContain('#login');
+    const { store } = dispatchClientMetadata();
+    const root = render({ logInText: 'Maybe log in?', store });
+
+    expect(root.childAt(1)).toHaveText('Maybe log in?');
+    expect(root).toHaveProp('href', '#login');
   });
 
   it('lets you customize the log out text', () => {
-    const user = createUserAccountResponse();
-    const root = render({ logOutText: 'Maybe log out?', siteUser: user });
-    expect(root.textContent).toEqual('Maybe log out?');
-    expect(root.href).toContain('#logout');
+    const { store } = dispatchSignInActions();
+    const root = render({ logOutText: 'Maybe log out?', store });
+
+    expect(root.childAt(1)).toHaveText('Maybe log out?');
+    expect(root).toHaveProp('href', '#logout');
   });
 
   it('shows a log in button when unauthenticated', () => {
+    const { store } = dispatchClientMetadata();
     const handleLogIn = sinon.spy();
     const location = createFakeLocation();
-    const root = render({ handleLogIn, location, siteUser: null });
+    const root = render({ handleLogIn, location, store });
 
-    expect(root.textContent).toEqual('Register or Log in');
-    Simulate.click(root);
+    expect(root.childAt(1)).toHaveText('Register or Log in');
+
+    const clickEvent = createFakeEvent();
+    root.simulate('click', clickEvent);
+
     sinon.assert.calledWith(handleLogIn, location);
+    sinon.assert.calledOnce(clickEvent.preventDefault);
   });
 
   it('shows a log out button when authenticated', () => {
+    const { store } = dispatchSignInActions();
     const handleLogOut = sinon.spy();
-    const user = createUserAccountResponse();
-    const root = render({ handleLogOut, siteUser: user });
+    const root = render({ handleLogOut, store });
 
-    expect(root.textContent).toEqual('Log out');
-    Simulate.click(root);
-    sinon.assert.called(handleLogOut);
+    expect(root.childAt(1)).toHaveText('Log out');
+
+    const clickEvent = createFakeEvent();
+    root.simulate('click', clickEvent);
+
+    sinon.assert.calledOnce(handleLogOut);
+    sinon.assert.calledOnce(clickEvent.preventDefault);
   });
 
   it('updates the location on handleLogIn', () => {
@@ -112,7 +113,7 @@ describe(__filename, () => {
       .stub(api, 'startLoginUrl')
       .returns('https://a.m.org/login');
 
-    const { handleLogIn } = mapStateToProps(store.getState());
+    const { handleLogIn } = mapStateToProps(store.getState(), {});
     handleLogIn(location, { _window });
 
     expect(_window.location).toEqual('https://a.m.org/login');
@@ -123,12 +124,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const user = createUserAccountResponse();
 
-    expect(mapStateToProps(store.getState()).siteUser).toEqual(null);
+    expect(mapStateToProps(store.getState(), {}).siteUser).toEqual(null);
 
     store.dispatch(setAuthToken(userAuthToken()));
     store.dispatch(loadCurrentUserAccount({ user }));
 
-    expect(mapStateToProps(store.getState()).siteUser).toMatchObject(user);
+    expect(mapStateToProps(store.getState(), {}).siteUser).toMatchObject(user);
   });
 
   it('allows a signed-in user to log out', () => {
