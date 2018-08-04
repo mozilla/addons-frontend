@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-04 00:09+0000\n"
+"PO-Revision-Date: 2018-08-04 00:28+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1167,7 +1167,7 @@ msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Επιλέξτε τη σελίδα που θα βλέπετε όταν ανοίγετε μια νέα καρτέλα"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
@@ -2003,7 +2003,7 @@ msgstr "Αυτό το URL θα είναι ορατό μόνο για τους χ
 
 #: src/amo/components/UserProfileEdit/index.js:653
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Συστηθείτε στην κοινότητα αν θέλετε"
 
 #: src/amo/components/UserProfileEdit/index.js:657
 msgid "Introduce %(username)s to the community"
@@ -2055,11 +2055,11 @@ msgstr "Διαγραφή προφίλ"
 
 #: src/amo/components/UserProfileEdit/index.js:764
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "ΣΗΜΑΝΤΙΚΟ: Η διαγραφή του προφίλ προσθέτων του Firefox δεν αναιρείται."
 
 #: src/amo/components/UserProfileEdit/index.js:767
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "ΣΗΜΑΝΤΙΚΟ: Η διαγραφή αυτού του προφίλ προσθέτων του Firefox δεν αναιρείται."
 
 #: src/amo/components/UserProfileEdit/index.js:776
 msgid ""
