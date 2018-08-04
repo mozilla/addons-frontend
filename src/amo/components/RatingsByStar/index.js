@@ -89,7 +89,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
           }
 
           return (
-            <React.Fragment>
+            <React.Fragment key={star}>
               <div className="RatingsByStar-star">
                 <span>{star}</span>
                 <Icon name="star-active" />
