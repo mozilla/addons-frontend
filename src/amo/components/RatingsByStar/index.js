@@ -31,7 +31,7 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-class RatingsByStarBase extends React.Component<InternalProps> {
+export class RatingsByStarBase extends React.Component<InternalProps> {
   componentWillMount() {
     this.loadDataIfNeeded(this.props);
   }
@@ -59,14 +59,13 @@ class RatingsByStarBase extends React.Component<InternalProps> {
     invariant(addon.ratings, '');
 
     const width = Math.round((starCount / addon.ratings.count) * 100);
-    const lessThan100 = width < 100;
     return (
       <div
         className={makeClassName(
           'RatingsByStar-bar',
           'RatingsByStar-barValue',
           {
-            'RatingsByStar-barValueLessThan100': lessThan100,
+            'RatingsByStar-barValueLessThan100': width < 100,
           },
         )}
         style={{ width: `${width}%` }}
@@ -75,7 +74,7 @@ class RatingsByStarBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { addon, errorHandler, groupedRatings } = this.props;
+    const { addon, errorHandler, i18n, groupedRatings } = this.props;
     const loading = !addon || !groupedRatings;
 
     // TODO: handle 404 API response?
@@ -92,7 +91,7 @@ class RatingsByStarBase extends React.Component<InternalProps> {
           return (
             <React.Fragment>
               <div className="RatingsByStar-star">
-                {star}
+                <span>{star}</span>
                 <Icon name="star-active" />
               </div>
               <div className="RatingsByStar-barContainer">
@@ -103,8 +102,11 @@ class RatingsByStarBase extends React.Component<InternalProps> {
                 </div>
               </div>
               <div className="RatingsByStar-count">
-                {/* TODO: localize number */}
-                {loading ? <LoadingText minWidth={95} /> : starCount}
+                {loading ? (
+                  <LoadingText minWidth={95} />
+                ) : (
+                  i18n.formatNumber(starCount || 0)
+                )}
               </div>
             </React.Fragment>
           );
@@ -124,7 +126,7 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
   };
 };
 
-const extractId = (props: Props) => {
+export const extractId = (props: Props) => {
   const { addon } = props;
   return addon ? `addon-${addon.id.toString()}` : '';
 };
