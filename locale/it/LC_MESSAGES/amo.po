@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-02 17:14+0000\n"
-"Last-Translator: Melo46 <melo@carmu.com>\n"
+"PO-Revision-Date: 2018-08-03 15:39+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -726,9 +726,8 @@ msgid "Download Firefox"
 msgstr "Scarica Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "Note legali"
+msgstr "Lascia una nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
 msgid "Remove"
@@ -964,7 +963,7 @@ msgstr "Carica un nuovo tema"
 
 #: src/amo/components/Header/index.js:140
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Gestisci i miei componenti aggiuntivi"
 
 #: src/amo/components/Header/index.js:150
 msgid "Reviewer Tools"
@@ -1168,20 +1167,19 @@ msgstr "Scopri informazioni dettagliate su ogni sito web che visiti: indirizzo I
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Scegli la pagina che viene mostrata quando apri una nuova scheda"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
 msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
-#, fuzzy
 msgid "Get instant global weather information right in Firefox"
-msgstr "Genera i codici di verifica in 2 passaggi direttamente su Firefox"
+msgstr "Ottieni informazioni meteo su tutto il mondo in un istante, direttamente in Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
@@ -2066,9 +2064,8 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla si riserva il diritto di contattarti in caso di problemi con i componenti aggiuntivi che gestisci."
 
 #: src/amo/components/UserProfileEdit/index.js:737
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Aggiornamento account personale in corso…"
+msgstr "Aggiornamento del tuo profilo in corso…"
 
 #: src/amo/components/UserProfileEdit/index.js:738
 #, fuzzy
