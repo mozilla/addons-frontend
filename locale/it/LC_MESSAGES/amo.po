@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-03 15:39+0000\n"
+"PO-Revision-Date: 2018-08-03 16:03+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -2068,14 +2068,12 @@ msgid "Updating your profile…"
 msgstr "Aggiornamento del tuo profilo in corso…"
 
 #: src/amo/components/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Update My Profile"
-msgstr "Aggiorna profilo"
+msgstr "Aggiorna il mio profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:740
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Aggiorna profilo"
+msgstr "Aggiornamento profilo in corso…"
 
 #: src/amo/components/UserProfileEdit/index.js:741
 msgid "Update Profile"
@@ -2090,14 +2088,12 @@ msgid "Delete Profile"
 msgstr "Elimina profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:764
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "IMPORTANTE: L’eliminazione del tuo account è irreversibile."
+msgstr "IMPORTANTE: L’eliminazione del tuo profilo dal sito Firefox Add-ons è irreversibile."
 
 #: src/amo/components/UserProfileEdit/index.js:767
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "IMPORTANTE: L’eliminazione di questo account è irreversibile."
+msgstr "IMPORTANTE: L’eliminazione di questo profilo dal sito Firefox Add-ons è irreversibile."
 
 #: src/amo/components/UserProfileEdit/index.js:776
 msgid ""
@@ -2118,20 +2114,20 @@ msgstr ""
 #: src/amo/components/UserProfileEdit/index.js:793
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
+"Anche in caso riprovassi ad autenticarti su addons.mozilla.org con lo stesso indirizzo email, non sarai più in grado di accedere al profilo eliminato, ma semplicemente verrà registrato per te un "
+"nuovo profilo."
 
 #: src/amo/components/UserProfileEdit/index.js:806
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sNOTE:%(strongEnd)s Non puoi eliminare il tuo account finché risulti come %(linkStart)s autore di uno o più componenti aggiuntivi%(linkEnd)s. Prima di procedere all’eliminazione dovrai"
+"%(strongStart)sNOTA:%(strongEnd)s Non puoi eliminare il tuo profilo finché risulti come %(linkStart)s autore di uno o più componenti aggiuntivi%(linkEnd)s. Prima di procedere all’eliminazione dovrai"
 " %(docLinkStart)strasferire la proprietà%(docLinkEnd)s dei tuoi componenti aggiuntivi o eliminarli."
 
 #: src/amo/components/UserProfileEdit/index.js:813
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sNOTE:%(strongEnd)s Non puoi eliminare l’account se l’utente è %(linkStart)sautore di uno o più componenti aggiuntivi%(linkEnd)s."
+msgstr "%(strongStart)sNOTA:%(strongEnd)s Non puoi eliminare il profilo di un utente %(linkStart)sautore di uno o più componenti aggiuntivi%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
