@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-03 09:06+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-08-04 13:49+0000\n"
+"Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -962,7 +962,7 @@ msgstr "Envoyer un nouveau thème"
 
 #: src/amo/components/Header/index.js:140
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Gérer mes soumissions"
 
 #: src/amo/components/Header/index.js:150
 msgid "Reviewer Tools"
@@ -1073,11 +1073,11 @@ msgstr "Les indispensables pour médias"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Zoomez sur les images en passant le pointeur de la souris dessus"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 #, fuzzy
@@ -1126,7 +1126,7 @@ msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:144
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "Donnez un nouveau look à vos sites web préférés"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1142,7 +1142,7 @@ msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Give the entire internet a new look"
-msgstr ""
+msgstr "Donnez un nouveau look à tout le Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Turbo Download Manager"
@@ -1158,15 +1158,15 @@ msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
-msgstr ""
+msgstr "Générez des codes de vérification en deux étapes directement dans Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "Informations sur les adresses IP et domaines"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "Affichez des informations détaillées sur tous les sites web visités — adresse IP, emplacement, hébergeur, etc."
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
