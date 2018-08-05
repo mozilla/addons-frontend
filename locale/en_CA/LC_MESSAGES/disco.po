@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:54+0000\n"
-"PO-Revision-Date: 2018-08-05 19:10+0000\n"
+"PO-Revision-Date: 2018-08-05 19:11+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_CA\n"
@@ -116,54 +116,56 @@ msgstr "Please restart Firefox to use this add-on."
 
 #: src/disco/components/Addon/index.js:91
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 #: src/disco/components/AddonCompatibilityError/index.js:37
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox for iOS does not currently support add-ons."
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "This add-on does not support your version of Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:47
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "This add-on does not support your browser."
 
 #: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Discover Add-ons"
 
 #: src/disco/components/DiscoPane/index.js:121
 msgid "Find more add-ons"
-msgstr ""
+msgstr "Find more add-ons"
 
 #: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Personalize Your Firefox"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Privacy Policy"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Your session has expired"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "An unexpected error occurred"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Reload To Continue"
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Dismiss this notice"
