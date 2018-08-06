@@ -5,13 +5,11 @@ import RatingsByStar, {
   extractId,
   RatingsByStarBase,
 } from 'amo/components/RatingsByStar';
+import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
-import {
-  createStubErrorHandler,
-  fakeI18n,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
@@ -242,6 +240,33 @@ describe(__filename, () => {
     const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
 
     expect(root.find('.RatingsByStar-count').at(0)).toHaveText('1.000');
+  });
+
+  it('renders errors', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+    const root = render({ errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('does not fetch data when there is an error', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({
+      errorHandler,
+      addon: createInternalAddon(fakeAddon),
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   describe('extractId', () => {

@@ -42,7 +42,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
   loadDataIfNeeded(props: InternalProps) {
     const { addon, dispatch, errorHandler, groupedRatings } = props;
-    if (addon && !groupedRatings) {
+    if (!errorHandler.hasError() && addon && !groupedRatings) {
       dispatch(
         fetchGroupedRatings({
           addonId: addon.id,
@@ -80,7 +80,6 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     const loading = !addon || !groupedRatings;
 
     // TODO: handle 404 API response?
-    // TODO: render errors
     return (
       <div className="RatingsByStar">
         {errorHandler.renderErrorIfPresent()}
