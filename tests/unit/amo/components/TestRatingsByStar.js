@@ -46,6 +46,15 @@ describe(__filename, () => {
     });
   };
 
+  const createErrorHandlerWithError = () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+    return errorHandler;
+  };
+
   it('fetches groupedRatings upon construction', () => {
     const addon = createInternalAddon({ ...fakeAddon, id: 222 });
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -243,22 +252,14 @@ describe(__filename, () => {
   });
 
   it('renders errors', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(new Error('some unexpected error'));
+    const errorHandler = createErrorHandlerWithError();
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   it('does not fetch data when there is an error', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(new Error('some unexpected error'));
+    const errorHandler = createErrorHandlerWithError();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = render({
@@ -270,11 +271,7 @@ describe(__filename, () => {
   });
 
   it('does not render a loading state when there is an error', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(new Error('some unexpected error'));
+    const errorHandler = createErrorHandlerWithError();
 
     // Render without an add-on to trigger a loading state.
     const root = render({ addon: null, errorHandler });
