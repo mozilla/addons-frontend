@@ -269,6 +269,19 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
+  it('does not render a loading state when there is an error', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+
+    // Render without an add-on to trigger a loading state.
+    const root = render({ addon: null, errorHandler });
+
+    expect(root.find(LoadingText)).toHaveLength(0);
+  });
+
   describe('extractId', () => {
     it('returns empty without an add-on', () => {
       expect(extractId(getProps({ addon: null }))).toEqual('');

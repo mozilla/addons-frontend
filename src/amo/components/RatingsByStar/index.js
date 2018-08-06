@@ -79,39 +79,42 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     const { addon, errorHandler, i18n, groupedRatings } = this.props;
     const loading = !addon || !groupedRatings;
 
-    // TODO: handle 404 API response?
     return (
       <div className="RatingsByStar">
         {errorHandler.renderErrorIfPresent()}
-        {[5, 4, 3, 2, 1].map((star) => {
-          let starCount;
-          if (groupedRatings) {
-            starCount = groupedRatings[star];
-          }
+        <div className="RatingsByStar-graph">
+          {[5, 4, 3, 2, 1].map((star) => {
+            let starCount;
+            if (groupedRatings) {
+              starCount = groupedRatings[star];
+            }
 
-          return (
-            <React.Fragment key={star}>
-              <div className="RatingsByStar-star">
-                <span>{star}</span>
-                <Icon name="star-active" />
-              </div>
-              <div className="RatingsByStar-barContainer">
-                <div className="RatingsByStar-bar RatingsByStar-barFrame">
-                  {starCount !== undefined
-                    ? this.renderBarValue(starCount)
-                    : null}
+            return (
+              <React.Fragment key={star}>
+                <div className="RatingsByStar-star">
+                  <span>{star}</span>
+                  <Icon name="star-active" />
                 </div>
-              </div>
-              <div className="RatingsByStar-count">
-                {loading ? (
-                  <LoadingText minWidth={95} />
-                ) : (
-                  i18n.formatNumber(starCount || 0)
-                )}
-              </div>
-            </React.Fragment>
-          );
-        })}
+                <div className="RatingsByStar-barContainer">
+                  <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                    {starCount !== undefined
+                      ? this.renderBarValue(starCount)
+                      : null}
+                  </div>
+                </div>
+                <div className="RatingsByStar-count">
+                  {loading ? (
+                    errorHandler.hasError() ? null : (
+                      <LoadingText minWidth={95} />
+                    )
+                  ) : (
+                    i18n.formatNumber(starCount || 0)
+                  )}
+                </div>
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
     );
   }
