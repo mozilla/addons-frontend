@@ -70,7 +70,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
           'RatingsByStar-bar',
           'RatingsByStar-barValue',
           {
-            'RatingsByStar-barValueLessThan100': width < 100,
+            'RatingsByStar-partialBar': width < 100,
           },
         )}
         style={{ width: `${width}%` }}

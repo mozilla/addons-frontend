@@ -183,7 +183,7 @@ describe(__filename, () => {
     expect(barValues.at(4)).toHaveProp('style', { width: '0%' });
   });
 
-  it('handles 100% bar values differently', () => {
+  it('renders different styles for partial / full bars', () => {
     // Set up an add-on with one 5-star rating.
     const grouping = {
       5: 1,
@@ -199,14 +199,10 @@ describe(__filename, () => {
     const barValues = root.find('.RatingsByStar-barValue');
 
     expect(barValues.at(0)).toHaveProp('style', { width: '100%' });
-    expect(barValues.at(0)).not.toHaveClassName(
-      'RatingsByStar-barValueLessThan100',
-    );
+    expect(barValues.at(0)).not.toHaveClassName('RatingsByStar-partialBar');
 
     expect(barValues.at(1)).toHaveProp('style', { width: '0%' });
-    expect(barValues.at(1)).toHaveClassName(
-      'RatingsByStar-barValueLessThan100',
-    );
+    expect(barValues.at(1)).toHaveClassName('RatingsByStar-partialBar');
   });
 
   it('renders 0% bar values when ratings do not exist', () => {

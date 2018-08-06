@@ -34,9 +34,9 @@
 .RatingsByStar-barValue {
   background-color: rgba($yellow-50, 0.75);
 
-  // For values less than 100%, remove the border radius in the middle
-  // of barFrame.
-  &.RatingsByStar-barValueLessThan100 {
+  // For bars less than 100%, remove the border radius since their ends
+  // will be floating somwehere in the middle of barFrame.
+  &.RatingsByStar-partialBar {
     [dir='ltr'] & {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
