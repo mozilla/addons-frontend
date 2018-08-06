@@ -73,7 +73,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       // Let's only worry about setting up srcset if we have the correct
       // preview for this.
       if (previewSearch) {
-        const themeUrlLarge = getPreviewImage(addon, { full: true });
+        const themeUrlLarge = getPreviewImage(addon, { index: 1, full: true });
 
         if (themeUrlLarge) {
           const imageSize = getPreviewImageSize(addon, { index: 1 });

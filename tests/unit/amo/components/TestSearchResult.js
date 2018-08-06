@@ -196,6 +196,10 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
+            thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
+          },
+          {
+            ...fakePreview,
             thumbnail_url: headerImageThumb,
           },
         ],
@@ -276,7 +280,7 @@ describe(__filename, () => {
   // TODO: This can be removed once migration happens.
   // See: https://github.com/mozilla/addons-frontend/issues/5359
   it('displays a fallback image for themes that only have 1 preview option', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/1.png';
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/1.png';
 
     const root = render({
       addon: createInternalAddon({
@@ -285,14 +289,14 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
-            thumbnail_url: headerImageThumb,
+            image_url: headerImageFull,
           },
         ],
       }),
     });
     const image = root.find('.SearchResult-icon');
 
-    expect(image.prop('src')).toEqual(headerImageThumb);
+    expect(image.prop('src')).toEqual(headerImageFull);
   });
 
   it('displays a message if the lightweight theme preview image is unavailable', () => {
