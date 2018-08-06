@@ -8,7 +8,8 @@
   font-size: $font-size-default;
   grid-gap: 12px;
   grid-template-columns: max-content auto max-content;
-  line-height: normal;
+  // This controls whitespace and should also match the bar height.
+  line-height: 16px;
 }
 
 .RatingsByStar-star {
@@ -18,11 +19,6 @@
   .Icon {
     @include margin-start(6px);
   }
-}
-
-.RatingsByStar-barContainer {
-  align-items: center;
-  display: flex;
 }
 
 .RatingsByStar-bar {
