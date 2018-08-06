@@ -1,14 +1,17 @@
-import infoDialog from 'core/reducers/infoDialog';
-import { SHOW_INFO, CLOSE_INFO } from 'core/constants';
+import infoDialog, {
+  closeInfoDialog,
+  initialState,
+  showInfoDialog,
+} from 'core/reducers/infoDialog';
 
 describe(__filename, () => {
-  it('defaults to an empty object', () => {
-    expect(infoDialog(undefined, { type: 'UNRELATED' })).toEqual({});
+  it('initializes properly', () => {
+    expect(infoDialog(undefined, { type: 'UNRELATED' })).toEqual(initialState);
   });
 
   it('shows a dialog with SHOW_INFO', () => {
     const payload = { foo: 'bar' };
-    expect(infoDialog({}, { type: SHOW_INFO, payload })).toEqual({
+    expect(infoDialog(undefined, showInfoDialog(payload))).toEqual({
       show: true,
       data: payload,
     });
@@ -16,12 +19,15 @@ describe(__filename, () => {
 
   it('maintains state with unrelated state changes', () => {
     const payload = { foo: 'bar' };
-    expect(
-      infoDialog({ show: true, data: payload }, { type: 'WHATEVS' }),
-    ).toEqual({ show: true, data: payload });
+    const state = infoDialog(undefined, showInfoDialog(payload));
+
+    expect(infoDialog(state, { type: 'WHATEVS' })).toEqual(state);
   });
 
   it('hides a dialog with CLOSE_INFO ', () => {
-    expect(infoDialog({}, { type: CLOSE_INFO })).toEqual({ show: false });
+    const payload = { foo: 'bar' };
+    const prevState = infoDialog(undefined, showInfoDialog(payload));
+
+    expect(infoDialog(prevState, closeInfoDialog())).toEqual(initialState);
   });
 });

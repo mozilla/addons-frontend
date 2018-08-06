@@ -16,7 +16,6 @@ import tracking, {
 } from 'core/tracking';
 import {
   ADDON_TYPE_THEME,
-  CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -39,7 +38,6 @@ import {
   OS_MAC,
   OS_WINDOWS,
   SET_ENABLE_NOT_AVAILABLE,
-  SHOW_INFO,
   START_DOWNLOAD,
   TRACKING_TYPE_THEME,
   UNINSTALL_ACTION,
@@ -74,6 +72,7 @@ import {
   USER_AGENT_OS_UNIX,
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
+import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
 
 export function installTheme(
   node,
@@ -477,16 +476,16 @@ export class WithInstallHelpers extends React.Component {
 
   showInfo({ name, iconUrl }) {
     const { dispatch } = this.props;
-    dispatch({
-      type: SHOW_INFO,
-      payload: {
+
+    dispatch(
+      showInfoDialog({
         addonName: name,
         imageURL: iconUrl,
         closeAction: () => {
-          dispatch({ type: CLOSE_INFO });
+          dispatch(closeInfoDialog());
         },
-      },
-    });
+      }),
+    );
   }
 
   uninstall({ guid, name, type }) {
