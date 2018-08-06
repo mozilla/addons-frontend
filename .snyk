@@ -116,5 +116,15 @@ ignore:
     - chokidar > fsevents > node-pre-gyp > tar > chownr:
         reason: Our production app does not use chokidar
         expires: '2018-08-30T21:19:40.012Z'
-patch: {}
-version: v1.10.2
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:hoek:20180212':
+    - bundlesize > brotli-size > iltorb > node-gyp > request > hawk > hoek:
+        patched: '2018-08-06T19:26:45.523Z'
+    - bundlesize > brotli-size > iltorb > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-08-06T19:26:45.523Z'
+    - bundlesize > brotli-size > iltorb > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-08-06T19:26:45.523Z'
+    - bundlesize > brotli-size > iltorb > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-08-06T19:26:45.523Z'
+version: v1.12.0
