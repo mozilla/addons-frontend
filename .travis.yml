@@ -25,16 +25,16 @@ cache:
 
 # Allow to display job names on Travis-CI, see:
 # https://github.com/travis-ci/travis-ci/issues/5898#issuecomment-362490313
-script: yarn $COMMAND
+script: FORCE_COLOR=0 yarn $COMMAND
 jobs:
   include:
     # Test the build process.
     - stage:
       <<: *node-prod
-      env: ADDONS_FRONTEND_BUILD_ALL=1 COMMAND=build
+      env: COMMAND=build-ci
     - stage:
       <<: *node-next
-      env: ADDONS_FRONTEND_BUILD_ALL=1 COMMAND=build
+      env: COMMAND=build-all
     # Run the unit/integration tests.
     - stage:
       <<: *node-prod
