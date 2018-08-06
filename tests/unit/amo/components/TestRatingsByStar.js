@@ -202,6 +202,33 @@ describe(__filename, () => {
     );
   });
 
+  it('renders 0% bar values when ratings do not exist', () => {
+    const grouping = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+    const addon = addonForGrouping(grouping, {
+      // This add-on does not have any ratings yet.
+      ratings: undefined,
+    });
+    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    const root = render({ addon });
+
+    const barValues = root.find('.RatingsByStar-barValue');
+    for (const index of [0, 1, 2, 3, 4]) {
+      expect(barValues.at(index)).toHaveProp('style', { width: '0%' });
+    }
+  });
+
+  it('renders 0% bar values when ratings are all 0', () => {
+    const grouping = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+    const addon = addonForGrouping(grouping);
+    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    const root = render({ addon });
+
+    const barValues = root.find('.RatingsByStar-barValue');
+    for (const index of [0, 1, 2, 3, 4]) {
+      expect(barValues.at(index)).toHaveProp('style', { width: '0%' });
+    }
+  });
+
   it('localizes star counts', () => {
     const grouping = {
       5: 1000,

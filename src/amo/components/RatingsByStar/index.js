@@ -54,11 +54,13 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
   renderBarValue(starCount: number) {
     const { addon } = this.props;
-    invariant(addon, 'addon cannot be falsy when calling renderBarValue()');
-    // TODO: handle non-existant ratings properly.
-    invariant(addon.ratings, '');
+    invariant(addon, 'addon is required');
 
-    const width = Math.round((starCount / addon.ratings.count) * 100);
+    let width = 0;
+    if (addon.ratings && addon.ratings.count > 0) {
+      width = Math.round((starCount / addon.ratings.count) * 100);
+    }
+
     return (
       <div
         className={makeClassName(
