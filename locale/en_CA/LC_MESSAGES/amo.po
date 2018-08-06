@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-05 21:28+0000\n"
+"PO-Revision-Date: 2018-08-06 11:12+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_CA\n"
@@ -568,11 +568,11 @@ msgstr "Delete this collection"
 
 #: src/amo/components/Collection/index.js:376
 msgid "Log in to create a collection"
-msgstr "Log in to create a collection"
+msgstr "Sign in to create a collection"
 
 #: src/amo/components/Collection/index.js:377
 msgid "Log in to edit this collection"
-msgstr "Log in to edit this collection"
+msgstr "Sign in to edit this collection"
 
 #: src/amo/components/Collection/index.js:414
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -608,7 +608,7 @@ msgstr "Collections"
 
 #: src/amo/components/CollectionList/index.js:120
 msgid "Log in to view your collections"
-msgstr "Log in to view your collections"
+msgstr "Sign in to view your collections"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -824,11 +824,11 @@ msgstr "Flag this review"
 
 #: src/amo/components/FlagReviewMenu/index.js:62
 msgid "Log in to flag this response"
-msgstr "Log in to flag this response"
+msgstr "Sign in to flag this response"
 
 #: src/amo/components/FlagReviewMenu/index.js:63
 msgid "Log in to flag this review"
-msgstr "Log in to flag this review"
+msgstr "Sign in to flag this review"
 
 #: src/amo/components/FlagReviewMenu/index.js:72
 msgid "You cannot flag your own response"
@@ -1362,27 +1362,27 @@ msgstr "Access browser activity during navigation"
 
 #: src/amo/components/RatingManager/index.js:167
 msgid "Log in to rate this dictionary"
-msgstr "Log in to rate this dictionary"
+msgstr "Sign in to rate this dictionary"
 
 #: src/amo/components/RatingManager/index.js:169
 msgid "Log in to rate this language pack"
-msgstr "Log in to rate this language pack"
+msgstr "Sign in to rate this language pack"
 
 #: src/amo/components/RatingManager/index.js:171
 msgid "Log in to rate this search plugin"
-msgstr "Log in to rate this search plugin"
+msgstr "Sign in to rate this search plugin"
 
 #: src/amo/components/RatingManager/index.js:174
 msgid "Log in to rate this theme"
-msgstr "Log in to rate this theme"
+msgstr "Sign in to rate this theme"
 
 #: src/amo/components/RatingManager/index.js:176
 msgid "Log in to rate this extension"
-msgstr "Log in to rate this extension"
+msgstr "Sign in to rate this extension"
 
 #: src/amo/components/RatingManager/index.js:184
 msgid "Log in to rate this add-on"
-msgstr "Log in to rate this add-on"
+msgstr "Sign in to rate this add-on"
 
 #: src/amo/components/RatingManager/index.js:224
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -1966,7 +1966,7 @@ msgstr "Picture successfully deleted"
 
 #: src/amo/components/UserProfileEdit/index.js:428
 msgid "Log in to edit the profile"
-msgstr "Log in to edit the profile"
+msgstr "Sign in to edit the profile"
 
 #: src/amo/components/UserProfileEdit/index.js:473
 msgid "View user's profile"
@@ -2102,7 +2102,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:793
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
+msgstr "When you use this email address to sign in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 
 #: src/amo/components/UserProfileEdit/index.js:806
 msgid ""
@@ -2178,7 +2178,7 @@ msgstr "Choose Photo…"
 
 #: src/core/components/AuthenticateButton/index.js:79
 msgid "Register or Log in"
-msgstr "Register or Log in"
+msgstr "Register or Sign In"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
