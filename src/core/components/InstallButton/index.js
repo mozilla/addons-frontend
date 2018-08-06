@@ -84,7 +84,7 @@ export class InstallButtonBase extends React.Component {
     headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     iconURL: PropTypes.string,
-    id: PropTypes.string,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     // See ReactRouterLocationType in 'core/types/router'
@@ -98,7 +98,7 @@ export class InstallButtonBase extends React.Component {
     uninstall: PropTypes.func.isRequired,
     updateURL: PropTypes.string,
     useButton: PropTypes.bool,
-    userAgentInfo: PropTypes.string.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
     version: PropTypes.string,
     _InstallTrigger: PropTypes.object,
     _config: PropTypes.object,

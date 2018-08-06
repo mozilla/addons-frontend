@@ -40,7 +40,7 @@ export class InstallSwitchBase extends React.Component {
     headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     iconURL: PropTypes.string,
-    id: PropTypes.string,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,
