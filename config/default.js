@@ -178,6 +178,7 @@ module.exports = {
     'dbr',
     'dsb',
     'el',
+    'en-CA',
     'en-GB',
     'en-US',
     'es',
