@@ -162,7 +162,6 @@ export class Tracking {
         await hybridContentTelemetry.initPromise();
         let logHctReason;
         if (!hybridContentTelemetry) {
-          /* istanbul ignore next */
           logHctReason =
             'HCT disabled because hctEnabled or hct object is not available';
         } else {
