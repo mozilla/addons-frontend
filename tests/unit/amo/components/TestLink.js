@@ -1,11 +1,5 @@
-import { createMemoryHistory } from 'history';
 import * as React from 'react';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-dom/test-utils';
-import { findDOMNode } from 'react-dom';
-import { Router, Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 import Link, { LinkBase, mapStateToProps } from 'amo/components/Link';
 import createStore from 'amo/store';
@@ -17,15 +11,6 @@ describe(__filename, () => {
   let store;
 
   function render(props) {
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    return renderIntoDocument(
-      <Router history={createMemoryHistory()}>
-        <Link store={store} {...props} />
-      </Router>,
-    );
-  }
-
-  function shallowRender(props) {
     return shallowUntilTarget(<Link store={store} {...props} />, LinkBase);
   }
 
@@ -45,9 +30,9 @@ describe(__filename, () => {
   it('passes an object through as a to param', () => {
     const root = render({ to: { pathname: '/categories' } });
 
-    expect(
-      findRenderedComponentWithType(root, ReactRouterLink).props.to,
-    ).toEqual({ pathname: '/fr/android/categories' });
+    expect(root.find(ReactRouterLink)).toHaveProp('to', {
+      pathname: '/fr/android/categories',
+    });
   });
 
   it('passes `to` without leading slash without base', () => {
@@ -69,23 +54,21 @@ describe(__filename, () => {
   it('prefixes the `to` prop', () => {
     const root = render({ to: '/test' });
 
-    expect(
-      findRenderedComponentWithType(root, ReactRouterLink).props.to,
-    ).toEqual('/fr/android/test');
+    expect(root.find(ReactRouterLink)).toHaveProp('to', '/fr/android/test');
   });
 
   it('prefixes the `to.pathname` prop', () => {
     const root = render({ to: { pathname: '/test' } });
 
-    expect(
-      findRenderedComponentWithType(root, ReactRouterLink).props.to,
-    ).toEqual({ pathname: '/fr/android/test' });
+    expect(root.find(ReactRouterLink)).toHaveProp('to', {
+      pathname: '/fr/android/test',
+    });
   });
 
   it('renders children when `to` is used', () => {
     const root = render({ children: 'hello', to: '/test' });
 
-    expect(findDOMNode(root).textContent).toEqual('hello');
+    expect(root.children()).toHaveText('hello');
   });
 
   it('does not pass prepend props through to Link component', () => {
@@ -94,7 +77,7 @@ describe(__filename, () => {
       prependLang: false,
       to: '/test',
     });
-    const { props } = findRenderedComponentWithType(root, ReactRouterLink);
+    const props = root.find(ReactRouterLink).props();
 
     expect(props.clientApp).toEqual(undefined);
     expect(props.lang).toEqual(undefined);
@@ -107,27 +90,25 @@ describe(__filename, () => {
 
     // If no href attribute is supplied the component will render a Link
     // component instead of an <a> tag.
-    expect(findRenderedComponentWithType(root, ReactRouterLink)).toBeTruthy();
+    expect(root.find(ReactRouterLink)).toHaveLength(1);
   });
 
   it('normalizes the `href` path with a string', () => {
     const root = render({ href: '/test' });
 
-    expect(findDOMNode(root, 'a').href).toContain('/fr/android/test');
+    expect(root.find('a')).toHaveProp('href', '/fr/android/test');
   });
 
   it('does not prepend clientApp when `prependClientApp` is false', () => {
     const root = render({ href: '/test', prependClientApp: false });
 
-    expect(findDOMNode(root, 'a').href).toContain('/fr/test');
-    expect(findDOMNode(root, 'a').href).not.toContain('/fr/android/test');
+    expect(root.find('a')).toHaveProp('href', '/fr/test');
   });
 
   it('does not prepend lang when `prependLang` is false', () => {
     const root = render({ href: '/test', prependLang: false });
 
-    expect(findDOMNode(root, 'a').href).toContain('/android/test');
-    expect(findDOMNode(root, 'a').href).not.toContain('/fr/android/test');
+    expect(root.find('a')).toHaveProp('href', '/android/test');
   });
 
   it('does not prepend `href` when `prepend` props are false', () => {
@@ -137,7 +118,7 @@ describe(__filename, () => {
       prependLang: false,
     });
 
-    const hrefProp = findDOMNode(root, 'a').href;
+    const hrefProp = root.find('a').prop('href');
 
     expect(hrefProp).toContain('/test');
     expect(hrefProp).not.toContain('/fr/test');
@@ -152,8 +133,7 @@ describe(__filename, () => {
       prependLang: false,
     });
 
-    const toProp = findRenderedComponentWithType(root, ReactRouterLink).props
-      .to;
+    const toProp = root.find(ReactRouterLink).prop('to');
 
     expect(toProp).toContain('/test');
     expect(toProp).not.toContain('/fr/test');
@@ -168,8 +148,7 @@ describe(__filename, () => {
       prependLang: false,
     });
 
-    const toProp = findRenderedComponentWithType(root, ReactRouterLink).props
-      .to;
+    const toProp = root.find(ReactRouterLink).prop('to');
 
     expect(toProp.pathname).toContain('/test');
     expect(toProp.pathname).not.toContain('/fr/test');
@@ -180,7 +159,7 @@ describe(__filename, () => {
   it('renders children when `href` is used', () => {
     const root = render({ children: 'bonjour', href: '/test' });
 
-    expect(findDOMNode(root).textContent).toEqual('bonjour');
+    expect(root.children()).toHaveText('bonjour');
   });
 
   it('does not add prepend props to <a> tag', () => {
@@ -189,12 +168,12 @@ describe(__filename, () => {
       href: '/test',
       prependLang: false,
     });
-    const { attributes } = findDOMNode(root);
 
-    expect(attributes.getNamedItem('clientApp')).toEqual(null);
-    expect(attributes.getNamedItem('lang')).toEqual(null);
-    expect(attributes.getNamedItem('prependClientApp')).toEqual(null);
-    expect(attributes.getNamedItem('prependLang')).toEqual(null);
+    expect(root.find('a')).toHaveLength(1);
+    expect(root.find('a')).not.toHaveProp('clientApp');
+    expect(root.find('a')).not.toHaveProp('lang');
+    expect(root.find('a')).not.toHaveProp('prependClientApp');
+    expect(root.find('a')).not.toHaveProp('prependLang');
   });
 
   it('throws an error if both `href` and `to` are supplied', () => {
@@ -206,19 +185,19 @@ describe(__filename, () => {
   });
 
   it('creates an Icon with the correct name for `external`', () => {
-    const root = shallowRender({ to: '/test', external: true });
+    const root = render({ to: '/test', external: true });
 
     expect(root.find(Icon)).toHaveProp('name', `external`);
   });
 
   it('creates an Icon with the correct name for `externalDark`', () => {
-    const root = shallowRender({ to: '/test', externalDark: true });
+    const root = render({ to: '/test', externalDark: true });
 
     expect(root.find(Icon)).toHaveProp('name', `external-dark`);
   });
 
   it('creates an Icon with the correct name for `external` and `externalDark`', () => {
-    const root = shallowRender({
+    const root = render({
       to: '/test',
       external: true,
       externalDark: true,

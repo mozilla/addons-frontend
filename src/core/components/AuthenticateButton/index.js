@@ -28,6 +28,7 @@ type HandleLogOutFunction = ({| api: ApiState |}) => Promise<void>;
 type Props = {|
   buttonType?: string,
   className?: string,
+  handleLogIn?: HandleLogInFunc,
   handleLogOut?: HandleLogOutFunction,
   location: ReactRouterLocationType,
   logInText?: string,
@@ -104,14 +105,21 @@ type StateMappedProps = {|
   siteUser: UserType | null,
 |};
 
-export const mapStateToProps = (state: AppState): StateMappedProps => ({
-  api: state.api,
-  handleLogIn(location, { _window = window } = {}) {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): StateMappedProps => {
+  const defaultHandleLogIn = (location, { _window = window } = {}) => {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });
-  },
-  siteUser: getCurrentUser(state.users),
-});
+  };
+
+  return {
+    api: state.api,
+    handleLogIn: ownProps.handleLogIn || defaultHandleLogIn,
+    siteUser: getCurrentUser(state.users),
+  };
+};
 
 type DispatchMappedProps = {|
   handleLogOut: HandleLogOutFunction,
