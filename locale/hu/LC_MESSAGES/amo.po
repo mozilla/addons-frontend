@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-06 09:51+0000\n"
+"PO-Revision-Date: 2018-08-06 09:52+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1025,7 +1025,7 @@ msgstr "Időszakos"
 
 #: src/amo/components/Home/index.js:225
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "Szabja testre a Firefox működését kiterjesztésekkel. Érdekli-e a…"
+msgstr "Szabja testre a Firefox működését kiterjesztésekkel. Mi érdekli?"
 
 #: src/amo/components/Home/index.js:227
 msgid "Change the way Firefox looks with themes."
