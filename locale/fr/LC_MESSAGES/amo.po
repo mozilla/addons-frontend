@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-04 13:49+0000\n"
-"Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
+"PO-Revision-Date: 2018-08-06 05:32+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -724,9 +724,8 @@ msgid "Download Firefox"
 msgstr "Télécharger Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "Mentions légales"
+msgstr "Écrire une note"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
 msgid "Remove"
@@ -1045,14 +1044,12 @@ msgid "Social media customization"
 msgstr "Personnalisation des réseaux sociaux"
 
 #: src/amo/components/Home/index.js:58
-#, fuzzy
 msgid "See more dynamic downloaders"
-msgstr "Utilitaires multimédia"
+msgstr "Voir plus d’utilitaires de téléchargement avancés"
 
 #: src/amo/components/Home/index.js:59
-#, fuzzy
 msgid "Dynamic downloaders"
-msgstr "Utilitaires multimédia"
+msgstr "Utilitaires de téléchargement avancés"
 
 #: src/amo/components/Home/index.js:64
 msgid "See more summer themes"
@@ -1174,7 +1171,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Choisissez la page que vous souhaitez voir à l’ouverture d’un nouvel onglet"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
