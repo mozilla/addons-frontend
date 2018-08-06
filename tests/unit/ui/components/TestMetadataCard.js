@@ -29,6 +29,13 @@ describe(__filename, () => {
     expect(item.find('dt')).toHaveText('I am title');
   });
 
+  it('adds a custom className', () => {
+    const className = 'MyClassName';
+    const item = renderShallow({ className });
+
+    expect(item).toHaveClassName(className);
+  });
+
   it('requires content', () => {
     expect(() => {
       renderShallow({
@@ -93,11 +100,5 @@ describe(__filename, () => {
 
     expect(item.find('dd')).toHaveText('0');
     expect(item.find('dt')).toHaveText('I am title');
-  });
-
-  it('throws an error if metadata is missing', () => {
-    expect(() => {
-      renderShallow({ metadata: null });
-    }).toThrow('The metadata property is required');
   });
 });

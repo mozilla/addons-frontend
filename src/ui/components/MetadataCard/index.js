@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+import makeClassName from 'classnames';
 import * as React from 'react';
 
 import LoadingText from 'ui/components/LoadingText';
@@ -6,17 +8,16 @@ import LoadingText from 'ui/components/LoadingText';
 import './styles.scss';
 
 type Props = {|
+  className?: string,
   metadata: Array<Object>,
 |};
 
-const MetadataCard = (props: Props) => {
-  if (!props.metadata) {
-    throw new Error('The metadata property is required');
-  }
+const MetadataCard = ({ className, metadata }: Props) => {
+  invariant(metadata, 'The metadata property is required');
 
   return (
-    <div className="MetadataCard">
-      {props.metadata.map(({ content, title } = {}) => {
+    <div className={makeClassName('MetadataCard', className)}>
+      {metadata.map(({ content, title } = {}) => {
         if (content === undefined) {
           throw new Error('content is required');
         }

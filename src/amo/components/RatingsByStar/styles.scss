@@ -1,0 +1,56 @@
+@import '~photon-colors/photon-colors';
+@import '~core/css/inc/vars';
+@import '~core/css/inc/mixins';
+
+.RatingsByStar-graph {
+  color: $grey-50;
+  display: grid;
+  font-size: $font-size-default;
+  grid-gap: 12px;
+  grid-template-columns: max-content auto max-content;
+  // This controls whitespace and should also match the bar height.
+  line-height: 16px;
+}
+
+.RatingsByStar-star {
+  align-items: center;
+  display: flex;
+
+  .Icon {
+    @include margin-start(6px);
+  }
+}
+
+.RatingsByStar-bar {
+  border-radius: 2px;
+  height: 16px;
+}
+
+.RatingsByStar-barFrame {
+  background-color: rgba($yellow-50, 0.25);
+  width: 100%;
+}
+
+.RatingsByStar-barValue {
+  background-color: rgba($yellow-50, 0.75);
+
+  // For bars less than 100%, remove the border radius since their ends
+  // will be floating somwehere in the middle of barFrame.
+  &.RatingsByStar-partialBar {
+    [dir='ltr'] & {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    [dir='rtl'] & {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+}
+
+.RatingsByStar-count {
+  display: flex;
+  justify-content: end;
+  min-width: 12px;
+}

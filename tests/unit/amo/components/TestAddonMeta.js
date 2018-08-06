@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import AddonMeta, { AddonMetaBase } from 'amo/components/AddonMeta';
+import RatingsByStar from 'amo/components/RatingsByStar';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
@@ -114,6 +115,19 @@ describe(__filename, () => {
       });
 
       expect(getReviewCount(root).title).toEqual('No Ratings');
+    });
+
+    it('renders RatingsByStar with an add-on', () => {
+      const addon = createInternalAddon(fakeAddon);
+      const root = render({ addon });
+
+      expect(root.find(RatingsByStar)).toHaveProp('addon', addon);
+    });
+
+    it('renders RatingsByStar without an add-on', () => {
+      const root = render({ addon: null });
+
+      expect(root.find(RatingsByStar)).toHaveProp('addon', null);
     });
   });
 });
