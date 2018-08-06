@@ -298,13 +298,7 @@ export class AddonBase extends React.Component {
 
     return showAbout ? (
       <ShowMoreCard header={title} className="AddonDescription">
-        <div
-          className="AddonDescription-contents"
-          ref={(ref) => {
-            this.addonDescription = ref;
-          }}
-          {...descriptionProps}
-        />
+        <div className="AddonDescription-contents" {...descriptionProps} />
       </ShowMoreCard>
     ) : null;
   }

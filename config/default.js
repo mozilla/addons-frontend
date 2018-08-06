@@ -178,6 +178,7 @@ module.exports = {
     'dbr',
     'dsb',
     'el',
+    'en-CA',
     'en-GB',
     'en-US',
     'es',
@@ -293,7 +294,7 @@ module.exports = {
   enableAddonRecommendations: false,
 
   // Enable static themes.
-  enableStaticThemes: false,
+  enableStaticThemes: true,
 
   enableExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',

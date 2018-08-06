@@ -1,10 +1,6 @@
+import { shallow } from 'enzyme';
 import Helmet from 'react-helmet';
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
-import {
-  findRenderedDOMComponentWithTag,
-  renderIntoDocument,
-} from 'react-dom/test-utils';
 
 import ServerHtml from 'core/components/ServerHtml';
 import FakeApp, {
@@ -39,135 +35,136 @@ describe(__filename, () => {
       sriData: fakeSRIData,
       ...opts,
     };
-    return renderIntoDocument(<ServerHtml {...pageProps} />);
+    return shallow(<ServerHtml {...pageProps} />);
   }
 
   it('renders html attrs provided', () => {
-    const html = findRenderedDOMComponentWithTag(
-      render({ htmlLang: 'ar', htmlDir: 'rtl' }),
-      'html',
-    );
-    expect(html.getAttribute('lang')).toEqual('ar');
-    expect(html.getAttribute('dir')).toEqual('rtl');
+    const root = render({ htmlLang: 'ar', htmlDir: 'rtl' });
+    const html = root.find('html');
+
+    expect(html).toHaveProp('lang', 'ar');
+    expect(html).toHaveProp('dir', 'rtl');
   });
 
   it('renders meta attrs inside helmet', () => {
-    const meta = findDOMNode(render()).querySelector('meta[name=description]');
-    expect(meta.content).toEqual('test meta');
-    expect(meta.name).toEqual('description');
+    const root = render();
+    const meta = root.find({ name: 'description' });
+
+    expect(meta).toHaveProp('content', 'test meta');
   });
 
   it('renders GA script when trackingEnabled is true', () => {
-    const html = findRenderedDOMComponentWithTag(
-      render({ trackingEnabled: true }),
-      'html',
-    );
-    const ga = html.querySelectorAll(
-      'script[src="https://www.google-analytics.com/analytics.js"]',
-    );
-    expect(ga.length).toEqual(1);
-    expect(ga[0].hasAttribute('async')).toEqual(true);
+    const root = render({ trackingEnabled: true });
+    const ga = root.find({
+      src: 'https://www.google-analytics.com/analytics.js',
+    });
+
+    expect(ga).toHaveLength(1);
+    expect(ga).toHaveProp('async', true);
   });
 
   it("doesn't render GA script when trackingEnabled is false", () => {
-    const html = findRenderedDOMComponentWithTag(
-      render({ trackingEnabled: false }),
-      'html',
-    );
-    const ga = html.querySelectorAll(
-      'script[src="https://www.google-analytics.com/analytics.js"]',
-    );
-    expect(ga.length).toEqual(0);
+    const root = render({ trackingEnabled: false });
+    const ga = root.find({
+      src: 'https://www.google-analytics.com/analytics.js',
+    });
+
+    expect(ga).toHaveLength(0);
   });
 
   it('renders css provided', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const styleSheets = html.querySelectorAll('link[rel="stylesheet"]');
-    expect(styleSheets.length).toEqual(1);
-    const styleSheetLink = styleSheets[0];
-    expect(styleSheetLink.getAttribute('href')).toEqual('/bar/disco-blah.css');
+    const root = render();
+    const styleSheets = root.find({ rel: 'stylesheet' });
+
+    expect(styleSheets).toHaveLength(1);
+    expect(styleSheets.at(0)).toHaveProp('href', '/bar/disco-blah.css');
   });
 
   it('renders js provided', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const js = html.querySelectorAll('script[src]');
-    expect(js.length).toEqual(1);
-    const scriptNode = js[0];
-    expect(scriptNode.getAttribute('src')).toEqual('/foo/disco-blah.js');
+    const root = render();
+    const js = root.find('script');
+
+    expect(js.at(1)).toHaveProp('src', '/foo/disco-blah.js');
   });
 
   it('renders css with SRI when present', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const styleSheet = html.querySelector('link[rel="stylesheet"]');
-    expect(styleSheet.getAttribute('integrity')).toEqual('sha512-disco-css');
-    expect(styleSheet.getAttribute('crossorigin')).toEqual('anonymous');
+    const root = render();
+    const styleSheets = root.find({ rel: 'stylesheet' });
+
+    expect(styleSheets.at(0)).toHaveProp('integrity', 'sha512-disco-css');
+    expect(styleSheets.at(0)).toHaveProp('crossOrigin', 'anonymous');
   });
 
   it('renders js with SRI when present', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const js = html.querySelector('script[src]');
-    expect(js.getAttribute('integrity')).toEqual('sha512-disco-js');
-    expect(js.getAttribute('crossorigin')).toEqual('anonymous');
+    const root = render();
+    const js = root.find('script');
+
+    expect(js.at(1)).toHaveProp('integrity', 'sha512-disco-js');
+    expect(js.at(1)).toHaveProp('crossOrigin', 'anonymous');
   });
 
   it('renders state as JSON', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const json = html.querySelector('#redux-store-state').textContent;
-    expect(JSON.parse(json).foo).toEqual('bar');
+    const store = fakeStore;
+    const root = render({ store });
+    const json = root.find('#redux-store-state');
+
+    expect(json).toHaveLength(1);
+    expect(JSON.parse(json.prop('dangerouslySetInnerHTML').__html)).toEqual(
+      store.getState(),
+    );
   });
 
   it('renders meta with utf8 charset ', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const meta = html.querySelector('meta[charset]');
-    expect(meta.getAttribute('charset')).toEqual('utf-8');
+    const root = render();
+    const meta = root.find({ charSet: 'utf-8' });
+
+    expect(meta).toHaveLength(1);
   });
 
   it('renders favicon', () => {
     const amoCDN = 'https://test.cdn.net';
     const _config = getFakeConfig({ amoCDN });
-    const html = findRenderedDOMComponentWithTag(render({ _config }), 'html');
-    const favicon = html.querySelector('link[rel="shortcut icon"]');
-    expect(favicon.getAttribute('href')).toEqual(
+
+    const root = render({ _config });
+    const favicon = root.find('link[rel="shortcut icon"]');
+
+    expect(favicon).toHaveProp(
+      'href',
       `${amoCDN}/favicon.ico?v=${_config.get('faviconVersion')}`,
     );
   });
 
   it('renders title', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const title = html.querySelector('title').textContent;
-    expect(title).toEqual('test title');
+    const root = render();
+
+    expect(root.find('title')).toHaveText('test title');
   });
 
   it('throws for unknown static type', () => {
     expect(() => {
-      const html = render({ includeSri: false });
-      html.getStatic({ filePath: 'disco-foo', type: 'whatever' });
+      const root = render({ includeSri: false });
+      root.instance().getStatic({ filePath: 'disco-foo', type: 'whatever' });
     }).toThrowError('Unknown static type');
   });
 
   it('throws for missing SRI data', () => {
     expect(() => {
-      render({ sriData: {} });
+      const root = render();
+      root.instance().getStatic({ filePath: 'disco-blah' });
     }).toThrowError(/SRI Data is missing/);
   });
 
   it('does not render empty noscript styles', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    const noScript = html.querySelector('noscript');
-    expect(noScript).toBeFalsy();
+    const root = render();
+
+    expect(root.find('noscript')).toHaveLength(0);
   });
 
   it('renders noscript styles when provided', () => {
     const noScriptStyles = '.MyComponent { display: none; }';
-    const html = findRenderedDOMComponentWithTag(
-      render({ noScriptStyles }),
-      'html',
-    );
-    const noScript = html.querySelector('noscript');
-    expect(noScript).toBeTruthy();
-    expect(noScript.children.length).toEqual(1);
-    const style = noScript.children[0];
-    expect(style.tagName).toEqual('STYLE');
-    expect(style.textContent).toEqual(noScriptStyles);
+    const root = render({ noScriptStyles });
+
+    expect(root.find('noscript')).toHaveLength(1);
+    expect(root.find('noscript').html()).toContain(noScriptStyles);
   });
 });

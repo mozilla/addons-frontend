@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-01 19:13+0000\n"
+"PO-Revision-Date: 2018-08-05 13:25+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1115,7 +1115,7 @@ msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr "რჩეული საიტების სანიშნების გამოსახვა"
+msgstr "რჩეული საიტების სანიშნების წარმოდგენა სურათების სახით"
 
 #: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Stylus"
@@ -1195,7 +1195,7 @@ msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "Render images on transparent backgrounds"
-msgstr "დაამუშავეთ სურათები გამჭვირვალე ფონზე"
+msgstr "სურათების გამოსახვა გამჭვირვალე ფონზე"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Tabliss"
