@@ -33,6 +33,9 @@ type InternalProps = {|
 
 export class RatingsByStarBase extends React.Component<InternalProps> {
   componentWillMount() {
+    // TODO: this is intended to load on the server (before mount) but it
+    // does not.
+    // See: https://github.com/mozilla/addons-frontend/issues/5854
     this.loadDataIfNeeded(this.props);
   }
 
