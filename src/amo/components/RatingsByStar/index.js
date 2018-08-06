@@ -88,8 +88,18 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
         <div className="RatingsByStar-graph">
           {[5, 4, 3, 2, 1].map((star) => {
             let starCount;
-            if (groupedRatings) {
-              starCount = groupedRatings[star];
+            let starCountNode;
+
+            if (!errorHandler.hasError()) {
+              if (groupedRatings) {
+                starCount = groupedRatings[star];
+              }
+
+              starCountNode = loading ? (
+                <LoadingText minWidth={95} />
+              ) : (
+                i18n.formatNumber(starCount || 0)
+              );
             }
 
             return (
@@ -105,15 +115,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                       : null}
                   </div>
                 </div>
-                <div className="RatingsByStar-count">
-                  {loading ? (
-                    errorHandler.hasError() ? null : (
-                      <LoadingText minWidth={95} />
-                    )
-                  ) : (
-                    i18n.formatNumber(starCount || 0)
-                  )}
-                </div>
+                <div className="RatingsByStar-count">{starCountNode}</div>
               </React.Fragment>
             );
           })}

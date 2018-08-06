@@ -262,10 +262,7 @@ describe(__filename, () => {
     const errorHandler = createErrorHandlerWithError();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    const root = render({
-      errorHandler,
-      addon: createInternalAddon(fakeAddon),
-    });
+    render({ errorHandler, addon: createInternalAddon(fakeAddon) });
 
     sinon.assert.notCalled(dispatchSpy);
   });
