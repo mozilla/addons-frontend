@@ -1,68 +1,83 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
-import { findDOMNode } from 'react-dom';
-import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
+import { shallow, mount } from 'enzyme';
 
-import { ShowMoreCardBase, MAX_HEIGHT } from 'ui/components/ShowMoreCard';
-import { fakeI18n } from 'tests/unit/helpers';
-
-function render(props) {
-  return renderIntoDocument(<ShowMoreCardBase i18n={fakeI18n()} {...props} />);
-}
+import ShowMoreCard, {
+  ShowMoreCardBase,
+  MAX_HEIGHT,
+} from 'ui/components/ShowMoreCard';
+import {
+  createFakeEvent,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const render = (props) => {
+    return shallowUntilTarget(
+      <ShowMoreCard i18n={fakeI18n()} {...props} />,
+      ShowMoreCardBase,
+    );
+  };
+
   it('reveals more text when clicking "show more" link', () => {
     const root = render({ children: 'Hello I am description' });
-    const rootNode = findDOMNode(root);
 
-    // We have to manually set the expanded flag to false because we
-    // don't have a clientHeight in the tests.
+    // We have to manually set the expanded flag to false because we don't have
+    // a clientHeight in the tests.
     root.setState({ expanded: false });
-    expect(rootNode.className).not.toContain('.ShowMoreCard--expanded');
-    expect(root.state.expanded).toEqual(false);
-    expect(rootNode.querySelector('.Card-footer-link').textContent).toEqual(
-      'Expand to Read more',
+
+    expect(root).not.toHaveClassName('ShowMoreCard--expanded');
+
+    // We have to shallow this prop because we pass a component to it.
+    expect(shallow(root.prop('footerLink')).html()).toContain(
+      '<span class="visually-hidden">Expand to</span> Read more',
     );
 
-    Simulate.click(rootNode.querySelector('.Card-footer-link a'));
+    // We cannot directly target the footer link, so we simulate the click here.
+    root.instance().onClick(createFakeEvent());
+    root.update();
 
-    expect(rootNode.className).toContain('ShowMoreCard--expanded');
-    expect(root.state.expanded).toEqual(true);
+    expect(root).toHaveClassName('ShowMoreCard--expanded');
 
-    expect(rootNode.querySelector('.Card-footer-link')).toEqual(null);
+    expect(root).toHaveProp('footerLink', null);
   });
 
   it('is expanded by default', () => {
     const root = render({ children: 'Hello I am description' });
-    expect(root.state.expanded).toEqual(true);
+
+    expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('truncates the contents if they are too long', () => {
     const root = render({ children: 'Hello I am description' });
-    root.truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
-    expect(root.state.expanded).toEqual(false);
+
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+    root.update();
+
+    expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('renders className', () => {
+    const className = 'test';
     const root = render({
       children: <p>Hi</p>,
-      className: 'test',
+      className,
     });
-    const rootNode = findDOMNode(root);
-    expect(rootNode.className).toContain('test');
+
+    expect(root).toHaveClassName(className);
   });
 
   it('renders children', () => {
     const root = render({ children: 'Hello I am description' });
-    const rootNode = findDOMNode(root);
-    expect(rootNode.textContent).toContain('Hello I am description');
+
+    expect(root.childAt(0)).toHaveText('Hello I am description');
   });
 
   it('executes truncateToMaxHeight when it recieves props', () => {
     const root = mount(<ShowMoreCardBase i18n={fakeI18n()} />);
     const component = root.instance();
 
-    const contentNode = findDOMNode(component.contents);
+    const contentNode = component.contents;
     const truncateToMaxHeight = sinon.spy(component, 'truncateToMaxHeight');
     root.setProps(); // simulate any kind of update to properties
 

@@ -54,9 +54,6 @@ export class LanguagePickerBase extends React.Component {
           className="LanguagePicker-selector"
           defaultValue={currentLocale}
           id="lang-picker"
-          ref={(ref) => {
-            this.selector = ref;
-          }}
           onChange={this.onChange}
         >
           {Object.keys(languages).map((locale) => (

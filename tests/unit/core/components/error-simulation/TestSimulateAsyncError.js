@@ -1,5 +1,5 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
-import { renderIntoDocument } from 'react-dom/test-utils';
 
 import { SimulateAsyncErrorBase } from 'core/components/error-simulation/SimulateAsyncError';
 
@@ -15,7 +15,7 @@ describe(__filename, () => {
   });
 
   function render(props = {}) {
-    return renderIntoDocument(<SimulateAsyncErrorBase {...props} />);
+    return shallow(<SimulateAsyncErrorBase {...props} />);
   }
 
   it('throws an async error', () => {
