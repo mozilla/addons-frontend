@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:54+0000\n"
-"PO-Revision-Date: 2018-08-03 09:29+0000\n"
+"PO-Revision-Date: 2018-08-01 19:13+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -135,7 +135,6 @@ msgid "Discover Add-ons"
 msgstr "Découvrez des modules"
 
 #: src/disco/components/DiscoPane/index.js:121
-#, fuzzy
 msgid "Find more add-ons"
 msgstr "Découvrez davantage de modules"
 

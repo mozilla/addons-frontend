@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-06 05:32+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-08-06 08:58+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1060,9 +1060,8 @@ msgid "Summer themes"
 msgstr "Thèmes de l’été"
 
 #: src/amo/components/Home/index.js:70
-#, fuzzy
 msgid "See more must-have media extensions"
-msgstr "Voir plus d’extensions populaires"
+msgstr "Voir plus d’extensions indispensables pour les médias"
 
 #: src/amo/components/Home/index.js:71
 msgid "Must-have media"
@@ -1077,9 +1076,8 @@ msgid "Enlarge images by hovering your mouse over it"
 msgstr "Zoomez sur les images en passant le pointeur de la souris dessus"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Politique de confidentialité"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Protect yourself against the sneakiest trackers"
@@ -1167,7 +1165,7 @@ msgstr "Affichez des informations détaillées sur tous les sites web visités �
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
@@ -1179,7 +1177,7 @@ msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get instant global weather information right in Firefox"
-msgstr ""
+msgstr "Informez-vous sur la météo partout dans le monde, directement dans Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
@@ -1191,11 +1189,11 @@ msgstr "Séparez vos identités sur le Web (travail, personnel, etc.) à l’aid
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Affichez les images sur un fond transparent"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Tabliss"
@@ -1203,7 +1201,7 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:90
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Profitez d’une superbe page de Nouvel onglet avec des arrière-plans personnalisables, des informations sur la météo locale et bien plus encore"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Tree Style Tab"
@@ -1211,7 +1209,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Vous avez ouvert un grand nombre d’onglets ? Organisez-les dans une barre latérale"
 
 #: src/amo/components/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2009,9 +2007,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Vous pouvez modifier votre adresse électronique depuis votre compte Firefox. %(startLink)sBesoin d’aide ?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:550
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "Gérer son compte Firefox…"
+msgstr "Gérer les comptes Firefox…"
 
 #: src/amo/components/UserProfileEdit/index.js:558
 msgid "Profile"
@@ -2064,9 +2061,8 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla se réserve le droit de vous contacter personnellement pour des problèmes particuliers liés à vos modules hébergés."
 
 #: src/amo/components/UserProfileEdit/index.js:737
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Mise à jour en cours…"
+msgstr "Mise à jour du profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Update My Profile"
@@ -2097,42 +2093,38 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT : supprimer ce profil Firefox Add-ons est irréversible."
 
 #: src/amo/components/UserProfileEdit/index.js:776
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Si vous confirmer cette %(startStrong)saction irréversible%(endStrong)s, les données suivantes seront supprimées : la photo de profil, les détails du profil (y compris le nom d’utilisateur, "
-"l’adresse électronique, le nom affiché, l’emplacement, la page d’accueil, la biographie, la profession) ainsi que les préférences de notification. D’autres données telles que les notes et les "
-"commentaires seront rendus anonymes."
+"Vos données seront définitivement supprimées, ce qui comprend les détails de votre profil (l’avatar et le nom d’utilisateur, le pseudo, l’emplacement, la page d’accueil, la biographie, la "
+"profession) ainsi que les préférences de notification. Vos commentaires et évaluations seront rendus anonymes et ne seront plus modifiables."
 
 #: src/amo/components/UserProfileEdit/index.js:783
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Si vous confirmer cette %(startStrong)saction irréversible%(endStrong)s, les données suivantes seront supprimées : la photo de profil, les détails du profil (y compris le nom d’utilisateur, "
-"l’adresse électronique, le nom affiché, l’emplacement, la page d’accueil, la biographie, la profession) ainsi que les préférences de notification. D’autres données telles que les notes et les "
-"commentaires seront rendus anonymes."
+"Les données de l'utilisateur ou utilisatrice seront définitivement supprimées, ce qui comprend les détails de son profil (l’avatar et le nom d’utilisateur, le pseudo, l’emplacement, la page "
+"d’accueil, la biographie, la profession) ainsi que les préférences de notification. Les commentaires et évaluations seront rendus anonymes et ne seront plus modifiables."
 
 #: src/amo/components/UserProfileEdit/index.js:793
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
+"Quand vous utiliserez à nouveau cette adresse électronique pour vous identifier sur le site addons.mozilla.org, vous créerez un nouveau profil pour les modules de Firefox qui ne sera pas du tout "
+"associé au profil que vous avez supprimé."
 
 #: src/amo/components/UserProfileEdit/index.js:806
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sNOTE :%(strongEnd)s vous ne pouvez pas supprimer un compte si vous êtes %(linkStart)sl’auteur de modules%(linkEnd)s. Vous devez %(docLinkStart)stransférer ces modules à d’autres "
-"auteurs%(docLinkEnd)s ou les supprimer avant de pouvoir fermer votre compte."
+"%(strongStart)sNOTE :%(strongEnd)s vous ne pouvez pas supprimer votre profil si vous êtes %(linkStart)sl’auteur de modules%(linkEnd)s. Vous devez %(docLinkStart)stransférer ces modules à d’autres "
+"auteurs%(docLinkEnd)s ou les supprimer avant de pouvoir supprimer votre profil."
 
 #: src/amo/components/UserProfileEdit/index.js:813
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sNOTE :%(strongEnd)s vous ne pouvez pas supprimer un compte pour un utilisateur qui est %(linkStart)sl’auteur de modules%(linkEnd)s."
+msgstr "%(strongStart)sNOTE :%(strongEnd)s vous ne pouvez pas supprimer le profil d’un utilisateur qui est %(linkStart)sl’auteur de modules%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
