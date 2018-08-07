@@ -1,13 +1,16 @@
+/* @flow */
 /* eslint-disable react/no-danger */
-
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import withUIState from 'core/withUIState';
 import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -15,41 +18,50 @@ import './styles.scss';
 // beyond which it will add read more link.
 export const MAX_HEIGHT = 150;
 
-export class ShowMoreCardBase extends React.Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    header: PropTypes.node,
-    i18n: PropTypes.object.isRequired,
-  };
+type UIStateType = {|
+  expanded: boolean,
+|};
 
-  constructor(props) {
-    super(props);
-    this.state = { expanded: true };
-  }
+type Props = {|
+  children: React.Element<any> | string,
+  className?: string,
+  header?: React.Element<any> | string,
+  id: string,
+|};
 
-  componentWillReceiveProps() {
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
+|};
+
+const initialUIState: UIStateType = { expanded: false };
+
+export class ShowMoreCardBase extends React.Component<InternalProps> {
+  componentDidMount() {
     this.truncateToMaxHeight(this.contents);
   }
 
   onClick = (event) => {
     event.preventDefault();
-    this.setState({ expanded: true });
+    this.props.setUIState({ expanded: true });
   };
 
   truncateToMaxHeight = (contents) => {
     // If the contents are short enough they don't need a "show more" link; the
     // contents are expanded by default.
-    if (contents.clientHeight >= MAX_HEIGHT) {
-      this.setState({ expanded: false });
-    } else {
-      this.setState({ expanded: true });
+    if (contents) {
+      this.props.setUIState({ expanded: contents.clientHeight >= MAX_HEIGHT });
     }
   };
 
   render() {
-    const { children, className, header, i18n } = this.props;
-    const { expanded } = this.state;
+    const { children, className, header, id, i18n, uiState } = this.props;
+    const { expanded } = uiState;
+
+    invariant(children, 'The children property is required');
+    invariant(id, 'The id property is required');
 
     const readMoreLink = (
       <a
@@ -89,4 +101,15 @@ export class ShowMoreCardBase extends React.Component {
   }
 }
 
-export default compose(translate())(ShowMoreCardBase);
+export const extractId = (props: Props) => {
+  return props.id;
+};
+
+export default compose(
+  translate(),
+  withUIState({
+    fileName: __filename,
+    extractId,
+    initialState: initialUIState,
+  }),
+)(ShowMoreCardBase);
