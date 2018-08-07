@@ -18,7 +18,7 @@
 
 .Rating--editable {
   .Rating-choice {
-    background-image: url('./img/open-star-dim-gold.svg');
+    background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
   }
 
@@ -29,12 +29,12 @@
   // First, make all stars appear selected when you hover over the group.
   .Rating-star-group:hover .Rating-choice,
   .Rating-choice:focus {
-    background-image: url('./img/closed-star-gold.svg');
+    background-image: url('./img/closed-star-yellow.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
   .Rating-choice:hover ~ .Rating-choice {
-    background-image: url('./img/open-star-dim-gold.svg');
+    background-image: url('./img/open-star-dim-yellow.svg');
   }
 }
 
@@ -43,7 +43,7 @@
 }
 
 .Rating--editable .Rating-selected-star {
-  background-image: url('./img/closed-star-gold.svg');
+  background-image: url('./img/closed-star-yellow.svg');
 }
 
 .Rating-half-star {
@@ -64,20 +64,20 @@
 .Rating--yellowStars {
   // When stars are read-only, they are closed. Otherwise, they are open.
   .Rating-choice {
-    background-image: url('./img/closed-star-dim-gold.svg');
+    background-image: url('./img/closed-star-dim-yellow.svg');
   }
 
   &.Rating--editable .Rating-choice {
-    background-image: url('./img/open-star-dim-gold.svg');
+    background-image: url('./img/open-star-dim-yellow.svg');
   }
 
   .Rating-selected-star,
   &.Rating--editable .Rating-selected-star {
-    background-image: url('./img/closed-star-gold.svg');
+    background-image: url('./img/closed-star-yellow.svg');
   }
 
   // This doesn't define an editable half-star because that's not possible.
   .Rating-half-star {
-    background-image: url('./img/half-star-gold.svg');
+    background-image: url('./img/half-star-yellow.svg');
   }
 }
