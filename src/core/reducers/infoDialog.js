@@ -2,17 +2,23 @@
 export const CLOSE_INFO: 'CLOSE_INFO' = 'CLOSE_INFO';
 export const SHOW_INFO: 'SHOW_INFO' = 'SHOW_INFO';
 
+type InfoDialogData = {|
+  addonName: string,
+  closeAction: Function,
+  imageURL: string,
+|};
+
 export type InfoDialogState = {|
-  data: Object,
+  data: InfoDialogData | null,
   show: boolean,
 |};
 
 export const initialState: InfoDialogState = {
-  data: {},
+  data: null,
   show: false,
 };
 
-type ShowInfoDialogParams = Object;
+type ShowInfoDialogParams = InfoDialogData;
 
 type ShowInfoDialogAction = {|
   type: typeof SHOW_INFO,

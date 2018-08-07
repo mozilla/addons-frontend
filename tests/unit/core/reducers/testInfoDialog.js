@@ -5,12 +5,20 @@ import infoDialog, {
 } from 'core/reducers/infoDialog';
 
 describe(__filename, () => {
+  const getInfoDialogData = () => {
+    return {
+      addonName: 'some addon',
+      closeAction: sinon.stub(),
+      imageURL: 'http://example.org/image.png',
+    };
+  };
+
   it('initializes properly', () => {
     expect(infoDialog(undefined, { type: 'UNRELATED' })).toEqual(initialState);
   });
 
   it('shows a dialog with SHOW_INFO', () => {
-    const payload = { foo: 'bar' };
+    const payload = getInfoDialogData();
     expect(infoDialog(undefined, showInfoDialog(payload))).toEqual({
       show: true,
       data: payload,
@@ -18,14 +26,14 @@ describe(__filename, () => {
   });
 
   it('maintains state with unrelated state changes', () => {
-    const payload = { foo: 'bar' };
+    const payload = getInfoDialogData();
     const state = infoDialog(undefined, showInfoDialog(payload));
 
     expect(infoDialog(state, { type: 'WHATEVS' })).toEqual(state);
   });
 
   it('hides a dialog with CLOSE_INFO ', () => {
-    const payload = { foo: 'bar' };
+    const payload = getInfoDialogData();
     const prevState = infoDialog(undefined, showInfoDialog(payload));
 
     expect(infoDialog(prevState, closeInfoDialog())).toEqual(initialState);
