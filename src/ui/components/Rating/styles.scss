@@ -61,12 +61,17 @@
   width: $rating-s-star-size + $rating-s-star-gutter;
 }
 
-.Rating--by-owner {
+.Rating--yellowStars {
   .Rating-choice {
+    background-image: url('./img/closed-star-dim-gold.svg');
+  }
+
+  &.Rating--editable .Rating-choice {
     background-image: url('./img/dim-star-gold.svg');
   }
 
-  .Rating-selected-star {
+  .Rating-selected-star,
+  &.Rating--editable .Rating-selected-star {
     background-image: url('./img/full-star-gold.svg');
   }
 }

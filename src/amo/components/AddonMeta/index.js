@@ -73,6 +73,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
                   rating={averageRating}
                   readOnly
                   styleSize="small"
+                  yellowStars
                 />
               ),
               title: i18n.gettext('Overall Rating'),
