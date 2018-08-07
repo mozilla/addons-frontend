@@ -15,18 +15,18 @@ export class RatingBase extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     i18n: PropTypes.object.isRequired,
-    isOwner: PropTypes.bool,
     onSelectRating: PropTypes.func,
     rating: PropTypes.number,
     readOnly: PropTypes.bool,
     styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
+    yellowStars: PropTypes.bool,
   };
 
   static defaultProps = {
     className: '',
     readOnly: false,
     styleSize: 'large',
-    isOwner: false,
+    yellowStars: false,
   };
 
   constructor(props) {
@@ -109,7 +109,7 @@ export class RatingBase extends React.Component {
   }
 
   render() {
-    const { className, isOwner, rating, readOnly, styleSize } = this.props;
+    const { className, rating, readOnly, styleSize, yellowStars } = this.props;
     if (!RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         `styleSize=${styleSize} is not a valid value; ` +
@@ -129,7 +129,7 @@ export class RatingBase extends React.Component {
       className,
       {
         'Rating--editable': !readOnly,
-        'Rating--by-owner': isOwner,
+        'Rating--yellowStars': yellowStars,
       },
     );
 

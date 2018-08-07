@@ -45,14 +45,14 @@ describe(__filename, () => {
     expect(root.element.className).toContain('Rating--small');
   });
 
-  it('can be classified as owned', () => {
-    const root = render({ isOwner: true });
-    expect(root.element.className).toContain('Rating--by-owner');
+  it('can be classified as yellowStars', () => {
+    const root = render({ yellowStars: true });
+    expect(root.element.className).toContain('Rating--yellowStars');
   });
 
-  it('classifies as unowned by default', () => {
+  it('classifies as non-yellow by default', () => {
     const root = render();
-    expect(root.element.className).not.toContain('Rating--by-owner');
+    expect(root.element.className).not.toContain('Rating--yellowStars');
   });
 
   it('throws an error for invalid styleSize', () => {
