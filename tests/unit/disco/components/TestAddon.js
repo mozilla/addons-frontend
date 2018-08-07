@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import { AddonBase, mapStateToProps } from 'disco/components/Addon';
 import { setInstallState } from 'core/actions/installations';
 import InstallButton from 'core/components/InstallButton';
-import NewInstallButton from 'core/components/NewInstallButton';
+import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -561,23 +561,23 @@ describe(__filename, () => {
     });
   });
 
-  describe('NewInstallButton', () => {
-    const renderWithNewInstallButton = (props = {}) => {
+  describe('AMInstallButton', () => {
+    const renderWithAMInstallButton = (props = {}) => {
       return renderAddon({
-        _config: getFakeConfig({ enableNewInstallButton: true }),
+        _config: getFakeConfig({ enableAMInstallButton: true }),
         addon: { ...result },
         hasAddonManager: true,
         ...props,
       });
     };
 
-    it('renders the NewInstallButton when config allows it', () => {
-      const root = renderWithNewInstallButton();
+    it('renders the AMInstallButton when config allows it', () => {
+      const root = renderWithAMInstallButton();
 
       expect(root.find(InstallButton)).toHaveLength(0);
-      expect(root.find(NewInstallButton)).toHaveLength(1);
-      expect(root.find(NewInstallButton)).toHaveProp('puffy', false);
-      expect(root.find(NewInstallButton)).toHaveProp('hasAddonManager', true);
+      expect(root.find(AMInstallButton)).toHaveLength(1);
+      expect(root.find(AMInstallButton)).toHaveProp('puffy', false);
+      expect(root.find(AMInstallButton)).toHaveProp('hasAddonManager', true);
     });
 
     it('passes install helper functions to the install button', () => {
@@ -586,14 +586,14 @@ describe(__filename, () => {
       const installTheme = sinon.stub();
       const uninstall = sinon.stub();
 
-      const root = renderWithNewInstallButton({
+      const root = renderWithAMInstallButton({
         enable,
         install,
         installTheme,
         uninstall,
       });
 
-      const installButton = root.find(NewInstallButton);
+      const installButton = root.find(AMInstallButton);
       expect(installButton).toHaveProp('enable', enable);
       expect(installButton).toHaveProp('install', install);
       expect(installButton).toHaveProp('installTheme', installTheme);

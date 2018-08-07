@@ -46,14 +46,13 @@ type Props = {|
   className?: string,
   defaultInstallSource: string,
   disabled: boolean,
-  location: ReactRouterLocationType,
-  puffy: boolean,
-  status: string,
-  // From `withInstallHelpers()`, see: `src/core/installAddon.js`.
   enable: () => Promise<any>,
   hasAddonManager: boolean,
   install: () => Promise<any>,
   installTheme: (HTMLAnchorElement, Object) => Promise<any>,
+  location: ReactRouterLocationType,
+  puffy: boolean,
+  status: string,
   uninstall: (Object) => Promise<any>,
 |};
 
@@ -82,7 +81,7 @@ type ButtonProps = {|
   puffy: boolean,
 |};
 
-export class NewInstallButtonBase extends React.Component<InternalProps> {
+export class AMInstallButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     _log: log,
@@ -260,7 +259,7 @@ export class NewInstallButtonBase extends React.Component<InternalProps> {
 
     const buttonProps: ButtonProps = {
       buttonType: 'action',
-      className: 'NewInstallButton-button',
+      className: 'AMInstallButton-button',
       disabled: buttonIsDisabled,
       href: installURL,
       onClick: hasAddonManager
@@ -280,14 +279,14 @@ export class NewInstallButtonBase extends React.Component<InternalProps> {
         buttonProps.onClick = this.uninstallAddon;
         buttonProps.className = makeClassName(
           buttonProps.className,
-          'NewInstallButton-button--uninstall',
+          'AMInstallButton-button--uninstall',
         );
       } else if (status === DISABLED) {
         buttonProps.buttonType = 'neutral';
         buttonProps.onClick = this.enableAddon;
         buttonProps.className = makeClassName(
           buttonProps.className,
-          'NewInstallButton-button--enable',
+          'AMInstallButton-button--enable',
         );
       } else if (addon.type === ADDON_TYPE_THEME) {
         buttonProps['data-browsertheme'] = JSON.stringify(getThemeData(addon));
@@ -301,11 +300,11 @@ export class NewInstallButtonBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className={makeClassName('NewInstallButton', className)}>
+      <div className={makeClassName('AMInstallButton', className)}>
         {this.showLoadingAnimation() ? (
           <div
-            className={makeClassName('NewInstallButton-loading', {
-              'NewInstallButton-loading--puffy': this.props.puffy,
+            className={makeClassName('AMInstallButton-loading', {
+              'AMInstallButton-loading--puffy': this.props.puffy,
             })}
           >
             <AnimatedIcon alt={this.getButtonText()} name="loading" />
@@ -327,10 +326,10 @@ export function mapStateToProps(state: AppState) {
   };
 }
 
-const NewInstallButton: React.ComponentType<Props> = compose(
+const AMInstallButton: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-)(NewInstallButtonBase);
+)(AMInstallButtonBase);
 
-export default NewInstallButton;
+export default AMInstallButton;

@@ -27,7 +27,7 @@ import { fetchAddon, getAddonByID, getAddonBySlug } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
-import NewInstallButton from 'core/components/NewInstallButton';
+import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -84,6 +84,7 @@ export class AddonBase extends React.Component {
     installStatus: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     addonsByAuthors: PropTypes.array.isRequired,
+    setCurrentStatus: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -521,8 +522,8 @@ export class AddonBase extends React.Component {
                 ) : null}
 
                 {showInstallButton &&
-                  config.get('enableNewInstallButton') && (
-                    <NewInstallButton
+                  config.get('enableAMInstallButton') && (
+                    <AMInstallButton
                       addon={addon}
                       defaultInstallSource={defaultInstallSource}
                       disabled={!isCompatible}
@@ -535,7 +536,7 @@ export class AddonBase extends React.Component {
                     />
                   )}
                 {showInstallButton &&
-                  config.get('enableNewInstallButton') === false && (
+                  config.get('enableAMInstallButton') === false && (
                     <InstallButton
                       {...this.props}
                       disabled={!isCompatible}

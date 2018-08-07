@@ -2,12 +2,12 @@
 @import '~core/css/inc/vars';
 @import '~core/css/inc/mixins';
 
-.NewInstallButton {
-  .NewInstallButton-AnimatedIcon-preloader {
+.AMInstallButton {
+  .AMInstallButton-AnimatedIcon-preloader {
     display: none;
   }
 
-  .NewInstallButton-button {
+  .AMInstallButton-button {
     white-space: nowrap;
 
     .Icon {
@@ -17,13 +17,13 @@
     }
   }
 
-  .NewInstallButton-button--enable {
+  .AMInstallButton-button--enable {
     .Icon {
       margin-top: inherit;
     }
   }
 
-  .NewInstallButton-loading {
+  .AMInstallButton-loading {
     background-color: $grey-20;
     border-radius: 2px;
     height: 32px;
@@ -35,7 +35,7 @@
     }
   }
 
-  .NewInstallButton-loading--puffy {
+  .AMInstallButton-loading--puffy {
     height: 48px;
     width: 48px;
 

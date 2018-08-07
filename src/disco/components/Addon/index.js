@@ -11,7 +11,7 @@ import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import InstallButton from 'core/components/InstallButton';
-import NewInstallButton from 'core/components/NewInstallButton';
+import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -311,8 +311,8 @@ export class AddonBase extends React.Component {
             />
             {this.getDescription()}
           </div>
-          {_config.get('enableNewInstallButton') ? (
-            <NewInstallButton
+          {_config.get('enableAMInstallButton') ? (
+            <AMInstallButton
               addon={addon}
               className="Addon-install-button"
               defaultInstallSource={defaultInstallSource}

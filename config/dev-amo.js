@@ -25,5 +25,5 @@ module.exports = {
     },
   },
 
-  enableNewInstallButton: true,
+  enableAMInstallButton: true,
 };

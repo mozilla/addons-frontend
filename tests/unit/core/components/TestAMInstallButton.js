@@ -1,10 +1,9 @@
-/* global Node */
 import * as React from 'react';
 
 import createStore from 'amo/store';
-import NewInstallButton, {
-  NewInstallButtonBase,
-} from 'core/components/NewInstallButton';
+import AMInstallButton, {
+  AMInstallButtonBase,
+} from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
@@ -91,8 +90,8 @@ describe(__filename, () => {
     const { location, ...otherProps } = renderProps(props);
 
     return shallowUntilTarget(
-      <NewInstallButton {...otherProps} />,
-      NewInstallButtonBase,
+      <AMInstallButton {...otherProps} />,
+      AMInstallButtonBase,
       {
         shallowOptions: createContextWithFakeRouter({ location }),
       },
@@ -120,16 +119,16 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.type()).toEqual('div');
-    expect(root).toHaveClassName('NewInstallButton');
+    expect(root).toHaveClassName('AMInstallButton');
 
     const button = root.find(Button);
 
     expect(button).toHaveLength(1);
     expect(button.childAt(1)).toHaveText('Add to Firefox');
-    expect(button).toHaveClassName('NewInstallButton-button');
-    expect(button).not.toHaveClassName('NewInstallButton-button--uninstall');
+    expect(button).toHaveClassName('AMInstallButton-button');
+    expect(button).not.toHaveClassName('AMInstallButton-button--uninstall');
     expect(button).toHaveProp('buttonType', 'action');
-    expect(button).toHaveProp('className', 'NewInstallButton-button');
+    expect(button).toHaveProp('className', 'AMInstallButton-button');
     expect(button).toHaveProp('disabled', false);
     expect(button).not.toHaveProp('data-browsertheme');
     expect(button).toHaveProp('href', installURL);
@@ -150,15 +149,15 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.type()).toEqual('div');
-    expect(root).toHaveClassName('NewInstallButton');
+    expect(root).toHaveClassName('AMInstallButton');
 
     const button = root.find(Button);
 
     expect(button).toHaveLength(1);
     expect(button.childAt(1)).toHaveText('Install Theme');
-    expect(button).toHaveClassName('NewInstallButton-button');
+    expect(button).toHaveClassName('AMInstallButton-button');
     expect(button).toHaveProp('buttonType', 'action');
-    expect(button).toHaveProp('className', 'NewInstallButton-button');
+    expect(button).toHaveProp('className', 'AMInstallButton-button');
     expect(button).toHaveProp('disabled', false);
     expect(button).toHaveProp(
       'data-browsertheme',
@@ -191,13 +190,13 @@ describe(__filename, () => {
     );
   });
 
-  it('calls the `installTheme` helper to install a theme', () => {
+  it('calls the `installTheme` helper to install a lightweight theme', () => {
     const addon = createInternalAddon(fakeTheme);
 
     const installTheme = sinon.spy();
     const root = render({ addon, installTheme });
 
-    const button = root.find('.NewInstallButton-button');
+    const button = root.find('.AMInstallButton-button');
     const clickEvent = createFakeEvent();
     button.simulate('click', clickEvent);
 
@@ -239,7 +238,7 @@ describe(__filename, () => {
       disabled: true,
     });
 
-    const button = root.find('.NewInstallButton-button');
+    const button = root.find('.AMInstallButton-button');
 
     expect(button).toHaveProp('disabled', true);
     expect(button).toHaveProp('href', installURL);
@@ -318,7 +317,7 @@ describe(__filename, () => {
       _window: fakeWindow,
     });
 
-    const installButton = root.find('.NewInstallButton-button');
+    const installButton = root.find('.AMInstallButton-button');
     expect(installButton.childAt(1)).toHaveText('Add to Firefox');
 
     const clickEvent = createFakeEventWithURL({ url: installURL });
@@ -336,7 +335,7 @@ describe(__filename, () => {
       _config: getFakeConfig({ server: true }),
     });
 
-    expect(root.find('.NewInstallButton-button')).toHaveLength(0);
+    expect(root.find('.AMInstallButton-button')).toHaveLength(0);
   });
 
   it('tracks install analytics when installing a search provider', () => {
@@ -356,7 +355,7 @@ describe(__filename, () => {
       _window,
     });
 
-    const installButton = root.find('.NewInstallButton-button');
+    const installButton = root.find('.AMInstallButton-button');
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(_tracking.sendEvent, {
@@ -377,7 +376,7 @@ describe(__filename, () => {
     const root = render({ addon, enable, install });
 
     const event = createFakeEvent();
-    const installButton = root.find('.NewInstallButton-button');
+    const installButton = root.find('.AMInstallButton-button');
     await installButton.simulate('click', event);
 
     sinon.assert.calledOnce(install);
@@ -398,7 +397,7 @@ describe(__filename, () => {
 
     const event = createFakeEvent();
 
-    const installButton = root.find('.NewInstallButton-button');
+    const installButton = root.find('.AMInstallButton-button');
     await installButton.simulate('click', event);
 
     sinon.assert.calledOnce(install);
@@ -416,8 +415,8 @@ describe(__filename, () => {
       expect(button).toHaveLength(1);
       expect(button).toHaveProp('buttonType', 'neutral');
       expect(button).toHaveProp('onClick', root.instance().uninstallAddon);
-      expect(button).toHaveClassName('NewInstallButton-button');
-      expect(button).toHaveClassName('NewInstallButton-button--uninstall');
+      expect(button).toHaveClassName('AMInstallButton-button');
+      expect(button).toHaveClassName('AMInstallButton-button--uninstall');
 
       const icon = button.find(Icon);
       expect(icon).toHaveLength(1);
@@ -434,8 +433,8 @@ describe(__filename, () => {
     expect(button).toHaveLength(1);
     expect(button).toHaveProp('buttonType', 'neutral');
     expect(button).toHaveProp('onClick', root.instance().enableAddon);
-    expect(button).toHaveClassName('NewInstallButton-button');
-    expect(button).toHaveClassName('NewInstallButton-button--enable');
+    expect(button).toHaveClassName('AMInstallButton-button');
+    expect(button).toHaveClassName('AMInstallButton-button--enable');
 
     const icon = button.find(Icon);
     expect(icon).toHaveLength(1);
@@ -449,10 +448,10 @@ describe(__filename, () => {
     (status) => {
       const root = render({ status });
 
-      expect(root).toHaveClassName('NewInstallButton');
-      expect(root.find('.NewInstallButton-button')).toHaveLength(0);
+      expect(root).toHaveClassName('AMInstallButton');
+      expect(root.find('.AMInstallButton-button')).toHaveLength(0);
 
-      expect(root.find('.NewInstallButton-loading')).toHaveLength(1);
+      expect(root.find('.AMInstallButton-loading')).toHaveLength(1);
       expect(root.find(AnimatedIcon)).toHaveLength(1);
       expect(root.find(AnimatedIcon)).toHaveProp('name', 'loading');
     },
@@ -467,10 +466,10 @@ describe(__filename, () => {
       status: INSTALLED,
     });
 
-    expect(root).toHaveClassName('NewInstallButton');
-    expect(root.find('.NewInstallButton-button')).toHaveLength(0);
+    expect(root).toHaveClassName('AMInstallButton');
+    expect(root.find('.AMInstallButton-button')).toHaveLength(0);
 
-    expect(root.find('.NewInstallButton-loading')).toHaveLength(1);
+    expect(root.find('.AMInstallButton-loading')).toHaveLength(1);
     expect(root.find(AnimatedIcon)).toHaveLength(1);
   });
 
@@ -541,7 +540,7 @@ describe(__filename, () => {
     const className = 'foo-bar';
     const root = render({ className });
 
-    expect(root).toHaveClassName('NewInstallButton');
+    expect(root).toHaveClassName('AMInstallButton');
     expect(root).toHaveClassName(className);
   });
 });
