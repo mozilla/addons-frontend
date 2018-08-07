@@ -1,7 +1,7 @@
 @import '~amo/css/inc/vars';
 @import '~core/css/inc/mixins';
 
-.show-info {
+.InfoDialog {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -24,56 +24,57 @@
     left: 10px;
     right: auto;
   }
+}
 
-  .info {
-    display: flex;
-    flex-direction: row;
+.InfoDialog-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.InfoDialog-logo {
+  align-self: stretch;
+  display: flex;
+  padding: 20px;
+
+  img {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+.InfoDialog-copy {
+  align-self: stretch;
+  padding: 20px 20px 20px 0;
+
+  :last-child {
+    margin: 0;
   }
 
-  .logo {
-    align-self: stretch;
-    display: flex;
-    padding: 20px;
-
-    img {
-      height: 48px;
-      width: 48px;
-    }
+  [dir='rtl'] & {
+    padding: 20px 0 20px 20px;
   }
+}
 
-  .copy {
-    align-self: stretch;
-    padding: 20px 20px 20px 0;
+.InfoDialog-title {
+  margin: 0 0 0.5em;
+}
 
-    :last-child {
-      margin: 0;
-    }
+.InfoDialog-description {
+  margin-top: 0;
+}
 
-    [dir='rtl'] & {
-      padding: 20px 0 20px 20px;
-    }
-  }
+.InfoDialog-button {
+  align-self: stretch;
+  background: #2ea3ff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  flex-direction: column;
+  padding: 0.8em;
+  transition: background 200ms;
 
-  h3 {
-    margin: 0 0 0.5em;
-  }
-
-  p {
-    margin-top: 0;
-  }
-
-  button {
-    align-self: stretch;
-    background: #2ea3ff;
-    border: none;
-    color: #fff;
-    flex-direction: column;
-    padding: 0.8em;
-    transition: background 200ms;
-
-    &:focus,
-    &:hover {
-      background: #0996f8;
-    }
+  &:focus,
+  &:hover {
+    background: #0996f8;
   }
 }
