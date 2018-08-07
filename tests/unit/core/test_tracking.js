@@ -333,24 +333,24 @@ describe(__filename, () => {
     });
 
     it('should log that DNT disabled tracking', () => {
-      const fakeLog = { log: sinon.stub() };
+      const fakeLog = { info: sinon.stub() };
       isDoNotTrackEnabled({
         _log: fakeLog,
         _navigator: { doNotTrack: '1' },
         _window: {},
       });
 
-      sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
+      sinon.assert.calledWith(fakeLog.info, 'Do Not Track is enabled');
 
       // Check with `window.doNotTrack` as well, just for completeness.
-      fakeLog.log.resetHistory();
+      fakeLog.info.resetHistory();
       isDoNotTrackEnabled({
         _log: fakeLog,
         _navigator: {},
         _window: { doNotTrack: '1' },
       });
 
-      sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
+      sinon.assert.calledWith(fakeLog.info, 'Do Not Track is enabled');
     });
   });
 });

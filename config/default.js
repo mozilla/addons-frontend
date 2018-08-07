@@ -38,6 +38,9 @@ module.exports = {
   enableClientConsole: false,
   // Enable devtools for: Redux.
   enableDevTools: false,
+  // Logging level, see:
+  // https://github.com/pinojs/pino/blob/master/docs/API.md#parameters.
+  loggingLevel: 'info',
 
   // If true node will serve the static files.
   enableNodeStatics: false,
@@ -86,35 +89,36 @@ module.exports = {
   //
   clientConfigKeys: [
     'allowErrorSimulation',
-    'authTokenValidFor',
     'amoCDN',
     'apiHost',
     'apiPath',
     'appName',
-    'restrictSearchResultsToAppVersion',
+    'authTokenValidFor',
     'cookieMaxAge',
     'cookieName',
     'cookieSecure',
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
+    'enableAddonRecommendations',
     'enableClientConsole',
     'enableDevTools',
     'enableExperienceSurvey',
-    'enableAddonRecommendations',
     'enableStaticThemes',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
-    'langs',
     'langMap',
+    'langs',
+    'loggingLevel',
     'publicSentryDsn',
+    'restrictSearchResultsToAppVersion',
     'rtlLangs',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
+    'validClientAppUrlExceptions',
     'validClientApplications',
     'validLocaleUrlExceptions',
-    'validClientAppUrlExceptions',
     'validTrailingSlashUrlExceptions',
   ],
 

@@ -4,15 +4,14 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 
-const bunyan = require('bunyan');
 const config = require('config');
 const cookie = require('cookie');
 const httpProxy = require('http-proxy');
+const pino = require('pino');
 
-const log = bunyan.createLogger({
-  name: 'proxy',
-  app: config.get('appName'),
-  serializers: bunyan.stdSerializers,
+const log = pino({
+  level: config.get('loggingLevel'),
+  name: `${config.get('appName')}.proxy`,
 });
 
 const proxy = httpProxy.createProxyServer();
@@ -62,7 +61,7 @@ const server = http.createServer((req, res) => {
 });
 
 proxy.on('proxyRes', (proxyRes, req, res) => {
-  log.info(`${proxyRes.statusCode} ~> ${getHost(req)}${req.url}`);
+  log.debug(`${proxyRes.statusCode} ~> ${getHost(req)}${req.url}`);
   unsecureCookie(req, res, proxyRes);
 });
 

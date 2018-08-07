@@ -42,7 +42,7 @@ export function isDoNotTrackEnabled({
   // any browsers built on these stacks (Chromium, Tor Browser, etc.).
   const dnt = _navigator.doNotTrack || _window.doNotTrack;
   if (dnt === '1') {
-    _log.log('Do Not Track is enabled');
+    _log.info('Do Not Track is enabled');
     return true;
   }
 

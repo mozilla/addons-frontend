@@ -10,8 +10,6 @@ module.exports = {
   moduleNameMapper: {
     // Prevent un-transpiled react-photoswipe code being required.
     '^photoswipe$': '<rootDir>/node_modules/photoswipe',
-    // Use the client-side logger by default for tests.
-    '^core/logger$': '<rootDir>/src/core/client/logger',
     // Alias tests for tests to be able to import helpers.
     '^tests/(.*)$': '<rootDir>/tests/$1',
     // Replaces the following formats with an empty module.

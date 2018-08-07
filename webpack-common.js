@@ -156,11 +156,6 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
       /config$/,
       'core/client/config.js',
     ),
-    // This replaces the logger with a more lightweight logger for the client.
-    new webpack.NormalModuleReplacementPlugin(
-      /core\/logger$/,
-      'core/client/logger.js',
-    ),
     // This swaps the server side window object with a standard browser window.
     new webpack.NormalModuleReplacementPlugin(
       /core\/window/,
