@@ -46,7 +46,7 @@
   background-image: url('./img/closed-star-gold.svg');
 }
 
-.Rating-half-star-gray {
+.Rating-half-star {
   background-image: url('./img/half-star-gray.svg');
 
   [dir='rtl'] & {
@@ -62,11 +62,11 @@
 }
 
 .Rating--yellowStars {
+  // When stars are read-only, they are closed. Otherwise, they are open.
   .Rating-choice {
     background-image: url('./img/closed-star-dim-gold.svg');
   }
 
-  // When stars are read-only, they are closed. Otherwise, they are open.
   &.Rating--editable .Rating-choice {
     background-image: url('./img/open-star-dim-gold.svg');
   }
@@ -74,5 +74,10 @@
   .Rating-selected-star,
   &.Rating--editable .Rating-selected-star {
     background-image: url('./img/closed-star-gold.svg');
+  }
+
+  // This doesn't define an editable half-star because that's not possible.
+  .Rating-half-star {
+    background-image: url('./img/half-star-gold.svg');
   }
 }
