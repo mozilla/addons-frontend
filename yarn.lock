@@ -3499,7 +3499,7 @@ fast-glob@^2.0.2:
     merge2 "^1.2.1"
     micromatch "^3.1.8"
 
-fast-json-parse@^1.0.3:
+fast-json-parse@^1.0.2, fast-json-parse@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/fast-json-parse/-/fast-json-parse-1.0.3.tgz#43e5c61ee4efa9265633046b770fb682a7577c4d"
 
@@ -3514,6 +3514,10 @@ fast-levenshtein@^2.0.6, fast-levenshtein@~2.0.4:
 fast-safe-stringify@^1.0.8, fast-safe-stringify@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-1.2.3.tgz#9fe22c37fb2f7f86f06b8f004377dbf8f1ee7bc1"
+
+fast-safe-stringify@^2.0.2:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.5.tgz#cdb2d02d41329afbe67eff073598811d482609e3"
 
 fastclick@1.0.6:
   version "1.0.6"
@@ -4570,6 +4574,10 @@ inquirer@^3.0.6:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
+
+internet-timestamp@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/internet-timestamp/-/internet-timestamp-0.0.1.tgz#16b4a7ada6d1110d4e141fd443756b81b16d1712"
 
 interpret@^1.0.0:
   version "1.1.0"
@@ -6227,7 +6235,13 @@ mock-res@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/mock-res/-/mock-res-0.5.0.tgz#98368beb09df753f64f66d94e5536a97b36a2430"
 
-moment@2.22.2:
+moment-timezone@^0.5.13:
+  version "0.5.21"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.21.tgz#3cba247d84492174dbf71de2a9848fa13207b845"
+  dependencies:
+    moment ">= 2.9.0"
+
+moment@2.22.2, "moment@>= 2.9.0":
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
@@ -7050,9 +7064,32 @@ pino-devtools@^1.0.2:
     through2 "^2.0.3"
     ws "^6.0.0"
 
+pino-mozlog@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-1.0.2.tgz#fc46643143712f20218f9ddb9fdc0cfc66ce9897"
+  dependencies:
+    internet-timestamp "^0.0.1"
+    minimist "^1.2.0"
+    pino-syslog "^1.2.0"
+    pump "^3.0.0"
+    split2 "^2.2.0"
+    through2 "^2.0.3"
+
 pino-std-serializers@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.1.0.tgz#01953dcaecd5f43b331ecf2e312a49c9fd64851c"
+
+pino-syslog@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/pino-syslog/-/pino-syslog-1.2.0.tgz#c5d3f33d5487e7fdc5c3fd9936e68cc66588d694"
+  dependencies:
+    fast-json-parse "^1.0.2"
+    fast-safe-stringify "^2.0.2"
+    moment-timezone "^0.5.13"
+    nopt "^4.0.1"
+    pump "^2.0.1"
+    split2 "^2.1.1"
+    through2 "^2.0.3"
 
 pino@4.17.6:
   version "4.17.6"
@@ -9158,7 +9195,7 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
-split2@^2.2.0:
+split2@^2.1.1, split2@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/split2/-/split2-2.2.0.tgz#186b2575bcf83e85b7d18465756238ee4ee42493"
   dependencies:
