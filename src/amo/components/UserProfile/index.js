@@ -351,7 +351,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   <Rating
                     rating={user.average_addon_rating}
                     readOnly
-                    styleName="small"
+                    styleSize="small"
                   />
                 ) : (
                   <LoadingText />

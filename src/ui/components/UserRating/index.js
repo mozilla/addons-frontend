@@ -35,7 +35,7 @@ export const UserRatingBase = (props: Props) => {
       isOwner={isOwner}
       onSelectRating={onSelectRating}
       rating={(review && review.rating) || 0}
-      readOnly={readOnly}
+      readOnly={readOnly || false}
       styleSize={styleSize}
     />
   );

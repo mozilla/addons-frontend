@@ -1,3 +1,6 @@
+/* @flow */
+import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -5,22 +8,31 @@ import { compose } from 'redux';
 
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
+import { type I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 export const RATING_STYLE_SIZE_TYPES = { small: '', large: '' };
 const RATING_STYLE_SIZES = Object.keys(RATING_STYLE_SIZE_TYPES);
 
-export class RatingBase extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    i18n: PropTypes.object.isRequired,
-    onSelectRating: PropTypes.func,
-    rating: PropTypes.number,
-    readOnly: PropTypes.bool,
-    styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
-    yellowStars: PropTypes.bool,
-  };
+type Props = {|
+  className?: string,
+  onSelectRating?: (rating: number) => void,
+  rating?: number | null,
+  readOnly: boolean,
+  styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
+  yellowStars?: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
+
+export class RatingBase extends React.Component<InternalProps> {
+  // TODO: remove these once the tests have been converted.
+  element: any;
+  ratingElements: any;
 
   static defaultProps = {
     className: '',
@@ -29,12 +41,12 @@ export class RatingBase extends React.Component {
     yellowStars: false,
   };
 
-  constructor(props) {
+  constructor(props: InternalProps) {
     super(props);
     this.ratingElements = {};
   }
 
-  onSelectRating = (event) => {
+  onSelectRating = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
     const button = event.currentTarget;
@@ -52,7 +64,11 @@ export class RatingBase extends React.Component {
   // Helper function used to render title attributes
   // for each individual star, as well as the wrapper
   // that surrounds the read-only set of stars.
-  renderTitle = (rating, readOnly, starRating) => {
+  renderTitle = (
+    rating: ?number,
+    readOnly: boolean,
+    starRating: number | null,
+  ) => {
     const { i18n } = this.props;
 
     if (readOnly) {
@@ -63,6 +79,8 @@ export class RatingBase extends React.Component {
       }
       return i18n.gettext('There are no ratings yet');
     }
+
+    invariant(starRating, 'starRating is required when readOnly=false');
 
     if (rating) {
       return i18n.sprintf(
@@ -110,10 +128,10 @@ export class RatingBase extends React.Component {
 
   render() {
     const { className, rating, readOnly, styleSize, yellowStars } = this.props;
-    if (!RATING_STYLE_SIZES.includes(styleSize)) {
+    if (!styleSize || !RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
-        `styleSize=${styleSize} is not a valid value; ` +
-          `possible values: ${RATING_STYLE_SIZES.join(', ')}`,
+        oneLine`styleSize=${styleSize || '[empty string]'} is not a valid
+        value; possible values: ${RATING_STYLE_SIZES.join(', ')}`,
       );
     }
 
@@ -150,4 +168,6 @@ export class RatingBase extends React.Component {
   }
 }
 
-export default compose(translate())(RatingBase);
+const Rating: React.ComponentType<Props> = compose(translate())(RatingBase);
+
+export default Rating;
