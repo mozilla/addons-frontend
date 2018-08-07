@@ -104,29 +104,17 @@ export type SaveAddonNoteFunc = (
   notes: string,
 ) => void;
 
-// This gets the new collection page.
-const getNewCollectionPage = (collection) => {
-  const { numberOfAddons, pageSize } = collection;
-
-  if (pageSize) {
-    return Math.ceil((numberOfAddons - 1) / pageSize) || 1;
-  }
-
-  return 1;
-};
-
-const shouldChangePage = (collection) => {
+export const computeNewCollectionPage = (
+  collection: CollectionType,
+): number => {
   const { numberOfAddons, pageSize } = collection;
 
   let page = 1;
-
   if (pageSize) {
-    page = (numberOfAddons - 1) / pageSize;
+    page = Math.ceil((numberOfAddons - 1) / pageSize);
   }
 
-  // If the number is an integer, then we should
-  // change the page.
-  return Number.isInteger(page);
+  return page || 1;
 };
 
 export class CollectionBase extends React.Component<InternalProps> {
@@ -274,12 +262,13 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
-    const isNewPage = shouldChangePage(collection);
-
     let { page } = filters;
+    let shouldPushNewRoute = false;
+    const newCollectionPage = computeNewCollectionPage(collection);
 
-    if (isNewPage) {
-      page = getNewCollectionPage(collection);
+    if (page !== newCollectionPage) {
+      page = newCollectionPage;
+      shouldPushNewRoute = true;
     }
 
     dispatch(
@@ -295,7 +284,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       }),
     );
 
-    if (isNewPage) {
+    if (shouldPushNewRoute) {
       const { location } = history;
 
       history.push({

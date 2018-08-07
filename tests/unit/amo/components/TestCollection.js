@@ -1231,11 +1231,16 @@ describe(__filename, () => {
     const addonId = addons[0].addon.id;
     const detail = createFakeCollectionDetail({
       authorId: authorUserId,
+      count: DEFAULT_API_PAGE_SIZE + 2,
     });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 123;
+    const page = 2;
     const sort = COLLECTION_SORT_NAME;
+    const location = createFakeLocation({
+      query: { page, collection_sort: sort },
+    });
+    const history = createFakeHistory({ location });
 
     store.dispatch(
       loadCurrentCollection({
@@ -1248,7 +1253,8 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
+      history,
+      location,
       store,
     });
 
@@ -1257,7 +1263,6 @@ describe(__filename, () => {
     // This simulates the user clicking the "Remove" button on the
     // EditableCollectionAddon component.
     root.instance().removeAddon(addonId);
-    sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(
       fakeDispatch,
       removeAddonFromCollection({
@@ -1268,12 +1273,12 @@ describe(__filename, () => {
         username: detail.author.username,
       }),
     );
+    sinon.assert.callCount(fakeDispatch, 1);
 
-    sinon.assert.notCalled(root.instance().props.history.push);
+    sinon.assert.notCalled(history.push);
   });
 
   it('updates the page when removeAddon removes the last addon on the page', () => {
-    const history = createFakeHistory();
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
@@ -1287,7 +1292,11 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 2;
-    const sort = COLLECTION_SORT_NAME;
+    const sort = COLLECTION_SORT_DATE_ADDED_DESCENDING;
+    const location = createFakeLocation({
+      query: { page, collectionSort: sort },
+    });
+    const history = createFakeHistory({ location });
 
     store.dispatch(
       loadCurrentCollection({
@@ -1300,7 +1309,8 @@ describe(__filename, () => {
     const root = renderComponent({
       editing: true,
       errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
+      history,
+      location,
       store,
     });
 
@@ -1309,7 +1319,6 @@ describe(__filename, () => {
     // This simulates the user clicking the "Remove" button on the
     // EditableCollectionAddon component.
     root.instance().removeAddon(addonId);
-    sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(
       fakeDispatch,
       removeAddonFromCollection({
@@ -1320,8 +1329,9 @@ describe(__filename, () => {
         username: detail.author.username,
       }),
     );
+    sinon.assert.callCount(fakeDispatch, 1);
 
-    sinon.assert.calledWith(root.instance().props.history.push, {
+    sinon.assert.calledWith(history.push, {
       pathname: history.location.pathname,
       query: {
         ...history.location.query,
