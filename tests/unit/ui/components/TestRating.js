@@ -1,10 +1,4 @@
 import * as React from 'react';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-  Simulate,
-} from 'react-dom/test-utils';
-import { findDOMNode } from 'react-dom';
 
 import {
   createFakeEvent,
@@ -21,15 +15,11 @@ function render(customProps = {}) {
   return shallowUntilTarget(<Rating {...props} />, RatingBase);
 }
 
-function makeFakeEvent() {
-  return {
-    preventDefault: sinon.stub(),
-    stopPropagation: sinon.stub(),
-    currentTarget: {},
-  };
-}
-
 describe(__filename, () => {
+  const getStar = ({ root, rating }) => {
+    return root.find(`#Rating-rating-${rating}`);
+  };
+
   function selectRating(root, ratingNumber) {
     const star = getStar({ root, rating: ratingNumber });
     star.simulate(
@@ -39,10 +29,6 @@ describe(__filename, () => {
       }),
     );
   }
-
-  const getStar = ({ root, rating }) => {
-    return root.find(`#Rating-rating-${rating}`);
-  };
 
   it('classifies as editable by default', () => {
     const root = render();

@@ -3,7 +3,6 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import log from 'core/logger';
