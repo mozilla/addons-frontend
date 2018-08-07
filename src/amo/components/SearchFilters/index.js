@@ -148,10 +148,13 @@ export class SearchFiltersBase extends React.Component {
   render() {
     const { filters, i18n } = this.props;
 
+    const expandableCardName = 'SearchFilters';
+
     return (
       <ExpandableCard
-        className="SearchFilters"
+        className={expandableCardName}
         header={i18n.gettext('Filter results')}
+        id={expandableCardName}
       >
         <form autoComplete="off">
           <label className="SearchFilters-label" htmlFor="SearchFilters-Sort">

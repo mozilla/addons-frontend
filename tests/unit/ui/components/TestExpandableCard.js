@@ -1,23 +1,35 @@
-import { mount } from 'enzyme';
 import * as React from 'react';
 
 import ExpandableCard, {
   ExpandableCardBase,
+  extractId,
 } from 'ui/components/ExpandableCard';
 import {
+  applyUIStateChanges,
   createFakeEvent,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-
-function render(props) {
-  return shallowUntilTarget(
-    <ExpandableCard i18n={fakeI18n()} {...props} />,
-    ExpandableCardBase,
-  );
-}
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
+  const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
+    return {
+      i18n,
+      id: 'expandableCard',
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
+  };
+
+  function render({ children, ...otherProps } = {}) {
+    const props = getProps(otherProps);
+    return shallowUntilTarget(
+      <ExpandableCard {...props}>{children || 'some info'}</ExpandableCard>,
+      ExpandableCardBase,
+    );
+  }
+
   it('renders a ExpandableCard', () => {
     const root = render();
 
@@ -32,24 +44,17 @@ describe(__filename, () => {
   });
 
   it('toggles when clicked', () => {
-    // We have to mount for this test because of the usage of `setState`
-    // in this component.
-    const root = mount(<ExpandableCard i18n={fakeI18n()} />);
-    const card = () => root.find('.ExpandableCard');
-    const fakeEvent = createFakeEvent();
+    const { store } = dispatchClientMetadata();
 
-    // Clicking on the toggle should expand the card.
-    root.find('.ExpandableCard-ToggleLink').simulate('click', fakeEvent);
+    const root = render({ store });
 
-    sinon.assert.called(fakeEvent.preventDefault);
-    expect(card()).toHaveClassName('ExpandableCard--expanded');
+    // We want to simulate card's link onclick.
+    // TODO: look into why this isn't available with find
+    root.instance().onClick(createFakeEvent());
 
-    // Clicking on the toggle again should set the card to be unexpanded.
-    fakeEvent.preventDefault.resetHistory();
-    root.find('.ExpandableCard-ToggleLink').simulate('click', fakeEvent);
+    applyUIStateChanges({ root, store });
 
-    sinon.assert.called(fakeEvent.preventDefault);
-    expect(card()).not.toHaveClassName('ExpandableCard--expanded');
+    expect(root.find('.ExpandableCard--expanded')).toHaveLength(1);
   });
 
   it('renders className', () => {
@@ -60,9 +65,16 @@ describe(__filename, () => {
   });
 
   it('renders children', () => {
-    const root = render({ children: <p>Hello I am description</p> });
+    const root = render({ children: 'Hello I am description' });
     const contents = root.find('.ExpandableCard-contents');
 
     expect(contents).toHaveText('Hello I am description');
+  });
+
+  describe('extractId', () => {
+    it('returns a unique ID provided by the ID prop', () => {
+      const id = 'custom-card-id';
+      expect(extractId(getProps({ id }))).toEqual(id);
+    });
   });
 });
