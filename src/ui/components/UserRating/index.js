@@ -32,11 +32,11 @@ export const UserRatingBase = (props: Props) => {
   return (
     <Rating
       className={className}
-      isOwner={isOwner}
       onSelectRating={onSelectRating}
       rating={(review && review.rating) || 0}
       readOnly={readOnly || false}
       styleSize={styleSize}
+      yellowStars={isOwner}
     />
   );
 };
