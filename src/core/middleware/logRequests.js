@@ -7,5 +7,5 @@ export function logRequests(req, res, next) {
   next();
   const finish = new Date();
   const elapsed = finish - start;
-  log.info({ req, res, start, finish, elapsed });
+  log.debug({ req, res, start, finish, elapsed });
 }
