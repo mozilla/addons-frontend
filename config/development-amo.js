@@ -10,4 +10,5 @@ module.exports = {
   restrictSearchResultsToAppVersion: false,
   fxaConfig: 'local',
   trackingEnabled: false,
+  loggingLevel: 'debug',
 };

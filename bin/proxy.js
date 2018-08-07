@@ -10,6 +10,7 @@ const httpProxy = require('http-proxy');
 const pino = require('pino');
 
 const log = pino({
+  level: config.get('loggingLevel'),
   name: `${config.get('appName')}.proxy`,
 });
 
@@ -60,7 +61,7 @@ const server = http.createServer((req, res) => {
 });
 
 proxy.on('proxyRes', (proxyRes, req, res) => {
-  log.info(`${proxyRes.statusCode} ~> ${getHost(req)}${req.url}`);
+  log.debug(`${proxyRes.statusCode} ~> ${getHost(req)}${req.url}`);
   unsecureCookie(req, res, proxyRes);
 });
 
