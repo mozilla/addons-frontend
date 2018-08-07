@@ -30,21 +30,12 @@ type InternalProps = {|
 |};
 
 export class RatingBase extends React.Component<InternalProps> {
-  // TODO: remove these once the tests have been converted.
-  element: any;
-  ratingElements: any;
-
   static defaultProps = {
     className: '',
     readOnly: false,
     styleSize: 'large',
     yellowStars: false,
   };
-
-  constructor(props: InternalProps) {
-    super(props);
-    this.ratingElements = {};
-  }
 
   onSelectRating = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -109,9 +100,6 @@ export class RatingBase extends React.Component<InternalProps> {
         }),
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
-        ref: (ref) => {
-          this.ratingElements[thisRating] = ref;
-        },
         title: this.renderTitle(rating, readOnly, thisRating),
       };
 
@@ -154,9 +142,6 @@ export class RatingBase extends React.Component<InternalProps> {
     return (
       <div
         className={allClassNames}
-        ref={(ref) => {
-          this.element = ref;
-        }}
         title={description}
       >
         <span className="Rating-star-group">
