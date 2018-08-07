@@ -306,8 +306,14 @@ export class AddonBase extends React.Component {
       descriptionProps.children = <LoadingText width={100} />;
     }
 
+    const showMoreCardName = 'AddonDescription';
+
     return showAbout ? (
-      <ShowMoreCard header={title} className="AddonDescription">
+      <ShowMoreCard
+        className={showMoreCardName}
+        header={title}
+        id={showMoreCardName}
+      >
         <div className="AddonDescription-contents" {...descriptionProps} />
       </ShowMoreCard>
     ) : null;
@@ -330,9 +336,15 @@ export class AddonBase extends React.Component {
     );
     const releaseNotes = sanitizeUserHTML(currentVersion.release_notes);
 
+    const showMoreCardNotesName = 'AddonDescription-version-notes';
+
     /* eslint-disable react/no-danger */
     return (
-      <ShowMoreCard className="AddonDescription-version-notes" header={header}>
+      <ShowMoreCard
+        className={showMoreCardNotesName}
+        id={showMoreCardNotesName}
+        header={header}
+      >
         <div dangerouslySetInnerHTML={releaseNotes} />
       </ShowMoreCard>
     );
