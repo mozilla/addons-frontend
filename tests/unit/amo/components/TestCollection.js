@@ -1231,6 +1231,60 @@ describe(__filename, () => {
     const addonId = addons[0].addon.id;
     const detail = createFakeCollectionDetail({
       authorId: authorUserId,
+    });
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 5;
+    const sort = COLLECTION_SORT_NAME;
+    const location = createFakeLocation({
+      query: { page, collection_sort: sort },
+    });
+    const history = createFakeHistory({ location });
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
+      }),
+    );
+
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      history,
+      location,
+      store,
+    });
+
+    fakeDispatch.resetHistory();
+
+    // This simulates the user clicking the "Remove" button on the
+    // EditableCollectionAddon component.
+    root.instance().removeAddon(addonId);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      removeAddonFromCollection({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        filters: { page: 5, collectionSort: sort },
+        slug: detail.slug,
+        username: detail.author.username,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+
+    sinon.assert.notCalled(history.push);
+  });
+
+  it('it does not update the page when removeAddon is called and there are still addons to show on the current page', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
     const errorHandler = createStubErrorHandler();
@@ -1292,6 +1346,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 2;
+    const newPage = page - 1;
     const sort = COLLECTION_SORT_DATE_ADDED_DESCENDING;
     const location = createFakeLocation({
       query: { page, collectionSort: sort },
@@ -1324,7 +1379,7 @@ describe(__filename, () => {
       removeAddonFromCollection({
         addonId,
         errorHandlerId: errorHandler.id,
-        filters: { page: 1, collectionSort: sort },
+        filters: { page: newPage, collectionSort: sort },
         slug: detail.slug,
         username: detail.author.username,
       }),
@@ -1332,10 +1387,10 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
 
     sinon.assert.calledWith(history.push, {
-      pathname: history.location.pathname,
+      pathname: location.pathname,
       query: {
-        ...history.location.query,
-        page: 1,
+        ...location.query,
+        page: newPage,
       },
     });
   });
