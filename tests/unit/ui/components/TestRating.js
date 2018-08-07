@@ -50,7 +50,7 @@ describe(__filename, () => {
     expect(root.element.className).toContain('Rating--yellowStars');
   });
 
-  it('classifies as non-yellow by default', () => {
+  it('classifies as yellowStars=false by default', () => {
     const root = render();
     expect(root.element.className).not.toContain('Rating--yellowStars');
   });
