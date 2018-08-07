@@ -11,7 +11,8 @@
 }
 
 .Rating-choice {
-  background: url('./img/closed-star-dim-gray.svg') center/$rating-l-star-size no-repeat;
+  background: url('./img/closed-star-dim-gray.svg') center/$rating-l-star-size
+    no-repeat;
   height: $rating-l-star-size + $rating-l-star-gutter;
   width: $rating-l-star-size + $rating-l-star-gutter;
 }
