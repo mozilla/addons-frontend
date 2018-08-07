@@ -165,10 +165,6 @@ export const SET_LANG = 'SET_LANG';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
-// InfoDialog action types.
-export const CLOSE_INFO = 'CLOSE_INFO';
-export const SHOW_INFO = 'SHOW_INFO';
-
 // Theme action.
 export const THEME_INSTALL = 'InstallBrowserTheme';
 

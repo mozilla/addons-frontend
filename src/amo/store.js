@@ -44,6 +44,7 @@ import type { ApiState } from 'core/reducers/api';
 import type { ErrorPageState } from 'core/reducers/errorPage';
 import type { FormOverlayState } from 'core/reducers/formOverlay';
 import type { LanguageToolsState } from 'core/reducers/languageTools';
+import type { InfoDialogState } from 'core/reducers/infoDialog';
 import type { InstallationsState } from 'core/reducers/installations';
 import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
@@ -64,7 +65,7 @@ export type AppState = {|
   formOverlay: FormOverlayState,
   heroBanners: Object,
   home: HomeState,
-  infoDialog: Object,
+  infoDialog: InfoDialogState,
   installations: InstallationsState,
   landing: Object,
   languageTools: LanguageToolsState,

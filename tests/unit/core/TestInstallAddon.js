@@ -10,7 +10,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -33,7 +32,6 @@ import {
   OS_MAC,
   OS_WINDOWS,
   SET_ENABLE_NOT_AVAILABLE,
-  SHOW_INFO,
   START_DOWNLOAD,
   TRACKING_TYPE_THEME,
   TRACKING_TYPE_INVALID,
@@ -42,6 +40,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   createFakeTracking,
@@ -1223,25 +1222,21 @@ describe(__filename, () => {
         const { install } = root.instance().props;
 
         return install(addon).then(() => {
-          sinon.assert.calledWith(dispatch, {
-            type: SHOW_INFO,
-            payload: {
+          sinon.assert.calledWith(
+            dispatch,
+            showInfoDialog({
               addonName: addon.name,
               imageURL: iconUrl,
               closeAction: sinon.match.func,
-            },
-          });
+            }),
+          );
 
           const arg = dispatch.secondCall.args[0];
-          // Prove we're looking at the SHOW_INFO dispatch.
-          expect(arg.type).toEqual(SHOW_INFO);
 
           // Test that close action dispatches.
           dispatch.resetHistory();
           arg.payload.closeAction();
-          sinon.assert.calledWith(dispatch, {
-            type: CLOSE_INFO,
-          });
+          sinon.assert.calledWith(dispatch, closeInfoDialog());
         });
       });
 
@@ -1261,14 +1256,14 @@ describe(__filename, () => {
         const { install } = root.instance().props;
 
         return install(addon).then(() => {
-          sinon.assert.neverCalledWith(dispatch, {
-            type: SHOW_INFO,
-            payload: {
+          sinon.assert.neverCalledWith(
+            dispatch,
+            showInfoDialog({
               addonName: addon.name,
               imageURL: iconUrl,
               closeAction: sinon.match.func,
-            },
-          });
+            }),
+          );
         });
       });
 

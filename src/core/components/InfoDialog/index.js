@@ -68,7 +68,11 @@ export const ShowInfoDialog = ({ data, show }) => {
 };
 
 ShowInfoDialog.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    addonName: PropTypes.string.isRequired,
+    closeAction: PropTypes.func.isRequired,
+    imageURL: PropTypes.string.isRequired,
+  }).isRequired,
   show: PropTypes.bool.isRequired,
 };
 
