@@ -1231,6 +1231,7 @@ describe(__filename, () => {
     const addonId = addons[0].addon.id;
     const detail = createFakeCollectionDetail({
       authorId: authorUserId,
+      count: 30,
     });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
