@@ -836,7 +836,7 @@ describe(__filename, () => {
     expect(byLine.text()).not.toContain('Developer response');
   });
 
-  it('', () => {
+  it('adds extra style when review is a developer response', () => {
     const { params, store } = signInUserWithUsername('black-panther');
     const user = getCurrentUser(store.getState().users);
 
