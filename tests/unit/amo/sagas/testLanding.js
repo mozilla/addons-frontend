@@ -65,7 +65,7 @@ describe(__filename, () => {
         pageSize: LANDING_PAGE_EXTENSION_COUNT,
       },
       {
-        addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+        addonType: ADDON_TYPE_THEME,
         pageSize: LANDING_PAGE_THEME_COUNT,
       },
     ])(
@@ -74,7 +74,7 @@ describe(__filename, () => {
         const { addonType, pageSize } = testConfig;
         const baseArgs = { api: apiState };
         const baseFilters = {
-          addonType,
+          addonType: getAddonTypeFilter(addonType),
           page_size: pageSize,
         };
 
