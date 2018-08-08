@@ -195,6 +195,7 @@ module.exports = {
     'he',
     'hsb',
     'hu',
+    'ia',
     'id',
     'it',
     'ja',
