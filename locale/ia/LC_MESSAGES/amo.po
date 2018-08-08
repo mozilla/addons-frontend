@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-08 01:05+0000\n"
+"PO-Revision-Date: 2018-08-08 01:31+0000\n"
 "Last-Translator: Rodrigo Guerra <rodmguerra@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:266 src/amo/components/CollectionAddAddon/index.js:155
 msgid "Add to collection"
-msgstr ""
+msgstr "Adder al collection"
 
 #: src/amo/components/Addon/index.js:150
 msgid "Preview of %(title)s"
@@ -560,7 +560,7 @@ msgstr ""
 
 #: src/amo/components/Collection/index.js:353
 msgid "Do you really want to delete this collection?"
-msgstr ""
+msgstr "Vole tu vermente deler iste collection?"
 
 #: src/amo/components/Collection/index.js:356
 msgid "Delete this collection"
@@ -604,7 +604,7 @@ msgstr ""
 
 #: src/amo/components/CollectionList/index.js:114
 msgid "Collections"
-msgstr ""
+msgstr "Collectiones"
 
 #: src/amo/components/CollectionList/index.js:120
 msgid "Log in to view your collections"
@@ -632,7 +632,7 @@ msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:245
 msgid "Save collection"
-msgstr ""
+msgstr "Salvar le collection"
 
 #: src/amo/components/CollectionManager/index.js:254
 msgid "Collection name"
@@ -932,7 +932,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Vider mi collectiones"
 
 #: src/amo/components/Header/index.js:108 src/amo/components/UserProfileEdit/index.js:472
 msgid "View My Profile"
@@ -2128,7 +2128,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Vole tu vermente deler iste imagine?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:111
 msgid "Delete This Picture"
