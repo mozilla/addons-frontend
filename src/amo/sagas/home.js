@@ -19,6 +19,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
 import type { FetchHomeAddonsAction } from 'amo/reducers/home';
 import type { SearchParams } from 'core/api/search';
+import { getAddonTypeFilter } from 'core/utils';
 
 export function* fetchHomeAddons({
   payload: { collectionsToFetch, errorHandlerId, includeFeaturedThemes },
@@ -69,7 +70,7 @@ export function* fetchHomeAddons({
   const featuredThemesParams: SearchParams = {
     api: state.api,
     filters: {
-      addonType: ADDON_TYPE_THEME,
+      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       ...featuredSearchFilters,
       page_size: LANDING_PAGE_THEME_COUNT,
     },

@@ -23,6 +23,7 @@ import {
   fakeAddon,
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
+import { getAddonTypeFilter } from 'core/utils';
 
 describe(__filename, () => {
   describe('fetchLandingAddons', () => {
@@ -73,7 +74,7 @@ describe(__filename, () => {
         const { addonType, pageSize } = testConfig;
         const baseArgs = { api: apiState };
         const baseFilters = {
-          addonType,
+          addonType: getAddonTypeFilter(addonType),
           page_size: pageSize,
         };
 
