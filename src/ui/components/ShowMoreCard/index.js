@@ -38,16 +38,18 @@ type InternalProps = {|
 const initialUIState: UIStateType = { expanded: false };
 
 export class ShowMoreCardBase extends React.Component<InternalProps> {
+  contents: HTMLElement | null;
+
   componentDidMount() {
     this.truncateToMaxHeight(this.contents);
   }
 
-  onClick = (event) => {
+  onClick = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.props.setUIState({ expanded: true });
   };
 
-  truncateToMaxHeight = (contents) => {
+  truncateToMaxHeight = (contents: HTMLElement | null) => {
     // If the contents are short enough they don't need a "show more" link; the
     // contents are expanded by default.
     if (contents) {
