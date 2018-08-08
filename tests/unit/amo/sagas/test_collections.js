@@ -822,17 +822,18 @@ describe(__filename, () => {
 
       _deleteCollection(params);
 
-      const expectedUnloadAction = unloadCollectionBySlug(params.slug);
-
-      const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
-      expect(unloadAction).toEqual(expectedUnloadAction);
-
       const expectedPushAction = pushLocation(
         `/${lang}/${clientApp}/collections/`,
       );
 
       const pushAction = await sagaTester.waitFor(expectedPushAction.type);
       expect(pushAction).toEqual(expectedPushAction);
+
+      const expectedUnloadAction = unloadCollectionBySlug(params.slug);
+
+      const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
+      expect(unloadAction).toEqual(expectedUnloadAction);
+
       mockApi.verify();
     });
 
