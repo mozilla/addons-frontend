@@ -272,6 +272,10 @@ export const unfilteredLanguages = {
     English: 'Armenian',
     native: '\u0540\u0561\u0575\u0565\u0580\u0565\u0576',
   },
+  ia: {
+    English: 'Interlingua',
+    native: 'Interlingua',
+  },
   id: {
     English: 'Indonesian',
     native: 'Bahasa Indonesia',
