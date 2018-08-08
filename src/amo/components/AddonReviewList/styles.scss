@@ -24,6 +24,17 @@
   }
 }
 
+.AddonReviewList-overallRatingStars {
+  margin: 0 0 24px;
+  width: 100%;
+
+  .Rating-choice {
+    background-size: 64px;
+    height: 71px;
+    width: 71px;
+  }
+}
+
 .AddonReviewList-addon {
   @include respond-to(large) {
     min-width: 300px;

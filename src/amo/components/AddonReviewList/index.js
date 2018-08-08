@@ -9,6 +9,7 @@ import { compose } from 'redux';
 
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import RatingManager from 'amo/components/RatingManager';
+import RatingsByStar from 'amo/components/RatingsByStar';
 import { clearAddonReviews, fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
@@ -24,6 +25,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
+import Rating from 'ui/components/Rating';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -273,6 +275,19 @@ export class AddonReviewListBase extends React.Component<Props> {
         />
       ) : null;
 
+    const metaHeader = (
+      <div className="AddonReviewList-header">
+        <div className="AddonReviewList-header-icon">
+          {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}
+        </div>
+        <div className="AddonReviewList-header-text">
+          <h1 className="visually-hidden">{header}</h1>
+          <h2 className="AddonReviewList-header-addonName">{addonName}</h2>
+          {authorsHTML}
+        </div>
+      </div>
+    );
+
     return (
       <div
         className={makeClassName(
@@ -288,30 +303,14 @@ export class AddonReviewListBase extends React.Component<Props> {
 
         {errorHandler.renderErrorIfPresent()}
 
-        <Card className="AddonReviewList-addon">
-          <div className="AddonReviewList-header">
-            <div className="AddonReviewList-header-icon">
-              {addon ? (
-                <Link to={this.addonURL()}>{iconImage}</Link>
-              ) : (
-                iconImage
-              )}
-            </div>
-            <div className="AddonReviewList-header-text">
-              <h1 className="visually-hidden">{header}</h1>
-              <h2 className="AddonReviewList-header-addonName">{addonName}</h2>
-              {authorsHTML}
-            </div>
-          </div>
-
-          {addon && addon.current_version ? (
-            <RatingManager
-              addon={addon}
-              location={location}
-              onReviewSubmitted={this.onReviewSubmitted}
-              version={addon.current_version}
-            />
-          ) : null}
+        <Card header={metaHeader} className="AddonReviewList-addon">
+          <Rating
+            className="AddonReviewList-overallRatingStars"
+            rating={addon && addon.ratings && addon.ratings.average}
+            readOnly
+            yellowStars
+          />
+          <RatingsByStar addon={addon} />
         </Card>
 
         <CardList
