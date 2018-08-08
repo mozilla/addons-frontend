@@ -11,14 +11,15 @@
 }
 
 .Rating-choice {
-  background: url('./img/dim-star.svg') center/$rating-l-star-size no-repeat;
+  background: url('./img/closed-star-dim-gray.svg') center/$rating-l-star-size
+    no-repeat;
   height: $rating-l-star-size + $rating-l-star-gutter;
   width: $rating-l-star-size + $rating-l-star-gutter;
 }
 
 .Rating--editable {
   .Rating-choice {
-    background-image: url('./img/dim-star-gold.svg');
+    background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
   }
 
@@ -29,25 +30,25 @@
   // First, make all stars appear selected when you hover over the group.
   .Rating-star-group:hover .Rating-choice,
   .Rating-choice:focus {
-    background-image: url('./img/full-star-gold.svg');
+    background-image: url('./img/closed-star-yellow.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
   .Rating-choice:hover ~ .Rating-choice {
-    background-image: url('./img/dim-star-gold.svg');
+    background-image: url('./img/open-star-dim-yellow.svg');
   }
 }
 
 .Rating-selected-star {
-  background-image: url('./img/full-star.svg');
+  background-image: url('./img/closed-star-gray.svg');
 }
 
 .Rating--editable .Rating-selected-star {
-  background-image: url('./img/full-star-gold.svg');
+  background-image: url('./img/closed-star-yellow.svg');
 }
 
 .Rating-half-star {
-  background-image: url('./img/half-star.svg');
+  background-image: url('./img/half-star-gray.svg');
 
   [dir='rtl'] & {
     transform: scaleX(-1);
@@ -61,12 +62,23 @@
   width: $rating-s-star-size + $rating-s-star-gutter;
 }
 
-.Rating--by-owner {
+.Rating--yellowStars {
+  // When stars are read-only, they are closed. Otherwise, they are open.
   .Rating-choice {
-    background-image: url('./img/dim-star-gold.svg');
+    background-image: url('./img/closed-star-dim-yellow.svg');
   }
 
-  .Rating-selected-star {
-    background-image: url('./img/full-star-gold.svg');
+  &.Rating--editable .Rating-choice {
+    background-image: url('./img/open-star-dim-yellow.svg');
+  }
+
+  .Rating-selected-star,
+  &.Rating--editable .Rating-selected-star {
+    background-image: url('./img/closed-star-yellow.svg');
+  }
+
+  // This doesn't define an editable half-star because that's not possible.
+  .Rating-half-star {
+    background-image: url('./img/half-star-yellow.svg');
   }
 }

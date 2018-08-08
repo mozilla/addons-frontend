@@ -56,31 +56,31 @@ describe(__filename, () => {
     expect(root).toHaveProp('rating', fakeReview.rating);
   });
 
-  it('passes isOwned: true to Rating if you wrote the review', () => {
+  it('passes yellowStars: true to Rating if you wrote the review', () => {
     const review = signInAndReturnReview({
       siteUserId: 123,
       reviewUserId: 123,
     });
     const root = render({ review });
-    expect(root).toHaveProp('isOwner', true);
+    expect(root).toHaveProp('yellowStars', true);
   });
 
-  it('passes isOwned: false to Rating if you did not write the review', () => {
+  it('passes yellowStars: false to Rating if you did not write the review', () => {
     const review = signInAndReturnReview({
       siteUserId: 123,
       reviewUserId: 456,
     });
     const root = render({ review });
-    expect(root).toHaveProp('isOwner', false);
+    expect(root).toHaveProp('yellowStars', false);
   });
 
-  it('passes isOwned: false to Rating if no user is logged in', () => {
+  it('passes yellowStars: false to Rating if no user is logged in', () => {
     const review = signInAndReturnReview({
       siteUserId: 123,
       reviewUserId: 123,
     });
     store.dispatch(logOutUser());
     const root = render({ review });
-    expect(root).toHaveProp('isOwner', false);
+    expect(root).toHaveProp('yellowStars', false);
   });
 });
