@@ -7064,9 +7064,9 @@ pino-devtools@^1.0.2:
     through2 "^2.0.3"
     ws "^6.0.0"
 
-pino-mozlog@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-1.0.2.tgz#fc46643143712f20218f9ddb9fdc0cfc66ce9897"
+pino-mozlog@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-1.1.0.tgz#fa4ee50f6eba0446d468bb212a94426485f30341"
   dependencies:
     internet-timestamp "^0.0.1"
     minimist "^1.2.0"
