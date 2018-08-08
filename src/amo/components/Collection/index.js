@@ -53,6 +53,7 @@ import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
+  ReactRouterHistoryType,
   ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
@@ -76,6 +77,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   filters: CollectionFilters,
   hasEditPermission: boolean,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isLoggedIn: boolean,
   isOwner: boolean,
@@ -101,6 +103,19 @@ export type SaveAddonNoteFunc = (
   errorHandler: ErrorHandlerType,
   notes: string,
 ) => void;
+
+export const computeNewCollectionPage = (
+  collection: CollectionType,
+): number => {
+  const { numberOfAddons, pageSize } = collection;
+
+  let page = 1;
+  if (pageSize) {
+    page = Math.ceil((numberOfAddons - 1) / pageSize);
+  }
+
+  return page || 1;
+};
 
 export class CollectionBase extends React.Component<InternalProps> {
   addonPlaceholderCount: number;
@@ -238,7 +253,7 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 
   removeAddon: RemoveCollectionAddonFunc = (addonId: number) => {
-    const { collection, dispatch, errorHandler, filters } = this.props;
+    const { collection, dispatch, errorHandler, filters, history } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -247,15 +262,39 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
+    let { page } = filters;
+    let shouldPushNewRoute = false;
+    const newCollectionPage = computeNewCollectionPage(collection);
+
+    if (page !== newCollectionPage) {
+      page = newCollectionPage;
+      shouldPushNewRoute = true;
+    }
+
     dispatch(
       removeAddonFromCollection({
         addonId,
         errorHandlerId: errorHandler.id,
-        filters,
+        filters: {
+          ...filters,
+          page,
+        },
         slug,
         username,
       }),
     );
+
+    if (shouldPushNewRoute) {
+      const { location } = history;
+
+      history.push({
+        pathname: location.pathname,
+        query: {
+          ...location.query,
+          page,
+        },
+      });
+    }
   };
 
   deleteNote: DeleteAddonNoteFunc = (
