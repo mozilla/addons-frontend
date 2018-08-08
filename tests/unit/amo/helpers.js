@@ -347,7 +347,7 @@ export function dispatchAutocompleteResults({
 
 export const createFakeCollectionDetail = ({
   name = 'My Addons',
-  count = 123,
+  count = 30,
   authorId = 99999,
   authorName = 'John Doe',
   authorUsername = 'johndoe',

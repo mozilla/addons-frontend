@@ -1234,7 +1234,7 @@ describe(__filename, () => {
     });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 5;
+    const page = 2;
     const sort = COLLECTION_SORT_NAME;
     const location = createFakeLocation({
       query: { page, collection_sort: sort },
