@@ -1267,7 +1267,7 @@ describe(__filename, () => {
       removeAddonFromCollection({
         addonId,
         errorHandlerId: errorHandler.id,
-        filters: { page: 5, collectionSort: sort },
+        filters: { page, collectionSort: sort },
         slug: detail.slug,
         username: detail.author.username,
       }),
