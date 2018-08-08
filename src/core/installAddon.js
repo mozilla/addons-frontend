@@ -72,7 +72,7 @@ import {
   USER_AGENT_OS_UNIX,
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
-import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
+import { showInfoDialog } from 'core/reducers/infoDialog';
 
 export function installTheme(
   node,
@@ -481,9 +481,6 @@ export class WithInstallHelpers extends React.Component {
       showInfoDialog({
         addonName: name,
         imageURL: iconUrl,
-        closeAction: () => {
-          dispatch(closeInfoDialog());
-        },
       }),
     );
   }

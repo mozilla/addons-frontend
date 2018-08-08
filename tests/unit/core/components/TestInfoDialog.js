@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import InfoDialog, { InfoDialogBase } from 'core/components/InfoDialog';
-import { showInfoDialog } from 'core/reducers/infoDialog';
+import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
@@ -27,7 +27,6 @@ describe(__filename, () => {
   const createInfoDialogData = (overrides = {}) => {
     return {
       addonName: 'some addon',
-      closeAction: sinon.stub(),
       imageURL: 'http://example.org/some-addon.png',
       ...overrides,
     };
@@ -62,36 +61,38 @@ describe(__filename, () => {
     expect(root.find('.InfoDialog-button')).toHaveLength(1);
     expect(root.find('.InfoDialog-button')).toHaveProp(
       'onClick',
-      data.closeAction,
+      root.instance().closeInfoDialog,
     );
   });
 
-  it('should call closeAction func when clicking close', () => {
-    const { store } = dispatchClientMetadata();
-    const closeAction = sinon.spy();
+  it('exposes a method for the react-onclickoutside HOC', () => {
+    const root = render();
 
-    const data = createInfoDialogData({ closeAction });
-    _showInfoDialog({ store, data });
+    expect(root.instance().handleClickOutside).toBeDefined();
+  });
+
+  it('dispatches closeInfoDialog when clicking close', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    _showInfoDialog({ store });
 
     const root = render({ store });
 
     root.find('.InfoDialog-button').simulate('click');
 
-    sinon.assert.calledOnce(closeAction);
+    sinon.assert.calledWith(dispatchSpy, closeInfoDialog());
   });
 
-  it('should call closeAction func when clicking outside', () => {
+  it('dispatches closeInfoDialog when clicking outside', () => {
     const { store } = dispatchClientMetadata();
-    const closeAction = sinon.spy();
-
-    const data = createInfoDialogData({ closeAction });
-    _showInfoDialog({ store, data });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = render({ store });
 
     // Simulate a user who clicks outside the InfoDialog component.
     root.instance().handleClickOutside();
 
-    sinon.assert.calledOnce(closeAction);
+    sinon.assert.calledWith(dispatchSpy, closeInfoDialog());
   });
 });

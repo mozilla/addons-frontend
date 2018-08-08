@@ -4,7 +4,6 @@ export const SHOW_INFO: 'SHOW_INFO' = 'SHOW_INFO';
 
 type InfoDialogData = {|
   addonName: string,
-  closeAction: Function,
   imageURL: string,
 |};
 

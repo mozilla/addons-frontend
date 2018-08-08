@@ -40,7 +40,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
+import { showInfoDialog } from 'core/reducers/infoDialog';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   createFakeTracking,
@@ -1227,16 +1227,8 @@ describe(__filename, () => {
             showInfoDialog({
               addonName: addon.name,
               imageURL: iconUrl,
-              closeAction: sinon.match.func,
             }),
           );
-
-          const arg = dispatch.secondCall.args[0];
-
-          // Test that close action dispatches.
-          dispatch.resetHistory();
-          arg.payload.closeAction();
-          sinon.assert.calledWith(dispatch, closeInfoDialog());
         });
       });
 
@@ -1261,7 +1253,6 @@ describe(__filename, () => {
             showInfoDialog({
               addonName: addon.name,
               imageURL: iconUrl,
-              closeAction: sinon.match.func,
             }),
           );
         });

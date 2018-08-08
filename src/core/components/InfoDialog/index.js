@@ -5,9 +5,11 @@ import onClickOutside from 'react-onclickoutside';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { closeInfoDialog } from 'core/reducers/infoDialog';
 import translate from 'core/i18n/translate';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
@@ -16,30 +18,29 @@ type Props = {||};
 type InternalProps = {|
   ...Props,
   addonName: string | null,
-  closeAction: Function | null,
+  dispatch: DispatchFunc,
   i18n: I18nType,
   imageURL: string | null,
   show: boolean,
 |};
 
 export class InfoDialogBase extends React.Component<InternalProps> {
+  closeInfoDialog = () => {
+    this.props.dispatch(closeInfoDialog());
+  };
+
   handleClickOutside = () => {
-    const { closeAction } = this.props;
-
-    invariant(closeAction, 'closeAction is required');
-
-    closeAction();
+    this.closeInfoDialog();
   };
 
   render() {
-    const { addonName, closeAction, i18n, imageURL, show } = this.props;
+    const { addonName, i18n, imageURL, show } = this.props;
 
     if (!show) {
       return null;
     }
 
     invariant(addonName, 'addonName is required when show=true');
-    invariant(closeAction, 'closeAction is required when show=true');
     invariant(imageURL, 'imageURL is required when show=true');
 
     return (
@@ -65,7 +66,7 @@ export class InfoDialogBase extends React.Component<InternalProps> {
             </p>
           </div>
         </div>
-        <button className="InfoDialog-button" onClick={closeAction}>
+        <button className="InfoDialog-button" onClick={this.closeInfoDialog}>
           {i18n.gettext('OK!')}
         </button>
       </div>
@@ -78,7 +79,6 @@ export const mapStateToProps = (state: AppState) => {
 
   return {
     addonName: data ? data.addonName : null,
-    closeAction: data ? data.closeAction : null,
     imageURL: data ? data.imageURL : null,
     show,
   };
