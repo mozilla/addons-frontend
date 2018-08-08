@@ -10,10 +10,9 @@ const packageJson = JSON.parse(
 // When a dev-dep needs to be pinned the package name should be added to this list.
 // Please add a comment with a link to a bug so we know why it was added.
 
-// postcss-loader: https://github.com/mozilla/addons-frontend/issues/4592
 /* prettier and pretty-quick: we pin these so that all developers format code
                               with the exact same version */
-const skipDevDeps = ['postcss-loader', 'prettier', 'pretty-quick'];
+const skipDevDeps = ['prettier', 'pretty-quick'];
 
 describe(__filename, () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {
