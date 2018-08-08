@@ -23,6 +23,7 @@ import {
   fakeAddon,
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
+import { getAddonTypeFilter } from 'core/utils';
 
 describe(__filename, () => {
   describe('fetchLandingAddons', () => {
@@ -64,7 +65,7 @@ describe(__filename, () => {
         pageSize: LANDING_PAGE_EXTENSION_COUNT,
       },
       {
-        addonType: ADDON_TYPE_THEME,
+        addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
         pageSize: LANDING_PAGE_THEME_COUNT,
       },
     ])(
