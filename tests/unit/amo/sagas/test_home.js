@@ -26,6 +26,7 @@ import {
   fakeAddon,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
+import { getAddonTypeFilter } from 'core/utils';
 
 describe(__filename, () => {
   let errorHandler;
@@ -110,7 +111,7 @@ describe(__filename, () => {
           ...baseArgs,
           filters: {
             page_size: LANDING_PAGE_THEME_COUNT,
-            addonType: ADDON_TYPE_THEME,
+            addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
             featured: true,
             sort: SEARCH_SORT_RANDOM,
           },
@@ -201,7 +202,7 @@ describe(__filename, () => {
             ...baseArgs,
             filters: {
               page_size: LANDING_PAGE_THEME_COUNT,
-              addonType: ADDON_TYPE_THEME,
+              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
               featured: true,
               sort: SEARCH_SORT_RANDOM,
             },

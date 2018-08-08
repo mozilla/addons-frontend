@@ -19,7 +19,7 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import { isTheme } from 'core/utils';
+import { getAddonTypeFilter, isTheme } from 'core/utils';
 
 export function* fetchLandingAddons({
   payload: { addonType, category, errorHandlerId },
@@ -29,7 +29,7 @@ export function* fetchLandingAddons({
     const state = yield select(getState);
     const { api } = state;
     const filters = {
-      addonType,
+      addonType: getAddonTypeFilter(addonType),
       page_size: isTheme(addonType)
         ? LANDING_PAGE_THEME_COUNT
         : LANDING_PAGE_EXTENSION_COUNT,
