@@ -39,8 +39,8 @@ export class AboutBase extends React.Component {
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext(`You can also use AMO to find add-ons for Mozilla
-                      %(startTBLink)sThunderbird%(endTBLink)s and
+                  i18n.gettext(`If you are looking for add-ons for Thunderbird or SeaMonkey, please visit
+                      %(startTBLink)sThunderbird%(endTBLink)s or
                       %(startSMLink)sSeaMonkey%(endSMLink)s.`),
                   {
                     startTBLink:
