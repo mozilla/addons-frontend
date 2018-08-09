@@ -39,8 +39,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
           {
             loader: 'postcss-loader',
             options: {
-              outputStyle: 'expanded',
-              plugins: () => postCssPlugins,
+              plugins: postCssPlugins,
             },
           },
         ],
@@ -53,7 +52,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => postCssPlugins,
+              plugins: postCssPlugins,
             },
           },
           { loader: 'sass-loader', options: { outputStyle: 'expanded' } },
@@ -83,10 +82,8 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
             {
               loader: 'postcss-loader',
               options: {
-                outputStyle: 'expanded',
-                plugins: () => postCssPlugins,
+                plugins: postCssPlugins,
                 sourceMap: true,
-                sourceMapContents: true,
               },
             },
           ],
@@ -103,7 +100,9 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
             },
             {
               loader: 'postcss-loader',
-              options: { plugins: () => postCssPlugins },
+              options: {
+                plugins: postCssPlugins,
+              },
             },
             {
               loader: 'sass-loader',
