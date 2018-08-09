@@ -17,13 +17,6 @@
   padding: 0;
 }
 
-.AddonMeta-item-header {
-  display: block;
-  height: 17px;
-  margin: 0;
-  padding: 0;
-}
-
 .AddonMeta-item-subheader {
   @include font-light();
 
@@ -35,8 +28,15 @@
 .AddonMeta-overallRating {
   margin-bottom: 24px;
 
-  .Rating-star-group {
-    @include margin-end(-2.5px);
-    @include margin-start(-2.5px);
+  .Rating {
+    height: 18px;
   }
+
+  .MetadataCard-list {
+    max-width: none;
+  }
+}
+
+.AddonMeta-rating-title {
+  text-align: center;
 }

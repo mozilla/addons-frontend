@@ -140,10 +140,8 @@ export class RatingBase extends React.Component<InternalProps> {
 
     return (
       <div className={allClassNames} title={description}>
-        <span className="Rating-star-group">
-          {this.renderRatings()}
-          <span className="visually-hidden">{description}</span>
-        </span>
+        {this.renderRatings()}
+        <span className="visually-hidden">{description}</span>
       </div>
     );
   }

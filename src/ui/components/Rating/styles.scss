@@ -1,14 +1,25 @@
 @import '~core/css/inc/mixins';
 @import './vars';
 
-.Rating-star-group {
+.Rating {
+  align-content: center;
   display: grid;
   grid-column-gap: 6px;
   grid-template-columns: repeat(5, min-content);
   justify-content: center;
 
+  &.Rating--small {
+    grid-column-gap: 4px;
+  }
+
   @include respond-to(extraExtraLarge) {
-    grid-column-gap: 12px;
+    &.Rating--large {
+      grid-column-gap: 12px;
+    }
+
+    &.Rating--small {
+      grid-column-gap: 6px;
+    }
   }
 }
 
@@ -17,14 +28,30 @@
   height: 42px;
   width: 42px;
 
+  .Rating--small & {
+    height: 12px;
+    width: 12px;
+  }
+
   @include respond-to(large) {
-    height: 48px;
-    width: 48px;
+    .Rating--large & {
+      height: 48px;
+      width: 48px;
+    }
+  }
+
+  @include respond-to(extraLarge) {
+    .Rating--small & {
+      height: 16px;
+      width: 16px;
+    }
   }
 
   @include respond-to(extraExtraLarge) {
-    height: 64px;
-    width: 64px;
+    .Rating--large & {
+      height: 64px;
+      width: 64px;
+    }
   }
 }
 
@@ -39,7 +66,7 @@
   // only the first three stars appear selected.
 
   // First, make all stars appear selected when you hover over the group.
-  .Rating-star-group:hover .Rating-choice,
+  .Rating:hover .Rating-choice,
   .Rating-choice:focus {
     background-image: url('./img/closed-star-yellow.svg');
   }
@@ -64,13 +91,6 @@
   [dir='rtl'] & {
     transform: scaleX(-1);
   }
-}
-
-.Rating--small .Rating-choice {
-  background-size: $rating-s-star-size;
-  height: $rating-s-star-size + $rating-s-star-gutter;
-  margin: 0;
-  width: $rating-s-star-size + $rating-s-star-gutter;
 }
 
 .Rating--yellowStars {
