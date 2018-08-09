@@ -1,20 +1,31 @@
+@import '~core/css/inc/mixins';
 @import './vars';
 
-.Rating,
 .Rating-star-group {
-  display: flex;
-}
-
-.Rating {
+  display: grid;
+  grid-column-gap: 6px;
+  grid-template-columns: repeat(5, min-content);
   justify-content: center;
-  margin: $rating-top-margin 0;
+
+  @include respond-to(extraExtraLarge) {
+    grid-column-gap: 12px;
+  }
 }
 
 .Rating-choice {
-  background: url('./img/closed-star-dim-gray.svg') center/$rating-l-star-size
-    no-repeat;
-  height: $rating-l-star-size + $rating-l-star-gutter;
-  width: $rating-l-star-size + $rating-l-star-gutter;
+  background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
+  height: 42px;
+  width: 42px;
+
+  @include respond-to(large) {
+    height: 48px;
+    width: 48px;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    height: 64px;
+    width: 64px;
+  }
 }
 
 .Rating--editable {

@@ -25,13 +25,10 @@
 }
 
 .AddonReviewList-overallRatingStars {
-  margin: 0 0 24px;
-  width: 100%;
+  margin: 0 0 12px;
 
-  .Rating-choice {
-    background-size: 64px;
-    height: 71px;
-    width: 71px;
+  @include respond-to(medium) {
+    margin-bottom: 24px;
   }
 }
 
