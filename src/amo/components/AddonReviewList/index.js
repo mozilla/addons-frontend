@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
-import RatingManager from 'amo/components/RatingManager';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { clearAddonReviews, fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -139,27 +138,6 @@ export class AddonReviewListBase extends React.Component<Props> {
   getCurrentPage(location: ReactRouterLocationType) {
     return location.query.page || 1;
   }
-
-  onReviewSubmitted = () => {
-    const {
-      clientApp,
-      dispatch,
-      lang,
-      location,
-      match: { params },
-      history,
-    } = this.props;
-    // Now that a new review has been submitted, reset the list
-    // so that it gets reloaded.
-    dispatch(clearAddonReviews({ addonSlug: params.addonSlug }));
-
-    if (this.getCurrentPage(location) !== 1) {
-      history.push({
-        pathname: `/${lang}/${clientApp}${this.url()}`,
-        query: { page: 1 },
-      });
-    }
-  };
 
   render() {
     const {
