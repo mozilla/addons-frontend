@@ -33,7 +33,7 @@
     "snyk": "snyk --org=add-ons-team",
     "snyk-ci": "npm run snyk test --severity-threshold=medium --file=package.json && npm run snyk monitor",
     "snyk-wizard": "npm run snyk wizard",
-    "start": "npm run version-check && better-npm-run node bin/server.js | pino-mozlog",
+    "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
