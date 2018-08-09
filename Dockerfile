@@ -2,7 +2,9 @@ FROM node:6-slim
 
 # Install node_modules into a different directory to avoid npm/npm#9863.
 RUN mkdir -p /srv/node
-ADD package.json /srv/node/
+COPY package.json /srv/node/
+COPY yarn.lock /srv/node/
+COPY npm-packages-offline-cache/ /srv/node/
 WORKDIR /srv/node
 
 # This file has been downloaded from: https://dl.yarnpkg.com/debian/pubkey.gpg
@@ -28,7 +30,7 @@ RUN buildDeps=' \
     # apt-get purge -y $buildDeps && \
     rm -rf /var/lib/apt/lists/*
 
-ADD . /srv/code/
+COPY . /srv/code/
 WORKDIR /srv/code
 
 # The V2 Pipeline expects version.json to be located in /app/
