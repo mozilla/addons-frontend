@@ -99,7 +99,7 @@
       }
     },
     "start-dev": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools'",
+      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
@@ -108,7 +108,7 @@
       }
     },
     "start-dev-proxy": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools' 'node bin/proxy.js | pino-pretty'",
+      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools' 'node bin/proxy.js | pino-pretty'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
