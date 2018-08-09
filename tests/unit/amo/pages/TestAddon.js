@@ -1258,7 +1258,7 @@ describe(__filename, () => {
 
       const footer = root.find('.Addon-read-reviews-footer');
       expect(footer).toHaveText('No reviews yet');
-      expect(root.find('footer')).toHaveClassName(
+      expect(root.find('footer').at(1)).toHaveClassName(
         'Card-footer Card-footer-text',
       );
     });
