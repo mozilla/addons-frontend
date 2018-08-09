@@ -1,3 +1,4 @@
+@import '~photon-colors/photon-colors';
 @import '~core/css/inc/mixins';
 @import '~amo/css/inc/vars';
 @import '~ui/css/vars';
@@ -98,4 +99,10 @@
   a:link {
     color: $black;
   }
+}
+
+.AddonReviewList-addonAverage {
+  color: $grey-50;
+  margin-top: 6px;
+  text-align: center;
 }

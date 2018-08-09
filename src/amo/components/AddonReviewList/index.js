@@ -266,6 +266,16 @@ export class AddonReviewListBase extends React.Component<Props> {
       </div>
     );
 
+    let addonAverage;
+    if (addon && addon.ratings) {
+      const averageRating = i18n.formatNumber(addon.ratings.average.toFixed(1));
+      addonAverage = i18n.sprintf(
+        // translators: averageRating is a localized number, such as 4.5 in English or ٤٫٧ in Arabic.
+        i18n.gettext('%(averageRating)s star average'),
+        { averageRating },
+      );
+    }
+
     return (
       <div
         className={makeClassName(
@@ -282,12 +292,16 @@ export class AddonReviewListBase extends React.Component<Props> {
         {errorHandler.renderErrorIfPresent()}
 
         <Card header={metaHeader} className="AddonReviewList-addon">
-          <Rating
-            className="AddonReviewList-overallRatingStars"
-            rating={addon && addon.ratings && addon.ratings.average}
-            readOnly
-            yellowStars
-          />
+          <div className="AddonReviewList-overallRatingStars">
+            <Rating
+              rating={addon && addon.ratings && addon.ratings.average}
+              readOnly
+              yellowStars
+            />
+            <div className="AddonReviewList-addonAverage">
+              {addon ? addonAverage : <LoadingText minWidth={20} />}
+            </div>
+          </div>
           <RatingsByStar addon={addon} />
         </Card>
 

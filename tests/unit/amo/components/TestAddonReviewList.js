@@ -2,10 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
-import {
-  fetchReviews,
-  setAddonReviews,
-} from 'amo/actions/reviews';
+import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
@@ -649,15 +646,15 @@ describe(__filename, () => {
     });
   });
 
-  describe('Rating', () => {
-    it('renders without an add-on', () => {
+  describe('overallRatingStars', () => {
+    it('renders Rating without an add-on', () => {
       const root = render({ addon: null });
       const rating = root.find(Rating);
 
       expect(rating).toHaveProp('rating', null);
     });
 
-    it('renders without add-on ratings', () => {
+    it('renders Rating without add-on ratings', () => {
       const addon = { ...fakeAddon, ratings: undefined };
       dispatchAddon(addon);
       const root = render();
@@ -666,7 +663,7 @@ describe(__filename, () => {
       expect(rating).toHaveProp('rating', undefined);
     });
 
-    it('renders with add-on ratings', () => {
+    it('renders Rating with add-on ratings', () => {
       const addon = {
         ...fakeAddon,
         ratings: {
@@ -680,17 +677,15 @@ describe(__filename, () => {
 
       expect(rating).toHaveProp('rating', addon.ratings.average);
     });
-  });
 
-  describe('RatingsByStar', () => {
-    it('renders without an add-on', () => {
+    it('renders RatingsByStar without an add-on', () => {
       const root = render({ addon: null });
       const ratingsByStar = root.find(RatingsByStar);
 
       expect(ratingsByStar).toHaveProp('addon', null);
     });
 
-    it('renders with an add-on', () => {
+    it('renders RatingsByStar with an add-on', () => {
       const addon = { ...fakeAddon };
       dispatchAddon(addon);
       const root = render();
@@ -698,6 +693,51 @@ describe(__filename, () => {
 
       expect(ratingsByStar).toHaveProp('addon');
       expect(ratingsByStar.prop('addon')).toMatchObject({ id: addon.id });
+    });
+
+    it('renders loading text without an add-on', () => {
+      const root = render({ addon: null });
+
+      expect(
+        root.find('.AddonReviewList-addonAverage').find(LoadingText),
+      ).toHaveLength(1);
+    });
+
+    it('renders empty text without add-on ratings', () => {
+      dispatchAddon({ ...fakeAddon, ratings: undefined });
+      const root = render();
+
+      expect(root.find('.AddonReviewList-addonAverage').text()).toEqual('');
+    });
+
+    it('renders a fixed star average', () => {
+      dispatchAddon({
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          average: 4.6667,
+        },
+      });
+      const root = render();
+
+      expect(root.find('.AddonReviewList-addonAverage').text()).toEqual(
+        '4.7 star average',
+      );
+    });
+
+    it('renders whole number star averages', () => {
+      dispatchAddon({
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          average: 4.0,
+        },
+      });
+      const root = render();
+
+      expect(root.find('.AddonReviewList-addonAverage').text()).toEqual(
+        '4 star average',
+      );
     });
   });
 
