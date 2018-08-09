@@ -40,8 +40,8 @@ export class AboutBase extends React.Component {
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
                   i18n.gettext(`If you are looking for add-ons for Thunderbird or SeaMonkey, please visit
-                      %(startTBLink)sThunderbird%(endTBLink)s or
-                      %(startSMLink)sSeaMonkey%(endSMLink)s.`),
+                  %(startTBLink)saddons.thunderbird.net%(endTBLink)s or
+                  %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s.`),
                   {
                     startTBLink:
                       '<a href="https://addons.thunderbird.net/thunderbird/">',
