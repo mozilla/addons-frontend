@@ -23,7 +23,7 @@ RUN buildDeps=' \
     # install deps
     apt-get update -y && \
     apt-get install -y --no-install-recommends $buildDeps && \
-    yarn install && \
+    yarn install --offline && \
     # cleanup
     # apt-get purge -y $buildDeps && \
     rm -rf /var/lib/apt/lists/*
