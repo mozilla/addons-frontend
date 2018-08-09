@@ -61,7 +61,7 @@ function mapStateToProps(state, ownProps) {
   });
 
   return {
-    browserVersion: match.params.version,
+    browserVersion: match ? match.params.version : '',
   };
 }
 

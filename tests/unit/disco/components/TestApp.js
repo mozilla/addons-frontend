@@ -14,12 +14,19 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function render({ browserVersion = '50', ...customProps } = {}) {
-    const history = createMemoryHistory({
-      initialEntries: [
-        `/en-US/firefox/discovery/pane/${browserVersion}/Darwin/normal/`,
-      ],
-    });
+  function render({
+    browserVersion = '50',
+    history = null,
+    ...customProps
+  } = {}) {
+    if (!history) {
+      // eslint-disable-next-line no-param-reassign
+      history = createMemoryHistory({
+        initialEntries: [
+          `/en-US/firefox/discovery/pane/${browserVersion}/Darwin/normal/`,
+        ],
+      });
+    }
 
     const store = customProps.store || createStore({ history }).store;
 
@@ -72,22 +79,22 @@ describe(__filename, () => {
       expect(root).toHaveClassName('padding-compensation');
     });
 
-    it('does not renderDiscoPane padding compensation class for a bogus value', () => {
+    it('does not render padding compensation class for a bogus value', () => {
       const root = renderDiscoPane({ browserVersion: 'whatever' });
       expect(root).not.toHaveClassName('padding-compensation');
     });
 
-    it('does not renderDiscoPane padding compensation class for a undefined value', () => {
+    it('does not render padding compensation class for a undefined value', () => {
       const root = renderDiscoPane({ browserVersion: undefined });
       expect(root).not.toHaveClassName('padding-compensation');
     });
 
-    it('does not renderDiscoPane padding compensation class for FF == 50', () => {
+    it('does not render padding compensation class for FF == 50', () => {
       const root = renderDiscoPane({ browserVersion: '50.0' });
       expect(root).not.toHaveClassName('padding-compensation');
     });
 
-    it('does not renderDiscoPane padding compensation class for FF > 50', () => {
+    it('does not render padding compensation class for FF > 50', () => {
       const root = renderDiscoPane({ browserVersion: '52.0a1' });
       expect(root).not.toHaveClassName('padding-compensation');
     });
@@ -95,6 +102,15 @@ describe(__filename, () => {
     it('renders a response with a 200 status', () => {
       const root = shallow(<AppBase i18n={fakeI18n()} browserVersion="50" />);
       expect(root.find(NestedStatus)).toHaveProp('code', 200);
+    });
+
+    it('sets browserVersion to empty string when path does not match', () => {
+      const history = createMemoryHistory({
+        initialEntries: ['/not-the-expected-path/'],
+      });
+
+      const root = render({ history });
+      expect(root.instance().props).toHaveProperty('browserVersion', '');
     });
   });
 });

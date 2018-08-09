@@ -1,0 +1,46 @@
+@import '~photon-colors/photon-colors';
+@import '~core/css/inc/vars';
+@import '~core/css/inc/mixins';
+
+.AMInstallButton {
+  .AMInstallButton-AnimatedIcon-preloader {
+    display: none;
+  }
+
+  .AMInstallButton-button {
+    white-space: nowrap;
+
+    .Icon {
+      @include padding-end(4px);
+
+      margin-top: -2px;
+    }
+  }
+
+  .AMInstallButton-button--enable {
+    .Icon {
+      margin-top: inherit;
+    }
+  }
+
+  .AMInstallButton-loading {
+    background-color: $grey-20;
+    border-radius: 2px;
+    height: 32px;
+    text-align: center;
+    width: 32px;
+
+    .AnimatedIcon-loading {
+      margin-top: 14px;
+    }
+  }
+
+  .AMInstallButton-loading--puffy {
+    height: 48px;
+    width: 48px;
+
+    .AnimatedIcon-loading {
+      margin-top: 22px;
+    }
+  }
+}

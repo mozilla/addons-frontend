@@ -99,6 +99,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
+    'enableAMInstallButton',
     'enableAddonRecommendations',
     'enableClientConsole',
     'enableDevTools',
@@ -303,4 +304,7 @@ module.exports = {
 
   enableExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
+
+  // Enable new InstallButton with mozAddonManager.
+  enableAMInstallButton: false,
 };
