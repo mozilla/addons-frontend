@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import {
-  clearAddonReviews,
   fetchReviews,
   setAddonReviews,
 } from 'amo/actions/reviews';
@@ -39,7 +38,6 @@ import {
   createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
-  createFakeHistory,
   createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

@@ -9,7 +9,7 @@ import { compose } from 'redux';
 
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import RatingsByStar from 'amo/components/RatingsByStar';
-import { clearAddonReviews, fetchReviews } from 'amo/actions/reviews';
+import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
 import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
