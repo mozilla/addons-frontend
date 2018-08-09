@@ -52,8 +52,10 @@ describe(__filename, () => {
 
     expect(root.find('.InfoDialog')).toHaveLength(1);
     expect(root.find('.InfoDialog')).toHaveProp('role', 'dialog');
-    expect(root.find('.InfoDialog-title')).toHaveText('Your add-on is ready');
-    expect(root.find('.InfoDialog-description')).toIncludeText(data.addonName);
+    expect(root.find('.InfoDialog-title').html()).toContain(data.addonName);
+    expect(root.find('.InfoDialog-description')).toIncludeText(
+      'Manage your add-ons',
+    );
     expect(root.find('.InfoDialog-logo').find('img')).toHaveProp(
       'src',
       data.imageURL,
@@ -71,7 +73,7 @@ describe(__filename, () => {
     expect(root.instance().handleClickOutside).toBeDefined();
   });
 
-  it('dispatches closeInfoDialog when clicking close', () => {
+  it('dispatches closeInfoDialog when clicking the "OK" button', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 

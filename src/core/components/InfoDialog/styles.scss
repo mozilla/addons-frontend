@@ -1,13 +1,21 @@
+@import '~photon-colors/photon-colors';
+@import '~ui/css/vars';
 @import '~amo/css/inc/vars';
 @import '~core/css/inc/mixins';
 
+// From Firefox source code: `toolkit/themes/shared/popupnotification.inc.css`
+$popup-notification-button-active: #0568ba;
+$popup-notification-button-hover: #0675d3;
+$popup-notification-button: #0996f8;
+
 .InfoDialog {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: $white;
   border-radius: 5px;
+  border: 1px solid #ccc;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
+  font-size: $font-size-s;
   left: 10px;
   overflow: hidden;
   position: fixed;
@@ -65,16 +73,20 @@
 
 .InfoDialog-button {
   align-self: stretch;
-  background: #2ea3ff;
+  background-color: $popup-notification-button;
   border: none;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   flex-direction: column;
-  padding: 0.8em;
-  transition: background 200ms;
+  padding: 1em;
+  transition: background 100ms;
 
   &:focus,
   &:hover {
-    background: #0996f8;
+    background-color: $popup-notification-button-hover;
+  }
+
+  &:active {
+    background-color: $popup-notification-button-active;
   }
 }

@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import { closeInfoDialog } from 'core/reducers/infoDialog';
 import translate from 'core/i18n/translate';
+import { sanitizeHTML } from 'core/utils';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
@@ -55,19 +56,32 @@ export class InfoDialogBase extends React.Component<InternalProps> {
             <img src={imageURL} alt={addonName} />
           </div>
           <div className="InfoDialog-copy">
-            <h3 className="InfoDialog-title">
-              {i18n.gettext('Your add-on is ready')}
-            </h3>
+            <p
+              className="InfoDialog-title"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(
+                    `%(strongStart)s%(name)s%(strongEnd)s has been added`,
+                  ),
+                  {
+                    name: addonName,
+                    strongEnd: '</strong>',
+                    strongStart: '<strong>',
+                  },
+                ),
+                ['strong'],
+              )}
+            />
             <p className="InfoDialog-description">
-              {i18n.sprintf(
-                i18n.gettext('Now you can access %(name)s from the toolbar.'),
-                { name: addonName },
+              {i18n.gettext(
+                'Manage your add-ons by clicking Addon-ons in the menu.',
               )}
             </p>
           </div>
         </div>
         <button className="InfoDialog-button" onClick={this.closeInfoDialog}>
-          {i18n.gettext('OK!')}
+          {i18n.gettext('OK')}
         </button>
       </div>
     );
