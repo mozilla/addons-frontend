@@ -9,6 +9,10 @@
     margin: 0;
 
     @include margin-end(6px);
+
+    @include respond-to(extraLarge) {
+      @include margin-end(12px);
+    }
   }
 
   .ErrorList {
