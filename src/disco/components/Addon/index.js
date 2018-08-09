@@ -23,6 +23,7 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
+  INSTALLED,
   UNINSTALLING,
   UNKNOWN,
   validAddonTypes,
@@ -42,9 +43,28 @@ import './styles.scss';
 
 const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
+export const installStaticTheme = async (event, props) => {
+  event.preventDefault();
+  const { status } = props;
+  if (status !== INSTALLED) {
+    await props.install();
+
+    const isEnabled = await props.getCurrentStatus();
+
+    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+    // on why we are explicitly calling the enable function
+    // after install
+    if (!isEnabled) {
+      props.enable();
+    }
+  }
+};
+
 export class AddonBase extends React.Component {
   static propTypes = {
+    getCurrentStatus: PropTypes.bool,
     _config: PropTypes.object,
+    _installStaticTheme: PropTypes.func,
     _tracking: PropTypes.object,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
@@ -73,6 +93,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     _config: config,
+    _installStaticTheme: installStaticTheme,
     _tracking: tracking,
     getClientCompatibility: _getClientCompatibility,
     needsRestart: false,
@@ -134,33 +155,33 @@ export class AddonBase extends React.Component {
     if (isTheme(type)) {
       const { getBrowserThemeData, i18n } = this.props;
       const { name, previewURL } = addon;
+      const lightweightTheme = type === ADDON_TYPE_THEME;
 
       let imageUrl = getPreviewImage(addon);
 
-      if (!imageUrl && type === ADDON_TYPE_THEME) {
+      if (!imageUrl && lightweightTheme) {
         imageUrl = previewURL;
       }
 
-      const headerImage = (
-        <img
-          alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
-          className="Addon-theme-header-image"
-          src={imageUrl}
-        />
-      );
+      const headerLinkProps = {
+        className: 'theme-image',
+        href: '#',
+        onClick: lightweightTheme
+          ? this.installTheme
+          : (e) => this.props._installStaticTheme(e, this.props),
+        'data-browsertheme': lightweightTheme
+          ? getBrowserThemeData()
+          : undefined,
+      };
 
-      /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return type === ADDON_TYPE_THEME ? (
-        <a
-          className="theme-image"
-          data-browsertheme={getBrowserThemeData()}
-          href="#"
-          onClick={this.installTheme}
-        >
-          {headerImage}
+      return (
+        <a {...headerLinkProps}>
+          <img
+            alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
+            className="Addon-theme-header-image"
+            src={imageUrl}
+          />
         </a>
-      ) : (
-        headerImage
       );
     }
 
@@ -324,6 +345,7 @@ export class AddonBase extends React.Component {
               puffy={false}
               status={status || UNKNOWN}
               uninstall={uninstall}
+              getCurrentStatus={this.props.getCurrentStatus}
             />
           ) : (
             <InstallButton

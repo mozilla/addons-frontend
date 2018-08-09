@@ -47,6 +47,7 @@ type Props = {|
   defaultInstallSource: string,
   disabled: boolean,
   enable: () => Promise<any>,
+  getCurrentStatus: () => Promise<any>,
   hasAddonManager: boolean,
   install: () => Promise<any>,
   installTheme: (HTMLAnchorElement, Object) => Promise<any>,
@@ -119,14 +120,16 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   };
 
   installExtension = async (event: SyntheticEvent<HTMLAnchorElement>) => {
-    const { addon, enable, install } = this.props;
+    const { addon, enable, getCurrentStatus, install } = this.props;
 
     event.preventDefault();
     event.stopPropagation();
 
     await install();
 
-    if (addon.type === ADDON_TYPE_STATIC_THEME) {
+    const isEnabled = await getCurrentStatus();
+
+    if (addon.type === ADDON_TYPE_STATIC_THEME && !isEnabled) {
       await enable();
     }
 

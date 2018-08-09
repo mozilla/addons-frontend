@@ -441,44 +441,70 @@ describe(__filename, () => {
   );
 
   describe('addon with type static theme', () => {
+    let root;
+    let addon;
     const fullImage = 'https://addons.cdn.mozilla.net/full/54321.png';
     const newAddonName = 'Summertime';
+    const _installStaticTheme = sinon.spy();
+
+    beforeEach(() => {
+      addon = {
+        ...result,
+        name: newAddonName,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: fullImage,
+          },
+        ],
+      };
+
+      root = renderAddon({
+        addon,
+        _installStaticTheme,
+        status: UNINSTALLED,
+        type: ADDON_TYPE_THEME,
+      });
+    });
 
     it('renders the correct image', () => {
-      const shallowRoot = renderAddon({
-        addon: {
-          ...result,
-          name: newAddonName,
-          previews: [
-            {
-              ...fakePreview,
-              image_url: fullImage,
-            },
-          ],
-          type: ADDON_TYPE_STATIC_THEME,
-        },
-      });
-      const image = shallowRoot.find('.Addon-theme-header-image');
+      const image = root.find('.Addon-theme-header-image');
       expect(image).toHaveProp('src', fullImage);
       expect(image).toHaveProp('alt', `Preview of ${newAddonName}`);
+    });
+
+    it("calls _installStaticTheme when clicking on the static theme's header image", () => {
+      const themeImage = root.find('.theme-image');
+      themeImage.simulate('click', createFakeEvent());
+      sinon.assert.called(_installStaticTheme);
     });
   });
 
   describe('addon with type lightweight theme', () => {
-    it('calls installTheme on click', () => {
-      const installTheme = sinon.stub();
-      const addon = {
+    let root;
+    let addon;
+    const newAddonName = 'Light Summer Colors';
+    const installTheme = sinon.stub();
+
+    beforeEach(() => {
+      addon = {
         ...result,
+        name: newAddonName,
         type: ADDON_TYPE_THEME,
         previews: [],
       };
-      const shallowRoot = renderAddon({
+
+      root = renderAddon({
         addon,
         installTheme,
         status: UNINSTALLED,
         type: ADDON_TYPE_THEME,
       });
-      const themeImage = shallowRoot.find('.theme-image');
+    });
+
+    it('calls installTheme on click', () => {
+      const themeImage = root.find('.theme-image');
 
       themeImage.simulate('click', {
         ...fakeEvent,
@@ -490,6 +516,13 @@ describe(__filename, () => {
         ...addon,
         status: UNINSTALLED,
       });
+    });
+
+    it("renders the alt tag with addon's name", () => {
+      expect(root.find('.Addon-theme-header-image')).toHaveProp(
+        'alt',
+        `Preview of ${newAddonName}`,
+      );
     });
   });
 
