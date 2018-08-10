@@ -36,6 +36,7 @@
 
 .Rating-star {
   background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
+  padding: 0;
 
   .Rating--small & {
     min-width: 13px;
