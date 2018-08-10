@@ -16,10 +16,6 @@
     &.Rating--large {
       grid-column-gap: 12px;
     }
-
-    &.Rating--small {
-      grid-column-gap: 6px;
-    }
   }
 }
 
@@ -29,21 +25,14 @@
   width: 42px;
 
   .Rating--small & {
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
   }
 
   @include respond-to(large) {
     .Rating--large & {
       height: 48px;
       width: 48px;
-    }
-  }
-
-  @include respond-to(extraLarge) {
-    .Rating--small & {
-      height: 16px;
-      width: 16px;
     }
   }
 

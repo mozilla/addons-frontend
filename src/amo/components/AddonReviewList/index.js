@@ -270,7 +270,8 @@ export class AddonReviewListBase extends React.Component<Props> {
     if (addon && addon.ratings) {
       const averageRating = i18n.formatNumber(addon.ratings.average.toFixed(1));
       addonAverage = i18n.sprintf(
-        // translators: averageRating is a localized number, such as 4.5 in English or ٤٫٧ in Arabic.
+        // translators: averageRating is a localized number, such as 4.5
+        // in English or ٤٫٧ in Arabic.
         i18n.gettext('%(averageRating)s star average'),
         { averageRating },
       );
