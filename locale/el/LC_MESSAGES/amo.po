@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-04 00:28+0000\n"
+"PO-Revision-Date: 2018-08-10 21:49+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1087,7 +1087,7 @@ msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "Μετάφραση ολόκληρων ιστοσελίδων με δύο κλικ"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1859,19 +1859,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:82
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Γράφετε κριτικές για πρόσθετα που δεν έχετε χρησιμοποιήσει προσωπικά."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:87
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Χρησιμοποιείτε βωμολοχίες, σεξουαλική γλώσσα ή γλώσσα που μπορεί να θεωρηθεί απεχθής."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:92
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Συμπεριλαμβάνετε HTML, συνδέσμους, πηγαίο κώδικα ή μέρη κώδικα. Οι κριτικές πρέπει να περιέχουν μόνο κείμενο."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:97
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Κάνετε ψευδείς δηλώσεις, να μην υπονομεύετε ή προσβάλλετε προσωπικά τους δημιουργούς."
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -1987,11 +1987,11 @@ msgstr "Προφίλ"
 
 #: src/amo/components/UserProfileEdit/index.js:562
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με εσάς. Αυτά τα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να σάς γνωρίσουν καλύτερα."
 
 #: src/amo/components/UserProfileEdit/index.js:568
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με αυτό το χρήστη. Αυτά τα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να γνωρίσουν καλύτερα τον/την %(username)s."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "Display Name"
@@ -2011,7 +2011,7 @@ msgstr "Συστήστε το χρήστη %(username)s στην κοινότη�
 
 #: src/amo/components/UserProfileEdit/index.js:671
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Υποστήριξη ορισμένου HTML: %(htmlTags)s. Απαγορεύονται σύνδεσμοι."
 
 #: src/amo/components/UserProfileEdit/index.js:695
 msgid "Notifications"
@@ -2093,7 +2093,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Η Mozilla πρέπει να επικοινωνεί μαζί μου σχετικά με το ατομικό μου πρόσθετο"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
@@ -2225,7 +2225,7 @@ msgstr "Σελίδα %(currentPage)s από %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:132
 msgid "Take short survey"
-msgstr ""
+msgstr "Συμμετοχή σε σύντομη έρευνα"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
