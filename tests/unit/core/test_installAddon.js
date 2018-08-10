@@ -601,6 +601,30 @@ describe(__filename, () => {
         .returns(false);
     });
 
+    describe('isAddonEnabled', () => {
+      it('calls addonManager.getAddon()', () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        let guid;
+
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          _addonManager: fakeAddonManager,
+        });
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          addon: { guid },
+          _addonManager: fakeAddonManager,
+        });
+
+        guid = root.instance().props.guid;
+        const { isAddonEnabled } = root.instance().props;
+
+        return isAddonEnabled().then((addonObject) => {
+          sinon.assert.calledWith(fakeAddonManager.getAddon, addonObject.guid);
+        });
+      });
+    });
+
     describe('setCurrentStatus', () => {
       it('sets the status to ENABLED when an enabled add-on found', () => {
         const installURL = 'http://the.url/';
