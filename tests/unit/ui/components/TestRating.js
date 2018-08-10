@@ -17,7 +17,7 @@ function render(customProps = {}) {
 
 describe(__filename, () => {
   const getStar = ({ root, rating }) => {
-    return root.find(`#Rating-rating-${rating}`);
+    return root.find(`.Rating-rating-${rating}`);
   };
 
   function selectRating(root, ratingNumber) {
