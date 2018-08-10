@@ -227,6 +227,51 @@ describe(__filename, () => {
     );
   });
 
+  it('selects stars on hover', () => {
+    const root = render();
+
+    const hoverStar = getStar({ root, rating: 4 });
+    hoverStar.simulate('mouseEnter', createFakeEvent());
+
+    // The first 4 should be selected:
+    for (const star of [1, 2, 3, 4]) {
+      expect(getStar({ root, rating: star })).toHaveClassName(
+        'Rating-selected-star',
+      );
+    }
+
+    // The last one should not be selected.
+    expect(getStar({ root, rating: 5 })).not.toHaveClassName(
+      'Rating-selected-star',
+    );
+  });
+
+  it('overrides the current rating when hovering over a star', () => {
+    const currentRating = 2;
+    const root = render({ rating: currentRating });
+
+    const hoverStar = getStar({ root, rating: 1 });
+    hoverStar.simulate('mouseEnter', createFakeEvent());
+
+    expect(getStar({ root, rating: currentRating })).not.toHaveClassName(
+      'Rating-selected-star',
+    );
+  });
+
+  it('finishes hovering on mouseLeave', () => {
+    const root = render();
+
+    const rating = 3;
+    const hoverStar = getStar({ root, rating });
+    hoverStar.simulate('mouseEnter', createFakeEvent());
+
+    root.simulate('mouseLeave', createFakeEvent());
+
+    expect(getStar({ root, rating })).not.toHaveClassName(
+      'Rating-selected-star',
+    );
+  });
+
   describe('readOnly=true', () => {
     it('prevents you from selecting ratings', () => {
       const onSelectRating = sinon.stub();
@@ -236,6 +281,18 @@ describe(__filename, () => {
       });
       selectRating(root, 5);
       sinon.assert.notCalled(onSelectRating);
+    });
+
+    it('does nothing when you hover over stars', () => {
+      const root = render({ readOnly: true });
+
+      const rating = 3;
+      const hoverStar = getStar({ root, rating });
+      hoverStar.simulate('mouseEnter', createFakeEvent());
+
+      expect(getStar({ root, rating })).not.toHaveClassName(
+        'Rating-selected-star',
+      );
     });
 
     it('does not classify as editable when read-only', () => {

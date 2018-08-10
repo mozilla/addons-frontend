@@ -47,21 +47,6 @@
     background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
   }
-
-  // The following rules make the ranges of stars appear selected when
-  // you hover over them. For example, when you hover over the third star,
-  // only the first three stars appear selected.
-
-  // First, make all stars appear selected when you hover over the group.
-  &:hover .Rating-star,
-  .Rating-star:focus {
-    background-image: url('./img/closed-star-yellow.svg');
-  }
-
-  // Second, de-select all stars to the right of the cursor.
-  .Rating-star:hover ~ .Rating-star {
-    background-image: url('./img/open-star-dim-yellow.svg');
-  }
 }
 
 .Rating-selected-star {

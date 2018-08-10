@@ -28,13 +28,22 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export class RatingBase extends React.Component<InternalProps> {
+type StateType = {|
+  hoveringOverStar: number | null,
+|};
+
+export class RatingBase extends React.Component<InternalProps, StateType> {
   static defaultProps = {
     className: '',
     readOnly: false,
     styleSize: 'large',
     yellowStars: false,
   };
+
+  constructor(props: InternalProps) {
+    super(props);
+    this.state = { hoveringOverStar: null };
+  }
 
   onSelectRating = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -85,19 +94,35 @@ export class RatingBase extends React.Component<InternalProps> {
     );
   };
 
+  onHoverStar = (star: number) => {
+    if (this.props.readOnly) {
+      return;
+    }
+    this.setState({ hoveringOverStar: star });
+  };
+
+  stopHovering = (event: SyntheticEvent<any>) => {
+    this.setState({ hoveringOverStar: null });
+  };
+
   renderRatings() {
     const { readOnly } = this.props;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
+      let isSelected = thisRating - rating <= 0.25;
+      if (this.state.hoveringOverStar !== null) {
+        isSelected = thisRating <= this.state.hoveringOverStar;
+      }
       const props = {
         className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
-          'Rating-selected-star': thisRating - rating <= 0.25,
+          'Rating-selected-star': isSelected,
           'Rating-half-star':
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
         key: `rating-${thisRating}`,
+        onMouseEnter: () => this.onHoverStar(thisRating),
         title: this.renderTitle(rating, readOnly, thisRating),
       };
 
@@ -138,7 +163,11 @@ export class RatingBase extends React.Component<InternalProps> {
     );
 
     return (
-      <div className={allClassNames} title={description}>
+      <div
+        className={allClassNames}
+        title={description}
+        onMouseLeave={this.stopHovering}
+      >
         {this.renderRatings()}
         <span className="visually-hidden">{description}</span>
       </div>
