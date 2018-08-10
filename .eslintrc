@@ -42,8 +42,6 @@
     "jest"
   ],
   "rules": {
-    // FIXME: Deprecate use of findDOMNode https://github.com/mozilla/addons-frontend/issues/968
-    "react/no-find-dom-node": "off",
     "react/sort-comp": "off",
     // Prettier makes this rule obsolete.
     "indent": "off",
