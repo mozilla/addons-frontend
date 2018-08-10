@@ -24,7 +24,6 @@ import {
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
   UNINSTALLED,
-  UNINSTALLING,
   UNKNOWN,
   validAddonTypes,
   validInstallStates,
@@ -63,7 +62,6 @@ export class AddonBase extends React.Component {
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     isAddonEnabled: PropTypes.func,
-    needsRestart: PropTypes.bool,
     // eslint-disable-next-line react/no-unused-prop-types
     platformFiles: PropTypes.object,
     setCurrentStatus: PropTypes.func.isRequired,
@@ -77,7 +75,6 @@ export class AddonBase extends React.Component {
     _config: config,
     _tracking: tracking,
     getClientCompatibility: _getClientCompatibility,
-    needsRestart: false,
     platformFiles: {},
   };
 
@@ -98,20 +95,6 @@ export class AddonBase extends React.Component {
               {i18n.gettext('Close')}
             </a>
           ) : null}
-        </div>
-      </CSSTransition>
-    ) : null;
-  }
-
-  getRestart() {
-    return this.props.needsRestart ? (
-      <CSSTransition
-        classNames="overlay"
-        key="restart-overlay"
-        timeout={CSS_TRANSITION_TIMEOUT}
-      >
-        <div className="notification restart">
-          <p className="message">{this.restartMessage()}</p>
         </div>
       </CSSTransition>
     ) : null;
@@ -219,18 +202,6 @@ export class AddonBase extends React.Component {
     }
   }
 
-  restartMessage() {
-    const { status, i18n } = this.props;
-    switch (status) {
-      case UNINSTALLING:
-        return i18n.gettext(
-          'This add-on will be uninstalled after you restart Firefox.',
-        );
-      default:
-        return i18n.gettext('Please restart Firefox to use this add-on.');
-    }
-  }
-
   closeError = (e) => {
     e.preventDefault();
     this.props.setCurrentStatus();
@@ -319,10 +290,7 @@ export class AddonBase extends React.Component {
         {this.getThemeImage()}
         {this.getLogo()}
         <div className="content">
-          <TransitionGroup>
-            {this.getError()}
-            {this.getRestart()}
-          </TransitionGroup>
+          <TransitionGroup>{this.getError()}</TransitionGroup>
           <div className="copy">
             <h2
               onClick={this.clickHeadingLink}
