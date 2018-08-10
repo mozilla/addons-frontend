@@ -1,5 +1,5 @@
 /* @flow */
-import invariant from 'invariant';
+import invariant from '../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/invariant';
 
 import {
   CLEAR_ADDON_REVIEWS,
