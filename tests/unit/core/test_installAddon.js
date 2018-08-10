@@ -601,7 +601,7 @@ describe(__filename, () => {
         .returns(false);
     });
 
-    describe('isAddonEnabled', () => {
+    describe('getAddonEnabledStatus', () => {
       it('calls addonManager.getAddon()', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         let guid;
@@ -617,9 +617,9 @@ describe(__filename, () => {
         });
 
         guid = root.instance().props.guid;
-        const { isAddonEnabled } = root.instance().props;
+        const { getAddonEnabledStatus } = root.instance().props;
 
-        return isAddonEnabled().then((addonObject) => {
+        return getAddonEnabledStatus().then((addonObject) => {
           sinon.assert.calledWith(fakeAddonManager.getAddon, addonObject.guid);
         });
       });

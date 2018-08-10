@@ -62,7 +62,7 @@ export class AddonBase extends React.Component {
     iconUrl: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
-    isAddonEnabled: PropTypes.bool,
+    getAddonEnabledStatus: PropTypes.func,
     needsRestart: PropTypes.bool,
     // eslint-disable-next-line react/no-unused-prop-types
     platformFiles: PropTypes.object,
@@ -249,7 +249,7 @@ export class AddonBase extends React.Component {
     const {
       enable,
       hasAddonManager,
-      isAddonEnabled,
+      getAddonEnabledStatus,
       install,
       status,
     } = this.props;
@@ -261,7 +261,7 @@ export class AddonBase extends React.Component {
       // on why we might explicitly be calling the enable function
       // after install
 
-      const isEnabled = await isAddonEnabled();
+      const isEnabled = await getAddonEnabledStatus();
       if (!isEnabled) {
         await enable();
       }
@@ -280,7 +280,7 @@ export class AddonBase extends React.Component {
       heading,
       install,
       installTheme,
-      isAddonEnabled,
+      getAddonEnabledStatus,
       status,
       type,
       uninstall,
@@ -351,7 +351,7 @@ export class AddonBase extends React.Component {
               puffy={false}
               status={status || UNKNOWN}
               uninstall={uninstall}
-              isAddonEnabled={isAddonEnabled}
+              getAddonEnabledStatus={getAddonEnabledStatus}
             />
           ) : (
             <InstallButton

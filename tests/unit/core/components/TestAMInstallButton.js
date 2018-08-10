@@ -397,7 +397,7 @@ describe(__filename, () => {
       addon,
       enable,
       install,
-      isAddonEnabled: sinon.stub().returns(false),
+      getAddonEnabledStatus: sinon.stub().returns(false),
     });
 
     const event = createFakeEvent();
@@ -423,7 +423,7 @@ describe(__filename, () => {
       addon,
       enable,
       install,
-      isAddonEnabled: sinon.stub().returns(true),
+      getAddonEnabledStatus: sinon.stub().returns(true),
     });
 
     const event = createFakeEvent();

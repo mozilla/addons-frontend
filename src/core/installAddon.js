@@ -298,7 +298,6 @@ export class WithInstallHelpers extends React.Component {
     WrappedComponent: PropTypes.func.isRequired,
     _addonManager: PropTypes.object,
     _tracking: PropTypes.object,
-    addon: PropTypes.object,
     defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
@@ -334,21 +333,20 @@ export class WithInstallHelpers extends React.Component {
     }
   }
 
-  isAddonEnabled() {
+  async getAddonEnabledStatus() {
     const {
       _addonManager,
       addon: { guid },
     } = this.props;
 
     log.info('Getting add-on enabled status');
-    return _addonManager
-      .getAddon(guid)
-      .then((addon) => {
-        return addon.isEnabled;
-      })
-      .catch((error) => {
-        log.error(`Caught error from addonManager: ${error}`);
-      });
+    try {
+      const addon = await _addonManager.getAddon(guid);
+      return addon.isEnabled;
+    } catch (error) {
+      log.error(`Caught error from addonManager: ${error}`);
+      return false;
+    }
   }
 
   setCurrentStatus(newProps = this.props) {
@@ -538,7 +536,7 @@ export class WithInstallHelpers extends React.Component {
       enable: (...args) => this.enable(...args),
       install: (...args) => this.install(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
-      isAddonEnabled: (...args) => this.isAddonEnabled(...args),
+      getAddonEnabledStatus: (...args) => this.getAddonEnabledStatus(...args),
       uninstall: (...args) => this.uninstall(...args),
     };
 

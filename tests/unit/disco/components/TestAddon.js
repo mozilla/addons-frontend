@@ -464,7 +464,7 @@ describe(__filename, () => {
         install,
         enable,
         hasAddonManager: true,
-        isAddonEnabled: sinon.stub().returns(false),
+        getAddonEnabledStatus: sinon.stub().returns(false),
         ...props,
       });
     };
@@ -491,7 +491,7 @@ describe(__filename, () => {
       install = sinon.spy();
       enable = sinon.spy();
       const root = renderWithStaticTheme({
-        isAddonEnabled: sinon.stub().returns(true),
+        getAddonEnabledStatus: sinon.stub().returns(true),
       });
       const themeImage = root.find('.theme-image');
       await themeImage.simulate('click', createFakeEvent());
