@@ -27,6 +27,7 @@ import { fetchAddon, getAddonByID, getAddonBySlug } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
+import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -59,18 +60,22 @@ const slugIsPositiveID = (slug) => {
 
 export class AddonBase extends React.Component {
   static propTypes = {
-    config: PropTypes.object,
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
-    // This prop is passed in by withInstallHelpers()
+    config: PropTypes.object,
     defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
+    enable: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
+    hasAddonManager: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
-    platformFiles: PropTypes.object,
+    install: PropTypes.func.isRequired,
+    installTheme: PropTypes.func.isRequired,
     lang: PropTypes.string.isRequired,
+    platformFiles: PropTypes.object,
+    uninstall: PropTypes.func.isRequired,
     // See ReactRouterLocationType in 'core/types/router'
     location: PropTypes.object.isRequired,
     match: PropTypes.shape({
@@ -79,6 +84,7 @@ export class AddonBase extends React.Component {
     installStatus: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     addonsByAuthors: PropTypes.array.isRequired,
+    setCurrentStatus: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -369,10 +375,15 @@ export class AddonBase extends React.Component {
       clientApp,
       config,
       defaultInstallSource,
+      enable,
       errorHandler,
       getClientCompatibility,
+      hasAddonManager,
       i18n,
+      install,
       installStatus,
+      installTheme,
+      uninstall,
       userAgentInfo,
     } = this.props;
 
@@ -468,6 +479,8 @@ export class AddonBase extends React.Component {
     const enableAddonRecommendations =
       config.get('enableAddonRecommendations') &&
       addonType === ADDON_TYPE_EXTENSION;
+    const showInstallButton = addon && isFireFox;
+    const showGetFirefoxButton = addon && !isFireFox;
 
     return (
       <div
@@ -508,8 +521,22 @@ export class AddonBase extends React.Component {
                   <p className="Addon-summary" {...summaryProps} />
                 ) : null}
 
-                {addon &&
-                  isFireFox && (
+                {showInstallButton &&
+                  config.get('enableAMInstallButton') && (
+                    <AMInstallButton
+                      addon={addon}
+                      defaultInstallSource={defaultInstallSource}
+                      disabled={!isCompatible}
+                      enable={enable}
+                      hasAddonManager={hasAddonManager}
+                      install={install}
+                      installTheme={installTheme}
+                      status={installStatus}
+                      uninstall={uninstall}
+                    />
+                  )}
+                {showInstallButton &&
+                  config.get('enableAMInstallButton') === false && (
                     <InstallButton
                       {...this.props}
                       disabled={!isCompatible}
@@ -518,17 +545,16 @@ export class AddonBase extends React.Component {
                       useButton
                     />
                   )}
-                {addon &&
-                  !isFireFox && (
-                    <Button
-                      buttonType="confirm"
-                      href={downloadUrl}
-                      puffy
-                      className="Button--get-firefox"
-                    >
-                      {i18n.gettext('Only with Firefox—Get Firefox Now')}
-                    </Button>
-                  )}
+                {showGetFirefoxButton && (
+                  <Button
+                    buttonType="confirm"
+                    href={downloadUrl}
+                    puffy
+                    className="Button--get-firefox"
+                  >
+                    {i18n.gettext('Only with Firefox—Get Firefox Now')}
+                  </Button>
+                )}
               </div>
 
               <h2 className="visually-hidden">

@@ -99,7 +99,7 @@
       }
     },
     "start-dev": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools'",
+      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
@@ -108,7 +108,7 @@
       }
     },
     "start-dev-proxy": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools' 'node bin/proxy.js | pino'",
+      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools' 'node bin/proxy.js | pino-pretty'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
@@ -192,8 +192,8 @@
     "mozilla-version-comparator": "1.0.2",
     "normalize.css": "8.0.0",
     "normalizr": "3.2.2",
-    "pino": "4.17.6",
     "pino-mozlog": "1.1.0",
+    "pino": "5.0.1",
     "prop-types": "15.6.2",
     "qhistory": "1.0.2",
     "qs": "6.5.2",
@@ -274,11 +274,12 @@
     "object.values": "^1.0.4",
     "photon-colors": "^3.0.1",
     "pino-devtools": "^1.0.2",
+    "pino-pretty": "^2.0.1",
     "piping": "^1.0.0-rc.4",
     "po2json": "^0.4.5",
-    "postcss-loader": "2.1.6",
+    "postcss-loader": "^3.0.0",
     "potools": "^0.2.0",
-    "prettier": "1.14.1",
+    "prettier": "1.14.2",
     "pretty-quick": "1.6.0",
     "react-hot-loader": "^4.3.3",
     "react-test-renderer": "^16.4.2",

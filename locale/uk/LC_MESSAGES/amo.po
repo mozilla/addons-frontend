@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-01 19:14+0000\n"
+"PO-Revision-Date: 2018-08-09 14:21+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1007,7 +1007,7 @@ msgstr "Перегляд відео"
 
 #: src/amo/components/Home/index.js:169
 msgid "Abstract"
-msgstr "Абстрактний"
+msgstr "Абстрактні"
 
 #: src/amo/components/Home/index.js:174
 msgid "Nature"
@@ -1031,7 +1031,7 @@ msgstr "Пори року"
 
 #: src/amo/components/Home/index.js:225
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "Налаштуйте роботу Firefox з додатками. Ви зацікавлені в…"
+msgstr "Налаштуйте роботу Firefox за допомогою розширень…"
 
 #: src/amo/components/Home/index.js:227
 msgid "Change the way Firefox looks with themes."
@@ -1039,7 +1039,7 @@ msgstr "Змініть вигляд Firefox за допомогою тем."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more social media customization extensions"
-msgstr "Дивитися інші розширення для соціальних мереж"
+msgstr "Більше розширень для налаштування соціальних медіа"
 
 #: src/amo/components/Home/index.js:53
 msgid "Social media customization"
