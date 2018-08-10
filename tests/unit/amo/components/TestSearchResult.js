@@ -187,7 +187,34 @@ describe(__filename, () => {
   });
 
   it('displays the thumbnail image as the default src for static theme', () => {
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
+    const headerImageThumb =
+      'https://addons.cdn.mozilla.net/mytestthumb/12345.png';
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
+          },
+          {
+            ...fakePreview,
+            thumbnail_url: headerImageThumb,
+          },
+        ],
+      }),
+    });
+    const image = root.find('.SearchResult-icon');
+
+    expect(image.prop('src')).toEqual(headerImageThumb);
+  });
+
+  it('displays srcSet values if preview has multiple options', () => {
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+    const thumbWidth = 450;
+    const fullWidth = 900;
 
     const root = render({
       addon: createInternalAddon({
@@ -196,15 +223,59 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
+            image_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
+            thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
+          },
+          {
+            ...fakePreview,
             image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
+            image_size: [fullWidth, 200],
+            thumbnail_size: [thumbWidth, 100],
           },
         ],
       }),
     });
     const image = root.find('.SearchResult-icon');
 
-    expect(image.prop('src')).toEqual(headerImageFull);
+    expect(image.prop('srcSet')).toEqual(
+      `${headerImageThumb} ${thumbWidth}w, ${headerImageFull} ${fullWidth}w`,
+    );
   });
+
+  it.each([{ image_url: '' }, { image_size: [] }, { thumbnail_size: [] }])(
+    `renders image without srcSet if there are no preview image sizes or large image %o`,
+    (propOverride) => {
+      const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+      const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
+
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+          previews: [
+            {
+              ...fakePreview,
+              image_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
+              thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/notused.png',
+            },
+            {
+              ...fakePreview,
+              image_url: headerImageFull,
+              thumbnail_url: headerImageThumb,
+              image_size: [400, 200],
+              thumbnail_size: [200, 100],
+              ...propOverride,
+            },
+          ],
+        }),
+      });
+
+      const image = root.find('.SearchResult-icon');
+      expect(image.prop('src')).toEqual(headerImageThumb);
+      expect(image).not.toHaveProp('srcSet');
+    },
+  );
 
   // TODO: This can be removed once migration happens.
   // See: https://github.com/mozilla/addons-frontend/issues/5359

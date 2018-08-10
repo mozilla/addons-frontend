@@ -42,7 +42,11 @@ import {
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
-import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
+import {
+  getAddonIconUrl,
+  getPreviewImage,
+  getPreviewImageSize,
+} from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
@@ -159,10 +163,23 @@ export class AddonBase extends React.Component {
       : null;
 
     if (addon && isTheme(addon.type)) {
-      let previewURL = getPreviewImage(addon);
+      let previewURL = getPreviewImage(addon, { full: false });
+
+      const previewUrlLarge = getPreviewImage(addon);
 
       if (!previewURL && addon.type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
+      }
+
+      const imageAtts = {};
+      if (previewUrlLarge) {
+        const imageWidth = getPreviewImageSize(addon);
+        const thumbWidth = getPreviewImageSize(addon, { full: false });
+        if (imageWidth && thumbWidth) {
+          // If viewing on retina, it should only show the larger size with
+          // the current widths available
+          imageAtts.srcSet = `${previewURL} ${thumbWidth}w, ${previewUrlLarge} ${imageWidth}w`;
+        }
       }
 
       return (
@@ -175,6 +192,7 @@ export class AddonBase extends React.Component {
             alt={label}
             className="Addon-theme-header-image"
             src={previewURL}
+            {...imageAtts}
           />
         </div>
       );

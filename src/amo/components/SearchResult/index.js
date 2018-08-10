@@ -13,7 +13,11 @@ import {
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
-import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
+import {
+  getAddonIconUrl,
+  getPreviewImage,
+  getPreviewImageSize,
+} from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
@@ -57,12 +61,33 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const iconURL = getAddonIconUrl(addon);
 
     let imageURL = iconURL;
+    const imageAtts = {};
 
     if (addon && isTheme(addon.type)) {
+      const previewSearch = getPreviewImage(addon, { index: 1, full: false });
+
       // Since only newly created static themes will have more than one preview
       // we will set up a fallback for now.
-      let themeURL =
-        getPreviewImage(addon, { index: 1 }) || getPreviewImage(addon);
+      let themeURL = previewSearch || getPreviewImage(addon);
+
+      // Let's only worry about setting up srcset if we have the correct
+      // preview for this.
+      if (previewSearch) {
+        const themeUrlLarge = getPreviewImage(addon, { index: 1, full: true });
+
+        if (themeUrlLarge) {
+          const imageSize = getPreviewImageSize(addon, { index: 1 });
+          const thumbSize = getPreviewImageSize(addon, {
+            index: 1,
+            full: false,
+          });
+          if (themeURL && imageSize && thumbSize) {
+            // If viewing on retina, it should only show the larger size with
+            // the current widths available
+            imageAtts.srcSet = `${themeURL} ${thumbSize}w, ${themeUrlLarge} ${imageSize}w`;
+          }
+        }
+      }
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =
@@ -115,6 +140,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
               })}
               src={imageURL}
               alt={addon ? `${addon.name}` : ''}
+              {...imageAtts}
             />
           ) : (
             <p className="SearchResult-notheme">

@@ -17,3 +17,12 @@ export const getPreviewImage = (addon, { index = 0, full = true } = {}) => {
   }
   return null;
 };
+
+export const getPreviewImageSize = (addon, { index = 0, full = true } = {}) => {
+  const preview = addon.previews.length && addon.previews[index];
+  if (preview) {
+    const previewSize = full ? 'image_size' : 'thumbnail_size';
+    return preview[previewSize] && preview[previewSize][0];
+  }
+  return null;
+};
