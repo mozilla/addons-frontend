@@ -8,7 +8,6 @@ describe(__filename, () => {
   const getInfoDialogData = () => {
     return {
       addonName: 'some addon',
-      closeAction: sinon.stub(),
       imageURL: 'http://example.org/image.png',
     };
   };
