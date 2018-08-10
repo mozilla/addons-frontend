@@ -43,28 +43,9 @@ import './styles.scss';
 
 const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
-export const installStaticTheme = async (event, props) => {
-  event.preventDefault();
-  const { hasAddonManager, status } = props;
-
-  if (hasAddonManager && status === UNINSTALLED) {
-    await props.install();
-
-    const isEnabled = await props.isAddonEnabled();
-
-    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
-    // on why we are explicitly calling the enable function
-    // after install
-    if (!isEnabled) {
-      props.enable();
-    }
-  }
-};
-
 export class AddonBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
-    _installStaticTheme: PropTypes.func,
     _tracking: PropTypes.object,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
@@ -94,7 +75,6 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     _config: config,
-    _installStaticTheme: installStaticTheme,
     _tracking: tracking,
     getClientCompatibility: _getClientCompatibility,
     needsRestart: false,
@@ -162,7 +142,7 @@ export class AddonBase extends React.Component {
       let headerLinkProps = {
         className: 'theme-image',
         href: '#',
-        onClick: (e) => this.props._installStaticTheme(e, this.props),
+        onClick: this.installStaticTheme,
       };
 
       if (type === ADDON_TYPE_THEME) {
@@ -261,6 +241,30 @@ export class AddonBase extends React.Component {
         category: CLICK_CATEGORY,
         label: addon.name,
       });
+    }
+  };
+
+  installStaticTheme = async (event) => {
+    event.preventDefault();
+    const {
+      enable,
+      hasAddonManager,
+      isAddonEnabled,
+      install,
+      status,
+    } = this.props;
+
+    if (hasAddonManager && status === UNINSTALLED) {
+      await install();
+
+      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+      // on why we might explicitly be calling the enable function
+      // after install
+
+      const isEnabled = await isAddonEnabled();
+      if (!isEnabled) {
+        await enable();
+      }
     }
   };
 
