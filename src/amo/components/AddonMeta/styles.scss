@@ -29,7 +29,7 @@
   margin-bottom: 24px;
 
   .Rating {
-    height: 18px;
+    height: 16px;
   }
 
   .MetadataCard-list {
@@ -37,6 +37,8 @@
   }
 }
 
+.AddonMeta-rating-content,
 .AddonMeta-rating-title {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }

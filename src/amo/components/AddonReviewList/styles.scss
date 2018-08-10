@@ -28,7 +28,7 @@
 .AddonReviewList-overallRatingStars {
   margin: 0 0 12px;
 
-  @include respond-to(medium) {
+  @include respond-to(extraExtraLarge) {
     margin-bottom: 24px;
   }
 }

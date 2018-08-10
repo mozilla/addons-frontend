@@ -68,12 +68,14 @@ export class AddonMetaBase extends React.Component<InternalProps> {
             },
             {
               content: (
-                <Rating
-                  rating={averageRating}
-                  readOnly
-                  styleSize="small"
-                  yellowStars
-                />
+                <div className="AddonMeta-rating-content">
+                  <Rating
+                    rating={averageRating}
+                    readOnly
+                    styleSize="small"
+                    yellowStars
+                  />
+                </div>
               ),
               title: (
                 <div className="AddonMeta-rating-title">

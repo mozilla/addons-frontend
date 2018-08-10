@@ -3,12 +3,28 @@
 .Rating {
   align-content: center;
   display: grid;
-  grid-column-gap: 6px;
-  grid-template-columns: repeat(5, min-content);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
   justify-content: center;
 
+  // The width of small rating stars are controlled by .Rating-choice.
   &.Rating--small {
     grid-column-gap: 4px;
+    min-height: 13px;
+    width: min-content;
+  }
+
+  // The width of large rating stars are controlled by the container.
+  &.Rating--large {
+    grid-column-gap: 6px;
+    min-height: 48px;
+    width: 100%;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    &.Rating--large {
+      min-height: 64px;
+    }
   }
 
   @include respond-to(extraExtraLarge) {
@@ -20,26 +36,9 @@
 
 .Rating-choice {
   background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
-  height: 42px;
-  width: 42px;
 
   .Rating--small & {
-    height: 14px;
-    width: 14px;
-  }
-
-  @include respond-to(large) {
-    .Rating--large & {
-      height: 48px;
-      width: 48px;
-    }
-  }
-
-  @include respond-to(extraExtraLarge) {
-    .Rating--large & {
-      height: 64px;
-      width: 64px;
-    }
+    min-width: 13px;
   }
 }
 
