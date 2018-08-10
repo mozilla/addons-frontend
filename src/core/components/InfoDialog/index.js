@@ -75,7 +75,7 @@ export class InfoDialogBase extends React.Component<InternalProps> {
             />
             <p className="InfoDialog-description">
               {i18n.gettext(
-                'Manage your add-ons by clicking Addon-ons in the menu.',
+                'Manage your add-ons by clicking Add-ons in the menu.',
               )}
             </p>
           </div>
