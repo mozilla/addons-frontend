@@ -92,7 +92,7 @@ export class RatingBase extends React.Component<InternalProps> {
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
-        className: makeClassName('Rating-choice', {
+        className: makeClassName('Rating-star', {
           'Rating-selected-star': thisRating - rating <= 0.25,
           'Rating-half-star':
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,

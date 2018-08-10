@@ -169,7 +169,7 @@ describe(__filename, () => {
     const root = render();
     [1, 2, 3, 4, 5].forEach((rating) => {
       const star = getStar({ root, rating });
-      expect(star).toHaveClassName('Rating-choice');
+      expect(star).toHaveClassName('Rating-star');
       expect(star.type()).toEqual('button');
     });
   });
@@ -245,7 +245,7 @@ describe(__filename, () => {
 
     it('does not render buttons in read-only mode', () => {
       const root = render({ readOnly: true });
-      const stars = root.find('.Rating-choice');
+      const stars = root.find('.Rating-star');
 
       // Make sure we actually have 5 stars.
       expect(stars).toHaveLength(5);

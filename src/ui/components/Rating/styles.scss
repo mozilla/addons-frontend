@@ -7,7 +7,7 @@
   grid-template-rows: 1fr;
   justify-content: center;
 
-  // The width of small rating stars are controlled by .Rating-choice.
+  // The width of small rating stars are controlled by .Rating-star.
   &.Rating--small {
     grid-column-gap: 4px;
     min-height: 13px;
@@ -34,7 +34,7 @@
   }
 }
 
-.Rating-choice {
+.Rating-star {
   background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
 
   .Rating--small & {
@@ -43,7 +43,7 @@
 }
 
 .Rating--editable {
-  .Rating-choice {
+  .Rating-star {
     background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
   }
@@ -53,13 +53,13 @@
   // only the first three stars appear selected.
 
   // First, make all stars appear selected when you hover over the group.
-  .Rating:hover .Rating-choice,
-  .Rating-choice:focus {
+  .Rating:hover .Rating-star,
+  .Rating-star:focus {
     background-image: url('./img/closed-star-yellow.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
-  .Rating-choice:hover ~ .Rating-choice {
+  .Rating-star:hover ~ .Rating-star {
     background-image: url('./img/open-star-dim-yellow.svg');
   }
 }
@@ -82,11 +82,11 @@
 
 .Rating--yellowStars {
   // When stars are read-only, they are closed. Otherwise, they are open.
-  .Rating-choice {
+  .Rating-star {
     background-image: url('./img/closed-star-dim-yellow.svg');
   }
 
-  &.Rating--editable .Rating-choice {
+  &.Rating--editable .Rating-star {
     background-image: url('./img/open-star-dim-yellow.svg');
   }
 
