@@ -1,6 +1,6 @@
-import { mount } from '../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/enzyme';
-import * as React from '../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
-import PropTypes from '../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types';
+import { mount } from 'enzyme';
+import * as React from 'react';
+import PropTypes from 'prop-types';
 
 import I18nProvider from 'core/i18n/Provider';
 import { fakeI18n } from 'tests/unit/helpers';
