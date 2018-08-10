@@ -989,16 +989,21 @@ describe(__filename, () => {
           name,
           icon_url: iconUrl,
         });
-        const { root } = renderWithInstallHelpers({
+        const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });
         const { enable } = root.instance().props;
 
-        const fakeShowInfo = sinon.stub();
-        return enable({ _showInfo: fakeShowInfo }).then(() => {
+        return enable().then(() => {
           sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
+          sinon.assert.calledWith(
+            dispatch,
+            showInfoDialog({
+              addonName: addon.name,
+              imageURL: iconUrl,
+            }),
+          );
         });
       });
 
@@ -1013,16 +1018,15 @@ describe(__filename, () => {
           name,
           icon_url: iconUrl,
         });
-        const { root } = renderWithInstallHelpers({
+        const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });
         const { enable } = root.instance().props;
 
-        const fakeShowInfo = sinon.stub();
-        return enable({ _showInfo: fakeShowInfo }).then(() => {
+        return enable().then(() => {
           sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
+          sinon.assert.notCalled(dispatch);
         });
       });
 

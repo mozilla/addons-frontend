@@ -388,13 +388,14 @@ export class WithInstallHelpers extends React.Component {
       });
   }
 
-  enable({ _showInfo = this.showInfo } = {}) {
+  enable() {
     const { _addonManager, dispatch, guid, iconUrl, name } = this.props;
+
     return _addonManager
       .enable(guid)
       .then(() => {
         if (!_addonManager.hasPermissionPromptsEnabled()) {
-          _showInfo({ name, iconUrl });
+          this.showInfo({ name, iconUrl });
         }
       })
       .catch((err) => {
