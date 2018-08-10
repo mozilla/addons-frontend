@@ -189,14 +189,12 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   renderLogInToRate() {
     const { AuthenticateButton, addon, location } = this.props;
     return (
-      <div className="RatingManager-log-in-to-rate">
-        <AuthenticateButton
-          noIcon
-          className="RatingManager-log-in-to-rate-button"
-          location={location}
-          logInText={this.getLogInPrompt({ addonType: addon.type })}
-        />
-      </div>
+      <AuthenticateButton
+        noIcon
+        className="RatingManager-log-in-to-rate-button"
+        location={location}
+        logInText={this.getLogInPrompt({ addonType: addon.type })}
+      />
     );
   }
 
@@ -242,12 +240,14 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             >
               {prompt}
             </legend>
-            {!isLoggedIn ? this.renderLogInToRate() : null}
-            <UserRating
-              readOnly={!isLoggedIn}
-              onSelectRating={this.onSelectRating}
-              review={userReview || undefined}
-            />
+            <div className="RatingManager-ratingControl">
+              {!isLoggedIn ? this.renderLogInToRate() : null}
+              <UserRating
+                readOnly={!isLoggedIn}
+                onSelectRating={this.onSelectRating}
+                review={userReview || undefined}
+              />
+            </div>
           </fieldset>
         </form>
         <ReportAbuseButton addon={addon} />
