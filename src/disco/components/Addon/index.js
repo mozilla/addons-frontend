@@ -45,9 +45,9 @@ const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
 export const installStaticTheme = async (event, props) => {
   event.preventDefault();
-  const { status } = props;
+  const { hasAddonManager, status } = props;
 
-  if (status === UNINSTALLED) {
+  if (hasAddonManager && status === UNINSTALLED) {
     await props.install();
 
     const isEnabled = await props.isAddonEnabled();
@@ -156,24 +156,24 @@ export class AddonBase extends React.Component {
     if (isTheme(type)) {
       const { getBrowserThemeData, i18n } = this.props;
       const { name, previewURL } = addon;
-      const lightweightTheme = type === ADDON_TYPE_THEME;
 
       let imageUrl = getPreviewImage(addon);
 
-      if (!imageUrl && lightweightTheme) {
-        imageUrl = previewURL;
-      }
-
-      const headerLinkProps = {
+      let headerLinkProps = {
         className: 'theme-image',
         href: '#',
-        onClick: lightweightTheme
-          ? this.installTheme
-          : (e) => this.props._installStaticTheme(e, this.props),
-        'data-browsertheme': lightweightTheme
-          ? getBrowserThemeData()
-          : undefined,
+        onClick: (e) => this.props._installStaticTheme(e, this.props),
       };
+
+      if (type === ADDON_TYPE_THEME) {
+        imageUrl = previewURL;
+
+        headerLinkProps = {
+          ...headerLinkProps,
+          onClick: this.installTheme,
+          'data-browsertheme': getBrowserThemeData(),
+        };
+      }
 
       return (
         <a {...headerLinkProps}>

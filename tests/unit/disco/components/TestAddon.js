@@ -464,7 +464,6 @@ describe(__filename, () => {
         addon,
         _installStaticTheme,
         status: UNINSTALLED,
-        type: ADDON_TYPE_THEME,
       });
     });
 
@@ -603,7 +602,6 @@ describe(__filename, () => {
         ...props,
       });
     };
-
     it('renders the AMInstallButton when config allows it', () => {
       const root = renderWithAMInstallButton();
 
