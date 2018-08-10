@@ -334,19 +334,13 @@ export class WithInstallHelpers extends React.Component {
     }
   }
 
-  getCurrentStatus() {
+  isAddonEnabled() {
     const {
       _addonManager,
       addon: { guid },
-      hasAddonManager,
     } = this.props;
 
-    if (!hasAddonManager) {
-      log.info('No addon manager, cannot set add-on status');
-      return Promise.resolve();
-    }
-
-    log.info('Getting add-on status');
+    log.info('Getting add-on enabled status');
     return _addonManager
       .getAddon(guid)
       .then((addon) => {
@@ -544,7 +538,7 @@ export class WithInstallHelpers extends React.Component {
       enable: (...args) => this.enable(...args),
       install: (...args) => this.install(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
-      getCurrentStatus: (...args) => this.getCurrentStatus(...args),
+      isAddonEnabled: (...args) => this.isAddonEnabled(...args),
       uninstall: (...args) => this.uninstall(...args),
     };
 

@@ -24,6 +24,7 @@ import {
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
   INSTALLED,
+  UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
   validAddonTypes,
@@ -46,10 +47,11 @@ const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 export const installStaticTheme = async (event, props) => {
   event.preventDefault();
   const { status } = props;
-  if (status !== INSTALLED) {
+
+  if (status === UNINSTALLED) {
     await props.install();
 
-    const isEnabled = await props.getCurrentStatus();
+    const isEnabled = await props.isAddonEnabled();
 
     // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
     // on why we are explicitly calling the enable function
@@ -62,7 +64,6 @@ export const installStaticTheme = async (event, props) => {
 
 export class AddonBase extends React.Component {
   static propTypes = {
-    getCurrentStatus: PropTypes.bool,
     _config: PropTypes.object,
     _installStaticTheme: PropTypes.func,
     _tracking: PropTypes.object,
@@ -81,6 +82,7 @@ export class AddonBase extends React.Component {
     iconUrl: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
+    isAddonEnabled: PropTypes.bool,
     needsRestart: PropTypes.bool,
     // eslint-disable-next-line react/no-unused-prop-types
     platformFiles: PropTypes.object,
@@ -275,6 +277,7 @@ export class AddonBase extends React.Component {
       heading,
       install,
       installTheme,
+      isAddonEnabled,
       status,
       type,
       uninstall,
@@ -345,7 +348,7 @@ export class AddonBase extends React.Component {
               puffy={false}
               status={status || UNKNOWN}
               uninstall={uninstall}
-              getCurrentStatus={this.props.getCurrentStatus}
+              isAddonEnabled={isAddonEnabled}
             />
           ) : (
             <InstallButton
