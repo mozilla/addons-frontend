@@ -53,7 +53,7 @@
   // only the first three stars appear selected.
 
   // First, make all stars appear selected when you hover over the group.
-  .Rating:hover .Rating-star,
+  &:hover .Rating-star,
   .Rating-star:focus {
     background-image: url('./img/closed-star-yellow.svg');
   }
