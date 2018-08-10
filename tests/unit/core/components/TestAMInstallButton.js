@@ -393,17 +393,46 @@ describe(__filename, () => {
     const enable = sinon.spy();
     const install = sinon.spy();
 
-    const root = render({ addon, enable, install });
+    const root = render({
+      addon,
+      enable,
+      install,
+      isAddonEnabled: sinon.stub().returns(false),
+    });
 
     const event = createFakeEvent();
 
     const installButton = root.find('.AMInstallButton-button');
     await installButton.simulate('click', event);
 
-    sinon.assert.calledOnce(install);
+    await sinon.assert.calledOnce(install);
     sinon.assert.calledOnce(enable);
     sinon.assert.calledOnce(event.preventDefault);
     sinon.assert.calledOnce(event.stopPropagation);
+  });
+
+  it("does not call the `enable` after the `install `helper for a static theme if it's already enabled", async () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const enable = sinon.spy();
+    const install = sinon.spy();
+
+    const root = render({
+      addon,
+      enable,
+      install,
+      isAddonEnabled: sinon.stub().returns(true),
+    });
+
+    const event = createFakeEvent();
+
+    const installButton = root.find('.AMInstallButton-button');
+    await installButton.simulate('click', event);
+
+    await sinon.assert.calledOnce(install);
+    sinon.assert.notCalled(enable);
   });
 
   it.each([ENABLED, INSTALLED])(
