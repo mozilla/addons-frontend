@@ -101,7 +101,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     this.setState({ hoveringOverStar: star });
   };
 
-  stopHovering = (event: SyntheticEvent<any>) => {
+  stopHovering = () => {
     this.setState({ hoveringOverStar: null });
   };
 
