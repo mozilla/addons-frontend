@@ -4,6 +4,8 @@ import { oneLine } from 'common-tags';
 
 import * as utils from 'core/i18n/utils';
 
+import { RTL, LTR } from 'core/constants';
+
 const defaultLang = config.get('defaultLang');
 
 describe(__filename, () => {
@@ -133,23 +135,23 @@ describe(__filename, () => {
 
   describe('getDirection()', () => {
     it('should see ar as rtl', () => {
-      expect(utils.getDirection('ar')).toEqual('rtl');
+      expect(utils.getDirection('ar')).toEqual(RTL);
     });
 
     it('should see en-US as ltr', () => {
-      expect(utils.getDirection('en-US')).toEqual('ltr');
+      expect(utils.getDirection('en-US')).toEqual(LTR);
     });
 
     it('should see en as ltr', () => {
-      expect(utils.getDirection('en')).toEqual('ltr');
+      expect(utils.getDirection('en')).toEqual(LTR);
     });
 
     it('should default to ltr on bad input', () => {
-      expect(utils.getDirection('whatevs')).toEqual('ltr');
+      expect(utils.getDirection('whatevs')).toEqual(LTR);
     });
 
     it('should default to ltr on bad type', () => {
-      expect(utils.getDirection(1)).toEqual('ltr');
+      expect(utils.getDirection(1)).toEqual(LTR);
     });
   });
 
