@@ -2,7 +2,7 @@ import EventEmitter from 'events';
 
 import { datadogTiming } from 'core/middleware/datadogTiming';
 import { getFakeConfig } from 'tests/unit/helpers';
-import { ServerTestHelper } from 'tests/unit/core/server/testServer';
+import { ServerTestHelper } from 'tests/unit/core/server/test_server';
 
 describe(__filename, () => {
   let hotShotsClient;
