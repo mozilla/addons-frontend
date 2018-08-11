@@ -857,10 +857,7 @@ describe(__filename, () => {
       'UserProfile-review--is-reply',
     );
 
-    const byLine = shallow(root.find(UserReview).prop('byLine'), {
-      // The `Link` component needs the store.
-      context: { store },
-    });
+    const byLine = shallow(<div>{root.find(UserReview).prop('byLine')}</div>);
 
     expect(byLine.text()).toContain('Developer response');
   });
