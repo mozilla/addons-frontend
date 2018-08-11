@@ -3,7 +3,6 @@ import moment from 'moment';
 import { oneLine } from 'common-tags';
 
 import * as utils from 'core/i18n/utils';
-
 import { RTL, LTR } from 'core/constants';
 
 const defaultLang = config.get('defaultLang');

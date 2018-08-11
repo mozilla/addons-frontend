@@ -8,7 +8,7 @@ import FakeApp, {
   fakeSRIData,
 } from 'tests/unit/core/server/fakeApp';
 import { getFakeConfig } from 'tests/unit/helpers';
-import { RTL, LTR } from 'core/constants';
+import { RTL } from 'core/constants';
 
 describe(__filename, () => {
   const _helmetCanUseDOM = Helmet.canUseDOM;
