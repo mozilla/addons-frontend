@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-10 21:49+0000\n"
+"PO-Revision-Date: 2018-08-11 08:50+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -693,11 +693,11 @@ msgstr "Υποστηρίξτε αυτούς τους καλλιτέχνες"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Ο καλλιτέχνης αυτού του θέματος σάς ζητάει να βοηθήσετε στη δημιουργία του με μια μικρή συνεισφορά."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Οι καλλιτέχνες αυτού του θέματος σάς ζητούν να βοηθήσετε στη δημιουργία του με μια μικρή συνεισφορά."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this author"
@@ -709,11 +709,11 @@ msgstr "Υποστήριξη δημιουργών"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Ο δημιουργός αυτού του προσθέτου σάς ζητάει να βοηθήσετε στη συνεχή εργασία του με μια μικρή συνεισφορά."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Οι δημιουργοί αυτού του προσθέτου σάς ζητούν να βοηθήσετε στη συνεχή εργασία του με μια μικρή συνεισφορά."
 
 #: src/amo/components/ContributeCard/index.js:87
 msgid "Contribute now"
