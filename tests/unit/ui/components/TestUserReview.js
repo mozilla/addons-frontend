@@ -45,7 +45,7 @@ describe(__filename, () => {
       id: 1,
       rating: 2,
     });
-    const root = render({ review });
+    const root = render({ review, showRating: true });
 
     expect(root.find('.UserReview-body').html()).toContain(fakeReview.body);
 
@@ -73,7 +73,15 @@ describe(__filename, () => {
   });
 
   it('hides ratings for replies', () => {
-    const root = render({ showRating: true });
+    const root = render({ showRating: false });
     expect(root.find(UserRating)).toHaveLength(0);
+  });
+
+  it('accepts a class name', () => {
+    const className = 'custom-css-class';
+    const root = render({ className });
+
+    expect(root).toHaveClassName('UserReview');
+    expect(root).toHaveClassName(className);
   });
 });

@@ -16,6 +16,7 @@ type ExternalReviewTypeBase = {|
   body: string,
   created: Date,
   id: number,
+  is_developer_reply: boolean,
   is_latest: boolean,
   title: string,
   user: {|
