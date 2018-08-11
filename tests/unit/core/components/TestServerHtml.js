@@ -8,6 +8,7 @@ import FakeApp, {
   fakeSRIData,
 } from 'tests/unit/core/server/fakeApp';
 import { getFakeConfig } from 'tests/unit/helpers';
+import { RTL } from 'core/constants';
 
 describe(__filename, () => {
   const _helmetCanUseDOM = Helmet.canUseDOM;
@@ -39,11 +40,11 @@ describe(__filename, () => {
   }
 
   it('renders html attrs provided', () => {
-    const root = render({ htmlLang: 'ar', htmlDir: 'rtl' });
+    const root = render({ htmlLang: 'ar', htmlDir: RTL });
     const html = root.find('html');
 
     expect(html).toHaveProp('lang', 'ar');
-    expect(html).toHaveProp('dir', 'rtl');
+    expect(html).toHaveProp('dir', RTL);
   });
 
   it('renders meta attrs inside helmet', () => {
