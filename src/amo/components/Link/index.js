@@ -1,5 +1,6 @@
 import joinUrl from 'join-url';
 import * as React from 'react';
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -20,6 +21,7 @@ export class LinkBase extends React.Component {
     prependClientApp: PropTypes.bool,
     prependLang: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    target: PropTypes.string,
   };
 
   static defaultProps = {
@@ -27,6 +29,7 @@ export class LinkBase extends React.Component {
     externalDark: false,
     prependClientApp: true,
     prependLang: true,
+    target: null,
   };
 
   urlPrefix({ clientApp, lang, prependClientApp, prependLang } = {}) {
@@ -58,6 +61,7 @@ export class LinkBase extends React.Component {
       prependClientApp,
       prependLang,
       to,
+      target,
       ...customProps
     } = this.props;
     const urlPrefix = this.urlPrefix({
@@ -108,10 +112,24 @@ export class LinkBase extends React.Component {
     }
 
     return (
-      <Link {...customProps} to={linkTo}>
-        {children}
-        {needsExternalIcon ? <Icon name={iconName} /> : null}
-      </Link>
+      <Fragment>
+        {target ? (
+          <Link
+            {...customProps}
+            to={linkTo}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {children}
+            {needsExternalIcon ? <Icon name={iconName} /> : null}
+          </Link>
+        ) : (
+          <Link {...customProps} to={linkTo}>
+            {children}
+            {needsExternalIcon ? <Icon name={iconName} /> : null}
+          </Link>
+        )}
+      </Fragment>
     );
   }
 }
