@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-11 08:57+0000\n"
+"PO-Revision-Date: 2018-08-13 13:51+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1151,7 +1151,7 @@ msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
-msgstr ""
+msgstr "Δημιουργήστε κωδικούς επαλήθευσης 2-βημάτων από το Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:48
 msgid "IP Address and Domain Information"
@@ -1207,7 +1207,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Έχετε πολλές ανοικτές καρτέλες; Οργανώστε τις σε μια τακτοποιημένη πλευρική γραμμή"
 
 #: src/amo/components/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1395,7 +1395,7 @@ msgstr "Λάβαμε την αναφορά σας. Ευχαριστούμε πο
 
 #: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Δεν μπορούμε να απαντήσουμε σε κάθε αναφορά κατάχρησης, αλλά θα ερευνήσουμε το ζήτημα."
 
 #: src/amo/components/ReportAbuseButton/index.js:139
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -2019,11 +2019,12 @@ msgstr "Ειδοποιήσεις"
 
 #: src/amo/components/UserProfileEdit/index.js:699
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Η Mozilla ενδέχεται να σάς στέλνει, περιστασιακά, email σχετικά με ανερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Παρακαλούμε επιλέξτε τα θέματα που σάς ενδιαφέρουν."
 
 #: src/amo/components/UserProfileEdit/index.js:704
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Η Mozilla ενδέχεται να στέλνει, περιστασιακά, σε αυτό το χρήστη email σχετικά με ανερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Παρακαλούμε επιλέξτε τα θέματα που ίσως ενδιαφέρουν αυτό το χρήστη."
 
 #: src/amo/components/UserProfileEdit/index.js:719
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
