@@ -517,11 +517,12 @@ describe(__filename, () => {
     });
 
     it('renders author names without links if no URLs', () => {
+      const name = 'Hayley';
       const addon = {
         ...fakeAddon,
         authors: [
           {
-            name: 'Hayley',
+            name,
             url: null,
           },
         ],
@@ -529,20 +530,22 @@ describe(__filename, () => {
       const header = renderAddonHeader({ addon });
       const h3 = header.find('.AddonReviewList-header-authors').render();
 
-      expect(h3.text()).toEqual('by Hayley');
+      expect(h3.text()).toEqual(`by ${name}`);
       expect(h3.find('a')).toHaveLength(0);
     });
 
     it('renders author names with URLs if they exist', () => {
+      const name1 = 'Chantal';
+      const name2 = 'Leroy';
       const addon = {
         ...fakeAddon,
         authors: [
           {
-            name: 'Chantal',
+            name: name1,
             url: 'http://www.carolynmark.com/',
           },
           {
-            name: 'Leroy',
+            name: name2,
             url: 'http://www.carolynmark.com/',
           },
         ],
@@ -550,7 +553,7 @@ describe(__filename, () => {
       const header = renderAddonHeader({ addon });
       const h3 = header.find('.AddonReviewList-header-authors').render();
 
-      expect(h3.text()).toEqual('by Chantal, Leroy');
+      expect(h3.text()).toEqual(`by ${name1}, ${name2}`);
       expect(h3.find('a')).toHaveLength(2);
     });
 
