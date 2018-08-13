@@ -690,12 +690,15 @@ describe(__filename, () => {
     });
 
     it('renders RatingsByStar with an add-on', () => {
-      const addon = { ...fakeAddon };
+      const addon = { ...fakeAddon, id: 8892 };
       dispatchAddon(addon);
       const root = render();
       const ratingsByStar = root.find(RatingsByStar);
 
       expect(ratingsByStar).toHaveProp('addon');
+      // Do a sanity check to make sure the right add-on was used.
+      // This can't compare the full object since it the test doesn't have
+      // access to the internal add-on.
       expect(ratingsByStar.prop('addon')).toMatchObject({ id: addon.id });
     });
 
