@@ -14,6 +14,10 @@ import './styles.scss';
 export const RATING_STYLE_SIZE_TYPES = { small: '', large: '' };
 const RATING_STYLE_SIZES = Object.keys(RATING_STYLE_SIZE_TYPES);
 
+type StateType = {|
+  hoveringOverStar: number | null,
+|};
+
 type Props = {|
   className?: string,
   onSelectRating?: (rating: number) => void,
@@ -25,12 +29,8 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _setState?: (Object) => void,
+  _setState?: ($Shape<StateType>) => void,
   i18n: I18nType,
-|};
-
-type StateType = {|
-  hoveringOverStar: number | null,
 |};
 
 export class RatingBase extends React.Component<InternalProps, StateType> {
@@ -46,7 +46,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     this.state = { hoveringOverStar: null };
   }
 
-  _setState(newState) {
+  _setState(newState: $Shape<StateType>) {
     const setState = this.props._setState || this.setState.bind(this);
     return setState(newState);
   }
