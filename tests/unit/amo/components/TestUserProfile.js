@@ -8,6 +8,7 @@ import UserProfile, {
   UserProfileBase,
 } from 'amo/components/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import Link from 'amo/components/Link';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   fetchUserAccount,
@@ -808,21 +809,57 @@ describe(__filename, () => {
     );
     expect(root.find('.UserProfile-reviews')).toHaveProp('footer', null);
 
-    expect(root.find(UserReview)).toHaveLength(reviews.length);
+    expect(root.find('.UserProfile-review')).toHaveLength(reviews.length);
+    expect(root.find('.UserProfile-review')).not.toHaveClassName(
+      'UserProfile-review--is-reply',
+    );
 
     const byLine = shallow(root.find(UserReview).prop('byLine'), {
       // The `Link` component needs the store.
       context: { store },
     });
 
-    expect(byLine).toHaveProp('title', 'Browse the reviews for this add-on');
-    expect(byLine).toHaveProp('to', `/addon/${fakeReview.addon.slug}/reviews/`);
-    expect(byLine.children()).toHaveText(
+    expect(byLine.find(Link)).toHaveProp(
+      'title',
+      'Browse the reviews for this add-on',
+    );
+    expect(byLine.find(Link)).toHaveProp(
+      'to',
+      `/addon/${fakeReview.addon.slug}/reviews/`,
+    );
+    expect(byLine.find(Link).childAt(0)).toHaveText(
       root
         .instance()
         .props.i18n.moment(fakeReview.created)
         .fromNow(),
     );
+    expect(byLine.text()).not.toContain('Developer response');
+  });
+
+  it('adds extra style when review is a developer response', () => {
+    const { params, store } = signInUserWithUsername('black-panther');
+    const user = getCurrentUser(store.getState().users);
+
+    const reviews = [
+      {
+        ...fakeReview,
+        is_developer_reply: true,
+      },
+    ];
+    _setUserReviews({ store, userId: user.id, reviews });
+
+    const location = createFakeLocation({ query: { foo: 'bar' } });
+
+    const root = renderUserProfile({ location, params, store });
+
+    expect(root.find('.UserProfile-review')).toHaveLength(reviews.length);
+    expect(root.find('.UserProfile-review')).toHaveClassName(
+      'UserProfile-review--is-reply',
+    );
+
+    const byLine = shallow(<div>{root.find(UserReview).prop('byLine')}</div>);
+
+    expect(byLine.text()).toContain('Developer response');
   });
 
   it(`displays the user's reviews with pagination when there are more reviews than the default API page size`, () => {

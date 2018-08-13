@@ -183,6 +183,7 @@ export const fakeReview = Object.freeze({
     url: 'http://some.com/link/to/profile',
   },
   is_latest: false,
+  is_developer_reply: false,
   body: 'It is Okay',
   title: 'Review Title',
 });

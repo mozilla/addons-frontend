@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-08 01:31+0000\n"
-"Last-Translator: Rodrigo Guerra <rodmguerra@gmail.com>\n"
+"PO-Revision-Date: 2018-08-11 15:52+0000\n"
+"Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:177
 msgid "Loading…"
-msgstr ""
+msgstr "Cargante…"
 
 #: src/amo/components/AddAddonToCollection/index.js:179
 msgid "Adding…"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:202
 msgid "Create new collection"
-msgstr ""
+msgstr "Crear un nove collection"
 
 #: src/amo/components/AddAddonToCollection/index.js:245
 msgid "Added to %(collectionName)s"

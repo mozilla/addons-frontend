@@ -152,7 +152,7 @@ describe(__filename, () => {
 
     const rating = root.find(UserReview);
     expect(rating).toHaveProp('review', review);
-    expect(rating).toHaveProp('showRating', false);
+    expect(rating).toHaveProp('showRating', true);
     expect(rating).toHaveProp('byLine');
   });
 

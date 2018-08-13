@@ -299,3 +299,6 @@ export const RATINGS_MODERATE = 'Ratings:Moderate';
 export const USERS_EDIT = 'Users:Edit';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
+
+export const RTL = 'rtl';
+export const LTR = 'ltr';
