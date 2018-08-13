@@ -112,9 +112,10 @@ describe(__filename, () => {
       const root = render({ addon: null, location });
       const header = getAddonHeader(root);
 
-      expect(
-        header.find('.AddonReviewList-header-icon img').prop('src'),
-      ).toEqual(fallbackIcon);
+      expect(header.find('.AddonReviewList-header-icon img')).toHaveProp(
+        'src',
+        fallbackIcon,
+      );
       expect(
         header.find('.AddonReviewList-header-text').find(LoadingText),
       ).toHaveLength(3);
