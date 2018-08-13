@@ -131,7 +131,6 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
           'Rating-half-star':
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
-        id: thisRating,
         key: `rating-${thisRating}`,
         onMouseEnter: () => this.onHoverStar(thisRating),
         title: this.renderTitle(rating, readOnly, thisRating),
