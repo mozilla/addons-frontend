@@ -69,7 +69,7 @@ export class AddonBase extends React.Component {
     enable: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
-    getAddonEnabledStatus: PropTypes.func.isRequired,
+    isAddonEnabled: PropTypes.func.isRequired,
     hasAddonManager: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
     install: PropTypes.func.isRequired,
@@ -380,7 +380,7 @@ export class AddonBase extends React.Component {
       errorHandler,
       getClientCompatibility,
       hasAddonManager,
-      getAddonEnabledStatus,
+      isAddonEnabled,
       i18n,
       install,
       installStatus,
@@ -535,7 +535,7 @@ export class AddonBase extends React.Component {
                       installTheme={installTheme}
                       status={installStatus}
                       uninstall={uninstall}
-                      getAddonEnabledStatus={getAddonEnabledStatus}
+                      isAddonEnabled={isAddonEnabled}
                     />
                   )}
                 {showInstallButton &&

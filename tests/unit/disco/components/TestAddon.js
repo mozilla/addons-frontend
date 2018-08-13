@@ -464,7 +464,7 @@ describe(__filename, () => {
         install,
         enable,
         hasAddonManager: true,
-        getAddonEnabledStatus: sinon.stub().returns(false),
+        isAddonEnabled: sinon.stub().resolves(false),
         ...props,
       });
     };
@@ -481,9 +481,8 @@ describe(__filename, () => {
       enable = sinon.spy();
 
       const root = renderWithStaticTheme();
-      const themeImage = root.find('.theme-image-link');
-      await themeImage.simulate('click', createFakeEvent());
-      await sinon.assert.calledOnce(install);
+      await root.instance().installStaticTheme(createFakeEvent());
+      sinon.assert.calledOnce(install);
       sinon.assert.calledOnce(enable);
     });
 
@@ -491,11 +490,12 @@ describe(__filename, () => {
       install = sinon.spy();
       enable = sinon.spy();
       const root = renderWithStaticTheme({
-        getAddonEnabledStatus: sinon.stub().returns(true),
+        isAddonEnabled: sinon.stub().resolves(true),
       });
-      const themeImage = root.find('.theme-image-link');
-      await themeImage.simulate('click', createFakeEvent());
-      await sinon.assert.called(install);
+
+      await root.instance().installStaticTheme(createFakeEvent());
+
+      sinon.assert.called(install);
       sinon.assert.notCalled(enable);
     });
 
@@ -514,9 +514,9 @@ describe(__filename, () => {
       const root = renderWithStaticTheme({
         status: INSTALLED,
       });
-      const themeImage = root.find('.theme-image-link');
-      await themeImage.simulate('click', createFakeEvent());
-      await sinon.assert.notCalled(install);
+
+      await root.instance().installStaticTheme(createFakeEvent());
+      sinon.assert.notCalled(install);
     });
   });
 

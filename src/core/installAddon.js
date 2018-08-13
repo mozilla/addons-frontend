@@ -333,18 +333,17 @@ export class WithInstallHelpers extends React.Component {
     }
   }
 
-  async getAddonEnabledStatus() {
+  async isAddonEnabled() {
     const {
       _addonManager,
       addon: { guid },
     } = this.props;
 
-    log.info('Getting add-on enabled status');
     try {
       const addon = await _addonManager.getAddon(guid);
       return addon.isEnabled;
     } catch (error) {
-      log.error(`Caught error from addonManager: ${error}`);
+      log.error('could not determine whether the add-on was enabled', error);
     }
 
     return false;
@@ -537,7 +536,7 @@ export class WithInstallHelpers extends React.Component {
       enable: (...args) => this.enable(...args),
       install: (...args) => this.install(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
-      getAddonEnabledStatus: (...args) => this.getAddonEnabledStatus(...args),
+      isAddonEnabled: (...args) => this.isAddonEnabled(...args),
       uninstall: (...args) => this.uninstall(...args),
     };
 

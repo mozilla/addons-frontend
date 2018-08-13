@@ -601,11 +601,10 @@ describe(__filename, () => {
         .returns(false);
     });
 
-    describe('getAddonEnabledStatus', () => {
-      it('calls addonManager.getAddon()', () => {
+    describe('isAddonEnabled', () => {
+      it('returns add-on status', async () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         let guid;
-
         const addon = createInternalAddon({
           ...fakeAddon,
           _addonManager: fakeAddonManager,
@@ -615,12 +614,32 @@ describe(__filename, () => {
           addon: { guid },
           _addonManager: fakeAddonManager,
         });
+        const { isAddonEnabled } = root.instance().props;
+        const isEnabled = await isAddonEnabled();
 
-        const { getAddonEnabledStatus } = root.instance().props;
+        expect(isEnabled).toEqual(true);
+        sinon.assert.calledWith(fakeAddonManager.getAddon, guid);
+      });
 
-        return getAddonEnabledStatus().then((addonObject) => {
-          sinon.assert.calledWith(fakeAddonManager.getAddon, addonObject.guid);
+      it('returns false when there is an error', async () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve(null),
         });
+
+        let guid;
+        const addon = createInternalAddon({
+          addon: null,
+          _addonManager: fakeAddonManager,
+        });
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          addon: { guid },
+          _addonManager: fakeAddonManager,
+        });
+        const { isAddonEnabled } = root.instance().props;
+        const isEnabled = await isAddonEnabled();
+
+        expect(isEnabled).toEqual(false);
       });
     });
 
