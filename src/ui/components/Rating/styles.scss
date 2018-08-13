@@ -23,13 +23,8 @@
 
   @include respond-to(extraExtraLarge) {
     &.Rating--large {
-      min-height: 64px;
-    }
-  }
-
-  @include respond-to(extraExtraLarge) {
-    &.Rating--large {
       grid-column-gap: 12px;
+      min-height: 64px;
     }
   }
 }
