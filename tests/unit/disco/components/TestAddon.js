@@ -476,7 +476,7 @@ describe(__filename, () => {
       expect(image).toHaveProp('alt', `Preview of ${newAddonName}`);
     });
 
-    it("calls install and enable helper functions when clicking on the static theme's header image", async () => {
+    it("calls install and enable helper functions when clicking on the static theme's header image if hasAddonManager is true", async () => {
       install = sinon.spy();
       enable = sinon.spy();
 
@@ -532,7 +532,7 @@ describe(__filename, () => {
       previews: [],
     };
 
-    it('renders wrapper link around image and calls installTheme on click', () => {
+    it('renders wrapper link around image and calls installTheme on click if hasAddonManager is true', () => {
       const root = renderAddon({
         addon,
         installTheme,
@@ -557,7 +557,6 @@ describe(__filename, () => {
     it('does not render wrapper link around image if hasAddonManager is false', () => {
       const root = renderAddon({
         addon,
-        status: UNINSTALLED,
         type: ADDON_TYPE_THEME,
         hasAddonManager: false,
       });
@@ -567,7 +566,6 @@ describe(__filename, () => {
     it("renders the alt tag with addon's name", () => {
       const root = renderAddon({
         addon,
-        status: UNINSTALLED,
         type: ADDON_TYPE_THEME,
       });
       expect(root.find('.Addon-theme-header-image')).toHaveProp(

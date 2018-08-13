@@ -616,7 +616,6 @@ describe(__filename, () => {
           _addonManager: fakeAddonManager,
         });
 
-        guid = root.instance().props.guid;
         const { getAddonEnabledStatus } = root.instance().props;
 
         return getAddonEnabledStatus().then((addonObject) => {
