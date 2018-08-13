@@ -254,14 +254,15 @@ export class AddonBase extends React.Component {
 
     if (status === UNINSTALLED) {
       await install();
+    }
 
-      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
-      // on why we might explicitly be calling the enable function
-      // after install
-      const isEnabled = await getAddonEnabledStatus();
-      if (!isEnabled) {
-        await enable();
-      }
+    const isEnabled = await getAddonEnabledStatus();
+
+    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
+    // on why we might explicitly be calling the enable function
+    // after install
+    if (!isEnabled) {
+      await enable();
     }
   };
 

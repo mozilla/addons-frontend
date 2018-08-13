@@ -508,7 +508,7 @@ describe(__filename, () => {
       expect(root.find('.theme-image-link')).toHaveLength(0);
     });
 
-    it("does not call install or enable helper functions when clicking on the static theme's header image and UNINSTALLED is false", async () => {
+    it("does not call the install helper function when clicking on the static theme's header image and UNINSTALLED is false", async () => {
       install = sinon.spy();
       enable = sinon.spy();
       const root = renderWithStaticTheme({
@@ -517,7 +517,6 @@ describe(__filename, () => {
       const themeImage = root.find('.theme-image-link');
       await themeImage.simulate('click', createFakeEvent());
       await sinon.assert.notCalled(install);
-      sinon.assert.notCalled(enable);
     });
   });
 
