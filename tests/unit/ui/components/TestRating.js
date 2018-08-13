@@ -284,15 +284,14 @@ describe(__filename, () => {
     });
 
     it('does nothing when you hover over stars', () => {
-      const root = render({ readOnly: true });
+      const _setState = sinon.stub();
+      const root = render({ readOnly: true, _setState });
 
       const rating = 3;
       const hoverStar = getStar({ root, rating });
       hoverStar.simulate('mouseEnter', createFakeEvent());
 
-      expect(getStar({ root, rating })).not.toHaveClassName(
-        'Rating-selected-star',
-      );
+      sinon.assert.notCalled(_setState);
     });
 
     it('does nothing when finishing a hover action', () => {
