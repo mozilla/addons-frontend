@@ -1027,7 +1027,7 @@ describe(__filename, () => {
     expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
-  it('passes showEditForm as true to CollectionManager for a mozilla collection when user has the `Admin:Curation` permission', () => {
+  it('renders a CollectionManager in edit mode for a mozilla collection when user has the `Admin:Curation` permission', () => {
     const { store } = dispatchSignInActions({
       userProps: {
         permissions: [MOZILLA_COLLECTIONS_EDIT],
@@ -1047,7 +1047,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store, editing: true });
 
-    expect(wrapper.find(CollectionManager)).toHaveProp('showEditForm', true);
+    expect(wrapper.find(CollectionManager)).toHaveLength(1);
   });
 
   it('does not render an edit link for a mozilla collection when user does not have the `Admin:Curation` permission', () => {
@@ -1092,7 +1092,7 @@ describe(__filename, () => {
     expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
-  it('passes showEditForm as false to CollectionManager for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
+  it('does not render a CollectionManager in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
     const { store } = dispatchSignInActions({
       userProps: {
         permissions: [FEATURED_THEMES_COLLECTION_EDIT],
@@ -1112,7 +1112,54 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store, editing: true });
 
-    expect(wrapper.find(CollectionManager)).toHaveProp('showEditForm', false);
+    expect(wrapper.find(CollectionManager)).toHaveLength(0);
+  });
+
+  it('passes the editing property to CollectionDetails in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
+      },
+    });
+
+    const slug = FEATURED_THEMES_COLLECTION_SLUG;
+    const username = MOZILLA_COLLECTIONS_USERNAME;
+    const editing = true;
+
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
+      }),
+    });
+
+    const wrapper = renderComponent({ store, editing });
+
+    expect(wrapper.find(CollectionDetails)).toHaveProp('editing', editing);
+  });
+
+  it('does not render an edit link in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
+      },
+    });
+
+    const slug = FEATURED_THEMES_COLLECTION_SLUG;
+    const username = MOZILLA_COLLECTIONS_USERNAME;
+
+    _loadCurrentCollection({
+      store,
+      detail: createFakeCollectionDetail({
+        authorUsername: username,
+        slug,
+      }),
+    });
+
+    const wrapper = renderComponent({ editing: true, store });
+
+    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
   });
 
   it('does not render an edit link for a the Featured Themes collection when user does not have the `Collections:Contribute` permission', () => {
@@ -1224,16 +1271,6 @@ describe(__filename, () => {
     const root = renderComponent({ store, editing: true });
 
     expect(root.find(AddonsCard)).toHaveProp('editing', true);
-  });
-
-  it('passes a null collection to CollectionManager when editing', () => {
-    const authorUserId = 11;
-    const { store } = dispatchSignInActions({ userId: authorUserId });
-
-    const root = renderComponent({ store, editing: true });
-
-    const manager = root.find(CollectionManager);
-    expect(manager).toHaveProp('collection', null);
   });
 
   it('renders AuthenticateButton when creating and not signed in', () => {

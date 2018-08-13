@@ -357,13 +357,13 @@ export class CollectionBase extends React.Component<InternalProps> {
       showEditButton,
     } = this.props;
 
-    if (creating || editing) {
+    const managingCollection = creating || (editing && hasEditPermission);
+    if (managingCollection) {
       return (
         <CollectionManager
           collection={collection}
           creating={creating}
           filters={filters}
-          showEditForm={hasEditPermission}
         />
       );
     }
@@ -371,8 +371,9 @@ export class CollectionBase extends React.Component<InternalProps> {
     return (
       <CollectionDetails
         collection={collection}
+        editing={editing}
         filters={filters}
-        showEditButton={showEditButton}
+        showEditButton={showEditButton && !editing}
       />
     );
   }

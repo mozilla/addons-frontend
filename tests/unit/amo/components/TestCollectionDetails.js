@@ -7,6 +7,7 @@ import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
   collectionEditUrl,
+  collectionUrl,
   convertFiltersToQueryParams,
   createInternalCollection,
 } from 'amo/reducers/collections';
@@ -19,6 +20,7 @@ describe(__filename, () => {
       collection: createInternalCollection({
         detail: createFakeCollectionDetail(),
       }),
+      editing: false,
       filters: {},
       i18n: fakeI18n(),
       showEditButton: false,
@@ -111,7 +113,7 @@ describe(__filename, () => {
 
     const root = render({ collection, filters, showEditButton: true });
 
-    const editButton = root.find('.CollectionDetails-edit-link');
+    const editButton = root.find('.CollectionDetails-action-button');
     expect(editButton).toHaveLength(1);
     expect(editButton).toHaveProp('buttonType', 'neutral');
     expect(editButton).toHaveProp('puffy', true);
@@ -122,9 +124,30 @@ describe(__filename, () => {
     expect(editButton.children()).toHaveText('Edit this collection');
   });
 
-  it('does not renders an edit button if not requested', () => {
+  it('renders a done editing button if requested and editing', () => {
+    const authorUsername = 'some-username';
+    const slug = 'some-slug';
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ authorUsername, slug }),
+    });
+    const filters = { page: 1 };
+
+    const root = render({ collection, filters, editing: true });
+
+    const editButton = root.find('.CollectionDetails-action-button');
+    expect(editButton).toHaveLength(1);
+    expect(editButton).toHaveProp('buttonType', 'neutral');
+    expect(editButton).toHaveProp('puffy', true);
+    expect(editButton).toHaveProp('to', {
+      pathname: collectionUrl({ collection }),
+      query: convertFiltersToQueryParams(filters),
+    });
+    expect(editButton.children()).toHaveText('Done editing');
+  });
+
+  it('does not render an edit button if not requested', () => {
     const root = render({ showEditButton: false });
 
-    expect(root.find('.CollectionDetails-edit-link')).toHaveLength(0);
+    expect(root.find('.CollectionDetails-action-button')).toHaveLength(0);
   });
 });
