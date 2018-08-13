@@ -25,6 +25,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _setState?: (Object) => void,
   i18n: I18nType,
 |};
 
@@ -43,6 +44,11 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   constructor(props: InternalProps) {
     super(props);
     this.state = { hoveringOverStar: null };
+  }
+
+  _setState(newState) {
+    const setState = this.props._setState || this.setState.bind(this);
+    return setState(newState);
   }
 
   onSelectRating = (event: SyntheticEvent<HTMLButtonElement>) => {
@@ -98,11 +104,14 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     if (this.props.readOnly) {
       return;
     }
-    this.setState({ hoveringOverStar: star });
+    this._setState({ hoveringOverStar: star });
   };
 
   stopHovering = () => {
-    this.setState({ hoveringOverStar: null });
+    if (this.props.readOnly) {
+      return;
+    }
+    this._setState({ hoveringOverStar: null });
   };
 
   renderRatings() {

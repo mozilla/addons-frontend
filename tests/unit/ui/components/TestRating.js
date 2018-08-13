@@ -295,6 +295,14 @@ describe(__filename, () => {
       );
     });
 
+    it('does nothing when finishing a hover action', () => {
+      const _setState = sinon.stub();
+      const root = render({ readOnly: true, _setState });
+      root.simulate('mouseLeave', createFakeEvent());
+
+      sinon.assert.notCalled(_setState);
+    });
+
     it('does not classify as editable when read-only', () => {
       const root = render({ readOnly: true });
       expect(root).not.toHaveClassName('Rating--editable');
