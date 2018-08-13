@@ -116,13 +116,14 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
 
   renderRatings() {
     const { readOnly } = this.props;
+    const { hoveringOverStar } = this.state;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
       let isSelected = thisRating - rating <= 0.25;
-      if (this.state.hoveringOverStar !== null) {
-        isSelected = thisRating <= this.state.hoveringOverStar;
+      if (hoveringOverStar !== null) {
+        isSelected = thisRating <= hoveringOverStar;
       }
       const props = {
         className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
@@ -130,6 +131,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
           'Rating-half-star':
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
+        id: thisRating,
         key: `rating-${thisRating}`,
         onMouseEnter: () => this.onHoverStar(thisRating),
         title: this.renderTitle(rating, readOnly, thisRating),
