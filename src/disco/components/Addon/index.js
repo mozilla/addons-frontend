@@ -134,13 +134,13 @@ export class AddonBase extends React.Component {
     const { type } = addon;
 
     if (isTheme(type)) {
-      const { getBrowserThemeData, i18n } = this.props;
+      const { getBrowserThemeData, hasAddonManager, i18n } = this.props;
       const { name, previewURL } = addon;
 
       let imageUrl = getPreviewImage(addon);
 
       let headerLinkProps = {
-        className: 'theme-image',
+        className: 'theme-image-link',
         href: '#',
         onClick: this.installStaticTheme,
       };
@@ -155,14 +155,18 @@ export class AddonBase extends React.Component {
         };
       }
 
-      return (
-        <a {...headerLinkProps}>
-          <img
-            alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
-            className="Addon-theme-header-image"
-            src={imageUrl}
-          />
-        </a>
+      const headerImage = (
+        <img
+          alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
+          className="Addon-theme-header-image"
+          src={imageUrl}
+        />
+      );
+
+      return hasAddonManager ? (
+        <a {...headerLinkProps}>{headerImage}</a>
+      ) : (
+        headerImage
       );
     }
 
@@ -246,21 +250,14 @@ export class AddonBase extends React.Component {
 
   installStaticTheme = async (event) => {
     event.preventDefault();
-    const {
-      enable,
-      hasAddonManager,
-      getAddonEnabledStatus,
-      install,
-      status,
-    } = this.props;
+    const { enable, getAddonEnabledStatus, install, status } = this.props;
 
-    if (hasAddonManager && status === UNINSTALLED) {
+    if (status === UNINSTALLED) {
       await install();
 
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328
       // on why we might explicitly be calling the enable function
       // after install
-
       const isEnabled = await getAddonEnabledStatus();
       if (!isEnabled) {
         await enable();

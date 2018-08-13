@@ -334,7 +334,7 @@ describe(__filename, () => {
     it("doesn't render a theme image for an extension", () => {
       const root = renderAddon({ addon: result, ...result });
 
-      expect(root.find('.theme-image')).toHaveLength(0);
+      expect(root.find('.theme-image-link')).toHaveLength(0);
     });
 
     it('throws on invalid add-on type', () => {
@@ -481,7 +481,7 @@ describe(__filename, () => {
       enable = sinon.spy();
 
       const root = renderWithStaticTheme();
-      const themeImage = root.find('.theme-image');
+      const themeImage = root.find('.theme-image-link');
       await themeImage.simulate('click', createFakeEvent());
       await sinon.assert.calledOnce(install);
       sinon.assert.calledOnce(enable);
@@ -493,22 +493,19 @@ describe(__filename, () => {
       const root = renderWithStaticTheme({
         getAddonEnabledStatus: sinon.stub().returns(true),
       });
-      const themeImage = root.find('.theme-image');
+      const themeImage = root.find('.theme-image-link');
       await themeImage.simulate('click', createFakeEvent());
       await sinon.assert.called(install);
       sinon.assert.notCalled(enable);
     });
 
-    it("does not call install or enable helper functions when clicking on the static theme's header image and hasAddonManager is false", async () => {
+    it('does not render wrapper link around image if hasAddonManager is false', async () => {
       install = sinon.spy();
       enable = sinon.spy();
       const root = renderWithStaticTheme({
         hasAddonManager: false,
       });
-      const themeImage = root.find('.theme-image');
-      await themeImage.simulate('click', createFakeEvent());
-      await sinon.assert.notCalled(install);
-      sinon.assert.notCalled(enable);
+      expect(root.find('.theme-image-link')).toHaveLength(0);
     });
 
     it("does not call install or enable helper functions when clicking on the static theme's header image and UNINSTALLED is false", async () => {
@@ -517,7 +514,7 @@ describe(__filename, () => {
       const root = renderWithStaticTheme({
         status: INSTALLED,
       });
-      const themeImage = root.find('.theme-image');
+      const themeImage = root.find('.theme-image-link');
       await themeImage.simulate('click', createFakeEvent());
       await sinon.assert.notCalled(install);
       sinon.assert.notCalled(enable);
@@ -525,29 +522,25 @@ describe(__filename, () => {
   });
 
   describe('addon with type lightweight theme', () => {
-    let root;
-    let addon;
     const newAddonName = 'Light Summer Colors';
     const installTheme = sinon.stub();
 
-    beforeEach(() => {
-      addon = {
-        ...result,
-        name: newAddonName,
-        type: ADDON_TYPE_THEME,
-        previews: [],
-      };
+    const addon = {
+      ...result,
+      name: newAddonName,
+      type: ADDON_TYPE_THEME,
+      previews: [],
+    };
 
-      root = renderAddon({
+    it('renders wrapper link around image and calls installTheme on click', () => {
+      const root = renderAddon({
         addon,
         installTheme,
         status: UNINSTALLED,
         type: ADDON_TYPE_THEME,
+        hasAddonManager: true,
       });
-    });
-
-    it('calls installTheme on click', () => {
-      const themeImage = root.find('.theme-image');
+      const themeImage = root.find('.theme-image-link');
 
       themeImage.simulate('click', {
         ...fakeEvent,
@@ -561,7 +554,22 @@ describe(__filename, () => {
       });
     });
 
+    it('does not render wrapper link around image if hasAddonManager is false', () => {
+      const root = renderAddon({
+        addon,
+        status: UNINSTALLED,
+        type: ADDON_TYPE_THEME,
+        hasAddonManager: false,
+      });
+      expect(root.find('.theme-image-link')).toHaveLength(0);
+    });
+
     it("renders the alt tag with addon's name", () => {
+      const root = renderAddon({
+        addon,
+        status: UNINSTALLED,
+        type: ADDON_TYPE_THEME,
+      });
       expect(root.find('.Addon-theme-header-image')).toHaveProp(
         'alt',
         `Preview of ${newAddonName}`,

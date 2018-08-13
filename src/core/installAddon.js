@@ -345,8 +345,9 @@ export class WithInstallHelpers extends React.Component {
       return addon.isEnabled;
     } catch (error) {
       log.error(`Caught error from addonManager: ${error}`);
-      return false;
     }
+
+    return false;
   }
 
   setCurrentStatus(newProps = this.props) {
