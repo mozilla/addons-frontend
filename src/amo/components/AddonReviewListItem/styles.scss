@@ -4,6 +4,8 @@
 
 .AddonReviewListItem-control {
   display: flex;
+  width: max-content;
+
   @include margin-start(6px);
 
   @include respond-to(medium) {
