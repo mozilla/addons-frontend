@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-11 15:52+0000\n"
+"PO-Revision-Date: 2018-08-14 01:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -45,7 +45,7 @@ msgstr "Adder al collection"
 
 #: src/amo/components/Addon/index.js:150
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Vista preliminar de %(title)s"
 
 #: src/amo/components/Addon/index.js:210
 msgid "This add-on cannot be rated because no versions have been published."
@@ -67,27 +67,27 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:268
 msgid "About this dictionary"
-msgstr ""
+msgstr "A proposito de iste dictionario"
 
 #: src/amo/components/Addon/index.js:271
 msgid "About this extension"
-msgstr ""
+msgstr "A proposito de iste extension"
 
 #: src/amo/components/Addon/index.js:274
 msgid "About this language pack"
-msgstr ""
+msgstr "A proposito de iste pacchetto de lingua"
 
 #: src/amo/components/Addon/index.js:277
 msgid "About this search plugin"
-msgstr ""
+msgstr "A proposito de iste plugin de recerca"
 
 #: src/amo/components/Addon/index.js:281
 msgid "About this theme"
-msgstr ""
+msgstr "A proposito de iste thema"
 
 #: src/amo/components/Addon/index.js:284
 msgid "About this add-on"
-msgstr ""
+msgstr "A proposito de iste additivo"
 
 #: src/amo/components/Addon/index.js:329
 msgid "Release notes for %(addonVersion)s"
@@ -108,27 +108,27 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:563
 msgid "Screenshots"
-msgstr ""
+msgstr "Instantaneos"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
-msgstr ""
+msgstr "Extension favorite"
 
 #: src/amo/components/AddonBadges/index.js:36
 msgid "Featured Theme"
-msgstr ""
+msgstr "Thema favorite"
 
 #: src/amo/components/AddonBadges/index.js:38
 msgid "Featured Add-on"
-msgstr ""
+msgstr "Additivo favorite"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Restart Required"
-msgstr ""
+msgstr "Reinitio requirite"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "Experimental"
 
 #: src/amo/components/AddonBadges/index.js:63
 msgid "Not compatible with Firefox Quantum"
@@ -168,44 +168,44 @@ msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:30
 msgid "Users"
-msgstr ""
+msgstr "Usatores"
 
 #: src/amo/components/AddonMeta/index.js:33
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Usator"
+msgstr[1] "Usatores"
 
 #: src/amo/components/AddonMeta/index.js:35
 msgid "No Users"
-msgstr ""
+msgstr "Nulle usatores"
 
 #: src/amo/components/AddonMeta/index.js:42
 msgid "Ratings"
-msgstr ""
+msgstr "Valutationes"
 
 #: src/amo/components/AddonMeta/index.js:45
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valutation"
+msgstr[1] "Valutationes"
 
 #: src/amo/components/AddonMeta/index.js:47
 msgid "No Ratings"
-msgstr ""
+msgstr "Nulle valutationes"
 
 #: src/amo/components/AddonMeta/index.js:52
 msgid "Used by"
-msgstr ""
+msgstr "Usate per"
 
 #: src/amo/components/AddonMeta/index.js:72
 msgid "Overall Rating"
-msgstr ""
+msgstr "Valutation general"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "Read the privacy policy for this add-on"
@@ -217,27 +217,27 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:157
 msgid "See all versions"
-msgstr ""
+msgstr "Vide tote le versiones"
 
 #: src/amo/components/AddonMoreInfo/index.js:182
 msgid "Add-on Links"
-msgstr ""
+msgstr "Ligamines del additivo"
 
 #: src/amo/components/AddonMoreInfo/index.js:194
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo/index.js:202 src/amo/components/CollectionDetails/index.js:66
 msgid "Last updated"
-msgstr ""
+msgstr "Ultime actualisation"
 
 #: src/amo/components/AddonMoreInfo/index.js:210
 msgid "License"
-msgstr ""
+msgstr "Licentia"
 
 #: src/amo/components/AddonMoreInfo/index.js:218
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Politica de confidentialitate"
 
 #: src/amo/components/AddonMoreInfo/index.js:226
 msgid "End-User License Agreement"
@@ -245,31 +245,31 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:234
 msgid "Version History"
-msgstr ""
+msgstr "Chronologia del version"
 
 #: src/amo/components/AddonMoreInfo/index.js:244
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Statistica de uso"
 
 #: src/amo/components/AddonMoreInfo/index.js:257
 msgid "More information"
-msgstr ""
+msgstr "Plus de informationes"
 
 #: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:307 src/amo/components/UserProfileEdit/index.js:598
 msgid "Homepage"
-msgstr ""
+msgstr "Pagina principal"
 
 #: src/amo/components/AddonMoreInfo/index.js:56
 msgid "Support Site"
-msgstr ""
+msgstr "Sito de supporto"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
 msgid "Support Email"
-msgstr ""
+msgstr "Email de supporto"
 
 #: src/amo/components/AddonMoreInfo/index.js:89
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Visita dashboard de statistica"
 
 #: src/amo/components/AddonRecommendations/index.js:132
 msgid "Other users with this extension also installed"
