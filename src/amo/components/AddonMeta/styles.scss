@@ -41,4 +41,33 @@
 .AddonMeta-rating-title {
   display: flex;
   justify-content: center;
+  text-align: center;
+}
+
+.AddonMeta .MetadataCard-content,
+.AddonMeta .MetadataCard-title {
+  a,
+  a:link,
+  a:visited {
+    color: $grey-50;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  a.AddonMeta-reviews-content-link {
+    &,
+    &:link,
+    &:visited {
+      color: $black;
+    }
+  }
+
+  a:active,
+  a:hover {
+    color: $link-color;
+  }
+
+  a:focus {
+    @include focus();
+  }
 }

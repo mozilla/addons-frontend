@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -30,6 +31,8 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     const averageRating = addon && addon.ratings ? addon.ratings.average : null;
     const addonRatingCount =
       addon && addon.ratings ? addon.ratings.count : null;
+    const addonReviewCount =
+      addon && addon.ratings ? addon.ratings.text_count : null;
     const averageDailyUsers = addon ? addon.average_daily_users : null;
 
     let userCount = '';
@@ -48,13 +51,32 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     let reviewTitle;
     if (!addon) {
       reviewCount = null;
-      reviewTitle = i18n.gettext('Ratings');
-    } else if (addonRatingCount) {
-      reviewCount = i18n.formatNumber(addonRatingCount);
-      reviewTitle = i18n.ngettext('Rating', 'Ratings', addonRatingCount);
+      reviewTitle = i18n.gettext('Reviews');
+    } else if (addonReviewCount) {
+      reviewCount = i18n.formatNumber(addonReviewCount);
+      reviewTitle = i18n.ngettext('Review', 'Reviews', addonReviewCount);
     } else {
-      reviewTitle = i18n.gettext('No Ratings');
+      reviewTitle = i18n.gettext('No Reviews');
     }
+
+    const reviewsLink =
+      addon && reviewCount ? `/addon/${addon.slug}/reviews/` : null;
+
+    const reviewsContent = reviewsLink ? (
+      <Link className="AddonMeta-reviews-content-link" to={reviewsLink}>
+        {reviewCount}
+      </Link>
+    ) : (
+      reviewCount
+    );
+
+    const reviewsTitle = reviewsLink ? (
+      <Link className="AddonMeta-reviews-title-link" to={reviewsLink}>
+        {reviewTitle}
+      </Link>
+    ) : (
+      reviewTitle
+    );
 
     return (
       <div className="AddonMeta">
@@ -67,8 +89,8 @@ export class AddonMetaBase extends React.Component<InternalProps> {
               title: userTitle,
             },
             {
-              content: reviewCount,
-              title: reviewTitle,
+              content: reviewsContent,
+              title: reviewsTitle,
             },
             {
               content: (
