@@ -4,6 +4,11 @@
 
 .AddonReviewListItem-control {
   display: flex;
+  // On small screens, reduce the width to break up words in
+  // controls like *Edit my review*.
+  max-width: 20vw;
+  width: max-content;
+
   @include margin-start(6px);
 
   @include respond-to(medium) {
