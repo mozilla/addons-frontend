@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-01 18:51+0000\n"
+"POT-Creation-Date: 2018-08-14 18:29+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,76 +41,76 @@ msgid "Add to…"
 msgstr "Dodaj u…"
 
 #: src/amo/components/AddAddonToCollection/index.js:266
-#: src/amo/components/CollectionAddAddon/index.js:155
+#: src/amo/components/CollectionAddAddon/index.js:146
 msgid "Add to collection"
 msgstr "Dodaj u kolekciju"
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:157
 msgid "Preview of %(title)s"
 msgstr "Pregled %(title)s"
 
-#: src/amo/components/Addon/index.js:210
+#: src/amo/components/Addon/index.js:212
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Ovaj dodatak ne može biti ocijenjen jer nema objavljene verzije."
 
-#: src/amo/components/Addon/index.js:219
+#: src/amo/components/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Pročitaj %(count)s pregled"
 msgstr[1] "Pročitaj %(count)s pregleda"
 msgstr[2] "Pročitaj %(count)s pregleda"
 
-#: src/amo/components/Addon/index.js:239
+#: src/amo/components/Addon/index.js:241
 msgid "No reviews yet"
 msgstr "Nema recenzija"
 
-#: src/amo/components/Addon/index.js:249
+#: src/amo/components/Addon/index.js:251
 msgid "Rate your experience"
 msgstr "Ocijenite vaše iskustvo"
 
-#: src/amo/components/Addon/index.js:268
+#: src/amo/components/Addon/index.js:270
 msgid "About this dictionary"
 msgstr "O ovom rječniku"
 
-#: src/amo/components/Addon/index.js:271
+#: src/amo/components/Addon/index.js:273
 msgid "About this extension"
 msgstr "O ovoj ekstenziji"
 
-#: src/amo/components/Addon/index.js:274
+#: src/amo/components/Addon/index.js:276
 msgid "About this language pack"
 msgstr "O ovom paketu jezika"
 
-#: src/amo/components/Addon/index.js:277
+#: src/amo/components/Addon/index.js:279
 msgid "About this search plugin"
 msgstr "O ovom pluginu pretraživača"
 
-#: src/amo/components/Addon/index.js:281
+#: src/amo/components/Addon/index.js:283
 msgid "About this theme"
 msgstr "O ovoj temi"
 
-#: src/amo/components/Addon/index.js:284
+#: src/amo/components/Addon/index.js:286
 msgid "About this add-on"
 msgstr "O ovom dodatku"
 
-#: src/amo/components/Addon/index.js:329
+#: src/amo/components/Addon/index.js:325
 msgid "Release notes for %(addonVersion)s"
 msgstr "Bilješke o izdanju za %(addonVersion)s"
 
 # Example: The Add-On <span>by The Author</span>
-#: src/amo/components/Addon/index.js:441
+#: src/amo/components/Addon/index.js:443
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:540
+#: src/amo/components/Addon/index.js:558
 #, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Samo uz Firefox — Preuzmite Firefox sada!"
 
-#: src/amo/components/Addon/index.js:546
+#: src/amo/components/Addon/index.js:564
 msgid "Extension Metadata"
 msgstr "Metapodaci za ekstenzije"
 
-#: src/amo/components/Addon/index.js:563
+#: src/amo/components/Addon/index.js:581
 msgid "Screenshots"
 msgstr "Screenshots"
 
@@ -182,43 +182,48 @@ msgstr ""
 "Vaš pretraživač ne podržava dodatke. Možete <a href=\"%(downloadUrl)s"
 "\">preuzeti Firefox</a> da bi ste instalirali dodatak."
 
-#: src/amo/components/AddonMeta/index.js:30
+#: src/amo/components/AddonMeta/index.js:39
 msgid "Users"
 msgstr "Korisnici"
 
-#: src/amo/components/AddonMeta/index.js:33
+#: src/amo/components/AddonMeta/index.js:42
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Korisnik"
 msgstr[1] "Korisnika"
 msgstr[2] "Korisnika"
 
-#: src/amo/components/AddonMeta/index.js:35
+#: src/amo/components/AddonMeta/index.js:44
 msgid "No Users"
 msgstr "Nema korisnika"
 
-#: src/amo/components/AddonMeta/index.js:42
+#: src/amo/components/AddonMeta/index.js:51
 msgid "Ratings"
 msgstr "Ocjene"
 
-#: src/amo/components/AddonMeta/index.js:45
+#: src/amo/components/AddonMeta/index.js:54
 msgid "Rating"
 msgid_plural "Ratings"
 msgstr[0] "Ocjena"
 msgstr[1] "Ocjene"
 msgstr[2] "Ocjene"
 
-#: src/amo/components/AddonMeta/index.js:47
+#: src/amo/components/AddonMeta/index.js:56
 msgid "No Ratings"
 msgstr "Nema ocjena"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Used by"
 msgstr "Koristi se od"
 
-#: src/amo/components/AddonMeta/index.js:72
-msgid "Overall Rating"
-msgstr "Ukupna ocjena"
+#: src/amo/components/AddonMeta/index.js:87
+msgid "%(rating)s star average"
+msgstr ""
+
+#: src/amo/components/AddonMeta/index.js:92
+#, fuzzy
+msgid "Not rated yet"
+msgstr "Nema recenzija"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:127
@@ -246,7 +251,7 @@ msgid "Version"
 msgstr "Verzija"
 
 #: src/amo/components/AddonMoreInfo/index.js:202
-#: src/amo/components/CollectionDetails/index.js:66
+#: src/amo/components/CollectionDetails/index.js:68
 msgid "Last updated"
 msgstr "Zadnje ažuriranje"
 
@@ -275,8 +280,8 @@ msgid "More information"
 msgstr "Više informacija"
 
 #: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/components/UserProfile/index.js:307
-#: src/amo/components/UserProfileEdit/index.js:598
+#: src/amo/components/UserProfile/index.js:320
+#: src/amo/components/UserProfileEdit/index.js:600
 msgid "Homepage"
 msgstr "Početna stranica"
 
@@ -300,7 +305,7 @@ msgstr "Ostali korisnici koju su također instalirali ovo proširenje"
 msgid "Other popular extensions"
 msgstr "Ostala popularna proširenja"
 
-#: src/amo/components/AddonReview/index.js:200
+#: src/amo/components/AddonReview/index.js:197
 msgid ""
 "Tell the world why you think this extension is fantastic! Please follow our "
 "%(linkStart)sreview guidelines%(linkEnd)s."
@@ -308,11 +313,11 @@ msgstr ""
 "Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
 "pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
 
-#: src/amo/components/AddonReview/index.js:204
+#: src/amo/components/AddonReview/index.js:201
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "Recite nam šta volite o ovoj ekstenziji. Budite konkretni i koncizni."
 
-#: src/amo/components/AddonReview/index.js:208
+#: src/amo/components/AddonReview/index.js:205
 msgid ""
 "Tell the world about this extension. Please follow our %(linkStart)sreview "
 "guidelines%(linkEnd)s."
@@ -320,7 +325,7 @@ msgstr ""
 "Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
 "pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
 
-#: src/amo/components/AddonReview/index.js:212
+#: src/amo/components/AddonReview/index.js:209
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
@@ -338,15 +343,15 @@ msgstr "Tekst recenzije"
 msgid "Submit review"
 msgstr "Pošalji recenziju"
 
-#: src/amo/components/AddonReviewList/index.js:200
+#: src/amo/components/AddonReviewList/index.js:180
 msgid "Add-on icon"
 msgstr "Ikona dodatka"
 
-#: src/amo/components/AddonReviewList/index.js:206
+#: src/amo/components/AddonReviewList/index.js:186
 msgid "Reviews for %(addonName)s"
 msgstr "Recenzije za %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:220
+#: src/amo/components/AddonReviewList/index.js:200
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s recenzija za ovaj dodatak"
@@ -354,11 +359,17 @@ msgstr[1] "%(total)s recenzije za ovaj dodatak"
 msgstr[2] "%(total)s recenzija za ovaj dodatak"
 
 # Example: by The Author, The Next Author
-#: src/amo/components/AddonReviewList/index.js:249
+#: src/amo/components/AddonReviewList/index.js:229
 msgid "by %(authorList)s"
 msgstr "od %(authorList)s"
 
+# averageRating is a localized number, such as 4.5
+#: src/amo/components/AddonReviewList/index.js:275
+msgid "%(averageRating)s star average"
+msgstr ""
+
 #: src/amo/components/AddonReviewListItem/index.js:148
+#: src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
 msgstr "Odgovor developera"
 
@@ -532,14 +543,14 @@ msgid "Extensions"
 msgstr "Ekstenzije"
 
 #: src/amo/components/Category/index.js:151
-#: src/amo/components/Home/index.js:309
+#: src/amo/components/Home/index.js:254
 #: src/amo/components/LandingPage/index.js:145
 #: src/amo/components/Search/index.js:124
 msgid "Featured extensions"
 msgstr "Istaknute ekstenzije"
 
 #: src/amo/components/Category/index.js:160
-#: src/amo/components/Home/index.js:310
+#: src/amo/components/Home/index.js:255
 #: src/amo/components/LandingPage/index.js:153
 msgid "See more featured extensions"
 msgstr "Vidi više istaknutih ekstenzija"
@@ -573,14 +584,14 @@ msgid "Themes"
 msgstr "Teme"
 
 #: src/amo/components/Category/index.js:184
-#: src/amo/components/Home/index.js:272
+#: src/amo/components/Home/index.js:290
 #: src/amo/components/LandingPage/index.js:174
 #: src/amo/components/Search/index.js:127
 msgid "Featured themes"
 msgstr "Istaknute teme"
 
 #: src/amo/components/Category/index.js:193
-#: src/amo/components/Home/index.js:262
+#: src/amo/components/Home/index.js:280
 #: src/amo/components/LandingPage/index.js:182
 msgid "See more featured themes"
 msgstr "Vidi više istaknutih tema"
@@ -619,52 +630,56 @@ msgstr "Pregledaj sve ekstenzije u ovoj kategoriji."
 msgid "Browse all themes in this category."
 msgstr "Pregledaj sve teme u ovoj kategoriji."
 
-#: src/amo/components/Collection/index.js:353
+#: src/amo/components/Collection/index.js:395
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "Prijavite se da uredite ovu kolekciju"
 
-#: src/amo/components/Collection/index.js:356
+#: src/amo/components/Collection/index.js:398
 #, fuzzy
 msgid "Delete this collection"
 msgstr "Uredi ovu kolekciju"
 
-#: src/amo/components/Collection/index.js:376
+#: src/amo/components/Collection/index.js:418
 msgid "Log in to create a collection"
 msgstr "Prijavite se da napravite kolekciju"
 
-#: src/amo/components/Collection/index.js:377
+#: src/amo/components/Collection/index.js:419
 msgid "Log in to edit this collection"
 msgstr "Prijavite se da uredite ovu kolekciju"
 
-#: src/amo/components/Collection/index.js:414
+#: src/amo/components/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Prvo, sačuvajte svoju kolekciju. Zatim možete dodati proširenja i teme."
 
-#: src/amo/components/Collection/index.js:417
+#: src/amo/components/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Tražite proširenja i teme koje možete dodati u svoju kolekciju."
 
-#: src/amo/components/CollectionAddAddon/index.js:141
+#: src/amo/components/CollectionAddAddon/index.js:132
 #, fuzzy
 msgid "Added to collection"
 msgstr "Dodaj u kolekciju"
 
-#: src/amo/components/CollectionAddAddon/index.js:150
+#: src/amo/components/CollectionAddAddon/index.js:141
 msgid "Find an add-on to include in this collection"
 msgstr "Pronađite dodatak za uključivanje u ovu kolekciju"
 
-#: src/amo/components/CollectionDetails/index.js:56
+#: src/amo/components/CollectionDetails/index.js:58
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Dodaci"
 
-#: src/amo/components/CollectionDetails/index.js:60
+#: src/amo/components/CollectionDetails/index.js:62
 msgid "Creator"
 msgstr "Tvorac"
 
-#: src/amo/components/CollectionDetails/index.js:81
+#: src/amo/components/CollectionDetails/index.js:86
+msgid "Done editing"
+msgstr ""
+
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
 msgstr "Uredi ovu kolekciju"
 
@@ -724,7 +739,7 @@ msgid "Custom URL"
 msgstr "Prilagođeni URL"
 
 #: src/amo/components/CollectionManager/index.js:317
-#: src/amo/components/UserProfileEdit/index.js:848
+#: src/amo/components/UserProfileEdit/index.js:850
 #: src/ui/components/ConfirmButton/index.js:107
 #: src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
@@ -838,6 +853,7 @@ msgid "Leave a note"
 msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
 msgstr "Ukloni"
 
@@ -1077,12 +1093,12 @@ msgid "View My Collections"
 msgstr "Prikaži moje kolekcije"
 
 #: src/amo/components/Header/index.js:108
-#: src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/UserProfileEdit/index.js:474
 msgid "View My Profile"
 msgstr "Prikaži profil"
 
 #: src/amo/components/Header/index.js:116
-#: src/amo/components/UserProfileEdit/index.js:478
+#: src/amo/components/UserProfileEdit/index.js:480
 msgid "Edit My Profile"
 msgstr "Uredi profil"
 
@@ -1120,101 +1136,90 @@ msgstr "Firefox dodaci"
 msgid "My Account"
 msgstr "Moj račun"
 
-#: src/amo/components/Home/index.js:121
+#: src/amo/components/Home/index.js:114
 msgid "Bookmarks"
 msgstr "Zabilješke"
 
-#: src/amo/components/Home/index.js:125
+#: src/amo/components/Home/index.js:118
 msgid "Password managers"
 msgstr "Upravitelj lozinke"
 
-#: src/amo/components/Home/index.js:129
+#: src/amo/components/Home/index.js:122
 msgid "Ad blockers"
 msgstr "Blokeri reklama"
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:126
 msgid "Smarter Shopping"
 msgstr "Pametnija kupovina"
 
-#: src/amo/components/Home/index.js:137
+#: src/amo/components/Home/index.js:130
 msgid "Productivity"
 msgstr "Produktivnost"
 
-#: src/amo/components/Home/index.js:141
+#: src/amo/components/Home/index.js:134
 msgid "Watching Videos"
 msgstr "Gledanje videa"
 
-#: src/amo/components/Home/index.js:169
+#: src/amo/components/Home/index.js:162
 msgid "Abstract"
 msgstr "Apstraktno"
 
-#: src/amo/components/Home/index.js:174
+#: src/amo/components/Home/index.js:167
 msgid "Nature"
 msgstr "Priroda"
 
-#: src/amo/components/Home/index.js:179
+#: src/amo/components/Home/index.js:172
 msgid "Film & TV"
 msgstr "Film i TV"
 
-#: src/amo/components/Home/index.js:184
+#: src/amo/components/Home/index.js:177
 msgid "Scenery"
 msgstr "Scenografija"
 
-#: src/amo/components/Home/index.js:189
+#: src/amo/components/Home/index.js:182
 msgid "Music"
 msgstr "Muzika"
 
-#: src/amo/components/Home/index.js:194
+#: src/amo/components/Home/index.js:187
 msgid "Seasonal"
 msgstr "Sezonski"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/components/Home/index.js:225
+#: src/amo/components/Home/index.js:218
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Prilagodite način na koji Firefox radi sa ekstenzijama. Jeste li "
 "zainteresovani za…"
 
-#: src/amo/components/Home/index.js:227
+#: src/amo/components/Home/index.js:220
 msgid "Change the way Firefox looks with themes."
 msgstr "Promijenite izgled Firefoxa sa temama."
 
+#: src/amo/components/Home/index.js:49
+#, fuzzy
+msgid "See more reading extensions"
+msgstr "Vidi više popularnih ekstenzija"
+
 #: src/amo/components/Home/index.js:50
+msgid "Refined reading"
+msgstr ""
+
+#: src/amo/components/Home/index.js:55
+#, fuzzy
+msgid "See more exceptional search tools"
+msgstr "Vidi više popularnih ekstenzija"
+
+#: src/amo/components/Home/index.js:56
+msgid "Exceptional search tools"
+msgstr ""
+
+#: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
 msgstr "Pogledajte više proširenja za prilagođavanje socijalnih medija"
 
-#: src/amo/components/Home/index.js:53
+#: src/amo/components/Home/index.js:64
 msgid "Social media customization"
 msgstr "Prilagođavanje socijalnih medija"
-
-#: src/amo/components/Home/index.js:58
-#, fuzzy
-msgid "See more dynamic downloaders"
-msgstr "Media preuzimači"
-
-#: src/amo/components/Home/index.js:59
-#, fuzzy
-msgid "Dynamic downloaders"
-msgstr "Media preuzimači"
-
-#: src/amo/components/Home/index.js:64
-#, fuzzy
-msgid "See more summer themes"
-msgstr "Pogledajte više popularnih tema"
-
-#: src/amo/components/Home/index.js:65
-#, fuzzy
-msgid "Summer themes"
-msgstr "Popularne teme"
-
-#: src/amo/components/Home/index.js:70
-#, fuzzy
-msgid "See more must-have media extensions"
-msgstr "Vidi više popularnih ekstenzija"
-
-#: src/amo/components/Home/index.js:71
-msgid "Must-have media"
-msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
@@ -1234,13 +1239,12 @@ msgid "Protect yourself against the sneakiest trackers"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:114
-#, fuzzy
-msgid "Page Translate"
-msgstr "Translate Man"
+msgid "Default Bookmark Folder"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:117
-msgid "Translate an entire web page with a couple clicks"
-msgstr "Prevedite cijelu web stranicu s nekoliko klikova"
+msgid "Change the default destination for your bookmarks"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1251,30 +1255,126 @@ msgid "Highly customizable text highlighter"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:126
-msgid "Forget Me Not"
-msgstr "Ne zaboravi me"
-
-#: src/amo/components/HomeHeroBanner/index.js:129
-msgid "Make Firefox forget website data like cookies & local storage"
+msgid "Watch2Gether"
 msgstr ""
-"Napravite da Firefox zaboravi podatke web stranice poput kolačića i lokalne "
-"pohrane"
+
+#: src/amo/components/HomeHeroBanner/index.js:128
+msgid "Watch videos simultaneously with others"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:131
+#, fuzzy
+msgid "Context Search"
+msgstr "Wikipedia Context Menu Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-msgid "Group Speed Dial"
-msgstr "Grupe brzog biranja"
-
-#: src/amo/components/HomeHeroBanner/index.js:137
 #, fuzzy
-msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Snimite, sačuvajte i organizujte vaše omiljene stvari na webu"
+msgid "Highlight text on any webpage to easily search the term"
+msgstr ""
+"Označite tekst na bilo kojoj web stranici za prikaz priručnog menija za "
+"pretragu"
 
-#: src/amo/components/HomeHeroBanner/index.js:142
+#: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:144
+#: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Give your favorite websites a new look"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:145
+#, fuzzy
+msgid "Search Encrypt"
+msgstr "Pretraži rezultate"
+
+#: src/amo/components/HomeHeroBanner/index.js:147
+#, fuzzy
+msgid "Privacy protection for your search data"
+msgstr "Zaštita privatnosti"
+
+#: src/amo/components/HomeHeroBanner/index.js:150
+msgid "Auto Tab Discard"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:152
+msgid "Save memory by disabling inactive tabs"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:155
+#, fuzzy
+msgid "Update Scanner"
+msgstr "Ažuriraj odgovor"
+
+#: src/amo/components/HomeHeroBanner/index.js:158
+msgid "Get notified when your selected websites update with new content"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:164
+msgid "Auto Fullscreen"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:166
+#, fuzzy
+msgid "Automatically start Firefox in full screen mode"
+msgstr "Automatske pretrage za kupon kodove"
+
+#: src/amo/components/HomeHeroBanner/index.js:169
+msgid "Video Speed Controller"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:171
+msgid "Adjust video playback speeds with shortcuts"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:174
+msgid "View Image"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:177
+msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:183
+msgid "Neat URL"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:185
+msgid "Clean up links for easy sharing"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:188
+msgid "Glitter Drag"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:191
+msgid ""
+"Drag text, images, or links to perform actions like copy, open, search, and "
+"more"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:197
+msgid "Behind The Overlay Revival"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:199
+msgid "Click a button to close annoying pop-ups"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:202
+#, fuzzy
+msgid "Auto-Sort Bookmarks"
+msgstr "Zabilješke"
+
+#: src/amo/components/HomeHeroBanner/index.js:205
+msgid "Automatically sorts bookmarks so they’re in your preferred position"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:211
+msgid "Britannica Insights"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:213
+msgid "Add Britannica facts to your search results"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:22
@@ -1540,31 +1640,31 @@ msgstr "Pohrani neograničenu količinu klijentskih podataka"
 msgid "Access browser activity during navigation"
 msgstr "Pristupi aktivnosti browsera prilikom navigacije"
 
-#: src/amo/components/RatingManager/index.js:167
+#: src/amo/components/RatingManager/index.js:166
 msgid "Log in to rate this dictionary"
 msgstr "Prijavite se na ocijenite ovaj rječnik"
 
-#: src/amo/components/RatingManager/index.js:169
+#: src/amo/components/RatingManager/index.js:168
 msgid "Log in to rate this language pack"
 msgstr "Prijavite se na ocijenite ovaj jezički paket"
 
-#: src/amo/components/RatingManager/index.js:171
+#: src/amo/components/RatingManager/index.js:170
 msgid "Log in to rate this search plugin"
 msgstr "Prijavite se na ocijenite ovaj dodatak pretraživanja"
 
-#: src/amo/components/RatingManager/index.js:174
+#: src/amo/components/RatingManager/index.js:173
 msgid "Log in to rate this theme"
 msgstr "Prijavite se na ocijeni ovu temu"
 
-#: src/amo/components/RatingManager/index.js:176
+#: src/amo/components/RatingManager/index.js:175
 msgid "Log in to rate this extension"
 msgstr "Prijavite se na ocijeni ovu ekstenziju"
 
-#: src/amo/components/RatingManager/index.js:184
+#: src/amo/components/RatingManager/index.js:183
 msgid "Log in to rate this add-on"
 msgstr "Prijavite se na ocijeni ovaj dodatak"
 
-#: src/amo/components/RatingManager/index.js:224
+#: src/amo/components/RatingManager/index.js:221
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Kako uživate u iskustvu sa %(addonName)s?"
 
@@ -1760,72 +1860,72 @@ msgstr "Potraga za \"%(query)s\""
 msgid "Loading add-ons"
 msgstr "Učitavanje dodataka"
 
-#: src/amo/components/SearchFilters/index.js:108
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:126
 msgid "All"
 msgstr "Sve"
 
-#: src/amo/components/SearchFilters/index.js:109
+#: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
 msgstr "Ekstenzija"
 
-#: src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
 msgstr "Alat za pretragu"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:114
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Windows"
 msgstr "Prozor"
 
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:128
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:137
 msgid "Relevance"
 msgstr "Značaj"
 
-#: src/amo/components/SearchFilters/index.js:137
+#: src/amo/components/SearchFilters/index.js:139
 msgid "Recently Updated"
 msgstr "Nedavno ažurirano"
 
-#: src/amo/components/SearchFilters/index.js:140
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Most Users"
 msgstr "Većina korisnika"
 
-#: src/amo/components/SearchFilters/index.js:141
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Top Rated"
 msgstr "Najbolje ocjenjeno"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:144
 msgid "Trending"
 msgstr "Popularno"
 
-#: src/amo/components/SearchFilters/index.js:152
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Filter results"
 msgstr "Rezultati filtera"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Sort by"
 msgstr "Sortiraj po"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:183
 msgid "Add-on Type"
 msgstr "Vrsta dodatka"
 
-#: src/amo/components/SearchFilters/index.js:198
+#: src/amo/components/SearchFilters/index.js:203
 msgid "Operating System"
 msgstr "Operativni sistem"
 
-#: src/amo/components/SearchFilters/index.js:224
+#: src/amo/components/SearchFilters/index.js:229
 msgid "Featured add-ons only"
 msgstr "Samo istaknuti dodaci"
 
@@ -1833,16 +1933,16 @@ msgstr "Samo istaknuti dodaci"
 msgid "Go to the add-on page"
 msgstr "Idite na stranicu dodatka"
 
-#: src/amo/components/SearchResult/index.js:127
+#: src/amo/components/SearchResult/index.js:121
 msgid "No theme preview available"
 msgstr "Nije dostupan pregled teme"
 
-#: src/amo/components/SearchResult/index.js:156
+#: src/amo/components/SearchResult/index.js:150
 #, fuzzy
 msgid "Add-on note"
 msgstr "Ikona dodatka"
 
-#: src/amo/components/SearchResult/index.js:174
+#: src/amo/components/SearchResult/index.js:168
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s korisnik"
@@ -1976,9 +2076,11 @@ msgstr ""
 "mijenjanjem izgleda vašeg pretraživača."
 
 #: src/amo/components/StaticPages/About/index.js:42
+#, fuzzy
 msgid ""
-"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
-"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
 "Možete također koristiti AMO za pronalaženje dodataka za Mozilla "
 "%(startTBLink)s Thunderbird %(endTBLink)s i %(startSMLink)sSeaMonkey"
@@ -2238,59 +2340,59 @@ msgstr "Pregledaj sve teme"
 msgid "Add-ons Home Page"
 msgstr "Početna stranica dodataka"
 
-#: src/amo/components/UserProfile/index.js:213
+#: src/amo/components/UserProfile/index.js:214
 #, fuzzy
 msgid "My reviews"
 msgstr "Pregledi"
 
-#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfile/index.js:224
 #, fuzzy
 msgid "Browse the reviews for this add-on"
 msgstr "%(total)s recenzija za ovaj dodatak"
 
-#: src/amo/components/UserProfile/index.js:267
+#: src/amo/components/UserProfile/index.js:280
 #, fuzzy
 msgid "Add-ons developer"
 msgstr "Dodaci od ovih programera"
 
-#: src/amo/components/UserProfile/index.js:273
+#: src/amo/components/UserProfile/index.js:286
 #, fuzzy
 msgid "Theme artist"
 msgstr "Teme od ovih umjetnika"
 
-#: src/amo/components/UserProfile/index.js:287
-#: src/amo/components/UserProfileEdit/index.js:460
+#: src/amo/components/UserProfile/index.js:300
+#: src/amo/components/UserProfileEdit/index.js:462
 msgid "User Profile for %(user)s"
 msgstr "Korisnički profil za %(user)s"
 
-#: src/amo/components/UserProfile/index.js:317
-#: src/amo/components/UserProfileEdit/index.js:615
+#: src/amo/components/UserProfile/index.js:330
+#: src/amo/components/UserProfileEdit/index.js:617
 msgid "Location"
 msgstr "Lokacija"
 
-#: src/amo/components/UserProfile/index.js:325
-#: src/amo/components/UserProfileEdit/index.js:627
+#: src/amo/components/UserProfile/index.js:338
+#: src/amo/components/UserProfileEdit/index.js:629
 msgid "Occupation"
 msgstr "Zanimanje"
 
-#: src/amo/components/UserProfile/index.js:332
+#: src/amo/components/UserProfile/index.js:345
 msgid "User since"
 msgstr "Korisnik od"
 
-#: src/amo/components/UserProfile/index.js:342
+#: src/amo/components/UserProfile/index.js:355
 msgid "Number of add-ons"
 msgstr "Broj dodataka"
 
-#: src/amo/components/UserProfile/index.js:348
+#: src/amo/components/UserProfile/index.js:361
 msgid "Average rating of developer’s add-ons"
 msgstr "Prosječna ocjena programera za dodatak"
 
-#: src/amo/components/UserProfile/index.js:363
-#: src/amo/components/UserProfileEdit/index.js:649
+#: src/amo/components/UserProfile/index.js:376
+#: src/amo/components/UserProfileEdit/index.js:651
 msgid "Biography"
 msgstr "Biografija"
 
-#: src/amo/components/UserProfile/index.js:387
+#: src/amo/components/UserProfile/index.js:400
 msgid "Edit profile"
 msgstr "Uredi profil"
 
@@ -2303,35 +2405,35 @@ msgstr "Profil uspješno ažuriran"
 msgid "Log in to edit the profile"
 msgstr "Prijavite se da uredite profil"
 
-#: src/amo/components/UserProfileEdit/index.js:473
+#: src/amo/components/UserProfileEdit/index.js:475
 msgid "View user's profile"
 msgstr "Prikaži korisnički profil"
 
-#: src/amo/components/UserProfileEdit/index.js:479
+#: src/amo/components/UserProfileEdit/index.js:481
 msgid "Edit user's profile"
 msgstr "Uredi korisnički profil"
 
-#: src/amo/components/UserProfileEdit/index.js:497
+#: src/amo/components/UserProfileEdit/index.js:499
 msgid "Account"
 msgstr "Račun"
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:500
 msgid "Account for %(username)s"
 msgstr "Račun za %(username)s"
 
-#: src/amo/components/UserProfileEdit/index.js:504
+#: src/amo/components/UserProfileEdit/index.js:506
 msgid "Username"
 msgstr "Korisničko ime"
 
-#: src/amo/components/UserProfileEdit/index.js:517
+#: src/amo/components/UserProfileEdit/index.js:519
 msgid "Email Address"
 msgstr "Email adresa"
 
-#: src/amo/components/UserProfileEdit/index.js:524
+#: src/amo/components/UserProfileEdit/index.js:526
 msgid "Email address cannot be changed here"
 msgstr "Email adresa ne može biti promijenjena"
 
-#: src/amo/components/UserProfileEdit/index.js:533
+#: src/amo/components/UserProfileEdit/index.js:535
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -2339,16 +2441,16 @@ msgstr ""
 "Možete promijeniti email adresu na vašim Firefox računima. "
 "%(startLink)sTrebate pomoć?%(endLink)s"
 
-#: src/amo/components/UserProfileEdit/index.js:550
+#: src/amo/components/UserProfileEdit/index.js:552
 #, fuzzy
 msgid "Manage Firefox Accounts…"
 msgstr "Ažuriranje vašeg profila…"
 
-#: src/amo/components/UserProfileEdit/index.js:558
+#: src/amo/components/UserProfileEdit/index.js:560
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/components/UserProfileEdit/index.js:562
+#: src/amo/components/UserProfileEdit/index.js:564
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
@@ -2356,7 +2458,7 @@ msgstr ""
 "Recite korisnicima nešto više informacija o sebi. Ova polja su opcionalna, "
 "ali će pomoći drugim korisnicima da vas bolje upoznaju."
 
-#: src/amo/components/UserProfileEdit/index.js:568
+#: src/amo/components/UserProfileEdit/index.js:570
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
@@ -2364,90 +2466,90 @@ msgstr ""
 "Recite korisnicima nešto više informacija o ovom korisniku. Ova polja su "
 "opcionalna, ali će pomoći drugim korisnicima da bolje upoznaju %(username)s."
 
-#: src/amo/components/UserProfileEdit/index.js:578
+#: src/amo/components/UserProfileEdit/index.js:580
 msgid "Display Name"
 msgstr "Ime za prikaz"
 
-#: src/amo/components/UserProfileEdit/index.js:610
+#: src/amo/components/UserProfileEdit/index.js:612
 msgid "This URL will only be visible for users who are developers."
 msgstr "Ovaj URL će biti vidljiv samo za korisnike koji su programeri."
 
-#: src/amo/components/UserProfileEdit/index.js:653
+#: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce yourself to the community if you like"
 msgstr "Predstavite se zajednici ako to želite"
 
-#: src/amo/components/UserProfileEdit/index.js:657
+#: src/amo/components/UserProfileEdit/index.js:659
 msgid "Introduce %(username)s to the community"
 msgstr "Predstavite %(username)s zajednici"
 
-#: src/amo/components/UserProfileEdit/index.js:671
+#: src/amo/components/UserProfileEdit/index.js:673
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Neki HTML-ovi podržavaju: %(htmlTags)s. Linkovi su zabranjeni."
 
-#: src/amo/components/UserProfileEdit/index.js:695
+#: src/amo/components/UserProfileEdit/index.js:697
 #, fuzzy
 msgid "Notifications"
 msgstr "Lokacija"
 
-#: src/amo/components/UserProfileEdit/index.js:699
+#: src/amo/components/UserProfileEdit/index.js:701
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:704
+#: src/amo/components/UserProfileEdit/index.js:706
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:719
+#: src/amo/components/UserProfileEdit/index.js:721
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:737
+#: src/amo/components/UserProfileEdit/index.js:739
 #, fuzzy
 msgid "Updating your profile…"
 msgstr "Ažuriranje vašeg profila…"
 
-#: src/amo/components/UserProfileEdit/index.js:738
+#: src/amo/components/UserProfileEdit/index.js:740
 #, fuzzy
 msgid "Update My Profile"
 msgstr "Ažuriraj moj profil"
 
-#: src/amo/components/UserProfileEdit/index.js:740
+#: src/amo/components/UserProfileEdit/index.js:742
 #, fuzzy
 msgid "Updating profile…"
 msgstr "Ažuriraj moj profil"
 
-#: src/amo/components/UserProfileEdit/index.js:741
+#: src/amo/components/UserProfileEdit/index.js:743
 #, fuzzy
 msgid "Update Profile"
 msgstr "Ažuriraj moj profil"
 
-#: src/amo/components/UserProfileEdit/index.js:752
-#: src/amo/components/UserProfileEdit/index.js:840
+#: src/amo/components/UserProfileEdit/index.js:754
+#: src/amo/components/UserProfileEdit/index.js:842
 #, fuzzy
 msgid "Delete My Profile"
 msgstr "Ažuriraj moj profil"
 
-#: src/amo/components/UserProfileEdit/index.js:753
-#: src/amo/components/UserProfileEdit/index.js:841
+#: src/amo/components/UserProfileEdit/index.js:755
+#: src/amo/components/UserProfileEdit/index.js:843
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Ažuriraj moj profil"
 
-#: src/amo/components/UserProfileEdit/index.js:764
+#: src/amo/components/UserProfileEdit/index.js:766
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:767
+#: src/amo/components/UserProfileEdit/index.js:769
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:776
+#: src/amo/components/UserProfileEdit/index.js:778
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -2455,7 +2557,7 @@ msgid ""
 "longer editable."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:783
+#: src/amo/components/UserProfileEdit/index.js:785
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -2463,14 +2565,14 @@ msgid ""
 "anonymised and no longer editable."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:793
+#: src/amo/components/UserProfileEdit/index.js:795
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
 "the profile you deleted."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:806
+#: src/amo/components/UserProfileEdit/index.js:808
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -2478,7 +2580,7 @@ msgid ""
 "before you can delete your profile."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:813
+#: src/amo/components/UserProfileEdit/index.js:815
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -2549,6 +2651,41 @@ msgstr "Profil"
 msgid "Choose Photo…"
 msgstr ""
 
+#: src/core/components/AMInstallButton/index.js:203
+msgid "Enable"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:208
+msgid "Enabling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:210
+#, fuzzy
+msgid "Downloading"
+msgstr "Preuzimanje %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:212
+#, fuzzy
+msgid "Installing"
+msgstr "Instaliranje %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:214
+#, fuzzy
+msgid "Uninstalling"
+msgstr "Deinstaliranje %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
+msgid "Install Theme"
+msgstr "Instaliraj temu"
+
+#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
+msgid "Add to Firefox"
+msgstr "Dodaj na Firefox"
+
 #: src/core/components/AuthenticateButton/index.js:79
 msgid "Register or Log in"
 msgstr "Registruj se ili prijavi"
@@ -2570,27 +2707,18 @@ msgstr "Kod greške: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Žao nam je ali ne možemo ništa pronaći na URL koji ste unijeli."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Vaš dodatak je spreman"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Sada možete pristupiti %(name)s preko alatne trake."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
+#: src/core/components/InfoDialog/index.js:84
+#, fuzzy
+msgid "OK"
 msgstr "OK!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Instaliraj temu"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Dodaj na Firefox"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -2675,7 +2803,7 @@ msgstr "Došlo je do neočekivane greške"
 msgid "Reload To Continue"
 msgstr "Ponovo učitaj za nastavak"
 
-#: src/ui/components/ExpandableCard/index.js:42
+#: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
 msgstr "Prebaci sadržaj"
 
@@ -2709,19 +2837,19 @@ msgstr "Pristupite vašim podacima za %(param)s"
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:60
+#: src/ui/components/Rating/index.js:81
 msgid "Rated %(rating)s out of 5"
 msgstr "Ocjenjeno %(rating)s od 5"
 
-#: src/ui/components/Rating/index.js:64
+#: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
 msgstr "Još nema nikakvih ocjena"
 
-#: src/ui/components/Rating/index.js:69
+#: src/ui/components/Rating/index.js:92
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Ažurirajte vašu ocjenu za %(starRating)s od 5"
 
-#: src/ui/components/Rating/index.js:75
+#: src/ui/components/Rating/index.js:98
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Ocjenite ovaj dodatak %(starRating)s od 5"
 
@@ -2736,6 +2864,57 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "%(count)s dodatak pronađen"
 msgstr[1] "%(count)s dodataka pronađena"
 msgstr[2] "%(count)s dodataka pronađeno"
+
+#~ msgid "Overall Rating"
+#~ msgstr "Ukupna ocjena"
+
+#, fuzzy
+#~ msgid "See more dynamic downloaders"
+#~ msgstr "Media preuzimači"
+
+#, fuzzy
+#~ msgid "Dynamic downloaders"
+#~ msgstr "Media preuzimači"
+
+#, fuzzy
+#~ msgid "See more summer themes"
+#~ msgstr "Pogledajte više popularnih tema"
+
+#, fuzzy
+#~ msgid "Summer themes"
+#~ msgstr "Popularne teme"
+
+#, fuzzy
+#~ msgid "See more must-have media extensions"
+#~ msgstr "Vidi više popularnih ekstenzija"
+
+#, fuzzy
+#~ msgid "Page Translate"
+#~ msgstr "Translate Man"
+
+#~ msgid "Translate an entire web page with a couple clicks"
+#~ msgstr "Prevedite cijelu web stranicu s nekoliko klikova"
+
+#~ msgid "Forget Me Not"
+#~ msgstr "Ne zaboravi me"
+
+#~ msgid "Make Firefox forget website data like cookies & local storage"
+#~ msgstr ""
+#~ "Napravite da Firefox zaboravi podatke web stranice poput kolačića i "
+#~ "lokalne pohrane"
+
+#~ msgid "Group Speed Dial"
+#~ msgstr "Grupe brzog biranja"
+
+#, fuzzy
+#~ msgid "Visual bookmarks for your favorite places on the web"
+#~ msgstr "Snimite, sačuvajte i organizujte vaše omiljene stvari na webu"
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Vaš dodatak je spreman"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Sada možete pristupiti %(name)s preko alatne trake."
 
 #~ msgid "A powerful way to find archived versions of older web pages"
 #~ msgstr "Snažan način da pronađete arhivirane verzije starijih web stranica"
@@ -2827,11 +3006,6 @@ msgstr[2] "%(count)s dodataka pronađeno"
 #~ msgid "Swift Selection Search"
 #~ msgstr "Swift Selection Search"
 
-#~ msgid "Highlight text on any web page to pull up a handy search menu"
-#~ msgstr ""
-#~ "Označite tekst na bilo kojoj web stranici za prikaz priručnog menija za "
-#~ "pretragu"
-
 #~ msgid "Worldwide Radio"
 #~ msgstr "Worldwide Radio"
 
@@ -2855,9 +3029,6 @@ msgstr[2] "%(count)s dodataka pronađeno"
 
 #~ msgid "Essential extensions"
 #~ msgstr "Pregledaj sve ekstenzije"
-
-#~ msgid "See more essential extensions"
-#~ msgstr "Vidi više popularnih ekstenzija"
 
 #~ msgid "Envify"
 #~ msgstr "Envify"
@@ -2986,9 +3157,6 @@ msgstr[2] "%(count)s dodataka pronađeno"
 
 #~ msgid "Honey"
 #~ msgstr "Honey"
-
-#~ msgid "Automatically searches for coupon codes"
-#~ msgstr "Automatske pretrage za kupon kodove"
 
 #~ msgid "Facebook Video Downloader"
 #~ msgstr "Facebook Video Downloader"
@@ -3127,9 +3295,6 @@ msgstr[2] "%(count)s dodataka pronađeno"
 #~ msgid "Display tabs in a space-saving “tree” layout."
 #~ msgstr "Prikaži tabove u obliku “stabla” koji štedi prostor."
 
-#~ msgid "Wikipedia Context Menu Search"
-#~ msgstr "Wikipedia Context Menu Search"
-
 #~ msgid "Highlight any text and search Wikipedia."
 #~ msgstr "Označite bilo koji tekst i pretražite ga u Wikipediji."
 
@@ -3167,9 +3332,6 @@ msgstr[2] "%(count)s dodataka pronađeno"
 
 #~ msgid "Productivity tools"
 #~ msgstr "Alati produktivnosti"
-
-#~ msgid "Privacy protection"
-#~ msgstr "Zaštita privatnosti"
 
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "Pogledajte više dodataka koji štite vašu privatnost"
