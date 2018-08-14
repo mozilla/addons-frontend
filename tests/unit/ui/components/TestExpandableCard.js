@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
 import ExpandableCard, {
   ExpandableCardBase,
@@ -47,14 +48,23 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
 
     const root = render({ store });
+    const cardHeader = root.prop('header');
+    const header = shallow(cardHeader);
+    const link = header.find('.ExpandableCard-ToggleLink');
 
-    // We want to simulate card's link onclick.
-    // TODO: look into why this isn't available with find
-    root.instance().onClick(createFakeEvent());
+    // This toggles to make expanded true.
+    link.simulate('click', createFakeEvent());
 
     applyUIStateChanges({ root, store });
 
     expect(root.find('.ExpandableCard--expanded')).toHaveLength(1);
+
+    // This toggles to make expanded false.
+    link.simulate('click', createFakeEvent());
+
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.ExpandableCard--expanded')).toHaveLength(0);
   });
 
   it('renders className', () => {
