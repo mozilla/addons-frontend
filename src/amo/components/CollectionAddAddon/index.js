@@ -90,18 +90,11 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   }
 
   onAddonSelected = (suggestion: SuggestionType) => {
-    const {
-      collection,
-      currentUsername,
-      dispatch,
-      errorHandler,
-      filters,
-    } = this.props;
+    const { collection, dispatch, errorHandler, filters } = this.props;
     const { addonId } = suggestion;
 
     invariant(addonId, 'addonId is required');
     invariant(collection, 'collection is required');
-    invariant(currentUsername, 'currentUsername is required');
 
     dispatch(
       addAddonToCollection({
@@ -111,7 +104,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         filters,
         slug: collection.slug,
-        username: currentUsername,
+        username: collection.authorUsername,
       }),
     );
     this.props.setUIState({ addonWasAdded: false });
