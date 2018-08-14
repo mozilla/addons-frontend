@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-01 19:12+0000\n"
+"PO-Revision-Date: 2018-08-14 11:17+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1197,7 +1197,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr "打开了很多的标签页？用一个整洁的边栏管理它们"
+msgstr "打开了很多的标签页？用一个整洁的侧边栏管理它们"
 
 #: src/amo/components/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1221,7 +1221,7 @@ msgstr "有您的语言"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
-msgstr "字典及语言包"
+msgstr "字典和语言包"
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
