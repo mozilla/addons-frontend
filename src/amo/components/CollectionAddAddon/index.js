@@ -11,6 +11,7 @@ import { addAddonToCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
+import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
 import type { SuggestionType } from 'amo/components/AutoSearchInput';
 import type {
@@ -27,12 +28,18 @@ import './styles.scss';
 export const MESSAGE_RESET_TIME = 5000;
 const MESSAGE_FADEOUT_TIME = 450;
 
+export const addonAddedAction: 'added' = 'added';
+export const addonRemovedAction: 'removed' = 'removed';
+
 type UIStateType = {|
-  addonWasAdded: boolean,
+  completedAddonAction:
+    | typeof addonAddedAction
+    | typeof addonRemovedAction
+    | null,
 |};
 
 const initialUIState: UIStateType = {
-  addonWasAdded: false,
+  completedAddonAction: null,
 };
 
 export type Props = {|
@@ -46,6 +53,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasAddonBeenAdded: boolean,
+  hasAddonBeenRemoved: boolean,
   i18n: I18nType,
   setTimeout: Function,
   setUIState: (state: $Shape<UIStateType>) => void,
@@ -65,15 +73,34 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   };
 
   componentWillReceiveProps(props: InternalProps) {
-    const { hasAddonBeenAdded: hasAddonBeenAddedNew } = props;
-    const { hasAddonBeenAdded } = this.props;
-    if (hasAddonBeenAdded !== hasAddonBeenAddedNew) {
+    const {
+      hasAddonBeenAdded: hasAddonBeenAddedNew,
+      hasAddonBeenRemoved: hasAddonBeenRemovedNew,
+    } = props;
+    const { errorHandler, hasAddonBeenAdded, hasAddonBeenRemoved } = this.props;
+
+    const addStatusChanged = hasAddonBeenAdded !== hasAddonBeenAddedNew;
+    const removeStatusChanged = hasAddonBeenRemoved !== hasAddonBeenRemovedNew;
+
+    if (addStatusChanged) {
       this.props.setUIState({
-        addonWasAdded: props.hasAddonBeenAdded,
+        completedAddonAction: hasAddonBeenAddedNew ? addonAddedAction : null,
       });
     }
 
-    if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
+    if (removeStatusChanged) {
+      this.props.setUIState({
+        completedAddonAction: hasAddonBeenRemovedNew
+          ? addonRemovedAction
+          : null,
+      });
+    }
+
+    if (
+      (addStatusChanged || removeStatusChanged) &&
+      (hasAddonBeenAddedNew || hasAddonBeenRemovedNew)
+    ) {
+      errorHandler.clear();
       this.timeout = this.props.setTimeout(
         this.resetMessageStatus,
         MESSAGE_RESET_TIME,
@@ -82,10 +109,17 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   }
 
   componentWillUnmount() {
+    this.resetMessageStatus();
+  }
+
+  resetMessageStatus = () => {
+    this.props.setUIState({
+      completedAddonAction: null,
+    });
     if (this.timeout) {
       this.props.clearTimeout(this.timeout);
     }
-  }
+  };
 
   onAddonSelected = (suggestion: SuggestionType) => {
     const { collection, dispatch, errorHandler, filters } = this.props;
@@ -105,31 +139,33 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
         username: collection.authorUsername,
       }),
     );
-    this.props.setUIState({ addonWasAdded: false });
-  };
-
-  resetMessageStatus = () => {
-    this.props.setUIState({
-      addonWasAdded: false,
-    });
+    this.resetMessageStatus();
   };
 
   render() {
     const { errorHandler, i18n, uiState } = this.props;
 
     return (
-      <div className="CollectionAddAddon">
+      <Card className="CollectionAddAddon">
         {errorHandler.hasError() ? (
           errorHandler.renderError()
         ) : (
           <TransitionGroup className="CollectionAddAddon-noticePlaceholder">
-            {uiState.addonWasAdded && (
+            {uiState.completedAddonAction && (
               <CSSTransition
                 classNames="CollectionAddAddon-noticePlaceholder-transition"
                 timeout={MESSAGE_FADEOUT_TIME}
               >
-                <Notice type="success">
-                  {i18n.gettext('Added to collection')}
+                <Notice
+                  type={
+                    uiState.completedAddonAction === addonAddedAction
+                      ? 'success'
+                      : 'generic'
+                  }
+                >
+                  {uiState.completedAddonAction === addonAddedAction
+                    ? i18n.gettext('Added to collection')
+                    : i18n.gettext('Removed from collection')}
                 </Notice>
               </CSSTransition>
             )}
@@ -145,7 +181,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
           onSuggestionSelected={this.onAddonSelected}
           selectSuggestionText={i18n.gettext('Add to collection')}
         />
-      </div>
+      </Card>
     );
   }
 }
@@ -158,6 +194,7 @@ export const extractId = (props: Props) => {
 export const mapStateToProps = (state: AppState) => {
   return {
     hasAddonBeenAdded: state.collections.hasAddonBeenAdded,
+    hasAddonBeenRemoved: state.collections.hasAddonBeenRemoved,
   };
 };
 

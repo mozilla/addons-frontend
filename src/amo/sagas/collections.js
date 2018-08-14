@@ -22,6 +22,7 @@ import {
   abortFetchCurrentCollection,
   abortFetchUserCollections,
   addonAddedToCollection,
+  addonRemovedFromCollection,
   beginCollectionModification,
   convertFiltersToQueryParams,
   finishCollectionModification,
@@ -355,6 +356,8 @@ export function* removeAddonFromCollection({
       username,
     };
     yield call(api.removeAddonFromCollection, params);
+
+    yield put(addonRemovedFromCollection());
 
     yield put(
       fetchCurrentCollectionPageAction({

@@ -40,6 +40,8 @@ export const FINISH_COLLECTION_MODIFICATION: 'FINISH_COLLECTION_MODIFICATION' =
   'FINISH_COLLECTION_MODIFICATION';
 export const REMOVE_ADDON_FROM_COLLECTION: 'REMOVE_ADDON_FROM_COLLECTION' =
   'REMOVE_ADDON_FROM_COLLECTION';
+export const ADDON_REMOVED_FROM_COLLECTION: 'ADDON_REMOVED_FROM_COLLECTION' =
+  'ADDON_REMOVED_FROM_COLLECTION';
 export const DELETE_COLLECTION: 'DELETE_COLLECTION' = 'DELETE_COLLECTION';
 export const UPDATE_COLLECTION_ADDON: 'UPDATE_COLLECTION_ADDON' =
   'UPDATE_COLLECTION_ADDON';
@@ -99,6 +101,7 @@ export type CollectionsState = {
   },
   isCollectionBeingModified: boolean,
   hasAddonBeenAdded: boolean,
+  hasAddonBeenRemoved: boolean,
 };
 
 export const initialState: CollectionsState = {
@@ -109,6 +112,7 @@ export const initialState: CollectionsState = {
   addonInCollections: {},
   isCollectionBeingModified: false,
   hasAddonBeenAdded: false,
+  hasAddonBeenRemoved: false,
 };
 
 type FetchCurrentCollectionParams = {|
@@ -653,6 +657,16 @@ export const removeAddonFromCollection = ({
       slug,
       username,
     },
+  };
+};
+
+type AddonRemovedFromCollectionAction = {|
+  type: typeof ADDON_REMOVED_FROM_COLLECTION,
+|};
+
+export const addonRemovedFromCollection = (): AddonRemovedFromCollectionAction => {
+  return {
+    type: ADDON_REMOVED_FROM_COLLECTION,
   };
 };
 
@@ -1306,6 +1320,20 @@ const reducer = (
     case UPDATE_COLLECTION: {
       const { username } = action.payload;
       return unloadUserCollections({ state, username });
+    }
+
+    case REMOVE_ADDON_FROM_COLLECTION: {
+      return {
+        ...state,
+        hasAddonBeenRemoved: false,
+      };
+    }
+
+    case ADDON_REMOVED_FROM_COLLECTION: {
+      return {
+        ...state,
+        hasAddonBeenRemoved: true,
+      };
     }
 
     default:

@@ -8,6 +8,7 @@ import Collection, {
   mapStateToProps,
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
+import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
 import CollectionControls from 'amo/components/CollectionControls';
@@ -1271,6 +1272,43 @@ describe(__filename, () => {
     const root = renderComponent({ store, editing: true });
 
     expect(root.find(AddonsCard)).toHaveProp('editing', true);
+  });
+
+  it('renders a CollectionAddAddon component when editing', () => {
+    const authorUserId = 11;
+    const page = 2;
+    const sort = COLLECTION_SORT_NAME;
+    const queryParams = { page, collection_sort: sort };
+    const pageSize = DEFAULT_API_PAGE_SIZE;
+    const filters = { collectionSort: sort, page };
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    const addons = createFakeCollectionAddons();
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
+    });
+    const collection = createInternalCollection({
+      detail,
+      items: addons,
+      pageSize,
+    });
+
+    _loadCurrentCollection({ addons, detail, pageSize, store });
+
+    const root = renderComponent({
+      store,
+      editing: true,
+      location: createFakeLocation({ query: queryParams }),
+    });
+
+    expect(root.find(CollectionAddAddon)).toHaveProp('collection', collection);
+    expect(root.find(CollectionAddAddon)).toHaveProp('filters', filters);
+  });
+
+  it('does not render a CollectionAddAddon component when not editing', () => {
+    const root = renderComponent({ editing: false });
+
+    expect(root.find(CollectionAddAddon)).toHaveLength(0);
   });
 
   it('renders AuthenticateButton when creating and not signed in', () => {

@@ -8,6 +8,7 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  addonRemovedFromCollection,
   beginCollectionModification,
   createCollection,
   deleteCollection,
@@ -763,6 +764,14 @@ describe(__filename, () => {
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
       expect(fetchAction).toEqual(expectedFetchAction);
+
+      const expectedRemovedAction = addonRemovedFromCollection();
+
+      const removedAction = await sagaTester.waitFor(
+        expectedRemovedAction.type,
+      );
+      expect(removedAction).toEqual(expectedRemovedAction);
+
       mockApi.verify();
     });
 

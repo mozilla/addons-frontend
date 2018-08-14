@@ -4,6 +4,7 @@ import reducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  addonRemovedFromCollection,
   beginCollectionModification,
   collectionEditUrl,
   collectionUrl,
@@ -26,6 +27,7 @@ import reducer, {
   loadCurrentCollectionPage,
   loadUserCollections,
   localizeCollectionDetail,
+  removeAddonFromCollection,
   unloadCollectionBySlug,
   updateCollection,
 } from 'amo/reducers/collections';
@@ -495,6 +497,22 @@ describe(__filename, () => {
       expect(state.hasAddonBeenAdded).toEqual(false);
     });
 
+    it('sets a hasAddonBeenRemoved flag when beginning to remove an add-on from a collection', () => {
+      const state = reducer(
+        undefined,
+        removeAddonFromCollection({
+          addonId: 1,
+          collectionId: 3,
+          errorHandlerId: 'error-handler',
+          filters: {},
+          slug: 'some-collection',
+          username: 'some-user',
+        }),
+      );
+
+      expect(state.hasAddonBeenRemoved).toEqual(false);
+    });
+
     it('preserves existing collections when adding new ones', () => {
       const addonId = 871;
       const username = 'some-user';
@@ -614,6 +632,12 @@ describe(__filename, () => {
       );
 
       expect(state.hasAddonBeenAdded).toEqual(true);
+    });
+
+    it('sets a hasAddonBeenRemoved flag after an add-on has been removed', () => {
+      const state = reducer(undefined, addonRemovedFromCollection());
+
+      expect(state.hasAddonBeenRemoved).toEqual(true);
     });
 
     it('appends a new add-on to the list of its collections', () => {

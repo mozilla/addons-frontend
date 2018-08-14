@@ -4,6 +4,8 @@ import * as React from 'react';
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionAddAddon, {
   CollectionAddAddonBase,
+  addonAddedAction,
+  addonRemovedAction,
   extractId,
   mapStateToProps,
   MESSAGE_RESET_TIME,
@@ -11,6 +13,7 @@ import CollectionAddAddon, {
 import {
   addAddonToCollection,
   addonAddedToCollection,
+  addonRemovedFromCollection,
   createInternalCollection,
 } from 'amo/reducers/collections';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
@@ -27,6 +30,7 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
+import Card from 'ui/components/Card';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';
 
@@ -45,6 +49,15 @@ const _addonAddedToCollection = ({ username, root, store }) => {
       username,
     }),
   );
+
+  // Simulate a Redux state update.
+  root.setProps(mapStateToProps(store.getState()));
+
+  applyUIStateChanges({ root, store });
+};
+
+const _addonRemovedFromCollection = ({ root, store }) => {
+  store.dispatch(addonRemovedFromCollection());
 
   // Simulate a Redux state update.
   root.setProps(mapStateToProps(store.getState()));
@@ -108,6 +121,13 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  it('renders a Card with an AutoSearchInput', () => {
+    const root = render();
+
+    expect(root.find(Card)).toHaveLength(1);
+    expect(root.find(AutoSearchInput)).toHaveLength(1);
+  });
+
   it('dispatches addAddonToCollection when selecting an add-on', () => {
     const authorUsername = 'non-signed-in-user';
     const currentUsername = 'signed-in-user';
@@ -160,14 +180,71 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
 
-    expect(root.instance().props.uiState.addonWasAdded).toEqual(true);
+    expect(root.instance().props.uiState.completedAddonAction).toEqual(
+      addonAddedAction,
+    );
 
     // Trigger the setTimeout behavior.
     clock.tick(MESSAGE_RESET_TIME);
 
     applyUIStateChanges({ root, store });
-    expect(root.instance().props.uiState.addonWasAdded).toEqual(false);
+    expect(root.instance().props.uiState.completedAddonAction).toEqual(null);
     expect(root.find(Notice)).toHaveLength(0);
+  });
+
+  it('displays a notification for 5 seconds after an add-on has been removed', () => {
+    const { store } = dispatchSignedInUser({
+      username: signedInUsername,
+    });
+    const root = render({ setTimeout: window.setTimeout, store });
+
+    expect(root.find(Notice)).toHaveLength(0);
+
+    _addonRemovedFromCollection({ root, store });
+
+    expect(root.find(Notice)).toHaveLength(1);
+    expect(root.find(Notice).children()).toHaveText('Removed from collection');
+
+    expect(root.instance().props.uiState.completedAddonAction).toEqual(
+      addonRemovedAction,
+    );
+
+    // Trigger the setTimeout behavior.
+    clock.tick(MESSAGE_RESET_TIME);
+
+    applyUIStateChanges({ root, store });
+    expect(root.instance().props.uiState.completedAddonAction).toEqual(null);
+    expect(root.find(Notice)).toHaveLength(0);
+  });
+
+  it('clears the errorHandler when an add-on is added', () => {
+    const errorHandler = createStubErrorHandler(
+      new Error('Unexpected API error'),
+    );
+    errorHandler.clear = sinon.spy();
+    const { store } = dispatchSignedInUser({
+      username: signedInUsername,
+    });
+
+    const root = render({ errorHandler, store });
+
+    _addonAddedToCollection({ username: signedInUsername, root, store });
+
+    sinon.assert.called(errorHandler.clear);
+  });
+
+  it('clears the errorHandler when an add-on is removed', () => {
+    const errorHandler = createStubErrorHandler(
+      new Error('Unexpected API error'),
+    );
+    errorHandler.clear = sinon.spy();
+    const { store } = dispatchSignedInUser({});
+
+    const root = render({ errorHandler, store });
+
+    _addonRemovedFromCollection({ root, store });
+
+    sinon.assert.called(errorHandler.clear);
   });
 
   it('calls clearTimeout when unmounting and timeout is set', () => {
