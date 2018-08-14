@@ -60,8 +60,8 @@ const slugIsPositiveID = (slug) => {
 
 export class AddonBase extends React.Component {
   static propTypes = {
-    RatingManager: PropTypes.element,
-    addon: PropTypes.object.isRequired,
+    RatingManager: PropTypes.func,
+    addon: PropTypes.object,
     clientApp: PropTypes.string.isRequired,
     config: PropTypes.object,
     defaultInstallSource: PropTypes.string.isRequired,
@@ -82,9 +82,9 @@ export class AddonBase extends React.Component {
       params: PropTypes.object.isRequired,
     }).isRequired,
     installStatus: PropTypes.string.isRequired,
-    userAgentInfo: PropTypes.object.isRequired,
-    addonsByAuthors: PropTypes.array.isRequired,
+    addonsByAuthors: PropTypes.array,
     setCurrentStatus: PropTypes.func.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   };
 
   static defaultProps = {

@@ -41,7 +41,7 @@ export class LandingPageBase extends React.Component {
     // This is a bug; addonTypeOfResults is used in
     // `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
-    addonTypeOfResults: PropTypes.string.isRequired,
+    addonTypeOfResults: PropTypes.string,
     // This is a bug; context is used in `setViewContextType()`.
     // eslint-disable-next-line react/no-unused-prop-types
     context: PropTypes.string.isRequired,

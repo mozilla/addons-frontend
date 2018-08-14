@@ -307,9 +307,9 @@ export class WithInstallHelpers extends React.Component {
     // See ReactRouterLocationType from 'core/types/router'
     location: PropTypes.object,
     platformFiles: PropTypes.object,
-    name: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    status: PropTypes.string,
+    type: PropTypes.string,
     userAgentInfo: PropTypes.object.isRequired,
   };
 
