@@ -44,7 +44,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     this.truncateToMaxHeight(this.contents);
   }
 
-  onClick = (event: SyntheticEvent<any>) => {
+  onClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     this.props.setUIState({ expanded: true });
   };
@@ -53,7 +53,11 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     // If the contents are short enough they don't need a "show more" link; the
     // contents are expanded by default.
     if (contents) {
-      this.props.setUIState({ expanded: contents.clientHeight >= MAX_HEIGHT });
+      if (contents.clientHeight >= MAX_HEIGHT) {
+        this.props.setUIState({ expanded: false });
+      } else {
+        this.props.setUIState({ expanded: true });
+      }
     }
   };
 
