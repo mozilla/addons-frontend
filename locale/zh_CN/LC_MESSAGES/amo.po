@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-14 21:51+0000\n"
+"PO-Revision-Date: 2018-08-14 22:10+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1041,7 +1041,7 @@ msgstr "看看更多阅读扩展"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "精致阅读"
 
 #: src/amo/components/Home/index.js:55
 msgid "See more exceptional search tools"
@@ -1049,7 +1049,7 @@ msgstr "看看更多优秀的搜索工具"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "优秀的搜索工具"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1081,7 +1081,7 @@ msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "改变您的书签默认放到哪里"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1097,7 +1097,7 @@ msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "与其他人一同观看视频"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1129,7 +1129,7 @@ msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "停用不活跃的标签页来节约内存"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1137,11 +1137,11 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "在您设定的网页更新内容时得到通知"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
@@ -1149,43 +1149,43 @@ msgstr "自动启动 Firefox 到全屏模式"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "用快捷键调整视频播放速度"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "找回 Google 图片上的“查看图片”和“以图搜图”按钮"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "清洁链接以便分享"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "拖拽文本、图像或链接来执行如复制、打开、搜索等操作"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "一键关闭烦人的弹出覆盖层"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "Auto-Sort Bookmarks"
@@ -1193,15 +1193,15 @@ msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "自动排序书签，按您的喜好排列它们"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "将大英百科全书事实添加到您的搜索结果中"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -2225,11 +2225,11 @@ msgstr "选择照片…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "正在启用"
 
 #: src/core/components/AMInstallButton/index.js:210
 msgid "Downloading"
@@ -2269,11 +2269,11 @@ msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s 已添加"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "点击菜单中的“附加组件”来管理您的附加组件。"
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"
