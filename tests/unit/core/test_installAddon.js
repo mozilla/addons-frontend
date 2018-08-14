@@ -624,9 +624,7 @@ describe(__filename, () => {
         });
 
         const { root } = renderWithInstallHelpers({
-          addon: createInternalAddon({
-            addon: null,
-          }),
+          addon: createInternalAddon(fakeAddon),
           _addonManager: fakeAddonManager,
         });
 
