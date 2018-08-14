@@ -1,76 +1,54 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-dom/test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
 
-import createStore from 'amo/store';
 import Overlay from 'ui/components/Overlay';
 import OverlayCard from 'ui/components/OverlayCard';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  const { store } = createStore();
-
   const getProps = ({ ...props } = {}) => {
     return {
       className: 'OverlayCard',
       id: 'OverlayCard',
-      store,
+      store: dispatchClientMetadata().store,
       ...props,
     };
   };
 
   function render(props = {}) {
-    return findRenderedComponentWithType(
-      renderIntoDocument(
-        <Provider store={store}>
-          <OverlayCard {...getProps(props)} />
-        </Provider>,
-      ),
-      OverlayCard,
-    );
+    return shallow(<OverlayCard {...getProps(props)} />);
   }
 
   it('passes onEscapeOverlay to Overlay', () => {
     const onEscapeOverlay = sinon.stub();
     const root = render({ onEscapeOverlay });
-    const overlay = findRenderedComponentWithType(root, Overlay);
-    expect(overlay.props.onEscapeOverlay).toEqual(onEscapeOverlay);
+
+    expect(root.find(Overlay)).toHaveProp('onEscapeOverlay', onEscapeOverlay);
   });
 
   it('passes the header', () => {
-    const root = render({ header: 'header' });
-    const rootNode = findDOMNode(root);
+    const root = render({ header: 'this is a header' });
 
-    expect(rootNode.querySelector('.Card-header').textContent).toContain(
-      'header',
-    );
+    expect(root.find('.OverlayCard')).toHaveProp('header', 'this is a header');
   });
 
   it('passes a footer link', () => {
-    const root = render({ footerLink: <a href="/somewhere">link</a> });
-    const rootNode = findDOMNode(root);
+    const footerLink = <a href="/somewhere">link</a>;
+    const root = render({ footerLink });
 
-    expect(rootNode.querySelector('.Card-footer-link').textContent).toContain(
-      'link',
-    );
+    expect(root.find('.OverlayCard')).toHaveProp('footerLink', footerLink);
   });
 
   it('passes footer text', () => {
-    const root = render({ footerText: 'footer text' });
-    const rootNode = findDOMNode(root);
+    const footerText = 'footer text';
+    const root = render({ footerText });
 
-    expect(rootNode.querySelector('.Card-footer-text').textContent).toContain(
-      'footer text',
-    );
+    expect(root.find('.OverlayCard')).toHaveProp('footerText', footerText);
   });
 
   it('passes children', () => {
     const root = render({ children: <div className="kids">hi</div> });
-    const rootNode = findDOMNode(root);
 
-    expect(rootNode.querySelector('.kids').textContent).toContain('hi');
+    expect(root.find('.OverlayCard').children()).toHaveText('hi');
   });
 });
