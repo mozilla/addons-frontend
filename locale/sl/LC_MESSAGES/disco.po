@@ -1,56 +1,48 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-12 09:29+0000\n"
+"PO-Revision-Date: 2018-08-14 19:22+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Omogoči"
 
 #: src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
-msgstr ""
+msgstr "Odstrani"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Omogočanje"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Prenašanje %(name)s."
+msgstr "Prenašanje"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Nameščanje %(name)s."
+msgstr "Nameščanje"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Odstranjevanje %(name)s."
+msgstr "Odstranjevanje"
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Namesti temo"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Dodaj v Firefox"
 
@@ -59,15 +51,10 @@ msgid "Server Error"
 msgstr "Napaka strežnika"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo "
-"zabeležili in se ji bomo posvetili."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Koda napake: %(status)s."
 
@@ -81,16 +68,15 @@ msgstr "Žal na spletnem naslovu, ki ste ga vnesli, ne najdemo ničesar."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s je bil dodan"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "V redu!"
+msgstr "V redu"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -182,17 +168,11 @@ msgstr "Prikrojite Firefox po svoji meri"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko "
-"prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki "
-"napravijo vaše brskanje hitrejše in varnejše — dodatki naredijo vaš Firefox "
-"čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi "
-"izredne zmogljivosti in uporabnosti."
+"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki napravijo vaše brskanje hitrejše in varnejše — "
+"dodatki naredijo vaš Firefox čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi izredne zmogljivosti in uporabnosti."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -221,8 +201,7 @@ msgstr "Skrij obvestilo"
 #~ msgstr "Sedaj lahko do %(name)s dostopate iz orodne vrstice."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
+#~ msgstr "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Premaknite miško nad sliko za predogled"

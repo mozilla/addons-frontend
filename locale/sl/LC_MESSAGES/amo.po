@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-14 19:13+0000\n"
+"PO-Revision-Date: 2018-08-14 19:21+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1165,12 +1165,11 @@ msgstr "Bodite obveščeni, ko se vaša priljubljena spletna mesta posodobijo z 
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Samodejno iskanje kod kuponov"
+msgstr "Samodejno zaženite Firefox v celozaslonskem načinu"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1182,23 +1181,23 @@ msgstr "Nastavite hitrost predvajanja videa z bližnjicami"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Povrnite možnosti \"Ogled slike\" in \"Iskanje po sliki\" v Google Slikah"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Očistite povezave za preprosto deljenje"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
@@ -1206,16 +1205,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Zaprite nadležna pojavna okna z enim klikom"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Zaznamki"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
@@ -1838,9 +1836,8 @@ msgstr ""
 "dodajanjem novih funkcij v Firefox, obogatitvijo možnosti obravnavanja spletne vsebine ali spreminjanjem videza brskalnika."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Na AMO lahko najdete tudi dodatke za Mozilla %(startTBLink)sThunderbird%(endTBLink)s in %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "Če iščete dodatke za Thunderbird ali SeaMonkey, obiščite %(startTBLink)saddons.thunderbird.net%(endTBLink)s oziroma %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2344,16 +2341,15 @@ msgstr "Žal na spletnem naslovu, ki ste ga vnesli, ne najdemo ničesar."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s je bil dodan"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "V redu!"
+msgstr "V redu"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
