@@ -486,7 +486,7 @@ describe(__filename, () => {
       sinon.assert.calledOnce(enable);
     });
 
-    it("does not call enable helper functions when clicking on the static theme's header image if addon is already enabled", async () => {
+    it("does not call enable helper function when clicking on the static theme's header image if addon is already enabled", async () => {
       install = sinon.spy();
       enable = sinon.spy();
       const root = renderWithStaticTheme({
@@ -521,22 +521,18 @@ describe(__filename, () => {
   });
 
   describe('addon with type lightweight theme', () => {
-    const newAddonName = 'Light Summer Colors';
-    const installTheme = sinon.stub();
-
     const addon = {
       ...result,
-      name: newAddonName,
       type: ADDON_TYPE_THEME,
       previews: [],
     };
 
     it('renders wrapper link around image and calls installTheme on click if hasAddonManager is true', () => {
+      const installTheme = sinon.stub();
       const root = renderAddon({
         addon,
         installTheme,
         status: UNINSTALLED,
-        type: ADDON_TYPE_THEME,
         hasAddonManager: true,
       });
       const themeImage = root.find('.theme-image-link');
@@ -556,16 +552,18 @@ describe(__filename, () => {
     it('does not render wrapper link around image if hasAddonManager is false', () => {
       const root = renderAddon({
         addon,
-        type: ADDON_TYPE_THEME,
         hasAddonManager: false,
       });
       expect(root.find('.theme-image-link')).toHaveLength(0);
     });
 
-    it("renders the alt tag with addon's name", () => {
+    it("renders the alt tag with the addon's name", () => {
+      const newAddonName = 'Light Summer Colors';
       const root = renderAddon({
-        addon,
-        type: ADDON_TYPE_THEME,
+        addon: {
+          ...addon,
+          name: newAddonName,
+        },
       });
       expect(root.find('.Addon-theme-header-image')).toHaveProp(
         'alt',
@@ -651,6 +649,7 @@ describe(__filename, () => {
         ...props,
       });
     };
+
     it('renders the AMInstallButton when config allows it', () => {
       const root = renderWithAMInstallButton();
 

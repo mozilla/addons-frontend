@@ -623,6 +623,7 @@ describe(__filename, () => {
 
       it('returns false when there is an error', async () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
+          // Resolve a null addon which will trigger an exception.
           getAddon: Promise.resolve(null),
         });
 
