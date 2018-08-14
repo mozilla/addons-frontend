@@ -109,14 +109,17 @@ describe(__filename, () => {
   });
 
   it('dispatches addAddonToCollection when selecting an add-on', () => {
+    const authorUsername = 'non-signed-in-user';
+    const currentUsername = 'signed-in-user';
+
     const { store } = dispatchSignedInUser({
-      username: signedInUsername,
+      username: currentUsername,
     });
     const filters = { page: 2 };
     const errorHandler = createStubErrorHandler();
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
+      detail: createFakeCollectionDetail({ authorUsername }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ collection, errorHandler, filters, store });
@@ -139,7 +142,7 @@ describe(__filename, () => {
         editing: true,
         errorHandlerId: errorHandler.id,
         filters,
-        username: signedInUsername,
+        username: authorUsername,
       }),
     );
   });
