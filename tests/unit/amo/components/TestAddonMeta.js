@@ -93,6 +93,10 @@ describe(__filename, () => {
       return root.find(MetadataCard).prop('metadata')[1];
     }
 
+    function getAverageMeta(root) {
+      return root.find(MetadataCard).prop('metadata')[2];
+    }
+
     it('renders a count of multiple ratings', () => {
       const root = renderRatings({ count: 5 });
 
@@ -121,9 +125,11 @@ describe(__filename, () => {
 
       expect(getReviewCount(root).title).toEqual('No Ratings');
 
-      const averageMeta = root.find(MetadataCard).prop('metadata')[2];
+      const averageMeta = getAverageMeta(root);
+      const rating = shallow(averageMeta.content).find(Rating);
       const title = shallow(averageMeta.title).find('.AddonMeta-rating-title');
 
+      expect(rating).toHaveProp('rating', null);
       expect(title).toHaveText('Not rated yet');
     });
 
@@ -144,7 +150,7 @@ describe(__filename, () => {
       const average = 2.34;
       const root = renderRatings({ average });
 
-      const averageMeta = root.find(MetadataCard).prop('metadata')[2];
+      const averageMeta = getAverageMeta(root);
       const rating = shallow(averageMeta.content).find(Rating);
       const title = shallow(averageMeta.title).find('.AddonMeta-rating-title');
 
