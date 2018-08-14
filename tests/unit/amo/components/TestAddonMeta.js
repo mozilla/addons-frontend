@@ -5,6 +5,7 @@ import AddonMeta, {
   AddonMetaBase,
   roundToOneDigit,
 } from 'amo/components/AddonMeta';
+import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
@@ -89,12 +90,30 @@ describe(__filename, () => {
       });
     }
 
-    function getReviewCount(root) {
+    function getReviewData(root) {
       return root.find(MetadataCard).prop('metadata')[1];
     }
 
-    function getAverageMeta(root) {
+    function getReviewTitle(root) {
+      const { title } = getReviewData(root);
+      return shallow(<div>{title}</div>);
+    }
+
+    function getReviewCount(root) {
+      const { content } = getReviewData(root);
+      return shallow(<div>{content}</div>);
+    }
+
+    function getAverageData(root) {
       return root.find(MetadataCard).prop('metadata')[2];
+    }
+
+    function getAverageTitle(root) {
+      return shallow(getAverageData(root).title);
+    }
+
+    function getAverageNumber(root) {
+      return shallow(getAverageData(root).content);
     }
 
     it('renders a count of multiple reviews', () => {
@@ -107,22 +126,24 @@ describe(__filename, () => {
         }),
       });
 
+      expect(getReviewTitle(root).find(Link)).toHaveProp(
+        'to',
+        `/addon/${slug}/reviews/`,
+      );
       expect(
-        getReviewCount(root).find('.AddonMeta-reviews-content-link'),
-      ).toHaveProp('to', `/addon/${slug}/reviews/`);
-      expect(
-        getReviewCount(root)
-          .find('.AddonMeta-reviews-content-link')
-          .children(),
-      ).toHaveText('5');
-      expect(
-        getReviewCount(root).find('.AddonMeta-reviews-title-link'),
-      ).toHaveProp('to', `/addon/${slug}/reviews/`);
-      expect(
-        getReviewCount(root)
-          .find('.AddonMeta-reviews-title-link')
+        getReviewTitle(root)
+          .find(Link)
           .children(),
       ).toHaveText('Reviews');
+      expect(getReviewCount(root).find(Link)).toHaveProp(
+        'to',
+        `/addon/${slug}/reviews/`,
+      );
+      expect(
+        getReviewCount(root)
+          .find(Link)
+          .children(),
+      ).toHaveText('5');
     });
 
     it('renders a count of one review', () => {
@@ -130,12 +151,12 @@ describe(__filename, () => {
 
       expect(
         getReviewCount(root)
-          .find('.AddonMeta-reviews-content-link')
+          .find(Link)
           .children(),
       ).toHaveText('1');
       expect(
-        getReviewCount(root)
-          .find('.AddonMeta-reviews-title-link')
+        getReviewTitle(root)
+          .find(Link)
           .children(),
       ).toHaveText('Review');
     });
@@ -146,7 +167,7 @@ describe(__filename, () => {
 
       expect(
         getReviewCount(root)
-          .find('.AddonMeta-reviews-content-link')
+          .find(Link)
           .children(),
       ).toHaveText('1.000');
     });
@@ -154,10 +175,8 @@ describe(__filename, () => {
     it('handles no addon', () => {
       const root = render({ addon: null });
 
-      expect(root.find(MetadataCard).prop('metadata')[1].content).toEqual(null);
-      expect(root.find(MetadataCard).prop('metadata')[1].title).toEqual(
-        'Reviews',
-      );
+      expect(getReviewTitle(root).children()).toHaveText('Reviews');
+      expect(getReviewCount(root).children()).toHaveLength(0);
     });
 
     it('handles zero reviews', () => {
@@ -165,15 +184,11 @@ describe(__filename, () => {
         addon: createInternalAddon({ ...fakeAddon, ratings: null }),
       });
 
-      expect(getReviewCount(root).content).toEqual('');
-      expect(getReviewCount(root).title).toEqual('No Reviews');
+      expect(getReviewTitle(root).children()).toHaveText('No Reviews');
+      expect(getReviewCount(root).children()).toHaveLength(0);
 
-      const averageMeta = getAverageMeta(root);
-      const rating = shallow(averageMeta.content).find(Rating);
-      const title = shallow(averageMeta.title).find('.AddonMeta-rating-title');
-
-      expect(rating).toHaveProp('rating', null);
-      expect(title).toHaveText('Not rated yet');
+      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', null);
+      expect(getAverageTitle(root)).toHaveText('Not rated yet');
     });
 
     it('renders RatingsByStar with an add-on', () => {
@@ -193,12 +208,10 @@ describe(__filename, () => {
       const average = 2.34;
       const root = renderRatings({ average });
 
-      const averageMeta = getAverageMeta(root);
-      const rating = shallow(averageMeta.content).find(Rating);
-      const title = shallow(averageMeta.title).find('.AddonMeta-rating-title');
-
-      expect(rating).toHaveProp('rating', average);
-      expect(title).toHaveText(`${roundToOneDigit(average)} star average`);
+      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', average);
+      expect(getAverageTitle(root)).toHaveText(
+        `${roundToOneDigit(average)} star average`,
+      );
     });
   });
 

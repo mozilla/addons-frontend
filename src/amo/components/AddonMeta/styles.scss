@@ -59,7 +59,6 @@
   }
 
   a:focus {
-    outline: 1px dotted $link-color;
-    outline: auto 5px -webkit-focus-ring-color;
+    @include focus();
   }
 }

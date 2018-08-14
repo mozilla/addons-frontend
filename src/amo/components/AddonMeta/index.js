@@ -59,29 +59,24 @@ export class AddonMetaBase extends React.Component<InternalProps> {
       reviewTitle = i18n.gettext('No Reviews');
     }
 
-    const reviewsContent =
-      addon && reviewCount ? (
-        <Link
-          className="AddonMeta-reviews-content-link"
-          to={`/addon/${addon.slug}/reviews/`}
-        >
-          {reviewCount}
-        </Link>
-      ) : (
-        reviewCount
-      );
+    const reviewsLink =
+      addon && reviewCount ? `/addon/${addon.slug}/reviews/` : null;
 
-    const reviewsTitle =
-      addon && reviewCount ? (
-        <Link
-          className="AddonMeta-reviews-title-link"
-          to={`/addon/${addon.slug}/reviews/`}
-        >
-          {reviewTitle}
-        </Link>
-      ) : (
-        reviewTitle
-      );
+    const reviewsContent = reviewsLink ? (
+      <Link className="AddonMeta-reviews-content-link" to={reviewsLink}>
+        {reviewCount}
+      </Link>
+    ) : (
+      reviewCount
+    );
+
+    const reviewsTitle = reviewsLink ? (
+      <Link className="AddonMeta-reviews-title-link" to={reviewsLink}>
+        {reviewTitle}
+      </Link>
+    ) : (
+      reviewTitle
+    );
 
     return (
       <div className="AddonMeta">
