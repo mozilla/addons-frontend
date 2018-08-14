@@ -20,6 +20,10 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
+export const roundToOneDigit = (value: number | null): number => {
+  return value ? Math.round(value * 10) / 10 : 0;
+};
+
 export class AddonMetaBase extends React.Component<InternalProps> {
   render() {
     const { addon, i18n } = this.props;
@@ -79,7 +83,13 @@ export class AddonMetaBase extends React.Component<InternalProps> {
               ),
               title: (
                 <div className="AddonMeta-rating-title">
-                  {i18n.gettext('Overall Rating')}
+                  {addonRatingCount
+                    ? i18n.sprintf(i18n.gettext('%(rating)s star average'), {
+                        rating: i18n.formatNumber(
+                          roundToOneDigit(averageRating),
+                        ),
+                      })
+                    : i18n.gettext('Not rated yet')}
                 </div>
               ),
             },
