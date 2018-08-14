@@ -1,36 +1,51 @@
+/* @flow */
+import invariant from 'invariant';
 import makeClassName from 'classnames';
-import PropTypes from 'prop-types';
 import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import withUIState from 'core/withUIState';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-export class ExpandableCardBase extends React.Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    header: PropTypes.node,
-    i18n: PropTypes.object.isRequired,
-  };
+type UIStateType = {|
+  expanded: boolean,
+|};
 
-  constructor(props) {
-    super(props);
-    this.state = { expanded: false };
-  }
+type Props = {|
+  children: React.Element<any> | string,
+  className?: string,
+  header?: React.Element<any> | string,
+  id: string,
+|};
 
-  onClick = (event) => {
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
+|};
+
+const initialUIState: UIStateType = { expanded: false };
+
+export class ExpandableCardBase extends React.Component<InternalProps> {
+  onClick = (event: SyntheticEvent<any>) => {
+    const { uiState } = this.props;
     event.preventDefault();
 
-    this.setState({ expanded: !this.state.expanded });
+    this.props.setUIState({ expanded: !uiState.expanded });
   };
 
   render() {
-    const { children, className, header, i18n } = this.props;
-    const { expanded } = this.state;
+    const { children, className, header, id, i18n, uiState } = this.props;
+    const { expanded } = uiState;
+
+    invariant(children, 'The children property is required');
+    invariant(id, 'The id property is required');
 
     const headerWithExpandLink = (
       <a
@@ -62,4 +77,17 @@ export class ExpandableCardBase extends React.Component {
   }
 }
 
-export default compose(translate())(ExpandableCardBase);
+export const extractId = (props: Props) => {
+  return props.id;
+};
+
+const ExpandableCard: React.ComponentType<Props> = compose(
+  translate(),
+  withUIState({
+    fileName: __filename,
+    extractId,
+    initialState: initialUIState,
+  }),
+)(ExpandableCardBase);
+
+export default ExpandableCard;
