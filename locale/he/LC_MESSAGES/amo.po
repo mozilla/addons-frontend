@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-14 19:30+0000\n"
+"PO-Revision-Date: 2018-08-14 19:48+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1052,9 +1052,8 @@ msgid "Refined reading"
 msgstr ""
 
 #: src/amo/components/Home/index.js:55
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "הצגת הרחבות חיוניות נוספות"
+msgstr "הצגת עוד כלי חיפוש יוצאים מן הכלל"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
@@ -1202,15 +1201,15 @@ msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "מיון אוטומטי של סימניות כדי שתופענה בסדר המועדף עליך"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "הוספת עובדות מבריטניקה לתוצאות החיפוש שלך"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1290,7 +1289,7 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:90
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "להנות מדף לשונית חדשה ססגוני עם רקעים מותאמים אישית, מזג אוויר מקומי ועוד"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Tree Style Tab"
@@ -1354,7 +1353,7 @@ msgstr "הרשאות"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
-msgstr ""
+msgstr "לתוספת זו יש את ההרשאות הבאות:"
 
 #: src/amo/components/PermissionsCard/index.js:62
 msgid "Learn more about permissions"
@@ -2110,7 +2109,7 @@ msgstr "יש לך אפשרות להציג את עצמך בפני הקהילה א
 
 #: src/amo/components/UserProfileEdit/index.js:659
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "היכרות של %(username)s לקהילה"
 
 #: src/amo/components/UserProfileEdit/index.js:673
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -2198,7 +2197,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "‏Mozilla צריך ליצור איתי קשר בנוגע לתוספת המסוימת שלי"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
