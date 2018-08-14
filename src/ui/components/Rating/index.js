@@ -14,6 +14,10 @@ import './styles.scss';
 export const RATING_STYLE_SIZE_TYPES = { small: '', large: '' };
 const RATING_STYLE_SIZES = Object.keys(RATING_STYLE_SIZE_TYPES);
 
+type StateType = {|
+  hoveringOverStar: number | null,
+|};
+
 type Props = {|
   className?: string,
   onSelectRating?: (rating: number) => void,
@@ -25,16 +29,27 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _setState?: ($Shape<StateType>) => void,
   i18n: I18nType,
 |};
 
-export class RatingBase extends React.Component<InternalProps> {
+export class RatingBase extends React.Component<InternalProps, StateType> {
   static defaultProps = {
     className: '',
     readOnly: false,
     styleSize: 'large',
     yellowStars: false,
   };
+
+  constructor(props: InternalProps) {
+    super(props);
+    this.state = { hoveringOverStar: null };
+  }
+
+  _setState(newState: $Shape<StateType>) {
+    const setState = this.props._setState || this.setState.bind(this);
+    return setState(newState);
+  }
 
   onSelectRating = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -85,20 +100,39 @@ export class RatingBase extends React.Component<InternalProps> {
     );
   };
 
+  onHoverStar = (star: number) => {
+    if (this.props.readOnly) {
+      return;
+    }
+    this._setState({ hoveringOverStar: star });
+  };
+
+  stopHovering = () => {
+    if (this.props.readOnly) {
+      return;
+    }
+    this._setState({ hoveringOverStar: null });
+  };
+
   renderRatings() {
     const { readOnly } = this.props;
+    const { hoveringOverStar } = this.state;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
+      let isSelected = thisRating - rating <= 0.25;
+      if (hoveringOverStar !== null) {
+        isSelected = thisRating <= hoveringOverStar;
+      }
       const props = {
-        className: makeClassName('Rating-choice', {
-          'Rating-selected-star': thisRating - rating <= 0.25,
+        className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
+          'Rating-selected-star': isSelected,
           'Rating-half-star':
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
-        id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
+        onMouseEnter: () => this.onHoverStar(thisRating),
         title: this.renderTitle(rating, readOnly, thisRating),
       };
 
@@ -139,11 +173,13 @@ export class RatingBase extends React.Component<InternalProps> {
     );
 
     return (
-      <div className={allClassNames} title={description}>
-        <span className="Rating-star-group">
-          {this.renderRatings()}
-          <span className="visually-hidden">{description}</span>
-        </span>
+      <div
+        className={allClassNames}
+        title={description}
+        onMouseLeave={this.stopHovering}
+      >
+        {this.renderRatings()}
+        <span className="visually-hidden">{description}</span>
       </div>
     );
   }

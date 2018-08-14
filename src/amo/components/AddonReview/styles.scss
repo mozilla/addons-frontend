@@ -10,6 +10,12 @@
 
   .Rating {
     margin: 6px 0 12px;
+    padding: 0 10px;
+
+    @include respond-to(large) {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
   }
 }
 

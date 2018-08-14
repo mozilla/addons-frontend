@@ -17,7 +17,7 @@ function render(customProps = {}) {
 
 describe(__filename, () => {
   const getStar = ({ root, rating }) => {
-    return root.find(`#Rating-rating-${rating}`);
+    return root.find(`.Rating-rating-${rating}`);
   };
 
   function selectRating(root, ratingNumber) {
@@ -169,7 +169,7 @@ describe(__filename, () => {
     const root = render();
     [1, 2, 3, 4, 5].forEach((rating) => {
       const star = getStar({ root, rating });
-      expect(star).toHaveClassName('Rating-choice');
+      expect(star).toHaveClassName('Rating-star');
       expect(star.type()).toEqual('button');
     });
   });
@@ -227,6 +227,51 @@ describe(__filename, () => {
     );
   });
 
+  it('selects stars on hover', () => {
+    const root = render();
+
+    const hoverStar = getStar({ root, rating: 4 });
+    hoverStar.simulate('mouseEnter', createFakeEvent());
+
+    // The first 4 should be selected:
+    for (const star of [1, 2, 3, 4]) {
+      expect(getStar({ root, rating: star })).toHaveClassName(
+        'Rating-selected-star',
+      );
+    }
+
+    // The last one should not be selected.
+    expect(getStar({ root, rating: 5 })).not.toHaveClassName(
+      'Rating-selected-star',
+    );
+  });
+
+  it('overrides the current rating when hovering over a star', () => {
+    const currentRating = 2;
+    const root = render({ rating: currentRating });
+
+    const hoverStar = getStar({ root, rating: 1 });
+    hoverStar.simulate('mouseEnter', createFakeEvent());
+
+    expect(getStar({ root, rating: currentRating })).not.toHaveClassName(
+      'Rating-selected-star',
+    );
+  });
+
+  it('finishes hovering on mouseLeave', () => {
+    const root = render();
+
+    const rating = 3;
+    const hoverStar = getStar({ root, rating });
+    hoverStar.simulate('mouseEnter', createFakeEvent());
+
+    root.simulate('mouseLeave', createFakeEvent());
+
+    expect(getStar({ root, rating })).not.toHaveClassName(
+      'Rating-selected-star',
+    );
+  });
+
   describe('readOnly=true', () => {
     it('prevents you from selecting ratings', () => {
       const onSelectRating = sinon.stub();
@@ -238,6 +283,25 @@ describe(__filename, () => {
       sinon.assert.notCalled(onSelectRating);
     });
 
+    it('does nothing when you hover over stars', () => {
+      const _setState = sinon.stub();
+      const root = render({ readOnly: true, _setState });
+
+      const rating = 3;
+      const hoverStar = getStar({ root, rating });
+      hoverStar.simulate('mouseEnter', createFakeEvent());
+
+      sinon.assert.notCalled(_setState);
+    });
+
+    it('does nothing when finishing a hover action', () => {
+      const _setState = sinon.stub();
+      const root = render({ readOnly: true, _setState });
+      root.simulate('mouseLeave', createFakeEvent());
+
+      sinon.assert.notCalled(_setState);
+    });
+
     it('does not classify as editable when read-only', () => {
       const root = render({ readOnly: true });
       expect(root).not.toHaveClassName('Rating--editable');
@@ -245,7 +309,7 @@ describe(__filename, () => {
 
     it('does not render buttons in read-only mode', () => {
       const root = render({ readOnly: true });
-      const stars = root.find('.Rating-choice');
+      const stars = root.find('.Rating-star');
 
       // Make sure we actually have 5 stars.
       expect(stars).toHaveLength(5);

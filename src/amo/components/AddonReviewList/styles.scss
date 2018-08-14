@@ -1,3 +1,4 @@
+@import '~photon-colors/photon-colors';
 @import '~core/css/inc/mixins';
 @import '~amo/css/inc/vars';
 @import '~ui/css/vars';
@@ -21,6 +22,14 @@
     margin: 0 0 $vertical-space-xs;
     // https://stackoverflow.com/questions/36150458
     min-width: 50%;
+  }
+}
+
+.AddonReviewList-overallRatingStars {
+  margin: 0 0 12px;
+
+  @include respond-to(extraExtraLarge) {
+    margin-bottom: 24px;
   }
 }
 
@@ -90,4 +99,10 @@
   a:link {
     color: $black;
   }
+}
+
+.AddonReviewList-addonAverage {
+  color: $grey-50;
+  margin-top: 6px;
+  text-align: center;
 }

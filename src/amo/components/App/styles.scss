@@ -1,5 +1,6 @@
 @import '~normalize.css';
 @import '~photon-colors/photon-colors';
+@import '~core/css/inc/vars';
 @import '~core/css/inc/lib';
 @import '~core/css/inc/mixins';
 @import '~amo/css/inc/vars';
@@ -43,7 +44,7 @@ body {
 
   color: $body-font-color;
   font-size: $font-size-default;
-  line-height: 19px;
+  line-height: $default-line-height;
 }
 
 #react-view {

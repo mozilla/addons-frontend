@@ -1,3 +1,4 @@
+@import '~core/css/inc/vars';
 @import '~amo/css/inc/vars';
 @import '~core/css/inc/mixins';
 @import '~ui/css/vars';
@@ -75,8 +76,7 @@ $avatar-size: 64px;
 }
 
 .UserProfile-rating-average .Rating {
-  @include margin(0, 0, 0, -3px);
-
+  height: $default-line-height;
   justify-content: start;
 }
 
