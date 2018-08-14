@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-14 22:51+0000\n"
+"PO-Revision-Date: 2018-08-14 23:02+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -206,7 +206,7 @@ msgstr "Średnia gwiazdek: %(rating)s"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
-msgstr "Nie ma jeszcze oceny"
+msgstr "Nie ma jeszcze ocen"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "%(timeFromNow)s (%(date)s)"
@@ -609,7 +609,7 @@ msgstr "Autor"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr "Ukończ modyfikowanie"
+msgstr "Zakończ modyfikowanie"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1171,48 +1171,47 @@ msgstr "Wyświetl obraz"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Odzyskaj przyciski „Wyświetl obraz” i „Wyszukaj obrazem” w Grafice Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Czyste adresy"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Wyczyść odnośniki do łatwego udostępniania"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Przeciągnij tekst, obrazy lub odnośniki, aby kopiować, otwierać, wyszukiwać i nie tylko"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind the Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Kliknij przycisk, aby zamknąć denerwujące wyskakujące okna"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Zakładki"
+msgstr "Automatyczne porządkowanie zakładek"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Automatycznie porządkuj zakładki, aby były w preferowanej kolejności"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Ciekawostki z encyklopedii Britannica"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Dodaj fakty z encyklopedii Britannica do wyników wyszukiwania"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1816,9 +1815,8 @@ msgstr ""
 "nowych funkcji, ulepszanie sposobów korzystania z Internetu i zmieniając jej wygląd."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "AMO zawiera także dodatki do programów Mozilla %(startTBLink)sThunderbird%(endTBLink)s i %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "Dodatki do programów Thunderbird i SeaMonkey można znaleźć na stronach %(startTBLink)saddons.thunderbird.net%(endTBLink)s i %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2282,26 +2280,23 @@ msgstr "Wybierz zdjęcie…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Włącz"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Włączanie"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Pobieranie dodatku „%(name)s”."
+msgstr "Pobieranie"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Instalowanie dodatku „%(name)s”."
+msgstr "Instalowanie"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Odinstalowywanie dodatku „%(name)s”."
+msgstr "Odinstalowywanie"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -2329,14 +2324,13 @@ msgstr "Nie ma nic pod podanym adresem."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "Dodano %(strongStart)s%(name)s%(strongEnd)s"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Zarządzaj dodatkami klikając Dodatki w menu programu."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
 msgstr "OK"
 
