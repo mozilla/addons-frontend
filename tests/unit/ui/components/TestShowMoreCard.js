@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
 import ShowMoreCard, {
   extractId,
@@ -37,8 +38,12 @@ describe(__filename, () => {
 
     expect(root).not.toHaveClassName('ShowMoreCard--expanded');
 
-    // We cannot directly target the footer link, so we simulate the click here.
-    root.instance().onClick(createFakeEvent());
+    expect(root).toHaveProp('footerLink');
+    const footerLink = root.prop('footerLink');
+    const cardLink = shallow(footerLink);
+    const moreLink = cardLink.find('.ShowMoreCard-expand-link');
+
+    moreLink.simulate('click', createFakeEvent());
 
     applyUIStateChanges({ root, store });
 
