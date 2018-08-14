@@ -48,6 +48,8 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
 
     const root = render({ store });
+
+    expect(root).toHaveProp('header');
     const cardHeader = root.prop('header');
     const header = shallow(cardHeader);
     const link = header.find('.ExpandableCard-ToggleLink');
