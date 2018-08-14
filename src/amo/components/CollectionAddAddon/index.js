@@ -8,7 +8,6 @@ import { compose } from 'redux';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import { addAddonToCollection } from 'amo/reducers/collections';
-import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
@@ -44,7 +43,6 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   clearTimeout: Function,
-  currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasAddonBeenAdded: boolean,
@@ -158,10 +156,7 @@ export const extractId = (props: Props) => {
 };
 
 export const mapStateToProps = (state: AppState) => {
-  const currentUser = getCurrentUser(state.users);
-
   return {
-    currentUsername: currentUser && currentUser.username,
     hasAddonBeenAdded: state.collections.hasAddonBeenAdded,
   };
 };
