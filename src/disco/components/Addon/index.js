@@ -23,6 +23,7 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
+  UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
   validAddonTypes,
@@ -61,6 +62,7 @@ export class AddonBase extends React.Component {
     iconUrl: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
+    isAddonEnabled: PropTypes.func,
     needsRestart: PropTypes.bool,
     // eslint-disable-next-line react/no-unused-prop-types
     platformFiles: PropTypes.object,
@@ -132,13 +134,25 @@ export class AddonBase extends React.Component {
     const { type } = addon;
 
     if (isTheme(type)) {
-      const { getBrowserThemeData, i18n } = this.props;
+      const { getBrowserThemeData, hasAddonManager, i18n } = this.props;
       const { name, previewURL } = addon;
 
       let imageUrl = getPreviewImage(addon);
 
-      if (!imageUrl && type === ADDON_TYPE_THEME) {
+      let headerLinkProps = {
+        className: 'theme-image-link',
+        href: '#',
+        onClick: this.installStaticTheme,
+      };
+
+      if (type === ADDON_TYPE_THEME) {
         imageUrl = previewURL;
+
+        headerLinkProps = {
+          ...headerLinkProps,
+          onClick: this.installTheme,
+          'data-browsertheme': getBrowserThemeData(),
+        };
       }
 
       const headerImage = (
@@ -149,16 +163,8 @@ export class AddonBase extends React.Component {
         />
       );
 
-      /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return type === ADDON_TYPE_THEME ? (
-        <a
-          className="theme-image"
-          data-browsertheme={getBrowserThemeData()}
-          href="#"
-          onClick={this.installTheme}
-        >
-          {headerImage}
-        </a>
+      return hasAddonManager ? (
+        <a {...headerLinkProps}>{headerImage}</a>
       ) : (
         headerImage
       );
@@ -242,6 +248,22 @@ export class AddonBase extends React.Component {
     }
   };
 
+  installStaticTheme = async (event) => {
+    const { enable, isAddonEnabled, install, status } = this.props;
+    event.preventDefault();
+
+    if (status === UNINSTALLED) {
+      await install();
+    }
+
+    const isEnabled = await isAddonEnabled();
+
+    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328.
+    if (!isEnabled) {
+      await enable();
+    }
+  };
+
   render() {
     const {
       _config,
@@ -254,6 +276,7 @@ export class AddonBase extends React.Component {
       heading,
       install,
       installTheme,
+      isAddonEnabled,
       status,
       type,
       uninstall,
@@ -324,6 +347,7 @@ export class AddonBase extends React.Component {
               puffy={false}
               status={status || UNKNOWN}
               uninstall={uninstall}
+              isAddonEnabled={isAddonEnabled}
             />
           ) : (
             <InstallButton

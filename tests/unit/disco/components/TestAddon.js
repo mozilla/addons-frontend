@@ -20,6 +20,7 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   TRACKING_TYPE_EXTENSION,
+  INSTALLED,
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
@@ -333,7 +334,7 @@ describe(__filename, () => {
     it("doesn't render a theme image for an extension", () => {
       const root = renderAddon({ addon: result, ...result });
 
-      expect(root.find('.theme-image')).toHaveLength(0);
+      expect(root.find('.theme-image-link')).toHaveLength(0);
     });
 
     it('throws on invalid add-on type', () => {
@@ -443,42 +444,110 @@ describe(__filename, () => {
   describe('addon with type static theme', () => {
     const fullImage = 'https://addons.cdn.mozilla.net/full/54321.png';
     const newAddonName = 'Summertime';
+    let install = sinon.spy();
+    let enable = sinon.spy();
 
-    it('renders the correct image', () => {
-      const shallowRoot = renderAddon({
+    const renderWithStaticTheme = (props = {}) => {
+      return renderAddon({
         addon: {
           ...result,
           name: newAddonName,
+          type: ADDON_TYPE_STATIC_THEME,
           previews: [
             {
               ...fakePreview,
               image_url: fullImage,
             },
           ],
-          type: ADDON_TYPE_STATIC_THEME,
         },
+        status: UNINSTALLED,
+        install,
+        enable,
+        hasAddonManager: true,
+        isAddonEnabled: sinon.stub().resolves(false),
+        ...props,
       });
-      const image = shallowRoot.find('.Addon-theme-header-image');
+    };
+
+    it('renders the correct image', () => {
+      const root = renderWithStaticTheme();
+      const image = root.find('.Addon-theme-header-image');
       expect(image).toHaveProp('src', fullImage);
       expect(image).toHaveProp('alt', `Preview of ${newAddonName}`);
+    });
+
+    it("calls install and enable helper functions when clicking on the static theme's header image if hasAddonManager is true", async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+
+      const root = renderWithStaticTheme();
+
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
+      sinon.assert.calledOnce(install);
+      sinon.assert.calledOnce(enable);
+    });
+
+    it("does not call enable helper function when clicking on the static theme's header image if addon is already enabled", async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+      const root = renderWithStaticTheme({
+        isAddonEnabled: sinon.stub().resolves(true),
+      });
+
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
+      sinon.assert.called(install);
+      sinon.assert.notCalled(enable);
+    });
+
+    it('does not render wrapper link around image if hasAddonManager is false', async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+      const root = renderWithStaticTheme({
+        hasAddonManager: false,
+      });
+      expect(root.find('.theme-image-link')).toHaveLength(0);
+    });
+
+    it("does not call the install helper function when clicking on the static theme's header image and UNINSTALLED is false", async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+      const root = renderWithStaticTheme({
+        status: INSTALLED,
+      });
+
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
+      sinon.assert.notCalled(install);
     });
   });
 
   describe('addon with type lightweight theme', () => {
-    it('calls installTheme on click', () => {
+    const addon = {
+      ...result,
+      type: ADDON_TYPE_THEME,
+      previews: [],
+    };
+
+    it('renders wrapper link around image and calls installTheme on click if hasAddonManager is true', () => {
       const installTheme = sinon.stub();
-      const addon = {
-        ...result,
-        type: ADDON_TYPE_THEME,
-        previews: [],
-      };
-      const shallowRoot = renderAddon({
+      const root = renderAddon({
         addon,
         installTheme,
         status: UNINSTALLED,
-        type: ADDON_TYPE_THEME,
+        hasAddonManager: true,
       });
-      const themeImage = shallowRoot.find('.theme-image');
+      const themeImage = root.find('.theme-image-link');
 
       themeImage.simulate('click', {
         ...fakeEvent,
@@ -490,6 +559,28 @@ describe(__filename, () => {
         ...addon,
         status: UNINSTALLED,
       });
+    });
+
+    it('does not render wrapper link around image if hasAddonManager is false', () => {
+      const root = renderAddon({
+        addon,
+        hasAddonManager: false,
+      });
+      expect(root.find('.theme-image-link')).toHaveLength(0);
+    });
+
+    it("renders the alt tag with the addon's name", () => {
+      const newAddonName = 'Light Summer Colors';
+      const root = renderAddon({
+        addon: {
+          ...addon,
+          name: newAddonName,
+        },
+      });
+      expect(root.find('.Addon-theme-header-image')).toHaveProp(
+        'alt',
+        `Preview of ${newAddonName}`,
+      );
     });
   });
 

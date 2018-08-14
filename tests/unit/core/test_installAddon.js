@@ -601,6 +601,42 @@ describe(__filename, () => {
         .returns(false);
     });
 
+    describe('isAddonEnabled', () => {
+      it('returns true when the add-on is enabled', async () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const addon = createInternalAddon(fakeAddon);
+
+        const { root } = renderWithInstallHelpers({
+          addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { isAddonEnabled } = root.instance().props;
+        const isEnabled = await isAddonEnabled();
+
+        sinon.assert.calledWith(fakeAddonManager.getAddon, addon.guid);
+        expect(isEnabled).toEqual(true);
+      });
+
+      it('returns false when there is an error', async () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          // Resolve a null addon which will trigger an exception.
+          getAddon: Promise.resolve(null),
+        });
+
+        const { root } = renderWithInstallHelpers({
+          addon: createInternalAddon({
+            addon: null,
+          }),
+          _addonManager: fakeAddonManager,
+        });
+
+        const { isAddonEnabled } = root.instance().props;
+        const isEnabled = await isAddonEnabled();
+
+        expect(isEnabled).toEqual(false);
+      });
+    });
+
     describe('setCurrentStatus', () => {
       it('sets the status to ENABLED when an enabled add-on found', () => {
         const installURL = 'http://the.url/';
