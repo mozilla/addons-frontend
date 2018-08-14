@@ -377,7 +377,9 @@ describe(__filename, () => {
 
     const event = createFakeEvent();
     const installButton = root.find('.AMInstallButton-button');
-    await installButton.simulate('click', event);
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
 
     sinon.assert.calledOnce(install);
     sinon.assert.notCalled(enable);
@@ -413,7 +415,7 @@ describe(__filename, () => {
     sinon.assert.calledOnce(event.stopPropagation);
   });
 
-  it("does not call the `enable` helper after the `install `helper for a static theme if it's already enabled", async () => {
+  it("does not call the `enable` helper after the `install` helper for a static theme if it's already enabled", async () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,

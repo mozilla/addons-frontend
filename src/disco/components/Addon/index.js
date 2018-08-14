@@ -249,8 +249,8 @@ export class AddonBase extends React.Component {
   };
 
   installStaticTheme = async (event) => {
-    event.preventDefault();
     const { enable, isAddonEnabled, install, status } = this.props;
+    event.preventDefault();
 
     if (status === UNINSTALLED) {
       await install();

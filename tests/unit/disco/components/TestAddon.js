@@ -481,7 +481,12 @@ describe(__filename, () => {
       enable = sinon.spy();
 
       const root = renderWithStaticTheme();
-      await root.instance().installStaticTheme(createFakeEvent());
+
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
       sinon.assert.calledOnce(install);
       sinon.assert.calledOnce(enable);
     });
@@ -493,7 +498,10 @@ describe(__filename, () => {
         isAddonEnabled: sinon.stub().resolves(true),
       });
 
-      await root.instance().installStaticTheme(createFakeEvent());
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
 
       sinon.assert.called(install);
       sinon.assert.notCalled(enable);
@@ -515,7 +523,11 @@ describe(__filename, () => {
         status: INSTALLED,
       });
 
-      await root.instance().installStaticTheme(createFakeEvent());
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
       sinon.assert.notCalled(install);
     });
   });
