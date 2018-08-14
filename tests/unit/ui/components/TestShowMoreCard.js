@@ -53,6 +53,9 @@ describe(__filename, () => {
   it('is unexpanded by default', () => {
     const root = render();
 
+    // We are simulating the truncate method call on did mount.
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT });
+
     expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
 
@@ -61,7 +64,7 @@ describe(__filename, () => {
 
     // We are simulating the truncate method call on did mount.
     root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
-    root.update();
+
     expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
 
