@@ -126,24 +126,13 @@ describe(__filename, () => {
         }),
       });
 
-      expect(getReviewTitle(root).find(Link)).toHaveProp(
-        'to',
-        `/addon/${slug}/reviews/`,
-      );
-      expect(
-        getReviewTitle(root)
-          .find(Link)
-          .children(),
-      ).toHaveText('Reviews');
-      expect(getReviewCount(root).find(Link)).toHaveProp(
-        'to',
-        `/addon/${slug}/reviews/`,
-      );
-      expect(
-        getReviewCount(root)
-          .find(Link)
-          .children(),
-      ).toHaveText('5');
+      const reviewTitleLink = getReviewTitle(root).find(Link);
+      const reviewCountLink = getReviewCount(root).find(Link);
+
+      expect(reviewTitleLink).toHaveProp('to', `/addon/${slug}/reviews/`);
+      expect(reviewTitleLink.children()).toHaveText('Reviews');
+      expect(reviewCountLink).toHaveProp('to', `/addon/${slug}/reviews/`);
+      expect(reviewCountLink.children()).toHaveText('5');
     });
 
     it('renders a count of one review', () => {
