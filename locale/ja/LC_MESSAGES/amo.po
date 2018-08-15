@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 07:51+0000\n"
+"PO-Revision-Date: 2018-08-15 08:04+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -196,7 +196,7 @@ msgstr "使用者:"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "%(rating)s star average"
-msgstr ""
+msgstr "平均 %(rating)s つ星"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
@@ -601,7 +601,7 @@ msgstr "作者"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "編集を完了"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1041,7 +1041,7 @@ msgstr "読書用拡張機能をもっと見る"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "洗練された読書体験"
 
 #: src/amo/components/Home/index.js:55
 msgid "See more exceptional search tools"
@@ -1049,7 +1049,7 @@ msgstr "卓越した検索ツールをもっと見る"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "卓越した検索ツール"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1077,11 +1077,11 @@ msgstr "コソコソした追跡者から個人情報を守りましょう"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "ブックマークの既定の保存先を変更"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1093,11 +1093,11 @@ msgstr "カスタマイズ自在なテキストハイライター"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "他の人と同時に動画を視聴"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1125,11 +1125,11 @@ msgstr "検索データのプライバシーを保護"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "使用していないタブを無効化してメモリーを節約"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1137,11 +1137,11 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "選択したサイトに新たなコンテンツが追加されて更新された場合に通知します"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
@@ -1149,43 +1149,43 @@ msgstr "Firefox を自動的に全画面モードで起動"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "ショートカットで動画の再生速度を調整"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Google 画像検索のサイトに「画像を表示」「画像で検索」ボタンを復元"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "簡単に共有できるようリンクを簡素化"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "テキスト、画像、リンクをドラッグして、コピー、開く、検索などの操作を実行"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "ボタンをクリックして迷惑なポップアップを閉じる"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "Auto-Sort Bookmarks"
@@ -1193,15 +1193,15 @@ msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "ブックマークを自動的に並べ替えて好みの位置に移動"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "検索結果にブリタニカ百科事典の内容を追加"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1784,9 +1784,8 @@ msgid ""
 msgstr "addons.mozilla.org (AMO) は、Firefox ブラウザー向けのアドオンを見つけてインストールできる Mozilla の公式サイトです。アドオンは、Firefox へ新たな機能を追加したり、ウェブコンテンツの操作性を向上させたり、ブラウザーの見た目を変えたりして、ブラウジング体験を変更しカスタマイズするのに役立ちます。"
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "AMO を使って Mozilla %(startTBLink)sThunderbird%(endTBLink)s や %(startSMLink)sSeaMonkey%(endSMLink)s 向けのアドオンを探すこともできます。"
+msgstr "Thunderbird や SeaMonkey 向けのアドオンをお探しなら、%(startTBLink)saddons.thunderbird.net%(endTBLink)s か %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s を訪れてください。"
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2226,11 +2225,11 @@ msgstr "写真を選択..."
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "有効にする"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "有効にしています"
 
 #: src/core/components/AMInstallButton/index.js:210
 msgid "Downloading"
@@ -2270,11 +2269,11 @@ msgstr "申し訳ありませんが、入力された URL には何も見つか�
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s が追加されました"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "お使いのアドオンはメニュー内の「アドオン」をクリックして管理できます。"
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"
