@@ -31,10 +31,10 @@
 
 .AddonReviewListItem-allControls {
   display: flex;
-  justify-content: end;
   // Push all controls down to a new row on small screens.
   grid-column-end: span 2;
   grid-column-start: 1;
+  justify-content: end;
   margin-top: 6px;
 
   @include respond-to(medium) {
