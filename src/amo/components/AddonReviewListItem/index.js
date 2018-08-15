@@ -215,7 +215,9 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
 
     const byLine = (
       <React.Fragment>
-        {authorAndTime}
+        <div className="AddonReviewListItem-author">
+          {authorAndTime}
+        </div>
 
         {siteUser && review && review.userId === siteUser.id ? (
           <div>

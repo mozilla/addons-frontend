@@ -20,6 +20,11 @@
   }
 }
 
+.AddonReviewListItem-author {
+  // Account for long display names on small screens.
+  max-width: 30vw;
+}
+
 .AddonReviewListItem-reply {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
