@@ -6,10 +6,10 @@
   display: flex;
   // On small screens, reduce the width to break up words in
   // controls like *Edit my review*.
-  max-width: 20vw;
+  max-width: 40vw;
   width: max-content;
 
-  @include margin-start(6px);
+  @include margin-start(12px);
 
   @include respond-to(medium) {
     @include margin-start(24px);
@@ -20,9 +20,29 @@
   }
 }
 
-.AddonReviewListItem-author {
-  // Account for long display names on small screens.
-  max-width: 30vw;
+.AddonReviewListItem .UserReview-byLine {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+
+  @include respond-to(medium) {
+    grid-template-columns: repeat(3, max-content);
+  }
+}
+
+.AddonReviewListItem-allControls {
+  display: flex;
+  justify-content: end;
+  // Push all controls down to a new row on small screens.
+  grid-column-end: span 2;
+  grid-column-start: 1;
+  margin-top: 6px;
+
+  @include respond-to(medium) {
+    grid-column-end: auto;
+    grid-column-start: auto;
+    justify-content: start;
+    margin-top: 0;
+  }
 }
 
 .AddonReviewListItem-reply {
