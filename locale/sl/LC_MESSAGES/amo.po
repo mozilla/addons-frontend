@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 15:23+0000\n"
+"PO-Revision-Date: 2018-08-15 15:40+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -205,7 +205,7 @@ msgstr "Uporablja"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "%(rating)s star average"
-msgstr ""
+msgstr "%(rating)s-zvezdično povprečje"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
@@ -336,9 +336,8 @@ msgid "by %(authorList)s"
 msgstr "— %(authorList)s"
 
 #: src/amo/components/AddonReviewList/index.js:275
-#, fuzzy
 msgid "%(averageRating)s star average"
-msgstr "%(averageRating)s od 5"
+msgstr "%(averageRating)s-zvezdično povprečje"
 
 #: src/amo/components/AddonReviewListItem/index.js:148 src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
@@ -1060,16 +1059,15 @@ msgstr "Več razširitev za branje"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "Izboljšano branje"
 
 #: src/amo/components/Home/index.js:55
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Več nepogrešljivih razširitev"
+msgstr "Več orodij za iskanje"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Izjemna orodja za iskanje"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1097,11 +1095,11 @@ msgstr "Zaščitite se pred najzahrbtnejšimi sledilci"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Spremenite privzeti cilj za nove zaznamke"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1113,21 +1111,19 @@ msgstr "Visoko prilagodljiv označevalnik besedila"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Glejte videoposnetke hkrati z drugimi"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Wikipedia Context Menu Search"
+msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Označite besedilo na katerikoli spletni strani za prikaz priročnega iskalnega menija"
+msgstr "Označite besedilo na katerikoli spletni strani in preprosto poiščite izraz"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1138,14 +1134,12 @@ msgid "Give your favorite websites a new look"
 msgstr "Preoblecite svoje najljubše spletne strani v novo podobo"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Rezultati iskanja"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Zaščita zasebnosti"
+msgstr "Zaščita zasebnosti za podatke iskanj"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1201,7 +1195,7 @@ msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Povlecite besedilo, slike ali povezave za dejanja, kot so kopiranje, odpiranje, iskanje in več"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
@@ -1217,7 +1211,7 @@ msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Samodejno razvrstite zaznamke v svoj želeni vrstni red"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
@@ -2345,7 +2339,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s je bil dodan"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Za upravljanje dodatkov v meniju kliknite Dodatki."
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"
