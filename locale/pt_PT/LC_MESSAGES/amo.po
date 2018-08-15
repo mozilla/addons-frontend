@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 15:11+0000\n"
+"PO-Revision-Date: 2018-08-15 15:14+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -605,7 +605,7 @@ msgstr "Criador(a)"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "Edição terminada"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1049,7 +1049,7 @@ msgstr "Ver mais extensões de leitura"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "Leitura refinada"
 
 #: src/amo/components/Home/index.js:55
 msgid "See more exceptional search tools"
@@ -1089,7 +1089,7 @@ msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Altere o destino predefinido para os seus marcadores"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1161,7 +1161,7 @@ msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Ajuste velocidades de reprodução de vídeo com atalhos"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
@@ -1185,7 +1185,7 @@ msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Arraste texto, imagens, ou ligações para realizar ações como copiar, abrir, pesquisar, e mais"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
@@ -1201,7 +1201,7 @@ msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Ordena marcadores automaticamente para que estes estejam na sua posição preferida"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
@@ -1806,9 +1806,9 @@ msgstr ""
 "adicionando novas funcionalidades ao Firefox, melhorando as suas interações com o conteúdo Web e modificando o aspeto visual do seu navegador."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Pode também utilizar o AMO para encontrar extras para o Mozilla %(startTBLink)sThunderbird%(endTBLink)s e %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr ""
+"Se está à procura de extras para o Thunderbird ou SeaMonkey, por favor visite %(startTBLink)saddons.thunderbird.net%(endTBLink)s ou %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
