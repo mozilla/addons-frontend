@@ -180,6 +180,8 @@
   @include icon($name: 'reply-arrow');
 
   height: 11.68px;
+  // Make sure flex layouts don't squeeze this.
+  min-width: 14px;
   width: 14px;
 
   [dir='rtl'] & {

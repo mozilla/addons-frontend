@@ -1,12 +1,27 @@
 @import '~photon-colors/photon-colors';
+@import '~core/css/inc/vars';
 @import '~core/css/inc/mixins';
 @import '~amo/css/inc/vars';
 
+.AddonReviewListItem {
+  .Rating {
+    align-self: start;
+    height: $default-line-height;
+  }
+
+  .UserReview-byLine {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    @include respond-to(medium) {
+      grid-template-columns: repeat(3, auto);
+      justify-content: start;
+    }
+  }
+}
+
 .AddonReviewListItem-control {
   display: flex;
-  // On small screens, reduce the width to break up words in
-  // controls like *Edit my review*.
-  max-width: 40vw;
   width: max-content;
 
   @include margin-start(12px);
@@ -20,13 +35,9 @@
   }
 }
 
-.AddonReviewListItem .UserReview-byLine {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-
-  @include respond-to(medium) {
-    grid-template-columns: repeat(3, max-content);
-  }
+.AddonReviewListItem-author {
+  // Make sure AddonReviewListItem-control elements don't squeeze this out.
+  min-width: 5vw;
 }
 
 .AddonReviewListItem-allControls {
@@ -40,7 +51,6 @@
   @include respond-to(medium) {
     grid-column-end: auto;
     grid-column-start: auto;
-    justify-content: start;
     margin-top: 0;
   }
 }
