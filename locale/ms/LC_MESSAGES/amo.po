@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 02:12+0000\n"
+"PO-Revision-Date: 2018-08-15 02:25+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -200,9 +200,8 @@ msgid "%(rating)s star average"
 msgstr "Purata bintang %(rating)s"
 
 #: src/amo/components/AddonMeta/index.js:92
-#, fuzzy
 msgid "Not rated yet"
-msgstr "Belum ada ulasan"
+msgstr "Belum ada rating"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "%(timeFromNow)s (%(date)s)"
@@ -1048,18 +1047,16 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Mengubah penampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:49
-#, fuzzy
 msgid "See more reading extensions"
-msgstr "Lihat ekstensi sohor kini selanjutnya"
+msgstr "Lihat ekstensi bacaan selanjutnya"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
 msgstr "Bacaan lanjutan"
 
 #: src/amo/components/Home/index.js:55
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Lihat selanjutnya ekstensi penting"
+msgstr "Lihat alatan carian luar biasa selanjutnya"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
@@ -1114,14 +1111,12 @@ msgid "Watch videos simultaneously with others"
 msgstr "Tonton video serentak dengan yang lain"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Menu Carian Konteks Wikipedia"
+msgstr "Carian Konteks"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Serlahkan teks dalam halaman web untuk memaparkan menu carian"
+msgstr "Serlahkan teks dalam halaman web untuk memudahkan mencari istilah"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1132,14 +1127,12 @@ msgid "Give your favorite websites a new look"
 msgstr "Beri penampilan baru kepada laman web kegemaran anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Hasil carian"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Perlindungan privasi"
+msgstr "Perlindungan privasi untuk data carian"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1150,9 +1143,8 @@ msgid "Save memory by disabling inactive tabs"
 msgstr "Jimat memori dengan menyahdayakan tab tidak aktif"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Kemaskini balasan"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
@@ -1163,9 +1155,8 @@ msgid "Auto Fullscreen"
 msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Mencari kod kupon secara automatik"
+msgstr "Memulakan Firefox dalam mod skrin penuh secara automatik"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1208,21 +1199,20 @@ msgid "Click a button to close annoying pop-ups"
 msgstr "Klik butang untuk menutup pop-up"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Tandabuku"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Susun tandabuku secara automatik supaya berada dalam posisi yang dikehendaki"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Tambah fakta Britannica dalam hasil carian"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1817,9 +1807,8 @@ msgstr ""
 "pengalaman pelayaran, meningkatkan interaksi dengan kandungan Web dan mengubah penampilan pelayar Firefox."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Anda juga boleh menggunakan AMO untuk mencari add-ons bagi Mozilla %(startTBLink)sThunderbird%(endTBLink)s dan %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "Jika anda mencari add-ons untuk Thunderbird atau SeaMonkey, sila lawat %(startTBLink)saddons.thunderbird.net%(endTBLink)s atau %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2281,26 +2270,23 @@ msgstr "Pilih Foto…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Dayakan"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Mendayakan"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Memuat turun %(name)s."
+msgstr "Memuat turun"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Memasang %(name)s."
+msgstr "Memasang"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Menyahpasang %(name)s."
+msgstr "Menyahpasang"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -2328,16 +2314,15 @@ msgstr "Maaf, kami tidak dapat mencari apa-apa pada URL yang anda masukkan."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s telah ditambah"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Urus add-ons anda dengan mengklik Add-ons dalam menu."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "OK!"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
