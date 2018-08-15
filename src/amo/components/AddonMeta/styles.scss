@@ -51,7 +51,6 @@
   a:visited {
     color: $grey-50;
     font-weight: normal;
-    text-decoration: none;
   }
 
   a.AddonMeta-reviews-content-link {
@@ -59,6 +58,11 @@
     &:link,
     &:visited {
       color: $black;
+    }
+
+    &:active,
+    &:hover {
+      color: $link-color;
     }
   }
 
