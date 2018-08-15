@@ -42,6 +42,7 @@
 
 .AddonReviewListItem-allControls {
   display: flex;
+  flex-wrap: wrap;
   // Push all controls down to a new row on small screens.
   grid-column-end: span 2;
   grid-column-start: 1;
