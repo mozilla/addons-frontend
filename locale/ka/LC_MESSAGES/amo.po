@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 19:51+0000\n"
+"PO-Revision-Date: 2018-08-15 19:53+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2302,9 +2302,8 @@ msgid "Installing"
 msgstr "მიმდინარეობს დაყენება"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "%(name)s იშლება."
+msgstr "იშლება"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -2332,16 +2331,15 @@ msgstr "ვწუხვართ, მაგრამ თქვენ მიე�
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s დამატებულია"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "მართეთ თქვენი დამატებები მენიუში დამატებებზე დაწკაპებით."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "კარგი!"
+msgstr "კარგი"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."

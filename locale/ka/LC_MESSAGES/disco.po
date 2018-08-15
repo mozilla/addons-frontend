@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-01 20:38+0000\n"
+"PO-Revision-Date: 2018-08-15 19:53+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -16,40 +16,33 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "ჩართვა"
 
 #: src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
-msgstr ""
+msgstr "მოცილება"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "ირთვება"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "%(name)s მიმდინარეობს ჩამოტვირთვა."
+msgstr "მიმდინარეობს ჩამოტვირთვა"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "%(name)s ყენდება."
+msgstr "მიმდინარეობს დაყენება"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "%(name)s იშლება."
+msgstr "იშლება"
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -58,15 +51,10 @@ msgid "Server Error"
 msgstr "შეცდომა სერვერზე"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ "
-"მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "შეცდომის კოდი: %(status)s."
 
@@ -80,16 +68,15 @@ msgstr "ვწუხვართ, მაგრამ თქვენ მიე�
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s დამატებულია"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "მართეთ თქვენი დამატებები მენიუში დამატებებზე დაწკაპებით."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "კარგი!"
+msgstr "კარგი"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -181,18 +168,12 @@ msgstr "მოირგეთ თქვენი Firefox"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"აქ შეგიძლიათ მოიძიოთ ათასობით უფასო დამატება, შექმნილი შემმუშავებლების მიერ "
-"მთელი მსოფლიოდან, რომელთა საშუალებითაც შეძლებთ უკეთ მოირგოთ Firefox. "
-"მხიარული თემებით დაწყებული, მძლავრი ხელსაწყოების ჩათვლით, დაგეხმარებათ "
-"გვერდების მოხერხებულად და უსაფრთხოდ მონახულებაში და ბრაუზერს გახდის უფრო "
-"მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, "
-"ბრაუზერის წარმადობისა და შესაძლებლობების გასაუმჯობესებლად."
+"აქ შეგიძლიათ მოიძიოთ ათასობით უფასო დამატება, შექმნილი შემმუშავებლების მიერ მთელი მსოფლიოდან, რომელთა საშუალებითაც შეძლებთ უკეთ მოირგოთ Firefox. მხიარული თემებით დაწყებული, მძლავრი ხელსაწყოების "
+"ჩათვლით, დაგეხმარებათ გვერდების მოხერხებულად და უსაფრთხოდ მონახულებაში და ბრაუზერს გახდის უფრო მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, ბრაუზერის წარმადობისა და "
+"შესაძლებლობების გასაუმჯობესებლად."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -221,8 +202,7 @@ msgstr "ამ შეტყობინების დამალვა"
 #~ msgstr "%(name)s დამატებასთან წვდომა გექნებათ ხელსაწყოთა ზოლიდან."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "შესათვალიერებლად გადაატარეთ მაჩვენებელი, ან დააწკაპეთ დაყენებას %(name)s"
+#~ msgstr "შესათვალიერებლად გადაატარეთ მაჩვენებელი, ან დააწკაპეთ დაყენებას %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "გადაატარეთ სურათზე მაჩვენებელი, თემის შესათვალიერებლად"
