@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 05:49+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2018-08-15 10:08+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -605,7 +605,7 @@ msgstr "Auteur"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr "Bewerking voltooid"
+msgstr "Bewerken voltooid"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1114,7 +1114,7 @@ msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Accentueer tekst op webpagina’s om eenvoudig naar de term te zoeken"
+msgstr "Markeer tekst op webpagina’s om eenvoudig naar de term te zoeken"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1154,7 +1154,7 @@ msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Firefox automatisch in volledig scherm starten"
+msgstr "Start Firefox automatisch in volledigschermmodus"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1162,7 +1162,7 @@ msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr "Stel de afspeelsnelheid van video bij met sneltoetsen"
+msgstr "Pas afspeelsnelheden van video’s aan met sneltoetsen"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
@@ -1170,7 +1170,7 @@ msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr "Breng de knoppen  ‘Afbeelding bekijken’ en ‘Zoeken op afbeelding’ op Google Images terug"
+msgstr "Breng de knoppen ‘Afbeelding weergeven’ en ‘Zoeken op afbeelding’ op Google Afbeeldingen terug"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
@@ -1186,7 +1186,7 @@ msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr "Sleep tekst, afbeeldingen of koppelingen om acties als kopiëren, openen, zoeken en meer uit te voeren"
+msgstr "Versleep tekst, afbeeldingen of koppelingen om acties zoals kopiëren, openen, zoeken en meer uit te voeren"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
@@ -1210,7 +1210,7 @@ msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr "Voeg Brittanica-feiten toe aan uw zoekresultaten"
+msgstr "Voeg feiten van Britannica toe aan uw zoekresultaten"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
