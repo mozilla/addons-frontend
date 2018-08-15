@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-02 01:34+0000\n"
+"PO-Revision-Date: 2018-08-15 15:09+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -16,40 +16,33 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Ativar"
 
 #: src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "A ativar"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "A transferir %(name)s."
+msgstr "A transferir"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "A instalar %(name)s."
+msgstr "A instalar"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "A desinstalar %(name)s."
+msgstr "A desinstalar"
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Adicionar ao Firefox"
 
@@ -58,15 +51,10 @@ msgid "Server Error"
 msgstr "Erro do servidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. "
-"Registámos o seu erro e iremos investigá-lo."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. Registámos o seu erro e iremos investigá-lo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Código de erro: %(status)s."
 
@@ -80,16 +68,15 @@ msgstr "Desculpe, mas não conseguimos encontrar nada no URL que introduziu."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s foi adicionado"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Gira os seus extras ao clicar em Extras no menu."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "OK!"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -181,18 +168,11 @@ msgstr "Personalize o seu Firefox"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Existem milhares de extras gratuitos, criados por programadores por todo o "
-"mundo, que pode instalar para personalizar o seu Firefox. Desde temas "
-"visuais divertidos até poderosas ferramentas que fazem a navegação ser mais "
-"rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a "
-"começar, aqui estão alguns que recomendamos pelo seu desempenho e "
-"funcionalidade se destacarem."
+"Existem milhares de extras gratuitos, criados por programadores por todo o mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos até poderosas ferramentas que "
+"fazem a navegação ser mais rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a começar, aqui estão alguns que recomendamos pelo seu desempenho e funcionalidade se destacarem."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -221,8 +201,7 @@ msgstr "Dispensar este aviso"
 #~ msgstr "Agora pode aceder a %(name)s pela barra de ferramentas."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
+#~ msgstr "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Coloque o cursor sob a imagem para pré-visualizar"
