@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 19:28+0000\n"
+"PO-Revision-Date: 2018-08-15 19:51+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -200,7 +200,7 @@ msgstr "მომხმარებელი"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "%(rating)s star average"
-msgstr ""
+msgstr "%(rating)s ვარსკვლავი საშუალოდ"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
@@ -331,7 +331,7 @@ msgstr "ავტორი: %(authorList)s"
 # averageRating is a localized number, such as 4.5
 #: src/amo/components/AddonReviewList/index.js:275
 msgid "%(averageRating)s star average"
-msgstr ""
+msgstr "%(averageRating)s ვარსკვლავი საშუალოდ"
 
 #: src/amo/components/AddonReviewListItem/index.js:148 src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
@@ -609,7 +609,7 @@ msgstr "შემქმნელი"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "ჩასწორება დასრულებულია"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1056,7 +1056,7 @@ msgstr "სხვა გაფართოებები წასაკით�
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "კითხვის გაუმჯობესება"
 
 #: src/amo/components/Home/index.js:55
 msgid "See more exceptional search tools"
@@ -1064,7 +1064,7 @@ msgstr "სხვა გამორჩეული ხელსაწყოე�
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "გამორჩეული საძიებო ხელსაწყოები"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1092,11 +1092,11 @@ msgstr "დაიცავით თავი გაიძვერა მეთ
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "სანიშნების ნაგულისხმევი საქაღალდე"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "ნაგულისხმევი მდებარეობის შეცვლა სანიშნებისთვის"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1108,21 +1108,19 @@ msgstr "ტექსტის გამოსაყოფი საშუალ�
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "უყურეთ ვიდეოებს ერთდროულად სხვებთან ერთად"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Wikipedia Context Menu Search"
+msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "ნებისმიერ ვებგვერდზე მონიშნული ტექსტის, მყისიერად მოძიება სხვადასხვა სისტემებში"
+msgstr "ნებისმიერ ვებგვერდზე მონიშნული ტექსტის, მყისიერად მოძიება"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1133,97 +1131,92 @@ msgid "Give your favorite websites a new look"
 msgstr "მიანიჭეთ რჩეულ საიტებს სრულიად ახალი იერსახე"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "ძიების შედეგები"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "პირადულობის დაცვა"
+msgstr "პირადულობის უსაფრთხოების უზრუნველყოფა ძიებისას"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "დაზოგეთ მეხსიერება უქმი ჩანართების მოცილებით"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "პასუხის განახლება"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "შეტყობინების მიღება, როცა შერჩეულ საიტებზე ახალი მასალა დაემატება"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "ფასდაკლების კოდებისა და ბარათების ავტომატური მოძიება"
+msgstr "Firefox-ის სრულეკრანზე ჩვენება გაშვებისთანავე"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "ცვალეთ ვიდეოს სიჩქარეები მალსახმობებით"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "დააბრუნეთ „სურათის ნახვის“ და „სურათით ძიების“ ღილაკები Google-ის სურათებში"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "გაამზადეთ ბმულები მარტივი გაზიარებისთვის"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "უბრალოდ გადააადგილეთ ტექსტი, სურათები ან ბმულები ისეთი მოქმედებების შესასრულებლად, როგორიცაა დაკოპირება, ახალ გვერდზე გახსნა, მოძიება და ა.შ."
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "დააჭირეთ ღილაკს, მომაბეზრებელი ამომხტომი ფირნიშების მოსაცილებლად"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "სანიშნები"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "სანიშნების ავტომატური დალაგება, მუდმივად სასურველ მდგომარეობაში შესანარჩუნებლად"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "„ბრიტანიკის“ მასალების გამოჩენა ძიების შედეგებში."
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1829,9 +1822,8 @@ msgstr ""
 "ახალი შესაძლებლობების შემატებით, ვებშიგთავსთან მუშაობის გაუმჯობესებით და იერსახის ცვლილებებით."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "ამასთან, AMO საიტზე შეგიძლიათ Mozilla %(startTBLink)sThunderbird%(endTBLink)s-ისა და %(startSMLink)sSeaMonkey%(endSMLink)s-ის დამატებების მოძიებაც."
+msgstr "თუ ეძებთ Thunderbird-ისა და SeaMonkey-ის დამატებებს, გთხოვთ ეწვიოთ %(startTBLink)saddons.thunderbird.net%(endTBLink)s ან %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2295,21 +2287,19 @@ msgstr "სურათის არჩევა..."
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "ჩართვა"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "ირთვება"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "%(name)s მიმდინარეობს ჩამოტვირთვა."
+msgstr "მიმდინარეობს ჩამოტვირთვა"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "%(name)s ყენდება."
+msgstr "მიმდინარეობს დაყენება"
 
 #: src/core/components/AMInstallButton/index.js:214
 #, fuzzy
