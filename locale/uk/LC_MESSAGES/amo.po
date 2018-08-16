@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 07:42+0000\n"
+"PO-Revision-Date: 2018-08-16 08:51+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -202,7 +202,7 @@ msgstr "Використовується"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "%(rating)s star average"
-msgstr ""
+msgstr "Середня оцінка %(rating)s зірок"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
@@ -609,7 +609,7 @@ msgstr "Створив"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "Зроблено редагування"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1055,7 +1055,7 @@ msgstr "Більше розширень для читання"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "Приємне читання"
 
 #: src/amo/components/Home/index.js:55
 msgid "See more exceptional search tools"
@@ -1063,7 +1063,7 @@ msgstr "Більше виняткових засобів пошуку"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Виняткові засоби пошуку"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1091,11 +1091,11 @@ msgstr "Захистіть себе від найпідступніших еле
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Змініть типову теку для ваших закладок"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1107,11 +1107,11 @@ msgstr "Засіб для підсвічування тексту з широк�
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Дивіться відео одночасно з іншими"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1139,11 +1139,11 @@ msgstr "Захист приватності під час пошуку"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Заощаджуйте пам'ять, вимкнувши неактивні вкладки"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1151,11 +1151,11 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Отримуйте сповіщення, коли обрані веб-сайти мають оновлення вмісту"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
@@ -1163,23 +1163,23 @@ msgstr "Автоматичний запуск Firefox в повноекранн�
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Регулюйте швидкість відтворення відео за допомогою швидких клавіш"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Відновіть кнопки \"Переглянути зображення\" та \"Пошук за зображенням\" в Зображеннях Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
