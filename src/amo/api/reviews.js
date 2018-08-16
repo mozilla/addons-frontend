@@ -53,6 +53,8 @@ export type SubmitReviewParams = {|
   versionId?: number,
 |};
 
+export type SubmitReviewResponse = ExternalReviewType;
+
 /*
  * POST/PATCH an add-on review using the API.
  */
@@ -65,7 +67,7 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-}: SubmitReviewParams): Promise<ExternalReviewType> {
+}: SubmitReviewParams): Promise<SubmitReviewResponse> {
   return new Promise((resolve) => {
     const review = {
       addon: undefined,

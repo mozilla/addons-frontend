@@ -1,4 +1,6 @@
 import {
+  SET_INTERNAL_REVIEW,
+  SET_REVIEW,
   clearAddonReviews,
   createInternalReview,
   fetchReviews,
@@ -10,11 +12,7 @@ import {
   setReviewWasFlagged,
   setReviewReply,
 } from 'amo/actions/reviews';
-import {
-  REVIEW_FLAG_REASON_SPAM,
-  SET_INTERNAL_REVIEW,
-  SET_REVIEW,
-} from 'amo/constants';
+import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 // See reducer tests for more coverage of review actions.

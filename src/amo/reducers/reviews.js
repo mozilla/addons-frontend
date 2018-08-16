@@ -17,8 +17,8 @@ import {
   SHOW_REPLY_TO_REVIEW_FORM,
   HIDE_EDIT_REVIEW_FORM,
   HIDE_REPLY_TO_REVIEW_FORM,
-} from 'amo/constants';
-import { createInternalReview } from 'amo/actions/reviews';
+  createInternalReview,
+} from 'amo/actions/reviews';
 import type {
   ClearAddonReviewsAction,
   FlagReviewAction,
