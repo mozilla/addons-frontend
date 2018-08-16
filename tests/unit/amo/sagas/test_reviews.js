@@ -3,6 +3,7 @@ import SagaTester from 'redux-saga-tester';
 import * as reviewsApi from 'amo/api/reviews';
 import {
   SET_ADDON_REVIEWS,
+  createAddonReview,
   fetchGroupedRatings,
   fetchReviews,
   fetchUserReviews,
@@ -15,6 +16,7 @@ import {
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
+  updateAddonReview,
 } from 'amo/actions/reviews';
 import {
   REVIEW_FLAG_REASON_OTHER,
@@ -433,6 +435,142 @@ describe(__filename, () => {
       mockApi.expects('getReviews').returns(Promise.reject(error));
 
       _fetchUserReviews();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('manageAddonReview', () => {
+    function _createAddonReview(params = {}) {
+      sagaTester.dispatch(
+        createAddonReview({
+          addonId: 54321,
+          body: 'pretty sweet add-on',
+          errorHandlerId: errorHandler.id,
+          rating: 5,
+          versionId: 1234,
+          ...params,
+        }),
+      );
+    }
+
+    function _updateAddonReview(params = {}) {
+      sagaTester.dispatch(
+        updateAddonReview({
+          body: 'I do not like this add-on',
+          errorHandlerId: errorHandler.id,
+          rating: 1,
+          reviewId: 88664,
+          ...params,
+        }),
+      );
+    }
+
+    function createExternalReview({
+      id = 76654,
+      body,
+      rating,
+      addonId = fakeReview.addon.id,
+      versionId = fakeReview.version.id,
+    }) {
+      return {
+        ...fakeReview,
+        id,
+        addon: {
+          ...fakeAddon,
+          id: addonId,
+        },
+        body,
+        rating,
+        version: {
+          ...fakeReview.version,
+          id: versionId,
+        },
+      };
+    }
+
+    it('clears the error handler', async () => {
+      _createAddonReview();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('creates an add-on review', async () => {
+      const addonId = 98767;
+      const body = 'This add-on works pretty well for me';
+      const rating = 4;
+      const versionId = 7653;
+
+      const externalReview = createExternalReview({
+        addonId,
+        body,
+        rating,
+        versionId,
+      });
+
+      mockApi
+        .expects('submitReview')
+        .once()
+        .withArgs({
+          addonId,
+          apiState,
+          body,
+          rating,
+          versionId,
+        })
+        .resolves(externalReview);
+
+      _createAddonReview({ addonId, body, rating, versionId });
+
+      const expectedAction = setReview(externalReview);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      mockApi.verify();
+    });
+
+    it('updates an add-on review', async () => {
+      const reviewId = 87654;
+      const body = 'This add-on is OK';
+      const rating = 3;
+
+      const externalReview = createExternalReview({
+        id: reviewId,
+        body,
+        rating,
+      });
+
+      mockApi
+        .expects('submitReview')
+        .once()
+        .withArgs({
+          apiState,
+          body,
+          rating,
+          reviewId,
+        })
+        .resolves(externalReview);
+
+      _updateAddonReview({ body, rating, reviewId });
+
+      const expectedAction = setReview(externalReview);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      mockApi.verify();
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('submitReview').rejects(error);
+
+      _createAddonReview();
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

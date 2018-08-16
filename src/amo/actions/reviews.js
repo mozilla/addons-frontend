@@ -9,6 +9,7 @@ import type {
 } from 'amo/api/reviews';
 
 export const CLEAR_ADDON_REVIEWS: 'CLEAR_ADDON_REVIEWS' = 'CLEAR_ADDON_REVIEWS';
+export const CREATE_ADDON_REVIEW: 'CREATE_ADDON_REVIEW' = 'CREATE_ADDON_REVIEW';
 export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
   'SHOW_EDIT_REVIEW_FORM';
 export const SHOW_REPLY_TO_REVIEW_FORM: 'SHOW_REPLY_TO_REVIEW_FORM' =
@@ -33,6 +34,7 @@ export const SET_REVIEW_WAS_FLAGGED: 'SET_REVIEW_WAS_FLAGGED' =
 export const SEND_REPLY_TO_REVIEW: 'SEND_REPLY_TO_REVIEW' =
   'SEND_REPLY_TO_REVIEW';
 export const SEND_REVIEW_FLAG: 'SEND_REVIEW_FLAG' = 'SEND_REVIEW_FLAG';
+export const UPDATE_ADDON_REVIEW: 'UPDATE_ADDON_REVIEW' = 'UPDATE_ADDON_REVIEW';
 
 export type UserReviewType = {|
   addonId: number,
@@ -522,5 +524,63 @@ export const setLatestReview = ({
   return {
     type: SET_LATEST_REVIEW,
     payload: { addonId, addonSlug, review, userId, versionId },
+  };
+};
+
+type CreateAddonReviewParams = {|
+  addonId: number,
+  body?: string,
+  errorHandlerId: string,
+  rating: number,
+  versionId: number,
+|};
+
+export type CreateAddonReviewAction = {|
+  type: typeof CREATE_ADDON_REVIEW,
+  payload: CreateAddonReviewParams,
+|};
+
+export const createAddonReview = ({
+  addonId,
+  body,
+  errorHandlerId,
+  rating,
+  versionId,
+}: CreateAddonReviewParams) => {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(rating, 'rating is required');
+  invariant(versionId, 'versionId is required');
+
+  return {
+    type: CREATE_ADDON_REVIEW,
+    payload: { addonId, body, errorHandlerId, rating, versionId },
+  };
+};
+
+type UpdateAddonReviewParams = {|
+  body?: string,
+  errorHandlerId: string,
+  rating?: number,
+  reviewId: number,
+|};
+
+export type UpdateAddonReviewAction = {|
+  type: typeof UPDATE_ADDON_REVIEW,
+  payload: UpdateAddonReviewParams,
+|};
+
+export const updateAddonReview = ({
+  body,
+  errorHandlerId,
+  rating,
+  reviewId,
+}: UpdateAddonReviewParams) => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(reviewId, 'reviewId is required');
+
+  return {
+    type: UPDATE_ADDON_REVIEW,
+    payload: { body, errorHandlerId, rating, reviewId },
   };
 };

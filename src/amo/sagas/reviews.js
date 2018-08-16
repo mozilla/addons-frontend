@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
@@ -7,33 +8,46 @@ import { oneLine } from 'common-tags';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import { flagReview, getReviews, replyToReview } from 'amo/api/reviews';
 import {
+  flagReview,
+  getReviews,
+  replyToReview,
+  submitReview,
+} from 'amo/api/reviews';
+import {
+  CREATE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
+  UPDATE_ADDON_REVIEW,
   hideReplyToReviewForm,
   setAddonReviews,
   setGroupedRatings,
+  setReview,
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
 } from 'amo/actions/reviews';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type { AppState } from 'amo/store';
 import type {
   ExternalReviewReplyType,
   GetReviewsApiResponse,
   GetReviewsParams,
+  SubmitReviewParams,
+  SubmitReviewResponse,
 } from 'amo/api/reviews';
 import type {
+  CreateAddonReviewAction,
   FetchGroupedRatingsAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
   SendReplyToReviewAction,
+  UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
 
 function* fetchReviews({
@@ -180,10 +194,59 @@ function* handleFlagReview({
   }
 }
 
+function* manageAddonReview(
+  action: CreateAddonReviewAction | UpdateAddonReviewAction,
+) {
+  const { body, errorHandlerId, rating } = action.payload;
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state: AppState = yield select(getState);
+    const baseParams = {
+      apiState: state.api,
+      body,
+      rating,
+    };
+    let params;
+
+    if (action.type === CREATE_ADDON_REVIEW) {
+      params = {
+        ...baseParams,
+        addonId: action.payload.addonId,
+        versionId: action.payload.versionId,
+      };
+    } else if (action.type === UPDATE_ADDON_REVIEW) {
+      params = {
+        ...baseParams,
+        reviewId: action.payload.reviewId,
+      };
+    }
+    invariant(
+      params,
+      `params was unexpectedly empty; action.type: ${action.type}`,
+    );
+
+    const submitParams: SubmitReviewParams = params;
+    const reviewFromResponse: SubmitReviewResponse = yield call(
+      submitReview,
+      submitParams,
+    );
+
+    yield put(setReview(reviewFromResponse));
+  } catch (error) {
+    log.warn(`Failed to submit review with action ${action.type}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* reviewsSaga(): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);
   yield takeLatest(SEND_REVIEW_FLAG, handleFlagReview);
+  yield takeLatest(CREATE_ADDON_REVIEW, manageAddonReview);
+  yield takeLatest(UPDATE_ADDON_REVIEW, manageAddonReview);
 }
