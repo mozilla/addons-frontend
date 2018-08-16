@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 16:48+0000\n"
+"PO-Revision-Date: 2018-08-16 20:10+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1089,11 +1089,11 @@ msgstr "Skydda dig mot lömska trackers"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Ändra standarddestinationen för dina bokmärken"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1141,7 +1141,7 @@ msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Spara minne genom att inaktivera inaktiva flikar"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1149,7 +1149,7 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Bli informerad när dina valda webbplatser uppdateras med nytt innehåll"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
@@ -1165,7 +1165,7 @@ msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Justera videouppspelningshastigheter med genvägar"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
@@ -1173,7 +1173,7 @@ msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Återuppliva knapparna \"Visa bild\" och \"Sök efter bild\" på Google bilder"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
@@ -1181,7 +1181,7 @@ msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Rensa upp länkarna för enkel delning"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
@@ -1189,7 +1189,7 @@ msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Dra text, bilder eller länkar för att utföra handlingar som kopiera, öppna, söka och mer"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
@@ -1197,7 +1197,7 @@ msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Klicka på en knapp för att stänga irriterande popup-fönster"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "Auto-Sort Bookmarks"
@@ -1205,7 +1205,7 @@ msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Sorterar automatiskt bokmärken så att de är i din favoritposition"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
@@ -1213,7 +1213,7 @@ msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Lägg till Britannica-fakta i dina sökresultat"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
