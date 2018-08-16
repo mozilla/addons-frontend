@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 09:21+0000\n"
+"PO-Revision-Date: 2018-08-16 12:14+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2309,23 +2309,23 @@ msgstr "%(name)s సంస్థాపిస్తోంది."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s స్థాపించబడి చేతనంగా ఉంది. నిర్మూలించడానికి నొక్కండి."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s అచేతనమైవుంది. చేతనించడానికి నొక్కండి."
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s నిర్మూలించబడుతోంది."
 
 #: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s నిర్మూలించబడింది. స్థాపించడానికి నొక్కండి."
 
 #: src/core/components/InstallSwitch/index.js:90
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s స్థాపన స్థితి తెలియదు."
 
 #: src/core/components/Paginate/index.js:135
 msgid "Previous"
