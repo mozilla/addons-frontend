@@ -215,62 +215,68 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
 
     const byLine = (
       <React.Fragment>
-        {authorAndTime}
+        <div className="AddonReviewListItem-author">{authorAndTime}</div>
+        <div className="AddonReviewListItem-allControls">
+          {siteUser && review && review.userId === siteUser.id ? (
+            <React.Fragment>
+              {/* This will render an overlay to edit the review */}
+              {editingReview ? (
+                <AddonReview
+                  onEscapeOverlay={this.onEscapeReviewOverlay}
+                  onReviewSubmitted={this.onReviewSubmitted}
+                  review={review}
+                />
+              ) : null}
+              <a
+                href="#edit"
+                onClick={this.onClickToEditReview}
+                className="AddonReviewListItem-edit AddonReviewListItem-control"
+              >
+                {isReply
+                  ? i18n.gettext('Edit my reply')
+                  : i18n.gettext('Edit my review')}
+              </a>
+            </React.Fragment>
+          ) : null}
 
-        {siteUser && review && review.userId === siteUser.id ? (
-          <div>
-            {/* This will render an overlay to edit the review */}
-            {editingReview ? (
-              <AddonReview
-                onEscapeOverlay={this.onEscapeReviewOverlay}
-                onReviewSubmitted={this.onReviewSubmitted}
-                review={review}
-              />
-            ) : null}
+          {review &&
+          addon &&
+          siteUser &&
+          !replyingToReview &&
+          !review.reply &&
+          !isReply &&
+          (isAddonAuthor({ addon, userId: siteUser.id }) ||
+            siteUserHasReplyPerm) &&
+          review.userId !== siteUser.id ? (
             <a
-              href="#edit"
-              onClick={this.onClickToEditReview}
-              className="AddonReviewListItem-edit AddonReviewListItem-control"
+              href="#reply"
+              onClick={this.onClickToBeginReviewReply}
+              className="AddonReviewListItem-begin-reply AddonReviewListItem-control"
             >
-              {isReply
-                ? i18n.gettext('Edit my reply')
-                : i18n.gettext('Edit my review')}
+              <Icon name="reply-arrow" />
+              {i18n.gettext('Reply to this review')}
             </a>
-          </div>
-        ) : null}
+          ) : null}
 
-        {review &&
-        addon &&
-        siteUser &&
-        !replyingToReview &&
-        !review.reply &&
-        !isReply &&
-        (isAddonAuthor({ addon, userId: siteUser.id }) ||
-          siteUserHasReplyPerm) &&
-        review.userId !== siteUser.id ? (
-          <a
-            href="#reply"
-            onClick={this.onClickToBeginReviewReply}
-            className="AddonReviewListItem-begin-reply AddonReviewListItem-control"
-          >
-            <Icon name="reply-arrow" />
-            {i18n.gettext('Reply to this review')}
-          </a>
-        ) : null}
-
-        {review ? (
-          <FlagReviewMenu
-            isDeveloperReply={isReply}
-            location={location}
-            openerClass="AddonReviewListItem-control"
-            review={review}
-          />
-        ) : null}
+          {review ? (
+            <FlagReviewMenu
+              isDeveloperReply={isReply}
+              location={location}
+              openerClass="AddonReviewListItem-control"
+              review={review}
+            />
+          ) : null}
+        </div>
       </React.Fragment>
     );
 
     return (
-      <UserReview review={review} byLine={byLine} showRating={!isReply}>
+      <UserReview
+        className="AddonReviewListItem"
+        review={review}
+        byLine={byLine}
+        showRating={!isReply}
+      >
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}
       </UserReview>
