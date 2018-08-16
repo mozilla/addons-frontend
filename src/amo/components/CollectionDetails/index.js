@@ -70,21 +70,31 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
           ]}
         />
         {collection &&
-          (editing || showEditButton) && (
+          showEditButton &&
+          !editing && (
             <Button
-              className="CollectionDetails-action-button"
               buttonType="neutral"
+              className="CollectionDetails-edit-button"
               puffy
               to={{
-                pathname: editing
-                  ? collectionUrl({ collection })
-                  : collectionEditUrl({ collection }),
+                pathname: collectionEditUrl({ collection }),
                 query: convertFiltersToQueryParams(filters),
               }}
             >
-              {editing
-                ? i18n.gettext('Done editing')
-                : i18n.gettext('Edit this collection')}
+              {i18n.gettext('Edit this collection')}
+            </Button>
+          )}
+        {collection &&
+          editing && (
+            <Button
+              buttonType="cancel"
+              className="CollectionDetails-back-to-collection-button"
+              to={{
+                pathname: collectionUrl({ collection }),
+                query: convertFiltersToQueryParams(filters),
+              }}
+            >
+              {i18n.gettext('Back to collection')}
             </Button>
           )}
       </div>

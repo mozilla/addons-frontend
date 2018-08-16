@@ -113,7 +113,7 @@ describe(__filename, () => {
 
     const root = render({ collection, filters, showEditButton: true });
 
-    const editButton = root.find('.CollectionDetails-action-button');
+    const editButton = root.find('.CollectionDetails-edit-button');
     expect(editButton).toHaveLength(1);
     expect(editButton).toHaveProp('buttonType', 'neutral');
     expect(editButton).toHaveProp('puffy', true);
@@ -134,7 +134,7 @@ describe(__filename, () => {
 
     const root = render({ collection, filters, editing: true });
 
-    const editButton = root.find('.CollectionDetails-action-button');
+    const editButton = root.find('.CollectionDetails-edit-button');
     expect(editButton).toHaveLength(1);
     expect(editButton).toHaveProp('buttonType', 'neutral');
     expect(editButton).toHaveProp('puffy', true);
@@ -148,6 +148,6 @@ describe(__filename, () => {
   it('does not render an edit button if not requested', () => {
     const root = render({ showEditButton: false });
 
-    expect(root.find('.CollectionDetails-action-button')).toHaveLength(0);
+    expect(root.find('.CollectionDetails-edit-button')).toHaveLength(0);
   });
 });
