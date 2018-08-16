@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 08:51+0000\n"
+"PO-Revision-Date: 2018-08-16 08:53+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1183,11 +1183,11 @@ msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Адаптуйте посилання для простого обміну"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
