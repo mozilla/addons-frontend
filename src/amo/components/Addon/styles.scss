@@ -34,19 +34,19 @@
 
 .Addon-img-wrapper {
   height: 48px;
-  width: 48px;
   overflow: hidden;
+  width: 48px;
 
   @include respond-to(medium) {
     height: 64px;
-    width: 64px;
     overflow: hidden;
+    width: 64px;
   }
 }
 
 .Addon-icon-image {
   height: auto;
-  width: 100%; 
+  width: 100%;
 }
 
 .Addon-header-wrapper {
