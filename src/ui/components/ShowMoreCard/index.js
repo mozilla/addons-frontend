@@ -40,23 +40,36 @@ const initialUIState: UIStateType = { expanded: true };
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
-  componentDidMount() {
-    this.truncateToMaxHeight(this.contents);
-  }
+  hasExpanded = false;
 
   onClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     this.props.setUIState({ expanded: true });
   };
 
+  componentWillReceiveProps() {
+    if (!this.hasExpanded) {
+      this.truncateToMaxHeight(this.contents);
+    }
+  }
+
+  shouldComponentUpdate(nextProps: InternalProps) {
+    if (
+      !this.props.uiState.expanded &&
+      this.props.uiState.expanded !== nextProps.uiState.expanded
+    ) {
+      this.hasExpanded = true;
+    }
+
+    return true;
+  }
+
   truncateToMaxHeight = (contents: HTMLElement | null) => {
     // If the contents are short enough they don't need a "show more" link; the
     // contents are expanded by default.
     if (contents) {
-      if (contents.clientHeight >= MAX_HEIGHT) {
+      if (this.props.uiState.expanded && contents.clientHeight >= MAX_HEIGHT) {
         this.props.setUIState({ expanded: false });
-      } else {
-        this.props.setUIState({ expanded: true });
       }
     }
   };

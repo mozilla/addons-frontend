@@ -36,7 +36,10 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
 
-    expect(root).not.toHaveClassName('ShowMoreCard--expanded');
+    // We are simulating the truncate method call.
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+
+    applyUIStateChanges({ root, store });
 
     expect(root).toHaveProp('footerLink');
     const footerLink = root.prop('footerLink');
@@ -50,20 +53,20 @@ describe(__filename, () => {
     expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
-  it('is unexpanded by default', () => {
+  it('is expanded by default', () => {
     const root = render();
 
-    // We are simulating the truncate method call on did mount.
-    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT });
-
-    expect(root).not.toHaveClassName('ShowMoreCard--expanded');
+    expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('truncates the contents if they are too long', () => {
-    const root = render();
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
 
-    // We are simulating the truncate method call on did mount.
+    // We are simulating the truncate method call.
     root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+
+    applyUIStateChanges({ root, store });
 
     expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
