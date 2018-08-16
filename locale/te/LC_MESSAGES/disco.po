@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-16 09:16+0000\n"
+"PO-Revision-Date: 2018-08-16 12:17+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -96,15 +96,15 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s నిర్మూలించబడుతోంది."
 
 #: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s నిర్మూలించబడింది. స్థాపించడానికి నొక్కండి."
 
 #: src/core/components/InstallSwitch/index.js:90
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s స్థాపన స్థితి తెలియదు."
 
 #: src/disco/components/Addon/index.js:160
 msgid "Preview of %(name)s"
@@ -120,11 +120,11 @@ msgstr "దింపుకోలు విఫలమైంది. దయచేస
 
 #: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "స్థాపన సమయంలో ఊహించని పొరపాటు జరిగింది."
 
 #: src/disco/components/Addon/index.js:213
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "నిర్మూలించే సమయంలో ఊహించని పొరపాటు జరిగింది."
 
 #: src/disco/components/Addon/index.js:218
 msgid "An unexpected error occurred."
@@ -132,7 +132,7 @@ msgstr "అనుకోని లోపం సంభవించింది."
 
 #: src/disco/components/Addon/index.js:226
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "మీరు Firefox‌ని పునఃప్రారంభించిన తరువాత ఈ పొడగింత నిర్మూలించబడుతుంది."
 
 #: src/disco/components/Addon/index.js:230
 msgid "Please restart Firefox to use this add-on."
@@ -148,7 +148,7 @@ msgstr ""
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "ఈ పొడగింత మీ Firefox వెర్షనుకు తోడ్పాటు చేయట్లేదు."
 
 #: src/disco/components/AddonCompatibilityError/index.js:47
 msgid "This add-on does not support your browser."
