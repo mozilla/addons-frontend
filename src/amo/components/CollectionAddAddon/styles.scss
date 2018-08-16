@@ -12,6 +12,7 @@
 
   .Card-contents {
     overflow: visible;
+    // 6px is the margin from the CollectionAddAddon-noticePlaceholder.
     padding-top: calc(20px - 6px);
 
     @include respond-to(large) {

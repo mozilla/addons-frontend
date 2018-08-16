@@ -482,24 +482,39 @@ describe(__filename, () => {
       expect(savedState.collections).toEqual(null);
     });
 
-    it('sets a hasAddonBeenAdded flag when beginning to add add-on to collection', () => {
-      const state = reducer(
+    it('unsets a hasAddonBeenAdded flag when beginning to add add-on to collection', () => {
+      const addonId = 1;
+      const collectionId = 2;
+      const username = 'some-user';
+
+      let state = reducer(
         undefined,
+        addonAddedToCollection({
+          addonId,
+          collectionId,
+          username,
+        }),
+      );
+
+      state = reducer(
+        state,
         addAddonToCollection({
-          addonId: 1,
-          username: 'some-user',
-          collectionId: 3,
-          slug: 'some-collection',
+          addonId,
+          collectionId,
           errorHandlerId: 'error-handler',
+          slug: 'some-collection',
+          username: 'some-user',
         }),
       );
 
       expect(state.hasAddonBeenAdded).toEqual(false);
     });
 
-    it('sets a hasAddonBeenRemoved flag when beginning to remove an add-on from a collection', () => {
-      const state = reducer(
-        undefined,
+    it('unsets a hasAddonBeenRemoved flag when beginning to remove an add-on from a collection', () => {
+      let state = reducer(undefined, addonRemovedFromCollection());
+
+      state = reducer(
+        state,
         removeAddonFromCollection({
           addonId: 1,
           collectionId: 3,

@@ -179,16 +179,15 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
+    expect(root.find(Notice)).toHaveProp('type', 'success');
 
-    expect(root.instance().props.uiState.completedAddonAction).toEqual(
-      addonAddedAction,
-    );
+    expect(root.instance().props.uiState.addonAction).toEqual(addonAddedAction);
 
     // Trigger the setTimeout behavior.
     clock.tick(MESSAGE_RESET_TIME);
 
     applyUIStateChanges({ root, store });
-    expect(root.instance().props.uiState.completedAddonAction).toEqual(null);
+    expect(root.instance().props.uiState.addonAction).toEqual(null);
     expect(root.find(Notice)).toHaveLength(0);
   });
 
@@ -204,8 +203,9 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Removed from collection');
+    expect(root.find(Notice)).toHaveProp('type', 'generic');
 
-    expect(root.instance().props.uiState.completedAddonAction).toEqual(
+    expect(root.instance().props.uiState.addonAction).toEqual(
       addonRemovedAction,
     );
 
@@ -213,7 +213,7 @@ describe(__filename, () => {
     clock.tick(MESSAGE_RESET_TIME);
 
     applyUIStateChanges({ root, store });
-    expect(root.instance().props.uiState.completedAddonAction).toEqual(null);
+    expect(root.instance().props.uiState.addonAction).toEqual(null);
     expect(root.find(Notice)).toHaveLength(0);
   });
 
@@ -221,7 +221,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler(
       new Error('Unexpected API error'),
     );
-    errorHandler.clear = sinon.spy();
+    const clearStub = sinon.stub(errorHandler, 'clear');
     const { store } = dispatchSignedInUser({
       username: signedInUsername,
     });
@@ -230,21 +230,21 @@ describe(__filename, () => {
 
     _addonAddedToCollection({ username: signedInUsername, root, store });
 
-    sinon.assert.called(errorHandler.clear);
+    sinon.assert.called(clearStub);
   });
 
   it('clears the errorHandler when an add-on is removed', () => {
     const errorHandler = createStubErrorHandler(
       new Error('Unexpected API error'),
     );
-    errorHandler.clear = sinon.spy();
+    const clearStub = sinon.stub(errorHandler, 'clear');
     const { store } = dispatchSignedInUser({});
 
     const root = render({ errorHandler, store });
 
     _addonRemovedFromCollection({ root, store });
 
-    sinon.assert.called(errorHandler.clear);
+    sinon.assert.called(clearStub);
   });
 
   it('calls clearTimeout when unmounting and timeout is set', () => {

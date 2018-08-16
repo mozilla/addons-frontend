@@ -32,14 +32,11 @@ export const addonAddedAction: 'added' = 'added';
 export const addonRemovedAction: 'removed' = 'removed';
 
 type UIStateType = {|
-  completedAddonAction:
-    | typeof addonAddedAction
-    | typeof addonRemovedAction
-    | null,
+  addonAction: typeof addonAddedAction | typeof addonRemovedAction | null,
 |};
 
 const initialUIState: UIStateType = {
-  completedAddonAction: null,
+  addonAction: null,
 };
 
 export type Props = {|
@@ -84,15 +81,13 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
 
     if (addStatusChanged) {
       this.props.setUIState({
-        completedAddonAction: hasAddonBeenAddedNew ? addonAddedAction : null,
+        addonAction: hasAddonBeenAddedNew ? addonAddedAction : null,
       });
     }
 
     if (removeStatusChanged) {
       this.props.setUIState({
-        completedAddonAction: hasAddonBeenRemovedNew
-          ? addonRemovedAction
-          : null,
+        addonAction: hasAddonBeenRemovedNew ? addonRemovedAction : null,
       });
     }
 
@@ -102,19 +97,19 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
     ) {
       errorHandler.clear();
       this.timeout = this.props.setTimeout(
-        this.resetMessageStatus,
+        this.resetMessages,
         MESSAGE_RESET_TIME,
       );
     }
   }
 
   componentWillUnmount() {
-    this.resetMessageStatus();
+    this.resetMessages();
   }
 
-  resetMessageStatus = () => {
+  resetMessages = () => {
     this.props.setUIState({
-      completedAddonAction: null,
+      addonAction: null,
     });
     if (this.timeout) {
       this.props.clearTimeout(this.timeout);
@@ -139,11 +134,13 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
         username: collection.authorUsername,
       }),
     );
-    this.resetMessageStatus();
+    this.resetMessages();
   };
 
   render() {
     const { errorHandler, i18n, uiState } = this.props;
+    const { addonAction } = uiState;
+    const addonAdded = addonAction === addonAddedAction;
 
     return (
       <Card className="CollectionAddAddon">
@@ -151,19 +148,13 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
           errorHandler.renderError()
         ) : (
           <TransitionGroup className="CollectionAddAddon-noticePlaceholder">
-            {uiState.completedAddonAction && (
+            {addonAction && (
               <CSSTransition
                 classNames="CollectionAddAddon-noticePlaceholder-transition"
                 timeout={MESSAGE_FADEOUT_TIME}
               >
-                <Notice
-                  type={
-                    uiState.completedAddonAction === addonAddedAction
-                      ? 'success'
-                      : 'generic'
-                  }
-                >
-                  {uiState.completedAddonAction === addonAddedAction
+                <Notice type={addonAdded ? 'success' : 'generic'}>
+                  {addonAdded
                     ? i18n.gettext('Added to collection')
                     : i18n.gettext('Removed from collection')}
                 </Notice>
