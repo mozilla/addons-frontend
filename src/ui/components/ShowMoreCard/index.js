@@ -35,7 +35,7 @@ type InternalProps = {|
   uiState: UIStateType,
 |};
 
-const initialUIState: UIStateType = { expanded: false };
+const initialUIState: UIStateType = { expanded: true };
 
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
