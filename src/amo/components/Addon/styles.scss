@@ -32,14 +32,21 @@
   }
 }
 
-.Addon-icon-image {
+.Addon-img-wrapper {
   height: 48px;
   width: 48px;
+  overflow: hidden;
 
   @include respond-to(medium) {
     height: 64px;
     width: 64px;
+    overflow: hidden;
   }
+}
+
+.Addon-icon-image {
+  height: auto;
+  width: 100%; 
 }
 
 .Addon-header-wrapper {
