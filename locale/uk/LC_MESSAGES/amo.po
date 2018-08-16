@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 08:53+0000\n"
+"PO-Revision-Date: 2018-08-16 10:01+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1191,15 +1191,15 @@ msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Перетягуйте текст, зображення чи посилання для виконання таких дій, як копіювання, пошук та інші"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Натисніть кнопку, щоб закрити надокучливі виринаючі вікна"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "Auto-Sort Bookmarks"
@@ -1207,15 +1207,15 @@ msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Автоматичне впорядкування закладок так, як вам потрібно"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Додавайте факти з Britannica до результатів пошуку"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -2285,11 +2285,11 @@ msgstr "Оберіть фото…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Увімкнути"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Увімкнення"
 
 #: src/core/components/AMInstallButton/index.js:210
 msgid "Downloading"
@@ -2329,11 +2329,11 @@ msgstr "Вибачте, але ми не можемо нічого знайти 
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s було додано"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Керуйте додатками в розділі меню Додатки."
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"
