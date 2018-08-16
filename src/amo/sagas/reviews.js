@@ -9,6 +9,11 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { flagReview, getReviews, replyToReview } from 'amo/api/reviews';
 import {
+  FETCH_GROUPED_RATINGS,
+  FETCH_REVIEWS,
+  FETCH_USER_REVIEWS,
+  SEND_REPLY_TO_REVIEW,
+  SEND_REVIEW_FLAG,
   hideReplyToReviewForm,
   setAddonReviews,
   setGroupedRatings,
@@ -16,13 +21,6 @@ import {
   setReviewWasFlagged,
   setUserReviews,
 } from 'amo/actions/reviews';
-import {
-  FETCH_GROUPED_RATINGS,
-  FETCH_REVIEWS,
-  FETCH_USER_REVIEWS,
-  SEND_REPLY_TO_REVIEW,
-  SEND_REVIEW_FLAG,
-} from 'amo/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {

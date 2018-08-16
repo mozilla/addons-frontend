@@ -2,6 +2,7 @@ import SagaTester from 'redux-saga-tester';
 
 import * as reviewsApi from 'amo/api/reviews';
 import {
+  SET_ADDON_REVIEWS,
   fetchGroupedRatings,
   fetchReviews,
   fetchUserReviews,
@@ -18,7 +19,6 @@ import {
 import {
   REVIEW_FLAG_REASON_OTHER,
   REVIEW_FLAG_REASON_SPAM,
-  SET_ADDON_REVIEWS,
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga from 'amo/sagas/reviews';
