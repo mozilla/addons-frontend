@@ -746,7 +746,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve());
 
-      _removeAddonFromCollection(params);
+      _removeAddonFromCollection();
 
       const expectedRemovedAction = addonRemovedFromCollection();
 
