@@ -48,6 +48,8 @@ import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
+import Notice from 'ui/components/Notice';
+import STATUS_PUBLIC from 'core/types/addons';
 
 import './styles.scss';
 
@@ -495,6 +497,11 @@ export class AddonBase extends React.Component {
                 minVersion={compatibility.minVersion}
                 reason={compatibility.reason}
               />
+            ) : null}
+            {addon && addon.status !== STATUS_PUBLIC ? (
+              <Notice type="error">
+                {i18n.gettext('This is not a public listing. You are only seeing it because of elevated permissions.')}
+              </Notice>
             ) : null}
             <header className="Addon-header">
               {this.headerImage()}
