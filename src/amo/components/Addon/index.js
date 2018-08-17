@@ -183,7 +183,7 @@ export class AddonBase extends React.Component {
 
     return (
       <div className="Addon-icon" key="Addon-icon-header">
-        <div className="Addon-img-wrapper">
+        <div className="Addon-icon-wrapper">
           <img
             alt={label}
             className="Addon-icon-image"
