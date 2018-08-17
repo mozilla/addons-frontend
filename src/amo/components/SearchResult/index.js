@@ -53,10 +53,15 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     const averageDailyUsers = addon ? addon.average_daily_users : null;
 
-    // Fall-back to default icon if invalid icon url.
-    const iconURL = getAddonIconUrl(addon);
+    let imageProps = {
+      alt: addon ? addon.name : null,
+      className: makeClassName('SearchResult-icon', {
+        'SearchResult-icon--loading': !addon,
+      }),
+      src: getAddonIconUrl(addon),
+    };
 
-    let imageURL = iconURL;
+    let imagehtml = <img {...imageProps} />;
 
     if (addon && isTheme(addon.type)) {
       // Since only newly created static themes will have more than one preview
@@ -71,12 +76,32 @@ export class SearchResultBase extends React.Component<InternalProps> {
             : null;
       }
 
-      imageURL = themeURL;
+      const themeURLThumb = getPreviewImage(addon, { full: false });
+
+      imageProps = themeURLThumb
+        ? {
+            ...imageProps,
+            src: themeURLThumb,
+          }
+        : {
+            ...imageProps,
+            src: themeURL,
+          };
+
+      imagehtml = themeURLThumb ? (
+        <picture>
+          <source srcSet={themeURL} media="(min-width: 500px)" />
+          <img {...imageProps} />
+        </picture>
+      ) : (
+        <img {...imageProps} />
+      );
     }
 
     // Sets classes to handle fallback if theme preview is not available.
     const iconWrapperClassnames = makeClassName('SearchResult-icon-wrapper', {
-      'SearchResult-icon-wrapper--no-theme-image': isTheme && imageURL === null,
+      'SearchResult-icon-wrapper--no-theme-image':
+        isTheme && imagehtml.src === null,
     });
 
     let addonAuthors = null;
@@ -108,14 +133,8 @@ export class SearchResultBase extends React.Component<InternalProps> {
     return (
       <div className="SearchResult-result">
         <div className={iconWrapperClassnames}>
-          {imageURL ? (
-            <img
-              className={makeClassName('SearchResult-icon', {
-                'SearchResult-icon--loading': !addon,
-              })}
-              src={imageURL}
-              alt={addon ? `${addon.name}` : ''}
-            />
+          {imageProps.src ? (
+            imagehtml
           ) : (
             <p className="SearchResult-notheme">
               {i18n.gettext('No theme preview available')}

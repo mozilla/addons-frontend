@@ -166,17 +166,32 @@ export class AddonBase extends React.Component {
         previewURL = addon.previewURL;
       }
 
+      const previewURLThumb = getPreviewImage(addon, { full: false });
+
+      const previewImage = previewURLThumb ? (
+        <picture>
+          <source srcSet={previewURL} media="(min-width: 500px)" />
+          <img
+            alt={label}
+            className="Addon-theme-header-image"
+            src={previewURLThumb}
+          />
+        </picture>
+      ) : (
+        <img
+          alt={label}
+          className="Addon-theme-header-image"
+          src={previewURL}
+        />
+      );
+
       return (
         <div
           className="Addon-theme-header"
           key="Addon-theme-image"
           role="presentation"
         >
-          <img
-            alt={label}
-            className="Addon-theme-header-image"
-            src={previewURL}
-          />
+          {previewImage}
         </div>
       );
     }
