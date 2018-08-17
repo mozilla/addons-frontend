@@ -32,7 +32,7 @@ describe(__filename, () => {
     );
   }
 
-  it('reveals more text when clicking "show more" link', () => {
+  it('reveals more text when clicking "read more" link', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
 
@@ -81,6 +81,25 @@ describe(__filename, () => {
     const root = render({ children: 'Hello I am description' });
     const contents = root.find('.ShowMoreCard-contents');
     expect(contents).toHaveText('Hello I am description');
+  });
+
+  it('executes truncateToMaxHeight when it receives props', () => {
+    const root = render();
+
+    const contentNode = root.instance().contents;
+
+    const truncateToMaxHeight = sinon.spy(
+      root.instance(),
+      'truncateToMaxHeight',
+    );
+
+    // We are simulating the truncate method call.
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+
+    // We are simulating any kind of update to properties.
+    root.setProps();
+
+    sinon.assert.calledWith(truncateToMaxHeight, contentNode);
   });
 
   describe('extractId', () => {

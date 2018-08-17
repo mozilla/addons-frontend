@@ -47,21 +47,18 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     this.props.setUIState({ expanded: true });
   };
 
-  componentWillReceiveProps() {
-    if (!this.hasExpanded) {
-      this.truncateToMaxHeight(this.contents);
-    }
-  }
+  componentWillReceiveProps(nextProps: InternalProps) {
+    const {
+      uiState: { expanded },
+    } = this.props;
 
-  shouldComponentUpdate(nextProps: InternalProps) {
-    if (
-      !this.props.uiState.expanded &&
-      this.props.uiState.expanded !== nextProps.uiState.expanded
-    ) {
+    if (!expanded && expanded !== nextProps.uiState.expanded) {
       this.hasExpanded = true;
     }
 
-    return true;
+    if (!this.hasExpanded) {
+      this.truncateToMaxHeight(this.contents);
+    }
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {
@@ -129,5 +126,6 @@ export default compose(
     fileName: __filename,
     extractId,
     initialState: initialUIState,
+    resetOnUnmount: true,
   }),
 )(ShowMoreCardBase);
