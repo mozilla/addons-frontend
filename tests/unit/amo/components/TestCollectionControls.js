@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionSort from 'amo/components/CollectionSort';
 import { createInternalCollection } from 'amo/reducers/collections';
@@ -34,24 +33,5 @@ describe(__filename, () => {
     expect(root.find(CollectionSort)).toHaveProp('collection', collection);
     expect(root.find(CollectionSort)).toHaveProp('editing', editing);
     expect(root.find(CollectionSort)).toHaveProp('filters', filters);
-  });
-
-  it('renders a CollectionAddAddon component when editing', () => {
-    const collection = createInternalCollection({
-      detail: createFakeCollectionDetail(),
-    });
-    const editing = true;
-    const filters = { collectionSort: COLLECTION_SORT_NAME };
-
-    const root = render({ collection, editing, filters });
-
-    expect(root.find(CollectionAddAddon)).toHaveProp('collection', collection);
-    expect(root.find(CollectionAddAddon)).toHaveProp('filters', filters);
-  });
-
-  it('does not render a CollectionAddAddon component when not editing', () => {
-    const root = render({ editing: false });
-
-    expect(root.find(CollectionAddAddon)).toHaveLength(0);
   });
 });

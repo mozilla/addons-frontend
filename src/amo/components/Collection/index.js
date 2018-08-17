@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
@@ -480,6 +481,9 @@ export class CollectionBase extends React.Component<InternalProps> {
           />
         </div>
         <div className="Collection-items">
+          {editing && (
+            <CollectionAddAddon collection={collection} filters={filters} />
+          )}
           {!creating && (
             <AddonsCard
               addonInstallSource={addonInstallSource}
