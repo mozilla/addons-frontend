@@ -104,6 +104,7 @@ module.exports = {
     'enableClientConsole',
     'enableDevTools',
     'enableExperienceSurvey',
+    'enableInlineAddonReview',
     'enableStaticThemes',
     'fxaConfig',
     'isDeployed',
@@ -307,4 +308,6 @@ module.exports = {
 
   // Enable new InstallButton with mozAddonManager.
   enableAMInstallButton: false,
+
+  enableInlineAddonReview: false,
 };
