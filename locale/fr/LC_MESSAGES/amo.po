@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-17 17:51+0000\n"
+"PO-Revision-Date: 2018-08-17 18:00+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1128,9 +1128,8 @@ msgid "Give your favorite websites a new look"
 msgstr "Donnez un nouveau look à vos sites web préférés"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Résultats de la recherche"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
 msgid "Privacy protection for your search data"
@@ -1145,9 +1144,8 @@ msgid "Save memory by disabling inactive tabs"
 msgstr "Économisez de la mémoire en désactivant les onglets inactifs"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Modifier la réponse"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
@@ -1155,24 +1153,23 @@ msgstr "Soyez informé⋅e lorsque certains sites web sont mis à jour avec du c
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Recherchez automatiquement des codes promo"
+msgstr "Démarrez automatiquement Firefox en mode plein écran"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Ajustez la vitesse de lecture des vidéos à l’aide de raccourcis"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "Afficher l’image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
@@ -1184,7 +1181,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Assainissez les liens pour les partager plus simplement"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
@@ -1203,9 +1200,8 @@ msgid "Click a button to close annoying pop-ups"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Marque-pages"
+msgstr "Tri automatique des marque-pages"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
@@ -1213,11 +1209,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Faites apparaître les contenus de l’Encyclopædia Britannica dans vos résultats de recherche"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1817,9 +1813,10 @@ msgstr ""
 " votre expérience de navigation en ajoutant de nouvelles fonctionnalités à Firefox, en améliorant votre manière d’interagir avec le Web ou en changeant le style de votre navigateur."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Vous pouvez aussi utiliser AMO pour trouver des modules pour %(startTBLink)sThunderbird%(endTBLink)s et %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr ""
+"Si vous cherchez des modules complémentaires pour Thunderbird ou SeaMonkey, veuillez visiter %(startTBLink)saddons.thunderbird.net%(endTBLink)s ou "
+"%(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
