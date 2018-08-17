@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-17 13:31+0000\n"
+"PO-Revision-Date: 2018-08-17 13:38+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -88,11 +88,11 @@ msgstr "Installation de %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s installate e activate. Clicca pro disinstallar."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s es disactivate. Clicca pro activar."
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
@@ -100,7 +100,7 @@ msgstr "Disinstallation de %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s es activate. Clicca pro disactivar."
 
 #: src/core/components/InstallSwitch/index.js:90
 msgid "Install state for %(name)s is unknown."
@@ -120,15 +120,15 @@ msgstr ""
 
 #: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Un error non attendite occurreva durante le installation."
 
 #: src/disco/components/Addon/index.js:213
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Un error non attendite occurreva durante le disinstallation."
 
 #: src/disco/components/Addon/index.js:218
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Un error non attendite occurreva."
 
 #: src/disco/components/Addon/index.js:226
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -152,19 +152,19 @@ msgstr ""
 
 #: src/disco/components/AddonCompatibilityError/index.js:47
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Iste additivo non supporta tu navigator de web."
 
 #: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Discoperi additivos"
 
 #: src/disco/components/DiscoPane/index.js:121
 msgid "Find more add-ons"
-msgstr ""
+msgstr "Trova plus additivos"
 
 #: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Personalisa tu Firefox"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
