@@ -16,8 +16,8 @@
 
   input,
   textarea {
-    width: 100%;
     resize: vertical;
+    width: 100%;
 
     &:focus {
       @include focus();
