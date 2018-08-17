@@ -263,11 +263,26 @@ describe(__filename, () => {
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', true);
   });
 
-  it('creates non-micro buttons by default', () => {
+  it('creates puffy buttons when requested', () => {
+    const root = shallowRender({ puffyButtons: true, onDelete: sinon.stub() });
+
+    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', true);
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', true);
+  });
+
+  it('creates non-micro, non-puffy buttons by default', () => {
     const root = shallowRender({ onDelete: sinon.stub() });
 
     expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', false);
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', false);
+    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', false);
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', false);
+  });
+
+  it('cannot create conflicting button types', () => {
+    expect(() => {
+      shallowRender({ puffyButtons: true, microButtons: true });
+    }).toThrow(/microButtons and puffyButtons cannot both be true/);
   });
 
   it('disables the delete button when there is no text', () => {
@@ -309,18 +324,5 @@ describe(__filename, () => {
     const root = shallowRender({ onDismiss: undefined });
 
     expect(root.find('.DismissibleTextForm-dismiss')).toHaveLength(0);
-  });
-
-  it('can render puffy buttons', () => {
-    const root = shallowRender({ puffyButtons: true, onDelete: () => {} });
-
-    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', true);
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', true);
-  });
-
-  it('cannot render conflicting button types', () => {
-    expect(() => {
-      shallowRender({ puffyButtons: true, microButtons: true });
-    }).toThrow(/microButtons and puffyButtons cannot both be true/);
   });
 });
