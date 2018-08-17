@@ -734,13 +734,6 @@ describe(__filename, () => {
     };
 
     it('dispatches addonRemovedFromCollection after removing an add-on from a collection', async () => {
-      const params = {
-        addonId: 123,
-        filters: { page: 2 },
-        slug: 'some-other-slug',
-        username: 'some-other-user',
-      };
-
       mockApi
         .expects('removeAddonFromCollection')
         .once()
