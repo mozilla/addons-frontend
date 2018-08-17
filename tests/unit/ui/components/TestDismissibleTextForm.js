@@ -304,4 +304,23 @@ describe(__filename, () => {
     sinon.assert.called(event.preventDefault);
     sinon.assert.called(onDelete);
   });
+
+  it('can hide the cancel/dismiss button', () => {
+    const root = shallowRender({ onDismiss: undefined });
+
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveLength(0);
+  });
+
+  it('can render puffy buttons', () => {
+    const root = shallowRender({ puffyButtons: true, onDelete: () => {} });
+
+    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', true);
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', true);
+  });
+
+  it('cannot render conflicting button types', () => {
+    expect(() => {
+      shallowRender({ puffyButtons: true, microButtons: true });
+    }).toThrow(/microButtons and puffyButtons cannot both be true/);
+  });
 });
