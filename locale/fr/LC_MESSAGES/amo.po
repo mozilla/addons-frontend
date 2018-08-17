@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 08:11+0000\n"
-"Last-Translator: Alpha <adrien.gat@gmail.com>\n"
+"PO-Revision-Date: 2018-08-17 17:51+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -605,7 +605,7 @@ msgstr "Créateur"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "Édition terminée"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1053,16 +1053,15 @@ msgstr "Voir plus d’extensions de lecture"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "Amélioration de la lecture"
 
 #: src/amo/components/Home/index.js:55
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Voir plus d’extensions indispensables"
+msgstr "Voir plus d’outils de recherche extraordinaires"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Outils de recherche extraordinaires"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1090,7 +1089,7 @@ msgstr "Protégez-vous contre les traqueurs les plus insidieux"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Dossier des marque-pages par défaut"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
@@ -1110,17 +1109,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Regardez des vidéos à plusieurs en simultané"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Wikipedia Context Menu Search"
+msgstr "Recherche contextuelle"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Surlignez le texte de n’importe quelle page web pour ouvrir un menu de recherche très pratique"
+msgstr "Surlignez du texte dans n’importe quelle page web pour rechercher facilement le mot"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1136,9 +1133,8 @@ msgid "Search Encrypt"
 msgstr "Résultats de la recherche"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Protection de la vie privée"
+msgstr "Confidentialité de vos données de recherches"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1146,7 +1142,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Économisez de la mémoire en désactivant les onglets inactifs"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 #, fuzzy
@@ -1155,7 +1151,7 @@ msgstr "Modifier la réponse"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Soyez informé⋅e lorsque certains sites web sont mis à jour avec du contenu récent"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
@@ -2290,26 +2286,23 @@ msgstr "Sélectionner une photo…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Activer"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Activation en cours"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Téléchargement de %(name)s en cours."
+msgstr "Téléchargement en cours"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Installation de %(name)s en cours."
+msgstr "Installation en cours"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Désinstallation de %(name)s en cours."
+msgstr "Désinstallation en cours"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
