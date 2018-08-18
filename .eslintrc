@@ -42,11 +42,12 @@
     "jest"
   ],
   "rules": {
-    "react/sort-comp": "off",
-    // Prettier makes this rule obsolete.
+    // These rules are not compatible with Prettier.
+    "implicit-arrow-linebreak": "off",
     "indent": "off",
-    // This rule conflicts with Prettier.
-    "no-mixed-operators": "off"
+    "no-mixed-operators": "off",
+    "operator-linebreak": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "settings": {
     "import/ignore": [

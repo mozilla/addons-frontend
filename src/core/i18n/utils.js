@@ -115,7 +115,8 @@ export function getDirection(lang: string) {
 function qualityCmp(a, b) {
   if (a.quality === b.quality) {
     return 0;
-  } else if (a.quality < b.quality) {
+  }
+  if (a.quality < b.quality) {
     return 1;
   }
   return -1;

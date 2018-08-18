@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-14 19:13+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2018-08-15 08:18+0000\n"
+"Last-Translator: Alpha <adrien.gat@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -16,30 +16,27 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Activer"
 
 #: src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
-msgstr ""
+msgstr "Supprimer"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Activation en cours"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Téléchargement de %(name)s."
+msgstr "Téléchargement en cours"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Installation de %(name)s."
+msgstr "Installation en cours"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Désinstallation de %(name)s."
+msgstr "Désinstallation en cours"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"

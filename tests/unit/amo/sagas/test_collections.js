@@ -8,6 +8,7 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  addonRemovedFromCollection,
   beginCollectionModification,
   createCollection,
   deleteCollection,
@@ -731,6 +732,24 @@ describe(__filename, () => {
         }),
       );
     };
+
+    it('dispatches addonRemovedFromCollection after removing an add-on from a collection', async () => {
+      mockApi
+        .expects('removeAddonFromCollection')
+        .once()
+        .returns(Promise.resolve());
+
+      _removeAddonFromCollection();
+
+      const expectedRemovedAction = addonRemovedFromCollection();
+
+      const removedAction = await sagaTester.waitFor(
+        expectedRemovedAction.type,
+      );
+      expect(removedAction).toEqual(expectedRemovedAction);
+
+      mockApi.verify();
+    });
 
     it('deletes an add-on from a collection', async () => {
       const params = {
