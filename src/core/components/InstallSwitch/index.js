@@ -97,9 +97,11 @@ export class InstallSwitchBase extends React.Component {
     const { downloadProgress, status } = this.props;
     if (status === DOWNLOADING) {
       return downloadProgress;
-    } else if ([INSTALLING, ENABLING].includes(status)) {
+    }
+    if ([INSTALLING, ENABLING].includes(status)) {
       return Infinity;
-    } else if (status === UNINSTALLING) {
+    }
+    if (status === UNINSTALLING) {
       return -Infinity;
     }
     return undefined;
