@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-18 19:27+0000\n"
+"PO-Revision-Date: 2018-08-18 21:21+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -208,7 +208,6 @@ msgid "%(rating)s star average"
 msgstr "Pśerězne pógódnośenje: %(rating)s"
 
 #: src/amo/components/AddonMeta/index.js:92
-#, fuzzy
 msgid "Not rated yet"
 msgstr "Hyšći njepógódnośony"
 
@@ -337,9 +336,8 @@ msgid "by %(authorList)s"
 msgstr "wót %(authorList)s"
 
 #: src/amo/components/AddonReviewList/index.js:275
-#, fuzzy
 msgid "%(averageRating)s star average"
-msgstr "Pśerězne pógódnośenje: %(averageRating)s z 5"
+msgstr "Pśerězne pógódnośenje: %(averageRating)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:148 src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
@@ -1058,18 +1056,16 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Změńśo wenkowny naglěd Firefox pśez drastwy."
 
 #: src/amo/components/Home/index.js:49
-#, fuzzy
 msgid "See more reading extensions"
-msgstr "Dalšne tuchylu woblubowane rozšyrjenja se woglědaś"
+msgstr "Dalšne cytańske rozšyrjenja pokazaś"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
 msgstr "Pólěpšone cytanje"
 
 #: src/amo/components/Home/index.js:55
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Dalšne wažne rozšyrjenja se woglědaś"
+msgstr "Dalšne pśesegajuce pytańske rědy pokazaś"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
@@ -1124,14 +1120,12 @@ msgid "Watch videos simultaneously with others"
 msgstr "Woglědujśo se wideo gromaźe z drugimi"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Pytanje kontekstowego menija Wikipedije"
+msgstr "Kontekstowe pytanje"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Wuzwigniśo tekst na webboku, aby wócynił praktiski pytański meni"
+msgstr "Wuzwigniśo tekst na webboku, aby jadnorje za wurazom pytał"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1142,14 +1136,12 @@ msgid "Give your favorite websites a new look"
 msgstr "Dajśo swójim nejlubšym websedłam nowy naglěd"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Pytańske wuslědki"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Datowy šćit"
+msgstr "Datowy šćit za waše pytańske daty"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1160,9 +1152,8 @@ msgid "Save memory by disabling inactive tabs"
 msgstr "Znjemóžniśo inaktiwne rejtarki, aby skład zažarił"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Wótegrono se aktualizěrujo"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
@@ -1173,9 +1164,8 @@ msgid "Auto Fullscreen"
 msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Pyta awtomatiski za kuponowymi kodami"
+msgstr "Firefox awtomatiski w modusu połneje wobrazowki awtomatiski startowaś"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1218,9 +1208,8 @@ msgid "Click a button to close annoying pop-ups"
 msgstr "Klikniśo na tłocašk, aby mólece wuskokujuce wokna zacynił"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Cytańske znamjenja"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
@@ -1845,9 +1834,8 @@ msgstr ""
 "wenkowny naglěd swójogo wobglědowaka, aby swóje pśeglědowańske dožywjenje změnił a pśiměrił."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Móžośo AMO teke wužywaś, aby dodanki za Mozilla %(startTBLink)sThunderbird%(endTBLink)s a %(startSMLink)sSeaMonkey%(endSMLink)s namakał."
+msgstr "Jolic dodanki za Thunderbird abo SeaMonkey pytaśo, woglědajśo se pšosym k %(startTBLink)saddons.thunderbird.net%(endTBLink)s abo %(startSMLink)saddons.thunderbird.net//seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2315,19 +2303,16 @@ msgid "Enabling"
 msgstr "Zmóžnja se"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "%(name)s se ześěgujo."
+msgstr "Se ześěgujo"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "%(name)s se instalěrujo."
+msgstr "Se instalěrujo"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "%(name)s se wótinstalěrujo."
+msgstr "Se wótinstalěrujo"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -2362,9 +2347,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Klikniśo na Dodanki w meniju, aby swóje dodanki zastojał."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "W pórěźe!"
+msgstr "W pórěźe"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."

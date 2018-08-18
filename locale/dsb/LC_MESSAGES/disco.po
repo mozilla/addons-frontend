@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-18 19:28+0000\n"
+"PO-Revision-Date: 2018-08-18 21:22+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: dsb\n"
@@ -27,19 +27,16 @@ msgid "Enabling"
 msgstr "Zmóžnja se"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "%(name)s se ześěgujo."
+msgstr "Se ześěgujo"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "%(name)s se instalěrujo."
+msgstr "Se instalěrujo"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "%(name)s se wótinstalěrujo."
+msgstr "Se wótinstalěrujo"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -78,9 +75,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Klikniśo na Dodanki w meniju, aby swóje dodanki zastojał."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "W pórěźe!"
+msgstr "W pórěźe"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
