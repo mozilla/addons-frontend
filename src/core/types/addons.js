@@ -1,11 +1,9 @@
 /* @flow */
 import type { AddonTypeType } from 'core/constants';
 
-export const STATUS_PUBLIC: 'public' = 'public';
-
 type AddonStatus =
   | 'lite'
-  | typeof STATUS_PUBLIC
+  | 'public'
   | 'deleted'
   | 'pending'
   | 'disabled'

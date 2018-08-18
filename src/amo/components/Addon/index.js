@@ -37,6 +37,7 @@ import {
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
+  STATUS_PUBLIC,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
@@ -49,7 +50,6 @@ import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 import Notice from 'ui/components/Notice';
-import { STATUS_PUBLIC } from 'core/types/addons';
 
 import './styles.scss';
 
