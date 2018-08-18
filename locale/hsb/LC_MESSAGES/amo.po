@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-18 12:31+0000\n"
+"PO-Revision-Date: 2018-08-18 12:46+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -205,7 +205,7 @@ msgstr "Wužity wot"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "%(rating)s star average"
-msgstr ""
+msgstr "Přerězne pohódnoćenje: %(rating)s"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
@@ -613,7 +613,7 @@ msgstr "Wuwiwar"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "Wobdźěłanje dokónčene"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1062,7 +1062,7 @@ msgstr "Dalše tuchwilu woblubowane rozšěrjenja sej wobhladać"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "Polěpšene čitanje"
 
 #: src/amo/components/Home/index.js:55
 #, fuzzy
@@ -1071,7 +1071,7 @@ msgstr "Dalše wažne rozšěrjenja pokazać"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Wusahowace pytanske nastroje"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1099,11 +1099,11 @@ msgstr "Škitajće so přećiwo lěstnym přesćěhowarjam"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Změńće standardny cil za waše zapołožki"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1115,11 +1115,11 @@ msgstr "Přiměrujomny nastroj za wuzběhnjenje teksta"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Wobhladujće sej wideja hromadźe z druhimi"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1147,11 +1147,11 @@ msgstr "Datowy škit za waše pytanske daty"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Znjemóžńće inaktiwne rajtarki, zo byšće skład zalutował"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1163,7 +1163,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 #, fuzzy
@@ -1172,7 +1172,7 @@ msgstr "Pyta awtomatisce za kuponowymi kodami"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
@@ -1180,7 +1180,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
@@ -1188,7 +1188,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
@@ -1196,15 +1196,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Čehńće tekst, wobrazy abo wotkazy, zo byšće akcije kaž kopěrować, wočinić, pytać a wjace wuwjedł"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
@@ -1220,11 +1220,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Přidajće swojim pytanskim wuslědkam fakty z Britannica"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -2300,11 +2300,11 @@ msgstr "Foto wubrać…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Zmóžnić"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Zmóžnja so"
 
 #: src/core/components/AMInstallButton/index.js:210
 msgid "Downloading"
@@ -2315,9 +2315,8 @@ msgid "Installing"
 msgstr "So instaluje"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "%(name)s so wotinstaluje."
+msgstr "So wotinstaluje"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -2345,16 +2344,15 @@ msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s je so přidał"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Klikńće na Přidatki w meniju, zo byšće swoje přidatki rjadował."
 
 #: src/core/components/InfoDialog/index.js:84
-#, fuzzy
 msgid "OK"
-msgstr "W porjadku!"
+msgstr "W porjadku"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
