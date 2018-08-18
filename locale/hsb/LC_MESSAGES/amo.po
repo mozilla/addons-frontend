@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-18 18:50+0000\n"
+"PO-Revision-Date: 2018-08-18 18:57+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1164,9 +1164,8 @@ msgid "Auto Fullscreen"
 msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Pyta awtomatisce za kuponowymi kodami"
+msgstr "Firefox awtomatisce w modusu połneho wobrazowki awtomatisce startować"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1835,9 +1834,9 @@ msgstr ""
 "napohlad swojeho wobhladowaka, zo byšće swoje přehladowanske dožiwjenje změnił a přiměrił."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Móžeće AMO tež wužiwać, zo byšće přidatki za Mozilla %(startTBLink)sThunderbird%(endTBLink)s a %(startSMLink)sSeaMonkey%(endSMLink)s namakał."
+msgstr ""
+"Jeli přidatki za Thunderbird abo SeaMonkey pytaće, wopytajće prošu %(startTBLink)saddons.thunderbird.net%(endTBLink)s abo %(startSMLink)saddons.thunderbird.net//seamonkey%(endSMLink)s namakał."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
