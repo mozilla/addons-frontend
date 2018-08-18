@@ -4,6 +4,7 @@ import reducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  addonRemovedFromCollection,
   beginCollectionModification,
   collectionEditUrl,
   collectionUrl,
@@ -26,6 +27,7 @@ import reducer, {
   loadCurrentCollectionPage,
   loadUserCollections,
   localizeCollectionDetail,
+  removeAddonFromCollection,
   unloadCollectionBySlug,
   updateCollection,
 } from 'amo/reducers/collections';
@@ -480,19 +482,50 @@ describe(__filename, () => {
       expect(savedState.collections).toEqual(null);
     });
 
-    it('sets a hasAddonBeenAdded flag when beginning to add add-on to collection', () => {
-      const state = reducer(
+    it('unsets a hasAddonBeenAdded flag when beginning to add add-on to collection', () => {
+      const addonId = 1;
+      const collectionId = 2;
+      const username = 'some-user';
+
+      let state = reducer(
         undefined,
+        addonAddedToCollection({
+          addonId,
+          collectionId,
+          username,
+        }),
+      );
+
+      state = reducer(
+        state,
         addAddonToCollection({
-          addonId: 1,
-          username: 'some-user',
-          collectionId: 3,
-          slug: 'some-collection',
+          addonId,
+          collectionId,
           errorHandlerId: 'error-handler',
+          slug: 'some-collection',
+          username: 'some-user',
         }),
       );
 
       expect(state.hasAddonBeenAdded).toEqual(false);
+    });
+
+    it('unsets a hasAddonBeenRemoved flag when beginning to remove an add-on from a collection', () => {
+      let state = reducer(undefined, addonRemovedFromCollection());
+
+      state = reducer(
+        state,
+        removeAddonFromCollection({
+          addonId: 1,
+          collectionId: 3,
+          errorHandlerId: 'error-handler',
+          filters: {},
+          slug: 'some-collection',
+          username: 'some-user',
+        }),
+      );
+
+      expect(state.hasAddonBeenRemoved).toEqual(false);
     });
 
     it('preserves existing collections when adding new ones', () => {
@@ -614,6 +647,12 @@ describe(__filename, () => {
       );
 
       expect(state.hasAddonBeenAdded).toEqual(true);
+    });
+
+    it('sets a hasAddonBeenRemoved flag after an add-on has been removed', () => {
+      const state = reducer(undefined, addonRemovedFromCollection());
+
+      expect(state.hasAddonBeenRemoved).toEqual(true);
     });
 
     it('appends a new add-on to the list of its collections', () => {

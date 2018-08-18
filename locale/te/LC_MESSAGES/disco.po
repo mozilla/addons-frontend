@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-01 18:54+0000\n"
-"PO-Revision-Date: 2018-08-02 15:45+0000\n"
+"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"PO-Revision-Date: 2018-08-16 12:17+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -13,6 +13,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:203
+msgid "Enable"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Remove"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:208
+msgid "Enabling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:210
+msgid "Downloading"
+msgstr "దింపుకుంటోంది"
+
+#: src/core/components/AMInstallButton/index.js:212
+msgid "Installing"
+msgstr "స్థాపిస్తోంది"
+
+#: src/core/components/AMInstallButton/index.js:214
+msgid "Uninstalling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+msgid "Install Theme"
+msgstr "అలంకారాన్ని స్థాపించు"
+
+#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+msgid "Add to Firefox"
+msgstr "Firefoxకు చేర్చు"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -34,25 +66,17 @@ msgstr "పేజీ కనుగొనబడలేదు"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "క్షమించండి, కానీ మీరు ఎంటర్ చేసిన URL లో దేన్నీ కనుగొనలేకపోయాము."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "మీ పొడిగింత సిద్ధంగా ఉంది"
-
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
-msgstr "సరే!"
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "అలంకారాన్ని స్థాపించు"
-
-#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Firefoxకు జోడించండి"
+#: src/core/components/InfoDialog/index.js:84
+msgid "OK"
+msgstr "సరే"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -72,49 +96,49 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s నిర్మూలించబడుతోంది."
 
 #: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s నిర్మూలించబడింది. స్థాపించడానికి నొక్కండి."
 
 #: src/core/components/InstallSwitch/index.js:90
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s స్థాపన స్థితి తెలియదు."
 
-#: src/disco/components/Addon/index.js:141
+#: src/disco/components/Addon/index.js:160
 msgid "Preview of %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon/index.js:194
+#: src/disco/components/Addon/index.js:205
 msgid "Installation failed. Please try again."
 msgstr "స్థాపన విఫలమైంది. మళ్ళి ప్రయత్నించండి."
 
-#: src/disco/components/Addon/index.js:196
+#: src/disco/components/Addon/index.js:207
 msgid "Download failed. Please check your connection."
 msgstr "దింపుకోలు విఫలమైంది. దయచేసి మీ అనుసంధానానీ తనిఖీ చేయండి."
 
-#: src/disco/components/Addon/index.js:198
+#: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "స్థాపన సమయంలో ఊహించని పొరపాటు జరిగింది."
 
-#: src/disco/components/Addon/index.js:202
+#: src/disco/components/Addon/index.js:213
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "నిర్మూలించే సమయంలో ఊహించని పొరపాటు జరిగింది."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:218
 msgid "An unexpected error occurred."
 msgstr "అనుకోని లోపం సంభవించింది."
 
-#: src/disco/components/Addon/index.js:215
+#: src/disco/components/Addon/index.js:226
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "మీరు Firefox‌ని పునఃప్రారంభించిన తరువాత ఈ పొడగింత నిర్మూలించబడుతుంది."
 
-#: src/disco/components/Addon/index.js:219
+#: src/disco/components/Addon/index.js:230
 msgid "Please restart Firefox to use this add-on."
 msgstr "దయచేసి ఈ పొడిగింతను ఉపయోగించడానికి Firefoxను పునఃప్రారంభించండి."
 
-#: src/disco/components/Addon/index.js:91
+#: src/disco/components/Addon/index.js:98
 msgid "Close"
 msgstr "మూసివేయి"
 
@@ -124,7 +148,7 @@ msgstr ""
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "ఈ పొడగింత మీ Firefox వెర్షనుకు తోడ్పాటు చేయట్లేదు."
 
 #: src/disco/components/AddonCompatibilityError/index.js:47
 msgid "This add-on does not support your browser."
@@ -167,6 +191,9 @@ msgstr "కొనసాగటానికి రీలోడ్ చేయండ�
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "మీ పొడిగింత సిద్ధంగా ఉంది"
 
 #~ msgid "Click to play"
 #~ msgstr "ఆడటానికి క్లిక్ చేయండి"

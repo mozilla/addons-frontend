@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-01 18:54+0000\n"
-"PO-Revision-Date: 2018-07-28 21:30+0000\n"
-"Last-Translator: Uccen Marzuq <merzouk.ouchene@laposte.net>\n"
+"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"PO-Revision-Date: 2018-08-11 12:01+0000\n"
+"Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -13,6 +13,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:203
+msgid "Enable"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Remove"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:208
+msgid "Enabling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:210
+#, fuzzy
+msgid "Downloading"
+msgstr "Asider n %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:212
+#, fuzzy
+msgid "Installing"
+msgstr "Asebded n %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:214
+#, fuzzy
+msgid "Uninstalling"
+msgstr "Tukksa n %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
+msgid "Install Theme"
+msgstr "Sebded asentel"
+
+#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
+msgid "Add to Firefox"
+msgstr "Rnu ɣer Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -39,27 +78,18 @@ msgstr "Ulac asebter"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Suref-aɣ, ur nezmir ara ad d-naf ayen tebɣiḍ di tensa URL i d-mudded."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Azegrir inek ihegga"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Tura tzemreḍ ad kecmeḍ ɣer %(name)s seg ufeggag n ifecka."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
+#: src/core/components/InfoDialog/index.js:84
+#, fuzzy
+msgid "OK"
 msgstr "IH!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Sebded asentel"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Rnu ɣer Firefox"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -89,39 +119,39 @@ msgstr "%(name)s yettwakkes. Sit akken ad yebded."
 msgid "Install state for %(name)s is unknown."
 msgstr "Addad n usebded n %(name)s d arussin."
 
-#: src/disco/components/Addon/index.js:141
+#: src/disco/components/Addon/index.js:160
 msgid "Preview of %(name)s"
 msgstr "Taskant n %(name)s"
 
-#: src/disco/components/Addon/index.js:194
+#: src/disco/components/Addon/index.js:205
 msgid "Installation failed. Please try again."
 msgstr "Asebded ur yeddi ara. Ma ulac aqilif, ɛreḍ tikelt nniḍen."
 
-#: src/disco/components/Addon/index.js:196
+#: src/disco/components/Addon/index.js:207
 msgid "Download failed. Please check your connection."
 msgstr "Asider ur yeddi ara. Ma ulac aɣilif senqed tuqqna yinek."
 
-#: src/disco/components/Addon/index.js:198
+#: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
 msgstr "Teḍra-d tuccḍa tarussint deg usebded."
 
-#: src/disco/components/Addon/index.js:202
+#: src/disco/components/Addon/index.js:213
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Teḍra-d tuccḍa tarussint deg tukksa n usebded."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:218
 msgid "An unexpected error occurred."
 msgstr "Teḍra-d tuccḍa tarussint."
 
-#: src/disco/components/Addon/index.js:215
+#: src/disco/components/Addon/index.js:226
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Azegrir agi ad yettwakkes ticki yekker Firefox."
 
-#: src/disco/components/Addon/index.js:219
+#: src/disco/components/Addon/index.js:230
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ma ulac aɣilif, senker Firefox akken ad tesqedceḍ azegrir agi."
 
-#: src/disco/components/Addon/index.js:91
+#: src/disco/components/Addon/index.js:98
 msgid "Close"
 msgstr "Mdel"
 
@@ -142,9 +172,8 @@ msgid "Discover Add-ons"
 msgstr "Issin izegrar"
 
 #: src/disco/components/DiscoPane/index.js:121
-#, fuzzy
 msgid "Find more add-ons"
-msgstr "Wali ugar n izegrar!"
+msgstr "Aff-d ugar n izegrar"
 
 #: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
@@ -183,6 +212,12 @@ msgstr "Smiren akken ad tkemmleḍ"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "Sɛuzẓeg i walɣu-agi"
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Azegrir inek ihegga"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Tura tzemreḍ ad kecmeḍ ɣer %(name)s seg ufeggag n ifecka."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr ""

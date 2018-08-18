@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-
+import config from 'config';
 import makeClassName from 'classnames';
 import { sprintf } from 'jed';
 import * as React from 'react';
@@ -11,6 +11,7 @@ import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import InstallButton from 'core/components/InstallButton';
+import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -22,7 +23,8 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
-  UNINSTALLING,
+  UNINSTALLED,
+  UNKNOWN,
   validAddonTypes,
   validInstallStates,
 } from 'core/constants';
@@ -42,36 +44,38 @@ const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
 export class AddonBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
+    _tracking: PropTypes.object,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
     // This is added by withInstallHelpers()
     defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
+    enable: PropTypes.func.isRequired,
     error: PropTypes.string,
-    heading: PropTypes.string.isRequired,
     getBrowserThemeData: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
+    hasAddonManager: PropTypes.bool.isRequired,
+    heading: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
+    install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
-    needsRestart: PropTypes.bool,
+    isAddonEnabled: PropTypes.func,
+    // eslint-disable-next-line react/no-unused-prop-types
     platformFiles: PropTypes.object,
-    previews: PropTypes.Array,
-    previewURL: PropTypes.string,
-    name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
+    uninstall: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
-    _tracking: PropTypes.object,
   };
 
   static defaultProps = {
+    _config: config,
+    _tracking: tracking,
     getClientCompatibility: _getClientCompatibility,
     platformFiles: {},
-    needsRestart: false,
-    _tracking: tracking,
   };
 
   getError() {
@@ -96,20 +100,6 @@ export class AddonBase extends React.Component {
     ) : null;
   }
 
-  getRestart() {
-    return this.props.needsRestart ? (
-      <CSSTransition
-        classNames="overlay"
-        key="restart-overlay"
-        timeout={CSS_TRANSITION_TIMEOUT}
-      >
-        <div className="notification restart">
-          <p className="message">{this.restartMessage()}</p>
-        </div>
-      </CSSTransition>
-    ) : null;
-  }
-
   getLogo() {
     const { iconUrl } = this.props;
     if (this.props.type === ADDON_TYPE_EXTENSION) {
@@ -127,13 +117,25 @@ export class AddonBase extends React.Component {
     const { type } = addon;
 
     if (isTheme(type)) {
-      const { getBrowserThemeData, i18n } = this.props;
+      const { getBrowserThemeData, hasAddonManager, i18n } = this.props;
       const { name, previewURL } = addon;
 
       let imageUrl = getPreviewImage(addon);
 
-      if (!imageUrl && type === ADDON_TYPE_THEME) {
+      let headerLinkProps = {
+        className: 'theme-image-link',
+        href: '#',
+        onClick: this.installStaticTheme,
+      };
+
+      if (type === ADDON_TYPE_THEME) {
         imageUrl = previewURL;
+
+        headerLinkProps = {
+          ...headerLinkProps,
+          onClick: this.installTheme,
+          'data-browsertheme': getBrowserThemeData(),
+        };
       }
 
       const headerImage = (
@@ -144,16 +146,8 @@ export class AddonBase extends React.Component {
         />
       );
 
-      /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return type === ADDON_TYPE_THEME ? (
-        <a
-          className="theme-image"
-          data-browsertheme={getBrowserThemeData()}
-          href="#"
-          onClick={this.installTheme}
-        >
-          {headerImage}
-        </a>
+      return hasAddonManager ? (
+        <a {...headerLinkProps}>{headerImage}</a>
       ) : (
         headerImage
       );
@@ -208,43 +202,55 @@ export class AddonBase extends React.Component {
     }
   }
 
-  restartMessage() {
-    const { status, i18n } = this.props;
-    switch (status) {
-      case UNINSTALLING:
-        return i18n.gettext(
-          'This add-on will be uninstalled after you restart Firefox.',
-        );
-      default:
-        return i18n.gettext('Please restart Firefox to use this add-on.');
-    }
-  }
-
   closeError = (e) => {
     e.preventDefault();
     this.props.setCurrentStatus();
   };
 
   clickHeadingLink = (e) => {
-    const { type, name, _tracking } = this.props;
+    const { addon, _tracking } = this.props;
 
     if (e.target.nodeName.toLowerCase() === 'a') {
       _tracking.sendEvent({
-        action: getAddonTypeForTracking(type),
+        action: getAddonTypeForTracking(addon.type),
         category: CLICK_CATEGORY,
-        label: name,
+        label: addon.name,
       });
+    }
+  };
+
+  installStaticTheme = async (event) => {
+    const { enable, isAddonEnabled, install, status } = this.props;
+    event.preventDefault();
+
+    if (status === UNINSTALLED) {
+      await install();
+    }
+
+    const isEnabled = await isAddonEnabled();
+
+    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328.
+    if (!isEnabled) {
+      await enable();
     }
   };
 
   render() {
     const {
+      _config,
       addon,
       clientApp,
       defaultInstallSource,
+      enable,
       getClientCompatibility,
+      hasAddonManager,
       heading,
+      install,
+      installTheme,
+      isAddonEnabled,
+      status,
       type,
+      uninstall,
       userAgentInfo,
     } = this.props;
 
@@ -284,10 +290,7 @@ export class AddonBase extends React.Component {
         {this.getThemeImage()}
         {this.getLogo()}
         <div className="content">
-          <TransitionGroup>
-            {this.getError()}
-            {this.getRestart()}
-          </TransitionGroup>
+          <TransitionGroup>{this.getError()}</TransitionGroup>
           <div className="copy">
             <h2
               onClick={this.clickHeadingLink}
@@ -299,13 +302,29 @@ export class AddonBase extends React.Component {
             />
             {this.getDescription()}
           </div>
-          {/* TODO: find the courage to remove {...this.props} */}
-          <InstallButton
-            {...this.props}
-            className="Addon-install-button"
-            defaultInstallSource={defaultInstallSource}
-            size="small"
-          />
+          {_config.get('enableAMInstallButton') ? (
+            <AMInstallButton
+              addon={addon}
+              className="Addon-install-button"
+              defaultInstallSource={defaultInstallSource}
+              disabled={!compatible}
+              enable={enable}
+              hasAddonManager={hasAddonManager}
+              install={install}
+              installTheme={installTheme}
+              puffy={false}
+              status={status || UNKNOWN}
+              uninstall={uninstall}
+              isAddonEnabled={isAddonEnabled}
+            />
+          ) : (
+            <InstallButton
+              {...this.props}
+              className="Addon-install-button"
+              defaultInstallSource={defaultInstallSource}
+              size="small"
+            />
+          )}
         </div>
         {!compatible ? (
           <AddonCompatibilityError minVersion={minVersion} reason={reason} />
@@ -328,6 +347,7 @@ export function mapStateToProps(state, ownProps) {
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,
+    // This is required by the `withInstallHelpers()` HOC, apparently...
     platformFiles: addon ? addon.platformFiles : {},
     userAgentInfo: state.api.userAgentInfo,
   };

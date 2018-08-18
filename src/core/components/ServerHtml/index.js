@@ -6,6 +6,8 @@ import serialize from 'serialize-javascript';
 import Helmet from 'react-helmet';
 import config from 'config';
 
+import { LTR } from 'core/constants';
+
 export default class ServerHtml extends Component {
   static propTypes = {
     appName: PropTypes.string.isRequired,
@@ -22,7 +24,7 @@ export default class ServerHtml extends Component {
   };
 
   static defaultProps = {
-    htmlDir: 'ltr',
+    htmlDir: LTR,
     htmlLang: 'en-US',
     trackingEnabled: false,
     _config: config,

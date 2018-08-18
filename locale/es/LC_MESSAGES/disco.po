@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-01 18:54+0000\n"
+"POT-Creation-Date: 2018-08-14 18:38+0000\n"
 "PO-Revision-Date: 2018-07-24 18:34+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
@@ -13,6 +13,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:203
+msgid "Enable"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Remove"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:208
+msgid "Enabling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:210
+#, fuzzy
+msgid "Downloading"
+msgstr "Descargando %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:212
+#, fuzzy
+msgid "Installing"
+msgstr "Instalando %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:214
+#, fuzzy
+msgid "Uninstalling"
+msgstr "Desinstalando %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
+msgid "Install Theme"
+msgstr "Instalar tema"
+
+#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
+msgid "Add to Firefox"
+msgstr "Agregar a Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -40,27 +79,18 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Tu complemento está listo"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Ya puedes acceder a %(name)s desde la barra de herramientas."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
+#: src/core/components/InfoDialog/index.js:84
+#, fuzzy
+msgid "OK"
 msgstr "¡Vale!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Instalar tema"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Agregar a Firefox"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -90,39 +120,39 @@ msgstr "%(name)s se ha desinstalado. Haz clic para instalar."
 msgid "Install state for %(name)s is unknown."
 msgstr "Se desconoce el estado de la instalación de %(name)s."
 
-#: src/disco/components/Addon/index.js:141
+#: src/disco/components/Addon/index.js:160
 msgid "Preview of %(name)s"
 msgstr "Vista previa de %(name)s"
 
-#: src/disco/components/Addon/index.js:194
+#: src/disco/components/Addon/index.js:205
 msgid "Installation failed. Please try again."
 msgstr "Falló la instalación. Vuelve a intentarlo, por favor."
 
-#: src/disco/components/Addon/index.js:196
+#: src/disco/components/Addon/index.js:207
 msgid "Download failed. Please check your connection."
 msgstr "Falló la descarga. Comprueba tu conexión, por favor."
 
-#: src/disco/components/Addon/index.js:198
+#: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
 msgstr "Se ha producido un error inesperado durante la instalación."
 
-#: src/disco/components/Addon/index.js:202
+#: src/disco/components/Addon/index.js:213
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Se ha producido un error inesperado durante la desinstalación."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:218
 msgid "An unexpected error occurred."
 msgstr "Se ha producido un error inesperado."
 
-#: src/disco/components/Addon/index.js:215
+#: src/disco/components/Addon/index.js:226
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "El complemento se desinstalará tras reiniciar Firefox."
 
-#: src/disco/components/Addon/index.js:219
+#: src/disco/components/Addon/index.js:230
 msgid "Please restart Firefox to use this add-on."
 msgstr "Por favor, reinicia Firefox para usar este complemento."
 
-#: src/disco/components/Addon/index.js:91
+#: src/disco/components/Addon/index.js:98
 msgid "Close"
 msgstr "Cerrar"
 
@@ -188,6 +218,12 @@ msgstr "Recarga la página para continuar"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Tu complemento está listo"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Ya puedes acceder a %(name)s desde la barra de herramientas."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr "Pasa por encima para verla o haz clic para instalar %(name)s"

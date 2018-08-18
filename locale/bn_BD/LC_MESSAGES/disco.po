@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-01 18:54+0000\n"
+"POT-Creation-Date: 2018-08-14 18:38+0000\n"
 "PO-Revision-Date: 2017-12-09 19:58+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -13,6 +13,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:203
+msgid "Enable"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Remove"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:208
+msgid "Enabling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:210
+#, fuzzy
+msgid "Downloading"
+msgstr "%(name)s ডাউনলোডিং।"
+
+#: src/core/components/AMInstallButton/index.js:212
+#, fuzzy
+msgid "Installing"
+msgstr "%(name)s ইন্সটলিং।"
+
+#: src/core/components/AMInstallButton/index.js:214
+#, fuzzy
+msgid "Uninstalling"
+msgstr "%(name)s আনইন্সটলিং।"
+
+#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
+msgid "Install Theme"
+msgstr "থিম ইন্সটল করুন"
+
+#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
+msgid "Add to Firefox"
+msgstr "Firefox এ যুক্ত করুন"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -39,27 +78,18 @@ msgstr "পাতা পাওয়া যায়নি"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "দুঃখিত, কিন্তু আমরা আপনার লেখা URL এ কিছু খুঁজে পাচ্ছি না।"
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "আপনার এড-অন এখন প্রস্তুত"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
+#: src/core/components/InfoDialog/index.js:84
+#, fuzzy
+msgid "OK"
 msgstr "ওকে!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "থিম ইন্সটল করুন"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Firefox এ যুক্ত করুন"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -89,39 +119,39 @@ msgstr "%(name)s আনইন্সটলড। ইন্সটল করতে 
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
 
-#: src/disco/components/Addon/index.js:141
+#: src/disco/components/Addon/index.js:160
 msgid "Preview of %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon/index.js:194
+#: src/disco/components/Addon/index.js:205
 msgid "Installation failed. Please try again."
 msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
 
-#: src/disco/components/Addon/index.js:196
+#: src/disco/components/Addon/index.js:207
 msgid "Download failed. Please check your connection."
 msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
 
-#: src/disco/components/Addon/index.js:198
+#: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
 
-#: src/disco/components/Addon/index.js:202
+#: src/disco/components/Addon/index.js:213
 msgid "An unexpected error occurred during uninstallation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:218
 msgid "An unexpected error occurred."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
 
-#: src/disco/components/Addon/index.js:215
+#: src/disco/components/Addon/index.js:226
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
 
-#: src/disco/components/Addon/index.js:219
+#: src/disco/components/Addon/index.js:230
 msgid "Please restart Firefox to use this add-on."
 msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
 
-#: src/disco/components/Addon/index.js:91
+#: src/disco/components/Addon/index.js:98
 msgid "Close"
 msgstr "বন্ধ"
 
@@ -183,6 +213,12 @@ msgstr ""
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "আপনার এড-অন এখন প্রস্তুত"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"

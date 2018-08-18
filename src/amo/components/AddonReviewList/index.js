@@ -8,8 +8,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
-import RatingManager from 'amo/components/RatingManager';
-import { clearAddonReviews, fetchReviews } from 'amo/actions/reviews';
+import RatingsByStar from 'amo/components/RatingsByStar';
+import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
 import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
@@ -24,6 +24,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
+import Rating from 'ui/components/Rating';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -137,27 +138,6 @@ export class AddonReviewListBase extends React.Component<Props> {
   getCurrentPage(location: ReactRouterLocationType) {
     return location.query.page || 1;
   }
-
-  onReviewSubmitted = () => {
-    const {
-      clientApp,
-      dispatch,
-      lang,
-      location,
-      match: { params },
-      history,
-    } = this.props;
-    // Now that a new review has been submitted, reset the list
-    // so that it gets reloaded.
-    dispatch(clearAddonReviews({ addonSlug: params.addonSlug }));
-
-    if (this.getCurrentPage(location) !== 1) {
-      history.push({
-        pathname: `/${lang}/${clientApp}${this.url()}`,
-        query: { page: 1 },
-      });
-    }
-  };
 
   render() {
     const {
@@ -273,6 +253,30 @@ export class AddonReviewListBase extends React.Component<Props> {
         />
       ) : null;
 
+    const metaHeader = (
+      <div className="AddonReviewList-header">
+        <div className="AddonReviewList-header-icon">
+          {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}
+        </div>
+        <div className="AddonReviewList-header-text">
+          <h1 className="visually-hidden">{header}</h1>
+          <h2 className="AddonReviewList-header-addonName">{addonName}</h2>
+          {authorsHTML}
+        </div>
+      </div>
+    );
+
+    let addonAverage;
+    if (addon && addon.ratings) {
+      const averageRating = i18n.formatNumber(addon.ratings.average.toFixed(1));
+      addonAverage = i18n.sprintf(
+        // translators: averageRating is a localized number, such as 4.5
+        // in English or ٤٫٧ in Arabic.
+        i18n.gettext('%(averageRating)s star average'),
+        { averageRating },
+      );
+    }
+
     return (
       <div
         className={makeClassName(
@@ -288,30 +292,18 @@ export class AddonReviewListBase extends React.Component<Props> {
 
         {errorHandler.renderErrorIfPresent()}
 
-        <Card className="AddonReviewList-addon">
-          <div className="AddonReviewList-header">
-            <div className="AddonReviewList-header-icon">
-              {addon ? (
-                <Link to={this.addonURL()}>{iconImage}</Link>
-              ) : (
-                iconImage
-              )}
-            </div>
-            <div className="AddonReviewList-header-text">
-              <h1 className="visually-hidden">{header}</h1>
-              <h2 className="AddonReviewList-header-addonName">{addonName}</h2>
-              {authorsHTML}
+        <Card header={metaHeader} className="AddonReviewList-addon">
+          <div className="AddonReviewList-overallRatingStars">
+            <Rating
+              rating={addon && addon.ratings && addon.ratings.average}
+              readOnly
+              yellowStars
+            />
+            <div className="AddonReviewList-addonAverage">
+              {addon ? addonAverage : <LoadingText minWidth={20} />}
             </div>
           </div>
-
-          {addon && addon.current_version ? (
-            <RatingManager
-              addon={addon}
-              location={location}
-              onReviewSubmitted={this.onReviewSubmitted}
-              version={addon.current_version}
-            />
-          ) : null}
+          <RatingsByStar addon={addon} />
         </Card>
 
         <CardList

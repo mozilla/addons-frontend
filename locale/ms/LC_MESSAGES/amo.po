@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-01 18:51+0000\n"
-"PO-Revision-Date: 2018-08-01 22:04+0000\n"
+"POT-Creation-Date: 2018-08-14 18:29+0000\n"
+"PO-Revision-Date: 2018-08-15 02:25+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -39,72 +39,72 @@ msgstr "Ditambah ke %(collectionName)s"
 msgid "Add to…"
 msgstr "Tambah ke…"
 
-#: src/amo/components/AddAddonToCollection/index.js:266 src/amo/components/CollectionAddAddon/index.js:155
+#: src/amo/components/AddAddonToCollection/index.js:266 src/amo/components/CollectionAddAddon/index.js:146
 msgid "Add to collection"
 msgstr "Tambah ke koleksi"
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:157
 msgid "Preview of %(title)s"
 msgstr "Previu %(title)s"
 
-#: src/amo/components/Addon/index.js:210
+#: src/amo/components/Addon/index.js:212
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Add-on ini tidak boleh diberi nilai kerana tiada versi yang diterbitkan."
 
-#: src/amo/components/Addon/index.js:219
+#: src/amo/components/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Baca semua %(count)s ulasan"
 
-#: src/amo/components/Addon/index.js:239
+#: src/amo/components/Addon/index.js:241
 msgid "No reviews yet"
 msgstr "Belum ada ulasan"
 
-#: src/amo/components/Addon/index.js:249
+#: src/amo/components/Addon/index.js:251
 msgid "Rate your experience"
 msgstr "Nilaikan pengalaman anda"
 
-#: src/amo/components/Addon/index.js:268
+#: src/amo/components/Addon/index.js:270
 msgid "About this dictionary"
 msgstr "Perihal kamus ini"
 
-#: src/amo/components/Addon/index.js:271
+#: src/amo/components/Addon/index.js:273
 msgid "About this extension"
 msgstr "Perihal ekstensi ini"
 
-#: src/amo/components/Addon/index.js:274
+#: src/amo/components/Addon/index.js:276
 msgid "About this language pack"
 msgstr "Perihal pek bahasa ini"
 
-#: src/amo/components/Addon/index.js:277
+#: src/amo/components/Addon/index.js:279
 msgid "About this search plugin"
 msgstr "Perihal plugin carian ini"
 
-#: src/amo/components/Addon/index.js:281
+#: src/amo/components/Addon/index.js:283
 msgid "About this theme"
 msgstr "Perihal tema ini"
 
-#: src/amo/components/Addon/index.js:284
+#: src/amo/components/Addon/index.js:286
 msgid "About this add-on"
 msgstr "Perihal add-on ini"
 
-#: src/amo/components/Addon/index.js:329
+#: src/amo/components/Addon/index.js:325
 msgid "Release notes for %(addonVersion)s"
 msgstr "Nota keluaran untuk %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:441
+#: src/amo/components/Addon/index.js:443
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)soleh %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:540
+#: src/amo/components/Addon/index.js:558
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Hanya dengan Firefox—Dapatkan Firefox Sekarang"
 
-#: src/amo/components/Addon/index.js:546
+#: src/amo/components/Addon/index.js:564
 msgid "Extension Metadata"
 msgstr "Metadata Ekstensi"
 
-#: src/amo/components/Addon/index.js:563
+#: src/amo/components/Addon/index.js:581
 msgid "Screenshots"
 msgstr "Skrinsyot"
 
@@ -165,39 +165,43 @@ msgstr "Add-on ini memerlukan <a href=\"%(downloadUrl)s\">versi terbaru Firefox<
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr "Pelayar anda tidak menyokong add-on. Anda boleh <a href=\"%(downloadUrl)s\">memuat turun Firefox</a> untuk memasang add-on ini."
 
-#: src/amo/components/AddonMeta/index.js:30
+#: src/amo/components/AddonMeta/index.js:39
 msgid "Users"
 msgstr "Pengguna"
 
-#: src/amo/components/AddonMeta/index.js:33
+#: src/amo/components/AddonMeta/index.js:42
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Pengguna"
 
-#: src/amo/components/AddonMeta/index.js:35
+#: src/amo/components/AddonMeta/index.js:44
 msgid "No Users"
 msgstr "Tiada Pengguna"
 
-#: src/amo/components/AddonMeta/index.js:42
+#: src/amo/components/AddonMeta/index.js:51
 msgid "Ratings"
 msgstr "Penarafan"
 
-#: src/amo/components/AddonMeta/index.js:45
+#: src/amo/components/AddonMeta/index.js:54
 msgid "Rating"
 msgid_plural "Ratings"
 msgstr[0] "Penarafan"
 
-#: src/amo/components/AddonMeta/index.js:47
+#: src/amo/components/AddonMeta/index.js:56
 msgid "No Ratings"
 msgstr "Tiada Penarafan"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Used by"
 msgstr "Digunakan oleh"
 
-#: src/amo/components/AddonMeta/index.js:72
-msgid "Overall Rating"
-msgstr "Penarafan Keseluruhan"
+#: src/amo/components/AddonMeta/index.js:87
+msgid "%(rating)s star average"
+msgstr "Purata bintang %(rating)s"
+
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Not rated yet"
+msgstr "Belum ada rating"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "%(timeFromNow)s (%(date)s)"
@@ -223,7 +227,7 @@ msgstr "Pautan Add-on"
 msgid "Version"
 msgstr "Versi"
 
-#: src/amo/components/AddonMoreInfo/index.js:202 src/amo/components/CollectionDetails/index.js:66
+#: src/amo/components/AddonMoreInfo/index.js:202 src/amo/components/CollectionDetails/index.js:68
 msgid "Last updated"
 msgstr "Kemaskini terakhir"
 
@@ -251,7 +255,7 @@ msgstr "Statistik Penggunaan"
 msgid "More information"
 msgstr "Maklumat lanjut"
 
-#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:307 src/amo/components/UserProfileEdit/index.js:598
+#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/components/UserProfile/index.js:320 src/amo/components/UserProfileEdit/index.js:600
 msgid "Homepage"
 msgstr "Halaman utama"
 
@@ -275,19 +279,19 @@ msgstr "Pengguna lain dengan ekstensi ini juga memasang"
 msgid "Other popular extensions"
 msgstr "Ekstensi popular lain"
 
-#: src/amo/components/AddonReview/index.js:200
+#: src/amo/components/AddonReview/index.js:197
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Hebahkan perihal kehebatan ekstensi ini! Sila ikuti %(linkStart)sgaris panduan ulasan%(linkEnd)s."
 
-#: src/amo/components/AddonReview/index.js:204
+#: src/amo/components/AddonReview/index.js:201
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "Maklumkan kami pendapat anda perihal ekstensi ini. Secara ringkas dan padat."
 
-#: src/amo/components/AddonReview/index.js:208
+#: src/amo/components/AddonReview/index.js:205
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Hebahkan perihal ekstensi ini. Sila ikuti %(linkStart)sgaris panduan ulasan%(linkEnd)s."
 
-#: src/amo/components/AddonReview/index.js:212
+#: src/amo/components/AddonReview/index.js:209
 msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "Maklumkan kami pendapat anda perihal ekstensi ini. Secara ringkas dan padat."
 
@@ -303,24 +307,29 @@ msgstr "Teks ulasan"
 msgid "Submit review"
 msgstr "Hantar ulasan"
 
-#: src/amo/components/AddonReviewList/index.js:200
+#: src/amo/components/AddonReviewList/index.js:180
 msgid "Add-on icon"
 msgstr "Ikon add-on"
 
-#: src/amo/components/AddonReviewList/index.js:206
+#: src/amo/components/AddonReviewList/index.js:186
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:220
+#: src/amo/components/AddonReviewList/index.js:200
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s ulasan untuk add-on ini"
 
-#: src/amo/components/AddonReviewList/index.js:249
+#: src/amo/components/AddonReviewList/index.js:229
 msgid "by %(authorList)s"
 msgstr "oleh %(authorList)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:148
+# averageRating is a localized number, such as 4.5
+#: src/amo/components/AddonReviewList/index.js:275
+msgid "%(averageRating)s star average"
+msgstr "Purata bintang %(averageRating)s"
+
+#: src/amo/components/AddonReviewListItem/index.js:148 src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
 msgstr "Respons pembangun"
 
@@ -488,11 +497,11 @@ msgstr "Memuat kategori."
 msgid "Extensions"
 msgstr "Ekstensi"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:309 src/amo/components/LandingPage/index.js:145 src/amo/components/Search/index.js:124
+#: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:254 src/amo/components/LandingPage/index.js:145 src/amo/components/Search/index.js:124
 msgid "Featured extensions"
 msgstr "Ekstensi sorotan"
 
-#: src/amo/components/Category/index.js:160 src/amo/components/Home/index.js:310 src/amo/components/LandingPage/index.js:153
+#: src/amo/components/Category/index.js:160 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:153
 msgid "See more featured extensions"
 msgstr "Lihat ekstensi sorotan selanjutnya"
 
@@ -516,11 +525,11 @@ msgstr "Lihat ekstensi tahap tinggi selanjutnya"
 msgid "Themes"
 msgstr "Tema"
 
-#: src/amo/components/Category/index.js:184 src/amo/components/Home/index.js:272 src/amo/components/LandingPage/index.js:174 src/amo/components/Search/index.js:127
+#: src/amo/components/Category/index.js:184 src/amo/components/Home/index.js:290 src/amo/components/LandingPage/index.js:174 src/amo/components/Search/index.js:127
 msgid "Featured themes"
 msgstr "Tema sorotan"
 
-#: src/amo/components/Category/index.js:193 src/amo/components/Home/index.js:262 src/amo/components/LandingPage/index.js:182
+#: src/amo/components/Category/index.js:193 src/amo/components/Home/index.js:280 src/amo/components/LandingPage/index.js:182
 msgid "See more featured themes"
 msgstr "Lihat tema sorotan selanjutnya"
 
@@ -552,47 +561,51 @@ msgstr "Cari semua ekstensi dalam kategori ini."
 msgid "Browse all themes in this category."
 msgstr "Cari semua tema dalam kategori ini."
 
-#: src/amo/components/Collection/index.js:353
+#: src/amo/components/Collection/index.js:395
 msgid "Do you really want to delete this collection?"
 msgstr "Adakah anda pasti mahu menghapuskan koleksi ini?"
 
-#: src/amo/components/Collection/index.js:356
+#: src/amo/components/Collection/index.js:398
 msgid "Delete this collection"
 msgstr "Buang koleksi ini"
 
-#: src/amo/components/Collection/index.js:376
+#: src/amo/components/Collection/index.js:418
 msgid "Log in to create a collection"
 msgstr "Log masuk untuk mencipta koleksi"
 
-#: src/amo/components/Collection/index.js:377
+#: src/amo/components/Collection/index.js:419
 msgid "Log in to edit this collection"
 msgstr "Log masuk untuk mengedit koleksi ini"
 
-#: src/amo/components/Collection/index.js:414
+#: src/amo/components/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "Pertama sekali, cipta koleksi. Kemudian anda boleh tambah ekstensi dan tema."
 
-#: src/amo/components/Collection/index.js:417
+#: src/amo/components/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Cari ekstensi dan tema untuk ditambah dalam koleksi anda."
 
-#: src/amo/components/CollectionAddAddon/index.js:141
+#: src/amo/components/CollectionAddAddon/index.js:132
 msgid "Added to collection"
 msgstr "Ditambah ke koleksi"
 
-#: src/amo/components/CollectionAddAddon/index.js:150
+#: src/amo/components/CollectionAddAddon/index.js:141
 msgid "Find an add-on to include in this collection"
 msgstr "Cari add-on untuk ditambah dalam koleksi ini"
 
-#: src/amo/components/CollectionDetails/index.js:56 src/amo/components/Footer/index.js:43
+#: src/amo/components/CollectionDetails/index.js:58 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Add-ons"
 
-#: src/amo/components/CollectionDetails/index.js:60
+#: src/amo/components/CollectionDetails/index.js:62
 msgid "Creator"
 msgstr "Pencipta"
 
-#: src/amo/components/CollectionDetails/index.js:81
+#: src/amo/components/CollectionDetails/index.js:86
+msgid "Done editing"
+msgstr "Siap mengedit"
+
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
 msgstr "Edit koleksi ini"
 
@@ -640,7 +653,7 @@ msgstr "Keterangan"
 msgid "Custom URL"
 msgstr "URL Penyesuaian"
 
-#: src/amo/components/CollectionManager/index.js:317 src/amo/components/UserProfileEdit/index.js:848 src/ui/components/ConfirmButton/index.js:107 src/ui/components/DismissibleTextForm/index.js:149
+#: src/amo/components/CollectionManager/index.js:317 src/amo/components/UserProfileEdit/index.js:850 src/ui/components/ConfirmButton/index.js:107 src/ui/components/DismissibleTextForm/index.js:149
 msgid "Cancel"
 msgstr "Batal"
 
@@ -724,7 +737,7 @@ msgstr "Muat turun Firefox"
 msgid "Leave a note"
 msgstr "Catat nota"
 
-#: src/amo/components/EditableCollectionAddon/index.js:140
+#: src/amo/components/EditableCollectionAddon/index.js:140 src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
 msgstr "Buang"
 
@@ -936,11 +949,11 @@ msgstr "Papar laman web klasik desktop"
 msgid "View My Collections"
 msgstr "Papar Koleksi Saya"
 
-#: src/amo/components/Header/index.js:108 src/amo/components/UserProfileEdit/index.js:472
+#: src/amo/components/Header/index.js:108 src/amo/components/UserProfileEdit/index.js:474
 msgid "View My Profile"
 msgstr "Papar Profil Saya"
 
-#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:478
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:480
 msgid "Edit My Profile"
 msgstr "Edit Profil Saya"
 
@@ -977,93 +990,85 @@ msgstr "Add-ons Firefox"
 msgid "My Account"
 msgstr "Akaun Saya"
 
-#: src/amo/components/Home/index.js:121
+#: src/amo/components/Home/index.js:114
 msgid "Bookmarks"
 msgstr "Tandabuku"
 
-#: src/amo/components/Home/index.js:125
+#: src/amo/components/Home/index.js:118
 msgid "Password managers"
 msgstr "Pengurus kata laluan"
 
-#: src/amo/components/Home/index.js:129
+#: src/amo/components/Home/index.js:122
 msgid "Ad blockers"
 msgstr "Penyekat iklan"
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:126
 msgid "Smarter Shopping"
 msgstr "Membeli-belah Lebih Bijak"
 
-#: src/amo/components/Home/index.js:137
+#: src/amo/components/Home/index.js:130
 msgid "Productivity"
 msgstr "Produktiviti"
 
-#: src/amo/components/Home/index.js:141
+#: src/amo/components/Home/index.js:134
 msgid "Watching Videos"
 msgstr "Menonton Video"
 
-#: src/amo/components/Home/index.js:169
+#: src/amo/components/Home/index.js:162
 msgid "Abstract"
 msgstr "Abstrak"
 
-#: src/amo/components/Home/index.js:174
+#: src/amo/components/Home/index.js:167
 msgid "Nature"
 msgstr "Alam"
 
-#: src/amo/components/Home/index.js:179
+#: src/amo/components/Home/index.js:172
 msgid "Film & TV"
 msgstr "Filem & TV"
 
-#: src/amo/components/Home/index.js:184
+#: src/amo/components/Home/index.js:177
 msgid "Scenery"
 msgstr "Pemandangan"
 
-#: src/amo/components/Home/index.js:189
+#: src/amo/components/Home/index.js:182
 msgid "Music"
 msgstr "Muzik"
 
-#: src/amo/components/Home/index.js:194
+#: src/amo/components/Home/index.js:187
 msgid "Seasonal"
 msgstr "Musim"
 
-#: src/amo/components/Home/index.js:225
+#: src/amo/components/Home/index.js:218
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Menyesuaikan cara Firefox berfungsi dengan ekstensi. Adakah anda berminat dengan…"
 
-#: src/amo/components/Home/index.js:227
+#: src/amo/components/Home/index.js:220
 msgid "Change the way Firefox looks with themes."
 msgstr "Mengubah penampilan Firefox dengan tema."
 
+#: src/amo/components/Home/index.js:49
+msgid "See more reading extensions"
+msgstr "Lihat ekstensi bacaan selanjutnya"
+
 #: src/amo/components/Home/index.js:50
+msgid "Refined reading"
+msgstr "Bacaan lanjutan"
+
+#: src/amo/components/Home/index.js:55
+msgid "See more exceptional search tools"
+msgstr "Lihat alatan carian luar biasa selanjutnya"
+
+#: src/amo/components/Home/index.js:56
+msgid "Exceptional search tools"
+msgstr "Alatan carian luar biasa"
+
+#: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
 msgstr "Lihat ekstensi penyesuaian media sosial selanjutnya"
 
-#: src/amo/components/Home/index.js:53
+#: src/amo/components/Home/index.js:64
 msgid "Social media customization"
 msgstr "Penyesuaian media sosial"
-
-#: src/amo/components/Home/index.js:58
-msgid "See more dynamic downloaders"
-msgstr "Lihat pemuat turun dinamik selanjutnya"
-
-#: src/amo/components/Home/index.js:59
-msgid "Dynamic downloaders"
-msgstr "Pemuat turun dinamik"
-
-#: src/amo/components/Home/index.js:64
-msgid "See more summer themes"
-msgstr "Lihat tema musim panas selanjutnya"
-
-#: src/amo/components/Home/index.js:65
-msgid "Summer themes"
-msgstr "Tema musim panas"
-
-#: src/amo/components/Home/index.js:70
-msgid "See more must-have media extensions"
-msgstr "Lihat media mesti-ada selanjutnya"
-
-#: src/amo/components/Home/index.js:71
-msgid "Must-have media"
-msgstr "Media mesti-ada"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
@@ -1082,12 +1087,12 @@ msgid "Protect yourself against the sneakiest trackers"
 msgstr "Lindungi diri anda daripada penjejak"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
-msgid "Page Translate"
-msgstr "Page Translate"
+msgid "Default Bookmark Folder"
+msgstr "Folder Tandabuku Piawai"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
-msgid "Translate an entire web page with a couple clicks"
-msgstr "Terjemah seluruh halaman web dengan beberapa klik"
+msgid "Change the default destination for your bookmarks"
+msgstr "Tukar destinasi piawai tandabuku anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1098,28 +1103,116 @@ msgid "Highly customizable text highlighter"
 msgstr "Penyerlah teks yang mudah disesuaikan"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
-msgid "Forget Me Not"
-msgstr "Jangan Lupakan Saya"
+msgid "Watch2Gether"
+msgstr "Watch2Gether"
 
-#: src/amo/components/HomeHeroBanner/index.js:129
-msgid "Make Firefox forget website data like cookies & local storage"
-msgstr "Jadikan Firefox lupa data laman web seperti kuki & storan lokal"
+#: src/amo/components/HomeHeroBanner/index.js:128
+msgid "Watch videos simultaneously with others"
+msgstr "Tonton video serentak dengan yang lain"
+
+#: src/amo/components/HomeHeroBanner/index.js:131
+msgid "Context Search"
+msgstr "Carian Konteks"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-msgid "Group Speed Dial"
-msgstr "Group Speed Dial"
+msgid "Highlight text on any webpage to easily search the term"
+msgstr "Serlahkan teks dalam halaman web untuk memudahkan mencari istilah"
 
-#: src/amo/components/HomeHeroBanner/index.js:137
-msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Tandabuku visual untuk meletakkan web kegemaran anda"
-
-#: src/amo/components/HomeHeroBanner/index.js:142
+#: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
 msgstr "Stylus"
 
-#: src/amo/components/HomeHeroBanner/index.js:144
+#: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Give your favorite websites a new look"
 msgstr "Beri penampilan baru kepada laman web kegemaran anda"
+
+#: src/amo/components/HomeHeroBanner/index.js:145
+msgid "Search Encrypt"
+msgstr "Search Encrypt"
+
+#: src/amo/components/HomeHeroBanner/index.js:147
+msgid "Privacy protection for your search data"
+msgstr "Perlindungan privasi untuk data carian"
+
+#: src/amo/components/HomeHeroBanner/index.js:150
+msgid "Auto Tab Discard"
+msgstr "Auto Tab Discard"
+
+#: src/amo/components/HomeHeroBanner/index.js:152
+msgid "Save memory by disabling inactive tabs"
+msgstr "Jimat memori dengan menyahdayakan tab tidak aktif"
+
+#: src/amo/components/HomeHeroBanner/index.js:155
+msgid "Update Scanner"
+msgstr "Update Scanner"
+
+#: src/amo/components/HomeHeroBanner/index.js:158
+msgid "Get notified when your selected websites update with new content"
+msgstr "Dapatkan makluman apabila laman web yang dipilih dikemaskini dengan kandungan baru"
+
+#: src/amo/components/HomeHeroBanner/index.js:164
+msgid "Auto Fullscreen"
+msgstr "Auto Fullscreen"
+
+#: src/amo/components/HomeHeroBanner/index.js:166
+msgid "Automatically start Firefox in full screen mode"
+msgstr "Memulakan Firefox dalam mod skrin penuh secara automatik"
+
+#: src/amo/components/HomeHeroBanner/index.js:169
+msgid "Video Speed Controller"
+msgstr "Video Speed Controller"
+
+#: src/amo/components/HomeHeroBanner/index.js:171
+msgid "Adjust video playback speeds with shortcuts"
+msgstr "Ubah suai kelajuan main semula dengan pintasan"
+
+#: src/amo/components/HomeHeroBanner/index.js:174
+msgid "View Image"
+msgstr "View Image"
+
+#: src/amo/components/HomeHeroBanner/index.js:177
+msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
+msgstr "Pulih butang ‘Papar Imej’ dan ‘Cari dengan Imej’ dalam Google Images"
+
+#: src/amo/components/HomeHeroBanner/index.js:183
+msgid "Neat URL"
+msgstr "Neat URL"
+
+#: src/amo/components/HomeHeroBanner/index.js:185
+msgid "Clean up links for easy sharing"
+msgstr "Bersihkan pautan supaya mudah berkongsi"
+
+#: src/amo/components/HomeHeroBanner/index.js:188
+msgid "Glitter Drag"
+msgstr "Glitter Drag"
+
+#: src/amo/components/HomeHeroBanner/index.js:191
+msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
+msgstr "Seret teks, imej atau pautan untuk melakukan tindakan seperti menyalin, membuka, mencari dan banyak lagi"
+
+#: src/amo/components/HomeHeroBanner/index.js:197
+msgid "Behind The Overlay Revival"
+msgstr "Behind The Overlay Revival"
+
+#: src/amo/components/HomeHeroBanner/index.js:199
+msgid "Click a button to close annoying pop-ups"
+msgstr "Klik butang untuk menutup pop-up"
+
+#: src/amo/components/HomeHeroBanner/index.js:202
+msgid "Auto-Sort Bookmarks"
+msgstr "Auto-Sort Bookmarks"
+
+#: src/amo/components/HomeHeroBanner/index.js:205
+msgid "Automatically sorts bookmarks so they’re in your preferred position"
+msgstr "Susun tandabuku secara automatik supaya berada dalam posisi yang dikehendaki"
+
+#: src/amo/components/HomeHeroBanner/index.js:211
+msgid "Britannica Insights"
+msgstr "Britannica Insights"
+
+#: src/amo/components/HomeHeroBanner/index.js:213
+msgid "Add Britannica facts to your search results"
+msgstr "Tambah fakta Britannica dalam hasil carian"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1357,31 +1450,31 @@ msgstr "Simpan data-klien tanpa had"
 msgid "Access browser activity during navigation"
 msgstr "Akses aktiviti pelayar semasa navigasi"
 
-#: src/amo/components/RatingManager/index.js:167
+#: src/amo/components/RatingManager/index.js:166
 msgid "Log in to rate this dictionary"
 msgstr "Log masuk untuk menilaikan kamus ini"
 
-#: src/amo/components/RatingManager/index.js:169
+#: src/amo/components/RatingManager/index.js:168
 msgid "Log in to rate this language pack"
 msgstr "Log masuk untuk menilaikan pek bahasa ini"
 
-#: src/amo/components/RatingManager/index.js:171
+#: src/amo/components/RatingManager/index.js:170
 msgid "Log in to rate this search plugin"
 msgstr "Log masuk untuk menilaikan plugin carian ini"
 
-#: src/amo/components/RatingManager/index.js:174
+#: src/amo/components/RatingManager/index.js:173
 msgid "Log in to rate this theme"
 msgstr "Log masuk untuk menilaikan tema ini"
 
-#: src/amo/components/RatingManager/index.js:176
+#: src/amo/components/RatingManager/index.js:175
 msgid "Log in to rate this extension"
 msgstr "Log masuk untuk menilaikan ekstensi ini"
 
-#: src/amo/components/RatingManager/index.js:184
+#: src/amo/components/RatingManager/index.js:183
 msgid "Log in to rate this add-on"
 msgstr "Log masuk untuk menilaikan add-on ini"
 
-#: src/amo/components/RatingManager/index.js:224
+#: src/amo/components/RatingManager/index.js:221
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Bagaimana anda menikmati pengalaman anda dengan %(addonName)s?"
 
@@ -1531,72 +1624,72 @@ msgstr "Mencari \"%(query)s\""
 msgid "Loading add-ons"
 msgstr "Memuat add-on"
 
-#: src/amo/components/SearchFilters/index.js:108 src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
 msgid "All"
 msgstr "Semua"
 
-#: src/amo/components/SearchFilters/index.js:109
+#: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
 msgstr "Ekstensi"
 
-#: src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
 msgstr "Alatan Carian"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:114
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:128
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:137
 msgid "Relevance"
 msgstr "Kaitan"
 
-#: src/amo/components/SearchFilters/index.js:137
+#: src/amo/components/SearchFilters/index.js:139
 msgid "Recently Updated"
 msgstr "Terkini Dikemaskini"
 
-#: src/amo/components/SearchFilters/index.js:140
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Most Users"
 msgstr "Ramai Pengguna"
 
-#: src/amo/components/SearchFilters/index.js:141
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Top Rated"
 msgstr "Tahap Tinggi"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:144
 msgid "Trending"
 msgstr "Sohor kini"
 
-#: src/amo/components/SearchFilters/index.js:152
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Filter results"
 msgstr "Tapis hasil"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Sort by"
 msgstr "Susun mengikut"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:183
 msgid "Add-on Type"
 msgstr "Jenis Add-on"
 
-#: src/amo/components/SearchFilters/index.js:198
+#: src/amo/components/SearchFilters/index.js:203
 msgid "Operating System"
 msgstr "Sistem Pengoperasian"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/SearchFilters/index.js:224
+#: src/amo/components/SearchFilters/index.js:229
 msgid "Featured add-ons only"
 msgstr "Add-ons sorotan sahaja"
 
@@ -1604,15 +1697,15 @@ msgstr "Add-ons sorotan sahaja"
 msgid "Go to the add-on page"
 msgstr "Pergi ke halaman add-on"
 
-#: src/amo/components/SearchResult/index.js:127
+#: src/amo/components/SearchResult/index.js:121
 msgid "No theme preview available"
 msgstr "Tiada previu tema tersedia"
 
-#: src/amo/components/SearchResult/index.js:156
+#: src/amo/components/SearchResult/index.js:150
 msgid "Add-on note"
 msgstr "Nota add-on"
 
-#: src/amo/components/SearchResult/index.js:174
+#: src/amo/components/SearchResult/index.js:168
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s pengguna"
@@ -1714,8 +1807,8 @@ msgstr ""
 "pengalaman pelayaran, meningkatkan interaksi dengan kandungan Web dan mengubah penampilan pelayar Firefox."
 
 #: src/amo/components/StaticPages/About/index.js:42
-msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr "Anda juga boleh menggunakan AMO untuk mencari add-ons bagi Mozilla %(startTBLink)sThunderbird%(endTBLink)s dan %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+msgstr "Jika anda mencari add-ons untuk Thunderbird atau SeaMonkey, sila lawat %(startTBLink)saddons.thunderbird.net%(endTBLink)s atau %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -1911,51 +2004,51 @@ msgstr "Lihat semua tema"
 msgid "Add-ons Home Page"
 msgstr "Halaman Utama Add-on"
 
-#: src/amo/components/UserProfile/index.js:213
+#: src/amo/components/UserProfile/index.js:214
 msgid "My reviews"
 msgstr "Ulasan saya"
 
-#: src/amo/components/UserProfile/index.js:219
+#: src/amo/components/UserProfile/index.js:224
 msgid "Browse the reviews for this add-on"
 msgstr "Lihat ulasan untuk add-on ini"
 
-#: src/amo/components/UserProfile/index.js:267
+#: src/amo/components/UserProfile/index.js:280
 msgid "Add-ons developer"
 msgstr "Pembangun add-ons"
 
-#: src/amo/components/UserProfile/index.js:273
+#: src/amo/components/UserProfile/index.js:286
 msgid "Theme artist"
 msgstr "Artis tema"
 
-#: src/amo/components/UserProfile/index.js:287 src/amo/components/UserProfileEdit/index.js:460
+#: src/amo/components/UserProfile/index.js:300 src/amo/components/UserProfileEdit/index.js:462
 msgid "User Profile for %(user)s"
 msgstr "Profil Pengguna untuk %(user)s"
 
-#: src/amo/components/UserProfile/index.js:317 src/amo/components/UserProfileEdit/index.js:615
+#: src/amo/components/UserProfile/index.js:330 src/amo/components/UserProfileEdit/index.js:617
 msgid "Location"
 msgstr "Lokasi"
 
-#: src/amo/components/UserProfile/index.js:325 src/amo/components/UserProfileEdit/index.js:627
+#: src/amo/components/UserProfile/index.js:338 src/amo/components/UserProfileEdit/index.js:629
 msgid "Occupation"
 msgstr "Pekerjaan"
 
-#: src/amo/components/UserProfile/index.js:332
+#: src/amo/components/UserProfile/index.js:345
 msgid "User since"
 msgstr "Pengguna semenjak"
 
-#: src/amo/components/UserProfile/index.js:342
+#: src/amo/components/UserProfile/index.js:355
 msgid "Number of add-ons"
 msgstr "Bilangan add-ons"
 
-#: src/amo/components/UserProfile/index.js:348
+#: src/amo/components/UserProfile/index.js:361
 msgid "Average rating of developer’s add-ons"
 msgstr "Penarafan purata pembangun add-ons"
 
-#: src/amo/components/UserProfile/index.js:363 src/amo/components/UserProfileEdit/index.js:649
+#: src/amo/components/UserProfile/index.js:376 src/amo/components/UserProfileEdit/index.js:651
 msgid "Biography"
 msgstr "Biografi"
 
-#: src/amo/components/UserProfile/index.js:387
+#: src/amo/components/UserProfile/index.js:400
 msgid "Edit profile"
 msgstr "Edit profil"
 
@@ -1967,123 +2060,123 @@ msgstr "Gambar berjaya dibuang"
 msgid "Log in to edit the profile"
 msgstr "Log masuk untuk mengedit profil"
 
-#: src/amo/components/UserProfileEdit/index.js:473
+#: src/amo/components/UserProfileEdit/index.js:475
 msgid "View user's profile"
 msgstr "Papar profil pengguna"
 
-#: src/amo/components/UserProfileEdit/index.js:479
+#: src/amo/components/UserProfileEdit/index.js:481
 msgid "Edit user's profile"
 msgstr "Edit profil pengguna"
 
-#: src/amo/components/UserProfileEdit/index.js:497
+#: src/amo/components/UserProfileEdit/index.js:499
 msgid "Account"
 msgstr "Akaun"
 
-#: src/amo/components/UserProfileEdit/index.js:498
+#: src/amo/components/UserProfileEdit/index.js:500
 msgid "Account for %(username)s"
 msgstr "Akaun untuk %(username)s"
 
-#: src/amo/components/UserProfileEdit/index.js:504
+#: src/amo/components/UserProfileEdit/index.js:506
 msgid "Username"
 msgstr "Nama pengguna"
 
-#: src/amo/components/UserProfileEdit/index.js:517
+#: src/amo/components/UserProfileEdit/index.js:519
 msgid "Email Address"
 msgstr "Alamat E-mel"
 
-#: src/amo/components/UserProfileEdit/index.js:524
+#: src/amo/components/UserProfileEdit/index.js:526
 msgid "Email address cannot be changed here"
 msgstr "Alamat e-mel tidak boleh ditukar di sini"
 
-#: src/amo/components/UserProfileEdit/index.js:533
+#: src/amo/components/UserProfileEdit/index.js:535
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr "Anda boleh tukar alamat e-mel dalam Akaun Firefox. %(startLink)sPerlu bantuan?%(endLink)s"
 
-#: src/amo/components/UserProfileEdit/index.js:550
+#: src/amo/components/UserProfileEdit/index.js:552
 msgid "Manage Firefox Accounts…"
 msgstr "Urus Akaun Firefox…"
 
-#: src/amo/components/UserProfileEdit/index.js:558
+#: src/amo/components/UserProfileEdit/index.js:560
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/components/UserProfileEdit/index.js:562
+#: src/amo/components/UserProfileEdit/index.js:564
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr "Berikan kami sedikit maklumat diri anda. Semua medan ini adalah pilihan, tetapi akan dapat membantu pengguna lain mengenali anda dengan lebih baik."
 
-#: src/amo/components/UserProfileEdit/index.js:568
+#: src/amo/components/UserProfileEdit/index.js:570
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr "Berikan pengguna lain sedikit maklumat perihal pengguna ini. Medan ini adalah pilihan, tetapi akan dapat membantu pengguna lain mengenali %(username)s dengan lebih baik."
 
-#: src/amo/components/UserProfileEdit/index.js:578
+#: src/amo/components/UserProfileEdit/index.js:580
 msgid "Display Name"
 msgstr "Nama Paparan"
 
-#: src/amo/components/UserProfileEdit/index.js:610
+#: src/amo/components/UserProfileEdit/index.js:612
 msgid "This URL will only be visible for users who are developers."
 msgstr "URL ini hanya dapat dilihat untuk pengguna yang menjadi pembangun."
 
-#: src/amo/components/UserProfileEdit/index.js:653
+#: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce yourself to the community if you like"
 msgstr "Perkenalkan diri kepada komuniti, jika anda suka"
 
-#: src/amo/components/UserProfileEdit/index.js:657
+#: src/amo/components/UserProfileEdit/index.js:659
 msgid "Introduce %(username)s to the community"
 msgstr "Perkenalkan %(username)s kepada komuniti"
 
-#: src/amo/components/UserProfileEdit/index.js:671
+#: src/amo/components/UserProfileEdit/index.js:673
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Beberapa HTML yang disokong: %(htmlTags)s. Pautan dilarang."
 
-#: src/amo/components/UserProfileEdit/index.js:695
+#: src/amo/components/UserProfileEdit/index.js:697
 msgid "Notifications"
 msgstr "Notifikasi"
 
-#: src/amo/components/UserProfileEdit/index.js:699
+#: src/amo/components/UserProfileEdit/index.js:701
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
 msgstr "Dari masa ke semasa, Mozilla akan menghantar e-mel kepada anda perihal keluaran dan acara add-on akan datang. Sila pilih topik yang anda minati."
 
-#: src/amo/components/UserProfileEdit/index.js:704
+#: src/amo/components/UserProfileEdit/index.js:706
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr "Dari masa ke semasa, Mozilla akan menghantar e-mel kepada pengguna ini perihal keluaran dan acara add-on akan datang. Sila pilih topik yang pengguna ini minati."
 
-#: src/amo/components/UserProfileEdit/index.js:719
+#: src/amo/components/UserProfileEdit/index.js:721
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr "Mozilla ada hak untuk menghubungi anda secara individu perihal keprihatinan tertentu terhadap pengehosan add-on anda."
 
-#: src/amo/components/UserProfileEdit/index.js:737
+#: src/amo/components/UserProfileEdit/index.js:739
 msgid "Updating your profile…"
 msgstr "Mengemaskini profil anda…"
 
-#: src/amo/components/UserProfileEdit/index.js:738
+#: src/amo/components/UserProfileEdit/index.js:740
 msgid "Update My Profile"
 msgstr "Kemas kini Profil Saya"
 
-#: src/amo/components/UserProfileEdit/index.js:740
+#: src/amo/components/UserProfileEdit/index.js:742
 msgid "Updating profile…"
 msgstr "Mengemaskini profil…"
 
-#: src/amo/components/UserProfileEdit/index.js:741
+#: src/amo/components/UserProfileEdit/index.js:743
 msgid "Update Profile"
 msgstr "Kemas kini Profil"
 
-#: src/amo/components/UserProfileEdit/index.js:752 src/amo/components/UserProfileEdit/index.js:840
+#: src/amo/components/UserProfileEdit/index.js:754 src/amo/components/UserProfileEdit/index.js:842
 msgid "Delete My Profile"
 msgstr "Buang Profil Saya"
 
-#: src/amo/components/UserProfileEdit/index.js:753 src/amo/components/UserProfileEdit/index.js:841
+#: src/amo/components/UserProfileEdit/index.js:755 src/amo/components/UserProfileEdit/index.js:843
 msgid "Delete Profile"
 msgstr "Buang Profil"
 
-#: src/amo/components/UserProfileEdit/index.js:764
+#: src/amo/components/UserProfileEdit/index.js:766
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "PENTING: Penghapusan profil Add-ons Firefox tidak boleh dibatalkan."
 
-#: src/amo/components/UserProfileEdit/index.js:767
+#: src/amo/components/UserProfileEdit/index.js:769
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "PENTING: Penghapusan profil Add-ons Mozilla ini tidak boleh dibatalkan."
 
-#: src/amo/components/UserProfileEdit/index.js:776
+#: src/amo/components/UserProfileEdit/index.js:778
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
@@ -2091,7 +2184,7 @@ msgstr ""
 "Data anda akan dibuang secara kekal, termasuk butiran profil (gambar, nama pengguna, nama paparan, lokasi, laman, biografi, pekerjaan) dan keutamaan notifikasi. Ulasan dan penarafan anda akan jadi "
 "anonimus dan tidak boleh diedit."
 
-#: src/amo/components/UserProfileEdit/index.js:783
+#: src/amo/components/UserProfileEdit/index.js:785
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
@@ -2099,11 +2192,11 @@ msgstr ""
 "Data pengguna akan dibuang secara kekal, termasuk butiran profil (gambar, nama pengguna, nama paparan, lokasi, laman, biografi, pekerjaan) dan keutamaan notifikasi. Ulasan dan penarafan akan jadi "
 "anonimus dan tidak lagi boleh diedit."
 
-#: src/amo/components/UserProfileEdit/index.js:793
+#: src/amo/components/UserProfileEdit/index.js:795
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr "Jika anda gunakan e-mel ini untuk log masuk semula ke addons.mozilla.org, anda akan mencipta profil Add-ons Firefox yang baru, yang tiada kaitan dengan profil yang sudah anda buang."
 
-#: src/amo/components/UserProfileEdit/index.js:806
+#: src/amo/components/UserProfileEdit/index.js:808
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
@@ -2111,7 +2204,7 @@ msgstr ""
 "%(strongStart)sNOTA:%(strongEnd)s Anda tidak boleh menghapuskan profil jika anda %(linkStart)s pengarang add-ons%(linkEnd)s. Anda perlu %(docLinkStart)smemindahkan pemilikan%(docLinkEnd)s atau buang"
 " add-ons sebelum anda boleh menghapuskan profil."
 
-#: src/amo/components/UserProfileEdit/index.js:813
+#: src/amo/components/UserProfileEdit/index.js:815
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr "%(strongStart)sNOTA:%(strongEnd)s Anda tidak boleh menghapuskan akaun pengguna sekiranya beliau %(linkStart)spengarang add-ons%(linkEnd)s."
 
@@ -2175,6 +2268,34 @@ msgstr "Foto profil"
 msgid "Choose Photo…"
 msgstr "Pilih Foto…"
 
+#: src/core/components/AMInstallButton/index.js:203
+msgid "Enable"
+msgstr "Dayakan"
+
+#: src/core/components/AMInstallButton/index.js:208
+msgid "Enabling"
+msgstr "Mendayakan"
+
+#: src/core/components/AMInstallButton/index.js:210
+msgid "Downloading"
+msgstr "Memuat turun"
+
+#: src/core/components/AMInstallButton/index.js:212
+msgid "Installing"
+msgstr "Memasang"
+
+#: src/core/components/AMInstallButton/index.js:214
+msgid "Uninstalling"
+msgstr "Menyahpasang"
+
+#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+msgid "Install Theme"
+msgstr "Pasang Tema"
+
+#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+msgid "Add to Firefox"
+msgstr "Tambah ke Firefox"
+
 #: src/core/components/AuthenticateButton/index.js:79
 msgid "Register or Log in"
 msgstr "Daftar atau Log masuk"
@@ -2191,25 +2312,17 @@ msgstr "Kod ralat: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Maaf, kami tidak dapat mencari apa-apa pada URL yang anda masukkan."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Add-on anda sudah sedia"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr "%(strongStart)s%(name)s%(strongEnd)s telah ditambah"
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Kini anda boleh akses %(name)s di bar alatan."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr "Urus add-ons anda dengan mengklik Add-ons dalam menu."
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
-msgstr "OK!"
-
-#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Pasang Tema"
-
-#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Tambah ke Firefox"
+#: src/core/components/InfoDialog/index.js:84
+msgid "OK"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -2291,7 +2404,7 @@ msgstr "Ada ralat yang tidak dijangka"
 msgid "Reload To Continue"
 msgstr "Muat semula untuk Meneruskan"
 
-#: src/ui/components/ExpandableCard/index.js:42
+#: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
 msgstr "Togol kandungan"
 
@@ -2321,19 +2434,19 @@ msgstr "Akses data anda untuk %(param)s"
 msgid "Dismiss this notice"
 msgstr "Abaikan notis ini"
 
-#: src/ui/components/Rating/index.js:60
+#: src/ui/components/Rating/index.js:81
 msgid "Rated %(rating)s out of 5"
 msgstr "Tahap %(rating)s daripada 5"
 
-#: src/ui/components/Rating/index.js:64
+#: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
 msgstr "Tiada penarafan lagi"
 
-#: src/ui/components/Rating/index.js:69
+#: src/ui/components/Rating/index.js:92
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Kemaskini tahap anda ke %(starRating)s daripada 5"
 
-#: src/ui/components/Rating/index.js:75
+#: src/ui/components/Rating/index.js:98
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Tarafkan add-on ini %(starRating)s daripada 5"
 
@@ -2345,6 +2458,51 @@ msgstr "<span class=\"visually-hidden\">Luaskan untuk</span> Baca lebih lanjut"
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s add-on"
+
+#~ msgid "Overall Rating"
+#~ msgstr "Penarafan Keseluruhan"
+
+#~ msgid "See more dynamic downloaders"
+#~ msgstr "Lihat pemuat turun dinamik selanjutnya"
+
+#~ msgid "Dynamic downloaders"
+#~ msgstr "Pemuat turun dinamik"
+
+#~ msgid "See more summer themes"
+#~ msgstr "Lihat tema musim panas selanjutnya"
+
+#~ msgid "Summer themes"
+#~ msgstr "Tema musim panas"
+
+#~ msgid "See more must-have media extensions"
+#~ msgstr "Lihat media mesti-ada selanjutnya"
+
+#~ msgid "Must-have media"
+#~ msgstr "Media mesti-ada"
+
+#~ msgid "Page Translate"
+#~ msgstr "Page Translate"
+
+#~ msgid "Translate an entire web page with a couple clicks"
+#~ msgstr "Terjemah seluruh halaman web dengan beberapa klik"
+
+#~ msgid "Forget Me Not"
+#~ msgstr "Jangan Lupakan Saya"
+
+#~ msgid "Make Firefox forget website data like cookies & local storage"
+#~ msgstr "Jadikan Firefox lupa data laman web seperti kuki & storan lokal"
+
+#~ msgid "Group Speed Dial"
+#~ msgstr "Group Speed Dial"
+
+#~ msgid "Visual bookmarks for your favorite places on the web"
+#~ msgstr "Tandabuku visual untuk meletakkan web kegemaran anda"
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Add-on anda sudah sedia"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Kini anda boleh akses %(name)s di bar alatan."
 
 #~ msgid "A powerful way to find archived versions of older web pages"
 #~ msgstr "Satu cara mudah untuk mencari versi arkib halaman web yang lebih lama"
@@ -2430,9 +2588,6 @@ msgstr[0] "%(total)s add-on"
 #~ msgid "Swift Selection Search"
 #~ msgstr "Swift Selection Search"
 
-#~ msgid "Highlight text on any web page to pull up a handy search menu"
-#~ msgstr "Serlahkan teks dalam halaman web untuk memaparkan menu carian"
-
 #~ msgid "Web Security"
 #~ msgstr "Web Security"
 
@@ -2477,9 +2632,6 @@ msgstr[0] "%(total)s add-on"
 
 #~ msgid "Essential extensions"
 #~ msgstr "Ekstensi penting"
-
-#~ msgid "See more essential extensions"
-#~ msgstr "Lihat selanjutnya ekstensi penting"
 
 #~ msgid "Envify"
 #~ msgstr "Envify"
@@ -2604,9 +2756,6 @@ msgstr[0] "%(total)s add-on"
 #~ msgid "Honey"
 #~ msgstr "Honey"
 
-#~ msgid "Automatically searches for coupon codes"
-#~ msgstr "Mencari kod kupon secara automatik"
-
 #~ msgid "Facebook Video Downloader"
 #~ msgstr "Facebook Video Downloader"
 
@@ -2728,9 +2877,6 @@ msgstr[0] "%(total)s add-on"
 #~ msgid "Display tabs in a space-saving “tree” layout."
 #~ msgstr "Papar tab dalam susur atur “pepohon” yang jimat ruang."
 
-#~ msgid "Wikipedia Context Menu Search"
-#~ msgstr "Menu Carian Konteks Wikipedia"
-
 #~ msgid "Highlight any text and search Wikipedia."
 #~ msgstr "Serlah teks dan carian Wikipedia."
 
@@ -2760,9 +2906,6 @@ msgstr[0] "%(total)s add-on"
 
 #~ msgid "Productivity tools"
 #~ msgstr "Alatan produktiviti"
-
-#~ msgid "Privacy protection"
-#~ msgstr "Perlindungan privasi"
 
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "Lihat lebih banyak add-ons yang melindungi privasi anda"

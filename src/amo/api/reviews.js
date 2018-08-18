@@ -16,6 +16,7 @@ type ExternalReviewTypeBase = {|
   body: string,
   created: Date,
   id: number,
+  is_developer_reply: boolean,
   is_latest: boolean,
   title: string,
   user: {|
@@ -52,6 +53,8 @@ export type SubmitReviewParams = {|
   versionId?: number,
 |};
 
+export type SubmitReviewResponse = ExternalReviewType;
+
 /*
  * POST/PATCH an add-on review using the API.
  */
@@ -64,7 +67,7 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-}: SubmitReviewParams): Promise<ExternalReviewType> {
+}: SubmitReviewParams): Promise<SubmitReviewResponse> {
   return new Promise((resolve) => {
     const review = {
       addon: undefined,
@@ -208,7 +211,8 @@ export function getLatestUserReview({
     const reviews = response.results;
     if (reviews.length === 1) {
       return reviews[0];
-    } else if (reviews.length === 0) {
+    }
+    if (reviews.length === 0) {
       return null;
     }
     throw new Error(oneLine`Unexpectedly received multiple review objects:

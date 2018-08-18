@@ -1,11 +1,17 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import AddonMeta, { AddonMetaBase } from 'amo/components/AddonMeta';
+import AddonMeta, {
+  AddonMetaBase,
+  roundToOneDigit,
+} from 'amo/components/AddonMeta';
+import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
+import Rating from 'ui/components/Rating';
 
 describe(__filename, () => {
   function render({
@@ -84,37 +90,94 @@ describe(__filename, () => {
       });
     }
 
-    function getReviewCount(root) {
+    function getReviewData(root) {
       return root.find(MetadataCard).prop('metadata')[1];
     }
 
-    it('renders a count of multiple ratings', () => {
-      const root = renderRatings({ count: 5 });
+    function getReviewTitle(root) {
+      const { title } = getReviewData(root);
+      return shallow(<div>{title}</div>);
+    }
 
-      expect(getReviewCount(root).content).toEqual('5');
-      expect(getReviewCount(root).title).toEqual('Ratings');
+    function getReviewCount(root) {
+      const { content } = getReviewData(root);
+      return shallow(<div>{content}</div>);
+    }
+
+    function getAverageData(root) {
+      return root.find(MetadataCard).prop('metadata')[2];
+    }
+
+    function getAverageTitle(root) {
+      return shallow(getAverageData(root).title);
+    }
+
+    function getAverageNumber(root) {
+      return shallow(getAverageData(root).content);
+    }
+
+    it('renders a count of multiple reviews', () => {
+      const slug = 'some-slug';
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          ratings: { count: 10, text_count: 5 },
+          slug,
+        }),
+      });
+
+      const reviewTitleLink = getReviewTitle(root).find(Link);
+      const reviewCountLink = getReviewCount(root).find(Link);
+
+      expect(reviewTitleLink).toHaveProp('to', `/addon/${slug}/reviews/`);
+      expect(reviewTitleLink.children()).toHaveText('Reviews');
+      expect(reviewCountLink).toHaveProp('to', `/addon/${slug}/reviews/`);
+      expect(reviewCountLink.children()).toHaveText('5');
     });
 
-    it('renders a count of one rating', () => {
-      const root = renderRatings({ count: 1 });
+    it('renders a count of one review', () => {
+      const root = renderRatings({ text_count: 1 });
 
-      expect(getReviewCount(root).content).toEqual('1');
-      expect(getReviewCount(root).title).toEqual('Rating');
+      expect(
+        getReviewCount(root)
+          .find(Link)
+          .children(),
+      ).toHaveText('1');
+      expect(
+        getReviewTitle(root)
+          .find(Link)
+          .children(),
+      ).toHaveText('Review');
     });
 
     it('localizes review count', () => {
       const i18n = fakeI18n({ lang: 'de' });
-      const root = renderRatings({ count: 1000 }, { i18n });
+      const root = renderRatings({ text_count: 1000 }, { i18n });
 
-      expect(getReviewCount(root).content).toEqual('1.000');
+      expect(
+        getReviewCount(root)
+          .find(Link)
+          .children(),
+      ).toHaveText('1.000');
     });
 
-    it('handles zero ratings', () => {
+    it('handles no addon', () => {
+      const root = render({ addon: null });
+
+      expect(getReviewTitle(root).children()).toHaveText('Reviews');
+      expect(getReviewCount(root).children()).toHaveLength(0);
+    });
+
+    it('handles zero reviews', () => {
       const root = render({
         addon: createInternalAddon({ ...fakeAddon, ratings: null }),
       });
 
-      expect(getReviewCount(root).title).toEqual('No Ratings');
+      expect(getReviewTitle(root).children()).toHaveText('No Reviews');
+      expect(getReviewCount(root).children()).toHaveLength(0);
+
+      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', null);
+      expect(getAverageTitle(root)).toHaveText('Not rated yet');
     });
 
     it('renders RatingsByStar with an add-on', () => {
@@ -128,6 +191,38 @@ describe(__filename, () => {
       const root = render({ addon: null });
 
       expect(root.find(RatingsByStar)).toHaveProp('addon', null);
+    });
+
+    it('renders the average rating', () => {
+      const average = 2.34;
+      const root = renderRatings({ average });
+
+      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', average);
+      expect(getAverageTitle(root)).toHaveText(
+        `${roundToOneDigit(average)} star average`,
+      );
+    });
+  });
+
+  describe('roundToOneDigit', () => {
+    it('returns a 0 for a null', () => {
+      expect(roundToOneDigit(null)).toEqual(0);
+    });
+
+    it('returns a 0 for a 0', () => {
+      expect(roundToOneDigit(0)).toEqual(0);
+    });
+
+    it('rounds a float down to one digit', () => {
+      expect(roundToOneDigit(2.34)).toEqual(2.3);
+    });
+
+    it('rounds a float up to one digit', () => {
+      expect(roundToOneDigit(2.36)).toEqual(2.4);
+    });
+
+    it('returns an integer with no decimal point', () => {
+      expect(roundToOneDigit(2)).toEqual(2);
     });
   });
 });

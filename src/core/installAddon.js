@@ -72,7 +72,7 @@ import {
   USER_AGENT_OS_UNIX,
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
-import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
+import { showInfoDialog } from 'core/reducers/infoDialog';
 
 export function installTheme(
   node,
@@ -307,9 +307,9 @@ export class WithInstallHelpers extends React.Component {
     // See ReactRouterLocationType from 'core/types/router'
     location: PropTypes.object,
     platformFiles: PropTypes.object,
-    name: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    status: PropTypes.string,
+    type: PropTypes.string,
     userAgentInfo: PropTypes.object.isRequired,
   };
 
@@ -331,6 +331,22 @@ export class WithInstallHelpers extends React.Component {
       log.info('Updating add-on status');
       this.setCurrentStatus({ ...this.props, ...nextProps });
     }
+  }
+
+  async isAddonEnabled() {
+    const {
+      _addonManager,
+      addon: { guid },
+    } = this.props;
+
+    try {
+      const addon = await _addonManager.getAddon(guid);
+      return addon.isEnabled;
+    } catch (error) {
+      log.error('could not determine whether the add-on was enabled', error);
+    }
+
+    return false;
   }
 
   setCurrentStatus(newProps = this.props) {
@@ -388,13 +404,14 @@ export class WithInstallHelpers extends React.Component {
       });
   }
 
-  enable({ _showInfo = this.showInfo } = {}) {
+  enable() {
     const { _addonManager, dispatch, guid, iconUrl, name } = this.props;
+
     return _addonManager
       .enable(guid)
       .then(() => {
         if (!_addonManager.hasPermissionPromptsEnabled()) {
-          _showInfo({ name, iconUrl });
+          this.showInfo({ name, iconUrl });
         }
       })
       .catch((err) => {
@@ -481,9 +498,6 @@ export class WithInstallHelpers extends React.Component {
       showInfoDialog({
         addonName: name,
         imageURL: iconUrl,
-        closeAction: () => {
-          dispatch(closeInfoDialog());
-        },
       }),
     );
   }
@@ -522,6 +536,7 @@ export class WithInstallHelpers extends React.Component {
       enable: (...args) => this.enable(...args),
       install: (...args) => this.install(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
+      isAddonEnabled: (...args) => this.isAddonEnabled(...args),
       uninstall: (...args) => this.uninstall(...args),
     };
 

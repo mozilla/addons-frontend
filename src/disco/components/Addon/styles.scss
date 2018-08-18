@@ -45,7 +45,7 @@ $addon-padding: 20px;
     }
   }
 
-  .theme-image {
+  .theme-image-link {
     border-bottom: 2px solid #f5f5f5;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -66,6 +66,10 @@ $addon-padding: 20px;
   .InstallButton,
   .InstallButton--disabled {
     margin: 0 20px 10px;
+  }
+
+  .AMInstallButton {
+    margin: 10px 20px;
   }
 
   &:not(.theme) .Addon-install-button {
@@ -214,16 +218,6 @@ $addon-padding: 20px;
       background: #c33c32 url('./img/warning.svg') no-repeat calc(100% - 40px)
         50%;
       z-index: 20;
-
-      [dir='rtl'] & {
-        background-position: 40px 50%;
-      }
-    }
-
-    &.restart {
-      background: #70cf5b url('./img/restart.svg') no-repeat calc(100% - 40px)
-        50%;
-      z-index: 10;
 
       [dir='rtl'] & {
         background-position: 40px 50%;

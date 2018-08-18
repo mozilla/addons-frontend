@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import * as React from 'react';
 
 import { nl2br, sanitizeHTML } from 'core/utils';
@@ -11,13 +12,15 @@ import './styles.scss';
 type Props = {|
   byLine: React.Node | null,
   children?: React.Node,
-  showRating?: boolean,
+  className?: string,
   review: ?UserReviewType,
+  showRating?: boolean,
 |};
 
 const UserReview: React.ComponentType<Props> = ({
   byLine,
   children,
+  className,
   review,
   showRating = false,
 }: Props) => {
@@ -38,10 +41,10 @@ const UserReview: React.ComponentType<Props> = ({
   }
 
   return (
-    <div className="UserReview">
+    <div className={makeClassName('UserReview', className)}>
       {body}
       <div className="UserReview-byLine">
-        {review && !showRating ? (
+        {review && showRating ? (
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
         {byLine}

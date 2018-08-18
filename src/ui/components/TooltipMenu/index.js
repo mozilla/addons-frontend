@@ -48,9 +48,10 @@ export default class TooltipMenu extends React.Component<Props> {
           trigger={['click']}
         >
           <button
-            className={makeClassName('TooltipMenu-opener', openerClass)}
             aria-describedby={describedBy}
+            className={makeClassName('TooltipMenu-opener', openerClass)}
             title={openerTitle}
+            type="button"
           >
             {openerText}
           </button>

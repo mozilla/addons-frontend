@@ -1,26 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
 
-import {
-  CLEAR_ADDON_REVIEWS,
-  FETCH_GROUPED_RATINGS,
-  FETCH_REVIEWS,
-  FETCH_USER_REVIEWS,
-  HIDE_EDIT_REVIEW_FORM,
-  HIDE_REPLY_TO_REVIEW_FORM,
-  SEND_REPLY_TO_REVIEW,
-  SEND_REVIEW_FLAG,
-  SET_ADDON_REVIEWS,
-  SET_GROUPED_RATINGS,
-  SET_INTERNAL_REVIEW,
-  SET_LATEST_REVIEW,
-  SET_REVIEW,
-  SET_REVIEW_REPLY,
-  SET_REVIEW_WAS_FLAGGED,
-  SET_USER_REVIEWS,
-  SHOW_EDIT_REVIEW_FORM,
-  SHOW_REPLY_TO_REVIEW_FORM,
-} from 'amo/constants';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   ExternalReviewReplyType,
@@ -28,12 +8,41 @@ import type {
   GroupedRatingsType,
 } from 'amo/api/reviews';
 
+export const CLEAR_ADDON_REVIEWS: 'CLEAR_ADDON_REVIEWS' = 'CLEAR_ADDON_REVIEWS';
+export const CREATE_ADDON_REVIEW: 'CREATE_ADDON_REVIEW' = 'CREATE_ADDON_REVIEW';
+export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
+  'SHOW_EDIT_REVIEW_FORM';
+export const SHOW_REPLY_TO_REVIEW_FORM: 'SHOW_REPLY_TO_REVIEW_FORM' =
+  'SHOW_REPLY_TO_REVIEW_FORM';
+export const FETCH_GROUPED_RATINGS: 'FETCH_GROUPED_RATINGS' =
+  'FETCH_GROUPED_RATINGS';
+export const FETCH_REVIEWS: 'FETCH_REVIEWS' = 'FETCH_REVIEWS';
+export const FETCH_USER_REVIEWS: 'FETCH_USER_REVIEWS' = 'FETCH_USER_REVIEWS';
+export const HIDE_EDIT_REVIEW_FORM: 'HIDE_EDIT_REVIEW_FORM' =
+  'HIDE_EDIT_REVIEW_FORM';
+export const HIDE_REPLY_TO_REVIEW_FORM: 'HIDE_REPLY_TO_REVIEW_FORM' =
+  'HIDE_REPLY_TO_REVIEW_FORM';
+export const SET_ADDON_REVIEWS: 'SET_ADDON_REVIEWS' = 'SET_ADDON_REVIEWS';
+export const SET_GROUPED_RATINGS: 'SET_GROUPED_RATINGS' = 'SET_GROUPED_RATINGS';
+export const SET_INTERNAL_REVIEW: 'SET_INTERNAL_REVIEW' = 'SET_INTERNAL_REVIEW';
+export const SET_USER_REVIEWS: 'SET_USER_REVIEWS' = 'SET_USER_REVIEWS';
+export const SET_REVIEW: 'SET_REVIEW' = 'SET_REVIEW';
+export const SET_LATEST_REVIEW: 'SET_LATEST_REVIEW' = 'SET_LATEST_REVIEW';
+export const SET_REVIEW_REPLY: 'SET_REVIEW_REPLY' = 'SET_REVIEW_REPLY';
+export const SET_REVIEW_WAS_FLAGGED: 'SET_REVIEW_WAS_FLAGGED' =
+  'SET_REVIEW_WAS_FLAGGED';
+export const SEND_REPLY_TO_REVIEW: 'SEND_REPLY_TO_REVIEW' =
+  'SEND_REPLY_TO_REVIEW';
+export const SEND_REVIEW_FLAG: 'SEND_REVIEW_FLAG' = 'SEND_REVIEW_FLAG';
+export const UPDATE_ADDON_REVIEW: 'UPDATE_ADDON_REVIEW' = 'UPDATE_ADDON_REVIEW';
+
 export type UserReviewType = {|
   addonId: number,
   addonSlug: string,
   body?: string,
   created: Date,
   id: number,
+  isDeveloperReply: boolean,
   isLatest: boolean,
   rating: number | null,
   reply: UserReviewType | null,
@@ -53,6 +62,7 @@ export function createInternalReview(
     body: review.body,
     created: review.created,
     id: review.id,
+    isDeveloperReply: review.is_developer_reply,
     isLatest: review.is_latest,
     rating: review.rating || null,
     reply: review.reply ? createInternalReview(review.reply) : null,
@@ -514,5 +524,63 @@ export const setLatestReview = ({
   return {
     type: SET_LATEST_REVIEW,
     payload: { addonId, addonSlug, review, userId, versionId },
+  };
+};
+
+type CreateAddonReviewParams = {|
+  addonId: number,
+  body?: string,
+  errorHandlerId: string,
+  rating: number,
+  versionId: number,
+|};
+
+export type CreateAddonReviewAction = {|
+  type: typeof CREATE_ADDON_REVIEW,
+  payload: CreateAddonReviewParams,
+|};
+
+export const createAddonReview = ({
+  addonId,
+  body,
+  errorHandlerId,
+  rating,
+  versionId,
+}: CreateAddonReviewParams) => {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(rating, 'rating is required');
+  invariant(versionId, 'versionId is required');
+
+  return {
+    type: CREATE_ADDON_REVIEW,
+    payload: { addonId, body, errorHandlerId, rating, versionId },
+  };
+};
+
+type UpdateAddonReviewParams = {|
+  body?: string,
+  errorHandlerId: string,
+  rating?: number,
+  reviewId: number,
+|};
+
+export type UpdateAddonReviewAction = {|
+  type: typeof UPDATE_ADDON_REVIEW,
+  payload: UpdateAddonReviewParams,
+|};
+
+export const updateAddonReview = ({
+  body,
+  errorHandlerId,
+  rating,
+  reviewId,
+}: UpdateAddonReviewParams) => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(reviewId, 'reviewId is required');
+
+  return {
+    type: UPDATE_ADDON_REVIEW,
+    payload: { body, errorHandlerId, rating, reviewId },
   };
 };

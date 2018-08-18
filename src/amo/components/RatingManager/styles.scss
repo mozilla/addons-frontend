@@ -1,21 +1,14 @@
-@import '~core/css/inc/vars';
-@import '~ui/components/Rating/vars';
+@import '~core/css/inc/mixins';
 
-$button-margin: 13px;
-$button-height: $rating-l-star-size + $rating-l-star-gutter -
-  ($button-margin * 2);
-
-.RatingManager-log-in-to-rate {
+.RatingManager-ratingControl {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 
 .RatingManager-log-in-to-rate-button {
-  align-items: center;
-  display: flex;
   font-size: $font-size-s;
-  height: $button-height;
-  justify-content: center;
-  margin-top: $rating-top-margin + $button-margin;
   padding: 0;
   position: absolute;
   width: 100%;
@@ -29,5 +22,9 @@ $button-height: $rating-l-star-size + $rating-l-star-gutter -
 
   legend {
     word-wrap: break-word;
+  }
+
+  .Rating {
+    margin: 12px;
   }
 }

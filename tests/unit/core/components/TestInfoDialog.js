@@ -1,130 +1,100 @@
 /* global document */
-import { shallow } from 'enzyme';
 import * as React from 'react';
-import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
-import ReactDOM, { findDOMNode } from 'react-dom';
 
-import {
-  InfoDialogBase,
-  ShowInfoDialog,
-  mapStateToProps,
-} from 'core/components/InfoDialog';
-import { fakeI18n } from 'tests/unit/helpers';
-
-let closeAction;
-
-function getInfoDialog(props = {}) {
-  closeAction = sinon.stub();
-  const renderProps = {
-    addonName: 'A Test Add-on',
-    imageURL: 'https://addons-dev-cdn.allizom.org/whatever',
-    closeAction,
-    i18n: fakeI18n(),
-    ...props,
-  };
-  return <InfoDialogBase {...renderProps} />;
-}
+import InfoDialog, { InfoDialogBase } from 'core/components/InfoDialog';
+import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  describe('<InfoDialogBase />', () => {
-    function renderInfoDialog(props = {}) {
-      return renderIntoDocument(getInfoDialog(props));
-    }
+  const render = (props = {}) => {
+    const allProps = {
+      i18n: fakeI18n(),
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
 
-    it('Should render a dialog with aria role', () => {
-      const dialog = renderInfoDialog();
-      const root = findDOMNode(dialog);
-      expect(root.getAttribute('role')).toEqual('dialog');
+    // This is needed because of `react-onclickoutside`, see:
+    // https://github.com/mozilla/addons-frontend/issues/5879
+    return shallowUntilTarget(<InfoDialog {...allProps} />, InfoDialogBase, {
+      // TODO: ideally, we would like to enable the lifecycle methods, but it
+      // produces unexpected errors, likely related to Enzyme 3. See:
+      // http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+      shallowOptions: { disableLifecycleMethods: true },
     });
+  };
 
-    it('Should render a title', () => {
-      const dialog = renderInfoDialog();
-      const root = findDOMNode(dialog);
-      expect(root.querySelector('#show-info-title').textContent).toEqual(
-        'Your add-on is ready',
-      );
-    });
+  const createInfoDialogData = (overrides = {}) => {
+    return {
+      addonName: 'some addon',
+      imageURL: 'http://example.org/some-addon.png',
+      ...overrides,
+    };
+  };
 
-    it('Should render a description containing the add-on name', () => {
-      const dialog = renderInfoDialog();
-      const root = findDOMNode(dialog);
-      expect(
-        root.querySelector('#show-info-description').textContent,
-      ).toContain('A Test Add-on');
-    });
+  const _showInfoDialog = ({ store, data = {} }) => {
+    store.dispatch(showInfoDialog(createInfoDialogData(data)));
+  };
 
-    it('should have an img element with a src', () => {
-      const dialog = renderInfoDialog();
-      const root = findDOMNode(dialog);
-      expect(root.querySelector('img').src).toBeTruthy();
-    });
+  it('renders nothing by default', () => {
+    const root = render();
 
-    it('should call closeAction func when clicking close', () => {
-      const dialog = renderInfoDialog();
-      const root = findDOMNode(dialog);
-      Simulate.click(root.querySelector('button'));
-      sinon.assert.called(closeAction);
-    });
+    expect(root.find('.InfoDialog')).toHaveLength(0);
   });
 
-  describe('Clicking outside <InfoDialogBase />', () => {
-    let mountNode;
+  it('renders an InfoDialog when shown', () => {
+    const { store } = dispatchClientMetadata();
 
-    function simulateClick(node) {
-      const event = document.createEvent('Event');
-      event.initEvent('mousedown', true, true);
-      node.dispatchEvent(event);
-      return event;
-    }
+    const data = createInfoDialogData({ addonName: 'a test add-on' });
+    _showInfoDialog({ store, data });
 
-    beforeEach(() => {
-      mountNode = document.createElement('div');
-      document.body.appendChild(mountNode);
-    });
+    const root = render({ store });
 
-    afterEach(() => {
-      ReactDOM.unmountComponentAtNode(mountNode);
-      document.body.removeChild(mountNode);
-    });
-
-    it('should call closeAction func when clicking outside', () => {
-      class FakeContainer extends React.Component {
-        render() {
-          return (
-            <div>
-              {getInfoDialog()}
-              <button
-                id="outside-component"
-                onClick={(e) => e.stopPropagation()}
-              />
-            </div>
-          );
-        }
-      }
-
-      ReactDOM.render(<FakeContainer />, mountNode);
-      const outsideNode = document.getElementById('outside-component');
-      simulateClick(outsideNode);
-      sinon.assert.called(closeAction);
-    });
+    expect(root.find('.InfoDialog')).toHaveLength(1);
+    expect(root.find('.InfoDialog')).toHaveProp('role', 'dialog');
+    expect(root.find('.InfoDialog-title').html()).toContain(data.addonName);
+    expect(root.find('.InfoDialog-description')).toIncludeText(
+      'Manage your add-ons',
+    );
+    expect(root.find('.InfoDialog-logo').find('img')).toHaveProp(
+      'src',
+      data.imageURL,
+    );
+    expect(root.find('.InfoDialog-button')).toHaveLength(1);
+    expect(root.find('.InfoDialog-button')).toHaveProp(
+      'onClick',
+      root.instance().closeInfoDialog,
+    );
   });
 
-  describe('<ShowInfoDialog />', () => {
-    it('renders InfoDialogBase when it is told to', () => {
-      const data = { some: 'data' };
-      const root = shallow(<ShowInfoDialog data={data} show />);
-      expect(root.type()).toEqual(InfoDialogBase);
-      expect(root.props()).toEqual(data);
-    });
+  it('exposes a method for the react-onclickoutside HOC', () => {
+    const root = render();
 
-    it('does not render InfoDialogBase when not told to', () => {
-      const root = shallow(<ShowInfoDialog show={false} />);
-      expect(root.type()).toEqual(null);
-    });
+    expect(root.instance().handleClickOutside).toBeDefined();
+  });
 
-    it('mapStateToProps pulls infoDialog state', () => {
-      const infoDialog = { infoDialogState: 'you bet' };
-      expect(mapStateToProps({ addons: [], infoDialog })).toEqual(infoDialog);
-    });
+  it('dispatches closeInfoDialog when clicking the "OK" button', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    _showInfoDialog({ store });
+
+    const root = render({ store });
+
+    root.find('.InfoDialog-button').simulate('click');
+
+    sinon.assert.calledWith(dispatchSpy, closeInfoDialog());
+  });
+
+  it('dispatches closeInfoDialog when clicking outside', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({ store });
+
+    // Simulate a user who clicks outside the InfoDialog component.
+    root.instance().handleClickOutside();
+
+    sinon.assert.calledWith(dispatchSpy, closeInfoDialog());
   });
 });

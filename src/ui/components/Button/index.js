@@ -101,7 +101,7 @@ export default class Button extends React.Component {
     }
 
     return (
-      <button className={getClassName()} {...props}>
+      <button className={getClassName()} type="submit" {...props}>
         {children}
       </button>
     );

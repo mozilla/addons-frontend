@@ -1,40 +1,57 @@
+/* @flow */
+import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
+import { type I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 export const RATING_STYLE_SIZE_TYPES = { small: '', large: '' };
 const RATING_STYLE_SIZES = Object.keys(RATING_STYLE_SIZE_TYPES);
 
-export class RatingBase extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    i18n: PropTypes.object.isRequired,
-    isOwner: PropTypes.bool,
-    onSelectRating: PropTypes.func,
-    rating: PropTypes.number,
-    readOnly: PropTypes.bool,
-    styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
-  };
+type StateType = {|
+  hoveringOverStar: number | null,
+|};
 
+type Props = {|
+  className?: string,
+  onSelectRating?: (rating: number) => void,
+  rating?: number | null,
+  readOnly: boolean,
+  styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
+  yellowStars?: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  _setState?: ($Shape<StateType>) => void,
+  i18n: I18nType,
+|};
+
+export class RatingBase extends React.Component<InternalProps, StateType> {
   static defaultProps = {
     className: '',
     readOnly: false,
     styleSize: 'large',
-    isOwner: false,
+    yellowStars: false,
   };
 
-  constructor(props) {
+  constructor(props: InternalProps) {
     super(props);
-    this.ratingElements = {};
+    this.state = { hoveringOverStar: null };
   }
 
-  onSelectRating = (event) => {
+  _setState(newState: $Shape<StateType>) {
+    const setState = this.props._setState || this.setState.bind(this);
+    return setState(newState);
+  }
+
+  onSelectRating = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
     const button = event.currentTarget;
@@ -52,7 +69,11 @@ export class RatingBase extends React.Component {
   // Helper function used to render title attributes
   // for each individual star, as well as the wrapper
   // that surrounds the read-only set of stars.
-  renderTitle = (rating, readOnly, starRating) => {
+  renderTitle = (
+    rating: ?number,
+    readOnly: boolean,
+    starRating: number | null,
+  ) => {
     const { i18n } = this.props;
 
     if (readOnly) {
@@ -63,6 +84,8 @@ export class RatingBase extends React.Component {
       }
       return i18n.gettext('There are no ratings yet');
     }
+
+    invariant(starRating, 'starRating is required when readOnly=false');
 
     if (rating) {
       return i18n.sprintf(
@@ -77,23 +100,39 @@ export class RatingBase extends React.Component {
     );
   };
 
+  onHoverStar = (star: number) => {
+    if (this.props.readOnly) {
+      return;
+    }
+    this._setState({ hoveringOverStar: star });
+  };
+
+  stopHovering = () => {
+    if (this.props.readOnly) {
+      return;
+    }
+    this._setState({ hoveringOverStar: null });
+  };
+
   renderRatings() {
     const { readOnly } = this.props;
+    const { hoveringOverStar } = this.state;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
+      let isSelected = thisRating - rating <= 0.25;
+      if (hoveringOverStar !== null) {
+        isSelected = thisRating <= hoveringOverStar;
+      }
       const props = {
-        className: makeClassName('Rating-choice', {
-          'Rating-selected-star': thisRating - rating <= 0.25,
+        className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
+          'Rating-selected-star': isSelected,
           'Rating-half-star':
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
-        id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
-        ref: (ref) => {
-          this.ratingElements[thisRating] = ref;
-        },
+        onMouseEnter: () => this.onHoverStar(thisRating),
         title: this.renderTitle(rating, readOnly, thisRating),
       };
 
@@ -103,17 +142,22 @@ export class RatingBase extends React.Component {
 
       return (
         // eslint-disable-next-line react/jsx-key
-        <button onClick={this.onSelectRating} value={thisRating} {...props} />
+        <button
+          onClick={this.onSelectRating}
+          type="button"
+          value={thisRating}
+          {...props}
+        />
       );
     });
   }
 
   render() {
-    const { className, isOwner, rating, readOnly, styleSize } = this.props;
-    if (!RATING_STYLE_SIZES.includes(styleSize)) {
+    const { className, rating, readOnly, styleSize, yellowStars } = this.props;
+    if (!styleSize || !RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
-        `styleSize=${styleSize} is not a valid value; ` +
-          `possible values: ${RATING_STYLE_SIZES.join(', ')}`,
+        oneLine`styleSize=${styleSize || '[empty string]'} is not a valid
+        value; possible values: ${RATING_STYLE_SIZES.join(', ')}`,
       );
     }
 
@@ -129,25 +173,23 @@ export class RatingBase extends React.Component {
       className,
       {
         'Rating--editable': !readOnly,
-        'Rating--by-owner': isOwner,
+        'Rating--yellowStars': yellowStars,
       },
     );
 
     return (
       <div
         className={allClassNames}
-        ref={(ref) => {
-          this.element = ref;
-        }}
         title={description}
+        onMouseLeave={this.stopHovering}
       >
-        <span className="Rating-star-group">
-          {this.renderRatings()}
-          <span className="visually-hidden">{description}</span>
-        </span>
+        {this.renderRatings()}
+        <span className="visually-hidden">{description}</span>
       </div>
     );
   }
 }
 
-export default compose(translate())(RatingBase);
+const Rating: React.ComponentType<Props> = compose(translate())(RatingBase);
+
+export default Rating;

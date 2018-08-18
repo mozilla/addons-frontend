@@ -1,3 +1,4 @@
+/* eslint react/no-find-dom-node: 0 */
 import * as React from 'react';
 import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';

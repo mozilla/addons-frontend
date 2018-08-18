@@ -1,5 +1,5 @@
 /* @flow */
-/* eslint-disable react/prop-types, react/sort-comp, react/no-unused-prop-types */
+/* eslint-disable react/prop-types, react/no-unused-prop-types */
 import { oneLine } from 'common-tags';
 import makeClassName from 'classnames';
 import invariant from 'invariant';
@@ -101,6 +101,7 @@ type OnSearchChangeParams = {|
 
 export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   dispatchAutocompleteStart: (filters: Object) => void;
+
   searchInput: React.ElementRef<'input'> | null;
 
   static defaultProps = {

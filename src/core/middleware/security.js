@@ -21,7 +21,7 @@ export function getNoScriptStyles(
     `src/${appName}/noscript.css`,
   );
   try {
-    return fs.readFileSync(cssPath);
+    return fs.readFileSync(cssPath, 'utf8');
   } catch (e) {
     if (e.code !== 'ENOENT') {
       _log.info(`noscript styles could not be parsed from ${cssPath}`);

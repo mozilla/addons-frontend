@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 import { AddonBase, mapStateToProps } from 'disco/components/Addon';
 import { setInstallState } from 'core/actions/installations';
 import InstallButton from 'core/components/InstallButton';
+import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -19,8 +20,8 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   TRACKING_TYPE_EXTENSION,
+  INSTALLED,
   UNINSTALLED,
-  UNINSTALLING,
 } from 'core/constants';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import { loadedAddons } from 'disco/components/DiscoPane';
@@ -29,7 +30,8 @@ import {
   createFakeEvent,
   createFakeTracking,
   fakeI18n,
-  signedInApiState,
+  getFakeConfig,
+  sampleUserAgentParsed,
 } from 'tests/unit/helpers';
 import {
   dispatchClientMetadata,
@@ -44,11 +46,16 @@ import LoadingText from 'ui/components/LoadingText';
 
 function renderAddon(customProps = {}) {
   const props = {
-    setCurrentStatus: sinon.stub(),
+    clientApp: CLIENT_APP_FIREFOX,
+    enable: sinon.stub(),
     getBrowserThemeData: () => '{"theme":"data"}',
     getClientCompatibility: () => ({ compatible: true, reason: null }),
-    hasAddonManager: true,
     i18n: fakeI18n(),
+    installTheme: sinon.stub(),
+    setCurrentStatus: sinon.stub(),
+    status: UNINSTALLED,
+    uninstall: sinon.stub(),
+    userAgentInfo: sampleUserAgentParsed,
     ...customProps,
   };
   return shallow(<AddonBase {...props} />);
@@ -86,6 +93,27 @@ describe(__filename, () => {
 
     expect(root.find(LoadingText)).toHaveLength(1);
     expect(root.instance().props.platformFiles).toEqual({});
+  });
+
+  it('passes install helper functions to the install button', () => {
+    const enable = sinon.stub();
+    const install = sinon.stub();
+    const installTheme = sinon.stub();
+    const uninstall = sinon.stub();
+
+    const root = renderAddon({
+      addon: { ...result },
+      enable,
+      install,
+      installTheme,
+      uninstall,
+    });
+
+    const installButton = root.find(InstallButton);
+    expect(installButton).toHaveProp('enable', enable);
+    expect(installButton).toHaveProp('install', install);
+    expect(installButton).toHaveProp('installTheme', installTheme);
+    expect(installButton).toHaveProp('uninstall', uninstall);
   });
 
   describe('<Addon type="extension"/>', () => {
@@ -175,31 +203,6 @@ describe(__filename, () => {
     it('does not normally render an error', () => {
       const root = renderAddon({ addon: result, ...result });
       expect(root.find('.notification.error')).toHaveLength(0);
-    });
-
-    it('renders a default restart notification', () => {
-      const data = { ...result, needsRestart: true };
-      const root = renderAddon({ addon: data, ...data });
-      const restartNotice = root.find('.notification.restart p');
-      expect(restartNotice.html()).toContain(
-        'Please restart Firefox to use this add-on.',
-      );
-    });
-
-    it('renders a uninstallation restart notification', () => {
-      const data = { ...result, needsRestart: true, status: UNINSTALLING };
-      const root = renderAddon({ addon: data, ...data });
-      const restartNotice = root.find('.notification.restart p');
-
-      expect(restartNotice.html()).toContain(
-        'This add-on will be uninstalled after you restart Firefox.',
-      );
-    });
-
-    it('does not normally render a restart notification', () => {
-      const root = renderAddon({ addon: result, ...result });
-
-      expect(root.find('.notification.restart')).toHaveLength(0);
     });
 
     it('renders the heading', () => {
@@ -305,7 +308,7 @@ describe(__filename, () => {
     it("doesn't render a theme image for an extension", () => {
       const root = renderAddon({ addon: result, ...result });
 
-      expect(root.find('.theme-image')).toHaveLength(0);
+      expect(root.find('.theme-image-link')).toHaveLength(0);
     });
 
     it('throws on invalid add-on type', () => {
@@ -320,15 +323,17 @@ describe(__filename, () => {
 
     it('tracks an add-on link click', () => {
       const fakeTracking = createFakeTracking();
-      const data = {
+      const addon = {
         ...result,
-        _tracking: fakeTracking,
         name: 'foo',
-        heading:
-          'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
         type: ADDON_TYPE_EXTENSION,
       };
-      const root = renderAddon({ addon: data, ...data });
+      const root = renderAddon({
+        addon,
+        heading:
+          'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
+        _tracking: fakeTracking,
+      });
       const heading = root.find('.heading');
       // We click the heading providing the link nodeName to emulate
       // bubbling.
@@ -342,23 +347,26 @@ describe(__filename, () => {
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         action: TRACKING_TYPE_EXTENSION,
         category: CLICK_CATEGORY,
-        label: 'foo',
+        label: addon.name,
       });
     });
 
     it('passes a defaultInstallSource to the install button', () => {
       const defaultInstallSource = 'fake-discopane-source';
-      const data = {
+      const addon = {
         ...result,
         type: ADDON_TYPE_EXTENSION,
       };
       const root = renderAddon({
-        addon: data,
-        ...data,
+        addon,
+        ...addon,
         defaultInstallSource,
       });
 
       const button = root.find(InstallButton);
+      expect(button).toHaveLength(1);
+      expect(button).toHaveProp('addon', result.addon);
+      expect(button).toHaveProp('className', 'Addon-install-button');
       expect(button).toHaveProp('defaultInstallSource', defaultInstallSource);
     });
 
@@ -410,44 +418,110 @@ describe(__filename, () => {
   describe('addon with type static theme', () => {
     const fullImage = 'https://addons.cdn.mozilla.net/full/54321.png';
     const newAddonName = 'Summertime';
+    let install = sinon.spy();
+    let enable = sinon.spy();
 
-    it('renders the correct image', () => {
-      const shallowRoot = renderAddon({
+    const renderWithStaticTheme = (props = {}) => {
+      return renderAddon({
         addon: {
           ...result,
           name: newAddonName,
+          type: ADDON_TYPE_STATIC_THEME,
           previews: [
             {
               ...fakePreview,
               image_url: fullImage,
             },
           ],
-          type: ADDON_TYPE_STATIC_THEME,
         },
+        status: UNINSTALLED,
+        install,
+        enable,
+        hasAddonManager: true,
+        isAddonEnabled: sinon.stub().resolves(false),
+        ...props,
       });
-      const image = shallowRoot.find('.Addon-theme-header-image');
+    };
+
+    it('renders the correct image', () => {
+      const root = renderWithStaticTheme();
+      const image = root.find('.Addon-theme-header-image');
       expect(image).toHaveProp('src', fullImage);
       expect(image).toHaveProp('alt', `Preview of ${newAddonName}`);
+    });
+
+    it("calls install and enable helper functions when clicking on the static theme's header image if hasAddonManager is true", async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+
+      const root = renderWithStaticTheme();
+
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
+      sinon.assert.calledOnce(install);
+      sinon.assert.calledOnce(enable);
+    });
+
+    it("does not call enable helper function when clicking on the static theme's header image if addon is already enabled", async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+      const root = renderWithStaticTheme({
+        isAddonEnabled: sinon.stub().resolves(true),
+      });
+
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
+      sinon.assert.called(install);
+      sinon.assert.notCalled(enable);
+    });
+
+    it('does not render wrapper link around image if hasAddonManager is false', async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+      const root = renderWithStaticTheme({
+        hasAddonManager: false,
+      });
+      expect(root.find('.theme-image-link')).toHaveLength(0);
+    });
+
+    it("does not call the install helper function when clicking on the static theme's header image and UNINSTALLED is false", async () => {
+      install = sinon.spy();
+      enable = sinon.spy();
+      const root = renderWithStaticTheme({
+        status: INSTALLED,
+      });
+
+      const imageLink = root.find('.theme-image-link');
+
+      const onClick = imageLink.prop('onClick');
+      await onClick(createFakeEvent());
+
+      sinon.assert.notCalled(install);
     });
   });
 
   describe('addon with type lightweight theme', () => {
-    it('calls installTheme on click', () => {
+    const addon = {
+      ...result,
+      type: ADDON_TYPE_THEME,
+      previews: [],
+    };
+
+    it('renders wrapper link around image and calls installTheme on click if hasAddonManager is true', () => {
       const installTheme = sinon.stub();
-      const addon = {
-        ...result,
-        type: ADDON_TYPE_THEME,
-        previews: [],
-      };
-      const shallowRoot = renderAddon({
+      const root = renderAddon({
         addon,
-        clientApp: signedInApiState.clientApp,
         installTheme,
         status: UNINSTALLED,
-        type: ADDON_TYPE_THEME,
-        userAgentInfo: signedInApiState.userAgentInfo,
+        hasAddonManager: true,
       });
-      const themeImage = shallowRoot.find('.theme-image');
+      const themeImage = root.find('.theme-image-link');
 
       themeImage.simulate('click', {
         ...fakeEvent,
@@ -459,6 +533,28 @@ describe(__filename, () => {
         ...addon,
         status: UNINSTALLED,
       });
+    });
+
+    it('does not render wrapper link around image if hasAddonManager is false', () => {
+      const root = renderAddon({
+        addon,
+        hasAddonManager: false,
+      });
+      expect(root.find('.theme-image-link')).toHaveLength(0);
+    });
+
+    it("renders the alt tag with the addon's name", () => {
+      const newAddonName = 'Light Summer Colors';
+      const root = renderAddon({
+        addon: {
+          ...addon,
+          name: newAddonName,
+        },
+      });
+      expect(root.find('.Addon-theme-header-image')).toHaveProp(
+        'alt',
+        `Preview of ${newAddonName}`,
+      );
     });
   });
 
@@ -527,6 +623,46 @@ describe(__filename, () => {
 
       expect(props.addon).toEqual(null);
       expect(props.platformFiles).toEqual({});
+    });
+  });
+
+  describe('AMInstallButton', () => {
+    const renderWithAMInstallButton = (props = {}) => {
+      return renderAddon({
+        _config: getFakeConfig({ enableAMInstallButton: true }),
+        addon: { ...result },
+        hasAddonManager: true,
+        ...props,
+      });
+    };
+
+    it('renders the AMInstallButton when config allows it', () => {
+      const root = renderWithAMInstallButton();
+
+      expect(root.find(InstallButton)).toHaveLength(0);
+      expect(root.find(AMInstallButton)).toHaveLength(1);
+      expect(root.find(AMInstallButton)).toHaveProp('puffy', false);
+      expect(root.find(AMInstallButton)).toHaveProp('hasAddonManager', true);
+    });
+
+    it('passes install helper functions to the install button', () => {
+      const enable = sinon.stub();
+      const install = sinon.stub();
+      const installTheme = sinon.stub();
+      const uninstall = sinon.stub();
+
+      const root = renderWithAMInstallButton({
+        enable,
+        install,
+        installTheme,
+        uninstall,
+      });
+
+      const installButton = root.find(AMInstallButton);
+      expect(installButton).toHaveProp('enable', enable);
+      expect(installButton).toHaveProp('install', install);
+      expect(installButton).toHaveProp('installTheme', installTheme);
+      expect(installButton).toHaveProp('uninstall', uninstall);
     });
   });
 });

@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
@@ -53,6 +54,7 @@ import type { CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
+  ReactRouterHistoryType,
   ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
@@ -76,6 +78,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   filters: CollectionFilters,
   hasEditPermission: boolean,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isLoggedIn: boolean,
   isOwner: boolean,
@@ -101,6 +104,19 @@ export type SaveAddonNoteFunc = (
   errorHandler: ErrorHandlerType,
   notes: string,
 ) => void;
+
+export const computeNewCollectionPage = (
+  collection: CollectionType,
+): number => {
+  const { numberOfAddons, pageSize } = collection;
+
+  let page = 1;
+  if (pageSize) {
+    page = Math.ceil((numberOfAddons - 1) / pageSize);
+  }
+
+  return page || 1;
+};
 
 export class CollectionBase extends React.Component<InternalProps> {
   addonPlaceholderCount: number;
@@ -238,7 +254,7 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 
   removeAddon: RemoveCollectionAddonFunc = (addonId: number) => {
-    const { collection, dispatch, errorHandler, filters } = this.props;
+    const { collection, dispatch, errorHandler, filters, history } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -247,15 +263,39 @@ export class CollectionBase extends React.Component<InternalProps> {
     invariant(slug, 'slug is required');
     invariant(username, 'username is required');
 
+    let { page } = filters;
+    let shouldPushNewRoute = false;
+    const newCollectionPage = computeNewCollectionPage(collection);
+
+    if (page !== newCollectionPage) {
+      page = newCollectionPage;
+      shouldPushNewRoute = true;
+    }
+
     dispatch(
       removeAddonFromCollection({
         addonId,
         errorHandlerId: errorHandler.id,
-        filters,
+        filters: {
+          ...filters,
+          page,
+        },
         slug,
         username,
       }),
     );
+
+    if (shouldPushNewRoute) {
+      const { location } = history;
+
+      history.push({
+        pathname: location.pathname,
+        query: {
+          ...location.query,
+          page,
+        },
+      });
+    }
   };
 
   deleteNote: DeleteAddonNoteFunc = (
@@ -314,10 +354,12 @@ export class CollectionBase extends React.Component<InternalProps> {
       creating,
       editing,
       filters,
+      hasEditPermission,
       showEditButton,
     } = this.props;
 
-    if (creating || editing) {
+    const managingCollection = creating || (editing && hasEditPermission);
+    if (managingCollection) {
       return (
         <CollectionManager
           collection={collection}
@@ -330,8 +372,9 @@ export class CollectionBase extends React.Component<InternalProps> {
     return (
       <CollectionDetails
         collection={collection}
+        editing={editing}
         filters={filters}
-        showEditButton={showEditButton}
+        showEditButton={showEditButton && !editing}
       />
     );
   }
@@ -438,6 +481,9 @@ export class CollectionBase extends React.Component<InternalProps> {
           />
         </div>
         <div className="Collection-items">
+          {editing && (
+            <CollectionAddAddon collection={collection} filters={filters} />
+          )}
           {!creating && (
             <AddonsCard
               addonInstallSource={addonInstallSource}

@@ -233,9 +233,9 @@ export class LanguageToolsBase extends React.Component<Props> {
                     </Tr>
                   );
                 })
-              : Array(50).fill(
-                  // eslint-disable-next-line react/jsx-indent
-                  <Tr>
+              : Array.from(Array(50)).map((_, i) => (
+                  // eslint-disable-next-line react/jsx-indent, react/no-array-index-key
+                  <Tr key={`LoadingText-${i}`}>
                     <Td>
                       <LoadingText />
                     </Td>
@@ -245,8 +245,8 @@ export class LanguageToolsBase extends React.Component<Props> {
                     <Td>
                       <LoadingText />
                     </Td>
-                  </Tr>,
-                )}
+                  </Tr>
+                ))}
           </Tbody>
         </Table>
       </Card>

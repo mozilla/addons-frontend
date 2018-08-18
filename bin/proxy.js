@@ -24,9 +24,12 @@ log.info(`frontendHost: ${frontendHost}`);
 const array = (value) => {
   if (!value) {
     return [];
-  } else if (Array.isArray(value)) {
+  }
+
+  if (Array.isArray(value)) {
     return value;
   }
+
   return [value];
 };
 

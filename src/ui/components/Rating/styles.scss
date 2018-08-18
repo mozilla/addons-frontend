@@ -1,72 +1,83 @@
-@import './vars';
-
-.Rating,
-.Rating-star-group {
-  display: flex;
-}
+@import '~core/css/inc/mixins';
 
 .Rating {
+  align-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
   justify-content: center;
-  margin: $rating-top-margin 0;
+
+  // The width of small rating stars are controlled by .Rating-star.
+  &.Rating--small {
+    grid-column-gap: 4px;
+    min-height: 13px;
+    width: min-content;
+  }
+
+  // The width of large rating stars are controlled by the container.
+  &.Rating--large {
+    grid-column-gap: 6px;
+    min-height: 48px;
+    width: 100%;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    &.Rating--large {
+      grid-column-gap: 12px;
+      min-height: 64px;
+    }
+  }
 }
 
-.Rating-choice {
-  background: url('./img/dim-star.svg') center/$rating-l-star-size no-repeat;
-  height: $rating-l-star-size + $rating-l-star-gutter;
-  width: $rating-l-star-size + $rating-l-star-gutter;
+.Rating-star {
+  background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
+  padding: 0;
+
+  .Rating--small & {
+    min-width: 13px;
+  }
 }
 
 .Rating--editable {
-  .Rating-choice {
-    background-image: url('./img/dim-star-gold.svg');
+  .Rating-star {
+    background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
-  }
-
-  // The following rules make the ranges of stars appear selected when
-  // you hover over them. For example, when you hover over the third star,
-  // only the first three stars appear selected.
-
-  // First, make all stars appear selected when you hover over the group.
-  .Rating-star-group:hover .Rating-choice,
-  .Rating-choice:focus {
-    background-image: url('./img/full-star-gold.svg');
-  }
-
-  // Second, de-select all stars to the right of the cursor.
-  .Rating-choice:hover ~ .Rating-choice {
-    background-image: url('./img/dim-star-gold.svg');
   }
 }
 
 .Rating-selected-star {
-  background-image: url('./img/full-star.svg');
+  background-image: url('./img/closed-star-gray.svg');
 }
 
 .Rating--editable .Rating-selected-star {
-  background-image: url('./img/full-star-gold.svg');
+  background-image: url('./img/closed-star-yellow.svg');
 }
 
 .Rating-half-star {
-  background-image: url('./img/half-star.svg');
+  background-image: url('./img/half-star-gray.svg');
 
   [dir='rtl'] & {
     transform: scaleX(-1);
   }
 }
 
-.Rating--small .Rating-choice {
-  background-size: $rating-s-star-size;
-  height: $rating-s-star-size + $rating-s-star-gutter;
-  margin: 0;
-  width: $rating-s-star-size + $rating-s-star-gutter;
-}
-
-.Rating--by-owner {
-  .Rating-choice {
-    background-image: url('./img/dim-star-gold.svg');
+.Rating--yellowStars {
+  // When stars are read-only, they are closed. Otherwise, they are open.
+  .Rating-star {
+    background-image: url('./img/closed-star-dim-yellow.svg');
   }
 
-  .Rating-selected-star {
-    background-image: url('./img/full-star-gold.svg');
+  &.Rating--editable .Rating-star {
+    background-image: url('./img/open-star-dim-yellow.svg');
+  }
+
+  .Rating-selected-star,
+  &.Rating--editable .Rating-selected-star {
+    background-image: url('./img/closed-star-yellow.svg');
+  }
+
+  // This doesn't define an editable half-star because that's not possible.
+  .Rating-half-star {
+    background-image: url('./img/half-star-yellow.svg');
   }
 }

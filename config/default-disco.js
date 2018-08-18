@@ -20,6 +20,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'discoParamsToUse',
+    'enableAMInstallButton',
     'enableClientConsole',
     'enableDevTools',
     'isDeployed',

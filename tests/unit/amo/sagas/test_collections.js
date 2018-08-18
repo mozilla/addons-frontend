@@ -8,6 +8,7 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  addonRemovedFromCollection,
   beginCollectionModification,
   createCollection,
   deleteCollection,
@@ -732,6 +733,24 @@ describe(__filename, () => {
       );
     };
 
+    it('dispatches addonRemovedFromCollection after removing an add-on from a collection', async () => {
+      mockApi
+        .expects('removeAddonFromCollection')
+        .once()
+        .returns(Promise.resolve());
+
+      _removeAddonFromCollection();
+
+      const expectedRemovedAction = addonRemovedFromCollection();
+
+      const removedAction = await sagaTester.waitFor(
+        expectedRemovedAction.type,
+      );
+      expect(removedAction).toEqual(expectedRemovedAction);
+
+      mockApi.verify();
+    });
+
     it('deletes an add-on from a collection', async () => {
       const params = {
         addonId: 123,
@@ -822,17 +841,18 @@ describe(__filename, () => {
 
       _deleteCollection(params);
 
-      const expectedUnloadAction = unloadCollectionBySlug(params.slug);
-
-      const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
-      expect(unloadAction).toEqual(expectedUnloadAction);
-
       const expectedPushAction = pushLocation(
         `/${lang}/${clientApp}/collections/`,
       );
 
       const pushAction = await sagaTester.waitFor(expectedPushAction.type);
       expect(pushAction).toEqual(expectedPushAction);
+
+      const expectedUnloadAction = unloadCollectionBySlug(params.slug);
+
+      const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
+      expect(unloadAction).toEqual(expectedUnloadAction);
+
       mockApi.verify();
     });
 

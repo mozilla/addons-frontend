@@ -68,6 +68,7 @@ type State = {|
 
 export class AddonReviewBase extends React.Component<InternalProps, State> {
   localState: LocalState;
+
   reviewTextarea: React.ElementRef<'textarea'> | null;
 
   static defaultProps = {

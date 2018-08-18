@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-01 18:54+0000\n"
-"PO-Revision-Date: 2018-07-24 21:35+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"PO-Revision-Date: 2018-08-17 10:43+0000\n"
+"Last-Translator: Jakob Kappel <jakobkpetersen@gmail.com>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -14,20 +14,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
+#: src/core/components/AMInstallButton/index.js:203
+msgid "Enable"
+msgstr "Aktivér"
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Remove"
+msgstr "Fjern"
+
+#: src/core/components/AMInstallButton/index.js:208
+msgid "Enabling"
+msgstr "Aktiverer"
+
+#: src/core/components/AMInstallButton/index.js:210
+msgid "Downloading"
+msgstr "Henter"
+
+#: src/core/components/AMInstallButton/index.js:212
+msgid "Installing"
+msgstr "Installerer"
+
+#: src/core/components/AMInstallButton/index.js:214
+msgid "Uninstalling"
+msgstr "Afinstallerer"
+
+#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+msgid "Install Theme"
+msgstr "Installer tema"
+
+#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+msgid "Add to Firefox"
+msgstr "Føj til Firefox"
+
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Serverfejl"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Beklager, men der var en fejl, og vi kunne ikke gennemføre din forespørgsel. "
-"Vi har registreret fejlen og vil undersøge den."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Beklager, men der var en fejl, og vi kunne ikke gennemføre din forespørgsel. Vi har registreret fejlen og vil undersøge den."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Fejlkode: %(status)s."
 
@@ -39,27 +66,17 @@ msgstr "Siden blev ikke fundet"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Vi beklager, men vi kan ikke finde noget på adressen, du indtastede."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Din tilføjelse er klar"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr "%(strongStart)s%(name)s%(strongEnd)s er blevet tilføjet"
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Du kan nu tilgå %(name)s fra værktøjslinjen."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr "Håndtér dine tilføjelser ved at klikke på Tilføjelser i menuen."
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
-msgstr "OK!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Installer tema"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Føj til Firefox"
+#: src/core/components/InfoDialog/index.js:84
+msgid "OK"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -89,39 +106,39 @@ msgstr "%(name)s er afinstalleret. Klik for at installere."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installationstilstand for %(name)s er ukendt."
 
-#: src/disco/components/Addon/index.js:141
+#: src/disco/components/Addon/index.js:160
 msgid "Preview of %(name)s"
 msgstr "Forhåndsvisning af %(name)s"
 
-#: src/disco/components/Addon/index.js:194
+#: src/disco/components/Addon/index.js:205
 msgid "Installation failed. Please try again."
 msgstr "Installationen mislykkedes. Prøv igen."
 
-#: src/disco/components/Addon/index.js:196
+#: src/disco/components/Addon/index.js:207
 msgid "Download failed. Please check your connection."
 msgstr "Filhentning mislykkedes. Kontroller din forbindelse."
 
-#: src/disco/components/Addon/index.js:198
+#: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
 msgstr "Der opstod en uventet fejl under installationen."
 
-#: src/disco/components/Addon/index.js:202
+#: src/disco/components/Addon/index.js:213
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Der opstod en uventet fejl under afinstallationen."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:218
 msgid "An unexpected error occurred."
 msgstr "Der opstod en uventet fejl."
 
-#: src/disco/components/Addon/index.js:215
+#: src/disco/components/Addon/index.js:226
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Denne tilføjelse vil blive afinstalleret, når du genstarter Firefox."
 
-#: src/disco/components/Addon/index.js:219
+#: src/disco/components/Addon/index.js:230
 msgid "Please restart Firefox to use this add-on."
 msgstr "Genstart Firefox for at bruge denne tilføjelse."
 
-#: src/disco/components/Addon/index.js:91
+#: src/disco/components/Addon/index.js:98
 msgid "Close"
 msgstr "Luk"
 
@@ -142,9 +159,8 @@ msgid "Discover Add-ons"
 msgstr "Find tilføjelser"
 
 #: src/disco/components/DiscoPane/index.js:121
-#, fuzzy
 msgid "Find more add-ons"
-msgstr "Se flere tilføjelser!"
+msgstr "Find flere tilføjelser"
 
 #: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
@@ -152,16 +168,11 @@ msgstr "Tilpas Firefox"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Udviklere over hele verden har lavet tusindvis af gratis tilføjelser, der "
-"kan personliggøre din surfen på internettet — du kan tilføje alt fra sjove "
-"temaer til kraftfulde værktøjer og funktioner. Her er nogle, som du kan "
-"prøve."
+"Udviklere over hele verden har lavet tusindvis af gratis tilføjelser, der kan personliggøre din surfen på internettet — du kan tilføje alt fra sjove temaer til kraftfulde værktøjer og funktioner. "
+"Her er nogle, som du kan prøve."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -183,10 +194,14 @@ msgstr "Genindlæs for at fortsætte"
 msgid "Dismiss this notice"
 msgstr "Afvis denne meddelelse"
 
+#~ msgid "Your add-on is ready"
+#~ msgstr "Din tilføjelse er klar"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Du kan nu tilgå %(name)s fra værktøjslinjen."
+
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Hold markøren over for at få vist et eksempel, eller klik for at "
-#~ "installere %(name)s"
+#~ msgstr "Hold markøren over for at få vist et eksempel, eller klik for at installere %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Hold markøren over for billedet for at få vist et eksempel"

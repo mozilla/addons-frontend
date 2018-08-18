@@ -4,6 +4,7 @@ import { compose } from 'redux';
 
 import {
   collectionEditUrl,
+  collectionUrl,
   convertFiltersToQueryParams,
 } from 'amo/reducers/collections';
 import translate from 'core/i18n/translate';
@@ -21,6 +22,7 @@ import './styles.scss';
 
 export type Props = {|
   collection: CollectionType | null,
+  editing: boolean,
   filters: CollectionFilters,
   showEditButton: boolean,
 |};
@@ -32,7 +34,7 @@ type InternalProps = {|
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
   render() {
-    const { collection, filters, i18n, showEditButton } = this.props;
+    const { collection, editing, filters, i18n, showEditButton } = this.props;
 
     return (
       <div className="CollectionDetails">
@@ -67,18 +69,22 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
             },
           ]}
         />
-        {showEditButton &&
-          collection && (
+        {collection &&
+          (editing || showEditButton) && (
             <Button
-              className="CollectionDetails-edit-link"
+              className="CollectionDetails-action-button"
               buttonType="neutral"
               puffy
               to={{
-                pathname: collectionEditUrl({ collection }),
+                pathname: editing
+                  ? collectionUrl({ collection })
+                  : collectionEditUrl({ collection }),
                 query: convertFiltersToQueryParams(filters),
               }}
             >
-              {i18n.gettext('Edit this collection')}
+              {editing
+                ? i18n.gettext('Done editing')
+                : i18n.gettext('Edit this collection')}
             </Button>
           )}
       </div>

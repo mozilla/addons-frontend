@@ -40,7 +40,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
+import { showInfoDialog } from 'core/reducers/infoDialog';
 import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   createFakeTracking,
@@ -601,6 +601,40 @@ describe(__filename, () => {
         .returns(false);
     });
 
+    describe('isAddonEnabled', () => {
+      it('returns true when the add-on is enabled', async () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const addon = createInternalAddon(fakeAddon);
+
+        const { root } = renderWithInstallHelpers({
+          addon,
+          _addonManager: fakeAddonManager,
+        });
+        const { isAddonEnabled } = root.instance().props;
+        const isEnabled = await isAddonEnabled();
+
+        sinon.assert.calledWith(fakeAddonManager.getAddon, addon.guid);
+        expect(isEnabled).toEqual(true);
+      });
+
+      it('returns false when there is an error', async () => {
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          // Resolve a null addon which will trigger an exception.
+          getAddon: Promise.resolve(null),
+        });
+
+        const { root } = renderWithInstallHelpers({
+          addon: createInternalAddon(fakeAddon),
+          _addonManager: fakeAddonManager,
+        });
+
+        const { isAddonEnabled } = root.instance().props;
+        const isEnabled = await isAddonEnabled();
+
+        expect(isEnabled).toEqual(false);
+      });
+    });
+
     describe('setCurrentStatus', () => {
       it('sets the status to ENABLED when an enabled add-on found', () => {
         const installURL = 'http://the.url/';
@@ -989,16 +1023,21 @@ describe(__filename, () => {
           name,
           icon_url: iconUrl,
         });
-        const { root } = renderWithInstallHelpers({
+        const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });
         const { enable } = root.instance().props;
 
-        const fakeShowInfo = sinon.stub();
-        return enable({ _showInfo: fakeShowInfo }).then(() => {
+        return enable().then(() => {
           sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
+          sinon.assert.calledWith(
+            dispatch,
+            showInfoDialog({
+              addonName: addon.name,
+              imageURL: iconUrl,
+            }),
+          );
         });
       });
 
@@ -1013,16 +1052,15 @@ describe(__filename, () => {
           name,
           icon_url: iconUrl,
         });
-        const { root } = renderWithInstallHelpers({
+        const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
         });
         const { enable } = root.instance().props;
 
-        const fakeShowInfo = sinon.stub();
-        return enable({ _showInfo: fakeShowInfo }).then(() => {
+        return enable().then(() => {
           sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
+          sinon.assert.notCalled(dispatch);
         });
       });
 
@@ -1227,16 +1265,8 @@ describe(__filename, () => {
             showInfoDialog({
               addonName: addon.name,
               imageURL: iconUrl,
-              closeAction: sinon.match.func,
             }),
           );
-
-          const arg = dispatch.secondCall.args[0];
-
-          // Test that close action dispatches.
-          dispatch.resetHistory();
-          arg.payload.closeAction();
-          sinon.assert.calledWith(dispatch, closeInfoDialog());
         });
       });
 
@@ -1261,7 +1291,6 @@ describe(__filename, () => {
             showInfoDialog({
               addonName: addon.name,
               imageURL: iconUrl,
-              closeAction: sinon.match.func,
             }),
           );
         });

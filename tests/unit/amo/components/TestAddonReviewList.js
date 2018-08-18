@@ -2,11 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
-import {
-  clearAddonReviews,
-  fetchReviews,
-  setAddonReviews,
-} from 'amo/actions/reviews';
+import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
@@ -15,7 +11,7 @@ import AddonReviewList, {
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
-import RatingManager from 'amo/components/RatingManager';
+import RatingsByStar from 'amo/components/RatingsByStar';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import Paginate from 'core/components/Paginate';
 import {
@@ -39,12 +35,12 @@ import {
   createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
-  createFakeHistory,
   createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { setError } from 'core/actions/errors';
 import LoadingText from 'ui/components/LoadingText';
+import Rating from 'ui/components/Rating';
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
@@ -100,15 +96,28 @@ describe(__filename, () => {
     store.dispatch(action);
   };
 
+  const getAddonHeader = (root) => {
+    return shallow(root.find('.AddonReviewList-addon').prop('header'));
+  };
+
+  const renderAddonHeader = ({ addon = { ...fakeAddon } } = {}) => {
+    dispatchAddon(addon);
+    const root = render();
+    return getAddonHeader(root);
+  };
+
   describe('<AddonReviewList/>', () => {
     it('waits for an addon and reviews to load', () => {
       const location = createFakeLocation();
       const root = render({ addon: null, location });
-      expect(root.find('.AddonReviewList-header-icon img').prop('src')).toEqual(
+      const header = getAddonHeader(root);
+
+      expect(header.find('.AddonReviewList-header-icon img')).toHaveProp(
+        'src',
         fallbackIcon,
       );
       expect(
-        root.find('.AddonReviewList-header-text').find(LoadingText),
+        header.find('.AddonReviewList-header-text').find(LoadingText),
       ).toHaveLength(3);
 
       // Make sure four review placeholders were rendered.
@@ -441,10 +450,10 @@ describe(__filename, () => {
     });
 
     it("renders the add-on's icon in the header", () => {
-      const addon = fakeAddon;
-      dispatchAddon(addon);
-      const root = render();
-      const img = root.find('.AddonReviewList-header-icon img');
+      const addon = { ...fakeAddon };
+      const header = renderAddonHeader({ addon });
+      const img = header.find('.AddonReviewList-header-icon img');
+
       expect(img).toHaveProp('src', addon.icon_url);
     });
 
@@ -461,20 +470,20 @@ describe(__filename, () => {
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {
-      dispatchAddon({
+      const addon = {
         ...fakeAddon,
         icon_url: 'http://foo.com/hax.png',
-      });
-      const root = render();
-      const img = root.find('.AddonReviewList-header-icon img');
+      };
+      const header = renderAddonHeader({ addon });
+      const img = header.find('.AddonReviewList-header-icon img');
+
       expect(img).toHaveProp('src', fallbackIcon);
     });
 
     it('renders a hidden h1 for SEO', () => {
-      const addon = fakeAddon;
-      dispatchAddon(addon);
-      const root = render();
-      const h1 = root.find('.AddonReviewList-header h1');
+      const addon = { ...fakeAddon };
+      const header = renderAddonHeader({ addon });
+      const h1 = header.find('.AddonReviewList-header h1');
       expect(h1).toHaveClassName('visually-hidden');
       expect(h1).toHaveText(`Reviews for ${addon.name}`);
     });
@@ -508,45 +517,44 @@ describe(__filename, () => {
     });
 
     it('renders author names without links if no URLs', () => {
+      const name = 'Hayley';
       const addon = {
         ...fakeAddon,
         authors: [
           {
-            name: 'Hayley',
+            name,
             url: null,
           },
         ],
       };
-      dispatchAddon(addon);
-      const root = render();
+      const header = renderAddonHeader({ addon });
+      const h3 = header.find('.AddonReviewList-header-authors').render();
 
-      const h3 = root.find('.AddonReviewList-header-authors');
-
-      expect(h3.render().text()).toEqual('by Hayley');
-      expect(h3.render().find('a')).toHaveLength(0);
+      expect(h3.text()).toEqual(`by ${name}`);
+      expect(h3.find('a')).toHaveLength(0);
     });
 
     it('renders author names with URLs if they exist', () => {
+      const name1 = 'Chantal';
+      const name2 = 'Leroy';
       const addon = {
         ...fakeAddon,
         authors: [
           {
-            name: 'Chantal',
+            name: name1,
             url: 'http://www.carolynmark.com/',
           },
           {
-            name: 'Leroy',
+            name: name2,
             url: 'http://www.carolynmark.com/',
           },
         ],
       };
-      dispatchAddon(addon);
-      const root = render();
+      const header = renderAddonHeader({ addon });
+      const h3 = header.find('.AddonReviewList-header-authors').render();
 
-      const h3 = root.find('.AddonReviewList-header-authors');
-
-      expect(h3.render().text()).toEqual('by Chantal, Leroy');
-      expect(h3.render().find('a')).toHaveLength(2);
+      expect(h3.text()).toEqual(`by ${name1}, ${name2}`);
+      expect(h3.find('a')).toHaveLength(2);
     });
 
     it('configures CardList with a count of text reviews', () => {
@@ -640,76 +648,103 @@ describe(__filename, () => {
       const root = render();
       expect(root.find('title')).toHaveLength(0);
     });
+  });
 
-    it('configures a rating manager', () => {
-      dispatchAddon(fakeAddon);
-      const location = createFakeLocation();
-      const root = render({ reviews: null, location });
+  describe('overallRatingStars', () => {
+    it('renders Rating without an add-on', () => {
+      const root = render({ addon: null });
+      const rating = root.find(Rating);
 
-      const manager = root.find(RatingManager);
-      expect(manager).toHaveLength(1);
-
-      const instanceProps = root.instance().props;
-      expect(manager).toHaveProp('addon', instanceProps.addon);
-      expect(manager).toHaveProp('location', location);
-      expect(manager).toHaveProp(
-        'version',
-        instanceProps.addon.current_version,
-      );
-      expect(manager).toHaveProp('onReviewSubmitted');
+      expect(rating).toHaveProp('rating', null);
     });
 
-    it('does not render a rating manager without a version', () => {
-      dispatchAddon({ ...fakeAddon, current_version: null });
+    it('renders Rating without add-on ratings', () => {
+      const addon = { ...fakeAddon, ratings: undefined };
+      dispatchAddon(addon);
+      const root = render();
+      const rating = root.find(Rating);
+
+      expect(rating).toHaveProp('rating', undefined);
+    });
+
+    it('renders Rating with add-on ratings', () => {
+      const addon = {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          average: 4.5,
+        },
+      };
+      dispatchAddon(addon);
+      const root = render();
+      const rating = root.find(Rating);
+
+      expect(rating).toHaveProp('rating', addon.ratings.average);
+    });
+
+    it('renders RatingsByStar without an add-on', () => {
+      const root = render({ addon: null });
+      const ratingsByStar = root.find(RatingsByStar);
+
+      expect(ratingsByStar).toHaveProp('addon', null);
+    });
+
+    it('renders RatingsByStar with an add-on', () => {
+      const addon = { ...fakeAddon, id: 8892 };
+      dispatchAddon(addon);
+      const root = render();
+      const ratingsByStar = root.find(RatingsByStar);
+
+      expect(ratingsByStar).toHaveProp('addon');
+      // Do a sanity check to make sure the right add-on was used.
+      // This can't compare the full object since it the test doesn't have
+      // access to the internal add-on.
+      expect(ratingsByStar.prop('addon')).toMatchObject({ id: addon.id });
+    });
+
+    it('renders loading text without an add-on', () => {
+      const root = render({ addon: null });
+
+      expect(
+        root.find('.AddonReviewList-addonAverage').find(LoadingText),
+      ).toHaveLength(1);
+    });
+
+    it('renders empty text without add-on ratings', () => {
+      dispatchAddon({ ...fakeAddon, ratings: undefined });
       const root = render();
 
-      expect(root.find(RatingManager)).toHaveLength(0);
+      expect(root.find('.AddonReviewList-addonAverage').text()).toEqual('');
     });
 
-    it('handles a submitted review', () => {
-      const addonSlug = 'some-slug';
-      dispatchAddon({ ...fakeAddon, slug: addonSlug });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const root = render({ reviews: null, params: { addonSlug } });
-
-      const manager = root.find(RatingManager);
-      expect(manager).toHaveProp('onReviewSubmitted');
-      const onReviewSubmitted = manager.prop('onReviewSubmitted');
-
-      // Simulate a review submission.
-      onReviewSubmitted();
-
-      sinon.assert.calledWith(dispatchSpy, clearAddonReviews({ addonSlug }));
-    });
-
-    it('resets the page after submitting a review', () => {
-      const history = createFakeHistory();
-      const props = {
-        history,
-        location: createFakeLocation({
-          query: { page: 2 },
-        }),
-        params: {
-          addonSlug: fakeAddon.slug,
+    it('renders a fixed star average', () => {
+      dispatchAddon({
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          average: 4.6667,
         },
-        reviews: null,
-      };
-
-      dispatchAddon({ ...fakeAddon });
-
-      const root = render(props);
-
-      const manager = root.find(RatingManager);
-      expect(manager).toHaveProp('onReviewSubmitted');
-      const onReviewSubmitted = manager.prop('onReviewSubmitted');
-
-      // Simulate a review submission.
-      onReviewSubmitted();
-
-      sinon.assert.calledWith(history.push, {
-        pathname: `/${lang}/${clientApp}${root.instance().url()}`,
-        query: { page: 1 },
       });
+      const root = render();
+
+      expect(root.find('.AddonReviewList-addonAverage').text()).toEqual(
+        '4.7 star average',
+      );
+    });
+
+    it('renders whole number star averages', () => {
+      dispatchAddon({
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          average: 4.0,
+        },
+      });
+      const root = render();
+
+      expect(root.find('.AddonReviewList-addonAverage').text()).toEqual(
+        '4 star average',
+      );
     });
   });
 

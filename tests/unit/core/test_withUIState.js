@@ -25,7 +25,11 @@ describe(__filename, () => {
 
         return (
           <div className="overlay">
-            <button className="close-button" onClick={this.closeOverlay}>
+            <button
+              className="close-button"
+              onClick={this.closeOverlay}
+              type="button"
+            >
               Close overlay
             </button>
           </div>

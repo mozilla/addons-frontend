@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -214,18 +215,30 @@ export class UserProfileBase extends React.Component<InternalProps> {
       >
         <ul>
           {reviews.map((review) => {
+            const isDeveloperReply = review && review.isDeveloperReply;
+
             const byLine = (
-              <Link
-                title={i18n.gettext('Browse the reviews for this add-on')}
-                to={`/addon/${review.addonSlug}/reviews/`}
-              >
-                {i18n.moment(review.created).fromNow()}
-              </Link>
+              <span>
+                {isDeveloperReply && i18n.gettext('Developer response')}
+                <Link
+                  title={i18n.gettext('Browse the reviews for this add-on')}
+                  to={`/addon/${review.addonSlug}/reviews/`}
+                >
+                  {i18n.moment(review.created).fromNow()}
+                </Link>
+              </span>
             );
 
             return (
               <li key={String(review.id)}>
-                <UserReview review={review} byLine={byLine} />
+                <UserReview
+                  className={makeClassName('UserProfile-review', {
+                    'UserProfile-review--is-reply': isDeveloperReply,
+                  })}
+                  review={review}
+                  byLine={byLine}
+                  showRating={!isDeveloperReply}
+                />
               </li>
             );
           })}
@@ -351,7 +364,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   <Rating
                     rating={user.average_addon_rating}
                     readOnly
-                    styleName="small"
+                    styleSize="small"
                   />
                 ) : (
                   <LoadingText />
