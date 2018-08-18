@@ -266,7 +266,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     let shouldPushNewRoute = false;
     const newCollectionPage = computeNewCollectionPage(collection);
 
-    if (page !== newCollectionPage) {
+    if (page != newCollectionPage) {
       page = newCollectionPage;
       shouldPushNewRoute = true;
     }
