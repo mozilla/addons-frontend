@@ -70,11 +70,11 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
 
         <UserAvatar altText={altText} preview={preview} user={user} />
 
-        {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label
           className={makeClassName('UserProfileEditPicture-file', {
             'UserProfileEditPicture-file--has-focus': uiState.hasFocus,
           })}
+          htmlFor={name}
         >
           <input
             accept="image/png, image/jpeg"

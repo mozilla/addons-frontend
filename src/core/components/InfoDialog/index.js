@@ -80,7 +80,11 @@ export class InfoDialogBase extends React.Component<InternalProps> {
             </p>
           </div>
         </div>
-        <button className="InfoDialog-button" onClick={this.closeInfoDialog}>
+        <button
+          className="InfoDialog-button"
+          onClick={this.closeInfoDialog}
+          type="button"
+        >
           {i18n.gettext('OK')}
         </button>
       </div>
