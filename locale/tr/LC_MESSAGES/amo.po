@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 17:47+0000\n"
+"PO-Revision-Date: 2018-08-18 17:59+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -971,7 +971,7 @@ msgstr "Yeni tema gönder"
 
 #: src/amo/components/Header/index.js:140
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Gönderilerimi yönet"
 
 #: src/amo/components/Header/index.js:150
 msgid "Reviewer Tools"
@@ -2205,7 +2205,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:795
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "Bu e-posta adresini tekrar addons.mozilla.org adresine giriş yapmak için kullanırsanız, sildiğiniz profille hiçbir ilişkisi olmayan yeni bir Firefox Eklentileri profili oluşturulacaktır."
 
 #: src/amo/components/UserProfileEdit/index.js:808
 #, fuzzy
@@ -2222,7 +2222,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "eklenti geliştiricilerini ilgilendiren haber ve etkinlikleri size ulaştıralım (about:addons bülteni dahil)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
