@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 08:55+0000\n"
+"PO-Revision-Date: 2018-03-21 04:58+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1385,7 +1385,7 @@ msgstr "打开已下载至您的计算机的文件"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr "读取所有打开的标签页中的文本"
+msgstr "读取已打开的所有标签页的文本"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
