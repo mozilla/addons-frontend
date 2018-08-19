@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-19 14:15+0000\n"
-"Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
+"PO-Revision-Date: 2018-08-19 16:52+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s è stato aggiunto"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Gestisci i componenti aggiuntivi cliccando il pulsante Componenti aggiuntivi nel menu."
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"
