@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-19 14:31+0000\n"
+"PO-Revision-Date: 2018-08-19 14:49+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -345,27 +345,27 @@ msgstr "Scribe un replica a iste revision."
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Update reply"
-msgstr ""
+msgstr "Actualisar replica"
 
 #: src/amo/components/AddonReviewListItem/index.js:160
 msgid "Publish reply"
-msgstr ""
+msgstr "Publicar replica"
 
 #: src/amo/components/AddonReviewListItem/index.js:164
 msgid "Updating reply"
-msgstr ""
+msgstr "Actualisation del replica"
 
 #: src/amo/components/AddonReviewListItem/index.js:165
 msgid "Publishing reply"
-msgstr ""
+msgstr "Publication del replica"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
-msgstr ""
+msgstr "postate %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:208
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "per %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:236
 msgid "Edit my reply"
@@ -913,23 +913,23 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:48
 msgid "About"
-msgstr ""
+msgstr "A proposito"
 
 #: src/amo/components/Footer/index.js:53
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:58 src/amo/components/Header/index.js:85
 msgid "Developer Hub"
-msgstr ""
+msgstr "Centro de developpatores"
 
 #: src/amo/components/Footer/index.js:63
 msgid "Forum"
-msgstr ""
+msgstr "Foro"
 
 #: src/amo/components/Footer/index.js:71
 msgid "Report a bug"
-msgstr ""
+msgstr "Reportar un defecto"
 
 #: src/amo/components/Footer/index.js:76
 msgid "Review Guide"
@@ -937,7 +937,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:81
 msgid "Site Status"
-msgstr ""
+msgstr "Stato del sito"
 
 #: src/amo/components/Footer/index.js:93
 msgid "View classic desktop site"
@@ -949,7 +949,7 @@ msgstr "Vider mi collectiones"
 
 #: src/amo/components/Header/index.js:108 src/amo/components/UserProfileEdit/index.js:474
 msgid "View My Profile"
-msgstr ""
+msgstr "Vider mi profilo"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:480
 msgid "Edit My Profile"
@@ -957,15 +957,15 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:120
 msgid "Tools"
-msgstr ""
+msgstr "Instrumentos"
 
 #: src/amo/components/Header/index.js:126
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Inviar un nove additivo"
 
 #: src/amo/components/Header/index.js:131
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Inviar un nove thema"
 
 #: src/amo/components/Header/index.js:140
 msgid "Manage My Submissions"
@@ -977,24 +977,24 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:160 src/core/components/AuthenticateButton/index.js:78
 msgid "Log out"
-msgstr ""
+msgstr "Clauder le session"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Additivos de Firefox"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Mi conto"
 
 #: src/amo/components/Home/index.js:114
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcapaginas"
 
 #: src/amo/components/Home/index.js:118
 msgid "Password managers"
-msgstr ""
+msgstr "Gestor de contrasigno"
 
 #: src/amo/components/Home/index.js:122
 msgid "Ad blockers"
@@ -1006,7 +1006,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:130
 msgid "Productivity"
-msgstr ""
+msgstr "Productivitate"
 
 #: src/amo/components/Home/index.js:134
 msgid "Watching Videos"
@@ -1014,27 +1014,27 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:162
 msgid "Abstract"
-msgstr ""
+msgstr "Abstracto"
 
 #: src/amo/components/Home/index.js:167
 msgid "Nature"
-msgstr ""
+msgstr "Natura"
 
 #: src/amo/components/Home/index.js:172
 msgid "Film & TV"
-msgstr ""
+msgstr "Film & TV"
 
 #: src/amo/components/Home/index.js:177
 msgid "Scenery"
-msgstr ""
+msgstr "Paisage"
 
 #: src/amo/components/Home/index.js:182
 msgid "Music"
-msgstr ""
+msgstr "Musica"
 
 #: src/amo/components/Home/index.js:187
 msgid "Seasonal"
-msgstr ""
+msgstr "Saisonal"
 
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/components/Home/index.js:218
@@ -1239,7 +1239,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Authenticator"
-msgstr ""
+msgstr "Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Generate 2-step verification codes right in Firefox"
@@ -1347,19 +1347,19 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Dictionaries"
-msgstr ""
+msgstr "Dictionarios"
 
 #: src/amo/components/PermissionsCard/index.js:48
 msgid "Permissions"
-msgstr ""
+msgstr "Permissos"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
-msgstr ""
+msgstr "Iste additivo pote:"
 
 #: src/amo/components/PermissionsCard/index.js:62
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Saper plus super permissos"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
@@ -1403,7 +1403,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
-msgstr ""
+msgstr "Acceder al chronologia de navigation"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Monitor extension usage and manage themes"
@@ -1431,11 +1431,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Acceder al schedas claudite recentemente"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Accede al schedas del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Hide and show browser tabs"
@@ -1447,31 +1447,31 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Acceder al activitate del navigator durante le navigation"
 
 #: src/amo/components/RatingManager/index.js:166
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Authentica te pro valutar iste dictionario"
 
 #: src/amo/components/RatingManager/index.js:168
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Authentica te pro valutar iste pacchetto de lingua"
 
 #: src/amo/components/RatingManager/index.js:170
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "Authentica te pro valutar iste plugin de recerca"
 
 #: src/amo/components/RatingManager/index.js:173
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Authentica te pro valutar iste thema"
 
 #: src/amo/components/RatingManager/index.js:175
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Authentica te pro valutar iste extension"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Authentica te pro valutar iste additivo"
 
 #: src/amo/components/RatingManager/index.js:221
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -1507,15 +1507,15 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:213
 msgid "Dismiss"
-msgstr ""
+msgstr "Dimitter"
 
 #: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Invio de reporto de abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:224 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "Inviar reporto de abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
@@ -1883,7 +1883,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:21 src/amo/components/StaticPages/ReviewGuide/index.js:23
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Lineas guida del revisiones"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:29
 msgid ""
