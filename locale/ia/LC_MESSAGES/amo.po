@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-19 14:49+0000\n"
+"PO-Revision-Date: 2018-08-19 21:51+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -204,7 +204,7 @@ msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
-msgstr ""
+msgstr "Non ancora valutate"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:127
@@ -213,11 +213,11 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Lege le politica de confidentialitate pro iste additivo"
 
 #: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Lege le accordo de licentia pro iste additivo"
 
 #: src/amo/components/AddonMoreInfo/index.js:157
 msgid "See all versions"
