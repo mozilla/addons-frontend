@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-16 07:05+0000\n"
+"PO-Revision-Date: 2018-08-19 03:04+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -27,14 +27,12 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Mengunduh %(name)s."
+msgstr "Mengunduh"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Memasang %(name)s."
+msgstr "Memasang"
 
 #: src/core/components/AMInstallButton/index.js:214
 #, fuzzy
@@ -164,9 +162,8 @@ msgid "Discover Add-ons"
 msgstr "Temukan Pengaya"
 
 #: src/disco/components/DiscoPane/index.js:121
-#, fuzzy
 msgid "Find more add-ons"
-msgstr "Lihat lebih banyak pengaya!"
+msgstr "Temukan lebih banyak pengaya"
 
 #: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
