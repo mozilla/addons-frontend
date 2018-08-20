@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-14 19:23+0000\n"
+"PO-Revision-Date: 2018-08-14 20:11+0000\n"
 "Last-Translator: Tanzeel Khan <tanzeelkhan94@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -1476,7 +1476,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Display notifications to you"
-msgstr ""
+msgstr "اطلاعات کی آپ کو نمائش کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Provide cryptographic authentication services"
@@ -1572,11 +1572,11 @@ msgstr "برخاست کریں"
 
 #: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "بدعنوانی کی رپورٹ بھیج رہا ہے"
 
 #: src/amo/components/ReportAbuseButton/index.js:224 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "بدعنوانی کی رپورٹ بھیجیں"
 
 #: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
@@ -2439,7 +2439,7 @@ msgstr "تصدیق کریں"
 
 #: src/ui/components/DismissibleTextForm/index.js:119
 msgid "Enter text."
-msgstr ""
+msgstr "متن درج کریں۔"
 
 #: src/ui/components/DismissibleTextForm/index.js:120
 msgid "Submit"
