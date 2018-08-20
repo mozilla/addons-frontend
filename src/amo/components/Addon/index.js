@@ -59,7 +59,7 @@ const slugIsPositiveID = (slug) => {
   return !isNaN(slug) && parseInt(slug, 10) > 0;
 };
 
-const STATUS_PUBLIC = 'public';
+export const STATUS_PUBLIC = 'public';
 
 export class AddonBase extends React.Component {
   static propTypes = {
