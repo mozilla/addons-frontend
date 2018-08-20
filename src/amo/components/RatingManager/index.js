@@ -10,9 +10,9 @@ import { withRenderedErrorHandler } from 'core/errorHandler';
 import { setLatestReview } from 'amo/actions/reviews';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import * as reviewsApi from 'amo/api/reviews';
-import DefaultAddonReview from 'amo/components/AddonReview';
-import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
-import DefaultReportAbuseButton from 'amo/components/ReportAbuseButton';
+import AddonReview from 'amo/components/AddonReview';
+import AuthenticateButton from 'core/components/AuthenticateButton';
+import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -24,7 +24,7 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import DefaultUserRating from 'ui/components/UserRating';
+import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
@@ -65,10 +65,6 @@ type DispatchMappedProps = {|
 type InternalProps = {|
   ...Props,
   ...DispatchMappedProps,
-  AddonReview: typeof DefaultAddonReview,
-  AuthenticateButton: typeof DefaultAuthenticateButton,
-  UserRating: typeof DefaultUserRating,
-  ReportAbuseButton: typeof DefaultReportAbuseButton,
   apiState: ApiState,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -81,13 +77,6 @@ type State = {|
 |};
 
 export class RatingManagerBase extends React.Component<InternalProps, State> {
-  static defaultProps = {
-    AddonReview: DefaultAddonReview,
-    AuthenticateButton: DefaultAuthenticateButton,
-    UserRating: DefaultUserRating,
-    ReportAbuseButton: DefaultReportAbuseButton,
-  };
-
   constructor(props: InternalProps) {
     super(props);
     this.state = { showTextEntry: false };
@@ -187,7 +176,8 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderLogInToRate() {
-    const { AuthenticateButton, addon, location } = this.props;
+    const { addon, location } = this.props;
+
     return (
       <AuthenticateButton
         noIcon
@@ -206,15 +196,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   };
 
   render() {
-    const {
-      AddonReview,
-      UserRating,
-      ReportAbuseButton,
-      i18n,
-      addon,
-      userId,
-      userReview,
-    } = this.props;
+    const { i18n, addon, userId, userReview } = this.props;
     const { showTextEntry } = this.state;
     const isLoggedIn = Boolean(userId);
 
@@ -250,7 +232,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
   if (userId && ownProps.addon) {
