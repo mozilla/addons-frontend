@@ -6,6 +6,7 @@ import AddonReviewManager, {
   AddonReviewManagerBase,
   extractId,
 } from 'amo/components/AddonReviewManager';
+import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import { dispatchClientMetadata, fakeReview } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
@@ -123,6 +124,19 @@ describe(__filename, () => {
         reviewId: review.id,
       }),
     );
+  });
+
+  it('renders errors', () => {
+    const { store } = dispatchClientMetadata();
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('any error'));
+
+    const root = render({ store, errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   describe('extractId', () => {

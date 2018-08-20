@@ -54,7 +54,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { i18n, review } = this.props;
+    const { errorHandler, i18n, review } = this.props;
 
     const reviewGuide = i18n.sprintf(
       i18n.gettext(
@@ -76,10 +76,9 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
       'Write about your experience with this add-on.',
     );
 
-    // TODO: render errors
-
     return (
       <div className="AddonReviewManager">
+        {errorHandler.renderErrorIfPresent()}
         <div className="AddonReviewManager-starRating">
           {i18n.gettext('Your star rating:')}
           <Rating
