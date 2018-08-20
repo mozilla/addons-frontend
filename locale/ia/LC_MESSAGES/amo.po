@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-20 00:12+0000\n"
+"PO-Revision-Date: 2018-08-20 00:29+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -497,7 +497,7 @@ msgstr "Categorias"
 
 #: src/amo/components/Categories/index.js:122
 msgid "Loading categories."
-msgstr ""
+msgstr "Cargamento del categorias."
 
 #: src/amo/components/Category/index.js:150 src/amo/components/LandingPage/index.js:229 src/amo/components/SectionLinks/index.js:88
 msgid "Extensions"
@@ -509,23 +509,23 @@ msgstr "Extensiones consiliate"
 
 #: src/amo/components/Category/index.js:160 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:153
 msgid "See more featured extensions"
-msgstr ""
+msgstr "Vide plus de extensiones consiliate"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:154 src/amo/components/Search/index.js:137
 msgid "Trending extensions"
-msgstr ""
+msgstr "Extensiones de tendentia"
 
 #: src/amo/components/Category/index.js:170 src/amo/components/LandingPage/index.js:162
 msgid "See more trending extensions"
-msgstr ""
+msgstr "Vide plus de extensiones de tendentia"
 
 #: src/amo/components/Category/index.js:171 src/amo/components/LandingPage/index.js:163 src/amo/components/Search/index.js:149
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Extensiones melio valutate"
 
 #: src/amo/components/Category/index.js:180 src/amo/components/LandingPage/index.js:171
 msgid "See more top rated extensions"
-msgstr ""
+msgstr "Vide plus de extensiones melio valutate"
 
 #: src/amo/components/Category/index.js:183 src/amo/components/LandingPage/index.js:228 src/amo/components/SectionLinks/index.js:98
 msgid "Themes"
@@ -537,23 +537,23 @@ msgstr "Themas consiliate"
 
 #: src/amo/components/Category/index.js:193 src/amo/components/Home/index.js:280 src/amo/components/LandingPage/index.js:182
 msgid "See more featured themes"
-msgstr ""
+msgstr "Vide plus de themas consiliate"
 
 #: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:183 src/amo/components/Search/index.js:140
 msgid "Trending themes"
-msgstr ""
+msgstr "Themas de tendentia"
 
 #: src/amo/components/Category/index.js:203 src/amo/components/LandingPage/index.js:188
 msgid "See more trending themes"
-msgstr ""
+msgstr "Vide plus de themas de tendentia"
 
 #: src/amo/components/Category/index.js:204 src/amo/components/LandingPage/index.js:189 src/amo/components/Search/index.js:152
 msgid "Top rated themes"
-msgstr ""
+msgstr "Themas melio valutate"
 
 #: src/amo/components/Category/index.js:213 src/amo/components/LandingPage/index.js:194
 msgid "See more top rated themes"
-msgstr ""
+msgstr "Vide plus de themas melio valutate"
 
 #: src/amo/components/CategoryHeader/index.js:41
 msgid "Browse all add-ons in this category."
@@ -737,11 +737,11 @@ msgstr ""
 
 #: src/amo/components/DownloadFirefoxButton/index.js:40 src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
-msgstr ""
+msgstr "Discargar Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
 msgid "Leave a note"
-msgstr ""
+msgstr "Lassar un nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140 src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
@@ -793,7 +793,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Pagina non trovate"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -803,7 +803,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Error de servitor"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -819,75 +819,75 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag"
-msgstr ""
+msgstr "Signalar"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flagged"
-msgstr ""
+msgstr "Signalate"
 
 #: src/amo/components/FlagReviewMenu/index.js:127
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Signalar iste responsa de disveloppator"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag this review"
-msgstr ""
+msgstr "Signalar iste revision"
 
 #: src/amo/components/FlagReviewMenu/index.js:62
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Authentica te pro signalar iste responsa"
 
 #: src/amo/components/FlagReviewMenu/index.js:63
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "Authentica te pro signalar iste revision"
 
 #: src/amo/components/FlagReviewMenu/index.js:72
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Tu non pote signalar tu proprie responsa"
 
 #: src/amo/components/FlagReviewMenu/index.js:73
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Tu non pote signalar tu proprie revision"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Isto es spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Signalate como spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Isto contine linguage inappropriate"
 
 #: src/amo/components/FlagReviewMenu/index.js:94
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Signalate pro linguage inappropriate"
 
 #: src/amo/components/Footer/index.js:111
 msgid "Android Browser"
-msgstr ""
+msgstr "Navigator pro Android"
 
 #: src/amo/components/Footer/index.js:116
 msgid "iOS Browser"
-msgstr ""
+msgstr "Navigator pro iOS"
 
 #: src/amo/components/Footer/index.js:121
 msgid "Focus Browser"
-msgstr ""
+msgstr "Navigator Focus"
 
 #: src/amo/components/Footer/index.js:126
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Navigator pro scriptorio"
 
 #: src/amo/components/Footer/index.js:131
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Edition de disveloppator"
 
 #: src/amo/components/Footer/index.js:160
 msgid "Privacy"
-msgstr ""
+msgstr "Confidentialitate"
 
 #: src/amo/components/Footer/index.js:168
 msgid "Cookies"
@@ -899,7 +899,7 @@ msgstr "Legal"
 
 #: src/amo/components/Footer/index.js:184
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "Reportar abuso de marca registrate"
 
 #: src/amo/components/Footer/index.js:194
 msgid ""
@@ -1343,7 +1343,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:173
 msgid "Language Packs"
-msgstr ""
+msgstr "Pacchettos de lingua"
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Dictionaries"
@@ -1363,11 +1363,11 @@ msgstr "Saper plus super permissos"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Leger e modificar le marcapaginas"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Leger e modificar le parametros del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
@@ -1375,31 +1375,31 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Obtener le datos ab le planchetta"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Inserer le datos in le planchetta"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Extende le instrumentos de developpator pro acceder a tu datos in le schedas aperite"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Discargar files e leger e modificar le chronologia de discargas del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Aperir le files discargate in tu computator"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Lege le texto de tote le schedas aperite"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Access your location"
-msgstr ""
+msgstr "Acceder a tu geolocalisation"
 
 #: src/amo/components/PermissionsCard/permissions.js:41 src/amo/components/PermissionsCard/permissions.js:55
 msgid "Access browsing history"
@@ -1407,11 +1407,11 @@ msgstr "Acceder al chronologia de navigation"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Surveliar le utilisation del extensiones e gerer le themas"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Excambiar messages con programmas differente de Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Display notifications to you"
