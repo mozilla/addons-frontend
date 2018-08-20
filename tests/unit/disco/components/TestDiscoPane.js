@@ -27,10 +27,11 @@ import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {
   MockedSubComponent,
+  createFakeLocation,
   createFakeTracking,
   createStubErrorHandler,
   fakeI18n,
-  createFakeLocation,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -181,15 +182,6 @@ describe(__filename, () => {
       handleGlobalEvent(payload);
       sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
     });
-
-    it('does not pass handleGlobalEvent when on the server', () => {
-      const dispatch = sinon.stub();
-      const configSource = { server: true };
-      const configStub = { get: (key) => configSource[key] };
-      expect(mapDispatchToProps(dispatch, { _config: configStub })).toEqual({
-        dispatch,
-      });
-    });
   });
 
   describe('constructor', () => {
@@ -327,12 +319,25 @@ describe(__filename, () => {
   });
 
   describe('componentDidMount', () => {
-    it('sets events', () => {
+    it('does not set events on the server', () => {
+      const _config = getFakeConfig({ server: true });
       const fakeMozAddonManager = {
         addEventListener: sinon.stub(),
       };
-      renderAndMount({ mozAddonManager: fakeMozAddonManager });
-      expect(fakeMozAddonManager.addEventListener.callCount).toEqual(
+
+      renderAndMount({ _config, mozAddonManager: fakeMozAddonManager });
+      sinon.assert.notCalled(fakeMozAddonManager.addEventListener);
+    });
+
+    it('sets events on the client', () => {
+      const _config = getFakeConfig({ server: false });
+      const fakeMozAddonManager = {
+        addEventListener: sinon.stub(),
+      };
+
+      renderAndMount({ _config, mozAddonManager: fakeMozAddonManager });
+      sinon.assert.callCount(
+        fakeMozAddonManager.addEventListener,
         GLOBAL_EVENTS.length,
       );
     });

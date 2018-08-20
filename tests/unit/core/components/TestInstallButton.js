@@ -55,6 +55,7 @@ describe(__filename, () => {
   });
 
   const renderProps = (customProps = {}) => ({
+    _config: getFakeConfig({ client: true }),
     addon: createInternalAddon(fakeAddon),
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,

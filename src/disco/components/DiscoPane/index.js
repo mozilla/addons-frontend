@@ -38,6 +38,7 @@ export class DiscoPaneBase extends React.Component {
     }).isRequired,
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
+    _config: PropTypes.object,
     _tracking: PropTypes.object,
   };
 
@@ -45,6 +46,7 @@ export class DiscoPaneBase extends React.Component {
     AddonComponent: Addon,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     _addChangeListeners: addChangeListeners,
+    _config: config,
     _tracking: tracking,
   };
 
@@ -81,9 +83,15 @@ export class DiscoPaneBase extends React.Component {
   componentDidMount() {
     const {
       _addChangeListeners,
+      _config,
       handleGlobalEvent,
       mozAddonManager,
     } = this.props;
+
+    if (_config.get('server')) {
+      return;
+    }
+
     // Use addonManager.addChangeListener to setup and filter events.
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
@@ -188,14 +196,10 @@ export function mapStateToProps(state) {
   };
 }
 
-export function mapDispatchToProps(dispatch, { _config = config } = {}) {
-  const props = { dispatch };
-  if (_config.get('server')) {
-    return props;
-  }
+export function mapDispatchToProps(dispatch) {
   return {
-    ...props,
-    handleGlobalEvent(payload) {
+    dispatch,
+    handleGlobalEvent: (payload) => {
       dispatch({ type: INSTALL_STATE, payload });
     },
   };

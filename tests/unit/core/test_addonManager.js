@@ -43,13 +43,7 @@ describe(__filename, () => {
     });
 
     it('is false if mozAddonManager is not in navigator', () => {
-      expect(addonManager.hasAddonManager()).toBeFalsy();
-    });
-
-    it('is undefined if there is no window', () => {
-      expect(addonManager.hasAddonManager({ hasWindow: () => false })).toEqual(
-        undefined,
-      );
+      expect(addonManager.hasAddonManager()).toEqual(false);
     });
   });
 

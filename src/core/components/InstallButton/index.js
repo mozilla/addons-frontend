@@ -79,7 +79,7 @@ export class InstallButtonBase extends React.Component {
     getClientCompatibility: PropTypes.func,
     guid: PropTypes.string.isRequired,
     handleChange: PropTypes.func,
-    hasAddonManager: PropTypes.bool,
+    hasAddonManager: PropTypes.bool.isRequired,
     header: PropTypes.string,
     headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
@@ -215,10 +215,11 @@ export class InstallButtonBase extends React.Component {
       return null;
     }
 
-    // OpenSearch plugins display their own prompt so using the "Add to
-    // Firefox" button regardless on mozAddonManager support is a better UX.
     const useButton =
-      (hasAddonManager !== undefined && !hasAddonManager) ||
+      // mozAddonManager may only be available on the client.
+      (_config.get('client') && !hasAddonManager) ||
+      // OpenSearch plugins display their own prompt so using the "Add to
+      // Firefox" button regardless on mozAddonManager support is a better UX.
       addon.type === ADDON_TYPE_OPENSEARCH ||
       this.props.useButton;
     let button;
