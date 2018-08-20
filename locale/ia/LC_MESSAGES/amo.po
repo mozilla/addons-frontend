@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-19 22:10+0000\n"
+"PO-Revision-Date: 2018-08-20 00:12+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -91,7 +91,7 @@ msgstr "A proposito de iste additivo"
 
 #: src/amo/components/Addon/index.js:325
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Notas de version pro %(addonVersion)s"
 
 # Example: The Add-On <span>by The Author</span>
 #: src/amo/components/Addon/index.js:443
@@ -100,11 +100,11 @@ msgstr "%(addonName)s %(startSpan)sper %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:558
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "Solo con Firefox — Discarga lo subito"
 
 #: src/amo/components/Addon/index.js:564
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadatos del extension"
 
 #: src/amo/components/Addon/index.js:581
 msgid "Screenshots"
@@ -132,11 +132,11 @@ msgstr "Experimental"
 
 #: src/amo/components/AddonBadges/index.js:63
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Non compatibile con Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:69
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Alcun functionalitates pote ser a pagamento"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -144,19 +144,19 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Iste additivo non es compatibile con le version in uso de Firefox."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Tu version de Firefox non supporta plugin de recerca."
 
 #: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox pro iOS non supporta actualmente additivos."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Iste additivo non es disponibile sur tu systema operative."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -164,7 +164,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:94
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Tu navigator non supporta additivos. Tu pote <a href=\"%(downloadUrl)s\">discargar Firefox</a> pro installar iste additivo."
 
 #: src/amo/components/AddonMeta/index.js:39
 msgid "Users"
@@ -200,7 +200,7 @@ msgstr "Usate per"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "%(rating)s star average"
-msgstr ""
+msgstr "%(rating)s stella medie"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Not rated yet"
@@ -277,7 +277,7 @@ msgstr "Visita dashboard de statistica"
 
 #: src/amo/components/AddonRecommendations/index.js:132
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Altere usatores con iste extension alsi installate"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other popular extensions"
