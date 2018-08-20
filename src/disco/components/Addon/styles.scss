@@ -37,32 +37,6 @@ $addon-padding: 20px;
     }
   }
 
-  &.theme {
-    display: block;
-
-    .content .copy {
-      padding: 20px;
-    }
-  }
-
-  .theme-image-link {
-    border-bottom: 2px solid #f5f5f5;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    display: block;
-    overflow: hidden;
-
-    img {
-      display: block;
-      float: right;
-      height: 100px;
-    }
-
-    &:focus {
-      @include focus();
-    }
-  }
-
   .InstallButton,
   .InstallButton--disabled {
     margin: 0 20px 10px;
@@ -156,6 +130,7 @@ $addon-padding: 20px;
     .copy {
       flex-grow: 1;
       padding: 20px 20px 15px;
+      word-wrap: break-word;
 
       // Remove the bottom margin of the last element.
       & :last-child {
@@ -242,4 +217,10 @@ $addon-padding: 20px;
       }
     }
   }
+}
+
+.addon .ThemeImage {
+  border-bottom: 2px solid #f5f5f5;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }

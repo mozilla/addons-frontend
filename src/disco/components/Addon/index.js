@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import config from 'config';
 import makeClassName from 'classnames';
-import { sprintf } from 'jed';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -29,7 +28,6 @@ import {
   validInstallStates,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { getPreviewImage } from 'core/imageUtils';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByGUID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
@@ -37,6 +35,7 @@ import { isTheme } from 'core/utils';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
+import ThemeImage from 'ui/components/ThemeImage';
 
 import './styles.scss';
 
@@ -113,47 +112,33 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { addon } = this.props;
-    const { type } = addon;
+    const { addon, getBrowserThemeData, hasAddonManager } = this.props;
 
-    if (isTheme(type)) {
-      const { getBrowserThemeData, hasAddonManager, i18n } = this.props;
-      const { name, previewURL } = addon;
-
-      let imageUrl = getPreviewImage(addon);
-
-      let headerLinkProps = {
-        className: 'theme-image-link',
-        href: '#',
-        onClick: this.installStaticTheme,
-      };
-
-      if (type === ADDON_TYPE_THEME) {
-        imageUrl = previewURL;
-
-        headerLinkProps = {
-          ...headerLinkProps,
-          onClick: this.installTheme,
-          'data-browsertheme': getBrowserThemeData(),
-        };
-      }
-
-      const headerImage = (
-        <img
-          alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
-          className="Addon-theme-header-image"
-          src={imageUrl}
-        />
-      );
-
-      return hasAddonManager ? (
-        <a {...headerLinkProps}>{headerImage}</a>
-      ) : (
-        headerImage
-      );
+    if (!addon || !isTheme(addon.type)) {
+      return null;
     }
 
-    return null;
+    let imageLinkProps = {
+      className: 'Addon-ThemeImage-link',
+      href: '#',
+      onClick: this.installStaticTheme,
+    };
+
+    if (addon.type === ADDON_TYPE_THEME) {
+      imageLinkProps = {
+        ...imageLinkProps,
+        onClick: this.installTheme,
+        'data-browsertheme': getBrowserThemeData(),
+      };
+    }
+
+    const themeImage = <ThemeImage addon={addon} />;
+
+    return hasAddonManager ? (
+      <a {...imageLinkProps}>{themeImage}</a>
+    ) : (
+      <span>{themeImage}</span>
+    );
   }
 
   getDescription() {

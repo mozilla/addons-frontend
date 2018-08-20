@@ -120,33 +120,6 @@
   grid-template-columns: 1fr;
 }
 
-.Addon-theme-header {
-  border-radius: $border-radius-default;
-  height: auto;
-  max-height: $theme-height-legacy;
-  max-width: $theme-width-default;
-  order: -1;
-  overflow-y: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.Addon-theme-header-label {
-  bottom: 10px;
-  left: 10px;
-  position: absolute;
-}
-
-.Addon-theme-header-image {
-  border-radius: $border-radius-default;
-  display: block;
-  height: auto;
-  max-width: $theme-width-default;
-  object-fit: cover;
-  object-position: top left;
-  width: 100%;
-}
-
 .Addon-summary-and-install-button-wrapper {
   grid-column: 1 / span 2;
   width: 100%;
