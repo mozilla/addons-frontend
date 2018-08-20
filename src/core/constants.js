@@ -303,4 +303,4 @@ export const ALL_SUPER_POWERS = '*:*';
 export const RTL = 'rtl';
 export const LTR = 'ltr';
 
-export const STATUS_PUBLIC: 'public' = 'public';
+export const STATUS_PUBLIC = 'public';
