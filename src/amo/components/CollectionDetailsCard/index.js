@@ -5,6 +5,7 @@ import { compose } from 'redux';
 
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
+import { beginEditingCollectionDetails } from 'amo/reducers/collections';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import {
   FEATURED_THEMES_COLLECTION_EDIT,
@@ -17,6 +18,7 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
+import type { DispatchFunc } from 'core/types/redux';
 
 export type Props = {|
   collection: CollectionType | null,
@@ -27,6 +29,8 @@ export type Props = {|
 
 type InternalProps = {|
   ...Props,
+  dispatch: DispatchFunc,
+  editingCollectionDetails: boolean,
   hasEditPermission: boolean,
   hasMaintainerPermission: boolean,
 |};
@@ -48,6 +52,8 @@ export const CollectionDetailsCardBase = (props: InternalProps) => {
         collection={collection}
         creating={creating}
         filters={filters}
+        hasEditPermission={hasEditPermission}
+        showEditButton={hasMaintainerPermission && !editing}
       />
     );
   }
@@ -88,6 +94,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   }
 
   return {
+    editingCollectionDetails: state.collections.editingCollectionDetails,
     hasEditPermission,
     hasMaintainerPermission,
   };

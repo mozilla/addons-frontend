@@ -47,6 +47,10 @@ export const UPDATE_COLLECTION_ADDON: 'UPDATE_COLLECTION_ADDON' =
   'UPDATE_COLLECTION_ADDON';
 export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES' =
   'DELETE_COLLECTION_ADDON_NOTES';
+export const BEGIN_EDITING_COLLECTION_DETAILS: 'BEGIN_EDITING_COLLECTION_DETAILS' =
+  'BEGIN_EDITING_COLLECTION_DETAILS';
+export const FINISH_EDITING_COLLECTION_DETAILS: 'FINISH_EDITING_COLLECTION_DETAILS' =
+  'FINISH_EDITING_COLLECTION_DETAILS';
 
 export type CollectionFilters = {|
   page: number,
@@ -102,6 +106,7 @@ export type CollectionsState = {
   isCollectionBeingModified: boolean,
   hasAddonBeenAdded: boolean,
   hasAddonBeenRemoved: boolean,
+  editingCollectionDetails: boolean,
 };
 
 export const initialState: CollectionsState = {
@@ -113,6 +118,7 @@ export const initialState: CollectionsState = {
   isCollectionBeingModified: false,
   hasAddonBeenAdded: false,
   hasAddonBeenRemoved: false,
+  editingCollectionDetails: false,
 };
 
 type FetchCurrentCollectionParams = {|
@@ -786,6 +792,26 @@ export const deleteCollectionAddonNotes = ({
   };
 };
 
+type BeginEditingCollectionDetailsAction = {|
+  type: typeof BEGIN_EDITING_COLLECTION_DETAILS,
+|};
+
+export const beginEditingCollectionDetails = (): BeginEditingCollectionDetailsAction => {
+  return {
+    type: BEGIN_EDITING_COLLECTION_DETAILS,
+  };
+};
+
+type FinishEditingCollectionDetailsAction = {|
+  type: typeof FINISH_EDITING_COLLECTION_DETAILS,
+|};
+
+export const finishEditingCollectionDetails = (): FinishEditingCollectionDetailsAction => {
+  return {
+    type: FINISH_EDITING_COLLECTION_DETAILS,
+  };
+};
+
 export const createInternalAddons = (
   items: ExternalCollectionAddons,
 ): Array<CollectionAddonType> => {
@@ -1333,6 +1359,20 @@ const reducer = (
       return {
         ...state,
         hasAddonBeenRemoved: true,
+      };
+    }
+
+    case BEGIN_EDITING_COLLECTION_DETAILS: {
+      return {
+        ...state,
+        editingCollectionDetails: true,
+      };
+    }
+
+    case FINISH_EDITING_COLLECTION_DETAILS: {
+      return {
+        ...state,
+        editingCollectionDetails: false,
       };
     }
 
