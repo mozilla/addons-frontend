@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-20 13:59+0000\n"
+"PO-Revision-Date: 2018-08-20 14:25+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1091,7 +1091,7 @@ msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Αλλαγή προεπιλεγμένου προορισμού για τους σελιδοδείκτες σας"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1107,7 +1107,7 @@ msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Παρακολούθηση βίντεο ταυτόχρονα με άλλους"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1139,7 +1139,7 @@ msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Εξοικονόμηση μνήμης απενεργοποιώντας ανενεργές καρτέλες"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1155,7 +1155,7 @@ msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
-msgstr ""
+msgstr "Αυτόματη έναρξη του Firefox σε λειτουργία πλήρους οθόνης"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
