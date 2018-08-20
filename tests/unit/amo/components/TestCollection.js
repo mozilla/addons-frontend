@@ -9,8 +9,7 @@ import Collection, {
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
 import CollectionAddAddon from 'amo/components/CollectionAddAddon';
-import CollectionDetails from 'amo/components/CollectionDetails';
-import CollectionManager from 'amo/components/CollectionManager';
+import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import CollectionControls from 'amo/components/CollectionControls';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
@@ -32,12 +31,8 @@ import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import {
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
-  FEATURED_THEMES_COLLECTION_EDIT,
-  FEATURED_THEMES_COLLECTION_SLUG,
   INSTALL_SOURCE_COLLECTION,
   INSTALL_SOURCE_FEATURED_COLLECTION,
-  MOZILLA_COLLECTIONS_EDIT,
-  MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
@@ -129,10 +124,36 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
   });
 
-  it('renders a CollectionDetail when not editing', () => {
-    const wrapper = renderComponent({ creating: false, editing: false });
+  it('renders a CollectionDetailsCard', () => {
+    const creating = false;
+    const editing = false;
+    const addons = createFakeCollectionAddons();
+    const detail = createFakeCollectionDetail();
+    const pageSize = DEFAULT_API_PAGE_SIZE;
+    const collection = createInternalCollection({
+      detail,
+      items: addons,
+      pageSize,
+    });
+    const page = 1;
+    const sort = COLLECTION_SORT_NAME;
+    const queryParams = { page, collection_sort: sort };
+    const { store } = dispatchClientMetadata();
 
-    expect(wrapper.find(CollectionDetails)).toHaveLength(1);
+    _loadCurrentCollection({ addons, detail, pageSize, store });
+
+    const wrapper = renderComponent({
+      creating,
+      editing,
+      location: createFakeLocation({ query: queryParams }),
+      store,
+    });
+
+    const detailsCard = wrapper.find(CollectionDetailsCard);
+    expect(detailsCard).toHaveProp('collection', collection);
+    expect(detailsCard).toHaveProp('creating', creating);
+    expect(detailsCard).toHaveProp('editing', editing);
+    expect(detailsCard).toHaveProp('filters', { page, collectionSort: sort });
   });
 
   it('renders placeholder text if there are no add-ons', () => {
@@ -656,43 +677,6 @@ describe(__filename, () => {
     );
   });
 
-  it('renders collection details', () => {
-    const slug = 'some-slug';
-    const username = 'some-username';
-    const page = 2;
-    const sort = COLLECTION_SORT_NAME;
-    const queryParams = { page, collection_sort: sort };
-    const pageSize = DEFAULT_API_PAGE_SIZE;
-
-    const { store } = dispatchClientMetadata();
-
-    const addons = createFakeCollectionAddons();
-    const detail = createFakeCollectionDetail({
-      authorUsername: username,
-      count: 10,
-      slug,
-    });
-    const collection = createInternalCollection({
-      detail,
-      items: addons,
-      pageSize,
-    });
-
-    _loadCurrentCollection({ addons, detail, pageSize, store });
-
-    const wrapper = renderComponent({
-      location: createFakeLocation({ query: queryParams }),
-      params: { username, slug },
-      store,
-    });
-
-    const details = wrapper.find(CollectionDetails);
-    expect(details).toHaveLength(1);
-    expect(details).toHaveProp('collection', collection);
-    expect(details).toHaveProp('filters', { page, collectionSort: sort });
-    expect(details).toHaveProp('showEditButton', false);
-  });
-
   it('renders a collection with pagination', () => {
     const slug = 'some-slug';
     const username = 'some-username';
@@ -854,20 +838,6 @@ describe(__filename, () => {
       `/collections/${username}/${slug}/edit/`,
     );
 
-    expect(wrapper.find(CollectionManager)).toHaveLength(1);
-    expect(wrapper.find(CollectionManager)).toHaveProp(
-      'collection',
-      createInternalCollection({
-        items: addons,
-        detail,
-        pageSize,
-      }),
-    );
-    expect(wrapper.find(CollectionManager)).toHaveProp('creating', false);
-    expect(wrapper.find(CollectionManager)).toHaveProp('filters', {
-      page,
-      collectionSort: sort,
-    });
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'deleteNote',
       wrapper.instance().deleteNote,
@@ -880,9 +850,6 @@ describe(__filename, () => {
       'saveNote',
       wrapper.instance().saveNote,
     );
-
-    // Make sure details are not rendered.
-    expect(wrapper.find(CollectionDetails)).toHaveLength(0);
   });
 
   it('renders a create collection page', () => {
@@ -892,12 +859,7 @@ describe(__filename, () => {
 
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveLength(0);
-    expect(wrapper.find(CollectionManager)).toHaveLength(1);
-    expect(wrapper.find(CollectionManager)).toHaveProp('creating', true);
-    expect(wrapper.find(CollectionManager)).toHaveProp('collection', null);
-
-    // Make sure details are not rendered.
-    expect(wrapper.find(CollectionDetails)).toHaveLength(0);
+    expect(wrapper.find(CollectionDetailsCard)).toHaveProp('creating', true);
   });
 
   it('does not render the pagination when no add-ons in the collection', () => {
@@ -1005,213 +967,6 @@ describe(__filename, () => {
     expect(wrapper.find('title')).toHaveLength(0);
   });
 
-  it('renders an edit link for a mozilla collection when user has the `Admin:Curation` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [MOZILLA_COLLECTIONS_EDIT],
-      },
-    });
-
-    const slug = 'some-slug';
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
-  });
-
-  it('renders a CollectionManager in edit mode for a mozilla collection when user has the `Admin:Curation` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [MOZILLA_COLLECTIONS_EDIT],
-      },
-    });
-
-    const slug = 'some-slug';
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ store, editing: true });
-
-    expect(wrapper.find(CollectionManager)).toHaveLength(1);
-  });
-
-  it('does not render an edit link for a mozilla collection when user does not have the `Admin:Curation` permission', () => {
-    const { store } = dispatchSignInActions();
-
-    const slug = 'some-slug';
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
-  });
-
-  it('renders an edit link for the Featured Themes collection when user has the `Collections:Contribute` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
-      },
-    });
-
-    const slug = FEATURED_THEMES_COLLECTION_SLUG;
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
-  });
-
-  it('does not render a CollectionManager in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
-      },
-    });
-
-    const slug = FEATURED_THEMES_COLLECTION_SLUG;
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ store, editing: true });
-
-    expect(wrapper.find(CollectionManager)).toHaveLength(0);
-  });
-
-  it('passes the editing property to CollectionDetails in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
-      },
-    });
-
-    const slug = FEATURED_THEMES_COLLECTION_SLUG;
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-    const editing = true;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ store, editing });
-
-    expect(wrapper.find(CollectionDetails)).toHaveProp('editing', editing);
-  });
-
-  it('does not render an edit link in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
-      },
-    });
-
-    const slug = FEATURED_THEMES_COLLECTION_SLUG;
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ editing: true, store });
-
-    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
-  });
-
-  it('does not render an edit link for a the Featured Themes collection when user does not have the `Collections:Contribute` permission', () => {
-    const { store } = dispatchSignInActions();
-
-    const slug = FEATURED_THEMES_COLLECTION_SLUG;
-    const username = MOZILLA_COLLECTIONS_USERNAME;
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
-  });
-
-  it('renders an edit link when user is the collection owner', () => {
-    const authorUserId = 11;
-    const { store } = dispatchSignInActions({ userId: authorUserId });
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorId: authorUserId,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', true);
-  });
-
-  it('does not render an edit link when user is not the collection owner', () => {
-    const authorUserId = 11;
-    const { store } = dispatchSignInActions({ userId: 99 });
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorId: authorUserId,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-    expect(wrapper.find(CollectionDetails)).toHaveProp('showEditButton', false);
-  });
-
   it('renders a delete button when user is the collection owner', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
@@ -1240,22 +995,6 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(ConfirmButton)).toHaveLength(0);
-  });
-
-  it('passes a collection to CollectionManager when editing', () => {
-    const authorUserId = 11;
-    const { store } = dispatchSignInActions({ userId: authorUserId });
-    const detail = createFakeCollectionDetail({
-      authorId: authorUserId,
-    });
-
-    _loadCurrentCollection({ store, detail });
-
-    const root = renderComponent({ store, editing: true });
-
-    const manager = root.find(CollectionManager);
-    expect(manager).toHaveProp('collection');
-    expect(manager.prop('collection').id).toEqual(detail.id);
   });
 
   it('passes the correct editing flag to AddonsCard when editing', () => {
