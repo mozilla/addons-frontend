@@ -1,0 +1,138 @@
+import { render as staticRender } from 'enzyme';
+import * as React from 'react';
+
+import { createInternalReview, updateAddonReview } from 'amo/actions/reviews';
+import AddonReviewManager, {
+  AddonReviewManagerBase,
+  extractId,
+} from 'amo/components/AddonReviewManager';
+import ErrorList from 'ui/components/ErrorList';
+import { dispatchClientMetadata, fakeReview } from 'tests/unit/amo/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import DismissibleTextForm from 'ui/components/DismissibleTextForm';
+import Rating from 'ui/components/Rating';
+
+describe(__filename, () => {
+  const getProps = (props = {}) => {
+    return {
+      i18n: fakeI18n(),
+      review: createInternalReview({ ...fakeReview }),
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
+  };
+
+  const render = (otherProps = {}) => {
+    const props = getProps(otherProps);
+    return shallowUntilTarget(
+      <AddonReviewManager {...props} />,
+      AddonReviewManagerBase,
+    );
+  };
+
+  it('configures Rating with the review rating', () => {
+    const rating = 3;
+    const review = createInternalReview({ ...fakeReview, rating });
+    const root = render({ review });
+
+    const ratingComponent = root.find(Rating);
+    expect(ratingComponent).toHaveProp('rating', rating);
+  });
+
+  it('renders DismissibleTextForm text', () => {
+    const body = 'This ad blocker add-on is easy on CPU';
+    const review = createInternalReview({ ...fakeReview, body });
+    const root = render({ review });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('text', body);
+  });
+
+  it('renders a DismissibleTextForm placeholder', () => {
+    const root = render();
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('placeholder');
+    expect(form.prop('placeholder')).toContain('Write about');
+  });
+
+  it('renders a DismissibleTextForm formFooter', () => {
+    const root = render();
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('formFooter');
+
+    const formFooter = staticRender(form.prop('formFooter'));
+    expect(formFooter.text()).toContain('Please follow our review guidelines');
+
+    const link = formFooter.find('a');
+    expect(link.text()).toEqual('review guidelines');
+  });
+
+  it('updates the rating when you select a star', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const review = createInternalReview({
+      ...fakeReview,
+      id: 99654,
+      rating: 2,
+    });
+    const root = render({ store, review });
+    const rating = root.find(Rating);
+
+    const newRating = 4;
+
+    // Simulate how Rating lets you select a star.
+    expect(rating).toHaveProp('onSelectRating');
+    const onSelectRating = rating.prop('onSelectRating');
+    onSelectRating(newRating);
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      updateAddonReview({
+        rating: newRating,
+        errorHandlerId: root.instance().props.errorHandler.id,
+        reviewId: review.id,
+      }),
+    );
+  });
+
+  it('updates the review body when you submit the form', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const review = createInternalReview({
+      ...fakeReview,
+      body: 'I dislike the colors',
+      id: 99654,
+    });
+    const root = render({ store, review });
+    const form = root.find(DismissibleTextForm);
+
+    const newBody = 'I really like the colors of this add-on';
+
+    // Simulate how DismissibleTextForm submits the form.
+    expect(form).toHaveProp('onSubmit');
+    const onSubmit = form.prop('onSubmit');
+    onSubmit({ text: newBody });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      updateAddonReview({
+        body: newBody,
+        errorHandlerId: root.instance().props.errorHandler.id,
+        reviewId: review.id,
+      }),
+    );
+  });
+
+  describe('extractId', () => {
+    it('extracts an ID from the review', () => {
+      const id = 551224;
+      expect(
+        extractId(
+          getProps({ review: createInternalReview({ ...fakeReview, id }) }),
+        ),
+      ).toEqual(id.toString());
+    });
+  });
+});

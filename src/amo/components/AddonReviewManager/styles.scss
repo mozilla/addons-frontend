@@ -1,0 +1,44 @@
+@import '~ui/css/vars';
+@import '~core/css/inc/vars';
+@import '~core/css/inc/mixins';
+
+.AddonReviewManager {
+  font-size: $font-size-default;
+
+  .DismissibleTextForm-delete-submit-buttons,
+  .Button {
+    width: 100%;
+  }
+
+  .AddonReviewManager-Rating.Rating {
+    height: $default-line-height;
+    margin: 0;
+
+    @include margin-start(6px);
+  }
+
+  .DismissibleTextForm-formFooter {
+    font-size: $font-size-s;
+    margin: 0;
+    text-align: center;
+
+    a {
+      font-weight: normal;
+
+      &,
+      &:link,
+      &:visited {
+        color: $black;
+      }
+
+      &:active,
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+}
+
+.AddonReviewManager-starRating {
+  display: flex;
+}
