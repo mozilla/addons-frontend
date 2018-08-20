@@ -22,7 +22,7 @@ type Props = {|
   className?: string,
   onSelectRating?: (rating: number) => void,
   rating?: number | null,
-  readOnly: boolean,
+  readOnly?: boolean,
   styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
   yellowStars?: boolean,
 |};
@@ -140,7 +140,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         key: `rating-${thisRating}`,
         onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
-        title: this.renderTitle(rating, readOnly, thisRating),
+        title: this.renderTitle(rating, readOnly || false, thisRating),
       };
 
       if (readOnly) {

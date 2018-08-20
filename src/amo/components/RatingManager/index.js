@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
+import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -11,6 +12,7 @@ import { setLatestReview } from 'amo/actions/reviews';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import {
@@ -24,6 +26,7 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import Button from 'ui/components/Button';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -196,10 +199,41 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
   };
 
+  cancelTextEntry = (event: SyntheticEvent<any>) => {
+    event.preventDefault();
+    this.setState({ showTextEntry: false });
+  };
+
+  renderTextEntry() {
+    const { AddonReview, userReview } = this.props;
+
+    if (!userReview) {
+      return null;
+    }
+
+    if (config.get('enableInlineAddonReview')) {
+      return <AddonReviewManager review={userReview} />;
+    }
+
+    if (!this.isLoggedIn()) {
+      return null;
+    }
+
+    return (
+      <AddonReview
+        onReviewSubmitted={this.onReviewSubmitted}
+        review={userReview}
+      />
+    );
+  }
+
+  isLoggedIn() {
+    return Boolean(this.props.userId);
+  }
+
   render() {
-    const { i18n, addon, userId, userReview, version } = this.props;
+    const { i18n, addon, userReview, version } = this.props;
     const { showTextEntry } = this.state;
-    const isLoggedIn = Boolean(userId);
 
     invariant(addon, 'addon is required');
     invariant(version, 'version is required');
@@ -211,26 +245,36 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
     return (
       <div className="RatingManager">
-        {showTextEntry && isLoggedIn && userReview ? (
-          <AddonReview
-            onReviewSubmitted={this.onReviewSubmitted}
-            review={userReview}
-          />
-        ) : null}
-        <form action="">
-          <fieldset>
+        {showTextEntry ? this.renderTextEntry() : null}
+        {!config.get('enableInlineAddonReview') || !showTextEntry ? (
+          <form action="">
+            <fieldset>
             <legend className="RatingManager-legend">{prompt}</legend>
             <div className="RatingManager-ratingControl">
-              {!isLoggedIn ? this.renderLogInToRate() : null}
-              <UserRating
-                readOnly={!isLoggedIn}
-                onSelectRating={this.onSelectRating}
-                review={!isLoggedIn ? null : userReview}
-              />
-            </div>
-          </fieldset>
-        </form>
-        <ReportAbuseButton addon={addon} />
+                {!this.isLoggedIn() ? this.renderLogInToRate() : null}
+                <UserRating
+                  readOnly={!this.isLoggedIn()}
+                  onSelectRating={this.onSelectRating}
+                  review={!this.isLoggedIn() ? null : userReview}
+                />
+              </div>
+            </fieldset>
+          </form>
+        ) : null}
+        {config.get('enableInlineAddonReview') && showTextEntry ? (
+          <Button
+            href="#cancelTextEntry"
+            onClick={this.cancelTextEntry}
+            className="RatingManager-cancelTextEntryButton"
+            buttonType="neutral"
+            puffy
+          >
+            {i18n.gettext("Nevermind, I don't want to write a review")}
+          </Button>
+        ) : null}
+        {!config.get('enableInlineAddonReview') || !showTextEntry ? (
+          <ReportAbuseButton addon={addon} />
+        ) : null}
       </div>
     );
   }
