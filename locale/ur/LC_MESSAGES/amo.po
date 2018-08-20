@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-20 08:14+0000\n"
-"Last-Translator: عمر <um.qshi@gmail.com>\n"
+"PO-Revision-Date: 2018-08-14 19:23+0000\n"
+"Last-Translator: Tanzeel Khan <tanzeelkhan94@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -902,7 +902,7 @@ msgstr "یہ سپیم ہے"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "اسپام کے طور پر نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
@@ -990,7 +990,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:93
 msgid "View classic desktop site"
-msgstr ""
+msgstr "کلاسک ڈیسک ٹاپ سائٹ دیکھیں"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
@@ -1173,7 +1173,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
-msgstr ""
+msgstr "سٹائلس"
 
 #: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Give your favorite websites a new look"
