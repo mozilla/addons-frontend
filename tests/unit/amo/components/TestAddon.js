@@ -42,6 +42,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  ALL_SUPER_POWERS,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
@@ -66,6 +67,7 @@ import {
 import {
   createFetchAddonResult,
   createStubErrorHandler,
+  createUserAccountResponse,
   fakeI18n,
   createFakeLocation,
   getFakeConfig,
@@ -75,6 +77,8 @@ import {
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Button from 'ui/components/Button';
+import Notice from 'ui/components/Notice';
+import { isDeveloper, hasPermission } from 'amo/reducers/users';
 
 function renderProps({
   addon = createInternalAddon(fakeAddon),
@@ -1631,5 +1635,23 @@ describe(__filename, () => {
       expect(installButton).toHaveProp('installTheme', installTheme);
       expect(installButton).toHaveProp('uninstall', uninstall);
     });
+  });
+
+  it('displays a notice on a disabled addon to [admin/developer]', () => {
+    // should check if admin
+    const permissions = [ALL_SUPER_POWERS];
+    const { state } = dispatchSignInActions({ userProps: { permissions } });
+    // should check if developer
+    const user = createUserAccountResponse({
+      is_addon_developer: true,
+    });
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      status: 'disabled',
+    });
+    const root = shallowRender({ addon });
+    expect(isDeveloper(user)).toEqual(true);
+ //   expect(hasPermission(state, <IDK what to write here>)).toEqual(true);
+    expect(root.find(Notice)).toHaveLength(1);
   });
 });
