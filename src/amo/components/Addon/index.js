@@ -38,7 +38,6 @@ import {
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
-  STATUS_PUBLIC,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
@@ -59,6 +58,8 @@ const slugIsPositiveID = (slug) => {
   // eslint-disable-next-line no-restricted-globals
   return !isNaN(slug) && parseInt(slug, 10) > 0;
 };
+
+const STATUS_PUBLIC = 'public';
 
 export class AddonBase extends React.Component {
   static propTypes = {
