@@ -41,4 +41,27 @@
 
 .AddonReviewManager-starRating {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.AddonReviewManager .AddonReviewManager-Rating {
+  @include margin-start(6px);
+}
+
+.AddonReviewManager-savedRating {
+  @include margin-start(6px);
+
+  color: $grey-50;
+  flex-grow: 1;
+  opacity: 1;
+  text-align: right;
+
+  [dir='rtl'] & {
+    text-align: left;
+  }
+}
+
+.AddonReviewManager-savedRating-hidden {
+  opacity: 0;
+  transition: opacity $transition-long ease-in-out;
 }

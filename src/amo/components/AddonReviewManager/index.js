@@ -80,7 +80,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
       <div className="AddonReviewManager">
         {errorHandler.renderErrorIfPresent()}
         <div className="AddonReviewManager-starRating">
-          {i18n.gettext('Your star rating:')}
+          <span>{i18n.gettext('Your star rating:')}</span>
           <Rating
             className="AddonReviewManager-Rating"
             onSelectRating={this.onSubmitRating}
