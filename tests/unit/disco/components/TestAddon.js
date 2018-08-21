@@ -309,6 +309,7 @@ describe(__filename, () => {
       const root = renderAddon({ addon: result, ...result });
 
       expect(root.find('.Addon-ThemeImage-link')).toHaveLength(0);
+      expect(root.find(ThemeImage)).toHaveLength(0);
     });
 
     it('throws on invalid add-on type', () => {

@@ -137,6 +137,8 @@ export class AddonBase extends React.Component {
     return hasAddonManager ? (
       <a {...imageLinkProps}>{themeImage}</a>
     ) : (
+      // The `span` is needed to avoid an issue when the client hydrates the
+      // app after having received the server DOM.
       <span>{themeImage}</span>
     );
   }
