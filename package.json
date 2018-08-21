@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=6 <=8"
+    "node": ">=8.10"
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
@@ -301,7 +301,7 @@
     "tmp": "^0.0.33",
     "tosource": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
-    "webpack": "^3.1.0",
+    "webpack": "^3.12.0",
     "webpack-dev-middleware": "^2.0.6",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"

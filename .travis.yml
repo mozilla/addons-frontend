@@ -3,18 +3,18 @@ _aliases:
   - &tox
     language: python
     python: 3.6
-    before_install: nvm install 6
+    before_install: nvm install 8
     install: pip install tox
     script: tox
   - &node-prod
     # This is the NodeJS version we run in production.
     language: node_js
-    node_js: '6'
+    node_js: '8'
     before_install: npm install -g yarn
   - &node-next
     # This is the next NodeJS version we will support.
     language: node_js
-    node_js: '8'
+    node_js: '10'
     before_install: npm install -g yarn
 services:
   - docker
