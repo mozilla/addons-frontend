@@ -20,8 +20,6 @@ export class LinkBase extends React.Component {
     prependClientApp: PropTypes.bool,
     prependLang: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    target: PropTypes.string,
-    rel: PropTypes.string
   };
 
   static defaultProps = {
@@ -29,8 +27,6 @@ export class LinkBase extends React.Component {
     externalDark: false,
     prependClientApp: true,
     prependLang: true,
-    target: null,
-    rel: undefined
   };
 
   urlPrefix({ clientApp, lang, prependClientApp, prependLang } = {}) {
@@ -120,10 +116,10 @@ export class LinkBase extends React.Component {
     };
 
     return (
-        <Link {...linkProps} to={linkTo}>
-          {children}
-          {needsExternalIcon ? <Icon name={iconName} /> : null}
-        </Link>
+      <Link {...linkProps} to={linkTo}>
+        {children}
+        {needsExternalIcon ? <Icon name={iconName} /> : null}
+      </Link>
     );
   }
 }

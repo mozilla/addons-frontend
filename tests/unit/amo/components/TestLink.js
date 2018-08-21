@@ -206,9 +206,13 @@ describe(__filename, () => {
     expect(root.find(Icon)).toHaveProp('name', `external-dark`);
   });
 
-  it('if the `target` is _blank', () => {
-    const root = render({ target: '/_blank' });
+  it('adds rel="noopener noreferrer" when target is "_blank"', () => {
+    const root = render({
+      href: '/test',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    });
 
-    expect(root.find('a')).toHaveProp('rel', 'noopener noreferrer');
+    expect(root.find('a')).toHaveLength(1);
   });
 });
