@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-17 08:24+0000\n"
+"PO-Revision-Date: 2018-08-20 14:25+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1091,7 +1091,7 @@ msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Αλλαγή προεπιλεγμένου προορισμού για τους σελιδοδείκτες σας"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1107,7 +1107,7 @@ msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Παρακολούθηση βίντεο ταυτόχρονα με άλλους"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1139,7 +1139,7 @@ msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Εξοικονόμηση μνήμης απενεργοποιώντας ανενεργές καρτέλες"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1155,7 +1155,7 @@ msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
-msgstr ""
+msgstr "Αυτόματη έναρξη του Firefox σε λειτουργία πλήρους οθόνης"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1211,7 +1211,7 @@ msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Προσθήκη γεγονότων από το Britannica στα αποτελέσματα αναζήτησης"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1837,11 +1837,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:102
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Συμπεριλαμβάνετε προσωπικά ή μη email, αριθμούς τηλεφώνου ή άλλες προσωπικές λεπτομέρειες."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:107
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Δημοσιεύετε κριτικές για ένα πρόσθετο που αναπτύσσετε ή εκπροσωπείτε εσείς ή ο οργανισμός σας."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:112
 msgid ""
@@ -2120,7 +2120,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:721
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Η Mozilla διατηρεί το δικαίωμα να επικοινωνήσει προσωπικά μαζί σας για συγκεκριμένα θέματα σχετικά με το πρόσθετό σας."
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Updating your profile…"

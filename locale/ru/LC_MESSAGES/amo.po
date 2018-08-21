@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 14:54+0000\n"
-"Last-Translator: Victor Bychek <a@bychek.ru>\n"
+"PO-Revision-Date: 2018-08-18 15:48+0000\n"
+"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -202,10 +202,9 @@ msgstr "Используется"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "%(rating)s star average"
-msgstr ""
+msgstr "средняя оценка - %(rating)s звёзд"
 
 #: src/amo/components/AddonMeta/index.js:92
-#, fuzzy
 msgid "Not rated yet"
 msgstr "Пока не оценено"
 
@@ -333,9 +332,8 @@ msgid "by %(authorList)s"
 msgstr "от %(authorList)s"
 
 #: src/amo/components/AddonReviewList/index.js:275
-#, fuzzy
 msgid "%(averageRating)s star average"
-msgstr "%(averageRating)s из 5"
+msgstr "средняя оценка - %(averageRating)s звёзд"
 
 #: src/amo/components/AddonReviewListItem/index.js:148 src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
@@ -611,7 +609,7 @@ msgstr "Создатель"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "Редактирование закончено"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -1054,22 +1052,20 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Измените, как Firefox будет выглядеть с темами."
 
 #: src/amo/components/Home/index.js:49
-#, fuzzy
 msgid "See more reading extensions"
-msgstr "Больше набирающих популярность расширений"
+msgstr "Больше расширений для чтения"
 
 #: src/amo/components/Home/index.js:50
 msgid "Refined reading"
-msgstr ""
+msgstr "Изысканное чтение"
 
 #: src/amo/components/Home/index.js:55
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Больше популярных расширений"
+msgstr "Больше исключительных средств поиска"
 
 #: src/amo/components/Home/index.js:56
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Исключительные инструменты поиска"
 
 #: src/amo/components/Home/index.js:61
 msgid "See more social media customization extensions"
@@ -1097,11 +1093,11 @@ msgstr "Защитите себя от самых пронырливых тре�
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Измените папку по умолчанию для ваших закладок"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1113,20 +1109,19 @@ msgstr "Гибко настраиваемое выделение текста"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Смотрите видео одновременно с другими"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Wikipedia Context Menu Search"
+msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 msgid "Highlight text on any webpage to easily search the term"
-msgstr ""
+msgstr "Выделите текст на любой веб-странице для удобного поиска этого термина"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1137,97 +1132,92 @@ msgid "Give your favorite websites a new look"
 msgstr "Придайте новый вид вашим любимым веб-сайтам"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Результаты поиска"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Защита приватности"
+msgstr "Защита приватности ваших данных поиска"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Экономьте память отключая неактивные вкладки"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Обновить ответ"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Получайте уведомления, когда на избранных вами веб-сайтах появится новое содержимое"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Автоматически ищет коды купонов"
+msgstr "Автоматически запускает Firefox в полноэкранном режиме"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Установите горячими клавишами скорость воспроизведения видео"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Верните кнопки «Просмотр изображений» и «Поиск по изображениям» на Google Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Очищайте ссылки перед их отправкой"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Перетаскивайте текст, изображения и ссылки для копирования, открытия, поиска и других операций"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Щёлкните по кнопке, чтобы закрыть надоедливые всплывающие окна"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Закладки"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Автоматически сортируйте закладки, чтобы они были в предпочтитаемой вами позиции"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
-msgstr ""
+msgstr "Britannica Insights"
 
 #: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Add Britannica facts to your search results"
-msgstr ""
+msgstr "Автоматически добавляйте факты из Britannica в ваши результаты поиска"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1832,9 +1822,9 @@ msgstr ""
 "добавляя новые функции в Firefox, повышая ваше взаимодействие с веб-содержимым и изменяя внешний вид вашего браузера."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Также на AMO вы можете найти дополнения для Mozilla %(startTBLink)sThunderbird%(endTBLink)s и %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr ""
+"Если вы ищете дополнения для Thunderbird или SeaMonkey, пожалуйста посетите сайты %(startTBLink)saddons.thunderbird.net%(endTBLink)s или %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2300,11 +2290,11 @@ msgstr "Выберите фото…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Включаю"
 
 #: src/core/components/AMInstallButton/index.js:210
 msgid "Downloading"
@@ -2344,11 +2334,11 @@ msgstr "Извините, мы не смогли ничего найти по UR
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s было добавлено"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Управляйте вашими дополнениями, щёлкая по пункту Дополнения в меню."
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"

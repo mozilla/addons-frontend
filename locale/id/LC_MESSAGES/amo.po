@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 07:05+0000\n"
+"PO-Revision-Date: 2018-08-21 05:40+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -199,9 +199,8 @@ msgid "%(rating)s star average"
 msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:92
-#, fuzzy
 msgid "Not rated yet"
-msgstr "Belum ada ulasan"
+msgstr "Belum diperingkat"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "%(timeFromNow)s (%(date)s)"
@@ -603,7 +602,7 @@ msgstr "Pembuat"
 
 #: src/amo/components/CollectionDetails/index.js:86
 msgid "Done editing"
-msgstr ""
+msgstr "Selesai menyunting"
 
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Edit this collection"
@@ -734,9 +733,8 @@ msgid "Download Firefox"
 msgstr "Unduh Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "Pernyataan hukum"
+msgstr "Tinggalkan catatan"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140 src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
@@ -1113,9 +1111,8 @@ msgid "Watch videos simultaneously with others"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Cari"
+msgstr "Pencarian Konteks"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 #, fuzzy
@@ -2098,9 +2095,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Anda dapat mengubah alamat surel Anda di Firefox Accounts. %(startLink)sPerlu bantuan?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:552
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "Kelola Firefox Account..."
+msgstr "Kelola Akun Firefox…"
 
 #: src/amo/components/UserProfileEdit/index.js:560
 msgid "Profile"
@@ -2151,34 +2147,28 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla memiliki hak untuk menghubungi Anda secara langsung tentang pertimbangan tertentu untuk pengaya yang diinangi di sini."
 
 #: src/amo/components/UserProfileEdit/index.js:739
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Memperbarui akun Anda…"
+msgstr "Memperbarui profil Anda…"
 
 #: src/amo/components/UserProfileEdit/index.js:740
-#, fuzzy
 msgid "Update My Profile"
-msgstr "Perbarui profil saya"
+msgstr "Perbarui Profil Saya"
 
 #: src/amo/components/UserProfileEdit/index.js:742
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Perbarui profil saya"
+msgstr "Memperbarui profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:743
-#, fuzzy
 msgid "Update Profile"
-msgstr "Perbarui profil saya"
+msgstr "Perbarui Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:754 src/amo/components/UserProfileEdit/index.js:842
-#, fuzzy
 msgid "Delete My Profile"
-msgstr "Hapus profil saya"
+msgstr "Hapus Profil Saya"
 
 #: src/amo/components/UserProfileEdit/index.js:755 src/amo/components/UserProfileEdit/index.js:843
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Hapus profil saya"
+msgstr "Hapus Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:766
 #, fuzzy
@@ -2295,14 +2285,12 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Mengunduh %(name)s."
+msgstr "Mengunduh"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Memasang %(name)s."
+msgstr "Memasang"
 
 #: src/core/components/AMInstallButton/index.js:214
 #, fuzzy

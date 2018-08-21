@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-15 20:37+0000\n"
+"PO-Revision-Date: 2018-08-20 16:15+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -24,22 +24,19 @@ msgstr "Odstrániť"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Povoľuje sa"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Preberanie doplnku %(name)s."
+msgstr "Preberá sa"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Inštalovanie doplnku %(name)s."
+msgstr "Inštaluje sa"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Odinštalovanie doplnku %(name)s."
+msgstr "Odinštalovanie"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -71,11 +68,11 @@ msgstr "Ospravedlňujeme sa, ale na zadanej adrese nemôžeme nič nájsť."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "Doplnok %(strongStart)s%(name)s%(strongEnd)s bol pridaný"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Spravujte svoje doplnky kliknutím na Doplnky v ponuke."
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"
@@ -110,7 +107,6 @@ msgid "Install state for %(name)s is unknown."
 msgstr "Stav inštalácie doplnku %(name)s nie je známy."
 
 #: src/disco/components/Addon/index.js:160
-#, fuzzy
 msgid "Preview of %(name)s"
 msgstr "Ukážka %(name)s"
 
@@ -198,7 +194,7 @@ msgstr "Ak chcete pokračovať, obnovte kartu"
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Zavrieť toto oznámenie"
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Váš doplnok je pripravený"

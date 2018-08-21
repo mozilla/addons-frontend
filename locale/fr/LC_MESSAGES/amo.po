@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-18 09:58+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2018-08-20 12:13+0000\n"
+"Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1205,7 +1205,7 @@ msgstr "Tri automatique des marque-pages"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Trie automatiquement les marque-pages pour qu’ils soient dans votre ordre préféré"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"

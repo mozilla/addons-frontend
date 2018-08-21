@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-16 12:17+0000\n"
+"PO-Revision-Date: 2018-08-21 12:15+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s అచేతమైవుంది. చేతనించడానికి నొక్కండి."
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."

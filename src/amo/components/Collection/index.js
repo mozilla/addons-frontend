@@ -10,8 +10,7 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionControls from 'amo/components/CollectionControls';
-import CollectionDetails from 'amo/components/CollectionDetails';
-import CollectionManager from 'amo/components/CollectionManager';
+import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import { isFeaturedCollection } from 'amo/components/Home';
@@ -27,17 +26,13 @@ import {
   removeAddonFromCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
-import { getCurrentUser, hasPermission } from 'amo/reducers/users';
+import { getCurrentUser } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
 import {
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
-  FEATURED_THEMES_COLLECTION_EDIT,
-  FEATURED_THEMES_COLLECTION_SLUG,
   INSTALL_SOURCE_COLLECTION,
   INSTALL_SOURCE_FEATURED_COLLECTION,
-  MOZILLA_COLLECTIONS_EDIT,
-  MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -77,7 +72,6 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   filters: CollectionFilters,
-  hasEditPermission: boolean,
   history: ReactRouterHistoryType,
   i18n: I18nType,
   isLoggedIn: boolean,
@@ -91,7 +85,6 @@ type InternalProps = {|
       username: string,
     |},
   |},
-  showEditButton: boolean,
 |};
 
 export type RemoveCollectionAddonFunc = (addonId: number) => void;
@@ -348,37 +341,6 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   };
 
-  renderCardContents() {
-    const {
-      collection,
-      creating,
-      editing,
-      filters,
-      hasEditPermission,
-      showEditButton,
-    } = this.props;
-
-    const managingCollection = creating || (editing && hasEditPermission);
-    if (managingCollection) {
-      return (
-        <CollectionManager
-          collection={collection}
-          creating={creating}
-          filters={filters}
-        />
-      );
-    }
-
-    return (
-      <CollectionDetails
-        collection={collection}
-        editing={editing}
-        filters={filters}
-        showEditButton={showEditButton && !editing}
-      />
-    );
-  }
-
   renderDeleteButton() {
     const { i18n, isOwner } = this.props;
 
@@ -471,7 +433,12 @@ export class CollectionBase extends React.Component<InternalProps> {
       <div className="Collection-wrapper">
         <div className="Collection-detail-wrapper">
           <Card className="Collection-detail">
-            {this.renderCardContents()}
+            <CollectionDetailsCard
+              collection={collection}
+              creating={creating}
+              editing={editing}
+              filters={filters}
+            />
             {this.renderDeleteButton()}
           </Card>
           <CollectionControls
@@ -547,32 +514,13 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
 
   const isOwner =
     collection && currentUser && collection.authorId === currentUser.id;
-  let hasEditPermission = false;
-  let showEditButton = false;
-
-  if (collection && currentUser) {
-    hasEditPermission =
-      isOwner ||
-      // User can edit mozilla collections, and it is a mozilla collection.
-      (collection.authorUsername === MOZILLA_COLLECTIONS_USERNAME &&
-        hasPermission(state, MOZILLA_COLLECTIONS_EDIT));
-    showEditButton =
-      hasEditPermission ||
-      // User can maintain the featured themes collection, and it is the featured
-      // themes collection.
-      (collection.authorUsername === MOZILLA_COLLECTIONS_USERNAME &&
-        collection.slug === FEATURED_THEMES_COLLECTION_SLUG &&
-        hasPermission(state, FEATURED_THEMES_COLLECTION_EDIT));
-  }
 
   return {
     collection,
     filters,
-    hasEditPermission,
     isLoggedIn: !!currentUser,
     isOwner,
     loading,
-    showEditButton,
   };
 };
 

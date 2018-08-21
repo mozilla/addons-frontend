@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-17 13:38+0000\n"
+"PO-Revision-Date: 2018-08-19 21:48+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -112,11 +112,11 @@ msgstr "Vista preliminar de %(name)s"
 
 #: src/disco/components/Addon/index.js:205
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installation fallite. Per favor retenta."
 
 #: src/disco/components/Addon/index.js:207
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Discargamento fallite. Per favor verifica tu connexion."
 
 #: src/disco/components/Addon/index.js:209
 msgid "An unexpected error occurred during installation."
@@ -136,7 +136,7 @@ msgstr ""
 
 #: src/disco/components/Addon/index.js:230
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Per favor re-lancea Firefox pro usar iste additivo."
 
 #: src/disco/components/Addon/index.js:98
 msgid "Close"
@@ -148,7 +148,7 @@ msgstr ""
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Iste additivo non supporta tu version de Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:47
 msgid "This add-on does not support your browser."
@@ -178,11 +178,11 @@ msgstr "Politica de confidentialitate"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Tu session ha expirate"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Un error non attendite occurreva"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"

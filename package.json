@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=6 <=8"
+    "node": ">=8.10"
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
@@ -184,7 +184,7 @@
     "isomorphic-fetch": "2.2.1",
     "jed": "1.1.1",
     "join-url": "2.0.0",
-    "jsdom": "11.12.0",
+    "jsdom": "12.0.0",
     "knuth-shuffle": "1.0.8",
     "localforage": "1.7.2",
     "lodash.debounce": "4.0.8",
@@ -192,7 +192,7 @@
     "mozilla-version-comparator": "1.0.2",
     "normalize.css": "8.0.0",
     "normalizr": "3.2.2",
-    "pino": "5.1.1",
+    "pino": "5.2.0",
     "pino-mozlog": "1.1.0",
     "prop-types": "15.6.2",
     "qhistory": "1.0.2",
@@ -301,7 +301,7 @@
     "tmp": "^0.0.33",
     "tosource": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
-    "webpack": "^3.1.0",
+    "webpack": "^3.12.0",
     "webpack-dev-middleware": "^2.0.6",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"

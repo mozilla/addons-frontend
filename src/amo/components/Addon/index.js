@@ -42,13 +42,14 @@ import {
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
-import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
+import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
+import ThemeImage from 'ui/components/ThemeImage';
 import Notice from 'ui/components/Notice';
 
 import './styles.scss';
@@ -156,33 +157,15 @@ export class AddonBase extends React.Component {
   headerImage() {
     const { addon, i18n } = this.props;
 
+    if (addon && isTheme(addon.type)) {
+      return <ThemeImage addon={addon} roundedCorners />;
+    }
+
     const label = addon
       ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
           title: addon.name,
         })
       : null;
-
-    if (addon && isTheme(addon.type)) {
-      let previewURL = getPreviewImage(addon);
-
-      if (!previewURL && addon.type === ADDON_TYPE_THEME) {
-        previewURL = addon.previewURL;
-      }
-
-      return (
-        <div
-          className="Addon-theme-header"
-          key="Addon-theme-image"
-          role="presentation"
-        >
-          <img
-            alt={label}
-            className="Addon-theme-header-image"
-            src={previewURL}
-          />
-        </div>
-      );
-    }
 
     return (
       <div className="Addon-icon" key="Addon-icon-header">

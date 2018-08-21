@@ -61,7 +61,6 @@ import {
   dispatchSignInActions,
   fakeAddon,
   fakeInstalledAddon,
-  fakePreview,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
 import {
@@ -77,6 +76,7 @@ import {
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Button from 'ui/components/Button';
+import ThemeImage from 'ui/components/ThemeImage';
 import Notice from 'ui/components/Notice';
 import { isDeveloper, hasPermission } from 'amo/reducers/users';
 
@@ -913,65 +913,6 @@ describe(__filename, () => {
     expect(src).toEqual('default-64.png');
   });
 
-  it('renders a lightweight theme preview as an image', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        // The 'previews' field is not currently being used by lightweight themes
-        // So here we are just overridding the fakeAddon values to mimic the API
-        // response.
-        previews: [],
-        theme_data: {
-          ...fakeTheme.theme_data,
-          previewURL: 'https://amo/preview.png',
-        },
-      }),
-    });
-    const image = root.find('.Addon-theme-header-image');
-    expect(image.type()).toEqual('img');
-    expect(image.prop('src')).toEqual('https://amo/preview.png');
-  });
-
-  it('renders a static theme preview as an image', () => {
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/54321.png';
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        type: ADDON_TYPE_STATIC_THEME,
-        previews: [
-          {
-            ...fakePreview,
-            image_url: headerImageFull,
-          },
-        ],
-      }),
-    });
-    const image = root.find('.Addon-theme-header-image');
-    expect(image.type()).toEqual('img');
-    expect(image.prop('src')).toEqual(headerImageFull);
-    expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
-  });
-
-  it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        type: ADDON_TYPE_THEME,
-        previews: [
-          {
-            ...fakePreview,
-            image_url: headerImageFull,
-          },
-        ],
-      }),
-    });
-    const image = root.find('.Addon-theme-header-image');
-    expect(image.type()).toEqual('img');
-    expect(image.prop('src')).toEqual(headerImageFull);
-    expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
-  });
-
   it('renders screenshots for type extension', () => {
     const root = shallowRender({
       addon: createInternalAddon({
@@ -1080,17 +1021,10 @@ describe(__filename, () => {
     );
   });
 
-  it('shows the preview image in the header', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        theme_data: {
-          ...fakeTheme.theme_data,
-          previewURL: 'https://amo/preview.png',
-        },
-      }),
-    });
-    expect(root.find('.Addon-theme-header-image')).toHaveLength(1);
+  it('renders a ThemeImage in the header', () => {
+    const root = shallowRender({ addon: createInternalAddon(fakeTheme) });
+    expect(root.find(ThemeImage)).toHaveLength(1);
+    expect(root.find(ThemeImage)).toHaveProp('roundedCorners', true);
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {
