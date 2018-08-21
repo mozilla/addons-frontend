@@ -26,6 +26,7 @@ import {
   beginCollectionModification,
   convertFiltersToQueryParams,
   finishCollectionModification,
+  finishEditingCollectionDetails,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
@@ -287,7 +288,7 @@ export function* modifyCollection(
     const { lang, clientApp } = state.api;
     const effectiveSlug = (response && response.slug) || slug || collectionSlug;
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
-    const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
+    const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/edit/`;
 
     if (creating) {
       invariant(response, 'response is required when creating');
@@ -308,7 +309,7 @@ export function* modifyCollection(
         );
       }
 
-      yield put(pushLocation(`${newLocation}edit/`));
+      yield put(pushLocation(newLocation));
     } else {
       // TODO: invalidate the stored collection instead of redirecting.
       // Ultimately, we just want to invalidate the old collection data.
@@ -331,6 +332,7 @@ export function* modifyCollection(
         // when the slug hasn't changed.
         yield put(unloadCollectionBySlug(effectiveSlug));
       }
+      yield put(finishEditingCollectionDetails());
     }
   } catch (error) {
     log.warn(`Failed to ${type}: ${error}`);

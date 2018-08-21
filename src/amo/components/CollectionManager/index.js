@@ -8,8 +8,8 @@ import { compose } from 'redux';
 import config from 'config';
 
 import {
-  convertFiltersToQueryParams,
   createCollection,
+  finishEditingCollectionDetails,
   updateCollection,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
@@ -79,36 +79,13 @@ export class CollectionManagerBase extends React.Component<
     }
   }
 
-  onCancel = (event: SyntheticEvent<any>) => {
-    const {
-      clientApp,
-      collection,
-      creating,
-      errorHandler,
-      filters,
-      history,
-      siteLang,
-    } = this.props;
+  onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
+    const { dispatch } = this.props;
+
     event.preventDefault();
     event.stopPropagation();
 
-    if (creating) {
-      history.goBack();
-    }
-
-    invariant(collection, 'A collection must be loaded before you can cancel');
-    invariant(clientApp, 'A clientApp must be loaded before you can cancel');
-    invariant(siteLang, 'A siteLang must be loaded before you can cancel');
-
-    // Reset form state to the original collection object.
-    this.setState(this.propsToState(this.props));
-    errorHandler.clear();
-
-    const { authorUsername, slug } = collection;
-    history.push({
-      pathname: `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`,
-      query: convertFiltersToQueryParams(filters),
-    });
+    dispatch(finishEditingCollectionDetails());
   };
 
   onSubmit = (event: SyntheticEvent<any>) => {

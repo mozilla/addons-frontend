@@ -124,7 +124,7 @@ describe(__filename, () => {
     expect(editButton.children()).toHaveText('Edit this collection');
   });
 
-  it('renders a done editing button if requested and editing', () => {
+  it('renders a back to collection link if requested and editing', () => {
     const authorUsername = 'some-username';
     const slug = 'some-slug';
     const collection = createInternalCollection({
@@ -134,15 +134,13 @@ describe(__filename, () => {
 
     const root = render({ collection, filters, editing: true });
 
-    const editButton = root.find('.CollectionDetails-edit-button');
-    expect(editButton).toHaveLength(1);
-    expect(editButton).toHaveProp('buttonType', 'neutral');
-    expect(editButton).toHaveProp('puffy', true);
+    const editButton = root.find(
+      '.CollectionDetails-back-to-collection-button',
+    );
     expect(editButton).toHaveProp('to', {
       pathname: collectionUrl({ collection }),
       query: convertFiltersToQueryParams(filters),
     });
-    expect(editButton.children()).toHaveText('Done editing');
   });
 
   it('does not render an edit button if not requested', () => {

@@ -1,8 +1,10 @@
 /* @flow */
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import {
+  beginEditingCollectionDetails,
   collectionEditUrl,
   collectionUrl,
   convertFiltersToQueryParams,
@@ -17,6 +19,7 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
@@ -30,10 +33,20 @@ export type Props = {|
 
 type InternalProps = {|
   ...Props,
+  dispatch: DispatchFunc,
   i18n: I18nType,
 |};
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
+  onEditDetails = (event: SyntheticEvent<HTMLButtonElement>) => {
+    const { dispatch } = this.props;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    dispatch(beginEditingCollectionDetails());
+  };
+
   render() {
     const {
       collection,
@@ -99,10 +112,8 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
               buttonType="neutral"
               className="CollectionDetails-edit-button"
               puffy
-              to={{
-                pathname: collectionEditUrl({ collection }),
-                query: convertFiltersToQueryParams(filters),
-              }}
+              href="#editdetails"
+              onClick={this.onEditDetails}
             >
               {i18n.gettext('Edit collection details')}
             </Button>
@@ -125,8 +136,9 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
   }
 }
 
-const CollectionDetails: React.ComponentType<Props> = compose(translate())(
-  CollectionDetailsBase,
-);
+const CollectionDetails: React.ComponentType<Props> = compose(
+  translate(),
+  connect(),
+)(CollectionDetailsBase);
 
 export default CollectionDetails;

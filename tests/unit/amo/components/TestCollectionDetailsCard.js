@@ -83,6 +83,8 @@ describe(__filename, () => {
       store,
     });
 
+    console.log(root.debug());
+
     const manager = root.find(CollectionManager);
     expect(manager).toHaveProp('collection', collection);
     expect(manager).toHaveProp('creating', false);
