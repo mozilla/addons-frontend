@@ -68,6 +68,7 @@ type DispatchMappedProps = {|
 type InternalProps = {|
   ...Props,
   ...DispatchMappedProps,
+  _config: typeof config,
   apiState: ApiState,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -80,6 +81,10 @@ type State = {|
 |};
 
 export class RatingManagerBase extends React.Component<InternalProps, State> {
+  static defaultProps = {
+    _config: config,
+  };
+
   constructor(props: InternalProps) {
     super(props);
     this.state = { showTextEntry: false };
@@ -205,13 +210,13 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   };
 
   renderTextEntry() {
-    const { AddonReview, userReview } = this.props;
+    const { _config, userReview } = this.props;
 
     if (!userReview) {
       return null;
     }
 
-    if (config.get('enableInlineAddonReview')) {
+    if (_config.get('enableInlineAddonReview')) {
       return <AddonReviewManager review={userReview} />;
     }
 
@@ -232,7 +237,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   render() {
-    const { i18n, addon, userReview, version } = this.props;
+    const { _config, i18n, addon, userReview, version } = this.props;
     const { showTextEntry } = this.state;
 
     invariant(addon, 'addon is required');
@@ -246,11 +251,11 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     return (
       <div className="RatingManager">
         {showTextEntry ? this.renderTextEntry() : null}
-        {!config.get('enableInlineAddonReview') || !showTextEntry ? (
+        {!_config.get('enableInlineAddonReview') || !showTextEntry ? (
           <form action="">
             <fieldset>
-            <legend className="RatingManager-legend">{prompt}</legend>
-            <div className="RatingManager-ratingControl">
+              <legend className="RatingManager-legend">{prompt}</legend>
+              <div className="RatingManager-ratingControl">
                 {!this.isLoggedIn() ? this.renderLogInToRate() : null}
                 <UserRating
                   readOnly={!this.isLoggedIn()}
@@ -261,7 +266,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             </fieldset>
           </form>
         ) : null}
-        {config.get('enableInlineAddonReview') && showTextEntry ? (
+        {_config.get('enableInlineAddonReview') && showTextEntry ? (
           <Button
             href="#cancelTextEntry"
             onClick={this.cancelTextEntry}
@@ -272,7 +277,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             {i18n.gettext("Nevermind, I don't want to write a review")}
           </Button>
         ) : null}
-        {!config.get('enableInlineAddonReview') || !showTextEntry ? (
+        {!_config.get('enableInlineAddonReview') || !showTextEntry ? (
           <ReportAbuseButton addon={addon} />
         ) : null}
       </div>
