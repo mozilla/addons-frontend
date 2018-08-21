@@ -4,9 +4,6 @@
   "description": "Universal front-end projects to complement addons-server.",
   "main": "index.js",
   "private": true,
-  "engines": {
-    "node": ">=8.10 <=10"
-  },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
     "build-all": "npm run clean && NODE_APP_INSTANCE=amo better-npm-run build && NODE_APP_INSTANCE=disco better-npm-run build",
