@@ -205,4 +205,10 @@ describe(__filename, () => {
 
     expect(root.find(Icon)).toHaveProp('name', `external-dark`);
   });
+
+  it('if the `target` is _blank', () => {
+    const root = render({ target: '/_blank' });
+
+    expect(root.find('a')).toHaveProp('rel', 'noopener noreferrer');
+  });
 });
