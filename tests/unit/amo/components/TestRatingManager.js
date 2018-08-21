@@ -1,13 +1,6 @@
 import * as React from 'react';
-import { Provider } from 'react-redux';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-dom/test-utils';
 
-import { setAuthToken } from 'core/actions';
 import { createInternalAddon } from 'core/reducers/addons';
-import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -16,73 +9,76 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
 } from 'core/constants';
-import I18nProvider from 'core/i18n/Provider';
 import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
-import createStore from 'amo/store';
-import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
-import {
+import { selectReview } from 'amo/reducers/reviews';
+import { setLatestReview } from 'amo/actions/reviews';
+import AddonReview from 'amo/components/AddonReview';
+import RatingManager, {
   RatingManagerBase,
-  RatingManagerWithI18n,
   mapDispatchToProps,
-  mapStateToProps,
 } from 'amo/components/RatingManager';
+import ReportAbuseButton from 'amo/components/ReportAbuseButton';
+import AuthenticateButton from 'core/components/AuthenticateButton';
+import UserRating from 'ui/components/UserRating';
 import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeAddon,
   fakeReview,
-  signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
-  createStubErrorHandler,
-  createUserAccountResponse,
-  fakeI18n,
   createFakeLocation,
-  userAuthToken,
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  let store;
-
-  beforeEach(() => {
-    store = createStore().store;
-  });
-
   function render(customProps = {}) {
     const props = {
-      AddonReview: () => <div />,
-      AuthenticateButton: () => <div />,
-      ReportAbuseButton: () => <div />,
       addon: createInternalAddon(fakeAddon),
-      apiState: signedInApiState,
       errorHandler: createStubErrorHandler(),
-      location: createFakeLocation({ pathname: '/some/location/' }),
-      version: fakeAddon.current_version,
-      userId: 91234,
-      submitReview: () => Promise.resolve(),
+      i18n: fakeI18n(),
       loadSavedReview: () => Promise.resolve(),
-      store,
+      location: createFakeLocation({ pathname: '/some/location/' }),
+      store: dispatchSignInActions().store,
+      submitReview: () => Promise.resolve(),
+      userId: 91234,
+      version: fakeAddon.current_version,
       ...customProps,
     };
 
-    const root = findRenderedComponentWithType(
-      renderIntoDocument(
-        <I18nProvider i18n={fakeI18n()}>
-          <Provider store={props.store}>
-            <RatingManagerWithI18n {...props} />
-          </Provider>
-        </I18nProvider>,
-      ),
-      RatingManagerBase,
+    return shallowUntilTarget(<RatingManager {...props} />, RatingManagerBase);
+  }
+
+  const createStoreWithLatestReview = ({
+    addon = createInternalAddon(fakeAddon),
+    review = fakeReview,
+    userId = 92345,
+    versionId = review.version.id,
+  } = {}) => {
+    const { store } = dispatchSignInActions({ userId });
+
+    store.dispatch(
+      setLatestReview({
+        addonId: addon.id,
+        addonSlug: addon.slug,
+        review,
+        userId,
+        versionId,
+      }),
     );
 
-    return root;
-  }
+    return store;
+  };
 
   it('prompts you to rate the add-on by name', () => {
     const root = render({
       addon: createInternalAddon({ ...fakeAddon, name: 'Some Add-on' }),
     });
-    expect(root.ratingLegend.textContent).toContain('Some Add-on');
+
+    expect(root.find('.RatingManager-legend')).toIncludeText('Some Add-on');
   });
 
   it('loads saved ratings on construction', () => {
@@ -94,19 +90,15 @@ describe(__filename, () => {
     };
     const loadSavedReview = sinon.spy();
 
-    render({
-      apiState: signedInApiState,
-      userId,
-      addon,
-      version,
-      loadSavedReview,
-    });
+    const { store } = dispatchSignInActions({ userId });
+
+    render({ addon, loadSavedReview, store, version });
 
     sinon.assert.calledWith(loadSavedReview, {
-      apiState: signedInApiState,
-      userId,
       addonId: addon.id,
       addonSlug: addon.slug,
+      apiState: store.getState().api,
+      userId,
       versionId: version.id,
     });
   });
@@ -120,64 +112,74 @@ describe(__filename, () => {
     };
     const loadSavedReview = sinon.spy();
 
-    render({
-      apiState: signedInApiState,
-      userId,
+    const store = createStoreWithLatestReview({
       addon,
-      version,
-      loadSavedReview,
-      userReview: null,
+      review: null,
+      userId,
+      versionId: version.id,
     });
+
+    render({ addon, version, store, loadSavedReview });
 
     sinon.assert.notCalled(loadSavedReview);
   });
 
   it('creates a rating with add-on and version info', () => {
-    const errorHandler = sinon.stub();
     const submitReview = sinon.spy(() => Promise.resolve());
-    const root = render({
-      errorHandler,
-      submitReview,
-      apiState: { ...signedInApiState, token: 'new-token' },
-      version: { id: 321 },
-      addon: createInternalAddon({
-        ...fakeAddon,
-        id: 12345,
-        slug: 'some-slug',
-      }),
-    });
-    return root.onSelectRating(5).then(() => {
-      sinon.assert.called(submitReview);
 
-      const call = submitReview.firstCall.args[0];
-      expect(call.versionId).toEqual(321);
-      expect(call.apiState.token).toEqual('new-token');
-      expect(call.addonId).toEqual(12345);
-      expect(call.errorHandler).toEqual(errorHandler);
-      expect(call.reviewId).toBe(undefined);
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      id: 12345,
+      slug: 'some-slug',
     });
+    const version = { id: 321 };
+
+    const { store } = dispatchSignInActions();
+
+    const root = render({ addon, store, submitReview, version });
+
+    return root
+      .instance()
+      .onSelectRating(5)
+      .then(() => {
+        sinon.assert.calledWith(
+          submitReview,
+          sinon.match({
+            addonId: addon.id,
+            apiState: store.getState().api,
+            errorHandler: root.instance().props.errorHandler,
+            reviewId: undefined,
+            versionId: version.id,
+          }),
+        );
+      });
   });
 
   it('updates a rating with the review ID', () => {
-    const submitReview = sinon.spy(() => Promise.resolve());
-    const root = render({
-      submitReview,
-      apiState: { ...signedInApiState, token: 'new-token' },
-      version: { id: fakeReview.version.id },
-      userId: 92345,
-      userReview: createInternalReview(fakeReview),
-    });
-    return root.onSelectRating(5).then(() => {
-      sinon.assert.called(submitReview);
+    const addon = createInternalAddon(fakeAddon);
+    const review = fakeReview;
+    const store = createStoreWithLatestReview({ addon, review });
 
-      const call = submitReview.firstCall.args[0];
-      expect(call.reviewId).toBeTruthy();
-      expect(call.reviewId).toEqual(fakeReview.id);
-      expect(call.versionId).toEqual(fakeReview.version.id);
-    });
+    const submitReview = sinon.spy(() => Promise.resolve());
+
+    const root = render({ addon, store, submitReview });
+
+    return root
+      .instance()
+      .onSelectRating(5)
+      .then(() => {
+        sinon.assert.calledWith(
+          submitReview,
+          sinon.match({
+            reviewId: review.id,
+            versionId: review.version.id,
+          }),
+        );
+      });
   });
 
   it('does not update an existing review if its version does not match', () => {
+    const userId = 92345;
     const submitReview = sinon.spy(() => Promise.resolve());
 
     // Set up a situation where the user is viewing a new version
@@ -190,144 +192,160 @@ describe(__filename, () => {
         id: 2,
       },
     };
+
     const addon = createInternalAddon({
       ...fakeAddon,
       id: newReview.addon.id,
     });
 
-    const root = render({
-      apiState: { ...signedInApiState, token: 'new-token' },
-      version: { id: oldVersionId },
-      userId: 92345,
-      userReview: createInternalReview(newReview),
-      submitReview,
+    const store = createStoreWithLatestReview({
       addon,
+      review: newReview,
+      userId,
+      versionId: oldVersionId,
     });
-    return root.onSelectRating(newReview.rating).then(() => {
-      sinon.assert.called(submitReview);
 
-      // Make sure the review is submitted in a way where it will be
-      // newly created against the current version.
-      const call = submitReview.firstCall.args[0];
-      expect(call.reviewId).toEqual(undefined);
-      expect(call.versionId).toEqual(addon.current_version.id);
-      expect(call.rating).toEqual(newReview.rating);
-      expect(call.addonId).toEqual(newReview.addon.id);
-    });
+    const root = render({ submitReview, addon, store });
+
+    return root
+      .instance()
+      .onSelectRating(newReview.rating)
+      .then(() => {
+        // Make sure the review is submitted in a way where it will be newly
+        // created against the current version.
+        sinon.assert.calledWith(
+          submitReview,
+          sinon.match({
+            reviewId: undefined,
+            versionId: addon.current_version.id,
+            rating: newReview.rating,
+            addonId: newReview.addon.id,
+          }),
+        );
+      });
   });
 
   it('renders and configures AddonReview after submitting a rating', () => {
-    const userReview = createInternalReview(fakeReview);
-    const FakeAddonReview = sinon.spy(() => <div />);
-    const root = render({ AddonReview: FakeAddonReview, userReview });
+    const store = createStoreWithLatestReview();
+    const root = render({ store });
 
-    sinon.assert.notCalled(FakeAddonReview);
+    expect(root.find(AddonReview)).toHaveLength(0);
 
-    return root.onSelectRating(5).then(() => {
-      sinon.assert.called(FakeAddonReview);
+    return root
+      .instance()
+      .onSelectRating(5)
+      .then(() => {
+        root.update();
 
-      const props = FakeAddonReview.firstCall.args[0];
-      expect(props.review).toEqual(userReview);
+        expect(root.find(AddonReview)).toHaveLength(1);
 
-      // Now make sure the callback is configured.
-      expect(root.state.showTextEntry).toEqual(true);
-      // Trigger the callback just like AddonReview would
-      // after completion.
-      props.onReviewSubmitted();
-      expect(root.state.showTextEntry).toEqual(false);
-    });
+        expect(root).toHaveState('showTextEntry', true);
+
+        // Trigger the callback just like AddonReview would after completion.
+        root.find(AddonReview).prop('onReviewSubmitted')();
+
+        expect(root).toHaveState('showTextEntry', false);
+      });
   });
 
   it('calls back to the parent component after submitting a review', () => {
-    const userReview = createInternalReview(fakeReview);
-    const FakeAddonReview = sinon.spy(() => <div />);
     const parentOnReviewSubmitted = sinon.stub();
+    const store = createStoreWithLatestReview();
+
     const root = render({
-      AddonReview: FakeAddonReview,
-      userReview,
       onReviewSubmitted: parentOnReviewSubmitted,
+      store,
     });
+
+    expect(root.find(AddonReview)).toHaveLength(0);
 
     // Select a rating to open the submit review UI.
-    return root.onSelectRating(5).then(() => {
-      sinon.assert.called(FakeAddonReview);
-      const props = FakeAddonReview.firstCall.args[0];
+    return root
+      .instance()
+      .onSelectRating(5)
+      .then(() => {
+        root.update();
 
-      // Simulate pressing submit in the review UI.
-      props.onReviewSubmitted();
+        expect(root.find(AddonReview)).toHaveLength(1);
 
-      // Make sure the parent's callback was executed.
-      sinon.assert.called(parentOnReviewSubmitted);
-    });
+        // Simulate pressing submit in the review UI.
+        root.find(AddonReview).prop('onReviewSubmitted')();
+
+        // Make sure the parent's callback was executed.
+        sinon.assert.called(parentOnReviewSubmitted);
+      });
   });
 
   it('does not render an AddonReview when logged out', () => {
-    const userReview = createInternalReview(fakeReview);
-    const FakeAddonReview = sinon.spy(() => <div />);
-    const userId = null; // logged out
-    const root = render({ AddonReview: FakeAddonReview, userReview, userId });
+    const { store } = dispatchClientMetadata();
 
-    sinon.assert.notCalled(FakeAddonReview);
+    const root = render({ store });
 
-    return root.onSelectRating(5).then(() => {
-      sinon.assert.notCalled(FakeAddonReview);
-    });
+    expect(root.find(AddonReview)).toHaveLength(0);
+
+    return root
+      .instance()
+      .onSelectRating(5)
+      .then(() => {
+        expect(root.find(AddonReview)).toHaveLength(0);
+      });
   });
 
   it('configures a rating component', () => {
-    const userReview = createInternalReview(fakeReview);
-    const UserRatingStub = sinon.spy(() => <div />);
+    const review = fakeReview;
+    const store = createStoreWithLatestReview({ review });
 
-    const root = render({ UserRating: UserRatingStub, userReview });
+    const root = render({ store });
 
-    sinon.assert.called(UserRatingStub);
-    const props = UserRatingStub.firstCall.args[0];
-    expect(props.onSelectRating).toEqual(root.onSelectRating);
-    expect(props.review).toEqual(userReview);
+    expect(root.find(UserRating)).toHaveLength(1);
+    expect(root.find(UserRating)).toHaveProp(
+      'onSelectRating',
+      root.instance().onSelectRating,
+    );
+    expect(root.find(UserRating)).toHaveProp(
+      'review',
+      selectReview(store.getState().reviews, review.id),
+    );
   });
 
   it('sets an undefined UserRating review when none exists', () => {
-    const UserRatingStub = sinon.spy(() => <div />);
+    const root = render();
 
-    render({ UserRating: UserRatingStub, userReview: null });
-
-    sinon.assert.calledWithMatch(UserRatingStub, {
-      review: undefined,
-    });
+    expect(root.find(UserRating)).toHaveLength(1);
+    expect(root.find(UserRating)).toHaveProp('review', undefined);
   });
 
   it('sets a blank rating when there is no saved review', () => {
-    const UserRatingStub = sinon.spy(() => <div />);
+    const root = render();
 
-    render({ UserRating: UserRatingStub, userReview: null });
-
-    sinon.assert.called(UserRatingStub);
-    const props = UserRatingStub.firstCall.args[0];
-    expect(props.rating).toBe(undefined);
+    expect(root.find(UserRating)).toHaveLength(1);
+    expect(root.find(UserRating)).toHaveProp('review', undefined);
   });
 
   it('passes an add-on to the report abuse button', () => {
-    const ReportAbuseButton = sinon.spy(() => <div />);
     const addon = createInternalAddon({ ...fakeAddon });
-    render({ ReportAbuseButton, addon });
 
-    sinon.assert.calledWithMatch(ReportAbuseButton, { addon });
+    const root = render({ addon });
+
+    expect(root.find(ReportAbuseButton)).toHaveLength(1);
+    expect(root.find(ReportAbuseButton)).toHaveProp('addon', addon);
   });
 
   describe('when user is signed out', () => {
     function renderWithoutUser(customProps = {}) {
-      return render({ userId: null, ...customProps });
+      const { store } = dispatchClientMetadata();
+
+      return render({ store, ...customProps });
     }
 
     function getAuthPromptForType(addonType) {
-      const AuthenticateButton = sinon.spy(() => <div />);
-      renderWithoutUser({
-        AuthenticateButton,
+      const root = renderWithoutUser({
         addon: createInternalAddon({ ...fakeAddon, type: addonType }),
       });
-      sinon.assert.called(AuthenticateButton);
-      const props = AuthenticateButton.firstCall.args[0];
-      return props.logInText;
+
+      expect(root.find(AuthenticateButton)).toHaveLength(1);
+
+      return root.find(AuthenticateButton).prop('logInText');
     }
 
     it('does not load saved ratings', () => {
@@ -337,13 +355,12 @@ describe(__filename, () => {
     });
 
     it('renders an AuthenticateButton', () => {
-      const AuthenticateButton = sinon.spy(() => <div />);
       const location = createFakeLocation();
-      renderWithoutUser({ AuthenticateButton, location });
 
-      sinon.assert.called(AuthenticateButton);
-      const props = AuthenticateButton.firstCall.args[0];
-      expect(props.location).toEqual(location);
+      const root = renderWithoutUser({ location });
+
+      expect(root.find(AuthenticateButton)).toHaveLength(1);
+      expect(root.find(AuthenticateButton)).toHaveProp('location', location);
     });
 
     it('renders a login prompt for the dictionary', () => {
@@ -388,31 +405,37 @@ describe(__filename, () => {
       const root = renderWithoutUser();
       // This simulates a future code change where a valid type is added
       // but we haven't given it a custom prompt yet.
-      const prompt = root.getLogInPrompt(
-        { addonType: 'banana' },
-        { validAddonTypes: ['banana'] },
-      );
+      const prompt = root
+        .instance()
+        .getLogInPrompt(
+          { addonType: 'banana' },
+          { validAddonTypes: ['banana'] },
+        );
       // The prompt should just call it an add-on:
       expect(prompt).toContain('add-on');
     });
   });
 
   describe('mapDispatchToProps', () => {
+    let store;
     let mockApi;
     let dispatch;
     let actions;
 
     beforeEach(() => {
+      store = dispatchSignInActions().store;
       mockApi = sinon.mock(reviewsApi);
       dispatch = sinon.stub();
-      actions = mapDispatchToProps(dispatch);
+      actions = mapDispatchToProps(dispatch, {});
     });
 
     describe('submitReview', () => {
       it('posts the review and dispatches the created review', () => {
+        const apiState = store.getState().api;
+
         const params = {
           rating: fakeReview.rating,
-          apiState: { ...signedInApiState, token: 'new-token' },
+          apiState: { ...apiState, token: 'new-token' },
           addonId: fakeAddon.id,
           versionId: fakeReview.version.id,
         };
@@ -439,10 +462,12 @@ describe(__filename, () => {
       });
 
       it('falls back to version ID parameter', () => {
+        const apiState = store.getState().api;
+
         const versionId = 54321;
         const params = {
           rating: fakeReview.rating,
-          apiState: { ...signedInApiState, token: 'new-token' },
+          apiState: { ...apiState, token: 'new-token' },
           addonId: fakeAddon.id,
           versionId,
         };
@@ -468,6 +493,8 @@ describe(__filename, () => {
 
     describe('loadSavedReview', () => {
       it('finds and dispatches a review', () => {
+        const apiState = store.getState().api;
+
         const userId = fakeReview.user.id;
         const addonId = fakeReview.addon.id;
         const addonSlug = fakeReview.addon.slug;
@@ -475,7 +502,7 @@ describe(__filename, () => {
         mockApi
           .expects('getLatestUserReview')
           .withArgs({
-            apiState: signedInApiState,
+            apiState,
             user: userId,
             addon: addonId,
             version: versionId,
@@ -484,7 +511,7 @@ describe(__filename, () => {
 
         return actions
           .loadSavedReview({
-            apiState: signedInApiState,
+            apiState,
             userId,
             addonId,
             addonSlug,
@@ -533,98 +560,6 @@ describe(__filename, () => {
             );
           });
       });
-    });
-  });
-
-  describe('mapStateToProps', () => {
-    function getMappedProps({
-      state = store.getState(),
-      componentProps = {
-        addon: createInternalAddon(fakeAddon),
-        version: fakeAddon.current_version,
-      },
-    } = {}) {
-      return mapStateToProps(state, componentProps);
-    }
-
-    function signIn({ userId = 98765 } = {}) {
-      store.dispatch(setAuthToken(userAuthToken()));
-      store.dispatch(
-        loadCurrentUserAccount({
-          user: createUserAccountResponse({ id: userId }),
-        }),
-      );
-    }
-
-    it('copies api state to props', () => {
-      signIn();
-
-      const state = store.getState();
-      expect(state.api.token).toBeTruthy();
-
-      const props = getMappedProps();
-      expect(props.apiState).toEqual(state.api);
-    });
-
-    it('sets an empty apiState when not signed in', () => {
-      expect(getMappedProps().apiState).toEqual({ ...initialApiState });
-    });
-
-    it('sets an empty userId when not signed in', () => {
-      expect(getMappedProps().userId).toEqual(null);
-    });
-
-    it('sets the userId property from the state', () => {
-      const userId = 91234;
-      signIn({ userId });
-      expect(getMappedProps().userId).toEqual(userId);
-    });
-
-    it('sets an empty user review when no reviews are in state', () => {
-      signIn();
-      expect(getMappedProps().userReview).toBe(undefined);
-    });
-
-    it('sets a userReview', () => {
-      const userId = 91234;
-      const addon = createInternalAddon(fakeAddon);
-      const version = fakeAddon.current_version;
-
-      signIn({ userId });
-      store.dispatch(
-        setLatestReview({
-          addonId: addon.id,
-          addonSlug: addon.slug,
-          userId,
-          versionId: version.id,
-          review: fakeReview,
-        }),
-      );
-
-      expect(
-        getMappedProps({ componentProps: { addon, version } }).userReview,
-      ).toEqual(createInternalReview(fakeReview));
-    });
-
-    it('sets a null userReview', () => {
-      const userId = 91234;
-      const addon = createInternalAddon(fakeAddon);
-      const version = fakeAddon.current_version;
-
-      signIn({ userId });
-      store.dispatch(
-        setLatestReview({
-          addonId: addon.id,
-          addonSlug: addon.slug,
-          userId,
-          versionId: version.id,
-          review: null,
-        }),
-      );
-
-      expect(
-        getMappedProps({ componentProps: { addon, version } }).userReview,
-      ).toEqual(null);
     });
   });
 });
