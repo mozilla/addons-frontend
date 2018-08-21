@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-16 15:05+0000\n"
-"Last-Translator: Fabio M Caldas <fabiomcaldas@gmail.com>\n"
+"PO-Revision-Date: 2018-08-21 14:01+0000\n"
+"Last-Translator: Wolfgang Marcos <eusou@olobo.me>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1086,7 +1086,7 @@ msgstr "Proteja-se contra os rastreadores mais traiçoeiros"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr "Pasta de favoritos padrão"
+msgstr "Pasta padrão de favoritos"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
@@ -1114,9 +1114,8 @@ msgid "Context Search"
 msgstr "Wikipedia Context Menu Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Destaque o texto em qualquer página web para abrir um menu de pesquisa útil"
+msgstr "Destaque o texto de qualquer página da web para pesquisar o termo facilmente"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1132,9 +1131,8 @@ msgid "Search Encrypt"
 msgstr "Resultados da pesquisa"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Proteção de privacidade"
+msgstr "Proteção de privacidade para seus dados de pesquisa"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1155,7 +1153,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Tela inteira em automático"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 #, fuzzy
@@ -1209,7 +1207,7 @@ msgstr "Favoritos"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Ordene os favoritos automaticamente para que estejam na posição de sua preferência"
 
 #: src/amo/components/HomeHeroBanner/index.js:211
 msgid "Britannica Insights"
@@ -2327,7 +2325,7 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Gerencie suas extensões ao clicar em Extensões no menu."
 
 #: src/core/components/InfoDialog/index.js:84
 msgid "OK"
