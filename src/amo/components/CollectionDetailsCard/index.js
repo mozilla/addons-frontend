@@ -28,41 +28,39 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   hasEditPermission: boolean,
-  showEditButton: boolean,
+  hasMaintainerPermission: boolean,
 |};
 
-export class CollectionDetailsCardBase extends React.Component<InternalProps> {
-  render() {
-    const {
-      collection,
-      creating,
-      editing,
-      filters,
-      hasEditPermission,
-      showEditButton,
-    } = this.props;
+export const CollectionDetailsCardBase = (props: InternalProps) => {
+  const {
+    collection,
+    creating,
+    editing,
+    filters,
+    hasEditPermission,
+    hasMaintainerPermission,
+  } = props;
 
-    const managingCollection = creating || (editing && hasEditPermission);
-    if (managingCollection) {
-      return (
-        <CollectionManager
-          collection={collection}
-          creating={creating}
-          filters={filters}
-        />
-      );
-    }
-
+  const managingCollection = creating || (editing && hasEditPermission);
+  if (managingCollection) {
     return (
-      <CollectionDetails
+      <CollectionManager
         collection={collection}
-        editing={editing}
+        creating={creating}
         filters={filters}
-        showEditButton={showEditButton && !editing}
       />
     );
   }
-}
+
+  return (
+    <CollectionDetails
+      collection={collection}
+      editing={editing}
+      filters={filters}
+      showEditButton={hasMaintainerPermission && !editing}
+    />
+  );
+};
 
 export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const { collection } = ownProps;
@@ -72,7 +70,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const isOwner =
     collection && currentUser && collection.authorId === currentUser.id;
   let hasEditPermission = false;
-  let showEditButton = false;
+  let hasMaintainerPermission = false;
 
   if (collection && currentUser) {
     hasEditPermission =
@@ -80,7 +78,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
       // User can edit mozilla collections, and it is a mozilla collection.
       (collection.authorUsername === MOZILLA_COLLECTIONS_USERNAME &&
         hasPermission(state, MOZILLA_COLLECTIONS_EDIT));
-    showEditButton =
+    hasMaintainerPermission =
       hasEditPermission ||
       // User can maintain the featured themes collection, and it is the featured
       // themes collection.
@@ -91,7 +89,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
 
   return {
     hasEditPermission,
-    showEditButton,
+    hasMaintainerPermission,
   };
 };
 
