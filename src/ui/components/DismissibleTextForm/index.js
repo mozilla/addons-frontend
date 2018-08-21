@@ -24,6 +24,7 @@ export type OnSubmitParams = {|
 
 type Props = {|
   className?: string,
+  formFooter?: React.Element<any>,
   onDelete?: null | (() => void),
   onDismiss?: () => void,
   onSubmit: (params: OnSubmitParams) => void,
@@ -104,6 +105,7 @@ export class DismissibleTextFormBase extends React.Component<
   render() {
     const {
       className,
+      formFooter,
       i18n,
       isSubmitting,
       microButtons,
@@ -146,6 +148,9 @@ export class DismissibleTextFormBase extends React.Component<
           onChange={this.onTextChange}
           placeholder={text.placeholder}
         />
+        {formFooter && (
+          <div className="DismissibleTextForm-formFooter">{formFooter}</div>
+        )}
         <div className="DismissibleTextForm-buttons">
           {/*
             These buttons each have an href so that they become anchor tags.
