@@ -239,11 +239,10 @@ describe(__filename, () => {
 
         expect(root.find(AddonReview)).toHaveLength(1);
 
-        // Now make sure the callback is configured.
         expect(root).toHaveState('showTextEntry', true);
 
         // Trigger the callback just like AddonReview would after completion.
-        root.instance().onReviewSubmitted();
+        root.find(AddonReview).prop('onReviewSubmitted')();
 
         expect(root).toHaveState('showTextEntry', false);
       });
@@ -288,8 +287,6 @@ describe(__filename, () => {
       .instance()
       .onSelectRating(5)
       .then(() => {
-        root.update();
-
         expect(root.find(AddonReview)).toHaveLength(0);
       });
   });
