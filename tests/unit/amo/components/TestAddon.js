@@ -66,7 +66,6 @@ import {
 import {
   createFetchAddonResult,
   createStubErrorHandler,
-  createUserAccountResponse,
   fakeI18n,
   createFakeLocation,
   getFakeConfig,
@@ -78,7 +77,6 @@ import LoadingText from 'ui/components/LoadingText';
 import Button from 'ui/components/Button';
 import ThemeImage from 'ui/components/ThemeImage';
 import Notice from 'ui/components/Notice';
-import { isDeveloper, hasPermission } from 'amo/reducers/users';
 
 function renderProps({
   addon = createInternalAddon(fakeAddon),
