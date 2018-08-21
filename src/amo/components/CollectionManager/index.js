@@ -80,7 +80,11 @@ export class CollectionManagerBase extends React.Component<
   }
 
   onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
-    const { dispatch } = this.props;
+    const { creating, dispatch, history } = this.props;
+
+    if (creating) {
+      history.goBack();
+    }
 
     event.preventDefault();
     event.stopPropagation();

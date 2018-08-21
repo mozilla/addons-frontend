@@ -6,13 +6,21 @@ import CollectionDetails, {
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
+  beginEditingCollectionDetails,
   collectionEditUrl,
   collectionUrl,
   convertFiltersToQueryParams,
   createInternalCollection,
 } from 'amo/reducers/collections';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import { createFakeCollectionDetail } from 'tests/unit/amo/helpers';
+import {
+  createFakeEvent,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import {
+  createFakeCollectionDetail,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {
@@ -24,6 +32,7 @@ describe(__filename, () => {
       filters: {},
       i18n: fakeI18n(),
       showEditButton: false,
+      store: dispatchSignInActions().store,
       ...otherProps,
     };
 
@@ -103,6 +112,16 @@ describe(__filename, () => {
       });
   });
 
+  it('does not render buttons when there is no collection', () => {
+    const root = render({ collection: null });
+
+    expect(root.find('.CollectionDetails-edit-button')).toHaveLength(0);
+    expect(root.find('.CollectionDetails-edit-details-button')).toHaveLength(0);
+    expect(
+      root.find('.CollectionDetails-back-to-collection-button'),
+    ).toHaveLength(0);
+  });
+
   it('renders an edit button if requested', () => {
     const authorUsername = 'some-username';
     const slug = 'some-slug';
@@ -115,13 +134,37 @@ describe(__filename, () => {
 
     const editButton = root.find('.CollectionDetails-edit-button');
     expect(editButton).toHaveLength(1);
-    expect(editButton).toHaveProp('buttonType', 'neutral');
-    expect(editButton).toHaveProp('puffy', true);
     expect(editButton).toHaveProp('to', {
       pathname: collectionEditUrl({ collection }),
       query: convertFiltersToQueryParams(filters),
     });
-    expect(editButton.children()).toHaveText('Edit this collection');
+  });
+
+  it('does not render an edit button if not requested', () => {
+    const root = render({ showEditButton: false });
+
+    expect(root.find('.CollectionDetails-edit-button')).toHaveLength(0);
+  });
+
+  it('does not render an edit button when editing', () => {
+    const root = render({
+      editing: true,
+      showEditButton: true,
+    });
+
+    expect(root.find('.CollectionDetails-edit-button')).toHaveLength(0);
+  });
+
+  it('renders an edit collection details button if the user has edit permission', () => {
+    const root = render({ editing: true, hasEditPermission: true });
+
+    expect(root.find('.CollectionDetails-edit-details-button')).toHaveLength(1);
+  });
+
+  it('does not render an edit collection details button if the user does not have edit permission', () => {
+    const root = render({ editing: true, hasEditPermission: false });
+
+    expect(root.find('.CollectionDetails-edit-details-button')).toHaveLength(0);
   });
 
   it('renders a back to collection link if requested and editing', () => {
@@ -134,18 +177,27 @@ describe(__filename, () => {
 
     const root = render({ collection, filters, editing: true });
 
-    const editButton = root.find(
-      '.CollectionDetails-back-to-collection-button',
-    );
-    expect(editButton).toHaveProp('to', {
+    expect(
+      root.find('.CollectionDetails-back-to-collection-button'),
+    ).toHaveProp('to', {
       pathname: collectionUrl({ collection }),
       query: convertFiltersToQueryParams(filters),
     });
   });
 
-  it('does not render an edit button if not requested', () => {
-    const root = render({ showEditButton: false });
+  it('dispatches beginEditingCollectionDetails when the edit details button is clicked', () => {
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    expect(root.find('.CollectionDetails-edit-button')).toHaveLength(0);
+    const root = render({ editing: true, hasEditPermission: true, store });
+
+    const clickEvent = createFakeEvent();
+    root
+      .find('.CollectionDetails-edit-details-button')
+      .simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.preventDefault);
+    sinon.assert.called(clickEvent.stopPropagation);
+    sinon.assert.calledWith(dispatchSpy, beginEditingCollectionDetails());
   });
 });

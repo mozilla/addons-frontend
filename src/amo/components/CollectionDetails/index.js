@@ -110,7 +110,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
           hasEditPermission && (
             <Button
               buttonType="neutral"
-              className="CollectionDetails-edit-button"
+              className="CollectionDetails-edit-details-button"
               puffy
               href="#editdetails"
               onClick={this.onEditDetails}
