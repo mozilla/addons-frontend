@@ -1637,21 +1637,41 @@ describe(__filename, () => {
     });
   });
 
-  it('displays a notice on a disabled addon to [admin/developer]', () => {
-    // should check if admin
-    const permissions = [ALL_SUPER_POWERS];
-    const { state } = dispatchSignInActions({ userProps: { permissions } });
-    // should check if developer
-    const user = createUserAccountResponse({
-      is_addon_developer: true,
-    });
+  it('displays a notice to the admin/developer on a disabled addon', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       status: 'disabled',
     });
-    const root = shallowRender({ addon });
-    expect(isDeveloper(user)).toEqual(true);
- //   expect(hasPermission(state, <IDK what to write here>)).toEqual(true);
+
+    const root = shallowRender({
+      addon,
+      store: dispatchSignInActions({
+        userProps: {
+          permissions: [ALL_SUPER_POWERS],
+        },
+      }).store,
+    });
+
     expect(root.find(Notice)).toHaveLength(1);
+
+    expect(
+      root
+        .find(Notice)
+        .childAt(0)
+        .text(),
+    ).toEqual(
+      'This is not a public listing. You are only seeing it because of elevated permissions.',
+    );
+  });
+
+  it('does not display a disabled notice for a public addon', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      status: 'public',
+    });
+
+    const root = shallowRender({ addon });
+
+    expect(root.find(Notice)).toHaveLength(0);
   });
 });
