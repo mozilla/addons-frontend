@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-15 19:53+0000\n"
+"PO-Revision-Date: 2018-08-21 05:30+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2106,11 +2106,11 @@ msgstr "ელფოსტის აქედან შეცვლა, შე�
 
 #: src/amo/components/UserProfileEdit/index.js:535
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "ელფოსტის მისამართის შეცვლა შეგიძლიათ Firefox ანგარიშებიდან. %(startLink)sდახმარება გესაჭიროებათ?%(endLink)s"
+msgstr "ელფოსტის მისამართის შეცვლა შეგიძლიათ Firefox-ანგარიშებიდან. %(startLink)sდახმარება გესაჭიროებათ?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:552
 msgid "Manage Firefox Accounts…"
-msgstr "Firefox ანგარიშების მართვა..."
+msgstr "Firefox-ანგარიშების მართვა..."
 
 #: src/amo/components/UserProfileEdit/index.js:560
 msgid "Profile"
