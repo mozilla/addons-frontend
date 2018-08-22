@@ -325,4 +325,21 @@ describe(__filename, () => {
 
     expect(root.find('.DismissibleTextForm-dismiss')).toHaveLength(0);
   });
+
+  it('hides a formFooter by default', () => {
+    const root = shallowRender();
+
+    expect(root.find('.DismissibleTextForm-formFooter')).toHaveLength(0);
+  });
+
+  it('renders a formFooter', () => {
+    const root = shallowRender({
+      formFooter: <div className="custom-formFooter" />,
+    });
+
+    expect(root.find('.DismissibleTextForm-formFooter')).toHaveLength(1);
+    expect(
+      root.find('.DismissibleTextForm-formFooter .custom-formFooter'),
+    ).toHaveLength(1);
+  });
 });
