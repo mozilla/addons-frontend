@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 
 import {
   CLEAR_ADDON_REVIEWS,
+  FLASH_REVIEW_MESSAGE,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
@@ -22,6 +23,7 @@ import {
 import type {
   ClearAddonReviewsAction,
   FlagReviewAction,
+  FlashMessageType,
   HideEditReviewFormAction,
   HideReplyToReviewFormAction,
   ReviewWasFlaggedAction,
@@ -30,6 +32,7 @@ import type {
   SetInternalReviewAction,
   SetLatestReviewAction,
   SetGroupedRatingsAction,
+  FlashReviewMessageAction,
   SetReviewAction,
   SetReviewReplyAction,
   SetUserReviewsAction,
@@ -91,6 +94,8 @@ export type ReviewsState = {|
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
+  // Short-lived messages about reviews.
+  flashMessage?: FlashMessageType,
 |};
 
 export const initialState: ReviewsState = {
@@ -263,8 +268,11 @@ export const addReviewToState = ({
 
 type ReviewActionType =
   | ClearAddonReviewsAction
+  | FlagReviewAction
+  | FlashReviewMessageAction
   | HideEditReviewFormAction
   | HideReplyToReviewFormAction
+  | ReviewWasFlaggedAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
   | SetGroupedRatingsAction
@@ -274,9 +282,7 @@ type ReviewActionType =
   | SetReviewReplyAction
   | SetUserReviewsAction
   | ShowEditReviewFormAction
-  | ShowReplyToReviewFormAction
-  | FlagReviewAction
-  | ReviewWasFlaggedAction;
+  | ShowReplyToReviewFormAction;
 
 export default function reviewsReducer(
   state: ReviewsState = initialState,
@@ -460,6 +466,13 @@ export default function reviewsReducer(
           ...state.groupedRatings,
           [payload.addonId]: payload.grouping,
         },
+      };
+    }
+    case FLASH_REVIEW_MESSAGE: {
+      const { payload } = action;
+      return {
+        ...state,
+        flashMessage: payload.message,
       };
     }
     default:

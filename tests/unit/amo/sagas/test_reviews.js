@@ -2,7 +2,12 @@ import SagaTester from 'redux-saga-tester';
 
 import * as reviewsApi from 'amo/api/reviews';
 import {
+  ABORTED,
+  SAVED_RATING,
+  SAVED_REVIEW,
   SET_ADDON_REVIEWS,
+  STARTED_SAVE_RATING,
+  STARTED_SAVE_REVIEW,
   createAddonReview,
   fetchGroupedRatings,
   fetchReviews,
@@ -12,6 +17,7 @@ import {
   sendReplyToReview,
   setAddonReviews,
   setGroupedRatings,
+  flashReviewMessage,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -23,7 +29,7 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
-import reviewsSaga from 'amo/sagas/reviews';
+import reviewsSaga, { FLASH_MESSAGE_DURATION } from 'amo/sagas/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
@@ -31,15 +37,21 @@ import {
   fakeAddon,
   fakeReview,
 } from 'tests/unit/amo/helpers';
-import { apiResponsePage, createStubErrorHandler } from 'tests/unit/helpers';
+import {
+  apiResponsePage,
+  createStubErrorHandler,
+  matchingSagaAction,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let apiState;
+  let clock;
   let errorHandler;
   let mockApi;
   let sagaTester;
 
   beforeEach(() => {
+    clock = sinon.useFakeTimers(Date.now());
     errorHandler = createStubErrorHandler();
     mockApi = sinon.mock(reviewsApi);
 
@@ -51,6 +63,10 @@ describe(__filename, () => {
     });
 
     sagaTester.start(reviewsSaga);
+  });
+
+  afterEach(() => {
+    clock.restore();
   });
 
   describe('fetchReviews', () => {
@@ -472,10 +488,10 @@ describe(__filename, () => {
     function createExternalReview({
       id = 76654,
       body,
-      rating,
+      rating = 4,
       addonId = fakeReview.addon.id,
       versionId = fakeReview.version.id,
-    }) {
+    } = {}) {
       return {
         ...fakeReview,
         id,
@@ -489,6 +505,15 @@ describe(__filename, () => {
           ...fakeReview.version,
           id: versionId,
         },
+      };
+    }
+
+    function matchMessage(expectedAction) {
+      return (maybeAction) => {
+        return (
+          maybeAction.type === expectedAction.type &&
+          maybeAction.payload.message === expectedAction.payload.message
+        );
       };
     }
 
@@ -576,6 +601,86 @@ describe(__filename, () => {
       const action = await sagaTester.waitFor(expectedAction.type);
 
       expect(action).toEqual(expectedAction);
+    });
+
+    it('flashes the start of saving a rating', async () => {
+      const rating = 4;
+      const externalReview = createExternalReview({ rating });
+
+      mockApi.expects('submitReview').resolves(externalReview);
+
+      _updateAddonReview({ body: undefined, rating });
+
+      const expectedAction = flashReviewMessage(STARTED_SAVE_RATING);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('flashes the start of saving a review', async () => {
+      const body = 'I love this add-on';
+      const externalReview = createExternalReview({ body });
+
+      mockApi.expects('submitReview').resolves(externalReview);
+
+      _updateAddonReview({ body, rating: undefined });
+
+      const expectedAction = flashReviewMessage(STARTED_SAVE_REVIEW);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('flashes when a rating gets saved', async () => {
+      const rating = 4;
+      const externalReview = createExternalReview({ rating });
+
+      mockApi.expects('submitReview').resolves(externalReview);
+
+      _updateAddonReview({ body: undefined, rating });
+
+      const expectedAction = flashReviewMessage(SAVED_RATING);
+      await matchingSagaAction(sagaTester, matchMessage(expectedAction));
+    });
+
+    it('flashes when a review gets saved', async () => {
+      const body = 'uBlock Origin is easy on CPU';
+      const externalReview = createExternalReview({ body });
+
+      mockApi.expects('submitReview').resolves(externalReview);
+
+      _updateAddonReview({ body, rating: undefined });
+
+      const expectedAction = flashReviewMessage(SAVED_REVIEW);
+      await matchingSagaAction(sagaTester, matchMessage(expectedAction));
+    });
+
+    it('resets the flash message after some time', async () => {
+      const body = 'This add-on is pretty good';
+      const externalReview = createExternalReview({ body });
+
+      mockApi.expects('submitReview').resolves(externalReview);
+
+      _updateAddonReview({ body });
+
+      // Wait for a save message.
+      await matchingSagaAction(
+        sagaTester,
+        matchMessage(flashReviewMessage(SAVED_REVIEW)),
+      );
+
+      clock.tick(FLASH_MESSAGE_DURATION);
+
+      const expectedAction = flashReviewMessage(undefined);
+      await matchingSagaAction(sagaTester, matchMessage(expectedAction));
+    });
+
+    it('flashes an abort message on error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('submitReview').rejects(error);
+
+      _createAddonReview();
+
+      const expectedAction = flashReviewMessage(ABORTED);
+      await matchingSagaAction(sagaTester, matchMessage(expectedAction));
     });
   });
 });

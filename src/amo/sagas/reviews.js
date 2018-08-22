@@ -15,13 +15,19 @@ import {
   submitReview,
 } from 'amo/api/reviews';
 import {
+  ABORTED,
   CREATE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
+  SAVED_RATING,
+  SAVED_REVIEW,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
+  STARTED_SAVE_RATING,
+  STARTED_SAVE_REVIEW,
   UPDATE_ADDON_REVIEW,
+  flashReviewMessage,
   hideReplyToReviewForm,
   setAddonReviews,
   setGroupedRatings,
@@ -49,6 +55,9 @@ import type {
   SendReplyToReviewAction,
   UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
+
+// Number of millesconds that a message should be flashed on screen.
+export const FLASH_MESSAGE_DURATION = 2000;
 
 function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page },
@@ -200,7 +209,16 @@ function* manageAddonReview(
   const { body, errorHandlerId, rating } = action.payload;
   const errorHandler = createErrorHandler(errorHandlerId);
 
+  const savingRating = !!rating;
+  const savingReview = !!body;
+
   yield put(errorHandler.createClearingAction());
+  if (savingRating) {
+    yield put(flashReviewMessage(STARTED_SAVE_RATING));
+  }
+  if (savingReview) {
+    yield put(flashReviewMessage(STARTED_SAVE_REVIEW));
+  }
 
   try {
     const state: AppState = yield select(getState);
@@ -235,9 +253,23 @@ function* manageAddonReview(
     );
 
     yield put(setReview(reviewFromResponse));
+
+    if (savingRating) {
+      yield put(flashReviewMessage(SAVED_RATING));
+    }
+    if (savingReview) {
+      yield put(flashReviewMessage(SAVED_REVIEW));
+    }
+
+    // Make the message disappear after some time.
+    yield new Promise((resolve) => setTimeout(resolve, FLASH_MESSAGE_DURATION));
+    yield put(flashReviewMessage(undefined));
   } catch (error) {
-    log.warn(`Failed to submit review with action ${action.type}: ${error}`);
+    log.warn(
+      `Failed to create/update review with action ${action.type}: ${error}`,
+    );
     yield put(errorHandler.createErrorAction(error));
+    yield put(flashReviewMessage(ABORTED));
   }
 }
 

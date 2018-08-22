@@ -1,4 +1,5 @@
 import {
+  SAVED_RATING,
   clearAddonReviews,
   createInternalReview,
   flagReview,
@@ -9,6 +10,7 @@ import {
   setGroupedRatings,
   setInternalReview,
   setLatestReview,
+  flashReviewMessage,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -987,6 +989,22 @@ describe(__filename, () => {
       );
 
       expect(state.groupedRatings[firstAddonId]).toEqual(firstGrouping);
+    });
+  });
+
+  describe('flashReviewMessage', () => {
+    it('flashes a message', () => {
+      const state = reviewsReducer(undefined, flashReviewMessage(SAVED_RATING));
+      expect(state.flashMessage).toEqual(SAVED_RATING);
+    });
+
+    it('unsets a message', () => {
+      let state;
+
+      state = reviewsReducer(state, flashReviewMessage(SAVED_RATING));
+      state = reviewsReducer(state, flashReviewMessage(undefined));
+
+      expect(state.flashMessage).toEqual(undefined);
     });
   });
 });
