@@ -448,7 +448,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   // `getUserByUsername()` requires a string as second argument.
   let user = getUserByUsername(state.users, `${username}`);
 
-  if (!user) {
+  if (!user && /^[0-9]+$/.test(username)) {
     const userId = parseInt(username, 10);
     user = !Number.isNaN(userId) ? getUserById(state.users, userId) : undefined;
   }
