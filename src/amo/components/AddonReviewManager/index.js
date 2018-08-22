@@ -3,7 +3,12 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { updateAddonReview } from 'amo/actions/reviews';
+import {
+  SAVED_RATING,
+  STARTED_SAVE_RATING,
+  STARTED_SAVE_REVIEW,
+  updateAddonReview,
+} from 'amo/actions/reviews';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -11,7 +16,7 @@ import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Rating from 'ui/components/Rating';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UserReviewType } from 'amo/actions/reviews';
+import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
 import type { I18nType } from 'core/types/i18n';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 
@@ -26,6 +31,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  flashMessage?: FlashMessageType | void,
 |};
 
 export class AddonReviewManagerBase extends React.Component<InternalProps> {
@@ -54,7 +60,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { errorHandler, i18n, review } = this.props;
+    const { errorHandler, i18n, review, flashMessage } = this.props;
 
     const reviewGuide = i18n.sprintf(
       i18n.gettext(
@@ -88,9 +94,21 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
             styleSize="small"
             yellowStars
           />
+          <span
+            className={makeClassName('AddonReviewManager-savedRating', {
+              'AddonReviewManager-savedRating-hidden':
+                flashMessage !== STARTED_SAVE_RATING &&
+                flashMessage !== SAVED_RATING,
+            })}
+          >
+            {flashMessage === STARTED_SAVE_RATING
+              ? i18n.gettext('Saving')
+              : i18n.gettext('Saved')}
+          </span>
         </div>
         <DismissibleTextForm
           formFooter={formFooter}
+          isSubmitting={flashMessage === STARTED_SAVE_REVIEW}
           onSubmit={this.onSubmitReview}
           placeholder={placeholder}
           puffyButtons
@@ -102,6 +120,12 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
   }
 }
+
+const mapStateToProps = (state: AppState) => {
+  return {
+    flashMessage: state.reviews.flashMessage,
+  };
+};
 
 export const extractId = (props: Props): string => {
   return props.review.id.toString();

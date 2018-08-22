@@ -52,6 +52,7 @@ describe(__filename, () => {
   let sagaTester;
 
   beforeEach(() => {
+    clock = sinon.useFakeTimers(Date.now());
     errorHandler = createStubErrorHandler();
     fakeSagaDelay = sinon.stub().resolves();
     mockApi = sinon.mock(reviewsApi);
@@ -64,6 +65,10 @@ describe(__filename, () => {
     });
 
     sagaTester.start(() => reviewsSaga({ _delay: fakeSagaDelay }));
+  });
+
+  afterEach(() => {
+    clock.restore();
   });
 
   describe('fetchReviews', () => {
