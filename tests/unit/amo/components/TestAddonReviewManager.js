@@ -1,7 +1,14 @@
 import { render as staticRender } from 'enzyme';
 import * as React from 'react';
 
-import { createInternalReview, updateAddonReview } from 'amo/actions/reviews';
+import {
+  SAVED_RATING,
+  STARTED_SAVE_RATING,
+  STARTED_SAVE_REVIEW,
+  createInternalReview,
+  flashReviewMessage,
+  updateAddonReview,
+} from 'amo/actions/reviews';
 import AddonReviewManager, {
   AddonReviewManagerBase,
   extractId,
@@ -137,6 +144,53 @@ describe(__filename, () => {
     const root = render({ store, errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('flashes a saving rating message', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
+
+    const root = render({ store });
+
+    const message = root.find('.AddonReviewManager-savedRating');
+    expect(message).toHaveText('Saving');
+    expect(message).not.toHaveClassName(
+      '.AddonReviewManager-savedRating-hidden',
+    );
+  });
+
+  it('flashes a saved rating message', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(flashReviewMessage(SAVED_RATING));
+
+    const root = render({ store });
+
+    const message = root.find('.AddonReviewManager-savedRating');
+    expect(message).toHaveText('Saved');
+    expect(message).not.toHaveClassName(
+      '.AddonReviewManager-savedRating-hidden',
+    );
+  });
+
+  it('hides a flashed rating message', () => {
+    const { store } = dispatchClientMetadata();
+    // Set a message then hide it.
+    store.dispatch(flashReviewMessage(SAVED_RATING));
+    store.dispatch(flashReviewMessage(undefined));
+
+    const root = render({ store });
+
+    const message = root.find('.AddonReviewManager-savedRating');
+    expect(message).toHaveClassName('.AddonReviewManager-savedRating-hidden');
+  });
+
+  it('enters a submitting review state', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(flashReviewMessage(STARTED_SAVE_REVIEW));
+
+    const root = render({ store });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('isSubmitting', true);
   });
 
   describe('extractId', () => {
