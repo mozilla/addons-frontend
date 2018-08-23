@@ -106,6 +106,7 @@ export const initialState: ReviewsState = {
   groupedRatings: {},
   // This stores review-related UI state.
   view: {},
+  flashMessage: undefined,
 };
 
 export const selectReview = (
