@@ -15,22 +15,16 @@
 
 .AddonReviewListItem-allControls {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 6px;
-  width: 100%;
-
-  @include respond-to(extraExtraLarge) {
-    justify-content: flex-start;
-    margin-top: 0;
-    width: auto;
-  }
+  justify-content: flex-start;
+  margin-top: 0;
+  width: auto;
 }
 
 .AddonReviewListItem-control {
-  @include margin-start(6px);
+  @include margin-end(6px);
 
   @include respond-to(medium) {
-    @include margin-start(24px);
+    @include margin-end(24px);
   }
 
   .Icon-reply-arrow {

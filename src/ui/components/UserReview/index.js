@@ -13,6 +13,7 @@ type Props = {|
   byLine: React.Node | null,
   children?: React.Node,
   className?: string,
+  controls?: React.Node | null,
   review: ?UserReviewType,
   showRating?: boolean,
 |};
@@ -21,6 +22,7 @@ const UserReview: React.ComponentType<Props> = ({
   byLine,
   children,
   className,
+  controls,
   review,
   showRating = false,
 }: Props) => {
@@ -42,13 +44,14 @@ const UserReview: React.ComponentType<Props> = ({
 
   return (
     <div className={makeClassName('UserReview', className)}>
-      {body}
       <div className="UserReview-byLine">
         {review && showRating ? (
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
         {byLine}
       </div>
+      {body}
+      {controls}
       {children}
     </div>
   );
