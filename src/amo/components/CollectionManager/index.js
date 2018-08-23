@@ -223,7 +223,7 @@ export class CollectionManagerBase extends React.Component<
       formIsDisabled || formIsUnchanged || isNameBlank || isSlugBlank;
     const buttonText = creating
       ? i18n.gettext('Create collection')
-      : i18n.gettext('Save collection');
+      : i18n.gettext('Save changes');
 
     return (
       <form className="CollectionManager" onSubmit={this.onSubmit}>

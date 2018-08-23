@@ -125,7 +125,7 @@ describe(__filename, () => {
     const root = render({ collection: null, creating: false });
 
     expect(root.find('.CollectionManager-submit').children()).toHaveText(
-      'Save collection',
+      'Save changes',
     );
   });
 
