@@ -594,6 +594,7 @@ export const STARTED_SAVE_RATING: 'started-save-rating' = 'started-save-rating';
 export const STARTED_SAVE_REVIEW: 'started-save-review' = 'started-save-review';
 
 export type FlashMessageType =
+  | void
   | typeof ABORTED
   | typeof SAVED_RATING
   | typeof SAVED_REVIEW
@@ -602,11 +603,11 @@ export type FlashMessageType =
 
 export type FlashReviewMessageAction = {|
   type: typeof FLASH_REVIEW_MESSAGE,
-  payload: { message: FlashMessageType | void },
+  payload: { message: FlashMessageType },
 |};
 
 export const flashReviewMessage = (
-  message: FlashMessageType | void,
+  message: FlashMessageType,
 ): FlashReviewMessageAction => {
   return {
     type: FLASH_REVIEW_MESSAGE,
