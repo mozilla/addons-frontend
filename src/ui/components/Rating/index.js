@@ -133,6 +133,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
         key: `rating-${thisRating}`,
+        onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
         title: this.renderTitle(rating, readOnly, thisRating),
       };
