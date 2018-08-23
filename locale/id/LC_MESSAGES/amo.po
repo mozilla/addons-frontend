@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-08-21 05:40+0000\n"
+"PO-Revision-Date: 2018-08-23 01:49+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2171,50 +2171,44 @@ msgid "Delete Profile"
 msgstr "Hapus Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:766
-#, fuzzy
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "PENTING: Menghapus akun Anda tidak dapat diurungkan."
+msgstr "PENTING: Penghapusan profil Pengaya Firefox Anda tidak dapat diurungkan."
 
 #: src/amo/components/UserProfileEdit/index.js:769
-#, fuzzy
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "PENTING: Menghapus akun ini tidak dapat diurungkan."
+msgstr "PENTING: Penghapusan profil Pengaya Firefox ini tidak dapat diurungkan."
 
 #: src/amo/components/UserProfileEdit/index.js:778
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
-"Jika Anda menyetujui %(startStrong)stindakan yang tak dapat dibalik ini%(endStrong)s, data berikut akan dihapus: gambar profil, rincian profil (termasuk nama pengguna, surel, tampilan nama, lokasi, "
-"beranda, biografi, pekerjaan) dan preferensi notifikasi. Data lainnya misalnya peringkat dan tinjauan akan disamarkan."
+"Data Anda akan dihapus secara permanen, termasuk perincian profil (gambar, nama pengguna, nama tampilan, lokasi, beranda, biografi, pekerjaan) dan preferensi notifikasi. Ulasan dan pemeringkatan "
+"Anda akan diawanamakan dan tidak dapat diubah lagi."
 
 #: src/amo/components/UserProfileEdit/index.js:785
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
-"Jika Anda menyetujui %(startStrong)stindakan yang tak dapat dibalik ini%(endStrong)s, data berikut akan dihapus: gambar profil, rincian profil (termasuk nama pengguna, surel, tampilan nama, lokasi, "
-"beranda, biografi, pekerjaan) dan preferensi notifikasi. Data lainnya misalnya peringkat dan tinjauan akan disamarkan."
+"Data pengguna akan dihapus secara permanen, termasuk perincian profil (gambar, nama pengguna, nama tampilan, lokasi, beranda, biografi, pekerjaan) dan preferensi notifikasi. Ulasan dan pemeringkatan"
+" akan diawanamakan dan tidak dapat diubah lagi."
 
 #: src/amo/components/UserProfileEdit/index.js:795
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:808
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sCATATAN:%(strongEnd)s Anda tidak dapat menghapus akun Anda jika Anda %(linkStart)spemilik dari pengaya%(linkEnd)s. Anda harus %(docLinkStart)smentransfer kepemilikan%(docLinkEnd)s "
-"atau menghapus pengaya sebelum Anda menghapus akun Anda."
+"%(strongStart)sCATATAN:%(strongEnd)s Anda tidak dapat menghapus profil Anda jika Anda merupakan %(linkStart)spemilik pengaya%(linkEnd)s. Anda harus %(docLinkStart)smentransfer "
+"kepemilikan%(docLinkEnd)s atau menghapus pengaya sebelum Anda menghapus profil."
 
 #: src/amo/components/UserProfileEdit/index.js:815
-#, fuzzy
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sCATATAN:%(strongEnd)s Anda tidak dapat menghapus akun pengguna jika pengguna adalah %(linkStart)spemilik dari pengaya%(linkEnd)s."
+msgstr "%(strongStart)sCATATAN:%(strongEnd)s Anda tidak dapat menghapus profil pengguna jika pengguna merupakan %(linkStart)spemilik pengaya%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2293,9 +2287,8 @@ msgid "Installing"
 msgstr "Memasang"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Mencopot %(name)s."
+msgstr "Mencopot"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
