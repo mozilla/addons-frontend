@@ -29,7 +29,7 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
-import reviewsSaga, { FLASH_MESSAGE_DURATION } from 'amo/sagas/reviews';
+import reviewsSaga, { FLASH_SAVED_MESSAGE_DURATION } from 'amo/sagas/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
@@ -667,7 +667,7 @@ describe(__filename, () => {
         matchMessage(flashReviewMessage(SAVED_REVIEW)),
       );
 
-      clock.tick(FLASH_MESSAGE_DURATION);
+      clock.tick(FLASH_SAVED_MESSAGE_DURATION);
 
       const expectedAction = flashReviewMessage(undefined);
       await matchingSagaAction(sagaTester, matchMessage(expectedAction));

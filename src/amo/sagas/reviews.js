@@ -57,7 +57,7 @@ import type {
 } from 'amo/actions/reviews';
 
 // Number of millesconds that a message should be flashed on screen.
-export const FLASH_MESSAGE_DURATION = 2000;
+export const FLASH_SAVED_MESSAGE_DURATION = 2000;
 
 function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page },
@@ -262,7 +262,9 @@ function* manageAddonReview(
     }
 
     // Make the message disappear after some time.
-    yield new Promise((resolve) => setTimeout(resolve, FLASH_MESSAGE_DURATION));
+    yield new Promise((resolve) =>
+      setTimeout(resolve, FLASH_SAVED_MESSAGE_DURATION),
+    );
     yield put(flashReviewMessage(undefined));
   } catch (error) {
     log.warn(
