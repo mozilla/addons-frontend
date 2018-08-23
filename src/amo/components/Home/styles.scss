@@ -20,7 +20,7 @@
   .Card-header {
     display: block;
 
-    @include respond-to(large) {
+    @media only screen and (min-width: 760px) {
       display: none;
     }
   }
@@ -33,7 +33,7 @@
     overflow: auto;
     width: 100%;
 
-    @include respond-to(large) {
+    @media only screen and (min-width: 760px){
       border-top-left-radius: $border-radius-default;
       border-top-right-radius: $border-radius-default;
       flex-wrap: nowrap;
@@ -47,7 +47,7 @@
   display: none;
   height: auto;
 
-  @include respond-to(large) {
+  @media only screen and (min-width: 760px) {
     align-self: center;
     display: block;
     max-width: 130px;
