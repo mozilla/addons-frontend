@@ -18,7 +18,6 @@ import {
   createFakeLocation,
   generateHeaders,
   getFakeConfig,
-  signedInApiState,
   unexpectedSuccess,
   urlWithTheseParams,
 } from 'tests/unit/helpers';
@@ -594,6 +593,8 @@ describe(__filename, () => {
 
   describe('logOutFromServer', async () => {
     it('makes a delete request to the session endpoint', async () => {
+      const { state } = dispatchSignInActions();
+
       const mockResponse = createApiResponse({ jsonData: { ok: true } });
       mockWindow
         .expects('fetch')
@@ -606,7 +607,7 @@ describe(__filename, () => {
         )
         .returns(mockResponse);
 
-      await api.logOutFromServer({ api: signedInApiState });
+      await api.logOutFromServer({ api: state.api });
       mockWindow.verify();
     });
   });
