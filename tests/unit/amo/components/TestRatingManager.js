@@ -12,7 +12,7 @@ import {
 import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import { selectReview } from 'amo/reducers/reviews';
-import { setLatestReview } from 'amo/actions/reviews';
+import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import RatingManager, {
   RatingManagerBase,
@@ -130,28 +130,30 @@ describe(__filename, () => {
 
     const root = render({ addon, store });
 
-    expect(root.find(UserRating)).toHaveProp('loading', true);
+    expect(root.find(UserRating)).toHaveProp('review', undefined);
   });
 
   it('does not render loading stars if no user is signed in', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
 
-    expect(root.find(UserRating)).toHaveProp('loading', false);
+    expect(root.find(UserRating)).toHaveProp('review', null);
   });
 
   it('does not render loading stars when a saved review has loaded', () => {
-    const store = createStoreWithLatestReview();
+    const externalReview = { ...fakeReview, id: 432 };
+    const store = createStoreWithLatestReview({ review: externalReview });
     const root = render({ store });
 
-    expect(root.find(UserRating)).toHaveProp('loading', false);
+    const rating = root.find(UserRating);
+    expect(rating).toHaveProp('review', createInternalReview(externalReview));
   });
 
   it('does not render loading stars when no saved review exists', () => {
     const store = createStoreWithLatestReview({ review: null });
     const root = render({ store });
 
-    expect(root.find(UserRating)).toHaveProp('loading', false);
+    expect(root.find(UserRating)).toHaveProp('review', null);
   });
 
   it('creates a rating with add-on and version info', () => {

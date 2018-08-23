@@ -83,9 +83,16 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   componentDidMount() {
-    const { apiState, loadSavedReview, userId, addon, version } = this.props;
+    const {
+      addon,
+      apiState,
+      loadSavedReview,
+      userId,
+      userReview,
+      version,
+    } = this.props;
 
-    if (this.shouldLoadUserReview()) {
+    if (userId && userReview === undefined) {
       log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({
         apiState,
@@ -95,12 +102,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         versionId: version.id,
       });
     }
-  }
-
-  shouldLoadUserReview() {
-    const { userId, userReview } = this.props;
-    // Only try to load a userReview when the user is signed in.
-    return Boolean(userId && userReview === undefined);
   }
 
   onSelectRating = (rating: number) => {
@@ -222,10 +223,9 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             <div className="RatingManager-ratingControl">
               {!isLoggedIn ? this.renderLogInToRate() : null}
               <UserRating
-                loading={this.shouldLoadUserReview()}
                 readOnly={!isLoggedIn}
                 onSelectRating={this.onSelectRating}
-                review={userReview || undefined}
+                review={!isLoggedIn ? null : userReview}
               />
             </div>
           </fieldset>

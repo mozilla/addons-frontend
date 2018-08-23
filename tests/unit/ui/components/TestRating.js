@@ -20,6 +20,13 @@ describe(__filename, () => {
     return render({ rating: 4, ...props });
   }
 
+  function renderWithEmptyRating(props = {}) {
+    // This is when a user rating has been fetched but it does not exist.
+    // As a counter-example, when rating===undefined, it has not been
+    // fetched yet.
+    return render({ rating: null, ...props });
+  }
+
   const getStar = ({ root, rating }) => {
     return root.find(`.Rating-rating-${rating}`);
   };
@@ -97,7 +104,7 @@ describe(__filename, () => {
 
   it('does not let you select a star while loading', () => {
     const onSelectRating = sinon.stub();
-    const root = render({ onSelectRating, rating: null });
+    const root = render({ onSelectRating, rating: undefined });
     selectRating(root, 1);
     sinon.assert.notCalled(onSelectRating);
   });
@@ -166,7 +173,7 @@ describe(__filename, () => {
   it('renders 0 selected stars for empty ratings', () => {
     // This will make dealing with API data easier when
     // an add-on hasn't been rated enough yet.
-    const root = render({ rating: null });
+    const root = renderWithEmptyRating();
 
     // Make sure no stars have the selected class.
     [1, 2, 3, 4, 5].forEach((rating) => {
@@ -186,7 +193,7 @@ describe(__filename, () => {
   });
 
   it('renders an accessible description for null stars', () => {
-    const root = render({ rating: null });
+    const root = renderWithEmptyRating();
 
     [1, 2, 3, 4, 5].forEach((rating) => {
       expect(getStar({ root, rating })).toHaveProp(
@@ -239,7 +246,7 @@ describe(__filename, () => {
   });
 
   it('selects stars on hover', () => {
-    const root = render({ loading: false });
+    const root = renderWithEmptyRating();
 
     const hoverStar = getStar({ root, rating: 4 });
     hoverStar.simulate('mouseEnter', createFakeEvent());
@@ -270,7 +277,7 @@ describe(__filename, () => {
   });
 
   it('finishes hovering on mouseLeave', () => {
-    const root = render({ loading: false });
+    const root = renderWithEmptyRating();
 
     const rating = 3;
     const hoverStar = getStar({ root, rating });
@@ -329,7 +336,7 @@ describe(__filename, () => {
     });
 
     it('renders an appropriate title with an undefined rating when read-only', () => {
-      const root = render({ readOnly: true });
+      const root = render({ rating: undefined, readOnly: true });
 
       expect(root).toHaveProp('title', 'There are no ratings yet');
     });
@@ -395,7 +402,7 @@ describe(__filename, () => {
     });
 
     it('renders empty ratings', () => {
-      expect(render({ rating: null, readOnly: true })).toHaveText(
+      expect(renderWithEmptyRating({ readOnly: true })).toHaveText(
         'There are no ratings yet',
       );
     });
@@ -403,25 +410,19 @@ describe(__filename, () => {
 
   describe('loading state', () => {
     it('enters a loading state without a rating', () => {
-      const root = render({ rating: null });
+      const root = render({ rating: undefined });
 
       expect(root).toHaveClassName('Rating--loading');
     });
 
-    it('enters a loading state when loading=true', () => {
-      const root = render({ loading: true });
-
-      expect(root).toHaveClassName('Rating--loading');
-    });
-
-    it('exits the loading state when loading=false', () => {
-      const root = render({ loading: false });
+    it('exits the loading state with a rating value', () => {
+      const root = render({ rating: 4 });
 
       expect(root).not.toHaveClassName('Rating--loading');
     });
 
-    it('gives precedence to loading=false without a rating', () => {
-      const root = render({ loading: false, rating: null });
+    it('exits the loading state with an empty rating', () => {
+      const root = renderWithEmptyRating();
 
       expect(root).not.toHaveClassName('Rating--loading');
     });

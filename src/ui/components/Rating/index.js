@@ -20,7 +20,6 @@ type StateType = {|
 
 type Props = {|
   className?: string,
-  loading?: boolean,
   onSelectRating?: (rating: number) => void,
   rating?: number | null,
   readOnly: boolean,
@@ -154,10 +153,9 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   }
 
   isLoading() {
-    const { loading, rating } = this.props;
-    // Enter a loading state explicitly based on the loading prop or
-    // enter implicitly when rating is empty.
-    return loading === undefined ? !rating : loading;
+    // When rating is undefined, the rating is still loading.
+    // When rating is null, the rating has been loaded but it's empty.
+    return this.props.rating === undefined;
   }
 
   render() {

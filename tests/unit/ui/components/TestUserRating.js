@@ -56,9 +56,12 @@ describe(__filename, () => {
     expect(root).toHaveProp('rating', fakeReview.rating);
   });
 
-  it('passes the loading prop to Rating', () => {
-    const root = render({ loading: true });
-    expect(root).toHaveProp('loading', true);
+  it('passes a null review to Rating', () => {
+    expect(render({ review: null })).toHaveProp('rating', null);
+  });
+
+  it('passes an undefined review to Rating', () => {
+    expect(render({ review: undefined })).toHaveProp('rating', undefined);
   });
 
   it('passes yellowStars: true to Rating if you wrote the review', () => {
