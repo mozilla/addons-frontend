@@ -208,11 +208,50 @@ describe(__filename, () => {
 
   it('adds rel="noopener noreferrer" when target is "_blank"', () => {
     const root = render({
-      href: '/test',
+      href: '/test-target',
       target: '_blank',
-      rel: 'noopener noreferrer',
     });
 
-    expect(root.find('a')).toHaveLength(1);
+    expect(root.find('a')).toHaveProp('target', '_blank');
+    expect(root.find('a')).toHaveProp('rel', 'noopener noreferrer');
+  });
+
+  it('overrides the `rel` value when target is "_blank"', () => {
+    const root = render({
+      href: '/test-target',
+      rel: 'some-rel',
+      target: '_blank',
+    });
+
+    expect(root.find('a')).toHaveProp('rel', 'noopener noreferrer');
+  });
+
+  it('accepts a `rel` prop when target is not "_blank"', () => {
+    const root = render({
+      href: '/test-target',
+      rel: 'some-rel',
+    });
+
+    expect(root.find('a')).toHaveProp('rel', 'some-rel');
+  });
+
+  it('adds rel="noopener noreferrer" when target is "_blank" an `to` is used', () => {
+    const root = render({
+      target: '_blank',
+      to: '/test-target',
+    });
+
+    expect(root.find(ReactRouterLink)).toHaveProp('target', '_blank');
+    expect(root.find(ReactRouterLink)).toHaveProp('rel', 'noopener noreferrer');
+  });
+
+  it('does not add a "rel" attribute when target is not "_blank"', () => {
+    const root = render({
+      href: '/test-target',
+      target: 'some-target',
+    });
+
+    expect(root.find('a')).toHaveProp('target', 'some-target');
+    expect(root.find('a')).toHaveProp('rel', undefined);
   });
 });

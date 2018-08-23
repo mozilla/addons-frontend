@@ -9,9 +9,9 @@ import Icon from 'ui/components/Icon';
 
 export class LinkBase extends React.Component {
   static propTypes = {
+    children: PropTypes.node,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
-    children: PropTypes.node,
     dispatch: PropTypes.func.isRequired,
     external: PropTypes.bool,
     externalDark: PropTypes.bool,
@@ -19,6 +19,7 @@ export class LinkBase extends React.Component {
     lang: PropTypes.string.isRequired,
     prependClientApp: PropTypes.bool,
     prependLang: PropTypes.bool,
+    target: PropTypes.string,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   };
 
@@ -59,9 +60,9 @@ export class LinkBase extends React.Component {
       prependLang,
       to,
       target,
-      rel,
       ...customProps
     } = this.props;
+
     const urlPrefix = this.urlPrefix({
       clientApp,
       lang,
@@ -87,10 +88,17 @@ export class LinkBase extends React.Component {
       );
     }
 
+    const linkProps = {
+      ...customProps,
+      target,
+      rel: target === '_blank' ? 'noopener noreferrer' : customProps.rel,
+    };
+
     if (typeof href === 'string') {
       const linkHref = urlPrefix ? joinUrl.pathname(urlPrefix, href) : href;
+
       return (
-        <a {...customProps} href={linkHref}>
+        <a {...linkProps} href={linkHref}>
           {children}
           {needsExternalIcon ? <Icon name={iconName} /> : null}
         </a>
@@ -109,12 +117,6 @@ export class LinkBase extends React.Component {
       };
     }
 
-    const linkProps = {
-      ...customProps,
-      target,
-      rel: target === '_blank' ? 'noopener noreferrer' : undefined,
-    };
-
     return (
       <Link {...linkProps} to={linkTo}>
         {children}
@@ -125,7 +127,10 @@ export class LinkBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return { clientApp: state.api.clientApp, lang: state.api.lang };
+  return {
+    clientApp: state.api.clientApp,
+    lang: state.api.lang,
+  };
 }
 
 export default compose(connect(mapStateToProps))(LinkBase);
