@@ -56,7 +56,7 @@ describe(__filename, () => {
     addon = createInternalAddon(fakeAddon),
     review = fakeReview,
     userId = 92345,
-    versionId = review.version.id,
+    versionId = review ? review.version.id : fakeAddon.current_version.id,
   } = {}) => {
     const { store } = dispatchSignInActions({ userId });
 
@@ -122,6 +122,36 @@ describe(__filename, () => {
     render({ addon, version, store, loadSavedReview });
 
     sinon.assert.notCalled(loadSavedReview);
+  });
+
+  it('renders loading stars before the saved review has loaded', () => {
+    const addon = createInternalAddon({ ...fakeAddon });
+    const { store } = dispatchSignInActions();
+
+    const root = render({ addon, store });
+
+    expect(root.find(UserRating)).toHaveProp('loading', true);
+  });
+
+  it('does not render loading stars if no user is signed in', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+
+    expect(root.find(UserRating)).toHaveProp('loading', false);
+  });
+
+  it('does not render loading stars when a saved review has loaded', () => {
+    const store = createStoreWithLatestReview();
+    const root = render({ store });
+
+    expect(root.find(UserRating)).toHaveProp('loading', false);
+  });
+
+  it('does not render loading stars when no saved review exists', () => {
+    const store = createStoreWithLatestReview({ review: null });
+    const root = render({ store });
+
+    expect(root.find(UserRating)).toHaveProp('loading', false);
   });
 
   it('creates a rating with add-on and version info', () => {

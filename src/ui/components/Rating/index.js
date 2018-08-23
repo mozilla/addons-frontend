@@ -20,6 +20,7 @@ type StateType = {|
 
 type Props = {|
   className?: string,
+  loading?: boolean,
   onSelectRating?: (rating: number) => void,
   rating?: number | null,
   readOnly: boolean,
@@ -140,16 +141,22 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         return <div {...props} />;
       }
 
+      if (!this.isLoading()) {
+        props.onClick = this.onSelectRating;
+      }
+
       return (
         // eslint-disable-next-line react/jsx-key
-        <button
-          onClick={this.onSelectRating}
-          type="button"
-          value={thisRating}
-          {...props}
-        />
+        <button type="button" value={thisRating} {...props} />
       );
     });
+  }
+
+  isLoading() {
+    const { loading, rating } = this.props;
+    // Enter a loading state explicitly based on the loading prop or
+    // enter implicitly when rating is empty.
+    return loading === undefined ? !rating : loading;
   }
 
   render() {
@@ -173,6 +180,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       className,
       {
         'Rating--editable': !readOnly,
+        'Rating--loading': this.isLoading(),
         'Rating--yellowStars': yellowStars,
       },
     );

@@ -56,6 +56,11 @@ describe(__filename, () => {
     expect(root).toHaveProp('rating', fakeReview.rating);
   });
 
+  it('passes the loading prop to Rating', () => {
+    const root = render({ loading: true });
+    expect(root).toHaveProp('loading', true);
+  });
+
   it('passes yellowStars: true to Rating if you wrote the review', () => {
     const review = signInAndReturnReview({
       siteUserId: 123,

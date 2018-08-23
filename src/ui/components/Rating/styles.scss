@@ -29,6 +29,29 @@
   }
 }
 
+@keyframes pulseOpaqueRatingStars {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+// Since dim stars are already dim, set the opacity higher.
+@keyframes pulseDimRatingStars {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
 .Rating-star {
   background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
   padding: 0;
@@ -36,12 +59,24 @@
   .Rating--small & {
     min-width: 13px;
   }
+
+  .Rating--loading & {
+    animation: pulseDimRatingStars 1s infinite;
+  }
 }
 
 .Rating--editable {
   .Rating-star {
     background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
+  }
+
+  &.Rating.Rating--loading .Rating-star {
+    animation-name: pulseOpaqueRatingStars;
+    // Ensure editable rating stars always render as open stars while
+    // loading, even if some are selected.
+    background-image: url('./img/open-star-dim-yellow.svg');
+    cursor: initial;
   }
 }
 

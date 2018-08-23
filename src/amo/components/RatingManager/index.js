@@ -83,15 +83,9 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   componentDidMount() {
-    const {
-      apiState,
-      loadSavedReview,
-      userId,
-      addon,
-      userReview,
-      version,
-    } = this.props;
-    if (userId && addon && userReview === undefined) {
+    const { apiState, loadSavedReview, userId, addon, version } = this.props;
+
+    if (this.shouldLoadUserReview()) {
       log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({
         apiState,
@@ -101,6 +95,12 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         versionId: version.id,
       });
     }
+  }
+
+  shouldLoadUserReview() {
+    const { userId, userReview } = this.props;
+    // Only try to load a userReview when the user is signed in.
+    return Boolean(userId && userReview === undefined);
   }
 
   onSelectRating = (rating: number) => {
@@ -196,9 +196,12 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   };
 
   render() {
-    const { i18n, addon, userId, userReview } = this.props;
+    const { i18n, addon, userId, userReview, version } = this.props;
     const { showTextEntry } = this.state;
     const isLoggedIn = Boolean(userId);
+
+    invariant(addon, 'addon is required');
+    invariant(version, 'version is required');
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
@@ -219,6 +222,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             <div className="RatingManager-ratingControl">
               {!isLoggedIn ? this.renderLogInToRate() : null}
               <UserRating
+                loading={this.shouldLoadUserReview()}
                 readOnly={!isLoggedIn}
                 onSelectRating={this.onSelectRating}
                 review={userReview || undefined}

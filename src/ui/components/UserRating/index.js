@@ -12,6 +12,7 @@ import type { UserReviewType } from 'amo/actions/reviews';
 type Props = {|
   className?: string,
   isOwner?: boolean,
+  loading?: boolean,
   onSelectRating?: (rating: number) => any,
   readOnly?: boolean,
   review?: UserReviewType,
@@ -23,6 +24,7 @@ export const UserRatingBase = (props: Props) => {
   const {
     className,
     isOwner,
+    loading,
     readOnly,
     onSelectRating,
     review,
@@ -31,6 +33,7 @@ export const UserRatingBase = (props: Props) => {
 
   return (
     <Rating
+      loading={loading}
       className={className}
       onSelectRating={onSelectRating}
       rating={(review && review.rating) || 0}
