@@ -19,11 +19,11 @@ import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   let mockApi;
-  let signedInApiState;
+  let apiState;
 
   beforeEach(() => {
     mockApi = sinon.mock(api);
-    signedInApiState = dispatchSignInActions().state.api;
+    apiState = dispatchSignInActions().state.api;
   });
 
   const getReviewsResponse = ({ reviews = [{ ...fakeReview }] } = {}) => {
@@ -41,7 +41,7 @@ describe(__filename, () => {
       version: undefined,
     };
     const baseParams = {
-      apiState: signedInApiState,
+      apiState,
     };
     const submitReviewResponse = (review = { ...fakeReview }) => {
       return review;
@@ -179,13 +179,13 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'reviews/review',
           params,
-          apiState: signedInApiState,
+          apiState,
         })
         .returns(Promise.resolve(getReviewsResponse()));
 
       await getReviews({
         ...params,
-        apiState: signedInApiState,
+        apiState,
       });
       mockApi.verify();
     });
@@ -303,7 +303,6 @@ describe(__filename, () => {
     };
 
     it('calls the API', async () => {
-      const apiState = { ...signedInApiState };
       const originalReview = { ...fakeReview, id: 321 };
       const fakeResponse = replyToReviewResponse();
 
@@ -340,7 +339,7 @@ describe(__filename, () => {
   describe('flagReview', () => {
     const defaultParams = () => {
       return {
-        apiState: { ...signedInApiState },
+        apiState,
         reason: REVIEW_FLAG_REASON_SPAM,
         reviewId: fakeReview.id,
       };
