@@ -112,10 +112,10 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     _log.info('Adding OpenSearch Provider', { addon });
     _window.external.AddSearchProvider(installURL);
 
-    this.trackInstallStarted({
-      addonName: addon.name,
-      type: addon.type,
-    });
+    const { name: addonName, type } = addon;
+
+    this.trackInstallStarted({ addonName, type });
+    this.trackInstallSucceeded({ addonName, type });
 
     return false;
   };

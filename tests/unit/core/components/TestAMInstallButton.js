@@ -15,6 +15,7 @@ import {
   INACTIVE,
   INSTALLED,
   INSTALLING,
+  INSTALL_ACTION,
   INSTALL_STARTED_ACTION,
   OS_ALL,
   UNINSTALLED,
@@ -367,6 +368,12 @@ describe(__filename, () => {
       ),
       label: addon.name,
     });
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH),
+      category: getAddonEventCategory(ADDON_TYPE_OPENSEARCH, INSTALL_ACTION),
+      label: addon.name,
+    });
+    sinon.assert.calledTwice(_tracking.sendEvent);
   });
 
   it('calls the `install` helper to install an extension', async () => {
