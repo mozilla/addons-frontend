@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-19 03:04+0000\n"
+"PO-Revision-Date: 2018-08-23 01:55+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -35,9 +35,8 @@ msgid "Installing"
 msgstr "Memasang"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Mencopot %(name)s."
+msgstr "Mencopot"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -109,9 +108,8 @@ msgid "Install state for %(name)s is unknown."
 msgstr "Status pemasangan untuk %(name)s tidak dapat dikenali."
 
 #: src/disco/components/Addon/index.js:160
-#, fuzzy
 msgid "Preview of %(name)s"
-msgstr "Tinjauan %(name)s"
+msgstr "Pratinjau %(name)s"
 
 #: src/disco/components/Addon/index.js:205
 msgid "Installation failed. Please try again."
