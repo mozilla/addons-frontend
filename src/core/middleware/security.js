@@ -37,7 +37,7 @@ export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
     _config.get('CSP') !== 'false' ? deepcopy(_config.get('CSP')) : false;
 
   if (cspConfig) {
-    if (noScriptStyles) {
+    if (noScriptStyles && !_config.get('isDevelopment')) {
       const hash = crypto
         .createHash('sha256')
         .update(noScriptStyles)

@@ -62,8 +62,6 @@
       "env": {
         "AMO_CDN": "https://addons-dev-cdn.allizom.org",
         "PROXY_API_HOST": "https://addons-dev.allizom.org",
-        "FXA_CONFIG": "local",
-        "CSP": false,
         "NODE_APP_INSTANCE": "amo"
       }
     },

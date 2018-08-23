@@ -34,18 +34,26 @@ module.exports = {
         sentryHost,
         webpackHost,
       ],
+      fontSrc: [
+        webpackHost,
+      ],
       imgSrc: [
         "'self'",
+        'data:',
+        amoDevCDN,
         webpackHost,
       ],
       scriptSrc: [
         "'self'",
+        // webpack injects inline JS
+        "'unsafe-inline'",
         amoDevCDN,
         webpackHost,
       ],
       styleSrc: [
         "'self'",
-        'blob:',
+        // webpack injects inline CSS
+        "'unsafe-inline'",
       ],
     },
     reportOnly: true,
