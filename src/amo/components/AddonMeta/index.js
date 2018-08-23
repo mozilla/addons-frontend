@@ -28,7 +28,10 @@ export const roundToOneDigit = (value: number | null): number => {
 export class AddonMetaBase extends React.Component<InternalProps> {
   render() {
     const { addon, i18n } = this.props;
-    const averageRating = addon && addon.ratings ? addon.ratings.average : null;
+    let averageRating;
+    if (addon) {
+      averageRating = addon.ratings ? addon.ratings.average : null;
+    }
     const addonRatingCount =
       addon && addon.ratings ? addon.ratings.count : null;
     const addonReviewCount =
@@ -105,7 +108,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
               ),
               title: (
                 <div className="AddonMeta-rating-title">
-                  {addonRatingCount
+                  {addonRatingCount && averageRating
                     ? i18n.sprintf(i18n.gettext('%(rating)s star average'), {
                         rating: i18n.formatNumber(
                           roundToOneDigit(averageRating),
