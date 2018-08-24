@@ -67,14 +67,6 @@
         "NODE_APP_INSTANCE": "amo"
       }
     },
-    "amo:ui-tests": {
-      "command": "better-npm-run start-dev-proxy",
-      "env": {
-        "FXA_CONFIG": "default",
-        "CSP": false,
-        "NODE_APP_INSTANCE": "amo"
-      }
-    },
     "amo:no-proxy": {
       "command": "better-npm-run start-dev",
       "env": {
