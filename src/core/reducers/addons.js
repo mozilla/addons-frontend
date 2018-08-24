@@ -194,7 +194,7 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
     // TODO: remove this if possible. This is used by core/installAddon
     // and DiscoPane components which do camel case conversions for
     // some historic reason.
-    iconUrl: apiAddon.icon_url,
+  
 
     platformFiles: {
       all: undefined,
