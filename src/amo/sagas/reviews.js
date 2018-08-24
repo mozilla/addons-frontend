@@ -5,7 +5,7 @@ import invariant from 'invariant';
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, delay, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import {
@@ -58,6 +58,10 @@ import type {
 
 // Number of millesconds that a message should be flashed on screen.
 export const FLASH_SAVED_MESSAGE_DURATION = 2000;
+
+type Options = {|
+  _delay?: typeof delay,
+|};
 
 function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page },
@@ -205,6 +209,7 @@ function* handleFlagReview({
 
 function* manageAddonReview(
   action: CreateAddonReviewAction | UpdateAddonReviewAction,
+  { _delay = delay }: Options = {},
 ) {
   const { body, errorHandlerId, rating } = action.payload;
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -262,9 +267,7 @@ function* manageAddonReview(
     }
 
     // Make the message disappear after some time.
-    yield new Promise((resolve) =>
-      setTimeout(resolve, FLASH_SAVED_MESSAGE_DURATION),
-    );
+    yield _delay(FLASH_SAVED_MESSAGE_DURATION);
     yield put(flashReviewMessage(undefined));
   } catch (error) {
     log.warn(
@@ -275,12 +278,18 @@ function* manageAddonReview(
   }
 }
 
-export default function* reviewsSaga(): Generator<any, any, any> {
+export default function* reviewsSaga(
+  options?: Options,
+): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);
   yield takeLatest(SEND_REVIEW_FLAG, handleFlagReview);
-  yield takeLatest(CREATE_ADDON_REVIEW, manageAddonReview);
-  yield takeLatest(UPDATE_ADDON_REVIEW, manageAddonReview);
+  yield takeLatest(CREATE_ADDON_REVIEW, (action) =>
+    manageAddonReview(action, options),
+  );
+  yield takeLatest(UPDATE_ADDON_REVIEW, (action) =>
+    manageAddonReview(action, options),
+  );
 }

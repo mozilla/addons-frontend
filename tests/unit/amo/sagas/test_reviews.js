@@ -45,14 +45,14 @@ import {
 
 describe(__filename, () => {
   let apiState;
-  let clock;
+  let fakeSagaDelay;
   let errorHandler;
   let mockApi;
   let sagaTester;
 
   beforeEach(() => {
-    clock = sinon.useFakeTimers(Date.now());
     errorHandler = createStubErrorHandler();
+    fakeSagaDelay = sinon.stub().resolves();
     mockApi = sinon.mock(reviewsApi);
 
     const { state } = dispatchSignInActions();
@@ -62,11 +62,7 @@ describe(__filename, () => {
       reducers: { reviews: reviewsReducer, api: apiReducer },
     });
 
-    sagaTester.start(reviewsSaga);
-  });
-
-  afterEach(() => {
-    clock.restore();
+    sagaTester.start(() => reviewsSaga({ _delay: fakeSagaDelay }));
   });
 
   describe('fetchReviews', () => {
@@ -661,16 +657,10 @@ describe(__filename, () => {
 
       _updateAddonReview({ body });
 
-      // Wait for a save message.
-      await matchingSagaAction(
-        sagaTester,
-        matchMessage(flashReviewMessage(SAVED_REVIEW)),
-      );
-
-      clock.tick(FLASH_SAVED_MESSAGE_DURATION);
-
       const expectedAction = flashReviewMessage(undefined);
       await matchingSagaAction(sagaTester, matchMessage(expectedAction));
+
+      sinon.assert.calledWith(fakeSagaDelay, FLASH_SAVED_MESSAGE_DURATION);
     });
 
     it('flashes an abort message on error', async () => {
