@@ -31,7 +31,6 @@ import {
   createFakeTracking,
   createStubErrorHandler,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -319,23 +318,12 @@ describe(__filename, () => {
   });
 
   describe('componentDidMount', () => {
-    it('does not set events on the server', () => {
-      const _config = getFakeConfig({ server: true });
-      const fakeMozAddonManager = {
-        addEventListener: sinon.stub(),
-      };
-
-      renderAndMount({ _config, mozAddonManager: fakeMozAddonManager });
-      sinon.assert.notCalled(fakeMozAddonManager.addEventListener);
-    });
-
     it('sets events on the client', () => {
-      const _config = getFakeConfig({ server: false });
       const fakeMozAddonManager = {
         addEventListener: sinon.stub(),
       };
 
-      renderAndMount({ _config, mozAddonManager: fakeMozAddonManager });
+      renderAndMount({ mozAddonManager: fakeMozAddonManager });
       sinon.assert.callCount(
         fakeMozAddonManager.addEventListener,
         GLOBAL_EVENTS.length,

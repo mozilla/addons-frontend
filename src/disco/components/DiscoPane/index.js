@@ -83,14 +83,9 @@ export class DiscoPaneBase extends React.Component {
   componentDidMount() {
     const {
       _addChangeListeners,
-      _config,
       handleGlobalEvent,
       mozAddonManager,
     } = this.props;
-
-    if (_config.get('server')) {
-      return;
-    }
 
     // Use addonManager.addChangeListener to setup and filter events.
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
