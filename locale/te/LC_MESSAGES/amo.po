@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-14 18:29+0000\n"
-"PO-Revision-Date: 2018-07-03 11:44+0000\n"
-"Last-Translator: chittimodu pradeep <chittimoduspradeep@gmail.com>\n"
+"PO-Revision-Date: 2018-08-24 07:40+0000\n"
+"Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -343,19 +343,19 @@ msgstr "ఈ సమీక్షకి స్పందించండి."
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Update reply"
-msgstr ""
+msgstr "ప్రత్యుత్తరం నవీకరణ"
 
 #: src/amo/components/AddonReviewListItem/index.js:160
 msgid "Publish reply"
-msgstr ""
+msgstr "ప్రత్యుత్తరం ప్రచురించండి"
 
 #: src/amo/components/AddonReviewListItem/index.js:164
 msgid "Updating reply"
-msgstr ""
+msgstr "ప్రత్యుత్తరం నవీకరిస్తోంది"
 
 #: src/amo/components/AddonReviewListItem/index.js:165
 msgid "Publishing reply"
-msgstr ""
+msgstr "ప్రత్యుత్తరం ప్రచురించబడుతొంధి"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
@@ -411,11 +411,11 @@ msgstr "ఈ డెవలపర్ల పొడగింతలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:258
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s నుండి మరిన్ని భాషా ప్యాకులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:261
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "ఈ అనువాదకుల నుండి మరిన్ని భాషా ప్యాకులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:265
 msgid "Language packs by %(author)s"
@@ -423,7 +423,7 @@ msgstr "%(author)s భాషా ప్యాకులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:268
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "ఈ అనువాదకులచే భాషా ప్యాక్లు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:276
 msgid "More themes by %(author)s"
@@ -895,7 +895,7 @@ msgstr "కుకీలు"
 
 #: src/amo/components/Footer/index.js:176
 msgid "Legal"
-msgstr ""
+msgstr "చట్టపరమైన"
 
 #: src/amo/components/Footer/index.js:184
 msgid "Report Trademark Abuse"
@@ -998,7 +998,7 @@ msgstr "సంకేతపదాల నిర్వాహణ"
 
 #: src/amo/components/Home/index.js:122
 msgid "Ad blockers"
-msgstr ""
+msgstr "ప్రకటన బ్లాకర్స్"
 
 #: src/amo/components/Home/index.js:126
 msgid "Smarter Shopping"
