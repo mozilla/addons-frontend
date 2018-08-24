@@ -1569,7 +1569,7 @@ describe(__filename, () => {
     });
   });
 
-  it('displays a notice to the admin/developer on a disabled addon', () => {
+  it('displays a notice to the admin on a disabled addon', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       status: 'disabled',
@@ -1583,6 +1583,36 @@ describe(__filename, () => {
         },
       }).store,
     });
+
+    expect(root.find(Notice)).toHaveLength(1);
+
+    expect(
+      root
+        .find(Notice)
+        .childAt(0)
+        .text(),
+    ).toEqual(
+      'This is not a public listing. You are only seeing it because of elevated permissions.',
+    );
+  });
+
+  it('displays a notice to the developer on a disabled addon', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      status: 'disabled',
+    });
+    const root = shallowRender({
+      store: dispatchSignInActions({
+        userProps: {
+        is_addon_developer: true,
+        display_name: 'imadev',
+        userId: 100,
+        username: 'iamdev',
+      },
+    }),
+    addon,
+  });
+
 
     expect(root.find(Notice)).toHaveLength(1);
 
