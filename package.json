@@ -42,7 +42,9 @@
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
-    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
+    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
+    "storybook": "NODE_PATH=src start-storybook -p 9001",
+    "build-storybook": "NODE_ENV=development build-storybook"
   },
   "betterScripts": {
     "build": {
@@ -234,6 +236,14 @@
     "webpack-isomorphic-tools": "3.0.6"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.10",
+    "@storybook/addon-console": "1.0.4",
+    "@storybook/addon-info": "3.4.10",
+    "@storybook/addon-knobs": "3.4.10",
+    "@storybook/addon-links": "^3.4.10",
+    "@storybook/addon-options": "3.4.10",
+    "@storybook/addons": "^3.4.10",
+    "@storybook/react": "^3.4.10",
     "autoprefixer": "^9.0.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^9.0.0",
@@ -298,6 +308,7 @@
     "shelljs": "^0.8.0",
     "sinon": "^6.0.0",
     "snyk": "^1.69.7",
+    "storybook-addon-scissors": "4.0.1",
     "style-loader": "^0.23.0",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.2.0",
