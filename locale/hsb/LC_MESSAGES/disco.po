@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-17 20:28+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-24 13:40+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hsb\n"
@@ -74,7 +74,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s je so přidał"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Klikńće na Přidatki w meniju, zo byšće swoje přidatki rjadował."
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "W porjadku"
 
@@ -106,39 +106,27 @@ msgstr "%(name)s je wotinstalowany. Klikńće na „Instalować“."
 msgid "Install state for %(name)s is unknown."
 msgstr "Instalowanski status za %(name)s je njeznaty."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "Přehlad %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Instalacija je so nimokuliła. Prošu spytajće hišće raz."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Njewočakowany zmylk je při instalowanju wustupił."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewočakowany zmylk je při wotinstalowanju wustupił."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Njewočakowany zmylk je wustupił."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Tutón přidatk so wotinstaluje, po tym zo sće Firefox znowa startował."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Začinić"
 
@@ -193,6 +181,16 @@ msgstr "Začitajće znowa, zo byšće pokročował"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "Tutu noticu zaćisnyć"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "Přehlad za %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Tutón přidatk so wotinstaluje, po tym zo sće Firefox znowa startował."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Waš přidatk je hotowy"

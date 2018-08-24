@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-15 13:57+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-24 11:25+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -74,7 +74,7 @@ msgstr "已新增 %(strongStart)s%(name)s%(strongEnd)s"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "點擊選單中的「附加元件」來管理您的附加元件。"
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "好喔！"
 
@@ -106,39 +106,27 @@ msgstr "已移除 %(name)s，點擊安裝。"
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安裝狀態未知。"
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "預覽 %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "安裝失敗，請再試一次。"
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "下載失敗，請檢查網路連線。"
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "安裝時發生未預期的錯誤。"
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "移除時發生未預期的錯誤。"
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "發生未預期的錯誤。"
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "您重新啟動 Firefox 後將移除此附加元件。"
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "重新啟動 Firefox 後即可使用此附加元件。"
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "關閉"
 
@@ -191,6 +179,16 @@ msgstr "重新載入以繼續"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "忽略此通知"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "%(title)s 預覽"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "您重新啟動 Firefox 後將移除此附加元件。"
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "重新啟動 Firefox 後即可使用此附加元件。"
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "您的附加元件已就緒"

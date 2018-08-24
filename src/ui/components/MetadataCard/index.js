@@ -17,7 +17,7 @@ const MetadataCard = ({ className, metadata }: Props) => {
 
   return (
     <div className={makeClassName('MetadataCard', className)}>
-      {metadata.map(({ content, title } = {}) => {
+      {metadata.map(({ content, title } = {}, index) => {
         if (content === undefined) {
           throw new Error('content is required');
         }
@@ -29,7 +29,8 @@ const MetadataCard = ({ className, metadata }: Props) => {
         const hasContent = content || content === '' || content === 0;
 
         return (
-          <dl className="MetadataCard-list" key={title}>
+          // eslint-disable-next-line react/no-array-index-key
+          <dl className="MetadataCard-list" key={index}>
             <dd className="MetadataCard-content">
               {hasContent ? content : <LoadingText />}
             </dd>

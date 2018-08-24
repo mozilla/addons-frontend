@@ -26,9 +26,10 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'refined-reading', username: 'mozilla' },
   { slug: 're-imagine-search', username: 'mozilla' },
-  { slug: 'social-media-customization', username: 'mozilla' },
+  { slug: 'fall-themes', username: 'mozilla' },
+  { slug: 'youtube-boosters', username: 'mozilla' },
+  { slug: 'refined-reading', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -46,24 +47,28 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more reading extensions'),
-      header: i18n.gettext('Refined reading'),
+      footerText: i18n.gettext('See more exceptional search tools'),
+      header: i18n.gettext('Exceptional search tools'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more exceptional search tools'),
-      header: i18n.gettext('Exceptional search tools'),
-      isTheme: false,
+      footerText: i18n.gettext('See more fall themes'),
+      header: i18n.gettext('Fall themes'),
+      isTheme: true,
       ...FEATURED_COLLECTIONS[1],
     },
     {
-      footerText: i18n.gettext(
-        'See more social media customization extensions',
-      ),
-      header: i18n.gettext('Social media customization'),
+      footerText: i18n.gettext('See more YouTube extensions'),
+      header: i18n.gettext('YouTube boosters'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[2],
+    },
+    {
+      footerText: i18n.gettext('See more reading extensions'),
+      header: i18n.gettext('Refined reading'),
+      isTheme: false,
+      ...FEATURED_COLLECTIONS[3],
     },
   ];
 };
@@ -83,7 +88,7 @@ export class HomeBase extends React.Component {
 
   static defaultProps = {
     _config: config,
-    includeFeaturedThemes: true,
+    includeFeaturedThemes: false,
   };
 
   componentWillMount() {
@@ -308,6 +313,15 @@ export class HomeBase extends React.Component {
             className="Home-FeaturedCollection"
             loading={loading}
             {...featuredCollectionsMetadata[2]}
+          />
+        )}
+
+        {(loading || collections[3]) && (
+          <FeaturedCollectionCard
+            addons={collections[3]}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...featuredCollectionsMetadata[3]}
           />
         )}
 

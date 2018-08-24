@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-14 19:56+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-24 09:53+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -74,7 +74,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s hozzáadva"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Kezelje kiegészítőit a Kiegészítőkre kattintva a menüben."
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
 
@@ -106,39 +106,27 @@ msgstr "A(z) %(name)s el lett távolítva. Kattintson a telepítéshez."
 msgid "Install state for %(name)s is unknown."
 msgstr "A(z) %(name)s telepítési állapota ismeretlen."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "%(name)s előnézete"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "A telepítés sikertelen. Kérjük, próbálja meg újra."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Váratlan hiba történt a telepítés során."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Váratlan hiba történt az eltávolítás során."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Bezárás"
 
@@ -196,6 +184,16 @@ msgstr "Töltse újra a folytatáshoz"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "Értesítés elvetése"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "%(title)s előnézete"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "A kiegészítője készen áll"

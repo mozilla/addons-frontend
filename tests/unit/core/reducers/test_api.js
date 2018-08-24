@@ -3,11 +3,7 @@ import UAParser from 'ua-parser-js';
 import * as actions from 'core/actions';
 import { logOutUser } from 'amo/reducers/users';
 import api, { initialApiState } from 'core/reducers/api';
-import {
-  signedInApiState,
-  userAgents,
-  userAuthToken,
-} from 'tests/unit/helpers';
+import { userAgents, userAuthToken } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('maintains the old state', () => {
@@ -24,10 +20,11 @@ describe(__filename, () => {
   });
 
   it('clears the auth token on log out', () => {
-    const state = { ...signedInApiState };
+    const state = api(undefined, actions.setAuthToken(userAuthToken));
     expect(state.token).toBeTruthy();
+
     const expectedState = { ...state, token: null };
-    expect(api(signedInApiState, logOutUser())).toEqual(expectedState);
+    expect(api(state, logOutUser())).toEqual(expectedState);
   });
 
   it('stores the lang', () => {

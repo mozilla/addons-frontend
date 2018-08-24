@@ -189,6 +189,23 @@ describe(__filename, () => {
     expect(header.find('.UserProfile-name')).toHaveText('Matt MacTofu');
   });
 
+  // See https://github.com/mozilla/addons-frontend/issues/6007
+  it('handles loading zero-prefixed usernames', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const username = '0foxgiven';
+    const root = renderUserProfile({ params: { username }, store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        username,
+      }),
+    );
+  });
+
   it('does not render any tag if user is not a developer or artist', () => {
     const { store } = dispatchSignInActions({
       userProps: defaultUserProps({
