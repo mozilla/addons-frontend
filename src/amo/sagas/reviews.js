@@ -28,6 +28,7 @@ import {
   STARTED_SAVE_REVIEW,
   UPDATE_ADDON_REVIEW,
   flashReviewMessage,
+  hideFlashedReviewMessage,
   hideReplyToReviewForm,
   setAddonReviews,
   setGroupedRatings,
@@ -268,7 +269,7 @@ function* manageAddonReview(
 
     // Make the message disappear after some time.
     yield _delay(FLASH_SAVED_MESSAGE_DURATION);
-    yield put(flashReviewMessage(undefined));
+    yield put(hideFlashedReviewMessage());
   } catch (error) {
     log.warn(
       `Failed to create/update review with action ${action.type}: ${error}`,

@@ -4,6 +4,7 @@ import {
   createInternalReview,
   flagReview,
   hideEditReviewForm,
+  hideFlashedReviewMessage,
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
@@ -997,12 +998,14 @@ describe(__filename, () => {
       const state = reviewsReducer(undefined, flashReviewMessage(SAVED_RATING));
       expect(state.flashMessage).toEqual(SAVED_RATING);
     });
+  });
 
+  describe('hideFlashedReviewMessage', () => {
     it('unsets a message', () => {
       let state;
 
       state = reviewsReducer(state, flashReviewMessage(SAVED_RATING));
-      state = reviewsReducer(state, flashReviewMessage(undefined));
+      state = reviewsReducer(state, hideFlashedReviewMessage());
 
       expect(state.flashMessage).toEqual(undefined);
     });

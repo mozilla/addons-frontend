@@ -4,6 +4,7 @@ import { oneLine } from 'common-tags';
 import {
   CLEAR_ADDON_REVIEWS,
   FLASH_REVIEW_MESSAGE,
+  HIDE_FLASHED_REVIEW_MESSAGE,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
@@ -25,6 +26,7 @@ import type {
   FlagReviewAction,
   FlashMessageType,
   HideEditReviewFormAction,
+  HideFlashedReviewMessageAction,
   HideReplyToReviewFormAction,
   ReviewWasFlaggedAction,
   SendReplyToReviewAction,
@@ -272,6 +274,7 @@ type ReviewActionType =
   | FlagReviewAction
   | FlashReviewMessageAction
   | HideEditReviewFormAction
+  | HideFlashedReviewMessageAction
   | HideReplyToReviewFormAction
   | ReviewWasFlaggedAction
   | SendReplyToReviewAction
@@ -474,6 +477,12 @@ export default function reviewsReducer(
       return {
         ...state,
         flashMessage: payload.message,
+      };
+    }
+    case HIDE_FLASHED_REVIEW_MESSAGE: {
+      return {
+        ...state,
+        flashMessage: undefined,
       };
     }
     default:

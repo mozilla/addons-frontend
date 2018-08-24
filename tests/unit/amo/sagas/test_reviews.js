@@ -13,6 +13,7 @@ import {
   fetchReviews,
   fetchUserReviews,
   flagReview,
+  hideFlashedReviewMessage,
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
@@ -657,8 +658,9 @@ describe(__filename, () => {
 
       _updateAddonReview({ body });
 
-      const expectedAction = flashReviewMessage(undefined);
-      await matchingSagaAction(sagaTester, matchMessage(expectedAction));
+      const expectedAction = hideFlashedReviewMessage();
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
 
       sinon.assert.calledWith(fakeSagaDelay, FLASH_SAVED_MESSAGE_DURATION);
     });
