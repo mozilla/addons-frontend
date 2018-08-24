@@ -18,6 +18,10 @@ export const FETCH_GROUPED_RATINGS: 'FETCH_GROUPED_RATINGS' =
   'FETCH_GROUPED_RATINGS';
 export const FETCH_REVIEWS: 'FETCH_REVIEWS' = 'FETCH_REVIEWS';
 export const FETCH_USER_REVIEWS: 'FETCH_USER_REVIEWS' = 'FETCH_USER_REVIEWS';
+export const FLASH_REVIEW_MESSAGE: 'FLASH_REVIEW_MESSAGE' =
+  'FLASH_REVIEW_MESSAGE';
+export const HIDE_FLASHED_REVIEW_MESSAGE: 'HIDE_FLASHED_REVIEW_MESSAGE' =
+  'HIDE_FLASHED_REVIEW_MESSAGE';
 export const HIDE_EDIT_REVIEW_FORM: 'HIDE_EDIT_REVIEW_FORM' =
   'HIDE_EDIT_REVIEW_FORM';
 export const HIDE_REPLY_TO_REVIEW_FORM: 'HIDE_REPLY_TO_REVIEW_FORM' =
@@ -582,5 +586,44 @@ export const updateAddonReview = ({
   return {
     type: UPDATE_ADDON_REVIEW,
     payload: { body, errorHandlerId, rating, reviewId },
+  };
+};
+
+export const ABORTED: 'aborted' = 'aborted';
+export const SAVED_RATING: 'saved-rating' = 'saved-rating';
+export const SAVED_REVIEW: 'saved-review' = 'saved-review';
+export const STARTED_SAVE_RATING: 'started-save-rating' = 'started-save-rating';
+export const STARTED_SAVE_REVIEW: 'started-save-review' = 'started-save-review';
+
+export type FlashMessageType =
+  | typeof ABORTED
+  | typeof SAVED_RATING
+  | typeof SAVED_REVIEW
+  | typeof STARTED_SAVE_RATING
+  | typeof STARTED_SAVE_REVIEW;
+
+export type FlashReviewMessageAction = {|
+  type: typeof FLASH_REVIEW_MESSAGE,
+  payload: { message: FlashMessageType },
+|};
+
+export const flashReviewMessage = (
+  message: FlashMessageType,
+): FlashReviewMessageAction => {
+  invariant(message, 'message is required');
+
+  return {
+    type: FLASH_REVIEW_MESSAGE,
+    payload: { message },
+  };
+};
+
+export type HideFlashedReviewMessageAction = {|
+  type: typeof HIDE_FLASHED_REVIEW_MESSAGE,
+|};
+
+export const hideFlashedReviewMessage = (): HideFlashedReviewMessageAction => {
+  return {
+    type: HIDE_FLASHED_REVIEW_MESSAGE,
   };
 };

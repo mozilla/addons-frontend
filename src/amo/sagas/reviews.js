@@ -5,7 +5,7 @@ import invariant from 'invariant';
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, delay, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import {
@@ -15,13 +15,20 @@ import {
   submitReview,
 } from 'amo/api/reviews';
 import {
+  ABORTED,
   CREATE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
+  SAVED_RATING,
+  SAVED_REVIEW,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
+  STARTED_SAVE_RATING,
+  STARTED_SAVE_REVIEW,
   UPDATE_ADDON_REVIEW,
+  flashReviewMessage,
+  hideFlashedReviewMessage,
   hideReplyToReviewForm,
   setAddonReviews,
   setGroupedRatings,
@@ -49,6 +56,13 @@ import type {
   SendReplyToReviewAction,
   UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
+
+// Number of millesconds that a message should be flashed on screen.
+export const FLASH_SAVED_MESSAGE_DURATION = 2000;
+
+type Options = {|
+  _delay?: typeof delay,
+|};
 
 function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page },
@@ -196,11 +210,21 @@ function* handleFlagReview({
 
 function* manageAddonReview(
   action: CreateAddonReviewAction | UpdateAddonReviewAction,
+  { _delay = delay }: Options = {},
 ) {
   const { body, errorHandlerId, rating } = action.payload;
   const errorHandler = createErrorHandler(errorHandlerId);
 
+  const savingRating = !!rating;
+  const savingReview = !!body;
+
   yield put(errorHandler.createClearingAction());
+  if (savingRating) {
+    yield put(flashReviewMessage(STARTED_SAVE_RATING));
+  }
+  if (savingReview) {
+    yield put(flashReviewMessage(STARTED_SAVE_REVIEW));
+  }
 
   try {
     const state: AppState = yield select(getState);
@@ -235,18 +259,38 @@ function* manageAddonReview(
     );
 
     yield put(setReview(reviewFromResponse));
+
+    if (savingRating) {
+      yield put(flashReviewMessage(SAVED_RATING));
+    }
+    if (savingReview) {
+      yield put(flashReviewMessage(SAVED_REVIEW));
+    }
+
+    // Make the message disappear after some time.
+    yield _delay(FLASH_SAVED_MESSAGE_DURATION);
+    yield put(hideFlashedReviewMessage());
   } catch (error) {
-    log.warn(`Failed to submit review with action ${action.type}: ${error}`);
+    log.warn(
+      `Failed to create/update review with action ${action.type}: ${error}`,
+    );
     yield put(errorHandler.createErrorAction(error));
+    yield put(flashReviewMessage(ABORTED));
   }
 }
 
-export default function* reviewsSaga(): Generator<any, any, any> {
+export default function* reviewsSaga(
+  options?: Options,
+): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);
   yield takeLatest(SEND_REVIEW_FLAG, handleFlagReview);
-  yield takeLatest(CREATE_ADDON_REVIEW, manageAddonReview);
-  yield takeLatest(UPDATE_ADDON_REVIEW, manageAddonReview);
+  yield takeLatest(CREATE_ADDON_REVIEW, (action) =>
+    manageAddonReview(action, options),
+  );
+  yield takeLatest(UPDATE_ADDON_REVIEW, (action) =>
+    manageAddonReview(action, options),
+  );
 }

@@ -690,3 +690,49 @@ export const createFakeTracking = (overrides = {}) => {
     ...overrides,
   };
 };
+
+// Save a reference to the real setTimeout in case a test uses a mock
+// sinon clock.
+const globalSetTimeout = setTimeout;
+
+/*
+ * Wait until the saga dispatches an action causing isMatch(action)
+ * to return true. Throw an error if it doesn't.
+ *
+ * This is helpful for when a saga dispatches the same action
+ * but with differing payloads.
+ *
+ * For most cases you can probably just use sagaTester.waitFor() instead.
+ */
+export async function matchingSagaAction(
+  sagaTester,
+  isMatch,
+  { maxTries = 50 } = {},
+) {
+  let calledActions = [];
+  let matched = false;
+
+  for (let attempt = 0; attempt < maxTries; attempt++) {
+    calledActions = sagaTester.getCalledActions();
+    if (calledActions.find(isMatch) !== undefined) {
+      matched = true;
+      break;
+    }
+
+    // Yield a tick to the saga.
+    await new Promise((resolve) => globalSetTimeout(resolve, 1));
+  }
+
+  if (!matched) {
+    throw new Error(
+      `
+      The matcher function did not return true:
+
+      ${isMatch}
+
+      The saga called these action types: ${calledActions
+        .map((action) => action.type)
+        .join(', ') || '(none at all)'}`,
+    );
+  }
+}
