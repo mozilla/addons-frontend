@@ -70,7 +70,7 @@
     "amo:ui-tests": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
-        "FXA_CONFIG": "default",
+        "FXA_CONFIG": "local",
         "CSP": false,
         "NODE_APP_INSTANCE": "amo"
       }
