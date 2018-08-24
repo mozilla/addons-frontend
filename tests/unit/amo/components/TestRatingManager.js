@@ -124,7 +124,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(loadSavedReview);
   });
 
-  it('renders loading stars before the saved review has loaded', () => {
+  it('passes review=undefined before the saved review has loaded', () => {
     const addon = createInternalAddon({ ...fakeAddon });
     const { store } = dispatchSignInActions();
 
@@ -133,14 +133,15 @@ describe(__filename, () => {
     expect(root.find(UserRating)).toHaveProp('review', undefined);
   });
 
-  it('does not render loading stars if no user is signed in', () => {
+  it('passes review=null if no user is signed in', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
 
+    // This does not trigger a loading state.
     expect(root.find(UserRating)).toHaveProp('review', null);
   });
 
-  it('does not render loading stars when a saved review has loaded', () => {
+  it('passes the review once it has loaded', () => {
     const externalReview = { ...fakeReview, id: 432 };
     const store = createStoreWithLatestReview({ review: externalReview });
     const root = render({ store });
@@ -149,10 +150,11 @@ describe(__filename, () => {
     expect(rating).toHaveProp('review', createInternalReview(externalReview));
   });
 
-  it('does not render loading stars when no saved review exists', () => {
+  it('passes review=null when no saved review exists', () => {
     const store = createStoreWithLatestReview({ review: null });
     const root = render({ store });
 
+    // This exits the loading state.
     expect(root.find(UserRating)).toHaveProp('review', null);
   });
 
