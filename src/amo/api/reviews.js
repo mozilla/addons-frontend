@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 
 import { REVIEW_FLAG_REASON_OTHER } from 'amo/constants';
 import { callApi } from 'core/api';
@@ -257,6 +258,31 @@ export const flagReview = ({
         endpoint: `reviews/review/${reviewId}/flag`,
         errorHandler,
         method: 'POST',
+        apiState,
+      }),
+    );
+  });
+};
+
+type DeleteReviewParams = {|
+  apiState: ApiState,
+  errorHandler: ErrorHandlerType,
+  reviewId: number,
+|};
+
+export const deleteReview = ({
+  apiState,
+  errorHandler,
+  reviewId,
+}: DeleteReviewParams = {}): Promise<void> => {
+  return new Promise((resolve) => {
+    invariant(reviewId, 'The reviewId parameter is required');
+    resolve(
+      callApi({
+        auth: true,
+        endpoint: `reviews/review/${reviewId}/`,
+        errorHandler,
+        method: 'DELETE',
         apiState,
       }),
     );
