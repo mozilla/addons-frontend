@@ -8,7 +8,9 @@ import {
   SET_ADDON_REVIEWS,
   STARTED_SAVE_RATING,
   STARTED_SAVE_REVIEW,
+  clearAddonReviewsForReviewId,
   createAddonReview,
+  deleteAddonReview,
   fetchGroupedRatings,
   fetchReviews,
   fetchUserReviews,
@@ -673,6 +675,60 @@ describe(__filename, () => {
 
       const expectedAction = flashReviewMessage(ABORTED);
       await matchingSagaAction(sagaTester, matchMessage(expectedAction));
+    });
+  });
+
+  describe('deleteAddonReview', () => {
+    function _deleteAddonReview(params = {}) {
+      sagaTester.dispatch(
+        deleteAddonReview({
+          errorHandlerId: errorHandler.id,
+          reviewId: 1,
+          ...params,
+        }),
+      );
+    }
+
+    it('clears the error handler', async () => {
+      _deleteAddonReview();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('deletes an add-on review', async () => {
+      const reviewId = 12345;
+
+      mockApi
+        .expects('deleteReview')
+        .once()
+        .withArgs({
+          apiState,
+          reviewId,
+        })
+        .returns(Promise.resolve());
+
+      _deleteAddonReview({ reviewId });
+
+      const expectedAction = clearAddonReviewsForReviewId({ reviewId });
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      mockApi.verify();
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('deleteReview').rejects(error);
+
+      _deleteAddonReview();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
     });
   });
 });

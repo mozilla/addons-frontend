@@ -1,6 +1,6 @@
 import {
   SAVED_RATING,
-  clearAddonReviews,
+  clearAddonReviewsForReviewId,
   createInternalReview,
   flagReview,
   hideEditReviewForm,
@@ -295,44 +295,125 @@ describe(__filename, () => {
     });
   });
 
-  describe('clearAddonReviews', () => {
-    it('clears add-on reviews', () => {
-      const addonSlug = 'some-slug';
+  describe('clearAddonReviewsForReviewId', () => {
+    const loadReviewDataIntoState = ({
+      addonId,
+      addonSlug,
+      grouping,
+      startState,
+      reviewId,
+      userId,
+    }) => {
+      const review = {
+        ...fakeReview,
+        id: reviewId,
+        addon: {
+          id: addonId,
+          slug: addonSlug,
+        },
+        user: { id: userId },
+      };
 
-      const action = setAddonReviews({
+      let state;
+
+      // Initialize values into the byId, byAddon, byUserId and groupedRatings buckets.
+      state = reviewsReducer(startState, setReview(review));
+      expect(state.byId[reviewId].addonId).toEqual(addonId);
+
+      state = reviewsReducer(
+        state,
+        setAddonReviews({
+          addonSlug,
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [review],
+          reviewCount: 1,
+        }),
+      );
+      expect(state.byAddon[addonSlug].reviews).toEqual([reviewId]);
+
+      state = reviewsReducer(
+        state,
+        setUserReviews({
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [review],
+          reviewCount: 1,
+          userId,
+        }),
+      );
+      expect(state.byUserId[userId].reviews).toEqual([reviewId]);
+
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({
+          addonId,
+          grouping,
+        }),
+      );
+      expect(state.groupedRatings[addonId]).toEqual(grouping);
+
+      return state;
+    };
+
+    it('clears cached review data', () => {
+      const reviewId = 111;
+      const addonId = 222;
+      const addonSlug = 'some-slug';
+      const userId = 333;
+      const grouping = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+      let state = loadReviewDataIntoState({
+        addonId,
         addonSlug,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-        reviews: [fakeReview],
-        reviewCount: 1,
+        grouping,
+        reviewId,
+        userId,
       });
 
-      const state = reviewsReducer(undefined, action);
-      const newState = reviewsReducer(state, clearAddonReviews({ addonSlug }));
+      // Clear all data based on a reviewId.
+      state = reviewsReducer(state, clearAddonReviewsForReviewId({ reviewId }));
 
-      expect(newState.byAddon[addonSlug]).toBeUndefined();
+      expect(state.byId[reviewId]).toEqual(undefined);
+      expect(state.byAddon[addonSlug]).toEqual(undefined);
+      expect(state.byUserId[userId]).toEqual(undefined);
+      expect(state.groupedRatings[addonId]).toEqual(undefined);
     });
 
-    it('preserves unrelated add-on reviews', () => {
-      const firstSlug = 'first';
-      const secondSlug = 'second';
+    it('preserves unrelated reviews data', () => {
+      const reviewId = 111;
+      const addonId = 222;
+      const addonSlug = 'some-slug';
+      const userId = 333;
+      const grouping = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 
-      const review = { ...fakeReview, id: 1 };
-      const action = setAddonReviews({
-        addonSlug: firstSlug,
-        pageSize: DEFAULT_API_PAGE_SIZE,
-        reviews: [review],
-        reviewCount: 1,
+      let state = loadReviewDataIntoState({
+        addonId,
+        addonSlug,
+        grouping,
+        reviewId,
+        userId,
       });
 
-      const state = reviewsReducer(undefined, action);
-      const newState = reviewsReducer(
-        state,
-        clearAddonReviews({ addonSlug: secondSlug }),
-      );
+      // Load some unrelated data.
+      const reviewId2 = 555;
+      const addonId2 = 666;
+      const addonSlug2 = 'some-slug-2';
+      const userId2 = 777;
 
-      const storedReviews = newState.byAddon[firstSlug].reviews;
-      expect(storedReviews[0]).toEqual(review.id);
-      expect(storedReviews.length).toEqual(1);
+      state = loadReviewDataIntoState({
+        startState: state,
+        addonId: addonId2,
+        addonSlug: addonSlug2,
+        grouping,
+        reviewId: reviewId2,
+        userId: userId2,
+      });
+
+      state = reviewsReducer(state, clearAddonReviewsForReviewId({ reviewId }));
+
+      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+      expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
+      expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
+      expect(state.groupedRatings[addonId2]).toEqual(grouping);
     });
   });
 

@@ -1,7 +1,6 @@
 import {
   SET_INTERNAL_REVIEW,
   SET_REVIEW,
-  clearAddonReviews,
   createInternalReview,
   fetchReviews,
   flagReview,
@@ -213,23 +212,6 @@ describe(__filename, () => {
 
       expect(() => setReviewWasFlagged(params)).toThrow(
         /reviewId parameter is required/,
-      );
-    });
-  });
-
-  describe('clearAddonReviews', () => {
-    const defaultParams = () => {
-      return {
-        addonSlug: fakeAddon.slug,
-      };
-    };
-
-    it('requires addonSlug', () => {
-      const params = defaultParams();
-      delete params.addonSlug;
-
-      expect(() => clearAddonReviews(params)).toThrow(
-        /addonSlug parameter is required/,
       );
     });
   });

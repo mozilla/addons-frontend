@@ -2,9 +2,9 @@
 import { oneLine } from 'common-tags';
 
 import {
-  CLEAR_ADDON_REVIEWS,
   FLASH_REVIEW_MESSAGE,
   HIDE_FLASHED_REVIEW_MESSAGE,
+  CLEAR_ADDON_REVIEWS_FOR_REVIEWID,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
@@ -22,7 +22,7 @@ import {
   createInternalReview,
 } from 'amo/actions/reviews';
 import type {
-  ClearAddonReviewsAction,
+  ClearAddonReviewsForReviewIdAction,
   FlagReviewAction,
   FlashMessageType,
   HideEditReviewFormAction,
@@ -61,11 +61,11 @@ type ReviewsData = {|
 |};
 
 type ReviewsByAddon = {
-  [slug: string]: StoredReviewsData,
+  [slug: string]: ?StoredReviewsData,
 };
 
 type ReviewsByUserId = {
-  [userId: number]: StoredReviewsData,
+  [userId: number]: ?StoredReviewsData,
 };
 
 export type FlagState = {
@@ -91,7 +91,7 @@ export type ReviewsState = {|
     [userIdAddonIdVersionId: string]: number | null,
   },
   groupedRatings: {
-    [addonId: number]: GroupedRatingsType,
+    [addonId: number]: ?GroupedRatingsType,
   },
   view: {
     [reviewId: number]: ViewStateByReviewId,
@@ -270,9 +270,9 @@ export const addReviewToState = ({
 };
 
 type ReviewActionType =
-  | ClearAddonReviewsAction
   | FlagReviewAction
   | FlashReviewMessageAction
+  | ClearAddonReviewsForReviewIdAction
   | HideEditReviewFormAction
   | HideFlashedReviewMessageAction
   | HideReplyToReviewFormAction
@@ -418,12 +418,6 @@ export default function reviewsReducer(
         },
       });
     }
-    case CLEAR_ADDON_REVIEWS: {
-      const { payload } = action;
-      const newState = { ...state };
-      delete newState.byAddon[payload.addonSlug];
-      return newState;
-    }
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
@@ -484,6 +478,35 @@ export default function reviewsReducer(
         ...state,
         flashMessage: undefined,
       };
+    }
+    case CLEAR_ADDON_REVIEWS_FOR_REVIEWID: {
+      const {
+        payload: { reviewId },
+      } = action;
+
+      const newState = { ...state };
+      const reviewData = state.byId[reviewId];
+
+      if (reviewData) {
+        const { addonId, addonSlug, userId } = reviewData;
+        delete newState.byId[reviewId];
+        return {
+          ...newState,
+          byAddon: {
+            ...newState.byAddon,
+            [addonSlug]: undefined,
+          },
+          byUserId: {
+            ...newState.byUserId,
+            [userId]: undefined,
+          },
+          groupedRatings: {
+            ...newState.groupedRatings,
+            [addonId]: undefined,
+          },
+        };
+      }
+      return newState;
     }
     default:
       return state;
