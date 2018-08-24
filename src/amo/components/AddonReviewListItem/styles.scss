@@ -31,10 +31,10 @@
 }
 
 .AddonReviewListItem-control {
-  @include margin-end(6px);
+  @include margin-start(6px);
 
   @include respond-to(medium) {
-    @include margin-end(24px);
+    @include margin-start(24px);
   }
 
   .Icon-reply-arrow {
