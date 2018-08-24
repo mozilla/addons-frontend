@@ -727,7 +727,7 @@ export async function matchingSagaAction(
 
       The saga called these action types: ${calledActions
         .map((action) => action.type)
-        .join(', ') || '[none at all]'}`,
+        .join(', ') || '(none at all)'}`,
     );
   }
 }
