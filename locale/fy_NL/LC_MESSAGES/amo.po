@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:29+0000\n"
+"POT-Creation-Date: 2018-08-24 09:23+0000\n"
 "PO-Revision-Date: 2018-07-26 06:55+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -40,75 +40,76 @@ msgid "Add to…"
 msgstr "Tafoegje oan…"
 
 #: src/amo/components/AddAddonToCollection/index.js:266
-#: src/amo/components/CollectionAddAddon/index.js:146
+#: src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
 msgstr "Tafoegje oan kolleksje"
 
-#: src/amo/components/Addon/index.js:157
+#: src/amo/components/Addon/index.js:162
+#: src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
 msgstr "Foarbyld fan %(title)s"
 
-#: src/amo/components/Addon/index.js:212
+#: src/amo/components/Addon/index.js:197
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Dizze add-on kin net wurdearre wurde, omdat der gjin publisearre ferzjes "
 "binne."
 
-#: src/amo/components/Addon/index.js:221
+#: src/amo/components/Addon/index.js:206
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s beoardieling lêze"
 msgstr[1] "%(count)s beoardielingen lêze"
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:226
 msgid "No reviews yet"
 msgstr "Noch gjin beoardelingen"
 
-#: src/amo/components/Addon/index.js:251
+#: src/amo/components/Addon/index.js:236
 msgid "Rate your experience"
 msgstr "Wurdearje jo ûnderfining"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:255
 msgid "About this dictionary"
 msgstr "Oer dit wurdboek"
 
-#: src/amo/components/Addon/index.js:273
+#: src/amo/components/Addon/index.js:258
 msgid "About this extension"
 msgstr "Oer dizze útwreiding"
 
-#: src/amo/components/Addon/index.js:276
+#: src/amo/components/Addon/index.js:261
 msgid "About this language pack"
 msgstr "Oer dit taalpakket"
 
-#: src/amo/components/Addon/index.js:279
+#: src/amo/components/Addon/index.js:264
 msgid "About this search plugin"
 msgstr "Oer dizze sykynstekker"
 
-#: src/amo/components/Addon/index.js:283
+#: src/amo/components/Addon/index.js:268
 msgid "About this theme"
 msgstr "Oer dit tema"
 
-#: src/amo/components/Addon/index.js:286
+#: src/amo/components/Addon/index.js:271
 msgid "About this add-on"
 msgstr "Oer dizze add-on"
 
-#: src/amo/components/Addon/index.js:325
+#: src/amo/components/Addon/index.js:310
 msgid "Release notes for %(addonVersion)s"
 msgstr "Utjefte-opmerkingen foar %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:443
+#: src/amo/components/Addon/index.js:428
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s troch %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:558
+#: src/amo/components/Addon/index.js:543
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Allinnich mei Firefox – Download Firefox no"
 
-#: src/amo/components/Addon/index.js:564
+#: src/amo/components/Addon/index.js:549
 msgid "Extension Metadata"
 msgstr "Metadata útwreiding"
 
-#: src/amo/components/Addon/index.js:581
+#: src/amo/components/Addon/index.js:566
 msgid "Screenshots"
 msgstr "Skermôfbyldingen"
 
@@ -181,46 +182,50 @@ msgstr ""
 "Jo browser stipet gjin add-ons. Jo kinne <a href=\"%(downloadUrl)s\">Firefox "
 "downloade</a> om dizze add-on te ynstallearjen."
 
-#: src/amo/components/AddonMeta/index.js:39
+#: src/amo/components/AddonMeta/index.js:111
+#, fuzzy
+msgid "%(total)s Star"
+msgid_plural "%(total)s Stars"
+msgstr[0] "%(total)s brûker"
+msgstr[1] "%(total)s brûkers"
+
+#: src/amo/components/AddonMeta/index.js:120
+#, fuzzy
+msgid "Not rated yet"
+msgstr "Noch net wurdearre"
+
+#: src/amo/components/AddonMeta/index.js:43
 msgid "Users"
 msgstr "Brûkers"
 
-#: src/amo/components/AddonMeta/index.js:42
+#: src/amo/components/AddonMeta/index.js:46
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Brûker"
 msgstr[1] "Brûkers"
 
-#: src/amo/components/AddonMeta/index.js:44
+#: src/amo/components/AddonMeta/index.js:48
 msgid "No Users"
 msgstr "Gjin brûkers"
 
-#: src/amo/components/AddonMeta/index.js:51
-msgid "Ratings"
-msgstr "Wurdearringen"
+#: src/amo/components/AddonMeta/index.js:55
+#, fuzzy
+msgid "Reviews"
+msgstr "Beoardieling"
 
-#: src/amo/components/AddonMeta/index.js:54
-msgid "Rating"
-msgid_plural "Ratings"
-msgstr[0] "Wurdearring"
-msgstr[1] "Wurdearringen"
+#: src/amo/components/AddonMeta/index.js:58
+msgid "Review"
+msgid_plural "Reviews"
+msgstr[0] "Beoardieling"
+msgstr[1] "Beoardielingen"
 
-#: src/amo/components/AddonMeta/index.js:56
-msgid "No Ratings"
-msgstr "Gjin wurdearringen"
+#: src/amo/components/AddonMeta/index.js:60
+msgid "No Reviews"
+msgstr "Gjin beoardielingen"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:84
 msgid "Used by"
 msgstr "Brûkt troch"
-
-#: src/amo/components/AddonMeta/index.js:87
-msgid "%(rating)s star average"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:92
-#, fuzzy
-msgid "Not rated yet"
-msgstr "Noch net wurdearre"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "%(timeFromNow)s (%(date)s)"
@@ -301,7 +306,7 @@ msgstr "Oare brûkers mei dizze útwreiding brûke ek"
 msgid "Other popular extensions"
 msgstr "Oare populêre útwreidingen"
 
-#: src/amo/components/AddonReview/index.js:197
+#: src/amo/components/AddonReview/index.js:198
 msgid ""
 "Tell the world why you think this extension is fantastic! Please follow our "
 "%(linkStart)sreview guidelines%(linkEnd)s."
@@ -309,12 +314,12 @@ msgstr ""
 "Fertel de wrâld werom dizze útwreiding bjusterbaarlik is! Hâld jo oan ús "
 "%(linkStart)sbeoardielingsrjochtlinen%(linkEnd)s."
 
-#: src/amo/components/AddonReview/index.js:201
+#: src/amo/components/AddonReview/index.js:202
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 "Fertel ús wat jo sa befalt oan dizze útwreiding. Wês konkreet en koart."
 
-#: src/amo/components/AddonReview/index.js:205
+#: src/amo/components/AddonReview/index.js:206
 msgid ""
 "Tell the world about this extension. Please follow our %(linkStart)sreview "
 "guidelines%(linkEnd)s."
@@ -322,21 +327,21 @@ msgstr ""
 "Fertel de wrâld oer dizze útwreiding. Hâld jo oan ús "
 "%(linkStart)sbeoardielingsrjochtlinen%(linkEnd)s."
 
-#: src/amo/components/AddonReview/index.js:209
+#: src/amo/components/AddonReview/index.js:210
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "Fertel ús oer jo ûnderfining mei dizze útwreiding. Wês konkreet en koart."
 
-#: src/amo/components/AddonReview/index.js:229
+#: src/amo/components/AddonReview/index.js:230
 msgid "Write a review"
 msgstr "In beoardieling skriuwe"
 
-#: src/amo/components/AddonReview/index.js:245
+#: src/amo/components/AddonReview/index.js:246
 msgid "Review text"
 msgstr "Tekst beoardiele"
 
-#: src/amo/components/AddonReview/index.js:262
+#: src/amo/components/AddonReview/index.js:263
 msgid "Submit review"
 msgstr "Beoardieling yntsjinje"
 
@@ -396,15 +401,15 @@ msgstr "pleatst %(timestamp)s"
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "troch %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:236
+#: src/amo/components/AddonReviewListItem/index.js:237
 msgid "Edit my reply"
 msgstr "Myn antwurd bewurkje"
 
-#: src/amo/components/AddonReviewListItem/index.js:237
+#: src/amo/components/AddonReviewListItem/index.js:238
 msgid "Edit my review"
 msgstr "Myn beoardieling bewurkje"
 
-#: src/amo/components/AddonReviewListItem/index.js:257
+#: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Reply to this review"
 msgstr "Dizze beoardieling beantwurdzje"
 
@@ -488,34 +493,34 @@ msgstr "Add-ons fan %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Add-ons fan dizze ûntwikkelers"
 
-#: src/amo/components/App/index.js:212
+#: src/amo/components/App/index.js:213
 #: src/amo/components/SectionLinks/index.js:153
 msgid "Add-ons for Firefox"
 msgstr "Add-ons foar Firefox"
 
-#: src/amo/components/App/index.js:213
+#: src/amo/components/App/index.js:214
 msgid "%s – Add-ons for Firefox"
 msgstr "%s - Add-ons foar Firefox"
 
-#: src/amo/components/App/index.js:216
+#: src/amo/components/App/index.js:217
 #: src/amo/components/SectionLinks/index.js:140
 msgid "Add-ons for Android"
 msgstr "Add-ons foar Android"
 
-#: src/amo/components/App/index.js:217
+#: src/amo/components/App/index.js:218
 msgid "%s – Add-ons for Android"
 msgstr "%s - Add-ons foar Android"
 
-#: src/amo/components/AutoSearchInput/index.js:214
+#: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
 msgstr "Lade"
 
-#: src/amo/components/AutoSearchInput/index.js:304
+#: src/amo/components/AutoSearchInput/index.js:305
 msgid "Find add-ons"
 msgstr "Add-ons sykje"
 
-#: src/amo/components/AutoSearchInput/index.js:329
-#: src/amo/components/AutoSearchInput/index.js:357
+#: src/amo/components/AutoSearchInput/index.js:330
+#: src/amo/components/AutoSearchInput/index.js:358
 msgid "Search"
 msgstr "Sykje"
 
@@ -538,14 +543,14 @@ msgid "Extensions"
 msgstr "Utwreidingen"
 
 #: src/amo/components/Category/index.js:151
-#: src/amo/components/Home/index.js:254
+#: src/amo/components/Home/index.js:259
 #: src/amo/components/LandingPage/index.js:145
 #: src/amo/components/Search/index.js:124
 msgid "Featured extensions"
 msgstr "Oanrekommandearre útwreidingen"
 
 #: src/amo/components/Category/index.js:160
-#: src/amo/components/Home/index.js:255
+#: src/amo/components/Home/index.js:260
 #: src/amo/components/LandingPage/index.js:153
 msgid "See more featured extensions"
 msgstr "Mear oanrekommandearre útwreidingen"
@@ -579,14 +584,14 @@ msgid "Themes"
 msgstr "Tema's"
 
 #: src/amo/components/Category/index.js:184
-#: src/amo/components/Home/index.js:290
+#: src/amo/components/Home/index.js:295
 #: src/amo/components/LandingPage/index.js:174
 #: src/amo/components/Search/index.js:127
 msgid "Featured themes"
 msgstr "Oanrekommandearre tema’s"
 
 #: src/amo/components/Category/index.js:193
-#: src/amo/components/Home/index.js:280
+#: src/amo/components/Home/index.js:285
 #: src/amo/components/LandingPage/index.js:182
 msgid "See more featured themes"
 msgstr "Mear oanrekommandearre tema’s"
@@ -625,38 +630,43 @@ msgstr "Troch alle útwreidingen yn dizze kategory blêdzje."
 msgid "Browse all themes in this category."
 msgstr "Troch alle tema's yn dizze kategory blêdzje."
 
-#: src/amo/components/Collection/index.js:395
+#: src/amo/components/Collection/index.js:358
 msgid "Do you really want to delete this collection?"
 msgstr "Binne jo wis dat jo dizze kolleksje fuortsmite wolle?"
 
-#: src/amo/components/Collection/index.js:398
+#: src/amo/components/Collection/index.js:361
 msgid "Delete this collection"
 msgstr "Dizze kolleksje fuortsmite"
 
-#: src/amo/components/Collection/index.js:418
+#: src/amo/components/Collection/index.js:381
 msgid "Log in to create a collection"
 msgstr "Meld jo oan om dizze kolleksje oan te meitsjjen"
 
-#: src/amo/components/Collection/index.js:419
+#: src/amo/components/Collection/index.js:382
 msgid "Log in to edit this collection"
 msgstr "Meld jo oan om dizze kolleksje te bewurkjen"
 
-#: src/amo/components/Collection/index.js:456
+#: src/amo/components/Collection/index.js:419
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Meitsje jo earste kolleksje. Dêrnei kinne jo der add-ons en tema's oan "
 "tafoegje."
 
-#: src/amo/components/Collection/index.js:459
+#: src/amo/components/Collection/index.js:422
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 "Nei útwreidingen en tema’s sykje om dizze oan jo kolleksje ta te foegjen."
 
-#: src/amo/components/CollectionAddAddon/index.js:132
+#: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
 msgstr "Tafoege oan kolleksje"
 
-#: src/amo/components/CollectionAddAddon/index.js:141
+#: src/amo/components/CollectionAddAddon/index.js:159
+#, fuzzy
+msgid "Removed from collection"
+msgstr "Tafoege oan kolleksje"
+
+#: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
 msgstr "In add-on fine om yn dizze kolleksje op te nimmen"
 
@@ -728,7 +738,7 @@ msgstr "Oanpaste URL"
 #: src/amo/components/CollectionManager/index.js:317
 #: src/amo/components/UserProfileEdit/index.js:850
 #: src/ui/components/ConfirmButton/index.js:107
-#: src/ui/components/DismissibleTextForm/index.js:149
+#: src/ui/components/DismissibleTextForm/index.js:167
 msgid "Cancel"
 msgstr "Annulearje"
 
@@ -941,12 +951,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Markearre as bugrapport of stipefersyk"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
-msgid "Flag"
-msgstr "Markearje"
-
-#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flagged"
 msgstr "Flagge"
+
+#: src/amo/components/FlagReviewMenu/index.js:124
+msgid "Flag"
+msgstr "Markearje"
 
 #: src/amo/components/FlagReviewMenu/index.js:127
 msgid "Flag this developer response"
@@ -1117,89 +1127,100 @@ msgstr "Firefox-add-ons"
 msgid "My Account"
 msgstr "Myn account"
 
-#: src/amo/components/Home/index.js:114
+#: src/amo/components/Home/index.js:119
 msgid "Bookmarks"
 msgstr "Blêdwizers"
 
-#: src/amo/components/Home/index.js:118
+#: src/amo/components/Home/index.js:123
 msgid "Password managers"
 msgstr "Wachtwurdbehearders"
 
-#: src/amo/components/Home/index.js:122
+#: src/amo/components/Home/index.js:127
 msgid "Ad blockers"
 msgstr "Adblokkearders"
 
-#: src/amo/components/Home/index.js:126
+#: src/amo/components/Home/index.js:131
 msgid "Smarter Shopping"
 msgstr "Tûker winkelje"
 
-#: src/amo/components/Home/index.js:130
+#: src/amo/components/Home/index.js:135
 msgid "Productivity"
 msgstr "Produktiviteit"
 
-#: src/amo/components/Home/index.js:134
+#: src/amo/components/Home/index.js:139
 msgid "Watching Videos"
 msgstr "Fideo's besjen"
 
-#: src/amo/components/Home/index.js:162
+#: src/amo/components/Home/index.js:167
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/components/Home/index.js:167
+#: src/amo/components/Home/index.js:172
 msgid "Nature"
 msgstr "Natuer"
 
-#: src/amo/components/Home/index.js:172
+#: src/amo/components/Home/index.js:177
 msgid "Film & TV"
 msgstr "Film en telefyzje"
 
-#: src/amo/components/Home/index.js:177
+#: src/amo/components/Home/index.js:182
 msgid "Scenery"
 msgstr "Lânskip"
 
-#: src/amo/components/Home/index.js:182
+#: src/amo/components/Home/index.js:187
 msgid "Music"
 msgstr "Muzyk"
 
-#: src/amo/components/Home/index.js:187
+#: src/amo/components/Home/index.js:192
 msgid "Seasonal"
 msgstr "Seizoensbûn"
 
-#: src/amo/components/Home/index.js:218
+#: src/amo/components/Home/index.js:223
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Pas de manier wêrop Firefox wurket oan mei útwreidingen. Binne jo "
 "ynteressearre yn…"
 
-#: src/amo/components/Home/index.js:220
+#: src/amo/components/Home/index.js:225
 msgid "Change the way Firefox looks with themes."
 msgstr "Wizigje it úterlik fan Firefox mei tema’s."
 
-#: src/amo/components/Home/index.js:49
-#, fuzzy
-msgid "See more reading extensions"
-msgstr "Mear oanrekommandearre útwreidingen"
-
 #: src/amo/components/Home/index.js:50
-msgid "Refined reading"
-msgstr ""
-
-#: src/amo/components/Home/index.js:55
 #, fuzzy
 msgid "See more exceptional search tools"
 msgstr "Mear essinsjele útwreidingen besjen"
 
-#: src/amo/components/Home/index.js:56
+#: src/amo/components/Home/index.js:51
 msgid "Exceptional search tools"
 msgstr ""
 
-#: src/amo/components/Home/index.js:61
-msgid "See more social media customization extensions"
-msgstr "Mear útwreidingen foar oanpassing fan sosjale media besjen"
+#: src/amo/components/Home/index.js:56
+#, fuzzy
+msgid "See more fall themes"
+msgstr "Mear oanrekommandearre tema’s"
 
-#: src/amo/components/Home/index.js:64
-msgid "Social media customization"
-msgstr "Oanpassingen foar sosjale media"
+#: src/amo/components/Home/index.js:57
+#, fuzzy
+msgid "Fall themes"
+msgstr "Tema's sykje"
+
+#: src/amo/components/Home/index.js:62
+#, fuzzy
+msgid "See more YouTube extensions"
+msgstr "Mear ljepblêdútwreidingen besjen"
+
+#: src/amo/components/Home/index.js:63
+msgid "YouTube boosters"
+msgstr ""
+
+#: src/amo/components/Home/index.js:68
+#, fuzzy
+msgid "See more reading extensions"
+msgstr "Mear oanrekommandearre útwreidingen"
+
+#: src/amo/components/Home/index.js:69
+msgid "Refined reading"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
@@ -1532,122 +1553,122 @@ msgstr "Dizze add-on kin:"
 msgid "Learn more about permissions"
 msgstr "Mear ynfo oer tastimmingen"
 
-#: src/amo/components/PermissionsCard/permissions.js:25
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
 msgstr "Blêdwizers lêze en oanpasse"
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
 msgstr "Browserynstellingen lêze en oanpasse"
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "Resinte browserskiednis, cookies en relatearre gegevens wiskje"
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
 msgstr "Gegevens fan it klamboerd ophelje"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
 msgstr "Gegevens op it klamboerd pleatse"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 "Untwikkelersark útwreidzje om jo gegevens yn iepen ljepblêden te benaderjen"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 "Bestannen downloade en downloadskiednis fan de browser lêze en oanpasse"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
 msgstr "Nei jo kompjûter downloade bestannen iepenje"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
 msgstr "De tekst fan alle iepen ljepblêden lêze"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
 msgstr "Jo lokaasje benaderje"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
 msgstr "Sneupskiednis iepenje"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
 msgstr "Utwreidingsgebrûk beweitsje en tema’s beheare"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Berjochten mei oare programma’s as Firefox útwikselje"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
 msgstr "Notifikaasjes werjaan"
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
 msgstr "Kryptografyske autentikaasjetsjinsten biede"
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
 msgstr "Browserproxyynstellingen beheare"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
 msgstr "Privacyynstellingen lêze en oanpasse"
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
 msgstr "Koartlyn sluten ljepblêden benaderje"
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
 msgstr "Browserljepblêden benaderje"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
 msgstr "Browserljepblêden ferstopje en toane"
 
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
 msgstr "Gegevens oan clientside ûnbeheind bewarje"
 
-#: src/amo/components/PermissionsCard/permissions.js:59
+#: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
 msgstr "Browseraktiviteit wylst navigearjen benaderje"
 
-#: src/amo/components/RatingManager/index.js:166
+#: src/amo/components/RatingManager/index.js:156
 msgid "Log in to rate this dictionary"
 msgstr "Meld jo oan om dit wurdboek te wurdearjen"
 
-#: src/amo/components/RatingManager/index.js:168
+#: src/amo/components/RatingManager/index.js:158
 msgid "Log in to rate this language pack"
 msgstr "Meld jo oan om dit taalpakket te wurdearjen"
 
-#: src/amo/components/RatingManager/index.js:170
+#: src/amo/components/RatingManager/index.js:160
 msgid "Log in to rate this search plugin"
 msgstr "Meld jo oan om dizze sykynstekker te wurdearjen"
 
-#: src/amo/components/RatingManager/index.js:173
+#: src/amo/components/RatingManager/index.js:163
 msgid "Log in to rate this theme"
 msgstr "Meld jo oan om dit tema te wurdearjen"
 
-#: src/amo/components/RatingManager/index.js:175
+#: src/amo/components/RatingManager/index.js:165
 msgid "Log in to rate this extension"
 msgstr "Meld jo oan om dizze útwreiding te wurdearjen"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:173
 msgid "Log in to rate this add-on"
 msgstr "Meld jo oan om dizze add-on te wurdearjen"
 
-#: src/amo/components/RatingManager/index.js:221
+#: src/amo/components/RatingManager/index.js:204
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hoe foldocht jo %(addonName)s?"
 
@@ -2625,11 +2646,11 @@ msgstr "de komptabiliteit fan myn add-on kin net fernijd wurde"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "de komptabiliteit fan myn add-on is mei sukses fernijd"
 
-#: src/amo/components/UserProfileEditPicture/index.js:106
+#: src/amo/components/UserProfileEditPicture/index.js:107
 msgid "Do you really want to delete this picture?"
 msgstr "Binne jo wis dat jo dizze ôfbylding fuortsmite wolle?"
 
-#: src/amo/components/UserProfileEditPicture/index.js:111
+#: src/amo/components/UserProfileEditPicture/index.js:112
 msgid "Delete This Picture"
 msgstr "Dizze ôfbylding fuortsmite"
 
@@ -2641,7 +2662,7 @@ msgstr "Profylôfbylding foar %(name)s"
 msgid "Profile photo"
 msgstr "Profylfoto"
 
-#: src/amo/components/UserProfileEditPicture/index.js:96
+#: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
 msgstr "Foto kieze…"
 
@@ -2709,7 +2730,7 @@ msgstr ""
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 #, fuzzy
 msgid "OK"
 msgstr "OK!"
@@ -2743,15 +2764,15 @@ msgstr "%(name)s is fuortsmiten. Klik om de add-on te ynstallearjen."
 msgid "Install state for %(name)s is unknown."
 msgstr "Ynstallaasjesteat foar %(name)s is net bekend."
 
-#: src/core/components/Paginate/index.js:135
+#: src/core/components/Paginate/index.js:137
 msgid "Previous"
 msgstr "Foarige"
 
-#: src/core/components/Paginate/index.js:152
+#: src/core/components/Paginate/index.js:154
 msgid "Next"
 msgstr "Folgjende"
 
-#: src/core/components/Paginate/index.js:158
+#: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Side %(currentPage)s fan %(totalPages)s"
 
@@ -2771,19 +2792,19 @@ msgstr ""
 msgid "Confirm"
 msgstr "Befêstigje"
 
-#: src/ui/components/DismissibleTextForm/index.js:119
+#: src/ui/components/DismissibleTextForm/index.js:128
 msgid "Enter text."
 msgstr "Fier tekst yn."
 
-#: src/ui/components/DismissibleTextForm/index.js:120
+#: src/ui/components/DismissibleTextForm/index.js:129
 msgid "Submit"
 msgstr "Yntsjinje"
 
-#: src/ui/components/DismissibleTextForm/index.js:122
+#: src/ui/components/DismissibleTextForm/index.js:131
 msgid "Submitting"
 msgstr "Yntsjinje"
 
-#: src/ui/components/DismissibleTextForm/index.js:161
+#: src/ui/components/DismissibleTextForm/index.js:181
 msgid "Delete"
 msgstr "Fuortsmite"
 
@@ -2856,6 +2877,23 @@ msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s add-on"
 msgstr[1] "%(total)s add-ons"
+
+#~ msgid "Ratings"
+#~ msgstr "Wurdearringen"
+
+#~ msgid "Rating"
+#~ msgid_plural "Ratings"
+#~ msgstr[0] "Wurdearring"
+#~ msgstr[1] "Wurdearringen"
+
+#~ msgid "No Ratings"
+#~ msgstr "Gjin wurdearringen"
+
+#~ msgid "See more social media customization extensions"
+#~ msgstr "Mear útwreidingen foar oanpassing fan sosjale media besjen"
+
+#~ msgid "Social media customization"
+#~ msgstr "Oanpassingen foar sosjale media"
 
 #~ msgid "Overall Rating"
 #~ msgstr "Globale wurdearring"
@@ -2964,9 +3002,6 @@ msgstr[1] "%(total)s add-ons"
 
 #~ msgid "Tame your tabs"
 #~ msgstr "Jo ljepblêden beheare"
-
-#~ msgid "See more tab extensions"
-#~ msgstr "Mear ljepblêdútwreidingen besjen"
 
 #~ msgid "Black Menu for Google"
 #~ msgstr "Swart menu foar Google"
@@ -3237,14 +3272,6 @@ msgstr[1] "%(total)s add-ons"
 #~ msgid "Click to close"
 #~ msgstr "Klik om te sluten"
 
-#~ msgid "Review"
-#~ msgid_plural "Reviews"
-#~ msgstr[0] "Beoardieling"
-#~ msgstr[1] "Beoardielingen"
-
-#~ msgid "No Reviews"
-#~ msgstr "Gjin beoardielingen"
-
 #~ msgid "Re-imagine search"
 #~ msgstr "Sykje opnij betocht"
 
@@ -3440,9 +3467,6 @@ msgstr[1] "%(total)s add-ons"
 
 #~ msgid "Find language pack"
 #~ msgstr "Taalpakket sykje"
-
-#~ msgid "Find themes"
-#~ msgstr "Tema's sykje"
 
 #~ msgid "Click to view statistics"
 #~ msgstr "Klik om statistiken te sjen"
