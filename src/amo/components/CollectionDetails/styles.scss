@@ -24,7 +24,9 @@
   word-wrap: break-word;
 }
 
-.CollectionDetails-action-button {
+.CollectionDetails-edit-button,
+.CollectionDetails-edit-details-button,
+.CollectionDetails-back-to-collection-button {
   margin-top: $padding-page;
   width: 100%;
 }

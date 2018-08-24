@@ -6,6 +6,7 @@ import reducer, {
   addonAddedToCollection,
   addonRemovedFromCollection,
   beginCollectionModification,
+  beginEditingCollectionDetails,
   collectionEditUrl,
   collectionUrl,
   convertFiltersToQueryParams,
@@ -18,6 +19,7 @@ import reducer, {
   fetchCurrentCollectionPage,
   fetchUserCollections,
   finishCollectionModification,
+  finishEditingCollectionDetails,
   getCollectionById,
   getCurrentCollection,
   initialState,
@@ -683,6 +685,18 @@ describe(__filename, () => {
         firstCollection.id,
         secondCollection.id,
       ]);
+    });
+
+    it('records the beginning of editing collection details', () => {
+      const state = reducer(initialState, beginEditingCollectionDetails());
+
+      expect(state.editingCollectionDetails).toEqual(true);
+    });
+
+    it('records the end of editing collection details', () => {
+      const state = reducer(initialState, finishEditingCollectionDetails());
+
+      expect(state.editingCollectionDetails).toEqual(false);
     });
   });
 

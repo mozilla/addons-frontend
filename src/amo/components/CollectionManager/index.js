@@ -8,8 +8,8 @@ import { compose } from 'redux';
 import config from 'config';
 
 import {
-  convertFiltersToQueryParams,
   createCollection,
+  finishEditingCollectionDetails,
   updateCollection,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
@@ -79,36 +79,17 @@ export class CollectionManagerBase extends React.Component<
     }
   }
 
-  onCancel = (event: SyntheticEvent<any>) => {
-    const {
-      clientApp,
-      collection,
-      creating,
-      errorHandler,
-      filters,
-      history,
-      siteLang,
-    } = this.props;
-    event.preventDefault();
-    event.stopPropagation();
+  onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
+    const { creating, dispatch, history } = this.props;
 
     if (creating) {
       history.goBack();
     }
 
-    invariant(collection, 'A collection must be loaded before you can cancel');
-    invariant(clientApp, 'A clientApp must be loaded before you can cancel');
-    invariant(siteLang, 'A siteLang must be loaded before you can cancel');
+    event.preventDefault();
+    event.stopPropagation();
 
-    // Reset form state to the original collection object.
-    this.setState(this.propsToState(this.props));
-    errorHandler.clear();
-
-    const { authorUsername, slug } = collection;
-    history.push({
-      pathname: `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`,
-      query: convertFiltersToQueryParams(filters),
-    });
+    dispatch(finishEditingCollectionDetails());
   };
 
   onSubmit = (event: SyntheticEvent<any>) => {
@@ -242,7 +223,7 @@ export class CollectionManagerBase extends React.Component<
       formIsDisabled || formIsUnchanged || isNameBlank || isSlugBlank;
     const buttonText = creating
       ? i18n.gettext('Create collection')
-      : i18n.gettext('Save collection');
+      : i18n.gettext('Save changes');
 
     return (
       <form className="CollectionManager" onSubmit={this.onSubmit}>

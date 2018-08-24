@@ -5,7 +5,11 @@ import CollectionDetailsCard, {
 } from 'amo/components/CollectionDetailsCard';
 import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
-import { createInternalCollection } from 'amo/reducers/collections';
+import {
+  beginEditingCollectionDetails,
+  createInternalCollection,
+  finishEditingCollectionDetails,
+} from 'amo/reducers/collections';
 import {
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
@@ -51,77 +55,6 @@ describe(__filename, () => {
     });
   };
 
-  it('renders a configured CollectionManager when creating', () => {
-    const collection = null;
-    const filters = { page: 1 };
-
-    const root = render({
-      collection,
-      creating: true,
-      filters,
-    });
-
-    const manager = root.find(CollectionManager);
-    expect(manager).toHaveProp('collection', collection);
-    expect(manager).toHaveProp('creating', true);
-    expect(manager).toHaveProp('filters', filters);
-  });
-
-  it('renders a configured CollectionManager when editing and user is the owner of the collection', () => {
-    const authorUserId = 11;
-    const { store } = dispatchSignInActions({ userId: authorUserId });
-
-    const collection = createFakeCollection({
-      authorId: authorUserId,
-    });
-    const filters = { page: 1 };
-
-    const root = render({
-      collection,
-      editing: true,
-      filters,
-      store,
-    });
-
-    const manager = root.find(CollectionManager);
-    expect(manager).toHaveProp('collection', collection);
-    expect(manager).toHaveProp('creating', false);
-    expect(manager).toHaveProp('filters', filters);
-  });
-
-  it('renders a CollectionManager when editing a mozilla collection when user has the `Admin:Curation` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [MOZILLA_COLLECTIONS_EDIT],
-      },
-    });
-
-    const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
-    });
-
-    const root = render({ collection, editing: true, store });
-
-    expect(root.find(CollectionManager)).toHaveLength(1);
-  });
-
-  it('renders CollectionManager when editing and user is the owner of the collection', () => {
-    const authorUserId = 11;
-    const { store } = dispatchSignInActions({ userId: authorUserId });
-
-    const collection = createFakeCollection({
-      authorId: authorUserId,
-    });
-
-    const root = render({
-      collection,
-      editing: true,
-      store,
-    });
-
-    expect(root.find(CollectionManager)).toHaveLength(1);
-  });
-
   it('renders a configured CollectionDetails when not creating or editing', () => {
     const collection = createFakeCollection();
     const filters = { page: 1 };
@@ -136,9 +69,49 @@ describe(__filename, () => {
     const details = root.find(CollectionDetails);
     expect(details).toHaveProp('collection', collection);
     expect(details).toHaveProp('filters', filters);
+    expect(details).toHaveProp('hasEditPermission', false);
   });
 
-  it('renders CollectionDetails in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
+  it('configures CollectionDetails when editing and user is the owner of the collection', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    const collection = createFakeCollection({
+      authorId: authorUserId,
+    });
+    const editing = true;
+
+    const root = render({
+      collection,
+      editing,
+      store,
+    });
+
+    const details = root.find(CollectionDetails);
+    expect(details).toHaveProp('editing', editing);
+    expect(details).toHaveProp('hasEditPermission', true);
+  });
+
+  it('configures CollectionDetails when editing a mozilla collection when user has the `Admin:Curation` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [MOZILLA_COLLECTIONS_EDIT],
+      },
+    });
+
+    const collection = createFakeCollection({
+      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
+    });
+    const editing = true;
+
+    const root = render({ collection, editing, store });
+
+    const details = root.find(CollectionDetails);
+    expect(details).toHaveProp('editing', editing);
+    expect(details).toHaveProp('hasEditPermission', true);
+  });
+
+  it('configures CollectionDetails when editing the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
     const { store } = dispatchSignInActions({
       userProps: {
         permissions: [FEATURED_THEMES_COLLECTION_EDIT],
@@ -153,7 +126,9 @@ describe(__filename, () => {
 
     const root = render({ collection, editing, store });
 
-    expect(root.find(CollectionDetails)).toHaveProp('editing', editing);
+    const details = root.find(CollectionDetails);
+    expect(details).toHaveProp('editing', editing);
+    expect(details).toHaveProp('hasEditPermission', false);
   });
 
   it('requests an edit link for a mozilla collection when user has the `Admin:Curation` permission', () => {
@@ -201,23 +176,6 @@ describe(__filename, () => {
     expect(root.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
-  it('does not request an edit link in edit mode for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        permissions: [FEATURED_THEMES_COLLECTION_EDIT],
-      },
-    });
-
-    const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
-      slug: FEATURED_THEMES_COLLECTION_SLUG,
-    });
-
-    const root = render({ collection, editing: true, store });
-
-    expect(root.find(CollectionDetails)).toHaveProp('showEditButton', false);
-  });
-
   it('does not request an edit link for a the Featured Themes collection when user does not have the `Collections:Contribute` permission', () => {
     const { store } = dispatchSignInActions();
 
@@ -243,7 +201,7 @@ describe(__filename, () => {
     expect(root.find(CollectionDetails)).toHaveProp('showEditButton', true);
   });
 
-  it('does not render an edit link when user is not the collection owner', () => {
+  it('does not request an edit link when user is not the collection owner', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: 99 });
 
@@ -253,5 +211,62 @@ describe(__filename, () => {
 
     const root = render({ collection, store });
     expect(root.find(CollectionDetails)).toHaveProp('showEditButton', false);
+  });
+
+  it('does not request an edit link in edit mode', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    const collection = createFakeCollection({
+      authorId: authorUserId,
+    });
+
+    const root = render({ collection, editing: true, store });
+
+    expect(root.find(CollectionDetails)).toHaveProp('showEditButton', false);
+  });
+
+  it('renders a configured CollectionManager when creating', () => {
+    const collection = null;
+    const filters = { page: 1 };
+
+    const root = render({
+      collection,
+      creating: true,
+      filters,
+    });
+
+    const manager = root.find(CollectionManager);
+    expect(manager).toHaveProp('collection', collection);
+    expect(manager).toHaveProp('creating', true);
+    expect(manager).toHaveProp('filters', filters);
+  });
+
+  it('switches between the CollectionDetails and the CollectionManager when the editingCollectionDetails state changes', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    const collection = createFakeCollection({
+      authorId: authorUserId,
+    });
+
+    let root = render({ collection, editing: true, store });
+
+    expect(root.find(CollectionDetails)).toHaveLength(1);
+    expect(root.find(CollectionManager)).toHaveLength(0);
+
+    store.dispatch(beginEditingCollectionDetails());
+
+    root = render({ collection, editing: true, store });
+
+    expect(root.find(CollectionDetails)).toHaveLength(0);
+    expect(root.find(CollectionManager)).toHaveLength(1);
+
+    store.dispatch(finishEditingCollectionDetails());
+
+    root = render({ collection, editing: true, store });
+
+    expect(root.find(CollectionDetails)).toHaveLength(1);
+    expect(root.find(CollectionManager)).toHaveLength(0);
   });
 });

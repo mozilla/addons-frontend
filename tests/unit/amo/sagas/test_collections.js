@@ -17,6 +17,7 @@ import collectionsReducer, {
   fetchCurrentCollectionPage,
   fetchUserCollections,
   finishCollectionModification,
+  finishEditingCollectionDetails,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -496,6 +497,36 @@ describe(__filename, () => {
         expect(action).toEqual(expectedAction);
         mockApi.verify();
       });
+
+      it('records the end of editing collection details in state on success', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const collectionSlug = 'some-collection';
+        _updateCollection({ collectionSlug });
+
+        const expectedAction = finishEditingCollectionDetails();
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+      });
+
+      it('does not record the end of editing collection details in state on error', async () => {
+        const collectionSlug = 'my-slug';
+        const error = new Error('some API error maybe');
+
+        mockApi.expects('updateCollection').returns(Promise.reject(error));
+
+        _updateCollection({ collectionSlug });
+
+        const expectedAction = finishCollectionModification();
+
+        await sagaTester.waitFor(expectedAction.type);
+
+        // Make sure finishEditingCollectionDetails is not called.
+        expect(
+          sagaTester.getCalledActions().map((action) => action.type),
+        ).not.toContain(finishEditingCollectionDetails().type);
+      });
     });
 
     describe('update logic', () => {
@@ -588,7 +619,7 @@ describe(__filename, () => {
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation({
-          pathname: `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/`,
+          pathname: `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/edit/`,
           query: convertFiltersToQueryParams(updateFilters),
         });
 

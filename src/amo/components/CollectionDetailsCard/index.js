@@ -27,6 +27,7 @@ export type Props = {|
 
 type InternalProps = {|
   ...Props,
+  editingCollectionDetails: boolean,
   hasEditPermission: boolean,
   hasMaintainerPermission: boolean,
 |};
@@ -36,13 +37,13 @@ export const CollectionDetailsCardBase = (props: InternalProps) => {
     collection,
     creating,
     editing,
+    editingCollectionDetails,
     filters,
     hasEditPermission,
     hasMaintainerPermission,
   } = props;
 
-  const managingCollection = creating || (editing && hasEditPermission);
-  if (managingCollection) {
+  if (creating || editingCollectionDetails) {
     return (
       <CollectionManager
         collection={collection}
@@ -57,6 +58,7 @@ export const CollectionDetailsCardBase = (props: InternalProps) => {
       collection={collection}
       editing={editing}
       filters={filters}
+      hasEditPermission={hasEditPermission}
       showEditButton={hasMaintainerPermission && !editing}
     />
   );
@@ -88,6 +90,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   }
 
   return {
+    editingCollectionDetails: state.collections.editingCollectionDetails,
     hasEditPermission,
     hasMaintainerPermission,
   };
