@@ -1604,15 +1604,14 @@ describe(__filename, () => {
     const root = shallowRender({
       store: dispatchSignInActions({
         userProps: {
-        is_addon_developer: true,
-        display_name: 'imadev',
-        userId: 100,
-        username: 'iamdev',
-      },
-    }),
-    addon,
-  });
-
+          is_addon_developer: true,
+          display_name: 'championshuttler',
+          userId: 100,
+          username: 'championshuttler',
+        },
+      }),
+      addon,
+    });
 
     expect(root.find(Notice)).toHaveLength(1);
 
