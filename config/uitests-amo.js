@@ -1,4 +1,6 @@
 module.exports = {
+  // For use on addons-server, or with the command `amo:ui-tests` and the
+  // HOSTNAME  variable as `ui-tests`.
   apiHost: 'http://olympia.test',
   proxyApiHost: 'http://olympia.test',
   proxyPort: 3000,
