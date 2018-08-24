@@ -14,7 +14,7 @@ type Props = {|
   isOwner?: boolean,
   onSelectRating?: (rating: number) => any,
   readOnly?: boolean,
-  review?: UserReviewType,
+  review?: UserReviewType | null,
   // eslint-disable-next-line no-undef
   styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
 |};
@@ -33,7 +33,7 @@ export const UserRatingBase = (props: Props) => {
     <Rating
       className={className}
       onSelectRating={onSelectRating}
-      rating={(review && review.rating) || 0}
+      rating={review && review.rating}
       readOnly={readOnly || false}
       styleSize={styleSize}
       yellowStars={isOwner}

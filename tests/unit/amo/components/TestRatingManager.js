@@ -12,7 +12,7 @@ import {
 import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import { selectReview } from 'amo/reducers/reviews';
-import { setLatestReview } from 'amo/actions/reviews';
+import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import RatingManager, {
   RatingManagerBase,
@@ -56,7 +56,7 @@ describe(__filename, () => {
     addon = createInternalAddon(fakeAddon),
     review = fakeReview,
     userId = 92345,
-    versionId = review.version.id,
+    versionId = review ? review.version.id : fakeAddon.current_version.id,
   } = {}) => {
     const { store } = dispatchSignInActions({ userId });
 
@@ -122,6 +122,40 @@ describe(__filename, () => {
     render({ addon, version, store, loadSavedReview });
 
     sinon.assert.notCalled(loadSavedReview);
+  });
+
+  it('passes review=undefined before the saved review has loaded', () => {
+    const addon = createInternalAddon({ ...fakeAddon });
+    const { store } = dispatchSignInActions();
+
+    const root = render({ addon, store });
+
+    expect(root.find(UserRating)).toHaveProp('review', undefined);
+  });
+
+  it('passes review=null if no user is signed in', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+
+    // This does not trigger a loading state.
+    expect(root.find(UserRating)).toHaveProp('review', null);
+  });
+
+  it('passes the review once it has loaded', () => {
+    const externalReview = { ...fakeReview, id: 432 };
+    const store = createStoreWithLatestReview({ review: externalReview });
+    const root = render({ store });
+
+    const rating = root.find(UserRating);
+    expect(rating).toHaveProp('review', createInternalReview(externalReview));
+  });
+
+  it('passes review=null when no saved review exists', () => {
+    const store = createStoreWithLatestReview({ review: null });
+    const root = render({ store });
+
+    // This exits the loading state.
+    expect(root.find(UserRating)).toHaveProp('review', null);
   });
 
   it('creates a rating with add-on and version info', () => {

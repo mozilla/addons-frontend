@@ -28,13 +28,16 @@ export const roundToOneDigit = (value: number | null): number => {
 export class AddonMetaBase extends React.Component<InternalProps> {
   render() {
     const { addon, i18n } = this.props;
-    const averageRating = addon && addon.ratings ? addon.ratings.average : null;
+    let averageRating;
+    if (addon) {
+      averageRating = addon.ratings ? addon.ratings.average : null;
+    }
     const addonRatingCount =
       addon && addon.ratings ? addon.ratings.count : null;
     const addonReviewCount =
       addon && addon.ratings ? addon.ratings.text_count : null;
     const averageDailyUsers = addon ? addon.average_daily_users : null;
-    const roundedAverage = roundToOneDigit(averageRating);
+    const roundedAverage = roundToOneDigit(averageRating || null);
 
     let userCount = '';
     let userTitle;

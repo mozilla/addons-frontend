@@ -84,14 +84,15 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
   componentDidMount() {
     const {
+      addon,
       apiState,
       loadSavedReview,
       userId,
-      addon,
       userReview,
       version,
     } = this.props;
-    if (userId && addon && userReview === undefined) {
+
+    if (userId && userReview === undefined) {
       log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({
         apiState,
@@ -196,9 +197,12 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   };
 
   render() {
-    const { i18n, addon, userId, userReview } = this.props;
+    const { i18n, addon, userId, userReview, version } = this.props;
     const { showTextEntry } = this.state;
     const isLoggedIn = Boolean(userId);
+
+    invariant(addon, 'addon is required');
+    invariant(version, 'version is required');
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
@@ -221,7 +225,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
               <UserRating
                 readOnly={!isLoggedIn}
                 onSelectRating={this.onSelectRating}
-                review={userReview || undefined}
+                review={!isLoggedIn ? null : userReview}
               />
             </div>
           </fieldset>
