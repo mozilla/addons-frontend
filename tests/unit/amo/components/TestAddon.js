@@ -1568,7 +1568,7 @@ describe(__filename, () => {
       expect(installButton).toHaveProp('uninstall', uninstall);
     });
   });
-
+  // non-public add-ons require an account listed as a developer of the add-on or admin rights
   it('displays a notice to the admin on a disabled addon', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
