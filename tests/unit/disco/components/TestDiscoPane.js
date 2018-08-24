@@ -318,7 +318,7 @@ describe(__filename, () => {
   });
 
   describe('componentDidMount', () => {
-    it('sets events on the client', () => {
+    it('sets events', () => {
       const fakeMozAddonManager = {
         addEventListener: sinon.stub(),
       };

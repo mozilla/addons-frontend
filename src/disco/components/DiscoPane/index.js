@@ -38,7 +38,6 @@ export class DiscoPaneBase extends React.Component {
     }).isRequired,
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
-    _config: PropTypes.object,
     _tracking: PropTypes.object,
   };
 
@@ -46,7 +45,6 @@ export class DiscoPaneBase extends React.Component {
     AddonComponent: Addon,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     _addChangeListeners: addChangeListeners,
-    _config: config,
     _tracking: tracking,
   };
 
