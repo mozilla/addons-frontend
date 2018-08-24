@@ -74,7 +74,7 @@
   &.Rating.Rating--loading .Rating-star {
     animation-name: pulseOpaqueRatingStars;
     // Ensure editable rating stars always render as open stars while
-    // loading, even if some are selected.
+    // loading, even if some are selected (e.g. while hovering).
     background-image: url('./img/open-star-dim-yellow.svg');
     cursor: initial;
   }
