@@ -84,6 +84,7 @@ export class DiscoPaneBase extends React.Component {
       handleGlobalEvent,
       mozAddonManager,
     } = this.props;
+
     // Use addonManager.addChangeListener to setup and filter events.
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
@@ -187,14 +188,10 @@ export function mapStateToProps(state) {
   };
 }
 
-export function mapDispatchToProps(dispatch, { _config = config } = {}) {
-  const props = { dispatch };
-  if (_config.get('server')) {
-    return props;
-  }
+export function mapDispatchToProps(dispatch) {
   return {
-    ...props,
-    handleGlobalEvent(payload) {
+    dispatch,
+    handleGlobalEvent: (payload) => {
       dispatch({ type: INSTALL_STATE, payload });
     },
   };

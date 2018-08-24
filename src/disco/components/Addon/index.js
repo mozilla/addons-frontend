@@ -45,7 +45,7 @@ export class AddonBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     _tracking: PropTypes.object,
-    addon: PropTypes.object.isRequired,
+    addon: PropTypes.object,
     clientApp: PropTypes.string.isRequired,
     // This is added by withInstallHelpers()
     defaultInstallSource: PropTypes.string.isRequired,
@@ -326,13 +326,14 @@ export class AddonBase extends React.Component {
 export function mapStateToProps(state, ownProps) {
   // `ownProps.guid` is already "normalized" with `getGuid()` in the
   // `DiscoPane` container component.
-  const installation = state.installations[ownProps.guid];
+  const installation = state.installations[ownProps.guid] || {};
   const addon = getAddonByGUID(state, ownProps.guid);
 
   return {
     addon,
     ...addon,
     ...installation,
+    status: installation.status || UNKNOWN,
     clientApp: state.api.clientApp,
     // This is required by the `withInstallHelpers()` HOC, apparently...
     platformFiles: addon ? addon.platformFiles : {},

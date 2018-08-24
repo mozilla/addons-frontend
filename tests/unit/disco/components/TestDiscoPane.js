@@ -27,10 +27,10 @@ import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {
   MockedSubComponent,
+  createFakeLocation,
   createFakeTracking,
   createStubErrorHandler,
   fakeI18n,
-  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -181,15 +181,6 @@ describe(__filename, () => {
       handleGlobalEvent(payload);
       sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
     });
-
-    it('does not pass handleGlobalEvent when on the server', () => {
-      const dispatch = sinon.stub();
-      const configSource = { server: true };
-      const configStub = { get: (key) => configSource[key] };
-      expect(mapDispatchToProps(dispatch, { _config: configStub })).toEqual({
-        dispatch,
-      });
-    });
   });
 
   describe('constructor', () => {
@@ -331,8 +322,10 @@ describe(__filename, () => {
       const fakeMozAddonManager = {
         addEventListener: sinon.stub(),
       };
+
       renderAndMount({ mozAddonManager: fakeMozAddonManager });
-      expect(fakeMozAddonManager.addEventListener.callCount).toEqual(
+      sinon.assert.callCount(
+        fakeMozAddonManager.addEventListener,
         GLOBAL_EVENTS.length,
       );
     });
