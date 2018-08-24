@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
 "PO-Revision-Date: 2018-08-23 01:55+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
@@ -38,11 +38,15 @@ msgstr "Memasang"
 msgid "Uninstalling"
 msgstr "Mencopot"
 
-#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Tambahkan ke Firefox"
 
@@ -51,10 +55,15 @@ msgid "Server Error"
 msgstr "Galat Server"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Maaf, tetapi terjadi galat dan kami tidak dapat menyelesaikan permintaan Anda. Kami telah mencatat galat ini dan akan memeriksanya."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Maaf, tetapi terjadi galat dan kami tidak dapat menyelesaikan permintaan "
+"Anda. Kami telah mencatat galat ini dan akan memeriksanya."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kode galat: %(status)s."
 
@@ -64,7 +73,8 @@ msgstr "Laman tidak ditemukan"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Maaf, tetapi kami tidak dapat menemukan apapun pada URL yang Anda masukkan."
+msgstr ""
+"Maaf, tetapi kami tidak dapat menemukan apapun pada URL yang Anda masukkan."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -74,7 +84,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s telah ditambahkan"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 #, fuzzy
 msgid "OK"
 msgstr "OK!"
@@ -107,39 +117,27 @@ msgstr "%(name)s telah dicopot. Klik untuk memasang."
 msgid "Install state for %(name)s is unknown."
 msgstr "Status pemasangan untuk %(name)s tidak dapat dikenali."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "Pratinjau %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Pemasangan gagal. Mohon coba lagi."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Pengunduhan gagal. Mohon periksa koneksi anda."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Terjadi kesalahan yang tidak diharapkan selama pemasangan."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Terjadi kesalahan yang tidak diharapkan saat pencopotan."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Terjadi kesalahan yang tidak diharapkan."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Pengaya ini akan dihapus setelah Anda memulai ulang Firefox."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Silakan mulai ulang Firefox Anda untuk menggunakan pengaya ini."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Tutup"
 
@@ -169,13 +167,19 @@ msgstr "Personalisasi Firefox Anda"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
 "Ada ribuan pengaya yang dibuat oleh para pengembang di seluruh\n"
-"dunia, yang dapat Anda pasang untuk mempersonalisasi Firefox Anda. Mulai dari tema visual yang menyenangkan\n"
-"sampai peralatan yang kuat membuat penjelajahan lebih cepat dan aman, pengaya membuat peramban jadi milik Anda.\n"
-"Untuk membantu Anda mulai, berikut adalah beberapa pengaya yang kami rekomendasikan\n"
+"dunia, yang dapat Anda pasang untuk mempersonalisasi Firefox Anda. Mulai "
+"dari tema visual yang menyenangkan\n"
+"sampai peralatan yang kuat membuat penjelajahan lebih cepat dan aman, "
+"pengaya membuat peramban jadi milik Anda.\n"
+"Untuk membantu Anda mulai, berikut adalah beberapa pengaya yang kami "
+"rekomendasikan\n"
 "atas performa dan kegunaannya yang luar biasa."
 
 #: src/disco/components/Footer/index.js:30
@@ -197,6 +201,17 @@ msgstr "Muat Ulang Untuk Lanjutkan"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
+
+#: src/ui/components/ThemeImage/index.js:30
+#, fuzzy
+msgid "Preview of %(title)s"
+msgstr "Pratinjau %(name)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Pengaya ini akan dihapus setelah Anda memulai ulang Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Silakan mulai ulang Firefox Anda untuk menggunakan pengaya ini."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Pengaya Anda telah siap digunakan"

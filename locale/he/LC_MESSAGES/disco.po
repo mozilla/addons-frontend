@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
 "PO-Revision-Date: 2018-08-15 09:18+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: none\n"
@@ -38,11 +38,15 @@ msgstr "בהתקנה"
 msgid "Uninstalling"
 msgstr "בהסרת התקנה"
 
-#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/InstallButton/index.js:259
+#: src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "התקנת ערכת נושא"
 
-#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/InstallButton/index.js:290
+#: src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -51,10 +55,15 @@ msgid "Server Error"
 msgstr "שגיאת שרת"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "מצטערים, אבל אירעה שגיאה ולא הצלחנו להשלים את הבקשה שלך. תיעדנו את השגיאה הזאת ואנו נחקור אותה."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"מצטערים, אבל אירעה שגיאה ולא הצלחנו להשלים את הבקשה שלך. תיעדנו את השגיאה "
+"הזאת ואנו נחקור אותה."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "קוד שגיאה: %(status)s."
 
@@ -74,7 +83,7 @@ msgstr "‏%(strongStart)s%(name)s%(strongEnd)s התווסף"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "ניתן לנהל את התוספות שלך על־ידי לחיצה על ״תוספות״ שבתפריט."
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "אישור"
 
@@ -106,39 +115,27 @@ msgstr "%(name)s הוסר. יש ללחוץ להתקנה."
 msgid "Install state for %(name)s is unknown."
 msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "תצוגה מקדימה של %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "ההתקנה נכשלה. נא לנסות שנית."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "ההורדה נכשלה. נא לבדוק את החיבור שלך."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "אירעה שגיאה לא צפויה במהלך ההתקנה."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "אירעה שגיאה לא צפויה."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "נא להפעיל מחדש את Firefox כדי להשתמש בתוספת זו."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "סגירה"
 
@@ -168,11 +165,17 @@ msgstr "התאמה אישית של ה־Firefox שלך"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"ישנן אלפי תוספות חינמיות שנוצרו על־ידי מפתחים מכל רחבי העולם, הניתנות להתקנה על מנת לעצב ולהתאים אישית את ה־Firefox שלך. מערכות נושא ועד כלים רבי עצמה ההופכים את הגלישה שלך למהירה ובטוחה יותר, "
-"תוספות הופכות את הדפדפן שלך – לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות הפונקציונליות והביצועים שלהן."
+"ישנן אלפי תוספות חינמיות שנוצרו על־ידי מפתחים מכל רחבי העולם, הניתנות להתקנה "
+"על מנת לעצב ולהתאים אישית את ה־Firefox שלך. מערכות נושא ועד כלים רבי עצמה "
+"ההופכים את הגלישה שלך למהירה ובטוחה יותר, תוספות הופכות את הדפדפן שלך – "
+"לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות "
+"הפונקציונליות והביצועים שלהן."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -193,6 +196,17 @@ msgstr "טעינה מחדש להמשך"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "סגירת הודעה זו"
+
+#: src/ui/components/ThemeImage/index.js:30
+#, fuzzy
+msgid "Preview of %(title)s"
+msgstr "תצוגה מקדימה של %(name)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "נא להפעיל מחדש את Firefox כדי להשתמש בתוספת זו."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "התוספת שלך מוכנה"

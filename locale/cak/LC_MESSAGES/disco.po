@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
 "PO-Revision-Date: 2018-02-25 16:50+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 #, fuzzy
 msgid "OK"
 msgstr "ÜTZ!"
@@ -119,39 +119,27 @@ msgstr "%(name)s xelesäx el. Tipitz' richin niyak."
 msgid "Install state for %(name)s is unknown."
 msgstr "Man etaman ta rub'anikil ruyakij ri %(name)s."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr ""
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Xsach ri yakoj. Titojtob'ëx chik."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Xsach ri qasanïk. Tanik'oj ri awokem."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq niyak."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq nelesäx."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Man oyob'en ta re sachoj xk'ulwachitäj."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Re tz'aqat re' xtelesäx el chupam toq xtitikirisäx chik ri Firefox."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Titikirisäx chik Firefox richin nokisäx re tz'aqat re'."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Titz'apïx"
 
@@ -214,6 +202,16 @@ msgstr "Tisamajib'ëx chik Richin Nisamäj chik"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr ""
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Re tz'aqat re' xtelesäx el chupam toq xtitikirisäx chik ri Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Titikirisäx chik Firefox richin nokisäx re tz'aqat re'."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Ütz chik ri atz'aqat"
