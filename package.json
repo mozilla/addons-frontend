@@ -99,7 +99,7 @@
       }
     },
     "start-dev": {
-      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools'",
+      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools --mode buffer'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
