@@ -194,6 +194,17 @@ describe(__filename, () => {
     expect(root.find(DismissibleTextForm)).toHaveProp('isSubmitting', true);
   });
 
+  it('passes a null review while saving a rating', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
+
+    const root = render({ store });
+
+    const rating = root.find(Rating);
+    // This will render a loading state.
+    expect(rating).toHaveProp('rating', undefined);
+  });
+
   describe('extractId', () => {
     it('extracts an ID from the review', () => {
       const id = 551224;

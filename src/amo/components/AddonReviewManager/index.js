@@ -92,7 +92,9 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
           <Rating
             className="AddonReviewManager-Rating"
             onSelectRating={this.onSubmitRating}
-            rating={review.rating}
+            rating={
+              flashMessage === STARTED_SAVE_RATING ? undefined : review.rating
+            }
             styleSize="small"
             yellowStars
           />
