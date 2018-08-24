@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-24 11:10+0000\n"
+"PO-Revision-Date: 2018-08-24 11:12+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1058,14 +1058,12 @@ msgid "Exceptional search tools"
 msgstr "כלי חיפוש יוצאים מן הכלל"
 
 #: src/amo/components/Home/index.js:56
-#, fuzzy
 msgid "See more fall themes"
-msgstr "הצגת ערכות נושא מומלצות נוספות"
+msgstr "הצגת ערכות נושא נוספות לסתיו"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "Fall themes"
-msgstr "חיפוש ערכות נושא"
+msgstr "ערכות נושא לסתיו"
 
 #: src/amo/components/Home/index.js:62
 msgid "See more YouTube extensions"
@@ -1073,7 +1071,7 @@ msgstr "הצגת הרחבות YouTube נוספות"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
-msgstr ""
+msgstr "מאיצי YouTube"
 
 #: src/amo/components/Home/index.js:68
 msgid "See more reading extensions"
