@@ -18,6 +18,7 @@
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
     "amo": "better-npm-run amo",
     "amo:dev": "better-npm-run amo:dev",
+    "amo:ui-tests": "better-npm-run amo:ui-tests",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
     "disco": "better-npm-run disco",
