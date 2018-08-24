@@ -698,6 +698,11 @@ const globalSetTimeout = setTimeout;
 /*
  * Wait until the saga dispatches an action causing isMatch(action)
  * to return true. Throw an error if it doesn't.
+ *
+ * This is helpful for when a saga dispatches the same action
+ * but with differing payloads.
+ *
+ * For most cases you can probably just use sagaTester.waitFor() instead.
  */
 export async function matchingSagaAction(
   sagaTester,
