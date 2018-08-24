@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-24 13:31+0000\n"
+"PO-Revision-Date: 2018-08-24 13:35+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -170,10 +170,10 @@ msgstr "Waš wobglědowak dodanki njepódpěra. Móžośo <a href=\"%(downloadUr
 #: src/amo/components/AddonMeta/index.js:111
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] "%(total)s hwěžka"
-msgstr[1] "%(total)s hwěžce"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%(total)s gwězdka"
+msgstr[1] "%(total)s gwězdce"
+msgstr[2] "%(total)s gwězdki"
+msgstr[3] "%(total)s gwězdkow"
 
 #: src/amo/components/AddonMeta/index.js:120
 msgid "Not rated yet"
@@ -196,9 +196,8 @@ msgid "No Users"
 msgstr "Žedne wužywarje"
 
 #: src/amo/components/AddonMeta/index.js:55
-#, fuzzy
 msgid "Reviews"
-msgstr "pógódnośenje"
+msgstr "Pógódnośenja"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "Review"
@@ -605,9 +604,8 @@ msgid "Added to collection"
 msgstr "Zběrce pśidany"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Zběrce pśidany"
+msgstr "Ze zběrki wótwónoźony"
 
 #: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
@@ -1074,19 +1072,16 @@ msgid "Exceptional search tools"
 msgstr "Pśesegajuce pytańske rědy"
 
 #: src/amo/components/Home/index.js:56
-#, fuzzy
 msgid "See more fall themes"
-msgstr "Dalšne pśedstajone drastwy se woglědaś"
+msgstr "Dalšne nazymske drastwy pokazaś"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "Fall themes"
-msgstr "Drastwy pytaś"
+msgstr "Nazymske drastwy"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more YouTube extensions"
-msgstr "Dalšne rejtarkowe rozšyrjenja se woglědaś"
+msgstr "Dalšne rozšyrjenja YouTube pokazaś"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
