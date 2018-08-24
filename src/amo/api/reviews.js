@@ -44,7 +44,7 @@ export type ExternalReviewType = {|
 // can type check each one independently.
 export type SubmitReviewParams = {|
   addonId?: number,
-  apiState?: ApiState,
+  apiState: ApiState,
   body?: string,
   errorHandler?: ErrorHandlerType,
   rating?: number | null,
@@ -105,7 +105,7 @@ export function submitReview({
 }
 
 type ReplyToReviewParams = {|
-  apiState?: ApiState,
+  apiState: ApiState,
   body: string,
   errorHandler?: ErrorHandlerType,
   originalReviewId: number,
@@ -141,7 +141,7 @@ export const replyToReview = ({
 export type GetReviewsParams = {|
   // This is the addon ID, slug, or guid.
   addon?: number | string,
-  apiState?: ApiState,
+  apiState: ApiState,
   filter?: string,
   page?: number,
   page_size?: number,
@@ -189,7 +189,7 @@ export function getReviews({
 
 export type GetLatestReviewParams = {|
   addon: number,
-  apiState?: ApiState,
+  apiState: ApiState,
   user: number,
   version: number,
 |};
@@ -221,7 +221,7 @@ export function getLatestUserReview({
 }
 
 type FlagReviewParams = {|
-  apiState?: ApiState,
+  apiState: ApiState,
   errorHandler?: ErrorHandlerType,
   note?: string,
   reason: FlagReviewReasonType,
