@@ -1,7 +1,8 @@
+// For use on addons-server, or with the command `amo:ui-tests` and the
+// HOSTNAME  variable as `ui-tests`.
 module.exports = {
-  // For use on addons-server, or with the command `amo:ui-tests` and the
-  // HOSTNAME  variable as `ui-tests`.
   apiHost: 'http://olympia.test',
+  CSP: false,
   proxyApiHost: 'http://olympia.test',
   proxyPort: 3000,
   proxyEnabled: true,
@@ -14,4 +15,5 @@ module.exports = {
   trackingEnabled: false,
   loggingLevel: 'debug',
   enableAMInstallButton: true,
+  enableNodeStatics: true
 };
