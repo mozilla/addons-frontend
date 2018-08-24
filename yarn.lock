@@ -7254,9 +7254,9 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
-pino-devtools@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/pino-devtools/-/pino-devtools-1.0.2.tgz#3e6eeeb53c4025606572993f61ad06a585bc5969"
+pino-devtools@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/pino-devtools/-/pino-devtools-2.0.0.tgz#709b35988df1c724d6c68afa23bcb427616b2bc5"
   dependencies:
     minimist "^1.2.0"
     opn "^5.3.0"

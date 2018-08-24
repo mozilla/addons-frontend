@@ -17,6 +17,12 @@ export default async function createClient(
   createStore,
   { _FastClick = FastClick, sagas = null } = {},
 ) {
+  if (config.get('isDevelopment')) {
+    // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+    const { fetchBufferedLogs } = require('pino-devtools/src/client');
+    await fetchBufferedLogs();
+  }
+
   // This code needs to come before anything else so we get logs/errors if
   // anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
