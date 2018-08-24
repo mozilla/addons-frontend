@@ -213,8 +213,14 @@ describe(__filename, () => {
 
       expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', average);
       expect(getAverageTitle(root)).toHaveText(
-        `${roundToOneDigit(average)} star average`,
+        `${roundToOneDigit(average)} Stars`,
       );
+    });
+
+    it('renders a 1 star average rating', () => {
+      const root = renderRatings({ average: 1.0 });
+
+      expect(getAverageTitle(root)).toHaveText('1 Star');
     });
   });
 

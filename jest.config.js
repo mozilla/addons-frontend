@@ -15,7 +15,10 @@ module.exports = {
     // Replaces the following formats with an empty module.
     '^.+\\.(scss|css|svg|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
   },
-  reporters: ['<rootDir>/tests/jest-reporters/fingers-crossed.js'],
+  reporters: [
+    '<rootDir>/tests/jest-reporters/fingers-crossed.js',
+    '<rootDir>/tests/jest-reporters/summary.js',
+  ],
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',

@@ -16,7 +16,6 @@ import { getDjangoBase62 } from 'amo/utils';
 import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
-import { initialApiState } from 'core/reducers/api';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
 import { selectUIState } from 'core/reducers/uiState';
 import { ErrorHandler } from 'core/errorHandler';
@@ -125,16 +124,6 @@ export function assertHasClass(el, className) {
 export function assertNotHasClass(el, className) {
   expect(el.classList.contains(className)).toBeFalsy();
 }
-
-const { browser, os } = sampleUserAgentParsed;
-export const signedInApiState = Object.freeze({
-  ...initialApiState,
-  lang: 'en-US',
-  token: 'secret-token',
-  userAgent: sampleUserAgent,
-  userAgentInfo: { browser, os },
-  userId: 102345,
-});
 
 export const userAgentsByPlatform = {
   android: {

@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-15 09:18+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-24 11:10+0000\n"
+"Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +74,7 @@ msgstr "‏%(strongStart)s%(name)s%(strongEnd)s התווסף"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "ניתן לנהל את התוספות שלך על־ידי לחיצה על ״תוספות״ שבתפריט."
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "אישור"
 
@@ -106,39 +106,27 @@ msgstr "%(name)s הוסר. יש ללחוץ להתקנה."
 msgid "Install state for %(name)s is unknown."
 msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "תצוגה מקדימה של %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "ההתקנה נכשלה. נא לנסות שנית."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "ההורדה נכשלה. נא לבדוק את החיבור שלך."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "אירעה שגיאה לא צפויה במהלך ההתקנה."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "אירעה שגיאה לא צפויה."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "נא להפעיל מחדש את Firefox כדי להשתמש בתוספת זו."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "סגירה"
 
@@ -193,6 +181,16 @@ msgstr "טעינה מחדש להמשך"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "סגירת הודעה זו"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "תצוגה מקדימה של %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "נא להפעיל מחדש את Firefox כדי להשתמש בתוספת זו."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "התוספת שלך מוכנה"

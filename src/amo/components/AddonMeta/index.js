@@ -37,6 +37,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     const addonReviewCount =
       addon && addon.ratings ? addon.ratings.text_count : null;
     const averageDailyUsers = addon ? addon.average_daily_users : null;
+    const roundedAverage = roundToOneDigit(averageRating || null);
 
     let userCount = '';
     let userTitle;
@@ -108,12 +109,17 @@ export class AddonMetaBase extends React.Component<InternalProps> {
               ),
               title: (
                 <div className="AddonMeta-rating-title">
-                  {addonRatingCount && averageRating
-                    ? i18n.sprintf(i18n.gettext('%(rating)s star average'), {
-                        rating: i18n.formatNumber(
-                          roundToOneDigit(averageRating),
+                  {addonRatingCount
+                    ? i18n.sprintf(
+                        i18n.ngettext(
+                          '%(total)s Star',
+                          '%(total)s Stars',
+                          roundedAverage,
                         ),
-                      })
+                        {
+                          total: i18n.formatNumber(roundedAverage),
+                        },
+                      )
                     : i18n.gettext('Not rated yet')}
                 </div>
               ),

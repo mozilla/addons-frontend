@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-15 05:49+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-24 10:10+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -74,7 +74,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s is toegevoegd"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Beheer uw add-ons door in het menu op Add-ons te klikken."
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
 
@@ -106,39 +106,27 @@ msgstr "%(name)s is verwijderd. Klik om de add-on te installeren."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installatiestatus voor %(name)s is niet bekend."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "Voorbeeld van %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Installatie mislukt. Probeer het opnieuw."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislukt. Controleer uw verbinding."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het installeren."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het verwijderen."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Er is een onverwachte fout opgetreden."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Deze add-on zal worden gede-installeerd nadat u Firefox herstart."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Herstart Firefox om deze add-on te gebruiken."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Sluiten"
 
@@ -194,6 +182,16 @@ msgstr "Opnieuw laden om door te gaan"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "Dit bericht verbergen"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "Voorbeeld van %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Deze add-on zal worden gede-installeerd nadat u Firefox herstart."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Herstart Firefox om deze add-on te gebruiken."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Uw add-on is gereed"

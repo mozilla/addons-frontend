@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
 "PO-Revision-Date: 2017-10-28 16:18+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 #, fuzzy
 msgid "OK"
 msgstr "حسنا!"
@@ -119,39 +119,27 @@ msgstr "أُلغي تثبيت %(name)s. انقر لتثبيته."
 msgid "Install state for %(name)s is unknown."
 msgstr "حالة تثبيت %(name)s مجهولة."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr ""
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "فشل التثبيت. رجاء أعِد المحاولة."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "فشل التنزيل. رجاء افحص اتصالك."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "حدث عطل غير متوقع أثناء التثبيت."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "حدث عطل غير متوقع أثناء إلغاء التثبيت."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "حدث عطل غير متوقع."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "سيُلغى تثبيت هذه الإضافة بعد أن تعيد تشغيل فَيَرفُكس."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "رجاء أعِد تشغيل فَيَرفُكس لاستخدام هذه الإضافة."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "أغلق"
 
@@ -208,6 +196,16 @@ msgstr "أعِد التحميل للمتابعة"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr ""
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "سيُلغى تثبيت هذه الإضافة بعد أن تعيد تشغيل فَيَرفُكس."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "رجاء أعِد تشغيل فَيَرفُكس لاستخدام هذه الإضافة."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "الإضافة جاهزة"

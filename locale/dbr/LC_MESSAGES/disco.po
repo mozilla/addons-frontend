@@ -2,15 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Language: \n"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
@@ -77,7 +78,7 @@ msgstr "pǝppɐ uǝǝq sɐɥ %(strongEnd)s%(name)s%(strongStart)s"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ".nuǝɯ ǝɥʇ uı suo-pp∀ ƃuıʞɔıʅɔ ʎq suo-ppɐ ɹnoʎ ǝƃɐuɐW"
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "ӼO"
 
@@ -109,39 +110,27 @@ msgstr ".ʅʅɐʇsuı oʇ ʞɔıʅↃ .pǝʅʅɐʇsuıun sı %(name)s"
 msgid "Install state for %(name)s is unknown."
 msgstr ".uʍouʞun sı %(name)s ɹoɟ ǝʇɐʇs ʅʅɐʇsuI"
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "%(name)s ɟo ʍǝıʌǝɹԀ"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr ".uıɐƃɐ ʎɹʇ ǝsɐǝʅԀ .pǝʅıɐɟ uoıʇɐʅʅɐʇsuI"
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr ".uoıʇɔǝuuoɔ ɹnoʎ ʞɔǝɥɔ ǝsɐǝʅԀ .pǝʅıɐɟ pɐoʅuʍoᗡ"
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr ".uoıʇɐʅʅɐʇsuı ƃuıɹnp pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr ".uoıʇɐʅʅɐʇsuıun ƃuıɹnp pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr ".pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ".xoɟǝɹıℲ ʇɹɐʇsǝɹ noʎ ɹǝʇɟɐ pǝʅʅɐʇsuıun ǝq ʅʅıʍ uo-ppɐ sıɥ⊥"
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr ".uo-ppɐ sıɥʇ ǝsn oʇ xoɟǝɹıℲ ʇɹɐʇsǝɹ ǝsɐǝʅԀ"
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "ǝsoʅↃ"
 
@@ -192,3 +181,7 @@ msgstr "ǝnuıʇuoↃ o⊥ pɐoʅǝᴚ"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "ǝɔıʇou sıɥʇ ssıɯsıᗡ"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "%(title)s ɟo ʍǝıʌǝɹԀ"
