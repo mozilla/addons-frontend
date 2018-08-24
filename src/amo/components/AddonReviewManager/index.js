@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -14,6 +15,7 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Rating from 'ui/components/Rating';
+import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
@@ -132,7 +134,7 @@ export const extractId = (props: Props): string => {
 };
 
 const AddonReviewManager: React.ComponentType<Props> = compose(
-  connect(),
+  connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),
   translate(),
 )(AddonReviewManagerBase);

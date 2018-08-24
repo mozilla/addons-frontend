@@ -7,6 +7,7 @@ import {
   STARTED_SAVE_REVIEW,
   createInternalReview,
   flashReviewMessage,
+  hideFlashedReviewMessage,
   updateAddonReview,
 } from 'amo/actions/reviews';
 import AddonReviewManager, {
@@ -176,7 +177,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     // Set a message then hide it.
     store.dispatch(flashReviewMessage(SAVED_RATING));
-    store.dispatch(flashReviewMessage(undefined));
+    store.dispatch(hideFlashedReviewMessage());
 
     const root = render({ store });
 

@@ -79,7 +79,6 @@ type ViewStateByReviewId = {|
   flag: FlagState,
   replyingToReview: boolean,
   submittingReply: boolean,
-  // TODO: add submittingReview: boolean
 |};
 
 export type ReviewsState = {|
