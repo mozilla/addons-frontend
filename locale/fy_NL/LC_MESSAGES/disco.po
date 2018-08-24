@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
 "PO-Revision-Date: 2018-07-26 06:42+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 #, fuzzy
 msgid "OK"
 msgstr "OK!"
@@ -120,39 +120,27 @@ msgstr "%(name)s is fuortsmiten. Klik om de add-on te ynstallearjen."
 msgid "Install state for %(name)s is unknown."
 msgstr "Ynstallaasjesteat foar %(name)s is net bekend."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "Foarbyld fan %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Ynstallaasje mislearre. Probearje it opnij."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislearre. Kontrolearje jo ferbining."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Der is in ûnferwachte flater bard wylst it ynstallearjen."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Der is in ûnferwachte flater bard wylst it fuortsmiten."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Der is in ûnferwachte flater bard."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Dizze add-on sil de-ynstallearre wurde neidat jo Firefox opnij starte."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Start Firefox opnij om dizze add-on te brûken."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Slute"
 
@@ -215,6 +203,18 @@ msgstr "Opnij lade om troch te gean"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "Dit berjocht ferstopje"
+
+#: src/ui/components/ThemeImage/index.js:30
+#, fuzzy
+msgid "Preview of %(title)s"
+msgstr "Foarbyld fan %(name)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr ""
+#~ "Dizze add-on sil de-ynstallearre wurde neidat jo Firefox opnij starte."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Start Firefox opnij om dizze add-on te brûken."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Jo add-on is ree"
