@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-15 02:25+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-24 11:57+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -74,7 +74,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s telah ditambah"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Urus add-ons anda dengan mengklik Add-ons dalam menu."
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
 
@@ -106,39 +106,27 @@ msgstr "%(name)s telah dinyahpasang. Klik untuk pasang."
 msgid "Install state for %(name)s is unknown."
 msgstr "Keadaan pemasangan untuk %(name)s tidak diketahui."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "Previu %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Pemasangan gagal. Sila cuba lagi."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Muat turun gagal. Sila semak sambungan anda."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Ada ralat tidak dijangka semasa pemasangan."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ada ralat tidak dijangka semasa nyahpasang."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Ada ralat tidak dijangka."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Add-on ini akan dinyahpasang selepas anda mula semua Firefox."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Sila mula semula Firefox untuk guna add-on ini."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Tutup"
 
@@ -194,6 +182,16 @@ msgstr "Muat semula untuk Meneruskan"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "Abaikan notis ini"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "Previu %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Add-on ini akan dinyahpasang selepas anda mula semua Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Sila mula semula Firefox untuk guna add-on ini."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Add-on anda sudah sedia"

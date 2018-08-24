@@ -44,7 +44,7 @@ import {
   trimAndAddProtocolToUrl,
 } from 'core/utils';
 import { createInternalAddon, loadAddons } from 'core/reducers/addons';
-import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeHistory,
   createFakeLocation,
@@ -334,7 +334,7 @@ describe(__filename, () => {
 
   describe('refreshAddon', () => {
     const addonSlug = fakeAddon.slug;
-    const apiState = signedInApiState;
+    const apiState = dispatchSignInActions().state.api;
     let dispatch;
     let mockApi;
 
@@ -361,7 +361,7 @@ describe(__filename, () => {
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs({ slug: addonSlug, api: signedInApiState })
+        .withArgs({ slug: addonSlug, api: apiState })
         .returns(Promise.reject(new Error('Error accessing API')));
       return refreshAddon({ addonSlug, apiState, dispatch }).then(
         unexpectedSuccess,

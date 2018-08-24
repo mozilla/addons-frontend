@@ -132,6 +132,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
         key: `rating-${thisRating}`,
+        onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
         title: this.renderTitle(rating, readOnly, thisRating),
       };
@@ -140,16 +141,21 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         return <div {...props} />;
       }
 
+      if (!this.isLoading()) {
+        props.onClick = this.onSelectRating;
+      }
+
       return (
         // eslint-disable-next-line react/jsx-key
-        <button
-          onClick={this.onSelectRating}
-          type="button"
-          value={thisRating}
-          {...props}
-        />
+        <button type="button" value={thisRating} {...props} />
       );
     });
+  }
+
+  isLoading() {
+    // When rating is undefined, the rating is still loading.
+    // When rating is null, the rating has been loaded but it's empty.
+    return this.props.rating === undefined;
   }
 
   render() {
@@ -173,6 +179,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       className,
       {
         'Rating--editable': !readOnly,
+        'Rating--loading': this.isLoading(),
         'Rating--yellowStars': yellowStars,
       },
     );

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2017-12-01 10:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-23 11:38+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -16,30 +16,27 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
-msgstr ""
+msgstr "Включване"
 
 #: src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
-msgstr ""
+msgstr "Премахване"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enabling"
-msgstr ""
+msgstr "Включване"
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Изтегляне на %(name)s."
+msgstr "Изтегляне"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Инсталиране на %(name)s."
+msgstr "Инсталиране"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Премахване на %(name)s."
+msgstr "Премахване"
 
 #: src/core/components/AMInstallButton/index.js:217
 #: src/core/components/InstallButton/index.js:259
@@ -80,16 +77,15 @@ msgstr "Съжаляваме, но на въведения от вас адре�
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s е добавена"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Управлявайте добавките като изберете Добавки от менюто."
 
-#: src/core/components/InfoDialog/index.js:84
-#, fuzzy
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
-msgstr "Добре!"
+msgstr "Добре"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -119,39 +115,27 @@ msgstr "%(name)s е премахната. Натиснете за инстали
 msgid "Install state for %(name)s is unknown."
 msgstr "Състоянието на инсталацията на %(name)s е неизвестно."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr ""
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Грешка при инсталацията. Моля, опитайте отново."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Грешка при изтеглянето. Моля, проверете свързаността си."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Възникна неочаквана грешка при инсталацията."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Възникна неочаквана грешка при премахването."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Възникна неочаквана грешка."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Тази добавка ще бъде премахната, след рестарт на Firefox."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Моля, рестартирайте Firefox, за да използвате тази добавка."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Затваряне"
 
@@ -172,9 +156,8 @@ msgid "Discover Add-ons"
 msgstr "Още добавки"
 
 #: src/disco/components/DiscoPane/index.js:121
-#, fuzzy
 msgid "Find more add-ons"
-msgstr "Вижте още добавки!"
+msgstr "Намерете още добавки"
 
 #: src/disco/components/DiscoPane/index.js:141
 msgid "Personalize Your Firefox"
@@ -212,7 +195,18 @@ msgstr "Презаредете, за да продължите"
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Скриване на известието"
+
+#: src/ui/components/ThemeImage/index.js:30
+#, fuzzy
+msgid "Preview of %(title)s"
+msgstr "Преглед на %(name)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Тази добавка ще бъде премахната, след рестарт на Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Моля, рестартирайте Firefox, за да използвате тази добавка."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Добавката ви е готова"

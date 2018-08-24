@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
-"PO-Revision-Date: 2018-08-17 08:22+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"PO-Revision-Date: 2018-08-24 14:27+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -74,7 +74,7 @@ msgstr "Το %(strongStart)s%(name)s%(strongEnd)s έχει προστεθεί"
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Διαχειριστείτε τα πρόσθετά σας κάνοντας κλικ στο \"Πρόσθετα\" στο μενού."
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
 
@@ -106,39 +106,27 @@ msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ
 msgid "Install state for %(name)s is unknown."
 msgstr "Η κατάσταση εγκατάστασης για το %(name)s είναι άγνωστη."
 
-#: src/disco/components/Addon/index.js:160
-msgid "Preview of %(name)s"
-msgstr "Προεπισκόπηση του %(name)s"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "Αποτυχία εγκατάστασης. Παρακαλώ προσπαθήστε ξανά."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "Αποτυχία λήψης. Παρακαλώ ελέγξτε τη σύνδεσή σας."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την εγκατάσταση."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την απεγκατάσταση."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Αυτό το πρόσθετο θα απεγκατασταθεί αφού επανεκκινήσετε το Firefox."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "Παρακαλώ επανεκκινήστε το Firefox για χρήση του πρόσθετου."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "Κλείσιμο"
 
@@ -194,6 +182,16 @@ msgstr "Κάντε εκ νέου φόρτωση για να συνεχίσετε
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr "Απόρριψη ειδοποίησης"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "Προεπισκόπηση του %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Αυτό το πρόσθετο θα απεγκατασταθεί αφού επανεκκινήσετε το Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Παρακαλώ επανεκκινήστε το Firefox για χρήση του πρόσθετου."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Το πρόσθετό σας είναι έτοιμο"

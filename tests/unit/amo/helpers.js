@@ -28,7 +28,6 @@ import {
   createUserAccountResponse,
   randomId,
   sampleUserAgent,
-  signedInApiState as coreSignedInApiState,
   userAuthToken,
 } from 'tests/unit/helpers';
 
@@ -204,14 +203,6 @@ export const fakeRecommendations = Object.freeze({
   fallbackReason: 'timeout',
   loading: false,
   outcome: 'recommended_fallback',
-});
-
-/*
- * Redux store state for when a user has signed in.
- */
-export const signedInApiState = Object.freeze({
-  ...coreSignedInApiState,
-  clientApp: CLIENT_APP_FIREFOX,
 });
 
 export function dispatchClientMetadata({

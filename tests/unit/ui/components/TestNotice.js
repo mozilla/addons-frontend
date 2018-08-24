@@ -163,16 +163,4 @@ describe(__filename, () => {
     const button = root.find('.Notice-button');
     expect(button).toHaveProp('target', actionTarget);
   });
-
-  it('passes rel=noopener when target=_blank', () => {
-    const actionTarget = '_blank';
-    const root = render({
-      actionText: 'some button',
-      actionHref: 'https://example.com',
-      actionTarget,
-    });
-
-    const button = root.find('.Notice-button');
-    expect(button).toHaveProp('rel', 'noopener noreferrer');
-  });
 });

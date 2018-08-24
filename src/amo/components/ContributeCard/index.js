@@ -79,7 +79,6 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
           buttonType="action"
           className="ContributeCard-button"
           href={addon.contributions_url}
-          rel="noopener noreferrer"
           target="_blank"
           puffy
         >

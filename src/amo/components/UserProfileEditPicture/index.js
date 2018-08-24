@@ -80,6 +80,7 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
             accept="image/png, image/jpeg"
             className="UserProfileEditPicture-file-input"
             disabled={!user}
+            id={name}
             name={name}
             onBlur={this.onBlur}
             onChange={onSelect}

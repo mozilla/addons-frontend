@@ -222,7 +222,7 @@ describe(__filename, () => {
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: true,
+        includeFeaturedThemes: false,
       }),
     );
   });

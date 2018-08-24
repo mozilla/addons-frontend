@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-14 18:38+0000\n"
+"POT-Creation-Date: 2018-08-24 09:25+0000\n"
 "PO-Revision-Date: 2017-12-28 02:51+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:84
+#: src/core/components/InfoDialog/index.js:88
 #, fuzzy
 msgid "OK"
 msgstr "좋습니다!"
@@ -119,40 +119,27 @@ msgstr "%(name)s가 제거되었습니다. 설치하려면 클릭하세요."
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s의 설치 상태를 알 수 없습니다."
 
-#: src/disco/components/Addon/index.js:160
-#, fuzzy
-msgid "Preview of %(name)s"
-msgstr "%(name)s 미리보기"
-
-#: src/disco/components/Addon/index.js:205
+#: src/disco/components/Addon/index.js:175
 msgid "Installation failed. Please try again."
 msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
-#: src/disco/components/Addon/index.js:207
+#: src/disco/components/Addon/index.js:177
 msgid "Download failed. Please check your connection."
 msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
-#: src/disco/components/Addon/index.js:209
+#: src/disco/components/Addon/index.js:179
 msgid "An unexpected error occurred during installation."
 msgstr "설치 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon/index.js:213
+#: src/disco/components/Addon/index.js:183
 msgid "An unexpected error occurred during uninstallation."
 msgstr "설치 제거 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon/index.js:218
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred."
 msgstr "예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon/index.js:226
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "이 부가 기능은 Firefox를 재시작한 후에 제거될 것입니다."
-
-#: src/disco/components/Addon/index.js:230
-msgid "Please restart Firefox to use this add-on."
-msgstr "이 부가 기능을 사용하려면 Firefox를 재시작 해주십시오."
-
-#: src/disco/components/Addon/index.js:98
+#: src/disco/components/Addon/index.js:94
 msgid "Close"
 msgstr "닫기"
 
@@ -213,6 +200,17 @@ msgstr "새로 고침해서 계속하기"
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
 msgstr ""
+
+#: src/ui/components/ThemeImage/index.js:30
+#, fuzzy
+msgid "Preview of %(title)s"
+msgstr "%(name)s 미리보기"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "이 부가 기능은 Firefox를 재시작한 후에 제거될 것입니다."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "이 부가 기능을 사용하려면 Firefox를 재시작 해주십시오."
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "부가 기능 준비됨"

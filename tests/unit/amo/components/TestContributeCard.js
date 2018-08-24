@@ -64,7 +64,6 @@ describe(__filename, () => {
         .at(1),
     ).toHaveText('Contribute now');
     expect(root.find(Button)).toHaveProp('target', '_blank');
-    expect(root.find(Button)).toHaveProp('rel', 'noopener noreferrer');
   });
 
   it('displays content for an extension developer', () => {

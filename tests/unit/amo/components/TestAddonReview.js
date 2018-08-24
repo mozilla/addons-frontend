@@ -13,9 +13,9 @@ import AddonReview, {
 } from 'amo/components/AddonReview';
 import {
   dispatchClientMetadata,
+  dispatchSignInActions,
   fakeAddon,
   fakeReview,
-  signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
@@ -389,9 +389,11 @@ describe(__filename, () => {
   });
 
   describe('mapStateToProps', () => {
+    const { api } = dispatchSignInActions().state;
+
     it('maps apiState to props', () => {
-      const props = mapStateToProps({ api: signedInApiState });
-      expect(props.apiState).toEqual(signedInApiState);
+      const props = mapStateToProps({ api });
+      expect(props.apiState).toEqual(api);
     });
   });
 
@@ -400,6 +402,8 @@ describe(__filename, () => {
     let mockApi;
     let dispatch;
     let actions;
+
+    const { api } = dispatchSignInActions().state;
 
     beforeEach(() => {
       mockUtils = sinon.mock(coreUtils);
@@ -414,7 +418,7 @@ describe(__filename, () => {
           reviewId: 3333,
           body: 'some review text',
           addonSlug: 'chill-out',
-          apiState: signedInApiState,
+          apiState: api,
         };
 
         mockApi
@@ -431,7 +435,8 @@ describe(__filename, () => {
 
     describe('refreshAddon', () => {
       it('binds dispatch and calls utils.refreshAddon()', () => {
-        const apiState = signedInApiState;
+        const apiState = api;
+
         mockUtils
           .expects('refreshAddon')
           .once()

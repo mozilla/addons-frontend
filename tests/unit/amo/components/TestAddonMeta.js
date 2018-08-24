@@ -166,6 +166,11 @@ describe(__filename, () => {
 
       expect(getReviewTitle(root).children()).toHaveText('Reviews');
       expect(getReviewCount(root).children()).toHaveLength(0);
+      // rating=undefined will render a loading state.
+      expect(getAverageNumber(root).find(Rating)).toHaveProp(
+        'rating',
+        undefined,
+      );
     });
 
     it('handles zero reviews', () => {
@@ -178,6 +183,15 @@ describe(__filename, () => {
 
       expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', null);
       expect(getAverageTitle(root)).toHaveText('Not rated yet');
+    });
+
+    it('handles an addon without ratings', () => {
+      const root = render({
+        addon: createInternalAddon({ ...fakeAddon, ratings: undefined }),
+      });
+
+      // This should be null so it doesn't render a loading state.
+      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', null);
     });
 
     it('renders RatingsByStar with an add-on', () => {
@@ -199,8 +213,14 @@ describe(__filename, () => {
 
       expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', average);
       expect(getAverageTitle(root)).toHaveText(
-        `${roundToOneDigit(average)} star average`,
+        `${roundToOneDigit(average)} Stars`,
       );
+    });
+
+    it('renders a 1 star average rating', () => {
+      const root = renderRatings({ average: 1.0 });
+
+      expect(getAverageTitle(root)).toHaveText('1 Star');
     });
   });
 

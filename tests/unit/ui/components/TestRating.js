@@ -7,15 +7,26 @@ import {
 } from 'tests/unit/helpers';
 import Rating, { RatingBase } from 'ui/components/Rating';
 
-function render(customProps = {}) {
-  const props = {
-    i18n: fakeI18n(),
-    ...customProps,
-  };
-  return shallowUntilTarget(<Rating {...props} />, RatingBase);
-}
-
 describe(__filename, () => {
+  function render(customProps = {}) {
+    const props = {
+      i18n: fakeI18n(),
+      ...customProps,
+    };
+    return shallowUntilTarget(<Rating {...props} />, RatingBase);
+  }
+
+  function renderWithRating(props = {}) {
+    return render({ rating: 4, ...props });
+  }
+
+  function renderWithEmptyRating(props = {}) {
+    // This is when a user rating has been fetched but it does not exist.
+    // As a counter-example, when rating===undefined, it has not been
+    // fetched yet.
+    return render({ rating: null, ...props });
+  }
+
   const getStar = ({ root, rating }) => {
     return root.find(`.Rating-rating-${rating}`);
   };
@@ -58,37 +69,44 @@ describe(__filename, () => {
 
   it('lets you select a one star rating', () => {
     const onSelectRating = sinon.stub();
-    const root = render({ onSelectRating });
+    const root = renderWithRating({ onSelectRating });
     selectRating(root, 1);
     sinon.assert.calledWith(onSelectRating, 1);
   });
 
   it('lets you select a two star rating', () => {
     const onSelectRating = sinon.stub();
-    const root = render({ onSelectRating });
+    const root = renderWithRating({ onSelectRating });
     selectRating(root, 2);
     sinon.assert.calledWith(onSelectRating, 2);
   });
 
   it('lets you select a three star rating', () => {
     const onSelectRating = sinon.stub();
-    const root = render({ onSelectRating });
+    const root = renderWithRating({ onSelectRating });
     selectRating(root, 3);
     sinon.assert.calledWith(onSelectRating, 3);
   });
 
   it('lets you select a four star rating', () => {
     const onSelectRating = sinon.stub();
-    const root = render({ onSelectRating });
+    const root = renderWithRating({ onSelectRating });
     selectRating(root, 4);
     sinon.assert.calledWith(onSelectRating, 4);
   });
 
   it('lets you select a five star rating', () => {
     const onSelectRating = sinon.stub();
-    const root = render({ onSelectRating });
+    const root = renderWithRating({ onSelectRating });
     selectRating(root, 5);
     sinon.assert.calledWith(onSelectRating, 5);
+  });
+
+  it('does not let you select a star while loading', () => {
+    const onSelectRating = sinon.stub();
+    const root = render({ onSelectRating, rating: undefined });
+    selectRating(root, 1);
+    sinon.assert.notCalled(onSelectRating);
   });
 
   it('renders correct full stars for a rating', () => {
@@ -155,7 +173,7 @@ describe(__filename, () => {
   it('renders 0 selected stars for empty ratings', () => {
     // This will make dealing with API data easier when
     // an add-on hasn't been rated enough yet.
-    const root = render({ rating: null });
+    const root = renderWithEmptyRating();
 
     // Make sure no stars have the selected class.
     [1, 2, 3, 4, 5].forEach((rating) => {
@@ -166,7 +184,7 @@ describe(__filename, () => {
   });
 
   it('renders all stars as selectable by default', () => {
-    const root = render();
+    const root = renderWithRating();
     [1, 2, 3, 4, 5].forEach((rating) => {
       const star = getStar({ root, rating });
       expect(star).toHaveClassName('Rating-star');
@@ -175,7 +193,7 @@ describe(__filename, () => {
   });
 
   it('renders an accessible description for null stars', () => {
-    const root = render({ rating: null });
+    const root = renderWithEmptyRating();
 
     [1, 2, 3, 4, 5].forEach((rating) => {
       expect(getStar({ root, rating })).toHaveProp(
@@ -208,7 +226,7 @@ describe(__filename, () => {
   });
 
   it('prevents form submission when selecting a rating', () => {
-    const root = render({ onSelectRating: sinon.stub() });
+    const root = renderWithRating({ onSelectRating: sinon.stub() });
 
     const fakeEvent = createFakeEvent();
     const star = getStar({ root, rating: 4 });
@@ -219,7 +237,7 @@ describe(__filename, () => {
   });
 
   it('requires a valid onSelectRating callback', () => {
-    const root = render({ onSelectRating: null });
+    const root = renderWithRating({ onSelectRating: null });
     const star = getStar({ root, rating: 4 });
 
     expect(() => star.simulate('click', createFakeEvent())).toThrowError(
@@ -228,7 +246,7 @@ describe(__filename, () => {
   });
 
   it('selects stars on hover', () => {
-    const root = render();
+    const root = renderWithEmptyRating();
 
     const hoverStar = getStar({ root, rating: 4 });
     hoverStar.simulate('mouseEnter', createFakeEvent());
@@ -259,7 +277,7 @@ describe(__filename, () => {
   });
 
   it('finishes hovering on mouseLeave', () => {
-    const root = render();
+    const root = renderWithEmptyRating();
 
     const rating = 3;
     const hoverStar = getStar({ root, rating });
@@ -275,7 +293,7 @@ describe(__filename, () => {
   describe('readOnly=true', () => {
     it('prevents you from selecting ratings', () => {
       const onSelectRating = sinon.stub();
-      const root = render({
+      const root = renderWithRating({
         onSelectRating,
         readOnly: true,
       });
@@ -285,7 +303,7 @@ describe(__filename, () => {
 
     it('does nothing when you hover over stars', () => {
       const _setState = sinon.stub();
-      const root = render({ readOnly: true, _setState });
+      const root = renderWithRating({ readOnly: true, _setState });
 
       const rating = 3;
       const hoverStar = getStar({ root, rating });
@@ -296,19 +314,19 @@ describe(__filename, () => {
 
     it('does nothing when finishing a hover action', () => {
       const _setState = sinon.stub();
-      const root = render({ readOnly: true, _setState });
+      const root = renderWithRating({ readOnly: true, _setState });
       root.simulate('mouseLeave', createFakeEvent());
 
       sinon.assert.notCalled(_setState);
     });
 
     it('does not classify as editable when read-only', () => {
-      const root = render({ readOnly: true });
+      const root = renderWithRating({ readOnly: true });
       expect(root).not.toHaveClassName('Rating--editable');
     });
 
     it('does not render buttons in read-only mode', () => {
-      const root = render({ readOnly: true });
+      const root = renderWithRating({ readOnly: true });
       const stars = root.find('.Rating-star');
 
       // Make sure we actually have 5 stars.
@@ -318,7 +336,7 @@ describe(__filename, () => {
     });
 
     it('renders an appropriate title with an undefined rating when read-only', () => {
-      const root = render({ readOnly: true });
+      const root = render({ rating: undefined, readOnly: true });
 
       expect(root).toHaveProp('title', 'There are no ratings yet');
     });
@@ -384,9 +402,29 @@ describe(__filename, () => {
     });
 
     it('renders empty ratings', () => {
-      expect(render({ rating: null, readOnly: true })).toHaveText(
+      expect(renderWithEmptyRating({ readOnly: true })).toHaveText(
         'There are no ratings yet',
       );
+    });
+  });
+
+  describe('loading state', () => {
+    it('enters a loading state without a rating', () => {
+      const root = render({ rating: undefined });
+
+      expect(root).toHaveClassName('Rating--loading');
+    });
+
+    it('exits the loading state with a rating value', () => {
+      const root = render({ rating: 4 });
+
+      expect(root).not.toHaveClassName('Rating--loading');
+    });
+
+    it('exits the loading state with an empty rating', () => {
+      const root = renderWithEmptyRating();
+
+      expect(root).not.toHaveClassName('Rating--loading');
     });
   });
 });
