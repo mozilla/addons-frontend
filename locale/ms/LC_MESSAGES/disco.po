@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:25+0000\n"
-"PO-Revision-Date: 2018-08-15 02:25+0000\n"
+"PO-Revision-Date: 2018-08-24 11:57+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -38,15 +38,11 @@ msgstr "Memasang"
 msgid "Uninstalling"
 msgstr "Menyahpasang"
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
 msgid "Add to Firefox"
 msgstr "Tambah ke Firefox"
 
@@ -55,15 +51,10 @@ msgid "Server Error"
 msgstr "Ralat Pelayan"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Maaf, kami tidak dapat menyiapkan permintaan anda disebabkan ralat. Kami "
-"telah logkan ralat ini dan akan siasatnya."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Maaf, kami tidak dapat menyiapkan permintaan anda disebabkan ralat. Kami telah logkan ralat ini dan akan siasatnya."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kod ralat: %(status)s."
 
@@ -165,18 +156,12 @@ msgstr "Peribadikan Firefox Anda"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Ada beribu-ribu add-ons percuma, dicipta oleh pembangun dari seluruh dunia "
-"yang anda boleh pasang untuk memperibadikan Firefox anda. Daripada tema "
-"visual keseronokan hinggal ke alatan berkuasa yang membuat pelayaran lebih "
-"cepat dan lebih selamat, add-ons menjadikan pelayar anda milik anda. Untuk "
-"membantu anda memulakan, di sini ada beberapa add-ons yang kami syorkan "
-"kerana prestasi dan fungsinya yang luar biasa."
+"Ada beribu-ribu add-ons percuma, dicipta oleh pembangun dari seluruh dunia yang anda boleh pasang untuk memperibadikan Firefox anda. Daripada tema visual keseronokan hinggal ke alatan berkuasa yang "
+"membuat pelayaran lebih cepat dan lebih selamat, add-ons menjadikan pelayar anda milik anda. Untuk membantu anda memulakan, di sini ada beberapa add-ons yang kami syorkan kerana prestasi dan "
+"fungsinya yang luar biasa."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -199,9 +184,8 @@ msgid "Dismiss this notice"
 msgstr "Abaikan notis ini"
 
 #: src/ui/components/ThemeImage/index.js:30
-#, fuzzy
 msgid "Preview of %(title)s"
-msgstr "Previu %(name)s"
+msgstr "Previu %(title)s"
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Add-on ini akan dinyahpasang selepas anda mula semua Firefox."
