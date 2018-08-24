@@ -115,7 +115,6 @@ export class DiscoPaneBase extends React.Component {
             src: 'api',
           })}`}
           target="_blank"
-          rel="noopener noreferrer"
           onClick={this.showMoreAddons}
         >
           {i18n.gettext('Find more add-ons')}
