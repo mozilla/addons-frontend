@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-24 13:28+0000\n"
+"PO-Revision-Date: 2018-08-24 20:24+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -663,7 +663,7 @@ msgstr "აღწერილობა"
 
 #: src/amo/components/CollectionManager/index.js:280
 msgid "Custom URL"
-msgstr "შერჩეული URL ბმული"
+msgstr "შერჩეული URL-ბმული"
 
 #: src/amo/components/CollectionManager/index.js:317 src/amo/components/UserProfileEdit/index.js:850 src/ui/components/ConfirmButton/index.js:107 src/ui/components/DismissibleTextForm/index.js:167
 msgid "Cancel"
@@ -2144,7 +2144,7 @@ msgstr "გამოსაჩენი სახელი"
 
 #: src/amo/components/UserProfileEdit/index.js:612
 msgid "This URL will only be visible for users who are developers."
-msgstr "ეს URL ბმული მხოლოდ იმ მომხმარებლებისთვის იქნება ხილული, რომლებიც შემმუშავებლები არიან."
+msgstr "ეს URL-ბმული მხოლოდ იმ მომხმარებლებისთვის იქნება ხილული, რომლებიც შემმუშავებლები არიან."
 
 #: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce yourself to the community if you like"
@@ -2341,7 +2341,7 @@ msgstr "შეცდომის კოდი: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ URL მისამართზე, არაფერია."
+msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ URL-მისამართზე, არაფერია."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
