@@ -14,9 +14,9 @@ $accent-color: #ebebeb;
 // it with `@include respond-to(medium) { [...] }`.
 $breakpoints: (
   // This breakpoint exists for tweaking of very small screens.
-    extraSmall: only screen and
+  extraSmall: only screen and
     (
-      max-width: 349px,
+      max-width: 390px,
     ),
   mediumOnly: only screen and
     (
