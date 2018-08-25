@@ -95,7 +95,7 @@ $addon-padding: 20px;
     @include respond-to(large) {
       padding: 0 15px;
     }
-    
+
     @include respond-to(extraSmall) {
       display: none;
     }
