@@ -88,6 +88,12 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     invariant(starRating, 'starRating is required when readOnly=false');
 
     if (rating) {
+      if (starRating === rating) {
+        return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'), {
+          rating: i18n.formatNumber(parseFloat(rating).toFixed(1)),
+        });
+      }
+
       return i18n.sprintf(
         i18n.gettext(`Update your rating to %(starRating)s out of 5`),
         { starRating },
