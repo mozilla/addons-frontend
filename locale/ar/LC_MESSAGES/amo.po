@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-25 16:12+0000\n"
+"PO-Revision-Date: 2018-08-25 16:14+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1071,13 +1071,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
 
 #: src/amo/components/Home/index.js:50
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "الامتدادات المُتداولة"
+msgstr "طالع المزيد من أدوات البحث الاستثنائية"
 
 #: src/amo/components/Home/index.js:51
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "أدوات بحث استثنائية"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
@@ -2376,16 +2375,15 @@ msgstr "نأسف لكننا لم نجد شيئا يشير إليه المسار 
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "أُضيفت %(strongStart)s%(name)s%(strongEnd)s"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "حسنا!"
+msgstr "حسنًا"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
