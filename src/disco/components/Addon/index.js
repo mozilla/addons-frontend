@@ -57,7 +57,6 @@ export class AddonBase extends React.Component {
     hasAddonManager: PropTypes.bool.isRequired,
     heading: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
-    iconUrl: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     isAddonEnabled: PropTypes.func,
@@ -99,17 +98,6 @@ export class AddonBase extends React.Component {
     ) : null;
   }
 
-  getLogo() {
-    const { iconUrl } = this.props;
-    if (this.props.type === ADDON_TYPE_EXTENSION) {
-      return (
-        <div className="logo">
-          <img src={iconUrl} alt="" />
-        </div>
-      );
-    }
-    return null;
-  }
 
   getThemeImage() {
     const { addon, getBrowserThemeData, hasAddonManager } = this.props;
@@ -275,7 +263,6 @@ export class AddonBase extends React.Component {
       /* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
       <div className={addonClasses}>
         {this.getThemeImage()}
-        {this.getLogo()}
         <div className="content">
           <TransitionGroup>{this.getError()}</TransitionGroup>
           <div className="copy">
