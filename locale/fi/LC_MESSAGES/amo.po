@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-25 19:48+0000\n"
+"PO-Revision-Date: 2018-08-26 11:20+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1137,9 +1137,8 @@ msgid "Context Search"
 msgstr "Haku"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Näe kätevä hakuvalikko millä tahansa verkkosivulla korostamalla teksti"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1166,9 +1165,8 @@ msgid "Save memory by disabling inactive tabs"
 msgstr "Säästä muistia poistamalla käytöstä käyttämättömät välilehdet"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Päivitä vastaus"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
@@ -1176,11 +1174,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
-msgstr ""
+msgstr "Käynnistä Firefox automaattisesti koko näytön tilassa"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
