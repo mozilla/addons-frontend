@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-26 02:50+0000\n"
-"Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
+"PO-Revision-Date: 2018-08-26 04:23+0000\n"
+"Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -325,9 +325,8 @@ msgid "by %(authorList)s"
 msgstr "berdasarkan %(authorList)s"
 
 #: src/amo/components/AddonReviewList/index.js:275
-#, fuzzy
 msgid "%(averageRating)s star average"
-msgstr "Peringkat rata-rata: %(rating)s dari 5"
+msgstr "%(averageRating)s rata-rata bintang"
 
 #: src/amo/components/AddonReviewListItem/index.js:148 src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
@@ -1049,9 +1048,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Ubah tampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:50
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Lihat lebih banyak ekstensi penting"
+msgstr "Lihat lebih banyak alat pencarian luar biasa"
 
 #: src/amo/components/Home/index.js:51
 msgid "Exceptional search tools"
@@ -1074,9 +1072,8 @@ msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/components/Home/index.js:68
-#, fuzzy
 msgid "See more reading extensions"
-msgstr "Temukan ekstensi yang sedang populer lainnya"
+msgstr "Lihat lebih banyak ekstensi pembacaan"
 
 #: src/amo/components/Home/index.js:69
 msgid "Refined reading"
@@ -1091,9 +1088,8 @@ msgid "Enlarge images by hovering your mouse over it"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:109
-#, fuzzy
 msgid "Privacy Possum"
-msgstr "Kebijakan Privasi"
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Protect yourself against the sneakiest trackers"
@@ -1128,9 +1124,8 @@ msgid "Context Search"
 msgstr "Pencarian Konteks"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Sorot teks dari laman web manapun untuk memunculkan menu pencarian yang mudah dipakai"
+msgstr "Sorot teks pada laman web manapun untuk mencari istilah tersebut dengan mudah "
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1141,14 +1136,12 @@ msgid "Give your favorite websites a new look"
 msgstr "Berikan tampilan baru untuk situs web favorit Anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Hasil pencarian"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Kebijakan privasi"
+msgstr "Perlindungan privasi untuk pencarian data Anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1159,9 +1152,8 @@ msgid "Save memory by disabling inactive tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Perbarui balasan"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
@@ -1216,9 +1208,8 @@ msgid "Click a button to close annoying pop-ups"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Markah"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
@@ -1821,9 +1812,8 @@ msgstr ""
 "lebih personal dengan menambahkan fitur baru untuk Firefox, meningkatkan interaksi Anda dengan konten Web, dan mengubah tampilan peramban Anda."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Anda dapat pula menggunakan AMO guna menemukan pengaya untuk Mozilla %(startTBLink)sThunderbird%(endTBLink)s dan %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "Jika Anda mencari pengaya untuk Thunderbird atau SeaMonkey, sila kunjungi %(startTBLink)saddons.thunderbird.net%(endTBLink)s atau %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
