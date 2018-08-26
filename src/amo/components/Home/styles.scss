@@ -20,7 +20,7 @@
   .Card-header {
     display: block;
 
-    @media only screen and (min-width: 760px) {
+    @include respond-to(mediumcard) {
       display: none;
     }
   }
@@ -33,7 +33,7 @@
     overflow: auto;
     width: 100%;
 
-    @media only screen and (min-width: 760px){
+    @include respond-to(mediumcard) {
       border-top-left-radius: $border-radius-default;
       border-top-right-radius: $border-radius-default;
       flex-wrap: nowrap;
@@ -47,7 +47,7 @@
   display: none;
   height: auto;
 
-  @media only screen and (min-width: 760px) {
+  @include respond-to(mediumcard) {
     align-self: center;
     display: block;
     max-width: 130px;
@@ -55,6 +55,20 @@
 
   @include respond-to(extraLarge) {
     max-width: 250px;
+  }
+}
+
+.listTitle {
+  display: none;
+  @include respond-to(large) {
+    display: block;
+  }
+}
+
+.listTitle-vw {
+  display: inline;
+  @include respond-to(large) {
+    display: none;
   }
 }
 
@@ -72,6 +86,10 @@
   overflow: auto;
   padding: 0;
   width: 100%;
+
+  @include respond-to(extraSmall) {
+    flex-flow: column wrap;
+  }
 
   @include respond-to(large) {
     align-self: auto;
@@ -109,19 +127,26 @@
 }
 
 .Home-SubjectShelf-list-item .Icon {
-  background-position: center;
   background-repeat: no-repeat;
   background-size: 64px;
   border-radius: $border-radius-default;
   content: '';
   display: block;
   height: 64px;
+  padding-top: 25px;
+  padding-left: 75px;
   margin-bottom: 5px;
   transform: scale(0.8);
   width: 100%;
+  text-align: left;
 
-  @include respond-to(medium) {
+  @include respond-to(extraSmall) {
+    width: 250%;
+  }
+
+  @include respond-to(large) {
     transform: initial;
+    background-position: center;
   }
 }
 

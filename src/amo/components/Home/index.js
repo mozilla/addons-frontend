@@ -144,8 +144,10 @@ export class HomeBase extends React.Component {
               to={`/collections/mozilla/${collectionSlug}/`}
               className="Home-SubjectShelf-link"
             >
-              <Icon name={`Home-SubjectShelf-${collectionSlug}`} />
-              <span>{title}</span>
+              <Icon name={`Home-SubjectShelf-${collectionSlug}`}>
+                <span class="listTitle-vw">{title}</span>
+              </Icon>
+              <span class="listTitle">{title}</span>
             </Link>
           </li>
         ))}
