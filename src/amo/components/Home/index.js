@@ -145,9 +145,9 @@ export class HomeBase extends React.Component {
               className="Home-SubjectShelf-link"
             >
               <Icon name={`Home-SubjectShelf-${collectionSlug}`}>
-                <span class="listTitle-vw">{title}</span>
+                <span class="Home-SubjectShelf-link-text-vw">{title}</span>
               </Icon>
-              <span class="listTitle">{title}</span>
+              <span class="Home-SubjectShelf-link-text">{title}</span>
             </Link>
           </li>
         ))}

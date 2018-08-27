@@ -58,14 +58,14 @@
   }
 }
 
-.listTitle {
+.Home-SubjectShelf-link-text {
   display: none;
   @include respond-to(large) {
     display: block;
   }
 }
 
-.listTitle-vw {
+.Home-SubjectShelf-link-text-vw {
   display: inline;
   @include respond-to(large) {
     display: none;
