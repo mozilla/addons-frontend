@@ -3,6 +3,7 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import {
+  deleteReview,
   flagReview,
   getLatestUserReview,
   getReviews,
@@ -404,6 +405,30 @@ describe(__filename, () => {
       await flagReview(params).then(unexpectedSuccess, (error) => {
         expect(error.message).toMatch(/note parameter is required/);
       });
+    });
+  });
+
+  describe('deleteReview', () => {
+    it('calls the API', async () => {
+      const params = {
+        apiState,
+        errorHandler: createStubErrorHandler(),
+        reviewId: fakeReview.id,
+      };
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `reviews/review/${params.reviewId}/`,
+          errorHandler: params.errorHandler,
+          method: 'DELETE',
+          apiState: params.apiState,
+        })
+        .returns(Promise.resolve());
+
+      await deleteReview(params);
+      mockApi.verify();
     });
   });
 });
