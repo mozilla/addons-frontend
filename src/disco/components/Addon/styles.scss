@@ -89,8 +89,8 @@ $addon-padding: 20px;
     padding: 0 5px;
 
     @include respond-to(medium) {
-      padding: 0 10px;
       display: flex;
+      padding: 0 10px;
     }
 
     @include respond-to(large) {
