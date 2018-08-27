@@ -212,16 +212,12 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   renderTextEntry() {
     const { _config, userReview } = this.props;
 
-    if (!userReview) {
+    if (!userReview || !this.isLoggedIn()) {
       return null;
     }
 
     if (_config.get('enableInlineAddonReview')) {
       return <AddonReviewManager review={userReview} />;
-    }
-
-    if (!this.isLoggedIn()) {
-      return null;
     }
 
     return (
@@ -236,12 +232,8 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     return Boolean(this.props.userId);
   }
 
-  render() {
-    const { _config, i18n, addon, userReview, version } = this.props;
-    const { showTextEntry } = this.state;
-
-    invariant(addon, 'addon is required');
-    invariant(version, 'version is required');
+  renderUserRatingForm() {
+    const { i18n, addon, userReview } = this.props;
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
@@ -249,37 +241,55 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     );
 
     return (
+      <form action="">
+        <fieldset>
+          <legend className="RatingManager-legend">{prompt}</legend>
+          <div className="RatingManager-ratingControl">
+            {!this.isLoggedIn() ? this.renderLogInToRate() : null}
+            <UserRating
+              readOnly={!this.isLoggedIn()}
+              onSelectRating={this.onSelectRating}
+              review={!this.isLoggedIn() ? null : userReview}
+            />
+          </div>
+        </fieldset>
+      </form>
+    );
+  }
+
+  renderInlineReviewControls() {
+    const { i18n } = this.props;
+    const { showTextEntry } = this.state;
+
+    return showTextEntry && this.isLoggedIn() ? (
+      <Button
+        href="#cancelTextEntry"
+        onClick={this.cancelTextEntry}
+        className="RatingManager-cancelTextEntryButton"
+        buttonType="neutral"
+        puffy
+      >
+        {i18n.gettext("Nevermind, I don't want to write a review")}
+      </Button>
+    ) : (
+      this.renderUserRatingForm()
+    );
+  }
+
+  render() {
+    const { _config, addon, version } = this.props;
+    const { showTextEntry } = this.state;
+
+    invariant(addon, 'addon is required');
+    invariant(version, 'version is required');
+
+    return (
       <div className="RatingManager">
         {showTextEntry ? this.renderTextEntry() : null}
-        {!_config.get('enableInlineAddonReview') || !showTextEntry ? (
-          <form action="">
-            <fieldset>
-              <legend className="RatingManager-legend">{prompt}</legend>
-              <div className="RatingManager-ratingControl">
-                {!this.isLoggedIn() ? this.renderLogInToRate() : null}
-                <UserRating
-                  readOnly={!this.isLoggedIn()}
-                  onSelectRating={this.onSelectRating}
-                  review={!this.isLoggedIn() ? null : userReview}
-                />
-              </div>
-            </fieldset>
-          </form>
-        ) : null}
-        {_config.get('enableInlineAddonReview') && showTextEntry ? (
-          <Button
-            href="#cancelTextEntry"
-            onClick={this.cancelTextEntry}
-            className="RatingManager-cancelTextEntryButton"
-            buttonType="neutral"
-            puffy
-          >
-            {i18n.gettext("Nevermind, I don't want to write a review")}
-          </Button>
-        ) : null}
-        {!_config.get('enableInlineAddonReview') || !showTextEntry ? (
-          <ReportAbuseButton addon={addon} />
-        ) : null}
+        {_config.get('enableInlineAddonReview')
+          ? this.renderInlineReviewControls()
+          : this.renderUserRatingForm()}
+        <ReportAbuseButton addon={addon} />
       </div>
     );
   }
