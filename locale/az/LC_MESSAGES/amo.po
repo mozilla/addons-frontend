@@ -1614,8 +1614,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" üçün %(count)s dil paketi tapıldı"
+msgstr[1] "\"%(query)s\" üçün %(count)s dil paketi tapıldı"
 
 #: src/amo/components/SearchContextCard/index.js:67
 msgid "%(count)s theme found for \"%(query)s\""
