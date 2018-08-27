@@ -5,7 +5,14 @@
 }
 
 .Overlay--visible {
-  display: block;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .Overlay-background {
@@ -23,13 +30,6 @@
 }
 
 .Overlay-contents {
-  align-items: center;
   display: flex;
-  justify-content: center;
-  left: 0;
-  position: fixed;
-  top: 50%;
-  transform: translate(0, -50%);
-  width: 100%;
   z-index: 1001;
 }
