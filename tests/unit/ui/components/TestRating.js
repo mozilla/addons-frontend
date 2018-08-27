@@ -215,14 +215,20 @@ describe(__filename, () => {
   });
 
   it('renders an appropriate title when updating a rating', () => {
-    const root = render({ rating: 3 });
+    const userRating = 3;
+    const root = render({ rating: userRating });
 
-    [1, 2, 3, 4, 5].forEach((rating) => {
+    [1, 2, 4, 5].forEach((rating) => {
       expect(getStar({ root, rating })).toHaveProp(
         'title',
         `Update your rating to ${rating} out of 5`,
       );
     });
+
+    expect(getStar({ root, rating: userRating })).toHaveProp(
+      'title',
+      `Rated ${userRating} out of 5`,
+    );
   });
 
   it('prevents form submission when selecting a rating', () => {
