@@ -39,7 +39,8 @@ export const SEND_REPLY_TO_REVIEW: 'SEND_REPLY_TO_REVIEW' =
 export const SEND_REVIEW_FLAG: 'SEND_REVIEW_FLAG' = 'SEND_REVIEW_FLAG';
 export const UPDATE_ADDON_REVIEW: 'UPDATE_ADDON_REVIEW' = 'UPDATE_ADDON_REVIEW';
 export const DELETE_ADDON_REVIEW: 'DELETE_ADDON_REVIEW' = 'DELETE_ADDON_REVIEW';
-export const CLEAR_ADDON_REVIEWS: 'CLEAR_ADDON_REVIEWS' = 'CLEAR_ADDON_REVIEWS';
+export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
+  'UNLOAD_ADDON_REVIEWS';
 
 export type UserReviewType = {|
   addonId: number,
@@ -631,21 +632,21 @@ export const deleteAddonReview = ({
   };
 };
 
-type ClearAddonReviewsParams = {|
+type UnloadAddonReviewsParams = {|
   reviewId: number,
 |};
 
-export type ClearAddonReviewsAction = {|
-  type: typeof CLEAR_ADDON_REVIEWS,
-  payload: ClearAddonReviewsParams,
+export type UnloadAddonReviewsAction = {|
+  type: typeof UNLOAD_ADDON_REVIEWS,
+  payload: UnloadAddonReviewsParams,
 |};
 
-export const clearAddonReviews = ({
+export const unloadAddonReviews = ({
   reviewId,
-}: ClearAddonReviewsParams): ClearAddonReviewsAction => {
+}: UnloadAddonReviewsParams): UnloadAddonReviewsAction => {
   invariant(reviewId, 'reviewId is required');
   return {
-    type: CLEAR_ADDON_REVIEWS,
+    type: UNLOAD_ADDON_REVIEWS,
     payload: { reviewId },
   };
 };

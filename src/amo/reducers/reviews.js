@@ -4,7 +4,7 @@ import { oneLine } from 'common-tags';
 import {
   FLASH_REVIEW_MESSAGE,
   HIDE_FLASHED_REVIEW_MESSAGE,
-  CLEAR_ADDON_REVIEWS,
+  UNLOAD_ADDON_REVIEWS,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
@@ -22,7 +22,7 @@ import {
   createInternalReview,
 } from 'amo/actions/reviews';
 import type {
-  ClearAddonReviewsAction,
+  UnloadAddonReviewsAction,
   FlagReviewAction,
   FlashMessageType,
   HideEditReviewFormAction,
@@ -272,7 +272,7 @@ export const addReviewToState = ({
 type ReviewActionType =
   | FlagReviewAction
   | FlashReviewMessageAction
-  | ClearAddonReviewsAction
+  | UnloadAddonReviewsAction
   | HideEditReviewFormAction
   | HideFlashedReviewMessageAction
   | HideReplyToReviewFormAction
@@ -479,7 +479,7 @@ export default function reviewsReducer(
         flashMessage: undefined,
       };
     }
-    case CLEAR_ADDON_REVIEWS: {
+    case UNLOAD_ADDON_REVIEWS: {
       const {
         payload: { reviewId },
       } = action;

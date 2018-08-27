@@ -29,7 +29,7 @@ import {
   STARTED_SAVE_RATING,
   STARTED_SAVE_REVIEW,
   UPDATE_ADDON_REVIEW,
-  clearAddonReviews,
+  unloadAddonReviews,
   flashReviewMessage,
   hideFlashedReviewMessage,
   hideReplyToReviewForm,
@@ -297,7 +297,7 @@ function* deleteAddonReview({
       reviewId,
     });
 
-    yield put(clearAddonReviews({ reviewId }));
+    yield put(unloadAddonReviews({ reviewId }));
   } catch (error) {
     log.warn(`Failed to delete review ID ${reviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

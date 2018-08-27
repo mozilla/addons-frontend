@@ -1,6 +1,6 @@
 import {
   SAVED_RATING,
-  clearAddonReviews,
+  unloadAddonReviews,
   createInternalReview,
   flagReview,
   hideEditReviewForm,
@@ -295,7 +295,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('clearAddonReviews', () => {
+  describe('unloadAddonReviews', () => {
     const loadReviewDataIntoState = ({
       addonId,
       addonSlug,
@@ -318,7 +318,6 @@ describe(__filename, () => {
 
       // Initialize values into the byId, byAddon, byUserId and groupedRatings buckets.
       state = reviewsReducer(startState, setReview(review));
-      expect(state.byId[reviewId].addonId).toEqual(addonId);
 
       state = reviewsReducer(
         state,
@@ -329,7 +328,6 @@ describe(__filename, () => {
           reviewCount: 1,
         }),
       );
-      expect(state.byAddon[addonSlug].reviews).toEqual([reviewId]);
 
       state = reviewsReducer(
         state,
@@ -340,7 +338,6 @@ describe(__filename, () => {
           userId,
         }),
       );
-      expect(state.byUserId[userId].reviews).toEqual([reviewId]);
 
       state = reviewsReducer(
         state,
@@ -349,7 +346,6 @@ describe(__filename, () => {
           grouping,
         }),
       );
-      expect(state.groupedRatings[addonId]).toEqual(grouping);
 
       return state;
     };
@@ -369,8 +365,14 @@ describe(__filename, () => {
         userId,
       });
 
+      // Verify that data has been loaded for the reviewId.
+      expect(state.byId[reviewId].addonId).toEqual(addonId);
+      expect(state.byAddon[addonSlug].reviews).toEqual([reviewId]);
+      expect(state.byUserId[userId].reviews).toEqual([reviewId]);
+      expect(state.groupedRatings[addonId]).toEqual(grouping);
+
       // Clear all data based on a reviewId.
-      state = reviewsReducer(state, clearAddonReviews({ reviewId }));
+      state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
 
       expect(state.byId[reviewId]).toEqual(undefined);
       expect(state.byAddon[addonSlug]).toEqual(undefined);
@@ -408,12 +410,20 @@ describe(__filename, () => {
         userId: userId2,
       });
 
-      state = reviewsReducer(state, clearAddonReviews({ reviewId }));
+      const verifyUnrelatedData = () => {
+        expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+        expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
+        expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
+        expect(state.groupedRatings[addonId2]).toEqual(grouping);
+      };
 
-      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
-      expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
-      expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
-      expect(state.groupedRatings[addonId2]).toEqual(grouping);
+      // Verify that the unrelated data has been loaded for the reviewId.
+      verifyUnrelatedData();
+
+      state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
+
+      // Verify that the unrelated data has not been unloaded.
+      verifyUnrelatedData();
     });
   });
 
