@@ -275,8 +275,8 @@ export const deleteReview = ({
   errorHandler,
   reviewId,
 }: DeleteReviewParams = {}): Promise<void> => {
+  invariant(reviewId, 'reviewId is required');
   return new Promise((resolve) => {
-    invariant(reviewId, 'The reviewId parameter is required');
     resolve(
       callApi({
         auth: true,

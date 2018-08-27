@@ -1,6 +1,6 @@
 import {
   SAVED_RATING,
-  clearAddonReviewsForReviewId,
+  clearAddonReviews,
   createInternalReview,
   flagReview,
   hideEditReviewForm,
@@ -295,7 +295,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('clearAddonReviewsForReviewId', () => {
+  describe('clearAddonReviews', () => {
     const loadReviewDataIntoState = ({
       addonId,
       addonSlug,
@@ -370,7 +370,7 @@ describe(__filename, () => {
       });
 
       // Clear all data based on a reviewId.
-      state = reviewsReducer(state, clearAddonReviewsForReviewId({ reviewId }));
+      state = reviewsReducer(state, clearAddonReviews({ reviewId }));
 
       expect(state.byId[reviewId]).toEqual(undefined);
       expect(state.byAddon[addonSlug]).toEqual(undefined);
@@ -408,7 +408,7 @@ describe(__filename, () => {
         userId: userId2,
       });
 
-      state = reviewsReducer(state, clearAddonReviewsForReviewId({ reviewId }));
+      state = reviewsReducer(state, clearAddonReviews({ reviewId }));
 
       expect(state.byId[reviewId2].addonId).toEqual(addonId2);
       expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);

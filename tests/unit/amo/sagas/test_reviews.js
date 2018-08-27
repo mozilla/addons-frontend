@@ -8,7 +8,7 @@ import {
   SET_ADDON_REVIEWS,
   STARTED_SAVE_RATING,
   STARTED_SAVE_REVIEW,
-  clearAddonReviewsForReviewId,
+  clearAddonReviews,
   createAddonReview,
   deleteAddonReview,
   fetchGroupedRatings,
@@ -712,7 +712,7 @@ describe(__filename, () => {
 
       _deleteAddonReview({ reviewId });
 
-      const expectedAction = clearAddonReviewsForReviewId({ reviewId });
+      const expectedAction = clearAddonReviews({ reviewId });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
 
