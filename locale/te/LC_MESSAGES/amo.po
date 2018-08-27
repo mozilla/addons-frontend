@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-24 18:12+0000\n"
+"PO-Revision-Date: 2018-08-27 12:20+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -597,9 +597,8 @@ msgid "Added to collection"
 msgstr "సేకరణకు చేర్చబడింది"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
-#, fuzzy
 msgid "Removed from collection"
-msgstr "సేకరణకు చేర్చబడింది"
+msgstr "సేకరణ నుండి తీసివేయబడింది"
 
 #: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
@@ -1060,14 +1059,12 @@ msgid "Exceptional search tools"
 msgstr ""
 
 #: src/amo/components/Home/index.js:56
-#, fuzzy
 msgid "See more fall themes"
-msgstr "మరిన్ని విశేష అలంకారాలను చూడండి"
+msgstr "మరిన్ని ఆకురాలుకాలపు అలంకారాలను చూడండి"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "Fall themes"
-msgstr "అలంకారాలను కనుగొనండి"
+msgstr "ఆకురాలుకాలపు అలంకారాలు"
 
 #: src/amo/components/Home/index.js:62
 msgid "See more YouTube extensions"
