@@ -14,12 +14,9 @@ describe(__filename, () => {
       ...props,
     };
 
-    // This is needed because of `react-onclickoutside`, see:
-    // https://github.com/mozilla/addons-frontend/issues/5879
     return shallowUntilTarget(<InfoDialog {...allProps} />, InfoDialogBase, {
-      // TODO: ideally, we would like to enable the lifecycle methods, but it
-      // produces unexpected errors, likely related to Enzyme 3. See:
-      // http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+      // This is needed because of `react-onclickoutside`, see:
+      // https://github.com/mozilla/addons-frontend/issues/5879
       shallowOptions: { disableLifecycleMethods: true },
     });
   };
