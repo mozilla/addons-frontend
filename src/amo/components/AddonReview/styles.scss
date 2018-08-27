@@ -13,7 +13,7 @@
     padding: 0 10px;
 
     @include respond-to(large) {
-      min-width: 768px;
+      min-width: 700px;
       padding-left: 200px;
       padding-right: 200px;
     }
