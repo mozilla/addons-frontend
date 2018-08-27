@@ -719,6 +719,28 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
+    it('clears related reviews for an add-on review reply', async () => {
+      const reviewId = 12345;
+      const isReplyToReviewId = 98765;
+
+      mockApi
+        .expects('deleteReview')
+        .once()
+        .withArgs({
+          apiState,
+          reviewId,
+        })
+        .returns(Promise.resolve());
+
+      _deleteAddonReview({ isReplyToReviewId, reviewId });
+
+      const expectedAction = unloadAddonReviews({
+        reviewId: isReplyToReviewId,
+      });
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
       mockApi.expects('deleteReview').rejects(error);

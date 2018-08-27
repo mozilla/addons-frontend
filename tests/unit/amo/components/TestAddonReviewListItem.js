@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import {
+  deleteAddonReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
   sendReplyToReview,
@@ -185,6 +186,49 @@ describe(__filename, () => {
 
     expect(renderControls(root).find('.AddonReviewListItem-edit')).toHaveLength(
       0,
+    );
+  });
+
+  it('renders a delete link for a user review', () => {
+    const review = signInAndDispatchSavedReview();
+    const root = render({ review });
+
+    const deleteLink = renderControls(root).find('.AddonReviewListItem-delete');
+    expect(deleteLink).toHaveLength(1);
+    expect(deleteLink.children()).toHaveText('Delete my review');
+  });
+
+  it('does not render delete link when review belongs to another user', () => {
+    const review = signInAndDispatchSavedReview({
+      siteUserId: 123,
+      reviewUserId: 987,
+    });
+    const root = render({ review });
+
+    expect(
+      renderControls(root).find('.AddonReviewListItem-delete'),
+    ).toHaveLength(0);
+  });
+
+  it('dispatches deleteReview when a user clicks the delete link', () => {
+    const review = signInAndDispatchSavedReview();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ review });
+    const { errorHandler } = root.instance().props;
+
+    const deleteButton = renderControls(root).find(
+      '.AddonReviewListItem-delete',
+    );
+    const clickEvent = createFakeEvent();
+    deleteButton.simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.preventDefault);
+    sinon.assert.calledWith(
+      dispatchSpy,
+      deleteAddonReview({
+        errorHandlerId: errorHandler.id,
+        reviewId: review.id,
+      }),
     );
   });
 
@@ -703,6 +747,50 @@ describe(__filename, () => {
         dispatchSpy,
         showReplyToReviewForm({
           reviewId: originalReviewId,
+        }),
+      );
+    });
+
+    it('renders a delete link for a developer reply', () => {
+      const originalReviewId = 543;
+      const developerUserId = 321;
+      const review = signInAndDispatchSavedReview({
+        siteUserId: developerUserId,
+        reviewUserId: developerUserId,
+      });
+      const root = renderReply({ originalReviewId, reply: review });
+
+      const deleteLink = renderControls(root).find(
+        '.AddonReviewListItem-delete',
+      );
+      expect(deleteLink).toHaveLength(1);
+      expect(deleteLink.children()).toHaveText('Delete my reply');
+    });
+
+    it('dispatches deleteReview when a user clicks the delete link for a developer reply', () => {
+      const originalReviewId = 543;
+      const developerUserId = 321;
+      const review = signInAndDispatchSavedReview({
+        siteUserId: developerUserId,
+        reviewUserId: developerUserId,
+      });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = renderReply({ originalReviewId, reply: review });
+      const { errorHandler } = root.instance().props;
+
+      const deleteButton = renderControls(root).find(
+        '.AddonReviewListItem-delete',
+      );
+      const clickEvent = createFakeEvent();
+      deleteButton.simulate('click', clickEvent);
+
+      sinon.assert.called(clickEvent.preventDefault);
+      sinon.assert.calledWith(
+        dispatchSpy,
+        deleteAddonReview({
+          errorHandlerId: errorHandler.id,
+          reviewId: review.id,
+          isReplyToReviewId: originalReviewId,
         }),
       );
     });

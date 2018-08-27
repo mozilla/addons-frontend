@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -12,6 +13,7 @@ import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import { isAddonAuthor } from 'core/utils';
 import {
+  deleteAddonReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
   sendReplyToReview,
@@ -54,6 +56,20 @@ type InternalProps = {|
 |};
 
 export class AddonReviewListItemBase extends React.Component<InternalProps> {
+  onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+    const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
+    event.preventDefault();
+
+    invariant(review, 'review is required');
+    dispatch(
+      deleteAddonReview({
+        errorHandlerId: errorHandler.id,
+        reviewId: review.id,
+        isReplyToReviewId,
+      }),
+    );
+  };
+
   onClickToEditReview = (event: SyntheticEvent<any>) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
@@ -233,6 +249,15 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
               {isReply
                 ? i18n.gettext('Edit my reply')
                 : i18n.gettext('Edit my review')}
+            </a>
+            <a
+              href="#delete"
+              onClick={this.onClickToDeleteReview}
+              className="AddonReviewListItem-delete AddonReviewListItem-control"
+            >
+              {isReply
+                ? i18n.gettext('Delete my reply')
+                : i18n.gettext('Delete my review')}
             </a>
           </React.Fragment>
         ) : null}
