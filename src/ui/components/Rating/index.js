@@ -71,7 +71,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   // that surrounds the read-only set of stars.
   renderTitle = (
     rating: ?number,
-    readOnly: boolean,
+    readOnly: boolean | void,
     starRating: number | null,
   ) => {
     const { i18n } = this.props;
@@ -140,7 +140,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         key: `rating-${thisRating}`,
         onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
-        title: this.renderTitle(rating, readOnly || false, thisRating),
+        title: this.renderTitle(rating, readOnly, thisRating),
       };
 
       if (readOnly) {
