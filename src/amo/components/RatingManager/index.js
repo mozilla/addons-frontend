@@ -118,21 +118,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
     if (userReview) {
       log.debug(`Editing reviewId ${userReview.id}`);
-      if (userReview.versionId === params.versionId) {
-        params.reviewId = userReview.id;
-
-        log.debug(oneLine`Updating reviewId ${userReview.id} for
-          versionId ${params.versionId || '[empty]'}`);
-      } else {
-        // Since we have a version mismatch, submit the review against the
-        // current most version, similar to how new reviews are created.
-        params.versionId =
-          this.props.addon.current_version &&
-          this.props.addon.current_version.id;
-
-        log.debug(oneLine`Submitting a new review for
-          versionId ${params.versionId || '[empty]'}`);
-      }
+      params.reviewId = userReview.id;
     } else {
       log.debug(oneLine`Submitting a new review for
         versionId ${params.versionId || '[empty]'}`);
