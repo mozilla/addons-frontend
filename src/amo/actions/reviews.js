@@ -8,7 +8,6 @@ import type {
   GroupedRatingsType,
 } from 'amo/api/reviews';
 
-export const CLEAR_ADDON_REVIEWS: 'CLEAR_ADDON_REVIEWS' = 'CLEAR_ADDON_REVIEWS';
 export const CREATE_ADDON_REVIEW: 'CREATE_ADDON_REVIEW' = 'CREATE_ADDON_REVIEW';
 export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
   'SHOW_EDIT_REVIEW_FORM';
@@ -39,6 +38,9 @@ export const SEND_REPLY_TO_REVIEW: 'SEND_REPLY_TO_REVIEW' =
   'SEND_REPLY_TO_REVIEW';
 export const SEND_REVIEW_FLAG: 'SEND_REVIEW_FLAG' = 'SEND_REVIEW_FLAG';
 export const UPDATE_ADDON_REVIEW: 'UPDATE_ADDON_REVIEW' = 'UPDATE_ADDON_REVIEW';
+export const DELETE_ADDON_REVIEW: 'DELETE_ADDON_REVIEW' = 'DELETE_ADDON_REVIEW';
+export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
+  'UNLOAD_ADDON_REVIEWS';
 
 export type UserReviewType = {|
   addonId: number,
@@ -478,27 +480,6 @@ export const setReviewWasFlagged = ({
   };
 };
 
-type ClearAddonReviewsParams = {|
-  addonSlug: string,
-|};
-
-export type ClearAddonReviewsAction = {|
-  type: typeof CLEAR_ADDON_REVIEWS,
-  payload: ClearAddonReviewsParams,
-|};
-
-export const clearAddonReviews = ({
-  addonSlug,
-}: ClearAddonReviewsParams): ClearAddonReviewsAction => {
-  if (!addonSlug) {
-    throw new Error('the addonSlug parameter is required');
-  }
-  return {
-    type: CLEAR_ADDON_REVIEWS,
-    payload: { addonSlug },
-  };
-};
-
 type SetLatestReviewParams = {|
   addonId: number,
   addonSlug: string,
@@ -625,5 +606,47 @@ export type HideFlashedReviewMessageAction = {|
 export const hideFlashedReviewMessage = (): HideFlashedReviewMessageAction => {
   return {
     type: HIDE_FLASHED_REVIEW_MESSAGE,
+  };
+};
+
+type DeleteAddonReviewParams = {|
+  errorHandlerId: string,
+  reviewId: number,
+|};
+
+export type DeleteAddonReviewAction = {|
+  type: typeof DELETE_ADDON_REVIEW,
+  payload: DeleteAddonReviewParams,
+|};
+
+export const deleteAddonReview = ({
+  errorHandlerId,
+  reviewId,
+}: DeleteAddonReviewParams) => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(reviewId, 'reviewId is required');
+
+  return {
+    type: DELETE_ADDON_REVIEW,
+    payload: { errorHandlerId, reviewId },
+  };
+};
+
+type UnloadAddonReviewsParams = {|
+  reviewId: number,
+|};
+
+export type UnloadAddonReviewsAction = {|
+  type: typeof UNLOAD_ADDON_REVIEWS,
+  payload: UnloadAddonReviewsParams,
+|};
+
+export const unloadAddonReviews = ({
+  reviewId,
+}: UnloadAddonReviewsParams): UnloadAddonReviewsAction => {
+  invariant(reviewId, 'reviewId is required');
+  return {
+    type: UNLOAD_ADDON_REVIEWS,
+    payload: { reviewId },
   };
 };

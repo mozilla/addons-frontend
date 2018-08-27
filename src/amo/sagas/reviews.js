@@ -9,6 +9,7 @@ import { call, delay, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import {
+  deleteReview,
   flagReview,
   getReviews,
   replyToReview,
@@ -17,6 +18,7 @@ import {
 import {
   ABORTED,
   CREATE_ADDON_REVIEW,
+  DELETE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
@@ -27,6 +29,7 @@ import {
   STARTED_SAVE_RATING,
   STARTED_SAVE_REVIEW,
   UPDATE_ADDON_REVIEW,
+  unloadAddonReviews,
   flashReviewMessage,
   hideFlashedReviewMessage,
   hideReplyToReviewForm,
@@ -49,6 +52,7 @@ import type {
 } from 'amo/api/reviews';
 import type {
   CreateAddonReviewAction,
+  DeleteAddonReviewAction,
   FetchGroupedRatingsAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
@@ -279,6 +283,27 @@ function* manageAddonReview(
   }
 }
 
+function* deleteAddonReview({
+  payload: { errorHandlerId, reviewId },
+}: DeleteAddonReviewAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+    yield call(deleteReview, {
+      apiState: state.api,
+      reviewId,
+    });
+
+    yield put(unloadAddonReviews({ reviewId }));
+  } catch (error) {
+    log.warn(`Failed to delete review ID ${reviewId}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* reviewsSaga(
   options?: Options,
 ): Generator<any, any, any> {
@@ -293,4 +318,5 @@ export default function* reviewsSaga(
   yield takeLatest(UPDATE_ADDON_REVIEW, (action) =>
     manageAddonReview(action, options),
   );
+  yield takeLatest(DELETE_ADDON_REVIEW, deleteAddonReview);
 }
