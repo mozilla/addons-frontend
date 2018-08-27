@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-27 12:52+0000\n"
+"PO-Revision-Date: 2018-08-27 13:12+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -45,7 +45,7 @@ msgstr "Kolleksiyaya əlavə et"
 
 #: src/amo/components/Addon/index.js:162 src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "%(title)s ön görünüşü"
 
 #: src/amo/components/Addon/index.js:197
 msgid "This add-on cannot be rated because no versions have been published."
@@ -59,7 +59,7 @@ msgstr[1] "%(count)s rəyi oxu"
 
 #: src/amo/components/Addon/index.js:226
 msgid "No reviews yet"
-msgstr ""
+msgstr "Hələlik rəy yoxdur"
 
 #: src/amo/components/Addon/index.js:236
 msgid "Rate your experience"
@@ -67,44 +67,44 @@ msgstr "Təcrübənizi qiymətləndirin"
 
 #: src/amo/components/Addon/index.js:255
 msgid "About this dictionary"
-msgstr ""
+msgstr "Bu lüğət haqqında"
 
 #: src/amo/components/Addon/index.js:258
 msgid "About this extension"
-msgstr ""
+msgstr "Bu uzantı haqqında"
 
 #: src/amo/components/Addon/index.js:261
 msgid "About this language pack"
-msgstr ""
+msgstr "Bu dil paketi haqqında"
 
 #: src/amo/components/Addon/index.js:264
 msgid "About this search plugin"
-msgstr ""
+msgstr "Bu axtarış qoşması haqqında"
 
 #: src/amo/components/Addon/index.js:268
 msgid "About this theme"
-msgstr ""
+msgstr "Bu mövzu haqqında"
 
 #: src/amo/components/Addon/index.js:271
 msgid "About this add-on"
-msgstr ""
+msgstr "Bu əlavə haqqında"
 
 #: src/amo/components/Addon/index.js:310
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "%(addonVersion)s üçün buraxılış qeydləri"
 
 # Example: The Add-On <span>by The Author</span>
 #: src/amo/components/Addon/index.js:428
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s%(startSpan)s%(authorList)s tərəfindən%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:543
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "Ancaq Firefoxda—İndi Firefox Endirin"
 
 #: src/amo/components/Addon/index.js:549
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Uzantı meta məlumatları"
 
 #: src/amo/components/Addon/index.js:566
 msgid "Screenshots"
@@ -116,11 +116,11 @@ msgstr "Seçilmiş Uzantı"
 
 #: src/amo/components/AddonBadges/index.js:36
 msgid "Featured Theme"
-msgstr ""
+msgstr "Seçilmiş Mövzu"
 
 #: src/amo/components/AddonBadges/index.js:38
 msgid "Featured Add-on"
-msgstr ""
+msgstr "Seçilmiş Əlavə"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Restart Required"
@@ -128,15 +128,15 @@ msgstr "Yenidən başlatmaq tələb edilir"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "Təcrübi"
 
 #: src/amo/components/AddonBadges/index.js:63
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Firefox Quantum ilə uyğun deyil"
 
 #: src/amo/components/AddonBadges/index.js:69
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Bəzi özəlliklər ödəniş tələb edə bilər"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -144,11 +144,11 @@ msgstr "Bu əlavəni qurmaq üçün <a href=\"%(downloadUrl)s\">Firefox endirin<
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Bu əlavə Firefox versiyanız ilə uyğun deyil."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Firefox versiyanız axtarış qoşmalarını dəstəkləmir."
 
 #: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Firefox for iOS does not currently support add-ons."
@@ -156,7 +156,7 @@ msgstr "iOS üçün Firefox hazırda əlavələri dəstəkləmir."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Bu əlavə sizin platformanızda yoxdur."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -174,7 +174,7 @@ msgstr[1] "%(total)s Ulduz"
 
 #: src/amo/components/AddonMeta/index.js:120
 msgid "Not rated yet"
-msgstr ""
+msgstr "Hələlik qiymətləndirilməyib"
 
 #: src/amo/components/AddonMeta/index.js:43
 msgid "Users"
@@ -215,11 +215,11 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Bu əlavənin məxfilik siyasətini oxuyun"
 
 #: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Bu əlavənin lisenziya razılığını oxuyun"
 
 #: src/amo/components/AddonMoreInfo/index.js:157
 msgid "See all versions"
@@ -271,19 +271,19 @@ msgstr "Dəstək Saytı"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
 msgid "Support Email"
-msgstr ""
+msgstr "Dəstək e-poçtu"
 
 #: src/amo/components/AddonMoreInfo/index.js:89
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Statistika panelinə get"
 
 #: src/amo/components/AddonRecommendations/index.js:132
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Bu uzantını quran digər istifadəçilər"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other popular extensions"
-msgstr ""
+msgstr "Digər məşhur uzantılar"
 
 #: src/amo/components/AddonReview/index.js:198
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -415,19 +415,19 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:258
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s tərəfindən digər dil paketləri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:261
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Bu tərcüməçilərin digər dil paketləri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:265
 msgid "Language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s tərəfindən dil paketləri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:268
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "Bu tərcüməçilər tərəfindən dil paketləri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:276
 msgid "More themes by %(author)s"
@@ -1331,7 +1331,7 @@ msgstr "Bütün kateqoriyaları kəşf et"
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
-msgstr ""
+msgstr "Dili dəyişdir"
 
 #: src/amo/components/LanguageTools/index.js:102
 msgid "Available for your locale"
@@ -1339,15 +1339,15 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "Lüğətlər və Dil paketləri"
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Lüğət əlavəsini quraraq imla yoxlanışınıza yeni dili əlavə etmiş olacaqsınız, Firefoxda yazı yazarkən qrammatik səhvləri yoxlayacaq."
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Dil paketləri səyyahınızın interfeys dilini dəyişdirirlər, menyu seçimləri və tənzimləmələr də daxil."
 
 #: src/amo/components/LanguageTools/index.js:164
 msgid "All Locales"
