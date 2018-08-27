@@ -187,6 +187,10 @@
       // Fixes screenshot overflow in FF 52 ESR.
       max-width: 100%;
       overflow-x: hidden;
+
+      .Card:first-child {
+        margin-top: 0;
+      }
     }
 
     .AddonDescription-contents {
