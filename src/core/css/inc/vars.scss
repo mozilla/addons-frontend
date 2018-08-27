@@ -52,3 +52,33 @@ $theme-width-default: 680px;
 
 // Lightweight images are slightly different
 $theme-height-legacy: 100px;
+
+// No "small" breakpoint is defined here because we are mobile-first.
+// Instead of adding a rule for only mobile, add a mobile rule and override
+// it with `@include respond-to(medium) { [...] }`.
+$breakpoints: (
+  mediumOnly: only screen and
+    (
+      min-width: 500px,
+    )
+    and
+    (
+      max-width: 719px,
+    ),
+  medium: only screen and
+    (
+      min-width: 500px,
+    ),
+  large: only screen and
+    (
+      min-width: 720px,
+    ),
+  extraLarge: only screen and
+    (
+      min-width: 900px,
+    ),
+  extraExtraLarge: only screen and
+    (
+      min-width: 1150px,
+    ),
+);

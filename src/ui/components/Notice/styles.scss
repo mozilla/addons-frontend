@@ -1,8 +1,7 @@
+@import '~photon-colors/photon-colors';
 @import '~core/css/inc/mixins';
-@import '~core/css/inc/vars';
 @import '~ui/css/vars';
 @import '~ui/components/Button/styles';
-@import '~photon-colors/photon-colors';
 
 .Notice {
   border-radius: $border-radius-s;

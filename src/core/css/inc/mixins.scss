@@ -1,6 +1,5 @@
-@import './vars';
-@import '~amo/css/inc/vars';
 @import '~photon-colors/photon-colors';
+@import './vars';
 
 @mixin page-padding() {
   // This adds consistent padding to any top-level page component.

@@ -1,7 +1,4 @@
-@import '~photon-colors/photon-colors';
-@import '~core/css/inc/mixins';
-@import '~amo/css/inc/vars';
-@import '~ui/css/vars';
+@import '~amo/css/styles';
 
 .AddonReviewList {
   @include page-padding();
@@ -19,7 +16,7 @@
   }
 
   .CardList {
-    margin: 0 0 $vertical-space-xs;
+    margin: 0 0 8px;
     // https://stackoverflow.com/questions/36150458
     min-width: 50%;
   }
