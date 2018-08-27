@@ -16,13 +16,17 @@
 .AddonReviewListItem-allControls {
   display: flex;
   justify-content: flex-end;
-  margin-top: 6px;
-  width: 100%;
+  margin-top: 0;
 
-  @include respond-to(extraExtraLarge) {
-    justify-content: flex-start;
-    margin-top: 0;
-    width: auto;
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    &:not(.Button) {
+      color: $blue-50;
+      font-weight: normal;
+      text-decoration: none;
+    }
   }
 }
 
