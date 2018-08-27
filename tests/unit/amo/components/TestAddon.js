@@ -42,7 +42,6 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ALL_SUPER_POWERS,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
@@ -1568,61 +1567,16 @@ describe(__filename, () => {
       expect(installButton).toHaveProp('uninstall', uninstall);
     });
   });
+
   // Non-public add-ons require an account listed as a developer of the add-on or admin rights.
-  it('displays a notice to the admin on a disabled addon', () => {
+  it('displays a notice on a disabled addon to admin/developer', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       status: 'disabled',
     });
 
-    const root = shallowRender({
-      addon,
-      store: dispatchSignInActions({
-        userProps: {
-          permissions: [ALL_SUPER_POWERS],
-        },
-      }).store,
-    });
-
+    const root = shallowRender({ addon });
     expect(root.find(Notice)).toHaveLength(1);
-
-    expect(
-      root
-        .find(Notice)
-        .childAt(0)
-        .text(),
-    ).toEqual(
-      'This is not a public listing. You are only seeing it because of elevated permissions.',
-    );
-  });
-
-  it('displays a notice to the developer on a disabled addon', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      status: 'disabled',
-    });
-    const root = shallowRender({
-      store: dispatchSignInActions({
-        userProps: {
-          is_addon_developer: true,
-          display_name: 'championshuttler',
-          userId: 100,
-          username: 'championshuttler',
-        },
-      }),
-      addon,
-    });
-
-    expect(root.find(Notice)).toHaveLength(1);
-
-    expect(
-      root
-        .find(Notice)
-        .childAt(0)
-        .text(),
-    ).toEqual(
-      'This is not a public listing. You are only seeing it because of elevated permissions.',
-    );
   });
 
   it('does not display a disabled notice for a public addon', () => {
