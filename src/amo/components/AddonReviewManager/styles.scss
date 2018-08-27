@@ -44,10 +44,6 @@
   flex-wrap: wrap;
 }
 
-.AddonReviewManager .AddonReviewManager-Rating {
-  @include margin-start(6px);
-}
-
 .AddonReviewManager-savedRating {
   @include margin-start(6px);
 
