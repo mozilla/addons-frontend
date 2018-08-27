@@ -1,4 +1,4 @@
-// For use on addons-server, or with the command `amo:ui-tests`
+// For use on addons-server, or with the command `amo:ui-tests`.
 module.exports = {
   apiHost: 'http://olympia.test',
   CSP: false,
