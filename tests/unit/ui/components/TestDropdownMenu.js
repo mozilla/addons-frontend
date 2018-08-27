@@ -9,9 +9,8 @@ import { createFakeEvent, shallowUntilTarget } from 'tests/unit/helpers';
 describe(__filename, () => {
   const renderComponent = (componentInstance) => {
     return shallowUntilTarget(componentInstance, DropdownMenuBase, {
-      // TODO: ideally, we would like to enable the lifecycle methods, but it
-      // produces unexpected errors, related to Enzyme 3.
-      // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+      // This is needed because of `react-onclickoutside`, see:
+      // https://github.com/mozilla/addons-frontend/issues/5879
       shallowOptions: { disableLifecycleMethods: true },
     });
   };
