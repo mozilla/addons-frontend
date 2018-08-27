@@ -59,10 +59,11 @@ $addon-padding: 20px;
   .logo {
     align-items: center;
     align-self: stretch;
-    display: flex;
+    display: none;
     padding: 0 5px;
 
     @include respond-to(medium) {
+      display: flex;
       padding: 0 10px;
     }
 
