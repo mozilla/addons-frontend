@@ -410,20 +410,19 @@ describe(__filename, () => {
         userId: userId2,
       });
 
-      const verifyUnrelatedData = () => {
-        expect(state.byId[reviewId2].addonId).toEqual(addonId2);
-        expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
-        expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
-        expect(state.groupedRatings[addonId2]).toEqual(grouping);
-      };
-
       // Verify that the unrelated data has been loaded for the reviewId.
-      verifyUnrelatedData();
+      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+      expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
+      expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
+      expect(state.groupedRatings[addonId2]).toEqual(grouping);
 
       state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
 
       // Verify that the unrelated data has not been unloaded.
-      verifyUnrelatedData();
+      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+      expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
+      expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
+      expect(state.groupedRatings[addonId2]).toEqual(grouping);
     });
   });
 

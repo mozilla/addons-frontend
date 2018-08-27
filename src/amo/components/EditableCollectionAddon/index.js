@@ -202,7 +202,7 @@ const EditableCollectionAddon: React.ComponentType<Props> = compose(
     fileName: __filename,
     extractId,
     initialState: initialUIState,
-    resetOnUnmount: false,
+    resetOnUnmount: true,
   }),
 )(EditableCollectionAddonBase);
 
