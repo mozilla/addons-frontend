@@ -72,7 +72,7 @@
       "command": "better-npm-run start-dev-proxy",
       "env": {
         "NODE_APP_INSTANCE": "amo",
-        "NODE_CONFIG_ENV": "ui-tests"
+        "NODE_ENV": "production"
       }
     },
     "amo:no-proxy": {
