@@ -198,7 +198,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   renderTextEntry() {
     const { _config, userReview } = this.props;
 
-    if (!userReview || !this.isLoggedIn()) {
+    if (!userReview || !this.isSignedIn()) {
       return null;
     }
 
@@ -214,7 +214,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     );
   }
 
-  isLoggedIn() {
+  isSignedIn() {
     return Boolean(this.props.userId);
   }
 
@@ -231,11 +231,11 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         <fieldset>
           <legend className="RatingManager-legend">{prompt}</legend>
           <div className="RatingManager-ratingControl">
-            {!this.isLoggedIn() ? this.renderLogInToRate() : null}
+            {!this.isSignedIn() ? this.renderLogInToRate() : null}
             <UserRating
-              readOnly={!this.isLoggedIn()}
+              readOnly={!this.isSignedIn()}
               onSelectRating={this.onSelectRating}
-              review={!this.isLoggedIn() ? null : userReview}
+              review={!this.isSignedIn() ? null : userReview}
             />
           </div>
         </fieldset>
@@ -247,7 +247,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     const { i18n } = this.props;
     const { showTextEntry } = this.state;
 
-    return showTextEntry && this.isLoggedIn() ? (
+    return showTextEntry && this.isSignedIn() ? (
       <Button
         href="#cancelTextEntry"
         onClick={this.cancelTextEntry}
