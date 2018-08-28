@@ -1,10 +1,6 @@
-@import '~normalize.css';
-@import '~photon-colors/photon-colors';
-@import '~core/css/inc/vars';
+@import '~normalize';
 @import '~core/css/inc/lib';
-@import '~core/css/inc/mixins';
-@import '~amo/css/inc/vars';
-@import '~ui/css/vars';
+@import '~amo/css/styles';
 
 html,
 body {

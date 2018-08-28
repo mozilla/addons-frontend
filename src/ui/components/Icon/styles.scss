@@ -1,6 +1,5 @@
-@import '~ui/css/vars';
+@import '~ui/css/styles';
 @import './vars';
-@import '~core/css/inc/mixins';
 
 @mixin icon($name) {
   background: url('./img/#{$name}.svg') center no-repeat;
