@@ -513,6 +513,30 @@ describe(__filename, () => {
       expect(root.find(UserRating)).toHaveLength(1);
     });
 
+    it('does not render AddonReviewManager without a saved review', async () => {
+      const addon = createInternalAddon({ ...fakeAddon, id: 7777 });
+      const userId = 9876;
+      const versionId = 1234;
+      const { store } = dispatchSignInActions({ userId });
+
+      store.dispatch(
+        setLatestReview({
+          addonId: addon.id,
+          addonSlug: addon.slug,
+          review: null,
+          userId,
+          versionId,
+        }),
+      );
+      const root = renderInline({ addon, store, version: versionId });
+
+      root.setState({ showTextEntry: true });
+
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+      expect(root.find('.RatingManager-cancelTextEntryButton')).toHaveLength(0);
+      expect(root.find(UserRating)).toHaveLength(1);
+    });
+
     it('renders an AuthenticateButton when not signed in', () => {
       const { store } = dispatchClientMetadata();
       const root = renderInline({ store });

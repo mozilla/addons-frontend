@@ -170,6 +170,29 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
   }
 
+  onReviewSubmitted = () => {
+    this.setState({ showTextEntry: false });
+    if (this.props.onReviewSubmitted) {
+      this.props.onReviewSubmitted();
+    }
+  };
+
+  cancelTextEntry = (event: SyntheticEvent<any>) => {
+    event.preventDefault();
+    this.setState({ showTextEntry: false });
+  };
+
+  isSignedIn() {
+    return Boolean(this.props.userId);
+  }
+
+  shouldShowTextEntry() {
+    const { userReview } = this.props;
+    const { showTextEntry } = this.state;
+
+    return showTextEntry && userReview && this.isSignedIn();
+  }
+
   renderLogInToRate() {
     const { addon, location } = this.props;
 
@@ -183,24 +206,9 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     );
   }
 
-  onReviewSubmitted = () => {
-    this.setState({ showTextEntry: false });
-    if (this.props.onReviewSubmitted) {
-      this.props.onReviewSubmitted();
-    }
-  };
-
-  cancelTextEntry = (event: SyntheticEvent<any>) => {
-    event.preventDefault();
-    this.setState({ showTextEntry: false });
-  };
-
   renderTextEntry() {
     const { _config, userReview } = this.props;
-
-    if (!userReview || !this.isSignedIn()) {
-      return null;
-    }
+    invariant(userReview, 'userReview is required');
 
     if (_config.get('enableInlineAddonReview')) {
       return <AddonReviewManager review={userReview} />;
@@ -212,10 +220,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         review={userReview}
       />
     );
-  }
-
-  isSignedIn() {
-    return Boolean(this.props.userId);
   }
 
   renderUserRatingForm() {
@@ -244,10 +248,10 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { i18n } = this.props;
+    const { i18n, userReview } = this.props;
     const { showTextEntry } = this.state;
 
-    return showTextEntry && this.isSignedIn() ? (
+    return this.shouldShowTextEntry() ? (
       <Button
         href="#cancelTextEntry"
         onClick={this.cancelTextEntry}
@@ -264,14 +268,13 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
   render() {
     const { _config, addon, version } = this.props;
-    const { showTextEntry } = this.state;
 
     invariant(addon, 'addon is required');
     invariant(version, 'version is required');
 
     return (
       <div className="RatingManager">
-        {showTextEntry ? this.renderTextEntry() : null}
+        {this.shouldShowTextEntry() ? this.renderTextEntry() : null}
         {_config.get('enableInlineAddonReview')
           ? this.renderInlineReviewControls()
           : this.renderUserRatingForm()}
