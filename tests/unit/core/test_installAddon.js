@@ -1129,7 +1129,7 @@ describe(__filename, () => {
           name,
           icon_url: iconUrl,
         });
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
           _tracking: fakeTracking,
