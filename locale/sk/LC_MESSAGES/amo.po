@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-28 19:21+0000\n"
+"PO-Revision-Date: 2018-08-28 19:51+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -200,8 +200,8 @@ msgstr "recenzie"
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "recenzia"
-msgstr[1] "Text recenzie"
-msgstr[2] "Text recenzie"
+msgstr[1] "recenzie"
+msgstr[2] "recenzií"
 
 #: src/amo/components/AddonMeta/index.js:60
 msgid "No Reviews"
@@ -1006,27 +1006,27 @@ msgstr "Môj účet"
 
 #: src/amo/components/Home/index.js:119
 msgid "Bookmarks"
-msgstr ""
+msgstr "Záložky"
 
 #: src/amo/components/Home/index.js:123
 msgid "Password managers"
-msgstr ""
+msgstr "Správcovia hesel"
 
 #: src/amo/components/Home/index.js:127
 msgid "Ad blockers"
-msgstr ""
+msgstr "Blokovače reklám"
 
 #: src/amo/components/Home/index.js:131
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Inteligentnejšie nakupovanie"
 
 #: src/amo/components/Home/index.js:135
 msgid "Productivity"
-msgstr ""
+msgstr "Produktivita"
 
 #: src/amo/components/Home/index.js:139
 msgid "Watching Videos"
-msgstr ""
+msgstr "Sledovanie videí"
 
 #: src/amo/components/Home/index.js:167
 msgid "Abstract"
@@ -1054,35 +1054,31 @@ msgstr "Sezónne"
 
 #: src/amo/components/Home/index.js:223
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Prispôsobte si svoj Firefox pomocou rozšírení. Vyberte si z našich kategórií…"
 
 #: src/amo/components/Home/index.js:225
 msgid "Change the way Firefox looks with themes."
 msgstr "Zmeňte vzhľad Firefoxu prostredníctvom tém."
 
 #: src/amo/components/Home/index.js:50
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Hľadať v rozšíreniach"
+msgstr "Ďalšie výnimočné vyhľadávacie nástroje"
 
 #: src/amo/components/Home/index.js:51
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Výnimočné vyhľadávacie nástroje"
 
 #: src/amo/components/Home/index.js:56
-#, fuzzy
 msgid "See more fall themes"
-msgstr "Ďalšie odporúčané témy vzhľadu"
+msgstr "Ďalšie jesenné témy vzhľadu"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "Fall themes"
-msgstr "Hľadať"
+msgstr "Jesenné témy vzhľadu"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more YouTube extensions"
-msgstr "Ďalšie rozšírenia týkajúce sa kariet"
+msgstr "Ďalšie rozšírenia pre YouTube"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
@@ -1586,9 +1582,8 @@ msgid "Featured add-ons"
 msgstr "Vybrané doplnky"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Načítavanie doplnkov"
+msgstr ""
 
 #: src/amo/components/Search/index.js:155
 msgid "Top rated add-ons"
@@ -1622,20 +1617,18 @@ msgstr[1] "Boli nájdené %(count)s doplnky"
 msgstr[2] "Bolo nájdených %(count)s doplnkov"
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
-msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdené %(count)s rozšírenie"
+msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s rozšírenia"
+msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s rozšírení"
 
 #: src/amo/components/SearchContextCard/index.js:49
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
-msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bol nájdený %(count)s slovník"
+msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s slovníky"
+msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s slovníkov"
 
 #: src/amo/components/SearchContextCard/index.js:58
 #, fuzzy
@@ -1648,17 +1641,16 @@ msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s v�
 #: src/amo/components/SearchContextCard/index.js:67
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bola nájdená %(count)s téma vzhľadu"
+msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s témy vzhľadu"
+msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s tém vzhľadu"
 
 #: src/amo/components/SearchContextCard/index.js:76
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
-msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bol nájdený %(count)s výsledok"
+msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s výsledky"
+msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s result for \"%(query)s\""
@@ -1977,28 +1969,27 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:51
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Funguje doplnok podľa vašich očakávaní?"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:54
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Ktoré funkcie sa vám páčili, a ktoré naopak nie?"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:56
 msgid "Was it useful?"
-msgstr ""
+msgstr "Je tento doplnok užitočný?"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:57
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Používa sa jednoducho?"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:59
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Ak chcete ohodnotiť tento doplnok, musíte sa prihlásiť"
+msgstr "Budete tento doplnok používať aj naďalej?"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:64
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Pred odoslaním svojej recenzie si ju, prosím, prečítajte znovu a opravte prípadné preklepy."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:69
 msgid "Don't:"
@@ -2089,7 +2080,7 @@ msgstr "Priemerné hodnotenie doplnkov vývojára"
 
 #: src/amo/components/UserProfile/index.js:376 src/amo/components/UserProfileEdit/index.js:651
 msgid "Biography"
-msgstr ""
+msgstr "Životopis"
 
 #: src/amo/components/UserProfile/index.js:400
 #, fuzzy
@@ -2169,7 +2160,7 @@ msgstr "Ak chcete, predstavte sa komunite"
 
 #: src/amo/components/UserProfileEdit/index.js:659
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Predstavte používateľa %(username)s komunite"
 
 #: src/amo/components/UserProfileEdit/index.js:673
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -2181,15 +2172,15 @@ msgstr "Upozornenia"
 
 #: src/amo/components/UserProfileEdit/index.js:701
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Z času na čas môže Mozilla posielať e-mailové správy o nadchádzajúcich verziách a udalostiach spojených s doplnkami. Vyberte si témy, ktoré vás zaujímajú."
 
 #: src/amo/components/UserProfileEdit/index.js:706
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Z času na čas môže Mozilla tomuto používateľovi posielať e-mailové správy o nadchádzajúcich verziách a udalostiach spojených s doplnkami. Vyberte si témy, ktoré tohto používateľa zaujímajú."
 
 #: src/amo/components/UserProfileEdit/index.js:721
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla si vyhradzuje právo vás osobne kontaktovať ohľadne špecifických záležitostí týkajúcich sa vašich tu uverejnených doplnkov."
 
 #: src/amo/components/UserProfileEdit/index.js:739
 #, fuzzy
@@ -2220,11 +2211,11 @@ msgstr "Odstrániť profil"
 
 #: src/amo/components/UserProfileEdit/index.js:766
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "DÔLEŽITÉ: Odstránenie vášho profilu je nenavrátiteľné."
 
 #: src/amo/components/UserProfileEdit/index.js:769
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "DÔLEŽITÉ: Odstránenie tohto profilu je nenavrátiteľné."
 
 #: src/amo/components/UserProfileEdit/index.js:778
 msgid ""
@@ -2410,11 +2401,11 @@ msgstr "Stránka %(currentPage)s z %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:132
 msgid "Take short survey"
-msgstr ""
+msgstr "Zúčastnite sa krátkeho prieskumu"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Ďakujeme za návštevu našej stránky. Prosím, povedzte nám o svojej skúsenosti s Firefoxom."
 
 #: src/ui/components/ConfirmButton/index.js:100
 msgid "Confirm"
@@ -2480,7 +2471,7 @@ msgstr "Pristupovať k údajom pre %(param)s"
 
 #: src/ui/components/Notice/index.js:129
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Zavrieť toto oznámenie"
 
 #: src/ui/components/Rating/index.js:81
 msgid "Rated %(rating)s out of 5"
@@ -2495,9 +2486,8 @@ msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Zmeniť hodnotenie na %(starRating)s z 5"
 
 #: src/ui/components/Rating/index.js:98
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Hodnotenie: %(rating)s z 5"
+msgstr "Ohodnoťte tento doplnok %(starRating)s z 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
