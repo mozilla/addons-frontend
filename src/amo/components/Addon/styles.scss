@@ -6,6 +6,7 @@
   @include page-padding();
 
   .Addon-summary-and-install-button-wrapper {
+    .AMInstallButton,
     .InstallButton,
     .Button--get-firefox {
       @include respond-to(medium) {
@@ -151,6 +152,7 @@
   word-wrap: break-word;
 }
 
+.Addon .AMInstallButton,
 .Addon .InstallButton {
   @include respond-to(medium) {
     @include margin-start(auto);
@@ -160,6 +162,7 @@
   }
 }
 
+.Addon .AMInstallButton-button,
 .Addon .InstallButton-button,
 .Button--get-firefox {
   width: 100%;
