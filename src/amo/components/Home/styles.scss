@@ -20,7 +20,7 @@
   .Card-header {
     display: block;
 
-    @include respond-to(mediumcard) {
+    @include respond-to(extraLarge) {
       display: none;
     }
   }
@@ -33,7 +33,7 @@
     overflow: auto;
     width: 100%;
 
-    @include respond-to(mediumcard) {
+    @include respond-to(extraLarge) {
       border-top-left-radius: $border-radius-default;
       border-top-right-radius: $border-radius-default;
       flex-wrap: nowrap;
@@ -47,7 +47,7 @@
   display: none;
   height: auto;
 
-  @include respond-to(mediumcard) {
+  @include respond-to(extraLarge) {
     align-self: center;
     display: block;
     max-width: 130px;
