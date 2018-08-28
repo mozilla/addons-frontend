@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-28 18:11+0000\n"
+"PO-Revision-Date: 2018-08-28 19:21+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1646,12 +1646,11 @@ msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výs
 msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:67
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
-msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:76
 #, fuzzy
@@ -1664,9 +1663,9 @@ msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s v�
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
-msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ nebol nájdený žiadny výsledok"
+msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s výsledky"
+msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:94
 msgid "Searching for \"%(query)s\""
