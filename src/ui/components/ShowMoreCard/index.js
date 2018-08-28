@@ -18,7 +18,8 @@ import './styles.scss';
 export const MAX_HEIGHT = 150;
 
 type UIStateType = {|
-  expanded: boolean,
+  showAllContent: boolean,
+  disableTruncateCall: boolean,
 |};
 
 type Props = {|
@@ -35,45 +36,50 @@ type InternalProps = {|
   uiState: UIStateType,
 |};
 
-const initialUIState: UIStateType = { expanded: true };
+const initialUIState: UIStateType = {
+  showAllContent: true,
+  disableTruncateCall: false,
+};
 
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
-  hasExpanded = false;
-
   onClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+    const { setUIState } = this.props;
+
     event.preventDefault();
-    this.props.setUIState({ expanded: true });
+
+    setUIState({ showAllContent: true });
+
+    // This is used to prevent any additional
+    // unnecessary calls to the truncate function.
+    setUIState({ disableTruncateCall: true });
   };
 
   componentWillReceiveProps(nextProps: InternalProps) {
-    const {
-      uiState: { expanded },
-    } = this.props;
-
-    if (!expanded && expanded !== nextProps.uiState.expanded) {
-      this.hasExpanded = true;
-    }
-
-    if (!this.hasExpanded) {
+    // Once read more has been clicked, the card has been opened so we no longer
+    // have to run this truncate for the component.
+    if (!this.props.uiState.disableTruncateCall) {
       this.truncateToMaxHeight(this.contents);
     }
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {
-    // If the contents are short enough they don't need a "show more" link; the
-    // contents are expanded by default.
     if (contents) {
-      if (this.props.uiState.expanded && contents.clientHeight >= MAX_HEIGHT) {
-        this.props.setUIState({ expanded: false });
+      // If the contents are short enough they don't need a "show more" link; the
+      // contents are expanded by default.
+      if (
+        this.props.uiState.showAllContent &&
+        contents.clientHeight >= MAX_HEIGHT
+      ) {
+        this.props.setUIState({ showAllContent: false });
       }
     }
   };
 
   render() {
     const { children, className, header, id, i18n, uiState } = this.props;
-    const { expanded } = uiState;
+    const { showAllContent } = uiState;
 
     invariant(children, 'The children property is required');
     invariant(id, 'The id property is required');
@@ -98,10 +104,10 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     return (
       <Card
         className={makeClassName('ShowMoreCard', className, {
-          'ShowMoreCard--expanded': expanded,
+          'ShowMoreCard--expanded': showAllContent,
         })}
         header={header}
-        footerLink={expanded ? null : readMoreLink}
+        footerLink={showAllContent ? null : readMoreLink}
       >
         <div
           className="ShowMoreCard-contents"
