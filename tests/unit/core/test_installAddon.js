@@ -25,12 +25,10 @@ import {
   INSTALL_ACTION,
   INSTALL_CANCELLED,
   INSTALL_CANCELLED_ACTION,
-  INSTALL_ERRORED_ACTION,
   INSTALL_FAILED,
-  INSTALL_FAILED_ACTION,
   INSTALL_STARTED_ACTION,
   INSTALL_THEME_CATEGORY,
-  INSTALL_THEME_STARTED_CATEGORY,
+  INSTALL_STARTED_THEME_CATEGORY,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,
@@ -1055,28 +1053,16 @@ describe(__filename, () => {
       });
 
       it('sets status to error on onInstallFailed', () => {
-        const _tracking = createFakeTracking();
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
         const name = 'my-addon';
         const type = ADDON_TYPE_EXTENSION;
-        const handler = createProgressHandler({
-          _tracking,
-          dispatch,
-          guid,
-          name,
-          type,
-        });
+        const handler = createProgressHandler({ dispatch, guid, name, type });
 
         handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
         sinon.assert.calledWith(dispatch, {
           type: 'INSTALL_ERROR',
           payload: { guid, error: INSTALL_FAILED },
-        });
-        sinon.assert.calledWith(_tracking.sendEvent, {
-          action: getAddonTypeForTracking(type),
-          category: getAddonEventCategory(type, INSTALL_FAILED_ACTION),
-          label: name,
         });
       });
 
@@ -1248,15 +1234,7 @@ describe(__filename, () => {
             ),
             label: addon.name,
           });
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
-            category: getAddonEventCategory(
-              ADDON_TYPE_EXTENSION,
-              INSTALL_ERRORED_ACTION,
-            ),
-            label: addon.name,
-          });
-          sinon.assert.calledTwice(fakeTracking.sendEvent);
+          sinon.assert.calledOnce(fakeTracking.sendEvent);
         });
       });
 
@@ -1643,7 +1621,7 @@ describe(__filename, () => {
         installTheme(node, addon, stubs);
         sinon.assert.calledWith(stubs._tracking.sendEvent, {
           action: TRACKING_TYPE_THEME,
-          category: INSTALL_THEME_STARTED_CATEGORY,
+          category: INSTALL_STARTED_THEME_CATEGORY,
           label: 'hai-theme',
         });
         sinon.assert.calledWith(stubs._tracking.sendEvent, {

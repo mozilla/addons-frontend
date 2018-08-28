@@ -31,12 +31,10 @@ import {
   INSTALL_CANCELLED,
   INSTALL_CANCELLED_ACTION,
   INSTALL_ERROR,
-  INSTALL_ERRORED_ACTION,
   INSTALL_FAILED,
-  INSTALL_FAILED_ACTION,
   INSTALL_STARTED_ACTION,
+  INSTALL_STARTED_THEME_CATEGORY,
   INSTALL_THEME_CATEGORY,
-  INSTALL_THEME_STARTED_CATEGORY,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,
@@ -94,7 +92,7 @@ export function installTheme(
     // For consistency, track both a start-install and an install event.
     _tracking.sendEvent({
       action: TRACKING_TYPE_THEME,
-      category: INSTALL_THEME_STARTED_CATEGORY,
+      category: INSTALL_STARTED_THEME_CATEGORY,
       label: name,
     });
     _tracking.sendEvent({
@@ -138,12 +136,6 @@ export function makeProgressHandler({ _tracking, dispatch, guid, name, type }) {
       dispatch({
         type: INSTALL_ERROR,
         payload: { guid, error: INSTALL_FAILED },
-      });
-
-      _tracking.sendEvent({
-        action: getAddonTypeForTracking(type),
-        category: getAddonEventCategory(type, INSTALL_FAILED_ACTION),
-        label: name,
       });
     }
   };
@@ -536,11 +528,6 @@ export class WithInstallHelpers extends React.Component {
             error: FATAL_INSTALL_ERROR,
           }),
         );
-        _tracking.sendEvent({
-          action: getAddonTypeForTracking(type),
-          category: getAddonEventCategory(type, INSTALL_ERRORED_ACTION),
-          label: name,
-        });
       });
   }
 
