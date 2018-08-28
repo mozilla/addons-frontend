@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-28 20:13+0000\n"
+"PO-Revision-Date: 2018-08-28 20:32+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -638,7 +638,6 @@ msgid "Collections make it easy to keep track of favorite add-ons and share your
 msgstr "Vďaka kolekciám môžete mať prehľad o svojich obľúbených doplnkoch a môžete zdieľať svoj perfektne prispôsobený prehliadač s ostatnými."
 
 #: src/amo/components/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
 msgstr "Vytvoriť kolekciu"
 
@@ -1538,20 +1537,19 @@ msgstr "Zrušiť"
 
 #: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Odosielam oznámenie o zneužití"
 
 #: src/amo/components/ReportAbuseButton/index.js:224 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "Odoslať oznámenie o zneužití"
 
 #: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Prejsť na stránku doplnku"
+msgstr "Nahlásiť používateľa"
 
 #: src/amo/components/ReportUserAbuse/index.js:114
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "Ak si myslíte, že tento používateľ porušuje %(linkTagStart)spravidlá stanovené Mozillou%(linkTagEnd)s, prosím, nahláste ho."
 
 #: src/amo/components/ReportUserAbuse/index.js:130
 #, fuzzy
@@ -1570,7 +1568,7 @@ msgstr "Ak chcete ohodnotiť tento doplnok, musíte sa prihlásiť"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "Dostali sme vaše oznámenie. Vďaka, že ste nám dali vedieť o svojich problémoch s týmto používateľom."
 
 #: src/amo/components/Search/index.js:119 src/amo/components/SearchResults/index.js:73
 msgid "Search results"
@@ -1960,11 +1958,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:43
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Píšte recenzie stručne a zrozumiteľne."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:46
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Poskytnite konkrétne a užitočné detaily. Napríklad:"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:51
 msgid "Did the add-on work as you expected it to?"
@@ -2082,7 +2080,6 @@ msgid "Biography"
 msgstr "Životopis"
 
 #: src/amo/components/UserProfile/index.js:400
-#, fuzzy
 msgid "Edit profile"
 msgstr "Upraviť profil"
 
@@ -2091,9 +2088,8 @@ msgid "Picture successfully deleted"
 msgstr "Fotografia bola úspešne odstránená"
 
 #: src/amo/components/UserProfileEdit/index.js:428
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Ak chcete upravovať túto kolekciu, musíte sa prihlásiť"
+msgstr "Ak chcete upraviť tento profil, musíte sa prihlásiť"
 
 #: src/amo/components/UserProfileEdit/index.js:475
 msgid "View user's profile"
