@@ -14,19 +14,21 @@ import {
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
   ENABLED,
+  ENABLE_ACTION,
   ERROR,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INACTIVE,
-  INSTALL_ACTION,
-  INSTALL_CANCELLED,
-  INSTALL_STARTED_ACTION,
-  INSTALL_FAILED,
-  INSTALL_THEME_CATEGORY,
-  INSTALL_THEME_STARTED_CATEGORY,
   INSTALLED,
   INSTALLING,
+  INSTALL_ACTION,
+  INSTALL_CANCELLED,
+  INSTALL_CANCELLED_ACTION,
+  INSTALL_FAILED,
+  INSTALL_STARTED_ACTION,
+  INSTALL_THEME_CATEGORY,
+  INSTALL_STARTED_THEME_CATEGORY,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,
@@ -34,11 +36,11 @@ import {
   OS_WINDOWS,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
-  TRACKING_TYPE_THEME,
   TRACKING_TYPE_INVALID,
-  UNINSTALL_ACTION,
+  TRACKING_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
+  UNINSTALL_ACTION,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { showInfoDialog } from 'core/reducers/infoDialog';
@@ -970,10 +972,22 @@ describe(__filename, () => {
     });
 
     describe('makeProgressHandler', () => {
+      const createProgressHandler = (props = {}) => {
+        return makeProgressHandler({
+          _tracking: createFakeTracking(),
+          dispatch: sinon.stub(),
+          guid: 'some-guid',
+          name: 'some-name',
+          type: ADDON_TYPE_EXTENSION,
+          ...props,
+        });
+      };
+
       it('sets the download progress on STATE_DOWNLOADING', () => {
         const dispatch = sinon.spy();
         const guid = 'foo@addon';
-        const handler = makeProgressHandler(dispatch, guid);
+        const handler = createProgressHandler({ dispatch, guid });
+
         handler({
           state: 'STATE_DOWNLOADING',
           progress: 300,
@@ -988,7 +1002,8 @@ describe(__filename, () => {
       it('sets status to error on onDownloadFailed', () => {
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const handler = makeProgressHandler(dispatch, guid);
+        const handler = createProgressHandler({ dispatch, guid });
+
         handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
         sinon.assert.calledWith(dispatch, {
           type: 'INSTALL_ERROR',
@@ -999,7 +1014,8 @@ describe(__filename, () => {
       it('sets status to installing onDownloadEnded', () => {
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const handler = makeProgressHandler(dispatch, guid);
+        const handler = createProgressHandler({ dispatch, guid });
+
         handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadEnded' });
         sinon.assert.calledWith(
           dispatch,
@@ -1011,20 +1027,36 @@ describe(__filename, () => {
       });
 
       it('resets status to uninstalled on onInstallCancelled', () => {
+        const _tracking = createFakeTracking();
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const handler = makeProgressHandler(dispatch, guid);
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        });
+
         handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
         sinon.assert.calledWith(dispatch, {
           type: INSTALL_CANCELLED,
           payload: { guid },
+        });
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, INSTALL_CANCELLED_ACTION),
+          label: name,
         });
       });
 
       it('sets status to error on onInstallFailed', () => {
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const handler = makeProgressHandler(dispatch, guid);
+        const handler = createProgressHandler({ dispatch, guid });
+
         handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
         sinon.assert.calledWith(dispatch, {
           type: 'INSTALL_ERROR',
@@ -1035,7 +1067,8 @@ describe(__filename, () => {
       it('does nothing on unknown events', () => {
         const dispatch = sinon.spy();
         const guid = 'foo@addon';
-        const handler = makeProgressHandler(dispatch, guid);
+        const handler = createProgressHandler({ dispatch, guid });
+
         handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
         sinon.assert.notCalled(dispatch);
       });
@@ -1043,6 +1076,7 @@ describe(__filename, () => {
 
     describe('enable', () => {
       it('calls addonManager.enable() and content notification', () => {
+        const fakeTracking = createFakeTracking();
         const fakeAddonManager = getFakeAddonManagerWrapper({
           permissionPromptsEnabled: false,
         });
@@ -1056,6 +1090,7 @@ describe(__filename, () => {
         const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
         });
         const { enable } = root.instance().props;
 
@@ -1068,6 +1103,40 @@ describe(__filename, () => {
               imageURL: iconUrl,
             }),
           );
+
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+            category: getAddonEventCategory(
+              ADDON_TYPE_EXTENSION,
+              ENABLE_ACTION,
+            ),
+            label: addon.name,
+          });
+        });
+      });
+
+      it('does not send a tracking event when "sendTrackingEvent" is false', () => {
+        const fakeTracking = createFakeTracking();
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          permissionPromptsEnabled: false,
+        });
+        const name = 'the-name';
+        const iconUrl = 'https://a.m.o/some-icon.png';
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          name,
+          icon_url: iconUrl,
+        });
+        const { root } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
+        });
+        const { enable } = root.instance().props;
+
+        return enable({ sendTrackingEvent: false }).then(() => {
+          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
+          sinon.assert.notCalled(fakeTracking.sendEvent);
         });
       });
 
@@ -1575,7 +1644,7 @@ describe(__filename, () => {
         installTheme(node, addon, stubs);
         sinon.assert.calledWith(stubs._tracking.sendEvent, {
           action: TRACKING_TYPE_THEME,
-          category: INSTALL_THEME_STARTED_CATEGORY,
+          category: INSTALL_STARTED_THEME_CATEGORY,
           label: 'hai-theme',
         });
         sinon.assert.calledWith(stubs._tracking.sendEvent, {

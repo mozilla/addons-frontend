@@ -192,7 +192,9 @@ export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
 export const INSTALL_ERROR = 'INSTALL_ERROR';
 
 // Tracking install actions.
+export const ENABLE_ACTION = 'enable';
 export const INSTALL_ACTION = 'install';
+export const INSTALL_CANCELLED_ACTION = 'install:cancelled';
 export const INSTALL_STARTED_ACTION = 'install:started';
 export const UNINSTALL_ACTION = 'uninstall';
 
@@ -200,14 +202,21 @@ export const UNINSTALL_ACTION = 'uninstall';
 // WARNING: Do not change these without notifying data + metrics teams.
 // Changing these strings will break existing statistics without
 // updating the category matching at the same time.
-export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
+export const ENABLE_EXTENSION_CATEGORY = 'AMO Addon Activation';
+export const ENABLE_THEME_CATEGORY = 'AMO Theme Activation';
+
 export const INSTALL_EXTENSION_CATEGORY = 'AMO Addon Installs';
+export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
 
-export const INSTALL_THEME_STARTED_CATEGORY = 'AMO Theme Installs Started';
-export const INSTALL_EXTENSION_STARTED_CATEGORY = 'AMO Addon Installs Started';
+export const INSTALL_CANCELLED_EXTENSION_CATEGORY =
+  'AMO Addon Installs Cancelled';
+export const INSTALL_CANCELLED_THEME_CATEGORY = 'AMO Theme Installs Cancelled';
 
-export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
+export const INSTALL_STARTED_EXTENSION_CATEGORY = 'AMO Addon Installs Started';
+export const INSTALL_STARTED_THEME_CATEGORY = 'AMO Theme Installs Started';
+
 export const UNINSTALL_EXTENSION_CATEGORY = 'AMO Addon Uninstalls';
+export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
 
 export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 

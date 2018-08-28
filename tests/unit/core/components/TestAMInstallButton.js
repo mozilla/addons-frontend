@@ -15,6 +15,7 @@ import {
   INACTIVE,
   INSTALLED,
   INSTALLING,
+  INSTALL_ACTION,
   INSTALL_STARTED_ACTION,
   OS_ALL,
   UNINSTALLED,
@@ -367,6 +368,12 @@ describe(__filename, () => {
       ),
       label: addon.name,
     });
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH),
+      category: getAddonEventCategory(ADDON_TYPE_OPENSEARCH, INSTALL_ACTION),
+      label: addon.name,
+    });
+    sinon.assert.calledTwice(_tracking.sendEvent);
   });
 
   it('calls the `install` helper to install an extension', async () => {
@@ -411,7 +418,10 @@ describe(__filename, () => {
     await onClick(event);
 
     sinon.assert.calledOnce(install);
+
+    sinon.assert.calledWith(enable, { sendTrackingEvent: false });
     sinon.assert.calledOnce(enable);
+
     sinon.assert.calledOnce(event.preventDefault);
     sinon.assert.calledOnce(event.stopPropagation);
   });
@@ -574,6 +584,8 @@ describe(__filename, () => {
     const clickEvent = createFakeEvent();
     root.find(Button).simulate('click', clickEvent);
 
+    // `enable` should be called with NO arguments.
+    sinon.assert.calledWithExactly(enable);
     sinon.assert.calledOnce(enable);
 
     sinon.assert.calledOnce(clickEvent.preventDefault);
