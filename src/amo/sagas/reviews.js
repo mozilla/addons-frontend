@@ -297,7 +297,10 @@ function* deleteAddonReview({
       reviewId,
     });
 
-    yield put(unloadAddonReviews({ reviewId: isReplyToReviewId || reviewId }));
+    yield put(unloadAddonReviews({ reviewId }));
+    if (isReplyToReviewId) {
+      yield put(unloadAddonReviews({ reviewId: isReplyToReviewId }));
+    }
   } catch (error) {
     log.warn(`Failed to delete review ID ${reviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

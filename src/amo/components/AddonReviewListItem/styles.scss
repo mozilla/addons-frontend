@@ -30,6 +30,19 @@
   }
 }
 
+.AddonReviewListItem-delete {
+  .ConfirmButton-cancel-button,
+  .ConfirmButton-confirm-button,
+  .ConfirmButton-default-button {
+    font-size: 12px;
+  }
+
+  .ConfirmButton-default-button {
+    align-items: flex-start;
+    color: $blue-50;
+  }
+}
+
 .AddonReviewListItem-control {
   @include margin-start(6px);
 

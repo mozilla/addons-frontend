@@ -196,6 +196,10 @@ describe(__filename, () => {
     const deleteLink = renderControls(root).find('.AddonReviewListItem-delete');
     expect(deleteLink).toHaveLength(1);
     expect(deleteLink.children()).toHaveText('Delete my review');
+    expect(deleteLink).toHaveProp(
+      'message',
+      'Do you really want to delete this review?',
+    );
   });
 
   it('does not render delete link when review belongs to another user', () => {
@@ -213,6 +217,7 @@ describe(__filename, () => {
   it('dispatches deleteReview when a user clicks the delete link', () => {
     const review = signInAndDispatchSavedReview();
     const dispatchSpy = sinon.spy(store, 'dispatch');
+    const preventDefaultSpy = sinon.spy();
     const root = render({ review });
     const { errorHandler } = root.instance().props;
 
@@ -222,7 +227,11 @@ describe(__filename, () => {
     const clickEvent = createFakeEvent();
     deleteButton.simulate('click', clickEvent);
 
-    sinon.assert.called(clickEvent.preventDefault);
+    // This emulates a user clicking the delete button and confirming.
+    const onDelete = deleteButton.prop('onConfirm');
+    onDelete(createFakeEvent({ preventDefault: preventDefaultSpy }));
+
+    sinon.assert.calledOnce(preventDefaultSpy);
     sinon.assert.calledWith(
       dispatchSpy,
       deleteAddonReview({
@@ -765,6 +774,10 @@ describe(__filename, () => {
       );
       expect(deleteLink).toHaveLength(1);
       expect(deleteLink.children()).toHaveText('Delete my reply');
+      expect(deleteLink).toHaveProp(
+        'message',
+        'Do you really want to delete this reply?',
+      );
     });
 
     it('dispatches deleteReview when a user clicks the delete link for a developer reply', () => {
@@ -775,16 +788,19 @@ describe(__filename, () => {
         reviewUserId: developerUserId,
       });
       const dispatchSpy = sinon.spy(store, 'dispatch');
+      const preventDefaultSpy = sinon.spy();
+
       const root = renderReply({ originalReviewId, reply: review });
       const { errorHandler } = root.instance().props;
 
       const deleteButton = renderControls(root).find(
         '.AddonReviewListItem-delete',
       );
-      const clickEvent = createFakeEvent();
-      deleteButton.simulate('click', clickEvent);
+      // This emulates a user clicking the delete button and confirming.
+      const onDelete = deleteButton.prop('onConfirm');
+      onDelete(createFakeEvent({ preventDefault: preventDefaultSpy }));
 
-      sinon.assert.called(clickEvent.preventDefault);
+      sinon.assert.calledOnce(preventDefaultSpy);
       sinon.assert.calledWith(
         dispatchSpy,
         deleteAddonReview({

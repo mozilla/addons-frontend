@@ -689,6 +689,15 @@ describe(__filename, () => {
       );
     }
 
+    function matchReviewId(expectedAction) {
+      return (maybeAction) => {
+        return (
+          maybeAction.type === expectedAction.type &&
+          maybeAction.payload.reviewId === expectedAction.payload.reviewId
+        );
+      };
+    }
+
     it('clears the error handler', async () => {
       _deleteAddonReview();
 
@@ -719,7 +728,32 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
-    it('clears related reviews for an add-on review reply', async () => {
+    it('clears reviews for an add-on review reply', async () => {
+      const reviewId = 12345;
+      const isReplyToReviewId = 98765;
+
+      mockApi
+        .expects('deleteReview')
+        .once()
+        .withArgs({
+          apiState,
+          reviewId,
+        })
+        .returns(Promise.resolve());
+
+      _deleteAddonReview({ isReplyToReviewId, reviewId });
+
+      const expectedAction = unloadAddonReviews({
+        reviewId,
+      });
+      const action = await matchingSagaAction(
+        sagaTester,
+        matchReviewId(expectedAction),
+      );
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('clears reviews for the review related to an add-on review reply', async () => {
       const reviewId = 12345;
       const isReplyToReviewId = 98765;
 
@@ -737,7 +771,10 @@ describe(__filename, () => {
       const expectedAction = unloadAddonReviews({
         reviewId: isReplyToReviewId,
       });
-      const action = await sagaTester.waitFor(expectedAction.type);
+      const action = await matchingSagaAction(
+        sagaTester,
+        matchReviewId(expectedAction),
+      );
       expect(action).toEqual(expectedAction);
     });
 

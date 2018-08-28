@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -20,10 +21,11 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import ConfirmButton from 'ui/components/ConfirmButton';
+import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserReview from 'ui/components/UserReview';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
@@ -229,6 +231,8 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       byLine = <LoadingText />;
     }
 
+    const confirmButtonClassName = 'AddonReviewListItem-delete';
+
     const controls = (
       <div className="AddonReviewListItem-allControls">
         {siteUser && review && review.userId === siteUser.id ? (
@@ -250,15 +254,24 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
                 ? i18n.gettext('Edit my reply')
                 : i18n.gettext('Edit my review')}
             </a>
-            <a
-              href="#delete"
-              onClick={this.onClickToDeleteReview}
-              className="AddonReviewListItem-delete AddonReviewListItem-control"
+            <ConfirmButton
+              buttonType="cancel"
+              className={makeClassName(
+                'AddonReviewListItem-control',
+                confirmButtonClassName,
+              )}
+              id={confirmButtonClassName}
+              message={
+                isReply
+                  ? i18n.gettext('Do you really want to delete this reply?')
+                  : i18n.gettext('Do you really want to delete this review?')
+              }
+              onConfirm={this.onClickToDeleteReview}
             >
               {isReply
                 ? i18n.gettext('Delete my reply')
                 : i18n.gettext('Delete my review')}
-            </a>
+            </ConfirmButton>
           </React.Fragment>
         ) : null}
 

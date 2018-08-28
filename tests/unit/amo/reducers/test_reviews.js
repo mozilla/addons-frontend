@@ -347,6 +347,14 @@ describe(__filename, () => {
         }),
       );
 
+      state = changeViewState({
+        state,
+        reviewId: review.id,
+        stateChange: {
+          someFlag: true,
+        },
+      });
+
       return state;
     };
 
@@ -370,6 +378,7 @@ describe(__filename, () => {
       expect(state.byAddon[addonSlug].reviews).toEqual([reviewId]);
       expect(state.byUserId[userId].reviews).toEqual([reviewId]);
       expect(state.groupedRatings[addonId]).toEqual(grouping);
+      expect(state.view[reviewId].someFlag).toEqual(true);
 
       // Clear all data based on a reviewId.
       state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
@@ -378,6 +387,7 @@ describe(__filename, () => {
       expect(state.byAddon[addonSlug]).toEqual(undefined);
       expect(state.byUserId[userId]).toEqual(undefined);
       expect(state.groupedRatings[addonId]).toEqual(undefined);
+      expect(state.view[reviewId]).toEqual(undefined);
     });
 
     it('preserves unrelated reviews data', () => {
@@ -415,6 +425,7 @@ describe(__filename, () => {
       expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
+      expect(state.view[reviewId2].someFlag).toEqual(true);
 
       state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
 
@@ -423,6 +434,7 @@ describe(__filename, () => {
       expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
+      expect(state.view[reviewId2].someFlag).toEqual(true);
     });
   });
 
