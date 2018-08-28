@@ -491,12 +491,14 @@ describe(__filename, () => {
       const root = renderInline({ store: createStoreWithLatestReview() });
       root.setState({ showTextEntry: true });
 
+      const clickEvent = createFakeEvent();
       root
         .find('.RatingManager-cancelTextEntryButton')
-        .simulate('click', createFakeEvent());
+        .simulate('click', clickEvent);
 
       expect(root.find(AddonReviewManager)).toHaveLength(0);
       expect(root.find(UserRating)).toHaveLength(1);
+      sinon.assert.called(clickEvent.preventDefault);
     });
 
     it('does not render AddonReviewManager if not signed in', async () => {
