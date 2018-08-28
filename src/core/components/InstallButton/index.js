@@ -121,7 +121,12 @@ export class InstallButtonBase extends React.Component {
   installTheme = (event) => {
     event.preventDefault();
     const { addon, status, installTheme } = this.props;
-    installTheme(event.currentTarget, { ...addon, status });
+
+    installTheme(event.currentTarget, {
+      name: addon.name,
+      status,
+      type: addon.type,
+    });
   };
 
   installExtension = ({ installURL, event }) => {

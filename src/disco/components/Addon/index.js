@@ -330,13 +330,13 @@ export function mapStateToProps(state, ownProps) {
   const addon = getAddonByGUID(state, ownProps.guid);
 
   return {
-    addon,
     ...addon,
     ...installation,
     status: installation.status || UNKNOWN,
     clientApp: state.api.clientApp,
-    // This is required by the `withInstallHelpers()` HOC, apparently...
-    platformFiles: addon ? addon.platformFiles : {},
+    // In addition to this component, this also is required by the
+    // `withInstallHelpers()` HOC.
+    addon,
     userAgentInfo: state.api.userAgentInfo,
   };
 }

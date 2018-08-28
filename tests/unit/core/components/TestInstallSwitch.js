@@ -225,7 +225,7 @@ describe(__filename, () => {
 
     Simulate.click(root);
 
-    sinon.assert.calledWith(uninstall, { guid, installURL, name, type });
+    sinon.assert.calledWith(uninstall, { guid, name, type });
   });
 
   it('returns early when button is clicked on disabled switch', () => {

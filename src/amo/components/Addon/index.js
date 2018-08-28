@@ -625,26 +625,21 @@ export function mapStateToProps(state, ownProps) {
   }
 
   return {
-    addon,
     // TODO: fix the spreads in https://github.com/mozilla/addons-frontend/issues/1416
     //
-    // These spreads obscure a lot of hidden properties but they
-    // cannot be deleted until core/reducers/addons, core/installAddon,
-    // and maybe others get fixed up, who knows.
-    //
-    // The withInstallHelpers HOC needs to access properties like id and
-    // properties from addon.theme_data (which are spread onto addon) and
-    // maybe others.
+    // These spreads obscure a lot of hidden properties but they cannot be
+    // deleted until core/reducers/addons, core/installAddon, and maybe others
+    // get fixed up, who knows.
     ...addon,
-    platformFiles: addon ? addon.platformFiles : {},
-    // The withInstallHelpers HOC also needs to access some properties in
-    // here like guid and probably others.
     ...installedAddon,
-    installStatus: installedAddon.status || UNKNOWN,
-    clientApp: state.api.clientApp,
-    lang: state.api.lang,
-    userAgentInfo: state.api.userAgentInfo,
     addonsByAuthors,
+    clientApp: state.api.clientApp,
+    installStatus: installedAddon.status || UNKNOWN,
+    lang: state.api.lang,
+    // In addition to this component, this also is required by the
+    // `withInstallHelpers()` HOC.
+    addon,
+    userAgentInfo: state.api.userAgentInfo,
   };
 }
 

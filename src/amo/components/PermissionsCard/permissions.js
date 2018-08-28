@@ -68,7 +68,7 @@ export class PermissionUtils {
   ): Array<string> {
     const agentOsName =
       userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
-    const platform = userAgentOSToPlatform[agentOsName];
+    const platform = agentOsName && userAgentOSToPlatform[agentOsName];
 
     if (!platform) {
       log.error(oneLine`No platform exists for user agent OS

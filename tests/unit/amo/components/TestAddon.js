@@ -1445,14 +1445,6 @@ describe(__filename, () => {
       return mapStateToProps(state, ownProps);
     }
 
-    it('can handle a missing addon', () => {
-      signIn();
-      const { addon, platformFiles } = _mapStateToProps();
-      expect(addon).toBeFalsy();
-      // Make sure this isn't undefined since it gets read from `addon`.
-      expect(platformFiles).toEqual({});
-    });
-
     it('sets the clientApp and userAgent', () => {
       const clientAppFromAgent = 'firefox';
       signIn({ clientApp: clientAppFromAgent });
