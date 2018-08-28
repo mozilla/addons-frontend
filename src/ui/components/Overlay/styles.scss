@@ -1,10 +1,6 @@
 @import '~photon-colors/photon-colors';
 
-$z-index: (
-  overlay: 1000,
-  background: 1001,
-  contents: 1002,
-);
+$z-index: 1000;
 
 .Overlay {
   display: none;
@@ -19,7 +15,7 @@ $z-index: (
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: map-get($z-index, overlay);
+  z-index: $z-index;
 }
 
 .Overlay-background {
@@ -33,10 +29,10 @@ $z-index: (
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: map-get($z-index, background);
+  z-index: $z-index + 1;
 }
 
 .Overlay-contents {
   display: flex;
-  z-index: map-get($z-index, contents);
+  z-index: $z-index + 2;
 }
