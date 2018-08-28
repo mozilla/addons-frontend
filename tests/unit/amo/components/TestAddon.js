@@ -1568,8 +1568,9 @@ describe(__filename, () => {
     });
   });
 
-  // Non-public add-ons require an account listed as a developer of the add-on or admin rights.
-  it('displays a notice on a disabled addon to admin/developer', () => {
+  // Non-public add-ons require an account listed as a developer of the add-on
+  // or admin rights.
+  it('displays a notice to admin/developer when add-on is not fully reviewed', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       status: 'disabled',
@@ -1579,10 +1580,33 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(1);
   });
 
-  it('does not display a disabled notice for a public addon', () => {
+  it('does not display a notice when add-on is fully reviewed', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       status: 'public',
+    });
+
+    const root = shallowRender({ addon });
+
+    expect(root.find(Notice)).toHaveLength(0);
+  });
+
+  // Non-public add-ons require an account listed as a developer of the add-on
+  // or admin rights.
+  it('displays a notice to admin/developer when an add-on is disabled', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      is_disabled: true,
+    });
+
+    const root = shallowRender({ addon });
+    expect(root.find(Notice)).toHaveLength(1);
+  });
+
+  it('does not display a notice when add-on is not disabled', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      is_disabled: false,
     });
 
     const root = shallowRender({ addon });
