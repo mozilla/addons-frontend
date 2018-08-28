@@ -1117,6 +1117,31 @@ describe(__filename, () => {
         });
       });
 
+      it('does not end a tracking event when "sendTrackingEvent" is false', () => {
+        const fakeTracking = createFakeTracking();
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          permissionPromptsEnabled: false,
+        });
+        const name = 'the-name';
+        const iconUrl = 'https://a.m.o/some-icon.png';
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          name,
+          icon_url: iconUrl,
+        });
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
+        });
+        const { enable } = root.instance().props;
+
+        return enable({ sendTrackingEvent: false }).then(() => {
+          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
+          sinon.assert.notCalled(fakeTracking.sendEvent);
+        });
+      });
+
       it('calls addonManager.enable() without content notification', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           permissionPromptsEnabled: true,

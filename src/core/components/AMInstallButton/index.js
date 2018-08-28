@@ -42,12 +42,16 @@ import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
+type EnableParams = {|
+  sendTrackingEvent: boolean,
+|} | void;
+
 type Props = {|
   addon: AddonType,
   className?: string,
   defaultInstallSource: string,
   disabled: boolean,
-  enable: () => Promise<any>,
+  enable: (EnableParams) => Promise<any>,
   isAddonEnabled: () => Promise<boolean>,
   hasAddonManager: boolean,
   install: () => Promise<any>,
@@ -132,7 +136,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       const isEnabled = await isAddonEnabled();
 
       if (!isEnabled) {
-        await enable();
+        await enable({ sendTrackingEvent: false });
       }
     }
 

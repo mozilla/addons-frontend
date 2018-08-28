@@ -422,7 +422,7 @@ export class WithInstallHelpers extends React.Component {
       });
   }
 
-  enable() {
+  enable({ sendTrackingEvent = true } = {}) {
     const {
       _addonManager,
       _tracking,
@@ -436,11 +436,13 @@ export class WithInstallHelpers extends React.Component {
     return _addonManager
       .enable(guid)
       .then(() => {
-        _tracking.sendEvent({
-          action: getAddonTypeForTracking(type),
-          category: getAddonEventCategory(type, ENABLE_ACTION),
-          label: name,
-        });
+        if (sendTrackingEvent) {
+          _tracking.sendEvent({
+            action: getAddonTypeForTracking(type),
+            category: getAddonEventCategory(type, ENABLE_ACTION),
+            label: name,
+          });
+        }
 
         if (!_addonManager.hasPermissionPromptsEnabled()) {
           this.showInfo({ name, iconUrl });

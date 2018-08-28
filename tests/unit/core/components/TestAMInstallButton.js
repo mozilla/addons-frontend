@@ -418,7 +418,10 @@ describe(__filename, () => {
     await onClick(event);
 
     sinon.assert.calledOnce(install);
+
+    sinon.assert.calledWith(enable, { sendTrackingEvent: false });
     sinon.assert.calledOnce(enable);
+
     sinon.assert.calledOnce(event.preventDefault);
     sinon.assert.calledOnce(event.stopPropagation);
   });
@@ -581,6 +584,8 @@ describe(__filename, () => {
     const clickEvent = createFakeEvent();
     root.find(Button).simulate('click', clickEvent);
 
+    // `enable` should be called with NO arguments.
+    sinon.assert.calledWithExactly(enable);
     sinon.assert.calledOnce(enable);
 
     sinon.assert.calledOnce(clickEvent.preventDefault);
