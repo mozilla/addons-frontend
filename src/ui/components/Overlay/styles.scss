@@ -1,5 +1,7 @@
 @import '~photon-colors/photon-colors';
 
+$z-index: 1000;
+
 .Overlay {
   display: none;
 }
@@ -13,6 +15,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: $z-index;
 }
 
 .Overlay-background {
@@ -26,10 +29,10 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: $z-index + 1;
 }
 
 .Overlay-contents {
   display: flex;
-  z-index: 1001;
+  z-index: $z-index + 2;
 }
