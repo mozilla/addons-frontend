@@ -50,6 +50,7 @@ import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 import ThemeImage from 'ui/components/ThemeImage';
+import Notice from 'ui/components/Notice';
 
 import './styles.scss';
 
@@ -58,6 +59,8 @@ const slugIsPositiveID = (slug) => {
   // eslint-disable-next-line no-restricted-globals
   return !isNaN(slug) && parseInt(slug, 10) > 0;
 };
+
+export const STATUS_PUBLIC = 'public';
 
 export class AddonBase extends React.Component {
   static propTypes = {
@@ -495,6 +498,13 @@ export class AddonBase extends React.Component {
                 minVersion={compatibility.minVersion}
                 reason={compatibility.reason}
               />
+            ) : null}
+            {addon && addon.status !== STATUS_PUBLIC ? (
+              <Notice type="error" className="Addon-non-public-notice">
+                {i18n.gettext(
+                  'This is not a public listing. You are only seeing it because of elevated permissions.',
+                )}
+              </Notice>
             ) : null}
             <header className="Addon-header">
               {this.headerImage()}

@@ -75,6 +75,7 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Button from 'ui/components/Button';
 import ThemeImage from 'ui/components/ThemeImage';
+import Notice from 'ui/components/Notice';
 
 function renderProps({
   addon = createInternalAddon(fakeAddon),
@@ -1565,5 +1566,27 @@ describe(__filename, () => {
       expect(installButton).toHaveProp('installTheme', installTheme);
       expect(installButton).toHaveProp('uninstall', uninstall);
     });
+  });
+
+  // Non-public add-ons require an account listed as a developer of the add-on or admin rights.
+  it('displays a notice on a disabled addon to admin/developer', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      status: 'disabled',
+    });
+
+    const root = shallowRender({ addon });
+    expect(root.find(Notice)).toHaveLength(1);
+  });
+
+  it('does not display a disabled notice for a public addon', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      status: 'public',
+    });
+
+    const root = shallowRender({ addon });
+
+    expect(root.find(Notice)).toHaveLength(0);
   });
 });
