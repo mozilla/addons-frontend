@@ -260,7 +260,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
                 'AddonReviewListItem-control',
                 confirmButtonClassName,
               )}
-              id={confirmButtonClassName}
+              id={`${confirmButtonClassName}-${review.id}`}
               message={
                 isReply
                   ? i18n.gettext('Do you really want to delete this reply?')
