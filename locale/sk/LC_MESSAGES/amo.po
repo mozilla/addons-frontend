@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-28 19:51+0000\n"
+"PO-Revision-Date: 2018-08-28 20:13+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1082,16 +1082,15 @@ msgstr "Ďalšie rozšírenia pre YouTube"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
-msgstr ""
+msgstr "Vylepšenia pre YouTube"
 
 #: src/amo/components/Home/index.js:68
-#, fuzzy
 msgid "See more reading extensions"
-msgstr "Ďalšie odporúčané rozšírenia"
+msgstr "Ďalšie rozšírenia súvisiace s čítaním"
 
 #: src/amo/components/Home/index.js:69
 msgid "Refined reading"
-msgstr ""
+msgstr "Nová dimenzia čítania"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
@@ -1099,7 +1098,7 @@ msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Zväčšite si obrázky tak, že na ne prejdete myšou"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Privacy Possum"
@@ -1107,7 +1106,7 @@ msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Ochráňte sa pred tými, čo vás sledujú"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
@@ -1115,7 +1114,7 @@ msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Zmeňte si predvolené umiestnenie svojich záložiek"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1123,7 +1122,7 @@ msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Vysoko prispôsobiteľné zvýrazňovanie textu"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
@@ -1131,7 +1130,7 @@ msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Sledujte videá v rovnakom čase s priateľmi"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1139,7 +1138,7 @@ msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 msgid "Highlight text on any webpage to easily search the term"
-msgstr ""
+msgstr "Zvýraznite text na akejkoľvek webovej stránke a daný výraz vyhľadajte"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1147,16 +1146,15 @@ msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "Dajte svojim obľúbeným webovým stránkam nový vzhľad"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Search Encrypt"
 msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Ochrana súkromia"
+msgstr "Ochráňte svoje vyhľadávanie"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1164,7 +1162,7 @@ msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Ušetrite pamäť počítača a vypnite neaktívne karty"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
@@ -1172,7 +1170,7 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Toto rozšírenie vás upozorní vždy, keď sa na vami vybraných stránkach objaví nový obsah"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
@@ -1180,7 +1178,7 @@ msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:166
 msgid "Automatically start Firefox in full screen mode"
-msgstr ""
+msgstr "Automatické spúšťanie Firefoxu v režime celej obrazovky"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1188,7 +1186,7 @@ msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Upravte si prehrávanie videí pomocou skratiek"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
@@ -1220,7 +1218,7 @@ msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Kliknutím tlačidla zavrite otravné vyskakovacie okná"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "Auto-Sort Bookmarks"
@@ -1252,7 +1250,7 @@ msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Give the entire internet a new look"
-msgstr ""
+msgstr "Dajte internetu nový vzhľad"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Turbo Download Manager"
@@ -1284,7 +1282,7 @@ msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:59
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Vyberte si stránku, ktorú chcete vidieť pri otvorení novej karty"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Forecastfox"
@@ -1292,16 +1290,15 @@ msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get instant global weather information right in Firefox"
-msgstr ""
+msgstr "Informácie o počasí priamo vo Firefoxe"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:77
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Udržujte rôzne časti svojho internetového života - prácu, osobný život, atď - oddelené pomocou farebne odlíšených kariet."
+msgstr "Udržujte rôzne časti svojho internetového života - prácu, osobný život, atď. - oddelené pomocou farebne odlíšených kariet."
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Transparent Standalone Images"
@@ -1317,7 +1314,7 @@ msgstr "Tabliss"
 
 #: src/amo/components/HomeHeroBanner/index.js:90
 msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-msgstr ""
+msgstr "Úplne nová stránka novej karty - s upraviteľným pozadím, počasím a ďalšími vymoženosťami"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Tree Style Tab"
@@ -1325,7 +1322,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Máte veľké množstvo otvorených kariet. Zorganizujte si ich"
 
 #: src/amo/components/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1333,7 +1330,7 @@ msgstr "Zmeňte vzhľad svojho prehliadača. Vyberte si jednu z tisícok tém vz
 
 #: src/amo/components/LandingPage/index.js:234
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Objavte nástroje na prispôsobenie Firefoxu."
 
 #: src/amo/components/LandingPage/index.js:268
 msgid "Explore all categories"
@@ -1519,6 +1516,8 @@ msgstr ""
 #: src/amo/components/ReportAbuseButton/index.js:139
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Ak si myslíte, že doplnok porušuje %(linkTagStart)s pravidlá Mozilly pre doplnky %(linkTagEnd)s, má problémy s bezpečnosťou alebo ochranou osobných údajov, nahláste tento problém Mozille "
+"prostredníctvom tohto formulára."
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 #, fuzzy
@@ -1993,11 +1992,11 @@ msgstr "Pred odoslaním svojej recenzie si ju, prosím, prečítajte znovu a opr
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:69
 msgid "Don't:"
-msgstr ""
+msgstr "Čomu sa vyvarovať:"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:72
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Nepíšte iba jednoslovné recenzie, ako napríklad „úžasné“, „vynikajúce“ alebo „nefunguje“."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:77
 msgid ""
@@ -2007,19 +2006,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:82
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Nepíšte recenzie k doplnkom, ktoré ste osobne nepoužili."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:87
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Nepoužívajte nevhodný či urážlivý jazyk. Vyvarujte sa taktiež sexuálnym narážkam."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:92
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Nevkladajte HTML, odkazy, zdrojový kód alebo jeho časti. Recenzie sú určené len pre text."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:97
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Nepíšte nepravdivé informácie, neurážajte autorov doplnkov a nezľahčujte ich prácu."
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -2097,14 +2096,12 @@ msgid "Log in to edit the profile"
 msgstr "Ak chcete upravovať túto kolekciu, musíte sa prihlásiť"
 
 #: src/amo/components/UserProfileEdit/index.js:475
-#, fuzzy
 msgid "View user's profile"
-msgstr "Zobraziť profil"
+msgstr "Zobraziť profil používateľa"
 
 #: src/amo/components/UserProfileEdit/index.js:481
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Upraviť profil"
+msgstr "Upraviť profil používateľa"
 
 #: src/amo/components/UserProfileEdit/index.js:499
 msgid "Account"
