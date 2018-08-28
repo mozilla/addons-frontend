@@ -7,6 +7,7 @@ export const DOWNLOADING = 'DOWNLOADING';
 export const ENABLED = 'ENABLED';
 export const ENABLING = 'ENABLING';
 export const ERROR = 'ERROR';
+export const INACTIVE = 'INACTIVE';
 export const INSTALLED = 'INSTALLED';
 export const INSTALLING = 'INSTALLING';
 export const UNINSTALLED = 'UNINSTALLED';
@@ -15,11 +16,12 @@ export const UNKNOWN = 'UNKNOWN';
 export const validInstallStates = [
   DISABLED,
   DISABLING,
-  ENABLED,
-  ENABLING,
   DOWNLOADING,
   ENABLED,
+  ENABLED,
+  ENABLING,
   ERROR,
+  INACTIVE,
   INSTALLED,
   INSTALLING,
   UNINSTALLED,

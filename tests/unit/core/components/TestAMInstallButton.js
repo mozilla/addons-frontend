@@ -12,6 +12,7 @@ import {
   DOWNLOADING,
   ENABLED,
   ENABLING,
+  INACTIVE,
   INSTALLED,
   INSTALLING,
   INSTALL_STARTED_ACTION,
@@ -476,6 +477,14 @@ describe(__filename, () => {
     expect(icon).toHaveProp('name', 'plus-dark');
 
     expect(root.find(AnimatedIcon)).toHaveLength(0);
+  });
+
+  it('renders a "Add to Firefox" button when add-on is INACTIVE', () => {
+    const root = render({ status: INACTIVE });
+
+    const button = root.find(Button);
+    expect(button).toHaveLength(1);
+    expect(button.childAt(1)).toHaveText('Add to Firefox');
   });
 
   it.each([DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING])(

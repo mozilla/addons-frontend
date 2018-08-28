@@ -18,6 +18,7 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
+  INACTIVE,
   INSTALL_ACTION,
   INSTALL_CANCELLED,
   INSTALL_STARTED_ACTION,
@@ -181,7 +182,6 @@ describe(__filename, () => {
       getAddon: Promise.resolve({
         isActive: true,
         isEnabled: true,
-        type: ADDON_TYPE_EXTENSION,
       }),
     });
 
@@ -205,7 +205,6 @@ describe(__filename, () => {
       getAddon: Promise.resolve({
         isActive: true,
         isEnabled: true,
-        type: ADDON_TYPE_EXTENSION,
       }),
     });
 
@@ -238,7 +237,6 @@ describe(__filename, () => {
       getAddon: Promise.resolve({
         isActive: true,
         isEnabled: true,
-        type: ADDON_TYPE_EXTENSION,
       }),
     });
 
@@ -704,7 +702,6 @@ describe(__filename, () => {
             getAddon: Promise.resolve({
               isActive: false,
               isEnabled: false,
-              type: ADDON_TYPE_EXTENSION,
             }),
           }),
         });
@@ -722,11 +719,45 @@ describe(__filename, () => {
         });
       });
 
-      it('sets the status to DISABLED when an inactive add-on found', () => {
+      it('sets the status to DISABLED when the extension is inactive and disabled', () => {
         const installURL = 'http://the.url/';
         const addon = createInternalAddon(
           createFakeAddon({
             files: [{ platform: OS_ALL, url: installURL }],
+            type: ADDON_TYPE_EXTENSION,
+          }),
+        );
+
+        const { root, dispatch } = renderWithInstallHelpers({
+          ...addon,
+          defaultInstallSource: null,
+          _addonManager: getFakeAddonManagerWrapper({
+            getAddon: Promise.resolve({
+              isActive: false,
+              isEnabled: false,
+            }),
+          }),
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: DISABLED,
+              url: installURL,
+            }),
+          );
+        });
+      });
+
+      it('sets the status to INACTIVE when an inactive extension is found', () => {
+        const installURL = 'http://the.url/';
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [{ platform: OS_ALL, url: installURL }],
+            type: ADDON_TYPE_EXTENSION,
           }),
         );
 
@@ -737,7 +768,6 @@ describe(__filename, () => {
             getAddon: Promise.resolve({
               isActive: false,
               isEnabled: true,
-              type: ADDON_TYPE_EXTENSION,
             }),
           }),
         });
@@ -748,7 +778,7 @@ describe(__filename, () => {
             dispatch,
             setInstallState({
               guid: addon.guid,
-              status: DISABLED,
+              status: INACTIVE,
               url: installURL,
             }),
           );
@@ -758,7 +788,6 @@ describe(__filename, () => {
       it('sets the status to ENABLED when an enabled theme is found', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
-            type: ADDON_TYPE_THEME,
             isActive: true,
             isEnabled: true,
           }),
@@ -767,6 +796,7 @@ describe(__filename, () => {
         const addon = createInternalAddon(
           createFakeAddon({
             files: [{ platform: OS_ALL, url: installURL }],
+            type: ADDON_TYPE_THEME,
           }),
         );
 
@@ -794,13 +824,13 @@ describe(__filename, () => {
           getAddon: Promise.resolve({
             isActive: false,
             isEnabled: true,
-            type: ADDON_TYPE_THEME,
           }),
         });
         const installURL = 'http://the.url/';
         const addon = createInternalAddon(
           createFakeAddon({
             files: [{ platform: OS_ALL, url: installURL }],
+            type: ADDON_TYPE_THEME,
           }),
         );
 
@@ -828,13 +858,13 @@ describe(__filename, () => {
           getAddon: Promise.resolve({
             isActive: true,
             isEnabled: false,
-            type: ADDON_TYPE_THEME,
           }),
         });
         const installURL = 'http://the.url/';
         const addon = createInternalAddon(
           createFakeAddon({
             files: [{ platform: OS_ALL, url: installURL }],
+            type: ADDON_TYPE_THEME,
           }),
         );
 

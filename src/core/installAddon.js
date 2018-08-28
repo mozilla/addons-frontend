@@ -24,6 +24,7 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
+  INACTIVE,
   INSTALL_ACTION,
   INSTALL_ERROR,
   INSTALL_CANCELLED,
@@ -73,6 +74,7 @@ import {
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
 import { showInfoDialog } from 'core/reducers/infoDialog';
+import { isTheme } from 'core/utils';
 
 export function installTheme(
   node,
@@ -357,14 +359,17 @@ export class WithInstallHelpers extends React.Component {
       hasAddonManager,
       location,
       platformFiles,
+      type,
       userAgentInfo,
     } = this.props;
+
     const installURL = findInstallURL({
       defaultInstallSource,
       location,
       platformFiles,
       userAgentInfo,
     });
+
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
@@ -377,8 +382,15 @@ export class WithInstallHelpers extends React.Component {
     return _addonManager
       .getAddon(guid)
       .then(
-        (addon) => {
-          const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
+        ({ isActive, isEnabled }) => {
+          let status = DISABLED;
+
+          if (isActive && isEnabled) {
+            status = ENABLED;
+          } else if (!isTheme(type) && !isActive && isEnabled) {
+            // We only use the INACTIVE status for add-ons that are not themes.
+            status = INACTIVE;
+          }
 
           dispatch(setInstallState({ ...payload, status }));
         },

@@ -15,6 +15,7 @@ import {
   DOWNLOADING,
   ENABLED,
   ENABLING,
+  INACTIVE,
   INSTALLED,
   INSTALLING,
   INSTALL_ACTION,
@@ -212,6 +213,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
         return i18n.gettext('Installing');
       case UNINSTALLING:
         return i18n.gettext('Uninstalling');
+      case INACTIVE:
       default:
         return isTheme(addon.type)
           ? i18n.gettext('Install Theme')
