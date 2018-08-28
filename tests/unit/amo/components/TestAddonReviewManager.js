@@ -57,14 +57,6 @@ describe(__filename, () => {
     expect(form).toHaveProp('text', body);
   });
 
-  it('renders a DismissibleTextForm placeholder', () => {
-    const root = render();
-
-    const form = root.find(DismissibleTextForm);
-    expect(form).toHaveProp('placeholder');
-    expect(form.prop('placeholder')).toContain('Write about');
-  });
-
   it('renders a DismissibleTextForm formFooter', () => {
     const root = render();
 
@@ -74,8 +66,7 @@ describe(__filename, () => {
     const formFooter = staticRender(form.prop('formFooter'));
     expect(formFooter.text()).toContain('Please follow our review guidelines');
 
-    const link = formFooter.find('a');
-    expect(link.text()).toEqual('review guidelines');
+    expect(formFooter.find('a').text()).toEqual('review guidelines');
   });
 
   it('updates the rating when you select a star', () => {
@@ -92,7 +83,6 @@ describe(__filename, () => {
     const newRating = 4;
 
     // Simulate how Rating lets you select a star.
-    expect(rating).toHaveProp('onSelectRating');
     const onSelectRating = rating.prop('onSelectRating');
     onSelectRating(newRating);
 
@@ -120,7 +110,6 @@ describe(__filename, () => {
     const newBody = 'I really like the colors of this add-on';
 
     // Simulate how DismissibleTextForm submits the form.
-    expect(form).toHaveProp('onSubmit');
     const onSubmit = form.prop('onSubmit');
     onSubmit({ text: newBody });
 
@@ -192,6 +181,13 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find(DismissibleTextForm)).toHaveProp('isSubmitting', true);
+  });
+
+  it('does not enter a submitting state by default', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('isSubmitting', false);
   });
 
   it('passes a null review while saving a rating', () => {
