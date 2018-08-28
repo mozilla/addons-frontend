@@ -1055,9 +1055,7 @@ describe(__filename, () => {
       it('sets status to error on onInstallFailed', () => {
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const name = 'my-addon';
-        const type = ADDON_TYPE_EXTENSION;
-        const handler = createProgressHandler({ dispatch, guid, name, type });
+        const handler = createProgressHandler({ dispatch, guid });
 
         handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
         sinon.assert.calledWith(dispatch, {
@@ -1117,7 +1115,7 @@ describe(__filename, () => {
         });
       });
 
-      it('does not end a tracking event when "sendTrackingEvent" is false', () => {
+      it('does not send a tracking event when "sendTrackingEvent" is false', () => {
         const fakeTracking = createFakeTracking();
         const fakeAddonManager = getFakeAddonManagerWrapper({
           permissionPromptsEnabled: false,
