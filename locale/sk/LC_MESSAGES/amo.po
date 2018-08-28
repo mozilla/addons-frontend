@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-28 17:37+0000\n"
+"PO-Revision-Date: 2018-08-28 18:11+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -193,14 +193,13 @@ msgid "No Users"
 msgstr "Žiadni používatelia"
 
 #: src/amo/components/AddonMeta/index.js:55
-#, fuzzy
 msgid "Reviews"
-msgstr "Text recenzie"
+msgstr "recenzie"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] ""
+msgstr[0] "recenzia"
 msgstr[1] "Text recenzie"
 msgstr[2] "Text recenzie"
 
@@ -285,14 +284,12 @@ msgid "Other users with this extension also installed"
 msgstr "Ostatní používatelia tohto rozšírenia si taktiež nainštalovali"
 
 #: src/amo/components/AddonRecommendations/index.js:133
-#, fuzzy
 msgid "Other popular extensions"
 msgstr "Ďalšie populárne rozšírenia"
 
 #: src/amo/components/AddonReview/index.js:198
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Povedzte svetu, prečo si myslíte, že je toto rozšírenie úžasné!"
+msgstr "Povedzte svetu, prečo si myslíte, že je toto rozšírenie úžasné! Riaďte sa, prosím, našimi %(linkStart)spokynmi pre recenzentov%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:202
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -300,7 +297,7 @@ msgstr "Povedzte nám, čo sa vám na tomto rozšírení páči. Buďte, prosím
 
 #: src/amo/components/AddonReview/index.js:206
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Povedzte všetkým o tomto rozšírení. Riaďte sa, prosím, našimi %(linkStart)spokynmi pre recenzentov%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:210
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -511,22 +508,19 @@ msgstr "Rozšírenia"
 
 #: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:259 src/amo/components/LandingPage/index.js:145 src/amo/components/Search/index.js:124
 msgid "Featured extensions"
-msgstr "Odporúčané rozšírenia"
+msgstr "Vybrané rozšírenia"
 
 #: src/amo/components/Category/index.js:160 src/amo/components/Home/index.js:260 src/amo/components/LandingPage/index.js:153
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "Ďalšie odporúčané rozšírenia"
+msgstr "Ďalšie vybrané rozšírenia"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:154 src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Najlepšie hodnotené rozšírenia"
+msgstr "Populárne rozšírenia"
 
 #: src/amo/components/Category/index.js:170 src/amo/components/LandingPage/index.js:162
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Ďalšie odporúčané rozšírenia"
+msgstr "Pozrite si viac populárnych rozšírení"
 
 #: src/amo/components/Category/index.js:171 src/amo/components/LandingPage/index.js:163 src/amo/components/Search/index.js:149
 msgid "Top rated extensions"
@@ -543,12 +537,11 @@ msgstr "Témy vzhľadu"
 
 #: src/amo/components/Category/index.js:184 src/amo/components/Home/index.js:295 src/amo/components/LandingPage/index.js:174 src/amo/components/Search/index.js:127
 msgid "Featured themes"
-msgstr "Odporúčané témy vzhľadu"
+msgstr "Vybrané témy vzhľadu"
 
 #: src/amo/components/Category/index.js:193 src/amo/components/Home/index.js:285 src/amo/components/LandingPage/index.js:182
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Ďalšie odporúčané témy vzhľadu"
+msgstr "Ďalšie vybrané témy vzhľadu"
 
 #: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:183 src/amo/components/Search/index.js:140
 #, fuzzy
@@ -682,26 +675,24 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: src/amo/components/CollectionSort/index.js:104
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Najlepšie hodnotené doplnky"
+msgstr "Zoradiť doplnky"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "Od najnovších"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "Od najstarších"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
-msgstr ""
+msgstr "Podľa názvu"
 
 #: src/amo/components/CollectionSort/index.js:92
-#, fuzzy
 msgid "Popularity"
-msgstr "Populárne témy vzhľadu"
+msgstr "Podľa obľúbenosti"
 
 #: src/amo/components/ContributeCard/index.js:32
 msgid "Support this developer"
@@ -760,9 +751,8 @@ msgid "Download Firefox"
 msgstr "Prevziať Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
-#, fuzzy
 msgid "Leave a note"
-msgstr "Právne informácie"
+msgstr "Zanechajte odkaz"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140 src/core/components/AMInstallButton/index.js:206
 msgid "Remove"
@@ -958,9 +948,8 @@ msgid "Report a bug"
 msgstr "Nahlásiť chybu"
 
 #: src/amo/components/Footer/index.js:76
-#, fuzzy
 msgid "Review Guide"
-msgstr "Text recenzie"
+msgstr "Pokyny pre recenzentov"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Site Status"
@@ -1619,7 +1608,7 @@ msgstr "Populárne doplnky"
 
 #: src/amo/components/Search/index.js:173
 msgid "Search results for \"%(query)s\""
-msgstr "Výsledky vyhľadávania pre \"%(query)s\""
+msgstr "Výsledky vyhľadávania pre „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "No add-ons found"
@@ -1681,7 +1670,7 @@ msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s v�
 
 #: src/amo/components/SearchContextCard/index.js:94
 msgid "Searching for \"%(query)s\""
-msgstr "Vyhľadávanie \"%(query)s\""
+msgstr "Vyhľadávanie „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:98
 msgid "Loading add-ons"
@@ -1753,7 +1742,7 @@ msgstr "Operačný systém"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Featured add-ons only"
-msgstr "Len odporúčané doplnky"
+msgstr "Len vybrané doplnky"
 
 #: src/amo/components/SearchForm/index.js:72
 msgid "Go to the add-on page"
@@ -1781,7 +1770,7 @@ msgstr "Vyhľadáva sa…"
 
 #: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
-msgstr "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok."
+msgstr "Pre vyhľadávaný výraz „%(query)s“ nebol nájdený žiadny výsledok."
 
 #: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
@@ -1809,7 +1798,7 @@ msgstr "Ostatné stránky prehliadača"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
-msgstr "pre Firefox"
+msgstr "Pre Firefox"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
@@ -1881,6 +1870,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Tu uvedené doplnky sú tvorené tisíckami vývojárov z celého sveta, či už ide o jednotlivcov alebo veľké spoločnosti. Niektoré doplnky na AMO boli publikované automaticky a môžu byť skontrolované "
+"tímom editorov."
 
 #: src/amo/components/StaticPages/About/index.js:70
 msgid "Get involved"
@@ -1891,6 +1882,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla je nezisková organizácia bojujúca za zdravý a otvorený internet. Preto sme vytvorili Firefox - aby internet ostal i naďalej zdravý a prístupný pre všetkých. Doplnky umožňujú používateľom "
+"slobodne si vybrať, ako bude Firefox vyzerať a ako sa bude správať. V našej misii za lepší internet nám môžete pomôcť týmito spôsobmi:"
 
 #: src/amo/components/StaticPages/About/index.js:82
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -1907,11 +1900,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:102
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Nevkladajte svoju ani cudziu e-mailovú adresu, telefónne číslo ani iné osobné údaje."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:107
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Nepridávajte recenzie ku svojim doplnkom alebo doplnkom organizácie, ktorú reprezentujete."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:112
 msgid ""
@@ -1953,17 +1946,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:21 src/amo/components/StaticPages/ReviewGuide/index.js:23
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Pokyny pre recenzentov"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:29
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Recenzie doplnkov sú prostriedkom, pomocou ktorého môžete zdieľať svoje názory na vami nainštalované a používané doplnky. Náš tím moderátorov recenzií si vyhradzuje právo vymazať akúkoľvek recenziu,"
+" ktorá nie je v súlade s týmito pokynmi."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:34
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Tipy pre napísanie skvelej recenzie"
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:35
 msgid "Do:"
@@ -2053,9 +2048,8 @@ msgid "Add-ons Home Page"
 msgstr "Domovská stránka Doplnkov pre Firefox"
 
 #: src/amo/components/UserProfile/index.js:214
-#, fuzzy
 msgid "My reviews"
-msgstr "Žiadne recenzie"
+msgstr "Moje recenzie"
 
 #: src/amo/components/UserProfile/index.js:224
 #, fuzzy
@@ -2063,14 +2057,12 @@ msgid "Browse the reviews for this add-on"
 msgstr "%(total)s recenzia tohto doplnku"
 
 #: src/amo/components/UserProfile/index.js:280
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Ďalšie doplnky od týchto vývojárov"
+msgstr "Vývojár"
 
 #: src/amo/components/UserProfile/index.js:286
-#, fuzzy
 msgid "Theme artist"
-msgstr "Ďalšie témy vzhľadu od týchto umelcov"
+msgstr "Umelec"
 
 #: src/amo/components/UserProfile/index.js:300 src/amo/components/UserProfileEdit/index.js:462
 msgid "User Profile for %(user)s"
@@ -2129,9 +2121,8 @@ msgid "Account"
 msgstr "Účet"
 
 #: src/amo/components/UserProfileEdit/index.js:500
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
+msgstr "Účet používateľa %(username)s"
 
 #: src/amo/components/UserProfileEdit/index.js:506
 msgid "Username"
@@ -2150,9 +2141,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Svoju e-mailovú adresu môžete zmeniť vo svojom účte Firefox. %(startLink)sPotrebujete pomoc?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:552
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "Aktualizujem váš profil…"
+msgstr "Správa účtu Firefox…"
 
 #: src/amo/components/UserProfileEdit/index.js:560
 msgid "Profile"
@@ -2213,14 +2203,12 @@ msgid "Update My Profile"
 msgstr "Aktualizovať môj profil"
 
 #: src/amo/components/UserProfileEdit/index.js:742
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Aktualizovať môj profil"
+msgstr "Aktualizujem profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:743
-#, fuzzy
 msgid "Update Profile"
-msgstr "Aktualizovať môj profil"
+msgstr "Aktualizovať profil"
 
 #: src/amo/components/UserProfileEdit/index.js:754 src/amo/components/UserProfileEdit/index.js:842
 #, fuzzy
@@ -2228,9 +2216,8 @@ msgid "Delete My Profile"
 msgstr "Odstrániť môj profil"
 
 #: src/amo/components/UserProfileEdit/index.js:755 src/amo/components/UserProfileEdit/index.js:843
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Odstrániť môj profil"
+msgstr "Odstrániť profil"
 
 #: src/amo/components/UserProfileEdit/index.js:766
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
@@ -2311,9 +2298,8 @@ msgid "Do you really want to delete this picture?"
 msgstr "Naozaj chcete odstrániť túto fotografiu?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:112
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "Odstrániť fotografiu"
+msgstr "Odstrániť túto fotografiu"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
@@ -2324,9 +2310,8 @@ msgid "Profile photo"
 msgstr "Profilová fotografia"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
-#, fuzzy
 msgid "Choose Photo…"
-msgstr "Vyberte fotografiu..."
+msgstr "Vyberte fotografiu…"
 
 #: src/core/components/AMInstallButton/index.js:203
 msgid "Enable"
@@ -2337,19 +2322,16 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:210
-#, fuzzy
 msgid "Downloading"
-msgstr "Preberanie doplnku %(name)s."
+msgstr "Preberá sa"
 
 #: src/core/components/AMInstallButton/index.js:212
-#, fuzzy
 msgid "Installing"
-msgstr "Inštalovanie doplnku %(name)s."
+msgstr "Inštaluje sa"
 
 #: src/core/components/AMInstallButton/index.js:214
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Odinštalovanie doplnku %(name)s."
+msgstr "Odinštalácia"
 
 #: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
 msgid "Install Theme"
@@ -2523,12 +2505,11 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "Viac si môžete prečítať po <span class=\"visually-hidden\">rozbalení</span>"
 
 #: src/ui/components/UserCollection/index.js:54
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "Bol nájdený %(count)s doplnok"
-msgstr[1] "Boli nájdené %(count)s doplnky"
-msgstr[2] "Bolo nájdených %(count)s doplnkov"
+msgstr[0] "%(total)s doplnok"
+msgstr[1] "%(total)s doplnky"
+msgstr[2] "%(total)s doplnkov"
 
 #~ msgid "Ratings"
 #~ msgstr "Hodnotenia"
