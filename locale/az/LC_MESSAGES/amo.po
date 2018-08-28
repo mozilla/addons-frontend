@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-27 13:12+0000\n"
+"PO-Revision-Date: 2018-08-28 07:06+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -206,7 +206,7 @@ msgstr "Rəy yoxdur"
 
 #: src/amo/components/AddonMeta/index.js:84
 msgid "Used by"
-msgstr ""
+msgstr "İşlədən"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:127
@@ -307,25 +307,25 @@ msgstr "Rəy yazın"
 
 #: src/amo/components/AddonReview/index.js:246
 msgid "Review text"
-msgstr ""
+msgstr "Rəy mətni"
 
 #: src/amo/components/AddonReview/index.js:263
 msgid "Submit review"
-msgstr ""
+msgstr "Rəyi göndər"
 
 #: src/amo/components/AddonReviewList/index.js:180
 msgid "Add-on icon"
-msgstr ""
+msgstr "Əlavə ikonu"
 
 #: src/amo/components/AddonReviewList/index.js:186
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s üçün rəylər"
 
 #: src/amo/components/AddonReviewList/index.js:200
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bu əlavənin %(total)s rəyi var"
+msgstr[1] "Bu əlavənin %(total)s rəyi var"
 
 # Example: by The Author, The Next Author
 #: src/amo/components/AddonReviewList/index.js:229
@@ -335,31 +335,31 @@ msgstr "%(authorList)s tərəfindən"
 # averageRating is a localized number, such as 4.5
 #: src/amo/components/AddonReviewList/index.js:275
 msgid "%(averageRating)s star average"
-msgstr ""
+msgstr "ortalama %(averageRating)s ulduz"
 
 #: src/amo/components/AddonReviewListItem/index.js:148 src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
-msgstr ""
+msgstr "Tərtibatçı cavabı"
 
 #: src/amo/components/AddonReviewListItem/index.js:156
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "Bu rəyə cavab yaz."
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Update reply"
-msgstr ""
+msgstr "Cavabı yenilə"
 
 #: src/amo/components/AddonReviewListItem/index.js:160
 msgid "Publish reply"
-msgstr ""
+msgstr "Cavabı nəşr et"
 
 #: src/amo/components/AddonReviewListItem/index.js:164
 msgid "Updating reply"
-msgstr ""
+msgstr "Cavab yenilənir"
 
 #: src/amo/components/AddonReviewListItem/index.js:165
 msgid "Publishing reply"
-msgstr ""
+msgstr "Cavab nəşr edilir"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
@@ -371,19 +371,19 @@ msgstr "%(authorName)s tərəfindən, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:237
 msgid "Edit my reply"
-msgstr ""
+msgstr "Cavabımı redaktə et"
 
 #: src/amo/components/AddonReviewListItem/index.js:238
 msgid "Edit my review"
-msgstr ""
+msgstr "Rəyimi redaktə et"
 
 #: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Reply to this review"
-msgstr ""
+msgstr "Bu rəyi cavabla"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s tərəfindən daha çox lüğətlər"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:227
 msgid "More dictionaries by these translators"
@@ -407,11 +407,11 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:248
 msgid "Extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s tərəfindən uzantılar"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:251
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "Bu tərtibatçılar tərəfindən uzantılar"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:258
 msgid "More language packs by %(author)s"
@@ -431,7 +431,7 @@ msgstr "Bu tərcüməçilər tərəfindən dil paketləri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:276
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "%(author)s tərəfindən daha çox mövzular"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More themes by these artists"
