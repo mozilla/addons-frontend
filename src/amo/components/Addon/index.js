@@ -499,7 +499,7 @@ export class AddonBase extends React.Component {
                 reason={compatibility.reason}
               />
             ) : null}
-            {addon && addon.status !== STATUS_PUBLIC ? (
+            {addon && (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
               <Notice type="error" className="Addon-non-public-notice">
                 {i18n.gettext(
                   'This is not a public listing. You are only seeing it because of elevated permissions.',
