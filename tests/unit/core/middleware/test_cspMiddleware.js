@@ -6,6 +6,7 @@ import parse from 'content-security-policy-parser';
 
 import log from 'core/logger';
 import { csp, getNoScriptStyles } from 'core/middleware';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('CSP Middleware', () => {
@@ -191,6 +192,27 @@ describe(__filename, () => {
 
     it('does not blow up if optional args missing', () => {
       csp();
+    });
+
+    it('disables the hash-source in development to allow "unsafe-inline"', () => {
+      const _config = getFakeConfig({ isDevelopment: true });
+      const _log = { debug: sinon.spy() };
+
+      const req = new MockExpressRequest();
+      const res = new MockExpressResponse();
+
+      csp({
+        _config,
+        _log,
+        noScriptStyles: getNoScriptStyles('amo'),
+      })(req, res, sinon.stub());
+
+      const cspHeader = res.get('content-security-policy');
+      const policy = parse(cspHeader);
+
+      expect(policy['style-src']).toEqual(['https://addons.cdn.mozilla.net']);
+
+      sinon.assert.calledOnce(_log.debug);
     });
   });
 

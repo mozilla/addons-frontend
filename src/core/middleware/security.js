@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
+import { oneLine } from 'common-tags';
 import helmet from 'helmet';
 import config from 'config';
 import deepcopy from 'deepcopy';
@@ -38,17 +39,22 @@ export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
 
   if (cspConfig) {
     if (noScriptStyles) {
-      const hash = crypto
-        .createHash('sha256')
-        .update(noScriptStyles)
-        .digest('base64');
+      if (!_config.get('isDevelopment')) {
+        const hash = crypto
+          .createHash('sha256')
+          .update(noScriptStyles)
+          .digest('base64');
 
-      const cspValue = `'sha256-${hash}'`;
-      if (
-        cspConfig.directives &&
-        !cspConfig.directives.styleSrc.includes(cspValue)
-      ) {
-        cspConfig.directives.styleSrc.push(cspValue);
+        const cspValue = `'sha256-${hash}'`;
+        if (
+          cspConfig.directives &&
+          !cspConfig.directives.styleSrc.includes(cspValue)
+        ) {
+          cspConfig.directives.styleSrc.push(cspValue);
+        }
+      } else {
+        _log.debug(oneLine`CSP style-src hash has been omitted to allow
+          "unsafe-inline" in development`);
       }
     }
 
