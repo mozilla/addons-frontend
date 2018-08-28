@@ -248,21 +248,27 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { i18n } = this.props;
+    const { i18n, userReview } = this.props;
 
-    return this.shouldShowTextEntry() ? (
-      <Button
-        href="#cancelTextEntry"
-        onClick={this.cancelTextEntry}
-        className="RatingManager-cancelTextEntryButton"
-        buttonType="neutral"
-        puffy
-      >
-        {i18n.gettext("Nevermind, I don't want to write a review")}
-      </Button>
-    ) : (
-      this.renderUserRatingForm()
-    );
+    if (this.shouldShowTextEntry()) {
+      invariant(userReview, 'userReview is required');
+
+      return (
+        <Button
+          href="#cancelTextEntry"
+          onClick={this.cancelTextEntry}
+          className="RatingManager-cancelTextEntryButton"
+          buttonType="neutral"
+          puffy
+        >
+          {userReview.body
+            ? i18n.gettext("Nevermind, I don't want to edit my review")
+            : i18n.gettext("Nevermind, I don't want to write a review")}
+        </Button>
+      );
+    }
+
+    return this.renderUserRatingForm();
   }
 
   render() {

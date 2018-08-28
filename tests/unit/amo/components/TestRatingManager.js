@@ -552,6 +552,35 @@ describe(__filename, () => {
       expect(rating).toHaveProp('readOnly', true);
       expect(rating).toHaveProp('review', null);
     });
+
+    it('prompts to cancel writing a new review', async () => {
+      const root = renderInline({
+        store: createStoreWithLatestReview({
+          // This is a new review without any text yet.
+          review: { ...fakeReview, body: undefined },
+        }),
+      });
+      root.setState({ showTextEntry: true });
+
+      const button = root.find('.RatingManager-cancelTextEntryButton');
+      expect(button.children()).toHaveText(
+        "Nevermind, I don't want to write a review",
+      );
+    });
+
+    it('prompts to cancel editng an existing review', async () => {
+      const root = renderInline({
+        store: createStoreWithLatestReview({
+          review: { ...fakeReview, body: 'This add-on is wonderful' },
+        }),
+      });
+      root.setState({ showTextEntry: true });
+
+      const button = root.find('.RatingManager-cancelTextEntryButton');
+      expect(button.children()).toHaveText(
+        "Nevermind, I don't want to edit my review",
+      );
+    });
   });
 
   describe('mapDispatchToProps', () => {
