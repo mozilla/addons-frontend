@@ -64,7 +64,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   render() {
     const { errorHandler, i18n, review, flashMessage } = this.props;
 
-    const reviewGuide = i18n.sprintf(
+    const reviewGuideLink = i18n.sprintf(
       i18n.gettext(
         'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
       ),
@@ -76,7 +76,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
 
     /* eslint-disable react/no-danger */
     const formFooter = (
-      <span dangerouslySetInnerHTML={sanitizeHTML(reviewGuide, ['a'])} />
+      <span dangerouslySetInnerHTML={sanitizeHTML(reviewGuideLink, ['a'])} />
     );
     /* eslint-enable react/no-danger */
 
