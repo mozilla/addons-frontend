@@ -248,8 +248,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { i18n, userReview } = this.props;
-    const { showTextEntry } = this.state;
+    const { i18n } = this.props;
 
     return this.shouldShowTextEntry() ? (
       <Button
