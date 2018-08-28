@@ -12,8 +12,10 @@ import {
 import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import { selectReview } from 'amo/reducers/reviews';
+import { logOutUser } from 'amo/reducers/users';
 import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewManager from 'amo/components/AddonReviewManager';
 import RatingManager, {
   RatingManagerBase,
   mapDispatchToProps,
@@ -28,9 +30,11 @@ import {
   fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
+  createFakeEvent,
   createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -447,6 +451,135 @@ describe(__filename, () => {
         );
       // The prompt should just call it an add-on:
       expect(prompt).toContain('add-on');
+    });
+  });
+
+  describe('enableInlineAddonReview', () => {
+    function renderInline(otherProps = {}) {
+      const _config = getFakeConfig({
+        enableInlineAddonReview: true,
+      });
+      return render({ _config, ...otherProps });
+    }
+
+    it('renders a user rating prompt', () => {
+      const root = renderInline();
+
+      expect(root.find(UserRating)).toHaveLength(1);
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+    });
+
+    it('renders AddonReviewManager after submitting a rating', async () => {
+      const store = createStoreWithLatestReview();
+      const root = renderInline({ store });
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+
+      await root.instance().onSelectRating(5);
+
+      // Apply setState() changes.
+      expect(root).toHaveState('showTextEntry', true);
+      root.update();
+
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveLength(1);
+      expect(manager).toHaveProp('review', root.instance().props.userReview);
+
+      expect(root.find(UserRating)).toHaveLength(0);
+    });
+
+    it('hides AddonReviewManager when pressing the cancel button', async () => {
+      const root = renderInline({ store: createStoreWithLatestReview() });
+      root.setState({ showTextEntry: true });
+
+      const clickEvent = createFakeEvent();
+      root
+        .find('.RatingManager-cancelTextEntryButton')
+        .simulate('click', clickEvent);
+
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+      expect(root.find(UserRating)).toHaveLength(1);
+      sinon.assert.called(clickEvent.preventDefault);
+    });
+
+    it('does not render AddonReviewManager if not signed in', async () => {
+      const store = createStoreWithLatestReview();
+      store.dispatch(logOutUser());
+      const root = renderInline({ store });
+
+      root.setState({ showTextEntry: true });
+
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+      expect(root.find('.RatingManager-cancelTextEntryButton')).toHaveLength(0);
+      expect(root.find(UserRating)).toHaveLength(1);
+    });
+
+    it('does not render AddonReviewManager without a saved review', async () => {
+      const addon = createInternalAddon({ ...fakeAddon, id: 7777 });
+      const userId = 9876;
+      const versionId = 1234;
+      const { store } = dispatchSignInActions({ userId });
+
+      store.dispatch(
+        setLatestReview({
+          addonId: addon.id,
+          addonSlug: addon.slug,
+          review: null,
+          userId,
+          versionId,
+        }),
+      );
+      const root = renderInline({ addon, store, version: versionId });
+
+      root.setState({ showTextEntry: true });
+
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+      expect(root.find('.RatingManager-cancelTextEntryButton')).toHaveLength(0);
+      expect(root.find(UserRating)).toHaveLength(1);
+    });
+
+    it('renders an AuthenticateButton when not signed in', () => {
+      const { store } = dispatchClientMetadata();
+      const root = renderInline({ store });
+
+      expect(root.find(AuthenticateButton)).toHaveLength(1);
+    });
+
+    it('configures UserRating when signed out', async () => {
+      const root = renderInline({ store: dispatchClientMetadata().store });
+
+      const rating = root.find(UserRating);
+      expect(rating).toHaveLength(1);
+      expect(rating).toHaveProp('readOnly', true);
+      expect(rating).toHaveProp('review', null);
+    });
+
+    it('prompts to cancel writing a new review', async () => {
+      const root = renderInline({
+        store: createStoreWithLatestReview({
+          // This is a new review without any text yet.
+          review: { ...fakeReview, body: undefined },
+        }),
+      });
+      root.setState({ showTextEntry: true });
+
+      const button = root.find('.RatingManager-cancelTextEntryButton');
+      expect(button.children()).toHaveText(
+        "Nevermind, I don't want to write a review",
+      );
+    });
+
+    it('prompts to cancel editng an existing review', async () => {
+      const root = renderInline({
+        store: createStoreWithLatestReview({
+          review: { ...fakeReview, body: 'This add-on is wonderful' },
+        }),
+      });
+      root.setState({ showTextEntry: true });
+
+      const button = root.find('.RatingManager-cancelTextEntryButton');
+      expect(button.children()).toHaveText(
+        "Nevermind, I don't want to edit my review",
+      );
     });
   });
 
