@@ -500,8 +500,6 @@ export default function reviewsReducer(
 
       if (reviewData) {
         const { addonId, addonSlug, userId } = reviewData;
-        delete newState.byId[reviewId];
-        delete newState.view[reviewId];
         return {
           ...newState,
           byAddon: {
