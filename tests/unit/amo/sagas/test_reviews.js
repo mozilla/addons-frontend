@@ -45,6 +45,7 @@ import {
   createStubErrorHandler,
   matchingSagaAction,
 } from 'tests/unit/helpers';
+import { createInternalAddon, unloadAddon } from 'core/reducers/addons';
 
 describe(__filename, () => {
   let apiState;
@@ -682,6 +683,7 @@ describe(__filename, () => {
     function _deleteAddonReview(params = {}) {
       sagaTester.dispatch(
         deleteAddonReview({
+          addon: createInternalAddon(fakeAddon),
           errorHandlerId: errorHandler.id,
           reviewId: 1,
           ...params,
@@ -728,6 +730,24 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
+    it('unloads the add-on for the review', async () => {
+      const addon = createInternalAddon(fakeAddon);
+      const reviewId = 12345;
+
+      mockApi
+        .expects('deleteReview')
+        .once()
+        .returns(Promise.resolve());
+
+      _deleteAddonReview({ addon, reviewId });
+
+      const expectedAction = unloadAddon({ addon, reviewId });
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      mockApi.verify();
+    });
+
     it('clears reviews for an add-on review reply', async () => {
       const reviewId = 12345;
       const isReplyToReviewId = 98765;
@@ -735,10 +755,6 @@ describe(__filename, () => {
       mockApi
         .expects('deleteReview')
         .once()
-        .withArgs({
-          apiState,
-          reviewId,
-        })
         .returns(Promise.resolve());
 
       _deleteAddonReview({ isReplyToReviewId, reviewId });
@@ -760,10 +776,6 @@ describe(__filename, () => {
       mockApi
         .expects('deleteReview')
         .once()
-        .withArgs({
-          apiState,
-          reviewId,
-        })
         .returns(Promise.resolve());
 
       _deleteAddonReview({ isReplyToReviewId, reviewId });

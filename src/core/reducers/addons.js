@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { AppState } from 'amo/store';
@@ -11,9 +12,12 @@ import type {
   ThemeData,
 } from 'core/types/addons';
 
-export const LOAD_ADDONS = 'LOAD_ADDONS';
-export const FETCH_ADDON = 'FETCH_ADDON';
-export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
+export const LOAD_ADDONS: 'LOAD_ADDONS' = 'LOAD_ADDONS';
+export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
+export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
+export const UNLOAD_ADDON: 'UNLOAD_ADDON' = 'UNLOAD_ADDON';
+
+type AddonID = number;
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -21,7 +25,7 @@ type ExternalAddonMap = {
 
 export type LoadAddonsAction = {|
   payload: {| addons: ExternalAddonMap |},
-  type: string,
+  type: typeof LOAD_ADDONS,
 |};
 
 // TODO: We should remove this method and move all calls to `loadAddonResults`.
@@ -49,7 +53,7 @@ type FetchAddonParams = {|
 |};
 
 export type FetchAddonAction = {|
-  type: string,
+  type: typeof FETCH_ADDON,
   payload: {|
     errorHandlerId: string,
     slug: string,
@@ -78,7 +82,7 @@ type LoadAddonResultsParams = {|
 
 export type LoadAddonResultsAction = {|
   payload: {| addons: ExternalAddonMap |},
-  type: string,
+  type: typeof LOAD_ADDON_RESULTS,
 |};
 
 export function loadAddonResults({
@@ -89,8 +93,28 @@ export function loadAddonResults({
   }
 
   return {
-    type: LOAD_ADDONS,
+    type: LOAD_ADDON_RESULTS,
     payload: { addons },
+  };
+}
+
+type UnloadAddonParams = {|
+  addon: AddonType,
+|};
+
+export type UnloadAddonAction = {|
+  payload: {| addon: AddonType |},
+  type: typeof UNLOAD_ADDON,
+|};
+
+export function unloadAddon({
+  addon,
+}: UnloadAddonParams = {}): UnloadAddonAction {
+  invariant(addon, 'addon is required');
+
+  return {
+    type: UNLOAD_ADDON,
+    payload: { addon },
   };
 }
 
@@ -262,8 +286,6 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
   return addon;
 }
 
-type AddonID = number;
-
 export type AddonsState = {|
   // Flow wants hash maps with string keys.
   // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
@@ -310,12 +332,15 @@ export const getAllAddons = (state: AppState): Array<AddonType> => {
   return Object.values(addons);
 };
 
+type Action = LoadAddonsAction | LoadAddonResultsAction;
+
 export default function addonsReducer(
   state: AddonsState = initialState,
-  action: LoadAddonsAction,
+  action: Action,
 ) {
   switch (action.type) {
-    case LOAD_ADDONS: {
+    case LOAD_ADDONS:
+    case LOAD_ADDON_RESULTS: {
       const { addons: loadedAddons } = action.payload;
 
       const byID = { ...state.byID };
@@ -344,6 +369,24 @@ export default function addonsReducer(
         byID,
         byGUID,
         bySlug,
+      };
+    }
+    case UNLOAD_ADDON: {
+      const { addon } = action.payload;
+      return {
+        ...state,
+        byID: {
+          ...state.byID,
+          [`${addon.id}`]: undefined,
+        },
+        byGUID: {
+          ...state.byGUID,
+          [addon.guid]: undefined,
+        },
+        bySlug: {
+          ...state.bySlug,
+          [addon.slug]: undefined,
+        },
       };
     }
     default:

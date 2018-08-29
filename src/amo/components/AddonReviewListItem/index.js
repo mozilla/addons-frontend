@@ -60,12 +60,20 @@ type InternalProps = {|
 
 export class AddonReviewListItemBase extends React.Component<InternalProps> {
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
-    const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
+    const {
+      addon,
+      dispatch,
+      errorHandler,
+      isReplyToReviewId,
+      review,
+    } = this.props;
     event.preventDefault();
 
+    invariant(addon, 'addon is required');
     invariant(review, 'review is required');
     dispatch(
       deleteAddonReview({
+        addon,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
         isReplyToReviewId,

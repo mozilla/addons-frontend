@@ -31,6 +31,7 @@ import reviewsReducer, {
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
+import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
@@ -1142,6 +1143,7 @@ describe(__filename, () => {
       const state = reviewsReducer(
         undefined,
         deleteAddonReview({
+          addon: createInternalAddon(fakeAddon),
           errorHandlerId: 'some-id',
           reviewId: review.id,
         }),

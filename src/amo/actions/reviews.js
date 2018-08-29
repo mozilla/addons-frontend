@@ -7,6 +7,7 @@ import type {
   ExternalReviewType,
   GroupedRatingsType,
 } from 'amo/api/reviews';
+import type { AddonType } from 'core/types/addons';
 
 export const CREATE_ADDON_REVIEW: 'CREATE_ADDON_REVIEW' = 'CREATE_ADDON_REVIEW';
 export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
@@ -610,6 +611,7 @@ export const hideFlashedReviewMessage = (): HideFlashedReviewMessageAction => {
 };
 
 type DeleteAddonReviewParams = {|
+  addon: AddonType,
   errorHandlerId: string,
   isReplyToReviewId?: number,
   reviewId: number,
@@ -621,16 +623,18 @@ export type DeleteAddonReviewAction = {|
 |};
 
 export const deleteAddonReview = ({
+  addon,
   errorHandlerId,
   isReplyToReviewId,
   reviewId,
 }: DeleteAddonReviewParams) => {
+  invariant(addon, 'addon is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');
 
   return {
     type: DELETE_ADDON_REVIEW,
-    payload: { errorHandlerId, isReplyToReviewId, reviewId },
+    payload: { addon, errorHandlerId, isReplyToReviewId, reviewId },
   };
 };
 
