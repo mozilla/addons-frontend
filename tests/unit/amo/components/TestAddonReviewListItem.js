@@ -214,24 +214,22 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
-  it('dispatches deleteReview when a user clicks the delete link', () => {
+  it('dispatches deleteReview when a user deletes a review', () => {
     const review = signInAndDispatchSavedReview();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const preventDefaultSpy = sinon.spy();
     const root = render({ review });
     const { errorHandler } = root.instance().props;
 
     const deleteButton = renderControls(root).find(
       '.AddonReviewListItem-delete',
     );
-    const clickEvent = createFakeEvent();
-    deleteButton.simulate('click', clickEvent);
+    const deleteEvent = createFakeEvent();
 
     // This emulates a user clicking the delete button and confirming.
     const onDelete = deleteButton.prop('onConfirm');
-    onDelete(createFakeEvent({ preventDefault: preventDefaultSpy }));
+    onDelete(deleteEvent);
 
-    sinon.assert.calledOnce(preventDefaultSpy);
+    sinon.assert.calledOnce(deleteEvent.preventDefault);
     sinon.assert.calledWith(
       dispatchSpy,
       deleteAddonReview({
@@ -780,7 +778,7 @@ describe(__filename, () => {
       );
     });
 
-    it('dispatches deleteReview when a user clicks the delete link for a developer reply', () => {
+    it('dispatches deleteReview when a user deletes a developer reply', () => {
       const originalReviewId = 543;
       const developerUserId = 321;
       const review = signInAndDispatchSavedReview({
@@ -788,19 +786,19 @@ describe(__filename, () => {
         reviewUserId: developerUserId,
       });
       const dispatchSpy = sinon.spy(store, 'dispatch');
-      const preventDefaultSpy = sinon.spy();
 
       const root = renderReply({ originalReviewId, reply: review });
       const { errorHandler } = root.instance().props;
 
+      const deleteEvent = createFakeEvent();
       const deleteButton = renderControls(root).find(
         '.AddonReviewListItem-delete',
       );
       // This emulates a user clicking the delete button and confirming.
       const onDelete = deleteButton.prop('onConfirm');
-      onDelete(createFakeEvent({ preventDefault: preventDefaultSpy }));
+      onDelete(deleteEvent);
 
-      sinon.assert.calledOnce(preventDefaultSpy);
+      sinon.assert.calledOnce(deleteEvent.preventDefault);
       sinon.assert.calledWith(
         dispatchSpy,
         deleteAddonReview({

@@ -256,10 +256,12 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
             </a>
             <ConfirmButton
               buttonType="cancel"
+              cancelButtonType="neutral"
               className={makeClassName(
                 'AddonReviewListItem-control',
                 confirmButtonClassName,
               )}
+              confirmButtonText={i18n.gettext('Delete')}
               id={`${confirmButtonClassName}-${review.id}`}
               message={
                 isReply

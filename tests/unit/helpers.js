@@ -712,13 +712,11 @@ export async function matchingSagaAction(
 ) {
   let calledActions = [];
   let foundAction;
-  let matched = false;
 
   for (let attempt = 0; attempt < maxTries; attempt++) {
     calledActions = sagaTester.getCalledActions();
     foundAction = calledActions.find(isMatch);
     if (foundAction !== undefined) {
-      matched = true;
       break;
     }
 
@@ -726,7 +724,7 @@ export async function matchingSagaAction(
     await new Promise((resolve) => globalSetTimeout(resolve, 1));
   }
 
-  if (!matched) {
+  if (!foundAction) {
     throw new Error(
       `
       The matcher function did not return true:
