@@ -256,6 +256,28 @@ describe(__filename, () => {
     expect(controls.find('.AddonReviewListItem-delete')).toHaveLength(0);
   });
 
+  it('renders a delete link when an error occurs when deleting a review', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(
+      deleteAddonReview({
+        errorHandlerId: createStubErrorHandler().id,
+        reviewId: review.id,
+      }),
+    );
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+
+    const root = render({ errorHandler, review });
+
+    const controls = renderControls(root);
+    expect(controls.find('.AddonReviewListItem-deleting')).toHaveLength(0);
+    expect(controls.find('.AddonReviewListItem-delete')).toHaveLength(1);
+  });
+
   it('lets you begin editing your review', () => {
     const review = signInAndDispatchSavedReview();
     const dispatchSpy = sinon.spy(store, 'dispatch');

@@ -256,7 +256,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
                 ? i18n.gettext('Edit my reply')
                 : i18n.gettext('Edit my review')}
             </a>
-            {deletingReview ? (
+            {deletingReview && !errorHandler.hasError() ? (
               <span className="AddonReviewListItem-control AddonReviewListItem-deleting">
                 {i18n.gettext('Deleting…')}
               </span>
