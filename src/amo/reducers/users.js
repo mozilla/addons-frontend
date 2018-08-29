@@ -543,27 +543,25 @@ const reducer = (
     case UNLOAD_USER_ACCOUNT: {
       const { userId } = action.payload;
 
-      const newState = { ...state };
-
-      if (newState.byID[userId]) {
-        const { username } = newState.byID[userId];
+      if (state.byID[userId]) {
+        const { username } = state.byID[userId];
 
         return {
-          ...newState,
+          ...state,
           currentUserID:
-            newState.currentUserID === userId ? null : newState.currentUserID,
+            state.currentUserID === userId ? null : state.currentUserID,
           byID: {
-            ...newState.byID,
+            ...state.byID,
             [userId]: undefined,
           },
           byUsername: {
-            ...newState.byUsername,
+            ...state.byUsername,
             [username]: undefined,
           },
         };
       }
 
-      return newState;
+      return state;
     }
     default:
       return state;
