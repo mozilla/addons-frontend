@@ -548,12 +548,19 @@ const reducer = (
       if (newState.byID[userId]) {
         const { username } = newState.byID[userId];
 
-        delete newState.byID[userId];
-        delete newState.byUsername[username];
-
-        if (newState.currentUserID === userId) {
-          newState.currentUserID = null;
-        }
+        return {
+          ...newState,
+          currentUserID:
+            newState.currentUserID === userId ? null : newState.currentUserID,
+          byID: {
+            ...newState.byID,
+            [userId]: undefined,
+          },
+          byUsername: {
+            ...newState.byUsername,
+            [username]: undefined,
+          },
+        };
       }
 
       return newState;
