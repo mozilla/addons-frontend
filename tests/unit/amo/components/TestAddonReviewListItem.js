@@ -27,6 +27,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createStubErrorHandler,
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,
@@ -237,6 +238,22 @@ describe(__filename, () => {
         reviewId: review.id,
       }),
     );
+  });
+
+  it('renders a deleting message when a user deletes a review', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(
+      deleteAddonReview({
+        errorHandlerId: createStubErrorHandler().id,
+        reviewId: review.id,
+      }),
+    );
+
+    const root = render({ review });
+
+    const controls = renderControls(root);
+    expect(controls.find('.AddonReviewListItem-deleting')).toHaveLength(1);
+    expect(controls.find('.AddonReviewListItem-delete')).toHaveLength(0);
   });
 
   it('lets you begin editing your review', () => {

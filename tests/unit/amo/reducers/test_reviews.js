@@ -1,5 +1,6 @@
 import {
   SAVED_RATING,
+  deleteAddonReview,
   unloadAddonReviews,
   createInternalReview,
   flagReview,
@@ -734,6 +735,7 @@ describe(__filename, () => {
       });
 
       expect(state.view[review.id]).toEqual({
+        deletingReview: false,
         editingReview: false,
         flag: {},
         replyingToReview: false,
@@ -1110,6 +1112,22 @@ describe(__filename, () => {
       state = reviewsReducer(state, hideFlashedReviewMessage());
 
       expect(state.flashMessage).toEqual(undefined);
+    });
+  });
+
+  describe('deleteAddonReview', () => {
+    it('stores view state about deleting a review', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(
+        undefined,
+        deleteAddonReview({
+          errorHandlerId: 'some-id',
+          reviewId: review.id,
+        }),
+      );
+
+      expect(state.view[review.id].deletingReview).toEqual(true);
     });
   });
 });

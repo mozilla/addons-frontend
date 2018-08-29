@@ -47,6 +47,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
@@ -199,6 +200,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
   render() {
     const {
       addon,
+      deletingReview,
       editingReview,
       errorHandler,
       i18n,
@@ -254,26 +256,32 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
                 ? i18n.gettext('Edit my reply')
                 : i18n.gettext('Edit my review')}
             </a>
-            <ConfirmButton
-              buttonType="cancel"
-              cancelButtonType="neutral"
-              className={makeClassName(
-                'AddonReviewListItem-control',
-                confirmButtonClassName,
-              )}
-              confirmButtonText={i18n.gettext('Delete')}
-              id={`${confirmButtonClassName}-${review.id}`}
-              message={
-                isReply
-                  ? i18n.gettext('Do you really want to delete this reply?')
-                  : i18n.gettext('Do you really want to delete this review?')
-              }
-              onConfirm={this.onClickToDeleteReview}
-            >
-              {isReply
-                ? i18n.gettext('Delete my reply')
-                : i18n.gettext('Delete my review')}
-            </ConfirmButton>
+            {deletingReview ? (
+              <span className="AddonReviewListItem-control AddonReviewListItem-deleting">
+                {i18n.gettext('Deleting…')}
+              </span>
+            ) : (
+              <ConfirmButton
+                buttonType="cancel"
+                cancelButtonType="neutral"
+                className={makeClassName(
+                  'AddonReviewListItem-control',
+                  confirmButtonClassName,
+                )}
+                confirmButtonText={i18n.gettext('Delete')}
+                id={`${confirmButtonClassName}-${review.id}`}
+                message={
+                  isReply
+                    ? i18n.gettext('Do you really want to delete this reply?')
+                    : i18n.gettext('Do you really want to delete this review?')
+                }
+                onConfirm={this.onClickToDeleteReview}
+              >
+                {isReply
+                  ? i18n.gettext('Delete my reply')
+                  : i18n.gettext('Delete my review')}
+              </ConfirmButton>
+            )}
           </React.Fragment>
         ) : null}
 
@@ -323,18 +331,21 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
 }
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
+  let deletingReview = false;
   let editingReview = false;
   let replyingToReview = false;
   let submittingReply = false;
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
     if (view) {
+      deletingReview = view.deletingReview;
       editingReview = view.editingReview;
       replyingToReview = view.replyingToReview;
       submittingReply = view.submittingReply;
     }
   }
   return {
+    deletingReview,
     editingReview,
     siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
     replyingToReview,
