@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-26 11:20+0000\n"
+"PO-Revision-Date: 2018-08-26 11:56+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1138,7 +1138,7 @@ msgstr "Haku"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 msgid "Highlight text on any webpage to easily search the term"
-msgstr ""
+msgstr "Korosta teksti verkkosivulla etsiäksesi kyseistä termiä"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1170,7 +1170,7 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Saa ilmoitus, kun valitsemasi verkkosivustot päivittyvät uudella sisällöllä"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
