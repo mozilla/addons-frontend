@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { text, select } from '@storybook/addon-knobs';
 
-import Badge from '../src/ui/components/Badge';
+import Badge from 'ui/components/Badge';
 
 // TODO: look into showing flow props.
 

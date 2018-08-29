@@ -218,7 +218,7 @@
   dependencies:
     global "^4.3.2"
 
-"@storybook/addon-info@3.4.10":
+"@storybook/addon-info@^3.4.10":
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-3.4.10.tgz#fb846457150b6aff690b7886d2b82cf576829bad"
   dependencies:
@@ -234,7 +234,7 @@
     react-addons-create-fragment "^15.5.3"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-knobs@3.4.10":
+"@storybook/addon-knobs@^3.4.10":
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-3.4.10.tgz#57a5639758aa77e7c697acc3b31e728cffc260ac"
   dependencies:
@@ -260,7 +260,7 @@
     global "^4.3.2"
     prop-types "^15.6.1"
 
-"@storybook/addon-options@3.4.10":
+"@storybook/addon-options@^3.4.10":
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-3.4.10.tgz#0b6ed3e22b7541a86a7c507ff80356d33784eda9"
   dependencies:
@@ -11076,7 +11076,7 @@ stealthy-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
 
-storybook-addon-scissors@4.0.1:
+storybook-addon-scissors@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/storybook-addon-scissors/-/storybook-addon-scissors-4.0.1.tgz#1f3b3233919ae42a2c01243093bd47f2f76be187"
   dependencies:

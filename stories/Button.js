@@ -7,8 +7,8 @@ import { linkTo } from '@storybook/addon-links';
 import { withInfo } from '@storybook/addon-info';
 import { text, boolean, select } from '@storybook/addon-knobs';
 
-import Provider from '../.storybook/Provider';
-import Button from '../src/ui/components/Button'; // or should I use AddonBadge here instead?
+import Provider from './setup/Provider';
+import Button from 'ui/components/Button';
 
 storiesOf('Button', module)
 	.addDecorator((story) => <Provider story={story()} />)
