@@ -1334,9 +1334,13 @@ const reducer = (
       const collectionId = state.bySlug[slug];
 
       if (collectionId) {
-        const newIdMap = { ...state.byId };
-        delete newIdMap[collectionId];
-        return { ...state, byId: newIdMap };
+        return {
+          ...state,
+          byId: {
+            ...state.byId,
+            [collectionId]: undefined,
+          },
+        };
       }
       return state;
     }
