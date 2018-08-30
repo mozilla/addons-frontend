@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-24 09:23+0000\n"
-"PO-Revision-Date: 2018-08-25 03:44+0000\n"
+"PO-Revision-Date: 2018-08-30 13:17+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -191,21 +191,18 @@ msgid "No Users"
 msgstr "Nulle usatores"
 
 #: src/amo/components/AddonMeta/index.js:55
-#, fuzzy
 msgid "Reviews"
-msgstr "Testo pro revision"
+msgstr "Revisiones"
 
 #: src/amo/components/AddonMeta/index.js:58
-#, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Testo pro revision"
-msgstr[1] "Testo pro revision"
+msgstr[0] "Revision"
+msgstr[1] "Revisiones"
 
 #: src/amo/components/AddonMeta/index.js:60
-#, fuzzy
 msgid "No Reviews"
-msgstr "Ancora nulle revisiones"
+msgstr "Nulle revisiones"
 
 #: src/amo/components/AddonMeta/index.js:84
 msgid "Used by"
@@ -601,9 +598,8 @@ msgid "Added to collection"
 msgstr "Addeite al collection"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Adder al collection"
+msgstr "Removite ex le collection"
 
 #: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
@@ -1064,19 +1060,16 @@ msgid "Exceptional search tools"
 msgstr ""
 
 #: src/amo/components/Home/index.js:56
-#, fuzzy
 msgid "See more fall themes"
-msgstr "Vide plus de themas consiliate"
+msgstr "Vide plus de themas de autumno"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "Fall themes"
-msgstr "Themas consiliate"
+msgstr "Themas de autumno"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more YouTube extensions"
-msgstr "Vide plus de extensiones consiliate"
+msgstr "Vide plus de extensiones de YouTube"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
