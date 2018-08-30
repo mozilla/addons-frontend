@@ -1,15 +1,50 @@
+import 'core/polyfill';
 import config from 'config';
 import fs from 'fs';
-import { getPlugins, getRules } from '../../webpack-common';
-import webpackDevConfig, { babelOptions } from '../../webpack.dev.config.babel';
+import path from 'path';
+import autoprefixer from 'autoprefixer';
+import webpack from 'webpack';
+import { getClientConfig } from 'core/utils';
 
-// TODO: See if any of the module options are overkill here
-// or if there is anything we need to change.
 module.exports = {
 	module: {
-		...webpackDevConfig.module,
-		rules: getRules({ babelOptions, bundleStylesWithJs: true }),
+		rules: [
+			{
+				test: /\.svg$/,
+				use: [{ loader: 'svg-url-loader', options: { limit: 10000 } }],
+			},
+			{
+				test: /\.scss$/,
+				use: [
+					{ loader: 'style-loader' },
+					{ loader: 'css-loader', options: { importLoaders: 2 } },
+					{
+						loader: 'postcss-loader',
+						options: {
+							plugins: [
+								autoprefixer({
+									browsers: ['last 2 versions'],
+									grid: false,
+								}),
+							],
+						},
+					},
+					{ loader: 'sass-loader', options: { outputStyle: 'expanded' } },
+				],
+			},
+		],
 	},
+	// The following plugins are needed to help handle
+	// server-side imported components such as core/logger.
+	// imported to. Is this the best way?
+	plugins: [
+		new webpack.DefinePlugin({
+			CLIENT_CONFIG: JSON.stringify(getClientConfig(config)),
+		}),
 
-	plugins: [...getPlugins()],
+		new webpack.NormalModuleReplacementPlugin(
+			/config$/,
+			'core/client/config.js',
+		),
+	],
 };

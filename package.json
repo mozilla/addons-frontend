@@ -43,7 +43,7 @@
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
     "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
-    "storybook": "NODE_PATH=src start-storybook -p 9001 -c stories/setup",
+    "storybook": "cross-env NODE_PATH=src start-storybook -p 9001 -c stories/setup",
     "build-storybook": "NODE_ENV=development build-storybook"
   },
   "betterScripts": {
@@ -263,6 +263,7 @@
     "concurrently": "^4.0.1",
     "content-security-policy-parser": "^0.1.0",
     "cookie": "^0.3.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.3",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
