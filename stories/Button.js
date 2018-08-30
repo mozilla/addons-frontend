@@ -6,166 +6,178 @@ import Button from 'ui/components/Button';
 const label = 'Hello Button';
 
 storiesOf('Button', module)
-	.add('buttonType (none is default)', () => <Button>{label}</Button>)
-	.add('buttonType (none is default) disabled', () => (
+	.add('default (no buttonType)', () => <Button>{label}</Button>)
+	.add('default (no buttonType), disabled', () => (
 		<Button disabled>{label}</Button>
 	))
-	.add('buttonType neutral', () => (
+	.add('default (no buttonType), puffy', () => <Button puffy>{label}</Button>)
+	.add('default (no buttonType), puffy, disabled', () => (
+		<Button puffy disabled>
+			{label}
+		</Button>
+	))
+	.add('default (no buttonType), micro', () => <Button micro>{label}</Button>)
+	.add('default (no buttonType), micro, disabled', () => (
+		<Button micro disabled>
+			{label}
+		</Button>
+	))
+	.add('neutral buttonType', () => (
 		<Button buttonType="neutral">{label}</Button>
 	))
-	.add('buttonType neutral disabled', () => (
+	.add('neutral buttonType, disabled', () => (
 		<Button buttonType="neutral" disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType neutral puffy', () => (
+	.add('neutral buttonType, puffy', () => (
 		<Button buttonType="neutral" puffy>
 			{label}
 		</Button>
 	))
-	.add('buttonType neutral puffy disabled', () => (
+	.add('neutral buttonType, puffy, disabled', () => (
 		<Button buttonType="neutral" puffy disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType neutral micro', () => (
+	.add('neutral buttonType, micro', () => (
 		<Button buttonType="neutral" micro>
 			{label}
 		</Button>
 	))
-	.add('buttonType neutral micro disabled', () => (
+	.add('neutral buttonType, micro, disabled', () => (
 		<Button buttonType="neutral" micro disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType alert', () => <Button buttonType="alert">{label}</Button>)
-	.add('buttonType alert disabled', () => (
+	.add('alert buttonType', () => <Button buttonType="alert">{label}</Button>)
+	.add('alert buttonType, disabled', () => (
 		<Button buttonType="alert" disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType alert puffy', () => (
+	.add('alert buttonType, puffy', () => (
 		<Button buttonType="alert" puffy>
 			{label}
 		</Button>
 	))
-	.add('buttonType alert puffy disabled', () => (
+	.add('alert buttonType, puffy, disabled', () => (
 		<Button buttonType="alert" puffy disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType alert micro', () => (
+	.add('alert buttonType, micro', () => (
 		<Button buttonType="alert" micro>
 			{label}
 		</Button>
 	))
-	.add('buttonType alert micro disabled', () => (
+	.add('alert buttonType, micro, disabled', () => (
 		<Button buttonType="alert" micro disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType light', () => <Button buttonType="light">{label}</Button>)
-	.add('buttonType light disabled', () => (
+	.add('light buttonType', () => <Button buttonType="light">{label}</Button>)
+	.add('light buttonType, disabled', () => (
 		<Button buttonType="light" disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType light puffy', () => (
+	.add('light buttonType, puffy', () => (
 		<Button buttonType="light" puffy>
 			{label}
 		</Button>
 	))
-	.add('buttonType light puffy disabled', () => (
+	.add('light buttonType, puffy, disabled', () => (
 		<Button buttonType="light" puffy disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType light micro', () => (
+	.add('light buttonType, micro', () => (
 		<Button buttonType="light" micro>
 			{label}
 		</Button>
 	))
-	.add('buttonType light micro disabled', () => (
+	.add('light buttonType, micro, disabled', () => (
 		<Button buttonType="light" micro disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType action', () => <Button buttonType="action">{label}</Button>)
-	.add('buttonType action disabled', () => (
+	.add('action buttonType', () => <Button buttonType="action">{label}</Button>)
+	.add('action buttonType, disabled', () => (
 		<Button buttonType="action" disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType action puffy', () => (
+	.add('action buttonType, puffy', () => (
 		<Button buttonType="action" puffy>
 			{label}
 		</Button>
 	))
-	.add('buttonType action puffy disabled', () => (
+	.add('action buttonType, puffy, disabled', () => (
 		<Button buttonType="action" puffy disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType action micro', () => (
+	.add('action buttonType, micro', () => (
 		<Button buttonType="action" micro>
 			{label}
 		</Button>
 	))
-	.add('buttonType action micro disabled', () => (
+	.add('action buttonType, micro, disabled', () => (
 		<Button buttonType="action" micro disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType cancel', () => <Button buttonType="cancel">{label}</Button>)
-	.add('buttonType cancel disabled', () => (
+	.add('cancel buttonType', () => <Button buttonType="cancel">{label}</Button>)
+	.add('cancel buttonType, disabled', () => (
 		<Button buttonType="cancel" disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType cancel puffy', () => (
+	.add('cancel buttonType, puffy', () => (
 		<Button buttonType="cancel" puffy>
 			{label}
 		</Button>
 	))
-	.add('buttonType cancel puffy disabled', () => (
+	.add('cancel buttonType, puffy, disabled', () => (
 		<Button buttonType="cancel" puffy disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType cancel micro', () => (
+	.add('cancel buttonType, micro', () => (
 		<Button buttonType="cancel" micro>
 			{label}
 		</Button>
 	))
-	.add('buttonType cancel micro disabled', () => (
+	.add('cancel buttonType, micro, disabled', () => (
 		<Button buttonType="cancel" micro disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType confirm', () => (
+	.add('confirm buttonType', () => (
 		<Button buttonType="confirm">{label}</Button>
 	))
-	.add('buttonType confirm disabled', () => (
+	.add('confirm buttonType, disabled', () => (
 		<Button buttonType="confirm" disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType confirm puffy', () => (
+	.add('confirm buttonType, puffy', () => (
 		<Button buttonType="confirm" puffy>
 			{label}
 		</Button>
 	))
-	.add('buttonType confirm puffy disabled', () => (
+	.add('confirm buttonType, puffy, disabled', () => (
 		<Button buttonType="confirm" puffy disabled>
 			{label}
 		</Button>
 	))
-	.add('buttonType confirm micro', () => (
+	.add('confirm buttonType, micro', () => (
 		<Button buttonType="confirm" micro>
 			{label}
 		</Button>
 	))
-	.add('buttonType confirm micro disabled', () => (
+	.add('confirm buttonType, micro, disabled', () => (
 		<Button buttonType="confirm" micro disabled>
 			{label}
 		</Button>
