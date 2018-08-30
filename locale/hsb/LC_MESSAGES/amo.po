@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-30 19:10+0000\n"
+"PO-Revision-Date: 2018-08-30 19:21+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -396,24 +396,20 @@ msgid "Delete"
 msgstr "Zhašeć"
 
 #: src/amo/components/AddonReviewListItem/index.js:275
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "Chceće woprawdźe tutón wobraz zhašeć?"
+msgstr "Chceće woprawdźe tutu wotmołwu zhašeć?"
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "Chceće woprawdźe tutón wobraz zhašeć?"
+msgstr "Chceće woprawdźe tute pohódnoćenje zhašeć?"
 
 #: src/amo/components/AddonReviewListItem/index.js:281
-#, fuzzy
 msgid "Delete my reply"
-msgstr "Moju wotmołwu wobdźěłać"
+msgstr "Moju wotmołwu zhašeć"
 
 #: src/amo/components/AddonReviewListItem/index.js:282
-#, fuzzy
 msgid "Delete my review"
-msgstr "Moje pohódnoćenje wobdźěłać"
+msgstr "Moje pohódnoćenje zhašeć"
 
 #: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
@@ -424,24 +420,20 @@ msgid "Saving"
 msgstr "Składuje so"
 
 #: src/amo/components/AddonReviewManager/index.js:110
-#, fuzzy
 msgid "Saved"
-msgstr "Składować"
+msgstr "Składowany"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Submitting review"
-msgstr "Pohódnoćenje wotpósłać"
+msgstr "Pohódnoćenje so wotpóscele"
 
 #: src/amo/components/AddonReviewManager/index.js:68
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Zdźělće swětej, štož na tute rozšěrjenje dawaće. Dźeržće so prošu našich %(linkStart)ssměrnicow za pohódnoćenja%(linkEnd)s."
+msgstr "Dźeržće so prošu našich %(linkStart)ssměrnicow za pohódnoćenja%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "Pisajće, kaž byšće přećelej wo swojich nazhonjenjach z přidatkom powědał."
+msgstr "Pisajće wo swojim dožiwjenju z tutym přidatkom."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
@@ -676,14 +668,12 @@ msgid "Edit this collection"
 msgstr "Tutu zběrku wobdźěłać"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Zběrku wobdźěłać"
+msgstr "Podrobnosće zběrki wobdźěłać"
 
 #: src/amo/components/CollectionDetails/index.js:131
-#, fuzzy
 msgid "Back to collection"
-msgstr "Zběrce přidać"
+msgstr "Wróćo k zběrce"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
