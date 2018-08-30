@@ -36,7 +36,7 @@ module.exports = {
 	},
 	// The following plugins are needed to help handle
 	// server-side imported components such as core/logger.
-	// imported to. Is this the best way?
+	// Is this the best way??
 	plugins: [
 		new webpack.DefinePlugin({
 			CLIENT_CONFIG: JSON.stringify(getClientConfig(config)),
