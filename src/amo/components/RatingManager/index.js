@@ -27,7 +27,9 @@ import {
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
+import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
+import UserReview from 'ui/components/UserReview';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
@@ -237,6 +239,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
           <div className="RatingManager-ratingControl">
             {!this.isSignedIn() ? this.renderLogInToRate() : null}
             <UserRating
+              className="RatingManager-UserRating"
               readOnly={!this.isSignedIn()}
               onSelectRating={this.onSelectRating}
               review={!this.isSignedIn() ? null : userReview}
@@ -268,7 +271,30 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       );
     }
 
-    return this.renderUserRatingForm();
+    let byLine;
+    if (userReview) {
+      byLine = i18n.sprintf(i18n.gettext('posted by you, %(timestamp)s'), {
+        timestamp: i18n.moment(userReview.created).fromNow(),
+      });
+    } else {
+      byLine = <LoadingText />;
+    }
+
+    const hasReviewBody = userReview && userReview.body;
+
+    return (
+      <React.Fragment>
+        {this.renderUserRatingForm()}
+        {hasReviewBody && (
+          <UserReview
+            className="RatingManager-UserReview"
+            byLine={byLine}
+            review={userReview}
+            showRating={false}
+          />
+        )}
+      </React.Fragment>
+    );
   }
 
   render() {

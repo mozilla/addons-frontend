@@ -28,8 +28,14 @@
   legend {
     word-wrap: break-word;
   }
+}
 
-  .Rating {
-    margin: 12px;
-  }
+.RatingManager-UserRating {
+  margin: 12px;
+}
+
+.RatingManager-UserReview {
+  background-color: transparentize($blue-50, 0.95);
+  border-radius: $border-radius-default;
+  padding: 12px;
 }
