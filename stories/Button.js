@@ -1,92 +1,178 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
+import { storiesOf } from '@storybook/react';
 
-import { storiesOf, addDecorator } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
-import { withInfo } from '@storybook/addon-info';
-import { text, boolean, select } from '@storybook/addon-knobs';
-
-import Provider from './setup/Provider';
 import Button from 'ui/components/Button';
 
 storiesOf('Button', module)
-	.addDecorator((story) => <Provider story={story()} />)
-	.addDecorator((story) => (
-		<MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+	.add('buttonType (none is default)', () => <Button>Hello Button</Button>)
+	.add('buttonType (none is default) disabled', () => (
+		<Button disabled>Hello Button</Button>
 	))
-	.add(
-		'options',
-		withInfo(
-			`Toggle the different button options using "Knobs" (see right panel).
-			Note with the default buttonType (none), you won't see much difference.`,
-		)(() => {
-			const label = text('Label', 'Hello Button');
-
-			const btnTypeOptions = {
-				neutral: 'neutral',
-				light: 'light',
-				action: 'action',
-				cancel: 'cancel',
-				confirm: 'confirm',
-				alert: 'alert',
-				none: 'none',
-			};
-
-			const buttonType = select(
-				'buttonType',
-				btnTypeOptions,
-				'none',
-				'buttonTypes',
-			);
-
-			let puffyDefault = false;
-			let microDefault = false;
-
-			let isPuffy = boolean('puffy', puffyDefault, true);
-			let isMicro = boolean('micro', microDefault, true);
-
-			const isDisabled = boolean('Disabled', false, true);
-
-			const noLink = boolean('noLink', false, true);
-
-			const href = text('href', '');
-			const to = text('to', '');
-
-			let linkProps;
-
-			if (href) {
-				linkProps = {
-					href,
-					to: undefined,
-				};
-			}
-
-			if (to) {
-				linkProps = {
-					href: undefined,
-					to,
-				};
-			}
-
-			if (noLink) {
-				linkProps = {
-					href: undefined,
-					to: undefined,
-				};
-			}
-
-			return (
-				<Button
-					buttonType={buttonType}
-					disabled={isDisabled}
-					noLink={noLink}
-					micro={isMicro}
-					puffy={isPuffy}
-					{...linkProps}
-				>
-					{label}
-				</Button>
-			);
-		}),
-	);
+	.add('buttonType neutral', () => (
+		<Button buttonType="neutral">Hello Button</Button>
+	))
+	.add('buttonType neutral disabled', () => (
+		<Button buttonType="neutral" disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType neutral puffy', () => (
+		<Button buttonType="neutral" puffy>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType neutral puffy disabled', () => (
+		<Button buttonType="neutral" puffy disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType neutral micro', () => (
+		<Button buttonType="neutral" micro>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType neutral micro disabled', () => (
+		<Button buttonType="neutral" micro disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType alert', () => (
+		<Button buttonType="alert">Hello Button</Button>
+	))
+	.add('buttonType alert disabled', () => (
+		<Button buttonType="alert" disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType alert puffy', () => (
+		<Button buttonType="alert" puffy>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType alert puffy disabled', () => (
+		<Button buttonType="alert" puffy disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType alert micro', () => (
+		<Button buttonType="alert" micro>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType alert micro disabled', () => (
+		<Button buttonType="alert" micro disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType light', () => (
+		<Button buttonType="light">Hello Button</Button>
+	))
+	.add('buttonType light disabled', () => (
+		<Button buttonType="light" disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType light puffy', () => (
+		<Button buttonType="light" puffy>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType light puffy disabled', () => (
+		<Button buttonType="light" puffy disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType light micro', () => (
+		<Button buttonType="light" micro>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType light micro disabled', () => (
+		<Button buttonType="light" micro disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType action', () => (
+		<Button buttonType="action">Hello Button</Button>
+	))
+	.add('buttonType action disabled', () => (
+		<Button buttonType="action" disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType action puffy', () => (
+		<Button buttonType="action" puffy>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType action puffy disabled', () => (
+		<Button buttonType="action" puffy disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType action micro', () => (
+		<Button buttonType="action" micro>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType action micro disabled', () => (
+		<Button buttonType="action" micro disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType cancel', () => (
+		<Button buttonType="cancel">Hello Button</Button>
+	))
+	.add('buttonType cancel disabled', () => (
+		<Button buttonType="cancel" disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType cancel puffy', () => (
+		<Button buttonType="cancel" puffy>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType cancel puffy disabled', () => (
+		<Button buttonType="cancel" puffy disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType cancel micro', () => (
+		<Button buttonType="cancel" micro>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType cancel micro disabled', () => (
+		<Button buttonType="cancel" micro disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType confirm', () => (
+		<Button buttonType="confirm">Hello Button</Button>
+	))
+	.add('buttonType confirm disabled', () => (
+		<Button buttonType="confirm" disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType confirm puffy', () => (
+		<Button buttonType="confirm" puffy>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType confirm puffy disabled', () => (
+		<Button buttonType="confirm" puffy disabled>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType confirm micro', () => (
+		<Button buttonType="confirm" micro>
+			Hello Button
+		</Button>
+	))
+	.add('buttonType confirm micro disabled', () => (
+		<Button buttonType="confirm" micro disabled>
+			Hello Button
+		</Button>
+	));
