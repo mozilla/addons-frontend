@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"POT-Creation-Date: 2018-08-30 17:02+0000\n"
 "PO-Revision-Date: 2017-08-24 11:48+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:215
 #, fuzzy
 msgid "Downloading"
 msgstr "در حال دریافت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:217
 #, fuzzy
 msgid "Installing"
 msgstr "در حال نصب %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:219
 #, fuzzy
 msgid "Uninstalling"
 msgstr "در حال حذف %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/InstallButton/index.js:260
+#: src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
 msgstr "نصب قالب"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/InstallButton/index.js:291
+#: src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
@@ -202,7 +202,7 @@ msgstr "یک خطا غیر منتظره رُخ داد"
 msgid "Reload To Continue"
 msgstr "برای ادامه صفحه را مجددا بارگیری کنید"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
 msgstr ""
 
