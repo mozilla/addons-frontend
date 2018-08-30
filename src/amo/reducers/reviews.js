@@ -2,6 +2,7 @@
 import { oneLine } from 'common-tags';
 
 import {
+  DELETE_ADDON_REVIEW,
   FLASH_REVIEW_MESSAGE,
   HIDE_FLASHED_REVIEW_MESSAGE,
   UNLOAD_ADDON_REVIEWS,
@@ -22,6 +23,7 @@ import {
   createInternalReview,
 } from 'amo/actions/reviews';
 import type {
+  DeleteAddonReviewAction,
   UnloadAddonReviewsAction,
   FlagReviewAction,
   FlashMessageType,
@@ -75,6 +77,7 @@ export type FlagState = {
 };
 
 type ViewStateByReviewId = {|
+  deletingReview: boolean,
   editingReview: boolean,
   flag: FlagState,
   replyingToReview: boolean,
@@ -175,6 +178,7 @@ export const changeViewState = ({
     view: {
       ...state.view,
       [reviewId]: {
+        deletingReview: false,
         editingReview: false,
         replyingToReview: false,
         submittingReply: false,
@@ -270,6 +274,7 @@ export const addReviewToState = ({
 };
 
 type ReviewActionType =
+  | DeleteAddonReviewAction
   | FlagReviewAction
   | FlashReviewMessageAction
   | UnloadAddonReviewsAction
@@ -296,6 +301,12 @@ export default function reviewsReducer(
   }: {| _addReviewToState: typeof addReviewToState |} = {},
 ) {
   switch (action.type) {
+    case DELETE_ADDON_REVIEW:
+      return changeViewState({
+        state,
+        reviewId: action.payload.reviewId,
+        stateChange: { deletingReview: true },
+      });
     case SEND_REPLY_TO_REVIEW:
       return changeViewState({
         state,
@@ -489,12 +500,15 @@ export default function reviewsReducer(
 
       if (reviewData) {
         const { addonId, addonSlug, userId } = reviewData;
-        delete newState.byId[reviewId];
         return {
           ...newState,
           byAddon: {
             ...newState.byAddon,
             [addonSlug]: undefined,
+          },
+          byId: {
+            ...newState.byId,
+            [reviewId]: undefined,
           },
           byUserId: {
             ...newState.byUserId,
@@ -503,6 +517,10 @@ export default function reviewsReducer(
           groupedRatings: {
             ...newState.groupedRatings,
             [addonId]: undefined,
+          },
+          view: {
+            ...newState.view,
+            [reviewId]: undefined,
           },
         };
       }

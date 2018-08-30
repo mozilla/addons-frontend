@@ -285,7 +285,7 @@ function* manageAddonReview(
 }
 
 function* deleteAddonReview({
-  payload: { errorHandlerId, reviewId },
+  payload: { errorHandlerId, isReplyToReviewId, reviewId },
 }: DeleteAddonReviewAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -299,6 +299,9 @@ function* deleteAddonReview({
     });
 
     yield put(unloadAddonReviews({ reviewId }));
+    if (isReplyToReviewId) {
+      yield put(unloadAddonReviews({ reviewId: isReplyToReviewId }));
+    }
   } catch (error) {
     log.warn(`Failed to delete review ID ${reviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

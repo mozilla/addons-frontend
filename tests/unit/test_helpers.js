@@ -180,6 +180,32 @@ describe(__filename, () => {
       });
     });
 
+    it('returns the matched action', async () => {
+      const firstValue = 'first';
+      const secondValue = 'second';
+
+      const makeAction = (value) => {
+        return {
+          type: EXAMPLE_ACTION,
+          payload: { order: value },
+        };
+      };
+
+      function* exampleHandler() {
+        yield put(makeAction(firstValue));
+        yield put(makeAction(secondValue));
+      }
+
+      const sagaTester = startSagaTester(exampleHandler);
+
+      const returnedAction = await matchingSagaAction(sagaTester, (action) => {
+        return (
+          action.type === EXAMPLE_ACTION && action.payload.order === secondValue
+        );
+      });
+      expect(returnedAction).toEqual(makeAction(secondValue));
+    });
+
     it('gives up matching the action after maxTries', async () => {
       // eslint-disable-next-line no-empty-function
       function* exampleHandler() {}

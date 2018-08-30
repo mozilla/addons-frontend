@@ -697,7 +697,8 @@ const globalSetTimeout = setTimeout;
 
 /*
  * Wait until the saga dispatches an action causing isMatch(action)
- * to return true. Throw an error if it doesn't.
+ * to return true, and return that action.
+ * Throw an error if the action is not dispatched.
  *
  * This is helpful for when a saga dispatches the same action
  * but with differing payloads.
@@ -710,12 +711,12 @@ export async function matchingSagaAction(
   { maxTries = 50 } = {},
 ) {
   let calledActions = [];
-  let matched = false;
+  let foundAction;
 
   for (let attempt = 0; attempt < maxTries; attempt++) {
     calledActions = sagaTester.getCalledActions();
-    if (calledActions.find(isMatch) !== undefined) {
-      matched = true;
+    foundAction = calledActions.find(isMatch);
+    if (foundAction !== undefined) {
       break;
     }
 
@@ -723,7 +724,7 @@ export async function matchingSagaAction(
     await new Promise((resolve) => globalSetTimeout(resolve, 1));
   }
 
-  if (!matched) {
+  if (!foundAction) {
     throw new Error(
       `
       The matcher function did not return true:
@@ -735,4 +736,5 @@ export async function matchingSagaAction(
         .join(', ') || '(none at all)'}`,
     );
   }
+  return foundAction;
 }

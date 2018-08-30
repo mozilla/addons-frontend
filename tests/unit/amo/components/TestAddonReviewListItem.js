@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import {
+  deleteAddonReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
   sendReplyToReview,
@@ -26,6 +27,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createStubErrorHandler,
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,
@@ -186,6 +188,94 @@ describe(__filename, () => {
     expect(renderControls(root).find('.AddonReviewListItem-edit')).toHaveLength(
       0,
     );
+  });
+
+  it('renders a delete link for a user review', () => {
+    const review = signInAndDispatchSavedReview();
+    const root = render({ review });
+
+    const deleteLink = renderControls(root).find('.AddonReviewListItem-delete');
+    expect(deleteLink).toHaveLength(1);
+    expect(deleteLink.children()).toHaveText('Delete my review');
+    expect(deleteLink).toHaveProp(
+      'message',
+      'Do you really want to delete this review?',
+    );
+  });
+
+  it('does not render delete link when review belongs to another user', () => {
+    const review = signInAndDispatchSavedReview({
+      siteUserId: 123,
+      reviewUserId: 987,
+    });
+    const root = render({ review });
+
+    expect(
+      renderControls(root).find('.AddonReviewListItem-delete'),
+    ).toHaveLength(0);
+  });
+
+  it('dispatches deleteReview when a user deletes a review', () => {
+    const review = signInAndDispatchSavedReview();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ review });
+    const { errorHandler } = root.instance().props;
+
+    const deleteButton = renderControls(root).find(
+      '.AddonReviewListItem-delete',
+    );
+    const deleteEvent = createFakeEvent();
+
+    // This emulates a user clicking the delete button and confirming.
+    const onDelete = deleteButton.prop('onConfirm');
+    onDelete(deleteEvent);
+
+    sinon.assert.calledOnce(deleteEvent.preventDefault);
+    sinon.assert.calledWith(
+      dispatchSpy,
+      deleteAddonReview({
+        errorHandlerId: errorHandler.id,
+        reviewId: review.id,
+      }),
+    );
+  });
+
+  it('renders a deleting message when a user deletes a review', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(
+      deleteAddonReview({
+        errorHandlerId: createStubErrorHandler().id,
+        reviewId: review.id,
+      }),
+    );
+
+    const root = render({ review });
+
+    const controls = renderControls(root);
+    expect(controls.find('.AddonReviewListItem-deleting')).toHaveLength(1);
+    expect(controls.find('.AddonReviewListItem-delete')).toHaveLength(0);
+  });
+
+  it('renders a delete link when an error occurs when deleting a review', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(
+      deleteAddonReview({
+        errorHandlerId: createStubErrorHandler().id,
+        reviewId: review.id,
+      }),
+    );
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+
+    const root = render({ errorHandler, review });
+
+    const controls = renderControls(root);
+    expect(controls.find('.AddonReviewListItem-deleting')).toHaveLength(0);
+    expect(controls.find('.AddonReviewListItem-delete')).toHaveLength(1);
   });
 
   it('lets you begin editing your review', () => {
@@ -703,6 +793,57 @@ describe(__filename, () => {
         dispatchSpy,
         showReplyToReviewForm({
           reviewId: originalReviewId,
+        }),
+      );
+    });
+
+    it('renders a delete link for a developer reply', () => {
+      const originalReviewId = 543;
+      const developerUserId = 321;
+      const review = signInAndDispatchSavedReview({
+        siteUserId: developerUserId,
+        reviewUserId: developerUserId,
+      });
+      const root = renderReply({ originalReviewId, reply: review });
+
+      const deleteLink = renderControls(root).find(
+        '.AddonReviewListItem-delete',
+      );
+      expect(deleteLink).toHaveLength(1);
+      expect(deleteLink.children()).toHaveText('Delete my reply');
+      expect(deleteLink).toHaveProp(
+        'message',
+        'Do you really want to delete this reply?',
+      );
+    });
+
+    it('dispatches deleteReview when a user deletes a developer reply', () => {
+      const originalReviewId = 543;
+      const developerUserId = 321;
+      const review = signInAndDispatchSavedReview({
+        siteUserId: developerUserId,
+        reviewUserId: developerUserId,
+      });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const root = renderReply({ originalReviewId, reply: review });
+      const { errorHandler } = root.instance().props;
+
+      const deleteEvent = createFakeEvent();
+      const deleteButton = renderControls(root).find(
+        '.AddonReviewListItem-delete',
+      );
+      // This emulates a user clicking the delete button and confirming.
+      const onDelete = deleteButton.prop('onConfirm');
+      onDelete(deleteEvent);
+
+      sinon.assert.calledOnce(deleteEvent.preventDefault);
+      sinon.assert.calledWith(
+        dispatchSpy,
+        deleteAddonReview({
+          errorHandlerId: errorHandler.id,
+          reviewId: review.id,
+          isReplyToReviewId: originalReviewId,
         }),
       );
     });

@@ -1,4 +1,6 @@
 /* @flow */
+import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -12,16 +14,18 @@ import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import { isAddonAuthor } from 'core/utils';
 import {
+  deleteAddonReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
   sendReplyToReview,
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import ConfirmButton from 'ui/components/ConfirmButton';
+import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserReview from 'ui/components/UserReview';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
@@ -43,6 +47,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
@@ -54,6 +59,20 @@ type InternalProps = {|
 |};
 
 export class AddonReviewListItemBase extends React.Component<InternalProps> {
+  onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+    const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
+    event.preventDefault();
+
+    invariant(review, 'review is required');
+    dispatch(
+      deleteAddonReview({
+        errorHandlerId: errorHandler.id,
+        reviewId: review.id,
+        isReplyToReviewId,
+      }),
+    );
+  };
+
   onClickToEditReview = (event: SyntheticEvent<any>) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
@@ -181,6 +200,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
   render() {
     const {
       addon,
+      deletingReview,
       editingReview,
       errorHandler,
       i18n,
@@ -213,6 +233,8 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       byLine = <LoadingText />;
     }
 
+    const confirmButtonClassName = 'AddonReviewListItem-delete';
+
     const controls = (
       <div className="AddonReviewListItem-allControls">
         {siteUser && review && review.userId === siteUser.id ? (
@@ -234,6 +256,32 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
                 ? i18n.gettext('Edit my reply')
                 : i18n.gettext('Edit my review')}
             </a>
+            {deletingReview && !errorHandler.hasError() ? (
+              <span className="AddonReviewListItem-control AddonReviewListItem-deleting">
+                {i18n.gettext('Deleting…')}
+              </span>
+            ) : (
+              <ConfirmButton
+                buttonType="cancel"
+                cancelButtonType="neutral"
+                className={makeClassName(
+                  'AddonReviewListItem-control',
+                  confirmButtonClassName,
+                )}
+                confirmButtonText={i18n.gettext('Delete')}
+                id={`${confirmButtonClassName}-${review.id}`}
+                message={
+                  isReply
+                    ? i18n.gettext('Do you really want to delete this reply?')
+                    : i18n.gettext('Do you really want to delete this review?')
+                }
+                onConfirm={this.onClickToDeleteReview}
+              >
+                {isReply
+                  ? i18n.gettext('Delete my reply')
+                  : i18n.gettext('Delete my review')}
+              </ConfirmButton>
+            )}
           </React.Fragment>
         ) : null}
 
@@ -283,18 +331,21 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
 }
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
+  let deletingReview = false;
   let editingReview = false;
   let replyingToReview = false;
   let submittingReply = false;
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
     if (view) {
+      deletingReview = view.deletingReview;
       editingReview = view.editingReview;
       replyingToReview = view.replyingToReview;
       submittingReply = view.submittingReply;
     }
   }
   return {
+    deletingReview,
     editingReview,
     siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
     replyingToReview,
