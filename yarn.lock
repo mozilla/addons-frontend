@@ -212,7 +212,7 @@
     react-inspector "^2.2.2"
     uuid "^3.2.1"
 
-"@storybook/addon-console@1.0.4":
+"@storybook/addon-console@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-console/-/addon-console-1.0.4.tgz#726ed87152d0bfe39288885784d7846da914324e"
   dependencies:

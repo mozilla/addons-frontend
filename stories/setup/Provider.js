@@ -10,7 +10,6 @@ import createStore from 'amo/store';
 import { setClientApp, setLang, setUserAgent } from 'core/actions';
 import { addQueryParamsToHistory } from 'core/utils';
 
-// export default createBrowserHistory();
 const history = addQueryParamsToHistory({
 	history: createBrowserHistory(),
 });
