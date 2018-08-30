@@ -781,11 +781,8 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find('.AddonDescription')).toHaveLength(1);
-
-    expect(root.find('.AddonDescription-contents')).toHaveHTML(
-      `<div class="AddonDescription-contents">${summary}</div>`,
-    );
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+    expect(root.find('.AddonDescription-contents')).toHaveLength(0);
   });
 
   it("displays the extension's description when both description and summary are supplied", () => {

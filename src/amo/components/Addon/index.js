@@ -278,9 +278,8 @@ export class AddonBase extends React.Component {
       // For any theme type, we want to hide the summary text here since that is
       // already displayed in the header.
       showAbout =
-        ((description === addon.summary &&
-          addon.type === ADDON_TYPE_STATIC_THEME) ||
-          addon.type === ADDON_TYPE_THEME) === false;
+        (description === addon.summary || addon.type === ADDON_TYPE_THEME) ===
+        false;
 
       if (!description || !description.length) {
         return null;
