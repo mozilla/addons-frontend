@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"POT-Creation-Date: 2018-08-30 17:02+0000\n"
 "PO-Revision-Date: 2018-08-24 11:25+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -14,35 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
 msgstr "啟用"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
 msgstr "移除"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
 msgstr "啟用中"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Downloading"
 msgstr "下載中"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Installing"
 msgstr "安裝中"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Uninstalling"
 msgstr "移除中"
 
-#: src/core/components/AMInstallButton/index.js:217 src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/InstallButton/index.js:260
+#: src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
 msgstr "安裝佈景主題"
 
-#: src/core/components/AMInstallButton/index.js:218 src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/InstallButton/index.js:291
+#: src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
@@ -51,10 +55,13 @@ msgid "Server Error"
 msgstr "伺服器發生錯誤"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 msgstr "抱歉，有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
@@ -156,9 +163,15 @@ msgstr "個人化您的 Firefox"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有"
+"您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。"
+"為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -176,7 +189,7 @@ msgstr "發生未預期的錯誤"
 msgid "Reload To Continue"
 msgstr "重新載入以繼續"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
 msgstr "忽略此通知"
 

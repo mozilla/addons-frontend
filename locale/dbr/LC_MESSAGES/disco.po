@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-24 09:25+0000\n"
+"POT-Creation-Date: 2018-08-30 17:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,39 +13,39 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Language: \n"
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
 msgstr "ǝʅqɐuƎ"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
 msgstr "ǝʌoɯǝᴚ"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
 msgstr "ƃuıʅqɐuƎ"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Downloading"
 msgstr "ƃuıpɐoʅuʍoᗡ"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Installing"
 msgstr "ƃuıʅʅɐʇsuI"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Uninstalling"
 msgstr "ƃuıʅʅɐʇsuıu∩"
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/InstallButton/index.js:260
+#: src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
 msgstr "ǝɯǝɥ⊥ ʅʅɐʇsuI"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/InstallButton/index.js:291
+#: src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
 msgstr "xoɟǝɹıℲ oʇ pp∀"
 
@@ -178,7 +178,7 @@ msgstr "pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 msgid "Reload To Continue"
 msgstr "ǝnuıʇuoↃ o⊥ pɐoʅǝᴚ"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
 msgstr "ǝɔıʇou sıɥʇ ssıɯsıᗡ"
 
