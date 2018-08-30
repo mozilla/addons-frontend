@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-24 09:23+0000\n"
+"POT-Creation-Date: 2018-08-30 16:58+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,73 +47,79 @@ msgstr ""
 msgid "Add to collection"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Addon/index.js:162
+#: src/amo/components/Addon/index.js:165
 #: src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:197
+#: src/amo/components/Addon/index.js:200
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:206
+#: src/amo/components/Addon/index.js:209
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/Addon/index.js:226
+#: src/amo/components/Addon/index.js:229
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:236
+#: src/amo/components/Addon/index.js:239
 msgid "Rate your experience"
 msgstr "Rate your experience"
 
-#: src/amo/components/Addon/index.js:255
+#: src/amo/components/Addon/index.js:258
 msgid "About this dictionary"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:258
+#: src/amo/components/Addon/index.js:261
 #, fuzzy
 msgid "About this extension"
 msgstr "About this extension"
 
-#: src/amo/components/Addon/index.js:261
+#: src/amo/components/Addon/index.js:264
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:264
+#: src/amo/components/Addon/index.js:267
 #, fuzzy
 msgid "About this search plugin"
 msgstr "About this extension"
 
-#: src/amo/components/Addon/index.js:268
+#: src/amo/components/Addon/index.js:271
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:271
+#: src/amo/components/Addon/index.js:274
 #, fuzzy
 msgid "About this add-on"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Addon/index.js:310
+#: src/amo/components/Addon/index.js:313
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:428
+#: src/amo/components/Addon/index.js:431
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:543
+#: src/amo/components/Addon/index.js:504
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+
+#: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:549
+#: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
 msgstr "Extension Metadata"
 
-#: src/amo/components/Addon/index.js:566
+#: src/amo/components/Addon/index.js:576
 msgid "Screenshots"
 msgstr "Screenshots"
 
@@ -182,50 +188,50 @@ msgid ""
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:111
+#: src/amo/components/AddonMeta/index.js:114
 #, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(users)s user"
 msgstr[1] "%(users)s users"
 
-#: src/amo/components/AddonMeta/index.js:120
+#: src/amo/components/AddonMeta/index.js:123
 #, fuzzy
 msgid "Not rated yet"
 msgstr "Browse all themes"
 
-#: src/amo/components/AddonMeta/index.js:43
+#: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:46
+#: src/amo/components/AddonMeta/index.js:49
 msgid "User"
 msgid_plural "Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/AddonMeta/index.js:48
+#: src/amo/components/AddonMeta/index.js:51
 msgid "No Users"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:55
+#: src/amo/components/AddonMeta/index.js:58
 #, fuzzy
 msgid "Reviews"
 msgstr "Write a review"
 
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:61
 #, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Write a review"
 msgstr[1] "Write a review"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:63
 #, fuzzy
 msgid "No Reviews"
 msgstr "Write a review"
 
-#: src/amo/components/AddonMeta/index.js:84
+#: src/amo/components/AddonMeta/index.js:87
 msgid "Used by"
 msgstr "Used by"
 
@@ -256,7 +262,7 @@ msgid "Version"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:202
-#: src/amo/components/CollectionDetails/index.js:68
+#: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr ""
 
@@ -343,6 +349,7 @@ msgid "Review text"
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:263
+#: src/amo/components/AddonReviewManager/index.js:119
 #, fuzzy
 msgid "Submit review"
 msgstr "Write a review"
@@ -373,54 +380,111 @@ msgstr ""
 msgid "%(averageRating)s star average"
 msgstr "Average rating: %(rating)s out of 5"
 
-#: src/amo/components/AddonReviewListItem/index.js:148
+#: src/amo/components/AddonReviewListItem/index.js:167
 #: src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:156
+#: src/amo/components/AddonReviewListItem/index.js:175
 #, fuzzy
 msgid "Write a reply to this review."
 msgstr "Write a review"
 
-#: src/amo/components/AddonReviewListItem/index.js:159
+#: src/amo/components/AddonReviewListItem/index.js:178
 msgid "Update reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:160
+#: src/amo/components/AddonReviewListItem/index.js:179
 msgid "Publish reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:164
+#: src/amo/components/AddonReviewListItem/index.js:183
 msgid "Updating reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:165
+#: src/amo/components/AddonReviewListItem/index.js:184
 msgid "Publishing reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:202
+#: src/amo/components/AddonReviewListItem/index.js:222
 msgid "posted %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:208
+#: src/amo/components/AddonReviewListItem/index.js:228
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:237
+#: src/amo/components/AddonReviewListItem/index.js:256
 #, fuzzy
 msgid "Edit my reply"
 msgstr "Write a review"
 
-#: src/amo/components/AddonReviewListItem/index.js:238
+#: src/amo/components/AddonReviewListItem/index.js:257
 #, fuzzy
 msgid "Edit my review"
 msgstr "Write a review"
 
-#: src/amo/components/AddonReviewListItem/index.js:258
+#: src/amo/components/AddonReviewListItem/index.js:261
+#, fuzzy
+msgid "Deleting…"
+msgstr "Searching..."
+
+#: src/amo/components/AddonReviewListItem/index.js:271
+#: src/ui/components/DismissibleTextForm/index.js:181
+msgid "Delete"
+msgstr ""
+
+#: src/amo/components/AddonReviewListItem/index.js:275
+#, fuzzy
+msgid "Do you really want to delete this reply?"
+msgstr "Browse all extensions"
+
+#: src/amo/components/AddonReviewListItem/index.js:276
+#, fuzzy
+msgid "Do you really want to delete this review?"
+msgstr "Browse all extensions"
+
+#: src/amo/components/AddonReviewListItem/index.js:281
+#, fuzzy
+msgid "Delete my reply"
+msgstr "Write a review"
+
+#: src/amo/components/AddonReviewListItem/index.js:282
+#, fuzzy
+msgid "Delete my review"
+msgstr "Write a review"
+
+#: src/amo/components/AddonReviewListItem/index.js:303
 #, fuzzy
 msgid "Reply to this review"
 msgstr "Write a review"
+
+#: src/amo/components/AddonReviewManager/index.js:109
+msgid "Saving"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:110
+msgid "Saved"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:120
+#, fuzzy
+msgid "Submitting review"
+msgstr "Write a review"
+
+#: src/amo/components/AddonReviewManager/index.js:68
+#, fuzzy
+msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr "Tell the world why you think this extension is fantastic!"
+
+#: src/amo/components/AddonReviewManager/index.js:83
+#, fuzzy
+msgid "Write about your experience with this add-on."
+msgstr "How are you enjoying your experience with %(addonName)s?"
+
+#: src/amo/components/AddonReviewManager/index.js:91
+msgid "Your star rating:"
+msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -702,24 +766,30 @@ msgstr "Browse all extensions"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionDetails/index.js:58
+#: src/amo/components/CollectionDetails/index.js:105
+#, fuzzy
+msgid "Edit this collection"
+msgstr "Browse all extensions"
+
+#: src/amo/components/CollectionDetails/index.js:118
+#, fuzzy
+msgid "Edit collection details"
+msgstr "Browse all extensions"
+
+#: src/amo/components/CollectionDetails/index.js:131
+#, fuzzy
+msgid "Back to collection"
+msgstr "Browse all extensions"
+
+#: src/amo/components/CollectionDetails/index.js:79
 #: src/amo/components/Footer/index.js:43
 #, fuzzy
 msgid "Add-ons"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/CollectionDetails/index.js:62
+#: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
 msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:86
-msgid "Done editing"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:87
-#, fuzzy
-msgid "Edit this collection"
-msgstr "Browse all extensions"
 
 #: src/amo/components/CollectionList/index.js:114
 #, fuzzy
@@ -752,29 +822,28 @@ msgstr "Browse all extensions"
 msgid "My collections"
 msgstr "Browse all extensions"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:225
 #, fuzzy
 msgid "Create collection"
 msgstr "Browse all extensions"
 
-#: src/amo/components/CollectionManager/index.js:245
-#, fuzzy
-msgid "Save collection"
-msgstr "Browse all extensions"
+#: src/amo/components/CollectionManager/index.js:226
+msgid "Save changes"
+msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:268
+#: src/amo/components/CollectionManager/index.js:249
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:280
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:317
+#: src/amo/components/CollectionManager/index.js:298
 #: src/amo/components/UserProfileEdit/index.js:850
 #: src/ui/components/ConfirmButton/index.js:107
 #: src/ui/components/DismissibleTextForm/index.js:167
@@ -864,7 +933,7 @@ msgid ""
 "making a small contribution."
 msgstr ""
 
-#: src/amo/components/ContributeCard/index.js:87
+#: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
 msgstr ""
 
@@ -880,7 +949,7 @@ msgid "Leave a note"
 msgstr "Legal notices"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
 msgstr ""
 
@@ -1554,7 +1623,7 @@ msgstr ""
 msgid "This add-on can:"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/PermissionsCard/index.js:62
+#: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
 msgstr ""
 
@@ -1647,35 +1716,43 @@ msgstr ""
 msgid "Access browser activity during navigation"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:156
+#: src/amo/components/RatingManager/index.js:151
 msgid "Log in to rate this dictionary"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:158
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this language pack"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:155
 #, fuzzy
 msgid "Log in to rate this search plugin"
 msgstr "About this extension"
 
-#: src/amo/components/RatingManager/index.js:163
+#: src/amo/components/RatingManager/index.js:158
 msgid "Log in to rate this theme"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:165
+#: src/amo/components/RatingManager/index.js:160
 #, fuzzy
 msgid "Log in to rate this extension"
 msgstr "About this extension"
 
-#: src/amo/components/RatingManager/index.js:173
+#: src/amo/components/RatingManager/index.js:168
 msgid "Log in to rate this add-on"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:204
+#: src/amo/components/RatingManager/index.js:229
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "How are you enjoying your experience with %(addonName)s?"
+
+#: src/amo/components/RatingManager/index.js:265
+msgid "Nevermind, I don't want to edit my review"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:266
+msgid "Nevermind, I don't want to write a review"
+msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2582,39 +2659,39 @@ msgstr ""
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:215
 #, fuzzy
 msgid "Downloading"
 msgstr "Downloading %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:217
 #, fuzzy
 msgid "Installing"
 msgstr "Installing %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:219
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Uninstalling %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/InstallButton/index.js:260
+#: src/core/components/InstallButton/index.js:306
 #, fuzzy
 msgid "Install Theme"
 msgstr "Installing %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/InstallButton/index.js:291
+#: src/core/components/InstallButton/index.js:307
 #, fuzzy
 msgid "Add to Firefox"
 msgstr "Add-ons for Firefox"
@@ -2718,10 +2795,6 @@ msgstr "Submit"
 msgid "Submitting"
 msgstr "Submit"
 
-#: src/ui/components/DismissibleTextForm/index.js:181
-msgid "Delete"
-msgstr ""
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr ""
@@ -2762,11 +2835,16 @@ msgstr[1] ""
 msgid "Access your data for %(param)s"
 msgstr ""
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:81
+#: src/ui/components/Rating/index.js:104
+#, fuzzy
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr "Average rating: %(rating)s out of 5"
+
+#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Average rating: %(rating)s out of 5"
@@ -2775,14 +2853,9 @@ msgstr "Average rating: %(rating)s out of 5"
 msgid "There are no ratings yet"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:92
-#, fuzzy
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Average rating: %(rating)s out of 5"
-
 #: src/ui/components/Rating/index.js:98
 #, fuzzy
-msgid "Rate this add-on %(starRating)s out of 5"
+msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Average rating: %(rating)s out of 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
@@ -2795,6 +2868,10 @@ msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "No ratings"
 msgstr[1] "No ratings"
+
+#, fuzzy
+#~ msgid "Save collection"
+#~ msgstr "Browse all extensions"
 
 #, fuzzy
 #~ msgid "Ratings"
@@ -2903,10 +2980,6 @@ msgstr[1] "No ratings"
 
 #, fuzzy
 #~ msgid "Saving collection"
-#~ msgstr "Browse all extensions"
-
-#, fuzzy
-#~ msgid "Edit collection"
 #~ msgstr "Browse all extensions"
 
 #, fuzzy

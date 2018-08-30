@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-24 09:23+0000\n"
+"POT-Creation-Date: 2018-08-30 16:58+0000\n"
 "PO-Revision-Date: 2018-05-28 11:52+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -45,73 +45,79 @@ msgstr "Adaugă în…"
 msgid "Add to collection"
 msgstr "Adaugă în colecție"
 
-#: src/amo/components/Addon/index.js:162
+#: src/amo/components/Addon/index.js:165
 #: src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:197
+#: src/amo/components/Addon/index.js:200
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Acest supliment nu poate fi evaluat deoarece nu au fost publicate versiuni."
 
-#: src/amo/components/Addon/index.js:206
+#: src/amo/components/Addon/index.js:209
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Citește %(count)s recenzie"
 msgstr[1] "Citește toate cele %(count)s recenzii"
 msgstr[2] "Citește toate cele %(count)s de recenzii"
 
-#: src/amo/components/Addon/index.js:226
+#: src/amo/components/Addon/index.js:229
 msgid "No reviews yet"
 msgstr "Nicio recenzie încă"
 
-#: src/amo/components/Addon/index.js:236
+#: src/amo/components/Addon/index.js:239
 msgid "Rate your experience"
 msgstr "Evaluează experiența"
 
-#: src/amo/components/Addon/index.js:255
+#: src/amo/components/Addon/index.js:258
 msgid "About this dictionary"
 msgstr "Despre acest dicționar"
 
-#: src/amo/components/Addon/index.js:258
+#: src/amo/components/Addon/index.js:261
 msgid "About this extension"
 msgstr "Despre această extensie"
 
-#: src/amo/components/Addon/index.js:261
+#: src/amo/components/Addon/index.js:264
 msgid "About this language pack"
 msgstr "Despre acest pachet lingvistic"
 
-#: src/amo/components/Addon/index.js:264
+#: src/amo/components/Addon/index.js:267
 msgid "About this search plugin"
 msgstr "Despre acest plugin de căutare"
 
-#: src/amo/components/Addon/index.js:268
+#: src/amo/components/Addon/index.js:271
 msgid "About this theme"
 msgstr "Despre această temă"
 
-#: src/amo/components/Addon/index.js:271
+#: src/amo/components/Addon/index.js:274
 msgid "About this add-on"
 msgstr "Despre acest supliment"
 
-#: src/amo/components/Addon/index.js:310
+#: src/amo/components/Addon/index.js:313
 msgid "Release notes for %(addonVersion)s"
 msgstr "Note privind lansarea versiunii %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:428
+#: src/amo/components/Addon/index.js:431
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sde %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:543
+#: src/amo/components/Addon/index.js:504
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+
+#: src/amo/components/Addon/index.js:553
 #, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Numai cu Firefox — Obține Firefox acum!"
 
-#: src/amo/components/Addon/index.js:549
+#: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:566
+#: src/amo/components/Addon/index.js:576
 msgid "Screenshots"
 msgstr "Capturi de ecran"
 
@@ -181,7 +187,7 @@ msgstr ""
 "Browserul tău nu suportă suplimentele. Poți <a href=\"%(downloadUrl)s\">să "
 "descarci Firefox</a> pentru a instala acest supliment."
 
-#: src/amo/components/AddonMeta/index.js:111
+#: src/amo/components/AddonMeta/index.js:114
 #, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
@@ -189,43 +195,43 @@ msgstr[0] "%(total)s utilizator"
 msgstr[1] "%(total)s utilizatori"
 msgstr[2] "%(total)s de utilizatori"
 
-#: src/amo/components/AddonMeta/index.js:120
+#: src/amo/components/AddonMeta/index.js:123
 #, fuzzy
 msgid "Not rated yet"
 msgstr "Nicio recenzie încă"
 
-#: src/amo/components/AddonMeta/index.js:43
+#: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
 msgstr "Utilizatori"
 
-#: src/amo/components/AddonMeta/index.js:46
+#: src/amo/components/AddonMeta/index.js:49
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Utilizator"
 msgstr[1] "Utilizatori"
 msgstr[2] "De utilizatori"
 
-#: src/amo/components/AddonMeta/index.js:48
+#: src/amo/components/AddonMeta/index.js:51
 msgid "No Users"
 msgstr "Niciun utilizator"
 
-#: src/amo/components/AddonMeta/index.js:55
+#: src/amo/components/AddonMeta/index.js:58
 #, fuzzy
 msgid "Reviews"
 msgstr "Recenzie"
 
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Recenzie"
 msgstr[1] "Recenzii"
 msgstr[2] "De recenzii"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:63
 msgid "No Reviews"
 msgstr "Nicio recenzie"
 
-#: src/amo/components/AddonMeta/index.js:84
+#: src/amo/components/AddonMeta/index.js:87
 msgid "Used by"
 msgstr "Folosit de"
 
@@ -254,7 +260,7 @@ msgid "Version"
 msgstr "Versiune"
 
 #: src/amo/components/AddonMoreInfo/index.js:202
-#: src/amo/components/CollectionDetails/index.js:68
+#: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Ultima actualizare"
 
@@ -338,6 +344,7 @@ msgid "Review text"
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:263
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Submit review"
 msgstr "Trimite recenzia"
 
@@ -366,50 +373,106 @@ msgstr "de %(authorList)s"
 msgid "%(averageRating)s star average"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:148
+#: src/amo/components/AddonReviewListItem/index.js:167
 #: src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
 msgstr "Răspunsul dezvoltatorului"
 
-#: src/amo/components/AddonReviewListItem/index.js:156
+#: src/amo/components/AddonReviewListItem/index.js:175
 msgid "Write a reply to this review."
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:159
+#: src/amo/components/AddonReviewListItem/index.js:178
 msgid "Update reply"
 msgstr "Actualizează răspunsul"
 
-#: src/amo/components/AddonReviewListItem/index.js:160
+#: src/amo/components/AddonReviewListItem/index.js:179
 msgid "Publish reply"
 msgstr "Publică răspunsul"
 
-#: src/amo/components/AddonReviewListItem/index.js:164
+#: src/amo/components/AddonReviewListItem/index.js:183
 msgid "Updating reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:165
+#: src/amo/components/AddonReviewListItem/index.js:184
 msgid "Publishing reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:202
+#: src/amo/components/AddonReviewListItem/index.js:222
 msgid "posted %(timestamp)s"
 msgstr "postat cu %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:208
+#: src/amo/components/AddonReviewListItem/index.js:228
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:237
+#: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Edit my reply"
 msgstr "Editează-mi răspunsul"
 
-#: src/amo/components/AddonReviewListItem/index.js:238
+#: src/amo/components/AddonReviewListItem/index.js:257
 msgid "Edit my review"
 msgstr "Editează-mi recenzia"
 
-#: src/amo/components/AddonReviewListItem/index.js:258
+#: src/amo/components/AddonReviewListItem/index.js:261
+#, fuzzy
+msgid "Deleting…"
+msgstr "Se caută…"
+
+#: src/amo/components/AddonReviewListItem/index.js:271
+#: src/ui/components/DismissibleTextForm/index.js:181
+msgid "Delete"
+msgstr ""
+
+#: src/amo/components/AddonReviewListItem/index.js:275
+#, fuzzy
+msgid "Do you really want to delete this reply?"
+msgstr "Autentifică-te pentru a edita această colecție"
+
+#: src/amo/components/AddonReviewListItem/index.js:276
+#, fuzzy
+msgid "Do you really want to delete this review?"
+msgstr "Autentifică-te pentru a edita această colecție"
+
+#: src/amo/components/AddonReviewListItem/index.js:281
+#, fuzzy
+msgid "Delete my reply"
+msgstr "Editează-mi răspunsul"
+
+#: src/amo/components/AddonReviewListItem/index.js:282
+#, fuzzy
+msgid "Delete my review"
+msgstr "Editează-mi recenzia"
+
+#: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
 msgstr "Răspunde la această recenzie"
+
+#: src/amo/components/AddonReviewManager/index.js:109
+msgid "Saving"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:110
+msgid "Saved"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:120
+#, fuzzy
+msgid "Submitting review"
+msgstr "Trimite recenzia"
+
+#: src/amo/components/AddonReviewManager/index.js:68
+msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:83
+#, fuzzy
+msgid "Write about your experience with this add-on."
+msgstr "Cum ți se pare experiența cu %(addonName)s?"
+
+#: src/amo/components/AddonReviewManager/index.js:91
+msgid "Your star rating:"
+msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -680,22 +743,28 @@ msgstr "Adaugă în colecție"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionDetails/index.js:58
+#: src/amo/components/CollectionDetails/index.js:105
+msgid "Edit this collection"
+msgstr "Editează această colecție"
+
+#: src/amo/components/CollectionDetails/index.js:118
+#, fuzzy
+msgid "Edit collection details"
+msgstr "Editează această colecție"
+
+#: src/amo/components/CollectionDetails/index.js:131
+#, fuzzy
+msgid "Back to collection"
+msgstr "Adaugă în colecție"
+
+#: src/amo/components/CollectionDetails/index.js:79
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Suplimente"
 
-#: src/amo/components/CollectionDetails/index.js:62
+#: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
 msgstr "Creator"
-
-#: src/amo/components/CollectionDetails/index.js:86
-msgid "Done editing"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:87
-msgid "Edit this collection"
-msgstr "Editează această colecție"
 
 #: src/amo/components/CollectionList/index.js:114
 #, fuzzy
@@ -728,29 +797,28 @@ msgstr "Autentifică-te pentru a edita această colecție"
 msgid "My collections"
 msgstr "Vezi colecțiile mele"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:225
 #, fuzzy
 msgid "Create collection"
 msgstr "Creează o colecție nouă"
 
-#: src/amo/components/CollectionManager/index.js:245
-#, fuzzy
-msgid "Save collection"
-msgstr "Salvează colecția"
+#: src/amo/components/CollectionManager/index.js:226
+msgid "Save changes"
+msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
 msgstr "Numele colecției"
 
-#: src/amo/components/CollectionManager/index.js:268
+#: src/amo/components/CollectionManager/index.js:249
 msgid "Description"
 msgstr "Descriere"
 
-#: src/amo/components/CollectionManager/index.js:280
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Custom URL"
 msgstr "URL personalizat"
 
-#: src/amo/components/CollectionManager/index.js:317
+#: src/amo/components/CollectionManager/index.js:298
 #: src/amo/components/UserProfileEdit/index.js:850
 #: src/ui/components/ConfirmButton/index.js:107
 #: src/ui/components/DismissibleTextForm/index.js:167
@@ -851,7 +919,7 @@ msgstr ""
 "Autorii acestui supliment îți solicită să contribui la sprijinirea "
 "dezvoltării sale continue, făcând o mică donație."
 
-#: src/amo/components/ContributeCard/index.js:87
+#: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
 msgstr "Contribuie acum"
 
@@ -865,7 +933,7 @@ msgid "Leave a note"
 msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
 msgstr ""
 
@@ -1550,7 +1618,7 @@ msgstr "Permisiuni"
 msgid "This add-on can:"
 msgstr "Acest supliment poate:"
 
-#: src/amo/components/PermissionsCard/index.js:62
+#: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
 msgstr "Află mai multe despre permisiuni"
 
@@ -1648,33 +1716,41 @@ msgstr "Să stocheze cantitate nelimitată de date pe partea de client"
 msgid "Access browser activity during navigation"
 msgstr "Să acceseze activitatea browserului în timpul navigării"
 
-#: src/amo/components/RatingManager/index.js:156
+#: src/amo/components/RatingManager/index.js:151
 msgid "Log in to rate this dictionary"
 msgstr "Autentifică-te pentru a evalua acest dicționar"
 
-#: src/amo/components/RatingManager/index.js:158
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this language pack"
 msgstr "Autentifică-te pentru a evalua acest pachet lingvistic"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:155
 msgid "Log in to rate this search plugin"
 msgstr "Autentifică-te pentru a evalua acest plugin de căutare"
 
-#: src/amo/components/RatingManager/index.js:163
+#: src/amo/components/RatingManager/index.js:158
 msgid "Log in to rate this theme"
 msgstr "Autentifică-te pentru a evalua această temă"
 
-#: src/amo/components/RatingManager/index.js:165
+#: src/amo/components/RatingManager/index.js:160
 msgid "Log in to rate this extension"
 msgstr "Autentifică-te pentru a evalua această extensie"
 
-#: src/amo/components/RatingManager/index.js:173
+#: src/amo/components/RatingManager/index.js:168
 msgid "Log in to rate this add-on"
 msgstr "Autentifică-te pentru a evalua acest supliment"
 
-#: src/amo/components/RatingManager/index.js:204
+#: src/amo/components/RatingManager/index.js:229
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Cum ți se pare experiența cu %(addonName)s?"
+
+#: src/amo/components/RatingManager/index.js:265
+msgid "Nevermind, I don't want to edit my review"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:266
+msgid "Nevermind, I don't want to write a review"
+msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2576,38 +2652,38 @@ msgstr "Vezi profilul"
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:215
 #, fuzzy
 msgid "Downloading"
 msgstr "Se descarcă %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:217
 #, fuzzy
 msgid "Installing"
 msgstr "Se instalează %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:219
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Se dezinstalează %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/InstallButton/index.js:260
+#: src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
 msgstr "Instalează tema"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/InstallButton/index.js:291
+#: src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
 msgstr "Adaugă în Firefox"
 
@@ -2710,10 +2786,6 @@ msgstr "Trimite"
 msgid "Submitting"
 msgstr "Se trimite"
 
-#: src/ui/components/DismissibleTextForm/index.js:181
-msgid "Delete"
-msgstr ""
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr ""
@@ -2760,11 +2832,16 @@ msgstr[2] "Să îți acceseze datele pe alte %(count)s de site-uri"
 msgid "Access your data for %(param)s"
 msgstr "Să îți acceseze datele pentru %(site)s"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:81
+#: src/ui/components/Rating/index.js:104
+#, fuzzy
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
+
+#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
@@ -2773,14 +2850,9 @@ msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
 msgid "There are no ratings yet"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:92
-#, fuzzy
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
-
 #: src/ui/components/Rating/index.js:98
 #, fuzzy
-msgid "Rate this add-on %(starRating)s out of 5"
+msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
 
 #: src/ui/components/ShowMoreCard/index.js:60
@@ -2795,6 +2867,10 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "%(count)s supliment găsit"
 msgstr[1] "%(count)s suplimente găsite"
 msgstr[2] "%(count)s de suplimente găsite"
+
+#, fuzzy
+#~ msgid "Save collection"
+#~ msgstr "Salvează colecția"
 
 #~ msgid "Ratings"
 #~ msgstr "Evaluări"
@@ -2947,9 +3023,6 @@ msgstr[2] "%(count)s de suplimente găsite"
 #~ msgstr "Nicio evaluare"
 
 #~ msgid "Saving collection"
-#~ msgstr "Editează această colecție"
-
-#~ msgid "Edit collection"
 #~ msgstr "Editează această colecție"
 
 #~ msgid "Search Site"

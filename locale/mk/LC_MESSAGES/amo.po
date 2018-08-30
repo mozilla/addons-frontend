@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-24 09:23+0000\n"
+"POT-Creation-Date: 2018-08-30 16:58+0000\n"
 "PO-Revision-Date: 2018-03-11 11:01+0000\n"
 "Last-Translator: goce.mitevski <goce.mitevski@gmail.com>\n"
 "Language-Team: none\n"
@@ -44,70 +44,76 @@ msgstr ""
 msgid "Add to collection"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:162
+#: src/amo/components/Addon/index.js:165
 #: src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:197
+#: src/amo/components/Addon/index.js:200
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:206
+#: src/amo/components/Addon/index.js:209
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Читај ја критиката на %(count)s"
 msgstr[1] "Читај ги сите критики на %(count)s"
 
-#: src/amo/components/Addon/index.js:226
+#: src/amo/components/Addon/index.js:229
 msgid "No reviews yet"
 msgstr "Нема критики сѐ уште"
 
-#: src/amo/components/Addon/index.js:236
+#: src/amo/components/Addon/index.js:239
 msgid "Rate your experience"
 msgstr "Оценете го вашето искуство"
 
-#: src/amo/components/Addon/index.js:255
+#: src/amo/components/Addon/index.js:258
 msgid "About this dictionary"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:258
+#: src/amo/components/Addon/index.js:261
 msgid "About this extension"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:261
+#: src/amo/components/Addon/index.js:264
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:264
+#: src/amo/components/Addon/index.js:267
 msgid "About this search plugin"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:268
+#: src/amo/components/Addon/index.js:271
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:271
+#: src/amo/components/Addon/index.js:274
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:310
+#: src/amo/components/Addon/index.js:313
 msgid "Release notes for %(addonVersion)s"
 msgstr "Белешки за издание за %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:428
+#: src/amo/components/Addon/index.js:431
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:543
+#: src/amo/components/Addon/index.js:504
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+
+#: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:549
+#: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:566
+#: src/amo/components/Addon/index.js:576
 msgid "Screenshots"
 msgstr ""
 
@@ -175,50 +181,50 @@ msgstr ""
 "Вашиот прелистувач не поддржува додатоци. Можете да <a href=\"%(downloadUrl)s"
 "\">преземете Firefox</a> за да го инсталирате овој додаток."
 
-#: src/amo/components/AddonMeta/index.js:111
+#: src/amo/components/AddonMeta/index.js:114
 #, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s корисник"
 msgstr[1] "%(total)s корисници"
 
-#: src/amo/components/AddonMeta/index.js:120
+#: src/amo/components/AddonMeta/index.js:123
 #, fuzzy
 msgid "Not rated yet"
 msgstr "Нема критики сѐ уште"
 
-#: src/amo/components/AddonMeta/index.js:43
+#: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:46
+#: src/amo/components/AddonMeta/index.js:49
 msgid "User"
 msgid_plural "Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/AddonMeta/index.js:48
+#: src/amo/components/AddonMeta/index.js:51
 msgid "No Users"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:55
+#: src/amo/components/AddonMeta/index.js:58
 #, fuzzy
 msgid "Reviews"
 msgstr "Нема критики сѐ уште"
 
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:61
 #, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Содржина на критика"
 msgstr[1] "Содржина на критика"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:63
 #, fuzzy
 msgid "No Reviews"
 msgstr "Нема критики сѐ уште"
 
-#: src/amo/components/AddonMeta/index.js:84
+#: src/amo/components/AddonMeta/index.js:87
 msgid "Used by"
 msgstr "Користено од"
 
@@ -247,7 +253,7 @@ msgid "Version"
 msgstr "Верзија"
 
 #: src/amo/components/AddonMoreInfo/index.js:202
-#: src/amo/components/CollectionDetails/index.js:68
+#: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Обновено на"
 
@@ -331,6 +337,7 @@ msgid "Review text"
 msgstr "Содржина на критика"
 
 #: src/amo/components/AddonReview/index.js:263
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Submit review"
 msgstr "Поднеси критика"
 
@@ -358,49 +365,105 @@ msgstr ""
 msgid "%(averageRating)s star average"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:148
+#: src/amo/components/AddonReviewListItem/index.js:167
 #: src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:156
+#: src/amo/components/AddonReviewListItem/index.js:175
 msgid "Write a reply to this review."
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:159
+#: src/amo/components/AddonReviewListItem/index.js:178
 msgid "Update reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:160
+#: src/amo/components/AddonReviewListItem/index.js:179
 msgid "Publish reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:164
+#: src/amo/components/AddonReviewListItem/index.js:183
 msgid "Updating reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:165
+#: src/amo/components/AddonReviewListItem/index.js:184
 msgid "Publishing reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:202
+#: src/amo/components/AddonReviewListItem/index.js:222
 msgid "posted %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:208
+#: src/amo/components/AddonReviewListItem/index.js:228
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:237
+#: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Edit my reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:238
+#: src/amo/components/AddonReviewListItem/index.js:257
 msgid "Edit my review"
 msgstr "Промени ја мојата критика"
 
-#: src/amo/components/AddonReviewListItem/index.js:258
+#: src/amo/components/AddonReviewListItem/index.js:261
+#, fuzzy
+msgid "Deleting…"
+msgstr "Пребарува…"
+
+#: src/amo/components/AddonReviewListItem/index.js:271
+#: src/ui/components/DismissibleTextForm/index.js:181
+msgid "Delete"
+msgstr ""
+
+#: src/amo/components/AddonReviewListItem/index.js:275
+#, fuzzy
+msgid "Do you really want to delete this reply?"
+msgstr "Најавете се за да го оцените овој речник"
+
+#: src/amo/components/AddonReviewListItem/index.js:276
+#, fuzzy
+msgid "Do you really want to delete this review?"
+msgstr "Најавете се за да го оцените овој речник"
+
+#: src/amo/components/AddonReviewListItem/index.js:281
+#, fuzzy
+msgid "Delete my reply"
+msgstr "Видете профил"
+
+#: src/amo/components/AddonReviewListItem/index.js:282
+#, fuzzy
+msgid "Delete my review"
+msgstr "Промени ја мојата критика"
+
+#: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:109
+msgid "Saving"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:110
+msgid "Saved"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:120
+#, fuzzy
+msgid "Submitting review"
+msgstr "Поднеси критика"
+
+#: src/amo/components/AddonReviewManager/index.js:68
+msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:83
+#, fuzzy
+msgid "Write about your experience with this add-on."
+msgstr "Како сте задоволни со вашето искуство со%(addonName)s?"
+
+#: src/amo/components/AddonReviewManager/index.js:91
+msgid "Your star rating:"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
@@ -672,21 +735,27 @@ msgstr "Најавете се за да го оцените овој речни�
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionDetails/index.js:58
+#: src/amo/components/CollectionDetails/index.js:105
+msgid "Edit this collection"
+msgstr ""
+
+#: src/amo/components/CollectionDetails/index.js:118
+#, fuzzy
+msgid "Edit collection details"
+msgstr "Најавете се за да го оцените овој речник"
+
+#: src/amo/components/CollectionDetails/index.js:131
+#, fuzzy
+msgid "Back to collection"
+msgstr "Најавете се за да го оцените овој речник"
+
+#: src/amo/components/CollectionDetails/index.js:79
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr ""
 
-#: src/amo/components/CollectionDetails/index.js:62
+#: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:86
-msgid "Done editing"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:87
-msgid "Edit this collection"
 msgstr ""
 
 #: src/amo/components/CollectionList/index.js:114
@@ -720,28 +789,28 @@ msgstr "Најавете се за да го оцените овој речни�
 msgid "My collections"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:225
 #, fuzzy
 msgid "Create collection"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/components/CollectionManager/index.js:245
-msgid "Save collection"
+#: src/amo/components/CollectionManager/index.js:226
+msgid "Save changes"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:268
+#: src/amo/components/CollectionManager/index.js:249
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:280
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:317
+#: src/amo/components/CollectionManager/index.js:298
 #: src/amo/components/UserProfileEdit/index.js:850
 #: src/ui/components/ConfirmButton/index.js:107
 #: src/ui/components/DismissibleTextForm/index.js:167
@@ -829,7 +898,7 @@ msgid ""
 "making a small contribution."
 msgstr ""
 
-#: src/amo/components/ContributeCard/index.js:87
+#: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
 msgstr ""
 
@@ -843,7 +912,7 @@ msgid "Leave a note"
 msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
 msgstr ""
 
@@ -1509,7 +1578,7 @@ msgstr "Верзија"
 msgid "This add-on can:"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/index.js:62
+#: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
 msgstr ""
 
@@ -1603,33 +1672,41 @@ msgstr ""
 msgid "Access browser activity during navigation"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:156
+#: src/amo/components/RatingManager/index.js:151
 msgid "Log in to rate this dictionary"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/components/RatingManager/index.js:158
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this language pack"
 msgstr "Најавете се за да го оцените овој превод"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:155
 msgid "Log in to rate this search plugin"
 msgstr "Најавете се за да го оцените овој приклучок за пребарување"
 
-#: src/amo/components/RatingManager/index.js:163
+#: src/amo/components/RatingManager/index.js:158
 msgid "Log in to rate this theme"
 msgstr "Најавете се за да ја оцените оваа тема"
 
-#: src/amo/components/RatingManager/index.js:165
+#: src/amo/components/RatingManager/index.js:160
 msgid "Log in to rate this extension"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:173
+#: src/amo/components/RatingManager/index.js:168
 msgid "Log in to rate this add-on"
 msgstr "Најавете се за да го оцените овој додаток"
 
-#: src/amo/components/RatingManager/index.js:204
+#: src/amo/components/RatingManager/index.js:229
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Како сте задоволни со вашето искуство со%(addonName)s?"
+
+#: src/amo/components/RatingManager/index.js:265
+msgid "Nevermind, I don't want to edit my review"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:266
+msgid "Nevermind, I don't want to write a review"
+msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2515,36 +2592,36 @@ msgstr "Видете профил"
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:215
 #, fuzzy
 msgid "Downloading"
 msgstr "Преземете Firefox"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Installing"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/InstallButton/index.js:260
+#: src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/InstallButton/index.js:291
+#: src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
 msgstr ""
 
@@ -2645,10 +2722,6 @@ msgstr ""
 msgid "Submitting"
 msgstr ""
 
-#: src/ui/components/DismissibleTextForm/index.js:181
-msgid "Delete"
-msgstr ""
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr ""
@@ -2689,11 +2762,15 @@ msgstr[1] ""
 msgid "Access your data for %(param)s"
 msgstr ""
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:81
+#: src/ui/components/Rating/index.js:104
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr ""
+
+#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr ""
 
@@ -2701,12 +2778,8 @@ msgstr ""
 msgid "There are no ratings yet"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:92
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:98
-msgid "Rate this add-on %(starRating)s out of 5"
+msgid "Update your rating to %(starRating)s out of 5"
 msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:60

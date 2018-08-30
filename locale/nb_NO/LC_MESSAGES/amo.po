@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-24 09:23+0000\n"
+"POT-Creation-Date: 2018-08-30 16:58+0000\n"
 "PO-Revision-Date: 2018-08-06 19:06+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,71 +44,77 @@ msgstr "Legg til i…"
 msgid "Add to collection"
 msgstr "Legg til i samling"
 
-#: src/amo/components/Addon/index.js:162
+#: src/amo/components/Addon/index.js:165
 #: src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:197
+#: src/amo/components/Addon/index.js:200
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Denne utvidelsen kan ikke rangeres fordi ingen versjoner har blitt publisert."
 
-#: src/amo/components/Addon/index.js:206
+#: src/amo/components/Addon/index.js:209
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Les %(count)s vurdering"
 msgstr[1] "Les alle %(count)s vurderinger"
 
-#: src/amo/components/Addon/index.js:226
+#: src/amo/components/Addon/index.js:229
 msgid "No reviews yet"
 msgstr "Ingen vurderinger ennå"
 
-#: src/amo/components/Addon/index.js:236
+#: src/amo/components/Addon/index.js:239
 msgid "Rate your experience"
 msgstr "Vurder din opplevelse"
 
-#: src/amo/components/Addon/index.js:255
+#: src/amo/components/Addon/index.js:258
 msgid "About this dictionary"
 msgstr "Om denne ordboken"
 
-#: src/amo/components/Addon/index.js:258
+#: src/amo/components/Addon/index.js:261
 msgid "About this extension"
 msgstr "Om denne utvidelsen"
 
-#: src/amo/components/Addon/index.js:261
+#: src/amo/components/Addon/index.js:264
 msgid "About this language pack"
 msgstr "Om denne språkpakken"
 
-#: src/amo/components/Addon/index.js:264
+#: src/amo/components/Addon/index.js:267
 msgid "About this search plugin"
 msgstr "Om dette søketillegget"
 
-#: src/amo/components/Addon/index.js:268
+#: src/amo/components/Addon/index.js:271
 msgid "About this theme"
 msgstr "Om dette temaet"
 
-#: src/amo/components/Addon/index.js:271
+#: src/amo/components/Addon/index.js:274
 msgid "About this add-on"
 msgstr "Om denne utvidelsen"
 
-#: src/amo/components/Addon/index.js:310
+#: src/amo/components/Addon/index.js:313
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versjonsnotat for %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:428
+#: src/amo/components/Addon/index.js:431
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sav %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:543
+#: src/amo/components/Addon/index.js:504
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+
+#: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:549
+#: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
 msgstr "Metadata for utvidelser"
 
-#: src/amo/components/Addon/index.js:566
+#: src/amo/components/Addon/index.js:576
 msgid "Screenshots"
 msgstr "Skjermbilder"
 
@@ -181,48 +187,48 @@ msgstr ""
 "Nettleseren din støtter ikke utvidelser. Du kan <a href=\"%(downloadUrl)s"
 "\">laste ned firefox</a> for å installere denne utvidelsen."
 
-#: src/amo/components/AddonMeta/index.js:111
+#: src/amo/components/AddonMeta/index.js:114
 #, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s bruker"
 msgstr[1] "%(total)s brukere"
 
-#: src/amo/components/AddonMeta/index.js:120
+#: src/amo/components/AddonMeta/index.js:123
 #, fuzzy
 msgid "Not rated yet"
 msgstr "Ingen vurderinger"
 
-#: src/amo/components/AddonMeta/index.js:43
+#: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
 msgstr "Brukere"
 
-#: src/amo/components/AddonMeta/index.js:46
+#: src/amo/components/AddonMeta/index.js:49
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Bruker"
 msgstr[1] "Brukere"
 
-#: src/amo/components/AddonMeta/index.js:48
+#: src/amo/components/AddonMeta/index.js:51
 msgid "No Users"
 msgstr "Ingen brukere"
 
-#: src/amo/components/AddonMeta/index.js:55
+#: src/amo/components/AddonMeta/index.js:58
 #, fuzzy
 msgid "Reviews"
 msgstr "Vurderingstekst"
 
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Vurderingstekst"
 msgstr[1] "Vurderingstekst"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:63
 msgid "No Reviews"
 msgstr "Ingen vurderinger"
 
-#: src/amo/components/AddonMeta/index.js:84
+#: src/amo/components/AddonMeta/index.js:87
 msgid "Used by"
 msgstr "Brukt av"
 
@@ -251,7 +257,7 @@ msgid "Version"
 msgstr "Versjon"
 
 #: src/amo/components/AddonMoreInfo/index.js:202
-#: src/amo/components/CollectionDetails/index.js:68
+#: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Sist oppdatert"
 
@@ -340,6 +346,7 @@ msgid "Review text"
 msgstr "Vurderingstekst"
 
 #: src/amo/components/AddonReview/index.js:263
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Submit review"
 msgstr "Send inn vurdering"
 
@@ -367,50 +374,109 @@ msgstr "av %(authorList)s"
 msgid "%(averageRating)s star average"
 msgstr "%(averageRating)s av 5"
 
-#: src/amo/components/AddonReviewListItem/index.js:148
+#: src/amo/components/AddonReviewListItem/index.js:167
 #: src/amo/components/UserProfile/index.js:222
 msgid "Developer response"
 msgstr "Utviklerrespons"
 
-#: src/amo/components/AddonReviewListItem/index.js:156
+#: src/amo/components/AddonReviewListItem/index.js:175
 msgid "Write a reply to this review."
 msgstr "Skriv ett svar til denne anmeldelsen."
 
-#: src/amo/components/AddonReviewListItem/index.js:159
+#: src/amo/components/AddonReviewListItem/index.js:178
 msgid "Update reply"
 msgstr "Oppdater svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:160
+#: src/amo/components/AddonReviewListItem/index.js:179
 msgid "Publish reply"
 msgstr "Publiser svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:164
+#: src/amo/components/AddonReviewListItem/index.js:183
 msgid "Updating reply"
 msgstr "Oppdaterer svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:165
+#: src/amo/components/AddonReviewListItem/index.js:184
 msgid "Publishing reply"
 msgstr "Publiserer svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:202
+#: src/amo/components/AddonReviewListItem/index.js:222
 msgid "posted %(timestamp)s"
 msgstr "lagt ut den %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:208
+#: src/amo/components/AddonReviewListItem/index.js:228
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "av %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:237
+#: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Edit my reply"
 msgstr "Rediger mitt svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:238
+#: src/amo/components/AddonReviewListItem/index.js:257
 msgid "Edit my review"
 msgstr "Rediger min omtale"
 
-#: src/amo/components/AddonReviewListItem/index.js:258
+#: src/amo/components/AddonReviewListItem/index.js:261
+#, fuzzy
+msgid "Deleting…"
+msgstr "Søker …"
+
+#: src/amo/components/AddonReviewListItem/index.js:271
+#: src/ui/components/DismissibleTextForm/index.js:181
+msgid "Delete"
+msgstr ""
+
+#: src/amo/components/AddonReviewListItem/index.js:275
+#, fuzzy
+msgid "Do you really want to delete this reply?"
+msgstr "Bla gjennom alle utvidelser"
+
+#: src/amo/components/AddonReviewListItem/index.js:276
+#, fuzzy
+msgid "Do you really want to delete this review?"
+msgstr "Bla gjennom alle utvidelser"
+
+#: src/amo/components/AddonReviewListItem/index.js:281
+#, fuzzy
+msgid "Delete my reply"
+msgstr "Rediger mitt svar"
+
+#: src/amo/components/AddonReviewListItem/index.js:282
+#, fuzzy
+msgid "Delete my review"
+msgstr "Rediger min omtale"
+
+#: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
 msgstr "Svar på denne anmeldelsen"
+
+#: src/amo/components/AddonReviewManager/index.js:109
+msgid "Saving"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:110
+msgid "Saved"
+msgstr ""
+
+#: src/amo/components/AddonReviewManager/index.js:120
+#, fuzzy
+msgid "Submitting review"
+msgstr "Send inn vurdering"
+
+#: src/amo/components/AddonReviewManager/index.js:68
+#, fuzzy
+msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
+
+#: src/amo/components/AddonReviewManager/index.js:83
+#, fuzzy
+msgid "Write about your experience with this add-on."
+msgstr ""
+"Vi har mottatt din rapport. Takk fordi du deler dine bekymringer vedrørende "
+"denne utvidelsen med oss."
+
+#: src/amo/components/AddonReviewManager/index.js:91
+msgid "Your star rating:"
+msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -691,23 +757,29 @@ msgstr "Bla gjennom alle utvidelser"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionDetails/index.js:58
+#: src/amo/components/CollectionDetails/index.js:105
+#, fuzzy
+msgid "Edit this collection"
+msgstr "Bla gjennom alle utvidelser"
+
+#: src/amo/components/CollectionDetails/index.js:118
+#, fuzzy
+msgid "Edit collection details"
+msgstr "Bla gjennom alle utvidelser"
+
+#: src/amo/components/CollectionDetails/index.js:131
+#, fuzzy
+msgid "Back to collection"
+msgstr "Legg til i samling"
+
+#: src/amo/components/CollectionDetails/index.js:79
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Utvidelser"
 
-#: src/amo/components/CollectionDetails/index.js:62
+#: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
 msgstr "Laget av"
-
-#: src/amo/components/CollectionDetails/index.js:86
-msgid "Done editing"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:87
-#, fuzzy
-msgid "Edit this collection"
-msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/CollectionList/index.js:114
 #, fuzzy
@@ -740,29 +812,28 @@ msgstr "Bla gjennom alle utvidelser"
 msgid "My collections"
 msgstr "Vis mine samlinger"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:225
 #, fuzzy
 msgid "Create collection"
 msgstr "Bla gjennom alle utvidelser"
 
-#: src/amo/components/CollectionManager/index.js:245
-#, fuzzy
-msgid "Save collection"
-msgstr "Bla gjennom alle utvidelser"
+#: src/amo/components/CollectionManager/index.js:226
+msgid "Save changes"
+msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
 msgstr "Samlingsnavn"
 
-#: src/amo/components/CollectionManager/index.js:268
+#: src/amo/components/CollectionManager/index.js:249
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/amo/components/CollectionManager/index.js:280
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:317
+#: src/amo/components/CollectionManager/index.js:298
 #: src/amo/components/UserProfileEdit/index.js:850
 #: src/ui/components/ConfirmButton/index.js:107
 #: src/ui/components/DismissibleTextForm/index.js:167
@@ -858,7 +929,7 @@ msgid ""
 "making a small contribution."
 msgstr ""
 
-#: src/amo/components/ContributeCard/index.js:87
+#: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
 msgstr "Bidra nå"
 
@@ -873,7 +944,7 @@ msgid "Leave a note"
 msgstr "Juridiske merknader"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
 msgstr ""
 
@@ -1578,7 +1649,7 @@ msgstr "Versjon"
 msgid "This add-on can:"
 msgstr "Om denne %(addonType)s"
 
-#: src/amo/components/PermissionsCard/index.js:62
+#: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
 msgstr "Lær mer om tillatelser"
 
@@ -1672,33 +1743,41 @@ msgstr ""
 msgid "Access browser activity during navigation"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:156
+#: src/amo/components/RatingManager/index.js:151
 msgid "Log in to rate this dictionary"
 msgstr "Logg inn for å vurdere denne ordboken"
 
-#: src/amo/components/RatingManager/index.js:158
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this language pack"
 msgstr "Logg inn for å vurdere denne språkpakken"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:155
 msgid "Log in to rate this search plugin"
 msgstr "Logg inn for å vurdere dette søke-programtillegget"
 
-#: src/amo/components/RatingManager/index.js:163
+#: src/amo/components/RatingManager/index.js:158
 msgid "Log in to rate this theme"
 msgstr "Logg inn for å vurdere dette temaet"
 
-#: src/amo/components/RatingManager/index.js:165
+#: src/amo/components/RatingManager/index.js:160
 msgid "Log in to rate this extension"
 msgstr "Logg inn for å vurdere denne utvidelsen"
 
-#: src/amo/components/RatingManager/index.js:173
+#: src/amo/components/RatingManager/index.js:168
 msgid "Log in to rate this add-on"
 msgstr "Logg inn for å vurdere denne utvidelsen"
 
-#: src/amo/components/RatingManager/index.js:204
+#: src/amo/components/RatingManager/index.js:229
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hva synes du om %(addonName)s?"
+
+#: src/amo/components/RatingManager/index.js:265
+msgid "Nevermind, I don't want to edit my review"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:266
+msgid "Nevermind, I don't want to write a review"
+msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2626,38 +2705,38 @@ msgstr "Vis profil"
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:215
 #, fuzzy
 msgid "Downloading"
 msgstr "Laster ned %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:217
 #, fuzzy
 msgid "Installing"
 msgstr "Installerer %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:219
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Avinstallerer %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:217
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
+#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/InstallButton/index.js:260
+#: src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/AMInstallButton/index.js:218
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/InstallButton/index.js:291
+#: src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -2762,10 +2841,6 @@ msgstr "Send inn"
 msgid "Submitting"
 msgstr "Sender inn"
 
-#: src/ui/components/DismissibleTextForm/index.js:181
-msgid "Delete"
-msgstr ""
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "Økten din har utløpt"
@@ -2806,11 +2881,16 @@ msgstr[1] ""
 msgid "Access your data for %(param)s"
 msgstr ""
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:81
+#: src/ui/components/Rating/index.js:104
+#, fuzzy
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr "Vurdert %(rating)s ut av 5"
+
+#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Vurdert %(rating)s ut av 5"
@@ -2819,14 +2899,9 @@ msgstr "Vurdert %(rating)s ut av 5"
 msgid "There are no ratings yet"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:92
-#, fuzzy
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Vurdert %(rating)s ut av 5"
-
 #: src/ui/components/Rating/index.js:98
 #, fuzzy
-msgid "Rate this add-on %(starRating)s out of 5"
+msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Vurdert %(rating)s ut av 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
@@ -2839,6 +2914,10 @@ msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "%(count)s utvidelse funnet"
 msgstr[1] "%(count)s utvidelser funnet"
+
+#, fuzzy
+#~ msgid "Save collection"
+#~ msgstr "Bla gjennom alle utvidelser"
 
 #~ msgid "Ratings"
 #~ msgstr "Vurderinger"
@@ -2960,9 +3039,6 @@ msgstr[1] "%(count)s utvidelser funnet"
 #~ msgstr "Ingen vurderinger"
 
 #~ msgid "Saving collection"
-#~ msgstr "Bla gjennom alle utvidelser"
-
-#~ msgid "Edit collection"
 #~ msgstr "Bla gjennom alle utvidelser"
 
 #~ msgid "Search Site"
