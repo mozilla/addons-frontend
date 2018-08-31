@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-31 07:19+0000\n"
+"PO-Revision-Date: 2018-08-31 12:11+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -390,19 +390,16 @@ msgid "Do you really want to delete this reply?"
 msgstr "Binne jo wis dat jo dit antwurd fuortsmite wolle?"
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "Binne jo wis dat jo dizze ôfbylding fuortsmite wolle?"
+msgstr "Binne jo wis dat jo dizze beoardieling fuortsmite wolle?"
 
 #: src/amo/components/AddonReviewListItem/index.js:281
-#, fuzzy
 msgid "Delete my reply"
-msgstr "Myn antwurd bewurkje"
+msgstr "Myn antwurd fuortsmite"
 
 #: src/amo/components/AddonReviewListItem/index.js:282
-#, fuzzy
 msgid "Delete my review"
-msgstr "Myn beoardieling bewurkje"
+msgstr "Myn beoardieling fuortsmite"
 
 #: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
@@ -413,24 +410,20 @@ msgid "Saving"
 msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:110
-#, fuzzy
 msgid "Saved"
-msgstr "Bewarje"
+msgstr "Bewarre"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Submitting review"
 msgstr "Beoardieling yntsjinje"
 
 #: src/amo/components/AddonReviewManager/index.js:68
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Fertel de wrâld oer dizze útwreiding. Hâld jo oan ús %(linkStart)sbeoardielingsrjochtlinen%(linkEnd)s."
+msgstr "Hâld jo oan ús %(linkStart)sbeoardielingsrjochtlinen%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "Skriuw as oft jo in freon oer jo ûnderfining mei de add-on fertelle."
+msgstr "Skriuw oer jo ûnderfining mei dizze add-on."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
@@ -653,9 +646,8 @@ msgid "Added to collection"
 msgstr "Tafoege oan kolleksje"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Tafoege oan kolleksje"
+msgstr "Fuortsmiten út kolleksje"
 
 #: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
@@ -666,14 +658,12 @@ msgid "Edit this collection"
 msgstr "Dizze kolleksje bewurkje"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Kolleksje bewurkje"
+msgstr "Kolleksjedetails bewurkje"
 
 #: src/amo/components/CollectionDetails/index.js:131
-#, fuzzy
 msgid "Back to collection"
-msgstr "Tafoegje oan kolleksje"
+msgstr "Werom nei kolleksje"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -1116,37 +1106,32 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Wizigje it úterlik fan Firefox mei tema’s."
 
 #: src/amo/components/Home/index.js:50
-#, fuzzy
 msgid "See more exceptional search tools"
-msgstr "Mear essinsjele útwreidingen besjen"
+msgstr "Mear essinsjele sykhelpmiddelen besjen"
 
 #: src/amo/components/Home/index.js:51
 msgid "Exceptional search tools"
 msgstr ""
 
 #: src/amo/components/Home/index.js:56
-#, fuzzy
 msgid "See more fall themes"
-msgstr "Mear oanrekommandearre tema’s"
+msgstr "Mear neijierstema’s besjen"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "Fall themes"
-msgstr "Tema's sykje"
+msgstr "Neijierstema's"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more YouTube extensions"
-msgstr "Mear ljepblêdútwreidingen besjen"
+msgstr "Mear YouTube-útwreidingen besjen"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/components/Home/index.js:68
-#, fuzzy
 msgid "See more reading extensions"
-msgstr "Mear oanrekommandearre útwreidingen"
+msgstr "Mear lêsútwreidingen besjen"
 
 #: src/amo/components/Home/index.js:69
 msgid "Refined reading"
@@ -1193,9 +1178,8 @@ msgid "Watch videos simultaneously with others"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Context Search"
-msgstr "Wikipedia Context Menu Search"
+msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 #, fuzzy
