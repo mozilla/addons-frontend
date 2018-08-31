@@ -154,6 +154,13 @@ describe(__filename, () => {
     expect(rating).toHaveProp('byLine');
   });
 
+  it('can hide a rating explicitly', () => {
+    const root = render({ showRating: false, review: _setReview(fakeReview) });
+
+    const rating = root.find(UserReview);
+    expect(rating).toHaveProp('showRating', false);
+  });
+
   it('renders loading text for falsy reviews', () => {
     const root = render({ review: null });
 
@@ -165,9 +172,7 @@ describe(__filename, () => {
     dispatchSignInActions({ store });
     const root = render({ review: null });
 
-    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(
-      0,
-    );
+    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
 
   it('cannot edit without a review', () => {
@@ -186,9 +191,7 @@ describe(__filename, () => {
     });
     const root = render({ review });
 
-    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(
-      0,
-    );
+    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
 
   it('renders a delete link for a user review', () => {
@@ -211,9 +214,9 @@ describe(__filename, () => {
     });
     const root = render({ review });
 
-    expect(
-      renderControls(root).find('.AddonReviewCard-delete'),
-    ).toHaveLength(0);
+    expect(renderControls(root).find('.AddonReviewCard-delete')).toHaveLength(
+      0,
+    );
   });
 
   it('dispatches deleteReview when a user deletes a review', () => {
@@ -222,9 +225,7 @@ describe(__filename, () => {
     const root = render({ review });
     const { errorHandler } = root.instance().props;
 
-    const deleteButton = renderControls(root).find(
-      '.AddonReviewCard-delete',
-    );
+    const deleteButton = renderControls(root).find('.AddonReviewCard-delete');
     const deleteEvent = createFakeEvent();
 
     // This emulates a user clicking the delete button and confirming.
@@ -320,6 +321,12 @@ describe(__filename, () => {
     expect(flag).toHaveProp('review', review);
     expect(flag).toHaveProp('location', location);
     expect(flag).toHaveProp('isDeveloperReply', false);
+  });
+
+  it('does not let you flag when declared as non-flaggable', () => {
+    const root = render({ flaggable: false, review: _setReview(fakeReview) });
+
+    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
   });
 
   it('lets you flag a developer reply', () => {
@@ -749,6 +756,20 @@ describe(__filename, () => {
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
     });
 
+    it('hides rating stars', () => {
+      const root = renderReply();
+
+      const rating = root.find(UserReview);
+      expect(rating).toHaveProp('showRating', false);
+    });
+
+    it('hides rating stars even with showRating=true', () => {
+      const root = renderReply({ showRating: true });
+
+      const rating = root.find(UserReview);
+      expect(rating).toHaveProp('showRating', false);
+    });
+
     it('hides the reply-to-review link on the developer reply', () => {
       const developerUserId = 3321;
       const { addon } = signInAsAddonDeveloper({ developerUserId });
@@ -810,9 +831,7 @@ describe(__filename, () => {
       });
       const root = renderReply({ originalReviewId, reply: review });
 
-      const deleteLink = renderControls(root).find(
-        '.AddonReviewCard-delete',
-      );
+      const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
       expect(deleteLink).toHaveLength(1);
       expect(deleteLink.children()).toHaveText('Delete my reply');
       expect(deleteLink).toHaveProp(
@@ -834,9 +853,7 @@ describe(__filename, () => {
       const { errorHandler } = root.instance().props;
 
       const deleteEvent = createFakeEvent();
-      const deleteButton = renderControls(root).find(
-        '.AddonReviewCard-delete',
-      );
+      const deleteButton = renderControls(root).find('.AddonReviewCard-delete');
       // This emulates a user clicking the delete button and confirming.
       const onDelete = deleteButton.prop('onConfirm');
       onDelete(deleteEvent);
@@ -861,16 +878,14 @@ describe(__filename, () => {
 
       const formContainer = root.find('.AddonReviewCard-reply');
       expect(formContainer).toHaveLength(1);
-      expect(
-        formContainer.find('.AddonReviewCard-reply-header'),
-      ).toHaveLength(1);
+      expect(formContainer.find('.AddonReviewCard-reply-header')).toHaveLength(
+        1,
+      );
 
       const icon = formContainer.find(Icon);
       expect(icon).toHaveProp('name', 'reply-arrow');
 
-      expect(
-        formContainer.find('.AddonReviewCard-reply-form'),
-      ).toHaveLength(1);
+      expect(formContainer.find('.AddonReviewCard-reply-form')).toHaveLength(1);
     });
   });
 });

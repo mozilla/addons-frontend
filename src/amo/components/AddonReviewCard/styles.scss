@@ -10,6 +10,12 @@
   }
 }
 
+.AddonReviewCard-authorByLine {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .AddonReviewCard-allControls {
   display: flex;
   justify-content: flex-end;
@@ -36,8 +42,10 @@
 
   .ConfirmButton-default-button {
     align-items: flex-start;
+    border: 0;
     color: $blue-50;
-    display: contents;
+    height: auto;
+    padding: 0;
   }
 
   .ConfirmButton-buttons {

@@ -40,9 +40,11 @@ import './styles.scss';
 
 type Props = {|
   addon?: AddonType | null,
+  flaggable?: boolean,
   isReplyToReviewId?: number,
   location: ReactRouterLocationType,
   review?: UserReviewType | null,
+  showRating?: boolean,
 |};
 
 type InternalProps = {|
@@ -59,6 +61,11 @@ type InternalProps = {|
 |};
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    flaggable: true,
+    showRating: true,
+  };
+
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
     const {
       addon,
@@ -211,12 +218,14 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       deletingReview,
       editingReview,
       errorHandler,
+      flaggable,
       i18n,
       siteUserHasReplyPerm,
       isReplyToReviewId,
       location,
       replyingToReview,
       review,
+      showRating,
       siteUser,
     } = this.props;
 
@@ -231,10 +240,14 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           timestamp,
         });
       } else {
-        // translators: Example in English: "from UserName123, last week"
-        byLine = i18n.sprintf(
-          i18n.gettext('by %(authorName)s, %(timestamp)s'),
-          { authorName: review.userName, timestamp },
+        byLine = (
+          <span className="AddonReviewCard-authorByLine">
+            {/* translators: Example in English: "from UserName123, last week" */}
+            {i18n.sprintf(i18n.gettext('by %(authorName)s, %(timestamp)s'), {
+              authorName: review.userName,
+              timestamp,
+            })}
+          </span>
         );
       }
     } else {
@@ -312,7 +325,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           </a>
         ) : null}
 
-        {review ? (
+        {flaggable && review ? (
           <FlagReviewMenu
             isDeveloperReply={isReply}
             location={location}
@@ -329,7 +342,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         controls={controls}
         review={review}
         byLine={byLine}
-        showRating={!isReply}
+        showRating={!isReply && showRating}
       >
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}

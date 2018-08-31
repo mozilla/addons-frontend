@@ -279,8 +279,10 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         {this.renderUserRatingForm()}
         {hasReviewBody && (
           <AddonReviewCard
+            flaggable={false}
             location={location}
             review={userReview}
+            showRating={false}
           />
         )}
       </React.Fragment>
