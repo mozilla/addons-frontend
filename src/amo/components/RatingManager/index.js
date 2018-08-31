@@ -294,6 +294,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         {userReview && (
           <AddonReviewCard
             bodyFallback={bodyFallback}
+            className="RatingManager-AddonReviewCard"
             flaggable={false}
             location={location}
             review={userReview}
