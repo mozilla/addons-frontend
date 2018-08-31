@@ -28,9 +28,7 @@ import {
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
-import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
-import UserReview from 'ui/components/UserReview';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
