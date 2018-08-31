@@ -15,6 +15,7 @@ import { selectReview } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import RatingManager, {
   RatingManagerBase,
@@ -568,7 +569,7 @@ describe(__filename, () => {
       );
     });
 
-    it('prompts to cancel editng an existing review', async () => {
+    it('prompts to cancel editing an existing review', async () => {
       const root = renderInline({
         store: createStoreWithLatestReview({
           review: { ...fakeReview, body: 'This add-on is wonderful' },
@@ -580,6 +581,31 @@ describe(__filename, () => {
       expect(button.children()).toHaveText(
         "Nevermind, I don't want to edit my review",
       );
+    });
+
+    it('shows AddonReviewCard with a review body', () => {
+      const location = createFakeLocation({ pathname: '/the/detail/page' });
+      const review = {
+        ...fakeReview,
+        body: 'This is hands down the best ad blocker',
+      };
+      const root = renderInline({
+        location,
+        store: createStoreWithLatestReview({ review }),
+      });
+
+      const reviewCard = root.find(AddonReviewCard);
+      expect(reviewCard).toHaveProp('review', createInternalReview(review));
+      expect(reviewCard).toHaveProp('location', location);
+    });
+
+    it('shows AddonReviewCard without a review body', () => {
+      const review = { ...fakeReview, body: undefined };
+      const root = renderInline({
+        store: createStoreWithLatestReview({ review }),
+      });
+
+      expect(root.find(AddonReviewCard)).toHaveLength(1);
     });
   });
 

@@ -58,7 +58,7 @@
 }
 
 .AddonReviewManager-savedRating-hidden {
-  visibility: collapse;
   opacity: 0;
   transition: opacity $transition-long ease-in-out;
+  visibility: collapse;
 }

@@ -1,7 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { setReview } from 'amo/actions/reviews';
+import { createInternalReview, setReview } from 'amo/actions/reviews';
+import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import UserReview from 'ui/components/UserReview';
 import { dispatchClientMetadata, fakeReview } from 'tests/unit/amo/helpers';
@@ -23,20 +24,15 @@ describe(__filename, () => {
     return shallow(<UserReview {...props} />);
   };
 
-  const getReviewFromState = (reviewId) => {
-    const review = store.getState().reviews.byId[reviewId];
-    expect(review).toBeDefined();
-    return review;
-  };
-
   const _setReview = (externalReview) => {
     store.dispatch(setReview(externalReview));
-    return getReviewFromState(externalReview.id);
+    return createInternalReview(externalReview);
   };
 
-  it('renders correctly', () => {
-    const root = render();
-    expect(root.find('.UserReview')).toHaveLength(1);
+  it('renders LoadingText without a review', () => {
+    const root = render({ review: undefined });
+
+    expect(root.find('.UserReview-body').find(LoadingText)).toHaveLength(1);
   });
 
   it('renders a review', () => {
@@ -66,14 +62,65 @@ describe(__filename, () => {
 
     expect(
       root
-        .find('p')
+        .find('.UserReview-body')
         .render()
         .find('br'),
     ).toHaveLength(1);
   });
 
-  it('hides ratings for replies', () => {
+  it('does not render an empty review body', () => {
+    const root = render({
+      review: _setReview({ ...fakeReview, body: undefined }),
+    });
+
+    expect(root.find('.UserReview-body')).toHaveText('');
+  });
+
+  it('can render a fallback for reviews without a body', () => {
+    const bodyFallback = 'some kind of placeholder';
+    const root = render({
+      bodyFallback,
+      review: _setReview({ ...fakeReview, body: undefined }),
+    });
+
+    expect(root.find('.UserReview-body')).toHaveText(bodyFallback);
+  });
+
+  it('only renders a fallback when the review body is empty', () => {
+    const body = 'This is an actual review';
+    const bodyFallback = 'some kind of placeholder';
+    const root = render({
+      bodyFallback,
+      review: _setReview({ ...fakeReview, body }),
+    });
+
+    expect(root.find('.UserReview-body')).not.toHaveText(bodyFallback);
+    expect(
+      root
+        .find('.UserReview-body')
+        .render()
+        .text(),
+    ).toEqual(body);
+  });
+
+  it('renders without a review body and without a fallback', () => {
+    const root = render({
+      bodyFallback: undefined,
+      review: _setReview({ ...fakeReview, body: undefined }),
+    });
+
+    expect(
+      root
+        .find('.UserReview-body')
+        .render()
+        .text(),
+    ).toEqual('');
+    expect(root.find(LoadingText)).toHaveLength(0);
+  });
+
+  it('can hide ratings', () => {
     const root = render({ showRating: false });
+
     expect(root.find(UserRating)).toHaveLength(0);
   });
 
