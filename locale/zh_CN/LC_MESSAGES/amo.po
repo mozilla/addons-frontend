@@ -373,33 +373,28 @@ msgid "Edit my review"
 msgstr "编辑我的评价"
 
 #: src/amo/components/AddonReviewListItem/index.js:261
-#, fuzzy
 msgid "Deleting…"
-msgstr "完成编辑"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:271 src/ui/components/DismissibleTextForm/index.js:181
 msgid "Delete"
 msgstr "删除"
 
 #: src/amo/components/AddonReviewListItem/index.js:275
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "您确实要删除这张照片吗？"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "您确实要删除这张照片吗？"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:281
-#, fuzzy
 msgid "Delete my reply"
-msgstr "编辑我的回复"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:282
-#, fuzzy
 msgid "Delete my review"
-msgstr "编辑我的评价"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
@@ -410,24 +405,20 @@ msgid "Saving"
 msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:110
-#, fuzzy
 msgid "Saved"
-msgstr "保存"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Submitting review"
-msgstr "提交评价"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:68
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "与世界分享这个附加组件很棒的理由吧！也请遵循我们的%(linkStart)s评价指南%(linkEnd)s。"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:83
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "撰写评价时，叙述风格应该像你对朋友阐述对它的感觉。"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
@@ -666,9 +657,8 @@ msgid "Edit collection details"
 msgstr ""
 
 #: src/amo/components/CollectionDetails/index.js:131
-#, fuzzy
 msgid "Back to collection"
-msgstr "添加到收藏集"
+msgstr ""
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
