@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-24 18:55+0000\n"
+"PO-Revision-Date: 2018-08-31 18:38+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -172,8 +172,8 @@ msgstr "Din browser understøtter ikke tilføjelser. Du kan <a href=\"%(download
 #: src/amo/components/AddonMeta/index.js:114
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s stjerne"
+msgstr[1] "%(total)s stjerner"
 
 #: src/amo/components/AddonMeta/index.js:123
 msgid "Not rated yet"
@@ -195,7 +195,7 @@ msgstr "Ingen brugere"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "Reviews"
-msgstr ""
+msgstr "Anmeldelser"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Review"
@@ -379,7 +379,7 @@ msgstr "Rediger min anmeldelse"
 
 #: src/amo/components/AddonReviewListItem/index.js:261
 msgid "Deleting…"
-msgstr ""
+msgstr "Sletter…"
 
 #: src/amo/components/AddonReviewListItem/index.js:271 src/ui/components/DismissibleTextForm/index.js:181
 msgid "Delete"
@@ -387,19 +387,19 @@ msgstr "Slet"
 
 #: src/amo/components/AddonReviewListItem/index.js:275
 msgid "Do you really want to delete this reply?"
-msgstr ""
+msgstr "Vil du virkelig slette dette svar?"
 
 #: src/amo/components/AddonReviewListItem/index.js:276
 msgid "Do you really want to delete this review?"
-msgstr ""
+msgstr "Vil du virkelig slette denne anmeldelse?"
 
 #: src/amo/components/AddonReviewListItem/index.js:281
 msgid "Delete my reply"
-msgstr ""
+msgstr "Slet mit svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:282
 msgid "Delete my review"
-msgstr ""
+msgstr "Slet min anmeldelse"
 
 #: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
@@ -407,29 +407,27 @@ msgstr "Svar på denne anmeldelse"
 
 #: src/amo/components/AddonReviewManager/index.js:109
 msgid "Saving"
-msgstr ""
+msgstr "Gemmer"
 
 #: src/amo/components/AddonReviewManager/index.js:110
-#, fuzzy
 msgid "Saved"
-msgstr "Gem"
+msgstr "Gemt"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Submitting review"
-msgstr ""
+msgstr "Indsender anmeldelse"
 
 #: src/amo/components/AddonReviewManager/index.js:68
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Følg vores %(linkStart)sretningslinjer for anmeldelser%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "Skrive som hvis du fortalte en ven om din oplevelse af tilføjelsen."
+msgstr "Skriv om din oplevelse af tilføjelsen."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
-msgstr ""
+msgstr "Din bedømmelse:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -649,7 +647,7 @@ msgstr "Føjet til samling"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Removed from collection"
-msgstr ""
+msgstr "Fjernet fra samling"
 
 #: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
@@ -665,9 +663,8 @@ msgid "Edit collection details"
 msgstr "Rediger samling"
 
 #: src/amo/components/CollectionDetails/index.js:131
-#, fuzzy
 msgid "Back to collection"
-msgstr "Føj til samling"
+msgstr "Tilbage til samling"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -707,7 +704,7 @@ msgstr "Opret en samling"
 
 #: src/amo/components/CollectionManager/index.js:226
 msgid "Save changes"
-msgstr ""
+msgstr "Gem ændringer"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
@@ -1121,28 +1118,27 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
-msgstr ""
+msgstr "Se flere efterårs-temaer"
 
 #: src/amo/components/Home/index.js:57
 msgid "Fall themes"
-msgstr ""
+msgstr "Efterårs-temaer"
 
 #: src/amo/components/Home/index.js:62
 msgid "See more YouTube extensions"
-msgstr ""
+msgstr "Se flere YouTube-udvidelser"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/components/Home/index.js:68
-#, fuzzy
 msgid "See more reading extensions"
-msgstr "Se flere trending udvidelser"
+msgstr "Se flere læse-udvidelser"
 
 #: src/amo/components/Home/index.js:69
 msgid "Refined reading"
-msgstr ""
+msgstr "Forbedret læsning"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
@@ -1162,11 +1158,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Skift standardplaceringen af dine bogmærker"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1244,7 +1240,7 @@ msgstr "Brug genveje til at justere afspilningshastigheden på videoer"
 
 #: src/amo/components/HomeHeroBanner/index.js:174
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
@@ -1260,7 +1256,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
@@ -1268,11 +1264,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Klik på en knap for at lukke irriterende pop op-vinduer"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "Auto-Sort Bookmarks"
