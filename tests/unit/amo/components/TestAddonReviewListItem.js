@@ -235,7 +235,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       dispatchSpy,
       deleteAddonReview({
-        addon: createInternalAddon(fakeAddon),
+        addonId: fakeAddon.id,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
       }),
@@ -246,7 +246,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     store.dispatch(
       deleteAddonReview({
-        addon: createInternalAddon(fakeAddon),
+        addonId: fakeAddon.id,
         errorHandlerId: createStubErrorHandler().id,
         reviewId: review.id,
       }),
@@ -263,7 +263,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     store.dispatch(
       deleteAddonReview({
-        addon: createInternalAddon(fakeAddon),
+        addonId: fakeAddon.id,
         errorHandlerId: createStubErrorHandler().id,
         reviewId: review.id,
       }),
@@ -845,7 +845,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(
         dispatchSpy,
         deleteAddonReview({
-          addon: createInternalAddon(fakeAddon),
+          addonId: fakeAddon.id,
           errorHandlerId: errorHandler.id,
           reviewId: review.id,
           isReplyToReviewId: originalReviewId,

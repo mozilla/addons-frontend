@@ -17,7 +17,6 @@ import addons, {
   loadAddons,
   loadAddonResults,
   removeUndefinedProps,
-  unloadAddon,
 } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
@@ -588,43 +587,6 @@ describe(__filename, () => {
       expect(getAllAddons(store.getState())).toEqual([
         createInternalAddon(fakeAddon),
       ]);
-    });
-  });
-
-  describe('unloadAddon', () => {
-    it('unloads all data for an add-on', () => {
-      const guid1 = '1@mozilla.com';
-      const id1 = 1;
-      const slug1 = 'slug-1';
-      const guid2 = '2@mozilla.com';
-      const id2 = 2;
-      const slug2 = 'slug-2';
-      const addon1 = {
-        ...fakeAddon,
-        guid: guid1,
-        id: id1,
-        slug: slug1,
-      };
-      const addonResults = [
-        addon1,
-        {
-          ...fakeAddon,
-          ...fakeAddon,
-          guid: guid2,
-          id: id2,
-          slug: slug2,
-        },
-      ];
-      let state = addons(
-        undefined,
-        loadAddons(createFetchAllAddonsResult(addonResults).entities),
-      );
-
-      state = addons(state, unloadAddon({ addonId: id1 }));
-
-      expect(state.byGUID[addon1.guid]).toEqual(undefined);
-      expect(state.byID[addon1.id]).toEqual(undefined);
-      expect(state.bySlug[addon1.slug]).toEqual(undefined);
     });
   });
 });

@@ -42,7 +42,6 @@ import {
   setUserReviews,
 } from 'amo/actions/reviews';
 import log from 'core/logger';
-import { unloadAddon } from 'core/reducers/addons';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { AppState } from 'amo/store';
 import type {
@@ -299,11 +298,10 @@ function* deleteAddonReview({
       reviewId,
     });
 
-    yield put(unloadAddonReviews({ reviewId }));
+    yield put(unloadAddonReviews({ addonId, reviewId }));
     if (isReplyToReviewId) {
       yield put(unloadAddonReviews({ reviewId: isReplyToReviewId }));
     }
-    yield put(unloadAddon({ addonId }));
   } catch (error) {
     log.warn(`Failed to delete review ID ${reviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

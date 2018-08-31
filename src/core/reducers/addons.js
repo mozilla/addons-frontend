@@ -1,8 +1,9 @@
 /* @flow */
 import { oneLine } from 'common-tags';
-import invariant from 'invariant';
 
+import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
@@ -15,7 +16,6 @@ import type {
 export const LOAD_ADDONS: 'LOAD_ADDONS' = 'LOAD_ADDONS';
 export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
 export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
-export const UNLOAD_ADDON: 'UNLOAD_ADDON' = 'UNLOAD_ADDON';
 
 type AddonID = number;
 
@@ -95,26 +95,6 @@ export function loadAddonResults({
   return {
     type: LOAD_ADDON_RESULTS,
     payload: { addons },
-  };
-}
-
-type UnloadAddonParams = {|
-  addonId: AddonID,
-|};
-
-export type UnloadAddonAction = {|
-  payload: {| addonId: AddonID |},
-  type: typeof UNLOAD_ADDON,
-|};
-
-export function unloadAddon({
-  addonId,
-}: UnloadAddonParams = {}): UnloadAddonAction {
-  invariant(addonId, 'addon is required');
-
-  return {
-    type: UNLOAD_ADDON,
-    payload: { addonId },
   };
 }
 
@@ -332,7 +312,10 @@ export const getAllAddons = (state: AppState): Array<AddonType> => {
   return Object.values(addons);
 };
 
-type Action = LoadAddonsAction | LoadAddonResultsAction;
+type Action =
+  | LoadAddonsAction
+  | LoadAddonResultsAction
+  | UnloadAddonReviewsAction;
 
 export default function addonsReducer(
   state: AddonsState = initialState,
@@ -371,7 +354,7 @@ export default function addonsReducer(
         bySlug,
       };
     }
-    case UNLOAD_ADDON: {
+    case UNLOAD_ADDON_REVIEWS: {
       const { addonId } = action.payload;
       const addon = state.byID[`${addonId}`];
       if (addon) {

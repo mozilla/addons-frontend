@@ -638,6 +638,7 @@ export const deleteAddonReview = ({
 };
 
 type UnloadAddonReviewsParams = {|
+  addonId: number,
   reviewId: number,
 |};
 
@@ -647,11 +648,11 @@ export type UnloadAddonReviewsAction = {|
 |};
 
 export const unloadAddonReviews = ({
+  addonId,
   reviewId,
 }: UnloadAddonReviewsParams): UnloadAddonReviewsAction => {
-  invariant(reviewId, 'reviewId is required');
   return {
     type: UNLOAD_ADDON_REVIEWS,
-    payload: { reviewId },
+    payload: { addonId, reviewId },
   };
 };
