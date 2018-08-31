@@ -58,7 +58,7 @@ type InternalProps = {|
   submittingReply: boolean,
 |};
 
-export class AddonReviewListItemBase extends React.Component<InternalProps> {
+export class AddonReviewCardBase extends React.Component<InternalProps> {
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
     const {
       addon,
@@ -169,14 +169,14 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className="AddonReviewListItem-reply">
-        <h4 className="AddonReviewListItem-reply-header">
+      <div className="AddonReviewCard-reply">
+        <h4 className="AddonReviewCard-reply-header">
           <Icon name="reply-arrow" />
           {i18n.gettext('Developer response')}
         </h4>
         {replyingToReview ? (
           <DismissibleTextForm
-            className="AddonReviewListItem-reply-form"
+            className="AddonReviewCard-reply-form"
             isSubmitting={submittingReply && !errorHandler.hasError()}
             onDismiss={this.onDismissReviewReply}
             onSubmit={this.onSubmitReviewReply}
@@ -194,7 +194,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
             text={review.reply && review.reply.body}
           />
         ) : (
-          <AddonReviewListItem
+          <AddonReviewCard
             addon={addon}
             isReplyToReviewId={review.id}
             location={location}
@@ -241,10 +241,10 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       byLine = <LoadingText />;
     }
 
-    const confirmButtonClassName = 'AddonReviewListItem-delete';
+    const confirmButtonClassName = 'AddonReviewCard-delete';
 
     const controls = (
-      <div className="AddonReviewListItem-allControls">
+      <div className="AddonReviewCard-allControls">
         {siteUser && review && review.userId === siteUser.id ? (
           <React.Fragment>
             {/* This will render an overlay to edit the review */}
@@ -258,14 +258,14 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
             <a
               href="#edit"
               onClick={this.onClickToEditReview}
-              className="AddonReviewListItem-edit AddonReviewListItem-control"
+              className="AddonReviewCard-edit AddonReviewCard-control"
             >
               {isReply
                 ? i18n.gettext('Edit my reply')
                 : i18n.gettext('Edit my review')}
             </a>
             {deletingReview && !errorHandler.hasError() ? (
-              <span className="AddonReviewListItem-control AddonReviewListItem-deleting">
+              <span className="AddonReviewCard-control AddonReviewCard-deleting">
                 {i18n.gettext('Deleting…')}
               </span>
             ) : (
@@ -273,7 +273,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
                 buttonType="cancel"
                 cancelButtonType="neutral"
                 className={makeClassName(
-                  'AddonReviewListItem-control',
+                  'AddonReviewCard-control',
                   confirmButtonClassName,
                 )}
                 confirmButtonText={i18n.gettext('Delete')}
@@ -305,7 +305,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
           <a
             href="#reply"
             onClick={this.onClickToBeginReviewReply}
-            className="AddonReviewListItem-begin-reply AddonReviewListItem-control"
+            className="AddonReviewCard-begin-reply AddonReviewCard-control"
           >
             <Icon name="reply-arrow" />
             {i18n.gettext('Reply to this review')}
@@ -316,7 +316,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
           <FlagReviewMenu
             isDeveloperReply={isReply}
             location={location}
-            openerClass="AddonReviewListItem-control"
+            openerClass="AddonReviewCard-control"
             review={review}
           />
         ) : null}
@@ -325,7 +325,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
 
     return (
       <UserReview
-        className="AddonReviewListItem"
+        className="AddonReviewCard"
         controls={controls}
         review={review}
         byLine={byLine}
@@ -362,10 +362,10 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   };
 }
 
-const AddonReviewListItem: React.ComponentType<Props> = compose(
+const AddonReviewCard: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
-  withErrorHandler({ name: 'AddonReviewListItem' }),
+  withErrorHandler({ name: 'AddonReviewCard' }),
   translate(),
-)(AddonReviewListItemBase);
+)(AddonReviewCardBase);
 
-export default AddonReviewListItem;
+export default AddonReviewCard;

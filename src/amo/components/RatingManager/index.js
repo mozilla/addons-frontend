@@ -12,7 +12,7 @@ import { setLatestReview } from 'amo/actions/reviews';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
-import AddonReviewListItem from 'amo/components/AddonReviewListItem';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
@@ -278,7 +278,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       <React.Fragment>
         {this.renderUserRatingForm()}
         {hasReviewBody && (
-          <AddonReviewListItem
+          <AddonReviewCard
             location={location}
             review={userReview}
           />

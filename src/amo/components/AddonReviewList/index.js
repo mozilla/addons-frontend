@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import AddonReviewListItem from 'amo/components/AddonReviewListItem';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -327,7 +327,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
             {allReviews.map((review, index) => {
               return (
                 <li key={String(index)}>
-                  <AddonReviewListItem
+                  <AddonReviewCard
                     addon={addon}
                     location={location}
                     review={review}

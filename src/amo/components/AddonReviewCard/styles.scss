@@ -1,6 +1,6 @@
 @import '~amo/css/styles';
 
-.AddonReviewListItem {
+.AddonReviewCard {
   .Rating {
     height: $default-line-height;
   }
@@ -10,7 +10,7 @@
   }
 }
 
-.AddonReviewListItem-allControls {
+.AddonReviewCard-allControls {
   display: flex;
   justify-content: flex-end;
   margin-top: 0;
@@ -27,7 +27,7 @@
   }
 }
 
-.AddonReviewListItem-delete {
+.AddonReviewCard-delete {
   .ConfirmButton-cancel-button,
   .ConfirmButton-confirm-button,
   .ConfirmButton-default-button {
@@ -45,7 +45,7 @@
   }
 }
 
-.AddonReviewListItem-control {
+.AddonReviewCard-control {
   @include margin-start(6px);
 
   @include respond-to(medium) {
@@ -57,7 +57,7 @@
   }
 }
 
-.AddonReviewListItem-reply {
+.AddonReviewCard-reply {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
   margin-top: 12px;
@@ -71,7 +71,7 @@
   }
 }
 
-.AddonReviewListItem-reply-header {
+.AddonReviewCard-reply-header {
   margin: 0 0 6px;
 
   .Icon-reply-arrow {

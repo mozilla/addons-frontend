@@ -8,7 +8,7 @@ import AddonReviewList, {
   AddonReviewListBase,
   extractId,
 } from 'amo/components/AddonReviewList';
-import AddonReviewListItem from 'amo/components/AddonReviewListItem';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
@@ -121,14 +121,14 @@ describe(__filename, () => {
       ).toHaveLength(3);
 
       // Make sure four review placeholders were rendered.
-      expect(root.find(AddonReviewListItem)).toHaveLength(4);
+      expect(root.find(AddonReviewCard)).toHaveLength(4);
       // Do a sanity check on the first placeholder;
-      expect(root.find(AddonReviewListItem).at(0)).toHaveProp('addon', null);
-      expect(root.find(AddonReviewListItem).at(0)).toHaveProp(
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp(
         'location',
         location,
       );
-      expect(root.find(AddonReviewListItem).at(0)).toHaveProp('review', null);
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
     });
 
     it('does not paginate before reviews have loaded', () => {
@@ -450,7 +450,7 @@ describe(__filename, () => {
 
       const tree = render();
 
-      const items = tree.find(AddonReviewListItem);
+      const items = tree.find(AddonReviewCard);
       expect(items).toHaveLength(2);
 
       // First review.
