@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-31 12:11+0000\n"
+"PO-Revision-Date: 2018-08-31 12:14+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1182,9 +1182,8 @@ msgid "Context Search"
 msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Aksintuearje tekst op elke webside om in handich sykmenu te toanen"
+msgstr "Aksintuearje tekst op websiden om ienfâldich nei de term te sykjen"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
@@ -1195,14 +1194,12 @@ msgid "Give your favorite websites a new look"
 msgstr "Wizigje it úterlik fan jo favorite website"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Sykresultaten"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
-#, fuzzy
 msgid "Privacy protection for your search data"
-msgstr "Privacybeskerming"
+msgstr "Privacybeskerming foar jo sykgegevens"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
@@ -1213,9 +1210,8 @@ msgid "Save memory by disabling inactive tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:155
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Antwurd wurdt fernijd"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
@@ -1226,9 +1222,8 @@ msgid "Auto Fullscreen"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:166
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Siket automatysk nei aksjekoaden"
+msgstr "Start Firefox automatysk yn folsleinskermmodus"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Video Speed Controller"
@@ -1271,9 +1266,8 @@ msgid "Click a button to close annoying pop-ups"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:202
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Blêdwizers"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
@@ -1890,9 +1884,8 @@ msgstr ""
 "ferbetterjen fan jo ynteraksjes mei webynhâld en it wizigjen fan it úterlik fan jo browser, jo surfûnderfining oanpasse en personalisearje."
 
 #: src/amo/components/StaticPages/About/index.js:42
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Jo kinne AMO ek brûke om add-ons foar Mozilla %(startTBLink)sThunderbird%(endTBLink)s en %(startSMLink)sSeaMonkey%(endSMLink)s te sykjen."
+msgstr "Besykje %(startTBLink)saddons.thunderbird.net%(endTBLink)s of %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s as jo add-ons foar Thunderbird of SeaMonkey sykje."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2275,7 +2268,6 @@ msgstr ""
 "Wurdearringen en beoardielingen wurde anonym makke en net langer te bewurkjen."
 
 #: src/amo/components/UserProfileEdit/index.js:795
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr "Wannear't jo dit e-mailadres opnij foar oanmelding op addons.mozilla.org brûke, wurdt in nij Firefox-Add-ons-profyl oanmakke, dat net mei it fuortsmiten profyl assosjearre wurdt."
 
@@ -2360,19 +2352,16 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:215
-#, fuzzy
 msgid "Downloading"
-msgstr "%(name)s wurdt download."
+msgstr "Downloade"
 
 #: src/core/components/AMInstallButton/index.js:217
-#, fuzzy
 msgid "Installing"
-msgstr "%(name)s wurdt ynstallearre."
+msgstr "Ynstallearje"
 
 #: src/core/components/AMInstallButton/index.js:219
-#, fuzzy
 msgid "Uninstalling"
-msgstr "%(name)s wurdt fuortsmiten."
+msgstr "De-ynstallearje"
 
 #: src/core/components/AMInstallButton/index.js:223 src/core/components/InstallButton/index.js:260 src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
@@ -2407,9 +2396,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "OK!"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
