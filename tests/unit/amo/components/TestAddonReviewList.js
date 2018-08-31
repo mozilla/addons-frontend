@@ -124,10 +124,7 @@ describe(__filename, () => {
       expect(root.find(AddonReviewCard)).toHaveLength(4);
       // Do a sanity check on the first placeholder;
       expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp(
-        'location',
-        location,
-      );
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('location', location);
       expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
     });
 
