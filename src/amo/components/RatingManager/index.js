@@ -12,6 +12,7 @@ import { setLatestReview } from 'amo/actions/reviews';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
@@ -251,7 +252,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { i18n, userReview } = this.props;
+    const { i18n, location, userReview } = this.props;
 
     if (this.shouldShowTextEntry()) {
       invariant(userReview, 'userReview is required');
@@ -271,26 +272,15 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       );
     }
 
-    let byLine;
-    if (userReview) {
-      byLine = i18n.sprintf(i18n.gettext('posted by you, %(timestamp)s'), {
-        timestamp: i18n.moment(userReview.created).fromNow(),
-      });
-    } else {
-      byLine = <LoadingText />;
-    }
-
     const hasReviewBody = userReview && userReview.body;
 
     return (
       <React.Fragment>
         {this.renderUserRatingForm()}
         {hasReviewBody && (
-          <UserReview
-            className="RatingManager-UserReview"
-            byLine={byLine}
+          <AddonReviewListItem
+            location={location}
             review={userReview}
-            showRating={false}
           />
         )}
       </React.Fragment>
