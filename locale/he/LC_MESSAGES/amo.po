@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-31 12:28+0000\n"
+"PO-Revision-Date: 2018-08-31 12:34+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -378,9 +378,8 @@ msgid "Edit my review"
 msgstr "עריכת הסקירה שלי"
 
 #: src/amo/components/AddonReviewListItem/index.js:261
-#, fuzzy
 msgid "Deleting…"
-msgstr "סיום עריכה"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:271 src/ui/components/DismissibleTextForm/index.js:181
 msgid "Delete"
@@ -415,23 +414,20 @@ msgid "Saved"
 msgstr "נשמר"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Submitting review"
-msgstr "שליחת סקירה"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:68
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "ספרו לעולם על אודות הרחבה זו. נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd)s שלנו."
+msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd)s שלנו."
 
 #: src/amo/components/AddonReviewManager/index.js:83
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "לכתוב כאילו זאת הייתה הודעה לחבר בנוגע להתנסות שלך עם התוספת."
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
-msgstr ""
+msgstr "דירוג הכוכבים שלך:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -707,7 +703,7 @@ msgstr "יצירת אוסף"
 
 #: src/amo/components/CollectionManager/index.js:226
 msgid "Save changes"
-msgstr ""
+msgstr "שמירת שינויים"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
@@ -1551,11 +1547,11 @@ msgstr "מהי רמת שביעות רצונך מהשימוש ב־%(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:265
 msgid "Nevermind, I don't want to edit my review"
-msgstr ""
+msgstr "לא משנה, אני לא רוצה לערוך את הסקירה שלי"
 
 #: src/amo/components/RatingManager/index.js:266
 msgid "Nevermind, I don't want to write a review"
-msgstr ""
+msgstr "לא משנה, אני לא רוצה לכתוב סקירה"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
