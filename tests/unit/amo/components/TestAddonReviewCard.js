@@ -154,6 +154,13 @@ describe(__filename, () => {
     expect(rating).toHaveProp('byLine');
   });
 
+  it('renders a custom className', () => {
+    const className = 'ExampleClassName';
+    const root = render({ className });
+
+    expect(root).toHaveClassName(className);
+  });
+
   it('passes bodyFallback to UserReview', () => {
     const bodyFallback = 'placeholder for empty reviews';
     const root = render({ bodyFallback });

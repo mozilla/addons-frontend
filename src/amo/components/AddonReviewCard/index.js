@@ -42,6 +42,7 @@ import './styles.scss';
 type Props = {|
   addon?: AddonType | null,
   bodyFallback?: React.Node | string,
+  className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
   location: ReactRouterLocationType,
@@ -218,6 +219,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const {
       addon,
       bodyFallback,
+      className,
       deletingReview,
       editingReview,
       errorHandler,
@@ -342,7 +344,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return (
       <UserReview
         bodyFallback={bodyFallback}
-        className="AddonReviewCard"
+        className={makeClassName('AddonReviewCard', className)}
         controls={controls}
         review={review}
         byLine={byLine}
