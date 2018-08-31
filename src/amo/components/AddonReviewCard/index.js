@@ -21,6 +21,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import Button from 'ui/components/Button';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
@@ -40,6 +41,7 @@ import './styles.scss';
 
 type Props = {|
   addon?: AddonType | null,
+  bodyFallback?: React.Node | string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
   location: ReactRouterLocationType,
@@ -215,6 +217,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   render() {
     const {
       addon,
+      bodyFallback,
       deletingReview,
       editingReview,
       errorHandler,
@@ -338,6 +341,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     return (
       <UserReview
+        bodyFallback={bodyFallback}
         className="AddonReviewCard"
         controls={controls}
         review={review}

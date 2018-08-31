@@ -183,6 +183,11 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     this.setState({ showTextEntry: false });
   };
 
+  showTextEntry = (event: SyntheticEvent<any>) => {
+    event.preventDefault();
+    this.setState({ showTextEntry: true });
+  };
+
   isSignedIn() {
     return Boolean(this.props.userId);
   }
@@ -270,11 +275,25 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       );
     }
 
+    const bodyFallback = (
+      <div className="RatingManager-emptyReviewBody">
+        <Button
+          onClick={this.showTextEntry}
+          href="#writeReview"
+          buttonType="action"
+          puffy
+        >
+          {i18n.gettext('Write a review')}
+        </Button>
+      </div>
+    );
+
     return (
       <React.Fragment>
         {this.renderUserRatingForm()}
         {userReview && (
           <AddonReviewCard
+            bodyFallback={bodyFallback}
             flaggable={false}
             location={location}
             review={userReview}

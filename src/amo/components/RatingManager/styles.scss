@@ -38,8 +38,22 @@
       padding: 24px;
     }
   }
+
+  .AddonReviewCard-control {
+    margin: 0;
+  }
+
+  .AddonReviewCard-allControls {
+    justify-content: space-between;
+  }
 }
 
 .RatingManager-UserRating {
   margin: 12px;
+}
+
+.RatingManager-emptyReviewBody {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 24px;
 }

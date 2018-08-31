@@ -154,6 +154,14 @@ describe(__filename, () => {
     expect(rating).toHaveProp('byLine');
   });
 
+  it('passes bodyFallback to UserReview', () => {
+    const bodyFallback = 'placeholder for empty reviews';
+    const root = render({ bodyFallback });
+
+    const rating = root.find(UserReview);
+    expect(rating).toHaveProp('bodyFallback', bodyFallback);
+  });
+
   it('can hide a rating explicitly', () => {
     const root = render({ showRating: false, review: _setReview(fakeReview) });
 
