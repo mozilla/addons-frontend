@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-01 10:48+0000\n"
-"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2018-08-30 23:20+0000\n"
+"Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -414,11 +414,11 @@ msgstr "正在提交评价"
 
 #: src/amo/components/AddonReviewManager/index.js:68
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "请遵循我们的%(linkStart)s评价指南%(linkEnd)s。"
 
 #: src/amo/components/AddonReviewManager/index.js:83
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "写下您使用此附加组件的体验。"
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
