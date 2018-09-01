@@ -784,6 +784,76 @@ describe(__filename, () => {
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
+  it('does not display anything when the lightweight theme has no description', () => {
+    const summary = 'my theme is very cool';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+        summary,
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it('does not display anything when the generic add-on has no description', () => {
+    const summary = 'my theme is very cool';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_COMPLETE_THEME,
+        summary,
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it('does not display anything when the search plugin has no description', () => {
+    const summary = 'my theme is very cool';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_OPENSEARCH,
+        summary,
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it('does not display anything when the language pack has no description', () => {
+    const summary = 'my theme is very cool';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_LANG,
+        summary,
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
+  it('does not display anything when the dictionary has no description', () => {
+    const summary = 'my theme is very cool';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_DICT,
+        summary,
+        description: null,
+      }),
+    });
+
+    expect(root.find('.AddonDescription')).toHaveLength(0);
+  });
+
   it("displays the extension's description when both description and summary are supplied", () => {
     const description = 'some cool description';
     const root = shallowRender({
