@@ -770,7 +770,7 @@ describe(__filename, () => {
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
-  it("displays the extension's summary when there is no description", () => {
+  it('does not display anything when the extension has no description', () => {
     const summary = 'my theme is very cool';
     const root = shallowRender({
       addon: createInternalAddon({
@@ -782,7 +782,6 @@ describe(__filename, () => {
     });
 
     expect(root.find('.AddonDescription')).toHaveLength(0);
-    expect(root.find('.AddonDescription-contents')).toHaveLength(0);
   });
 
   it("displays the extension's description when both description and summary are supplied", () => {
