@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-31 18:38+0000\n"
+"PO-Revision-Date: 2018-09-01 15:03+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -658,9 +658,8 @@ msgid "Edit this collection"
 msgstr "Rediger denne samling"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Rediger samling"
+msgstr "Rediger detaljer for samlingen"
 
 #: src/amo/components/CollectionDetails/index.js:131
 msgid "Back to collection"
@@ -1552,11 +1551,11 @@ msgstr "Hvordan er din oplevelse med %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:265
 msgid "Nevermind, I don't want to edit my review"
-msgstr ""
+msgstr "Jeg vil alligevel ikke redigere min anmeldelse"
 
 #: src/amo/components/RatingManager/index.js:266
 msgid "Nevermind, I don't want to write a review"
-msgstr ""
+msgstr "Jeg vil alligevel ikke skrive en anmeldelse"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
