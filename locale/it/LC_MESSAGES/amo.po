@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-31 14:13+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2018-09-01 05:28+0000\n"
+"Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -99,7 +99,7 @@ msgstr "%(addonName)s%(startSpan)sdi %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:504
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Questo componente aggiuntivo non compare negli elenchi pubblici. Tu sei in grado di visualizzarlo perché possiedi autorizzazioni elevate."
 
 #: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
