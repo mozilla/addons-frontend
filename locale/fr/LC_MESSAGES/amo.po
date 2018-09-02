@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-31 16:13+0000\n"
-"Last-Translator: Alpha <adrien.gat@gmail.com>\n"
+"PO-Revision-Date: 2018-09-01 07:28+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -378,9 +378,8 @@ msgid "Edit my review"
 msgstr "Modifier mon avis"
 
 #: src/amo/components/AddonReviewListItem/index.js:261
-#, fuzzy
 msgid "Deleting…"
-msgstr "Édition terminée"
+msgstr "Suppression…"
 
 #: src/amo/components/AddonReviewListItem/index.js:271 src/ui/components/DismissibleTextForm/index.js:181
 msgid "Delete"
@@ -419,9 +418,8 @@ msgid "Submitting review"
 msgstr "Envoyer l’avis"
 
 #: src/amo/components/AddonReviewManager/index.js:68
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Partagez votre avis sur cette extension. Veillez à respecter les %(linkStart)srègles de publication%(linkEnd)s."
+msgstr "Veillez à respecter les %(linkStart)srègles de publication%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
 msgid "Write about your experience with this add-on."
