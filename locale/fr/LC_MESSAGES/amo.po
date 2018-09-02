@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-01 07:28+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-09-02 14:43+0000\n"
+"Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -99,7 +99,7 @@ msgstr "%(addonName)s %(startSpan)spar %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:504
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Ceci n'est pas une fiche publique. Vous la voyez uniquement parce que vous avez des privilèges élevés."
 
 #: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
@@ -407,7 +407,7 @@ msgstr "Répondre à cet avis"
 
 #: src/amo/components/AddonReviewManager/index.js:109
 msgid "Saving"
-msgstr ""
+msgstr "Enregistrement"
 
 #: src/amo/components/AddonReviewManager/index.js:110
 msgid "Saved"
@@ -427,7 +427,7 @@ msgstr "Écrivez à propos de votre expérience d’utilisation de ce module."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
-msgstr ""
+msgstr "Votre appréciation :"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -1552,11 +1552,11 @@ msgstr "Avez-vous apprécié votre utilisation de %(addonName)s ?"
 
 #: src/amo/components/RatingManager/index.js:265
 msgid "Nevermind, I don't want to edit my review"
-msgstr ""
+msgstr "Finalement, je ne souhaite pas modifier mon avis"
 
 #: src/amo/components/RatingManager/index.js:266
 msgid "Nevermind, I don't want to write a review"
-msgstr ""
+msgstr "Finalement, je ne souhaite pas donner mon avis"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
