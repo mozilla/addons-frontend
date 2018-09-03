@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-02 20:01+0000\n"
+"PO-Revision-Date: 2018-09-03 17:40+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -407,7 +407,7 @@ msgstr "Απάντηση στην κριτική"
 
 #: src/amo/components/AddonReviewManager/index.js:109
 msgid "Saving"
-msgstr ""
+msgstr "Αποθήκευση"
 
 #: src/amo/components/AddonReviewManager/index.js:110
 msgid "Saved"
@@ -418,9 +418,8 @@ msgid "Submitting review"
 msgstr "Υποβολή κριτικής"
 
 #: src/amo/components/AddonReviewManager/index.js:68
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Μιλήστε στον κόσμο για αυτή την επέκταση. Παρακαλούμε ακολουθήστε τις %(linkStart)sοδηγίες αξιολόγησης%(linkEnd)s."
+msgstr "Παρακαλούμε ακολουθήστε τους %(linkStart)sκανόνες αξιολόγησης%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
 #, fuzzy
@@ -660,9 +659,8 @@ msgid "Edit this collection"
 msgstr "Επεξεργασία συλλογής"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Επεξεργασία συλλογής"
+msgstr "Επεξεργασία λεπτομερειών συλλογής"
 
 #: src/amo/components/CollectionDetails/index.js:131
 msgid "Back to collection"
@@ -706,7 +704,7 @@ msgstr "Δημιουργία συλλογής"
 
 #: src/amo/components/CollectionManager/index.js:226
 msgid "Save changes"
-msgstr ""
+msgstr "Αποθήκευση αλλαγών"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
