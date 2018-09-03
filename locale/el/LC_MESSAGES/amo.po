@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-03 18:30+0000\n"
+"PO-Revision-Date: 2018-09-03 18:38+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1952,6 +1952,8 @@ msgstr "Είμαι δημιουργός προσθέτων, μπορώ να απ
 #: src/amo/components/StaticPages/ReviewGuide/index.js:138
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Ναι, οι δημιουργοί προσθέτων μπορούν να δώσουν μόνο μια απάντηση σε μια κριτική. Μπορείτε να δημιουργήσετε ένα θέμα συζήτησης στο %(startLink)sφόρουμ%(endLink)s μας για επιπρόσθετες συζητήσεις ή "
+"συνέχεια συζητήσεων."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:152
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1962,6 +1964,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Γενικά, όχι. Αλλά αν η κριτική δεν συμμορφώνεται με τους κανόνες αξιολόγησης που περιγράφονται παραπάνω, μπορείτε να κάνετε κλικ στο \"Αναφορά κριτικής\" για να ελεγχθεί. Αν μια κριτική περιείχε ένα"
+" παράπονο που δεν είναι πλέον έγκυρο, λόγω μιας νέας έκδοσης του προσθέτου σας, ενδέχεται να σκεφτούμε να διαγράψουμε την κριτική."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:21 src/amo/components/StaticPages/ReviewGuide/index.js:23
 msgid "Review Guidelines"
