@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-02 17:01+0000\n"
+"PO-Revision-Date: 2018-09-03 09:48+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -382,9 +382,8 @@ msgid "Edit my review"
 msgstr "Rəyimi redaktə et"
 
 #: src/amo/components/AddonReviewListItem/index.js:261
-#, fuzzy
 msgid "Deleting…"
-msgstr "Əlavə edilir…"
+msgstr "Silinir…"
 
 #: src/amo/components/AddonReviewListItem/index.js:271 src/ui/components/DismissibleTextForm/index.js:181
 msgid "Delete"
@@ -395,19 +394,16 @@ msgid "Do you really want to delete this reply?"
 msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "Bu rəyə cavab yaz."
+msgstr "Bu rəyi silmək istədiyinizə əminsiniz?"
 
 #: src/amo/components/AddonReviewListItem/index.js:281
-#, fuzzy
 msgid "Delete my reply"
-msgstr "Cavabımı redaktə et"
+msgstr "Cavabımı sil"
 
 #: src/amo/components/AddonReviewListItem/index.js:282
-#, fuzzy
 msgid "Delete my review"
-msgstr "Rəyimi redaktə et"
+msgstr "Rəyimi sil"
 
 #: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
@@ -418,14 +414,12 @@ msgid "Saving"
 msgstr "Saxlanılır"
 
 #: src/amo/components/AddonReviewManager/index.js:110
-#, fuzzy
 msgid "Saved"
-msgstr "Saxla"
+msgstr "Saxlanıldı"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Submitting review"
-msgstr "Rəyi göndər"
+msgstr "Rəy göndərilir"
 
 #: src/amo/components/AddonReviewManager/index.js:68
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -668,14 +662,12 @@ msgid "Edit this collection"
 msgstr "Bu kolleksiyanı dəyişdir"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Bu kolleksiyanı dəyişdir"
+msgstr "Kolleksiya təfərrüatlarını redaktə et"
 
 #: src/amo/components/CollectionDetails/index.js:131
-#, fuzzy
 msgid "Back to collection"
-msgstr "Kolleksiyaya əlavə et"
+msgstr "Kolleksiyaya qayıt"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
