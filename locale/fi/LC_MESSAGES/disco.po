@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 17:02+0000\n"
-"PO-Revision-Date: 2018-08-25 07:10+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2018-09-03 18:54+0000\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -27,29 +27,22 @@ msgid "Enabling"
 msgstr "Otetaan käyttöön"
 
 #: src/core/components/AMInstallButton/index.js:215
-#, fuzzy
 msgid "Downloading"
-msgstr "Ladataan %(name)s."
+msgstr "Ladataan"
 
 #: src/core/components/AMInstallButton/index.js:217
-#, fuzzy
 msgid "Installing"
-msgstr "Asennetaan %(name)s."
+msgstr "Asennetaan"
 
 #: src/core/components/AMInstallButton/index.js:219
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Poistetaan %(name)s asennus."
+msgstr "Poistetaan"
 
-#: src/core/components/AMInstallButton/index.js:223
-#: src/core/components/InstallButton/index.js:260
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:223 src/core/components/InstallButton/index.js:260 src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
 msgstr "Asenna teema"
 
-#: src/core/components/AMInstallButton/index.js:224
-#: src/core/components/InstallButton/index.js:291
-#: src/core/components/InstallButton/index.js:307
+#: src/core/components/AMInstallButton/index.js:224 src/core/components/InstallButton/index.js:291 src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
 msgstr "Lisää Firefoxiin"
 
@@ -58,15 +51,10 @@ msgid "Server Error"
 msgstr "Palvelinvirhe"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Olemme pahoillamme, tapahtui virhe, emmekä voi toteuttaa pyyntöäsi. Olemme "
-"tallentaneet virheen ja tutkimme sen syytä."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Olemme pahoillamme, tapahtui virhe, emmekä voi toteuttaa pyyntöäsi. Olemme tallentaneet virheen ja tutkimme sen syytä."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Virhekoodi: %(status)s."
 
@@ -76,8 +64,7 @@ msgstr "Sivua ei löytynyt"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-"Olemme pahoillamme, mutta emme löytäneet syöttämästäsi osoitteesta mitään."
+msgstr "Olemme pahoillamme, mutta emme löytäneet syöttämästäsi osoitteesta mitään."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -85,12 +72,11 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s on lisätty"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Hallitse lisäosiasi napsauttamalla valikosta ”Lisäosat”."
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "OK!"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -170,17 +156,11 @@ msgstr "Mukauta Firefoxiasi"
 
 #: src/disco/components/DiscoPane/index.js:143
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Firefoxille on tuhansia ilmaisia lisäosia, joita kehittävät ihmiset ympäri "
-"maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia "
-"on hauskoista teemoista tehokkaisiin työkaluihin, jotka tekevät selaamisesta "
-"nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita "
-"suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
+"Firefoxille on tuhansia ilmaisia lisäosia, joita kehittävät ihmiset ympäri maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia on hauskoista teemoista tehokkaisiin "
+"työkaluihin, jotka tekevät selaamisesta nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -203,9 +183,8 @@ msgid "Dismiss this notice"
 msgstr "Hylkää tämä ilmoitus"
 
 #: src/ui/components/ThemeImage/index.js:30
-#, fuzzy
 msgid "Preview of %(title)s"
-msgstr "Lisäosan %(name)s esikatselu"
+msgstr "Lisäosan %(title)s esikatselu"
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Tämä lisäosa poistetaan, kun käynnistät Firefoxin uudestaan."

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-01 15:47+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2018-09-03 18:55+0000\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -1118,23 +1118,20 @@ msgid "Exceptional search tools"
 msgstr "Erinomaiset hakutyökalut"
 
 #: src/amo/components/Home/index.js:56
-#, fuzzy
 msgid "See more fall themes"
-msgstr "Katso lisää suositeltuja teemoja"
+msgstr "Katso lisää syysteemoja"
 
 #: src/amo/components/Home/index.js:57
-#, fuzzy
 msgid "Fall themes"
-msgstr "Selaa kaikkia teemoja"
+msgstr "Syysteemat"
 
 #: src/amo/components/Home/index.js:62
-#, fuzzy
 msgid "See more YouTube extensions"
-msgstr "Näytä lisää välilehtilaajennuksia"
+msgstr "Katso lisää YouTube-laajennuksia"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
-msgstr ""
+msgstr "YouTube-avittimet"
 
 #: src/amo/components/Home/index.js:68
 msgid "See more reading extensions"
@@ -1271,7 +1268,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Sulje ärsyttävät ponnahdusikkunat napsauttamalla painiketta"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 #, fuzzy
@@ -1556,11 +1553,11 @@ msgstr "Mitä pidät lisäosasta %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:265
 msgid "Nevermind, I don't want to edit my review"
-msgstr ""
+msgstr "Ei sittenkään, en halua muokata arviotani"
 
 #: src/amo/components/RatingManager/index.js:266
 msgid "Nevermind, I don't want to write a review"
-msgstr ""
+msgstr "Ei sittenkään, en halua kirjoittaa arviota"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
