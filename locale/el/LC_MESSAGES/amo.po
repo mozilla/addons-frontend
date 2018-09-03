@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-03 17:40+0000\n"
+"PO-Revision-Date: 2018-09-03 18:30+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -99,7 +99,7 @@ msgstr "%(addonName)s %(startSpan)s από %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:504
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Αυτή δεν είναι δημόσια καταχώρηση. Τη βλέπετε μόνο επειδή έχετε αυξημένα δικαιώματα."
 
 #: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
@@ -422,13 +422,12 @@ msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Παρακαλούμε ακολουθήστε τους %(linkStart)sκανόνες αξιολόγησης%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "Γράφετε σαν να μιλάτε σε κάποιο φίλο σχετικά με την εμπειρία σας με το πρόσθετο."
+msgstr "Γράψτε σχετικά με την εμπειρία σας με το πρόσθετο αυτό."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
-msgstr ""
+msgstr "Η βαθμολογία αστεριών σας:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -1552,11 +1551,11 @@ msgstr "Απολαμβάνετε την εμπειρία σας με το %(addo
 
 #: src/amo/components/RatingManager/index.js:265
 msgid "Nevermind, I don't want to edit my review"
-msgstr ""
+msgstr "Δεν πειράζει, δεν θέλω να επεξεργαστώ την κριτική μου"
 
 #: src/amo/components/RatingManager/index.js:266
 msgid "Nevermind, I don't want to write a review"
-msgstr ""
+msgstr "Δεν πειράζει, δεν θέλω να γράψω την κριτική μου"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1573,6 +1572,8 @@ msgstr "Δεν μπορούμε να απαντήσουμε σε κάθε ανα
 #: src/amo/components/ReportAbuseButton/index.js:139
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Αν πιστεύετε ότι αυτό το πρόσθετο παραβιάζει τις %(linkTagStart)sπολιτικές προσθέτων της Mozilla%(linkTagEnd)s ή έχει ζητήματα ασφαλείας ή απορρήτου, παρακαλούμε αναφέρετε αυτά τα προβλήματα στη "
+"Mozilla μέσω αυτού του φόρουμ."
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 msgid "Report this add-on for abuse"
@@ -1580,7 +1581,7 @@ msgstr "Αναφορά προσθέτου για κατάχρηση"
 
 #: src/amo/components/ReportAbuseButton/index.js:184
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Παρακαλούμε μην χρησιμοποιείτε αυτή τη φόρμα για να αναφέρετε σφάλματα ή να αιτηθείτε λειτουργίες· αυτή η αναφορά θα αποσταλεί στη Mozilla και όχι στο δημιουργό του προσθέτου."
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
@@ -1604,11 +1605,11 @@ msgstr "Αναφορά χρήστη για κατάχρηση"
 
 #: src/amo/components/ReportUserAbuse/index.js:114
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "Αν πιστεύετε ότι αυτός ο χρήστης παραβιάζει τις %(linkTagStart)sπολιτικές προσθέτων της Mozilla%(linkTagEnd)s, παρακαλούμε αναφέρετε αυτό το χρήστη στη Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:130
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "Παρακαλούμε μην χρησιμοποιείτε αυτή τη φόρμα για να αναφέρετε σφάλματα ή να επικοινωνήσετε με το χρήστη αυτό· η αναφορά σας θα αποσταλεί μόνο στη Mozilla και όχι στο χρήστη."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
@@ -1971,6 +1972,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Οι κριτικές προσθέτων είναι ένας τρόπος να μοιράζεστε τις απόψεις σας σχετικά με τα πρόσθετα που έχετε εγκαταστήσει και χρησιμοποιήσει. Η ομάδα εποπτείας αξιολογήσεων διατηρεί το δικαίωμα να αρνηθεί"
+" ή να αφαιρέσει οποιαδήποτε κριτική που δεν συμμορφώνεται με αυτούς τους κανόνες."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:34
 msgid "Tips for writing a great review"
@@ -2272,7 +2275,7 @@ msgstr "%(strongStart)sΣΗΜΕΙΩΣΗ:%(strongEnd)s Δεν μπορείτε ν
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "ενημερωθείτε για ειδήσεις και γεγονότα σχετικά με τους προγραμματιστές του προσθέτου (καθώς και του about:addons newsletter)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
