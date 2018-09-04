@@ -459,12 +459,11 @@ describe(__filename, () => {
           .expects('fetchAddon')
           .rejects(new Error('Error accessing API'));
 
-        return actions.refreshAddon({ addonSlug, apiState }).then(
-          unexpectedSuccess,
-          () => {
+        return actions
+          .refreshAddon({ addonSlug, apiState })
+          .then(unexpectedSuccess, () => {
             sinon.assert.notCalled(dispatch);
-          },
-        );
+          });
       });
     });
 
