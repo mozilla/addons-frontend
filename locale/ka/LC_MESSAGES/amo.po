@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-30 16:58+0000\n"
+"POT-Creation-Date: 2018-09-04 18:02+0000\n"
 "PO-Revision-Date: 2018-08-24 20:24+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1025,12 +1025,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "მონიშნულია როგორც მოხსენება ხარვეზის შესახებ ან მხარდაჭერის მოთხოვნა"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
-msgid "Flagged"
-msgstr "გასაჩივრებულია"
-
-#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag"
 msgstr "საჩივარი"
+
+#: src/amo/components/FlagReviewMenu/index.js:124
+msgid "Flagged"
+msgstr "გასაჩივრებულია"
 
 #: src/amo/components/FlagReviewMenu/index.js:127
 msgid "Flag this developer response"
