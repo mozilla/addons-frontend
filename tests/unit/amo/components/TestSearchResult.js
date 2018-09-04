@@ -325,7 +325,9 @@ describe(__filename, () => {
     const note = root.find('.SearchResult-note');
     expect(note).toHaveLength(1);
     expect(note.find(Icon)).toHaveProp('name', 'comments-blue');
-    expect(note.find('.SearchResult-note-header')).toIncludeText('Add-on note');
+    expect(note.find('.SearchResult-note-header')).toIncludeText(
+      "Collector's note",
+    );
     const expectedHTML = `<p class="SearchResult-note-content">${notes}</p>`;
     expect(note.find('.SearchResult-note-content')).toHaveHTML(expectedHTML);
   });
@@ -341,7 +343,9 @@ describe(__filename, () => {
     const note = root.find('.SearchResult-note');
     expect(note).toHaveLength(1);
     expect(note.find(Icon)).toHaveProp('name', 'comments-blue');
-    expect(note.find('.SearchResult-note-header')).toIncludeText('Add-on note');
+    expect(note.find('.SearchResult-note-header')).toIncludeText(
+      "Collector's note",
+    );
     const expectedHTML =
       '<p class="SearchResult-note-content">Some<br>notes.</p>';
     expect(note.find('.SearchResult-note-content')).toHaveHTML(expectedHTML);
