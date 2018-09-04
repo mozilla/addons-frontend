@@ -80,15 +80,15 @@
 .Home-SubjectShelf-list {
   align-self: center;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-between;
   margin: 0 auto;
   overflow: auto;
   padding: 0;
   width: 100%;
 
-  @include respond-to(extraSmall) {
-    flex-flow: column wrap;
+  @include respond-to(medium) {
+    flex-flow: row wrap;
   }
 
   @include respond-to(large) {
@@ -137,11 +137,11 @@
   padding-left: 75px;
   margin-bottom: 5px;
   transform: scale(0.8);
-  width: 100%;
+  width: 250%;
   text-align: left;
 
-  @include respond-to(extraSmall) {
-    width: 250%;
+  @include respond-to(medium) {
+    width: 100%;
   }
 
   @include respond-to(large) {
