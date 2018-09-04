@@ -683,7 +683,7 @@ describe(__filename, () => {
     function _deleteAddonReview(params = {}) {
       sagaTester.dispatch(
         deleteAddonReview({
-          addon: createInternalAddon(fakeAddon),
+          addonId: fakeAddon.id,
           errorHandlerId: errorHandler.id,
           reviewId: 1,
           ...params,
@@ -731,7 +731,7 @@ describe(__filename, () => {
     });
 
     it('unloads the add-on for the review', async () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addonId = 123;
       const reviewId = 12345;
 
       mockApi
@@ -739,9 +739,9 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve());
 
-      _deleteAddonReview({ addon, reviewId });
+      _deleteAddonReview({ addonId, reviewId });
 
-      const expectedAction = unloadAddon({ addon, reviewId });
+      const expectedAction = unloadAddon({ addonId, reviewId });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
 

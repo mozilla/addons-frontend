@@ -592,7 +592,7 @@ describe(__filename, () => {
   });
 
   describe('unloadAddon', () => {
-    it('uloads all data for an add-on', () => {
+    it('unloads all data for an add-on', () => {
       const guid1 = '1@mozilla.com';
       const id1 = 1;
       const slug1 = 'slug-1';
@@ -620,10 +620,7 @@ describe(__filename, () => {
         loadAddons(createFetchAllAddonsResult(addonResults).entities),
       );
 
-      state = addons(
-        state,
-        unloadAddon({ addon: createInternalAddon(addon1) }),
-      );
+      state = addons(state, unloadAddon({ addonId: id1 }));
 
       expect(state.byGUID[addon1.guid]).toEqual(undefined);
       expect(state.byID[addon1.id]).toEqual(undefined);

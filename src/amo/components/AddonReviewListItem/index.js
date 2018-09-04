@@ -73,7 +73,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
     invariant(review, 'review is required');
     dispatch(
       deleteAddonReview({
-        addon,
+        addonId: addon.id,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
         isReplyToReviewId,

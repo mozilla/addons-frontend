@@ -1143,7 +1143,7 @@ describe(__filename, () => {
       const state = reviewsReducer(
         undefined,
         deleteAddonReview({
-          addon: createInternalAddon(fakeAddon),
+          addonId: fakeAddon.id,
           errorHandlerId: 'some-id',
           reviewId: review.id,
         }),

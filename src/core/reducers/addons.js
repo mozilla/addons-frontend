@@ -99,22 +99,22 @@ export function loadAddonResults({
 }
 
 type UnloadAddonParams = {|
-  addon: AddonType,
+  addonId: AddonID,
 |};
 
 export type UnloadAddonAction = {|
-  payload: {| addon: AddonType |},
+  payload: {| addonId: AddonID |},
   type: typeof UNLOAD_ADDON,
 |};
 
 export function unloadAddon({
-  addon,
+  addonId,
 }: UnloadAddonParams = {}): UnloadAddonAction {
-  invariant(addon, 'addon is required');
+  invariant(addonId, 'addon is required');
 
   return {
     type: UNLOAD_ADDON,
-    payload: { addon },
+    payload: { addonId },
   };
 }
 
@@ -372,22 +372,26 @@ export default function addonsReducer(
       };
     }
     case UNLOAD_ADDON: {
-      const { addon } = action.payload;
-      return {
-        ...state,
-        byID: {
-          ...state.byID,
-          [`${addon.id}`]: undefined,
-        },
-        byGUID: {
-          ...state.byGUID,
-          [addon.guid]: undefined,
-        },
-        bySlug: {
-          ...state.bySlug,
-          [addon.slug]: undefined,
-        },
-      };
+      const { addonId } = action.payload;
+      const addon = state.byID[`${addonId}`];
+      if (addon) {
+        return {
+          ...state,
+          byID: {
+            ...state.byID,
+            [`${addonId}`]: undefined,
+          },
+          byGUID: {
+            ...state.byGUID,
+            [addon.guid]: undefined,
+          },
+          bySlug: {
+            ...state.bySlug,
+            [addon.slug]: undefined,
+          },
+        };
+      }
+      return state;
     }
     default:
       return state;
