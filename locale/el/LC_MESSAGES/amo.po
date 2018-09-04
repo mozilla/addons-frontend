@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-03 18:38+0000\n"
+"PO-Revision-Date: 2018-09-04 08:07+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1857,7 +1857,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About/index.js:157
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Για να δείτε περισσότερους τρόπους συνεισφοράς στην κοινότητα προσθέτων, παρακαλούμε επισκεφθείτε το %(startLink)swiki%(endLink)s μας"
 
 #: src/amo/components/StaticPages/About/index.js:171
 msgid "Get support"
@@ -1871,7 +1871,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About/index.js:197
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sΠληροφορίες επικοινωνίας με την ομάδα προσθέτων της Mozilla μπορείτε να βρείτε εδώ%(endLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:23 src/amo/components/StaticPages/About/index.js:26
 msgid "About Firefox Add-ons"
