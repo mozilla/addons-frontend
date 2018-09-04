@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-31 12:14+0000\n"
+"PO-Revision-Date: 2018-09-04 08:53+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -99,7 +99,7 @@ msgstr "%(addonName)s %(startSpan)s troch %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:504
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Dit is gjin iepenbiere list. Jo sjogge dit allinnich omdat jo mear tagongsrjochten hawwe."
 
 #: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
@@ -407,7 +407,7 @@ msgstr "Dizze beoardieling beantwurdzje"
 
 #: src/amo/components/AddonReviewManager/index.js:109
 msgid "Saving"
-msgstr ""
+msgstr "Bewarje"
 
 #: src/amo/components/AddonReviewManager/index.js:110
 msgid "Saved"
@@ -427,7 +427,7 @@ msgstr "Skriuw oer jo ûnderfining mei dizze add-on."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
-msgstr ""
+msgstr "Jo wurdearring:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -703,7 +703,7 @@ msgstr "Kolleksje meitsje"
 
 #: src/amo/components/CollectionManager/index.js:226
 msgid "Save changes"
-msgstr ""
+msgstr "Wizigingen bewarje"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
@@ -1111,7 +1111,7 @@ msgstr "Mear essinsjele sykhelpmiddelen besjen"
 
 #: src/amo/components/Home/index.js:51
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Utsûnderlike sykhelpmiddelen"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
@@ -1127,7 +1127,7 @@ msgstr "Mear YouTube-útwreidingen besjen"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
-msgstr ""
+msgstr "YouTube-fersnellers"
 
 #: src/amo/components/Home/index.js:68
 msgid "See more reading extensions"
@@ -1135,7 +1135,7 @@ msgstr "Mear lêsútwreidingen besjen"
 
 #: src/amo/components/Home/index.js:69
 msgid "Refined reading"
-msgstr ""
+msgstr "Ferfynd lêze"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
@@ -1155,11 +1155,11 @@ msgstr "Beskermje josels tsjin de efterbakse folgers"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Wizigje de standertmap foar jo blêdwizers"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1171,11 +1171,11 @@ msgstr "Tekstmarkearder dy't tige oanpasber is"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Besjoch fideo’s tagelyk mei oaren"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
@@ -1203,11 +1203,11 @@ msgstr "Privacybeskerming foar jo sykgegevens"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Besparje ûnthâld troch ynaktive ljepblêden út te skeakeljen"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
