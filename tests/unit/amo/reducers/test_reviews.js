@@ -317,7 +317,7 @@ describe(__filename, () => {
 
       let state;
 
-      // Initialize values into the byId, byAddon, byUserId and groupedRatings buckets.
+      // Initialize values into the byId, byAddon, byUserId, groupedRatings and view buckets.
       state = reviewsReducer(startState, setReview(review));
 
       state = reviewsReducer(
@@ -359,7 +359,7 @@ describe(__filename, () => {
       return state;
     };
 
-    it('clears cached review data', () => {
+    it('unloads cached review data', () => {
       const reviewId = 111;
       const addonId = 222;
       const addonSlug = 'some-slug';
@@ -388,6 +388,26 @@ describe(__filename, () => {
       expect(state.byAddon[addonSlug]).toEqual(undefined);
       expect(state.byUserId[userId]).toEqual(undefined);
       expect(state.groupedRatings[addonId]).toEqual(undefined);
+      expect(state.view[reviewId]).toEqual(undefined);
+    });
+
+    it('it unloads cached view data even for deleted reviews', () => {
+      // This covers the case where a reply is deleted and then another reply is added
+      // and we expect the view state for the reply to be cleared out.
+      const reviewId = 111;
+
+      let state = reviewsReducer(
+        undefined,
+        deleteAddonReview({
+          errorHandlerId: 1,
+          reviewId,
+        }),
+      );
+
+      expect(state.view[reviewId].deletingReview).toEqual(true);
+
+      state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
+
       expect(state.view[reviewId]).toEqual(undefined);
     });
 
