@@ -2,7 +2,6 @@ import url from 'url';
 
 import config from 'config';
 
-import * as api from 'core/api';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
@@ -34,7 +33,6 @@ import {
   isValidClientApp,
   nl2br,
   normalizeFileNameId,
-  refreshAddon,
   removeProtocolFromURL,
   safePromise,
   sanitizeHTML,
@@ -43,12 +41,11 @@ import {
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
-import { createInternalAddon, loadAddons } from 'core/reducers/addons';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
+import { createInternalAddon } from 'core/reducers/addons';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeHistory,
   createFakeLocation,
-  createFetchAddonResult,
   getFakeConfig,
   unexpectedSuccess,
   userAgents,
@@ -329,46 +326,6 @@ describe(__filename, () => {
 
     it('should be invalid if passed "whatever"', () => {
       expect(isValidClientApp('whatever', { _config })).toEqual(false);
-    });
-  });
-
-  describe('refreshAddon', () => {
-    const addonSlug = fakeAddon.slug;
-    const apiState = dispatchSignInActions().state.api;
-    let dispatch;
-    let mockApi;
-
-    beforeEach(() => {
-      dispatch = sinon.spy();
-      mockApi = sinon.mock(api);
-    });
-
-    it('fetches and dispatches an add-on', () => {
-      const { entities } = createFetchAddonResult(fakeAddon);
-      mockApi
-        .expects('fetchAddon')
-        .once()
-        .withArgs({ slug: addonSlug, api: apiState })
-        .returns(Promise.resolve({ entities }));
-
-      return refreshAddon({ addonSlug, apiState, dispatch }).then(() => {
-        sinon.assert.calledWith(dispatch, loadAddons(entities));
-        mockApi.verify();
-      });
-    });
-
-    it('handles 404s when loading the add-on', () => {
-      mockApi
-        .expects('fetchAddon')
-        .once()
-        .withArgs({ slug: addonSlug, api: apiState })
-        .returns(Promise.reject(new Error('Error accessing API')));
-      return refreshAddon({ addonSlug, apiState, dispatch }).then(
-        unexpectedSuccess,
-        () => {
-          sinon.assert.notCalled(dispatch);
-        },
-      );
     });
   });
 

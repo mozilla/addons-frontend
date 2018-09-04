@@ -7,8 +7,6 @@ import invariant from 'invariant';
 import qhistory from 'qhistory';
 import { stringify, parse } from 'qs';
 
-import { loadAddons } from 'core/reducers/addons';
-import { fetchAddon } from 'core/api';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_OPENSEARCH,
@@ -104,12 +102,6 @@ export function sanitizeUserHTML(text) {
     'strong',
     'ul',
   ]);
-}
-
-export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
-  return fetchAddon({ slug: addonSlug, api: apiState }).then(({ entities }) =>
-    dispatch(loadAddons(entities)),
-  );
 }
 
 export function isAddonAuthor({ addon, userId }) {
