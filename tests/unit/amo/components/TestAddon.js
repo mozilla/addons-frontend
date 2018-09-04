@@ -798,7 +798,7 @@ describe(__filename, () => {
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
-  it('does not display anything when the generic add-on has no description', () => {
+  it('does not display anything when the complete theme has no description', () => {
     const summary = 'my theme is very cool';
     const root = shallowRender({
       addon: createInternalAddon({
