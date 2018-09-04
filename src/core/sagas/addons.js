@@ -9,6 +9,7 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
 import { FETCH_ADDON, loadAddons } from 'core/reducers/addons';
 import log from 'core/logger';
+import type { FetchAddonParams } from 'core/api';
 import type { FetchAddonAction } from 'core/reducers/addons';
 
 import { createErrorHandler, getState } from './utils';
@@ -20,7 +21,10 @@ export function* fetchAddon({
   yield put(errorHandler.createClearingAction());
   try {
     const state = yield select(getState);
-    const response = yield call(fetchAddonFromApi, { api: state.api, slug });
+
+    const params: FetchAddonParams = { api: state.api, slug };
+    const response = yield call(fetchAddonFromApi, params);
+
     yield put(loadAddons(response.entities));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);

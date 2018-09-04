@@ -14,6 +14,7 @@ import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
 } from 'core/searchUtils';
+import { addQueryParams } from 'core/utils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
@@ -218,14 +219,25 @@ export function callApi({
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
-type FetchAddonParams = {|
+export type FetchAddonParams = {|
   api: ApiState,
   slug: string,
 |};
 
 export function fetchAddon({ api, slug }: FetchAddonParams) {
+  const { clientApp, userAgentInfo } = api;
+  const appVersion = userAgentInfo.browser.version;
+  if (!appVersion) {
+    log.warn(
+      `Failed to parse appversion for client app ${clientApp || '[empty]'}`,
+    );
+  }
+
   return callApi({
-    endpoint: `addons/addon/${slug}`,
+    endpoint: addQueryParams(`addons/addon/${slug}`, {
+      app: clientApp,
+      appversion: appVersion,
+    }),
     schema: addon,
     auth: true,
     apiState: api,
