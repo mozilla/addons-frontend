@@ -19,7 +19,7 @@ export const MAX_HEIGHT = 150;
 
 type UIStateType = {|
   showAllContent: boolean,
-  disableTruncateCall: boolean,
+  readMoreExpanded: boolean,
 |};
 
 type Props = {|
@@ -38,43 +38,62 @@ type InternalProps = {|
 
 const initialUIState: UIStateType = {
   showAllContent: true,
-  disableTruncateCall: false,
+  readMoreExpanded: false,
 };
 
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
-  onClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
-    const { setUIState } = this.props;
-
-    event.preventDefault();
-
-    setUIState({ showAllContent: true });
-
-    // This is used to prevent any additional
-    // unnecessary calls to the truncate function.
-    setUIState({ disableTruncateCall: true });
-  };
-
   componentWillReceiveProps(nextProps: InternalProps) {
-    // Once read more has been clicked, the card has been opened so we no longer
-    // have to run this truncate for the component.
-    if (!this.props.uiState.disableTruncateCall) {
+    const html =
+      this.props.children.props.dangerouslySetInnerHTML &&
+      this.props.children.props.dangerouslySetInnerHTML.__html;
+
+    const htmlNew =
+      nextProps.children.props.dangerouslySetInnerHTML &&
+      nextProps.children.props.dangerouslySetInnerHTML.__html;
+
+    // Reset UIState if component html has changed.
+    // This is needed b/c if you return to an addon that you've
+    // already visited the component doesn't hit unmount again and the store
+    // keeps the last component's UIState which isn't what we want.
+    if (htmlNew && html !== htmlNew) {
+      this.props.setUIState({
+        ...initialUIState,
+      });
+    }
+
+    // If the read more has already been expanded, we can skip
+    // the call to truncate.
+    // Ideally this would only be called one time and it wouldn't be
+    // needed after the initial set up but we need this here (vs componentDidMount)
+    // to get an accurate clientHeight.
+    if (!this.props.uiState.readMoreExpanded) {
       this.truncateToMaxHeight(this.contents);
     }
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {
+    const { uiState } = this.props;
     if (contents) {
       // If the contents are short enough they don't need a "show more" link; the
       // contents are expanded by default.
-      if (
-        this.props.uiState.showAllContent &&
-        contents.clientHeight >= MAX_HEIGHT
-      ) {
-        this.props.setUIState({ showAllContent: false });
+      if (uiState.showAllContent && contents.clientHeight >= MAX_HEIGHT) {
+        this.props.setUIState({
+          ...uiState,
+          showAllContent: false,
+        });
       }
     }
+  };
+
+  onClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    this.props.setUIState({
+      showAllContent: true,
+      readMoreExpanded: true,
+    });
   };
 
   render() {
