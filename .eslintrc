@@ -47,7 +47,15 @@
     "indent": "off",
     "no-mixed-operators": "off",
     "operator-linebreak": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: [
+          "stories/**"
+        ]
+      }
+    ]
   },
   "settings": {
     "import/ignore": [

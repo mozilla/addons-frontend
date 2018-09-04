@@ -10,6 +10,7 @@ setOptions({
 });
 
 function loadStories() {
+  /* eslint-disable global-require */
   require('./../index');
 }
 
