@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 17:02+0000\n"
-"PO-Revision-Date: 2018-08-31 12:15+0000\n"
+"PO-Revision-Date: 2018-09-04 09:00+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fy_NL\n"
@@ -16,15 +16,15 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
-msgstr ""
+msgstr "Ynskeakelje"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Remove"
-msgstr ""
+msgstr "Fuortsmite"
 
 #: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
-msgstr ""
+msgstr "Ynskeakelje"
 
 #: src/core/components/AMInstallButton/index.js:215
 msgid "Downloading"
@@ -68,11 +68,11 @@ msgstr "Sorry, mar wy kinne gjin side op de ynfierde URL fine."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s is tafoege"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Behear jo add-ons troch yn it menu op Add-ons te klikken."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
