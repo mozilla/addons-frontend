@@ -1,9 +1,11 @@
 import 'core/polyfill';
-import config from 'config';
-import fs from 'fs';
+
 import path from 'path';
+
+import config from 'config';
 import autoprefixer from 'autoprefixer';
 import webpack from 'webpack';
+
 import { getClientConfig } from 'core/utils';
 
 module.exports = {

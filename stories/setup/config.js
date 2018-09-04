@@ -1,5 +1,4 @@
-import React from 'react';
-import { addDecorator, configure, setAddon } from '@storybook/react';
+import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 
 // Override some global-y setup options.
