@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-09-04 13:25+0000\n"
+"PO-Revision-Date: 2018-09-04 13:49+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1889,6 +1889,8 @@ msgstr ""
 #: src/amo/components/StaticPages/About/index.js:42
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
+"Αν ψάχνετε πρόσθετα για το Thunderbird ή το SeaMonkey, παρακαλούμε επισκεφθείτε το %(startTBLink)saddons.thunderbird.net%(endTBLink)s ή το "
+"%(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -1913,6 +1915,7 @@ msgstr ""
 #: src/amo/components/StaticPages/About/index.js:82
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
 msgstr ""
+"%(startLink)sΔημιουργήστε το δικό σας πρόσθετο%(endLink)s. Παρέχουμε δωρεάν \"φιλοξενία\" (hosting) και υπηρεσίες ενημέρωσης, ενώ μπορούμε να σάς βοηθήσουμε να βρείτε ένα μεγαλύτερο κοινό χρηστών."
 
 #: src/amo/components/StaticPages/About/index.js:98
 msgid ""
