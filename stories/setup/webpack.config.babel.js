@@ -47,4 +47,10 @@ module.exports = {
 			'core/client/config.js',
 		),
 	],
+	resolve: {
+		alias: {
+			normalize: 'normalize.css/normalize.css',
+		},
+		modules: [path.resolve('./src'), 'node_modules'],
+	},
 };
