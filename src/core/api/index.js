@@ -3,7 +3,6 @@
 import url from 'url';
 
 import utf8 from 'utf8';
-import 'isomorphic-fetch';
 import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';

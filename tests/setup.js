@@ -11,6 +11,8 @@ import Adapter from 'enzyme-adapter-react-16';
 // See: github.com/mozilla/addons-frontend/pull/2540#discussion_r120926107
 import 'jest-enzyme';
 
+import 'core/polyfill';
+
 Enzyme.configure({ adapter: new Adapter() });
 
 if (!Object.values) {
