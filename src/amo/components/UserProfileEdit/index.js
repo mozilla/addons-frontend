@@ -758,6 +758,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
         {this.state.showProfileDeletionModal && (
           <OverlayCard
+            onEscapeOverlay={this.onCancelProfileDeletion}
             className={overlayClassName}
             header={
               isEditingCurrentUser
