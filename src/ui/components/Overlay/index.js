@@ -3,16 +3,19 @@ import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
+import keydown, { Keys } from 'react-keydown';
 
 import withUIState from 'core/withUIState';
 
 import './styles.scss';
 
+const { ESC } = Keys;
+
 type Props = {|
   className?: string,
   children: React.Element<any>,
   id: string,
-  onEscapeOverlay?: () => void,
+  onEscapeOverlay?: (event: SyntheticEvent<any>) => void,
   visibleOnLoad?: boolean,
 |};
 
@@ -22,10 +25,15 @@ type UIStateType = {|
 
 const initialUIState: UIStateType = { visible: false };
 
+type keyDownType = {|
+  event: Object,
+|};
+
 type InternalProps = {|
   ...Props,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
+  keydown?: keyDownType | void,
 |};
 
 export class OverlayBase extends React.Component<InternalProps> {
@@ -40,7 +48,12 @@ export class OverlayBase extends React.Component<InternalProps> {
 
   componentWillReceiveProps(nextProps: InternalProps) {
     const { uiState } = this.props;
-    const { visibleOnLoad: visibleOnLoadNew } = nextProps;
+    const { visibleOnLoad: visibleOnLoadNew, keydown: escKeydown } = nextProps;
+
+    // escKeydown.event is only set if the "Esc" key is pressed.
+    if (escKeydown && escKeydown.event) {
+      this.onClickBackground(escKeydown.event);
+    }
 
     if (
       visibleOnLoadNew !== undefined &&
@@ -53,7 +66,7 @@ export class OverlayBase extends React.Component<InternalProps> {
   onClickBackground = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     if (this.props.onEscapeOverlay) {
-      this.props.onEscapeOverlay();
+      this.props.onEscapeOverlay(event);
     }
 
     this.hide();
@@ -96,6 +109,7 @@ const Overlay: React.ComponentType<Props> = compose(
     extractId,
     initialState: initialUIState,
   }),
+  keydown(ESC),
 )(OverlayBase);
 
 export default Overlay;
