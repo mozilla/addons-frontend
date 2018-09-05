@@ -459,6 +459,7 @@ export function runServer({
                 `[isDeployed:${config.get('isDeployed')}]`,
                 `[apiHost:${config.get('apiHost')}]`,
                 `[apiPath:${config.get('apiPath')}]`,
+                `[apiVersion:${config.get('apiVersion')}]`,
               ].join(' '),
             );
             if (proxyEnabled) {
