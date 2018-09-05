@@ -300,7 +300,7 @@ function* deleteAddonReview({
 
     yield put(unloadAddonReviews({ addonId, reviewId }));
     if (isReplyToReviewId) {
-      yield put(unloadAddonReviews({ reviewId: isReplyToReviewId }));
+      yield put(unloadAddonReviews({ addonId, reviewId: isReplyToReviewId }));
     }
   } catch (error) {
     log.warn(`Failed to delete review ID ${reviewId}: ${error}`);

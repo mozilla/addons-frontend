@@ -376,29 +376,27 @@ export default function addonsReducer(
     }
     case UNLOAD_ADDON_REVIEWS: {
       const { addonId } = action.payload;
-      if (addonId) {
-        const addon = state.byID[`${addonId}`];
-        if (addon) {
-          return {
-            ...state,
-            byID: {
-              ...state.byID,
-              [`${addonId}`]: undefined,
-            },
-            byGUID: {
-              ...state.byGUID,
-              [addon.guid]: undefined,
-            },
-            bySlug: {
-              ...state.bySlug,
-              [addon.slug]: undefined,
-            },
-            loadingBySlug: {
-              ...state.loadingBySlug,
-              [addon.slug]: false,
-            },
-          };
-        }
+      const addon = state.byID[`${addonId}`];
+      if (addon) {
+        return {
+          ...state,
+          byID: {
+            ...state.byID,
+            [`${addonId}`]: undefined,
+          },
+          byGUID: {
+            ...state.byGUID,
+            [addon.guid]: undefined,
+          },
+          bySlug: {
+            ...state.bySlug,
+            [addon.slug]: undefined,
+          },
+          loadingBySlug: {
+            ...state.loadingBySlug,
+            [addon.slug]: false,
+          },
+        };
       }
       return state;
     }

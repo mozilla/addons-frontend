@@ -765,6 +765,7 @@ describe(__filename, () => {
       _deleteAddonReview({ isReplyToReviewId, reviewId });
 
       const expectedAction = unloadAddonReviews({
+        addonId: fakeAddon.id,
         reviewId: isReplyToReviewId,
       });
       const action = await matchingSagaAction(

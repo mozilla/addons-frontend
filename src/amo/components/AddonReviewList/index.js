@@ -43,7 +43,7 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type Props = {|
+type InternalProps = {|
   addon: AddonType | null,
   addonIsLoading: boolean,
   clientApp: string,
@@ -64,16 +64,16 @@ type Props = {|
   history: ReactRouterHistoryType,
 |};
 
-export class AddonReviewListBase extends React.Component<Props> {
+export class AddonReviewListBase extends React.Component<InternalProps> {
   componentWillMount() {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: InternalProps) {
     this.loadDataIfNeeded(nextProps);
   }
 
-  loadDataIfNeeded(nextProps?: Props) {
+  loadDataIfNeeded(nextProps?: InternalProps) {
     const lastAddon = this.props.addon;
     const nextAddon = nextProps && nextProps.addon;
     const {
@@ -338,7 +338,7 @@ export class AddonReviewListBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   const { addonSlug } = ownProps.match.params;
   const reviewData = state.reviews.byAddon[addonSlug];
 
@@ -358,7 +358,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   };
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: InternalProps) => {
   const {
     location,
     match: { params },
@@ -366,6 +366,8 @@ export const extractId = (ownProps: Props) => {
 
   return `${params.addonSlug}-${location.query.page || ''}`;
 };
+
+type Props = {||};
 
 const AddonReviewList: React.ComponentType<Props> = compose(
   connect(mapStateToProps),

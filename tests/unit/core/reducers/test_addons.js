@@ -690,7 +690,7 @@ describe(__filename, () => {
         loadAddons(createFetchAllAddonsResult(addonResults).entities),
       );
 
-      state = addons(state, unloadAddonReviews({ reviewId: 1, addonId: id1 }));
+      state = addons(state, unloadAddonReviews({ addonId: id1, reviewId: 1 }));
 
       expect(state.byGUID[addon1.guid]).toEqual(undefined);
       expect(state.byID[addon1.id]).toEqual(undefined);

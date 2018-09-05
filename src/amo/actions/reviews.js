@@ -638,7 +638,7 @@ export const deleteAddonReview = ({
 };
 
 type UnloadAddonReviewsParams = {|
-  addonId?: number,
+  addonId: number,
   reviewId: number,
 |};
 
