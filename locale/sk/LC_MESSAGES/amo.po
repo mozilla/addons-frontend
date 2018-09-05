@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-30 16:58+0000\n"
-"PO-Revision-Date: 2018-08-28 20:32+0000\n"
+"POT-Creation-Date: 2018-09-04 18:02+0000\n"
+"PO-Revision-Date: 2018-09-04 13:44+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -417,9 +417,8 @@ msgid "Edit my review"
 msgstr "Upraviť recenziu"
 
 #: src/amo/components/AddonReviewListItem/index.js:261
-#, fuzzy
 msgid "Deleting…"
-msgstr "Dokončiť úpravy"
+msgstr "Odstraňovanie…"
 
 #: src/amo/components/AddonReviewListItem/index.js:271
 #: src/ui/components/DismissibleTextForm/index.js:181
@@ -427,24 +426,20 @@ msgid "Delete"
 msgstr "Odstrániť"
 
 #: src/amo/components/AddonReviewListItem/index.js:275
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "Naozaj chcete odstrániť túto fotografiu?"
+msgstr "Naozaj chcete odstrániť túto odpoveď?"
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "Naozaj chcete odstrániť túto fotografiu?"
+msgstr "Naozaj chcete odstrániť túto recenziu?"
 
 #: src/amo/components/AddonReviewListItem/index.js:281
-#, fuzzy
 msgid "Delete my reply"
-msgstr "Upraviť moju odpoveď"
+msgstr "Odstrániť moju odpoveď"
 
 #: src/amo/components/AddonReviewListItem/index.js:282
-#, fuzzy
 msgid "Delete my review"
-msgstr "Upraviť recenziu"
+msgstr "Odstrániť moju recenziu"
 
 #: src/amo/components/AddonReviewListItem/index.js:303
 msgid "Reply to this review"
@@ -452,34 +447,28 @@ msgstr "Odpovedať na recenziu"
 
 #: src/amo/components/AddonReviewManager/index.js:109
 msgid "Saving"
-msgstr ""
+msgstr "Ukladá sa"
 
 #: src/amo/components/AddonReviewManager/index.js:110
-#, fuzzy
 msgid "Saved"
-msgstr "Uložiť"
+msgstr "Uložené"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Submitting review"
-msgstr "Odoslať recenziu"
+msgstr "Odosielanie recenzie"
 
 #: src/amo/components/AddonReviewManager/index.js:68
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr ""
-"Povedzte všetkým o tomto rozšírení. Riaďte sa, prosím, našimi "
-"%(linkStart)spokynmi pre recenzentov%(linkEnd)s."
+"Riaďte sa, prosím, našimi %(linkStart)spokynmi pre recenzentov%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr ""
-"Povedzte nám o vašej skúsenosti s týmto rozšírením. Buďte, prosím, konkrétni."
+msgstr "Povedzte nám o vašej skúsenosti s týmto doplnkom."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
-msgstr ""
+msgstr "Vaše hodnotenie:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
@@ -642,9 +631,8 @@ msgstr "Najlepšie hodnotené rozšírenia"
 
 #: src/amo/components/Category/index.js:180
 #: src/amo/components/LandingPage/index.js:171
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Najlepšie hodnotené rozšírenia"
+msgstr "Pozrite si viac dobre hodnotených rozšírení"
 
 #: src/amo/components/Category/index.js:183
 #: src/amo/components/LandingPage/index.js:228
@@ -745,14 +733,12 @@ msgid "Edit this collection"
 msgstr "Upraviť túto kolekciu"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Upraviť kolekciu"
+msgstr "Upraviť podrobnosti kolekcie"
 
 #: src/amo/components/CollectionDetails/index.js:131
-#, fuzzy
 msgid "Back to collection"
-msgstr "Pridať do kolekcie"
+msgstr "Späť na kolekciu"
 
 #: src/amo/components/CollectionDetails/index.js:79
 #: src/amo/components/Footer/index.js:43
@@ -797,7 +783,7 @@ msgstr "Vytvoriť kolekciu"
 
 #: src/amo/components/CollectionManager/index.js:226
 msgid "Save changes"
-msgstr ""
+msgstr "Uložiť zmeny"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
@@ -1027,12 +1013,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Nahlásené ako správa o chybe, alebo žiadosť o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
-msgid "Flagged"
-msgstr "Nahlásené"
-
-#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag"
 msgstr "Nahlásiť"
+
+#: src/amo/components/FlagReviewMenu/index.js:124
+msgid "Flagged"
+msgstr "Nahlásené"
 
 #: src/amo/components/FlagReviewMenu/index.js:127
 msgid "Flag this developer response"

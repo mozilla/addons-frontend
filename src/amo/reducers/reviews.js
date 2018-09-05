@@ -495,9 +495,15 @@ export default function reviewsReducer(
         payload: { reviewId },
       } = action;
 
-      const newState = { ...state };
-      const reviewData = state.byId[reviewId];
+      const newState = {
+        ...state,
+        view: {
+          ...state.view,
+          [reviewId]: undefined,
+        },
+      };
 
+      const reviewData = state.byId[reviewId];
       if (reviewData) {
         const { addonId, addonSlug, userId } = reviewData;
         return {
@@ -517,10 +523,6 @@ export default function reviewsReducer(
           groupedRatings: {
             ...newState.groupedRatings,
             [addonId]: undefined,
-          },
-          view: {
-            ...newState.view,
-            [reviewId]: undefined,
           },
         };
       }
