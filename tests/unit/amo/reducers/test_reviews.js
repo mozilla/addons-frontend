@@ -399,6 +399,7 @@ describe(__filename, () => {
       let state = reviewsReducer(
         undefined,
         deleteAddonReview({
+          addonId: 1,
           errorHandlerId: 1,
           reviewId,
         }),

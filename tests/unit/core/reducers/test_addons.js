@@ -1,3 +1,4 @@
+import { unloadAddonReviews } from 'amo/actions/reviews';
 import {
   ADDON_TYPE_EXTENSION,
   OS_ALL,
@@ -14,6 +15,7 @@ import addons, {
   getAddonBySlug,
   getAllAddons,
   getGuid,
+  isAddonLoading,
   loadAddons,
   loadAddonResults,
   removeUndefinedProps,
@@ -460,6 +462,21 @@ describe(__filename, () => {
     expect(state.byID[addon.id].isMozillaSignedExtension).toBe(true);
   });
 
+  it('sets the loading state for add-ons to false', () => {
+    const addonResults = [
+      { ...fakeAddon, slug: 'first-slug' },
+      { ...fakeAddon, slug: 'second-slug' },
+    ];
+    const state = addons(
+      undefined,
+      loadAddons(createFetchAllAddonsResult(addonResults).entities),
+    );
+    expect(state.loadingBySlug).toEqual({
+      'first-slug': false,
+      'second-slug': false,
+    });
+  });
+
   describe('fetchAddon', () => {
     const defaultParams = Object.freeze({
       slug: 'addon-slug',
@@ -478,6 +495,15 @@ describe(__filename, () => {
       const params = { ...defaultParams };
       delete params.slug;
       expect(() => fetchAddon(params)).toThrowError(/slug cannot be empty/);
+    });
+
+    it('stores a loading state for an add-on', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({ slug, errorHandler: createStubErrorHandler() }),
+      );
+      expect(state.loadingBySlug[slug]).toBe(true);
     });
   });
 
@@ -587,6 +613,89 @@ describe(__filename, () => {
       expect(getAllAddons(store.getState())).toEqual([
         createInternalAddon(fakeAddon),
       ]);
+    });
+  });
+
+  describe('isAddonLoading', () => {
+    it('returns false for an add-on that has never been fetched or loaded', () => {
+      const fetchedSlug = 'some-slug';
+      const nonfetchedSlug = 'another-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({
+          slug: fetchedSlug,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(isAddonLoading({ addons: state }, nonfetchedSlug)).toBe(false);
+    });
+
+    it('returns true for an add-on that is loading', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({
+          slug,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(isAddonLoading({ addons: state }, slug)).toBe(true);
+    });
+
+    it('returns false for an add-on that has finished loading', () => {
+      const slug = 'some-slug';
+      const addonResults = [{ ...fakeAddon, slug }];
+      let state = addons(
+        undefined,
+        fetchAddon({
+          slug,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      state = addons(
+        state,
+        loadAddons(createFetchAllAddonsResult(addonResults).entities),
+      );
+
+      expect(isAddonLoading({ addons: state }, slug)).toBe(false);
+    });
+  });
+
+  describe('unloadAddonReviews', () => {
+    it('unloads all data for an add-on', () => {
+      const guid1 = '1@mozilla.com';
+      const id1 = 1;
+      const slug1 = 'slug-1';
+      const guid2 = '2@mozilla.com';
+      const id2 = 2;
+      const slug2 = 'slug-2';
+      const addon1 = {
+        ...fakeAddon,
+        guid: guid1,
+        id: id1,
+        slug: slug1,
+      };
+      const addonResults = [
+        addon1,
+        {
+          ...fakeAddon,
+          ...fakeAddon,
+          guid: guid2,
+          id: id2,
+          slug: slug2,
+        },
+      ];
+      let state = addons(
+        undefined,
+        loadAddons(createFetchAllAddonsResult(addonResults).entities),
+      );
+
+      state = addons(state, unloadAddonReviews({ reviewId: 1, addonId: id1 }));
+
+      expect(state.byGUID[addon1.guid]).toEqual(undefined);
+      expect(state.byID[addon1.id]).toEqual(undefined);
+      expect(state.bySlug[addon1.slug]).toEqual(undefined);
+      expect(state.loadingBySlug[addon1.slug]).toEqual(false);
     });
   });
 });

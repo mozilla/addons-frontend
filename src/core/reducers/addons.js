@@ -272,12 +272,14 @@ export type AddonsState = {|
   byID: { [addonId: string]: AddonType },
   byGUID: { [addonGUID: string]: AddonID },
   bySlug: { [addonSlug: string]: AddonID },
+  loadingBySlug: { [addonSlug: string]: boolean },
 |};
 
 export const initialState: AddonsState = {
   byID: {},
   byGUID: {},
   bySlug: {},
+  loadingBySlug: {},
 };
 
 export const getAddonByID = (
@@ -305,6 +307,10 @@ export const getAddonByGUID = (
   return getAddonByID(state, addonId);
 };
 
+export const isAddonLoading = (state: AppState, slug: string): boolean => {
+  return Boolean(state.addons.loadingBySlug[slug]);
+};
+
 export const getAllAddons = (state: AppState): Array<AddonType> => {
   const addons = state.addons.byID;
 
@@ -313,6 +319,7 @@ export const getAllAddons = (state: AppState): Array<AddonType> => {
 };
 
 type Action =
+  | FetchAddonAction
   | LoadAddonsAction
   | LoadAddonResultsAction
   | UnloadAddonReviewsAction;
@@ -322,6 +329,16 @@ export default function addonsReducer(
   action: Action,
 ) {
   switch (action.type) {
+    case FETCH_ADDON: {
+      const { slug } = action.payload;
+      return {
+        ...state,
+        loadingBySlug: {
+          ...state.loadingBySlug,
+          [slug]: true,
+        },
+      };
+    }
     case LOAD_ADDONS:
     case LOAD_ADDON_RESULTS: {
       const { addons: loadedAddons } = action.payload;
@@ -329,6 +346,7 @@ export default function addonsReducer(
       const byID = { ...state.byID };
       const byGUID = { ...state.byGUID };
       const bySlug = { ...state.bySlug };
+      const loadingBySlug = { ...state.loadingBySlug };
 
       Object.keys(loadedAddons).forEach((key) => {
         const addon = createInternalAddon(loadedAddons[key]);
@@ -338,6 +356,7 @@ export default function addonsReducer(
 
         if (addon.slug) {
           bySlug[addon.slug] = addon.id;
+          loadingBySlug[addon.slug] = false;
         }
 
         if (addon.guid) {
@@ -352,27 +371,34 @@ export default function addonsReducer(
         byID,
         byGUID,
         bySlug,
+        loadingBySlug,
       };
     }
     case UNLOAD_ADDON_REVIEWS: {
       const { addonId } = action.payload;
-      const addon = state.byID[`${addonId}`];
-      if (addon) {
-        return {
-          ...state,
-          byID: {
-            ...state.byID,
-            [`${addonId}`]: undefined,
-          },
-          byGUID: {
-            ...state.byGUID,
-            [addon.guid]: undefined,
-          },
-          bySlug: {
-            ...state.bySlug,
-            [addon.slug]: undefined,
-          },
-        };
+      if (addonId) {
+        const addon = state.byID[`${addonId}`];
+        if (addon) {
+          return {
+            ...state,
+            byID: {
+              ...state.byID,
+              [`${addonId}`]: undefined,
+            },
+            byGUID: {
+              ...state.byGUID,
+              [addon.guid]: undefined,
+            },
+            bySlug: {
+              ...state.bySlug,
+              [addon.slug]: undefined,
+            },
+            loadingBySlug: {
+              ...state.loadingBySlug,
+              [addon.slug]: false,
+            },
+          };
+        }
       }
       return state;
     }
