@@ -109,24 +109,6 @@ describe(__filename, () => {
     expect(root).not.toHaveClassName('Overlay--visible');
   });
 
-  it('does not hide when any key besides the "Esc" key is pressed', () => {
-    const { store } = dispatchClientMetadata();
-
-    const root = render({ visibleOnLoad: true, store });
-
-    // This will trigger the componentWillReceiveProps() method.
-    // keydown.event will be null if anything but the the "Esc" key is pressed.
-    root.setProps({
-      keydown: {
-        event: null,
-      },
-    });
-
-    applyUIStateChanges({ root, store });
-
-    expect(root).toHaveClassName('Overlay--visible');
-  });
-
   describe('extractId', () => {
     it('returns a unique ID provided by the ID prop', () => {
       const id = 'custom-overlay';
