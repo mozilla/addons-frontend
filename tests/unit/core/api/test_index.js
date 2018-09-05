@@ -5,7 +5,11 @@ import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
-import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
+import {
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
 import {
   createFakeAutocompleteResult,
   dispatchClientMetadata,
@@ -444,7 +448,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('add-on api', () => {
+  describe('fetchAddon', () => {
     const { api: defaultApiState } = dispatchClientMetadata().state;
 
     function mockResponse(responseProps = {}) {
@@ -467,6 +471,40 @@ describe(__filename, () => {
         .withArgs(sinon.match('/api/v3/addons/addon/foo/'))
         .returns(mockResponse());
       await _fetchAddon({ slug: 'foo' });
+      mockWindow.verify();
+    });
+
+    it('passes app and appversion', async () => {
+      const userAgent =
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:61.0) Gecko/20100101 Firefox/61.0';
+      const clientApp = CLIENT_APP_FIREFOX;
+      const { state } = dispatchClientMetadata({ clientApp, userAgent });
+
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          urlWithTheseParams({
+            app: clientApp,
+            appversion: '61.0',
+          }),
+        )
+        .returns(mockResponse());
+
+      await _fetchAddon({ apiState: state.api });
+      mockWindow.verify();
+    });
+
+    it('does not pass appversion when it is not known', async () => {
+      const { state } = dispatchClientMetadata({
+        userAgent: 'Nothing but absolute garbage',
+      });
+
+      mockWindow
+        .expects('fetch')
+        .withArgs(sinon.match((url) => !url.includes('appversion=')))
+        .returns(mockResponse());
+
+      await _fetchAddon({ apiState: state.api });
       mockWindow.verify();
     });
 

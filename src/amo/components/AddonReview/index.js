@@ -11,7 +11,8 @@ import {
   setInternalReview as _setInternalReview,
   setReview,
 } from 'amo/actions/reviews';
-import { refreshAddon as _refreshAddon, sanitizeHTML } from 'core/utils';
+import { fetchAddon } from 'core/api';
+import { sanitizeHTML } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import defaultLocalStateCreator, { LocalState } from 'core/localState';
@@ -21,6 +22,7 @@ import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/reviews';
 import type { AppState } from 'amo/store';
+import { loadAddons } from 'core/reducers/addons';
 import type { ApiState } from 'core/reducers/api';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
@@ -281,7 +283,9 @@ export const mapDispatchToProps = (
     refreshAddon:
       ownProps.refreshAddon ||
       (({ addonSlug, apiState }) => {
-        return _refreshAddon({ addonSlug, apiState, dispatch });
+        return fetchAddon({ slug: addonSlug, api: apiState }).then(
+          ({ entities }) => dispatch(loadAddons(entities)),
+        );
       }),
     setInternalReview: (review) => {
       dispatch(_setInternalReview(review));

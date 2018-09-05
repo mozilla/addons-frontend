@@ -5,7 +5,8 @@ import { mount } from 'enzyme';
 import I18nProvider from 'core/i18n/Provider';
 import { setInternalReview, setReview } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
-import * as coreUtils from 'core/utils';
+import * as coreApi from 'core/api';
+import { loadAddons } from 'core/reducers/addons';
 import AddonReview, {
   mapDispatchToProps,
   mapStateToProps,
@@ -19,9 +20,11 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
   shallowUntilTarget,
+  unexpectedSuccess,
 } from 'tests/unit/helpers';
 import OverlayCard from 'ui/components/OverlayCard';
 import UserRating from 'ui/components/UserRating';
@@ -398,16 +401,16 @@ describe(__filename, () => {
   });
 
   describe('mapDispatchToProps', () => {
-    let mockUtils;
-    let mockApi;
+    let mockReviewsApi;
+    let mockCoreApi;
     let dispatch;
     let actions;
 
     const { api } = dispatchSignInActions().state;
 
     beforeEach(() => {
-      mockUtils = sinon.mock(coreUtils);
-      mockApi = sinon.mock(reviewsApi);
+      mockReviewsApi = sinon.mock(reviewsApi);
+      mockCoreApi = sinon.mock(coreApi);
       dispatch = sinon.stub();
       actions = mapDispatchToProps(dispatch, {});
     });
@@ -421,31 +424,46 @@ describe(__filename, () => {
           apiState: api,
         };
 
-        mockApi
+        mockReviewsApi
           .expects('submitReview')
           .withArgs(params)
           .returns(Promise.resolve(fakeReview));
 
         return actions.updateReviewText({ ...params }).then(() => {
-          mockApi.verify();
+          mockReviewsApi.verify();
           sinon.assert.calledWith(dispatch, setReview(fakeReview));
         });
       });
     });
 
     describe('refreshAddon', () => {
-      it('binds dispatch and calls utils.refreshAddon()', () => {
-        const apiState = api;
+      const addonSlug = fakeAddon.slug;
+      const apiState = dispatchSignInActions().state.api;
 
-        mockUtils
-          .expects('refreshAddon')
+      it('fetches and dispatches an add-on', async () => {
+        const { entities } = createFetchAddonResult(fakeAddon);
+        mockCoreApi
+          .expects('fetchAddon')
           .once()
-          .withArgs({ addonSlug: 'some-slug', apiState, dispatch })
-          .returns(Promise.resolve());
+          .withArgs({ slug: addonSlug, api: apiState })
+          .resolves({ entities });
+
+        await actions.refreshAddon({ addonSlug, apiState });
+
+        sinon.assert.calledWith(dispatch, loadAddons(entities));
+        mockCoreApi.verify();
+      });
+
+      it('handles 404s when loading the add-on', () => {
+        mockCoreApi
+          .expects('fetchAddon')
+          .rejects(new Error('Error accessing API'));
 
         return actions
-          .refreshAddon({ addonSlug: 'some-slug', apiState })
-          .then(() => mockUtils.verify());
+          .refreshAddon({ addonSlug, apiState })
+          .then(unexpectedSuccess, () => {
+            sinon.assert.notCalled(dispatch);
+          });
       });
     });
 
