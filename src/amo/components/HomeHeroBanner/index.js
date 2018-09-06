@@ -1,17 +1,25 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import makeClassName from 'classnames';
 
 import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
+import { experiment } from 'core/components/Experiment';
 
 import './styles.scss';
 
 type Props = {|
   i18n: I18nType,
+  trackClick: () => void,
+  variant: string,
 |};
+
+export const AB_HOME_HERO_TEST_NAME = 'HOME_HERO';
+export const AB_HOME_HERO_VARIANT_A = 'ScaledDown';
+export const AB_HOME_HERO_VARIANT_B = 'Large';
 
 export class HomeHeroBannerBase extends React.Component<Props> {
   sections() {
@@ -216,16 +224,27 @@ export class HomeHeroBannerBase extends React.Component<Props> {
   }
 
   render() {
+    const homeBannerClass = makeClassName('HomeHeroBanner', {
+      'HomeHeroBanner--a':
+        this.props.variant ===
+        `AB_${AB_HOME_HERO_TEST_NAME}_${AB_HOME_HERO_VARIANT_A}`,
+    });
+
     return (
-      <div className="HomeHeroBanner">
+      <div className={homeBannerClass}>
         <Hero name="Home" random sections={this.sections()} />
       </div>
     );
   }
 }
 
-const HomeHeroBanner: React.ComponentType<Props> = compose(translate())(
-  HomeHeroBannerBase,
-);
+const HomeHeroBanner: React.ComponentType<Props> = compose(
+  translate(),
+  experiment({
+    nameId: AB_HOME_HERO_TEST_NAME,
+    AName: AB_HOME_HERO_VARIANT_A,
+    BName: AB_HOME_HERO_VARIANT_B,
+  }),
+)(HomeHeroBannerBase);
 
 export default HomeHeroBanner;
