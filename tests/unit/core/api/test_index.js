@@ -414,12 +414,13 @@ describe(__filename, () => {
     });
 
     it('uses the config version as default value', async () => {
-      const _config = getFakeConfig({ apiVersion: '456' });
+      const apiVersion = '456';
+      const _config = getFakeConfig({ apiVersion });
       const endpoint = '/some-endpoint/';
 
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match('/api/456/some-endpoint/'))
+        .withArgs(sinon.match(`/api/${apiVersion}/some-endpoint/`))
         .returns(createApiResponse());
 
       await api.callApi({ _config, endpoint });
@@ -587,21 +588,23 @@ describe(__filename, () => {
     });
 
     it('includes the next path the config if set', () => {
-      const _config = getFakeConfig({ fxaConfig: 'my-config' });
+      const fxaConfig = 'my-config';
+      const _config = getFakeConfig({ fxaConfig });
       const location = createFakeLocation({ pathname: '/foo' });
 
       expect(getStartLoginQs({ _config, location })).toEqual({
         to: '/foo',
-        config: 'my-config',
+        config: fxaConfig,
       });
     });
 
     it('uses the API version from config', () => {
-      const _config = getFakeConfig({ apiVersion: 'v789' });
+      const apiVersion = 'v789';
+      const _config = getFakeConfig({ apiVersion });
       const location = createFakeLocation();
 
       expect(api.startLoginUrl({ _config, location })).toContain(
-        '/api/v789/accounts/login/start/',
+        `/api/${apiVersion}/accounts/login/start/`,
       );
     });
   });
