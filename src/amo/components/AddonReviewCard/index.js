@@ -21,7 +21,6 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
-import Button from 'ui/components/Button';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
@@ -178,7 +177,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     if (this.isReply()) {
       return i18n.gettext('Edit my reply');
-    } else if (this.isRatingOnly()) {
+    }
+
+    if (this.isRatingOnly()) {
       return i18n.gettext('Edit my rating');
     }
 
@@ -190,7 +191,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     if (this.isReply()) {
       return i18n.gettext('Delete my reply');
-    } else if (this.isRatingOnly()) {
+    }
+
+    if (this.isRatingOnly()) {
       return i18n.gettext('Delete my rating');
     }
 
@@ -202,7 +205,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     if (this.isReply()) {
       return i18n.gettext('Do you really want to delete this reply?');
-    } else if (this.isRatingOnly()) {
+    }
+
+    if (this.isRatingOnly()) {
       return i18n.gettext('Do you really want to delete this rating?');
     }
 
