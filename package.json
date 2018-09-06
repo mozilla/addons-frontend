@@ -25,7 +25,7 @@
     "eslint": "eslint .",
     "flow": "flow",
     "flow:check": "flow check",
-    "flow:dev": "flow stop; flow start; chokidar .flowconfig flow/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
+    "flow:dev": "flow stop; flow start; chokidar .flowconfig flow/ stories/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
     "prettier": "prettier --write '**'",
@@ -36,6 +36,7 @@
     "snyk-wizard": "npm run snyk wizard",
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
+    "storybook": "better-npm-run storybook-build",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
@@ -136,6 +137,12 @@
         "NODE_ICU_DATA": "./node_modules/full-icu"
       }
     },
+    "storybook-build": {
+      "command": "start-storybook -p 9001 -c stories/setup",
+      "env": {
+        "NODE_PATH": "./:./src"
+      }
+    },
     "test-ci": {
       "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage",
       "env": {
@@ -234,6 +241,9 @@
     "webpack-isomorphic-tools": "3.0.6"
   },
   "devDependencies": {
+    "@storybook/addon-options": "^3.4.10",
+    "@storybook/addons": "^3.4.10",
+    "@storybook/react": "^3.4.10",
     "autoprefixer": "^9.0.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^9.0.0",
