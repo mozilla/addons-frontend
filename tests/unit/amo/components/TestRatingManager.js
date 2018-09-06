@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { createInternalAddon } from 'core/reducers/addons';
@@ -23,6 +24,7 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
+import Button from 'ui/components/Button';
 import UserRating from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
@@ -583,7 +585,7 @@ describe(__filename, () => {
       );
     });
 
-    it('shows AddonReviewCard with a review body', () => {
+    it('shows AddonReviewCard with a saved review', () => {
       const location = createFakeLocation({ pathname: '/the/detail/page' });
       const review = {
         ...fakeReview,
@@ -599,13 +601,21 @@ describe(__filename, () => {
       expect(reviewCard).toHaveProp('location', location);
     });
 
-    it('shows AddonReviewCard without a review body', () => {
+    it('configures AddonReviewCard to show a write review button for ratings', () => {
       const review = { ...fakeReview, body: undefined };
       const root = renderInline({
         store: createStoreWithLatestReview({ review }),
       });
 
-      expect(root.find(AddonReviewCard)).toHaveLength(1);
+      const reviewCard = root.find(AddonReviewCard);
+      expect(reviewCard).toHaveProp('bodyFallback');
+
+      const bodyFallback = shallow(reviewCard.prop('bodyFallback'));
+      bodyFallback.find(Button).simulate('click', createFakeEvent());
+      root.update();
+
+      expect(root.find(AddonReviewCard)).toHaveLength(0);
+      expect(root.find(AddonReviewManager)).toHaveLength(1);
     });
   });
 
