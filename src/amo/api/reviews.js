@@ -288,3 +288,32 @@ export const deleteReview = ({
     );
   });
 };
+
+type GetReviewParams = {|
+  apiState: ApiState,
+  errorHandler: ErrorHandlerType,
+  reviewId: number,
+|};
+
+export type GetReviewApiResponse = {|
+  ...PaginatedApiResponse<ExternalReviewType>,
+|};
+
+export const getReview = ({
+  apiState,
+  errorHandler,
+  reviewId,
+}: GetReviewParams = {}): Promise<GetReviewApiResponse> => {
+  invariant(reviewId, 'reviewId is required');
+  return new Promise((resolve) => {
+    resolve(
+      callApi({
+        auth: true,
+        endpoint: `reviews/review/${reviewId}/`,
+        errorHandler,
+        method: 'GET',
+        apiState,
+      }),
+    );
+  });
+};

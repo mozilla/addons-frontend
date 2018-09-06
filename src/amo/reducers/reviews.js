@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 
 import {
   DELETE_ADDON_REVIEW,
+  FETCH_REVIEW,
   FLASH_REVIEW_MESSAGE,
   HIDE_FLASHED_REVIEW_MESSAGE,
   UNLOAD_ADDON_REVIEWS,
@@ -24,7 +25,7 @@ import {
 } from 'amo/actions/reviews';
 import type {
   DeleteAddonReviewAction,
-  UnloadAddonReviewsAction,
+  FetchReviewAction,
   FlagReviewAction,
   FlashMessageType,
   HideEditReviewFormAction,
@@ -42,6 +43,7 @@ import type {
   SetUserReviewsAction,
   ShowEditReviewFormAction,
   ShowReplyToReviewFormAction,
+  UnloadAddonReviewsAction,
   UserReviewType,
 } from 'amo/actions/reviews';
 import type { GroupedRatingsType } from 'amo/api/reviews';
@@ -80,6 +82,7 @@ type ViewStateByReviewId = {|
   deletingReview: boolean,
   editingReview: boolean,
   flag: FlagState,
+  loadingReview: boolean,
   replyingToReview: boolean,
   submittingReply: boolean,
 |};
@@ -180,6 +183,7 @@ export const changeViewState = ({
       [reviewId]: {
         deletingReview: false,
         editingReview: false,
+        loadingReview: false,
         replyingToReview: false,
         submittingReply: false,
         ...state.view[reviewId],
@@ -275,6 +279,7 @@ export const addReviewToState = ({
 
 type ReviewActionType =
   | DeleteAddonReviewAction
+  | FetchReviewAction
   | FlagReviewAction
   | FlashReviewMessageAction
   | UnloadAddonReviewsAction
@@ -372,11 +377,23 @@ export default function reviewsReducer(
         },
       };
     }
+    case FETCH_REVIEW: {
+      return changeViewState({
+        state,
+        reviewId: action.payload.reviewId,
+        stateChange: { loadingReview: true },
+      });
+    }
     case SET_REVIEW: {
       const { payload } = action;
       const review = createInternalReview(payload);
 
-      return _addReviewToState({ state, review });
+      const newState = _addReviewToState({ state, review });
+      return changeViewState({
+        state: newState,
+        reviewId: review.id,
+        stateChange: { loadingReview: false },
+      });
     }
     case SET_INTERNAL_REVIEW: {
       const { payload } = action;

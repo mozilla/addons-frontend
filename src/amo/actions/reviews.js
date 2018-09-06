@@ -15,6 +15,7 @@ export const SHOW_REPLY_TO_REVIEW_FORM: 'SHOW_REPLY_TO_REVIEW_FORM' =
   'SHOW_REPLY_TO_REVIEW_FORM';
 export const FETCH_GROUPED_RATINGS: 'FETCH_GROUPED_RATINGS' =
   'FETCH_GROUPED_RATINGS';
+export const FETCH_REVIEW: 'FETCH_REVIEW' = 'FETCH_REVIEW';
 export const FETCH_REVIEWS: 'FETCH_REVIEWS' = 'FETCH_REVIEWS';
 export const FETCH_USER_REVIEWS: 'FETCH_USER_REVIEWS' = 'FETCH_USER_REVIEWS';
 export const FLASH_REVIEW_MESSAGE: 'FLASH_REVIEW_MESSAGE' =
@@ -118,6 +119,32 @@ export const setReviewReply = ({
     payload: { originalReviewId, reply },
   };
 };
+
+type FetchReviewParams = {|
+  errorHandlerId: string,
+  reviewId: number,
+|};
+
+export type FetchReviewAction = {|
+  type: typeof FETCH_REVIEW,
+  payload: {|
+    errorHandlerId: string,
+    reviewId: number,
+  |},
+|};
+
+export function fetchReview({
+  errorHandlerId,
+  reviewId,
+}: FetchReviewParams): FetchReviewAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(reviewId, 'reviewId is required');
+
+  return {
+    type: FETCH_REVIEW,
+    payload: { errorHandlerId, reviewId },
+  };
+}
 
 type FetchReviewsParams = {|
   addonSlug: string,

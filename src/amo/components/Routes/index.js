@@ -46,6 +46,11 @@ const Routes = ({ _config = config }: Props = {}) => (
       path="/:lang/:application/addon/:addonSlug/reviews/"
       component={AddonReviewList}
     />
+    <Route
+      exact
+      path="/:lang/:application/review/:reviewId"
+      component={AddonReviewList}
+    />
 
     <Route
       exact
