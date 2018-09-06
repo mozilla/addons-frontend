@@ -40,6 +40,13 @@ import UserReview from 'ui/components/UserReview';
 describe(__filename, () => {
   let store;
 
+  // This is a review with only a rating, no text.
+  const fakeRatingOnly = Object.freeze({
+    ...fakeReview,
+    body: undefined,
+    rating: 4,
+  });
+
   beforeEach(() => {
     store = dispatchClientMetadata().store;
   });
@@ -222,6 +229,21 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a delete link for a user rating', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    const root = render({ review });
+
+    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
+    expect(deleteLink).toHaveLength(1);
+    expect(deleteLink.children()).toHaveText('Delete my rating');
+    expect(deleteLink).toHaveProp(
+      'message',
+      'Do you really want to delete this rating?',
+    );
+  });
+
   it('does not render delete link when review belongs to another user', () => {
     const review = signInAndDispatchSavedReview({
       siteUserId: 123,
@@ -304,6 +326,7 @@ describe(__filename, () => {
     const root = render({ review });
 
     const editButton = renderControls(root).find('.AddonReviewCard-edit');
+    expect(editButton.text()).toContain('Edit my review');
     const clickEvent = createFakeEvent();
     editButton.simulate('click', clickEvent);
 
@@ -314,6 +337,16 @@ describe(__filename, () => {
         reviewId: review.id,
       }),
     );
+  });
+
+  it('lets you edit your rating', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    const root = render({ review });
+
+    const editButton = renderControls(root).find('.AddonReviewCard-edit');
+    expect(editButton.text()).toContain('Edit my rating');
   });
 
   it('configures the edit-review form', () => {

@@ -163,6 +163,52 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   };
 
+  isRatingOnly() {
+    const { review } = this.props;
+    // Return true if this review does not have any text.
+    return review && !review.body;
+  }
+
+  isReply() {
+    return this.props.isReplyToReviewId !== undefined;
+  }
+
+  editPrompt() {
+    const { i18n } = this.props;
+
+    if (this.isReply()) {
+      return i18n.gettext('Edit my reply');
+    } else if (this.isRatingOnly()) {
+      return i18n.gettext('Edit my rating');
+    }
+
+    return i18n.gettext('Edit my review');
+  }
+
+  deletePrompt() {
+    const { i18n } = this.props;
+
+    if (this.isReply()) {
+      return i18n.gettext('Delete my reply');
+    } else if (this.isRatingOnly()) {
+      return i18n.gettext('Delete my rating');
+    }
+
+    return i18n.gettext('Delete my review');
+  }
+
+  confirmDeletePrompt() {
+    const { i18n } = this.props;
+
+    if (this.isReply()) {
+      return i18n.gettext('Do you really want to delete this reply?');
+    } else if (this.isRatingOnly()) {
+      return i18n.gettext('Do you really want to delete this rating?');
+    }
+
+    return i18n.gettext('Do you really want to delete this review?');
+  }
+
   renderReply() {
     const {
       addon,
@@ -226,7 +272,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       flaggable,
       i18n,
       siteUserHasReplyPerm,
-      isReplyToReviewId,
       location,
       replyingToReview,
       review,
@@ -235,11 +280,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     } = this.props;
 
     let byLine;
-    const isReply = isReplyToReviewId !== undefined;
 
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
-      if (isReply) {
+      if (this.isReply()) {
         // translators: Example in English: "posted last week"
         byLine = i18n.sprintf(i18n.gettext('posted %(timestamp)s'), {
           timestamp,
@@ -278,9 +322,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               onClick={this.onClickToEditReview}
               className="AddonReviewCard-edit AddonReviewCard-control"
             >
-              {isReply
-                ? i18n.gettext('Edit my reply')
-                : i18n.gettext('Edit my review')}
+              {this.editPrompt()}
             </a>
             {deletingReview && !errorHandler.hasError() ? (
               <span className="AddonReviewCard-control AddonReviewCard-deleting">
@@ -296,16 +338,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 )}
                 confirmButtonText={i18n.gettext('Delete')}
                 id={`${confirmButtonClassName}-${review.id}`}
-                message={
-                  isReply
-                    ? i18n.gettext('Do you really want to delete this reply?')
-                    : i18n.gettext('Do you really want to delete this review?')
-                }
+                message={this.confirmDeletePrompt()}
                 onConfirm={this.onClickToDeleteReview}
               >
-                {isReply
-                  ? i18n.gettext('Delete my reply')
-                  : i18n.gettext('Delete my review')}
+                {this.deletePrompt()}
               </ConfirmButton>
             )}
           </React.Fragment>
@@ -316,7 +352,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         siteUser &&
         !replyingToReview &&
         !review.reply &&
-        !isReply &&
+        !this.isReply() &&
         (isAddonAuthor({ addon, userId: siteUser.id }) ||
           siteUserHasReplyPerm) &&
         review.userId !== siteUser.id ? (
@@ -332,7 +368,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
         {flaggable && review ? (
           <FlagReviewMenu
-            isDeveloperReply={isReply}
+            isDeveloperReply={this.isReply()}
             location={location}
             openerClass="AddonReviewCard-control"
             review={review}
@@ -348,7 +384,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         controls={controls}
         review={review}
         byLine={byLine}
-        showRating={!isReply && showRating}
+        showRating={!this.isReply() && showRating}
       >
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}
