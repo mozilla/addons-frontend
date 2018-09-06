@@ -115,7 +115,6 @@ export class InstallSwitchBase extends React.Component {
       enable,
       guid,
       install,
-      installURL,
       name,
       status,
       installTheme,
@@ -131,13 +130,17 @@ export class InstallSwitchBase extends React.Component {
     }
 
     if (type === ADDON_TYPE_THEME && [UNINSTALLED, DISABLED].includes(status)) {
-      installTheme(this.themeData, { ...addon, status });
+      installTheme(this.themeData, {
+        name: addon.name,
+        status,
+        type: addon.type,
+      });
     } else if (status === UNINSTALLED) {
       install();
     } else if (status === DISABLED) {
       enable();
     } else if ([INSTALLED, ENABLED].includes(status)) {
-      uninstall({ guid, installURL, name, type });
+      uninstall({ guid, name, type });
     }
   };
 

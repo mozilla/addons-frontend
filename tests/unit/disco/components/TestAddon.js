@@ -92,7 +92,6 @@ describe(__filename, () => {
     });
 
     expect(root.find(LoadingText)).toHaveLength(1);
-    expect(root.instance().props.platformFiles).toEqual({});
   });
 
   it('passes install helper functions to the install button', () => {
@@ -625,7 +624,6 @@ describe(__filename, () => {
       });
 
       expect(props.addon).toEqual(null);
-      expect(props.platformFiles).toEqual({});
     });
   });
 

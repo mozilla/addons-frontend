@@ -36,40 +36,33 @@ import AnimatedIcon from 'ui/components/AnimatedIcon';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { AppState } from 'amo/store';
+import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
+import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
-type EnableParams = {|
-  sendTrackingEvent: boolean,
-|} | void;
-
 type Props = {|
   addon: AddonType,
   className?: string,
   defaultInstallSource: string,
   disabled: boolean,
-  enable: (EnableParams) => Promise<any>,
-  isAddonEnabled: () => Promise<boolean>,
-  hasAddonManager: boolean,
-  install: () => Promise<any>,
-  installTheme: (HTMLAnchorElement, Object) => Promise<any>,
   location: ReactRouterLocationType,
   puffy: boolean,
   status: string,
-  uninstall: (Object) => Promise<any>,
 |};
 
 type InternalProps = {|
   ...Props,
+  ...WithInstallHelpersInjectedProps,
   _config: typeof config,
   _log: typeof log,
   _tracking: typeof tracking,
   _window: typeof window,
   i18n: I18nType,
-  userAgentInfo: string,
+  userAgentInfo: UserAgentInfoType,
 |};
 
 type TrackParams = {|
@@ -82,7 +75,7 @@ type ButtonProps = {|
   className: string,
   'data-browsertheme'?: string,
   disabled: boolean,
-  href: string,
+  href: string | void,
   onClick: Function | null,
   puffy: boolean,
 |};
@@ -102,7 +95,11 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     event.preventDefault();
     event.stopPropagation();
 
-    installTheme(event.currentTarget, { ...addon, status });
+    installTheme(event.currentTarget, {
+      name: addon.name,
+      status,
+      type: addon.type,
+    });
   };
 
   installOpenSearch = (event: SyntheticEvent<HTMLAnchorElement>) => {
@@ -150,9 +147,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     event.preventDefault();
     event.stopPropagation();
 
-    const installURL = event.currentTarget.href;
-
-    uninstall({ guid, installURL, name, type });
+    uninstall({ guid, name, type });
 
     return false;
   };

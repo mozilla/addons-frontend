@@ -194,8 +194,9 @@ describe(__filename, () => {
 
     sinon.assert.called(preventDefault);
     sinon.assert.calledWith(installTheme, sinon.match.instanceOf(Node), {
-      ...addon,
+      name: addon.name,
       status: UNKNOWN,
+      type: addon.type,
     });
   });
 
