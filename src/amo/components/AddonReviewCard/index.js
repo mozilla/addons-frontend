@@ -39,7 +39,7 @@ import type { ReactRouterLocationType } from 'core/types/router';
 import './styles.scss';
 
 type Props = {|
-  addon?: AddonType | null,
+  addon: AddonType | null,
   bodyFallback?: React.Node | string,
   className?: string,
   flaggable?: boolean,

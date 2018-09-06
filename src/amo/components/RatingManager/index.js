@@ -255,7 +255,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { i18n, location, userReview } = this.props;
+    const { addon, i18n, location, userReview } = this.props;
 
     if (this.shouldShowTextEntry()) {
       invariant(userReview, 'userReview is required');
@@ -293,6 +293,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         {this.renderUserRatingForm()}
         {userReview && (
           <AddonReviewCard
+            addon={addon}
             bodyFallback={bodyFallback}
             className="RatingManager-AddonReviewCard"
             flaggable={false}
