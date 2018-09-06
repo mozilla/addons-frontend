@@ -6,5 +6,5 @@ import 'core/css/inc/lib.scss';
 // in storybook.
 import './setup/App.override.styles.scss';
 
-import './Badge';
-import './Button';
+import './ui/Badge';
+import './ui/Button';
