@@ -43,7 +43,12 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
+type Props = {|
+  location: ReactRouterLocationType,
+|};
+
 type InternalProps = {|
+  ...Props,
   addon: AddonType | null,
   addonIsLoading: boolean,
   clientApp: string,
@@ -51,7 +56,6 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   lang: string,
-  location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
     params: {
@@ -366,8 +370,6 @@ export const extractId = (ownProps: InternalProps) => {
 
   return `${params.addonSlug}-${location.query.page || ''}`;
 };
-
-type Props = {||};
 
 const AddonReviewList: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
