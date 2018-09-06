@@ -25,10 +25,11 @@ import {
   INSTALL_ACTION,
   INSTALL_CANCELLED,
   INSTALL_CANCELLED_ACTION,
+  INSTALL_DOWNLOAD_FAILED_ACTION,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
-  INSTALL_THEME_CATEGORY,
   INSTALL_STARTED_THEME_CATEGORY,
+  INSTALL_THEME_CATEGORY,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,
@@ -990,14 +991,29 @@ describe(__filename, () => {
       });
 
       it('sets status to error on onDownloadFailed', () => {
+        const _tracking = createFakeTracking();
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const handler = createProgressHandler({ dispatch, guid });
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        });
 
         handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
+
         sinon.assert.calledWith(dispatch, {
           type: 'INSTALL_ERROR',
           payload: { guid, error: DOWNLOAD_FAILED },
+        });
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
+          label: name,
         });
       });
 
@@ -1031,6 +1047,7 @@ describe(__filename, () => {
         });
 
         handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
+
         sinon.assert.calledWith(dispatch, {
           type: INSTALL_CANCELLED,
           payload: { guid },

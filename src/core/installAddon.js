@@ -30,6 +30,7 @@ import {
   INSTALL_ACTION,
   INSTALL_CANCELLED,
   INSTALL_CANCELLED_ACTION,
+  INSTALL_DOWNLOAD_FAILED_ACTION,
   INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
@@ -159,6 +160,12 @@ export function makeProgressHandler({
       dispatch({
         type: INSTALL_ERROR,
         payload: { guid, error: DOWNLOAD_FAILED },
+      });
+
+      _tracking.sendEvent({
+        action: getAddonTypeForTracking(type),
+        category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
+        label: name,
       });
     } else if (event.type === 'onInstallCancelled') {
       dispatch({

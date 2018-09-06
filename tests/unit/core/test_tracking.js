@@ -19,6 +19,9 @@ import {
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
   INSTALL_CANCELLED_THEME_CATEGORY,
+  INSTALL_DOWNLOAD_FAILED_ACTION,
+  INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY,
+  INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY,
   INSTALL_EXTENSION_CATEGORY,
   INSTALL_STARTED_ACTION,
   INSTALL_STARTED_EXTENSION_CATEGORY,
@@ -323,6 +326,30 @@ describe(__filename, () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_STATIC_THEME, ENABLE_ACTION),
       ).toEqual(ENABLE_THEME_CATEGORY);
+    });
+
+    it('returns the expected category when type is extension and installAction is download failed', () => {
+      expect(
+        getAddonEventCategory(
+          ADDON_TYPE_EXTENSION,
+          INSTALL_DOWNLOAD_FAILED_ACTION,
+        ),
+      ).toEqual(INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY);
+    });
+
+    it('returns the expected category when type is lightweight theme and installAction is download failed', () => {
+      expect(
+        getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_DOWNLOAD_FAILED_ACTION),
+      ).toEqual(INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY);
+    });
+
+    it('returns the expected category when type is static theme and installAction is download failed', () => {
+      expect(
+        getAddonEventCategory(
+          ADDON_TYPE_STATIC_THEME,
+          INSTALL_DOWNLOAD_FAILED_ACTION,
+        ),
+      ).toEqual(INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY);
     });
   });
 

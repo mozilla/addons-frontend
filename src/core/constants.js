@@ -195,6 +195,7 @@ export const INSTALL_ERROR = 'INSTALL_ERROR';
 export const ENABLE_ACTION = 'enable';
 export const INSTALL_ACTION = 'install';
 export const INSTALL_CANCELLED_ACTION = 'install:cancelled';
+export const INSTALL_DOWNLOAD_FAILED_ACTION = 'install:download-failed';
 export const INSTALL_STARTED_ACTION = 'install:started';
 export const UNINSTALL_ACTION = 'uninstall';
 
@@ -211,6 +212,11 @@ export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
 export const INSTALL_CANCELLED_EXTENSION_CATEGORY =
   'AMO Addon Installs Cancelled';
 export const INSTALL_CANCELLED_THEME_CATEGORY = 'AMO Theme Installs Cancelled';
+
+export const INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY =
+  'AMO Addon Installs Download Failed';
+export const INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY =
+  'AMO Theme Installs Download Failed';
 
 export const INSTALL_STARTED_EXTENSION_CATEGORY = 'AMO Addon Installs Started';
 export const INSTALL_STARTED_THEME_CATEGORY = 'AMO Theme Installs Started';
