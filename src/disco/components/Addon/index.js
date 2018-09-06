@@ -313,6 +313,7 @@ export class AddonBase extends React.Component {
             />
           ) : (
             <InstallButton
+              {...this.props.addon}
               {...this.props}
               className="Addon-install-button"
               defaultInstallSource={defaultInstallSource}
