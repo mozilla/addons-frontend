@@ -1,7 +1,9 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 
+import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
@@ -11,9 +13,11 @@ import type {
   ThemeData,
 } from 'core/types/addons';
 
-export const LOAD_ADDONS = 'LOAD_ADDONS';
-export const FETCH_ADDON = 'FETCH_ADDON';
-export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
+export const LOAD_ADDONS: 'LOAD_ADDONS' = 'LOAD_ADDONS';
+export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
+export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
+
+type AddonID = number;
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -21,7 +25,7 @@ type ExternalAddonMap = {
 
 export type LoadAddonsAction = {|
   payload: {| addons: ExternalAddonMap |},
-  type: string,
+  type: typeof LOAD_ADDONS,
 |};
 
 // TODO: We should remove this method and move all calls to `loadAddonResults`.
@@ -49,7 +53,7 @@ type FetchAddonParams = {|
 |};
 
 export type FetchAddonAction = {|
-  type: string,
+  type: typeof FETCH_ADDON,
   payload: {|
     errorHandlerId: string,
     slug: string,
@@ -78,7 +82,7 @@ type LoadAddonResultsParams = {|
 
 export type LoadAddonResultsAction = {|
   payload: {| addons: ExternalAddonMap |},
-  type: string,
+  type: typeof LOAD_ADDON_RESULTS,
 |};
 
 export function loadAddonResults({
@@ -89,7 +93,7 @@ export function loadAddonResults({
   }
 
   return {
-    type: LOAD_ADDONS,
+    type: LOAD_ADDON_RESULTS,
     payload: { addons },
   };
 }
@@ -262,20 +266,20 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
   return addon;
 }
 
-type AddonID = number;
-
 export type AddonsState = {|
   // Flow wants hash maps with string keys.
   // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
   byID: { [addonId: string]: AddonType },
   byGUID: { [addonGUID: string]: AddonID },
   bySlug: { [addonSlug: string]: AddonID },
+  loadingBySlug: { [addonSlug: string]: boolean },
 |};
 
 export const initialState: AddonsState = {
   byID: {},
   byGUID: {},
   bySlug: {},
+  loadingBySlug: {},
 };
 
 export const getAddonByID = (
@@ -303,6 +307,10 @@ export const getAddonByGUID = (
   return getAddonByID(state, addonId);
 };
 
+export const isAddonLoading = (state: AppState, slug: string): boolean => {
+  return Boolean(state.addons.loadingBySlug[slug]);
+};
+
 export const getAllAddons = (state: AppState): Array<AddonType> => {
   const addons = state.addons.byID;
 
@@ -310,17 +318,35 @@ export const getAllAddons = (state: AppState): Array<AddonType> => {
   return Object.values(addons);
 };
 
+type Action =
+  | FetchAddonAction
+  | LoadAddonsAction
+  | LoadAddonResultsAction
+  | UnloadAddonReviewsAction;
+
 export default function addonsReducer(
   state: AddonsState = initialState,
-  action: LoadAddonsAction,
+  action: Action,
 ) {
   switch (action.type) {
-    case LOAD_ADDONS: {
+    case FETCH_ADDON: {
+      const { slug } = action.payload;
+      return {
+        ...state,
+        loadingBySlug: {
+          ...state.loadingBySlug,
+          [slug]: true,
+        },
+      };
+    }
+    case LOAD_ADDONS:
+    case LOAD_ADDON_RESULTS: {
       const { addons: loadedAddons } = action.payload;
 
       const byID = { ...state.byID };
       const byGUID = { ...state.byGUID };
       const bySlug = { ...state.bySlug };
+      const loadingBySlug = { ...state.loadingBySlug };
 
       Object.keys(loadedAddons).forEach((key) => {
         const addon = createInternalAddon(loadedAddons[key]);
@@ -330,6 +356,7 @@ export default function addonsReducer(
 
         if (addon.slug) {
           bySlug[addon.slug] = addon.id;
+          loadingBySlug[addon.slug] = false;
         }
 
         if (addon.guid) {
@@ -344,7 +371,34 @@ export default function addonsReducer(
         byID,
         byGUID,
         bySlug,
+        loadingBySlug,
       };
+    }
+    case UNLOAD_ADDON_REVIEWS: {
+      const { addonId } = action.payload;
+      const addon = state.byID[`${addonId}`];
+      if (addon) {
+        return {
+          ...state,
+          byID: {
+            ...state.byID,
+            [`${addonId}`]: undefined,
+          },
+          byGUID: {
+            ...state.byGUID,
+            [addon.guid]: undefined,
+          },
+          bySlug: {
+            ...state.bySlug,
+            [addon.slug]: undefined,
+          },
+          loadingBySlug: {
+            ...state.loadingBySlug,
+            [addon.slug]: false,
+          },
+        };
+      }
+      return state;
     }
     default:
       return state;

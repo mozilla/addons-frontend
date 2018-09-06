@@ -382,7 +382,7 @@ describe(__filename, () => {
       expect(state.view[reviewId].someFlag).toEqual(true);
 
       // Clear all data based on a reviewId.
-      state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
+      state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
 
       expect(state.byId[reviewId]).toEqual(undefined);
       expect(state.byAddon[addonSlug]).toEqual(undefined);
@@ -394,11 +394,13 @@ describe(__filename, () => {
     it('it unloads cached view data even for deleted reviews', () => {
       // This covers the case where a reply is deleted and then another reply is added
       // and we expect the view state for the reply to be cleared out.
+      const addonId = 1;
       const reviewId = 111;
 
       let state = reviewsReducer(
         undefined,
         deleteAddonReview({
+          addonId,
           errorHandlerId: 1,
           reviewId,
         }),
@@ -406,7 +408,7 @@ describe(__filename, () => {
 
       expect(state.view[reviewId].deletingReview).toEqual(true);
 
-      state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
+      state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
 
       expect(state.view[reviewId]).toEqual(undefined);
     });
@@ -448,7 +450,7 @@ describe(__filename, () => {
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
       expect(state.view[reviewId2].someFlag).toEqual(true);
 
-      state = reviewsReducer(state, unloadAddonReviews({ reviewId }));
+      state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
 
       // Verify that the unrelated data has not been unloaded.
       expect(state.byId[reviewId2].addonId).toEqual(addonId2);
@@ -1142,6 +1144,7 @@ describe(__filename, () => {
       const state = reviewsReducer(
         undefined,
         deleteAddonReview({
+          addonId: fakeAddon.id,
           errorHandlerId: 'some-id',
           reviewId: review.id,
         }),

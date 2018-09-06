@@ -158,6 +158,29 @@ describe(__filename, () => {
       );
     });
 
+    it('does not fetch an addon if it is already loading', () => {
+      const addonSlug = 'some-addon-slug';
+      const errorHandler = createStubErrorHandler();
+
+      store.dispatch(fetchAddon({ errorHandler, slug: addonSlug }));
+
+      const fakeDispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        addon: null,
+        errorHandler,
+        params: { addonSlug },
+      });
+
+      sinon.assert.neverCalledWith(
+        fakeDispatch,
+        fetchAddon({
+          slug: addonSlug,
+          errorHandler,
+        }),
+      );
+    });
+
     it('ignores other add-ons', () => {
       dispatchAddon();
       const root = render({

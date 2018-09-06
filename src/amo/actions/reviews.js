@@ -610,6 +610,7 @@ export const hideFlashedReviewMessage = (): HideFlashedReviewMessageAction => {
 };
 
 type DeleteAddonReviewParams = {|
+  addonId: number,
   errorHandlerId: string,
   isReplyToReviewId?: number,
   reviewId: number,
@@ -621,20 +622,23 @@ export type DeleteAddonReviewAction = {|
 |};
 
 export const deleteAddonReview = ({
+  addonId,
   errorHandlerId,
   isReplyToReviewId,
   reviewId,
 }: DeleteAddonReviewParams) => {
+  invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');
 
   return {
     type: DELETE_ADDON_REVIEW,
-    payload: { errorHandlerId, isReplyToReviewId, reviewId },
+    payload: { addonId, errorHandlerId, isReplyToReviewId, reviewId },
   };
 };
 
 type UnloadAddonReviewsParams = {|
+  addonId: number,
   reviewId: number,
 |};
 
@@ -644,11 +648,11 @@ export type UnloadAddonReviewsAction = {|
 |};
 
 export const unloadAddonReviews = ({
+  addonId,
   reviewId,
 }: UnloadAddonReviewsParams): UnloadAddonReviewsAction => {
-  invariant(reviewId, 'reviewId is required');
   return {
     type: UNLOAD_ADDON_REVIEWS,
-    payload: { reviewId },
+    payload: { addonId, reviewId },
   };
 };

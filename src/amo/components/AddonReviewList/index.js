@@ -12,7 +12,11 @@ import RatingsByStar from 'amo/components/RatingsByStar';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
-import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
+import {
+  fetchAddon,
+  getAddonBySlug,
+  isAddonLoading,
+} from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -40,13 +44,18 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  i18n: I18nType,
+  location: ReactRouterLocationType,
+|};
+
+type InternalProps = {|
+  ...Props,
   addon: AddonType | null,
+  addonIsLoading: boolean,
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  i18n: I18nType,
   lang: string,
-  location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
     params: {
@@ -59,22 +68,23 @@ type Props = {|
   history: ReactRouterHistoryType,
 |};
 
-export class AddonReviewListBase extends React.Component<Props> {
+export class AddonReviewListBase extends React.Component<InternalProps> {
   componentWillMount() {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: InternalProps) {
     this.loadDataIfNeeded(nextProps);
   }
 
-  loadDataIfNeeded(nextProps?: Props) {
+  loadDataIfNeeded(nextProps?: InternalProps) {
     const lastAddon = this.props.addon;
     const nextAddon = nextProps && nextProps.addon;
     const {
       addon,
       dispatch,
       errorHandler,
+      addonIsLoading,
       match: { params },
       reviews,
     } = {
@@ -88,7 +98,9 @@ export class AddonReviewListBase extends React.Component<Props> {
     }
 
     if (!addon) {
-      dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
+      if (!addonIsLoading) {
+        dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
+      }
     } else if (
       // This is the first time rendering the component.
       !nextProps ||
@@ -330,7 +342,7 @@ export class AddonReviewListBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   const { addonSlug } = ownProps.match.params;
   const reviewData = state.reviews.byAddon[addonSlug];
 
@@ -338,6 +350,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     addon: getAddonBySlug(state, addonSlug),
     clientApp: state.api.clientApp,
     lang: state.api.lang,
+    addonIsLoading: isAddonLoading(state, addonSlug),
     pageSize: reviewData ? reviewData.pageSize : null,
     reviewCount: reviewData && reviewData.reviewCount,
     reviews:
@@ -349,7 +362,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   };
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: InternalProps) => {
   const {
     location,
     match: { params },

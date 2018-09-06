@@ -682,6 +682,7 @@ describe(__filename, () => {
     function _deleteAddonReview(params = {}) {
       sagaTester.dispatch(
         deleteAddonReview({
+          addonId: fakeAddon.id,
           errorHandlerId: errorHandler.id,
           reviewId: 1,
           ...params,
@@ -708,6 +709,7 @@ describe(__filename, () => {
     });
 
     it('deletes an add-on review', async () => {
+      const addonId = 123;
       const reviewId = 12345;
 
       mockApi
@@ -719,9 +721,9 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve());
 
-      _deleteAddonReview({ reviewId });
+      _deleteAddonReview({ addonId, reviewId });
 
-      const expectedAction = unloadAddonReviews({ reviewId });
+      const expectedAction = unloadAddonReviews({ addonId, reviewId });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
 
@@ -729,21 +731,19 @@ describe(__filename, () => {
     });
 
     it('clears reviews for an add-on review reply', async () => {
+      const addonId = 123;
       const reviewId = 12345;
       const isReplyToReviewId = 98765;
 
       mockApi
         .expects('deleteReview')
         .once()
-        .withArgs({
-          apiState,
-          reviewId,
-        })
         .returns(Promise.resolve());
 
-      _deleteAddonReview({ isReplyToReviewId, reviewId });
+      _deleteAddonReview({ addonId, isReplyToReviewId, reviewId });
 
       const expectedAction = unloadAddonReviews({
+        addonId,
         reviewId,
       });
       const action = await matchingSagaAction(
@@ -760,15 +760,12 @@ describe(__filename, () => {
       mockApi
         .expects('deleteReview')
         .once()
-        .withArgs({
-          apiState,
-          reviewId,
-        })
         .returns(Promise.resolve());
 
       _deleteAddonReview({ isReplyToReviewId, reviewId });
 
       const expectedAction = unloadAddonReviews({
+        addonId: fakeAddon.id,
         reviewId: isReplyToReviewId,
       });
       const action = await matchingSagaAction(
