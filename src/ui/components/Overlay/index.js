@@ -15,7 +15,7 @@ type Props = {|
   className?: string,
   children: React.Element<any>,
   id: string,
-  onEscapeOverlay?: (event: SyntheticEvent<any>) => void,
+  onEscapeOverlay?: () => void,
   visibleOnLoad?: boolean,
 |};
 
@@ -26,14 +26,14 @@ type UIStateType = {|
 const initialUIState: UIStateType = { visible: false };
 
 type keyDownType = {|
-  event: Object,
+  event: SyntheticEvent<any> | null,
 |};
 
 type InternalProps = {|
   ...Props,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
-  keydown?: keyDownType | void,
+  keydown: keyDownType,
 |};
 
 export class OverlayBase extends React.Component<InternalProps> {
@@ -67,7 +67,7 @@ export class OverlayBase extends React.Component<InternalProps> {
   onClickBackground = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     if (this.props.onEscapeOverlay) {
-      this.props.onEscapeOverlay(event);
+      this.props.onEscapeOverlay();
     }
 
     this.hide();
