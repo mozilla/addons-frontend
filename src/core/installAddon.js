@@ -291,7 +291,7 @@ type AddonManagerWrapper = {|
   hasPermissionPromptsEnabled: () => boolean,
   install: (
     installURL: string | void,
-    Function,
+    (addonInstall: AddonInstallType, event: EventType) => void,
     {| src: string |},
   ) => Promise<any>,
   uninstall: (guid: string) => Promise<any>,
@@ -328,7 +328,7 @@ export type WithInstallHelpersInjectedProps = {|
   enable: (EnableParams | void) => Promise<any>,
   hasAddonManager: boolean,
   install: () => Promise<any>,
-  installTheme: (HTMLAnchorElement, Object) => void,
+  installTheme: (HTMLAnchorElement, InstallThemeParams) => void,
   isAddonEnabled: () => Promise<boolean>,
   setCurrentStatus: () => Promise<any>,
   uninstall: (UninstallParams) => Promise<any>,
