@@ -10,13 +10,9 @@ import tracking from 'core/tracking';
 import type { AppState } from 'amo/store';
 
 type Props = {|
-  _cookie: typeof cookie,
-  _tracking: typeof tracking,
   AName: string,
   BName: string,
   nameId: string,
-  randomizer: () => number,
-  WrappedComponent: Function,
 |};
 
 type UIStateType = {|
@@ -25,8 +21,12 @@ type UIStateType = {|
 
 type InternalProps = {|
   ...Props,
+  _cookie: typeof cookie,
+  _tracking: typeof tracking,
+  randomizer: () => number,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
+  WrappedComponent: Function,
 |};
 
 const initialUIState: UIStateType = {
