@@ -14,6 +14,7 @@ module.exports = {
     'amoCDN',
     'apiHost',
     'apiPath',
+    'apiVersion',
     'appName',
     'cookieMaxAge',
     'cookieName',

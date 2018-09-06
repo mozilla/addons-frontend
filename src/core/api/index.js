@@ -82,6 +82,7 @@ type CallApiParams = {|
   params?: Object,
   schema?: Object,
   _config?: typeof config,
+  version?: string,
 |};
 
 export function callApi({
@@ -95,6 +96,7 @@ export function callApi({
   credentials,
   errorHandler,
   _config = config,
+  version = _config.get('apiVersion'),
 }: CallApiParams): Promise<any> {
   if (!endpoint) {
     return Promise.reject(
@@ -105,13 +107,15 @@ export function callApi({
     errorHandler.clear();
   }
 
+  const apiPath = `${config.get('apiPath')}${version}`;
+
   const parsedUrl = url.parse(endpoint, true);
   let adjustedEndpoint = parsedUrl.pathname || '';
   if (!parsedUrl.host) {
     // If it's a relative URL, add the API prefix.
     const slash = !adjustedEndpoint.startsWith('/') ? '/' : '';
-    adjustedEndpoint = `${config.get('apiPath')}${slash}${adjustedEndpoint}`;
-  } else if (!adjustedEndpoint.startsWith(config.get('apiPath'))) {
+    adjustedEndpoint = `${apiPath}${slash}${adjustedEndpoint}`;
+  } else if (!adjustedEndpoint.startsWith(apiPath)) {
     // If it's an absolute URL, it must have the correct prefix.
     return Promise.reject(
       new Error(`Absolute URL "${endpoint}" has an unexpected prefix.`),
@@ -245,11 +249,15 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
 }
 
 export function startLoginUrl({
+  _config = config,
   location,
 }: {|
+  _config?: typeof config,
   location: ReactRouterLocationType,
 |}) {
-  const configName = config.get('fxaConfig');
+  const apiVersion = _config.get('apiVersion');
+  const configName = _config.get('fxaConfig');
+
   const params = {
     config: undefined,
     to: url.format({ ...location }),
@@ -258,7 +266,8 @@ export function startLoginUrl({
     params.config = configName;
   }
   const query = makeQueryString(params);
-  return `${API_BASE}/accounts/login/start/${query}`;
+
+  return `${API_BASE}${apiVersion}/accounts/login/start/${query}`;
 }
 
 export function categories({ api }: {| api: ApiState |}) {

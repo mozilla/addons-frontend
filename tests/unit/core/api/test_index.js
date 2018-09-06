@@ -403,6 +403,33 @@ describe(__filename, () => {
       await api.callApi({ endpoint, body });
       mockWindow.verify();
     });
+
+    it('sets a custom API version', async () => {
+      const endpoint = '/some-endpoint/';
+      const version = 'v123';
+
+      mockWindow
+        .expects('fetch')
+        .withArgs(sinon.match(`/api/${version}/some-endpoint/`))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, version });
+      mockWindow.verify();
+    });
+
+    it('uses the config version as default value', async () => {
+      const apiVersion = '456';
+      const _config = getFakeConfig({ apiVersion });
+      const endpoint = '/some-endpoint/';
+
+      mockWindow
+        .expects('fetch')
+        .withArgs(sinon.match(`/api/${apiVersion}/some-endpoint/`))
+        .returns(createApiResponse());
+
+      await api.callApi({ _config, endpoint });
+      mockWindow.verify();
+    });
   });
 
   describe('makeQueryString', () => {
@@ -584,27 +611,39 @@ describe(__filename, () => {
   });
 
   describe('startLoginUrl', () => {
-    const getStartLoginQs = (location) =>
-      querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
+    const getStartLoginQs = ({ _config, location }) => {
+      return querystring.parse(
+        api.startLoginUrl({ _config, location }).split('?')[1],
+      );
+    };
 
     it('includes the next path', () => {
       const location = createFakeLocation({
         pathname: '/foo',
         query: { bar: 'BAR' },
       });
-      expect(getStartLoginQs(location)).toEqual({ to: '/foo?bar=BAR' });
+      expect(getStartLoginQs({ location })).toEqual({ to: '/foo?bar=BAR' });
     });
 
     it('includes the next path the config if set', () => {
-      sinon
-        .stub(config, 'get')
-        .withArgs('fxaConfig')
-        .returns('my-config');
+      const fxaConfig = 'my-config';
+      const _config = getFakeConfig({ fxaConfig });
       const location = createFakeLocation({ pathname: '/foo' });
-      expect(getStartLoginQs(location)).toEqual({
+
+      expect(getStartLoginQs({ _config, location })).toEqual({
         to: '/foo',
-        config: 'my-config',
+        config: fxaConfig,
       });
+    });
+
+    it('uses the API version from config', () => {
+      const apiVersion = 'v789';
+      const _config = getFakeConfig({ apiVersion });
+      const location = createFakeLocation();
+
+      expect(api.startLoginUrl({ _config, location })).toContain(
+        `/api/${apiVersion}/accounts/login/start/`,
+      );
     });
   });
 

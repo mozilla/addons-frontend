@@ -73,7 +73,8 @@ module.exports = {
   amoCDN: amoProdCDN,
   staticHost: amoProdCDN,
   apiHost: apiProdHost,
-  apiPath: '/api/v3',
+  apiPath: '/api/',
+  apiVersion: 'v3',
 
   // The version for the favicon.
   // This should be changed when a new favicon is pushed to the CDN to prevent
@@ -92,6 +93,7 @@ module.exports = {
     'amoCDN',
     'apiHost',
     'apiPath',
+    'apiVersion',
     'appName',
     'authTokenValidFor',
     'cookieMaxAge',
