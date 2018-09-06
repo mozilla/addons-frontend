@@ -381,11 +381,14 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           >
             <ul>
               {allReviews.map((review, index) => {
-                return (
-                  <li key={String(index)}>
-                    <AddonReviewCard addon={addon} review={review} />
-                  </li>
-                );
+                if (!featuredReview || review.id !== featuredReview.id) {
+                  return (
+                    <li key={String(index)}>
+                      <AddonReviewCard addon={addon} review={review} />
+                    </li>
+                  );
+                }
+                return null;
               })}
             </ul>
           </CardList>
