@@ -53,7 +53,7 @@ Here are some commands you can run:
 | yarn snyk-wizard            | Run [snyk](#snyk) `wizard` to fix an issue reported by snyk                                                                   |
 | yarn start-func-test-server | Start a Docker container for functional tests                                                                                 |
 | yarn stylelint              | Lint the SCSS                                                                                                                 |
-| yarn storybook              | Runs storybook                                                                                                                |
+| yarn storybook              | Run [storybook](https://storybook.js.org/)                                                                                    |
 | yarn lint                   | Run all the JS + SCSS linters                                                                                                 |
 | yarn prettier               | Run [Prettier][] to automatically format the entire codebase                                                                  |
 | yarn prettier-dev           | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch                      |
