@@ -200,6 +200,27 @@ describe(__filename, () => {
     sinon.assert.calledWith(_addonManager.getAddon, '@new-guid');
   });
 
+  it('sets status when add-on is loaded on update', () => {
+    const Component = componentWithInstallHelpers();
+    const _addonManager = getFakeAddonManagerWrapper({
+      getAddon: Promise.resolve({
+        isActive: true,
+        isEnabled: true,
+      }),
+    });
+
+    const props = defaultProps({ _addonManager, addon: null });
+    const root = mount(<Component {...props} />);
+
+    const newAddon = createInternalAddon({
+      ...fakeAddon,
+      guid: '@new-guid',
+    });
+    root.setProps({ addon: newAddon });
+
+    sinon.assert.calledWith(_addonManager.getAddon, '@new-guid');
+  });
+
   it('does not set status when an update is not necessary', () => {
     const Component = componentWithInstallHelpers();
     const _addonManager = getFakeAddonManagerWrapper({
