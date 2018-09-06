@@ -23,7 +23,12 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import { fetchAddon, getAddonByID, getAddonBySlug } from 'core/reducers/addons';
+import {
+  fetchAddon,
+  getAddonByID,
+  getAddonBySlug,
+  isAddonLoading,
+} from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
@@ -66,6 +71,7 @@ export class AddonBase extends React.Component {
   static propTypes = {
     RatingManager: PropTypes.func,
     addon: PropTypes.object,
+    addonIsLoading: PropTypes.bool,
     clientApp: PropTypes.string.isRequired,
     config: PropTypes.object,
     defaultInstallSource: PropTypes.string.isRequired,
@@ -102,6 +108,7 @@ export class AddonBase extends React.Component {
   componentWillMount() {
     const {
       addon,
+      addonIsLoading,
       clientApp,
       dispatch,
       errorHandler,
@@ -130,13 +137,19 @@ export class AddonBase extends React.Component {
         }
 
         dispatch(setViewContext(addon.type));
-      } else {
+      } else if (!addonIsLoading) {
         dispatch(fetchAddon({ slug, errorHandler }));
       }
     }
   }
 
-  componentWillReceiveProps({ addon: newAddon, match: { params: newParams } }) {
+  componentWillReceiveProps(nextProps) {
+    const {
+      addon: newAddon,
+      addonIsLoading,
+      match: { params: newParams },
+    } = nextProps;
+
     const {
       addon: oldAddon,
       dispatch,
@@ -149,7 +162,7 @@ export class AddonBase extends React.Component {
       dispatch(setViewContext(newAddon.type));
     }
 
-    if (params.slug !== newParams.slug) {
+    if (!addonIsLoading && (!newAddon || params.slug !== newParams.slug)) {
       dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
     }
   }
@@ -631,6 +644,7 @@ export function mapStateToProps(state, ownProps) {
     // get fixed up, who knows.
     ...addon,
     ...installedAddon,
+    addonIsLoading: isAddonLoading(state, slug),
     addonsByAuthors,
     clientApp: state.api.clientApp,
     installStatus: installedAddon.status || UNKNOWN,

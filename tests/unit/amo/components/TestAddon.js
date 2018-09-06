@@ -98,7 +98,7 @@ function renderProps({
     },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
-    store: dispatchSignInActions().store,
+    store: dispatchClientMetadata().store,
     // withInstallHelpers HOC injected props
     defaultInstallSource: 'default install source',
     enable: sinon.stub(),
@@ -132,8 +132,8 @@ function renderAsDOMNode(...args) {
   );
 }
 
-function renderComponent(...args) {
-  const props = renderProps(...args);
+function renderComponent(otherProps = {}) {
+  const props = renderProps({ errorHandler: undefined, ...otherProps });
   return shallowUntilTarget(<Addon {...props} />, AddonBase);
 }
 
@@ -259,12 +259,6 @@ describe(__filename, () => {
       params: { slug: slugParam },
     });
 
-    // Since there's no add-on, it should be fetched on load.
-    sinon.assert.calledWith(
-      fakeDispatch,
-      fetchAddonAction({ errorHandler, slug: slugParam }),
-    );
-
     // These should be empty:
     expect(root.find(InstallButton)).toHaveLength(0);
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
@@ -298,7 +292,46 @@ describe(__filename, () => {
     expect(root.find('.Addon-icon img').prop('alt')).toEqual(null);
   });
 
-  it('does not dispatch fetchAddon action when slug is the same', () => {
+  it('dispatches fetchAddon when rendering without an add-on', () => {
+    const slug = 'some-addon';
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = renderComponent({ params: { slug }, store });
+
+    // Since there's no add-on, it should be fetched on load.
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchAddonAction({
+        errorHandler: root.instance().props.errorHandler,
+        slug,
+      }),
+    );
+  });
+
+  it('does not dispatch fetchAddon when already loading', () => {
+    const errorHandler = createStubErrorHandler();
+    const slug = 'some-addon';
+    const { store } = dispatchClientMetadata();
+
+    // Start fetching an add-on.
+    store.dispatch(
+      fetchAddonAction({
+        errorHandler,
+        slug,
+      }),
+    );
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = renderComponent({
+      errorHandler,
+      params: { slug },
+      store,
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not dispatch fetchAddon when slugs are the same', () => {
     const fakeDispatch = sinon.stub();
     const errorHandler = createStubErrorHandler();
     const addon = createInternalAddon(fakeAddon);
@@ -311,23 +344,69 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('dispatches fetchAddon action when updating with a new slug', () => {
-    const fakeDispatch = sinon.stub();
-    const errorHandler = createStubErrorHandler();
-    const root = shallowRender({ errorHandler, dispatch: fakeDispatch });
+  it('dispatches fetchAddon when updating to a new slug', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = renderComponent({ store });
     const slug = 'some-new-slug';
 
-    fakeDispatch.resetHistory();
-    // Update with a new slug.
+    dispatchSpy.resetHistory();
+    // Update to a new slug.
     root.setProps({ match: { params: { slug } } });
 
     sinon.assert.calledWith(
-      fakeDispatch,
+      dispatchSpy,
+      fetchAddonAction({
+        errorHandler: root.instance().props.errorHandler,
+        slug,
+      }),
+    );
+  });
+
+  it('dispatches fetchAddon when updating to an empty addon', () => {
+    const slug = 'some-addon';
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = renderComponent({ params: { slug }, store });
+
+    dispatchSpy.resetHistory();
+    // Simulate unloading an add-on from state.
+    root.setProps({ addon: undefined });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchAddonAction({
+        errorHandler: root.instance().props.errorHandler,
+        slug,
+      }),
+    );
+  });
+
+  it('does not dispatch fetchAddon on update when already loading', () => {
+    const errorHandler = createStubErrorHandler();
+    const slug = 'some-addon';
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    // Start fetching an add-on.
+    store.dispatch(
       fetchAddonAction({
         errorHandler,
         slug,
       }),
     );
+
+    const root = renderComponent({
+      errorHandler,
+      params: { slug },
+      store,
+    });
+
+    dispatchSpy.resetHistory();
+    // Simulate unloading an add-on from state.
+    root.setProps({ addon: undefined });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('renders an error if there is one', () => {
