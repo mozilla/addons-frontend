@@ -114,7 +114,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   onSelectRating = (rating: number) => {
-    const { userReview, version } = this.props;
+    const { _config, userReview, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
@@ -134,7 +134,9 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
 
     return this.props.submitReview(params).then(() => {
-      this.setState({ showTextEntry: true });
+      if (!_config.get('enableInlineAddonReview')) {
+        this.setState({ showTextEntry: true });
+      }
     });
   };
 

@@ -472,22 +472,15 @@ describe(__filename, () => {
       expect(root.find(AddonReviewManager)).toHaveLength(0);
     });
 
-    it('renders AddonReviewManager after submitting a rating', async () => {
+    it('does not show text entry after submitting a rating', async () => {
       const store = createStoreWithLatestReview();
       const root = renderInline({ store });
       expect(root.find(AddonReviewManager)).toHaveLength(0);
 
       await root.instance().onSelectRating(5);
 
-      // Apply setState() changes.
-      expect(root).toHaveState('showTextEntry', true);
-      root.update();
-
-      const manager = root.find(AddonReviewManager);
-      expect(manager).toHaveLength(1);
-      expect(manager).toHaveProp('review', root.instance().props.userReview);
-
-      expect(root.find(UserRating)).toHaveLength(0);
+      // Unlike the previous behavior, this should not enter the text entry state.
+      expect(root).toHaveState('showTextEntry', false);
     });
 
     it('hides AddonReviewManager when pressing the cancel button', async () => {
