@@ -322,11 +322,7 @@ describe(__filename, () => {
     );
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderComponent({
-      errorHandler,
-      params: { slug },
-      store,
-    });
+    renderComponent({ errorHandler, params: { slug }, store });
 
     sinon.assert.notCalled(dispatchSpy);
   });
