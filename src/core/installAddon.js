@@ -355,14 +355,12 @@ export class WithInstallHelpers extends React.Component<
   }
 
   componentWillReceiveProps(nextProps: WithInstallHelpersInternalProps) {
-    if (this.props.addon && nextProps.addon) {
-      const { guid: oldGuid } = this.props.addon;
-      const { guid: newGuid } = nextProps.addon;
+    const oldGuid = this.props.addon ? this.props.addon.guid : null;
+    const newGuid = nextProps.addon ? nextProps.addon.guid : null;
 
-      if (newGuid && newGuid !== oldGuid) {
-        log.info('Updating add-on status');
-        this.setCurrentStatus({ ...this.props, ...nextProps });
-      }
+    if (newGuid && newGuid !== oldGuid) {
+      log.info('Updating add-on status');
+      this.setCurrentStatus(nextProps);
     }
   }
 
@@ -390,7 +388,10 @@ export class WithInstallHelpers extends React.Component<
       dispatch,
       location,
       userAgentInfo,
-    } = this.props;
+    } = {
+      ...this.props,
+      ...newProps,
+    };
 
     if (!_addonManager.hasAddonManager()) {
       log.info('No addon manager, cannot set add-on status');
@@ -401,7 +402,7 @@ export class WithInstallHelpers extends React.Component<
       return Promise.resolve();
     }
 
-    const { platformFiles, type } = addon;
+    const { guid, platformFiles, type } = addon;
 
     const installURL = findInstallURL({
       defaultInstallSource,
@@ -410,7 +411,6 @@ export class WithInstallHelpers extends React.Component<
       userAgentInfo,
     });
 
-    const { guid } = newProps.addon;
     const payload = { guid, url: installURL };
 
     log.info('Setting add-on status');

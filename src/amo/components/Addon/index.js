@@ -88,7 +88,6 @@ export class AddonBase extends React.Component {
     }).isRequired,
     installStatus: PropTypes.string.isRequired,
     addonsByAuthors: PropTypes.array,
-    setCurrentStatus: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
   };
 
