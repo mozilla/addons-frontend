@@ -25,7 +25,7 @@
     "eslint": "eslint .",
     "flow": "flow",
     "flow:check": "flow check",
-    "flow:dev": "flow stop; flow start; chokidar .flowconfig flow/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
+    "flow:dev": "flow stop; flow start; chokidar .flowconfig flow/ stories/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
     "prettier": "prettier --write '**'",
@@ -36,15 +36,14 @@
     "snyk-wizard": "npm run snyk wizard",
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
+    "storybook": "better-npm-run storybook-build",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
-    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
-    "storybook": "cross-env NODE_PATH=src start-storybook -p 9001 -c stories/setup",
-    "build-storybook": "NODE_ENV=development build-storybook"
+    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
   },
   "betterScripts": {
     "build": {
@@ -136,6 +135,12 @@
       "command": "jest",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu"
+      }
+    },
+    "storybook-build": {
+      "command": "start-storybook -p 9001 -c stories/setup",
+      "env": {
+        "NODE_PATH": "./:./src"
       }
     },
     "test-ci": {
@@ -263,7 +268,6 @@
     "concurrently": "^4.0.1",
     "content-security-policy-parser": "^0.1.0",
     "cookie": "^0.3.1",
-    "cross-env": "^5.2.0",
     "css-loader": "^0.28.3",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
