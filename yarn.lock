@@ -3683,13 +3683,17 @@ fast-levenshtein@^2.0.6, fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
-fast-redact@^1.1.14:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.1.14.tgz#95e5a05c8046b9cd61a203266a4acb2ae635574f"
+fast-redact@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.2.0.tgz#356bdb968c23473cd4e460689c10785842f41529"
 
-fast-safe-stringify@^2.0.2, fast-safe-stringify@^2.0.4:
+fast-safe-stringify@^2.0.2:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.5.tgz#cdb2d02d41329afbe67eff073598811d482609e3"
+
+fast-safe-stringify@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.6.tgz#04b26106cc56681f51a044cfc0d76cf0008ac2c2"
 
 fastclick@1.0.6:
   version "1.0.6"
@@ -7332,9 +7336,9 @@ pino-pretty@^2.0.1:
     split2 "^2.2.0"
     through2 "^2.0.3"
 
-pino-std-serializers@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.2.0.tgz#2c97a636dcbe6947a7be518f5d06b7804f5c48ae"
+pino-std-serializers@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.2.1.tgz#ceb583374358c75949e9c4ddbdd690428c15958e"
 
 pino-syslog@^1.2.0:
   version "1.2.0"
@@ -7348,18 +7352,18 @@ pino-syslog@^1.2.0:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-5.4.1.tgz#dd0793bf5ffe2e23e0645032a7d077f093501880"
+pino@5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.5.0.tgz#1f65df5daa1a80e5c47dac52933d9400a5d3bbc4"
   dependencies:
     fast-json-parse "^1.0.3"
-    fast-redact "^1.1.14"
-    fast-safe-stringify "^2.0.4"
+    fast-redact "^1.2.0"
+    fast-safe-stringify "^2.0.6"
     flatstr "^1.0.5"
-    pino-std-serializers "^2.2.0"
+    pino-std-serializers "^2.2.1"
     pump "^3.0.0"
     quick-format-unescaped "^3.0.0"
-    sonic-boom "^0.6.0"
+    sonic-boom "^0.6.1"
 
 piping@^1.0.0-rc.4:
   version "1.0.0-rc.4"
@@ -9398,9 +9402,9 @@ snyk@^1.69.7:
     url "^0.11.0"
     uuid "^3.0.1"
 
-sonic-boom@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.0.tgz#c1a6ef9444b0b83bcafeb48731e4b26254cca3d5"
+sonic-boom@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.1.tgz#da832af4ed7c477eb5317fe4c5132c75f7556245"
   dependencies:
     flatstr "^1.0.5"
 
