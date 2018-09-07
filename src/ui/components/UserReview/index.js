@@ -32,10 +32,7 @@ function reviewBody({
     'content or html is required',
   );
 
-  const bodyAttr = {
-    children: undefined,
-    dangerouslySetInnerHTML: undefined,
-  };
+  const bodyAttr = {};
 
   if (content) {
     bodyAttr.children = content;
