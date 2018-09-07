@@ -1671,4 +1671,22 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(0);
   });
+
+  it('passes the add-on GUID to Firefox install button', () => {
+    const guid = 'some-guid';
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      guid,
+    });
+
+    const root = shallowRender({
+      addon,
+      getClientCompatibility: getClientCompatibilityFalse,
+    });
+
+    expect(root.find('.Button--get-firefox')).toHaveLength(1);
+    expect(root.find('.Button--get-firefox').prop('href')).toMatch(
+      `&utm_content=${guid}`,
+    );
+  });
 });
