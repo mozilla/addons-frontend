@@ -289,21 +289,17 @@ export const deleteReview = ({
   });
 };
 
-type GetReviewParams = {|
+export type GetReviewParams = {|
   apiState: ApiState,
   errorHandler: ErrorHandlerType,
   reviewId: number,
-|};
-
-export type GetReviewApiResponse = {|
-  ...PaginatedApiResponse<ExternalReviewType>,
 |};
 
 export const getReview = ({
   apiState,
   errorHandler,
   reviewId,
-}: GetReviewParams = {}): Promise<GetReviewApiResponse> => {
+}: GetReviewParams = {}): Promise<ExternalReviewType> => {
   invariant(reviewId, 'reviewId is required');
   return new Promise((resolve) => {
     resolve(

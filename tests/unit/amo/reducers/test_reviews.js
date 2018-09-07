@@ -3,6 +3,8 @@ import {
   deleteAddonReview,
   unloadAddonReviews,
   createInternalReview,
+  fetchReview,
+  fetchReviews,
   flagReview,
   hideEditReviewForm,
   hideFlashedReviewMessage,
@@ -107,9 +109,33 @@ describe(__filename, () => {
     expect(storedReview.reply.body).toEqual(replyBody);
   });
 
+  describe('FETCH_REVIEW', () => {
+    it('sets a loading flag when fetching a review', () => {
+      const reviewId = 1;
+      const state = reviewsReducer(
+        undefined,
+        fetchReview({ errorHandlerId: 1, reviewId }),
+      );
+
+      expect(state.view[reviewId].loadingReview).toEqual(true);
+    });
+  });
+
+  describe('FETCH_REVIEWS', () => {
+    it('sets a loading flag when fetching reviews', () => {
+      const addonSlug = 'some-slug';
+      const state = reviewsReducer(
+        undefined,
+        fetchReviews({ errorHandlerId: 1, addonSlug }),
+      );
+
+      expect(state.loadingForSlug[addonSlug]).toEqual(true);
+    });
+  });
+
   describe('SET_REVIEW', () => {
     it('calls _addReviewToState()', () => {
-      const _addReviewToState = sinon.spy();
+      const _addReviewToState = sinon.stub().returns(initialState);
 
       const review = fakeReview;
       reviewsReducer(undefined, setReview(review), {
@@ -120,6 +146,13 @@ describe(__filename, () => {
         state: initialState,
         review: createInternalReview(review),
       });
+    });
+
+    it('sets the loading flag to false', () => {
+      const review = fakeReview;
+      const state = reviewsReducer(undefined, setReview(fakeReview));
+
+      expect(state.view[review.id].loadingReview).toEqual(false);
     });
   });
 
@@ -293,6 +326,21 @@ describe(__filename, () => {
 
       expect(newState.byAddon.slug1.reviewCount).toEqual(1);
       expect(newState.byAddon.slug2.reviewCount).toEqual(2);
+    });
+
+    it('sets the loading flag to false', () => {
+      const addonSlug = 'some-slug';
+      const state = reviewsReducer(
+        undefined,
+        setAddonReviews({
+          addonSlug,
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [fakeReview],
+          reviewCount: 1,
+        }),
+      );
+
+      expect(state.loadingForSlug[addonSlug]).toEqual(false);
     });
   });
 
@@ -761,6 +809,7 @@ describe(__filename, () => {
         editingReview: false,
         flag: {},
         replyingToReview: false,
+        loadingReview: false,
         submittingReply: false,
       });
     });

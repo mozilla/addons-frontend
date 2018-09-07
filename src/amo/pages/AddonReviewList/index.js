@@ -72,6 +72,7 @@ type InternalProps = {|
   pageSize: number | null,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
+  reviewsAreLoading: boolean,
   siteUser: UserType | null,
 |};
 
@@ -97,6 +98,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       loadingReview,
       match: { params },
       reviews,
+      reviewsAreLoading,
     } = {
       ...this.props,
       ...nextProps,
@@ -107,29 +109,20 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       return;
     }
 
-    let shouldFetchAddon = false;
-    let { addonSlug } = params;
-    const { reviewId } = params;
+    const { addonSlug, reviewId } = params;
+
+    const slug =
+      addonSlug || featuredReview
+        ? addonSlug || featuredReview.addonSlug
+        : false;
 
     // If we have a reviewId, then the component is being accessed for a particular review.
-    if (reviewId) {
-      if (!featuredReview) {
-        if (!loadingReview) {
-          dispatch(fetchReview({ reviewId, errorHandlerId: errorHandler.id }));
-        }
-      } else {
-        shouldFetchAddon = !addon;
-        addonSlug = featuredReview.addonSlug;
-      }
-    } else {
-      shouldFetchAddon = !addon;
+    if (reviewId && !featuredReview && !loadingReview) {
+      dispatch(fetchReview({ reviewId, errorHandlerId: errorHandler.id }));
     }
 
-    if (shouldFetchAddon) {
-      if (!addonIsLoading) {
-        invariant(addonSlug, 'addonSlug is required');
-        dispatch(fetchAddon({ slug: addonSlug, errorHandler }));
-      }
+    if (!addon && !addonIsLoading && slug) {
+      dispatch(fetchAddon({ slug, errorHandler }));
     }
 
     if (
@@ -150,10 +143,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       location = nextProps.location;
     }
 
-    if (addon && addonSlug && (!reviews || locationChanged)) {
+    if (slug && !reviewsAreLoading && (!reviews || locationChanged)) {
       dispatch(
         fetchReviews({
-          addonSlug,
+          addonSlug: slug,
           errorHandlerId: errorHandler.id,
           // TODO: so, there is a test case (`it dispatches fetchReviews with
           // an invalid page variable`) that conflicts with `fetchReviews()`
@@ -365,7 +358,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           {featuredReview && (
             <Card
               header={featuredReviewHeader}
-              className="AddonReviewList-review"
+              className="AddonReviewList-featuredReview"
             >
               <AddonReviewCard
                 addon={addon}
@@ -381,7 +374,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           >
             <ul>
               {allReviews.map((review, index) => {
-                if (!featuredReview || review.id !== featuredReview.id) {
+                if (
+                  !featuredReview ||
+                  (review && review.id !== featuredReview.id)
+                ) {
                   return (
                     <li key={String(index)}>
                       <AddonReviewCard addon={addon} review={review} />
@@ -426,6 +422,9 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
         state: state.reviews,
         reviews: reviewData.reviews,
       }),
+    reviewsAreLoading: addonSlug
+      ? Boolean(state.reviews.loadingForSlug[addonSlug])
+      : false,
     siteUser: getCurrentUser(state.users),
   };
 }
@@ -438,11 +437,9 @@ export const extractId = (ownProps: InternalProps) => {
     },
   } = ownProps;
 
-  invariant(
-    addonSlug || reviewId,
-    'Either an addonSlug or a reviewId is required',
-  );
-  return `${addonSlug || reviewId}-${location.query.page || ''}`;
+  const id = addonSlug || reviewId;
+  invariant(id, 'Either an addonSlug or a reviewId is required');
+  return `${id}-${location.query.page || ''}`;
 };
 
 const AddonReviewList: React.ComponentType<Props> = compose(

@@ -6,6 +6,7 @@ import {
   deleteReview,
   flagReview,
   getLatestUserReview,
+  getReview,
   getReviews,
   replyToReview,
   submitReview,
@@ -429,6 +430,32 @@ describe(__filename, () => {
 
       await deleteReview(params);
       mockApi.verify();
+    });
+  });
+
+  describe('getReview', () => {
+    it('calls the API', async () => {
+      const params = {
+        apiState,
+        errorHandler: createStubErrorHandler(),
+        reviewId: fakeReview.id,
+      };
+      const fakeResponse = getReviewsResponse({ reviews: [fakeReview] });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `reviews/review/${params.reviewId}/`,
+          errorHandler: params.errorHandler,
+          method: 'GET',
+          apiState: params.apiState,
+        })
+        .returns(Promise.resolve(fakeResponse));
+
+      const response = await getReview(params);
+      mockApi.verify();
+      expect(response).toEqual(fakeResponse);
     });
   });
 });

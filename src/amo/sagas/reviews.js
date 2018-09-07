@@ -50,7 +50,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { AppState } from 'amo/store';
 import type {
   ExternalReviewReplyType,
-  GetReviewApiResponse,
+  ExternalReviewType,
   GetReviewsApiResponse,
   GetReviewParams,
   GetReviewsParams,
@@ -339,10 +339,11 @@ function* fetchReview({
 
     const params: GetReviewParams = {
       apiState: state.api,
+      errorHandler,
       reviewId,
     };
 
-    const response: GetReviewApiResponse = yield call(getReview, params);
+    const response: ExternalReviewType = yield call(getReview, params);
 
     yield put(setReview(response));
   } catch (error) {

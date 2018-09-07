@@ -4,6 +4,7 @@ import { oneLine } from 'common-tags';
 import {
   DELETE_ADDON_REVIEW,
   FETCH_REVIEW,
+  FETCH_REVIEWS,
   FLASH_REVIEW_MESSAGE,
   HIDE_FLASHED_REVIEW_MESSAGE,
   UNLOAD_ADDON_REVIEWS,
@@ -26,6 +27,7 @@ import {
 import type {
   DeleteAddonReviewAction,
   FetchReviewAction,
+  FetchReviewsAction,
   FlagReviewAction,
   FlashMessageType,
   HideEditReviewFormAction,
@@ -104,6 +106,9 @@ export type ReviewsState = {|
   },
   // Short-lived messages about reviews.
   flashMessage?: FlashMessageType,
+  loadingForSlug: {
+    [slug: string]: boolean,
+  },
 |};
 
 export const initialState: ReviewsState = {
@@ -115,6 +120,7 @@ export const initialState: ReviewsState = {
   // This stores review-related UI state.
   view: {},
   flashMessage: undefined,
+  loadingForSlug: {},
 };
 
 export const selectReview = (
@@ -280,6 +286,7 @@ export const addReviewToState = ({
 type ReviewActionType =
   | DeleteAddonReviewAction
   | FetchReviewAction
+  | FetchReviewsAction
   | FlagReviewAction
   | FlashReviewMessageAction
   | UnloadAddonReviewsAction
@@ -446,6 +453,18 @@ export default function reviewsReducer(
         },
       });
     }
+    case FETCH_REVIEWS: {
+      const {
+        payload: { addonSlug },
+      } = action;
+      return {
+        ...state,
+        loadingForSlug: {
+          ...state.loadingForSlug,
+          [addonSlug]: true,
+        },
+      };
+    }
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
@@ -462,6 +481,10 @@ export default function reviewsReducer(
             reviewCount: payload.reviewCount,
             reviews: reviews.map((review) => review.id),
           },
+        },
+        loadingForSlug: {
+          ...state.loadingForSlug,
+          [payload.addonSlug]: false,
         },
       };
     }
