@@ -144,7 +144,7 @@ describe(__filename, () => {
   });
 
   it('focuses the review text on mount', () => {
-    const root = mountRender();
+    mountRender();
     // This checks that reviewTextarea.focus() was called.
     expect(document.activeElement.className).toEqual('AddonReview-textarea');
   });
