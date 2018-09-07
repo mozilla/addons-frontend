@@ -249,13 +249,11 @@ describe(__filename, () => {
   it('renders without an add-on', () => {
     const errorHandler = createStubErrorHandler();
     const slugParam = 'some-addon'; // as passed through the URL.
-    const fakeDispatch = sinon.stub();
 
     // Simulate the case when an add-on has not been loaded into state yet.
     const root = shallowRender({
       addon: null,
       errorHandler,
-      dispatch: fakeDispatch,
       params: { slug: slugParam },
     });
 
