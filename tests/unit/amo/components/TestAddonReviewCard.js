@@ -120,6 +120,7 @@ describe(__filename, () => {
     siteUserId = 123,
     reviewUserId = siteUserId,
     externalReview = fakeReview,
+    reviewUserProps = {},
   } = {}) => {
     dispatchSignInActions({ store, userId: siteUserId });
     return _setReview({
@@ -127,6 +128,7 @@ describe(__filename, () => {
       user: {
         ...externalReview.user,
         id: reviewUserId,
+        ...reviewUserProps,
       },
     });
   };
@@ -789,6 +791,49 @@ describe(__filename, () => {
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  describe('byLine', () => {
+    function renderByLine(root) {
+      return shallow(root.prop('byLine'));
+    }
+
+    it('renders a byLine with an author by default', () => {
+      const i18n = fakeI18n();
+      const name = 'some_user';
+      const review = signInAndDispatchSavedReview({
+        reviewUserProps: { name },
+      });
+      const root = render({ i18n, review });
+
+      expect(renderByLine(root)).toHaveText(
+        `by ${name}, ${i18n.moment(review.created).fromNow()}`,
+      );
+    });
+
+    it('renders a short byLine for replies by default', () => {
+      const i18n = fakeI18n();
+      const addon = createInternalAddon(fakeAddon);
+      const { reply } = _setReviewReply({ addon });
+
+      const root = renderReply({ i18n, reply });
+
+      expect(root).toHaveProp(
+        'byLine',
+        `posted ${i18n.moment(reply.created).fromNow()}`,
+      );
+    });
+
+    it('renders a short byLine explicitly', () => {
+      const i18n = fakeI18n();
+      const review = signInAndDispatchSavedReview();
+      const root = render({ i18n, shortByLine: true, review });
+
+      expect(root).toHaveProp(
+        'byLine',
+        `posted ${i18n.moment(review.created).fromNow()}`,
+      );
+    });
   });
 
   describe('Developer reply to a review', () => {

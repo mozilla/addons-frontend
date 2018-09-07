@@ -46,6 +46,7 @@ type Props = {|
   isReplyToReviewId?: number,
   location: ReactRouterLocationType,
   review?: UserReviewType | null,
+  shortByLine?: boolean,
   showRating?: boolean,
 |};
 
@@ -280,6 +281,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       location,
       replyingToReview,
       review,
+      shortByLine,
       showRating,
       siteUser,
     } = this.props;
@@ -288,7 +290,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
-      if (this.isReply()) {
+      if (shortByLine || this.isReply()) {
         // translators: Example in English: "posted last week"
         byLine = i18n.sprintf(i18n.gettext('posted %(timestamp)s'), {
           timestamp,
@@ -296,7 +298,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       } else {
         byLine = (
           <span className="AddonReviewCard-authorByLine">
-            {/* translators: Example in English: "from UserName123, last week" */}
+            {/* translators: Example in English: "by UserName123, last week" */}
             {i18n.sprintf(i18n.gettext('by %(authorName)s, %(timestamp)s'), {
               authorName: review.userName,
               timestamp,

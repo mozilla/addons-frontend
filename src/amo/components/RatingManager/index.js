@@ -301,6 +301,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             flaggable={false}
             location={location}
             review={userReview}
+            shortByLine
             showRating={false}
           />
         )}
