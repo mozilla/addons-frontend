@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TransitionGroup } from 'react-transition-group';
 
 import createStore from 'amo/store';
 import AMInstallButton, {
@@ -119,7 +120,8 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    expect(root.type()).toEqual('div');
+    expect(root.type()).toEqual(TransitionGroup);
+    expect(root.find(TransitionGroup).prop('component')).toEqual('div');
     expect(root).toHaveClassName('AMInstallButton');
 
     const button = root.find(Button);
@@ -149,7 +151,8 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    expect(root.type()).toEqual('div');
+    expect(root.type()).toEqual(TransitionGroup);
+    expect(root.find(TransitionGroup).prop('component')).toEqual('div');
     expect(root).toHaveClassName('AMInstallButton');
 
     const button = root.find(Button);
