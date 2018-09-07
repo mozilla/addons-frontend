@@ -1,10 +1,41 @@
 @import '~core/css/styles';
 
-.AMInstallButton {
-  .AMInstallButton-AnimatedIcon-preloader {
-    display: none;
+@mixin animated-icon($name, $steps, $svgWidth, $width) {
+  @keyframes #{$name} {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-($svgWidth - $width));
+    }
   }
 
+  animation-duration: 1.05s;
+  animation-iteration-count: infinite;
+  animation-name: $name;
+  animation-timing-function: steps($steps);
+  background-image: url('./img/#{$name}.svg');
+  display: block;
+  height: 100%;
+  width: $svgWidth;
+
+  [dir='rtl'] & {
+    @keyframes #{$name}-rtl {
+      from {
+        transform: scaleX(-1) translateX(0);
+      }
+
+      to {
+        transform: scaleX(-1) translateX(-($svgWidth - $width));
+      }
+    }
+
+    animation-name: '#{$name}-rtl';
+  }
+}
+
+.AMInstallButton {
   .AMInstallButton-button {
     white-space: nowrap;
 
@@ -28,8 +59,28 @@
     text-align: center;
     width: 32px;
 
-    .AnimatedIcon-loading {
+    .AMInstallButton-loading-icon {
+      $width: 16px;
+
+      display: inline-block;
+      height: 4px;
       margin-top: 14px;
+      overflow-x: hidden;
+      width: $width;
+
+      .Icon-loading {
+        @include animated-icon(
+          $name: 'loading',
+          $steps: 60,
+          $svgWidth: 992px,
+          $width: $width
+        );
+      }
+
+      [dir='rtl'] & {
+        // For some reasons, there is a small horizontal offset in RTL mode.
+        margin-left: -1px;
+      }
     }
   }
 
@@ -37,7 +88,7 @@
     height: 48px;
     width: 48px;
 
-    .AnimatedIcon-loading {
+    .AMInstallButton-loading-icon {
       margin-top: 22px;
     }
   }

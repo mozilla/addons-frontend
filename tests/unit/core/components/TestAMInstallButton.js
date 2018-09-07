@@ -25,7 +25,6 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import * as themeInstall from 'core/themeInstall';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
-import AnimatedIcon from 'ui/components/AnimatedIcon';
 import Icon from 'ui/components/Icon';
 import {
   createContextWithFakeRouter,
@@ -469,7 +468,7 @@ describe(__filename, () => {
       expect(icon).toHaveLength(1);
       expect(icon).toHaveProp('name', 'delete');
 
-      expect(root.find(AnimatedIcon)).toHaveLength(0);
+      expect(root.find('.AMInstallButton-loading-icon')).toHaveLength(0);
     },
   );
 
@@ -487,7 +486,7 @@ describe(__filename, () => {
     expect(icon).toHaveLength(1);
     expect(icon).toHaveProp('name', 'plus-dark');
 
-    expect(root.find(AnimatedIcon)).toHaveLength(0);
+    expect(root.find('.AMInstallButton-loading-icon')).toHaveLength(0);
   });
 
   it('renders a "Add to Firefox" button when add-on is INACTIVE', () => {
@@ -499,7 +498,7 @@ describe(__filename, () => {
   });
 
   it.each([DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING])(
-    'renders an AnimatedIcon when add-on is %s',
+    'renders an Icon when add-on is %s',
     (status) => {
       const root = render({ status });
 
@@ -507,12 +506,12 @@ describe(__filename, () => {
       expect(root.find('.AMInstallButton-button')).toHaveLength(0);
 
       expect(root.find('.AMInstallButton-loading')).toHaveLength(1);
-      expect(root.find(AnimatedIcon)).toHaveLength(1);
-      expect(root.find(AnimatedIcon)).toHaveProp('name', 'loading');
+      expect(root.find(Icon)).toHaveLength(1);
+      expect(root.find(Icon)).toHaveProp('name', 'loading');
     },
   );
 
-  it('renders an AnimatedIcon when add-on is a static theme and status is INSTALLED', () => {
+  it('renders an Icon when add-on is a static theme and status is INSTALLED', () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeTheme,
@@ -525,31 +524,31 @@ describe(__filename, () => {
     expect(root.find('.AMInstallButton-button')).toHaveLength(0);
 
     expect(root.find('.AMInstallButton-loading')).toHaveLength(1);
-    expect(root.find(AnimatedIcon)).toHaveLength(1);
+    expect(root.find(Icon)).toHaveLength(1);
   });
 
-  it('sets an `alt` prop to the AnimatedIcon when status is DOWNLOADING', () => {
+  it('sets an `alt` prop to the Icon when status is DOWNLOADING', () => {
     const root = render({ status: DOWNLOADING });
 
-    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Downloading');
+    expect(root.find(Icon)).toHaveProp('alt', 'Downloading');
   });
 
-  it('sets an `alt` prop to the AnimatedIcon when status is ENABLING', () => {
+  it('sets an `alt` prop to the Icon when status is ENABLING', () => {
     const root = render({ status: ENABLING });
 
-    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Enabling');
+    expect(root.find(Icon)).toHaveProp('alt', 'Enabling');
   });
 
-  it('sets an `alt` prop to the AnimatedIcon when status is INSTALLING', () => {
+  it('sets an `alt` prop to the Icon when status is INSTALLING', () => {
     const root = render({ status: INSTALLING });
 
-    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Installing');
+    expect(root.find(Icon)).toHaveProp('alt', 'Installing');
   });
 
-  it('sets an `alt` prop to the AnimatedIcon when status is UNINSTALLING', () => {
+  it('sets an `alt` prop to the Icon when status is UNINSTALLING', () => {
     const root = render({ status: UNINSTALLING });
 
-    expect(root.find(AnimatedIcon)).toHaveProp('alt', 'Uninstalling');
+    expect(root.find(Icon)).toHaveProp('alt', 'Uninstalling');
   });
 
   it('calls the `uninstall` helper when uninstalling an add-on', () => {
