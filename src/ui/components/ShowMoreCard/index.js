@@ -34,6 +34,7 @@ type InternalProps = {|
   i18n: I18nType,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
+  children: React.Element<any>,
 |};
 
 const initialUIState: UIStateType = {
@@ -45,19 +46,33 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
   componentWillReceiveProps(nextProps: InternalProps) {
-    const html =
-      this.props.children.props.dangerouslySetInnerHTML &&
-      this.props.children.props.dangerouslySetInnerHTML.__html;
+    const { children } = this.props;
+    const { children: newChildren } = nextProps;
 
-    const htmlNew =
-      nextProps.children.props.dangerouslySetInnerHTML &&
-      nextProps.children.props.dangerouslySetInnerHTML.__html;
+    let html =
+      children.props &&
+      children.props.dangerouslySetInnerHTML &&
+      children.props.dangerouslySetInnerHTML.__html;
+
+    let newHtml =
+      newChildren.props &&
+      newChildren.props.dangerouslySetInnerHTML &&
+      newChildren.props.dangerouslySetInnerHTML.__html;
+
+    // If it's not html, let check that text too.
+    if (!html && children && !children.props) {
+      html = children;
+    }
+
+    if (newHtml !== 'undefined' && newChildren && !newChildren.props) {
+      newHtml = newChildren;
+    }
 
     // Reset UIState if component html has changed.
     // This is needed b/c if you return to an addon that you've
     // already visited the component doesn't hit unmount again and the store
     // keeps the last component's UIState which isn't what we want.
-    if (htmlNew && html !== htmlNew) {
+    if (newHtml && html !== newHtml) {
       this.props.setUIState({
         ...initialUIState,
       });
