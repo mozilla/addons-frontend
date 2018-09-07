@@ -60,4 +60,5 @@
 .AddonReviewManager-savedRating-hidden {
   opacity: 0;
   transition: opacity $transition-long ease-in-out;
+  visibility: collapse;
 }

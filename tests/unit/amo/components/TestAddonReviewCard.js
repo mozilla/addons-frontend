@@ -12,9 +12,9 @@ import {
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
-import AddonReviewListItem, {
-  AddonReviewListItemBase,
-} from 'amo/components/AddonReviewListItem';
+import AddonReviewCard, {
+  AddonReviewCardBase,
+} from 'amo/components/AddonReviewCard';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -40,6 +40,13 @@ import UserReview from 'ui/components/UserReview';
 describe(__filename, () => {
   let store;
 
+  // This is a review with only a rating, no text.
+  const fakeRatingOnly = Object.freeze({
+    ...fakeReview,
+    body: undefined,
+    rating: 4,
+  });
+
   beforeEach(() => {
     store = dispatchClientMetadata().store;
   });
@@ -53,8 +60,8 @@ describe(__filename, () => {
       ...customProps,
     };
     return shallowUntilTarget(
-      <AddonReviewListItem {...props} />,
-      AddonReviewListItemBase,
+      <AddonReviewCard {...props} />,
+      AddonReviewCardBase,
     );
   };
 
@@ -113,6 +120,7 @@ describe(__filename, () => {
     siteUserId = 123,
     reviewUserId = siteUserId,
     externalReview = fakeReview,
+    reviewUserProps = {},
   } = {}) => {
     dispatchSignInActions({ store, userId: siteUserId });
     return _setReview({
@@ -120,6 +128,7 @@ describe(__filename, () => {
       user: {
         ...externalReview.user,
         id: reviewUserId,
+        ...reviewUserProps,
       },
     });
   };
@@ -154,6 +163,28 @@ describe(__filename, () => {
     expect(rating).toHaveProp('byLine');
   });
 
+  it('renders a custom className', () => {
+    const className = 'ExampleClassName';
+    const root = render({ className });
+
+    expect(root).toHaveClassName(className);
+  });
+
+  it('passes bodyFallback to UserReview', () => {
+    const bodyFallback = 'placeholder for empty reviews';
+    const root = render({ bodyFallback });
+
+    const rating = root.find(UserReview);
+    expect(rating).toHaveProp('bodyFallback', bodyFallback);
+  });
+
+  it('can hide a rating explicitly', () => {
+    const root = render({ showRating: false, review: _setReview(fakeReview) });
+
+    const rating = root.find(UserReview);
+    expect(rating).toHaveProp('showRating', false);
+  });
+
   it('renders loading text for falsy reviews', () => {
     const root = render({ review: null });
 
@@ -165,9 +196,7 @@ describe(__filename, () => {
     dispatchSignInActions({ store });
     const root = render({ review: null });
 
-    expect(renderControls(root).find('.AddonReviewListItem-edit')).toHaveLength(
-      0,
-    );
+    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
 
   it('cannot edit without a review', () => {
@@ -186,21 +215,34 @@ describe(__filename, () => {
     });
     const root = render({ review });
 
-    expect(renderControls(root).find('.AddonReviewListItem-edit')).toHaveLength(
-      0,
-    );
+    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
 
   it('renders a delete link for a user review', () => {
     const review = signInAndDispatchSavedReview();
     const root = render({ review });
 
-    const deleteLink = renderControls(root).find('.AddonReviewListItem-delete');
+    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
     expect(deleteLink.children()).toHaveText('Delete my review');
     expect(deleteLink).toHaveProp(
       'message',
       'Do you really want to delete this review?',
+    );
+  });
+
+  it('renders a delete link for a user rating', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    const root = render({ review });
+
+    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
+    expect(deleteLink).toHaveLength(1);
+    expect(deleteLink.children()).toHaveText('Delete my rating');
+    expect(deleteLink).toHaveProp(
+      'message',
+      'Do you really want to delete this rating?',
     );
   });
 
@@ -211,9 +253,9 @@ describe(__filename, () => {
     });
     const root = render({ review });
 
-    expect(
-      renderControls(root).find('.AddonReviewListItem-delete'),
-    ).toHaveLength(0);
+    expect(renderControls(root).find('.AddonReviewCard-delete')).toHaveLength(
+      0,
+    );
   });
 
   it('dispatches deleteReview when a user deletes a review', () => {
@@ -222,9 +264,7 @@ describe(__filename, () => {
     const root = render({ review });
     const { errorHandler } = root.instance().props;
 
-    const deleteButton = renderControls(root).find(
-      '.AddonReviewListItem-delete',
-    );
+    const deleteButton = renderControls(root).find('.AddonReviewCard-delete');
     const deleteEvent = createFakeEvent();
 
     // This emulates a user clicking the delete button and confirming.
@@ -255,8 +295,8 @@ describe(__filename, () => {
     const root = render({ review });
 
     const controls = renderControls(root);
-    expect(controls.find('.AddonReviewListItem-deleting')).toHaveLength(1);
-    expect(controls.find('.AddonReviewListItem-delete')).toHaveLength(0);
+    expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(1);
+    expect(controls.find('.AddonReviewCard-delete')).toHaveLength(0);
   });
 
   it('renders a delete link when an error occurs when deleting a review', () => {
@@ -278,8 +318,8 @@ describe(__filename, () => {
     const root = render({ errorHandler, review });
 
     const controls = renderControls(root);
-    expect(controls.find('.AddonReviewListItem-deleting')).toHaveLength(0);
-    expect(controls.find('.AddonReviewListItem-delete')).toHaveLength(1);
+    expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(0);
+    expect(controls.find('.AddonReviewCard-delete')).toHaveLength(1);
   });
 
   it('lets you begin editing your review', () => {
@@ -287,7 +327,8 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
 
-    const editButton = renderControls(root).find('.AddonReviewListItem-edit');
+    const editButton = renderControls(root).find('.AddonReviewCard-edit');
+    expect(editButton.text()).toContain('Edit my review');
     const clickEvent = createFakeEvent();
     editButton.simulate('click', clickEvent);
 
@@ -298,6 +339,16 @@ describe(__filename, () => {
         reviewId: review.id,
       }),
     );
+  });
+
+  it('lets you edit your rating', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    const root = render({ review });
+
+    const editButton = renderControls(root).find('.AddonReviewCard-edit');
+    expect(editButton.text()).toContain('Edit my rating');
   });
 
   it('configures the edit-review form', () => {
@@ -320,6 +371,12 @@ describe(__filename, () => {
     expect(flag).toHaveProp('review', review);
     expect(flag).toHaveProp('location', location);
     expect(flag).toHaveProp('isDeveloperReply', false);
+  });
+
+  it('does not let you flag when declared as non-flaggable', () => {
+    const root = render({ flaggable: false, review: _setReview(fakeReview) });
+
+    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
   });
 
   it('lets you flag a developer reply', () => {
@@ -351,7 +408,7 @@ describe(__filename, () => {
     const root = render({ addon, review });
 
     const editButton = renderControls(root).find(
-      '.AddonReviewListItem-begin-reply',
+      '.AddonReviewCard-begin-reply',
     );
     expect(editButton).toHaveLength(1);
 
@@ -385,7 +442,7 @@ describe(__filename, () => {
     const root = render({ addon, review });
 
     expect(
-      renderControls(root).find('.AddonReviewListItem-begin-reply'),
+      renderControls(root).find('.AddonReviewCard-begin-reply'),
     ).toHaveLength(1);
   });
 
@@ -405,7 +462,7 @@ describe(__filename, () => {
     const root = render({ addon, review });
 
     expect(
-      renderControls(root).find('.AddonReviewListItem-begin-reply'),
+      renderControls(root).find('.AddonReviewCard-begin-reply'),
     ).toHaveLength(0);
     sinon.assert.notCalled(fakeDispatch);
   });
@@ -423,7 +480,7 @@ describe(__filename, () => {
     const root = render({ addon, review });
 
     expect(
-      renderControls(root).find('.AddonReviewListItem-begin-reply'),
+      renderControls(root).find('.AddonReviewCard-begin-reply'),
     ).toHaveLength(0);
   });
 
@@ -440,7 +497,7 @@ describe(__filename, () => {
     const root = render({ addon, review });
 
     expect(
-      renderControls(root).find('.AddonReviewListItem-begin-reply'),
+      renderControls(root).find('.AddonReviewCard-begin-reply'),
     ).toHaveLength(0);
   });
 
@@ -459,7 +516,7 @@ describe(__filename, () => {
 
     const root = render({ review });
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveLength(1);
     expect(textForm).toHaveProp('placeholder', 'Write a reply to this review.');
     expect(textForm).toHaveProp('submitButtonText', 'Publish reply');
@@ -476,7 +533,7 @@ describe(__filename, () => {
 
     const root = render({ review });
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveLength(1);
     expect(textForm).toHaveProp('text', replyBody);
     expect(textForm).toHaveProp('submitButtonText', 'Update reply');
@@ -489,7 +546,7 @@ describe(__filename, () => {
 
     const root = render({ review });
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveProp('text', null);
   });
 
@@ -500,7 +557,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ review });
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveProp('onDismiss');
 
     const onDismiss = textForm.prop('onDismiss');
@@ -522,7 +579,7 @@ describe(__filename, () => {
     const root = render({ review });
     const { errorHandler } = root.instance().props;
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveProp('onSubmit');
 
     const onSubmit = textForm.prop('onSubmit');
@@ -553,7 +610,7 @@ describe(__filename, () => {
 
     const root = render({ review });
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveProp('isSubmitting', true);
   });
 
@@ -563,7 +620,7 @@ describe(__filename, () => {
 
     const root = render({ review });
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveProp('isSubmitting', false);
   });
 
@@ -587,7 +644,7 @@ describe(__filename, () => {
 
     const root = render({ errorHandler, review });
 
-    const textForm = root.find('.AddonReviewListItem-reply-form');
+    const textForm = root.find('.AddonReviewCard-reply-form');
     expect(textForm).toHaveProp('isSubmitting', false);
   });
 
@@ -607,7 +664,7 @@ describe(__filename, () => {
     const root = render({ review });
 
     expect(
-      renderControls(root).find('.AddonReviewListItem-reply-form'),
+      renderControls(root).find('.AddonReviewCard-reply-form'),
     ).toHaveLength(0);
   });
 
@@ -639,7 +696,7 @@ describe(__filename, () => {
 
     // This link should be hidden now that a reply has been sent.
     expect(
-      renderControls(root).find('.AddonReviewListItem-begin-reply'),
+      renderControls(root).find('.AddonReviewCard-begin-reply'),
     ).toHaveLength(0);
   });
 
@@ -652,7 +709,7 @@ describe(__filename, () => {
     const root = render({ review: thisReview });
 
     expect(
-      renderControls(root).find('.AddonReviewListItem-reply-form'),
+      renderControls(root).find('.AddonReviewCard-reply-form'),
     ).toHaveLength(0);
   });
 
@@ -736,17 +793,74 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  describe('byLine', () => {
+    function renderByLine(root) {
+      return shallow(root.prop('byLine'));
+    }
+
+    it('renders a byLine with an author by default', () => {
+      const i18n = fakeI18n();
+      const name = 'some_user';
+      const review = signInAndDispatchSavedReview({
+        reviewUserProps: { name },
+      });
+      const root = render({ i18n, review });
+
+      expect(renderByLine(root)).toHaveText(
+        `by ${name}, ${i18n.moment(review.created).fromNow()}`,
+      );
+    });
+
+    it('renders a short byLine for replies by default', () => {
+      const i18n = fakeI18n();
+      const addon = createInternalAddon(fakeAddon);
+      const { reply } = _setReviewReply({ addon });
+
+      const root = renderReply({ i18n, reply });
+
+      expect(root).toHaveProp(
+        'byLine',
+        `posted ${i18n.moment(reply.created).fromNow()}`,
+      );
+    });
+
+    it('renders a short byLine explicitly', () => {
+      const i18n = fakeI18n();
+      const review = signInAndDispatchSavedReview();
+      const root = render({ i18n, shortByLine: true, review });
+
+      expect(root).toHaveProp(
+        'byLine',
+        `posted ${i18n.moment(review.created).fromNow()}`,
+      );
+    });
+  });
+
   describe('Developer reply to a review', () => {
     it('renders a nested reply', () => {
       const addon = createInternalAddon(fakeAddon);
       const { review, reply } = _setReviewReply({ addon });
       const root = render({ addon, review });
 
-      const replyComponent = root.find(AddonReviewListItem);
+      const replyComponent = root.find(AddonReviewCard);
       expect(replyComponent).toHaveLength(1);
       expect(replyComponent).toHaveProp('addon', addon);
       expect(replyComponent).toHaveProp('review', reply);
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
+    });
+
+    it('hides rating stars', () => {
+      const root = renderReply();
+
+      const rating = root.find(UserReview);
+      expect(rating).toHaveProp('showRating', false);
+    });
+
+    it('hides rating stars even with showRating=true', () => {
+      const root = renderReply({ showRating: true });
+
+      const rating = root.find(UserReview);
+      expect(rating).toHaveProp('showRating', false);
     });
 
     it('hides the reply-to-review link on the developer reply', () => {
@@ -754,7 +868,7 @@ describe(__filename, () => {
       const { addon } = signInAsAddonDeveloper({ developerUserId });
       const root = renderReply({ addon });
       expect(
-        renderControls(root).find('.AddonReviewListItem-begin-reply'),
+        renderControls(root).find('.AddonReviewCard-begin-reply'),
       ).toHaveLength(0);
     });
 
@@ -764,7 +878,7 @@ describe(__filename, () => {
 
       const root = render({ review });
 
-      const replyComponent = root.find(AddonReviewListItem);
+      const replyComponent = root.find(AddonReviewCard);
       expect(replyComponent).toHaveLength(0);
     });
 
@@ -772,7 +886,7 @@ describe(__filename, () => {
       const { reply } = _setReviewReply();
       const root = renderReply({ reply });
 
-      expect(root.find('.AddonReviewListItem-byline')).not.toIncludeText(
+      expect(root.find('.AddonReviewCard-byline')).not.toIncludeText(
         reply.userName,
       );
     });
@@ -787,7 +901,7 @@ describe(__filename, () => {
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const root = renderReply({ originalReviewId, reply: review });
 
-      const editButton = renderControls(root).find('.AddonReviewListItem-edit');
+      const editButton = renderControls(root).find('.AddonReviewCard-edit');
       expect(editButton.text()).toContain('Edit my reply');
       expect(editButton).toHaveLength(1);
 
@@ -810,9 +924,7 @@ describe(__filename, () => {
       });
       const root = renderReply({ originalReviewId, reply: review });
 
-      const deleteLink = renderControls(root).find(
-        '.AddonReviewListItem-delete',
-      );
+      const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
       expect(deleteLink).toHaveLength(1);
       expect(deleteLink.children()).toHaveText('Delete my reply');
       expect(deleteLink).toHaveProp(
@@ -834,9 +946,7 @@ describe(__filename, () => {
       const { errorHandler } = root.instance().props;
 
       const deleteEvent = createFakeEvent();
-      const deleteButton = renderControls(root).find(
-        '.AddonReviewListItem-delete',
-      );
+      const deleteButton = renderControls(root).find('.AddonReviewCard-delete');
       // This emulates a user clicking the delete button and confirming.
       const onDelete = deleteButton.prop('onConfirm');
       onDelete(deleteEvent);
@@ -859,18 +969,16 @@ describe(__filename, () => {
 
       const root = render({ review });
 
-      const formContainer = root.find('.AddonReviewListItem-reply');
+      const formContainer = root.find('.AddonReviewCard-reply');
       expect(formContainer).toHaveLength(1);
-      expect(
-        formContainer.find('.AddonReviewListItem-reply-header'),
-      ).toHaveLength(1);
+      expect(formContainer.find('.AddonReviewCard-reply-header')).toHaveLength(
+        1,
+      );
 
       const icon = formContainer.find(Icon);
       expect(icon).toHaveProp('name', 'reply-arrow');
 
-      expect(
-        formContainer.find('.AddonReviewListItem-reply-form'),
-      ).toHaveLength(1);
+      expect(formContainer.find('.AddonReviewCard-reply-form')).toHaveLength(1);
     });
   });
 });

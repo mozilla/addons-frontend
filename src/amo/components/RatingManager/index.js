@@ -12,6 +12,7 @@ import { setLatestReview } from 'amo/actions/reviews';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
@@ -113,7 +114,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   onSelectRating = (rating: number) => {
-    const { userReview, version } = this.props;
+    const { _config, userReview, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
@@ -133,7 +134,9 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
 
     return this.props.submitReview(params).then(() => {
-      this.setState({ showTextEntry: true });
+      if (!_config.get('enableInlineAddonReview')) {
+        this.setState({ showTextEntry: true });
+      }
     });
   };
 
@@ -180,6 +183,11 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   cancelTextEntry = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.setState({ showTextEntry: false });
+  };
+
+  showTextEntry = (event: SyntheticEvent<any>) => {
+    event.preventDefault();
+    this.setState({ showTextEntry: true });
   };
 
   isSignedIn() {
@@ -237,6 +245,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
           <div className="RatingManager-ratingControl">
             {!this.isSignedIn() ? this.renderLogInToRate() : null}
             <UserRating
+              className="RatingManager-UserRating"
               readOnly={!this.isSignedIn()}
               onSelectRating={this.onSelectRating}
               review={!this.isSignedIn() ? null : userReview}
@@ -248,7 +257,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { i18n, userReview } = this.props;
+    const { addon, i18n, location, userReview } = this.props;
 
     if (this.shouldShowTextEntry()) {
       invariant(userReview, 'userReview is required');
@@ -268,7 +277,36 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       );
     }
 
-    return this.renderUserRatingForm();
+    const bodyFallback = (
+      <div className="RatingManager-emptyReviewBody">
+        <Button
+          onClick={this.showTextEntry}
+          href="#writeReview"
+          buttonType="action"
+          puffy
+        >
+          {i18n.gettext('Write a review')}
+        </Button>
+      </div>
+    );
+
+    return (
+      <React.Fragment>
+        {this.renderUserRatingForm()}
+        {userReview && (
+          <AddonReviewCard
+            addon={addon}
+            bodyFallback={bodyFallback}
+            className="RatingManager-AddonReviewCard"
+            flaggable={false}
+            location={location}
+            review={userReview}
+            shortByLine
+            showRating={false}
+          />
+        )}
+      </React.Fragment>
+    );
   }
 
   render() {

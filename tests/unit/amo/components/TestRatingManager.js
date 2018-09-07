@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { createInternalAddon } from 'core/reducers/addons';
@@ -15,6 +16,7 @@ import { selectReview } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import RatingManager, {
   RatingManagerBase,
@@ -22,6 +24,7 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
+import Button from 'ui/components/Button';
 import UserRating from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
@@ -469,22 +472,15 @@ describe(__filename, () => {
       expect(root.find(AddonReviewManager)).toHaveLength(0);
     });
 
-    it('renders AddonReviewManager after submitting a rating', async () => {
+    it('does not show text entry after submitting a rating', async () => {
       const store = createStoreWithLatestReview();
       const root = renderInline({ store });
       expect(root.find(AddonReviewManager)).toHaveLength(0);
 
       await root.instance().onSelectRating(5);
 
-      // Apply setState() changes.
-      expect(root).toHaveState('showTextEntry', true);
-      root.update();
-
-      const manager = root.find(AddonReviewManager);
-      expect(manager).toHaveLength(1);
-      expect(manager).toHaveProp('review', root.instance().props.userReview);
-
-      expect(root.find(UserRating)).toHaveLength(0);
+      // Unlike the previous behavior, this should not enter the text entry state.
+      expect(root).toHaveState('showTextEntry', false);
     });
 
     it('hides AddonReviewManager when pressing the cancel button', async () => {
@@ -568,7 +564,7 @@ describe(__filename, () => {
       );
     });
 
-    it('prompts to cancel editng an existing review', async () => {
+    it('prompts to cancel editing an existing review', async () => {
       const root = renderInline({
         store: createStoreWithLatestReview({
           review: { ...fakeReview, body: 'This add-on is wonderful' },
@@ -580,6 +576,39 @@ describe(__filename, () => {
       expect(button.children()).toHaveText(
         "Nevermind, I don't want to edit my review",
       );
+    });
+
+    it('shows AddonReviewCard with a saved review', () => {
+      const location = createFakeLocation({ pathname: '/the/detail/page' });
+      const review = {
+        ...fakeReview,
+        body: 'This is hands down the best ad blocker',
+      };
+      const root = renderInline({
+        location,
+        store: createStoreWithLatestReview({ review }),
+      });
+
+      const reviewCard = root.find(AddonReviewCard);
+      expect(reviewCard).toHaveProp('review', createInternalReview(review));
+      expect(reviewCard).toHaveProp('location', location);
+    });
+
+    it('configures AddonReviewCard with a write review button for ratings', () => {
+      const review = { ...fakeReview, body: undefined };
+      const root = renderInline({
+        store: createStoreWithLatestReview({ review }),
+      });
+
+      const reviewCard = root.find(AddonReviewCard);
+      expect(reviewCard).toHaveProp('bodyFallback');
+
+      const bodyFallback = shallow(reviewCard.prop('bodyFallback'));
+      bodyFallback.find(Button).simulate('click', createFakeEvent());
+      root.update();
+
+      expect(root.find(AddonReviewCard)).toHaveLength(0);
+      expect(root.find(AddonReviewManager)).toHaveLength(1);
     });
   });
 
