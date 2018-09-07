@@ -19,15 +19,9 @@ type InternalProps = {|
   WrappedComponent: Function,
 |};
 
-export const withExperiment = ({
-  nameId,
-  AName,
-  BName,
-}: {|
-  nameId: string,
-  AName: string,
-  BName: string,
-|}) => (WrappedComponent: Function) => {
+export const withExperiment = ({ nameId, AName, BName }: Props) => (
+  WrappedComponent: Function,
+) => {
   class WithExperiment extends React.Component<InternalProps> {
     abTestCookie: string | void;
 
