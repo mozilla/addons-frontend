@@ -456,12 +456,6 @@ export class AddonBase extends React.Component {
       ? addonsByAuthors.length
       : 0;
 
-    const downloadUrl = `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
-      {
-        utm_content: 'install-addon-button',
-      },
-    )}`;
-
     const isFireFox =
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
     const enableAddonRecommendations =
@@ -544,7 +538,11 @@ export class AddonBase extends React.Component {
                 {showGetFirefoxButton && (
                   <Button
                     buttonType="confirm"
-                    href={downloadUrl}
+                    href={`https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
+                      {
+                        utm_content: addon.guid,
+                      },
+                    )}`}
                     puffy
                     className="Button--get-firefox"
                   >
