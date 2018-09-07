@@ -7,7 +7,7 @@ import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
-import { experiment } from 'core/components/Experiment';
+import { withExperiment } from 'core/withExperiment';
 
 import './styles.scss';
 
@@ -240,7 +240,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
 const HomeHeroBanner: React.ComponentType<Props> = compose(
   translate(),
-  experiment({
+  withExperiment({
     nameId: AB_HOME_HERO_TEST_NAME,
     AName: AB_HOME_HERO_VARIANT_A,
     BName: AB_HOME_HERO_VARIANT_B,
