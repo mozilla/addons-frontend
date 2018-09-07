@@ -594,7 +594,7 @@ describe(__filename, () => {
       expect(reviewCard).toHaveProp('location', location);
     });
 
-    it('configures AddonReviewCard to show a write review button for ratings', () => {
+    it('configures AddonReviewCard with a write review button for ratings', () => {
       const review = { ...fakeReview, body: undefined };
       const root = renderInline({
         store: createStoreWithLatestReview({ review }),
