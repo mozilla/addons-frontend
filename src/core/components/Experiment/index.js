@@ -73,7 +73,7 @@ export class Experiment extends React.Component<InternalProps> {
       this.abTestCookie =
         randomizer() >= 0.5 ? `AB_${nameId}_${AName}` : `AB_${nameId}_${BName}`;
       _cookie.save(`AB_${nameId}_COOKIE`, this.abTestCookie, {
-        path: '/',
+        path: '/', // TODO: make this flexible too possibly.
       });
     }
 
