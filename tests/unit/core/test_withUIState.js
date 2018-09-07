@@ -128,7 +128,7 @@ describe(__filename, () => {
       const root = shallow(
         <NonResettingOverlay store={store} id="some-component-id" />,
       )
-        .find('WithUIState')
+        .find('WithUIState(OverlayBase)')
         .dive();
 
       root.unmount();
@@ -150,7 +150,7 @@ describe(__filename, () => {
       const root = shallow(
         <AutoResettingOverlay store={store} id="some-component-id" />,
       )
-        .find('WithUIState')
+        .find('WithUIState(OverlayBase)')
         .dive();
 
       const { uiStateID } = root.instance().props;

@@ -146,9 +146,7 @@ describe(__filename, () => {
   it('focuses the review text on mount', () => {
     const root = mountRender();
     // This checks that reviewTextarea.focus() was called.
-    expect(
-      root.find('.AddonReview-textarea').matchesElement(document.activeElement),
-    ).toEqual(true);
+    expect(document.activeElement.className).toEqual('AddonReview-textarea');
   });
 
   it('it passes onEscapeOverlay to OverlayCard', () => {
