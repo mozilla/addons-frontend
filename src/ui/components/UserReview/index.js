@@ -38,8 +38,16 @@ function reviewBody({
   } else {
     bodyAttr.dangerouslySetInnerHTML = html;
   }
-  // eslint-disable-next-line react/no-danger-with-children
-  return <div className="UserReview-body" {...bodyAttr} />;
+
+  return (
+    <div
+      className={makeClassName('UserReview-body', {
+        // Add an extra class if the content is an empty string.
+        'UserReview-emptyBody': !content && !html,
+      })}
+      {...bodyAttr}
+    />
+  );
 }
 
 const UserReview: React.ComponentType<Props> = ({

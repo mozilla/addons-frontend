@@ -76,6 +76,27 @@ describe(__filename, () => {
     expect(root.find('.UserReview-body')).toHaveText('');
   });
 
+  it('adds UserReview-emptyBody for an empty body', () => {
+    const root = render({
+      review: _setReview({ ...fakeReview, body: undefined }),
+    });
+
+    const body = root.find('.UserReview-body');
+    expect(body).toHaveClassName('UserReview-emptyBody');
+  });
+
+  it('does not add UserReview-emptyBody when there is a body', () => {
+    const root = render({
+      review: _setReview({
+        ...fakeReview,
+        body: 'This add-on is fantastic',
+      }),
+    });
+
+    const body = root.find('.UserReview-body');
+    expect(body).not.toHaveClassName('UserReview-emptyBody');
+  });
+
   it('can hide ratings', () => {
     const root = render({ showRating: false });
 
