@@ -83,6 +83,98 @@ describe(__filename, () => {
     expect(contents).toHaveText('Hello I am description');
   });
 
+  it('dispatches if the html children has changed', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    /* eslint-disable react/no-danger */
+    const root = render({
+      store,
+      children: (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: '<span>First component text.</span>',
+          }}
+        />
+      ),
+    });
+
+    root.setProps({
+      children: (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: '<span>This is different Text.</span>',
+          }}
+        />
+      ),
+    });
+    /* eslint-enable react/no-danger */
+
+    sinon.assert.called(dispatchSpy);
+  });
+
+  it('dispatches if the children has changed', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({
+      store,
+      children: 'Some text',
+    });
+
+    root.setProps({
+      children: 'Some new text',
+    });
+
+    sinon.assert.called(dispatchSpy);
+  });
+
+  it('does not dispatch if the html children is the same', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    /* eslint-disable react/no-danger */
+    const root = render({
+      store,
+      children: (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: '<span>Some component text.</span>',
+          }}
+        />
+      ),
+    });
+
+    root.setProps({
+      children: (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: '<span>Some component text.</span>',
+          }}
+        />
+      ),
+    });
+    /* eslint-enable react/no-danger */
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not dispatch if the children is the same', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({
+      store,
+      children: 'Some text',
+    });
+
+    root.setProps({
+      children: 'Some text',
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
   it('executes truncateToMaxHeight when it receives props', () => {
     const root = render();
 
@@ -100,6 +192,26 @@ describe(__filename, () => {
     root.setProps();
 
     sinon.assert.calledWith(truncateToMaxHeight, contentNode);
+  });
+
+  it('does not execute truncateToMaxHeight when "read more" has been expanded', () => {
+    const { store } = dispatchClientMetadata();
+
+    // Simulating read more has been expanded already.
+    const root = render({
+      store: {
+        ...store,
+        store: {
+          uiState: {
+            readMoreExpanded: true,
+          },
+        },
+      },
+    });
+
+    const truncateSpy = sinon.spy(root.instance(), 'truncateToMaxHeight');
+
+    sinon.assert.notCalled(truncateSpy);
   });
 
   describe('extractId', () => {
