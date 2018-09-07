@@ -46,6 +46,13 @@
     }
   }
 
+  // Preload the loading animation SVG to prevent a flicker at the start of the
+  // animation.
+  .AMInstallButton-button:hover {
+    background-image: url('./img/loading.svg');
+    background-size: 0, 0;
+  }
+
   .AMInstallButton-button--enable {
     .Icon {
       margin-top: inherit;
