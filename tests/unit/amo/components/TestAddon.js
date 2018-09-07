@@ -294,7 +294,7 @@ describe(__filename, () => {
     const slug = 'some-addon';
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderComponent({ params: { slug }, store });
+    const root = renderComponent({ addon: undefined, params: { slug }, store });
 
     // Since there's no add-on, it should be fetched on load.
     sinon.assert.calledWith(
@@ -320,7 +320,12 @@ describe(__filename, () => {
     );
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    renderComponent({ errorHandler, params: { slug }, store });
+    renderComponent({
+      addon: undefined,
+      errorHandler,
+      params: { slug },
+      store,
+    });
 
     sinon.assert.notCalled(dispatchSpy);
   });
