@@ -11,7 +11,6 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import './styles.scss';
 
 type Props = {|
-  bodyFallback?: React.Node | string,
   byLine: React.Node | null,
   children?: React.Node,
   className?: string,
@@ -44,7 +43,6 @@ function reviewBody({
 }
 
 const UserReview: React.ComponentType<Props> = ({
-  bodyFallback,
   byLine,
   children,
   className,
@@ -59,8 +57,6 @@ const UserReview: React.ComponentType<Props> = ({
       body = reviewBody({
         html: sanitizeHTML(nl2br(review.body), ['br']),
       });
-    } else if (bodyFallback) {
-      body = reviewBody({ content: bodyFallback });
     } else {
       body = reviewBody({ content: '' });
     }

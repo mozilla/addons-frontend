@@ -76,48 +76,6 @@ describe(__filename, () => {
     expect(root.find('.UserReview-body')).toHaveText('');
   });
 
-  it('can render a fallback for reviews without a body', () => {
-    const bodyFallback = 'some kind of placeholder';
-    const root = render({
-      bodyFallback,
-      review: _setReview({ ...fakeReview, body: undefined }),
-    });
-
-    expect(root.find('.UserReview-body')).toHaveText(bodyFallback);
-  });
-
-  it('only renders a fallback when the review body is empty', () => {
-    const body = 'This is an actual review';
-    const bodyFallback = 'some kind of placeholder';
-    const root = render({
-      bodyFallback,
-      review: _setReview({ ...fakeReview, body }),
-    });
-
-    expect(root.find('.UserReview-body')).not.toHaveText(bodyFallback);
-    expect(
-      root
-        .find('.UserReview-body')
-        .render()
-        .text(),
-    ).toEqual(body);
-  });
-
-  it('renders without a review body and without a fallback', () => {
-    const root = render({
-      bodyFallback: undefined,
-      review: _setReview({ ...fakeReview, body: undefined }),
-    });
-
-    expect(
-      root
-        .find('.UserReview-body')
-        .render()
-        .text(),
-    ).toEqual('');
-    expect(root.find(LoadingText)).toHaveLength(0);
-  });
-
   it('can hide ratings', () => {
     const root = render({ showRating: false });
 

@@ -40,7 +40,6 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
-  bodyFallback?: React.Node | string,
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
@@ -180,10 +179,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       return i18n.gettext('Edit my reply');
     }
 
-    if (this.isRatingOnly()) {
-      return i18n.gettext('Edit my rating');
-    }
-
     return i18n.gettext('Edit my review');
   }
 
@@ -270,7 +265,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   render() {
     const {
       addon,
-      bodyFallback,
       className,
       deletingReview,
       editingReview,
@@ -324,13 +318,15 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 review={review}
               />
             ) : null}
-            <a
-              href="#edit"
-              onClick={this.onClickToEditReview}
-              className="AddonReviewCard-edit AddonReviewCard-control"
-            >
-              {this.editPrompt()}
-            </a>
+            {!this.isRatingOnly() && (
+              <a
+                href="#edit"
+                onClick={this.onClickToEditReview}
+                className="AddonReviewCard-edit AddonReviewCard-control"
+              >
+                {this.editPrompt()}
+              </a>
+            )}
             {deletingReview && !errorHandler.hasError() ? (
               <span className="AddonReviewCard-control AddonReviewCard-deleting">
                 {i18n.gettext('Deleting…')}
@@ -386,11 +382,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     return (
       <UserReview
-        bodyFallback={bodyFallback}
-        className={makeClassName('AddonReviewCard', className)}
+        className={makeClassName('AddonReviewCard', className, {
+          'AddonReviewCard-ratingOnly': this.isRatingOnly(),
+        })}
         controls={controls}
         review={review}
-        byLine={byLine}
+        byLine={!this.isRatingOnly() && byLine}
         showRating={!this.isReply() && showRating}
       >
         {errorHandler.renderErrorIfPresent()}
