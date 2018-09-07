@@ -122,8 +122,4 @@ $avatar-size: 64px;
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
   padding: 12px;
-
-  a {
-    @include margin-start(6px);
-  }
 }

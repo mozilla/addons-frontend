@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import AddonReview from 'amo/components/AddonReview';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
+import Link from 'amo/components/Link';
 import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -41,6 +42,7 @@ import './styles.scss';
 type Props = {|
   addon?: AddonType | null,
   isReplyToReviewId?: number,
+  isUserProfile?: boolean,
   location: ReactRouterLocationType,
   review?: UserReviewType | null,
 |};
@@ -214,6 +216,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
       i18n,
       siteUserHasReplyPerm,
       isReplyToReviewId,
+      isUserProfile,
       location,
       replyingToReview,
       review,
@@ -221,20 +224,42 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
     } = this.props;
 
     let byLine;
-    const isReply = isReplyToReviewId !== undefined;
+    const isReply =
+      isReplyToReviewId !== undefined || (review && review.isDeveloperReply);
 
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
       if (isReply) {
-        // translators: Example in English: "posted last week"
-        byLine = i18n.sprintf(i18n.gettext('posted %(timestamp)s'), {
-          timestamp,
-        });
+        byLine = isUserProfile ? (
+          <span>
+            {i18n.gettext('Developer response')}
+            <Link
+              title={i18n.gettext('Browse the reviews for this add-on')}
+              to={`/addon/${review.addonSlug}/reviews/`}
+            >
+              {timestamp}
+            </Link>
+          </span>
+        ) : (
+          // translators: Example in English: "posted last week"
+          i18n.sprintf(i18n.gettext('posted %(timestamp)s'), {
+            timestamp,
+          })
+        );
       } else {
-        // translators: Example in English: "from UserName123, last week"
-        byLine = i18n.sprintf(
-          i18n.gettext('by %(authorName)s, %(timestamp)s'),
-          { authorName: review.userName, timestamp },
+        // translators: Example in English: "by UserName123, last week"
+        byLine = !isUserProfile ? (
+          i18n.sprintf(i18n.gettext('by %(authorName)s, %(timestamp)s'), {
+            authorName: review.userName,
+            timestamp,
+          })
+        ) : (
+          <Link
+            title={i18n.gettext('Browse the reviews for this add-on')}
+            to={`/addon/${review.addonSlug}/reviews/`}
+          >
+            {timestamp}
+          </Link>
         );
       }
     } else {
@@ -312,7 +337,7 @@ export class AddonReviewListItemBase extends React.Component<InternalProps> {
           </a>
         ) : null}
 
-        {review ? (
+        {review && siteUser.id !== review.userId ? (
           <FlagReviewMenu
             isDeveloperReply={isReply}
             location={location}

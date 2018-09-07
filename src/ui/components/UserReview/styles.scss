@@ -33,4 +33,8 @@
   color: $sub-text-color;
   display: flex;
   font-size: $font-size-s;
+
+  a {
+    @include margin-start(6px);
+  }
 }

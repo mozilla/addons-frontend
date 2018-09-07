@@ -1,5 +1,4 @@
 /* @flow */
-import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -8,6 +7,7 @@ import { compose } from 'redux';
 
 import { fetchUserReviews } from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
+import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
@@ -42,7 +42,6 @@ import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
-import UserReview from 'ui/components/UserReview';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
@@ -214,30 +213,16 @@ export class UserProfileBase extends React.Component<InternalProps> {
         header={i18n.gettext('My reviews')}
       >
         <ul>
-          {reviews.map((review) => {
-            const isDeveloperReply = review && review.isDeveloperReply;
-
-            const byLine = (
-              <span>
-                {isDeveloperReply && i18n.gettext('Developer response')}
-                <Link
-                  title={i18n.gettext('Browse the reviews for this add-on')}
-                  to={`/addon/${review.addonSlug}/reviews/`}
-                >
-                  {i18n.moment(review.created).fromNow()}
-                </Link>
-              </span>
-            );
-
+          {reviews.map((review, index) => {
             return (
-              <li key={String(review.id)}>
-                <UserReview
-                  className={makeClassName('UserProfile-review', {
-                    'UserProfile-review--is-reply': isDeveloperReply,
-                  })}
+              <li key={String(index)}>
+                <AddonReviewListItem
+                  // TODO: We're going to need addon once my patch to unload add-ons on
+                  // delete lands, or maybe do something different in the reducer/saga.
+                  // addon={addon}
+                  location={location}
+                  isUserProfile
                   review={review}
-                  byLine={byLine}
-                  showRating={!isDeveloperReply}
                 />
               </li>
             );
