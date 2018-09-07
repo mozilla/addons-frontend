@@ -97,13 +97,11 @@ describe(__filename, () => {
   });
 
   it('focuses the textarea on mount', () => {
-    const root = mountRender();
+    mountRender();
     // This checks that textarea.focus() was called.
-    expect(
-      root
-        .find('textarea.DismissibleTextForm-textarea')
-        .matchesElement(document.activeElement),
-    ).toEqual(true);
+    expect(document.activeElement.className).toEqual(
+      'DismissibleTextForm-textarea',
+    );
   });
 
   it('calls back when dismissing the textarea', () => {
