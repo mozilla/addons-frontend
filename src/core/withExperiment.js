@@ -33,8 +33,8 @@ export const withExperiment = ({
 
     static defaultProps = {
       nameId,
-      AName: ANameVariant,
-      BName: BNameVariant,
+      AName,
+      BName,
       _cookie: cookie,
       _tracking: tracking,
       randomizer: Math.random,
@@ -44,8 +44,8 @@ export const withExperiment = ({
       const {
         _cookie,
         _tracking,
-        AName,
-        BName,
+        AName: ANameVariant,
+        BName: BNameVariant,
         nameId: abNameId,
         randomizer,
       } = this.props;
