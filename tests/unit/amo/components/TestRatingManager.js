@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { createInternalAddon } from 'core/reducers/addons';
@@ -24,7 +23,6 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import Button from 'ui/components/Button';
 import UserRating from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
