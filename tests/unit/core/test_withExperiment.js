@@ -37,31 +37,41 @@ describe(__filename, () => {
       fakeTracking = createFakeTracking();
     });
 
-    it('sets cookie to contain one of the variant names', () => {
+    it('sets abTestIsOn prop to be true or false', () => {
       const nameId = 'Hero';
       const AName = 'Big';
       const BName = 'Small';
       const root = render({ nameId, AName, BName });
 
-      const choices = [`AB_${nameId}_${AName}`, `AB_${nameId}_${BName}`];
+      const choices = [true, false];
 
-      const { variant } = root.instance().props;
+      const { abTestIsOn } = root.instance().props;
 
-      expect(choices).toEqual(expect.arrayContaining([variant]));
+      expect(choices).toEqual(expect.arrayContaining([abTestIsOn]));
+    });
+
+    it('sets cookie to contain one of the variant names', () => {
+      // TODO
     });
 
     it('calls cookie save if cookie is not set yet', () => {
       // TODO
     });
 
-    it('calls tracking on page view', () => {
+    it('calls tracking on home page view', () => {
       const nameId = 'someTestName';
-      const root = render({ nameId, _tracking: fakeTracking });
-      const { variant } = root.instance().props;
+      const AName = 'VersionA';
+      const BName = 'VersionB';
+      const root = render({ AName, BName, nameId, _tracking: fakeTracking });
+      const { abTestIsOn } = root.instance().props;
+
+      const variantName = abTestIsOn
+        ? `AB_TEST_${nameId}_${AName}`
+        : `AB_TEST_${nameId}_${BName}`;
 
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         action: `${nameId} Page View`,
-        category: `AMO ${variant}`,
+        category: `AMO ${variantName}`,
         label: '',
       });
 
@@ -69,10 +79,20 @@ describe(__filename, () => {
     });
 
     it('calls tracking on hero click', () => {
+      // TODO: isolate this just to click?.
+
       const nameId = 'someTestName';
+      const AName = 'VersionA';
+      const BName = 'VersionB';
       const addonUrl = '/some-test-url';
+
       const root = render({ nameId, _tracking: fakeTracking });
-      const { variant } = root.instance().props;
+
+      const { abTestIsOn } = root.instance().props;
+
+      const variantName = abTestIsOn
+        ? `AB_TEST_${nameId}_${AName}`
+        : `AB_TEST_${nameId}_${BName}`;
 
       root.instance().props.trackClick(
         createFakeEvent({
@@ -85,12 +105,16 @@ describe(__filename, () => {
       );
 
       sinon.assert.calledWith(fakeTracking.sendEvent, {
-        action: `${nameId} Click`,
-        category: `AMO ${variant}`,
-        label: addonUrl,
+        action: `${nameId} Page View`,
+        category: `AMO ${variantName}`,
+        label: '',
       });
 
-      sinon.assert.called(fakeTracking.sendEvent);
+      sinon.assert.calledWith(fakeTracking.sendEvent, {
+        action: `${nameId} Click`,
+        category: `AMO ${variantName}`,
+        label: addonUrl,
+      });
     });
   });
 });
