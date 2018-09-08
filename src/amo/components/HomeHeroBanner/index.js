@@ -14,7 +14,7 @@ import './styles.scss';
 type Props = {|
   i18n: I18nType,
   trackClick: () => void,
-  abTestIsOn: boolean,
+  experimentIsOn: boolean,
 |};
 
 export const AB_HOME_HERO_TEST_NAME = 'HOME_HERO';
@@ -225,7 +225,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
   render() {
     const homeBannerClass = makeClassName('HomeHeroBanner', {
-      'HomeHeroBanner--a': this.props.abTestIsOn,
+      'HomeHeroBanner--a': this.props.experimentIsOn,
     });
 
     return (

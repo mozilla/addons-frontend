@@ -91,9 +91,7 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
         ...props
       } = this.props;
 
-      invariant(abNameId, 'nameId is required');
-
-      // We'll call AName variant "on" variant.
+      // We'll call AName variant "on" or "true" variant.
       const isOn =
         _cookie.load(`AB_${abNameId}_COOKIE`) ===
         `AB_TEST_${abNameId}_${ANameVariant}`;
@@ -106,7 +104,7 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
         <WrappedComponent
           {...exposedPropHelpers}
           {...props}
-          abTestIsOn={isOn}
+          experimentIsOn={isOn}
         />
       );
     }
