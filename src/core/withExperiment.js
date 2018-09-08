@@ -53,8 +53,8 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
       if (this.abTestCookie === undefined) {
         this.abTestCookie =
           randomizer() >= 0.5
-            ? `AB_${abNameId}_${ANameVariant}`
-            : `AB_${abNameId}_${BNameVariant}`;
+            ? `AB_TEST_${abNameId}_${ANameVariant}`
+            : `AB_TEST_${abNameId}_${BNameVariant}`;
         _cookie.save(`AB_${abNameId}_COOKIE`, this.abTestCookie, {
           path: '/', // TODO: make this flexible too possibly.
         });
@@ -84,9 +84,19 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
     };
 
     render() {
-      const { _cookie, nameId: abNameId, ...props } = this.props;
+      const {
+        _cookie,
+        nameId: abNameId,
+        AName: ANameVariant,
+        ...props
+      } = this.props;
 
       invariant(abNameId, 'nameId is required');
+
+      // We'll call AName variant "on" variant.
+      const isOn =
+        _cookie.load(`AB_${abNameId}_COOKIE`) ===
+        `AB_TEST_${abNameId}_${ANameVariant}`;
 
       const exposedPropHelpers = {
         trackClick: (...args) => this.trackClick(...args),
@@ -96,7 +106,7 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
         <WrappedComponent
           {...exposedPropHelpers}
           {...props}
-          variant={_cookie.load(`AB_${abNameId}_COOKIE`)}
+          abTestIsOn={isOn}
         />
       );
     }
