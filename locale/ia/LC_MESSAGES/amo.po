@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-08 10:57+0000\n"
+"PO-Revision-Date: 2018-09-08 11:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -128,7 +128,7 @@ msgstr "Additivo favorite"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Restart Required"
-msgstr "Reinitio requirite"
+msgstr "Reinitio necesse"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
@@ -144,7 +144,7 @@ msgstr "Alcun functionalitates pote ser a pagamento"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Tu debe <a href=\"%(downloadUrl)s\">discargar Firefox</a> pro installar iste additivo."
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
@@ -164,7 +164,7 @@ msgstr "Iste additivo non es disponibile sur tu systema operative."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Iste additivo require un <a href=\"%(downloadUrl)s\">version plus recente de Firefox</a> (al minus version %(minVersion)s). Tu usa Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:94
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
