@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-08 20:32+0000\n"
+"PO-Revision-Date: 2018-09-08 20:50+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -727,15 +727,15 @@ msgstr "Cancellar"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "Ordinar additivos per"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "Plus recente primo"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "Plus vetere prime"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
@@ -755,11 +755,11 @@ msgstr "Supportar iste disveloppatores"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Le disveloppator de iste extension te demanda adjuta pro supportar su continuation del disveloppamento per un micre donation."
 
 #: src/amo/components/ContributeCard/index.js:39
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Le disveloppatores de iste extension te demanda adjuta pro supportar su continuation del disveloppamento per un micre donation."
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this artist"
@@ -771,11 +771,11 @@ msgstr "Supportar iste artistas"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Le artista de iste thema te demanda adjuta pro supportar su continuation del creation per un micre donation."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Le artistas de iste thema te demanda adjuta pro supportar su continuation del creation per un micre donation."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this author"
@@ -787,15 +787,15 @@ msgstr "Supportar iste autores"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Le autor de iste additivo te demanda adjuta a supportar su continuation del labor per un micre donation."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Le autores de iste additivo te demanda adjuta a supportar su continuation del labor per un micre donation."
 
 #: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
-msgstr ""
+msgstr "Dona ora"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:40 src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
@@ -815,7 +815,7 @@ msgstr "Commento del usator"
 
 #: src/amo/components/EditableCollectionAddon/index.js:159
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "Adde un commento circa iste additivo."
 
 #: src/amo/components/EditableCollectionAddon/index.js:160
 msgid "Save"
@@ -823,11 +823,11 @@ msgstr "Salvar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:181
 msgid "Edit"
-msgstr "Editar"
+msgstr "Modificar"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr ""
+msgstr "Si tu es connexe e pensa que iste message es un error, per favor <a href=\"%(url)s\">indica un problema</a>. Conta nos de ubi tu veniva e lo que tu tentava de acceder, e nos reparara le problema."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
@@ -835,23 +835,23 @@ msgstr "Non autorisate"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Pardono, ma tu non es autorisate ad acceder iste pagina. Si tu non es connexe, prova a authenticar te per le ligamine al apice del pagina."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "Si tu sequeva un ligamine ex alicubi, per favor <a href=\"%(url)s\">indica un problema</a>. Conta nos ab ubi tu veniva e lo que tu cercava, e nos facera nostre melio pro reparar illo."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:41
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Iste additivo ha essite removite per su autor."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:43
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "Iste additivo ha essite disactivate per un administrator."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:47
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr ""
+msgstr "Pardono, ma nos non pote trovar tote le cosas al adresse que tu specificava."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -862,6 +862,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Si tu ha altere informationes pro adjutar nos tu pote <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">indicar un problema</a>. Conta nos qual grados tu faceva ducente al error e "
+"nos facera nostre melio pro reparar illo."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -869,15 +871,15 @@ msgstr "Error de servitor"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Pardono, ma il ha habite un error con nostre servitor e nos non pote completar tu requesta. Nos ha registrate iste error e investigara re illo."
 
 #: src/amo/components/FlagReviewMenu/index.js:107
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Isto es un reporto de defecto o requesta de supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:110
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Signalate como un reporto de defecto o requesta de supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag"
