@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-08 11:38+0000\n"
+"PO-Revision-Date: 2018-09-08 19:43+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -387,7 +387,7 @@ msgstr "Deletion…"
 
 #: src/amo/components/AddonReviewListItem/index.js:271 src/ui/components/DismissibleTextForm/index.js:181
 msgid "Delete"
-msgstr ""
+msgstr "Deler"
 
 #: src/amo/components/AddonReviewListItem/index.js:275
 msgid "Do you really want to delete this reply?"
@@ -411,7 +411,7 @@ msgstr "Responder a iste revision"
 
 #: src/amo/components/AddonReviewManager/index.js:109
 msgid "Saving"
-msgstr ""
+msgstr "Salvamento"
 
 #: src/amo/components/AddonReviewManager/index.js:110
 msgid "Saved"
@@ -423,15 +423,15 @@ msgstr "Invio del revision"
 
 #: src/amo/components/AddonReviewManager/index.js:68
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Per favor seque nostre %(linkStart)slineas guida del revision%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:83
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "Scribe circa tu experientia con iste additivo."
 
 #: src/amo/components/AddonReviewManager/index.js:91
 msgid "Your star rating:"
-msgstr ""
+msgstr "Tu classification per stellas:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:224
 msgid "More dictionaries by %(author)s"
