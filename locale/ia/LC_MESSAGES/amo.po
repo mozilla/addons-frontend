@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-08 20:50+0000\n"
+"PO-Revision-Date: 2018-09-08 21:13+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -947,7 +947,7 @@ msgstr "Navigator pro scriptorio"
 
 #: src/amo/components/Footer/index.js:131
 msgid "Beta, Nightly, Developer Edition"
-msgstr "Beta, Nightly, Edition de disveloppator"
+msgstr "Beta, Nightly, Edition de disveloppatores"
 
 #: src/amo/components/Footer/index.js:160
 msgid "Privacy"
@@ -970,10 +970,12 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Excepte ubi alteremente %(startNotedLink)sindicate%(endNotedLink)s, le contento sur iste sito es licentiate sub le %(startLicenseLink)sCreative Commons Attribution Share-Alike Licentia "
+"v3.0%(endLicenseLink)s o ulle version plus recente."
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Ir al pagina principal de Mozilla"
 
 #: src/amo/components/Footer/index.js:48
 msgid "About"
@@ -997,7 +999,7 @@ msgstr "Reportar un defecto"
 
 #: src/amo/components/Footer/index.js:76
 msgid "Review Guide"
-msgstr ""
+msgstr "Guida al revision"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Site Status"
@@ -1005,7 +1007,7 @@ msgstr "Stato del sito"
 
 #: src/amo/components/Footer/index.js:93
 msgid "View classic desktop site"
-msgstr ""
+msgstr "Vista classic del sito de scriptorio"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
@@ -1017,11 +1019,11 @@ msgstr "Vider mi profilo"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:480
 msgid "Edit My Profile"
-msgstr ""
+msgstr "Rediger mi profilo"
 
 #: src/amo/components/Header/index.js:120
 msgid "Tools"
-msgstr "Instrumentos"
+msgstr "Utensiles"
 
 #: src/amo/components/Header/index.js:126
 msgid "Submit a New Add-on"
@@ -1033,11 +1035,11 @@ msgstr "Inviar un nove thema"
 
 #: src/amo/components/Header/index.js:140
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Gerer mi submissiones"
 
 #: src/amo/components/Header/index.js:150
 msgid "Reviewer Tools"
-msgstr ""
+msgstr "Utensiles de revisores"
 
 #: src/amo/components/Header/index.js:160 src/core/components/AuthenticateButton/index.js:78
 msgid "Log out"
@@ -1062,11 +1064,11 @@ msgstr "Gestor de contrasigno"
 
 #: src/amo/components/Home/index.js:127
 msgid "Ad blockers"
-msgstr ""
+msgstr "Blocatores de avisos publicitari"
 
 #: src/amo/components/Home/index.js:131
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Compras plus intelligente"
 
 #: src/amo/components/Home/index.js:135
 msgid "Productivity"
@@ -1074,7 +1076,7 @@ msgstr "Productivitate"
 
 #: src/amo/components/Home/index.js:139
 msgid "Watching Videos"
-msgstr ""
+msgstr "Spectar le video"
 
 #: src/amo/components/Home/index.js:167
 msgid "Abstract"
@@ -1103,19 +1105,19 @@ msgstr "Saisonal"
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/components/Home/index.js:223
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Personalisa con extensiones le maniera de laborar de Firefox. Es tu interessate…"
 
 #: src/amo/components/Home/index.js:225
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Cambia le apparentia de Firefox con le themas."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more exceptional search tools"
-msgstr ""
+msgstr "Vider altere exceptional utensiles de recerca"
 
 #: src/amo/components/Home/index.js:51
 msgid "Exceptional search tools"
-msgstr ""
+msgstr "Exceptional utensiles de recerca"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
@@ -1131,39 +1133,39 @@ msgstr "Vide plus de extensiones de YouTube"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
-msgstr ""
+msgstr "Potentiar YouTube"
 
 #: src/amo/components/Home/index.js:68
 msgid "See more reading extensions"
-msgstr ""
+msgstr "Vide altere extensiones de lectura"
 
 #: src/amo/components/Home/index.js:69
 msgid "Refined reading"
-msgstr ""
+msgstr "Amelioration del lectura"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:106
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Aggrandir imagines per passar tu mus super illo"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Privacy Possum"
-msgstr ""
+msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Protege te mesme contra le plus furtive traciatores"
 
 #: src/amo/components/HomeHeroBanner/index.js:114
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Plica predefinite del marcapaginas"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Cambiar le destination predefinite pro tu marcapaginas"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Textmarker"
@@ -1171,55 +1173,55 @@ msgstr "Marcator de texto"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Application pro evidentiar texto multo personalisabile"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:128
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Spectar videos simultaneemente con alteres"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Context Search"
-msgstr ""
+msgstr "Recerca de contexto"
 
 #: src/amo/components/HomeHeroBanner/index.js:134
 msgid "Highlight text on any webpage to easily search the term"
-msgstr ""
+msgstr "Evidentia texto sur ulle pagina web pro facilemente recercar le termino"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "Da a tu favorite sitos web un nove apparentia"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Search Encrypt"
-msgstr ""
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
 msgid "Privacy protection for your search data"
-msgstr ""
+msgstr "Protection del confidentialitate pro tu datos de recerca"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Sparnia memoria per le disactivation del schedas inactive"
 
 #: src/amo/components/HomeHeroBanner/index.js:155
 msgid "Update Scanner"
-msgstr ""
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Recipe notificationes quando tu selige sitos web actualisate con nove contento"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Auto Fullscreen"
