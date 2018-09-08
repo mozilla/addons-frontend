@@ -100,7 +100,7 @@ export type SaveAddonNoteFunc = (
 
 export const computeNewCollectionPage = (
   collection: CollectionType,
-): number => {
+): string => {
   const { numberOfAddons, pageSize } = collection;
 
   let page = 1;
@@ -108,7 +108,7 @@ export const computeNewCollectionPage = (
     page = Math.ceil((numberOfAddons - 1) / pageSize);
   }
 
-  return page || 1;
+  return page ? page.toString() : `1`;
 };
 
 export class CollectionBase extends React.Component<InternalProps> {
