@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-08 11:30+0000\n"
+"PO-Revision-Date: 2018-09-08 11:38+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -279,7 +279,7 @@ msgstr "Email de supporto"
 
 #: src/amo/components/AddonMoreInfo/index.js:89
 msgid "Visit stats dashboard"
-msgstr "Visita dashboard de statistica"
+msgstr "Visita le pannello de controlo del statistica"
 
 #: src/amo/components/AddonRecommendations/index.js:132
 msgid "Other users with this extension also installed"
@@ -291,19 +291,19 @@ msgstr "Altere extensiones popular"
 
 #: src/amo/components/AddonReview/index.js:198
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Conta al mundo perque tu pensa que iste extension es phantastic! Per favor seque nostre %(linkStart)slineas guida del revision%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:202
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Conta nos lo que tu amar circa iste extension. Es specific e concise."
 
 #: src/amo/components/AddonReview/index.js:206
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Conta al mundo circa iste extension. Per favor seque nostre %(linkStart)slineas guida del revision%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:210
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "Conta nos circa tu experientia con iste extension. Es specific e concise."
 
 #: src/amo/components/AddonReview/index.js:230
 msgid "Write a review"
