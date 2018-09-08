@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-08 19:43+0000\n"
+"PO-Revision-Date: 2018-09-08 20:32+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -611,15 +611,15 @@ msgstr "Vide plus de themas melio valutate"
 
 #: src/amo/components/CategoryHeader/index.js:41
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Naviga trans tote le additivos in iste categoria."
 
 #: src/amo/components/CategoryHeader/index.js:46
 msgid "Browse all extensions in this category."
-msgstr ""
+msgstr "Naviga trans tote le extensiones in iste categoria."
 
 #: src/amo/components/CategoryHeader/index.js:52
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "Naviga trans tote le themas in iste categoria."
 
 #: src/amo/components/Collection/index.js:358
 msgid "Do you really want to delete this collection?"
@@ -631,23 +631,23 @@ msgstr "Deler iste collection"
 
 #: src/amo/components/Collection/index.js:381
 msgid "Log in to create a collection"
-msgstr ""
+msgstr "Accede pro crear un collection"
 
 #: src/amo/components/Collection/index.js:382
 msgid "Log in to edit this collection"
-msgstr ""
+msgstr "Accede pro rediger iste collection"
 
 #: src/amo/components/Collection/index.js:419
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Primo, crea tu collection. Pois tu pote adder extensiones e themas."
 
 #: src/amo/components/Collection/index.js:422
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Cerca pro extensiones e themas a adder a tu collection."
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
-msgstr "Addeite al collection"
+msgstr "Addite al collection"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Removed from collection"
@@ -683,31 +683,31 @@ msgstr "Collectiones"
 
 #: src/amo/components/CollectionList/index.js:120
 msgid "Log in to view your collections"
-msgstr ""
+msgstr "Accede pro vider tu collectiones"
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Le collectiones rende facile tener tracia del additivos favorite e compartir tu navigator perfectemente personalisate con alteres."
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
-msgstr ""
+msgstr "Crear un collection"
 
 #: src/amo/components/CollectionList/index.js:64
 msgid "You do not have any collections."
-msgstr ""
+msgstr "Tu non ha ulle collectiones."
 
 #: src/amo/components/CollectionList/index.js:97
 msgid "My collections"
-msgstr ""
+msgstr "Mi collectiones"
 
 #: src/amo/components/CollectionManager/index.js:225
 msgid "Create collection"
-msgstr ""
+msgstr "Crear un collection"
 
 #: src/amo/components/CollectionManager/index.js:226
 msgid "Save changes"
-msgstr ""
+msgstr "Salvar le cambiamentos"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Collection name"
@@ -715,11 +715,11 @@ msgstr "Nomine del collection"
 
 #: src/amo/components/CollectionManager/index.js:249
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: src/amo/components/CollectionManager/index.js:261
 msgid "Custom URL"
-msgstr ""
+msgstr "URL personalisate"
 
 #: src/amo/components/CollectionManager/index.js:298 src/amo/components/UserProfileEdit/index.js:850 src/ui/components/ConfirmButton/index.js:107 src/ui/components/DismissibleTextForm/index.js:167
 msgid "Cancel"
