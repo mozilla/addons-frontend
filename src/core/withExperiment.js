@@ -26,11 +26,11 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
     abTestCookie: string | void;
 
     static defaultProps = {
-      nameId,
-      AName,
-      BName,
       _cookie: cookie,
       _tracking: tracking,
+      AName,
+      BName,
+      nameId,
       randomizer: Math.random,
     };
 
@@ -63,7 +63,7 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
       if (this.abTestCookie) {
         _tracking.sendEvent({
           action: `${abNameId} Page View`,
-          category: this.abTestCookie ? `AMO ${this.abTestCookie}` : '',
+          category: `AMO ${this.abTestCookie}`,
           label: '',
         });
       }
@@ -86,12 +86,12 @@ export const withExperiment = ({ nameId, AName, BName }: Props) => (
     render() {
       const {
         _cookie,
-        nameId: abNameId,
         AName: ANameVariant,
+        nameId: abNameId,
         ...props
       } = this.props;
 
-      // We'll call AName variant "on" or "true" variant.
+      // We'll call the "AName" variant the "on" / "true" variant.
       const isOn =
         _cookie.load(`AB_${abNameId}_COOKIE`) ===
         `AB_TEST_${abNameId}_${ANameVariant}`;
