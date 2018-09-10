@@ -1,5 +1,5 @@
 apipkg==1.5
-atomicwrites==1.1.5
+atomicwrites==1.2.0
 attrs==18.1.0
 certifi==2018.8.13
 chardet==3.0.4
@@ -21,7 +21,7 @@ pytest-repeat==0.6.0
 pytest-selenium==1.13.0
 pytest-variables==1.7.1
 pytest-xdist==1.22.5
-atomicwrites==1.1.5
+atomicwrites==1.2.0
 requests==2.19.1
 selenium==3.14.0
 six==1.11.0
