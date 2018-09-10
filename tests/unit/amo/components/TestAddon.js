@@ -1623,21 +1623,23 @@ describe(__filename, () => {
       expect(installStatus).toEqual(UNKNOWN);
     });
 
-    it('must convert all installed addon props to component props', () => {
+    it('sets the installation status', () => {
+      const status = INSTALLED;
+
       signIn();
       fetchAddon();
       store.dispatch(
         setInstallState({
           ...fakeInstalledAddon,
           guid: fakeAddon.guid,
-          status: INSTALLED,
+          status,
         }),
       );
       const { installStatus } = _mapStateToProps();
 
       // Make sure a random installedAddon prop gets passed as a component prop
       // so that the withInstallHelpers HOC works.
-      expect(installStatus).toEqual(INSTALLED);
+      expect(installStatus).toEqual(status);
     });
 
     it('handles a non-existant add-on', () => {
