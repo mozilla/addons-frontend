@@ -145,7 +145,7 @@
       }
     },
     "storybook-build": {
-      "command": "build-storybook -c stories/setup -o storybook-docs",
+      "command": "build-storybook -c stories/setup",
       "env": {
         "NODE_PATH": "./:./src"
       }
