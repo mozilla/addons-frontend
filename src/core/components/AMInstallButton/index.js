@@ -6,6 +6,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {
   ADDON_TYPE_OPENSEARCH,
@@ -78,6 +79,8 @@ type ButtonProps = {|
   onClick: Function | null,
   puffy: boolean,
 |};
+
+const TRANSITION_TIMEOUT = 150;
 
 export class AMInstallButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -304,25 +307,34 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       }
     }
 
+    const transitionProps = {
+      classNames: 'AMInstallButton-transition',
+      timeout: TRANSITION_TIMEOUT,
+    };
+
     return (
-      <div className={makeClassName('AMInstallButton', className)}>
+      <TransitionGroup className={makeClassName('AMInstallButton', className)}>
         {this.showLoadingAnimation() ? (
-          <div
-            className={makeClassName('AMInstallButton-loading', {
-              'AMInstallButton-loading--puffy': this.props.puffy,
-            })}
-          >
-            <span className="AMInstallButton-loading-icon">
-              <Icon alt={this.getButtonText()} name="loading" />
-            </span>
-          </div>
+          <CSSTransition key="loading" {...transitionProps}>
+            <div
+              className={makeClassName('AMInstallButton-loading', {
+                'AMInstallButton-loading--puffy': this.props.puffy,
+              })}
+            >
+              <span className="AMInstallButton-loading-icon">
+                <Icon alt={this.getButtonText()} name="loading" />
+              </span>
+            </div>
+          </CSSTransition>
         ) : (
-          <Button {...buttonProps}>
-            <Icon name={this.getIconName()} />
-            {this.getButtonText()}
-          </Button>
+          <CSSTransition key="button" {...transitionProps}>
+            <Button {...buttonProps}>
+              <Icon name={this.getIconName()} />
+              {this.getButtonText()}
+            </Button>
+          </CSSTransition>
         )}
-      </div>
+      </TransitionGroup>
     );
   }
 }

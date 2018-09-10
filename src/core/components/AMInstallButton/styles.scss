@@ -35,6 +35,19 @@
   }
 }
 
+.AMInstallButton-transition-enter {
+  opacity: 0.01;
+}
+
+.AMInstallButton-transition-exit {
+  display: none;
+}
+
+.AMInstallButton-transition-enter-active {
+  opacity: 1;
+  transition: opacity $transition-short ease;
+}
+
 .AMInstallButton {
   .AMInstallButton-button {
     white-space: nowrap;
