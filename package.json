@@ -38,7 +38,6 @@
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
     "storybook": "better-npm-run storybook",
     "storybook-build": "better-npm-run storybook-build",
-    "storybook-deploy": "better-npm-run storybook-to-ghpages",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
@@ -145,14 +144,8 @@
         "NODE_PATH": "./:./src"
       }
     },
-    "storybook-deploy": {
-      "command": "build-storybook -c stories/setup -o .out",
-      "env": {
-        "NODE_PATH": "./:./src"
-      }
-    },
     "storybook-build": {
-      "command": "build-storybook -c stories/setup -o .out -- --ci",
+      "command": "build-storybook -c stories/setup -o storybook-docs",
       "env": {
         "NODE_PATH": "./:./src"
       }
@@ -257,7 +250,6 @@
     "@storybook/addon-options": "^3.4.10",
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
-    "@storybook/storybook-deployer": "2.3.0",
     "autoprefixer": "^9.0.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^9.0.0",
