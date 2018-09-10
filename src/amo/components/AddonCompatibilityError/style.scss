@@ -1,9 +1,0 @@
-@import '~amo/css/styles';
-
-.AddonCompatibilityError {
-  margin-top: 12px;
-
-  @include respond-to(medium) {
-    margin-top: 0;
-  }
-}
