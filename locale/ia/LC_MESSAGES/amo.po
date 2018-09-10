@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-10 21:53+0000\n"
+"PO-Revision-Date: 2018-09-10 21:57+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2470,77 +2470,77 @@ msgstr "Submitter"
 
 #: src/ui/components/DismissibleTextForm/index.js:131
 msgid "Submitting"
-msgstr ""
+msgstr "Invio"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Tu session ha expirate"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Un error non attendite occurreva"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Recargar pro continuar"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
-msgstr ""
+msgstr "Mutar contentos"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Acceder a tu datos pro tote le sitos web"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Accede tu datos in %(param)s altere dominio"
+msgstr[1] "Accede tu datos in %(param)s altere dominios"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Accede tu datos pro sitos in le %(param)s dominio"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Accede tu datos sur %(param)s altere sito"
+msgstr[1] "Accede tu datos sur %(param)s altere sitos"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Accede tu datos pro %(param)s"
 
 #: src/ui/components/Notice/index.js:128
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Dimitte iste nota"
 
 #: src/ui/components/Rating/index.js:104
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Valuta iste additivo %(starRating)s de 5"
 
 #: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Classificate %(rating)s de 5"
 
 #: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Il ha nulle valutationes ancora"
 
 #: src/ui/components/Rating/index.js:98
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Actualisa tu classification pro %(starRating)s de 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Expander a</span> Leger plus"
 
 #: src/ui/components/UserCollection/index.js:54
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s additivo"
+msgstr[1] "%(total)s additivos"
 
 #~ msgid "Save collection"
 #~ msgstr "Salvar le collection"
