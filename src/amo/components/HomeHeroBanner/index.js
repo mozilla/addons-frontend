@@ -215,7 +215,11 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
     return heroes.map((hero) => {
       return (
-        <HeroSection key={hero.url} linkTo={hero.url}>
+        <HeroSection
+          key={hero.url}
+          linkTo={hero.url}
+          onClick={this.props.trackClick}
+        >
           <h3>{hero.title}</h3>
           <p>{hero.description}</p>
         </HeroSection>
