@@ -91,7 +91,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         ),
         url: '/addon/tree-style-tab/',
       },
-
       {
         title: i18n.gettext('Imagus'),
         description: i18n.gettext(
@@ -208,7 +207,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
     return heroes.map((hero) => {
       return (
-        <HeroSection key={`hero-${hero.url}`} linkTo={hero.url}>
+        <HeroSection key={hero.url} linkTo={hero.url}>
           <h3>{hero.title}</h3>
           <p>{hero.description}</p>
         </HeroSection>
