@@ -82,7 +82,7 @@ export type ThemeData = {|
   footerURL?: string,
   header?: string,
   headerURL?: string,
-  iconURL?: string,
+  icon_url?: string,
   id?: number,
   name?: string,
   previewURL?: string,
@@ -158,7 +158,7 @@ export type AddonType = {|
   ...ExternalAddonType,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
-  iconUrl?: string,
+  icon_url?: string,
   platformFiles: {|
     // This seems necessary to help Flow know that computed
     // keys always return an AddonFileType.

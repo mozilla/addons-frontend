@@ -143,7 +143,6 @@ export function createInternalThemeData(
     footerURL: apiAddon.theme_data.footerURL,
     header: apiAddon.theme_data.header,
     headerURL: apiAddon.theme_data.headerURL,
-    iconURL: apiAddon.theme_data.iconURL,
     id: apiAddon.theme_data.id,
     name: apiAddon.theme_data.name,
     previewURL: apiAddon.theme_data.previewURL,
@@ -194,11 +193,6 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
     weekly_downloads: apiAddon.weekly_downloads,
 
     // These are custom properties not in the API response.
-
-    // TODO: remove this if possible. This is used by core/installAddon
-    // and DiscoPane components which do camel case conversions for
-    // some historic reason.
-    iconUrl: apiAddon.icon_url,
 
     platformFiles: {
       all: undefined,
