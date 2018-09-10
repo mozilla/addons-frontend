@@ -88,6 +88,18 @@ describe(__filename, () => {
     expect(js.at(1)).toHaveProp('src', '/foo/disco-blah.js');
   });
 
+  it('does not render i18n js in the assets list', () => {
+    const root = render();
+    const js = root.find('script[integrity="sha512-disco-i18n-js"]');
+    expect(js.exists()).toEqual(false);
+  });
+
+  it('does not render hct lib js in the assets list', () => {
+    const root = render();
+    const js = root.find('script[integrity="sha512-disco-hct-js"]');
+    expect(js.exists()).toEqual(false);
+  });
+
   it('renders css with SRI when present', () => {
     const root = render();
     const styleSheets = root.find({ rel: 'stylesheet' });

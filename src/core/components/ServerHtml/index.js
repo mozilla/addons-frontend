@@ -8,6 +8,10 @@ import config from 'config';
 
 import { LTR } from 'core/constants';
 
+
+const JS_CHUNK_EXCLUDES = new RegExp(`(?:${config.get('jsChunkExclusions').join('|')})`);
+
+
 export default class ServerHtml extends Component {
   static propTypes = {
     appName: PropTypes.string.isRequired,
@@ -35,7 +39,7 @@ export default class ServerHtml extends Component {
     const leafName = filePath.split('/').pop();
     let sriProps = {};
     // Only output files for the current app.
-    if (leafName.startsWith(appName) && !leafName.includes('i18n')) {
+    if (leafName.startsWith(appName) && !JS_CHUNK_EXCLUDES.test(leafName)) {
       if (includeSri) {
         sriProps = {
           integrity: sriData[leafName],

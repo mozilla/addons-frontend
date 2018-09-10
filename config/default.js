@@ -277,6 +277,13 @@ module.exports = {
   // The default app used in the URL.
   defaultClientApp: 'firefox',
 
+  // Dynamic JS chunk patterns to exclude. If these strings match any part of the JS file
+  // leaf name they will be excluded from being output in the HTML.
+  jsChunkExclusions: [
+    'i18n',
+    'disco-hct',
+  ],
+
   fxaConfig: null,
 
   proxyEnabled: false,
