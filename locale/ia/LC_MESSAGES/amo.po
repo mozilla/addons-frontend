@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-10 05:40+0000\n"
+"PO-Revision-Date: 2018-09-10 18:31+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1561,11 +1561,11 @@ msgstr "Al fin, io non desira scriber un revision"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Tu ha denunciate iste additivo pro abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Nos ha recipite tu denuncia. Gratias pro facer nos saper circa tu problemas con iste additivo."
 
 #: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
