@@ -32,7 +32,6 @@ import tracking, {
   getAddonEventCategory,
 } from 'core/tracking';
 import { isTheme } from 'core/utils';
-import AnimatedIcon from 'ui/components/AnimatedIcon';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { AppState } from 'amo/store';
@@ -313,7 +312,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
               'AMInstallButton-loading--puffy': this.props.puffy,
             })}
           >
-            <AnimatedIcon alt={this.getButtonText()} name="loading" />
+            <span className="AMInstallButton-loading-icon">
+              <Icon alt={this.getButtonText()} name="loading" />
+            </span>
           </div>
         ) : (
           <Button {...buttonProps}>
