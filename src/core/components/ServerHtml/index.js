@@ -8,9 +8,9 @@ import config from 'config';
 
 import { LTR } from 'core/constants';
 
-
-const JS_CHUNK_EXCLUDES = new RegExp(`(?:${config.get('jsChunkExclusions').join('|')})`);
-
+const JS_CHUNK_EXCLUDES = new RegExp(
+  `(?:${config.get('jsChunkExclusions').join('|')})`,
+);
 
 export default class ServerHtml extends Component {
   static propTypes = {
