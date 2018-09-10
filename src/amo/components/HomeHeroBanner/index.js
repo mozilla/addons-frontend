@@ -226,7 +226,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
   render() {
     const homeBannerClass = makeClassName('HomeHeroBanner', {
-      'HomeHeroBanner--a': this.props.experimentIsOn,
+      'HomeHeroBanner--experiment-is-on': this.props.experimentIsOn,
     });
 
     return (

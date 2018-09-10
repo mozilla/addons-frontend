@@ -40,7 +40,7 @@
   }
 }
 
-.HomeHeroBanner--a {
+.HomeHeroBanner--experiment-is-on {
   .Hero .HeroSection {
     @include respond-to(medium) {
       &:nth-of-type(2),
