@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-10 05:30+0000\n"
+"PO-Revision-Date: 2018-09-10 05:40+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1445,7 +1445,7 @@ msgstr "Leger e modificar le parametros del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Clarar le chronologia de exploration, le cookies e le datos correlate recente"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
@@ -1489,19 +1489,19 @@ msgstr "Excambiar messages con programmas differente de Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Monstra le notificationes pro te"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Forni servicios de authentication cryptographic"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Controlar le parametros del proxy del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Leger e modificar le parametros de confidentialitate"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
@@ -1513,11 +1513,11 @@ msgstr "Accede al schedas del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Celar e monstrar le schedas del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Immagazinar illimitate quantitate de datos del latere del cliente"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
@@ -1549,15 +1549,15 @@ msgstr "Authentica te pro valutar iste additivo"
 
 #: src/amo/components/RatingManager/index.js:229
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Como es tu enoiate de tu experientia con %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:265
 msgid "Nevermind, I don't want to edit my review"
-msgstr ""
+msgstr "Al fin, io non desira rediger mi revision"
 
 #: src/amo/components/RatingManager/index.js:266
 msgid "Nevermind, I don't want to write a review"
-msgstr ""
+msgstr "Al fin, io non desira scriber un revision"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
