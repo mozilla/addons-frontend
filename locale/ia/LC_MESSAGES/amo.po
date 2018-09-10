@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-10 18:45+0000\n"
+"PO-Revision-Date: 2018-09-10 20:52+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1574,18 +1574,20 @@ msgstr "Nos non pote responder pro cata reporto de abuso ma nos reguardara in is
 #: src/amo/components/ReportAbuseButton/index.js:139
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Si tu pensa que iste additivo viola le %(linkTagStart)sPoliticas del additivos de Mozilla%(linkTagEnd)s o ha problemas de securitate o confidentialitate, per favor reporta iste problemas a Mozilla "
+"per iste formulario."
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Reportar iste additivo pro abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:184
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Per favor non usar iste formulario pro reportar defectos o requesta de functionalitates de additivo; iste reporto sera inviate a Mozilla e non al disveloppator de additivos."
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Explica como iste additivo viola nostre politicas."
 
 #: src/amo/components/ReportAbuseButton/index.js:213
 msgid "Dismiss"
@@ -1601,87 +1603,87 @@ msgstr "Inviar reporto de abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
-msgstr ""
+msgstr "Denunciar iste usator pro abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:114
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "Si tu pensa que iste usator viola le %(linkTagStart)sPoliticas del additivos de Mozilla%(linkTagEnd)s, per favor denuncia iste usator a Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:130
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "Per favor non usar iste formulario pro reportar defectos o pro continger iste usator; tu reporto essera solo inviate a Mozilla e non a iste usator."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Explica como iste usator viola nostre politicas."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
-msgstr ""
+msgstr "Tu ha denunciate iste usator pro abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "Nos ha recipite tu denuncia. Gratias pro facer nos saper circa tu problemas con iste usator."
 
 #: src/amo/components/Search/index.js:119 src/amo/components/SearchResults/index.js:73
 msgid "Search results"
-msgstr ""
+msgstr "Resultatos del recerca"
 
 #: src/amo/components/Search/index.js:130
 msgid "Featured add-ons"
-msgstr ""
+msgstr "Additivos consiliate"
 
 #: src/amo/components/Search/index.js:143
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Additivos de tendentia"
 
 #: src/amo/components/Search/index.js:155
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "Additivos principal classificate"
 
 #: src/amo/components/Search/index.js:161
 msgid "Popular extensions"
-msgstr ""
+msgstr "Extensiones popular"
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular themes"
-msgstr ""
+msgstr "Themas popular"
 
 #: src/amo/components/Search/index.js:167
 msgid "Popular add-ons"
-msgstr ""
+msgstr "Additivos popular"
 
 #: src/amo/components/Search/index.js:173
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Resultatos del recerca pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "No add-ons found"
-msgstr ""
+msgstr "Nulle additivos trovate"
 
 #: src/amo/components/SearchContextCard/index.js:103
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s additivo trovate"
+msgstr[1] "%(count)s additivos trovate"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s extension trovate pro \"%(query)s\""
+msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:49
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s dictionario trovate pro \"%(query)s\""
+msgstr[1] "%(count)s dictionarios trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s pacchetto de lingua trovate pro \"%(query)s\""
+msgstr[1] "%(count)s pacchettos de lingua trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:67
 msgid "%(count)s theme found for \"%(query)s\""
