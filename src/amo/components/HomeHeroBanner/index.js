@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { heroes } from 'amo/homeHeroItems';
+import { getHeroItems } from 'amo/homeHeroItems';
 import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
@@ -18,15 +18,14 @@ export class HomeHeroBannerBase extends React.Component<Props> {
   sections() {
     const { i18n } = this.props;
 
-    return heroes.map((hero, index) => {
+    const heroes = getHeroItems(i18n);
+
+    return heroes.map((hero) => {
       const { description, title } = hero;
       return (
-        /* eslint-disable react/no-array-index-key */
-        <HeroSection key={`hero-${index}`} linkTo={hero.url}>
-          <h3>{i18n.sprintf(i18n.gettext('%(title)s'), { title })}</h3>
-          <p>
-            {i18n.sprintf(i18n.gettext('%(description)s'), { description })}
-          </p>
+        <HeroSection key={`hero-${hero.url}`} linkTo={hero.url}>
+          <h3>{title}</h3>
+          <p>{description}</p>
         </HeroSection>
       );
     });
