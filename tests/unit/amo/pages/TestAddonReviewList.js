@@ -2,12 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
-import {
-  fetchReview,
-  fetchReviews,
-  setAddonReviews,
-  setReview,
-} from 'amo/actions/reviews';
+import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
@@ -33,7 +28,6 @@ import {
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
-  dispatchSignInActions,
   fakeAddon,
   fakeReview,
 } from 'tests/unit/amo/helpers';
@@ -137,98 +131,6 @@ describe(__filename, () => {
       const root = render({ reviews: null });
 
       expect(root.find(Paginate)).toHaveLength(0);
-    });
-
-    it('fetches a review if needed', () => {
-      const reviewId = 1;
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-
-      render({
-        errorHandler,
-        params: { addonSlug: undefined, reviewId },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
-        fetchReview({
-          reviewId,
-          errorHandlerId: errorHandler.id,
-        }),
-      );
-    });
-
-    it('does not fetch a review if one is already loading', () => {
-      const reviewId = 1;
-      const errorHandler = createStubErrorHandler();
-      store.dispatch(
-        fetchReview({ errorHandlerId: errorHandler.id, reviewId }),
-      );
-
-      const fakeDispatch = sinon.stub(store, 'dispatch');
-
-      render({
-        errorHandler,
-        params: { addonSlug: undefined, reviewId },
-      });
-
-      sinon.assert.neverCalledWith(
-        fakeDispatch,
-        fetchReview({
-          reviewId,
-          errorHandlerId: errorHandler.id,
-        }),
-      );
-    });
-
-    it('does not fetch a review if one is already loaded', () => {
-      const reviewId = 1;
-      const errorHandler = createStubErrorHandler();
-      store.dispatch(setReview({ ...fakeReview, id: reviewId }));
-
-      const fakeDispatch = sinon.stub(store, 'dispatch');
-
-      render({
-        errorHandler,
-        params: { addonSlug: undefined, reviewId },
-      });
-
-      sinon.assert.neverCalledWith(
-        fakeDispatch,
-        fetchReview({
-          reviewId,
-          errorHandlerId: errorHandler.id,
-        }),
-      );
-    });
-
-    it('fetches an addon based on a reviewId', () => {
-      const addonSlug = 'some-addon-slug';
-      const reviewId = 1;
-      const errorHandler = createStubErrorHandler();
-      const review = {
-        ...fakeReview,
-        id: reviewId,
-        addon: { ...fakeReview.addon, slug: addonSlug },
-      };
-
-      store.dispatch(setReview(review));
-
-      const fakeDispatch = sinon.stub(store, 'dispatch');
-
-      render({
-        addon: null,
-        errorHandler,
-        params: { addonSlug: undefined, reviewId },
-      });
-
-      sinon.assert.calledWith(
-        fakeDispatch,
-        fetchAddon({
-          slug: addonSlug,
-          errorHandler,
-        }),
-      );
     });
 
     it('fetches an addon if requested by slug', () => {
@@ -927,76 +829,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('featuredReview', () => {
-    it('displays a featured review', () => {
-      const reviewId = 1;
-      const errorHandler = createStubErrorHandler();
-      store.dispatch(setReview({ ...fakeReview, id: reviewId }));
-
-      const root = render({
-        errorHandler,
-        params: { reviewId },
-      });
-
-      expect(root.find('.AddonReviewList-featuredReview')).toHaveLength(1);
-      expect(
-        root
-          .find('.AddonReviewList-featuredReview')
-          .find(AddonReviewCard)
-          .prop('review').id,
-      ).toEqual(reviewId);
-    });
-
-    it('does not display a featured review when not requested', () => {
-      const root = render({
-        params: { reviewId: undefined },
-      });
-
-      expect(root.find('.AddonReviewList-featuredReview')).toHaveLength(0);
-    });
-
-    it('displays the correct header for a users own review', () => {
-      const reviewId = 1;
-      const userId = 1;
-      const newStore = dispatchSignInActions({ userId }).store;
-      const errorHandler = createStubErrorHandler();
-      newStore.dispatch(
-        setReview({
-          ...fakeReview,
-          id: reviewId,
-          user: { ...fakeReview.user, id: userId },
-        }),
-      );
-
-      const root = render({
-        errorHandler,
-        params: { reviewId },
-        store: newStore,
-      });
-
-      expect(root.find('.AddonReviewList-featuredReview')).toHaveProp(
-        'header',
-        `My Review`,
-      );
-    });
-
-    it('displays the correct header for another users review', () => {
-      const reviewId = 1;
-      const errorHandler = createStubErrorHandler();
-      store.dispatch(setReview({ ...fakeReview, id: reviewId }));
-
-      const root = render({
-        errorHandler,
-        params: { reviewId },
-      });
-
-      expect(root.find('.AddonReviewList-featuredReview')).toHaveProp(
-        'header',
-        `Review by ${fakeReview.user.name}`,
-      );
-    });
-  });
-
   describe('extractId', () => {
     it('returns a unique ID based on the addon slug and page', () => {
       const ownProps = getProps({
@@ -1014,16 +846,6 @@ describe(__filename, () => {
       });
 
       expect(extractId(ownProps)).toEqual(`foobar-`);
-    });
-
-    it('returns a unique ID based on reviewId', () => {
-      const reviewId = 1;
-      const ownProps = getProps({
-        params: { addonSlug: undefined, reviewId },
-        location: createFakeLocation(),
-      });
-
-      expect(extractId(ownProps)).toEqual(`${reviewId}-`);
     });
   });
 });

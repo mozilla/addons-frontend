@@ -833,7 +833,10 @@ describe(__filename, () => {
       context: { store },
     });
 
-    expect(byLine.find(Link)).toHaveProp('to', `/review/${fakeReview.id}/`);
+    expect(byLine.find(Link)).toHaveProp(
+      'to',
+      `/addon/${fakeReview.addon.slug}/reviews/${fakeReview.id}/`,
+    );
     expect(byLine.find(Link).childAt(0)).toHaveText(
       root
         .instance()
