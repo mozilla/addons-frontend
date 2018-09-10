@@ -170,14 +170,6 @@ describe(__filename, () => {
     expect(root).toHaveClassName(className);
   });
 
-  it('passes bodyFallback to UserReview', () => {
-    const bodyFallback = 'placeholder for empty reviews';
-    const root = render({ bodyFallback });
-
-    const rating = root.find(UserReview);
-    expect(rating).toHaveProp('bodyFallback', bodyFallback);
-  });
-
   it('can hide a rating explicitly', () => {
     const root = render({ showRating: false, review: _setReview(fakeReview) });
 
@@ -341,14 +333,35 @@ describe(__filename, () => {
     );
   });
 
-  it('lets you edit your rating', () => {
+  it('does not provide an edit link for ratings', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
     const root = render({ review });
 
     const editButton = renderControls(root).find('.AddonReviewCard-edit');
-    expect(editButton.text()).toContain('Edit my rating');
+    expect(editButton).toHaveLength(0);
+  });
+
+  it('adds AddonReviewCard-ratingOnly to rating-only reviews', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    const root = render({ review });
+
+    expect(root).toHaveClassName('.AddonReviewCard-ratingOnly');
+  });
+
+  it('does not add AddonReviewCard-ratingOnly to reviews with a body', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: {
+        ...fakeReview,
+        body: 'This is a written review',
+      },
+    });
+    const root = render({ review });
+
+    expect(root).not.toHaveClassName('.AddonReviewCard-ratingOnly');
   });
 
   it('configures the edit-review form', () => {
@@ -833,6 +846,15 @@ describe(__filename, () => {
         'byLine',
         `posted ${i18n.moment(review.created).fromNow()}`,
       );
+    });
+
+    it('does not render a byLine for ratings', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      const root = render({ review });
+
+      expect(root).toHaveProp('byLine', false);
     });
   });
 

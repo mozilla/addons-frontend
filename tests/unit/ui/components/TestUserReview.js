@@ -76,46 +76,25 @@ describe(__filename, () => {
     expect(root.find('.UserReview-body')).toHaveText('');
   });
 
-  it('can render a fallback for reviews without a body', () => {
-    const bodyFallback = 'some kind of placeholder';
+  it('adds UserReview-emptyBody for an empty body', () => {
     const root = render({
-      bodyFallback,
       review: _setReview({ ...fakeReview, body: undefined }),
     });
 
-    expect(root.find('.UserReview-body')).toHaveText(bodyFallback);
+    const body = root.find('.UserReview-body');
+    expect(body).toHaveClassName('UserReview-emptyBody');
   });
 
-  it('only renders a fallback when the review body is empty', () => {
-    const body = 'This is an actual review';
-    const bodyFallback = 'some kind of placeholder';
+  it('does not add UserReview-emptyBody when there is a body', () => {
     const root = render({
-      bodyFallback,
-      review: _setReview({ ...fakeReview, body }),
+      review: _setReview({
+        ...fakeReview,
+        body: 'This add-on is fantastic',
+      }),
     });
 
-    expect(root.find('.UserReview-body')).not.toHaveText(bodyFallback);
-    expect(
-      root
-        .find('.UserReview-body')
-        .render()
-        .text(),
-    ).toEqual(body);
-  });
-
-  it('renders without a review body and without a fallback', () => {
-    const root = render({
-      bodyFallback: undefined,
-      review: _setReview({ ...fakeReview, body: undefined }),
-    });
-
-    expect(
-      root
-        .find('.UserReview-body')
-        .render()
-        .text(),
-    ).toEqual('');
-    expect(root.find(LoadingText)).toHaveLength(0);
+    const body = root.find('.UserReview-body');
+    expect(body).not.toHaveClassName('UserReview-emptyBody');
   });
 
   it('can hide ratings', () => {

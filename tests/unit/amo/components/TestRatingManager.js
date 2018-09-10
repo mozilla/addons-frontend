@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { createInternalAddon } from 'core/reducers/addons';
@@ -24,7 +23,6 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import Button from 'ui/components/Button';
 import UserRating from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
@@ -594,18 +592,15 @@ describe(__filename, () => {
       expect(reviewCard).toHaveProp('location', location);
     });
 
-    it('configures AddonReviewCard with a write review button for ratings', () => {
+    it('provides a write review button for ratings', () => {
       const review = { ...fakeReview, body: undefined };
       const root = renderInline({
         store: createStoreWithLatestReview({ review }),
       });
 
-      const reviewCard = root.find(AddonReviewCard);
-      expect(reviewCard).toHaveProp('bodyFallback');
-
-      const bodyFallback = shallow(reviewCard.prop('bodyFallback'));
-      bodyFallback.find(Button).simulate('click', createFakeEvent());
-      root.update();
+      const writeReview = root.find('.RatingManager-writeReviewButton');
+      expect(writeReview).toHaveLength(1);
+      writeReview.simulate('click', createFakeEvent());
 
       expect(root.find(AddonReviewCard)).toHaveLength(0);
       expect(root.find(AddonReviewManager)).toHaveLength(1);

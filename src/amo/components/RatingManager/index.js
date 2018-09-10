@@ -277,33 +277,32 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       );
     }
 
-    const bodyFallback = (
-      <div className="RatingManager-emptyReviewBody">
-        <Button
-          onClick={this.showTextEntry}
-          href="#writeReview"
-          buttonType="action"
-          puffy
-        >
-          {i18n.gettext('Write a review')}
-        </Button>
-      </div>
-    );
-
     return (
       <React.Fragment>
         {this.renderUserRatingForm()}
         {userReview && (
-          <AddonReviewCard
-            addon={addon}
-            bodyFallback={bodyFallback}
-            className="RatingManager-AddonReviewCard"
-            flaggable={false}
-            location={location}
-            review={userReview}
-            shortByLine
-            showRating={false}
-          />
+          <React.Fragment>
+            <AddonReviewCard
+              addon={addon}
+              className="RatingManager-AddonReviewCard"
+              flaggable={false}
+              location={location}
+              review={userReview}
+              shortByLine
+              showRating={false}
+            />
+            {!userReview.body && (
+              <Button
+                className="RatingManager-writeReviewButton"
+                onClick={this.showTextEntry}
+                href="#writeReview"
+                buttonType="action"
+                puffy
+              >
+                {i18n.gettext('Write a review')}
+              </Button>
+            )}
+          </React.Fragment>
         )}
       </React.Fragment>
     );
