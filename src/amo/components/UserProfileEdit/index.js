@@ -99,16 +99,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
+    const { dispatch, errorHandler, username, user } = props;
+
     this.state = {
       showProfileDeletionModal: false,
       pictureData: null,
       successMessage: null,
-      ...this.getFormValues(props.user),
+      ...this.getFormValues(user),
     };
-  }
-
-  componentWillMount() {
-    const { dispatch, errorHandler, username, user } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');

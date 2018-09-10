@@ -104,7 +104,9 @@ export class AddonBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
   };
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+
     const {
       addon,
       addonIsLoading,
@@ -113,7 +115,7 @@ export class AddonBase extends React.Component {
       errorHandler,
       lang,
       match: { params },
-    } = this.props;
+    } = props;
 
     // This makes sure we do not try to dispatch any new actions in the case
     // of an error.

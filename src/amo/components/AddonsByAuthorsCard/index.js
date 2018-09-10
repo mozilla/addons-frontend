@@ -82,7 +82,9 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     type: 'horizontal',
   };
 
-  componentWillMount() {
+  constructor(props: InternalProps) {
+    super(props);
+
     const {
       addonType,
       authorUsernames,
@@ -90,7 +92,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       location,
       pageParam,
       paginate,
-    } = this.props;
+    } = props;
 
     this.dispatchFetchAddonsByAuthors({
       addonType,

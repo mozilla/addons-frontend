@@ -70,10 +70,12 @@ export class SearchBase extends React.Component<InternalProps> {
     results: [],
   };
 
-  componentWillMount() {
+  constructor(props: InternalProps) {
+    super(props);
+
     this.dispatchSearch({
-      newFilters: this.props.filters,
-      oldFilters: this.props.filtersUsedForResults,
+      newFilters: props.filters,
+      oldFilters: props.filtersUsedForResults,
     });
   }
 

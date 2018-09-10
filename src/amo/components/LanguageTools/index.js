@@ -73,8 +73,10 @@ type Props = {|
 |};
 
 export class LanguageToolsBase extends React.Component<Props> {
-  componentWillMount() {
-    const { dispatch, errorHandler, languageTools } = this.props;
+  constructor(props: Props) {
+    super(props);
+
+    const { dispatch, errorHandler, languageTools } = props;
 
     dispatch(setViewContext(VIEW_CONTEXT_LANGUAGE_TOOLS));
 

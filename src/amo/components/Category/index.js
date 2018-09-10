@@ -62,7 +62,9 @@ export class CategoryBase extends React.Component {
     _config: config,
   };
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+
     this.loadDataIfNeeded();
   }
 
@@ -92,7 +94,7 @@ export class CategoryBase extends React.Component {
     }
 
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping componentWillMount() because visibleAddonType
+      log.warn(oneLine`Skipping loadDataIfNeeded() because visibleAddonType
         is invalid: ${params.visibleAddonType}`);
       return;
     }
@@ -112,7 +114,7 @@ export class CategoryBase extends React.Component {
       }
 
       if (!category) {
-        log.warn(oneLine`Skipping componentWillMount() because category is
+        log.warn(oneLine`Skipping loadDataIfNeeded() because category is
           invalid: ${params.slug}`);
         return;
       }
