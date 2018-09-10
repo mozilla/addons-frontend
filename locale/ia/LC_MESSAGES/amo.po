@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-10 20:52+0000\n"
+"PO-Revision-Date: 2018-09-10 21:13+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1688,244 +1688,254 @@ msgstr[1] "%(count)s pacchettos de lingua trovate pro \"%(query)s\""
 #: src/amo/components/SearchContextCard/index.js:67
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s thema trovate pro \"%(query)s\""
+msgstr[1] "%(count)s themas trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:76
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s resultato trovate pro \"%(query)s\""
+msgstr[1] "%(count)s resultatos trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s resultato pro \"%(query)s\""
+msgstr[1] "%(count)s resultatos pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:94
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Recerca pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:98
 msgid "Loading add-ons"
-msgstr ""
+msgstr "Cargamento de additivos"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
 msgid "All"
-msgstr ""
+msgstr "Toto"
 
 #: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
-msgstr ""
+msgstr "Extension"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
-msgstr ""
+msgstr "Application de recerca"
 
 #: src/amo/components/SearchFilters/index.js:114
 msgid "Theme"
-msgstr ""
+msgstr "Thema"
 
 #: src/amo/components/SearchFilters/index.js:127
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:128
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:129
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:137
 msgid "Relevance"
-msgstr ""
+msgstr "Relevantia"
 
 #: src/amo/components/SearchFilters/index.js:139
 msgid "Recently Updated"
-msgstr ""
+msgstr "Recentemente actualisate"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Most Users"
-msgstr ""
+msgstr "Le major parte del usatores"
 
 #: src/amo/components/SearchFilters/index.js:143
 msgid "Top Rated"
-msgstr ""
+msgstr "Los melio valutate"
 
 #: src/amo/components/SearchFilters/index.js:144
 msgid "Trending"
-msgstr ""
+msgstr "Tendentias"
 
 #: src/amo/components/SearchFilters/index.js:156
 msgid "Filter results"
-msgstr ""
+msgstr "Filtrar le resultatos"
 
 #: src/amo/components/SearchFilters/index.js:161
 msgid "Sort by"
-msgstr ""
+msgstr "Ordinar per"
 
 #: src/amo/components/SearchFilters/index.js:183
 msgid "Add-on Type"
-msgstr ""
+msgstr "Typo de additivo"
 
 #: src/amo/components/SearchFilters/index.js:203
 msgid "Operating System"
-msgstr ""
+msgstr "Systema operative"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Featured add-ons only"
-msgstr ""
+msgstr "Additivos consiliate solmente"
 
 #: src/amo/components/SearchForm/index.js:72
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Ir al pagina del additivo"
 
 #: src/amo/components/SearchResult/index.js:121
 msgid "No theme preview available"
-msgstr ""
+msgstr "Nulle vista preliminar del thema disponibile"
 
 #: src/amo/components/SearchResult/index.js:150
 msgid "Add-on note"
-msgstr ""
+msgstr "Nota del additivo"
 
 #: src/amo/components/SearchResult/index.js:168
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s usator"
+msgstr[1] "%(total)s usatores"
 
 #: src/amo/components/SearchResults/index.js:43
 msgid "Searching…"
-msgstr ""
+msgstr "In cerca…"
 
 #: src/amo/components/SearchResults/index.js:48
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nulle resultatos esseva trovate pro \"%(query)s\"."
 
 #: src/amo/components/SearchResults/index.js:54
 msgid "No results were found."
-msgstr ""
+msgstr "Nulle resultatos esseva trovate."
 
 #: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Per favor insere un termino de recerca pro cercar additivos de Firefox."
 
 #: src/amo/components/SectionLinks/index.js:104
 msgid "More…"
-msgstr ""
+msgstr "Plus…"
 
 #: src/amo/components/SectionLinks/index.js:118
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Dictionarios e pacchettos de lingua"
 
 #: src/amo/components/SectionLinks/index.js:124
 msgid "Search Tools"
-msgstr ""
+msgstr "Applicationes de recerca"
 
 #: src/amo/components/SectionLinks/index.js:129
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Altere sitos de navigatores"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
-msgstr ""
+msgstr "pro Firefox"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
-msgstr ""
+msgstr "pro Android"
 
 #: src/amo/components/SectionLinks/index.js:78
 msgid "Explore"
-msgstr ""
+msgstr "Explorar"
 
 #: src/amo/components/StaticPages/About/index.js:122
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Si tu desira contribuer ma tu non es bastante experte de technica, il ha altere manieras pro adjutar:"
 
 #: src/amo/components/StaticPages/About/index.js:131
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Participa in nostre %(startLink)sforo%(endLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:144
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Lassa commentarios pro tu additivos favorite. Le autores de additivos es plus probabile que meliora lor additivos e crea nove alteros quando illes sape que le personas apprecia lor labor."
 
 #: src/amo/components/StaticPages/About/index.js:149
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Conta a tu amicos e a tu familia que Firefox es un rapide, secur navigator que protege lor confidentialitate, e illes pote usar additivos pro render los lor proprie!"
 
 #: src/amo/components/StaticPages/About/index.js:157
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Pro vider altere manieras pro contribuer al communitate del additivos, per favor visita nostre %(startLink)swiki%(endLink)s"
 
 #: src/amo/components/StaticPages/About/index.js:171
 msgid "Get support"
-msgstr ""
+msgstr "Obtene supporto"
 
 #: src/amo/components/StaticPages/About/index.js:176
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Si tu desira saper plus circa como gerer le additivos in Firefox, o il es necesse que tu trova supporto general pro Firefox, per favor visita %(startSUMOLink)sSupporto%(endSUMOLink)s pro Mozilla. Si"
+" tu non trova un responsa ibi, tu pote %(startForumLink)sdemandar sur nostre foro del communitate%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:197
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sInformationes circa como continger le equipa del additivos de Mozilla pote ser trovate ci%(endLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:23 src/amo/components/StaticPages/About/index.js:26
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "A proposito del additivos de Firefox"
 
 #: src/amo/components/StaticPages/About/index.js:32
 msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), es le sito official de Mozilla pro discoperir e installar additivos pro le navigator Firefox. Le additivos te adjuta a modificar e personalisar tu experientia exploration "
+"per le addition de nove functionalitates a Firefox, meliorante tu interactiones con le contento del web, e cambiante le apparentia de tu navigator."
 
 #: src/amo/components/StaticPages/About/index.js:42
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
+msgstr "Si tu cerca additivos pro Thunderbird o pro SeaMonkey, per favor visita %(startTBLink)saddons.thunderbird.net%(endTBLink)s o %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About/index.js:59
 msgid "A community of creators"
-msgstr ""
+msgstr "Un communitate de autores"
 
 #: src/amo/components/StaticPages/About/index.js:61
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Le additivos in le lista de presentation hic es create per milles de disveloppatores e de projectatores thema ex tote le mundo, rangiante ab le hobbyistas al grande corporationes. Alcun additivos in"
+" le lista de presentation sur AMO ha essite automaticamente publicate e pote ser subjecte a revision per un equipa de redactores un vice que illos es publicate in le lista de presentation."
 
 #: src/amo/components/StaticPages/About/index.js:70
 msgid "Get involved"
-msgstr ""
+msgstr "Collabora"
 
 #: src/amo/components/StaticPages/About/index.js:72
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla es un champion non-lucrative, nos produce Firefox pro adjutar a mantener internet salubre, aperte e accessibile. Le additivos supporta le usator in selectiones e personalisationes in "
+"Firefox, e tu pote contribuer in le sequente manieras:"
 
 #: src/amo/components/StaticPages/About/index.js:82
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sCrea tu proprie additivo%(endLink)s. Nos forni servicios hospite e de actualisation libere e nos te pote adjutar a attinger un grande auditorio de usatores."
 
 #: src/amo/components/StaticPages/About/index.js:98
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Adjuta a meliorar iste sito web. Illo es open-source, e tu pote indicar defectos e inviar pecias. Tu pote comenciar con un %(startGoodFirstBugLink)sbon prime defecto%(endGoodFirstBugLink)s o vider "
+"tote le problemas aperte in AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s e %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s sur Github."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:102
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Includer email, numero de telephono o altere detalios personal tue proprie o de quicunque altere."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:107
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Postar revisiones pro un additivo que tu o tu organisation scribeva o representa."
 
 #: src/amo/components/StaticPages/ReviewGuide/index.js:112
 msgid ""
