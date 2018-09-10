@@ -44,7 +44,9 @@ export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
   'UNLOAD_ADDON_REVIEWS';
 
 export type UserReviewType = {|
+  addonIconUrl: string,
   addonId: number,
+  addonName: string,
   addonSlug: string,
   body?: string,
   created: Date,
@@ -64,7 +66,9 @@ export function createInternalReview(
   review: ExternalReviewType | ExternalReviewReplyType,
 ): UserReviewType {
   return {
+    addonIconUrl: review.addon.icon_url,
     addonId: review.addon.id,
+    addonName: review.addon.name,
     addonSlug: review.addon.slug,
     body: review.body,
     created: review.created,

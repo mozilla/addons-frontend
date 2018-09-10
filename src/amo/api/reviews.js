@@ -11,7 +11,9 @@ import type { PaginatedApiResponse } from 'core/types/api';
 
 type ExternalReviewTypeBase = {|
   addon: {|
+    icon_url: string,
     id: number,
+    name: string,
     slug: string,
   |},
   body: string,
