@@ -26,6 +26,10 @@ cache:
 # Allow to display job names on Travis-CI, see:
 # https://github.com/travis-ci/travis-ci/issues/5898#issuecomment-362490313
 script: FORCE_COLOR=0 yarn $COMMAND
+
+# See: https://github.com/mozilla/addons-frontend/issues/3034
+install: yarn install --pure-lockfile
+
 jobs:
   include:
     # Test the build process.
