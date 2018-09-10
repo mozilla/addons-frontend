@@ -29,7 +29,6 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
-import { getAddonByGUID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
 import { isTheme } from 'core/utils';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
@@ -45,27 +44,27 @@ export class AddonBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     _tracking: PropTypes.object,
-    addon: PropTypes.object,
+    addon: PropTypes.shape({
+      description: PropTypes.string,
+      heading: PropTypes.string.isRequired,
+      icon_url: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      platformFiles: PropTypes.object,
+      type: PropTypes.oneOf(validAddonTypes).isRequired,
+    }),
     clientApp: PropTypes.string.isRequired,
-    // This is added by withInstallHelpers()
     defaultInstallSource: PropTypes.string.isRequired,
-    description: PropTypes.string,
     enable: PropTypes.func.isRequired,
     error: PropTypes.string,
     getBrowserThemeData: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
     hasAddonManager: PropTypes.bool.isRequired,
-    heading: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
-    iconUrl: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     isAddonEnabled: PropTypes.func,
-    // eslint-disable-next-line react/no-unused-prop-types
-    platformFiles: PropTypes.object,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
-    type: PropTypes.oneOf(validAddonTypes).isRequired,
     uninstall: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
   };
@@ -74,7 +73,6 @@ export class AddonBase extends React.Component {
     _config: config,
     _tracking: tracking,
     getClientCompatibility: _getClientCompatibility,
-    platformFiles: {},
   };
 
   getError() {
@@ -100,14 +98,16 @@ export class AddonBase extends React.Component {
   }
 
   getLogo() {
-    const { iconUrl } = this.props;
-    if (this.props.type === ADDON_TYPE_EXTENSION) {
+    const { addon } = this.props;
+
+    if (addon && addon.type === ADDON_TYPE_EXTENSION) {
       return (
         <div className="logo">
-          <img src={iconUrl} alt="" />
+          <img src={addon.icon_url} alt="" />
         </div>
       );
     }
+
     return null;
   }
 
@@ -144,28 +144,33 @@ export class AddonBase extends React.Component {
   }
 
   getDescription() {
-    const { description, type } = this.props;
+    const { addon } = this.props;
 
-    if (isTheme(type)) {
+    if (!addon || isTheme(addon.type)) {
       return null;
     }
 
     return (
       <div
         className="editorial-description"
-        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(description, [
-          'a',
-          'blockquote',
-          'cite',
-        ])}
+        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(
+          addon.description,
+          ['a', 'blockquote', 'cite'],
+        )}
       />
     );
   }
 
   installTheme = (event) => {
     event.preventDefault();
+
     const { addon, installTheme, status } = this.props;
-    installTheme(event.currentTarget, { ...addon, status });
+
+    installTheme(event.currentTarget, {
+      name: addon.name,
+      status,
+      type: addon.type,
+    });
   };
 
   errorMessage() {
@@ -231,15 +236,15 @@ export class AddonBase extends React.Component {
       enable,
       getClientCompatibility,
       hasAddonManager,
-      heading,
       install,
       installTheme,
       isAddonEnabled,
       status,
-      type,
       uninstall,
       userAgentInfo,
     } = this.props;
+
+    const type = addon ? addon.type : undefined;
 
     if (typeof type !== 'undefined' && !validAddonTypes.includes(type)) {
       throw new Error(`Invalid addon type "${type}"`);
@@ -278,17 +283,19 @@ export class AddonBase extends React.Component {
         {this.getLogo()}
         <div className="content">
           <TransitionGroup>{this.getError()}</TransitionGroup>
+
           <div className="copy">
             <h2
               onClick={this.clickHeadingLink}
               className="heading"
-              dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(heading, [
-                'a',
-                'span',
-              ])}
+              dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(
+                addon.heading,
+                ['a', 'span'],
+              )}
             />
             {this.getDescription()}
           </div>
+
           {_config.get('enableAMInstallButton') ? (
             <AMInstallButton
               addon={addon}
@@ -306,6 +313,7 @@ export class AddonBase extends React.Component {
             />
           ) : (
             <InstallButton
+              {...this.props.addon}
               {...this.props}
               className="Addon-install-button"
               defaultInstallSource={defaultInstallSource}
@@ -313,6 +321,7 @@ export class AddonBase extends React.Component {
             />
           )}
         </div>
+
         {!compatible ? (
           <AddonCompatibilityError minVersion={minVersion} reason={reason} />
         ) : null}
@@ -324,19 +333,17 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  // `ownProps.guid` is already "normalized" with `getGuid()` in the
-  // `DiscoPane` container component.
-  const installation = state.installations[ownProps.guid] || {};
-  const addon = getAddonByGUID(state, ownProps.guid);
+  let installation = {};
+  if (ownProps.addon) {
+    installation = state.installations[ownProps.addon.guid] || {};
+  }
 
   return {
-    ...addon,
-    ...installation,
+    error: installation.error,
     status: installation.status || UNKNOWN,
     clientApp: state.api.clientApp,
     // In addition to this component, this also is required by the
     // `withInstallHelpers()` HOC.
-    addon,
     userAgentInfo: state.api.userAgentInfo,
   };
 }

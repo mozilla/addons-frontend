@@ -2,7 +2,6 @@
 import invariant from 'invariant';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { camelizeKeys as camelCaseKeys } from 'humps';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import config from 'config';
@@ -156,11 +155,7 @@ export class DiscoPaneBase extends React.Component {
         {this.renderFindMoreButton({ position: 'top' })}
 
         {results.map((item) => (
-          <AddonComponent
-            addon={item}
-            {...camelCaseKeys(item)}
-            key={item.guid}
-          />
+          <AddonComponent addon={item} key={item.guid} />
         ))}
 
         {this.renderFindMoreButton({ position: 'bottom' })}
