@@ -498,7 +498,7 @@ describe(__filename, () => {
   });
 
   it.each([DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING])(
-    'renders an Icon when add-on is %s',
+    'renders a loading Icon when add-on is %s',
     (status) => {
       const root = render({ status });
 
@@ -525,6 +525,7 @@ describe(__filename, () => {
 
     expect(root.find('.AMInstallButton-loading')).toHaveLength(1);
     expect(root.find(Icon)).toHaveLength(1);
+    expect(root.find(Icon)).toHaveProp('name', 'loading');
   });
 
   it('sets an `alt` prop to the Icon when status is DOWNLOADING', () => {
