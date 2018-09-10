@@ -942,7 +942,7 @@ describe(__filename, () => {
       expect(
         root
           .find('.AddonReviewList-featuredReview')
-          .find(AddonReviewListItem)
+          .find(AddonReviewCard)
           .prop('review').id,
       ).toEqual(reviewId);
     });
