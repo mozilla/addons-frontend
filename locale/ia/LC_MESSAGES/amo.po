@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 18:02+0000\n"
-"PO-Revision-Date: 2018-09-10 21:34+0000\n"
+"PO-Revision-Date: 2018-09-10 21:53+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2197,133 +2197,140 @@ msgstr "Nomine monstrate"
 
 #: src/amo/components/UserProfileEdit/index.js:612
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Iste URL essera solo visibile al usatores qui es disveloppatores."
 
 #: src/amo/components/UserProfileEdit/index.js:655
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Presenta te mesme al communitate si il te place"
 
 #: src/amo/components/UserProfileEdit/index.js:659
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Presenta %(username)s al communitate"
 
 #: src/amo/components/UserProfileEdit/index.js:673
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Alcun HTML supportate: %(htmlTags)s. Le ligamines es prohibite."
 
 #: src/amo/components/UserProfileEdit/index.js:697
 msgid "Notifications"
-msgstr ""
+msgstr "Notificationes"
 
 #: src/amo/components/UserProfileEdit/index.js:701
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "De tempore in tempore, Mozilla pote mitter te email circa versiones approchante e eventos del additivo. Per favor elige le topicos al qual tu es interessate."
 
 #: src/amo/components/UserProfileEdit/index.js:706
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "De tempore in tempore, Mozilla pote mitter iste email de usator circa versiones approchante e eventos de additivo. Per favor elige le topicos al qual iste usator pote ser interessate."
 
 #: src/amo/components/UserProfileEdit/index.js:721
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla se reserva le derecto de continger te individualmente circa specific problemas con tu additivos hospite."
 
 #: src/amo/components/UserProfileEdit/index.js:739
 msgid "Updating your profile…"
-msgstr ""
+msgstr "Actualisation de tu profilo…"
 
 #: src/amo/components/UserProfileEdit/index.js:740
 msgid "Update My Profile"
-msgstr ""
+msgstr "Actualisar mi profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Updating profile…"
-msgstr ""
+msgstr "Actualisation del profilo…"
 
 #: src/amo/components/UserProfileEdit/index.js:743
 msgid "Update Profile"
-msgstr ""
+msgstr "Actualisar le profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:754 src/amo/components/UserProfileEdit/index.js:842
 msgid "Delete My Profile"
-msgstr ""
+msgstr "Deler mi profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:755 src/amo/components/UserProfileEdit/index.js:843
 msgid "Delete Profile"
-msgstr ""
+msgstr "Deler le profilo"
 
 #: src/amo/components/UserProfileEdit/index.js:766
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "IMPORTANTE: le deletion de tu profilo de additivos de Firefox es irreversibile."
 
 #: src/amo/components/UserProfileEdit/index.js:769
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "IMPORTANTE: Deler iste profilo de additivos de Firefox es irreversibile."
 
 #: src/amo/components/UserProfileEdit/index.js:778
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"Tu datos sera permanentemente removite, anque le detalios profilo (imagine, nomine de usator, nomine a monstrar, position, pagina principal, biographia, occupation) e optiones de notification. Tu "
+"revisiones e valutationes sera rendite anonyme e non plus modificabile."
 
 #: src/amo/components/UserProfileEdit/index.js:785
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"Le datos de usator sera permanentemente removite, anque le detalios del profilo (imagine, nomine de usator, nomine a monstrar, position, pagina principal, biographia, occupation) e optiones de "
+"notification. Revisiones e valutationes sera rendite anonyme e non plus modificabile."
 
 #: src/amo/components/UserProfileEdit/index.js:795
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
+"Quando tu usa iste adresse de email pro acceder de novo a addons.mozilla.org, tu creara un nove profilo de additivos de Firefox que non es in ulle maniera associate con le profilo que tu ha delite."
 
 #: src/amo/components/UserProfileEdit/index.js:808
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
+"%(strongStart)sNOTE:%(strongEnd)s Tu non pote deler tu profilo si tu es le %(linkStart)sautor de ulle additivos%(linkEnd)s. Tu debe %(docLinkStart)stransferer le proprietate%(docLinkEnd)s o deler le"
+" additivos ante que tu pote deler tu profilo."
 
 #: src/amo/components/UserProfileEdit/index.js:815
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sNOTE:%(strongEnd)s Tu non pote deler un profilo del usator si le usator es le %(linkStart)sautor de ulle additivos%(linkEnd)s."
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "remane ajornate con novas e eventos pertinente al disveloppatores de additivos (anque le littera de novas about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla debe continger me circa mi additivo personal"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "nove additivos o functionalitates de Firefox es disponibile"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:26
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "alicuno scribe un revision de mi additivo"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:28
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "un disveloppator de additivos replica a mi revision"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "mi additivos es revidite per un revisor"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "mi additivo basate sur sdk non pote ser promovite"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "mi additivo basate sur sdk esseva promovite con successo"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "le compatibilitate de mi additivo non pote ser promovite"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:38
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "le compatibilitate de mi additivo es promovite con successo"
 
 #: src/amo/components/UserProfileEditPicture/index.js:107
 msgid "Do you really want to delete this picture?"
@@ -2331,135 +2338,135 @@ msgstr "Vole tu vermente deler iste imagine?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:112
 msgid "Delete This Picture"
-msgstr ""
+msgstr "Deler iste imagine"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
-msgstr ""
+msgstr "Imagine de profilo pro %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
-msgstr ""
+msgstr "Photo del profilo"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Elige photo…"
 
 #: src/core/components/AMInstallButton/index.js:208
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 #: src/core/components/AMInstallButton/index.js:213
 msgid "Enabling"
-msgstr ""
+msgstr "Activation"
 
 #: src/core/components/AMInstallButton/index.js:215
 msgid "Downloading"
-msgstr ""
+msgstr "Discarga"
 
 #: src/core/components/AMInstallButton/index.js:217
 msgid "Installing"
-msgstr ""
+msgstr "Installation"
 
 #: src/core/components/AMInstallButton/index.js:219
 msgid "Uninstalling"
-msgstr ""
+msgstr "Disinstallation"
 
 #: src/core/components/AMInstallButton/index.js:223 src/core/components/InstallButton/index.js:260 src/core/components/InstallButton/index.js:306
 msgid "Install Theme"
-msgstr ""
+msgstr "Installar thema"
 
 #: src/core/components/AMInstallButton/index.js:224 src/core/components/InstallButton/index.js:291 src/core/components/InstallButton/index.js:307
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Adder a Firefox"
 
 #: src/core/components/AuthenticateButton/index.js:79
 msgid "Register or Log in"
-msgstr ""
+msgstr "Registra te o accede"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Pardono, ma il ha habite un error e nos non pote completar tu requesta. Nos ha registrate iste error e investigara re illo."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Codice de error: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Pardono, ma nos non pote trovar tote le cosas al URL que tu specificava."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s addite"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Gere tu additivos cliccante Additivos in le menu."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Discargamento de %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:72
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installation de %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s installate e activate. Clicca pro disinstallar."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s es disactivate. Clicca pro activar."
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Disinstallation de %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s es disinstallate. Clicca pro installar."
 
 #: src/core/components/InstallSwitch/index.js:90
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Le stato de installation pro %(name)s es incognite."
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
-msgstr ""
+msgstr "Previe"
 
 #: src/core/components/Paginate/index.js:154
 msgid "Next"
-msgstr ""
+msgstr "Sequente"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Pagina %(currentPage)s de %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:132
 msgid "Take short survey"
-msgstr ""
+msgstr "Prende breve questionario"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Gratias pro visitar iste sito! Per favor prende un minuta o duo pro contar a Firefox circa tu experientia."
 
 #: src/ui/components/ConfirmButton/index.js:100
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: src/ui/components/DismissibleTextForm/index.js:128
 msgid "Enter text."
-msgstr ""
+msgstr "Insere texto."
 
 #: src/ui/components/DismissibleTextForm/index.js:129
 msgid "Submit"
-msgstr ""
+msgstr "Submitter"
 
 #: src/ui/components/DismissibleTextForm/index.js:131
 msgid "Submitting"
