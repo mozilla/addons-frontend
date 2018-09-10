@@ -351,7 +351,9 @@ describe(__filename, () => {
       const newURL = '/redirect/to/this/url';
 
       class Redirect extends React.Component {
-        componentWillMount() {
+        constructor(props) {
+          super(props);
+
           store.dispatch(
             sendServerRedirect({
               status: 301,

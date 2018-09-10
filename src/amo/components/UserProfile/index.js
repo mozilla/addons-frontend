@@ -79,7 +79,9 @@ type InternalProps = {|
 |};
 
 export class UserProfileBase extends React.Component<InternalProps> {
-  componentWillMount() {
+  constructor(props: InternalProps) {
+    super(props);
+
     const {
       dispatch,
       errorHandler,
@@ -88,7 +90,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       match: { params },
       reviews,
       user,
-    } = this.props;
+    } = props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');

@@ -25,8 +25,10 @@ type InternalProps = {|
 |};
 
 export class HeroBase extends React.Component<InternalProps> {
-  componentWillMount() {
-    const { dispatch, heroBanners, name, random, sections } = this.props;
+  constructor(props: InternalProps) {
+    super(props);
+
+    const { dispatch, heroBanners, name, random, sections } = props;
 
     if (!heroBanners[name]) {
       dispatch(setHeroBannerOrder({ name, random, sections }));

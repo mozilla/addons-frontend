@@ -66,11 +66,13 @@ export class LandingPageBase extends React.Component {
     _config: config,
   };
 
-  componentWillMount() {
-    const { params } = this.props.match;
+  constructor(props) {
+    super(props);
+
+    const { params } = props.match;
 
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping componentWillMount() because visibleAddonType
+      log.warn(oneLine`Skipping constructor() because visibleAddonType
         is invalid: ${params.visibleAddonType}`);
       return;
     }

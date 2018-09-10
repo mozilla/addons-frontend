@@ -91,13 +91,15 @@ export class HomeBase extends React.Component {
     includeFeaturedThemes: false,
   };
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+
     const {
       dispatch,
       errorHandler,
       includeFeaturedThemes,
       resultsLoaded,
-    } = this.props;
+    } = props;
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 

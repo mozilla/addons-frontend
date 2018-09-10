@@ -69,7 +69,9 @@ type InternalProps = {|
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
-  componentWillMount() {
+  constructor(props: InternalProps) {
+    super(props);
+
     this.loadDataIfNeeded();
   }
 

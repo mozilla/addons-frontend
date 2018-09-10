@@ -36,8 +36,10 @@ type InternalProps = {|
 |};
 
 export class SearchPageBase extends React.Component<InternalProps> {
-  componentWillMount() {
-    const { clientApp, filters, lang, location } = this.props;
+  constructor(props: InternalProps) {
+    super(props);
+
+    const { clientApp, filters, lang, location } = props;
 
     let shouldRedirect = false;
     const newFilters = { ...filters };
@@ -87,7 +89,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
         convertFiltersToQueryParams(newFilters),
       );
 
-      this.props.dispatch(
+      props.dispatch(
         sendServerRedirect({
           status: 302,
           url: `/${lang}/${clientApp}/search/${queryString}`,
