@@ -38,7 +38,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     if (variant) {
       _tracking.sendEvent({
         action: `${AB_HOME_HERO_TEST_NAME} Page View`,
-        category: `AMO ${variant}`,
+        category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
         label: '',
       });
     }
@@ -238,11 +238,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     return heroes.map((hero) => {
       const { url } = hero;
       return (
-        <HeroSection
-          key={url}
-          linkTo={url}
-          onClick={(e) => this.trackExperimentClick(e, url)}
-        >
+        <HeroSection key={url} linkTo={url} onClick={this.trackExperimentClick}>
           <h3>{hero.title}</h3>
           <p>{hero.description}</p>
         </HeroSection>
@@ -255,7 +251,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
 
     _tracking.sendEvent({
       action: `${AB_HOME_HERO_TEST_NAME} Click`,
-      category: `AMO ${variant}`,
+      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
       label: url,
     });
   };
