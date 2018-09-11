@@ -16,12 +16,18 @@ if (!appName) {
   process.exit(1);
 }
 
-if (config.util.getEnv('NODE_ENV') === 'development') {
+if (process.env.NODE_ENV === 'development') {
   if (!require('piping')({
     hook: true,
     ignore: /(\/\.|~$|\.json|\.scss$)/i,
   })) {
     return;
+  }
+
+  if (process.env.USE_HTTPS_FOR_DEV) {
+    // Skip SSL check to avoid the 'self signed certificate in certificate
+    // chain' error.
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
   }
 }
 

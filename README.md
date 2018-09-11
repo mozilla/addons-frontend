@@ -37,6 +37,7 @@ Here are some commands you can run:
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | yarn amo                    | Start the dev server/proxy (for amo) using data from Docker                                                                   |
 | yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/)                         |
+| yarn amo:dev-https          | Same as `amo:dev` but with HTTPS                                                                                              |
 | yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker                                                         |
 | yarn amo:stage              | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/)                         |
 | yarn build                  | Build an app specified with the `NODE_APP_INSTANCE` environment variable.                                                     |

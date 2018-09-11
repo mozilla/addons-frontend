@@ -18,6 +18,7 @@
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
     "amo": "better-npm-run amo",
     "amo:dev": "better-npm-run amo:dev",
+    "amo:dev-https": "better-npm-run amo:dev-https",
     "amo:ui-tests": "better-npm-run amo:ui-tests",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
@@ -65,6 +66,15 @@
         "AMO_CDN": "https://addons-dev-cdn.allizom.org",
         "PROXY_API_HOST": "https://addons-dev.allizom.org",
         "NODE_APP_INSTANCE": "amo"
+      }
+    },
+    "amo:dev-https": {
+      "command": "better-npm-run amo:dev",
+      "env": {
+        "API_HOST": "https://example.com:3000",
+        "SERVER_HOST": "example.com",
+        "USE_HTTPS_FOR_DEV": "true",
+        "WEBPACK_SERVER_HOST": "example.com"
       }
     },
     "amo:ui-tests": {
