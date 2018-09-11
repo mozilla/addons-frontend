@@ -102,7 +102,7 @@
   text-decoration: none;
 
   @include respond-to(large) {
-    display: inline-block;
+    display: block;
   }
 
   &:link,
