@@ -21,6 +21,8 @@
     "amo:ui-tests": "better-npm-run amo:ui-tests",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
+    "build-storybook": "better-npm-run storybook-build",
+    "deploy-storybook": "storybook-to-ghpages",
     "disco": "better-npm-run disco",
     "eslint": "eslint .",
     "flow": "flow",
@@ -37,7 +39,6 @@
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
     "storybook": "better-npm-run storybook",
-    "storybook-build": "better-npm-run storybook-build",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
@@ -147,7 +148,6 @@
     "storybook-build": {
       "command": "build-storybook -c stories/setup",
       "env": {
-        "NODE_APP_INSTANCE": "amo",
         "NODE_PATH": "./:./src"
       }
     },
@@ -251,6 +251,7 @@
     "@storybook/addon-options": "^3.4.10",
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
+    "@storybook/storybook-deployer": "^2.3.0",
     "autoprefixer": "^9.0.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^9.0.0",
