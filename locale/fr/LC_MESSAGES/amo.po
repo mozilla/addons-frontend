@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-02 14:43+0000\n"
+"PO-Revision-Date: 2018-09-11 17:32+0000\n"
 "Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1118,9 +1118,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Changez le style de Firefox à l’aide de thèmes."
 
 #: src/amo/components/Home/index.js:50
-#, fuzzy
 msgid "See more privacy & security extensions"
-msgstr "Voir plus d’extensions pour le respect de la vie privée"
+msgstr ""
 
 #: src/amo/components/Home/index.js:51
 msgid "Privacy & security"
@@ -1271,7 +1270,6 @@ msgid "Automatically sorts bookmarks so they’re in your preferred position"
 msgstr "Trie automatiquement les marque-pages pour qu’ils soient dans votre ordre préféré"
 
 #: src/amo/components/HomeHeroBanner/index.js:198
-#, fuzzy
 msgid "Search Preview"
 msgstr "SearchPreview"
 
@@ -1312,9 +1310,8 @@ msgid "Play videos in a pop-out window, take video screenshots & more"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:41
-#, fuzzy
 msgid "Private Bookmarks"
-msgstr "Marque-pages"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Password-protect your personal bookmarks"
@@ -1365,9 +1362,8 @@ msgid "Universal Bypass"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:80
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "Démarrez automatiquement Firefox en mode plein écran"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Tree Style Tab"
