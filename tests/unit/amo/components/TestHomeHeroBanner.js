@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
 import {
+  createFakeEvent,
   createFakeTracking,
   fakeI18n,
   shallowUntilTarget,
@@ -39,7 +41,7 @@ describe(__filename, () => {
     expect(carousel).toHaveProp('random', true);
   });
 
-  it('calls tracking on component page view', () => {
+  it('calls tracking on home page view', () => {
     const fakeTracking = createFakeTracking();
     const root = shallowRender({ _tracking: fakeTracking });
 
@@ -47,14 +49,14 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: `${AB_HOME_HERO_TEST_NAME} Page View`,
-      category: `AMO ${variant}`,
+      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
       label: '',
     });
 
     sinon.assert.calledOnce(fakeTracking.sendEvent);
   });
 
-  it('calls tracking on click', () => {
+  it('calls tracking on hero click', () => {
     const fakeTracking = createFakeTracking();
 
     const root = shallowRender({
@@ -65,7 +67,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: `${AB_HOME_HERO_TEST_NAME} Page View`,
-      category: `AMO ${variant}`,
+      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
       label: '',
     });
 
@@ -73,15 +75,18 @@ describe(__filename, () => {
 
     const heroBanner = root.find(Hero);
 
-    expect(heroBanner).toHaveLength(1);
-    const firstItem = heroBanner.prop('sections')[0];
+    // We'll use the first item in the home heroes array as an example.
+    const heroItem = heroBanner.prop('sections')[0];
+    const heroLink = shallow(heroItem).find('.HeroSection-link-wrapper');
 
-    firstItem.props.onClick();
+    expect(heroLink).toHaveLength(1);
+
+    heroLink.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: `${AB_HOME_HERO_TEST_NAME} Click`,
-      category: `AMO ${variant}`,
-      label: `${firstItem.key}`,
+      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
+      label: heroItem.key,
     });
 
     sinon.assert.calledTwice(fakeTracking.sendEvent);
