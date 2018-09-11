@@ -40,6 +40,11 @@
   .AddonReviewCard-ratingOnly .AddonReviewCard-allControls {
     justify-content: center;
   }
+
+  .DismissibleTextForm-delete-submit-buttons,
+  .DismissibleTextForm-submit {
+    width: 100%;
+  }
 }
 
 .RatingManager-AddonReviewCard:not(.AddonReviewCard-ratingOnly) {

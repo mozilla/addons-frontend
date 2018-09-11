@@ -69,6 +69,25 @@ describe(__filename, () => {
     expect(formFooter.find('a').text()).toEqual('review guidelines');
   });
 
+  it('does not configure DismissibleTextForm for cancellation by default', () => {
+    const root = render();
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('onDismiss', undefined);
+  });
+
+  it('can configure DismissibleTextForm for cancellation', () => {
+    const onCancel = sinon.stub();
+    const root = render({ onCancel });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('onDismiss');
+    const onDismiss = form.prop('onDismiss');
+    onDismiss();
+
+    sinon.assert.called(onCancel);
+  });
+
   it('updates the rating when you select a star', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');

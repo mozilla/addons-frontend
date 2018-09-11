@@ -5,11 +5,6 @@
 .AddonReviewManager {
   font-size: $font-size-default;
 
-  .DismissibleTextForm-delete-submit-buttons,
-  .Button {
-    width: 100%;
-  }
-
   .AddonReviewManager-Rating.Rating {
     height: $default-line-height;
     margin: 0;

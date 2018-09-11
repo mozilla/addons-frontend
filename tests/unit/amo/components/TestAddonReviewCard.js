@@ -12,6 +12,7 @@ import {
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AddonReviewCard, {
   AddonReviewCardBase,
 } from 'amo/components/AddonReviewCard';
@@ -27,9 +28,10 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
-  createFakeLocation,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -53,6 +55,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
+      _config: getFakeConfig({ enableInlineAddonReview: false }),
       addon: createInternalAddon(fakeAddon),
       location: createFakeLocation(),
       i18n: fakeI18n(),
@@ -806,9 +809,60 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  describe('enableInlineAddonReview', () => {
+    function renderInline(otherProps = {}) {
+      const _config = getFakeConfig({
+        enableInlineAddonReview: true,
+      });
+      return render({ _config, ...otherProps });
+    }
+
+    it('shows UserReview by default', () => {
+      const review = signInAndDispatchSavedReview();
+      const root = renderInline({ review });
+
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+      expect(root.find(UserReview)).toHaveLength(1);
+    });
+
+    it('renders AddonReviewManager when editing', () => {
+      const review = signInAndDispatchSavedReview();
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+
+      const root = renderInline({ review });
+
+      expect(root.find(UserReview)).toHaveLength(0);
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveLength(1);
+      expect(manager).toHaveProp('review', review);
+    });
+
+    it('hides the review form on cancel', () => {
+      const review = signInAndDispatchSavedReview();
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const root = renderInline({ review });
+
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveProp('onCancel');
+
+      dispatchSpy.resetHistory();
+      const onCancel = manager.prop('onCancel');
+      onCancel();
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        hideEditReviewForm({
+          reviewId: review.id,
+        }),
+      );
+    });
+  });
+
   describe('byLine', () => {
     function renderByLine(root) {
-      return shallow(root.prop('byLine'));
+      return shallow(root.find(UserReview).prop('byLine'));
     }
 
     it('renders a byLine with an author by default', () => {
@@ -831,7 +885,7 @@ describe(__filename, () => {
 
       const root = renderReply({ i18n, reply });
 
-      expect(root).toHaveProp(
+      expect(root.find(UserReview)).toHaveProp(
         'byLine',
         `posted ${i18n.moment(reply.created).fromNow()}`,
       );
@@ -842,7 +896,7 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, shortByLine: true, review });
 
-      expect(root).toHaveProp(
+      expect(root.find(UserReview)).toHaveProp(
         'byLine',
         `posted ${i18n.moment(review.created).fromNow()}`,
       );
@@ -854,7 +908,7 @@ describe(__filename, () => {
       });
       const root = render({ review });
 
-      expect(root).toHaveProp('byLine', false);
+      expect(root.find(UserReview)).toHaveProp('byLine', false);
     });
   });
 

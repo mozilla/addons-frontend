@@ -32,6 +32,7 @@ import {
   UPDATE_ADDON_REVIEW,
   unloadAddonReviews,
   flashReviewMessage,
+  hideEditReviewForm,
   hideFlashedReviewMessage,
   hideReplyToReviewForm,
   setAddonReviews,
@@ -271,6 +272,8 @@ function* manageAddonReview(
     if (savingReview) {
       yield put(flashReviewMessage(SAVED_REVIEW));
     }
+
+    yield put(hideEditReviewForm({ reviewId: reviewFromResponse.id }));
 
     // Make the message disappear after some time.
     yield _delay(FLASH_SAVED_MESSAGE_DURATION);
