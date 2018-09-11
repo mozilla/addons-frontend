@@ -1,6 +1,5 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
-import makeClassName from 'classnames';
 import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -34,6 +33,8 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { genericType, successType } from 'ui/components/Notice';
+import RatingManagerNotice from 'ui/components/RatingManagerNotice';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -283,25 +284,25 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
               review={!this.isSignedIn() ? null : userReview}
             />
           </div>
-          <div
-            className={makeClassName(
-              'RatingManager-savedRating',
-              {
-                'RatingManager-savedRating-hidden':
-                  flashMessage !== STARTED_SAVE_RATING &&
-                  flashMessage !== SAVED_RATING,
-              },
-              {
-                'RatingManager-savedRating-withReview': Boolean(
-                  userReview && userReview.body,
-                ),
-              },
-            )}
-          >
-            {flashMessage === STARTED_SAVE_RATING
-              ? i18n.gettext('Saving')
-              : i18n.gettext('Saved')}
-          </div>
+          <RatingManagerNotice
+            className={
+              userReview && userReview.body
+                ? 'RatingManager-savedRating-withReview'
+                : null
+            }
+            hideMessage={
+              flashMessage !== STARTED_SAVE_RATING &&
+              flashMessage !== SAVED_RATING
+            }
+            message={
+              flashMessage === STARTED_SAVE_RATING
+                ? i18n.gettext('Saving star rating')
+                : i18n.gettext('Star rating saved')
+            }
+            type={
+              flashMessage === STARTED_SAVE_RATING ? genericType : successType
+            }
+          />
         </fieldset>
       </form>
     );

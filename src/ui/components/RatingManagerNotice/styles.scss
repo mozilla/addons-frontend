@@ -1,0 +1,10 @@
+@import '~amo/css/styles';
+
+.RatingManagerNotice-savedRating {
+  color: $grey-50;
+  text-align: center;
+}
+
+.RatingManagerNotice-savedRating-hidden {
+  display: none;
+}
