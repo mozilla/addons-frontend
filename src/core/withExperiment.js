@@ -55,15 +55,11 @@ export const withExperiment = ({
       invariant(variantB, 'variantB is required');
       invariant(nameId, 'id is required');
 
-      // console.log('REBB cookieConfig', cookieConfig);
-
       this.experimentCookie = _cookie.load(this.getCookieName());
 
       if (this.experimentCookie === undefined) {
         this.experimentCookie = randomizer() >= 0.5 ? variantA : variantB;
         _cookie.save(this.getCookieName(), this.experimentCookie, cookieConfig);
-
-        // console.log('REBB cookieConfig testttt', this.experimentCookie);
       }
     }
 
