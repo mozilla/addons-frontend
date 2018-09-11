@@ -251,6 +251,7 @@ function baseServer(
 
     // Make sure the initial page does not get stored. Specifically, we
     // don't want the auth token in Redux state to hang around.
+    // See https://github.com/mozilla/addons-frontend/issues/6217
     //
     // The site operates as a single page app so this should really
     // only affect how the browser loads the page when clicking
