@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-11 17:32+0000\n"
-"Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
+"PO-Revision-Date: 2018-09-11 19:00+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -329,7 +329,7 @@ msgstr "Supprimer ma réponse"
 
 #: src/amo/components/AddonReviewCard/index.js:193
 msgid "Delete my rating"
-msgstr ""
+msgstr "Supprimer ma note"
 
 #: src/amo/components/AddonReviewCard/index.js:196
 msgid "Delete my review"
@@ -341,7 +341,7 @@ msgstr "Souhaitez-vous vraiment supprimer cette réponse ?"
 
 #: src/amo/components/AddonReviewCard/index.js:207
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "Souhaitez-vous vraiment supprimer cette note ?"
 
 #: src/amo/components/AddonReviewCard/index.js:210
 msgid "Do you really want to delete this review?"
@@ -1119,11 +1119,11 @@ msgstr "Changez le style de Firefox à l’aide de thèmes."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more privacy & security extensions"
-msgstr ""
+msgstr "Voir plus d’extensions sur la sécurité et la protection de la vie privée"
 
 #: src/amo/components/Home/index.js:51
 msgid "Privacy & security"
-msgstr ""
+msgstr "Vie privée et sécurité"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
@@ -1275,15 +1275,15 @@ msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr ""
+msgstr "Associez des vignettes à vos résultats de recherche"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:206
 msgid "Remove formatting when saving text to your clipboard"
-msgstr ""
+msgstr "Supprimez le formatage du texte lorsque vous l’envoyez vers le presse-papiers"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
