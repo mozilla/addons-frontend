@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-30 17:02+0000\n"
+"POT-Creation-Date: 2018-09-11 17:00+0000\n"
 "PO-Revision-Date: 2018-08-26 12:25+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -15,39 +15,39 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Enable"
 msgstr "Включить"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:210
 msgid "Enabling"
 msgstr "Включаю"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:212
 msgid "Downloading"
 msgstr "Загрузка"
 
-#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Installing"
 msgstr "Установка"
 
-#: src/core/components/AMInstallButton/index.js:219
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Uninstalling"
 msgstr "Удаление"
 
-#: src/core/components/AMInstallButton/index.js:223
-#: src/core/components/InstallButton/index.js:260
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "Установить тему"
 
-#: src/core/components/AMInstallButton/index.js:224
-#: src/core/components/InstallButton/index.js:291
-#: src/core/components/InstallButton/index.js:307
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
 msgstr "Добавить в Firefox"
 
@@ -116,27 +116,27 @@ msgstr "%(name)s удалено. Щёлкните, чтобы установит
 msgid "Install state for %(name)s is unknown."
 msgstr "Состояние установки %(name)s неизвестно."
 
-#: src/disco/components/Addon/index.js:175
+#: src/disco/components/Addon/index.js:180
 msgid "Installation failed. Please try again."
 msgstr "Установка не удалась. Пожалуйста, попробуйте позже."
 
-#: src/disco/components/Addon/index.js:177
+#: src/disco/components/Addon/index.js:182
 msgid "Download failed. Please check your connection."
 msgstr "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
 
-#: src/disco/components/Addon/index.js:179
+#: src/disco/components/Addon/index.js:184
 msgid "An unexpected error occurred during installation."
 msgstr "При установке произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon/index.js:183
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred during uninstallation."
 msgstr "При удалении произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon/index.js:188
+#: src/disco/components/Addon/index.js:193
 msgid "An unexpected error occurred."
 msgstr "Произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon/index.js:94
+#: src/disco/components/Addon/index.js:92
 msgid "Close"
 msgstr "Закрыть"
 
@@ -156,15 +156,15 @@ msgstr "Это дополнение не поддерживает ваш бра�
 msgid "Discover Add-ons"
 msgstr "Откройте для себя дополнения"
 
-#: src/disco/components/DiscoPane/index.js:121
+#: src/disco/components/DiscoPane/index.js:120
 msgid "Find more add-ons"
 msgstr "Найти больше дополнений"
 
-#: src/disco/components/DiscoPane/index.js:141
+#: src/disco/components/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
 msgstr "Настройте под себя свой Firefox"
 
-#: src/disco/components/DiscoPane/index.js:143
+#: src/disco/components/DiscoPane/index.js:142
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
