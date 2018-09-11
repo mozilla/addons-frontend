@@ -35,25 +35,19 @@ export const withExperiment = ({
     static defaultProps = {
       _cookie: cookie,
       id: defaultId,
+      randomizer: Math.random,
       variantA: defaultVariantA,
       variantB: defaultVariantB,
-      randomizer: Math.random,
     };
 
     constructor(props: InternalProps) {
       super(props);
 
-      const {
-        _cookie,
-        variantA,
-        variantB,
-        id: nameId,
-        randomizer,
-      } = this.props;
+      const { _cookie, id, randomizer, variantA, variantB } = this.props;
 
+      invariant(id, 'id is required');
       invariant(variantA, 'variantA is required');
       invariant(variantB, 'variantB is required');
-      invariant(nameId, 'id is required');
 
       this.experimentCookie = _cookie.load(this.getCookieName());
 
