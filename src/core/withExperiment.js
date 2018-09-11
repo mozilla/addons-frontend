@@ -3,110 +3,82 @@ import * as React from 'react';
 import invariant from 'invariant';
 import cookie from 'react-cookie';
 
-import tracking from 'core/tracking';
+export type ExposedWithExperimentProps = {|
+  variant: string,
+|};
 
 type Props = {|
-  AName: string,
-  BName: string,
-  nameId: string,
+  cookieConfig?: Object,
+  id: string,
+  variantA: string,
+  variantB: string,
 |};
 
 type InternalProps = {|
   ...Props,
-  _cookie: typeof cookie,
-  _tracking: typeof tracking,
-  randomizer: () => number,
   WrappedComponent: Function,
+  _cookie: typeof cookie,
+  randomizer: () => number,
 |};
 
-export const withExperiment = ({ nameId, AName, BName }: Props) => (
-  WrappedComponent: Function,
-) => {
+const defaultCookieConfig = { path: '/' };
+
+export const withExperiment = ({
+  cookieConfig = defaultCookieConfig,
+  id: defaultId,
+  variantA: defaultVariantA,
+  variantB: defaultVariantB,
+}: Props) => (WrappedComponent: Function) => {
   class WithExperiment extends React.Component<InternalProps> {
-    abTestCookie: string | void;
+    experimentCookie: string | void;
 
     static defaultProps = {
       _cookie: cookie,
-      _tracking: tracking,
-      AName,
-      BName,
-      nameId,
+      id: defaultId,
+      variantA: defaultVariantA,
+      variantB: defaultVariantB,
       randomizer: Math.random,
     };
 
-    componentWillMount() {
+    constructor(props: InternalProps) {
+      super(props);
+
       const {
         _cookie,
-        _tracking,
-        AName: ANameVariant,
-        BName: BNameVariant,
-        nameId: abNameId,
+        variantA,
+        variantB,
+        id: nameId,
         randomizer,
       } = this.props;
 
-      invariant(ANameVariant, 'AName is required');
-      invariant(BNameVariant, 'BName is required');
-      invariant(abNameId, 'nameId is required');
+      invariant(variantA, 'variantA is required');
+      invariant(variantB, 'variantB is required');
+      invariant(nameId, 'id is required');
 
-      this.abTestCookie = _cookie.load(`AB_${abNameId}_COOKIE`);
+      // console.log('REBB cookieConfig', cookieConfig);
 
-      if (this.abTestCookie === undefined) {
-        this.abTestCookie =
-          randomizer() >= 0.5
-            ? `AB_TEST_${abNameId}_${ANameVariant}`
-            : `AB_TEST_${abNameId}_${BNameVariant}`;
-        _cookie.save(`AB_${abNameId}_COOKIE`, this.abTestCookie, {
-          path: '/', // TODO: make this flexible too possibly.
-        });
-      }
+      this.experimentCookie = _cookie.load(this.getCookieName());
 
-      if (this.abTestCookie) {
-        _tracking.sendEvent({
-          action: `${abNameId} Page View`,
-          category: `AMO ${this.abTestCookie}`,
-          label: '',
-        });
+      if (this.experimentCookie === undefined) {
+        this.experimentCookie = randomizer() >= 0.5 ? variantA : variantB;
+        _cookie.save(this.getCookieName(), this.experimentCookie, cookieConfig);
+
+        // console.log('REBB cookieConfig testttt', this.experimentCookie);
       }
     }
 
-    trackClick = (e: SyntheticEvent<any>, url: string = '') => {
-      const { _cookie, _tracking, nameId: abNameId } = this.props;
-
-      const nodeType = e.currentTarget.nodeName.toLowerCase();
-
-      if (nodeType === 'a') {
-        _tracking.sendEvent({
-          action: `${abNameId} Click`,
-          category: `AMO ${_cookie.load(`AB_${abNameId}_COOKIE`)}`,
-          label: url,
-        });
-      }
-    };
+    getCookieName() {
+      return `experiment_${this.props.id}`;
+    }
 
     render() {
-      const {
-        _cookie,
-        AName: ANameVariant,
-        nameId: abNameId,
-        ...props
-      } = this.props;
+      const { _cookie, ...props } = this.props;
 
-      // We'll call the "AName" variant the "on" / "true" variant.
-      const isOn =
-        _cookie.load(`AB_${abNameId}_COOKIE`) ===
-        `AB_TEST_${abNameId}_${ANameVariant}`;
-
-      const exposedPropHelpers = {
-        trackClick: (...args) => this.trackClick(...args),
+      const exposedProps: ExposedWithExperimentProps = {
+        variant: _cookie.load(this.getCookieName()),
       };
 
-      return (
-        <WrappedComponent
-          {...exposedPropHelpers}
-          {...props}
-          experimentIsOn={isOn}
-        />
-      );
+      return <WrappedComponent {...exposedProps} {...props} />;
     }
   }
 

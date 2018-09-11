@@ -7,21 +7,44 @@ import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
+import tracking from 'core/tracking';
 import { withExperiment } from 'core/withExperiment';
 
 import './styles.scss';
 
 type Props = {|
   i18n: I18nType,
-  trackClick: () => void,
+  trackExperimentClick: () => void,
   experimentIsOn: boolean,
+  variant: string,
+|};
+
+type InternalProps = {|
+  ...Props,
+  _tracking: typeof tracking,
 |};
 
 export const AB_HOME_HERO_TEST_NAME = 'HOME_HERO';
 export const AB_HOME_HERO_VARIANT_A = 'ScaledDown';
 export const AB_HOME_HERO_VARIANT_B = 'Large';
 
-export class HomeHeroBannerBase extends React.Component<Props> {
+export class HomeHeroBannerBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _tracking: tracking,
+  };
+
+  componentDidMount() {
+    const { _tracking, variant } = this.props;
+
+    if (variant) {
+      _tracking.sendEvent({
+        action: `${AB_HOME_HERO_TEST_NAME} Page View`,
+        category: `AMO ${variant}`,
+        label: '',
+      });
+    }
+  }
+
   sections() {
     const { i18n } = this.props;
 
@@ -216,7 +239,11 @@ export class HomeHeroBannerBase extends React.Component<Props> {
     return heroes.map((hero) => {
       const { url } = hero;
       return (
-        <HeroSection key={url} linkTo={url} onClick={this.props.trackClick}>
+        <HeroSection
+          key={url}
+          linkTo={url}
+          onClick={(e) => this.trackExperimentClick(e, url)}
+        >
           <h3>{hero.title}</h3>
           <p>{hero.description}</p>
         </HeroSection>
@@ -224,9 +251,20 @@ export class HomeHeroBannerBase extends React.Component<Props> {
     });
   }
 
+  trackExperimentClick = (e: SyntheticEvent<any>, url: string) => {
+    const { _tracking, variant } = this.props;
+
+    _tracking.sendEvent({
+      action: `${AB_HOME_HERO_TEST_NAME} Click`,
+      category: `AMO ${variant}`,
+      label: url,
+    });
+  };
+
   render() {
     const homeBannerClass = makeClassName('HomeHeroBanner', {
-      'HomeHeroBanner--experiment-is-on': this.props.experimentIsOn,
+      'HomeHeroBanner--scaled-down':
+        this.props.variant === AB_HOME_HERO_VARIANT_A,
     });
 
     return (
@@ -240,9 +278,9 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 const HomeHeroBanner: React.ComponentType<Props> = compose(
   translate(),
   withExperiment({
-    nameId: AB_HOME_HERO_TEST_NAME,
-    AName: AB_HOME_HERO_VARIANT_A,
-    BName: AB_HOME_HERO_VARIANT_B,
+    id: AB_HOME_HERO_TEST_NAME,
+    variantA: AB_HOME_HERO_VARIANT_A,
+    variantB: AB_HOME_HERO_VARIANT_B,
   }),
 )(HomeHeroBannerBase);
 
