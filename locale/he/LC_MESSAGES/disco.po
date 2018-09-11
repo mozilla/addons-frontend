@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-30 17:02+0000\n"
+"POT-Creation-Date: 2018-09-11 17:00+0000\n"
 "PO-Revision-Date: 2018-08-24 11:10+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -14,39 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Enable"
 msgstr "הפעלה"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Remove"
 msgstr "הסרה"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:210
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:212
 msgid "Downloading"
 msgstr "בהורדה"
 
-#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Installing"
 msgstr "בהתקנה"
 
-#: src/core/components/AMInstallButton/index.js:219
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Uninstalling"
 msgstr "בהסרת התקנה"
 
-#: src/core/components/AMInstallButton/index.js:223
-#: src/core/components/InstallButton/index.js:260
-#: src/core/components/InstallButton/index.js:306
+#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "התקנת ערכת נושא"
 
-#: src/core/components/AMInstallButton/index.js:224
-#: src/core/components/InstallButton/index.js:291
-#: src/core/components/InstallButton/index.js:307
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -115,27 +115,27 @@ msgstr "%(name)s הוסר. יש ללחוץ להתקנה."
 msgid "Install state for %(name)s is unknown."
 msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
-#: src/disco/components/Addon/index.js:175
+#: src/disco/components/Addon/index.js:180
 msgid "Installation failed. Please try again."
 msgstr "ההתקנה נכשלה. נא לנסות שנית."
 
-#: src/disco/components/Addon/index.js:177
+#: src/disco/components/Addon/index.js:182
 msgid "Download failed. Please check your connection."
 msgstr "ההורדה נכשלה. נא לבדוק את החיבור שלך."
 
-#: src/disco/components/Addon/index.js:179
+#: src/disco/components/Addon/index.js:184
 msgid "An unexpected error occurred during installation."
 msgstr "אירעה שגיאה לא צפויה במהלך ההתקנה."
 
-#: src/disco/components/Addon/index.js:183
+#: src/disco/components/Addon/index.js:188
 msgid "An unexpected error occurred during uninstallation."
 msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 
-#: src/disco/components/Addon/index.js:188
+#: src/disco/components/Addon/index.js:193
 msgid "An unexpected error occurred."
 msgstr "אירעה שגיאה לא צפויה."
 
-#: src/disco/components/Addon/index.js:94
+#: src/disco/components/Addon/index.js:92
 msgid "Close"
 msgstr "סגירה"
 
@@ -155,15 +155,15 @@ msgstr "תוספת זו אינה נתמכת ע״י הדפדפן שלך."
 msgid "Discover Add-ons"
 msgstr "גילוי תוספות"
 
-#: src/disco/components/DiscoPane/index.js:121
+#: src/disco/components/DiscoPane/index.js:120
 msgid "Find more add-ons"
 msgstr "חיפוש תוספות נוספות"
 
-#: src/disco/components/DiscoPane/index.js:141
+#: src/disco/components/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
 msgstr "התאמה אישית של ה־Firefox שלך"
 
-#: src/disco/components/DiscoPane/index.js:143
+#: src/disco/components/DiscoPane/index.js:142
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
