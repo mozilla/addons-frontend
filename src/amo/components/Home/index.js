@@ -15,6 +15,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -26,10 +27,9 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 're-imagine-search', username: 'mozilla' },
+  { slug: 'privacy-matters', username: 'mozilla' },
   { slug: 'fall-themes', username: 'mozilla' },
   { slug: 'youtube-boosters', username: 'mozilla' },
-  { slug: 'refined-reading', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -47,8 +47,8 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more exceptional search tools'),
-      header: i18n.gettext('Exceptional search tools'),
+      footerText: i18n.gettext('See more privacy & security extensions'),
+      header: i18n.gettext('Privacy & security'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
@@ -64,12 +64,6 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
       isTheme: false,
       ...FEATURED_COLLECTIONS[2],
     },
-    {
-      footerText: i18n.gettext('See more reading extensions'),
-      header: i18n.gettext('Refined reading'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[3],
-    },
   ];
 };
 
@@ -84,6 +78,7 @@ export class HomeBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     includeFeaturedThemes: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
+    trendingExtensions: PropTypes.array.isRequired,
   };
 
   static defaultProps = {
@@ -218,6 +213,7 @@ export class HomeBase extends React.Component {
       i18n,
       includeFeaturedThemes,
       resultsLoaded,
+      trendingExtensions,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -309,21 +305,28 @@ export class HomeBase extends React.Component {
           />
         )}
 
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={trendingExtensions}
+          className="Home-TrendingExtensions"
+          header={i18n.gettext('Trending extensions')}
+          footerText={i18n.gettext('See more trending extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_TRENDING,
+            },
+          }}
+          loading={loading}
+        />
+
         {(loading || collections[2]) && (
           <FeaturedCollectionCard
             addons={collections[2]}
             className="Home-FeaturedCollection"
             loading={loading}
             {...featuredCollectionsMetadata[2]}
-          />
-        )}
-
-        {(loading || collections[3]) && (
-          <FeaturedCollectionCard
-            addons={collections[3]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[3]}
           />
         )}
 
@@ -348,6 +351,7 @@ export function mapStateToProps(state) {
     featuredExtensions: state.home.featuredExtensions,
     resultsLoaded: state.home.resultsLoaded,
     featuredThemes: state.home.featuredThemes,
+    trendingExtensions: state.home.trendingExtensions,
   };
 }
 

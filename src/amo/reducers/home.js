@@ -17,6 +17,7 @@ export type HomeState = {
   featuredExtensions: Array<AddonType>,
   resultsLoaded: boolean,
   featuredThemes: Array<AddonType>,
+  trendingExtensions: Array<AddonType>,
 };
 
 export const initialState: HomeState = {
@@ -24,6 +25,7 @@ export const initialState: HomeState = {
   featuredExtensions: [],
   resultsLoaded: false,
   featuredThemes: [],
+  trendingExtensions: [],
 };
 
 type FetchHomeAddonsParams = {|
@@ -73,6 +75,7 @@ type LoadHomeAddonsParams = {|
   collections: Array<Object | null>,
   featuredExtensions: ApiAddonsResponse,
   featuredThemes?: ApiAddonsResponse,
+  trendingExtensions: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -84,9 +87,11 @@ export const loadHomeAddons = ({
   collections,
   featuredExtensions,
   featuredThemes,
+  trendingExtensions,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   invariant(collections, 'collections is required');
   invariant(featuredExtensions, 'featuredExtensions is required');
+  invariant(trendingExtensions, 'trendingExtensions is required');
 
   return {
     type: LOAD_HOME_ADDONS,
@@ -94,6 +99,7 @@ export const loadHomeAddons = ({
       collections,
       featuredExtensions,
       featuredThemes,
+      trendingExtensions,
     },
   };
 };
@@ -125,6 +131,7 @@ const reducer = (
         collections,
         featuredExtensions,
         featuredThemes,
+        trendingExtensions,
       } = action.payload;
 
       return {
@@ -145,6 +152,7 @@ const reducer = (
           ? createInternalAddons(featuredThemes)
           : [],
         resultsLoaded: true,
+        trendingExtensions: createInternalAddons(trendingExtensions),
       };
     }
 
