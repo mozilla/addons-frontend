@@ -597,7 +597,7 @@ describe(__filename, () => {
         .expects('submitReview')
         .resolves(createExternalReview({ id: reviewId }));
 
-      _updateAddonReview({ reviewId });
+      _updateAddonReview({ reviewId, body: 'This is an essential add-on' });
 
       const expectedAction = hideEditReviewForm({ reviewId });
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -610,18 +610,36 @@ describe(__filename, () => {
         .expects('submitReview')
         .resolves(createExternalReview({ id: reviewId }));
 
-      _createAddonReview();
+      _createAddonReview({ body: 'This is an essential add-on' });
 
       const expectedAction = hideEditReviewForm({ reviewId });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
     });
 
+    it('does not hide the review form when only saving a rating', async () => {
+      const reviewId = 321;
+      mockApi
+        .expects('submitReview')
+        .resolves(createExternalReview({ id: reviewId }));
+
+      _updateAddonReview({ reviewId, body: undefined, rating: 4 });
+
+      const expectedAction = hideFlashedReviewMessage();
+      await sagaTester.waitFor(expectedAction.type);
+
+      const exampleHideAction = hideEditReviewForm({ reviewId });
+
+      expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
+        exampleHideAction.type,
+      );
+    });
+
     it('does not hide the review form after a failed update', async () => {
       const error = new Error('some API error maybe');
       mockApi.expects('submitReview').rejects(error);
 
-      _updateAddonReview();
+      _updateAddonReview({ body: 'This is an essential add-on' });
 
       const expectedAction = flashReviewMessage(ABORTED);
       await sagaTester.waitFor(expectedAction.type);
