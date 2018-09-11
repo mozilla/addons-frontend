@@ -249,6 +249,16 @@ function baseServer(
       webpackIsomorphicTools.refresh();
     }
 
+    // Make sure the initial page does not get stored. Specifically, we
+    // don't want the auth token in Redux state to hang around.
+    // See https://github.com/mozilla/addons-frontend/issues/6217
+    //
+    // The site operates as a single page app so this should really
+    // only affect how the browser loads the page when clicking
+    // the back button.
+    //
+    const cacheControl = ['no-store'];
+
     const cacheAllResponsesFor = config.get('cacheAllResponsesFor');
     if (cacheAllResponsesFor) {
       if (!isDevelopment) {
@@ -259,8 +269,11 @@ function baseServer(
       }
       log.warn(oneLine`Sending a Cache-Control header so that the client caches
         all requests for ${cacheAllResponsesFor} seconds`);
-      res.set('Cache-Control', `public, max-age=${cacheAllResponsesFor}`);
+      cacheControl.push('public');
+      cacheControl.push(`max-age=${cacheAllResponsesFor}`);
     }
+
+    res.set('Cache-Control', cacheControl.join(', '));
 
     // Vary the cache on Do Not Track headers.
     res.vary('DNT');
