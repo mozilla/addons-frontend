@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
+import makeClassName from 'classnames';
 import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -8,7 +9,13 @@ import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
 import { withRenderedErrorHandler } from 'core/errorHandler';
-import { setLatestReview } from 'amo/actions/reviews';
+import {
+  SAVED_RATING,
+  STARTED_SAVE_RATING,
+  createAddonReview,
+  setLatestReview,
+  updateAddonReview,
+} from 'amo/actions/reviews';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
@@ -30,7 +37,7 @@ import log from 'core/logger';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UserReviewType } from 'amo/actions/reviews';
+import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
 import type {
   GetLatestReviewParams,
   SubmitReviewParams,
@@ -61,6 +68,7 @@ type Props = {|
 |};
 
 type DispatchMappedProps = {|
+  dispatch: DispatchFunc,
   loadSavedReview: LoadSavedReviewFunc,
   submitReview: SubmitReviewFunc,
 |};
@@ -72,6 +80,7 @@ type InternalProps = {|
   apiState: ApiState,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
+  flashMessage?: FlashMessageType | void,
   i18n: I18nType,
   userId: number,
   userReview?: UserReviewType | null,
@@ -114,13 +123,21 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   onSelectRating = (rating: number) => {
-    const { _config, userReview, version } = this.props;
+    const {
+      _config,
+      addon,
+      apiState,
+      dispatch,
+      errorHandler,
+      userReview,
+      version,
+    } = this.props;
 
     const params = {
-      errorHandler: this.props.errorHandler,
+      errorHandler,
       rating,
-      apiState: this.props.apiState,
-      addonId: this.props.addon.id,
+      apiState,
+      addonId: addon.id,
       reviewId: undefined,
       versionId: version.id,
     };
@@ -133,10 +150,30 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         versionId ${params.versionId || '[empty]'}`);
     }
 
-    return this.props.submitReview(params).then(() => {
-      if (!_config.get('enableInlineAddonReview')) {
-        this.setState({ showTextEntry: true });
+    if (_config.get('enableInlineAddonReview')) {
+      if (userReview) {
+        dispatch(
+          updateAddonReview({
+            errorHandlerId: errorHandler.id,
+            rating,
+            reviewId: userReview.id,
+          }),
+        );
+      } else {
+        dispatch(
+          createAddonReview({
+            addonId: addon.id,
+            errorHandlerId: errorHandler.id,
+            rating,
+            versionId: version.id,
+          }),
+        );
       }
+      return null;
+    }
+
+    return this.props.submitReview(params).then(() => {
+      this.setState({ showTextEntry: true });
     });
   };
 
@@ -226,7 +263,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderUserRatingForm() {
-    const { i18n, addon, userReview } = this.props;
+    const { addon, i18n, flashMessage, userReview } = this.props;
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
@@ -245,6 +282,25 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
               onSelectRating={this.onSelectRating}
               review={!this.isSignedIn() ? null : userReview}
             />
+          </div>
+          <div
+            className={makeClassName(
+              'RatingManager-savedRating',
+              {
+                'RatingManager-savedRating-hidden':
+                  flashMessage !== STARTED_SAVE_RATING &&
+                  flashMessage !== SAVED_RATING,
+              },
+              {
+                'RatingManager-savedRating-withReview': Boolean(
+                  userReview && userReview.body,
+                ),
+              },
+            )}
+          >
+            {flashMessage === STARTED_SAVE_RATING
+              ? i18n.gettext('Saving')
+              : i18n.gettext('Saved')}
           </div>
         </fieldset>
       </form>
@@ -320,6 +376,7 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
   return {
     apiState: state.api,
     editingReview,
+    flashMessage: state.reviews.flashMessage,
     userReview,
     userId,
   };
@@ -388,6 +445,7 @@ export const mapDispatchToProps = (
   };
 
   return {
+    dispatch,
     loadSavedReview: ownProps.loadSavedReview || loadSavedReview,
     submitReview: ownProps.submitReview || submitReview,
   };
