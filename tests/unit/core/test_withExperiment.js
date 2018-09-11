@@ -50,7 +50,7 @@ describe(__filename, () => {
       );
     });
 
-    it('saves cookie with updated config', () => {
+    it('saves cookie with custom cookie config', () => {
       const overrideCookieConfig = { path: '/test' };
       const _cookie = fakeCookie();
       const id = 'layoutTest';
