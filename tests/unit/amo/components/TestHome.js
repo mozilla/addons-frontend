@@ -17,6 +17,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -177,6 +178,23 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a trending extensions shelf', () => {
+    const root = render();
+
+    const shelves = root.find(LandingAddonsCard);
+    const shelf = shelves.find('.Home-TrendingExtensions');
+    expect(shelf).toHaveProp('header', 'Trending extensions');
+    expect(shelf).toHaveProp('footerText', 'See more trending extensions');
+    expect(shelf).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        sort: SEARCH_SORT_TRENDING,
+      },
+    });
+    expect(shelf).toHaveProp('loading', true);
+  });
+
   it('renders a shelf with curated themes', () => {
     const expectedThemes = [
       'abstract',
@@ -237,12 +255,14 @@ describe(__filename, () => {
       createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
     ];
     const featuredExtensions = createAddonsApiResult(addons);
+    const trendingExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
         featuredExtensions,
         featuredThemes: null,
+        trendingExtensions,
       }),
     );
 
@@ -275,12 +295,14 @@ describe(__filename, () => {
     const collections = [null, null, null];
     const featuredExtensions = createAddonsApiResult(addons);
     const featuredThemes = createAddonsApiResult([]);
+    const trendingExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
         featuredExtensions,
         featuredThemes,
+        trendingExtensions,
       }),
     );
 

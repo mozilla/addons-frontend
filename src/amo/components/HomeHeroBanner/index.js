@@ -31,18 +31,16 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         url: '/addon/midnight-lizard-quantum/',
       },
       {
-        title: i18n.gettext('Turbo Download Manager'),
+        title: i18n.gettext('Iridium for YouTube'),
         description: i18n.gettext(
-          'Increase download speeds with multi-threading support',
+          'Play videos in a pop-out window, take video screenshots & more',
         ),
-        url: '/addon/turbo-download-manager/',
+        url: '/addon/particle-iridium/',
       },
       {
-        title: i18n.gettext('Authenticator'),
-        description: i18n.gettext(
-          'Generate 2-step verification codes right in Firefox',
-        ),
-        url: '/addon/auth-helper/',
+        title: i18n.gettext('Private Bookmarks'),
+        description: i18n.gettext('Password-protect your personal bookmarks'),
+        url: '/addon/webext-private-bookmarks/',
       },
       {
         title: i18n.gettext('IP Address and Domain Information'),
@@ -78,11 +76,11 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         url: '/addon/transparent-standalone-image/',
       },
       {
-        title: i18n.gettext('Tabliss'),
+        title: i18n.gettext('Universal Bypass'),
         description: i18n.gettext(
-          'Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more',
+          'Automatically skip annoying link shorteners',
         ),
-        url: '/addon/tabliss/',
+        url: '/addon/universal-bypass/',
       },
       {
         title: i18n.gettext('Tree Style Tab'),
@@ -197,11 +195,18 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         url: '/addon/auto-sort-bookmarks/',
       },
       {
-        title: i18n.gettext('Britannica Insights'),
+        title: i18n.gettext('Search Preview'),
         description: i18n.gettext(
-          'Add Britannica facts to your search results',
+          'Enjoy thumbnail images alongside your search returns',
         ),
-        url: '/addon/britannica-insights/',
+        url: '/addon/searchpreview/',
+      },
+      {
+        title: i18n.gettext('Copy PlainText'),
+        description: i18n.gettext(
+          'Remove formatting when saving text to your clipboard',
+        ),
+        url: '/addon/copy-plaintext/',
       },
     ];
 
