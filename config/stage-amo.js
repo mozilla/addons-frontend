@@ -24,4 +24,6 @@ module.exports = {
       ],
     },
   },
+
+  enableAMInstallButton: true,
 };
