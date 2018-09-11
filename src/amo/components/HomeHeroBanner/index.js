@@ -15,7 +15,6 @@ import './styles.scss';
 type Props = {|
   i18n: I18nType,
   trackExperimentClick: () => void,
-  experimentIsOn: boolean,
   variant: string,
 |};
 
