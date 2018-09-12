@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-12 03:30+0000\n"
+"PO-Revision-Date: 2018-09-12 03:34+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -324,9 +324,8 @@ msgid "Delete my reply"
 msgstr "刪除我的回覆"
 
 #: src/amo/components/AddonReviewCard/index.js:193
-#, fuzzy
 msgid "Delete my rating"
-msgstr "刪除我的評論"
+msgstr "刪除我的評分"
 
 #: src/amo/components/AddonReviewCard/index.js:196
 msgid "Delete my review"
@@ -337,9 +336,8 @@ msgid "Do you really want to delete this reply?"
 msgstr "您真的要刪除這筆回覆嗎？"
 
 #: src/amo/components/AddonReviewCard/index.js:207
-#, fuzzy
 msgid "Do you really want to delete this rating?"
-msgstr "您真的要刪除這筆評論嗎？"
+msgstr "您真的要刪除這筆評分嗎？"
 
 #: src/amo/components/AddonReviewCard/index.js:210
 msgid "Do you really want to delete this review?"
@@ -1107,14 +1105,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "使用佈景主題修改 Firefox 外觀。"
 
 #: src/amo/components/Home/index.js:50
-#, fuzzy
 msgid "See more privacy & security extensions"
-msgstr "看更多隱私保護擴充套件"
+msgstr "看更多隱私保護與安全性擴充套件"
 
 #: src/amo/components/Home/index.js:51
-#, fuzzy
 msgid "Privacy & security"
-msgstr "隱私權保護政策"
+msgstr "隱私與安全"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
@@ -1261,9 +1257,8 @@ msgid "Automatically sorts bookmarks so they’re in your preferred position"
 msgstr "自動根據您的喜好排序書籤"
 
 #: src/amo/components/HomeHeroBanner/index.js:198
-#, fuzzy
 msgid "Search Preview"
-msgstr "SearchPreview"
+msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Enjoy thumbnail images alongside your search returns"
@@ -1302,9 +1297,8 @@ msgid "Play videos in a pop-out window, take video screenshots & more"
 msgstr "在彈出視窗中播放影片、拍攝擷圖等功能"
 
 #: src/amo/components/HomeHeroBanner/index.js:41
-#, fuzzy
 msgid "Private Bookmarks"
-msgstr "書籤"
+msgstr "Private Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Password-protect your personal bookmarks"
@@ -1355,9 +1349,8 @@ msgid "Universal Bypass"
 msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:80
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "自動以全螢幕模式啟動 Firefox"
+msgstr "自動跳過浪費時間的短網址服務"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Tree Style Tab"
