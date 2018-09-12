@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import { logOutFromServer, startLoginUrl } from 'core/api';
 import { getCurrentUser, logOutUser } from 'amo/reducers/users';
@@ -140,6 +141,7 @@ export const mapDispatchToProps = (
 });
 
 const AuthenticateButton: React.ComponentType<Props> = compose(
+  withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps,
