@@ -55,8 +55,8 @@ It is possible to serve the local development version of this project with HTTPS
 
 3. In your custom Firefox profile, go to `about:config`, void the warranty, and set these prefs. Afterwards, restart Firefox for them to take effect.
 
-    - set `extensions.webapi.testing` to `true` [to turn on `mozAddonManager`](#turning-on-mozaddonmanager-in--dev-and--stage-environments)
-    - set `xpinstall.signatures.dev-root` to `true` [to install add-ons](#install-add-ons-in--dev-and--stage-environments)
+   - set `extensions.webapi.testing` to `true` [to turn on `mozAddonManager`](#turning-on-mozaddonmanager-in--dev-and--stage-environments)
+   - set `xpinstall.signatures.dev-root` to `true` [to install add-ons](#install-add-ons-in--dev-and--stage-environments)
 
 4. Start `addons-frontend` with the command below:
 
@@ -69,6 +69,7 @@ This allows you to browse the project at https://example.com:3000/ (and not `loc
 You are all set to develop with `mozAddonManager`!
 
 **Known issues**:
+
 - You cannot yet sign in when the site is running from `example.com`.
 - This currently only works for AMO development, not Discopane.
 
@@ -76,7 +77,7 @@ You are all set to develop with `mozAddonManager`!
 
 When you're running a server locally for development, you need to grant `mozAddonManager` access to your `localhost` domain in addition to setting the `extensions.webapi.testing` preference to `true`.
 
-You can do this *the hard way* by building a version of Firefox with a custom patch. **Try to use the [example.com method](#developing-with-a-local-https-server-recommended) first**.
+You can do this _the hard way_ by building a version of Firefox with a custom patch. **Try to use the [example.com method](#developing-with-a-local-https-server-recommended) first**.
 
 Start by [setting up your machine to build Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions). That page gives you a link to a helpful bootstrapping script. Run it like this:
 
