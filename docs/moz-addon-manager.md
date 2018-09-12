@@ -70,6 +70,7 @@ You are all set to develop with `mozAddonManager`!
 
 **Known issues**:
 - You cannot yet sign in when the site is running from `example.com`.
+- This currently only works for AMO development, not Discopane.
 
 ## Developing with a local server and a patched Firefox
 
