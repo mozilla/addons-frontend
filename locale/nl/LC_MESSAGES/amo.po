@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-12 08:12+0000\n"
+"PO-Revision-Date: 2018-09-12 08:18+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -329,7 +329,7 @@ msgstr "Mijn antwoord verwijderen"
 
 #: src/amo/components/AddonReviewCard/index.js:193
 msgid "Delete my rating"
-msgstr "Mijn beoordeling verwijderen"
+msgstr "Mijn waardering verwijderen"
 
 #: src/amo/components/AddonReviewCard/index.js:196
 msgid "Delete my review"
@@ -341,7 +341,7 @@ msgstr "Wilt u dit antwoord echt verwijderen?"
 
 #: src/amo/components/AddonReviewCard/index.js:207
 msgid "Do you really want to delete this rating?"
-msgstr "Wilt u deze beoordeling echt verwijderen?"
+msgstr "Wilt u deze waardering echt verwijderen?"
 
 #: src/amo/components/AddonReviewCard/index.js:210
 msgid "Do you really want to delete this review?"
@@ -1359,9 +1359,8 @@ msgid "Universal Bypass"
 msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:80
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "Start Firefox automatisch in volledigschermmodus"
+msgstr "Irritante koppelingsverkleiners automatisch overslaan"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Tree Style Tab"
