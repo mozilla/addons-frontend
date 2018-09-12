@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-12 01:13+0000\n"
+"PO-Revision-Date: 2018-09-12 01:23+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -1323,11 +1323,11 @@ msgstr "IP Ünvanı və Domen Məlumatları"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr ""
+msgstr "Ziyarət etdiyiniz bütün saytlar haqqında ətraflı məlumatları gör—IP ünvan, mövqe, təminatçı və daha çox"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Choose the page you see every time you open a new tab"
@@ -1343,11 +1343,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Çox-hesablı Konteynetlər"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Onlayn həyatınızın fərqli hissələrini—iş, şəxsi və s.—rənglərlə kodlaşdırılmış vərəqlərlə ayrı saxlayın"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Transparent Standalone Images"
@@ -1789,17 +1789,17 @@ msgstr ""
 
 #: src/amo/components/SearchResult/index.js:121
 msgid "No theme preview available"
-msgstr ""
+msgstr "Mövzu ön baxışı yoxdur"
 
 #: src/amo/components/SearchResult/index.js:150
 msgid "Add-on note"
-msgstr ""
+msgstr "Əlavə qeydi"
 
 #: src/amo/components/SearchResult/index.js:168
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s istifadəçi"
+msgstr[1] "%(total)s istifadəçi"
 
 #: src/amo/components/SearchResults/index.js:43
 msgid "Searching…"
@@ -2059,7 +2059,7 @@ msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:25
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Bütün uzantıları gör"
 
 #: src/amo/components/SuggestedPages/index.js:30
 msgid "Browse all themes"
@@ -2071,11 +2071,11 @@ msgstr "Əlavələr Ana Səhifəsi"
 
 #: src/amo/components/UserProfile/index.js:216
 msgid "My reviews"
-msgstr ""
+msgstr "Mənim rəylərim"
 
 #: src/amo/components/UserProfile/index.js:226
 msgid "Browse the reviews for this add-on"
-msgstr ""
+msgstr "Bu əlavə üçün rəyləri gör"
 
 #: src/amo/components/UserProfile/index.js:282
 msgid "Add-ons developer"
@@ -2083,11 +2083,11 @@ msgstr "Əlavə tərtibatçısı"
 
 #: src/amo/components/UserProfile/index.js:288
 msgid "Theme artist"
-msgstr ""
+msgstr "Mövzu sənətkarı"
 
 #: src/amo/components/UserProfile/index.js:302 src/amo/components/UserProfileEdit/index.js:460
 msgid "User Profile for %(user)s"
-msgstr ""
+msgstr "%(user)s üçün İstifadəçi Profili"
 
 #: src/amo/components/UserProfile/index.js:332 src/amo/components/UserProfileEdit/index.js:615
 msgid "Location"
@@ -2095,11 +2095,11 @@ msgstr "Mövqe"
 
 #: src/amo/components/UserProfile/index.js:340 src/amo/components/UserProfileEdit/index.js:627
 msgid "Occupation"
-msgstr ""
+msgstr "Peşə"
 
 #: src/amo/components/UserProfile/index.js:347
 msgid "User since"
-msgstr ""
+msgstr "Üzvlük tarixi"
 
 #: src/amo/components/UserProfile/index.js:357
 msgid "Number of add-ons"
@@ -2111,7 +2111,7 @@ msgstr "Tərtibatçının əlavələrinin ortalama qiyməti"
 
 #: src/amo/components/UserProfile/index.js:378 src/amo/components/UserProfileEdit/index.js:649
 msgid "Biography"
-msgstr ""
+msgstr "Bioqrafiya"
 
 #: src/amo/components/UserProfile/index.js:402
 msgid "Edit profile"
@@ -2119,7 +2119,7 @@ msgstr "Profili düzəlt"
 
 #: src/amo/components/UserProfileEdit/index.js:188
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Şəkil uğurla silindi"
 
 #: src/amo/components/UserProfileEdit/index.js:426
 msgid "Log in to edit the profile"
@@ -2127,11 +2127,11 @@ msgstr "Profili redaktə etmək üçün daxil olun"
 
 #: src/amo/components/UserProfileEdit/index.js:473
 msgid "View user's profile"
-msgstr ""
+msgstr "İstifadəçinin profilini gör"
 
 #: src/amo/components/UserProfileEdit/index.js:479
 msgid "Edit user's profile"
-msgstr ""
+msgstr "İstifadəçinin profilini redaktə et"
 
 #: src/amo/components/UserProfileEdit/index.js:497
 msgid "Account"
@@ -2151,7 +2151,7 @@ msgstr "E-poçt ünvanı"
 
 #: src/amo/components/UserProfileEdit/index.js:524
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "E-poçt ünvanı burada dəyişdirilə bilməz"
 
 #: src/amo/components/UserProfileEdit/index.js:533
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2159,7 +2159,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:550
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Firefox Hesablarını idarə et…"
 
 #: src/amo/components/UserProfileEdit/index.js:558
 msgid "Profile"
@@ -2313,11 +2313,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:112
 msgid "Delete This Picture"
-msgstr ""
+msgstr "Bu şəkli sil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
-msgstr ""
+msgstr "%(name)s üçün profil şəkli"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
@@ -2421,7 +2421,7 @@ msgstr "Sonrakı"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Səhifə %(currentPage)s / %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:132
 msgid "Take short survey"
@@ -2497,15 +2497,15 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "5 üstündən %(rating)s bal"
 
 #: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Hələlik bal yoxdur"
 
 #: src/ui/components/Rating/index.js:98
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Qiymətinizi 5 üstündən %(starRating)s olaraq yenilə"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
