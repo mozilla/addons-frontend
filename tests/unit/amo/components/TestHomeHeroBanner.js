@@ -8,6 +8,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import HomeHeroBanner, {
+  AB_HOME_HERO_EXPERIMENT_CATEGORY,
   HomeHeroBannerBase,
 } from 'amo/components/HomeHeroBanner';
 import Hero from 'ui/components/Hero';
@@ -48,7 +49,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: `${variant} | Page View`,
-      category: `AMO Home Hero Experiment`,
+      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
     });
 
     sinon.assert.calledOnce(fakeTracking.sendEvent);
@@ -65,7 +66,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: `${variant} | Page View`,
-      category: `AMO Home Hero Experiment`,
+      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
     });
 
     sinon.assert.calledOnce(fakeTracking.sendEvent);
@@ -82,7 +83,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: `${variant} | Click`,
-      category: `AMO Home Hero Experiment`,
+      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
       label: heroItem.key,
     });
 

@@ -28,6 +28,7 @@ type InternalProps = {|
 export const AB_HOME_HERO_TEST_NAME = 'HOME_HERO';
 export const AB_HOME_HERO_VARIANT_A = 'small';
 export const AB_HOME_HERO_VARIANT_B = 'large';
+export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';
 
 export class HomeHeroBannerBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -40,7 +41,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     if (variant) {
       _tracking.sendEvent({
         action: `${variant} | Page View`,
-        category: `AMO Home Hero Experiment`,
+        category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
       });
     }
   }
@@ -256,7 +257,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
 
     _tracking.sendEvent({
       action: `${variant} | Click`,
-      category: `AMO Home Hero Experiment`,
+      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
       label: url,
     });
   };
