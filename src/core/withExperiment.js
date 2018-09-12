@@ -29,6 +29,10 @@ export const withExperiment = ({
   variantA: defaultVariantA,
   variantB: defaultVariantB,
 }: Props) => (WrappedComponent: React.ComponentType<any>) => {
+  invariant(defaultId, 'id is required');
+  invariant(defaultVariantA, 'variantA is required');
+  invariant(defaultVariantB, 'variantB is required');
+
   class WithExperiment extends React.Component<InternalProps> {
     experimentCookie: string | void;
 
@@ -43,11 +47,7 @@ export const withExperiment = ({
     constructor(props: InternalProps) {
       super(props);
 
-      const { _cookie, id, randomizer, variantA, variantB } = this.props;
-
-      invariant(id, 'id is required');
-      invariant(variantA, 'variantA is required');
-      invariant(variantB, 'variantB is required');
+      const { _cookie, randomizer, variantA, variantB } = this.props;
 
       this.experimentCookie = _cookie.load(this.getCookieName());
 
