@@ -88,6 +88,28 @@ describe(__filename, () => {
     sinon.assert.called(onCancel);
   });
 
+  it('passes cancelButtonText to DismissibleTextForm', () => {
+    const cancelButtonText = 'Nevermind, cancel it';
+    const root = render({ onCancel: sinon.stub(), cancelButtonText });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp(
+      'dismissButtonText',
+      cancelButtonText,
+    );
+  });
+
+  it('configures DismissibleTextForm without puffyButtons by default', () => {
+    const root = render();
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('puffyButtons', false);
+  });
+
+  it('passes puffyButtons to DismissibleTextForm', () => {
+    const root = render({ puffyButtons: true });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('puffyButtons', true);
+  });
+
   it('updates the rating when you select a star', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');

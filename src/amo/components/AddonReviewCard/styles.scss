@@ -14,6 +14,20 @@
   }
 }
 
+.AddonReviewCard-verticalButtons {
+  .DismissibleTextForm-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 24px;
+  }
+
+  .DismissibleTextForm-dismiss {
+    margin-top: 12px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
 .AddonReviewCard-authorByLine {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -89,4 +103,9 @@
   .Icon-reply-arrow {
     @include margin-end(12px);
   }
+}
+
+.AddonReviewCard-writeReviewButton {
+  margin-top: 12px;
+  width: 100%;
 }

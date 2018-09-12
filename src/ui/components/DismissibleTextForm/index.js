@@ -24,6 +24,7 @@ export type OnSubmitParams = {|
 
 type Props = {|
   className?: string,
+  dismissButtonText?: string,
   formFooter?: React.Element<any>,
   onDelete?: null | (() => void),
   onDismiss?: () => void,
@@ -105,6 +106,7 @@ export class DismissibleTextFormBase extends React.Component<
   render() {
     const {
       className,
+      dismissButtonText,
       formFooter,
       i18n,
       isSubmitting,
@@ -158,13 +160,16 @@ export class DismissibleTextFormBase extends React.Component<
           */}
           {onDismiss && (
             <Button
-              href="#cancel"
-              onClick={this.onDismiss}
+              buttonType="neutral"
               className="DismissibleTextForm-dismiss"
               disabled={isSubmitting}
+              href="#cancel"
+              micro={microButtons}
+              onClick={this.onDismiss}
+              puffy={puffyButtons}
               type="cancel"
             >
-              {i18n.gettext('Cancel')}
+              {dismissButtonText || i18n.gettext('Cancel')}
             </Button>
           )}
           <span className="DismissibleTextForm-delete-submit-buttons">

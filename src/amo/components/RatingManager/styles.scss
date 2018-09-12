@@ -7,11 +7,6 @@
   position: relative;
 }
 
-.RatingManager-cancelTextEntryButton {
-  text-align: center;
-  width: 100%;
-}
-
 .RatingManager-log-in-to-rate-button {
   font-size: $font-size-s;
   padding: 0;
@@ -47,7 +42,7 @@
   }
 }
 
-.RatingManager-AddonReviewCard:not(.AddonReviewCard-ratingOnly) {
+.RatingManager-AddonReviewCard.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly) {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
   padding: 12px;
@@ -59,9 +54,4 @@
 
 .RatingManager-UserRating {
   margin: 12px;
-}
-
-.RatingManager-writeReviewButton {
-  margin-top: 12px;
-  width: 100%;
 }

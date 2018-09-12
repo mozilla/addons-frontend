@@ -27,7 +27,6 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import Button from 'ui/components/Button';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -71,6 +70,7 @@ type InternalProps = {|
   ...DispatchMappedProps,
   _config: typeof config,
   apiState: ApiState,
+  editingReview: boolean,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   userId: number,
@@ -180,11 +180,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
   };
 
-  cancelTextEntry = (event: SyntheticEvent<any>) => {
-    event.preventDefault();
-    this.setState({ showTextEntry: false });
-  };
-
   showTextEntry = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.setState({ showTextEntry: true });
@@ -257,52 +252,22 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { addon, i18n, location, userReview } = this.props;
-
-    if (this.shouldShowTextEntry()) {
-      invariant(userReview, 'userReview is required');
-
-      return (
-        <Button
-          href="#cancelTextEntry"
-          onClick={this.cancelTextEntry}
-          className="RatingManager-cancelTextEntryButton"
-          buttonType="neutral"
-          puffy
-        >
-          {userReview.body
-            ? i18n.gettext("Nevermind, I don't want to edit my review")
-            : i18n.gettext("Nevermind, I don't want to write a review")}
-        </Button>
-      );
-    }
+    const { addon, editingReview, location, userReview } = this.props;
 
     return (
       <React.Fragment>
-        {this.renderUserRatingForm()}
+        {!editingReview && this.renderUserRatingForm()}
         {userReview && (
-          <React.Fragment>
-            <AddonReviewCard
-              addon={addon}
-              className="RatingManager-AddonReviewCard"
-              flaggable={false}
-              location={location}
-              review={userReview}
-              shortByLine
-              showRating={false}
-            />
-            {!userReview.body && (
-              <Button
-                className="RatingManager-writeReviewButton"
-                onClick={this.showTextEntry}
-                href="#writeReview"
-                buttonType="action"
-                puffy
-              >
-                {i18n.gettext('Write a review')}
-              </Button>
-            )}
-          </React.Fragment>
+          <AddonReviewCard
+            addon={addon}
+            className="RatingManager-AddonReviewCard"
+            flaggable={false}
+            location={location}
+            review={userReview}
+            shortByLine
+            showRating={false}
+            verticalButtons
+          />
         )}
       </React.Fragment>
     );
@@ -344,8 +309,17 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
     });
   }
 
+  let editingReview = false;
+  if (userReview) {
+    const view = state.reviews.view[userReview.id];
+    if (view) {
+      editingReview = view.editingReview;
+    }
+  }
+
   return {
     apiState: state.api,
+    editingReview,
     userReview,
     userId,
   };

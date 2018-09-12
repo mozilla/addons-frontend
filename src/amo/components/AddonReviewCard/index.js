@@ -23,6 +23,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import Button from 'ui/components/Button';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
@@ -49,6 +50,7 @@ type Props = {|
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
+  verticalButtons?: boolean,
 |};
 
 type InternalProps = {|
@@ -69,7 +71,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     flaggable: true,
+    shortByLine: false,
     showRating: true,
+    verticalButtons: false,
   };
 
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
@@ -290,6 +294,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       shortByLine,
       showRating,
       siteUser,
+      verticalButtons,
     } = this.props;
 
     let byLine;
@@ -393,24 +398,48 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       </div>
     );
 
+    let cancelButtonText;
+    if (verticalButtons) {
+      cancelButtonText = this.isRatingOnly()
+        ? i18n.gettext("Nevermind, I don't want to write a review")
+        : i18n.gettext("Nevermind, I don't want to edit my review");
+    }
+
     return (
       <div
         className={makeClassName('AddonReviewCard', className, {
           'AddonReviewCard-ratingOnly': this.isRatingOnly(),
+          'AddonReviewCard-viewOnly': !editingReview,
+          'AddonReviewCard-verticalButtons': verticalButtons,
         })}
       >
         {review && editingReview && _config.get('enableInlineAddonReview') ? (
           <AddonReviewManager
             onCancel={this.onCancelEditReview}
+            cancelButtonText={cancelButtonText}
+            puffyButtons={Boolean(verticalButtons)}
             review={review}
           />
         ) : (
-          <UserReview
-            controls={controls}
-            review={review}
-            byLine={!this.isRatingOnly() && byLine}
-            showRating={!this.isReply() && showRating}
-          />
+          <React.Fragment>
+            <UserReview
+              controls={controls}
+              review={review}
+              byLine={!this.isRatingOnly() && byLine}
+              showRating={!this.isReply() && showRating}
+            />
+            {this.isRatingOnly() && (
+              <Button
+                className="AddonReviewCard-writeReviewButton"
+                onClick={this.onClickToEditReview}
+                href="#writeReview"
+                buttonType="action"
+                puffy
+              >
+                {i18n.gettext('Write a review')}
+              </Button>
+            )}
+          </React.Fragment>
         )}
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}
