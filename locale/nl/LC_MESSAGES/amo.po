@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-12 08:18+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2018-09-12 14:59+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1272,7 +1272,7 @@ msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr "Geniet van miniaturen naast uw zoekresultaten"
+msgstr "Geniet van miniatuurafbeeldingen naast uw zoekresultaten"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Copy PlainText"
@@ -1304,7 +1304,7 @@ msgstr "Iridium for YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr "Speel video’s af in een pop-outvenster, neem schermafdrukken van video’s en meer"
+msgstr "Speel video’s af in een pop-outvenster, maak schermafbeeldingen van video’s en meer"
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Private Bookmarks"
@@ -1360,7 +1360,7 @@ msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:80
 msgid "Automatically skip annoying link shorteners"
-msgstr "Irritante koppelingsverkleiners automatisch overslaan"
+msgstr "Sla vervelende koppelingsverkorters automatisch over"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Tree Style Tab"
