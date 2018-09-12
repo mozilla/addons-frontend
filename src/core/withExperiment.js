@@ -14,7 +14,7 @@ type Props = {|
   variantB: string,
 |};
 
-type InternalProps = {|
+type WithExperimentInternalProps = {|
   ...Props,
   WrappedComponent: React.ComponentType<any>,
   _cookie: typeof cookie,
@@ -33,7 +33,7 @@ export const withExperiment = ({
   invariant(defaultVariantA, 'variantA is required');
   invariant(defaultVariantB, 'variantB is required');
 
-  class WithExperiment extends React.Component<InternalProps> {
+  class WithExperiment extends React.Component<WithExperimentInternalProps> {
     experimentCookie: string | void;
 
     static defaultProps = {
@@ -44,7 +44,7 @@ export const withExperiment = ({
       variantB: defaultVariantB,
     };
 
-    constructor(props: InternalProps) {
+    constructor(props: WithExperimentInternalProps) {
       super(props);
 
       const { _cookie, randomizer, variantA, variantB } = this.props;
