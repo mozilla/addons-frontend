@@ -3,6 +3,8 @@
 /* eslint-disable strict, no-console */
 
 require('babel-register');
+const https = require('https');
+
 const Express = require('express');
 const config = require('config');
 const webpack = require('webpack');
@@ -34,7 +36,17 @@ const app = new Express();
 app.use(webpackDevMiddleware(compiler, serverOptions));
 app.use(webpackHotMiddleware(compiler));
 
-app.listen(port, (err) => {
+let server;
+
+if (process.env.USE_HTTPS_FOR_DEV) {
+  // eslint-disable-next-line global-require
+  const { key, cert, ca } = require('./local-dev-server-certs');
+  server = https.createServer({ key, cert, ca }, app);
+} else {
+  server = app;
+}
+
+server.listen(port, (err) => {
   if (err) {
     console.error(err);
   } else {
