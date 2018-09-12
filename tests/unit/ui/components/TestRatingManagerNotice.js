@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { successType } from 'ui/components/Notice';
-import RatingManagerNotice from 'ui/components/RatingManagerNotice';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
+import Notice, { successType } from 'ui/components/Notice';
 
 describe(__filename, () => {
   function render(customProps = {}) {
@@ -16,13 +16,25 @@ describe(__filename, () => {
     return shallow(<RatingManagerNotice {...props} />);
   }
 
-  it('renders a notice', () => {
+  it('renders a Notice for a type', () => {
     const message = 'test message';
     const type = successType;
 
     const root = render({ message, type });
 
+    expect(root.type()).toEqual(Notice);
     expect(root).toHaveProp('type', type);
+    expect(root.children()).toHaveText(message);
+  });
+
+  it('renders a span if there is no type', () => {
+    const message = 'test message';
+    const type = undefined;
+
+    const root = render({ message, type });
+
+    expect(root.type()).toEqual('span');
+    expect(root).not.toHaveProp('type');
     expect(root.children()).toHaveText(message);
   });
 

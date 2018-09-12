@@ -275,10 +275,6 @@ function* manageAddonReview(
       yield put(hideEditReviewForm({ reviewId: reviewFromResponse.id }));
     }
 
-    // Make the message disappear after some time.
-    yield _delay(FLASH_SAVED_MESSAGE_DURATION);
-    yield put(hideFlashedReviewMessage());
-
     invariant(reviewFromResponse.version, 'version is required');
     yield put(
       setLatestReview({
@@ -289,6 +285,10 @@ function* manageAddonReview(
         versionId: reviewFromResponse.version.id,
       }),
     );
+
+    // Make the message disappear after some time.
+    yield _delay(FLASH_SAVED_MESSAGE_DURATION);
+    yield put(hideFlashedReviewMessage());
   } catch (error) {
     log.warn(
       `Failed to create/update review with action ${action.type}: ${error}`,

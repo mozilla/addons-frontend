@@ -11,7 +11,7 @@ type Props = {|
   className?: string | null,
   hideMessage: boolean,
   message: string,
-  type: NoticeType,
+  type?: NoticeType,
 |};
 
 const RatingManagerNotice = ({
@@ -20,16 +20,21 @@ const RatingManagerNotice = ({
   message,
   type,
 }: Props) => {
-  return (
-    <Notice
-      type={type}
-      className={makeClassName('RatingManagerNotice-savedRating', className, {
-        'RatingManagerNotice-savedRating-hidden': hideMessage,
-      })}
-    >
-      {message}
-    </Notice>
-  );
+  const props = {
+    className: makeClassName('RatingManagerNotice-savedRating', className, {
+      'RatingManagerNotice-savedRating-hidden': hideMessage,
+    }),
+  };
+
+  if (type) {
+    return (
+      <Notice type={type} {...props}>
+        {message}
+      </Notice>
+    );
+  }
+
+  return <span {...props}>{message}</span>;
 };
 
 export default RatingManagerNotice;

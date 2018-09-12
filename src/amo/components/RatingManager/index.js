@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
-import { withRenderedErrorHandler } from 'core/errorHandler';
 import {
   SAVED_RATING,
   STARTED_SAVE_RATING,
@@ -15,13 +14,14 @@ import {
   setLatestReview,
   updateAddonReview,
 } from 'amo/actions/reviews';
-import { selectLatestUserReview } from 'amo/reducers/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
+import { selectLatestUserReview } from 'amo/reducers/reviews';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -31,10 +31,10 @@ import {
   ADDON_TYPE_THEME,
   validAddonTypes as defaultValidAddonTypes,
 } from 'core/constants';
+import { withRenderedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { genericType, successType } from 'ui/components/Notice';
-import RatingManagerNotice from 'ui/components/RatingManagerNotice';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -285,11 +285,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             />
           </div>
           <RatingManagerNotice
-            className={
-              userReview && userReview.body
-                ? 'RatingManager-savedRating-withReview'
-                : null
-            }
             hideMessage={
               flashMessage !== STARTED_SAVE_RATING &&
               flashMessage !== SAVED_RATING

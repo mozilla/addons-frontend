@@ -32,10 +32,10 @@ import RatingManager, {
   RatingManagerBase,
   mapDispatchToProps,
 } from 'amo/components/RatingManager';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { genericType, successType } from 'ui/components/Notice';
-import RatingManagerNotice from 'ui/components/RatingManagerNotice';
 import UserRating from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
@@ -418,30 +418,6 @@ describe(__filename, () => {
     expect(message).toHaveProp('hideMessage', true);
   });
 
-  it('sets a custom className for RatingManagerNotice when a review exists', () => {
-    const store = createStoreWithLatestReview();
-
-    const root = render({ store });
-
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp(
-      'className',
-      'RatingManager-savedRating-withReview',
-    );
-  });
-
-  it('does not set a custom className for RatingManagerNotice when no review exists', () => {
-    const { store } = dispatchClientMetadata();
-
-    const root = render({ store });
-
-    const message = root.find(RatingManagerNotice);
-    expect(message).not.toHaveProp(
-      'className',
-      'RatingManager-savedRating-withReview',
-    );
-  });
-
   describe('when user is signed out', () => {
     function renderWithoutUser(customProps = {}) {
       const { store } = dispatchClientMetadata();
@@ -652,7 +628,8 @@ describe(__filename, () => {
 
       const root = renderInline({ addon, errorHandler, store, version });
 
-      root.instance().onSelectRating(rating);
+      // This emulates clicking on a rating star.
+      root.find(UserRating).prop('onSelectRating')(rating);
 
       sinon.assert.calledWith(
         dispatchSpy,
@@ -673,7 +650,8 @@ describe(__filename, () => {
 
       const root = renderInline({ errorHandler, store });
 
-      root.instance().onSelectRating(rating);
+      // This emulates clicking on a rating star.
+      root.find(UserRating).prop('onSelectRating')(rating);
 
       sinon.assert.calledWith(
         dispatchSpy,
