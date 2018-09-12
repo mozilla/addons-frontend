@@ -702,6 +702,7 @@ describe(__filename, () => {
 
   describe('loadCollectionIntoState', () => {
     it('preserves existing collection addons', () => {
+      const fakePageSize = 5;
       const fakeCollectionAddon = createFakeCollectionAddon({
         addon: { ...fakeAddon, id: 1 },
       });
@@ -717,6 +718,7 @@ describe(__filename, () => {
         state: initialState,
         collection,
         addons,
+        pageSize: fakePageSize,
       });
 
       // Simulate loading it a second time but without addons.
@@ -724,6 +726,7 @@ describe(__filename, () => {
 
       const collectionInState = state.byId[collection.id];
       expect(collectionInState.addons).toEqual(createInternalAddons(addons));
+      expect(collectionInState.pageSize).toEqual(fakePageSize);
     });
 
     it('loads notes for collection add-ons', () => {
