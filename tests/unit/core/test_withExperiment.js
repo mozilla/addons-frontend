@@ -1,5 +1,3 @@
-/* eslint-disable react/no-multi-comp, react/prop-types */
-
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -15,14 +13,14 @@ describe(__filename, () => {
     }
 
     function componentWithExperiment({ experimentProps, props } = {}) {
-      const TestComponent = withExperiment({
+      const SomeComponent = withExperiment({
         id: 'ABtest',
         variantA: 'AName',
         variantB: 'BName',
         ...experimentProps,
       })(SomeComponentBase);
 
-      return shallow(<TestComponent {...props} />);
+      return shallow(<SomeComponent {...props} />);
     }
 
     it('passes the variant prop', () => {
