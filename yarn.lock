@@ -381,7 +381,7 @@
     webpack "^3.11.0"
     webpack-hot-middleware "^2.22.1"
 
-"@storybook/storybook-deployer@2.3.0":
+"@storybook/storybook-deployer@^2.3.0":
   version "2.3.0"
   resolved "http://registry.npmjs.org/@storybook/storybook-deployer/-/storybook-deployer-2.3.0.tgz#43d3cc105a571e27b9c3e363c43d7da4a6a486e9"
   dependencies:
