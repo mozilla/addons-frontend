@@ -263,7 +263,11 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     });
 
     const buttonIsDisabled =
-      disabled === false ? hasAddonManager && status === UNKNOWN : disabled;
+      disabled === false
+        ? hasAddonManager &&
+          status === UNKNOWN &&
+          addon.type !== ADDON_TYPE_OPENSEARCH
+        : disabled;
 
     const buttonProps: ButtonProps = {
       buttonType: 'action',
