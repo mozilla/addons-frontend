@@ -22,7 +22,7 @@
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
     "build-storybook": "better-npm-run storybook-build",
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages -- --remote=upstream",
     "disco": "better-npm-run disco",
     "eslint": "eslint .",
     "flow": "flow",
