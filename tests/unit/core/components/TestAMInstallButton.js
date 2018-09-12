@@ -194,6 +194,15 @@ describe(__filename, () => {
     );
   });
 
+  it('configures a different install method for search providers even with addon manager', () => {
+    const root = renderOpenSearch({ hasAddonManager: false });
+
+    expect(root.find(Button)).toHaveProp(
+      'onClick',
+      root.instance().installOpenSearch,
+    );
+  });
+
   it('calls the `installTheme` helper to install a lightweight theme', () => {
     const addon = createInternalAddon(fakeTheme);
 
