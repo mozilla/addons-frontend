@@ -48,9 +48,8 @@ describe(__filename, () => {
     const { variant } = root.instance().props;
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
-      action: `${AB_HOME_HERO_TEST_NAME} Page View`,
-      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
-      label: '',
+      action: `${variant} | Page View`,
+      category: `AMO Home Hero Experiment`,
     });
 
     sinon.assert.calledOnce(fakeTracking.sendEvent);
@@ -66,9 +65,8 @@ describe(__filename, () => {
     const { variant } = root.instance().props;
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
-      action: `${AB_HOME_HERO_TEST_NAME} Page View`,
-      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
-      label: '',
+      action: `${variant} | Page View`,
+      category: `AMO Home Hero Experiment`,
     });
 
     sinon.assert.calledOnce(fakeTracking.sendEvent);
@@ -84,8 +82,8 @@ describe(__filename, () => {
     heroLink.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
-      action: `${AB_HOME_HERO_TEST_NAME} Click`,
-      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
+      action: `${variant} | Click`,
+      category: `AMO Home Hero Experiment`,
       label: heroItem.key,
     });
 

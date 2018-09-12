@@ -8,14 +8,16 @@ import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
 import tracking from 'core/tracking';
-import { withExperiment } from 'core/withExperiment';
+import {
+  withExperiment,
+  type WithExperimentInjectedProps,
+} from 'core/withExperiment';
 
 import './styles.scss';
 
 type Props = {|
+  ...WithExperimentInjectedProps,
   i18n: I18nType,
-  trackExperimentClick: () => void,
-  variant: string,
 |};
 
 type InternalProps = {|
@@ -24,8 +26,8 @@ type InternalProps = {|
 |};
 
 export const AB_HOME_HERO_TEST_NAME = 'HOME_HERO';
-export const AB_HOME_HERO_VARIANT_A = 'ScaledDown';
-export const AB_HOME_HERO_VARIANT_B = 'Large';
+export const AB_HOME_HERO_VARIANT_A = 'small';
+export const AB_HOME_HERO_VARIANT_B = 'large';
 
 export class HomeHeroBannerBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -37,9 +39,8 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
 
     if (variant) {
       _tracking.sendEvent({
-        action: `${AB_HOME_HERO_TEST_NAME} Page View`,
-        category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
-        label: '',
+        action: `${variant} | Page View`,
+        category: `AMO Home Hero Experiment`,
       });
     }
   }
@@ -238,7 +239,11 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     return heroes.map((hero) => {
       const { url } = hero;
       return (
-        <HeroSection key={url} linkTo={url} onClick={this.trackExperimentClick}>
+        <HeroSection
+          key={url}
+          linkTo={url}
+          onClick={(e) => this.trackExperimentClick(e, url)}
+        >
           <h3>{hero.title}</h3>
           <p>{hero.description}</p>
         </HeroSection>
@@ -250,16 +255,15 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     const { _tracking, variant } = this.props;
 
     _tracking.sendEvent({
-      action: `${AB_HOME_HERO_TEST_NAME} Click`,
-      category: `AMO ${AB_HOME_HERO_TEST_NAME}_EXPERIMENT: ${variant}`,
+      action: `${variant} | Click`,
+      category: `AMO Home Hero Experiment`,
       label: url,
     });
   };
 
   render() {
     const homeBannerClass = makeClassName('HomeHeroBanner', {
-      'HomeHeroBanner--scaled-down':
-        this.props.variant === AB_HOME_HERO_VARIANT_A,
+      'HomeHeroBanner--small': this.props.variant === AB_HOME_HERO_VARIANT_A,
     });
 
     return (

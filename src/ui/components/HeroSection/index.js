@@ -33,7 +33,7 @@ export default class HeroSection extends React.Component<Props> {
         {linkTo ? (
           <Link
             className="HeroSection-link-wrapper"
-            onClick={(e) => this.props.onClick(e, linkTo)}
+            onClick={this.props.onClick}
             to={addQueryParams(linkTo, { src: INSTALL_SOURCE_HERO_PROMO })}
           >
             <div className="HeroSection-content">{children}</div>

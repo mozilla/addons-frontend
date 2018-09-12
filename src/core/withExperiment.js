@@ -3,7 +3,7 @@ import * as React from 'react';
 import invariant from 'invariant';
 import cookie from 'react-cookie';
 
-export type ExposedWithExperimentProps = {|
+export type WithExperimentInjectedProps = {|
   variant: string,
 |};
 
@@ -16,7 +16,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  WrappedComponent: Function,
+  WrappedComponent: React.ComponentType<any>,
   _cookie: typeof cookie,
   randomizer: () => number,
 |};
@@ -28,7 +28,7 @@ export const withExperiment = ({
   id: defaultId,
   variantA: defaultVariantA,
   variantB: defaultVariantB,
-}: Props) => (WrappedComponent: Function) => {
+}: Props) => (WrappedComponent: React.ComponentType<any>) => {
   class WithExperiment extends React.Component<InternalProps> {
     experimentCookie: string | void;
 
@@ -62,9 +62,16 @@ export const withExperiment = ({
     }
 
     render() {
-      const { _cookie, ...props } = this.props;
+      const {
+        _cookie,
+        variantA,
+        variantB,
+        id,
+        randomizer,
+        ...props
+      } = this.props;
 
-      const exposedProps: ExposedWithExperimentProps = {
+      const exposedProps: WithExperimentInjectedProps = {
         variant: _cookie.load(this.getCookieName()),
       };
 
