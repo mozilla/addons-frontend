@@ -36,7 +36,7 @@ If you're testing on desktop Firefox to emulate Android (for development), you n
 
 ## Developing with a local HTTPS server (recommended)
 
-It is possible to serve the local development version of this project with HTTPS enabled. By doing this, you can have access to `mozAddonManager` locally and install add-ons with a regular [Firefox Nightly build](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) (no need to build Firefox yourself). All you need is to configure your environment as follows:
+It is possible to serve the local development version of this project with HTTPS enabled on `example.com` which is a domain sanctioned for testing purposes. By doing this, you can access `mozAddonManager` locally and install add-ons with a regular [Firefox Nightly build](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) (no need to build Firefox yourself). All you need is to configure your environment as follows:
 
 1. Add a new entry to your `/etc/hosts` file (or equivalent on Windows systems):
 
@@ -44,7 +44,7 @@ It is possible to serve the local development version of this project with HTTPS
    127.0.0.1   example.com
    ```
 
-2. Install a self-signed CA certificate for `example.com`:
+2. In a custom Firefox profile, install a self-signed CA certificate for `example.com`:
 
    - Download [this file](https://raw.githubusercontent.com/mozilla/addons-frontend/master/bin/local-dev-server-certs/example.com.ca.crt.pem)
    - Go to `about:preferences#privacy`
@@ -53,24 +53,29 @@ It is possible to serve the local development version of this project with HTTPS
    - Choose the file you have downloaded before (`example.com.ca.crt.pem`)
    - Accept this CA certificate to trust websites
 
-3. Start this project with the command below:
+3. In your custom Firefox profile, go to `about:config`, void the warranty, and set these prefs. Afterwards, restart Firefox for them to take effect.
+
+    - set `extensions.webapi.testing` to `true` [to turn on `mozAddonManager`](#turning-on-mozaddonmanager-in--dev-and--stage-environments)
+    - set `xpinstall.signatures.dev-root` to `true` [to install add-ons](#install-add-ons-in--dev-and--stage-environments)
+
+4. Start `addons-frontend` with the command below:
 
    ```
    yarn amo:dev-https
    ```
 
-This allows you to browse the project at https://example.com:3000/ (and not `localhost`). In order to get access to the `mozAddonManager` and be able to install add-ons, you still need to set two prefs:
+This allows you to browse the project at https://example.com:3000/ (and not `localhost`).
 
-- `extensions.webapi.testing` set to `true` [to turn on `mozAddonManager`](#turning-on-mozaddonmanager-in--dev-and--stage-environments)
-- `xpinstall.signatures.dev-root` set to `true` [to install add-ons](#install-add-ons-in--dev-and--stage-environments)
+You are all set to develop with `mozAddonManager`!
 
-You are all set!
+**Known issues**:
+- You cannot yet sign in when the site is running from `example.com`.
 
 ## Developing with a local server and a patched Firefox
 
 When you're running a server locally for development, you need to grant `mozAddonManager` access to your `localhost` domain in addition to setting the `extensions.webapi.testing` preference to `true`.
 
-You can do this by building a version of Firefox with a custom patch.
+You can do this *the hard way* by building a version of Firefox with a custom patch. **Try to use the [example.com method](#developing-with-a-local-https-server-recommended) first**.
 
 Start by [setting up your machine to build Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions). That page gives you a link to a helpful bootstrapping script. Run it like this:
 
