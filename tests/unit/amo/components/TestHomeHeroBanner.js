@@ -8,7 +8,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import HomeHeroBanner, {
-  AB_HOME_HERO_TEST_NAME,
   HomeHeroBannerBase,
 } from 'amo/components/HomeHeroBanner';
 import Hero from 'ui/components/Hero';
