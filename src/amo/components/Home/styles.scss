@@ -1,10 +1,5 @@
 @import '~amo/css/styles';
 
-*[dir='rtl'] {
-  background-position: right;
-  unicode-bidi: embed;
-}
-
 .Home {
   @include page-padding();
 }
@@ -142,6 +137,14 @@
   @include respond-to(large) {
     background-position: center;
     width: 100%;
+  }
+
+  [dir='rtl'] & {
+    background-position: right;
+
+    @include respond-to(large) {
+      background-position: center;
+    }
   }
 }
 
