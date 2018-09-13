@@ -3,11 +3,13 @@ import * as React from 'react';
 import invariant from 'invariant';
 import cookie from 'react-cookie';
 
+import { getDisplayName } from 'core/utils';
+
 export type WithExperimentInjectedProps = {|
   variant: string,
 |};
 
-type Props = {|
+type WithExperimentProps = {|
   cookieConfig?: Object,
   id: string,
   variantA: string,
@@ -15,7 +17,7 @@ type Props = {|
 |};
 
 type WithExperimentInternalProps = {|
-  ...Props,
+  ...WithExperimentProps,
   WrappedComponent: React.ComponentType<any>,
   _cookie: typeof cookie,
   randomizer: () => number,
@@ -28,7 +30,7 @@ export const withExperiment = ({
   id: defaultId,
   variantA: defaultVariantA,
   variantB: defaultVariantB,
-}: Props) => (WrappedComponent: React.ComponentType<any>) => {
+}: WithExperimentProps) => (WrappedComponent: React.ComponentType<any>) => {
   invariant(defaultId, 'id is required');
   invariant(defaultVariantA, 'variantA is required');
   invariant(defaultVariantB, 'variantB is required');
@@ -43,6 +45,8 @@ export const withExperiment = ({
       variantA: defaultVariantA,
       variantB: defaultVariantB,
     };
+
+    static displayName = `WithExperiment(${getDisplayName(WrappedComponent)})`;
 
     constructor(props: WithExperimentInternalProps) {
       super(props);

@@ -10,6 +10,8 @@ import './styles.scss';
 
 type Props = {|
   children?: any,
+  // eslint-disable-next-line react/no-unused-prop-types
+  experimentTitle: string,
   linkTo?: Object | string,
   onClick: Function,
   styleName?: string,

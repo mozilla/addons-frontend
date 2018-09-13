@@ -9,6 +9,8 @@ import {
 } from 'tests/unit/helpers';
 import HomeHeroBanner, {
   AB_HOME_HERO_EXPERIMENT_CATEGORY,
+  AB_HOME_HERO_VARIANT_A,
+  AB_HOME_HERO_VARIANT_B,
   HomeHeroBannerBase,
 } from 'amo/components/HomeHeroBanner';
 import Hero from 'ui/components/Hero';
@@ -33,6 +35,16 @@ describe(__filename, () => {
     expect(root).toHaveClassName('HomeHeroBanner');
   });
 
+  it('renders with the "small" experiment classname', () => {
+    const root = shallowRender({ variant: AB_HOME_HERO_VARIANT_A });
+    expect(root).toHaveClassName('HomeHeroBanner--small');
+  });
+
+  it('renders without the "small" experiment classname', () => {
+    const root = shallowRender({ variant: AB_HOME_HERO_VARIANT_B });
+    expect(root).not.toHaveClassName('HomeHeroBanner--small');
+  });
+
   it('renders a carousel with random sections', () => {
     const root = shallowRender();
     const carousel = root.find(Hero);
@@ -41,21 +53,21 @@ describe(__filename, () => {
     expect(carousel).toHaveProp('random', true);
   });
 
-  it('calls tracking on home page view', () => {
+  it('sends a tracking event when first rendered on the client', () => {
     const fakeTracking = createFakeTracking();
     const root = shallowRender({ _tracking: fakeTracking });
 
     const { variant } = root.instance().props;
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
-      action: `${variant} | Page View`,
-      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Page View`,
     });
 
     sinon.assert.calledOnce(fakeTracking.sendEvent);
   });
 
-  it('calls tracking on hero click', () => {
+  it('sends a tracking event on hero click', () => {
     const fakeTracking = createFakeTracking();
 
     const root = shallowRender({
@@ -63,13 +75,6 @@ describe(__filename, () => {
     });
 
     const { variant } = root.instance().props;
-
-    sinon.assert.calledWith(fakeTracking.sendEvent, {
-      action: `${variant} | Page View`,
-      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
-    });
-
-    sinon.assert.calledOnce(fakeTracking.sendEvent);
 
     const heroBanner = root.find(Hero);
 
@@ -82,11 +87,9 @@ describe(__filename, () => {
     heroLink.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
-      action: `${variant} | Click`,
-      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
-      label: heroItem.key,
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
+      label: heroItem.props.experimentTitle,
     });
-
-    sinon.assert.calledTwice(fakeTracking.sendEvent);
   });
 });

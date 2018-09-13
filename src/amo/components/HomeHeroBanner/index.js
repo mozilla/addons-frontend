@@ -15,17 +15,13 @@ import {
 
 import './styles.scss';
 
-type Props = {|
+type InternalProps = {|
   ...WithExperimentInjectedProps,
+  _tracking: typeof tracking,
   i18n: I18nType,
 |};
 
-type InternalProps = {|
-  ...Props,
-  _tracking: typeof tracking,
-|};
-
-export const AB_HOME_HERO_TEST_NAME = 'HOME_HERO';
+export const AB_HOME_HERO_EXPERIMENT = 'home_hero';
 export const AB_HOME_HERO_VARIANT_A = 'small';
 export const AB_HOME_HERO_VARIANT_B = 'large';
 export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';
@@ -40,8 +36,8 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
 
     if (variant) {
       _tracking.sendEvent({
-        action: `${variant} | Page View`,
-        category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
+        action: variant,
+        category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Page View`,
       });
     }
   }
@@ -238,27 +234,28 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     ];
 
     return heroes.map((hero) => {
-      const { url } = hero;
+      const { title, url } = hero;
       return (
         <HeroSection
           key={url}
           linkTo={url}
-          onClick={(e) => this.trackExperimentClick(e, url)}
+          experimentTitle={title}
+          onClick={(e) => this.trackExperimentClick(e, title)}
         >
-          <h3>{hero.title}</h3>
+          <h3>{title}</h3>
           <p>{hero.description}</p>
         </HeroSection>
       );
     });
   }
 
-  trackExperimentClick = (e: SyntheticEvent<any>, url: string) => {
+  trackExperimentClick = (e: SyntheticEvent<HTMLElement>, title: string) => {
     const { _tracking, variant } = this.props;
 
     _tracking.sendEvent({
-      action: `${variant} | Click`,
-      category: AB_HOME_HERO_EXPERIMENT_CATEGORY,
-      label: url,
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
+      label: title,
     });
   };
 
@@ -275,10 +272,10 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   }
 }
 
-const HomeHeroBanner: React.ComponentType<Props> = compose(
+const HomeHeroBanner: React.ComponentType<InternalProps> = compose(
   translate(),
   withExperiment({
-    id: AB_HOME_HERO_TEST_NAME,
+    id: AB_HOME_HERO_EXPERIMENT,
     variantA: AB_HOME_HERO_VARIANT_A,
     variantB: AB_HOME_HERO_VARIANT_B,
   }),
