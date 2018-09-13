@@ -61,7 +61,7 @@ It is possible to serve the local development version of this project with HTTPS
 4. Start `addons-frontend` with the command below:
 
    ```
-   yarn amo:dev-https
+   yarn amo:dev-https  # or yarn disco:dev-https for Disco Pane
    ```
 
 This allows you to browse the project at https://example.com:3000/ (and not `localhost`).
@@ -71,7 +71,6 @@ You are all set to develop with `mozAddonManager`!
 **Known issues**:
 
 - You cannot yet sign in when the site is running from `example.com`.
-- This currently only works for AMO development, not Discopane.
 
 ## Developing with a local server and a patched Firefox
 
