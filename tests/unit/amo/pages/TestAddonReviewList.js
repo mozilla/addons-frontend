@@ -19,6 +19,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
+  SET_VIEW_CONTEXT,
 } from 'core/constants';
 import {
   fetchAddon,
@@ -371,24 +372,9 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
       render({ errorHandler });
 
-      // Note: Because we expect setViewContext NOT to be called, we don't have a specific
-      // addon.type argument to use for an assert.neverCalledWith, so instead we verify that
-      // dispatch is called twice, and that those calls are not for setViewContext.
-      // There must be a better way!
-      sinon.assert.calledTwice(dispatch);
-      sinon.assert.calledWith(
+      sinon.assert.neverCalledWithMatch(
         dispatch,
-        fetchAddon({
-          slug: fakeAddon.slug,
-          errorHandler,
-        }),
-      );
-      sinon.assert.calledWith(
-        dispatch,
-        fetchReviews({
-          addonSlug: fakeAddon.slug,
-          errorHandlerId: errorHandler.id,
-        }),
+        sinon.match({ type: SET_VIEW_CONTEXT }),
       );
     });
 

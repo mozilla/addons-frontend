@@ -50,6 +50,7 @@ import type {
 } from 'amo/actions/reviews';
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
+import type { AppState } from 'amo/store';
 
 type ReviewsById = {
   [id: number]: UserReviewType,
@@ -281,6 +282,13 @@ export const addReviewToState = ({
       [review.addonId]: undefined,
     },
   };
+};
+
+export const reviewsAreLoading = (
+  state: AppState,
+  addonSlug: string,
+): boolean => {
+  return Boolean(state.reviews.loadingForSlug[addonSlug]);
 };
 
 type ReviewActionType =

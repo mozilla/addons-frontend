@@ -12,7 +12,7 @@ import RatingsByStar from 'amo/components/RatingsByStar';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
-import { expandReviewObjects } from 'amo/reducers/reviews';
+import { expandReviewObjects, reviewsAreLoading } from 'amo/reducers/reviews';
 import {
   fetchAddon,
   getAddonBySlug,
@@ -68,7 +68,7 @@ type InternalProps = {|
   pageSize: number | null,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
-  reviewsAreLoading: boolean,
+  areReviewsLoading: boolean,
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
@@ -94,7 +94,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         params: { addonSlug },
       },
       reviews,
-      reviewsAreLoading,
+      areReviewsLoading,
     } = {
       ...this.props,
       ...nextProps,
@@ -127,7 +127,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       location = nextProps.location;
     }
 
-    if (!reviewsAreLoading && (!reviews || locationChanged)) {
+    if (!areReviewsLoading && (!reviews || locationChanged)) {
       dispatch(
         fetchReviews({
           addonSlug,
@@ -331,11 +331,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
         <div className="AddonReviewList-reviews">
           {reviewId && (
-            <FeaturedAddonReview
-              addon={addon}
-              location={location}
-              reviewId={reviewId}
-            />
+            <FeaturedAddonReview addon={addon} reviewId={reviewId} />
           )}
           <CardList
             className="AddonReviewList-reviews-listing"
@@ -378,7 +374,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
         state: state.reviews,
         reviews: reviewData.reviews,
       }),
-    reviewsAreLoading: Boolean(state.reviews.loadingForSlug[addonSlug]),
+    areReviewsLoading: reviewsAreLoading(state, addonSlug),
   };
 }
 

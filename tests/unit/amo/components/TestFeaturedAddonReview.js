@@ -13,6 +13,8 @@ import {
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,
+  createContextWithFakeRouter,
+  createFakeHistory,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -42,6 +44,11 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <FeaturedAddonReview {...props} />,
       FeaturedAddonReviewBase,
+      {
+        shallowOptions: createContextWithFakeRouter({
+          history: createFakeHistory(),
+        }),
+      },
     );
   };
 

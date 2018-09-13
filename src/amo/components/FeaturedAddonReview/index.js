@@ -1,6 +1,8 @@
 /* @flow */
 import * as React from 'react';
+import NestedStatus from 'react-nested-status';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import { fetchReview } from 'amo/actions/reviews';
@@ -22,7 +24,6 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
-  location: ReactRouterLocationType,
   reviewId: number,
 |};
 
@@ -33,6 +34,7 @@ type InternalProps = {|
   featuredReview?: UserReviewType,
   i18n: I18nType,
   loadingReview: boolean,
+  location: ReactRouterLocationType,
 |};
 
 export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
@@ -79,9 +81,11 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
     const featuredReviewCard =
       errorHandler.hasError() &&
       errorHandler.capturedError.responseStatusCode === 404 ? (
-        <div className="FeaturedAddonReview-notfound">
-          {i18n.gettext('The review was not found.')}
-        </div>
+        <NestedStatus code={404}>
+          <div className="FeaturedAddonReview-notfound">
+            {i18n.gettext('The review was not found.')}
+          </div>
+        </NestedStatus>
       ) : (
         <AddonReviewCard
           addon={addon}
@@ -123,6 +127,7 @@ export const extractId = (ownProps: InternalProps) => {
 };
 
 const FeaturedAddonReview: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),

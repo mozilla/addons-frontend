@@ -451,7 +451,7 @@ describe(__filename, () => {
           method: 'GET',
           apiState: params.apiState,
         })
-        .returns(Promise.resolve(fakeResponse));
+        .resolves(fakeResponse);
 
       const response = await getReview(params);
       mockApi.verify();
