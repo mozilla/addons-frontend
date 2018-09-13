@@ -263,7 +263,11 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     });
 
     const buttonIsDisabled =
-      disabled === false ? hasAddonManager && status === UNKNOWN : disabled;
+      disabled === false
+        ? hasAddonManager &&
+          status === UNKNOWN &&
+          addon.type !== ADDON_TYPE_OPENSEARCH
+        : disabled;
 
     const buttonProps: ButtonProps = {
       buttonType: 'action',
@@ -299,11 +303,10 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       } else if (addon.type === ADDON_TYPE_THEME) {
         buttonProps['data-browsertheme'] = JSON.stringify(getThemeData(addon));
         buttonProps.onClick = this.installTheme;
+      } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
+        buttonProps.onClick = this.installOpenSearch;
       } else if (hasAddonManager) {
-        buttonProps.onClick =
-          addon.type === ADDON_TYPE_OPENSEARCH
-            ? this.installOpenSearch
-            : this.installExtension;
+        buttonProps.onClick = this.installExtension;
       }
     }
 
