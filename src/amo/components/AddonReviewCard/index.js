@@ -1,11 +1,13 @@
 /* @flow */
 import makeClassName from 'classnames';
+import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -51,6 +53,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
@@ -64,6 +67,7 @@ type InternalProps = {|
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     flaggable: true,
     showRating: true,
   };
@@ -114,6 +118,13 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     // Even though an escaped overlay will be hidden, we still have to
     // synchronize our show/hide state otherwise we won't be able to
     // show the overlay after it has been escaped.
+    dispatch(hideEditReviewForm({ reviewId: review.id }));
+  };
+
+  onCancelEditReview = () => {
+    const { dispatch, review } = this.props;
+    invariant(review, 'review is required');
+
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   };
 
@@ -264,6 +275,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
   render() {
     const {
+      _config,
       addon,
       className,
       deletingReview,
@@ -310,14 +322,15 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       <div className="AddonReviewCard-allControls">
         {siteUser && review && review.userId === siteUser.id ? (
           <React.Fragment>
-            {/* This will render an overlay to edit the review */}
-            {editingReview ? (
-              <AddonReview
-                onEscapeOverlay={this.onEscapeReviewOverlay}
-                onReviewSubmitted={this.onReviewSubmitted}
-                review={review}
-              />
-            ) : null}
+            {editingReview &&
+              !_config.get('enableInlineAddonReview') && (
+                // This will render an overlay to edit the review
+                <AddonReview
+                  onEscapeOverlay={this.onEscapeReviewOverlay}
+                  onReviewSubmitted={this.onReviewSubmitted}
+                  review={review}
+                />
+              )}
             {!this.isRatingOnly() && (
               <a
                 href="#edit"
@@ -381,18 +394,27 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
 
     return (
-      <UserReview
+      <div
         className={makeClassName('AddonReviewCard', className, {
           'AddonReviewCard-ratingOnly': this.isRatingOnly(),
         })}
-        controls={controls}
-        review={review}
-        byLine={!this.isRatingOnly() && byLine}
-        showRating={!this.isReply() && showRating}
       >
+        {review && editingReview && _config.get('enableInlineAddonReview') ? (
+          <AddonReviewManager
+            onCancel={this.onCancelEditReview}
+            review={review}
+          />
+        ) : (
+          <UserReview
+            controls={controls}
+            review={review}
+            byLine={!this.isRatingOnly() && byLine}
+            showRating={!this.isReply() && showRating}
+          />
+        )}
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}
-      </UserReview>
+      </div>
     );
   }
 }

@@ -25,6 +25,7 @@ import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import './styles.scss';
 
 type Props = {|
+  onCancel?: () => void,
   review: UserReviewType,
 |};
 
@@ -62,7 +63,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { errorHandler, i18n, review, flashMessage } = this.props;
+    const { errorHandler, i18n, onCancel, review, flashMessage } = this.props;
 
     const reviewGuideLink = i18n.sprintf(
       i18n.gettext(
@@ -113,11 +114,20 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
         <DismissibleTextForm
           formFooter={formFooter}
           isSubmitting={flashMessage === STARTED_SAVE_REVIEW}
+          onDismiss={onCancel}
           onSubmit={this.onSubmitReview}
           placeholder={placeholder}
           puffyButtons
-          submitButtonText={i18n.gettext('Submit review')}
-          submitButtonInProgressText={i18n.gettext('Submitting review')}
+          submitButtonText={
+            review.body
+              ? i18n.gettext('Update review')
+              : i18n.gettext('Submit review')
+          }
+          submitButtonInProgressText={
+            review.body
+              ? i18n.gettext('Updating review')
+              : i18n.gettext('Submitting review')
+          }
           text={review.body}
         />
       </div>
