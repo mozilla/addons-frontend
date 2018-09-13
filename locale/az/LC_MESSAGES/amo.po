@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-12 01:23+0000\n"
+"PO-Revision-Date: 2018-09-13 22:23+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -803,7 +803,7 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
-msgstr ""
+msgstr "İndi dəstək olun"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:40 src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
@@ -1287,11 +1287,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
-msgstr ""
+msgstr "Facebook Konteyneri"
 
 #: src/amo/components/HomeHeroBanner/index.js:23
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Facebook-a sizi internetdə izləməyə imkan verməyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "Midnight Lizard"
@@ -1867,7 +1867,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About/index.js:171
 msgid "Get support"
-msgstr ""
+msgstr "Dəstək al"
 
 #: src/amo/components/StaticPages/About/index.js:176
 msgid ""
@@ -2493,7 +2493,7 @@ msgstr "Bu bildirişi qapat"
 
 #: src/ui/components/Rating/index.js:104
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Bu əlavəyə 5 üstündən %(starRating)s qiymət ver"
 
 #: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
