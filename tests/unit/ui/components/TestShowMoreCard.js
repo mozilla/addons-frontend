@@ -50,6 +50,8 @@ describe(__filename, () => {
 
     applyUIStateChanges({ root, store });
 
+    expect(root).toHaveProp('footerLink', null);
+
     expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
@@ -83,7 +85,7 @@ describe(__filename, () => {
     expect(contents).toHaveText('Hello I am description');
   });
 
-  it('dispatches if the html children has changed', () => {
+  it("dispatches if the children's html has changed", () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
@@ -113,7 +115,7 @@ describe(__filename, () => {
     sinon.assert.called(dispatchSpy);
   });
 
-  it('dispatches if the children has changed', () => {
+  it("dispatches if the children's text has changed", () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
@@ -129,7 +131,7 @@ describe(__filename, () => {
     sinon.assert.called(dispatchSpy);
   });
 
-  it('does not dispatch if the html children is the same', () => {
+  it("does not dispatch if the children's html is the same", () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
@@ -159,7 +161,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('does not dispatch if the children is the same', () => {
+  it("does not dispatch if the children's text is the same", () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
@@ -184,9 +186,6 @@ describe(__filename, () => {
       root.instance(),
       'truncateToMaxHeight',
     );
-
-    // We are simulating the truncate method call.
-    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
 
     // We are simulating any kind of update to properties.
     root.setProps();

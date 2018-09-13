@@ -59,7 +59,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
       newChildren.props.dangerouslySetInnerHTML &&
       newChildren.props.dangerouslySetInnerHTML.__html;
 
-    // If it's not html, let check that text too.
+    // If it's not html, check for plain text.
     if (!html && children && !children.props) {
       html = children;
     }
@@ -69,7 +69,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     }
 
     // Reset UIState if component html has changed.
-    // This is needed b/c if you return to an addon that you've
+    // This is needed because if you return to an addon that you've
     // already visited the component doesn't hit unmount again and the store
     // keeps the last component's UIState which isn't what we want.
     if (newHtml && html !== newHtml) {
