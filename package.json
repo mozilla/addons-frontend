@@ -23,6 +23,7 @@
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
     "disco": "better-npm-run disco",
+    "disco:https": "better-npm-run disco:https",
     "eslint": "eslint .",
     "flow": "flow",
     "flow:check": "flow check",
@@ -105,6 +106,14 @@
       "command": "better-npm-run start-dev",
       "env": {
         "NODE_APP_INSTANCE": "disco"
+      }
+    },
+    "disco:https": {
+      "command": "better-npm-run disco",
+      "env": {
+        "SERVER_HOST": "example.com",
+        "USE_HTTPS_FOR_DEV": "true",
+        "WEBPACK_SERVER_HOST": "example.com"
       }
     },
     "extract-locales": {
