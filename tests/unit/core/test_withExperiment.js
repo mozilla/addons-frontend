@@ -56,8 +56,6 @@ describe(__filename, () => {
       },
     });
 
-    sinon.assert.calledWith(_cookie.load, `experiment_${id}`);
-
     sinon.assert.calledWith(
       _cookie.save,
       `experiment_${id}`,
