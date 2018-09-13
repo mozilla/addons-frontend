@@ -25,15 +25,11 @@ type UIStateType = {|
 
 const initialUIState: UIStateType = { visible: false };
 
-type keyDownType = {|
-  event: SyntheticEvent<any> | null,
-|};
-
 type InternalProps = {|
   ...Props,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
-  keydown: keyDownType,
+  keydown: {| event: SyntheticEvent<any> | null |},
 |};
 
 export class OverlayBase extends React.Component<InternalProps> {
