@@ -26,6 +26,7 @@ The easiest way to manage multiple node versions in development is to use [nvm](
 
 ## Get started
 
+- read our [contributing guidelines](./CONTRIBUTING.md) and our [code of conduct](./CODE_OF_CONDUCT.md)
 - type `yarn` to install all dependencies
 - type `yarn amo:stage` to start a local server that connects to a hosted staging server
 
@@ -66,6 +67,10 @@ Here are some commands you can run:
 | yarn test-coverage-once     | Run all tests, generate code coverage report, then exit                                                                                                                                         |
 | yarn test-once              | Run all tests, run all JS + SCSS linters, then exit                                                                                                                                             |
 | yarn test-ci                | Run all continuous integration checks. This is only meant to run on TravisCI.                                                                                                                   |
+
+### :sparkles: Documentation :sparkles:
+
+You will find more documentation in the [`docs/` folder](./docs/index.md).
 
 ### Running tests
 
@@ -111,65 +116,6 @@ If you are new to working with Flow, here are some tips:
 - Check out the [getting started](https://flow.org/en/docs/getting-started/) guide.
 - Read through the [web-ext guide](https://github.com/mozilla/web-ext/blob/master/CONTRIBUTING.md#check-for-flow-errors) for hints on how to solve common Flow errors.
 
-To add flow coverage to a source file, put a `/* @flow */` comment at the top. The more source files you can opt into Flow, the better.
-
-Here is our Flow manifesto:
-
-- We use Flow to **declare the intention of our code** and help others refactor it with confidence. Flow also makes it easier to catch mistakes before spending hours in a debugger trying to find out what happened.
-- Avoid magic [Flow declarations](https://flowtype.org/en/docs/config/libs/) for any _internal_ code. Just declare a [type alias](https://flowtype.org/en/docs/types/aliases/) next to the code where it's used and [export/import](https://flow.org/en/docs/types/modules/) it like any other object.
-- Never import a real JS object just to reference its type. Make a type alias and import that instead.
-- Never add more type annotations than you need. Flow is really good at inferring types from standard JS code; it will tell you when you need to add explicit annotations.
-- When a function like `getAllAddons` takes object arguments, call its type object `GetAllAddonsParams`. Example:
-
-```js
-type GetAllAddonsParams = {|
-  categoryId: number,
-|};
-
-function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
-  ...
-}
-```
-
-- Use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types) via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the spread operator triggers an error like 'Inexact type is incompatible with exact type' but that's a [bug](https://github.com/facebook/flow/issues/2405). You can use the `Exact<T>` workaround from [`src/core/types/util`](https://github.com/mozilla/addons-frontend/blob/master/src/core/types/util.js) if you have to. This is meant as a working replacement for [$Exact<T>](https://flow.org/en/docs/types/utilities/#toc-exact).
-- Add a type hint for components wrapped in HOCs (higher order components) so that Flow can validate calls to the component. We need to add a hint because we don't yet have decent type coverage for all the HOCs we rely on. Here is an example:
-
-```js
-// Imagine this is something like components/ConfirmButton/index.js
-import { compose } from 'redux';
-import * as React from 'react';
-
-// This expresses externally used props, i.e. to validate how the app would use <ConfirmButton />
-type Props = {|
-  prompt?: string | null,
-|};
-
-// This expresses internally used props, such as i18n which is injected by translate()
-type InternalProps = {|
-  ...Props,
-  i18n: I18nType,
-|};
-
-export class ConfirmButtonBase extends React.Component<InternalProps> {
-  render() {
-    const prompt = this.props.prompt || this.props.i18n.gettext('Confirm');
-    return <button>{prompt}</button>;
-  }
-}
-
-// This provides a type hint for the final component with its external props.
-// The i18n prop is not in external props because it is injected by translate() for internal use only.
-const ConfirmButton: React.ComponentType<Props> = compose(translate())(
-  ConfirmButtonBase,
-);
-
-export default ConfirmButton;
-```
-
-- Try to avoid loose types like `Object` or `any` but feel free to use them if you are spending too much time declaring types that depend on other types that depend on other types, and so on.
-- You can add a `$FLOW_FIXME` comment to skip a Flow check if you run into a bug or if you hit something that's making you bang your head on the keyboard. If it's something you think is unfixable then use `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link to a GitHub issue if possible.
-- If you're stumped on why some Flow annotations aren't working, try using the `yarn flow type-at-pos ...` command to trace which types are being applied to the code. See `yarn flow -- --help type-at-pos` for details.
-
 ### Prettier
 
 We use [Prettier][] to automatically format our JavaScript code and stop all the on-going debates over styles. As a developer, you have to run it (with `yarn prettier-dev`) before submitting a Pull Request.
@@ -202,73 +148,6 @@ This will print a table of files showing the percentage of code coverage. The un
 open coverage/lcov-report/index.html
 ```
 
-### Running AMO for local development
-
-A proxy server is provided for running the AMO app with the API on the same host as the frontend. This provides a setup that is closer to production than running the frontend on its own. The default configuration for this is to use a local addons-server for the API which can be setup according to the [addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html). Docker is the preferred method of running addons-server.
-
-Authentication will work when initiated from addons-frontend and will persist to addons-server but it will not work when logging in from an addons-server page. See [mozilla/addons-server#4684](https://github.com/mozilla/addons-server/issues/4684) for more information on fixing this.
-
-If you would like to use `https://addons-dev.allizom.org` for data you should use the `yarn amo:dev` command. See the table of commands up above for similar hosted options.
-
-### Local configuration
-
-If you need to override any settings while running `yarn amo`, `yarn amo:dev`, or `yarn amo:stage`, first create a local config file named exactly like this:
-
-    touch config/local-development-amo.js
-
-Make any config changes. For example:
-
-```javascript
-module.exports = {
-  trackingEnabled: true,
-};
-```
-
-Restart the server to see it take affect.
-
-Consult the [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order) to learn more about how configuration is applied.
-
-### Running the Discopane for local development
-
-When running `yarn disco`, your local server will be configured for a hosted development API. If you want to run your own [addons-server](https://github.com/mozilla/addons-server) API or make any other local changes, you'll need to create a custom config file named exactly like this:
-
-    touch config/local-development-disco.js
-
-Here's what `local-development-disco.js` would look like when overriding the `apiHost` parameter so that it points to your docker container:
-
-```javascript
-module.exports = {
-  apiHost: 'http://olympia.test',
-};
-```
-
-Restart the server to see it take affect.
-
-### Configuring an Android device for local development
-
-If you want to access your local server on an Android device you will need to change a few settings. Let's say your local machine is accessible on your network at the IP address `10.0.0.1`. You could start your server like this:
-
-```
-API_HOST=http://10.0.0.1:3000 \
-    SERVER_HOST=10.0.0.1 \
-    WEBPACK_SERVER_HOST=10.0.0.1 \
-    yarn amo:dev
-```
-
-On your Android device, you could then access the development site at `http://10.0.0.1:3000`.
-
-**NOTE**: At this time, it is not possible to sign in with this configuration because the Firefox Accounts client redirects to `localhost:3000`. You may be able to try a different approach by editing `/etc/hosts` on your device so that `localhost` points to your development machine but this has not been fully tested.
-
-### Disabling CSP for local development
-
-When developing locally with a webpack server, the randomly generated asset URL will fail our Content Security Policy (CSP) and clutter your console with errors. You can turn off all CSP errors by settings CSP to `false` in any local config file, such as `local-development-amo.js`. Example:
-
-```javascript
-module.exports = {
-  CSP: false,
-};
-```
-
 ### Working on the documentation
 
 The documentation you are reading right now lives inside the source repository as [Github flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown). When you make changes to these files you can create a pull request to preview them or, better yet, you can use [grip](https://github.com/joeyespo/grip) to preview the changes locally. After installing `grip`, run it from the source directory like this:
@@ -287,74 +166,7 @@ You can find the source files under the ./stories directory.
 
 More info coming soon :)
 
-### Building and running services
-
-The following are scripts that are used in deployment - you generally won't need unless you're testing something related to deployment or builds.
-
-The env vars are:
-
-`NODE_APP_INSTANCE` this is the name of the app e.g. 'disco' `NODE_ENV` this is the node environment. e.g. production, dev, stage, development.
-
-| Script     | Description                                    |
-| ---------- | ---------------------------------------------- |
-| yarn start | Starts the express server (requires env vars)  |
-| yarn build | Builds the libs (all apps) (requires env vars) |
-
-**Example:** Building and running a production instance of the AMO app:
-
-```
-NODE_APP_INSTANCE=amo NODE_ENV=production yarn build
-NODE_APP_INSTANCE=amo NODE_ENV=production yarn start
-```
-
-**Note: To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-production-amo.js` and should look like:
-
-```js
-import { apiStageHost, amoStageCDN } from './lib/shared';
-
-module.exports = {
-  // Statics will be served by node.
-  staticHost: '',
-  // FIXME: sign-in isn't working.
-  // fxaConfig: 'local',
-
-  // The node server host and port.
-  serverHost: '127.0.0.1',
-  serverPort: 3000,
-
-  enableClientConsole: true,
-  apiHost: apiStageHost,
-  amoCDN: amoStageCDN,
-
-  CSP: {
-    directives: {
-      connectSrc: [apiStageHost],
-      scriptSrc: ["'self'", 'https://www.google-analytics.com'],
-      styleSrc: ["'self'"],
-      imgSrc: [
-        "'self'",
-        'data:',
-        amoStageCDN,
-        'https://www.google-analytics.com',
-      ],
-      mediaSrc: ["'self'"],
-      fontSrc: ["'self'", 'data:', amoStageCDN],
-    },
-  },
-
-  // This is needed to serve assets locally.
-  enableNodeStatics: true,
-  trackingEnabled: false,
-  // Do not send client side errors to Sentry.
-  publicSentryDsn: null,
-};
-```
-
-After this, re-build and restart using `yarn build` and `yarn start` as documented above. If you have used `localhost` before with a different configuration, be sure to clear your cookies.
-
-**NOTE**: At this time, it's not possible to sign in using this approach.
-
-### Working with UX Mocks
+## Working with UX Mocks
 
 When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/) mocks that are located in the [assets](https://github.com/mozilla/addons-frontend/tree/master/assets) directory. You will need a license to run Sketch and you also need to install some fonts (which are free). Install [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans), [Open Sans](https://www.fontsquirrel.com/fonts/open-sans), [Fira Mono](https://www.fontsquirrel.com/fonts/fira-mono) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
 
