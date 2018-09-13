@@ -325,7 +325,8 @@ describe(__filename, () => {
       renderAndMount({ mozAddonManager: fakeMozAddonManager });
       sinon.assert.callCount(
         fakeMozAddonManager.addEventListener,
-        GLOBAL_EVENTS.length,
+        // + 1 because of onOperationCancelled that is registered separately.
+        GLOBAL_EVENTS.length + 1,
       );
     });
   });
