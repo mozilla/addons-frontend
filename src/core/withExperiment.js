@@ -5,37 +5,41 @@ import cookie from 'react-cookie';
 
 import { getDisplayName } from 'core/utils';
 
-export type WithExperimentInjectedProps = {|
+export type withExperimentInjectedProps = {|
   variant: string,
 |};
 
-type WithExperimentProps = {|
-  cookieConfig?: Object,
+type CookieConfig = {|
+  path?: string,
+|};
+
+type withExperimentProps = {|
+  cookieConfig?: CookieConfig,
   id: string,
   variantA: string,
   variantB: string,
 |};
 
-type WithExperimentInternalProps = {|
-  ...WithExperimentProps,
+type withExperimentInternalProps = {|
+  ...withExperimentProps,
   WrappedComponent: React.ComponentType<any>,
   _cookie: typeof cookie,
   randomizer: () => number,
 |};
 
-const defaultCookieConfig = { path: '/' };
+const defaultCookieConfig: CookieConfig = { path: '/' };
 
 export const withExperiment = ({
   cookieConfig = defaultCookieConfig,
   id: defaultId,
   variantA: defaultVariantA,
   variantB: defaultVariantB,
-}: WithExperimentProps) => (WrappedComponent: React.ComponentType<any>) => {
+}: withExperimentProps) => (WrappedComponent: React.ComponentType<any>) => {
   invariant(defaultId, 'id is required');
   invariant(defaultVariantA, 'variantA is required');
   invariant(defaultVariantB, 'variantB is required');
 
-  class WithExperiment extends React.Component<WithExperimentInternalProps> {
+  class WithExperiment extends React.Component<withExperimentInternalProps> {
     experimentCookie: string | void;
 
     static defaultProps = {
@@ -48,7 +52,7 @@ export const withExperiment = ({
 
     static displayName = `WithExperiment(${getDisplayName(WrappedComponent)})`;
 
-    constructor(props: WithExperimentInternalProps) {
+    constructor(props: withExperimentInternalProps) {
       super(props);
 
       const { _cookie, randomizer, variantA, variantB } = this.props;
@@ -75,7 +79,7 @@ export const withExperiment = ({
         ...props
       } = this.props;
 
-      const exposedProps: WithExperimentInjectedProps = {
+      const exposedProps: withExperimentInjectedProps = {
         variant: _cookie.load(this.getCookieName()),
       };
 

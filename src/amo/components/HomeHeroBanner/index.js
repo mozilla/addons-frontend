@@ -8,15 +8,13 @@ import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
 import tracking from 'core/tracking';
-import {
-  withExperiment,
-  type WithExperimentInjectedProps,
-} from 'core/withExperiment';
+import { withExperiment } from 'core/withExperiment';
+import type { withExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
 
 type InternalProps = {|
-  ...WithExperimentInjectedProps,
+  ...withExperimentInjectedProps,
   _tracking: typeof tracking,
   i18n: I18nType,
 |};
@@ -34,12 +32,10 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   componentDidMount() {
     const { _tracking, variant } = this.props;
 
-    if (variant) {
-      _tracking.sendEvent({
-        action: variant,
-        category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Page View`,
-      });
-    }
+    _tracking.sendEvent({
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Page View`,
+    });
   }
 
   sections() {
@@ -239,7 +235,6 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         <HeroSection
           key={url}
           linkTo={url}
-          experimentTitle={title}
           onClick={(e) => this.trackExperimentClick(e, title)}
         >
           <h3>{title}</h3>

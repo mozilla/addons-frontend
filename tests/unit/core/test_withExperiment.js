@@ -20,21 +20,21 @@ describe(__filename, () => {
     })(SomeComponentBase);
   }
 
-  function renderComponentWithExperiment({ experimentProps, props } = {}) {
+  function render({ experimentProps, props } = {}) {
     const SomeComponent = setComponentWithExperiment({ experimentProps });
 
     return shallow(<SomeComponent {...props} />);
   }
 
   it('injects a variant prop', () => {
-    const root = renderComponentWithExperiment();
+    const root = render();
     expect(root).toHaveProp('variant');
   });
 
   it('loads a cookie upon construction', () => {
     const _cookie = fakeCookie();
 
-    renderComponentWithExperiment({
+    render({
       props: {
         _cookie,
       },
@@ -49,7 +49,7 @@ describe(__filename, () => {
       load: sinon.stub().returns(undefined),
     });
 
-    const root = renderComponentWithExperiment({
+    const root = render({
       props: {
         _cookie,
         id,
@@ -71,7 +71,7 @@ describe(__filename, () => {
       load: sinon.stub().returns(`experiment_${id}`),
     });
 
-    renderComponentWithExperiment({
+    render({
       props: {
         _cookie,
         id,
@@ -86,7 +86,7 @@ describe(__filename, () => {
     const _cookie = fakeCookie();
     const id = 'layoutTest';
 
-    const root = renderComponentWithExperiment({
+    const root = render({
       props: {
         _cookie,
         id,

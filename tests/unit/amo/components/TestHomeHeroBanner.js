@@ -89,7 +89,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: variant,
       category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
-      label: heroItem.props.experimentTitle,
+      label: heroItem.props.children[0].props.children,
     });
   });
 });
