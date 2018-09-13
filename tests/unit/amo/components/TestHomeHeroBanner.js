@@ -80,6 +80,8 @@ describe(__filename, () => {
 
     // We'll use the first item in the home heroes array as an example.
     const heroItem = heroBanner.prop('sections')[0];
+    const firstHeroTitle = root.instance().getHeroes()[0].title;
+
     const heroLink = shallow(heroItem).find('.HeroSection-link-wrapper');
 
     expect(heroLink).toHaveLength(1);
@@ -89,7 +91,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: variant,
       category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
-      label: heroItem.props.children[0].props.children,
+      label: firstHeroTitle,
     });
   });
 });

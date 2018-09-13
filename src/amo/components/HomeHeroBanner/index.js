@@ -38,10 +38,10 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     });
   }
 
-  sections() {
+  getHeroes() {
     const { i18n } = this.props;
 
-    const heroes = [
+    return [
       {
         title: i18n.gettext('Facebook Container'),
         description: i18n.gettext(
@@ -228,8 +228,10 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         url: '/addon/britannica-insights/',
       },
     ];
+  }
 
-    return heroes.map((hero) => {
+  sections() {
+    return this.getHeroes().map((hero) => {
       const { title, url } = hero;
       return (
         <HeroSection
