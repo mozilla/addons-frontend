@@ -13,7 +13,12 @@ import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import { selectReview } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
-import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
+import {
+  createInternalReview,
+  hideEditReviewForm,
+  setLatestReview,
+  showEditReviewForm,
+} from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
@@ -31,7 +36,6 @@ import {
   fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent,
   createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
@@ -481,20 +485,6 @@ describe(__filename, () => {
       expect(root).toHaveState('showTextEntry', false);
     });
 
-    it('hides AddonReviewManager when pressing the cancel button', async () => {
-      const root = renderInline({ store: createStoreWithLatestReview() });
-      root.setState({ showTextEntry: true });
-
-      const clickEvent = createFakeEvent();
-      root
-        .find('.RatingManager-cancelTextEntryButton')
-        .simulate('click', clickEvent);
-
-      expect(root.find(AddonReviewManager)).toHaveLength(0);
-      expect(root.find(UserRating)).toHaveLength(1);
-      sinon.assert.called(clickEvent.preventDefault);
-    });
-
     it('does not render AddonReviewManager if not signed in', async () => {
       const store = createStoreWithLatestReview();
       store.dispatch(logOutUser());
@@ -503,7 +493,6 @@ describe(__filename, () => {
       root.setState({ showTextEntry: true });
 
       expect(root.find(AddonReviewManager)).toHaveLength(0);
-      expect(root.find('.RatingManager-cancelTextEntryButton')).toHaveLength(0);
       expect(root.find(UserRating)).toHaveLength(1);
     });
 
@@ -527,7 +516,6 @@ describe(__filename, () => {
       root.setState({ showTextEntry: true });
 
       expect(root.find(AddonReviewManager)).toHaveLength(0);
-      expect(root.find('.RatingManager-cancelTextEntryButton')).toHaveLength(0);
       expect(root.find(UserRating)).toHaveLength(1);
     });
 
@@ -547,35 +535,6 @@ describe(__filename, () => {
       expect(rating).toHaveProp('review', null);
     });
 
-    it('prompts to cancel writing a new review', async () => {
-      const root = renderInline({
-        store: createStoreWithLatestReview({
-          // This is a new review without any text yet.
-          review: { ...fakeReview, body: undefined },
-        }),
-      });
-      root.setState({ showTextEntry: true });
-
-      const button = root.find('.RatingManager-cancelTextEntryButton');
-      expect(button.children()).toHaveText(
-        "Nevermind, I don't want to write a review",
-      );
-    });
-
-    it('prompts to cancel editing an existing review', async () => {
-      const root = renderInline({
-        store: createStoreWithLatestReview({
-          review: { ...fakeReview, body: 'This add-on is wonderful' },
-        }),
-      });
-      root.setState({ showTextEntry: true });
-
-      const button = root.find('.RatingManager-cancelTextEntryButton');
-      expect(button.children()).toHaveText(
-        "Nevermind, I don't want to edit my review",
-      );
-    });
-
     it('shows AddonReviewCard with a saved review', () => {
       const location = createFakeLocation({ pathname: '/the/detail/page' });
       const review = {
@@ -592,18 +551,27 @@ describe(__filename, () => {
       expect(reviewCard).toHaveProp('location', location);
     });
 
-    it('provides a write review button for ratings', () => {
-      const review = { ...fakeReview, body: undefined };
-      const root = renderInline({
-        store: createStoreWithLatestReview({ review }),
-      });
+    it('hides UserRating and prompt when editing', () => {
+      const review = { ...fakeReview, id: 8877 };
+      const store = createStoreWithLatestReview({ review });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ store });
 
-      const writeReview = root.find('.RatingManager-writeReviewButton');
-      expect(writeReview).toHaveLength(1);
-      writeReview.simulate('click', createFakeEvent());
+      expect(root.find('.RatingManager-legend')).toHaveLength(0);
+      expect(root.find(UserRating)).toHaveLength(0);
+    });
 
-      expect(root.find(AddonReviewCard)).toHaveLength(0);
-      expect(root.find(AddonReviewManager)).toHaveLength(1);
+    it('shows UserRating and prompt when not editing', () => {
+      const review = { ...fakeReview, id: 8877 };
+      const store = createStoreWithLatestReview({ review });
+
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      store.dispatch(hideEditReviewForm({ reviewId: review.id }));
+
+      const root = renderInline({ store });
+
+      expect(root.find('.RatingManager-legend')).toHaveLength(1);
+      expect(root.find(UserRating)).toHaveLength(1);
     });
   });
 

@@ -835,6 +835,17 @@ describe(__filename, () => {
       const manager = root.find(AddonReviewManager);
       expect(manager).toHaveLength(1);
       expect(manager).toHaveProp('review', review);
+      expect(manager).toHaveProp('puffyButtons', false);
+    });
+
+    it('configures AddonReviewManager with puffyButtons when verticalButtons=true', () => {
+      const review = signInAndDispatchSavedReview();
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+
+      const root = renderInline({ review, verticalButtons: true });
+
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveProp('puffyButtons', true);
     });
 
     it('hides the review form on cancel', () => {
@@ -856,6 +867,66 @@ describe(__filename, () => {
         hideEditReviewForm({
           reviewId: review.id,
         }),
+      );
+    });
+
+    it('provides a write review button for ratings', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      const root = renderInline({ review });
+
+      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
+      expect(writeReview).toHaveLength(1);
+
+      dispatchSpy.resetHistory();
+      writeReview.simulate('click', createFakeEvent());
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        showEditReviewForm({ reviewId: review.id }),
+      );
+    });
+
+    it('prompts to cancel writing a new review', async () => {
+      const review = signInAndDispatchSavedReview({
+        // This is a new review without any text yet.
+        externalReview: fakeRatingOnly,
+      });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ review, verticalButtons: true });
+
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveProp(
+        'cancelButtonText',
+        "Nevermind, I don't want to write a review",
+      );
+    });
+
+    it('prompts to cancel editing an existing review', async () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, body: 'This add-on is wonderful' },
+      });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ review, verticalButtons: true });
+
+      expect(root.find(AddonReviewManager)).toHaveProp(
+        'cancelButtonText',
+        "Nevermind, I don't want to edit my review",
+      );
+    });
+
+    it('does not configure a cancel prompt by default', async () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, body: 'This add-on is wonderful' },
+      });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ review });
+
+      expect(root.find(AddonReviewManager)).toHaveProp(
+        'cancelButtonText',
+        undefined,
       );
     });
   });
