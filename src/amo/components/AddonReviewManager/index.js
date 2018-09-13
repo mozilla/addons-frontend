@@ -114,7 +114,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
         <DismissibleTextForm
           formFooter={formFooter}
           isSubmitting={flashMessage === STARTED_SAVE_REVIEW}
-          onDismiss={onCancel || undefined}
+          onDismiss={onCancel}
           onSubmit={this.onSubmitReview}
           placeholder={placeholder}
           puffyButtons
