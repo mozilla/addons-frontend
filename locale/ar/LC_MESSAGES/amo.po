@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-11 17:34+0000\n"
+"PO-Revision-Date: 2018-09-13 06:37+0000\n"
 "Last-Translator: Ruba <ruba.awayes@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1142,9 +1142,8 @@ msgid "See more privacy & security extensions"
 msgstr "الامتدادات الأعلى تقييما"
 
 #: src/amo/components/Home/index.js:51
-#, fuzzy
 msgid "Privacy & security"
-msgstr "سياسة الخصوصية"
+msgstr "الخصوصية والسريّة"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 17:00+0000\n"
-"PO-Revision-Date: 2018-09-12 06:27+0000\n"
-"Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
+"PO-Revision-Date: 2018-09-13 06:38+0000\n"
+"Last-Translator: Ruba <ruba.awayes@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -78,9 +78,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "أدِر إضافاتك بنقر زر ”الإضافات“ في القائمة."
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "حسنا!"
+msgstr "حسنًا"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
