@@ -5,7 +5,7 @@ import cookie from 'react-cookie';
 
 import { getDisplayName } from 'core/utils';
 
-export type withExperimentInjectedProps = {|
+export type WithExperimentInjectedProps = {|
   variant: string,
 |};
 
@@ -79,7 +79,7 @@ export const withExperiment = ({
         ...props
       } = this.props;
 
-      const exposedProps: withExperimentInjectedProps = {
+      const exposedProps: WithExperimentInjectedProps = {
         variant: _cookie.load(this.getCookieName()),
       };
 

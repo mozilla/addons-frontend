@@ -9,12 +9,12 @@ import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
 import tracking from 'core/tracking';
 import { withExperiment } from 'core/withExperiment';
-import type { withExperimentInjectedProps } from 'core/withExperiment';
+import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
 
 type InternalProps = {|
-  ...withExperimentInjectedProps,
+  ...WithExperimentInjectedProps,
   _tracking: typeof tracking,
   i18n: I18nType,
 |};
