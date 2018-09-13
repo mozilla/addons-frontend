@@ -85,7 +85,7 @@ describe(__filename, () => {
     expect(contents).toHaveText('Hello I am description');
   });
 
-  it("dispatches if the children's html has changed", () => {
+  it("calls resetUIState if the children's html has changed", () => {
     /* eslint-disable react/no-danger */
     const root = render({
       children: (
@@ -113,7 +113,7 @@ describe(__filename, () => {
     sinon.assert.called(resetUIStateSpy);
   });
 
-  it("dispatches if the children's text has changed", () => {
+  it("calls resetUIState if the children's text has changed", () => {
     const root = render({
       children: 'Some text',
     });
@@ -127,7 +127,7 @@ describe(__filename, () => {
     sinon.assert.called(resetUIStateSpy);
   });
 
-  it("does not dispatch if the children's html is the same", () => {
+  it("does not call resetUIState if the children's html is the same", () => {
     /* eslint-disable react/no-danger */
     const root = render({
       children: (
@@ -155,7 +155,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(resetUIStateSpy);
   });
 
-  it("does not dispatch if the children's text is the same", () => {
+  it("does not call resetUIState if the children's text is the same", () => {
     const root = render({
       children: 'Some text',
     });
