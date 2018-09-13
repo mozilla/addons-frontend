@@ -48,7 +48,8 @@ $puffy-font-size: 15px;
     &.Button--puffy {
       border-radius: 4px;
       font-size: $puffy-font-size;
-      height: 48px;
+      height: auto;
+      min-height: 48px;
       padding: 0 16px;
 
       .Icon {
@@ -64,6 +65,7 @@ $puffy-font-size: 15px;
       &:link {
         font-size: $micro-font-size;
         height: auto;
+        min-height: 24px;
       }
 
       .Icon {
