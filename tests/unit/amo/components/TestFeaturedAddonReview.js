@@ -52,7 +52,7 @@ describe(__filename, () => {
     );
   };
 
-  it('fetches a review if needed', () => {
+  it('fetches a review on mount', () => {
     const reviewId = 1;
     const dispatch = sinon.stub(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -66,6 +66,33 @@ describe(__filename, () => {
       dispatch,
       fetchReview({
         reviewId,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
+  });
+
+  it('fetches a review when the reviewId changes', () => {
+    const firstReviewId = 1;
+    const secondReviewId = 1;
+    const dispatch = sinon.stub(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = render({
+      errorHandler,
+      reviewId: firstReviewId,
+    });
+
+    dispatch.resetHistory();
+
+    // This will trigger the componentWillReceiveProps() method.
+    root.setProps({
+      reviewId: secondReviewId,
+    });
+
+    sinon.assert.calledWith(
+      dispatch,
+      fetchReview({
+        reviewId: secondReviewId,
         errorHandlerId: errorHandler.id,
       }),
     );

@@ -506,6 +506,27 @@ describe(__filename, () => {
       });
     });
 
+    it('does not include a review in the listing if the review is also featured', () => {
+      const reviews = [
+        { ...fakeReview, id: 1, rating: 1 },
+        { ...fakeReview, id: 2, rating: 2 },
+      ];
+      dispatchAddonReviews({ reviews });
+
+      const root = render({
+        params: { reviewId: reviews[0].id },
+      });
+
+      const items = root
+        .find('.AddonReviewList-reviews-listing')
+        .find(AddonReviewCard);
+
+      expect(items).toHaveLength(1);
+      expect(items.at(0).prop('review')).toMatchObject({
+        id: reviews[1].id,
+      });
+    });
+
     it("renders the add-on's icon in the header", () => {
       const addon = { ...fakeAddon };
       const header = renderAddonHeader({ addon });

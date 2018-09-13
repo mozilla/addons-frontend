@@ -12,6 +12,7 @@ import {
   createAddonReview,
   deleteAddonReview,
   fetchGroupedRatings,
+  fetchReview,
   fetchReviews,
   fetchUserReviews,
   flagReview,
@@ -881,6 +882,61 @@ describe(__filename, () => {
       mockApi.expects('deleteReview').rejects(error);
 
       _deleteAddonReview();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('fetchReview', () => {
+    function _fetchReview(params = {}) {
+      sagaTester.dispatch(
+        fetchReview({
+          errorHandlerId: errorHandler.id,
+          reviewId: 1,
+          ...params,
+        }),
+      );
+    }
+
+    it('clears the error handler', async () => {
+      _fetchReview();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('fetches an add-on review', async () => {
+      const reviewId = 12345;
+      const review = fakeReview;
+
+      mockApi
+        .expects('getReview')
+        .once()
+        .withArgs({
+          apiState,
+          reviewId,
+        })
+        .resolves(review);
+
+      _fetchReview({ reviewId });
+
+      const expectedAction = setReview(review);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      mockApi.verify();
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('getReview').rejects(error);
+
+      _fetchReview();
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

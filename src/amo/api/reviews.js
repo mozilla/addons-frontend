@@ -291,13 +291,11 @@ export const deleteReview = ({
 
 export type GetReviewParams = {|
   apiState: ApiState,
-  errorHandler: ErrorHandlerType,
   reviewId: number,
 |};
 
 export const getReview = ({
   apiState,
-  errorHandler,
   reviewId,
 }: GetReviewParams = {}): Promise<ExternalReviewType> => {
   invariant(reviewId, 'reviewId is required');
@@ -306,7 +304,6 @@ export const getReview = ({
       callApi({
         auth: true,
         endpoint: `reviews/review/${reviewId}/`,
-        errorHandler,
         method: 'GET',
         apiState,
       }),

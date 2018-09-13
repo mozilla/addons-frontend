@@ -330,6 +330,7 @@ function* deleteAddonReview({
 function* fetchReview({
   payload: { errorHandlerId, reviewId },
 }: FetchReviewAction): Generator<any, any, any> {
+  console.log('---- in saga, reviewId: ', reviewId);
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -339,14 +340,17 @@ function* fetchReview({
 
     const params: GetReviewParams = {
       apiState: state.api,
-      errorHandler,
       reviewId,
     };
 
+    console.log('---- in saga, params: ', params);
+
     const response: ExternalReviewType = yield call(getReview, params);
+    console.log('---- in saga, response: ', response);
 
     yield put(setReview(response));
   } catch (error) {
+    console.log('---- in saga, error: ', error);
     log.warn(`Failed to get review ID ${reviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }

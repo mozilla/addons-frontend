@@ -437,7 +437,6 @@ describe(__filename, () => {
     it('calls the API', async () => {
       const params = {
         apiState,
-        errorHandler: createStubErrorHandler(),
         reviewId: fakeReview.id,
       };
       const fakeResponse = getReviewsResponse({ reviews: [fakeReview] });
@@ -447,7 +446,6 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint: `reviews/review/${params.reviewId}/`,
-          errorHandler: params.errorHandler,
           method: 'GET',
           apiState: params.apiState,
         })
