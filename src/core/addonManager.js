@@ -1,14 +1,69 @@
+/* @flow */
 /* global window */
 import log from 'core/logger';
 import {
-  GLOBAL_EVENT_STATUS_MAP,
+  DISABLED,
+  ENABLED,
   GLOBAL_EVENTS,
+  GLOBAL_EVENT_STATUS_MAP,
+  INACTIVE,
   INSTALL_EVENT_LIST,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams, isTheme } from 'core/utils';
 
-export function hasAddonManager({ navigator } = {}) {
+// This is the representation of an add-on in Firefox.
+type ClientAddon = {|
+  canUninstall: boolean,
+  description: string,
+  id: string,
+  isActive: boolean,
+  isEnabled: boolean,
+  name: string,
+  setEnabled: (boolean) => void,
+  type: 'extension' | 'theme',
+  uninstall: () => void,
+  version: string,
+|};
+
+type MozAddonManagerType = {|
+  addEventListener: (eventName: string, handler: Function) => void,
+  createInstall: ({| url: string |}) => Promise<any>,
+  getAddonByID: (guid: string) => Promise<ClientAddon>,
+  permissionPromptsEnabled: boolean,
+|};
+
+type NavigatorType = {|
+  mozAddonManager: MozAddonManagerType,
+|};
+
+type OptionalParams = {|
+  _mozAddonManager?: MozAddonManagerType,
+|};
+
+type GetAddonStatusParams = {|
+  addon: ClientAddon,
+  type: string,
+|};
+
+export function getAddonStatus({ addon, type }: GetAddonStatusParams) {
+  const { isActive, isEnabled } = addon;
+
+  let status = DISABLED;
+
+  if (isActive && isEnabled) {
+    status = ENABLED;
+  } else if (!isTheme(type) && !isActive && isEnabled) {
+    // We only use the INACTIVE status for add-ons that are not themes.
+    status = INACTIVE;
+  }
+
+  return status;
+}
+
+export function hasAddonManager({
+  navigator,
+}: { navigator: NavigatorType } = {}) {
   if (typeof window === 'undefined') {
     return false;
   }
@@ -16,7 +71,9 @@ export function hasAddonManager({ navigator } = {}) {
   return 'mozAddonManager' in (navigator || window.navigator);
 }
 
-export function hasPermissionPromptsEnabled({ navigator } = {}) {
+export function hasPermissionPromptsEnabled({
+  navigator,
+}: { navigator: NavigatorType } = {}) {
   if (module.exports.hasAddonManager({ navigator })) {
     const _navigator = navigator || window.navigator;
     return _navigator.mozAddonManager.permissionPromptsEnabled;
@@ -25,8 +82,8 @@ export function hasPermissionPromptsEnabled({ navigator } = {}) {
 }
 
 export function getAddon(
-  guid,
-  { _mozAddonManager = window.navigator.mozAddonManager } = {},
+  guid: string,
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
   if (_mozAddonManager || module.exports.hasAddonManager()) {
     // Resolves a promise with the addon on success.
@@ -41,10 +98,18 @@ export function getAddon(
   return Promise.reject(new Error('Cannot check add-on status'));
 }
 
+type OptionalInstallParams = {|
+  ...OptionalParams,
+  src: string,
+|};
+
 export function install(
-  _url,
-  eventCallback,
-  { _mozAddonManager = window.navigator.mozAddonManager, src } = {},
+  _url: string | void,
+  eventCallback: Function,
+  {
+    _mozAddonManager = window.navigator.mozAddonManager,
+    src,
+  }: OptionalInstallParams = {},
 ) {
   if (src === undefined) {
     return Promise.reject(new Error('No src for add-on install'));
@@ -67,8 +132,8 @@ export function install(
 }
 
 export function uninstall(
-  guid,
-  { _mozAddonManager = window.navigator.mozAddonManager } = {},
+  guid: string,
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
   return getAddon(guid, { _mozAddonManager })
     .then((addon) => {
@@ -84,10 +149,21 @@ export function uninstall(
     });
 }
 
-export function addChangeListeners(callback, mozAddonManager) {
-  function handleChangeEvent(e) {
+type GlobalEvent = {|
+  id: string,
+  needsRestart: boolean,
+  type: string,
+|};
+
+export function addChangeListeners(
+  callback: Function,
+  mozAddonManager: MozAddonManagerType,
+) {
+  function handleChangeEvent(e: GlobalEvent) {
     const { id, type, needsRestart } = e;
+
     log.info('Event received', { type, id, needsRestart });
+
     // eslint-disable-next-line no-prototype-builtins
     if (GLOBAL_EVENT_STATUS_MAP.hasOwnProperty(type)) {
       return callback({
@@ -104,6 +180,7 @@ export function addChangeListeners(callback, mozAddonManager) {
       log.info(`adding event listener for "${event}"`);
       mozAddonManager.addEventListener(event, handleChangeEvent);
     }
+
     log.info('Global change event listeners have been initialized');
   } else {
     log.info('mozAddonManager.addEventListener not available');
@@ -112,8 +189,8 @@ export function addChangeListeners(callback, mozAddonManager) {
 }
 
 export function enable(
-  guid,
-  { _mozAddonManager = window.navigator.mozAddonManager } = {},
+  guid: string,
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
   return getAddon(guid, { _mozAddonManager }).then((addon) => {
     log.info(`Enable ${guid}`);
