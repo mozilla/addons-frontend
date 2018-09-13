@@ -15,9 +15,6 @@
 }
 
 .RatingManager {
-  display: grid;
-  grid-row-gap: 12px;
-
   fieldset {
     // Prevent content overflow.
     min-width: 0;

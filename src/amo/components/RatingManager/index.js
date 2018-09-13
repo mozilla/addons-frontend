@@ -285,6 +285,11 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             />
           </div>
           <RatingManagerNotice
+            className={
+              userReview && userReview.body
+                ? 'RatingManager-savedRating-withReview'
+                : null
+            }
             hideMessage={
               flashMessage !== STARTED_SAVE_RATING &&
               flashMessage !== SAVED_RATING
