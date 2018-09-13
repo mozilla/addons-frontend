@@ -86,12 +86,8 @@ describe(__filename, () => {
   });
 
   it("dispatches if the children's html has changed", () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
     /* eslint-disable react/no-danger */
     const root = render({
-      store,
       children: (
         <div
           dangerouslySetInnerHTML={{
@@ -100,6 +96,8 @@ describe(__filename, () => {
         />
       ),
     });
+
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
     root.setProps({
       children: (
@@ -112,32 +110,26 @@ describe(__filename, () => {
     });
     /* eslint-enable react/no-danger */
 
-    sinon.assert.called(dispatchSpy);
+    sinon.assert.called(resetUIStateSpy);
   });
 
   it("dispatches if the children's text has changed", () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
     const root = render({
-      store,
       children: 'Some text',
     });
+
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
     root.setProps({
       children: 'Some new text',
     });
 
-    sinon.assert.called(dispatchSpy);
+    sinon.assert.called(resetUIStateSpy);
   });
 
   it("does not dispatch if the children's html is the same", () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
     /* eslint-disable react/no-danger */
     const root = render({
-      store,
       children: (
         <div
           dangerouslySetInnerHTML={{
@@ -146,6 +138,8 @@ describe(__filename, () => {
         />
       ),
     });
+
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
     root.setProps({
       children: (
@@ -158,26 +152,24 @@ describe(__filename, () => {
     });
     /* eslint-enable react/no-danger */
 
-    sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.notCalled(resetUIStateSpy);
   });
 
   it("does not dispatch if the children's text is the same", () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
     const root = render({
-      store,
       children: 'Some text',
     });
+
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
     root.setProps({
       children: 'Some text',
     });
 
-    sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.notCalled(resetUIStateSpy);
   });
 
-  it('executes truncateToMaxHeight when it receives props', () => {
+  it('executes truncateToMaxHeight when it receives props changes', () => {
     const root = render();
 
     const contentNode = root.instance().contents;
@@ -188,7 +180,7 @@ describe(__filename, () => {
     );
 
     // We are simulating any kind of update to properties.
-    root.setProps();
+    root.setProps({ children: 'Some text' });
 
     sinon.assert.calledWith(truncateToMaxHeight, contentNode);
   });

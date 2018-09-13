@@ -73,9 +73,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     // already visited the component doesn't hit unmount again and the store
     // keeps the last component's UIState which isn't what we want.
     if (newHtml && html !== newHtml) {
-      this.props.setUIState({
-        ...initialUIState,
-      });
+      this.resetUIState();
     }
 
     // If the read more has already been expanded, we can skip
@@ -86,6 +84,12 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     if (!this.props.uiState.readMoreExpanded) {
       this.truncateToMaxHeight(this.contents);
     }
+  }
+
+  resetUIState() {
+    this.props.setUIState({
+      ...initialUIState,
+    });
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {
