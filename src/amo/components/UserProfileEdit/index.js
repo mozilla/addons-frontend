@@ -219,8 +219,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     this.setState({ showProfileDeletionModal: true });
   };
 
-  onCancelProfileDeletion = (e: SyntheticEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  onCancelProfileDeletion = (e: SyntheticEvent<HTMLButtonElement> | null) => {
+    if (e) {
+      e.preventDefault();
+    }
 
     this.setState({ showProfileDeletionModal: false });
   };
@@ -758,6 +760,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
         {this.state.showProfileDeletionModal && (
           <OverlayCard
+            onEscapeOverlay={this.onCancelProfileDeletion}
             className={overlayClassName}
             header={
               isEditingCurrentUser

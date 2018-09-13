@@ -3,10 +3,13 @@ import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
+import keydown, { Keys } from 'react-keydown';
 
 import withUIState from 'core/withUIState';
 
 import './styles.scss';
+
+const { ESC } = Keys;
 
 type Props = {|
   className?: string,
@@ -26,6 +29,7 @@ type InternalProps = {|
   ...Props,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
+  keydown: {| event: SyntheticEvent<any> | null |},
 |};
 
 export class OverlayBase extends React.Component<InternalProps> {
@@ -40,7 +44,13 @@ export class OverlayBase extends React.Component<InternalProps> {
 
   componentWillReceiveProps(nextProps: InternalProps) {
     const { uiState } = this.props;
-    const { visibleOnLoad: visibleOnLoadNew } = nextProps;
+    const { visibleOnLoad: visibleOnLoadNew, keydown: escKeydown } = nextProps;
+
+    // Pressing the "Esc" key is the only key that will trigger an update here.
+    // escKeydown is only set if the "Esc" key is pressed.
+    if (escKeydown && escKeydown.event) {
+      this.onClickBackground(escKeydown.event);
+    }
 
     if (
       visibleOnLoadNew !== undefined &&
@@ -96,6 +106,7 @@ const Overlay: React.ComponentType<Props> = compose(
     extractId,
     initialState: initialUIState,
   }),
+  keydown(ESC),
 )(OverlayBase);
 
 export default Overlay;
