@@ -220,6 +220,34 @@ describe(__filename, () => {
     expect(rating).toHaveProp('rating', undefined);
   });
 
+  it('prompts to submit when no review text exists yet', () => {
+    const root = render({
+      review: createInternalReview({
+        ...fakeReview,
+        rating: 5,
+        body: undefined,
+      }),
+    });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('submitButtonText', 'Submit review');
+    expect(form).toHaveProp('submitButtonInProgressText', 'Submitting review');
+  });
+
+  it('prompts to update when review text exists', () => {
+    const root = render({
+      review: createInternalReview({
+        ...fakeReview,
+        rating: 5,
+        body: 'This add-on is nice',
+      }),
+    });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('submitButtonText', 'Update review');
+    expect(form).toHaveProp('submitButtonInProgressText', 'Updating review');
+  });
+
   describe('extractId', () => {
     it('extracts an ID from the review', () => {
       const id = 551224;
