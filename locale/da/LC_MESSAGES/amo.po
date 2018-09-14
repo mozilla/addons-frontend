@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-01 15:03+0000\n"
+"PO-Revision-Date: 2018-09-11 20:23+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1119,9 +1119,8 @@ msgid "See more privacy & security extensions"
 msgstr ""
 
 #: src/amo/components/Home/index.js:51
-#, fuzzy
 msgid "Privacy & security"
-msgstr "Privatlivspolitik"
+msgstr "Privatliv & sikkerhed"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
