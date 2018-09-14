@@ -77,8 +77,7 @@ describe(__filename, () => {
 
     store.dispatch(
       setLatestReview({
-        addonId: addon.id,
-        addonSlug: addon.slug,
+        addon: { id: addon.id, slug: addon.slug },
         review,
         userId,
         versionId,
@@ -110,8 +109,7 @@ describe(__filename, () => {
     render({ addon, loadSavedReview, store, version });
 
     sinon.assert.calledWith(loadSavedReview, {
-      addonId: addon.id,
-      addonSlug: addon.slug,
+      addon: { id: addon.id, slug: addon.slug },
       apiState: store.getState().api,
       userId,
       versionId: version.id,
@@ -562,8 +560,7 @@ describe(__filename, () => {
 
       store.dispatch(
         setLatestReview({
-          addonId: addon.id,
-          addonSlug: addon.slug,
+          addon: { id: addon.id, slug: addon.slug },
           review: null,
           userId,
           versionId,
@@ -709,8 +706,10 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setLatestReview({
-              addonId: reviewResult.addon.id,
-              addonSlug: reviewResult.addon.slug,
+              addon: {
+                id: reviewResult.addon.id,
+                slug: reviewResult.addon.slug,
+              },
               userId: reviewResult.user.id,
               versionId: reviewResult.version.id,
               review: reviewResult,
@@ -739,8 +738,10 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setLatestReview({
-              addonId: reviewResult.addon.id,
-              addonSlug: reviewResult.addon.slug,
+              addon: {
+                id: reviewResult.addon.id,
+                slug: reviewResult.addon.slug,
+              },
               userId: reviewResult.user.id,
               versionId,
               review: reviewResult,
@@ -755,15 +756,14 @@ describe(__filename, () => {
         const apiState = store.getState().api;
 
         const userId = fakeReview.user.id;
-        const addonId = fakeReview.addon.id;
-        const addonSlug = fakeReview.addon.slug;
+        const addon = { id: fakeReview.addon.id, slug: fakeReview.addon.slug };
         const versionId = fakeReview.version.id;
         mockApi
           .expects('getLatestUserReview')
           .withArgs({
             apiState,
             user: userId,
-            addon: addonId,
+            addon: addon.id,
             version: versionId,
           })
           .returns(Promise.resolve(fakeReview));
@@ -772,8 +772,7 @@ describe(__filename, () => {
           .loadSavedReview({
             apiState,
             userId,
-            addonId,
-            addonSlug,
+            addon,
             versionId,
           })
           .then(() => {
@@ -782,8 +781,7 @@ describe(__filename, () => {
               dispatch,
               setLatestReview({
                 userId,
-                addonId,
-                addonSlug,
+                addon,
                 versionId,
                 review: fakeReview,
               }),
@@ -793,8 +791,7 @@ describe(__filename, () => {
 
       it('sets the latest review to null when none exists', () => {
         const userId = 123;
-        const addonId = 8765;
-        const addonSlug = 'some-slug';
+        const addon = { id: 8765, slug: 'some-slug' };
         const versionId = 5421;
         mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
@@ -802,16 +799,14 @@ describe(__filename, () => {
           .loadSavedReview({
             apiState: initialApiState,
             userId,
-            addonId,
-            addonSlug,
+            addon,
             versionId,
           })
           .then(() => {
             sinon.assert.calledWith(
               dispatch,
               setLatestReview({
-                addonId,
-                addonSlug,
+                addon,
                 userId,
                 versionId,
                 review: null,

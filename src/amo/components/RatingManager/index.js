@@ -38,7 +38,11 @@ import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
+import type {
+  FlashMessageType,
+  SimplifiedAddonType,
+  UserReviewType,
+} from 'amo/actions/reviews';
 import type {
   GetLatestReviewParams,
   SubmitReviewParams,
@@ -51,8 +55,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type LoadSavedReviewFunc = ({|
-  addonId: $PropertyType<GetLatestReviewParams, 'addon'>,
-  addonSlug: string,
+  addon: SimplifiedAddonType,
   apiState: ApiState,
   userId: $PropertyType<GetLatestReviewParams, 'user'>,
   versionId: $PropertyType<GetLatestReviewParams, 'version'>,
@@ -114,8 +117,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       loadSavedReview({
         apiState,
         userId,
-        addonId: addon.id,
-        addonSlug: addon.slug,
+        addon: { id: addon.id, slug: addon.slug },
         versionId: version.id,
       });
     }
@@ -384,26 +386,19 @@ export const mapDispatchToProps = (
   // We add `DispatchMappedProps` to override these functions in the tests.
   ownProps: Props | DispatchMappedProps,
 ): DispatchMappedProps => {
-  const loadSavedReview = ({
-    apiState,
-    userId,
-    addonId,
-    addonSlug,
-    versionId,
-  }) => {
+  const loadSavedReview = ({ apiState, userId, addon, versionId }) => {
     return reviewsApi
       .getLatestUserReview({
         apiState,
         user: userId,
-        addon: addonId,
+        addon: addon.id,
         version: versionId,
       })
       .then((review) => {
         const _setLatestReview = (value) => {
           return setLatestReview({
             userId,
-            addonId,
-            addonSlug,
+            addon,
             versionId,
             review: value,
           });
@@ -413,7 +408,7 @@ export const mapDispatchToProps = (
           dispatch(_setLatestReview(review));
         } else {
           log.debug(
-            `No saved review found for userId ${userId}, addonId ${addonId}`,
+            `No saved review found for userId ${userId}, addonId ${addon.id}`,
           );
           dispatch(_setLatestReview(null));
         }
@@ -431,8 +426,7 @@ export const mapDispatchToProps = (
       invariant(versionId, 'versionId cannot be empty');
       dispatch(
         setLatestReview({
-          addonId: review.addon.id,
-          addonSlug: review.addon.slug,
+          addon: { id: review.addon.id, slug: review.addon.slug },
           userId: review.user.id,
           versionId,
           review,

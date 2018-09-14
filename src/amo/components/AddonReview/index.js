@@ -135,7 +135,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     const updatedReview = { ...review, ...newReviewParams };
 
     const params = {
-      addonId: review.addonId,
+      addonId: review.addon.id,
       apiState,
       errorHandler,
       rating: review.rating,
@@ -159,7 +159,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
         // Clear the locally stored state since we are in sync with
         // the API now.
         this.localState.clear(),
-        refreshAddon({ addonSlug: review.addonSlug, apiState }),
+        refreshAddon({ addonSlug: review.addon.slug, apiState }),
       ]),
     );
   };
@@ -190,7 +190,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
   render() {
     const { errorHandler, i18n, review } = this.props;
     const { reviewBody } = this.state;
-    if (!review || !review.id || !review.addonSlug) {
+    if (!review || !review.id || !review.addon.slug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
 

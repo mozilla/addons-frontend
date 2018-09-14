@@ -224,7 +224,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {isDeveloperReply && i18n.gettext('Developer response')}
                 <Link
                   title={i18n.gettext('Go to this review')}
-                  to={`/addon/${review.addonSlug}/reviews/${review.id}/`}
+                  to={`/addon/${review.addon.slug}/reviews/${review.id}/`}
                 >
                   {i18n.moment(review.created).fromNow()}
                 </Link>

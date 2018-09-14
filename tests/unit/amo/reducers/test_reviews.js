@@ -80,8 +80,12 @@ describe(__filename, () => {
     const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview).toEqual({
-      addonId: fakeReview.addon.id,
-      addonSlug: fakeReview.addon.slug,
+      addon: {
+        iconUrl: fakeReview.addon.icon_url,
+        id: fakeReview.addon.id,
+        name: fakeReview.addon.name,
+        slug: fakeReview.addon.slug,
+      },
       body: fakeReview.body,
       created: fakeReview.created,
       id: fakeReview.id,
@@ -397,7 +401,7 @@ describe(__filename, () => {
       });
 
       // Verify that data has been loaded for the reviewId.
-      expect(state.byId[reviewId].addonId).toEqual(addonId);
+      expect(state.byId[reviewId].addon.id).toEqual(addonId);
       expect(state.byAddon[addonSlug].reviews).toEqual([reviewId]);
       expect(state.byUserId[userId].reviews).toEqual([reviewId]);
       expect(state.groupedRatings[addonId]).toEqual(grouping);
@@ -466,7 +470,7 @@ describe(__filename, () => {
       });
 
       // Verify that the unrelated data has been loaded for the reviewId.
-      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+      expect(state.byId[reviewId2].addon.id).toEqual(addonId2);
       expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
@@ -475,7 +479,7 @@ describe(__filename, () => {
       state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
 
       // Verify that the unrelated data has not been unloaded.
-      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+      expect(state.byId[reviewId2].addon.id).toEqual(addonId2);
       expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
@@ -888,8 +892,7 @@ describe(__filename, () => {
       ...params
     } = {}) => {
       return setLatestReview({
-        addonId: 9,
-        addonSlug: 'some-slug',
+        addon: { id: 9, slug: 'some-slug' },
         versionId: 8,
         userId: 7,
         review,
@@ -913,7 +916,7 @@ describe(__filename, () => {
 
       const state = reviewsReducer(
         undefined,
-        _setLatestReview({ addonId, versionId, userId, review }),
+        _setLatestReview({ addon: { id: addonId }, versionId, userId, review }),
       );
 
       expect(
@@ -930,7 +933,12 @@ describe(__filename, () => {
 
       const state = reviewsReducer(
         undefined,
-        _setLatestReview({ addonId, versionId, userId, review: null }),
+        _setLatestReview({
+          addon: { id: addonId },
+          versionId,
+          userId,
+          review: null,
+        }),
       );
 
       expect(
@@ -949,7 +957,7 @@ describe(__filename, () => {
         state,
         _setLatestReview({
           userId,
-          addonId,
+          addon: { id: addonId },
           versionId: 1,
           review: { ...fakeReview, id: 1 },
         }),
@@ -958,7 +966,7 @@ describe(__filename, () => {
         state,
         _setLatestReview({
           userId,
-          addonId,
+          addon: { id: addonId },
           versionId: 2,
           review: { ...fakeReview, id: 2 },
         }),
