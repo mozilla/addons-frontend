@@ -413,7 +413,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       hasEditPermission,
       i18n,
       isUpdating,
-      location,
       user,
       username,
     } = this.props;

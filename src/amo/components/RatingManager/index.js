@@ -235,7 +235,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderLogInToRate() {
-    const { addon, location } = this.props;
+    const { addon } = this.props;
 
     return (
       <AuthenticateButton

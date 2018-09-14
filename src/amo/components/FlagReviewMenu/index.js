@@ -43,7 +43,6 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
     const {
       i18n,
       isDeveloperReply,
-      location,
       openerClass,
       review,
       siteUser,

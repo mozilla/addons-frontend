@@ -104,7 +104,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { i18n, isLoggedIn, location } = this.props;
+    const { i18n, isLoggedIn } = this.props;
 
     return (
       <div className="CollectionList">
