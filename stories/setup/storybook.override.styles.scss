@@ -2,36 +2,36 @@
 
 html,
 body {
-	// This overrides App background style whic makes it hard to see
-	// in storybook.
-	background: #fff;
-	// Giving extra cushion so nothing gets covered.
-	padding: 24px 12px 12px;
+  // This overrides the App background style which makes it hard to see
+  // in storybook.
+  background: #fff;
+  // Giving extra cushion so nothing gets covered.
+  padding: 24px 12px 12px;
 }
 
 // This overrides some chapter styles.
 .section-container {
-	border-bottom: 1px solid $background-grey;
-	display: block;
-	// We need to use !important here to override chapter's inline style.
-	margin-bottom: 0 !important;
-	padding: 20px;
+  border-bottom: 1px solid $background-grey;
+  display: block;
+  // We need to use !important here to override chapter's inline style.
+  margin-bottom: 0 !important;
+  padding: 20px;
 
-	@include respond-to(medium) {
-		align-items: center;
-		display: flex;
-	}
+  @include respond-to(medium) {
+    align-items: center;
+    display: flex;
+  }
 
-	.section-header {
-		flex-grow: 1;
-	}
+  .section-header {
+    flex-grow: 1;
+  }
 
-	.section-subtitle {
-		// We need to use !important here to override chapter's inline style.
-		margin: 0 !important;
-	}
+  .section-subtitle {
+    // We need to use !important here to override chapter's inline style.
+    margin: 0 !important;
+  }
 }
 
 .chapter-h3 {
-	margin-top: 50px;
+  margin-top: 50px;
 }
