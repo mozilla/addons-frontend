@@ -38,4 +38,3 @@ storiesOf('Badge').addWithChapters('Badge variations', {
     },
   ],
 });
-
