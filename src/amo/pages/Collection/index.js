@@ -371,6 +371,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       i18n,
       isLoggedIn,
       loading,
+      location,
     } = this.props;
 
     if ((creating || editing) && !isLoggedIn) {
@@ -380,7 +381,11 @@ export class CollectionBase extends React.Component<InternalProps> {
 
       return (
         <Card className="Collection-login">
-          <AuthenticateButton noIcon logInText={logInText} />
+          <AuthenticateButton
+             noIcon
+             location={location}
+             logInText={logInText}
+          />
         </Card>
       );
     }

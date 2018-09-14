@@ -235,12 +235,13 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderLogInToRate() {
-    const { addon } = this.props;
+    const { addon, location } = this.props;
 
     return (
       <AuthenticateButton
         noIcon
         className="RatingManager-log-in-to-rate-button"
+        location={location}
         logInText={this.getLogInPrompt({ addonType: addon.type })}
       />
     );

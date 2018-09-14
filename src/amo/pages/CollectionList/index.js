@@ -104,7 +104,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { i18n, isLoggedIn } = this.props;
+    const { i18n, isLoggedIn, location } = this.props;
 
     return (
       <div className="CollectionList">
@@ -116,6 +116,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
             {!isLoggedIn ? (
               <AuthenticateButton
                 noIcon
+                location={location}
                 logInText={i18n.gettext('Log in to view your collections')}
               />
             ) : (

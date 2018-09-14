@@ -43,6 +43,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
     const {
       i18n,
       isDeveloperReply,
+      location,
       openerClass,
       review,
       siteUser,
@@ -55,6 +56,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         <ListItem key="login-required">
           <AuthenticateButton
             noIcon
+            location={location}
             logInText={
               isDeveloperReply
                 ? i18n.gettext('Log in to flag this response')

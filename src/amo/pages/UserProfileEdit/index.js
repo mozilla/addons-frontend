@@ -413,6 +413,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       hasEditPermission,
       i18n,
       isUpdating,
+      location,
       user,
       username,
     } = this.props;
@@ -423,6 +424,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           <Card className="UserProfileEdit-authenticate">
             <AuthenticateButton
               noIcon
+              location={location}
               logInText={i18n.gettext('Log in to edit the profile')}
             />
           </Card>
