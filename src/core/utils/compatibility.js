@@ -173,8 +173,19 @@ export function getClientCompatibility({
     downloadUrl = FACEBOOK_CONTAINER_DOWNLOAD_URL;
   }
 
+  let compatible = agent.compatible && supportsClientApp;
+
+  const { browser } = userAgentInfo;
+  const isFF61 =
+    browser.name === 'Firefox' && mozCompare(browser.version, '61.0') >= 0;
+
+  if (compatible && isFF61 && addon && addon.isRestartRequired === true) {
+    compatible = false;
+    reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
+  }
+
   return {
-    compatible: agent.compatible && supportsClientApp,
+    compatible,
     downloadUrl,
     maxVersion,
     minVersion,
