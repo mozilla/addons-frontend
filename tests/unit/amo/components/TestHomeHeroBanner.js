@@ -95,9 +95,5 @@ describe(__filename, () => {
       category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
       label: firstHeroTitle,
     });
-
-    // This is called on render (page view) too.
-    // This is why it is called more than once.
-    sinon.assert.calledTwice(fakeTracking.sendEvent);
   });
 });
