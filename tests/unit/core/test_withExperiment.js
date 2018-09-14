@@ -44,7 +44,7 @@ describe(__filename, () => {
   });
 
   it('creates a cookie upon construction if none has been loaded', () => {
-    const id = 'Hero';
+    const id = 'hero';
     const _cookie = fakeCookie({
       load: sinon.stub().returns(undefined),
     });
@@ -64,7 +64,7 @@ describe(__filename, () => {
   });
 
   it('does not create a cookie upon construction if one has been loaded', () => {
-    const id = 'Hero';
+    const id = 'hero';
     const _cookie = fakeCookie({
       load: sinon.stub().returns(`experiment_${id}`),
     });
@@ -82,7 +82,7 @@ describe(__filename, () => {
   it('it allows a custom cookie configuration', () => {
     const overrideCookieConfig = { path: '/test' };
     const _cookie = fakeCookie();
-    const id = 'layoutTest';
+    const id = 'custom_cookie_config';
 
     const root = render({
       props: {

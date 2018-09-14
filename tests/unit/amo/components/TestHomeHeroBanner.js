@@ -76,22 +76,28 @@ describe(__filename, () => {
 
     const { variant } = root.instance().props;
 
-    const heroBanner = root.find(Hero);
+    const hero = root.find(Hero);
 
     // We'll use the first item in the home heroes array as an example.
-    const heroItem = heroBanner.prop('sections')[0];
+    const firstHeroItem = hero.prop('sections')[0];
     const firstHeroTitle = root.instance().getHeroes()[0].title;
 
-    const heroLink = shallow(heroItem).find('.HeroSection-link-wrapper');
+    const firstHeroLink = shallow(firstHeroItem).find(
+      '.HeroSection-link-wrapper',
+    );
 
-    expect(heroLink).toHaveLength(1);
+    expect(firstHeroLink).toHaveLength(1);
 
-    heroLink.simulate('click', createFakeEvent());
+    firstHeroLink.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: variant,
       category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
       label: firstHeroTitle,
     });
+
+    // This is called on render (page view) too.
+    // This is why it is called more than once.
+    sinon.assert.calledTwice(fakeTracking.sendEvent);
   });
 });

@@ -232,7 +232,8 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
 
   sections() {
     return this.getHeroes().map((hero) => {
-      const { title, url } = hero;
+      const { description, title, url } = hero;
+
       return (
         <HeroSection
           key={url}
@@ -240,7 +241,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
           onClick={(e) => this.trackExperimentClick(e, title)}
         >
           <h3>{title}</h3>
-          <p>{hero.description}</p>
+          <p>{description}</p>
         </HeroSection>
       );
     });
