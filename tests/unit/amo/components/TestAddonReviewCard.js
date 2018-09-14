@@ -929,8 +929,24 @@ describe(__filename, () => {
 
   describe('byLine', () => {
     function renderByLine(root) {
-      return shallow(root.find(UserReview).prop('byLine'));
+      return shallow(root.find(UserReview).prop('byLine'), {
+        // The `Link` component needs the store.
+        context: { store },
+      });
     }
+
+    it('renders a byLine with a permalink to the review', () => {
+      const slug = 'some-slug';
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
+      });
+      const root = render({ review });
+
+      expect(renderByLine(root)).toHaveProp(
+        'to',
+        `/addon/${slug}/reviews/${review.id}/`,
+      );
+    });
 
     it('renders a byLine with an author by default', () => {
       const i18n = fakeI18n();
@@ -940,7 +956,7 @@ describe(__filename, () => {
       });
       const root = render({ i18n, review });
 
-      expect(renderByLine(root)).toHaveText(
+      expect(renderByLine(root).children()).toHaveText(
         `by ${name}, ${i18n.moment(review.created).fromNow()}`,
       );
     });
@@ -952,8 +968,7 @@ describe(__filename, () => {
 
       const root = renderReply({ i18n, reply });
 
-      expect(root.find(UserReview)).toHaveProp(
-        'byLine',
+      expect(renderByLine(root).children()).toHaveText(
         `posted ${i18n.moment(reply.created).fromNow()}`,
       );
     });
@@ -963,8 +978,7 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, shortByLine: true, review });
 
-      expect(root.find(UserReview)).toHaveProp(
-        'byLine',
+      expect(renderByLine(root).children()).toHaveText(
         `posted ${i18n.moment(review.created).fromNow()}`,
       );
     });

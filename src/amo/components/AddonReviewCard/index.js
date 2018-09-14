@@ -9,6 +9,7 @@ import { compose } from 'redux';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
+import Link from 'amo/components/Link';
 import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -312,6 +313,14 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           </span>
         );
       }
+      byLine = (
+        <Link
+          title={i18n.gettext('Go to this review')}
+          to={`/addon/${review.addonSlug}/reviews/${review.id}/`}
+        >
+          {byLine}
+        </Link>
+      );
     } else {
       byLine = <LoadingText />;
     }

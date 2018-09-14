@@ -1,3 +1,4 @@
+import NestedStatus from 'react-nested-status';
 import * as React from 'react';
 
 import { fetchReview, setReview } from 'amo/actions/reviews';
@@ -73,7 +74,7 @@ describe(__filename, () => {
 
   it('fetches a review when the reviewId changes', () => {
     const firstReviewId = 1;
-    const secondReviewId = 1;
+    const secondReviewId = 2;
     const dispatch = sinon.stub(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -155,6 +156,7 @@ describe(__filename, () => {
 
     const root = render({ errorHandler });
     expect(root.find('.FeaturedAddonReview-notfound')).toHaveLength(1);
+    expect(root.find(NestedStatus)).toHaveProp('code', 404);
   });
 
   it('displays a featured review', () => {
