@@ -1,23 +1,47 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import makeClassName from 'classnames';
 
 import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
+import tracking from 'core/tracking';
+import { withExperiment } from 'core/withExperiment';
+import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
 
-type Props = {|
+type InternalProps = {|
+  ...WithExperimentInjectedProps,
+  _tracking: typeof tracking,
   i18n: I18nType,
 |};
 
-export class HomeHeroBannerBase extends React.Component<Props> {
-  sections() {
+export const AB_HOME_HERO_EXPERIMENT = 'home_hero';
+export const AB_HOME_HERO_VARIANT_A = 'small';
+export const AB_HOME_HERO_VARIANT_B = 'large';
+export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';
+
+export class HomeHeroBannerBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _tracking: tracking,
+  };
+
+  componentDidMount() {
+    const { _tracking, variant } = this.props;
+
+    _tracking.sendEvent({
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Page View`,
+    });
+  }
+
+  getHeroes() {
     const { i18n } = this.props;
 
-    const heroes = [
+    return [
       {
         title: i18n.gettext('Facebook Container'),
         description: i18n.gettext(
@@ -209,28 +233,55 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         url: '/addon/copy-plaintext/',
       },
     ];
+  }
 
-    return heroes.map((hero) => {
+  sections() {
+    return this.getHeroes().map((hero) => {
+      const { description, title, url } = hero;
+
       return (
-        <HeroSection key={hero.url} linkTo={hero.url}>
-          <h3>{hero.title}</h3>
-          <p>{hero.description}</p>
+        <HeroSection
+          key={url}
+          linkTo={url}
+          onClick={(e) => this.trackExperimentClick(e, title)}
+        >
+          <h3>{title}</h3>
+          <p>{description}</p>
         </HeroSection>
       );
     });
   }
 
+  trackExperimentClick = (e: SyntheticEvent<HTMLElement>, title: string) => {
+    const { _tracking, variant } = this.props;
+
+    _tracking.sendEvent({
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
+      label: title,
+    });
+  };
+
   render() {
+    const homeBannerClass = makeClassName('HomeHeroBanner', {
+      'HomeHeroBanner--small': this.props.variant === AB_HOME_HERO_VARIANT_A,
+    });
+
     return (
-      <div className="HomeHeroBanner">
+      <div className={homeBannerClass}>
         <Hero name="Home" random sections={this.sections()} />
       </div>
     );
   }
 }
 
-const HomeHeroBanner: React.ComponentType<Props> = compose(translate())(
-  HomeHeroBannerBase,
-);
+const HomeHeroBanner: React.ComponentType<InternalProps> = compose(
+  translate(),
+  withExperiment({
+    id: AB_HOME_HERO_EXPERIMENT,
+    variantA: AB_HOME_HERO_VARIANT_A,
+    variantB: AB_HOME_HERO_VARIANT_B,
+  }),
+)(HomeHeroBannerBase);
 
 export default HomeHeroBanner;
