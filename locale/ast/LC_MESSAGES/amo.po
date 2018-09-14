@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-14 02:32+0000\n"
+"PO-Revision-Date: 2018-09-14 02:38+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -49,7 +49,7 @@ msgstr "Previsualización de %(title)s"
 
 #: src/amo/components/Addon/index.js:214
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Nun pue valorase esti complementu porque nun s'espublizó denguna versión."
 
 #: src/amo/components/Addon/index.js:223
 msgid "Read %(count)s review"
@@ -151,7 +151,7 @@ msgstr "Esti complementu nun ye compatible cola to versión de Firefox."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "La to versión de Firefox nun sofita los plugins de gueta."
 
 #: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Firefox for iOS does not currently support add-ons."
@@ -163,11 +163,11 @@ msgstr "Esti complementu nun ta disponible na to plataforma."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Esti complementu rique una <a href=\"%(downloadUrl)s\">versión más nueva de Firefox</a> (polo menos la %(minVersion)s). Tas usando Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:94
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "El to restolador nun sofita los complementos. Pues <a href=\"%(downloadUrl)s\">baxar Firefox</a> pa instalar esti complementu."
 
 #: src/amo/components/AddonMeta/index.js:114
 msgid "%(total)s Star"
@@ -402,8 +402,8 @@ msgstr ""
 #: src/amo/components/AddonReviewList/index.js:214
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s reseña pa esti complementu"
+msgstr[1] "%(total)s reseñes pa esti complementu"
 
 # Example: by The Author, The Next Author
 #: src/amo/components/AddonReviewList/index.js:243
@@ -1048,7 +1048,7 @@ msgstr "Zarrar sesión"
 
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Complementos de Firefox"
 
 #: src/amo/components/Header/index.js:95
 msgid "My Account"
@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:155
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Instalar un complementu de diccionariu va amestar una opción de llingua nueva al correutor ortográficu que va correxite lo que teclexes en Firefox."
 
 #: src/amo/components/LanguageTools/index.js:160
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -1632,7 +1632,7 @@ msgstr "Complementos destacaos"
 
 #: src/amo/components/Search/index.js:145
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Complementos en tendencia"
 
 #: src/amo/components/Search/index.js:157
 msgid "Top rated add-ons"
@@ -1648,7 +1648,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:169
 msgid "Popular add-ons"
-msgstr ""
+msgstr "Complementos populares"
 
 #: src/amo/components/Search/index.js:175
 msgid "Search results for \"%(query)s\""
@@ -1706,7 +1706,7 @@ msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:98
 msgid "Loading add-ons"
-msgstr ""
+msgstr "Cargando complementos"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
 msgid "All"
