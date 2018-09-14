@@ -13,6 +13,7 @@ import {
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
   createUserAccountResponse,
   fakeI18n,
@@ -35,6 +36,9 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <AuthenticateButton {...props} />,
       AuthenticateButtonBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   }
 
@@ -143,6 +147,9 @@ describe(__filename, () => {
     const wrapper = shallowUntilTarget(
       <AuthenticateButton store={store} {...allProps} />,
       AuthenticateButtonBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
 
     wrapper.simulate('click', createFakeEvent());
