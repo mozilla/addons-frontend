@@ -1,6 +1,5 @@
 /* @flow */
 import React from 'react';
-import chaptersAddon from 'react-storybook-addon-chapters';
 import { storiesOf } from '@storybook/react';
 
 import Badge from 'ui/components/Badge';
