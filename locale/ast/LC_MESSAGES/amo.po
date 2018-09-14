@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-14 00:29+0000\n"
+"PO-Revision-Date: 2018-09-14 00:44+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -24,7 +24,7 @@ msgstr "Amestando…"
 
 #: src/amo/components/AddAddonToCollection/index.js:195
 msgid "Select a collection…"
-msgstr ""
+msgstr "Esbillar una coleición…"
 
 #: src/amo/components/AddAddonToCollection/index.js:202
 msgid "Create new collection"
@@ -59,7 +59,7 @@ msgstr[1] ""
 
 #: src/amo/components/Addon/index.js:243
 msgid "No reviews yet"
-msgstr ""
+msgstr "Entá nun hai reseñes"
 
 #: src/amo/components/Addon/index.js:253
 msgid "Rate your experience"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 17:00+0000\n"
-"PO-Revision-Date: 2018-09-14 00:03+0000\n"
+"PO-Revision-Date: 2018-09-14 00:45+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ast\n"
@@ -72,7 +72,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s amestóse"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Xestiona los tos complementos faciendo clic nel menú de Complementos."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -132,23 +132,23 @@ msgstr "Zarrar"
 
 #: src/disco/components/AddonCompatibilityError/index.js:37
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Anguaño Firefox pa iOS nun sofita los complementos."
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Esti complementu nun sofita la to versión de Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:47
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Esti complementu nun ta sofita'l restolador."
 
 #: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Descubrir complementos"
 
 #: src/disco/components/DiscoPane/index.js:120
 msgid "Find more add-ons"
-msgstr ""
+msgstr "Alcontrar más complementos"
 
 #: src/disco/components/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
@@ -159,6 +159,8 @@ msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"Hai milenta complementos, creaos por desendolcadores de tol mundu, que pues instalar pa personalizar Firefox. Dende temes visuales divertíos hasta ferramientes potentes pa facer el restolar más "
+"rápidu y seguru, los complementos faen el restolador de to. P'ayudate a entamar, equí hai dalgunos qu'aconseyamos pol so rindimientu y funcionalidá."
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
@@ -166,7 +168,7 @@ msgstr "Política de privacidá"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr "Caducó la sesión"
+msgstr "La sesión caducó"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
