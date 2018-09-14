@@ -22,7 +22,7 @@ import DiscoPane, {
   DiscoPaneBase,
   mapDispatchToProps,
   mapStateToProps,
-} from 'disco/components/DiscoPane';
+} from 'disco/pages/DiscoPane';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {

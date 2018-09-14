@@ -6,7 +6,7 @@ import Collection, {
   DEFAULT_ADDON_PLACEHOLDER_COUNT,
   extractId,
   mapStateToProps,
-} from 'amo/components/Collection';
+} from 'amo/pages/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
 import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';

@@ -6,7 +6,7 @@ import Home, {
   HomeBase,
   getFeaturedCollectionsMetadata,
   isFeaturedCollection,
-} from 'amo/components/Home';
+} from 'amo/pages/Home';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';

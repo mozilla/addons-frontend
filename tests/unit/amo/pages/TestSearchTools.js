@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import SearchTools, { SearchToolsBase } from 'amo/components/SearchTools';
+import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import Search from 'amo/components/Search';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';

@@ -13,7 +13,7 @@ import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
-import { isFeaturedCollection } from 'amo/components/Home';
+import { isFeaturedCollection } from 'amo/pages/Home';
 import {
   collectionEditUrl,
   collectionUrl,

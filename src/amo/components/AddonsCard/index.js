@@ -12,7 +12,7 @@ import type {
   DeleteAddonNoteFunc,
   RemoveCollectionAddonFunc,
   SaveAddonNoteFunc,
-} from 'amo/components/Collection';
+} from 'amo/pages/Collection';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 
 import './styles.scss';

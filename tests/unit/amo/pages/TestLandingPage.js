@@ -4,7 +4,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import LandingPage, { LandingPageBase } from 'amo/components/LandingPage';
+import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,

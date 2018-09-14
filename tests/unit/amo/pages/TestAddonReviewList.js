@@ -7,7 +7,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
   extractId,
-} from 'amo/components/AddonReviewList';
+} from 'amo/pages/AddonReviewList';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
