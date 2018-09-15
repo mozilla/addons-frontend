@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-14 02:38+0000\n"
+"PO-Revision-Date: 2018-09-15 17:30+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -28,7 +28,7 @@ msgstr "Esbillar una coleición…"
 
 #: src/amo/components/AddAddonToCollection/index.js:202
 msgid "Create new collection"
-msgstr ""
+msgstr "Crear una coleición nueva"
 
 #: src/amo/components/AddAddonToCollection/index.js:245
 msgid "Added to %(collectionName)s"
@@ -41,7 +41,7 @@ msgstr "Amestar a…"
 
 #: src/amo/components/AddAddonToCollection/index.js:266 src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
-msgstr ""
+msgstr "Amiestu a la coleición"
 
 #: src/amo/components/Addon/index.js:179 src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
@@ -67,7 +67,7 @@ msgstr "Valora la to esperiencia"
 
 #: src/amo/components/Addon/index.js:272
 msgid "About this dictionary"
-msgstr ""
+msgstr "Tocante a esti diccionariu"
 
 #: src/amo/components/Addon/index.js:275
 msgid "About this extension"
@@ -79,7 +79,7 @@ msgstr "Tocante a esti paquete de llingua"
 
 #: src/amo/components/Addon/index.js:281
 msgid "About this search plugin"
-msgstr ""
+msgstr "Tocante a esti plugin de gueta"
 
 #: src/amo/components/Addon/index.js:285
 msgid "About this theme"
@@ -91,7 +91,7 @@ msgstr "Tocante a esti complementu"
 
 #: src/amo/components/Addon/index.js:326
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Notes del llanzamientu de la versión %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:444
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -127,7 +127,7 @@ msgstr "Complementu destacáu"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Restart Required"
-msgstr ""
+msgstr "Ríquese'l reaniciu"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
@@ -317,23 +317,23 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:179
 msgid "Edit my reply"
-msgstr ""
+msgstr "Editar la mio rempuesta"
 
 #: src/amo/components/AddonReviewCard/index.js:182
 msgid "Edit my review"
-msgstr ""
+msgstr "Editar la mio reseña"
 
 #: src/amo/components/AddonReviewCard/index.js:189
 msgid "Delete my reply"
-msgstr ""
+msgstr "Desaniciar la mio rempuesta"
 
 #: src/amo/components/AddonReviewCard/index.js:193
 msgid "Delete my rating"
-msgstr ""
+msgstr "Desaniciar la mio valoración"
 
 #: src/amo/components/AddonReviewCard/index.js:196
 msgid "Delete my review"
-msgstr ""
+msgstr "Desaniciar la mio reseña"
 
 #: src/amo/components/AddonReviewCard/index.js:203
 msgid "Do you really want to delete this reply?"
@@ -692,7 +692,7 @@ msgstr ""
 
 #: src/amo/components/CollectionList/index.js:125
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Les coleiciones acenciellen el control de los complementos favoritos y la compartición del to restolar bien personalizáu con otros."
 
 #: src/amo/components/CollectionList/index.js:134
 msgid "Create a collection"
@@ -704,7 +704,7 @@ msgstr ""
 
 #: src/amo/components/CollectionList/index.js:97
 msgid "My collections"
-msgstr "Les mio coleiciones"
+msgstr "Les mios coleiciones"
 
 #: src/amo/components/CollectionManager/index.js:225
 msgid "Create collection"
@@ -1012,15 +1012,15 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:101
 msgid "View My Collections"
-msgstr ""
+msgstr "Ver les mios coleiciones"
 
 #: src/amo/components/Header/index.js:109 src/amo/components/UserProfileEdit/index.js:472
 msgid "View My Profile"
-msgstr ""
+msgstr "Ver el mio perfil"
 
 #: src/amo/components/Header/index.js:117 src/amo/components/UserProfileEdit/index.js:478
 msgid "Edit My Profile"
-msgstr ""
+msgstr "Editar el mio perfil"
 
 #: src/amo/components/Header/index.js:121
 msgid "Tools"
@@ -1036,7 +1036,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:141
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Xestión de los mio unvios"
 
 #: src/amo/components/Header/index.js:151
 msgid "Reviewer Tools"
@@ -1552,7 +1552,7 @@ msgstr "¿Cómo tas esfrutando de la to esperiencia con %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:274
 msgid "Nevermind, I don't want to edit my review"
-msgstr ""
+msgstr "Da igual, nun quiero editar la reseña"
 
 #: src/amo/components/RatingManager/index.js:275
 msgid "Nevermind, I don't want to write a review"
@@ -2064,7 +2064,7 @@ msgstr ""
 
 #: src/amo/components/UserProfile/index.js:216
 msgid "My reviews"
-msgstr ""
+msgstr "Les mios reseñes"
 
 #: src/amo/components/UserProfile/index.js:226
 msgid "Browse the reviews for this add-on"
@@ -2208,7 +2208,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Update My Profile"
-msgstr ""
+msgstr "Anovar el mio perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:740
 msgid "Updating profile…"
@@ -2220,7 +2220,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:752 src/amo/components/UserProfileEdit/index.js:840
 msgid "Delete My Profile"
-msgstr ""
+msgstr "Desaniciar el mio perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:753 src/amo/components/UserProfileEdit/index.js:841
 msgid "Delete Profile"
