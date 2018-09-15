@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-13 20:04+0000\n"
+"PO-Revision-Date: 2018-09-15 19:43+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -101,7 +101,7 @@ msgstr "%(addonName)s %(startSpan)s– %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:511
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "To ni javna objava. Vidite jo samo zaradi povišanih dovoljenj."
 
 #: src/amo/components/Addon/index.js:564
 msgid "Only with Firefox—Get Firefox Now"
