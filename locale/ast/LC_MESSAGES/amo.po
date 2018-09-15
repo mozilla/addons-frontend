@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-15 17:30+0000\n"
+"PO-Revision-Date: 2018-09-15 17:36+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -217,19 +217,19 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Lleer la política de privacidá d'esti complementu"
 
 #: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Lleer l'alcuerdu de llicencia d'esi complementu"
 
 #: src/amo/components/AddonMoreInfo/index.js:157
 msgid "See all versions"
-msgstr "Ver toles estensiones"
+msgstr "Ver toles versiones"
 
 #: src/amo/components/AddonMoreInfo/index.js:182
 msgid "Add-on Links"
-msgstr ""
+msgstr "Enllaces del complementu"
 
 #: src/amo/components/AddonMoreInfo/index.js:194
 msgid "Version"
@@ -237,7 +237,7 @@ msgstr "Versión"
 
 #: src/amo/components/AddonMoreInfo/index.js:202 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
-msgstr ""
+msgstr "Últimu anovamientu"
 
 #: src/amo/components/AddonMoreInfo/index.js:210
 msgid "License"
@@ -245,11 +245,11 @@ msgstr "Llicencia"
 
 #: src/amo/components/AddonMoreInfo/index.js:218
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Política de privacidá"
 
 #: src/amo/components/AddonMoreInfo/index.js:226
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "Alcuerdu de llicencia d'usuariu final"
 
 #: src/amo/components/AddonMoreInfo/index.js:234
 msgid "Version History"
@@ -269,19 +269,19 @@ msgstr "Páxina d'aniciu"
 
 #: src/amo/components/AddonMoreInfo/index.js:56
 msgid "Support Site"
-msgstr ""
+msgstr "Situ de sofitu"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
 msgid "Support Email"
-msgstr ""
+msgstr "Corréu de sofitu"
 
 #: src/amo/components/AddonMoreInfo/index.js:89
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Visitar el panel d'estadístiques"
 
 #: src/amo/components/AddonRecommendations/index.js:132
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Otros usuarios con esta estensión tamién instalaron"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other popular extensions"
