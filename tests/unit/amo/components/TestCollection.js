@@ -1319,7 +1319,7 @@ describe(__filename, () => {
     });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 2;
+    const page = '2';
     const sort = COLLECTION_SORT_NAME;
     const location = createFakeLocation({
       query: { page, collection_sort: sort },
@@ -1375,8 +1375,8 @@ describe(__filename, () => {
     });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 2;
-    const newPage = page - 1;
+    const page = '2';
+    const newPage = '1';
     const sort = COLLECTION_SORT_DATE_ADDED_DESCENDING;
     const location = createFakeLocation({
       query: { page, collectionSort: sort },

@@ -47,7 +47,7 @@ export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES' =
   'DELETE_COLLECTION_ADDON_NOTES';
 
 export type CollectionFilters = {|
-  page: number,
+  page: number | string,
   collectionSort: string,
 |};
 

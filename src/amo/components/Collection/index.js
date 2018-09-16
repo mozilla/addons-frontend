@@ -109,12 +109,12 @@ export const computeNewCollectionPage = (
 ): string => {
   const { numberOfAddons, pageSize } = collection;
 
-  let page = 1;
+  let page = '1';
   if (pageSize) {
-    page = Math.ceil((numberOfAddons - 1) / pageSize);
+    page = Math.ceil((numberOfAddons - 1) / pageSize).toString();
   }
 
-  return page ? page.toString() : `1`;
+  return page || '1';
 };
 
 export class CollectionBase extends React.Component<InternalProps> {
@@ -267,7 +267,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     const newCollectionPage = computeNewCollectionPage(collection);
 
     if (page !== newCollectionPage) {
-      page = Number(newCollectionPage);
+      page = newCollectionPage;
       shouldPushNewRoute = true;
     }
 
