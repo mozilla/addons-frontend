@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-11 20:23+0000\n"
+"PO-Revision-Date: 2018-09-14 20:08+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -329,7 +329,7 @@ msgstr "Slet mit svar"
 
 #: src/amo/components/AddonReviewCard/index.js:193
 msgid "Delete my rating"
-msgstr ""
+msgstr "Slet min bedømmelse"
 
 #: src/amo/components/AddonReviewCard/index.js:196
 msgid "Delete my review"
@@ -341,7 +341,7 @@ msgstr "Vil du virkelig slette dette svar?"
 
 #: src/amo/components/AddonReviewCard/index.js:207
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "Vil du virkelig slette denne bedømmelse?"
 
 #: src/amo/components/AddonReviewCard/index.js:210
 msgid "Do you really want to delete this review?"
@@ -1116,7 +1116,7 @@ msgstr "Skift udseende på Firefox ved hjælp af temaer."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more privacy & security extensions"
-msgstr ""
+msgstr "Se flere privatlivs- & sikkerhedsudvidelser"
 
 #: src/amo/components/Home/index.js:51
 msgid "Privacy & security"
@@ -1136,7 +1136,7 @@ msgstr "Se flere YouTube-udvidelser"
 
 #: src/amo/components/Home/index.js:63
 msgid "YouTube boosters"
-msgstr ""
+msgstr "YouTube-boostere"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Privacy Possum"
@@ -1144,7 +1144,7 @@ msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:101
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Beskyt dig selv mod lumske sporings-elementer"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Default Bookmark Folder"
@@ -1193,7 +1193,7 @@ msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Privacy protection for your search data"
-msgstr ""
+msgstr "Privatlivsbeskyttelse af dine søgedata"
 
 #: src/amo/components/HomeHeroBanner/index.js:141
 msgid "Auto Tab Discard"
@@ -1209,7 +1209,7 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:147
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Få besked når valgte websider opdateres med nyt indhold"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "Auto Fullscreen"
@@ -1274,15 +1274,15 @@ msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr ""
+msgstr "Få miniaturebilleder sammen med dine søgeresultater"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:206
 msgid "Remove formatting when saving text to your clipboard"
-msgstr ""
+msgstr "Fjern formatering når du gemmer tekst i din udklipsholder"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1302,7 +1302,7 @@ msgstr "Giv hele internettet et nyt udseende"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "Iridium for YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Play videos in a pop-out window, take video screenshots & more"
@@ -1310,15 +1310,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Private Bookmarks"
-msgstr ""
+msgstr "Private Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Password-protect your personal bookmarks"
-msgstr ""
+msgstr "Beskyt dine personlige bogmærker med adgangskode"
 
 #: src/amo/components/HomeHeroBanner/index.js:46
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
@@ -1338,7 +1338,7 @@ msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Get instant global weather information right in Firefox"
-msgstr ""
+msgstr "Få øjeblikkelig global vejrinformation direkte i Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Multi-Account Containers"
@@ -1350,15 +1350,15 @@ msgstr "Hold forskellige dele af dit liv på nettet adskilt med farvekodede fane
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Optegn billeder på gennemsigtig baggrund"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Universal Bypass"
-msgstr ""
+msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:80
 #, fuzzy
