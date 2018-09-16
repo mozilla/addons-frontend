@@ -383,7 +383,6 @@ export class CollectionBase extends React.Component<InternalProps> {
         <Card className="Collection-login">
           <AuthenticateButton
             noIcon
-            location={location}
             logInText={logInText}
           />
         </Card>

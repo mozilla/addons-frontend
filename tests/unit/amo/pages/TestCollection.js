@@ -1058,7 +1058,6 @@ describe(__filename, () => {
     const root = renderComponent({ store, creating: true, location });
 
     const authButton = root.find(AuthenticateButton);
-    expect(authButton).toHaveProp('location', location);
     expect(authButton).toHaveProp('logInText', 'Log in to create a collection');
 
     // Make sure the collection was not rendered.
@@ -1073,7 +1072,6 @@ describe(__filename, () => {
     const root = renderComponent({ store, editing: true, location });
 
     const authButton = root.find(AuthenticateButton);
-    expect(authButton).toHaveProp('location', location);
     expect(authButton).toHaveProp(
       'logInText',
       'Log in to edit this collection',

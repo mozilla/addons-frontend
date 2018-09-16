@@ -116,7 +116,6 @@ export class CollectionListBase extends React.Component<InternalProps> {
             {!isLoggedIn ? (
               <AuthenticateButton
                 noIcon
-                location={location}
                 logInText={i18n.gettext('Log in to view your collections')}
               />
             ) : (

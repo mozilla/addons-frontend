@@ -116,7 +116,6 @@ describe(__filename, () => {
 
     const button = root.find(AuthenticateButton);
     expect(button).toHaveLength(1);
-    expect(button).toHaveProp('location', createFakeLocation());
     expect(button).toHaveProp('logInText', 'Log in to view your collections');
   });
 

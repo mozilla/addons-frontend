@@ -466,7 +466,6 @@ describe(__filename, () => {
       const root = renderWithoutUser({ location });
 
       expect(root.find(AuthenticateButton)).toHaveLength(1);
-      expect(root.find(AuthenticateButton)).toHaveProp('location', location);
     });
 
     it('renders a login prompt for the dictionary', () => {

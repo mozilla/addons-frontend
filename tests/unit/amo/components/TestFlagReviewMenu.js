@@ -69,7 +69,6 @@ describe(__filename, () => {
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
-      const location = createFakeLocation();
       const { menu } = renderMenu({ location });
 
       // Only the button item should be rendered.
@@ -77,7 +76,6 @@ describe(__filename, () => {
 
       const authButton = menu.find(AuthenticateButton);
       expect(authButton).toHaveLength(1);
-      expect(authButton).toHaveProp('location', location);
     });
 
     it('prompts you to flag a review after login', () => {
