@@ -7,7 +7,7 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 
 import { getAddonIconUrl } from 'core/imageUtils';
-import { setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
 import themeInstall, { getThemeData } from 'core/themeInstall';
 import tracking, {
@@ -29,7 +29,6 @@ import {
   INSTALL_CANCELLED,
   INSTALL_CANCELLED_ACTION,
   INSTALL_DOWNLOAD_FAILED_ACTION,
-  INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
   INSTALL_STARTED_THEME_CATEGORY,
@@ -155,10 +154,7 @@ export function makeProgressHandler({
     } else if (event.type === 'onDownloadEnded') {
       dispatch(setInstallState({ guid, status: INSTALLING }));
     } else if (event.type === 'onDownloadFailed') {
-      dispatch({
-        type: INSTALL_ERROR,
-        payload: { guid, error: DOWNLOAD_FAILED },
-      });
+      dispatch(setInstallError({ guid, error: DOWNLOAD_FAILED }));
 
       _tracking.sendEvent({
         action: getAddonTypeForTracking(type),
@@ -177,10 +173,7 @@ export function makeProgressHandler({
         label: name,
       });
     } else if (event.type === 'onInstallFailed') {
-      dispatch({
-        type: INSTALL_ERROR,
-        payload: { guid, error: INSTALL_FAILED },
-      });
+      dispatch(setInstallError({ guid, error: INSTALL_FAILED }));
     }
   };
 }
@@ -525,13 +518,7 @@ export class WithInstallHelpers extends React.Component<
       .catch((error) => {
         log.error(`Install error: ${error}`);
 
-        dispatch(
-          setInstallState({
-            guid,
-            status: ERROR,
-            error: FATAL_INSTALL_ERROR,
-          }),
-        );
+        dispatch(setInstallError({ guid, error: FATAL_INSTALL_ERROR }));
       });
   }
 
@@ -563,13 +550,7 @@ export class WithInstallHelpers extends React.Component<
       .catch((error) => {
         log.error(`Uninstall error: ${error}`);
 
-        dispatch(
-          setInstallState({
-            guid,
-            status: ERROR,
-            error: FATAL_UNINSTALL_ERROR,
-          }),
-        );
+        dispatch(setInstallError({ guid, error: FATAL_UNINSTALL_ERROR }));
       });
   }
 

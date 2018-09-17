@@ -23,6 +23,7 @@ import {
   INSTALLED,
   UNINSTALLED,
 } from 'core/constants';
+import { getErrorMessage } from 'core/utils/addons';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import { loadedAddons } from 'disco/pages/DiscoPane';
 import createStore from 'disco/store';
@@ -116,13 +117,17 @@ describe(__filename, () => {
   });
 
   describe('<Addon type="extension"/>', () => {
+    const getMessage = (error) => {
+      return getErrorMessage({ i18n: fakeI18n(), error });
+    };
+
     it('renders a default error overlay with no close link', () => {
       const root = renderAddon({
         addon: result,
         status: ERROR,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain('An unexpected error occurred.');
+      expect(error.find('p').html()).toContain(getMessage(ERROR));
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -134,7 +139,7 @@ describe(__filename, () => {
         error: FATAL_ERROR,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain('An unexpected error occurred.');
+      expect(error.find('p').html()).toContain(getMessage(FATAL_ERROR));
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -146,9 +151,7 @@ describe(__filename, () => {
         error: FATAL_INSTALL_ERROR,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(
-        'An unexpected error occurred during installation.',
-      );
+      expect(error.find('p').html()).toContain(getMessage(FATAL_INSTALL_ERROR));
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -161,7 +164,7 @@ describe(__filename, () => {
       });
       const error = root.find('.notification.error');
       expect(error.find('p').html()).toContain(
-        'An unexpected error occurred during uninstallation.',
+        getMessage(FATAL_UNINSTALL_ERROR),
       );
       expect(error.find('.close')).toHaveLength(0);
     });
@@ -175,9 +178,7 @@ describe(__filename, () => {
         setCurrentStatus,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(
-        'Installation failed. Please try again.',
-      );
+      expect(error.find('p').html()).toContain(getMessage(INSTALL_FAILED));
       error.find('.close').simulate('click', fakeEvent);
       sinon.assert.called(setCurrentStatus);
     });
@@ -191,9 +192,7 @@ describe(__filename, () => {
         setCurrentStatus,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(
-        'Download failed. Please check your connection.',
-      );
+      expect(error.find('p').html()).toContain(getMessage(DOWNLOAD_FAILED));
       error.find('.close').simulate('click', fakeEvent);
       sinon.assert.called(setCurrentStatus);
     });

@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import createStore from 'amo/store';
-import { setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -1437,9 +1437,8 @@ describe(__filename, () => {
         return install(addon).then(() => {
           sinon.assert.calledWith(
             dispatch,
-            setInstallState({
+            setInstallError({
               guid: addon.guid,
-              status: ERROR,
               error: FATAL_INSTALL_ERROR,
             }),
           );
@@ -1485,9 +1484,8 @@ describe(__filename, () => {
           );
           sinon.assert.calledWith(
             dispatch,
-            setInstallState({
+            setInstallError({
               guid: addon.guid,
-              status: ERROR,
               error: FATAL_UNINSTALL_ERROR,
             }),
           );
