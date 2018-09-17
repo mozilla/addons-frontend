@@ -53,7 +53,7 @@ describe(__filename, () => {
     );
   };
 
-  it('fetches a review on mount', () => {
+  it('fetches a review at construction', () => {
     const reviewId = 1;
     const dispatch = sinon.stub(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -75,8 +75,13 @@ describe(__filename, () => {
   it('fetches a review when the reviewId changes', () => {
     const firstReviewId = 1;
     const secondReviewId = 2;
-    const dispatch = sinon.stub(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
+
+    store.dispatch(
+      fetchReview({ errorHandlerId: errorHandler.id, reviewId: firstReviewId }),
+    );
+    store.dispatch(setReview({ ...fakeReview, id: firstReviewId }));
+    const dispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
       errorHandler,

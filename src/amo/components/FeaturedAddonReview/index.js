@@ -64,7 +64,11 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
       return;
     }
 
-    if (!featuredReview && !loadingReview) {
+    if (
+      (!featuredReview ||
+        (nextProps && this.props.reviewId !== nextProps.reviewId)) &&
+      !loadingReview
+    ) {
       dispatch(fetchReview({ reviewId, errorHandlerId: errorHandler.id }));
     }
   }

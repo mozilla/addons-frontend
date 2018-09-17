@@ -340,6 +340,8 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           >
             <ul>
               {allReviews.map((review, index) => {
+                // TODO: Remove this and use the API to filter out the featured review once
+                // https://github.com/mozilla/addons-server/issues/9424 is fixed.
                 if (
                   !reviewId ||
                   (review && review.id.toString() !== reviewId)
