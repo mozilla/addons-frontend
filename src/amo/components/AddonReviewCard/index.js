@@ -37,7 +37,6 @@ import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -46,7 +45,6 @@ type Props = {|
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
-  location: ReactRouterLocationType,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
@@ -230,7 +228,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       addon,
       errorHandler,
       i18n,
-      location,
       replyingToReview,
       review,
       submittingReply,
@@ -269,7 +266,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           <AddonReviewCard
             addon={addon}
             isReplyToReviewId={review.id}
-            location={location}
             review={review.reply}
           />
         )}
@@ -288,7 +284,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       flaggable,
       i18n,
       siteUserHasReplyPerm,
-      location,
       replyingToReview,
       review,
       shortByLine,
@@ -390,7 +385,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         {flaggable && review ? (
           <FlagReviewMenu
             isDeveloperReply={this.isReply()}
-            location={location}
             openerClass="AddonReviewCard-control"
             review={review}
           />

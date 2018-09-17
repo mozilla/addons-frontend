@@ -44,7 +44,6 @@ import {
   fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
-  createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
   getFakeConfig,
@@ -58,7 +57,6 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       loadSavedReview: () => Promise.resolve(),
-      location: createFakeLocation({ pathname: '/some/location/' }),
       store: dispatchSignInActions().store,
       submitReview: () => Promise.resolve(),
       userId: 91234,
@@ -461,12 +459,9 @@ describe(__filename, () => {
     });
 
     it('renders an AuthenticateButton', () => {
-      const location = createFakeLocation();
-
-      const root = renderWithoutUser({ location });
+      const root = renderWithoutUser();
 
       expect(root.find(AuthenticateButton)).toHaveLength(1);
-      expect(root.find(AuthenticateButton)).toHaveProp('location', location);
     });
 
     it('renders a login prompt for the dictionary', () => {
@@ -599,19 +594,16 @@ describe(__filename, () => {
     });
 
     it('shows AddonReviewCard with a saved review', () => {
-      const location = createFakeLocation({ pathname: '/the/detail/page' });
       const review = {
         ...fakeReview,
         body: 'This is hands down the best ad blocker',
       };
       const root = renderInline({
-        location,
         store: createStoreWithLatestReview({ review }),
       });
 
       const reviewCard = root.find(AddonReviewCard);
       expect(reviewCard).toHaveProp('review', createInternalReview(review));
-      expect(reviewCard).toHaveProp('location', location);
     });
 
     it('hides UserRating and prompt when editing', () => {
