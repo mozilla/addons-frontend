@@ -17,6 +17,7 @@
     "$ReadOnlyArray": true,
     "$Shape": true,
     "$Keys": true,
+    "$Values": true,
     // See: https://github.com/facebook/flow/issues/1609
     "SyntheticEvent": true,
     "SyntheticInputEvent": true,

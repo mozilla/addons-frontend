@@ -14,6 +14,7 @@ import { oneLine } from 'common-tags';
 
 import { getDjangoBase62 } from 'amo/utils';
 import * as coreApi from 'core/api';
+import { getAddonStatus } from 'core/addonManager';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
@@ -71,6 +72,7 @@ export function getFakeAddonManagerWrapper({
     addChangeListeners: sinon.stub(),
     enable: sinon.stub().returns(Promise.resolve()),
     getAddon: sinon.stub().returns(getAddon),
+    getAddonStatus,
     hasAddonManager: sinon.stub().returns(hasAddonManager),
     hasPermissionPromptsEnabled: sinon.stub().returns(permissionPromptsEnabled),
     install: sinon.stub().returns(Promise.resolve()),
