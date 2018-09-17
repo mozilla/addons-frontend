@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import { oneLineTrim } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -9,13 +10,12 @@ import { compose } from 'redux';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
-import Link from 'amo/components/Link';
 import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
-import { isAddonAuthor } from 'core/utils';
+import { isAddonAuthor, sanitizeHTML } from 'core/utils';
 import {
   deleteAddonReview,
   hideEditReviewForm,
@@ -55,11 +55,13 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  clientApp: string,
   deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  lang: string,
   replyingToReview: boolean,
   siteUser: UserType | null,
   siteUserHasReplyPerm: boolean,
@@ -279,47 +281,53 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       _config,
       addon,
       className,
+      clientApp,
       deletingReview,
       editingReview,
       errorHandler,
       flaggable,
       i18n,
-      siteUserHasReplyPerm,
+      lang,
       replyingToReview,
       review,
       shortByLine,
       showRating,
       siteUser,
+      siteUserHasReplyPerm,
       verticalButtons,
     } = this.props;
 
     let byLine;
+    const noAuthor = shortByLine || this.isReply();
 
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
-      if (shortByLine || this.isReply()) {
-        // translators: Example in English: "posted last week"
-        byLine = i18n.sprintf(i18n.gettext('posted %(timestamp)s'), {
-          timestamp,
-        });
-      } else {
-        byLine = (
-          <span className="AddonReviewCard-authorByLine">
-            {/* translators: Example in English: "by UserName123, last week" */}
-            {i18n.sprintf(i18n.gettext('by %(authorName)s, %(timestamp)s'), {
-              authorName: review.userName,
-              timestamp,
-            })}
-          </span>
-        );
-      }
+      const linkStart = oneLineTrim`<a href="/${lang}/${clientApp}/addon/${
+        review.addonSlug
+      }/reviews/${review.id}/">`;
+      const byLineString = noAuthor
+        ? // translators: Example in English: "posted last week"
+          i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
+        : // translators: Example in English: "by UserName123, last week"
+          i18n.gettext(
+            'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
+          );
+
       byLine = (
-        <Link
-          title={i18n.gettext('Go to this review')}
-          to={`/addon/${review.addonSlug}/reviews/${review.id}/`}
-        >
-          {byLine}
-        </Link>
+        <span
+          className={makeClassName('', {
+            'AddonReviewCard-authorByLine': !noAuthor,
+          })}
+          dangerouslySetInnerHTML={sanitizeHTML(
+            i18n.sprintf(byLineString, {
+              authorName: review.userName,
+              linkStart,
+              linkEnd: '</a>',
+              timestamp,
+            }),
+            ['a'],
+          )}
+        />
       );
     } else {
       byLine = <LoadingText />;
@@ -466,11 +474,13 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     }
   }
   return {
+    clientApp: state.api.clientApp,
     deletingReview,
     editingReview,
-    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
+    lang: state.api.lang,
     replyingToReview,
     siteUser: getCurrentUser(state.users),
+    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
     submittingReply,
   };
 }
