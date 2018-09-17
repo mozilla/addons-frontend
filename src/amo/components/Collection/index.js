@@ -114,7 +114,7 @@ export const computeNewCollectionPage = (
     page = Math.ceil((numberOfAddons - 1) / pageSize).toString();
   }
 
-  return page || '1';
+  return page === '0' ? '1' : page;
 };
 
 export class CollectionBase extends React.Component<InternalProps> {
