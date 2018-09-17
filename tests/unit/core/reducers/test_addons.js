@@ -119,7 +119,6 @@ describe(__filename, () => {
 
     expect(state.byID[extension.id]).toEqual({
       ...extension,
-      iconUrl: extension.icon_url,
       platformFiles: {
         [OS_ALL]: fakeAddon.current_version.files[0],
         [OS_ANDROID]: undefined,
@@ -152,7 +151,6 @@ describe(__filename, () => {
       },
       description: theme.description,
       guid: getGuid(theme),
-      iconUrl: theme.icon_url,
       platformFiles: {
         [OS_ALL]: fakeTheme.current_version.files[0],
         [OS_ANDROID]: undefined,
@@ -277,18 +275,6 @@ describe(__filename, () => {
         url: 'https://a.m.o/files/somewhere.xpi',
       },
     });
-  });
-
-  it('sets the icon_url as iconUrl', () => {
-    const addon = {
-      ...fakeAddon,
-      icon_url: 'http://foo.com/img.png',
-    };
-    const state = addons(
-      undefined,
-      loadAddons(createFetchAddonResult(addon).entities),
-    );
-    expect(state.byID[addon.id].iconUrl).toEqual(addon.icon_url);
   });
 
   it('does not use description from theme_data', () => {

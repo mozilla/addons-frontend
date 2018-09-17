@@ -122,7 +122,6 @@ describe(__filename, () => {
           addon: addon.guid,
           description: 'editorial text',
           heading: 'The Add-on',
-          iconUrl: addon.icon_url,
           platformFiles: {
             [OS_ALL]: fakeDiscoAddon.current_version.files[0],
             [OS_ANDROID]: undefined,
