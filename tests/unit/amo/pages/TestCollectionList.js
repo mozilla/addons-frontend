@@ -14,7 +14,6 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   createStubErrorHandler,
   fakeI18n,
-  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -27,7 +26,6 @@ import UserCollection from 'ui/components/UserCollection';
 describe(__filename, () => {
   const getProps = () => ({
     i18n: fakeI18n(),
-    location: createFakeLocation(),
     store: dispatchClientMetadata().store,
   });
 

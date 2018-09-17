@@ -18,11 +18,7 @@ import FlagReviewMenu, {
 import { logOutUser } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
-import {
-  fakeI18n,
-  createFakeLocation,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 
@@ -36,7 +32,6 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      location: createFakeLocation(),
       review: createInternalReview(fakeReview),
       store,
       ...customProps,
@@ -69,7 +64,7 @@ describe(__filename, () => {
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
-      const { menu } = renderMenu({ location });
+      const { menu } = renderMenu();
 
       // Only the button item should be rendered.
       expect(menu.find(ListItem)).toHaveLength(1);

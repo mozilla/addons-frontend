@@ -40,7 +40,6 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type {
   ReactRouterHistoryType,
-  ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
 
@@ -58,7 +57,6 @@ type Props = {|
   i18n: I18nType,
   isUpdating: boolean,
   lang: string,
-  location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
     params: {| username: string |},
@@ -413,7 +411,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       hasEditPermission,
       i18n,
       isUpdating,
-      location,
       user,
       username,
     } = this.props;

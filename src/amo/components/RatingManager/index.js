@@ -46,7 +46,6 @@ import type {
 import type { DispatchFunc } from 'core/types/redux';
 import type { ApiState } from 'core/reducers/api';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
-import type { ReactRouterLocationType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -63,7 +62,6 @@ type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
 type Props = {|
   addon: AddonType,
-  location: ReactRouterLocationType,
   onReviewSubmitted?: () => void,
   version: AddonVersionType,
 |};
@@ -235,7 +233,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderLogInToRate() {
-    const { addon, location } = this.props;
+    const { addon } = this.props;
 
     return (
       <AuthenticateButton
@@ -308,7 +306,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { addon, editingReview, location, userReview } = this.props;
+    const { addon, editingReview, userReview } = this.props;
 
     return (
       <React.Fragment>
@@ -318,7 +316,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             addon={addon}
             className="RatingManager-AddonReviewCard"
             flaggable={false}
-            location={location}
             review={userReview}
             shortByLine
             showRating={false}

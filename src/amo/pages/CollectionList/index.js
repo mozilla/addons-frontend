@@ -20,13 +20,10 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
-export type Props = {|
-  location: ReactRouterLocationType,
-|};
+export type Props = {||};
 
 export type InternalProps = {|
   ...Props,
@@ -104,7 +101,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { i18n, isLoggedIn, location } = this.props;
+    const { i18n, isLoggedIn } = this.props;
 
     return (
       <div className="CollectionList">

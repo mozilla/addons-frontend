@@ -28,7 +28,6 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
-  createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
   getFakeConfig,
@@ -57,7 +56,6 @@ describe(__filename, () => {
     const props = {
       _config: getFakeConfig({ enableInlineAddonReview: false }),
       addon: createInternalAddon(fakeAddon),
-      location: createFakeLocation(),
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -380,12 +378,10 @@ describe(__filename, () => {
 
   it('lets you flag a review', () => {
     const review = _setReview(fakeReview);
-    const location = createFakeLocation();
-    const root = render({ location, review });
+    const root = render({ review });
 
     const flag = renderControls(root).find(FlagReviewMenu);
     expect(flag).toHaveProp('review', review);
-    expect(flag).toHaveProp('location', location);
     expect(flag).toHaveProp('isDeveloperReply', false);
   });
 
