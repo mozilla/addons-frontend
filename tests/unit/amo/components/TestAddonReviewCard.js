@@ -17,7 +17,7 @@ import AddonReviewCard, {
   AddonReviewCardBase,
 } from 'amo/components/AddonReviewCard';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
-import { ALL_SUPER_POWERS } from 'core/constants';
+import { ALL_SUPER_POWERS, CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -122,8 +122,9 @@ describe(__filename, () => {
     reviewUserId = siteUserId,
     externalReview = fakeReview,
     reviewUserProps = {},
+    clientMetadata = {},
   } = {}) => {
-    dispatchSignInActions({ store, userId: siteUserId });
+    dispatchSignInActions({ store, userId: siteUserId, ...clientMetadata });
     return _setReview({
       ...externalReview,
       user: {
@@ -929,23 +930,33 @@ describe(__filename, () => {
 
   describe('byLine', () => {
     function renderByLine(root) {
-      return shallow(root.find(UserReview).prop('byLine'), {
-        // The `Link` component needs the store.
-        context: { store },
-      });
+      return shallow(root.find(UserReview).prop('byLine'));
     }
 
     it('renders a byLine with a permalink to the review', () => {
       const slug = 'some-slug';
+      const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'en-US';
+
       const review = signInAndDispatchSavedReview({
         externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
+        clientMetadata: { clientApp, lang },
       });
-      const root = render({ review });
+      const root = render({ review, store });
 
-      expect(renderByLine(root)).toHaveProp(
-        'to',
-        `/addon/${slug}/reviews/${review.id}/`,
-      );
+      expect(
+        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
+      ).toContain(`/${lang}/${clientApp}/addon/${slug}/reviews/${review.id}/`);
+    });
+
+    it('renders a byLine with a relative date', () => {
+      const i18n = fakeI18n();
+      const review = signInAndDispatchSavedReview();
+      const root = render({ i18n, review });
+
+      expect(
+        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
+      ).toContain(i18n.moment(review.created).fromNow());
     });
 
     it('renders a byLine with an author by default', () => {
@@ -956,9 +967,9 @@ describe(__filename, () => {
       });
       const root = render({ i18n, review });
 
-      expect(renderByLine(root).children()).toHaveText(
-        `by ${name}, ${i18n.moment(review.created).fromNow()}`,
-      );
+      expect(
+        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
+      ).toContain(`by ${name},`);
     });
 
     it('renders a short byLine for replies by default', () => {
@@ -968,9 +979,9 @@ describe(__filename, () => {
 
       const root = renderReply({ i18n, reply });
 
-      expect(renderByLine(root).children()).toHaveText(
-        `posted ${i18n.moment(reply.created).fromNow()}`,
-      );
+      expect(
+        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
+      ).toContain('posted ');
     });
 
     it('renders a short byLine explicitly', () => {
@@ -978,9 +989,9 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, shortByLine: true, review });
 
-      expect(renderByLine(root).children()).toHaveText(
-        `posted ${i18n.moment(review.created).fromNow()}`,
-      );
+      expect(
+        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
+      ).toContain('posted ');
     });
 
     it('does not render a byLine for ratings', () => {

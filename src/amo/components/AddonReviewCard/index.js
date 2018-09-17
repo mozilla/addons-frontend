@@ -318,6 +318,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           className={makeClassName('', {
             'AddonReviewCard-authorByLine': !noAuthor,
           })}
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={sanitizeHTML(
             i18n.sprintf(byLineString, {
               authorName: review.userName,
