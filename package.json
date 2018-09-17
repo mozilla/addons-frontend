@@ -351,6 +351,11 @@
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"
   },
+  "storybook-deployer": {
+    "gitUsername": "echo $GH_USER",
+    "gitEmail": "echo $GH_EMAIL",
+    "commitMessage": "Deploy Storybook"
+  },
   "bundlesize": [
     {
       "path": "./dist/@(amo|disco)-!(i18n-)*.js",
