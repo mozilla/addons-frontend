@@ -24,6 +24,7 @@ import {
   flashReviewMessage,
   setReview,
   setReviewReply,
+  setLatestReview,
   setReviewWasFlagged,
   setUserReviews,
   updateAddonReview,
@@ -490,6 +491,8 @@ describe(__filename, () => {
       body,
       rating = 4,
       addonId = fakeReview.addon.id,
+      addonSlug = fakeReview.addon.slug,
+      userId = fakeReview.user.id,
       versionId = fakeReview.version.id,
     } = {}) {
       return {
@@ -498,9 +501,14 @@ describe(__filename, () => {
         addon: {
           ...fakeAddon,
           id: addonId,
+          slug: addonSlug,
         },
         body,
         rating,
+        user: {
+          ...fakeReview.user,
+          id: userId,
+        },
         version: {
           ...fakeReview.version,
           id: versionId,
@@ -736,6 +744,38 @@ describe(__filename, () => {
 
       const expectedAction = flashReviewMessage(ABORTED);
       await matchingSagaAction(sagaTester, matchMessage(expectedAction));
+    });
+
+    it('dispatches setLatestReview after saving a review', async () => {
+      const addonId = 98767;
+      const addonSlug = 'some-slug';
+      const body = 'This add-on works pretty well for me';
+      const rating = 4;
+      const userId = 12345;
+      const versionId = 7653;
+
+      const externalReview = createExternalReview({
+        addonId,
+        addonSlug,
+        body,
+        rating,
+        userId,
+        versionId,
+      });
+
+      mockApi.expects('submitReview').resolves(externalReview);
+
+      _createAddonReview({ addonId, body, rating, versionId });
+
+      const expectedAction = setLatestReview({
+        addonId,
+        addonSlug,
+        review: externalReview,
+        userId,
+        versionId,
+      });
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
     });
   });
 

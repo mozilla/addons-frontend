@@ -7,15 +7,21 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
-import { withRenderedErrorHandler } from 'core/errorHandler';
-import { setLatestReview } from 'amo/actions/reviews';
-import { selectLatestUserReview } from 'amo/reducers/reviews';
+import {
+  SAVED_RATING,
+  STARTED_SAVE_RATING,
+  createAddonReview,
+  setLatestReview,
+  updateAddonReview,
+} from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
+import { selectLatestUserReview } from 'amo/reducers/reviews';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -25,12 +31,14 @@ import {
   ADDON_TYPE_THEME,
   validAddonTypes as defaultValidAddonTypes,
 } from 'core/constants';
+import { withRenderedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UserReviewType } from 'amo/actions/reviews';
+import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
 import type {
   GetLatestReviewParams,
   SubmitReviewParams,
@@ -61,6 +69,7 @@ type Props = {|
 |};
 
 type DispatchMappedProps = {|
+  dispatch: DispatchFunc,
   loadSavedReview: LoadSavedReviewFunc,
   submitReview: SubmitReviewFunc,
 |};
@@ -72,6 +81,7 @@ type InternalProps = {|
   apiState: ApiState,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
+  flashMessage?: FlashMessageType | void,
   i18n: I18nType,
   userId: number,
   userReview?: UserReviewType | null,
@@ -114,13 +124,21 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   onSelectRating = (rating: number) => {
-    const { _config, userReview, version } = this.props;
+    const {
+      _config,
+      addon,
+      apiState,
+      dispatch,
+      errorHandler,
+      userReview,
+      version,
+    } = this.props;
 
     const params = {
-      errorHandler: this.props.errorHandler,
+      errorHandler,
       rating,
-      apiState: this.props.apiState,
-      addonId: this.props.addon.id,
+      apiState,
+      addonId: addon.id,
       reviewId: undefined,
       versionId: version.id,
     };
@@ -133,10 +151,30 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         versionId ${params.versionId || '[empty]'}`);
     }
 
-    return this.props.submitReview(params).then(() => {
-      if (!_config.get('enableInlineAddonReview')) {
-        this.setState({ showTextEntry: true });
+    if (_config.get('enableInlineAddonReview')) {
+      if (userReview) {
+        dispatch(
+          updateAddonReview({
+            errorHandlerId: errorHandler.id,
+            rating,
+            reviewId: userReview.id,
+          }),
+        );
+      } else {
+        dispatch(
+          createAddonReview({
+            addonId: addon.id,
+            errorHandlerId: errorHandler.id,
+            rating,
+            versionId: version.id,
+          }),
+        );
       }
+      return null;
+    }
+
+    return this.props.submitReview(params).then(() => {
+      this.setState({ showTextEntry: true });
     });
   };
 
@@ -226,7 +264,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderUserRatingForm() {
-    const { i18n, addon, userReview } = this.props;
+    const { addon, i18n, flashMessage, userReview } = this.props;
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
@@ -246,6 +284,25 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
               review={!this.isSignedIn() ? null : userReview}
             />
           </div>
+          <RatingManagerNotice
+            className={
+              userReview && userReview.body
+                ? 'RatingManager-savedRating-withReview'
+                : null
+            }
+            hideMessage={
+              flashMessage !== STARTED_SAVE_RATING &&
+              flashMessage !== SAVED_RATING
+            }
+            message={
+              flashMessage === STARTED_SAVE_RATING
+                ? i18n.gettext('Saving star rating')
+                : i18n.gettext('Star rating saved')
+            }
+            type={
+              flashMessage === STARTED_SAVE_RATING ? genericType : successType
+            }
+          />
         </fieldset>
       </form>
     );
@@ -320,6 +377,7 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
   return {
     apiState: state.api,
     editingReview,
+    flashMessage: state.reviews.flashMessage,
     userReview,
     userId,
   };
@@ -388,6 +446,7 @@ export const mapDispatchToProps = (
   };
 
   return {
+    dispatch,
     loadSavedReview: ownProps.loadSavedReview || loadSavedReview,
     submitReview: ownProps.submitReview || submitReview,
   };
