@@ -13,7 +13,7 @@ import {
 import { addQueryParams, isTheme } from 'core/utils';
 
 // This is the representation of an add-on in Firefox.
-type ClientAddon = {|
+type FirefoxAddon = {|
   canUninstall: boolean,
   description: string,
   id: string,
@@ -29,11 +29,11 @@ type ClientAddon = {|
 type MozAddonManagerType = {|
   addEventListener: (eventName: string, handler: Function) => void,
   createInstall: ({| url: string |}) => Promise<any>,
-  getAddonByID: (guid: string) => Promise<ClientAddon>,
+  getAddonByID: (guid: string) => Promise<FirefoxAddon>,
   permissionPromptsEnabled: boolean,
 |};
 
-type NavigatorType = {|
+type PrivilegedNavigatorType = {|
   mozAddonManager: MozAddonManagerType,
 |};
 
@@ -42,7 +42,7 @@ type OptionalParams = {|
 |};
 
 type GetAddonStatusParams = {|
-  addon: ClientAddon,
+  addon: FirefoxAddon,
   type: string,
 |};
 
@@ -63,7 +63,7 @@ export function getAddonStatus({ addon, type }: GetAddonStatusParams) {
 
 export function hasAddonManager({
   navigator,
-}: { navigator: NavigatorType } = {}) {
+}: { navigator: PrivilegedNavigatorType } = {}) {
   if (typeof window === 'undefined') {
     return false;
   }
@@ -73,7 +73,7 @@ export function hasAddonManager({
 
 export function hasPermissionPromptsEnabled({
   navigator,
-}: { navigator: NavigatorType } = {}) {
+}: { navigator: PrivilegedNavigatorType } = {}) {
   if (module.exports.hasAddonManager({ navigator })) {
     const _navigator = navigator || window.navigator;
     return _navigator.mozAddonManager.permissionPromptsEnabled;
@@ -149,17 +149,21 @@ export function uninstall(
     });
 }
 
-type GlobalEvent = {|
+type AddonChangeEvent = {|
   id: string,
   needsRestart: boolean,
   type: string,
 |};
 
 export function addChangeListeners(
-  callback: Function,
+  callback: ({|
+    guid: string,
+    status: $Values<typeof GLOBAL_EVENT_STATUS_MAP>,
+    needsRestart: boolean,
+  |}) => void,
   mozAddonManager: MozAddonManagerType,
 ) {
-  function handleChangeEvent(e: GlobalEvent) {
+  function handleChangeEvent(e: AddonChangeEvent) {
     const { id, type, needsRestart } = e;
 
     log.info('Event received', { type, id, needsRestart });
