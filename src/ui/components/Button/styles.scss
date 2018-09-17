@@ -107,6 +107,11 @@ $puffy-font-size: 15px;
 
   &:focus {
     @include focus();
+
+    // See: https://github.com/WICG/focus-visible
+    &:not(.focus-visible) {
+      box-shadow: none;
+    }
   }
 
   &.Button--disabled {
