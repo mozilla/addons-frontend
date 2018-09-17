@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-11 16:56+0000\n"
-"PO-Revision-Date: 2018-09-11 17:33+0000\n"
+"PO-Revision-Date: 2018-09-15 17:20+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1121,11 +1121,11 @@ msgstr "Modifica l’aspetto di Firefox con i temi."
 
 #: src/amo/components/Home/index.js:50
 msgid "See more privacy & security extensions"
-msgstr ""
+msgstr "Visualizza altre estensioni relative a privacy e sicurezza"
 
 #: src/amo/components/Home/index.js:51
 msgid "Privacy & security"
-msgstr ""
+msgstr "Privacy e sicurezza"
 
 #: src/amo/components/Home/index.js:56
 msgid "See more fall themes"
@@ -1277,7 +1277,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:199
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr ""
+msgstr "Visualizza anteprime accanto ai risultati delle ricerche"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Copy PlainText"
@@ -1285,7 +1285,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:206
 msgid "Remove formatting when saving text to your clipboard"
-msgstr ""
+msgstr "Salva il testo negli appunti rimuovendo ogni formattazione"
 
 #: src/amo/components/HomeHeroBanner/index.js:22
 msgid "Facebook Container"
@@ -1305,11 +1305,11 @@ msgstr "Cambia il look di tutto Internet"
 
 #: src/amo/components/HomeHeroBanner/index.js:34
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "Iridium per YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr ""
+msgstr "Riproduci i video in una finestra separata, cattura schermate dei video e altro ancora"
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Private Bookmarks"
@@ -1317,7 +1317,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Password-protect your personal bookmarks"
-msgstr ""
+msgstr "Proteggi con una password i tuoi segnalibri"
 
 #: src/amo/components/HomeHeroBanner/index.js:46
 msgid "IP Address and Domain Information"
@@ -1361,11 +1361,11 @@ msgstr "Mostra le immagini su sfondo trasparente"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Universal Bypass"
-msgstr ""
+msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:80
 msgid "Automatically skip annoying link shorteners"
-msgstr ""
+msgstr "Ignora automaticamente tutti i fastidiosi link abbreviati"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Tree Style Tab"
