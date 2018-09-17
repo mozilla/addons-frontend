@@ -30,7 +30,6 @@ type Props = {|
   className?: string,
   handleLogIn?: HandleLogInFunc,
   handleLogOut?: HandleLogOutFunction,
-  location: ReactRouterLocationType,
   logInText?: string,
   logOutText?: string,
   noIcon?: boolean,
@@ -41,6 +40,7 @@ type InternalProps = {|
   api: ApiState,
   handleLogIn: HandleLogInFunc,
   i18n: I18nType,
+  location: ReactRouterLocationType,
   siteUser: UserType | null,
 |};
 

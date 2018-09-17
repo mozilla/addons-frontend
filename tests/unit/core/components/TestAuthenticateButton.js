@@ -24,7 +24,7 @@ import {
 import Icon from 'ui/components/Icon';
 
 describe(__filename, () => {
-  function render(customProps = {}) {
+  function render({ location = createFakeLocation(), ...customProps } = {}) {
     const { store } = dispatchSignInActions();
     const props = {
       handleLogOut: sinon.stub(),
@@ -148,7 +148,7 @@ describe(__filename, () => {
       <AuthenticateButton store={store} {...allProps} />,
       AuthenticateButtonBase,
       {
-        shallowOptions: createContextWithFakeRouter({ location }),
+        shallowOptions: createContextWithFakeRouter(),
       },
     );
 
