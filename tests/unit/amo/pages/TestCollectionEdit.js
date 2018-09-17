@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Collection from 'amo/components/Collection';
-import CollectionEdit from 'amo/components/CollectionEdit';
+import Collection from 'amo/pages/Collection';
+import CollectionEdit from 'amo/pages/CollectionEdit';
 
 describe(__filename, () => {
   it('configures a Collection', () => {

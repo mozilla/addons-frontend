@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReviewGuide, {
   ReviewGuideBase,
-} from 'amo/components/StaticPages/ReviewGuide';
+} from 'amo/pages/StaticPages/ReviewGuide';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {

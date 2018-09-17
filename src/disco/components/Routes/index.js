@@ -5,10 +5,10 @@ import { Route, Switch } from 'react-router-dom';
 
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
-import DiscoPane from 'disco/components/DiscoPane';
-import SimulateAsyncError from 'core/components/error-simulation/SimulateAsyncError';
-import SimulateClientError from 'core/components/error-simulation/SimulateClientError';
-import SimulateSyncError from 'core/components/error-simulation/SimulateSyncError';
+import DiscoPane from 'disco/pages/DiscoPane';
+import SimulateAsyncError from 'core/pages/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'core/pages/error-simulation/SimulateClientError';
+import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
 import type { ConfigType } from 'core/types/config';
 
 type Props = {|

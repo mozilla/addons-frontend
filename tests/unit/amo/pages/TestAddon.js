@@ -5,11 +5,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import Addon, {
-  AddonBase,
-  extractId,
-  mapStateToProps,
-} from 'amo/components/Addon';
+import Addon, { AddonBase, extractId, mapStateToProps } from 'amo/pages/Addon';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';

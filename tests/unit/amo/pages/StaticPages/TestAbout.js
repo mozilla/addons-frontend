@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import About, { AboutBase } from 'amo/components/StaticPages/About';
+import About, { AboutBase } from 'amo/pages/StaticPages/About';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {

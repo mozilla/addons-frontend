@@ -3,10 +3,7 @@ import { shallow } from 'enzyme';
 
 import { fetchUserReviews, setUserReviews } from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
-import UserProfile, {
-  extractId,
-  UserProfileBase,
-} from 'amo/components/UserProfile';
+import UserProfile, { extractId, UserProfileBase } from 'amo/pages/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';

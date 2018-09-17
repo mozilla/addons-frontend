@@ -1,10 +1,10 @@
-import { oneLineTrim } from 'common-tags';
+import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import CollectionList, {
   CollectionListBase,
   extractId,
-} from 'amo/components/CollectionList';
+} from 'amo/pages/CollectionList';
 import {
   createInternalCollection,
   fetchUserCollections,
@@ -137,9 +137,8 @@ describe(__filename, () => {
       'Collections',
     );
     expect(root.find('.CollectionList-info-text'))
-      .toHaveText(oneLineTrim`Collections make it easy to keep track of 
-      favorite add-ons and share your perfectly customized browser with 
-      others.`);
+      .toHaveText(oneLine`Collections make it easy to keep track of favorite
+      add-ons and share your perfectly customized browser with others.`);
 
     const button = root.find('.CollectionList-create');
     expect(button).toHaveProp('buttonType', 'action');

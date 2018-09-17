@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { getLanding, loadLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
-import Category, { CategoryBase } from 'amo/components/Category';
+import Category, { CategoryBase } from 'amo/pages/Category';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';

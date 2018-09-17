@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Categories from 'amo/components/Categories';
-import { CategoriesPageBase } from 'amo/components/CategoriesPage';
+import { CategoriesPageBase } from 'amo/pages/CategoriesPage';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { visibleAddonType } from 'core/utils';
 

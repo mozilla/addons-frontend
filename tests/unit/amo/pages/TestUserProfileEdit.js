@@ -6,7 +6,7 @@ import Link from 'amo/components/Link';
 import UserProfileEdit, {
   extractId,
   UserProfileEditBase,
-} from 'amo/components/UserProfileEdit';
+} from 'amo/pages/UserProfileEdit';
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {

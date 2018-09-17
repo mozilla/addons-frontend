@@ -4,7 +4,7 @@ import * as React from 'react';
 import LanguageTools, {
   LanguageToolsBase,
   LanguageToolList,
-} from 'amo/components/LanguageTools';
+} from 'amo/pages/LanguageTools';
 import Link from 'amo/components/Link';
 import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
 import {

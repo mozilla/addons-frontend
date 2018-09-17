@@ -4,7 +4,7 @@ import Search from 'amo/components/Search';
 import SearchPage, {
   SearchPageBase,
   mapStateToProps,
-} from 'amo/components/SearchPage';
+} from 'amo/pages/SearchPage';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX, OS_MAC } from 'core/constants';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
