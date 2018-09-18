@@ -163,11 +163,12 @@ export function addChangeListeners(
     needsRestart: boolean,
   |}) => void,
   mozAddonManager: MozAddonManagerType,
+  { _log = log }: {| _log: typeof log |} = {},
 ) {
   function handleChangeEvent(e: AddonChangeEvent) {
     const { id: guid, type, needsRestart } = e;
 
-    log.info('Event received', { type, id: guid, needsRestart });
+    _log.info('Event received', { type, id: guid, needsRestart });
 
     if (type === ON_OPERATION_CANCELLED_EVENT) {
       // We need to retrieve the correct status for this add-on.
@@ -182,7 +183,7 @@ export function addChangeListeners(
           });
         })
         .catch((error) => {
-          log.error(
+          _log.error(
             'Unexpected error after having received onOperationCancelled event',
             error,
           );
@@ -203,7 +204,7 @@ export function addChangeListeners(
 
   if (mozAddonManager && mozAddonManager.addEventListener) {
     for (const event of GLOBAL_EVENTS) {
-      log.info(`adding event listener for "${event}"`);
+      _log.info(`adding event listener for "${event}"`);
       mozAddonManager.addEventListener(event, handleChangeEvent);
     }
 
@@ -212,9 +213,9 @@ export function addChangeListeners(
       handleChangeEvent,
     );
 
-    log.info('Global change event listeners have been initialized');
+    _log.info('Global change event listeners have been initialized');
   } else {
-    log.info('mozAddonManager.addEventListener not available');
+    _log.info('mozAddonManager.addEventListener not available');
   }
 
   return handleChangeEvent;

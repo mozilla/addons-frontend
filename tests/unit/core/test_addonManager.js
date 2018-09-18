@@ -256,6 +256,11 @@ describe(__filename, () => {
       addEventListener: sinon.stub(),
     };
 
+    beforeEach(() => {
+      fakeEventCallback.resetHistory();
+      fakeMozAddonManager.addEventListener.resetHistory();
+    });
+
     describe('global events', () => {
       const handleChangeEvent = addonManager.addChangeListeners(
         fakeEventCallback,
@@ -301,12 +306,17 @@ describe(__filename, () => {
     });
 
     it('calls the callback when onOperationCancelled is received', async () => {
+      const _log = {
+        info: sinon.stub(),
+        error: sinon.spy(),
+      };
       const fakeAddon = fakeClientAddon();
       fakeMozAddonManager.getAddonByID.resolves(fakeAddon);
 
       const handleChangeEvent = addonManager.addChangeListeners(
         fakeEventCallback,
         fakeMozAddonManager,
+        { _log },
       );
 
       const guid = 'foo@whatever';
@@ -323,6 +333,33 @@ describe(__filename, () => {
         needsRestart,
         status: addonManager.getAddonStatus({ addon: fakeAddon }),
       });
+      sinon.assert.notCalled(_log.error);
+    });
+
+    it('logs an error when onOperationCancelled has failed', async () => {
+      const _log = {
+        info: sinon.stub(),
+        error: sinon.spy(),
+      };
+      fakeMozAddonManager.getAddonByID.resolves(null);
+
+      const handleChangeEvent = addonManager.addChangeListeners(
+        fakeEventCallback,
+        fakeMozAddonManager,
+        { _log },
+      );
+
+      const guid = 'foo@whatever';
+      const needsRestart = false;
+
+      await handleChangeEvent({
+        id: guid,
+        needsRestart,
+        type: ON_OPERATION_CANCELLED_EVENT,
+      });
+
+      sinon.assert.notCalled(fakeEventCallback);
+      sinon.assert.calledOnce(_log.error);
     });
   });
 
