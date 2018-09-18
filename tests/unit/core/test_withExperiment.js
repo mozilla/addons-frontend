@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { withExperiment } from 'core/withExperiment';
-import { fakeCookie } from 'tests/unit/helpers';
+import { fakeCookie, getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   class SomeComponentBase extends React.Component {
@@ -11,19 +11,36 @@ describe(__filename, () => {
     }
   }
 
-  function setComponentWithExperiment({ experimentProps } = {}) {
+  function getComponentWithExperiment(experimentProps = {}) {
     return withExperiment({
-      id: 'ABtest',
-      variantA: 'AName',
-      variantB: 'BName',
+      id: 'some-id',
+      variantA: 'some-variant-a',
+      variantB: 'some-variant-b',
       ...experimentProps,
     })(SomeComponentBase);
   }
 
-  function render({ experimentProps, props } = {}) {
-    const SomeComponent = setComponentWithExperiment({ experimentProps });
+  function render({ props, experimentProps } = {}) {
+    const allExperimentProps = {
+      id: 'some-id',
+      ...experimentProps,
+    };
 
-    return shallow(<SomeComponent {...props} />);
+    // Enable the experiment by default to ease testing.
+    const _config = getFakeConfig({
+      experiments: {
+        [allExperimentProps.id]: true,
+      },
+    });
+
+    const allProps = {
+      _config,
+      ...props,
+    };
+
+    const SomeComponent = getComponentWithExperiment(allExperimentProps);
+
+    return shallow(<SomeComponent {...allProps} />);
   }
 
   it('injects a variant prop', () => {
@@ -31,14 +48,15 @@ describe(__filename, () => {
     expect(root).toHaveProp('variant');
   });
 
+  it('injects an experimentEnabled prop', () => {
+    const root = render();
+    expect(root).toHaveProp('experimentEnabled', true);
+  });
+
   it('loads a cookie upon construction', () => {
     const _cookie = fakeCookie();
 
-    render({
-      props: {
-        _cookie,
-      },
-    });
+    render({ props: { _cookie } });
 
     sinon.assert.called(_cookie.load);
   });
@@ -49,12 +67,7 @@ describe(__filename, () => {
       load: sinon.stub().returns(undefined),
     });
 
-    const root = render({
-      props: {
-        _cookie,
-        id,
-      },
-    });
+    const root = render({ props: { _cookie }, experimentProps: { id } });
 
     sinon.assert.calledWith(
       _cookie.save,
@@ -69,41 +82,69 @@ describe(__filename, () => {
       load: sinon.stub().returns(`experiment_${id}`),
     });
 
-    render({
-      props: {
-        _cookie,
-        id,
-      },
-    });
+    render({ props: { _cookie }, experimentProps: { id } });
 
     sinon.assert.notCalled(_cookie.save);
   });
 
-  it('it allows a custom cookie configuration', () => {
-    const overrideCookieConfig = { path: '/test' };
-    const _cookie = fakeCookie();
+  it('allows a custom cookie configuration', () => {
     const id = 'custom_cookie_config';
+    const _cookie = fakeCookie();
+    const cookieConfig = { path: '/test' };
 
     const root = render({
-      props: {
-        _cookie,
-        id,
-      },
-      experimentProps: { cookieConfig: overrideCookieConfig },
+      props: { _cookie },
+      experimentProps: { id, cookieConfig },
     });
 
     sinon.assert.calledWith(
       _cookie.save,
       `experiment_${id}`,
       root.instance().experimentCookie,
-      overrideCookieConfig,
+      cookieConfig,
     );
   });
 
   it('sets a display name', () => {
-    const SomeComponent = setComponentWithExperiment();
+    const SomeComponent = getComponentWithExperiment();
     expect(SomeComponent.displayName).toMatch(
       /WithExperiment\(SomeComponentBase\)/,
     );
+  });
+
+  it('can be disabled by configuration', () => {
+    const id = 'disabled_experiment';
+    const _cookie = fakeCookie();
+    const _config = getFakeConfig({
+      experiments: {
+        [id]: false,
+      },
+    });
+
+    render({ props: { _config }, experimentProps: { id } });
+
+    sinon.assert.notCalled(_cookie.load);
+  });
+
+  it('sets experimentEnabled prop to false when experiment is disabled by config', () => {
+    const id = 'disabled_experiment';
+    const _config = getFakeConfig({
+      experiments: {
+        [id]: false,
+      },
+    });
+
+    const root = render({ props: { _config }, experimentProps: { id } });
+    expect(root).toHaveProp('experimentEnabled', false);
+  });
+
+  it('disables the experiment by default', () => {
+    const _config = getFakeConfig({
+      // No experiment defined.
+      experiments: {},
+    });
+
+    const root = render({ props: { _config } });
+    expect(root).toHaveProp('experimentEnabled', false);
   });
 });
