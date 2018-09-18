@@ -40,7 +40,8 @@
   a,
   a:link,
   a:visited {
-    color: $grey-50;
+    color: $sub-text-color;
+    font-weight: normal;
   }
 
   a:active,
