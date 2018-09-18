@@ -24,10 +24,10 @@ describe(__filename, () => {
     };
   };
 
-  function render({ children, ...otherProps } = {}) {
+  function render({ children = 'some text', ...otherProps } = {}) {
     const props = getProps(otherProps);
     return shallowUntilTarget(
-      <ShowMoreCard {...props}>{children || 'some info'}</ShowMoreCard>,
+      <ShowMoreCard {...props}>{children}</ShowMoreCard>,
       ShowMoreCardBase,
     );
   }
@@ -43,8 +43,7 @@ describe(__filename, () => {
 
     expect(root).toHaveProp('footerLink');
     const footerLink = root.prop('footerLink');
-    const cardLink = shallow(footerLink);
-    const moreLink = cardLink.find('.ShowMoreCard-expand-link');
+    const moreLink = shallow(footerLink).find('.ShowMoreCard-expand-link');
 
     moreLink.simulate('click', createFakeEvent());
 
@@ -129,42 +128,31 @@ describe(__filename, () => {
 
   it("does not call resetUIState if the children's html is the same", () => {
     /* eslint-disable react/no-danger */
-    const root = render({
-      children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: '<span>Some component text.</span>',
-          }}
-        />
-      ),
-    });
+    const children = (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: '<span>Some component text.</span>',
+        }}
+      />
+    );
+    /* eslint-enable react/no-danger */
+
+    const root = render({ children });
 
     const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
-    root.setProps({
-      children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: '<span>Some component text.</span>',
-          }}
-        />
-      ),
-    });
-    /* eslint-enable react/no-danger */
+    root.setProps({ children });
 
     sinon.assert.notCalled(resetUIStateSpy);
   });
 
   it("does not call resetUIState if the children's text is the same", () => {
-    const root = render({
-      children: 'Some text',
-    });
+    const children = 'Some text';
+    const root = render({ children });
 
     const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
-    root.setProps({
-      children: 'Some text',
-    });
+    root.setProps({ children });
 
     sinon.assert.notCalled(resetUIStateSpy);
   });
@@ -187,20 +175,24 @@ describe(__filename, () => {
 
   it('does not execute truncateToMaxHeight when "read more" has been expanded', () => {
     const { store } = dispatchClientMetadata();
+    const root = render({ store });
 
-    // Simulating read more has been expanded already.
-    const root = render({
-      store: {
-        ...store,
-        store: {
-          uiState: {
-            readMoreExpanded: true,
-          },
-        },
-      },
-    });
+    // We are simulating the truncate method call.
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+
+    applyUIStateChanges({ root, store });
+
+    const footerLink = root.prop('footerLink');
+    const moreLink = shallow(footerLink).find('.ShowMoreCard-expand-link');
+
+    // Simulates clicking on "read more".
+    moreLink.simulate('click', createFakeEvent());
+
+    applyUIStateChanges({ root, store });
 
     const truncateSpy = sinon.spy(root.instance(), 'truncateToMaxHeight');
+
+    root.setProps({ children: 'some text' });
 
     sinon.assert.notCalled(truncateSpy);
   });
