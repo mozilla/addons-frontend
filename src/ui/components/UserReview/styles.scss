@@ -36,4 +36,19 @@
   color: $sub-text-color;
   display: flex;
   font-size: $font-size-s;
+
+  a,
+  a:link,
+  a:visited {
+    color: $grey-50;
+  }
+
+  a:active,
+  a:hover {
+    color: $link-color;
+  }
+
+  a:focus {
+    @include focus();
+  }
 }
