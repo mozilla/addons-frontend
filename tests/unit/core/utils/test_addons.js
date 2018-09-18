@@ -17,7 +17,7 @@ describe(__filename, () => {
       [FATAL_UNINSTALL_ERROR, 'error occurred during uninstallation'],
       [FATAL_ERROR, 'unexpected error occurred.'],
       ['SOME OTHER ERROR', 'unexpected error occurred.'],
-    ])('returns a translated message for %s', (error, message) => {
+    ])('returns a readable message for %s', (error, message) => {
       expect(getErrorMessage({ i18n: fakeI18n(), error })).toMatch(
         new RegExp(message),
       );

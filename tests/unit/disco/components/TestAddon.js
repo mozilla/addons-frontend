@@ -117,17 +117,12 @@ describe(__filename, () => {
   });
 
   describe('<Addon type="extension"/>', () => {
-    const getMessage = (error) => {
-      return getErrorMessage({ i18n: fakeI18n(), error });
-    };
-
     it('renders a default error overlay with no close link', () => {
       const root = renderAddon({
         addon: result,
         status: ERROR,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(getMessage(ERROR));
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -139,19 +134,21 @@ describe(__filename, () => {
         error: FATAL_ERROR,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(getMessage(FATAL_ERROR));
       expect(error.find('.close')).toHaveLength(0);
     });
 
     it('renders a specific overlay with no close link for FATAL_INSTALL_ERROR', () => {
+      const installError = FATAL_INSTALL_ERROR;
       const root = renderAddon({
         addon: result,
         status: ERROR,
         setCurrentStatus: sinon.stub(),
-        error: FATAL_INSTALL_ERROR,
+        error: installError,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(getMessage(FATAL_INSTALL_ERROR));
+      expect(error.find('p').html()).toContain(
+        getErrorMessage({ i18n: fakeI18n(), error: installError }),
+      );
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -163,9 +160,6 @@ describe(__filename, () => {
         error: FATAL_UNINSTALL_ERROR,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(
-        getMessage(FATAL_UNINSTALL_ERROR),
-      );
       expect(error.find('.close')).toHaveLength(0);
     });
 
@@ -178,7 +172,6 @@ describe(__filename, () => {
         setCurrentStatus,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(getMessage(INSTALL_FAILED));
       error.find('.close').simulate('click', fakeEvent);
       sinon.assert.called(setCurrentStatus);
     });
@@ -192,7 +185,6 @@ describe(__filename, () => {
         setCurrentStatus,
       });
       const error = root.find('.notification.error');
-      expect(error.find('p').html()).toContain(getMessage(DOWNLOAD_FAILED));
       error.find('.close').simulate('click', fakeEvent);
       sinon.assert.called(setCurrentStatus);
     });
