@@ -5,7 +5,7 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-type Props = {|
+export type Props = {|
   label: string,
   type?:
     | 'experimental'

@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Badge from 'ui/components/Badge';
+import type { Props as BadgeProps } from 'ui/components/Badge';
 
 const label = 'Hello Badge';
 
@@ -28,9 +29,10 @@ storiesOf('Badge', module).addWithChapters('Badge variations', {
   chapters: [
     {
       sections: sections.map((section) => {
+        const props: BadgeProps = { label, ...section };
         return {
           subtitle: `type=${section.type}`,
-          sectionFn: () => <Badge {...section} label={label} />,
+          sectionFn: () => <Badge {...props} />,
         };
       }),
     },
