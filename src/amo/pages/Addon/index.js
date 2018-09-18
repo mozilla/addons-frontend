@@ -402,6 +402,7 @@ export class AddonBase extends React.Component {
       install,
       installStatus,
       installTheme,
+      setCurrentStatus,
       uninstall,
       userAgentInfo,
     } = this.props;
@@ -556,6 +557,7 @@ export class AddonBase extends React.Component {
                       hasAddonManager={hasAddonManager}
                       install={install}
                       installTheme={installTheme}
+                      setCurrentStatus={setCurrentStatus}
                       status={installStatus}
                       uninstall={uninstall}
                       isAddonEnabled={isAddonEnabled}
