@@ -82,11 +82,12 @@
 .Home-SubjectShelf-list-item {
   flex-grow: 1;
   list-style-type: none;
-  margin: 15px 0;
+  margin: 0;
   text-align: center;
   width: 100%;
 
   @include respond-to(medium) {
+    margin: 12px 0;
     width: 40%;
   }
 
