@@ -82,5 +82,6 @@ jobs:
       <<: *tox
       env: TOXENV=dennis-lint
     - stage: Storybook deployment
+      language: node_js
       script: echo "Deploying to GitHub Pages..."
       after_success: yarn storybook-deploy --ci
