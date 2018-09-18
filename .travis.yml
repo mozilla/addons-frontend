@@ -85,4 +85,4 @@ jobs:
       language: node_js
       node_js: '8'
       script: echo "Deploying to GitHub Pages..."
-      after_success: yarn storybook-deploy --ci
+      after_success: yarn storybook-deploy --ci --remote=upstream
