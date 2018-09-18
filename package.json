@@ -18,10 +18,12 @@
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
     "amo": "better-npm-run amo",
     "amo:dev": "better-npm-run amo:dev",
+    "amo:dev-https": "better-npm-run amo:dev-https",
     "amo:ui-tests": "better-npm-run amo:ui-tests",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
     "disco": "better-npm-run disco",
+    "disco:https": "better-npm-run disco:https",
     "eslint": "eslint .",
     "flow": "flow",
     "flow:check": "flow check",
@@ -36,7 +38,9 @@
     "snyk-wizard": "npm run snyk wizard",
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
-    "storybook": "better-npm-run storybook-build",
+    "storybook": "better-npm-run storybook",
+    "storybook-build": "better-npm-run storybook-build",
+    "storybook-deploy": "storybook-to-ghpages --script storybook-build",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
@@ -67,6 +71,15 @@
         "NODE_APP_INSTANCE": "amo"
       }
     },
+    "amo:dev-https": {
+      "command": "better-npm-run amo:dev",
+      "env": {
+        "API_HOST": "https://example.com:3000",
+        "SERVER_HOST": "example.com",
+        "USE_HTTPS_FOR_DEV": "true",
+        "WEBPACK_SERVER_HOST": "example.com"
+      }
+    },
     "amo:ui-tests": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
@@ -95,6 +108,14 @@
       "command": "better-npm-run start-dev",
       "env": {
         "NODE_APP_INSTANCE": "disco"
+      }
+    },
+    "disco:https": {
+      "command": "better-npm-run disco",
+      "env": {
+        "SERVER_HOST": "example.com",
+        "USE_HTTPS_FOR_DEV": "true",
+        "WEBPACK_SERVER_HOST": "example.com"
       }
     },
     "extract-locales": {
@@ -137,8 +158,14 @@
         "NODE_ICU_DATA": "./node_modules/full-icu"
       }
     },
-    "storybook-build": {
+    "storybook": {
       "command": "start-storybook -p 9001 -c stories/setup",
+      "env": {
+        "NODE_PATH": "./:./src"
+      }
+    },
+    "storybook-build": {
+      "command": "build-storybook -c stories/setup",
       "env": {
         "NODE_PATH": "./:./src"
       }
@@ -204,7 +231,7 @@
     "mozilla-version-comparator": "1.0.2",
     "normalize.css": "8.0.0",
     "normalizr": "3.2.2",
-    "pino": "5.5.0",
+    "pino": "5.6.0",
     "pino-mozlog": "1.1.0",
     "prop-types": "15.6.2",
     "qhistory": "1.0.2",
@@ -212,12 +239,13 @@
     "raf": "3.4.0",
     "raven": "2.6.4",
     "raven-js": "3.27.0",
-    "rc-tooltip": "3.7.2",
-    "react": "16.5.0",
+    "rc-tooltip": "3.7.3",
+    "react": "16.5.1",
     "react-autosuggest": "9.4.1",
     "react-cookie": "1.0.5",
-    "react-dom": "16.5.0",
+    "react-dom": "16.5.1",
     "react-helmet": "5.2.0",
+    "react-keydown": "1.9.7",
     "react-nested-status": "0.2.1",
     "react-onclickoutside": "6.7.1",
     "react-photoswipe": "1.3.0",
@@ -243,6 +271,7 @@
     "@storybook/addon-options": "^3.4.10",
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
+    "@storybook/storybook-deployer": "^2.3.0",
     "autoprefixer": "^9.0.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^9.0.0",
@@ -276,7 +305,7 @@
     "eslint-plugin-amo": "^1.7.0",
     "eslint-plugin-promise": "^4.0.0",
     "file-loader": "^1.1.11",
-    "flow-bin": "^0.80.0",
+    "flow-bin": "^0.81.0",
     "glob": "^7.1.1",
     "http-proxy": "^1.16.2",
     "intl": "^1.2.5",
@@ -299,7 +328,7 @@
     "prettier": "1.14.2",
     "pretty-quick": "1.6.0",
     "react-hot-loader": "^4.3.3",
-    "react-test-renderer": "^16.5.0",
+    "react-test-renderer": "^16.5.1",
     "redux-saga-tester": "^1.0.372",
     "require-uncached": "^1.0.3",
     "rimraf": "^2.6.1",

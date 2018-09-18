@@ -19,13 +19,11 @@ import {
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
-  ENABLED,
   ENABLE_ACTION,
   ERROR,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INACTIVE,
   INSTALLING,
   INSTALL_ACTION,
   INSTALL_CANCELLED,
@@ -77,7 +75,7 @@ import {
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
 import { showInfoDialog } from 'core/reducers/infoDialog';
-import { getDisplayName, isTheme } from 'core/utils';
+import { getDisplayName } from 'core/utils';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
@@ -291,22 +289,9 @@ export const findInstallURL = ({
   });
 };
 
-type AddonManagerWrapper = {|
-  enable: (guid: string) => Promise<any>,
-  getAddon: (guid: string) => Promise<any>,
-  hasAddonManager: () => boolean,
-  hasPermissionPromptsEnabled: () => boolean,
-  install: (
-    installURL: string | void,
-    (addonInstall: AddonInstallType, event: EventType) => void,
-    {| src: string |},
-  ) => Promise<any>,
-  uninstall: (guid: string) => Promise<any>,
-|};
-
 type WithInstallHelpersProps = {|
   WrappedComponent: React.ComponentType<any>,
-  _addonManager: AddonManagerWrapper,
+  _addonManager: typeof addonManager,
   _installTheme: typeof installTheme,
   _tracking: typeof tracking,
   addon: AddonType,
@@ -417,15 +402,11 @@ export class WithInstallHelpers extends React.Component<
     return _addonManager
       .getAddon(guid)
       .then(
-        ({ isActive, isEnabled }) => {
-          let status = DISABLED;
-
-          if (isActive && isEnabled) {
-            status = ENABLED;
-          } else if (!isTheme(type) && !isActive && isEnabled) {
-            // We only use the INACTIVE status for add-ons that are not themes.
-            status = INACTIVE;
-          }
+        (clientAddon) => {
+          const status = _addonManager.getAddonStatus({
+            addon: clientAddon,
+            type,
+          });
 
           dispatch(setInstallState({ ...payload, status }));
         },
@@ -437,8 +418,7 @@ export class WithInstallHelpers extends React.Component<
       )
       .catch((error) => {
         log.error(`Caught error from addonManager: ${error}`);
-        // Dispatch a generic error should the success/error functions
-        // throw.
+        // Dispatch a generic error should the success/error functions throw.
         dispatch(
           setInstallState({
             guid,

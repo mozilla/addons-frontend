@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import { logOutFromServer, startLoginUrl } from 'core/api';
 import { getCurrentUser, logOutUser } from 'amo/reducers/users';
@@ -29,7 +30,6 @@ type Props = {|
   className?: string,
   handleLogIn?: HandleLogInFunc,
   handleLogOut?: HandleLogOutFunction,
-  location: ReactRouterLocationType,
   logInText?: string,
   logOutText?: string,
   noIcon?: boolean,
@@ -40,6 +40,7 @@ type InternalProps = {|
   api: ApiState,
   handleLogIn: HandleLogInFunc,
   i18n: I18nType,
+  location: ReactRouterLocationType,
   siteUser: UserType | null,
 |};
 
@@ -140,6 +141,7 @@ export const mapDispatchToProps = (
 });
 
 const AuthenticateButton: React.ComponentType<Props> = compose(
+  withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps,

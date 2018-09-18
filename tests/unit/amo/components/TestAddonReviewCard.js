@@ -12,6 +12,7 @@ import {
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AddonReviewCard, {
   AddonReviewCardBase,
 } from 'amo/components/AddonReviewCard';
@@ -29,7 +30,7 @@ import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
-  createFakeLocation,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -53,8 +54,8 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
+      _config: getFakeConfig({ enableInlineAddonReview: false }),
       addon: createInternalAddon(fakeAddon),
-      location: createFakeLocation(),
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -377,12 +378,10 @@ describe(__filename, () => {
 
   it('lets you flag a review', () => {
     const review = _setReview(fakeReview);
-    const location = createFakeLocation();
-    const root = render({ location, review });
+    const root = render({ review });
 
     const flag = renderControls(root).find(FlagReviewMenu);
     expect(flag).toHaveProp('review', review);
-    expect(flag).toHaveProp('location', location);
     expect(flag).toHaveProp('isDeveloperReply', false);
   });
 
@@ -806,9 +805,131 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  describe('enableInlineAddonReview', () => {
+    function renderInline(otherProps = {}) {
+      const _config = getFakeConfig({
+        enableInlineAddonReview: true,
+      });
+      return render({ _config, ...otherProps });
+    }
+
+    it('shows UserReview by default', () => {
+      const review = signInAndDispatchSavedReview();
+      const root = renderInline({ review });
+
+      expect(root.find(AddonReviewManager)).toHaveLength(0);
+      expect(root.find(UserReview)).toHaveLength(1);
+    });
+
+    it('renders AddonReviewManager when editing', () => {
+      const review = signInAndDispatchSavedReview();
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+
+      const root = renderInline({ review });
+
+      expect(root.find(UserReview)).toHaveLength(0);
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveLength(1);
+      expect(manager).toHaveProp('review', review);
+      expect(manager).toHaveProp('puffyButtons', false);
+    });
+
+    it('configures AddonReviewManager with puffyButtons when verticalButtons=true', () => {
+      const review = signInAndDispatchSavedReview();
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+
+      const root = renderInline({ review, verticalButtons: true });
+
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveProp('puffyButtons', true);
+    });
+
+    it('hides the review form on cancel', () => {
+      const review = signInAndDispatchSavedReview();
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const root = renderInline({ review });
+
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveProp('onCancel');
+
+      dispatchSpy.resetHistory();
+      const onCancel = manager.prop('onCancel');
+      onCancel();
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        hideEditReviewForm({
+          reviewId: review.id,
+        }),
+      );
+    });
+
+    it('provides a write review button for ratings', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      const root = renderInline({ review });
+
+      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
+      expect(writeReview).toHaveLength(1);
+
+      dispatchSpy.resetHistory();
+      writeReview.simulate('click', createFakeEvent());
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        showEditReviewForm({ reviewId: review.id }),
+      );
+    });
+
+    it('prompts to cancel writing a new review', async () => {
+      const review = signInAndDispatchSavedReview({
+        // This is a new review without any text yet.
+        externalReview: fakeRatingOnly,
+      });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ review, verticalButtons: true });
+
+      const manager = root.find(AddonReviewManager);
+      expect(manager).toHaveProp(
+        'cancelButtonText',
+        "Nevermind, I don't want to write a review",
+      );
+    });
+
+    it('prompts to cancel editing an existing review', async () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, body: 'This add-on is wonderful' },
+      });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ review, verticalButtons: true });
+
+      expect(root.find(AddonReviewManager)).toHaveProp(
+        'cancelButtonText',
+        "Nevermind, I don't want to edit my review",
+      );
+    });
+
+    it('does not configure a cancel prompt by default', async () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, body: 'This add-on is wonderful' },
+      });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ review });
+
+      expect(root.find(AddonReviewManager)).toHaveProp(
+        'cancelButtonText',
+        undefined,
+      );
+    });
+  });
+
   describe('byLine', () => {
     function renderByLine(root) {
-      return shallow(root.prop('byLine'));
+      return shallow(root.find(UserReview).prop('byLine'));
     }
 
     it('renders a byLine with an author by default', () => {
@@ -831,7 +952,7 @@ describe(__filename, () => {
 
       const root = renderReply({ i18n, reply });
 
-      expect(root).toHaveProp(
+      expect(root.find(UserReview)).toHaveProp(
         'byLine',
         `posted ${i18n.moment(reply.created).fromNow()}`,
       );
@@ -842,7 +963,7 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, shortByLine: true, review });
 
-      expect(root).toHaveProp(
+      expect(root.find(UserReview)).toHaveProp(
         'byLine',
         `posted ${i18n.moment(review.created).fromNow()}`,
       );
@@ -854,7 +975,7 @@ describe(__filename, () => {
       });
       const root = render({ review });
 
-      expect(root).toHaveProp('byLine', false);
+      expect(root.find(UserReview)).toHaveProp('byLine', false);
     });
   });
 

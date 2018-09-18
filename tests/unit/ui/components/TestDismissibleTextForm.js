@@ -74,6 +74,23 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a default cancel button', () => {
+    const root = shallowRender({ dismissButtonText: undefined });
+
+    expect(root.find('.DismissibleTextForm-dismiss').children()).toHaveText(
+      'Cancel',
+    );
+  });
+
+  it('lets you configure the cancel button text', () => {
+    const dismissButtonText = 'Nevermind, cancel it';
+    const root = shallowRender({ dismissButtonText });
+
+    expect(root.find('.DismissibleTextForm-dismiss').children()).toHaveText(
+      dismissButtonText,
+    );
+  });
+
   it('renders a placeholder', () => {
     const root = shallowRender({
       placeholder: 'Enter some text',
@@ -255,26 +272,48 @@ describe(__filename, () => {
   });
 
   it('creates micro buttons when requested', () => {
-    const root = shallowRender({ onDelete: sinon.stub(), microButtons: true });
+    const root = shallowRender({
+      microButtons: true,
+      onDelete: sinon.stub(),
+      onDismiss: sinon.stub(),
+    });
 
     expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', true);
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', true);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp('micro', true);
   });
 
   it('creates puffy buttons when requested', () => {
-    const root = shallowRender({ puffyButtons: true, onDelete: sinon.stub() });
+    const root = shallowRender({
+      onDelete: sinon.stub(),
+      onDismiss: sinon.stub(),
+      puffyButtons: true,
+    });
 
     expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', true);
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', true);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp('puffy', true);
   });
 
   it('creates non-micro, non-puffy buttons by default', () => {
-    const root = shallowRender({ onDelete: sinon.stub() });
+    const root = shallowRender({
+      onDismiss: sinon.stub(),
+      onDelete: sinon.stub(),
+    });
 
     expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', false);
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', false);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
+      'micro',
+      false,
+    );
+
     expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', false);
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', false);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
+      'puffy',
+      false,
+    );
   });
 
   it('cannot create conflicting button types', () => {

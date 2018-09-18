@@ -907,6 +907,7 @@ export const loadCollectionIntoState = ({
   // make sure we don't overwrite any existing addons.
   if (!internalCollection.addons && existingCollection) {
     internalCollection.addons = existingCollection.addons;
+    internalCollection.pageSize = existingCollection.pageSize;
   }
 
   return {

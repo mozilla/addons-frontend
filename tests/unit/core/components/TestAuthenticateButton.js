@@ -13,6 +13,7 @@ import {
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
   createUserAccountResponse,
   fakeI18n,
@@ -23,7 +24,7 @@ import {
 import Icon from 'ui/components/Icon';
 
 describe(__filename, () => {
-  function render(customProps = {}) {
+  function render({ location = createFakeLocation(), ...customProps } = {}) {
     const { store } = dispatchSignInActions();
     const props = {
       handleLogOut: sinon.stub(),
@@ -35,6 +36,9 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <AuthenticateButton {...props} />,
       AuthenticateButtonBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   }
 
@@ -143,6 +147,9 @@ describe(__filename, () => {
     const wrapper = shallowUntilTarget(
       <AuthenticateButton store={store} {...allProps} />,
       AuthenticateButtonBase,
+      {
+        shallowOptions: createContextWithFakeRouter(),
+      },
     );
 
     wrapper.simulate('click', createFakeEvent());

@@ -25,6 +25,9 @@ import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import './styles.scss';
 
 type Props = {|
+  cancelButtonText?: string,
+  onCancel?: () => void,
+  puffyButtons?: boolean,
   review: UserReviewType,
 |};
 
@@ -37,6 +40,10 @@ type InternalProps = {|
 |};
 
 export class AddonReviewManagerBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    puffyButtons: false,
+  };
+
   onSubmitRating = (rating: number) => {
     const { errorHandler, dispatch, review } = this.props;
 
@@ -62,7 +69,15 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { errorHandler, i18n, review, flashMessage } = this.props;
+    const {
+      cancelButtonText,
+      errorHandler,
+      i18n,
+      onCancel,
+      review,
+      flashMessage,
+      puffyButtons,
+    } = this.props;
 
     const reviewGuideLink = i18n.sprintf(
       i18n.gettext(
@@ -111,13 +126,23 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
           </span>
         </div>
         <DismissibleTextForm
+          dismissButtonText={cancelButtonText}
           formFooter={formFooter}
           isSubmitting={flashMessage === STARTED_SAVE_REVIEW}
+          onDismiss={onCancel}
           onSubmit={this.onSubmitReview}
           placeholder={placeholder}
-          puffyButtons
-          submitButtonText={i18n.gettext('Submit review')}
-          submitButtonInProgressText={i18n.gettext('Submitting review')}
+          puffyButtons={puffyButtons}
+          submitButtonText={
+            review.body
+              ? i18n.gettext('Update review')
+              : i18n.gettext('Submit review')
+          }
+          submitButtonInProgressText={
+            review.body
+              ? i18n.gettext('Updating review')
+              : i18n.gettext('Submitting review')
+          }
           text={review.body}
         />
       </div>

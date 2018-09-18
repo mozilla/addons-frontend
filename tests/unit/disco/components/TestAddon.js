@@ -24,7 +24,7 @@ import {
   UNINSTALLED,
 } from 'core/constants';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
-import { loadedAddons } from 'disco/components/DiscoPane';
+import { loadedAddons } from 'disco/pages/DiscoPane';
 import createStore from 'disco/store';
 import {
   createFakeEvent,

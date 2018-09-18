@@ -194,6 +194,15 @@ describe(__filename, () => {
     );
   });
 
+  it('configures a different install method for search providers even without addon manager', () => {
+    const root = renderOpenSearch({ hasAddonManager: false });
+
+    expect(root.find(Button)).toHaveProp(
+      'onClick',
+      root.instance().installOpenSearch,
+    );
+  });
+
   it('calls the `installTheme` helper to install a lightweight theme', () => {
     const addon = createInternalAddon(fakeTheme);
 
@@ -601,5 +610,11 @@ describe(__filename, () => {
 
     expect(root).toHaveClassName('AMInstallButton');
     expect(root).toHaveClassName(className);
+  });
+
+  it('is not disabled when it is an opensearch add-on', () => {
+    const root = renderOpenSearch({ status: UNKNOWN });
+
+    expect(root.find(Button)).toHaveProp('disabled', false);
   });
 });

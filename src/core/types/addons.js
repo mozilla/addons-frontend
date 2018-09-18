@@ -158,7 +158,6 @@ export type AddonType = {|
   ...ExternalAddonType,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
-  iconUrl?: string,
   platformFiles: {|
     // This seems necessary to help Flow know that computed
     // keys always return an AddonFileType.

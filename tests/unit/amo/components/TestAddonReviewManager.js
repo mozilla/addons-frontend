@@ -69,6 +69,47 @@ describe(__filename, () => {
     expect(formFooter.find('a').text()).toEqual('review guidelines');
   });
 
+  it('does not configure DismissibleTextForm for cancellation by default', () => {
+    const root = render();
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('onDismiss', undefined);
+  });
+
+  it('can configure DismissibleTextForm for cancellation', () => {
+    const onCancel = sinon.stub();
+    const root = render({ onCancel });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('onDismiss');
+    const onDismiss = form.prop('onDismiss');
+    onDismiss();
+
+    sinon.assert.called(onCancel);
+  });
+
+  it('passes cancelButtonText to DismissibleTextForm', () => {
+    const cancelButtonText = 'Nevermind, cancel it';
+    const root = render({ onCancel: sinon.stub(), cancelButtonText });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp(
+      'dismissButtonText',
+      cancelButtonText,
+    );
+  });
+
+  it('configures DismissibleTextForm without puffyButtons by default', () => {
+    const root = render();
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('puffyButtons', false);
+  });
+
+  it('passes puffyButtons to DismissibleTextForm', () => {
+    const root = render({ puffyButtons: true });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('puffyButtons', true);
+  });
+
   it('updates the rating when you select a star', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -199,6 +240,34 @@ describe(__filename, () => {
     const rating = root.find(Rating);
     // This will render a loading state.
     expect(rating).toHaveProp('rating', undefined);
+  });
+
+  it('prompts to submit when no review text exists yet', () => {
+    const root = render({
+      review: createInternalReview({
+        ...fakeReview,
+        rating: 5,
+        body: undefined,
+      }),
+    });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('submitButtonText', 'Submit review');
+    expect(form).toHaveProp('submitButtonInProgressText', 'Submitting review');
+  });
+
+  it('prompts to update when review text exists', () => {
+    const root = render({
+      review: createInternalReview({
+        ...fakeReview,
+        rating: 5,
+        body: 'This add-on is nice',
+      }),
+    });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('submitButtonText', 'Update review');
+    expect(form).toHaveProp('submitButtonInProgressText', 'Updating review');
   });
 
   describe('extractId', () => {

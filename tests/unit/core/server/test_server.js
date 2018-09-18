@@ -157,6 +157,16 @@ describe(__filename, () => {
       expect(response.statusCode).toEqual(404);
     });
 
+    it('sets a Cache-Control header', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        .end();
+
+      expect(response.headers['cache-control']).toEqual('no-store');
+    });
+
     it('does not dispatch setAuthToken() if cookie is not found', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 

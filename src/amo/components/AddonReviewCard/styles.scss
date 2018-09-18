@@ -8,6 +8,24 @@
   .UserReview-byLine {
     flex-wrap: wrap;
   }
+
+  .DismissibleTextForm-buttons {
+    margin-top: 6px;
+  }
+}
+
+.AddonReviewCard-verticalButtons {
+  .DismissibleTextForm-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 24px;
+  }
+
+  .DismissibleTextForm-dismiss {
+    margin-top: 12px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .AddonReviewCard-authorByLine {
@@ -85,4 +103,9 @@
   .Icon-reply-arrow {
     @include margin-end(12px);
   }
+}
+
+.AddonReviewCard-writeReviewButton {
+  margin-top: 12px;
+  width: 100%;
 }

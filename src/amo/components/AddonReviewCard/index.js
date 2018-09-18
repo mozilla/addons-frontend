@@ -1,11 +1,13 @@
 /* @flow */
 import makeClassName from 'classnames';
+import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonReview from 'amo/components/AddonReview';
+import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -21,6 +23,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import Button from 'ui/components/Button';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
@@ -34,7 +37,6 @@ import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -43,14 +45,15 @@ type Props = {|
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
-  location: ReactRouterLocationType,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
+  verticalButtons?: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
@@ -64,8 +67,11 @@ type InternalProps = {|
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     flaggable: true,
+    shortByLine: false,
     showRating: true,
+    verticalButtons: false,
   };
 
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
@@ -114,6 +120,13 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     // Even though an escaped overlay will be hidden, we still have to
     // synchronize our show/hide state otherwise we won't be able to
     // show the overlay after it has been escaped.
+    dispatch(hideEditReviewForm({ reviewId: review.id }));
+  };
+
+  onCancelEditReview = () => {
+    const { dispatch, review } = this.props;
+    invariant(review, 'review is required');
+
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   };
 
@@ -215,7 +228,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       addon,
       errorHandler,
       i18n,
-      location,
       replyingToReview,
       review,
       submittingReply,
@@ -254,7 +266,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           <AddonReviewCard
             addon={addon}
             isReplyToReviewId={review.id}
-            location={location}
             review={review.reply}
           />
         )}
@@ -264,6 +275,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
   render() {
     const {
+      _config,
       addon,
       className,
       deletingReview,
@@ -272,12 +284,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       flaggable,
       i18n,
       siteUserHasReplyPerm,
-      location,
       replyingToReview,
       review,
       shortByLine,
       showRating,
       siteUser,
+      verticalButtons,
     } = this.props;
 
     let byLine;
@@ -310,14 +322,15 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       <div className="AddonReviewCard-allControls">
         {siteUser && review && review.userId === siteUser.id ? (
           <React.Fragment>
-            {/* This will render an overlay to edit the review */}
-            {editingReview ? (
-              <AddonReview
-                onEscapeOverlay={this.onEscapeReviewOverlay}
-                onReviewSubmitted={this.onReviewSubmitted}
-                review={review}
-              />
-            ) : null}
+            {editingReview &&
+              !_config.get('enableInlineAddonReview') && (
+                // This will render an overlay to edit the review
+                <AddonReview
+                  onEscapeOverlay={this.onEscapeReviewOverlay}
+                  onReviewSubmitted={this.onReviewSubmitted}
+                  review={review}
+                />
+              )}
             {!this.isRatingOnly() && (
               <a
                 href="#edit"
@@ -372,7 +385,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         {flaggable && review ? (
           <FlagReviewMenu
             isDeveloperReply={this.isReply()}
-            location={location}
             openerClass="AddonReviewCard-control"
             review={review}
           />
@@ -380,19 +392,52 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       </div>
     );
 
+    let cancelButtonText;
+    if (verticalButtons) {
+      cancelButtonText = this.isRatingOnly()
+        ? i18n.gettext("Nevermind, I don't want to write a review")
+        : i18n.gettext("Nevermind, I don't want to edit my review");
+    }
+
     return (
-      <UserReview
+      <div
         className={makeClassName('AddonReviewCard', className, {
           'AddonReviewCard-ratingOnly': this.isRatingOnly(),
+          'AddonReviewCard-viewOnly': !editingReview,
+          'AddonReviewCard-verticalButtons': verticalButtons,
         })}
-        controls={controls}
-        review={review}
-        byLine={!this.isRatingOnly() && byLine}
-        showRating={!this.isReply() && showRating}
       >
+        {review && editingReview && _config.get('enableInlineAddonReview') ? (
+          <AddonReviewManager
+            onCancel={this.onCancelEditReview}
+            cancelButtonText={cancelButtonText}
+            puffyButtons={Boolean(verticalButtons)}
+            review={review}
+          />
+        ) : (
+          <React.Fragment>
+            <UserReview
+              controls={controls}
+              review={review}
+              byLine={!this.isRatingOnly() && byLine}
+              showRating={!this.isReply() && showRating}
+            />
+            {this.isRatingOnly() && (
+              <Button
+                className="AddonReviewCard-writeReviewButton"
+                onClick={this.onClickToEditReview}
+                href="#writeReview"
+                buttonType="action"
+                puffy
+              >
+                {i18n.gettext('Write a review')}
+              </Button>
+            )}
+          </React.Fragment>
+        )}
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}
-      </UserReview>
+      </div>
     );
   }
 }

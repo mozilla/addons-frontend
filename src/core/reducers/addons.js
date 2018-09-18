@@ -195,11 +195,6 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
 
     // These are custom properties not in the API response.
 
-    // TODO: remove this if possible. This is used by core/installAddon
-    // and DiscoPane components which do camel case conversions for
-    // some historic reason.
-    iconUrl: apiAddon.icon_url,
-
     platformFiles: {
       all: undefined,
       android: undefined,

@@ -13,7 +13,18 @@ import { initialApiState } from 'core/reducers/api';
 import * as reviewsApi from 'amo/api/reviews';
 import { selectReview } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
-import { createInternalReview, setLatestReview } from 'amo/actions/reviews';
+import {
+  SAVED_RATING,
+  STARTED_SAVE_RATING,
+  createAddonReview,
+  createInternalReview,
+  flashReviewMessage,
+  hideEditReviewForm,
+  hideFlashedReviewMessage,
+  setLatestReview,
+  showEditReviewForm,
+  updateAddonReview,
+} from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
@@ -21,8 +32,10 @@ import RatingManager, {
   RatingManagerBase,
   mapDispatchToProps,
 } from 'amo/components/RatingManager';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
+import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
@@ -31,8 +44,6 @@ import {
   fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent,
-  createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
   getFakeConfig,
@@ -46,7 +57,6 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       loadSavedReview: () => Promise.resolve(),
-      location: createFakeLocation({ pathname: '/some/location/' }),
       store: dispatchSignInActions().store,
       submitReview: () => Promise.resolve(),
       userId: 91234,
@@ -370,6 +380,61 @@ describe(__filename, () => {
     expect(root.find(ReportAbuseButton)).toHaveProp('addon', addon);
   });
 
+  it('flashes a saving rating message', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
+
+    const root = render({ store });
+
+    const message = root.find(RatingManagerNotice);
+    expect(message).toHaveProp('message', 'Saving star rating');
+    expect(message).toHaveProp('type', genericType);
+    expect(message).toHaveProp('hideMessage', false);
+  });
+
+  it('flashes a saved rating message', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(flashReviewMessage(SAVED_RATING));
+
+    const root = render({ store });
+
+    const message = root.find(RatingManagerNotice);
+    expect(message).toHaveProp('message', 'Star rating saved');
+    expect(message).toHaveProp('type', successType);
+    expect(message).toHaveProp('hideMessage', false);
+  });
+
+  it('hides a flashed rating message', () => {
+    const { store } = dispatchClientMetadata();
+    // Set a message then hide it.
+    store.dispatch(flashReviewMessage(SAVED_RATING));
+    store.dispatch(hideFlashedReviewMessage());
+
+    const root = render({ store });
+
+    const message = root.find(RatingManagerNotice);
+    expect(message).toHaveProp('hideMessage', true);
+  });
+
+  it('sets a custom className for RatingManagerNotice when a review exists', () => {
+    const store = createStoreWithLatestReview();
+    const root = render({ store });
+    const message = root.find(RatingManagerNotice);
+    expect(message).toHaveProp(
+      'className',
+      'RatingManager-savedRating-withReview',
+    );
+  });
+  it('does not set a custom className for RatingManagerNotice when no review exists', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+    const message = root.find(RatingManagerNotice);
+    expect(message).not.toHaveProp(
+      'className',
+      'RatingManager-savedRating-withReview',
+    );
+  });
+
   describe('when user is signed out', () => {
     function renderWithoutUser(customProps = {}) {
       const { store } = dispatchClientMetadata();
@@ -394,12 +459,9 @@ describe(__filename, () => {
     });
 
     it('renders an AuthenticateButton', () => {
-      const location = createFakeLocation();
-
-      const root = renderWithoutUser({ location });
+      const root = renderWithoutUser();
 
       expect(root.find(AuthenticateButton)).toHaveLength(1);
-      expect(root.find(AuthenticateButton)).toHaveProp('location', location);
     });
 
     it('renders a login prompt for the dictionary', () => {
@@ -481,20 +543,6 @@ describe(__filename, () => {
       expect(root).toHaveState('showTextEntry', false);
     });
 
-    it('hides AddonReviewManager when pressing the cancel button', async () => {
-      const root = renderInline({ store: createStoreWithLatestReview() });
-      root.setState({ showTextEntry: true });
-
-      const clickEvent = createFakeEvent();
-      root
-        .find('.RatingManager-cancelTextEntryButton')
-        .simulate('click', clickEvent);
-
-      expect(root.find(AddonReviewManager)).toHaveLength(0);
-      expect(root.find(UserRating)).toHaveLength(1);
-      sinon.assert.called(clickEvent.preventDefault);
-    });
-
     it('does not render AddonReviewManager if not signed in', async () => {
       const store = createStoreWithLatestReview();
       store.dispatch(logOutUser());
@@ -503,7 +551,6 @@ describe(__filename, () => {
       root.setState({ showTextEntry: true });
 
       expect(root.find(AddonReviewManager)).toHaveLength(0);
-      expect(root.find('.RatingManager-cancelTextEntryButton')).toHaveLength(0);
       expect(root.find(UserRating)).toHaveLength(1);
     });
 
@@ -527,7 +574,6 @@ describe(__filename, () => {
       root.setState({ showTextEntry: true });
 
       expect(root.find(AddonReviewManager)).toHaveLength(0);
-      expect(root.find('.RatingManager-cancelTextEntryButton')).toHaveLength(0);
       expect(root.find(UserRating)).toHaveLength(1);
     });
 
@@ -547,63 +593,85 @@ describe(__filename, () => {
       expect(rating).toHaveProp('review', null);
     });
 
-    it('prompts to cancel writing a new review', async () => {
-      const root = renderInline({
-        store: createStoreWithLatestReview({
-          // This is a new review without any text yet.
-          review: { ...fakeReview, body: undefined },
-        }),
-      });
-      root.setState({ showTextEntry: true });
-
-      const button = root.find('.RatingManager-cancelTextEntryButton');
-      expect(button.children()).toHaveText(
-        "Nevermind, I don't want to write a review",
-      );
-    });
-
-    it('prompts to cancel editing an existing review', async () => {
-      const root = renderInline({
-        store: createStoreWithLatestReview({
-          review: { ...fakeReview, body: 'This add-on is wonderful' },
-        }),
-      });
-      root.setState({ showTextEntry: true });
-
-      const button = root.find('.RatingManager-cancelTextEntryButton');
-      expect(button.children()).toHaveText(
-        "Nevermind, I don't want to edit my review",
-      );
-    });
-
     it('shows AddonReviewCard with a saved review', () => {
-      const location = createFakeLocation({ pathname: '/the/detail/page' });
       const review = {
         ...fakeReview,
         body: 'This is hands down the best ad blocker',
       };
       const root = renderInline({
-        location,
         store: createStoreWithLatestReview({ review }),
       });
 
       const reviewCard = root.find(AddonReviewCard);
       expect(reviewCard).toHaveProp('review', createInternalReview(review));
-      expect(reviewCard).toHaveProp('location', location);
     });
 
-    it('provides a write review button for ratings', () => {
-      const review = { ...fakeReview, body: undefined };
-      const root = renderInline({
-        store: createStoreWithLatestReview({ review }),
-      });
+    it('hides UserRating and prompt when editing', () => {
+      const review = { ...fakeReview, id: 8877 };
+      const store = createStoreWithLatestReview({ review });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = renderInline({ store });
 
-      const writeReview = root.find('.RatingManager-writeReviewButton');
-      expect(writeReview).toHaveLength(1);
-      writeReview.simulate('click', createFakeEvent());
+      expect(root.find('.RatingManager-legend')).toHaveLength(0);
+      expect(root.find(UserRating)).toHaveLength(0);
+    });
 
-      expect(root.find(AddonReviewCard)).toHaveLength(0);
-      expect(root.find(AddonReviewManager)).toHaveLength(1);
+    it('shows UserRating and prompt when not editing', () => {
+      const review = { ...fakeReview, id: 8877 };
+      const store = createStoreWithLatestReview({ review });
+
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      store.dispatch(hideEditReviewForm({ reviewId: review.id }));
+
+      const root = renderInline({ store });
+
+      expect(root.find('.RatingManager-legend')).toHaveLength(1);
+      expect(root.find(UserRating)).toHaveLength(1);
+    });
+
+    it('submits a new rating', () => {
+      const { store } = dispatchSignInActions();
+      const addon = createInternalAddon(fakeAddon);
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+      const rating = 5;
+      const version = fakeAddon.current_version;
+
+      const root = renderInline({ addon, errorHandler, store, version });
+
+      // This emulates clicking on a rating star.
+      root.find(UserRating).prop('onSelectRating')(rating);
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        createAddonReview({
+          addonId: addon.id,
+          errorHandlerId: errorHandler.id,
+          rating,
+          versionId: version.id,
+        }),
+      );
+    });
+
+    it('updates an existing rating', () => {
+      const store = createStoreWithLatestReview({ review: fakeReview });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+      const rating = 5;
+
+      const root = renderInline({ errorHandler, store });
+
+      // This emulates clicking on a rating star.
+      root.find(UserRating).prop('onSelectRating')(rating);
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        updateAddonReview({
+          errorHandlerId: errorHandler.id,
+          rating,
+          reviewId: fakeReview.id,
+        }),
+      );
     });
   });
 

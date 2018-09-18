@@ -18,6 +18,10 @@
   position: relative;
   text-decoration: none;
 
+  .HomeHeroBanner--small & {
+    min-height: 50px;
+  }
+
   @include respond-to(large) {
     padding: $padding-page-l;
   }

@@ -18,7 +18,10 @@ type Props = {|
 const Root = ({ children, history, i18n, store }: Props) => (
   <I18nProvider i18n={i18n}>
     <Provider store={store} key="provider">
-      <ConnectedRouter history={history}>{children}</ConnectedRouter>
+      <ConnectedRouter history={history}>
+        {/* $FLOW_FIXME: https://github.com/facebook/react/issues/12553 */}
+        <React.StrictMode>{children}</React.StrictMode>
+      </ConnectedRouter>
     </Provider>
   </I18nProvider>
 );
