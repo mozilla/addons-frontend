@@ -45,23 +45,23 @@ import type { ReactRouterLocationType } from 'core/types/router';
 import './styles.scss';
 
 type Props = {|
+  ...WithInstallHelpersInjectedProps,
   addon: AddonType,
   className?: string,
   defaultInstallSource: string,
   disabled: boolean,
-  location: ReactRouterLocationType,
   puffy: boolean,
   status: string,
 |};
 
 type InternalProps = {|
   ...Props,
-  ...WithInstallHelpersInjectedProps,
   _config: typeof config,
   _log: typeof log,
   _tracking: typeof tracking,
   _window: typeof window,
   i18n: I18nType,
+  location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
 |};
 
