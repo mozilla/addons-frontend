@@ -702,6 +702,63 @@ describe(__filename, () => {
         reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
       });
     });
+
+    // See: https://github.com/mozilla/addons-frontend/issues/6240
+    it('returns incompatible when add-on is non-restartless and FF version >= 61.0', () => {
+      const userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox61);
+      const clientApp = CLIENT_APP_FIREFOX;
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          files: [
+            {
+              ...fakeAddon.current_version.files[0],
+              is_restart_required: true,
+            },
+          ],
+        },
+      });
+
+      expect(
+        getClientCompatibility({
+          addon,
+          clientApp,
+          userAgentInfo,
+        }),
+      ).toMatchObject({
+        compatible: false,
+        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+      });
+    });
+
+    it('returns compatible when add-on is non-restartless and FF version < 61.0', () => {
+      const userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox57);
+      const clientApp = CLIENT_APP_FIREFOX;
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          files: [
+            {
+              ...fakeAddon.current_version.files[0],
+              is_restart_required: true,
+            },
+          ],
+        },
+      });
+
+      expect(
+        getClientCompatibility({
+          addon,
+          clientApp,
+          userAgentInfo,
+        }),
+      ).toMatchObject({
+        compatible: true,
+        reason: null,
+      });
+    });
   });
 
   describe('isQuantumCompatible', () => {
