@@ -30,7 +30,11 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   };
 
   componentDidMount() {
-    const { _tracking, variant } = this.props;
+    const { _tracking, experimentEnabled, variant } = this.props;
+
+    if (!experimentEnabled) {
+      return;
+    }
 
     _tracking.sendEvent({
       action: variant,
@@ -253,7 +257,11 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   }
 
   trackExperimentClick = (e: SyntheticEvent<HTMLElement>, title: string) => {
-    const { _tracking, variant } = this.props;
+    const { _tracking, experimentEnabled, variant } = this.props;
+
+    if (!experimentEnabled) {
+      return;
+    }
 
     _tracking.sendEvent({
       action: variant,

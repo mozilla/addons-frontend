@@ -1,12 +1,15 @@
 /* @flow */
+import config from 'config';
 import * as React from 'react';
 import invariant from 'invariant';
 import cookie from 'react-cookie';
 
+import log from 'core/logger';
 import { getDisplayName } from 'core/utils';
 
 export type WithExperimentInjectedProps = {|
-  variant: string,
+  experimentEnabled: boolean,
+  variant: string | null,
 |};
 
 type CookieConfig = {|
@@ -23,6 +26,7 @@ type withExperimentProps = {|
 type withExperimentInternalProps = {|
   ...withExperimentProps,
   WrappedComponent: React.ComponentType<any>,
+  _config: typeof config,
   _cookie: typeof cookie,
   randomizer: () => number,
 |};
@@ -43,6 +47,7 @@ export const withExperiment = ({
     experimentCookie: string | void;
 
     static defaultProps = {
+      _config: config,
       _cookie: cookie,
       id: defaultId,
       randomizer: Math.random,
@@ -54,6 +59,11 @@ export const withExperiment = ({
 
     constructor(props: withExperimentInternalProps) {
       super(props);
+
+      if (!this.isExperimentEnabled()) {
+        log.debug(`Experiment "${defaultId}" is not enabled by config.`);
+        return;
+      }
 
       const { _cookie, randomizer, variantA, variantB } = this.props;
 
@@ -69,6 +79,12 @@ export const withExperiment = ({
       return `experiment_${this.props.id}`;
     }
 
+    isExperimentEnabled() {
+      const { _config, id } = this.props;
+
+      return _config.get('experiments')[id] === true;
+    }
+
     render() {
       const {
         _cookie,
@@ -79,8 +95,13 @@ export const withExperiment = ({
         ...props
       } = this.props;
 
+      const isExperimentEnabled = this.isExperimentEnabled();
+
       const exposedProps: WithExperimentInjectedProps = {
-        variant: _cookie.load(this.getCookieName()),
+        experimentEnabled: isExperimentEnabled,
+        variant: isExperimentEnabled
+          ? _cookie.load(this.getCookieName())
+          : null,
       };
 
       return <WrappedComponent {...exposedProps} {...props} />;

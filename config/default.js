@@ -108,6 +108,7 @@ module.exports = {
     'enableExperienceSurvey',
     'enableInlineAddonReview',
     'enableStaticThemes',
+    'experiments',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -312,4 +313,10 @@ module.exports = {
   enableAMInstallButton: false,
 
   enableInlineAddonReview: false,
+
+  // The withExperiment HOC relies on this config to enable/disable A/B
+  // experiments.
+  experiments: {
+    home_hero: false,
+  },
 };
