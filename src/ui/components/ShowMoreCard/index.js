@@ -64,7 +64,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
       html = children;
     }
 
-    if (newHtml !== 'undefined' && newChildren && !newChildren.props) {
+    if (!newHtml && newChildren && !newChildren.props) {
       newHtml = newChildren;
     }
 
