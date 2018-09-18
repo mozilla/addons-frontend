@@ -41,11 +41,11 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  addon: AddonType | null,
+  addon?: AddonType | null,
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
-  isUserProfile: boolean,
+  isUserProfile?: boolean,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
@@ -72,26 +72,20 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     flaggable: true,
+    isUserProfile: false,
     shortByLine: false,
     showRating: true,
     verticalButtons: false,
   };
 
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
-    const {
-      addon,
-      dispatch,
-      errorHandler,
-      isReplyToReviewId,
-      review,
-    } = this.props;
+    const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
-    invariant(addon, 'addon is required');
     invariant(review, 'review is required');
     dispatch(
       deleteAddonReview({
-        addonId: addon.id,
+        addonId: review.reviewAddon.id,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
         isReplyToReviewId,
@@ -187,7 +181,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   isReply() {
     const { isReplyToReviewId, review } = this.props;
     return (
-      isReplyToReviewId !== undefined || (review && review.isDeveloperReply)
+      isReplyToReviewId !== undefined ||
+      Boolean(review && review.isDeveloperReply)
     );
   }
 
@@ -231,7 +226,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
   renderReply() {
     const {
-      addon,
       errorHandler,
       i18n,
       replyingToReview,
@@ -270,7 +264,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           />
         ) : (
           <AddonReviewCard
-            addon={addon}
             isReplyToReviewId={review.id}
             review={review.reply}
           />

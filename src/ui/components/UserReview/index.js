@@ -87,11 +87,12 @@ export const UserReviewBase = (props: InternalProps) => {
         {review && showRating ? (
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
-        {!showRating && (
-          <span className="UserReview-byLine-developerResponse">
-            {i18n.gettext('Developer response')}
-          </span>
-        )}
+        {review &&
+          !showRating && (
+            <span className="UserReview-byLine-developerResponse">
+              {i18n.gettext('Developer response')}
+            </span>
+          )}
         {byLine}
       </div>
       {body}

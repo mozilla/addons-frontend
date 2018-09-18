@@ -1,11 +1,11 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { createInternalReview, setReview } from 'amo/actions/reviews';
 import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
-import UserReview from 'ui/components/UserReview';
+import UserReview, { UserReviewBase } from 'ui/components/UserReview';
 import { dispatchClientMetadata, fakeReview } from 'tests/unit/amo/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
@@ -17,11 +17,12 @@ describe(__filename, () => {
   const render = (otherProps = {}) => {
     const props = {
       byLine: null,
+      i18n: fakeI18n(),
       review: fakeReview,
       ...otherProps,
     };
 
-    return shallow(<UserReview {...props} />);
+    return shallowUntilTarget(<UserReview {...props} />, UserReviewBase);
   };
 
   const _setReview = (externalReview) => {
@@ -101,6 +102,18 @@ describe(__filename, () => {
     const root = render({ showRating: false });
 
     expect(root.find(UserRating)).toHaveLength(0);
+  });
+
+  it('shows a developer response heading if ratings are hidden', () => {
+    const root = render({ showRating: false });
+
+    expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(1);
+  });
+
+  it('does not show a developer response heading if ratings are shown', () => {
+    const root = render({ showRating: true });
+
+    expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(0);
   });
 
   it('accepts a class name', () => {

@@ -58,6 +58,7 @@ describe(__filename, () => {
       _config: getFakeConfig({ enableInlineAddonReview: false }),
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
+      isUserProfile: false,
       store,
       ...customProps,
     };
@@ -901,6 +902,15 @@ describe(__filename, () => {
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
+    it('does not provide a write review button for ratings on the user profile', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      const root = renderInline({ isUserProfile: true, review });
+
+      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
+    });
+
     it('prompts to cancel writing a new review', async () => {
       const review = signInAndDispatchSavedReview({
         // This is a new review without any text yet.
@@ -975,12 +985,11 @@ describe(__filename, () => {
     });
 
     it('renders a byLine with an author by default', () => {
-      const i18n = fakeI18n();
       const name = 'some_user';
       const review = signInAndDispatchSavedReview({
         reviewUserProps: { name },
       });
-      const root = render({ i18n, review });
+      const root = render({ review });
 
       expect(
         renderByLine(root).prop('dangerouslySetInnerHTML').__html,
@@ -1000,9 +1009,8 @@ describe(__filename, () => {
     });
 
     it('renders a short byLine explicitly', () => {
-      const i18n = fakeI18n();
-      const review = signInAndDispatchSavedReview();
-      const root = render({ i18n, shortByLine: true, review });
+      const review = _setReview(fakeReview);
+      const root = render({ shortByLine: true, review });
 
       expect(
         renderByLine(root).prop('dangerouslySetInnerHTML').__html,
@@ -1010,12 +1018,19 @@ describe(__filename, () => {
     });
 
     it('does not render a byLine for ratings', () => {
-      const review = signInAndDispatchSavedReview({
-        externalReview: fakeRatingOnly,
-      });
+      const review = _setReview(fakeRatingOnly);
       const root = render({ review });
 
       expect(root.find(UserReview)).toHaveProp('byLine', false);
+    });
+
+    it('renders a short byLine for user profile reviews', () => {
+      const review = _setReview(fakeReview);
+      const root = render({ isUserProfile: true, review });
+
+      expect(
+        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
+      ).toContain('posted ');
     });
   });
 
@@ -1027,7 +1042,6 @@ describe(__filename, () => {
 
       const replyComponent = root.find(AddonReviewCard);
       expect(replyComponent).toHaveLength(1);
-      expect(replyComponent).toHaveProp('addon', addon);
       expect(replyComponent).toHaveProp('review', reply);
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
     });
@@ -1162,6 +1176,18 @@ describe(__filename, () => {
       expect(icon).toHaveProp('name', 'reply-arrow');
 
       expect(formContainer.find('.AddonReviewCard-reply-form')).toHaveLength(1);
+    });
+
+    it('renders a non-nested reply', () => {
+      const review = _setReview({
+        ...fakeReview,
+        is_developer_reply: true,
+      });
+      // Set showRating to true to prove that we will not show a rating for a reply.
+      const root = render({ review, showRating: true });
+
+      const reviewComponent = root.find(UserReview);
+      expect(reviewComponent).toHaveProp('showRating', false);
     });
   });
 });
