@@ -59,7 +59,7 @@ describe(__filename, () => {
     expect(carousel).toHaveProp('random', true);
   });
 
-  it('sends a tracking event when first render on the client', () => {
+  it('sends a tracking event when first rendered on the client', () => {
     const fakeTracking = createFakeTracking();
     const root = render({ _tracking: fakeTracking });
 
@@ -111,8 +111,9 @@ describe(__filename, () => {
     });
     const fakeTracking = createFakeTracking();
 
-    render({ _config, _tracking: fakeTracking });
+    const root = render({ _config, _tracking: fakeTracking });
 
+    expect(root).not.toHaveClassName('HomeHeroBanner--small');
     sinon.assert.notCalled(fakeTracking.sendEvent);
   });
 
