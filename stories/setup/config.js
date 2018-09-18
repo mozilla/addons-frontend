@@ -19,6 +19,8 @@ setAddon(chaptersAddon);
 setOptions({
   name: 'Mozilla Addons frontend',
   url: 'https://github.com/mozilla/addons-frontend',
+  // Hide empty panel for now.
+  showAddonPanel: false,
 });
 
 function loadStories() {
