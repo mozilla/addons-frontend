@@ -3,6 +3,8 @@ import { oneLine } from 'common-tags';
 
 import {
   DELETE_ADDON_REVIEW,
+  FETCH_REVIEW,
+  FETCH_REVIEWS,
   FLASH_REVIEW_MESSAGE,
   HIDE_FLASHED_REVIEW_MESSAGE,
   UNLOAD_ADDON_REVIEWS,
@@ -24,7 +26,8 @@ import {
 } from 'amo/actions/reviews';
 import type {
   DeleteAddonReviewAction,
-  UnloadAddonReviewsAction,
+  FetchReviewAction,
+  FetchReviewsAction,
   FlagReviewAction,
   FlashMessageType,
   HideEditReviewFormAction,
@@ -42,10 +45,12 @@ import type {
   SetUserReviewsAction,
   ShowEditReviewFormAction,
   ShowReplyToReviewFormAction,
+  UnloadAddonReviewsAction,
   UserReviewType,
 } from 'amo/actions/reviews';
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
+import type { AppState } from 'amo/store';
 
 type ReviewsById = {
   [id: number]: UserReviewType,
@@ -80,6 +85,7 @@ type ViewStateByReviewId = {|
   deletingReview: boolean,
   editingReview: boolean,
   flag: FlagState,
+  loadingReview: boolean,
   replyingToReview: boolean,
   submittingReply: boolean,
 |};
@@ -101,6 +107,9 @@ export type ReviewsState = {|
   },
   // Short-lived messages about reviews.
   flashMessage?: FlashMessageType,
+  loadingForSlug: {
+    [slug: string]: boolean,
+  },
 |};
 
 export const initialState: ReviewsState = {
@@ -112,6 +121,7 @@ export const initialState: ReviewsState = {
   // This stores review-related UI state.
   view: {},
   flashMessage: undefined,
+  loadingForSlug: {},
 };
 
 export const selectReview = (
@@ -180,6 +190,7 @@ export const changeViewState = ({
       [reviewId]: {
         deletingReview: false,
         editingReview: false,
+        loadingReview: false,
         replyingToReview: false,
         submittingReply: false,
         ...state.view[reviewId],
@@ -273,8 +284,17 @@ export const addReviewToState = ({
   };
 };
 
+export const reviewsAreLoading = (
+  state: AppState,
+  addonSlug: string,
+): boolean => {
+  return Boolean(state.reviews.loadingForSlug[addonSlug]);
+};
+
 type ReviewActionType =
   | DeleteAddonReviewAction
+  | FetchReviewAction
+  | FetchReviewsAction
   | FlagReviewAction
   | FlashReviewMessageAction
   | UnloadAddonReviewsAction
@@ -372,11 +392,23 @@ export default function reviewsReducer(
         },
       };
     }
+    case FETCH_REVIEW: {
+      return changeViewState({
+        state,
+        reviewId: action.payload.reviewId,
+        stateChange: { loadingReview: true },
+      });
+    }
     case SET_REVIEW: {
       const { payload } = action;
       const review = createInternalReview(payload);
 
-      return _addReviewToState({ state, review });
+      const newState = _addReviewToState({ state, review });
+      return changeViewState({
+        state: newState,
+        reviewId: review.id,
+        stateChange: { loadingReview: false },
+      });
     }
     case SET_INTERNAL_REVIEW: {
       const { payload } = action;
@@ -429,6 +461,18 @@ export default function reviewsReducer(
         },
       });
     }
+    case FETCH_REVIEWS: {
+      const {
+        payload: { addonSlug },
+      } = action;
+      return {
+        ...state,
+        loadingForSlug: {
+          ...state.loadingForSlug,
+          [addonSlug]: true,
+        },
+      };
+    }
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
@@ -445,6 +489,10 @@ export default function reviewsReducer(
             reviewCount: payload.reviewCount,
             reviews: reviews.map((review) => review.id),
           },
+        },
+        loadingForSlug: {
+          ...state.loadingForSlug,
+          [payload.addonSlug]: false,
         },
       };
     }

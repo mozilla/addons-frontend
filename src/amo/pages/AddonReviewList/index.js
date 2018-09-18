@@ -9,9 +9,10 @@ import { compose } from 'redux';
 
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import RatingsByStar from 'amo/components/RatingsByStar';
+import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
-import { expandReviewObjects } from 'amo/reducers/reviews';
+import { expandReviewObjects, reviewsAreLoading } from 'amo/reducers/reviews';
 import {
   fetchAddon,
   getAddonBySlug,
@@ -54,18 +55,20 @@ type InternalProps = {|
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   lang: string,
   match: {|
     ...ReactRouterMatchType,
     params: {
       addonSlug: string,
+      reviewId?: number,
     },
   |},
   pageSize: number | null,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
-  history: ReactRouterHistoryType,
+  areReviewsLoading: boolean,
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
@@ -84,11 +87,14 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     const nextAddon = nextProps && nextProps.addon;
     const {
       addon,
+      addonIsLoading,
       dispatch,
       errorHandler,
-      addonIsLoading,
-      match: { params },
+      match: {
+        params: { addonSlug },
+      },
       reviews,
+      areReviewsLoading,
     } = {
       ...this.props,
       ...nextProps,
@@ -101,7 +107,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
     if (!addon) {
       if (!addonIsLoading) {
-        dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
+        dispatch(fetchAddon({ slug: addonSlug, errorHandler }));
       }
     } else if (
       // This is the first time rendering the component.
@@ -121,10 +127,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       location = nextProps.location;
     }
 
-    if (!reviews || locationChanged) {
+    if (!areReviewsLoading && (!reviews || locationChanged)) {
       dispatch(
         fetchReviews({
-          addonSlug: params.addonSlug,
+          addonSlug,
           errorHandlerId: errorHandler.id,
           // TODO: so, there is a test case (`it dispatches fetchReviews with
           // an invalid page variable`) that conflicts with `fetchReviews()`
@@ -158,6 +164,9 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       addon,
       errorHandler,
       location,
+      match: {
+        params: { reviewId },
+      },
       i18n,
       pageSize,
       reviewCount,
@@ -320,21 +329,34 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           <RatingsByStar addon={addon} />
         </Card>
 
-        <CardList
-          className="AddonReviewList-reviews"
-          footer={paginator}
-          header={reviewCountHTML}
-        >
-          <ul>
-            {allReviews.map((review, index) => {
-              return (
-                <li key={String(index)}>
-                  <AddonReviewCard addon={addon} review={review} />
-                </li>
-              );
-            })}
-          </ul>
-        </CardList>
+        <div className="AddonReviewList-reviews">
+          {reviewId && (
+            <FeaturedAddonReview addon={addon} reviewId={reviewId} />
+          )}
+          <CardList
+            className="AddonReviewList-reviews-listing"
+            footer={paginator}
+            header={reviewCountHTML}
+          >
+            <ul>
+              {allReviews.map((review, index) => {
+                // TODO: Remove this and use the API to filter out the featured review once
+                // https://github.com/mozilla/addons-server/issues/9424 is fixed.
+                if (
+                  !reviewId ||
+                  (review && review.id.toString() !== reviewId)
+                ) {
+                  return (
+                    <li key={String(index)}>
+                      <AddonReviewCard addon={addon} review={review} />
+                    </li>
+                  );
+                }
+                return null;
+              })}
+            </ul>
+          </CardList>
+        </div>
       </div>
     );
   }
@@ -346,9 +368,9 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
 
   return {
     addon: getAddonBySlug(state, addonSlug),
+    addonIsLoading: isAddonLoading(state, addonSlug),
     clientApp: state.api.clientApp,
     lang: state.api.lang,
-    addonIsLoading: isAddonLoading(state, addonSlug),
     pageSize: reviewData ? reviewData.pageSize : null,
     reviewCount: reviewData && reviewData.reviewCount,
     reviews:
@@ -357,6 +379,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
         state: state.reviews,
         reviews: reviewData.reviews,
       }),
+    areReviewsLoading: reviewsAreLoading(state, addonSlug),
   };
 }
 

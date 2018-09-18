@@ -834,12 +834,8 @@ describe(__filename, () => {
     });
 
     expect(byLine.find(Link)).toHaveProp(
-      'title',
-      'Browse the reviews for this add-on',
-    );
-    expect(byLine.find(Link)).toHaveProp(
       'to',
-      `/addon/${fakeReview.addon.slug}/reviews/`,
+      `/addon/${fakeReview.addon.slug}/reviews/${fakeReview.id}/`,
     );
     expect(byLine.find(Link).childAt(0)).toHaveText(
       root

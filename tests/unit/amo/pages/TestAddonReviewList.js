@@ -19,6 +19,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
+  SET_VIEW_CONTEXT,
 } from 'core/constants';
 import {
   fetchAddon,
@@ -133,7 +134,7 @@ describe(__filename, () => {
       expect(root.find(Paginate)).toHaveLength(0);
     });
 
-    it('fetches an addon if needed', () => {
+    it('fetches an addon if requested by slug', () => {
       const addonSlug = 'some-addon-slug';
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
@@ -197,6 +198,33 @@ describe(__filename, () => {
       });
 
       sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+    });
+
+    it('does not fetch reviews if they are already loading', () => {
+      const addon = { ...fakeAddon, slug: 'some-other-slug' };
+      const errorHandler = createStubErrorHandler();
+      dispatchAddon(addon);
+      store.dispatch(
+        fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        reviews: null,
+        errorHandler,
+        params: { addonSlug: addon.slug },
+      });
+
+      sinon.assert.neverCalledWith(
         dispatch,
         fetchReviews({
           addonSlug: addon.slug,
@@ -339,6 +367,17 @@ describe(__filename, () => {
       sinon.assert.calledWith(dispatch, setViewContext(addon.type));
     });
 
+    it('does not dispatch a view context if there is no add-on', () => {
+      const dispatch = sinon.stub(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+      render({ errorHandler });
+
+      sinon.assert.neverCalledWithMatch(
+        dispatch,
+        sinon.match({ type: SET_VIEW_CONTEXT }),
+      );
+    });
+
     it('does not dispatch a view context for similar add-ons', () => {
       const addon1 = fakeAddon;
       dispatchAddon(addon1);
@@ -467,6 +506,27 @@ describe(__filename, () => {
       });
     });
 
+    it('does not include a review in the listing if the review is also featured', () => {
+      const reviews = [
+        { ...fakeReview, id: 1, rating: 1 },
+        { ...fakeReview, id: 2, rating: 2 },
+      ];
+      dispatchAddonReviews({ reviews });
+
+      const root = render({
+        params: { reviewId: reviews[0].id.toString() },
+      });
+
+      const items = root
+        .find('.AddonReviewList-reviews-listing')
+        .find(AddonReviewCard);
+
+      expect(items).toHaveLength(1);
+      expect(items.at(0).prop('review')).toMatchObject({
+        id: reviews[1].id,
+      });
+    });
+
     it("renders the add-on's icon in the header", () => {
       const addon = { ...fakeAddon };
       const header = renderAddonHeader({ addon });
@@ -589,7 +649,7 @@ describe(__filename, () => {
       dispatchAddonReviews();
       const root = render();
 
-      const cardList = root.find('.AddonReviewList-reviews');
+      const cardList = root.find('.AddonReviewList-reviews-listing');
       expect(cardList).toHaveProp('header');
       expect(cardList.prop('header')).toContain('1 review for this add-on');
     });
@@ -605,11 +665,16 @@ describe(__filename, () => {
         return render(otherProps);
       };
 
+      const renderFooter = (root) => {
+        return shallow(
+          root.find('.AddonReviewList-reviews-listing').prop('footer'),
+        );
+      };
+
       it('configures a paginator with the right URL', () => {
         const root = renderWithPagination();
 
-        const footer = root.find('.AddonReviewList-reviews').prop('footer');
-        const paginator = shallow(footer);
+        const paginator = renderFooter(root);
 
         expect(paginator.instance()).toBeInstanceOf(Paginate);
         expect(paginator).toHaveProp('pathname', root.instance().url());
@@ -618,9 +683,7 @@ describe(__filename, () => {
       it('configures a paginator with the right Link', () => {
         const root = renderWithPagination();
 
-        const footer = root.find('.AddonReviewList-reviews').prop('footer');
-        // `footer` contains a paginator
-        expect(shallow(footer)).toHaveProp('LinkComponent', Link);
+        expect(renderFooter(root)).toHaveProp('LinkComponent', Link);
       });
 
       it('configures a paginator with the right review count', () => {
@@ -628,18 +691,14 @@ describe(__filename, () => {
 
         const root = renderWithPagination({ reviews });
 
-        const footer = root.find('.AddonReviewList-reviews').prop('footer');
-        // `footer` contains a paginator
-        expect(shallow(footer)).toHaveProp('count', reviews.length);
+        expect(renderFooter(root)).toHaveProp('count', reviews.length);
       });
 
       it('sets the paginator to page 1 without a query', () => {
         // Render with an empty query string.
         const root = renderWithPagination({ location: createFakeLocation() });
 
-        const footer = root.find('.AddonReviewList-reviews').prop('footer');
-        // `footer` contains a paginator
-        expect(shallow(footer)).toHaveProp('currentPage', 1);
+        expect(renderFooter(root)).toHaveProp('currentPage', 1);
       });
 
       it('sets the paginator to the query string page', () => {
@@ -649,9 +708,7 @@ describe(__filename, () => {
           location: createFakeLocation({ query: { page } }),
         });
 
-        const footer = root.find('.AddonReviewList-reviews').prop('footer');
-        // `footer` contains a paginator
-        expect(shallow(footer)).toHaveProp('currentPage', page);
+        expect(renderFooter(root)).toHaveProp('currentPage', page);
       });
     });
 

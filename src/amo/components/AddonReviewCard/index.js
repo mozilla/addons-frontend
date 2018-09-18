@@ -14,7 +14,7 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
-import { isAddonAuthor } from 'core/utils';
+import { isAddonAuthor, sanitizeHTML } from 'core/utils';
 import {
   deleteAddonReview,
   hideEditReviewForm,
@@ -54,11 +54,13 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  clientApp: string,
   deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  lang: string,
   replyingToReview: boolean,
   siteUser: UserType | null,
   siteUserHasReplyPerm: boolean,
@@ -278,40 +280,54 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       _config,
       addon,
       className,
+      clientApp,
       deletingReview,
       editingReview,
       errorHandler,
       flaggable,
       i18n,
-      siteUserHasReplyPerm,
+      lang,
       replyingToReview,
       review,
       shortByLine,
       showRating,
       siteUser,
+      siteUserHasReplyPerm,
       verticalButtons,
     } = this.props;
 
     let byLine;
+    const noAuthor = shortByLine || this.isReply();
 
     if (review) {
-      const timestamp = i18n.moment(review.created).fromNow();
-      if (shortByLine || this.isReply()) {
-        // translators: Example in English: "posted last week"
-        byLine = i18n.sprintf(i18n.gettext('posted %(timestamp)s'), {
-          timestamp,
-        });
-      } else {
-        byLine = (
-          <span className="AddonReviewCard-authorByLine">
-            {/* translators: Example in English: "by UserName123, last week" */}
-            {i18n.sprintf(i18n.gettext('by %(authorName)s, %(timestamp)s'), {
+      const timestamp = `
+        <a href="/${lang}/${clientApp}/addon/${review.addonSlug}/reviews/${
+        review.id
+      }/">
+          ${i18n.moment(review.created).fromNow()}
+        </a>
+      `;
+      const byLineString = noAuthor
+        ? // translators: Example in English: "posted last week"
+          i18n.gettext('posted %(timestamp)s')
+        : // translators: Example in English: "by UserName123, last week"
+          i18n.gettext('by %(authorName)s, %(timestamp)s');
+
+      byLine = (
+        <span
+          className={makeClassName('', {
+            'AddonReviewCard-authorByLine': !noAuthor,
+          })}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={sanitizeHTML(
+            i18n.sprintf(byLineString, {
               authorName: review.userName,
               timestamp,
-            })}
-          </span>
-        );
-      }
+            }),
+            ['a'],
+          )}
+        />
+      );
     } else {
       byLine = <LoadingText />;
     }
@@ -457,11 +473,13 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     }
   }
   return {
+    clientApp: state.api.clientApp,
     deletingReview,
     editingReview,
-    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
+    lang: state.api.lang,
     replyingToReview,
     siteUser: getCurrentUser(state.users),
+    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
     submittingReply,
   };
 }

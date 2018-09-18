@@ -3,6 +3,8 @@ import {
   deleteAddonReview,
   unloadAddonReviews,
   createInternalReview,
+  fetchReview,
+  fetchReviews,
   flagReview,
   hideEditReviewForm,
   hideFlashedReviewMessage,
@@ -28,6 +30,7 @@ import reviewsReducer, {
   getReviewsByUserId,
   initialState,
   makeLatestUserReviewKey,
+  reviewsAreLoading,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
@@ -107,9 +110,21 @@ describe(__filename, () => {
     expect(storedReview.reply.body).toEqual(replyBody);
   });
 
+  describe('FETCH_REVIEW', () => {
+    it('sets a loading flag when fetching a review', () => {
+      const reviewId = 1;
+      const state = reviewsReducer(
+        undefined,
+        fetchReview({ errorHandlerId: 1, reviewId }),
+      );
+
+      expect(state.view[reviewId].loadingReview).toEqual(true);
+    });
+  });
+
   describe('SET_REVIEW', () => {
     it('calls _addReviewToState()', () => {
-      const _addReviewToState = sinon.spy();
+      const _addReviewToState = sinon.stub().returns(initialState);
 
       const review = fakeReview;
       reviewsReducer(undefined, setReview(review), {
@@ -120,6 +135,13 @@ describe(__filename, () => {
         state: initialState,
         review: createInternalReview(review),
       });
+    });
+
+    it('sets the loading flag to false', () => {
+      const review = fakeReview;
+      const state = reviewsReducer(undefined, setReview(fakeReview));
+
+      expect(state.view[review.id].loadingReview).toEqual(false);
     });
   });
 
@@ -761,6 +783,7 @@ describe(__filename, () => {
         editingReview: false,
         flag: {},
         replyingToReview: false,
+        loadingReview: false,
         submittingReply: false,
       });
     });
@@ -1151,6 +1174,45 @@ describe(__filename, () => {
       );
 
       expect(state.view[review.id].deletingReview).toEqual(true);
+    });
+  });
+
+  describe('reviewsAreLoading', () => {
+    it('returns false for an add-on for which reviews have never been fetched or loaded', () => {
+      const fetchedSlug = 'some-slug';
+      const nonfetchedSlug = 'another-slug';
+      const state = reviewsReducer(
+        undefined,
+        fetchReviews({ addonSlug: fetchedSlug, errorHandlerId: 1 }),
+      );
+      expect(reviewsAreLoading({ reviews: state }, nonfetchedSlug)).toBe(false);
+    });
+
+    it('returns true for an add-on for which reviews are loading', () => {
+      const slug = 'some-slug';
+      const state = reviewsReducer(
+        undefined,
+        fetchReviews({ addonSlug: slug, errorHandlerId: 1 }),
+      );
+      expect(reviewsAreLoading({ reviews: state }, slug)).toBe(true);
+    });
+
+    it('returns false for an add-on for which reviews have finished loading', () => {
+      const slug = 'some-slug';
+      let state = reviewsReducer(
+        undefined,
+        fetchReviews({ addonSlug: slug, errorHandlerId: 1 }),
+      );
+      state = reviewsReducer(
+        state,
+        setAddonReviews({
+          addonSlug: slug,
+          pageSize: DEFAULT_API_PAGE_SIZE,
+          reviews: [fakeReview],
+          reviewCount: 1,
+        }),
+      );
+      expect(reviewsAreLoading({ reviews: state }, slug)).toBe(false);
     });
   });
 });

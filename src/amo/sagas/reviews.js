@@ -12,6 +12,7 @@ import { delay } from 'redux-saga/lib/internal/utils';
 import {
   deleteReview,
   flagReview,
+  getReview,
   getReviews,
   replyToReview,
   submitReview,
@@ -21,6 +22,7 @@ import {
   CREATE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
+  FETCH_REVIEW,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   SAVED_RATING,
@@ -48,7 +50,9 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { AppState } from 'amo/store';
 import type {
   ExternalReviewReplyType,
+  ExternalReviewType,
   GetReviewsApiResponse,
+  GetReviewParams,
   GetReviewsParams,
   SubmitReviewParams,
   SubmitReviewResponse,
@@ -57,6 +61,7 @@ import type {
   CreateAddonReviewAction,
   DeleteAddonReviewAction,
   FetchGroupedRatingsAction,
+  FetchReviewAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
@@ -322,10 +327,35 @@ function* deleteAddonReview({
   }
 }
 
+function* fetchReview({
+  payload: { errorHandlerId, reviewId },
+}: FetchReviewAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const params: GetReviewParams = {
+      apiState: state.api,
+      reviewId,
+    };
+
+    const response: ExternalReviewType = yield call(getReview, params);
+
+    yield put(setReview(response));
+  } catch (error) {
+    log.warn(`Failed to get review ID ${reviewId}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* reviewsSaga(
   options?: Options,
 ): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
+  yield takeLatest(FETCH_REVIEW, fetchReview);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);
