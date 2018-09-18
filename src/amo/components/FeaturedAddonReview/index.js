@@ -2,7 +2,6 @@
 import * as React from 'react';
 import NestedStatus from 'react-nested-status';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import { fetchReview } from 'amo/actions/reviews';
@@ -18,7 +17,6 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -34,7 +32,6 @@ type InternalProps = {|
   featuredReview?: UserReviewType,
   i18n: I18nType,
   loadingReview: boolean,
-  location: ReactRouterLocationType,
 |};
 
 export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
@@ -74,7 +71,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { addon, errorHandler, featuredReview, location, i18n } = this.props;
+    const { addon, errorHandler, featuredReview, i18n } = this.props;
 
     const featuredReviewHeader = featuredReview
       ? i18n.sprintf(i18n.gettext('Review by %(userName)s'), {
@@ -91,11 +88,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
           </div>
         </NestedStatus>
       ) : (
-        <AddonReviewCard
-          addon={addon}
-          location={location}
-          review={featuredReview}
-        />
+        <AddonReviewCard addon={addon} review={featuredReview} />
       );
 
     return (
@@ -131,7 +124,6 @@ export const extractId = (ownProps: InternalProps) => {
 };
 
 const FeaturedAddonReview: React.ComponentType<Props> = compose(
-  withRouter,
   connect(mapStateToProps),
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
