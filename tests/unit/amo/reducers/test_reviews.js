@@ -80,8 +80,12 @@ describe(__filename, () => {
     const storedReview = state.byId[fakeReview.id];
 
     expect(storedReview).toEqual({
-      addonId: fakeReview.addon.id,
-      addonSlug: fakeReview.addon.slug,
+      reviewAddon: {
+        iconUrl: fakeReview.addon.icon_url,
+        id: fakeReview.addon.id,
+        name: fakeReview.addon.name,
+        slug: fakeReview.addon.slug,
+      },
       body: fakeReview.body,
       created: fakeReview.created,
       id: fakeReview.id,
@@ -397,7 +401,7 @@ describe(__filename, () => {
       });
 
       // Verify that data has been loaded for the reviewId.
-      expect(state.byId[reviewId].addonId).toEqual(addonId);
+      expect(state.byId[reviewId].reviewAddon.id).toEqual(addonId);
       expect(state.byAddon[addonSlug].reviews).toEqual([reviewId]);
       expect(state.byUserId[userId].reviews).toEqual([reviewId]);
       expect(state.groupedRatings[addonId]).toEqual(grouping);
@@ -466,7 +470,7 @@ describe(__filename, () => {
       });
 
       // Verify that the unrelated data has been loaded for the reviewId.
-      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+      expect(state.byId[reviewId2].reviewAddon.id).toEqual(addonId2);
       expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
@@ -475,7 +479,7 @@ describe(__filename, () => {
       state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
 
       // Verify that the unrelated data has not been unloaded.
-      expect(state.byId[reviewId2].addonId).toEqual(addonId2);
+      expect(state.byId[reviewId2].reviewAddon.id).toEqual(addonId2);
       expect(state.byAddon[addonSlug2].reviews).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);

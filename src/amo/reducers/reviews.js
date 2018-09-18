@@ -279,7 +279,7 @@ export const addReviewToState = ({
       ...state.groupedRatings,
       // When adding a new rating, reset the cache of groupedRatings.
       // This will trigger a refresh from the server.
-      [review.addonId]: undefined,
+      [review.reviewAddon.id]: undefined,
     },
   };
 };
@@ -553,12 +553,12 @@ export default function reviewsReducer(
 
       const reviewData = state.byId[reviewId];
       if (reviewData) {
-        const { addonId, addonSlug, userId } = reviewData;
+        const { reviewAddon, userId } = reviewData;
         return {
           ...newState,
           byAddon: {
             ...newState.byAddon,
-            [addonSlug]: undefined,
+            [reviewAddon.slug]: undefined,
           },
           byId: {
             ...newState.byId,
@@ -570,7 +570,7 @@ export default function reviewsReducer(
           },
           groupedRatings: {
             ...newState.groupedRatings,
-            [addonId]: undefined,
+            [reviewAddon.id]: undefined,
           },
         };
       }

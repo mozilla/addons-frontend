@@ -43,9 +43,15 @@ export const DELETE_ADDON_REVIEW: 'DELETE_ADDON_REVIEW' = 'DELETE_ADDON_REVIEW';
 export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
   'UNLOAD_ADDON_REVIEWS';
 
+export type ReviewAddonType = {|
+  iconUrl: string,
+  id: number,
+  name: string,
+  slug: string,
+|};
+
 export type UserReviewType = {|
-  addonId: number,
-  addonSlug: string,
+  reviewAddon: ReviewAddonType,
   body?: string,
   created: Date,
   id: number,
@@ -64,8 +70,12 @@ export function createInternalReview(
   review: ExternalReviewType | ExternalReviewReplyType,
 ): UserReviewType {
   return {
-    addonId: review.addon.id,
-    addonSlug: review.addon.slug,
+    reviewAddon: {
+      iconUrl: review.addon.icon_url,
+      id: review.addon.id,
+      name: review.addon.name,
+      slug: review.addon.slug,
+    },
     body: review.body,
     created: review.created,
     id: review.id,
