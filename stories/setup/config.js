@@ -2,13 +2,14 @@ import { configure, setAddon } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 import chaptersAddon, { setDefaults } from 'react-storybook-addon-chapters';
 
-// TBD: overrides chapters defaults. Do We want this?
+// TBD: overrides chapters defaults. Do we want this?
 setDefaults({
   sectionOptions: {
-    showSource: false,
+    allowPropTablesToggling: false,
     allowSourceToggling: false,
     showPropTables: false,
-    allowPropTablesToggling: false,
+    showSource: false,
+    useTheme: false,
   },
 });
 
