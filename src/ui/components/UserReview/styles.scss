@@ -53,3 +53,7 @@
     @include focus();
   }
 }
+
+.UserReview-byLine-developerResponse {
+  @include margin-end(6px);
+}

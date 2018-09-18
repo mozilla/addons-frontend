@@ -45,6 +45,7 @@ type Props = {|
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
+  isUserProfile: boolean,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
@@ -184,7 +185,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 
   isReply() {
-    return this.props.isReplyToReviewId !== undefined;
+    const { isReplyToReviewId, review } = this.props;
+    return (
+      isReplyToReviewId !== undefined || (review && review.isDeveloperReply)
+    );
   }
 
   editPrompt() {
@@ -286,6 +290,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       errorHandler,
       flaggable,
       i18n,
+      isUserProfile,
       lang,
       replyingToReview,
       review,
@@ -297,7 +302,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     } = this.props;
 
     let byLine;
-    const noAuthor = shortByLine || this.isReply();
+    const noAuthor = shortByLine || this.isReply() || isUserProfile;
 
     if (review) {
       const timestamp = `
@@ -439,7 +444,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               showRating={!this.isReply() && showRating}
             />
             {siteUser &&
-              this.isRatingOnly() && (
+              this.isRatingOnly() &&
+              !isUserProfile && (
                 <Button
                   className="AddonReviewCard-writeReviewButton"
                   onClick={this.onClickToEditReview}

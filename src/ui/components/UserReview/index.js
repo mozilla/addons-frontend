@@ -2,11 +2,14 @@
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
+import { compose } from 'redux';
 
+import translate from 'core/i18n/translate';
 import { nl2br, sanitizeHTML } from 'core/utils';
 import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -17,6 +20,11 @@ type Props = {|
   controls?: React.Node | null,
   review: ?UserReviewType,
   showRating?: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
 |};
 
 function reviewBody({
@@ -50,14 +58,17 @@ function reviewBody({
   );
 }
 
-const UserReview: React.ComponentType<Props> = ({
-  byLine,
-  children,
-  className,
-  controls,
-  review,
-  showRating = false,
-}: Props) => {
+export const UserReviewBase = (props: InternalProps) => {
+  const {
+    byLine,
+    children,
+    className,
+    controls,
+    i18n,
+    review,
+    showRating = false,
+  } = props;
+
   let body = reviewBody({ content: <LoadingText /> });
 
   if (review) {
@@ -76,6 +87,11 @@ const UserReview: React.ComponentType<Props> = ({
         {review && showRating ? (
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
+        {!showRating && (
+          <span className="UserReview-byLine-developerResponse">
+            {i18n.gettext('Developer response')}
+          </span>
+        )}
         {byLine}
       </div>
       {body}
@@ -84,5 +100,9 @@ const UserReview: React.ComponentType<Props> = ({
     </div>
   );
 };
+
+const UserReview: React.ComponentType<Props> = compose(translate())(
+  UserReviewBase,
+);
 
 export default UserReview;
