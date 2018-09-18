@@ -30,7 +30,10 @@ import OverlayCard from 'ui/components/OverlayCard';
 import UserRating from 'ui/components/UserRating';
 
 const defaultReview = {
-  addon: { id: fakeAddon.id, slug: fakeAddon.slug },
+  reviewAddon: {
+    id: fakeAddon.id,
+    slug: fakeAddon.slug,
+  },
   body: undefined,
   id: 3321,
   rating: 5,
@@ -121,7 +124,7 @@ describe(__filename, () => {
         sinon.assert.called(updateReviewText);
         const params = updateReviewText.firstCall.args[0];
         expect(params.body).toEqual('some review');
-        expect(params.addonId).toEqual(defaultReview.addon.id);
+        expect(params.addonId).toEqual(defaultReview.reviewAddon.id);
         expect(params.errorHandler).toEqual(errorHandler);
         expect(params.rating).toEqual(defaultReview.rating);
         expect(params.reviewId).toEqual(defaultReview.id);
@@ -134,7 +137,7 @@ describe(__filename, () => {
 
         sinon.assert.called(refreshAddon);
         expect(refreshAddon.firstCall.args[0]).toEqual({
-          addonSlug: defaultReview.addon.slug,
+          addonSlug: defaultReview.reviewAddon.slug,
           apiState,
         });
 

@@ -279,7 +279,7 @@ export const addReviewToState = ({
       ...state.groupedRatings,
       // When adding a new rating, reset the cache of groupedRatings.
       // This will trigger a refresh from the server.
-      [review.addon.id]: undefined,
+      [review.reviewAddon.id]: undefined,
     },
   };
 };
@@ -362,12 +362,8 @@ export default function reviewsReducer(
       });
     case SET_LATEST_REVIEW: {
       const { payload } = action;
-      const { addon, userId, review, versionId } = payload;
-      const key = makeLatestUserReviewKey({
-        addonId: addon.id,
-        userId,
-        versionId,
-      });
+      const { addonId, addonSlug, userId, review, versionId } = payload;
+      const key = makeLatestUserReviewKey({ addonId, userId, versionId });
 
       let { byId } = state;
       if (review) {
@@ -383,7 +379,7 @@ export default function reviewsReducer(
         byAddon: {
           ...state.byAddon,
           // Reset all add-on reviews to trigger a refresh from the server.
-          [addon.slug]: undefined,
+          [addonSlug]: undefined,
         },
         byUserId: {
           ...state.byUserId,
@@ -557,12 +553,12 @@ export default function reviewsReducer(
 
       const reviewData = state.byId[reviewId];
       if (reviewData) {
-        const { addon, userId } = reviewData;
+        const { reviewAddon, userId } = reviewData;
         return {
           ...newState,
           byAddon: {
             ...newState.byAddon,
-            [addon.slug]: undefined,
+            [reviewAddon.slug]: undefined,
           },
           byId: {
             ...newState.byId,
@@ -574,7 +570,7 @@ export default function reviewsReducer(
           },
           groupedRatings: {
             ...newState.groupedRatings,
-            [addon.id]: undefined,
+            [reviewAddon.id]: undefined,
           },
         };
       }

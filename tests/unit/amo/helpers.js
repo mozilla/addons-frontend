@@ -170,7 +170,7 @@ export const fakeReview = Object.freeze({
   id: 8876,
   // The API only provides a minimal add-on representation.
   addon: {
-    iconUrl: 'https://addons.cdn.mozilla.net/webdev-64.png',
+    icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
     id: fakeAddon.id,
     name: 'fake add-on name',
     slug: fakeAddon.slug,

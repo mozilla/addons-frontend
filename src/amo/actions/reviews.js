@@ -43,7 +43,7 @@ export const DELETE_ADDON_REVIEW: 'DELETE_ADDON_REVIEW' = 'DELETE_ADDON_REVIEW';
 export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
   'UNLOAD_ADDON_REVIEWS';
 
-export type SimplifiedAddonType = {|
+export type ReviewAddonType = {|
   iconUrl?: string,
   id: number,
   name?: string,
@@ -51,7 +51,7 @@ export type SimplifiedAddonType = {|
 |};
 
 export type UserReviewType = {|
-  addon: SimplifiedAddonType,
+  reviewAddon: ReviewAddonType,
   body?: string,
   created: Date,
   id: number,
@@ -70,7 +70,7 @@ export function createInternalReview(
   review: ExternalReviewType | ExternalReviewReplyType,
 ): UserReviewType {
   return {
-    addon: {
+    reviewAddon: {
       iconUrl: review.addon.icon_url,
       id: review.addon.id,
       name: review.addon.name,
@@ -518,7 +518,8 @@ export const setReviewWasFlagged = ({
 };
 
 type SetLatestReviewParams = {|
-  addon: SimplifiedAddonType,
+  addonId: number,
+  addonSlug: string,
   review: ExternalReviewType | null,
   userId: number,
   versionId: number,
@@ -530,19 +531,21 @@ export type SetLatestReviewAction = {|
 |};
 
 export const setLatestReview = ({
-  addon,
+  addonId,
+  addonSlug,
   versionId,
   review,
   userId,
 }: SetLatestReviewParams): SetLatestReviewAction => {
-  invariant(addon, 'addon is required');
+  invariant(addonId, 'addonId is required');
+  invariant(addonSlug, 'addonSlug is required');
   invariant(review !== undefined, 'review is required');
   invariant(userId, 'userId is required');
   invariant(versionId, 'versionId is required');
 
   return {
     type: SET_LATEST_REVIEW,
-    payload: { addon, review, userId, versionId },
+    payload: { addonId, addonSlug, review, userId, versionId },
   };
 };
 
