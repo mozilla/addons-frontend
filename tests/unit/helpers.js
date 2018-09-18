@@ -167,7 +167,7 @@ export const userAgentsByPlatform = {
       rv:33.0) Gecko/20100101 Firefox/33.0`,
     firefox57: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
       Gecko/20100101 Firefox/57.1`,
-    firefox61: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
+    firefox61: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:61.0)
       Gecko/20100101 Firefox/61.0`,
   },
   unix: {

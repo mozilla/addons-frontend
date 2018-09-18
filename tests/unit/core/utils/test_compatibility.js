@@ -726,10 +726,8 @@ describe(__filename, () => {
           clientApp,
           userAgentInfo,
         }),
-      ).toEqual({
+      ).toMatchObject({
         compatible: false,
-        maxVersion: addon.current_version.compatibility[clientApp].max,
-        minVersion: addon.current_version.compatibility[clientApp].min,
         reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
       });
     });
@@ -756,10 +754,8 @@ describe(__filename, () => {
           clientApp,
           userAgentInfo,
         }),
-      ).toEqual({
+      ).toMatchObject({
         compatible: true,
-        maxVersion: addon.current_version.compatibility[clientApp].max,
-        minVersion: addon.current_version.compatibility[clientApp].min,
         reason: null,
       });
     });

@@ -145,6 +145,7 @@ export function getClientCompatibility({
   clientApp,
   userAgentInfo,
   _window = typeof window !== 'undefined' ? window : {},
+  _log = log,
 } = {}) {
   // Check compatibility with client app.
   const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
@@ -175,13 +176,20 @@ export function getClientCompatibility({
 
   let compatible = agent.compatible && supportsClientApp;
 
-  const { browser } = userAgentInfo;
-  const isFF61 =
-    browser.name === 'Firefox' && mozCompare(browser.version, '61.0') >= 0;
+  if (compatible && addon && addon.isRestartRequired === true) {
+    const { browser } = userAgentInfo;
 
-  if (compatible && isFF61 && addon && addon.isRestartRequired === true) {
-    compatible = false;
-    reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
+    if (
+      browser.name === 'Firefox' &&
+      mozCompare(browser.version, '61.0') >= 0
+    ) {
+      compatible = false;
+      reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
+
+      _log.debug(
+        'add-on is incompatible because it is a non-restartless add-on',
+      );
+    }
   }
 
   return {
