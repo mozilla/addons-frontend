@@ -44,9 +44,9 @@ export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
   'UNLOAD_ADDON_REVIEWS';
 
 export type ReviewAddonType = {|
-  iconUrl?: string,
+  iconUrl: string,
   id: number,
-  name?: string,
+  name: string,
   slug: string,
 |};
 

@@ -301,9 +301,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     if (review) {
       const timestamp = `
-        <a href="/${lang}/${clientApp}/addon/${review.addonSlug}/reviews/${
-        review.id
-      }/">
+        <a href="/${lang}/${clientApp}/addon/${
+        review.reviewAddon.slug
+      }/reviews/${review.id}/">
           ${i18n.moment(review.created).fromNow()}
         </a>
       `;
