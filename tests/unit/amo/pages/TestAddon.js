@@ -28,7 +28,7 @@ import {
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
-import { setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_COMPLETE_THEME,
@@ -39,10 +39,12 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
+  FATAL_ERROR,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
-  INSTALL_SOURCE_DETAIL_PAGE,
   INSTALLED,
+  INSTALLING,
+  INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
@@ -51,6 +53,7 @@ import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { addQueryParamsToHistory } from 'core/utils';
+import { getErrorMessage } from 'core/utils/addons';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -1752,6 +1755,43 @@ describe(__filename, () => {
     expect(root.find('.Button--get-firefox')).toHaveLength(1);
     expect(root.find('.Button--get-firefox').prop('href')).toMatch(
       `&utm_content=${guid}`,
+    );
+  });
+
+  it('does not render an install error if there is no error', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(_loadAddons({ addon }));
+
+    const root = renderComponent({ params: { slug: addon.slug }, store });
+
+    expect(root.find('.Addon-header-install-error')).toHaveLength(0);
+  });
+
+  it('renders an install error if there is one', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(_loadAddons({ addon }));
+
+    // User clicks the install button.
+    store.dispatch(
+      setInstallState({
+        guid: addon.guid,
+        status: INSTALLING,
+      }),
+    );
+    // An error has occured in FF.
+    const error = FATAL_ERROR;
+    store.dispatch(setInstallError({ error, guid: addon.guid }));
+
+    const root = renderComponent({ params: { slug: addon.slug }, store });
+
+    expect(root.find('.Addon-header-install-error')).toHaveLength(1);
+    expect(root.find('.Addon-header-install-error')).toHaveProp(
+      'children',
+      getErrorMessage({ i18n: fakeI18n(), error }),
     );
   });
 });

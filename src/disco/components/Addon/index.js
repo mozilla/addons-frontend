@@ -15,12 +15,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
-  DOWNLOAD_FAILED,
   ERROR,
-  FATAL_ERROR,
-  FATAL_INSTALL_ERROR,
-  FATAL_UNINSTALL_ERROR,
-  INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
   UNINSTALLED,
   UNKNOWN,
@@ -31,6 +26,7 @@ import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
 import { isTheme } from 'core/utils';
+import { getErrorMessage } from 'core/utils/addons';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
@@ -77,6 +73,7 @@ export class AddonBase extends React.Component {
 
   getError() {
     const { error, i18n, status } = this.props;
+    const errorMessage = getErrorMessage({ i18n, error });
 
     return status === ERROR ? (
       <CSSTransition
@@ -85,7 +82,7 @@ export class AddonBase extends React.Component {
         timeout={CSS_TRANSITION_TIMEOUT}
       >
         <div className="notification error">
-          <p className="message">{this.errorMessage()}</p>
+          <p className="message">{errorMessage}</p>
           {error && !error.startsWith('FATAL') ? (
             // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
             <a className="close" href="#" onClick={this.closeError}>
@@ -172,27 +169,6 @@ export class AddonBase extends React.Component {
       type: addon.type,
     });
   };
-
-  errorMessage() {
-    const { error, i18n } = this.props;
-    switch (error) {
-      case INSTALL_FAILED:
-        return i18n.gettext('Installation failed. Please try again.');
-      case DOWNLOAD_FAILED:
-        return i18n.gettext('Download failed. Please check your connection.');
-      case FATAL_INSTALL_ERROR:
-        return i18n.gettext(
-          'An unexpected error occurred during installation.',
-        );
-      case FATAL_UNINSTALL_ERROR:
-        return i18n.gettext(
-          'An unexpected error occurred during uninstallation.',
-        );
-      case FATAL_ERROR:
-      default:
-        return i18n.gettext('An unexpected error occurred.');
-    }
-  }
 
   closeError = (e) => {
     e.preventDefault();

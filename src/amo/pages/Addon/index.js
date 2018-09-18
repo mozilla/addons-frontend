@@ -46,6 +46,7 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
+import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
@@ -83,6 +84,7 @@ export class AddonBase extends React.Component {
     hasAddonManager: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
     install: PropTypes.func.isRequired,
+    installError: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
     lang: PropTypes.string.isRequired,
     platformFiles: PropTypes.object,
@@ -370,6 +372,20 @@ export class AddonBase extends React.Component {
     );
   }
 
+  renderInstallError() {
+    const { i18n, installError: error } = this.props;
+
+    if (!error) {
+      return null;
+    }
+
+    return (
+      <Notice className="Addon-header-install-error" type="error">
+        {getErrorMessage({ i18n, error })}
+      </Notice>
+    );
+  }
+
   render() {
     const {
       addon,
@@ -495,8 +511,11 @@ export class AddonBase extends React.Component {
         )}
 
         {errorBanner}
+
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
+            {this.renderInstallError()}
+
             {isFireFox && !isCompatible ? (
               <AddonCompatibilityError
                 className="Addon-header-compatibility-error"
@@ -506,6 +525,7 @@ export class AddonBase extends React.Component {
                 reason={compatibility.reason}
               />
             ) : null}
+
             {addon && (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
               <Notice type="error" className="Addon-non-public-notice">
                 {i18n.gettext(
@@ -513,6 +533,7 @@ export class AddonBase extends React.Component {
                 )}
               </Notice>
             ) : null}
+
             <header className="Addon-header">
               {this.headerImage()}
 
@@ -639,6 +660,7 @@ export function mapStateToProps(state, ownProps) {
     addonIsLoading: isAddonLoading(state, slug),
     addonsByAuthors,
     clientApp: state.api.clientApp,
+    installError: installedAddon.error,
     installStatus: installedAddon.status || UNKNOWN,
     lang: state.api.lang,
     // In addition to this component, this also is required by the
