@@ -24,7 +24,7 @@ const sections = [
   },
 ];
 
-storiesOf('Badge').addWithChapters('Badge variations', {
+storiesOf('Badge', module).addWithChapters('Badge variations', {
   useTheme: true,
   chapters: [
     {

@@ -76,7 +76,7 @@ function createChapters() {
   });
 }
 
-storiesOf('Button').addWithChapters('Button variations', {
+storiesOf('Button', module).addWithChapters('Button variations', {
   useTheme: false,
   chapters: createChapters(),
 });
