@@ -7,7 +7,6 @@ setDefaults({
   sectionOptions: {
     allowPropTablesToggling: false,
     allowSourceToggling: false,
-    showPropTables: false,
     showSource: false,
     useTheme: false,
   },
