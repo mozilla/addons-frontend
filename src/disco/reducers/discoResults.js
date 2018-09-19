@@ -29,9 +29,13 @@ export type ExternalDiscoResultsType = {|
   |},
 |};
 
-type DiscoResultsState = Array<ExternalDiscoResultType>;
+type DiscoResultsState = {|
+  results: Array<ExternalDiscoResultType>,
+|};
 
-export const initialState: DiscoResultsState = [];
+export const initialState: DiscoResultsState = {
+  results: [],
+};
 
 type GetDiscoResultsParams = {|
   errorHandlerId: string,
@@ -88,9 +92,13 @@ export default function discoResults(
   switch (action.type) {
     case LOAD_DISCO_RESULTS: {
       const { entities, result } = action.payload;
-      // The API schema that complicates result.results can be found in
-      // disco/api.js
-      return result.results.map((guid) => entities.discoResults[guid]);
+
+      return {
+        ...state,
+        // The API schema that complicates result.results can be found in
+        // disco/api.js
+        results: result.results.map((guid) => entities.discoResults[guid]),
+      };
     }
     default:
       return state;

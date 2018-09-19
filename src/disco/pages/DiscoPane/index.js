@@ -179,7 +179,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
 }
 
 export function loadedAddons(state: AppState) {
-  return state.discoResults.map((result: ExternalDiscoResultType) => {
+  return state.discoResults.results.map((result: ExternalDiscoResultType) => {
     return {
       ...result,
       // `result` comes from the API call in `src/disco/api.js` and
