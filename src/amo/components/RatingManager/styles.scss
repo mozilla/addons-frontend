@@ -40,6 +40,10 @@
   .DismissibleTextForm-submit {
     width: 100%;
   }
+
+  .UserReview-byLine {
+    display: none;
+  }
 }
 
 .RatingManager-AddonReviewCard.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly) {

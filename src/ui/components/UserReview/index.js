@@ -6,6 +6,7 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import { nl2br, sanitizeHTML } from 'core/utils';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
@@ -18,8 +19,8 @@ type Props = {|
   children?: React.Node,
   className?: string,
   controls?: React.Node | null,
+  isReply?: boolean,
   review: ?UserReviewType,
-  showDeveloperResponseHeading?: boolean,
   showRating?: boolean,
 |};
 
@@ -66,9 +67,9 @@ export const UserReviewBase = (props: InternalProps) => {
     className,
     controls,
     i18n,
+    isReply = false,
     review,
     showRating = false,
-    showDeveloperResponseHeading = false,
   } = props;
 
   let body = reviewBody({ content: <LoadingText /> });
@@ -90,10 +91,11 @@ export const UserReviewBase = (props: InternalProps) => {
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
         {review &&
-          showDeveloperResponseHeading && (
-            <span className="UserReview-byLine-developerResponse">
+          isReply && (
+            <h4 className="UserReview-reply-header">
+              <Icon name="reply-arrow" />
               {i18n.gettext('Developer response')}
-            </span>
+            </h4>
           )}
         {byLine}
       </div>

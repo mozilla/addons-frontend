@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { createInternalReview, setReview } from 'amo/actions/reviews';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import UserReview, { UserReviewBase } from 'ui/components/UserReview';
@@ -104,22 +105,24 @@ describe(__filename, () => {
     expect(root.find(UserRating)).toHaveLength(0);
   });
 
-  it('does not show a developer response heading by default', () => {
+  it('adds a developer response header to replies', () => {
+    const root = render({ isReply: true });
+
+    const replyHeader = root.find('.UserReview-reply-header');
+    expect(replyHeader).toHaveLength(1);
+    expect(replyHeader.find(Icon)).toHaveProp('name', 'reply-arrow');
+  });
+
+  it('does not show a developer response header by default', () => {
     const root = render();
 
-    expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(0);
+    expect(root.find('.UserReview-reply-header')).toHaveLength(0);
   });
 
-  it('shows a developer response heading if requested', () => {
-    const root = render({ showDeveloperResponseHeading: true });
+  it('does not show a developer response header for non-replies', () => {
+    const root = render({ isReply: false });
 
-    expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(1);
-  });
-
-  it('does not show a developer response heading if requested not to', () => {
-    const root = render({ showDeveloperResponseHeading: false });
-
-    expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(0);
+    expect(root.find('.UserReview-reply-header')).toHaveLength(0);
   });
 
   it('accepts a class name', () => {

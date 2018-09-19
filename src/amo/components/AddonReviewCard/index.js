@@ -45,7 +45,6 @@ type Props = {|
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
-  isUserProfile?: boolean,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
@@ -72,7 +71,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     flaggable: true,
-    isUserProfile: false,
     shortByLine: false,
     showRating: true,
     verticalButtons: false,
@@ -239,10 +237,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonReviewCard-reply">
-        <h4 className="AddonReviewCard-reply-header">
-          <Icon name="reply-arrow" />
-          {i18n.gettext('Developer response')}
-        </h4>
         {replyingToReview ? (
           <DismissibleTextForm
             className="AddonReviewCard-reply-form"
@@ -283,8 +277,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       errorHandler,
       flaggable,
       i18n,
-      isReplyToReviewId,
-      isUserProfile,
       lang,
       replyingToReview,
       review,
@@ -296,7 +288,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     } = this.props;
 
     let byLine;
-    const noAuthor = shortByLine || this.isReply() || isUserProfile;
+    const noAuthor = shortByLine || this.isReply();
 
     if (review) {
       const timestamp = `
@@ -434,15 +426,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             <UserReview
               controls={controls}
               review={review}
-              byLine={!this.isRatingOnly() && byLine}
+              byLine={byLine}
               showRating={!this.isReply() && showRating}
-              showDeveloperResponseHeading={
-                this.isReply() && !isReplyToReviewId
-              }
+              isReply={this.isReply()}
             />
             {siteUser &&
-              this.isRatingOnly() &&
-              !isUserProfile && (
+              this.isRatingOnly() && (
                 <Button
                   className="AddonReviewCard-writeReviewButton"
                   onClick={this.onClickToEditReview}

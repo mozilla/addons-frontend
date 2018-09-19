@@ -35,7 +35,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
-import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserReview from 'ui/components/UserReview';
 
@@ -58,7 +57,6 @@ describe(__filename, () => {
       _config: getFakeConfig({ enableInlineAddonReview: false }),
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
-      isUserProfile: false,
       store,
       ...customProps,
     };
@@ -165,6 +163,7 @@ describe(__filename, () => {
     expect(rating).toHaveProp('review', review);
     expect(rating).toHaveProp('showRating', true);
     expect(rating).toHaveProp('byLine');
+    expect(rating).toHaveProp('isReply', false);
   });
 
   it('renders a custom className', () => {
@@ -1010,20 +1009,6 @@ describe(__filename, () => {
 
       expect(getByLineHtml(root)).toContain('posted ');
     });
-
-    it('does not render a byLine for ratings', () => {
-      const review = _setReview(fakeRatingOnly);
-      const root = render({ review });
-
-      expect(root.find(UserReview)).toHaveProp('byLine', false);
-    });
-
-    it('renders a short byLine for user profile reviews', () => {
-      const review = _setReview(fakeReview);
-      const root = render({ isUserProfile: true, review });
-
-      expect(getByLineHtml(root)).toContain('posted ');
-    });
   });
 
   describe('Developer reply to a review', () => {
@@ -1038,20 +1023,17 @@ describe(__filename, () => {
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
     });
 
-    it('does not show an additional Developer response header for a nested reply', () => {
-      const root = renderReply();
-
-      expect(root.find(UserReview)).toHaveProp(
-        'showDeveloperResponseHeading',
-        false,
-      );
-    });
-
     it('hides rating stars', () => {
       const root = renderReply();
 
       const rating = root.find(UserReview);
       expect(rating).toHaveProp('showRating', false);
+    });
+
+    it('passes isReply to the UserReview', () => {
+      const root = renderReply();
+
+      expect(root.find(UserReview)).toHaveProp('isReply', true);
     });
 
     it('hides rating stars even with showRating=true', () => {
@@ -1161,24 +1143,6 @@ describe(__filename, () => {
       );
     });
 
-    it('adds a developer response header to reply forms', () => {
-      const { review } = _setReviewReply();
-      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-
-      const root = render({ review });
-
-      const formContainer = root.find('.AddonReviewCard-reply');
-      expect(formContainer).toHaveLength(1);
-      expect(formContainer.find('.AddonReviewCard-reply-header')).toHaveLength(
-        1,
-      );
-
-      const icon = formContainer.find(Icon);
-      expect(icon).toHaveProp('name', 'reply-arrow');
-
-      expect(formContainer.find('.AddonReviewCard-reply-form')).toHaveLength(1);
-    });
-
     it('renders a non-nested reply', () => {
       const review = _setReview({
         ...fakeReview,
@@ -1189,7 +1153,6 @@ describe(__filename, () => {
 
       const reviewComponent = root.find(UserReview);
       expect(reviewComponent).toHaveProp('showRating', false);
-      expect(reviewComponent).toHaveProp('showDeveloperResponseHeading', true);
     });
   });
 });
