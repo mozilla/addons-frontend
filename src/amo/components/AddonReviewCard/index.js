@@ -283,6 +283,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       errorHandler,
       flaggable,
       i18n,
+      isReplyToReviewId,
       isUserProfile,
       lang,
       replyingToReview,
@@ -435,6 +436,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               review={review}
               byLine={!this.isRatingOnly() && byLine}
               showRating={!this.isReply() && showRating}
+              showDeveloperResponseHeading={
+                this.isReply() && !isReplyToReviewId
+              }
             />
             {siteUser &&
               this.isRatingOnly() &&

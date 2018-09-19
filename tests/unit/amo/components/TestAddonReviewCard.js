@@ -954,8 +954,8 @@ describe(__filename, () => {
   });
 
   describe('byLine', () => {
-    function renderByLine(root) {
-      return shallow(root.find(UserReview).prop('byLine'));
+    function getByLineHtml(root) {
+      return shallow(root.find(UserReview).prop('byLine')).html();
     }
 
     it('renders a byLine with a permalink to the review', () => {
@@ -969,9 +969,9 @@ describe(__filename, () => {
       });
       const root = render({ review, store });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain(`/${lang}/${clientApp}/addon/${slug}/reviews/${review.id}/`);
+      expect(getByLineHtml(root)).toContain(
+        `/${lang}/${clientApp}/addon/${slug}/reviews/${review.id}/`,
+      );
     });
 
     it('renders a byLine with a relative date', () => {
@@ -979,9 +979,9 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, review });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain(i18n.moment(review.created).fromNow());
+      expect(getByLineHtml(root)).toContain(
+        i18n.moment(review.created).fromNow(),
+      );
     });
 
     it('renders a byLine with an author by default', () => {
@@ -991,9 +991,7 @@ describe(__filename, () => {
       });
       const root = render({ review });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain(`by ${name},`);
+      expect(getByLineHtml(root)).toContain(`by ${name},`);
     });
 
     it('renders a short byLine for replies by default', () => {
@@ -1003,18 +1001,14 @@ describe(__filename, () => {
 
       const root = renderReply({ i18n, reply });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain('posted ');
+      expect(getByLineHtml(root)).toContain('posted ');
     });
 
     it('renders a short byLine explicitly', () => {
       const review = _setReview(fakeReview);
       const root = render({ shortByLine: true, review });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain('posted ');
+      expect(getByLineHtml(root)).toContain('posted ');
     });
 
     it('does not render a byLine for ratings', () => {
@@ -1028,9 +1022,7 @@ describe(__filename, () => {
       const review = _setReview(fakeReview);
       const root = render({ isUserProfile: true, review });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain('posted ');
+      expect(getByLineHtml(root)).toContain('posted ');
     });
   });
 
@@ -1044,6 +1036,15 @@ describe(__filename, () => {
       expect(replyComponent).toHaveLength(1);
       expect(replyComponent).toHaveProp('review', reply);
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
+    });
+
+    it('does not show an additional Developer response header for a nested reply', () => {
+      const root = renderReply();
+
+      expect(root.find(UserReview)).toHaveProp(
+        'showDeveloperResponseHeading',
+        false,
+      );
     });
 
     it('hides rating stars', () => {
@@ -1188,6 +1189,7 @@ describe(__filename, () => {
 
       const reviewComponent = root.find(UserReview);
       expect(reviewComponent).toHaveProp('showRating', false);
+      expect(reviewComponent).toHaveProp('showDeveloperResponseHeading', true);
     });
   });
 });

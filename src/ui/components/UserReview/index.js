@@ -19,6 +19,7 @@ type Props = {|
   className?: string,
   controls?: React.Node | null,
   review: ?UserReviewType,
+  showDeveloperResponseHeading?: boolean,
   showRating?: boolean,
 |};
 
@@ -67,6 +68,7 @@ export const UserReviewBase = (props: InternalProps) => {
     i18n,
     review,
     showRating = false,
+    showDeveloperResponseHeading = false,
   } = props;
 
   let body = reviewBody({ content: <LoadingText /> });
@@ -88,7 +90,7 @@ export const UserReviewBase = (props: InternalProps) => {
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
         {review &&
-          !showRating && (
+          showDeveloperResponseHeading && (
             <span className="UserReview-byLine-developerResponse">
               {i18n.gettext('Developer response')}
             </span>

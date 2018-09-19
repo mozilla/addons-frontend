@@ -56,4 +56,7 @@
 
 .UserReview-byLine-developerResponse {
   @include margin-end(6px);
+
+  color: $text-color-default;
+  font-size: $font-size-default;
 }

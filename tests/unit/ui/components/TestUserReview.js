@@ -104,14 +104,20 @@ describe(__filename, () => {
     expect(root.find(UserRating)).toHaveLength(0);
   });
 
-  it('shows a developer response heading if ratings are hidden', () => {
-    const root = render({ showRating: false });
+  it('does not show a developer response heading by default', () => {
+    const root = render();
+
+    expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(0);
+  });
+
+  it('shows a developer response heading if requested', () => {
+    const root = render({ showDeveloperResponseHeading: true });
 
     expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(1);
   });
 
-  it('does not show a developer response heading if ratings are shown', () => {
-    const root = render({ showRating: true });
+  it('does not show a developer response heading if requested not to', () => {
+    const root = render({ showDeveloperResponseHeading: false });
 
     expect(root.find('.UserReview-byLine-developerResponse')).toHaveLength(0);
   });
