@@ -1,7 +1,7 @@
 /* @flow */
-import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { createChapters } from 'stories/utils';
 import Button from 'ui/components/Button';
 
 const label = 'Hello Button';
@@ -15,30 +15,27 @@ const buttonTypes = [
   'confirm',
 ];
 
+// TODO: add flow type here once it's set up in Button component.
 function createSections(buttonType) {
   return [
     {
-      description: `${buttonType || 'default (no buttonType)'}`,
       props: {
         buttonType,
       },
     },
     {
-      description: 'disabled=true',
       props: {
         buttonType,
         disabled: true,
       },
     },
     {
-      description: 'puffy=true',
       props: {
         buttonType,
         puffy: true,
       },
     },
     {
-      description: 'puffy=true, disabled=true',
       props: {
         buttonType,
         puffy: true,
@@ -46,14 +43,12 @@ function createSections(buttonType) {
       },
     },
     {
-      description: 'micro=true',
       props: {
         buttonType,
         micro: true,
       },
     },
     {
-      description: 'micro=true, disabled=true',
       props: {
         buttonType,
         micro: true,
@@ -63,20 +58,11 @@ function createSections(buttonType) {
   ];
 }
 
-function createChapters() {
-  return buttonTypes.map((type) => {
-    return {
-      title: type,
-      sections: createSections(type).map((section) => {
-        return {
-          subtitle: `${section.description}`,
-          sectionFn: () => <Button {...section.props}>{label}</Button>,
-        };
-      }),
-    };
-  });
-}
-
 storiesOf('Button', module).addWithChapters('Button variations', {
-  chapters: createChapters(),
+  chapters: createChapters({
+    Component: Button,
+    sections: buttonTypes,
+    createSections,
+    children: label,
+  }),
 });

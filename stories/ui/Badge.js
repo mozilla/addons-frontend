@@ -1,40 +1,41 @@
 /* @flow */
-import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { createChapters } from 'stories/utils';
 import Badge from 'ui/components/Badge';
 import type { Props as BadgeProps } from 'ui/components/Badge';
 
 const label = 'Hello Badge';
 
-const sections = [
-  {
-    type: 'featured',
-  },
-  {
-    type: 'experimental',
-  },
-  {
-    type: 'restart-required',
-  },
-  {
-    type: 'not-compatible',
-  },
-  {
-    type: 'requires-payment',
-  },
+const types = [
+  'featured',
+  'experimental',
+  'restart-required',
+  'not-compatible',
+  'requires-payment',
 ];
 
-storiesOf('Badge', module).addWithChapters('Badge variations', {
-  chapters: [
+type Props = {|
+  props: BadgeProps,
+|};
+
+function createSections(type): Array<Props> {
+  return [
     {
-      sections: sections.map((section) => {
-        const props: BadgeProps = { label, ...section };
-        return {
-          subtitle: `type=${section.type}`,
-          sectionFn: () => <Badge {...props} />,
-        };
-      }),
+      props: {
+        type,
+        label,
+      },
     },
-  ],
+  ];
+}
+
+storiesOf('Badge', module).addWithChapters('Badge variations', {
+  chapters: createChapters({
+    Component: Badge,
+    sections: types,
+    createSections,
+    children: label,
+    showChapterTitle: false,
+  }),
 });
