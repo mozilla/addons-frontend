@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-11 17:00+0000\n"
+"POT-Creation-Date: 2018-09-19 09:03+0000\n"
 "PO-Revision-Date: 2018-08-24 09:53+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -116,27 +116,27 @@ msgstr "A(z) %(name)s el lett távolítva. Kattintson a telepítéshez."
 msgid "Install state for %(name)s is unknown."
 msgstr "A(z) %(name)s telepítési állapota ismeretlen."
 
-#: src/disco/components/Addon/index.js:180
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "A telepítés sikertelen. Kérjük, próbálja meg újra."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
 
-#: src/disco/components/Addon/index.js:184
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Váratlan hiba történt a telepítés során."
 
-#: src/disco/components/Addon/index.js:188
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Váratlan hiba történt az eltávolítás során."
 
-#: src/disco/components/Addon/index.js:193
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
-#: src/disco/components/Addon/index.js:92
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Bezárás"
 
@@ -156,15 +156,19 @@ msgstr "Ez a kiegészítő nem támogatja a böngészőjét."
 msgid "Discover Add-ons"
 msgstr "Kiegészítők felfedezése"
 
-#: src/disco/components/DiscoPane/index.js:120
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Adatvédelmi irányelvek"
+
+#: src/disco/pages/DiscoPane/index.js:120
 msgid "Find more add-ons"
 msgstr "Több kiegészítő keresése"
 
-#: src/disco/components/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
 msgstr "A Firefox testreszabása"
 
-#: src/disco/components/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:142
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -182,10 +186,6 @@ msgstr ""
 "itt van néhány,\n"
 "amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "Adatvédelmi irányelvek"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "A munkamenet lejárt"
@@ -198,7 +198,7 @@ msgstr "Váratlan hiba történt"
 msgid "Reload To Continue"
 msgstr "Töltse újra a folytatáshoz"
 
-#: src/ui/components/Notice/index.js:128
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr "Értesítés elvetése"
 

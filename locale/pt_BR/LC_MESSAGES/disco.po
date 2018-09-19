@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-11 17:00+0000\n"
+"POT-Creation-Date: 2018-09-19 09:03+0000\n"
 "PO-Revision-Date: 2018-08-21 14:01+0000\n"
 "Last-Translator: Wolfgang Marcos <eusou@olobo.me>\n"
 "Language-Team: none\n"
@@ -115,27 +115,27 @@ msgstr "%(name)s está desinstalado. Clique para instalar."
 msgid "Install state for %(name)s is unknown."
 msgstr "Estado da instalação de %(name)s é desconhecido."
 
-#: src/disco/components/Addon/index.js:180
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "A instalação falhou. Tente novamente."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "O download falhou. Por favor, verifique sua conexão."
 
-#: src/disco/components/Addon/index.js:184
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Ocorreu um erro inesperado durante a instalação."
 
-#: src/disco/components/Addon/index.js:188
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ocorreu um erro inesperado durante a desinstalação."
 
-#: src/disco/components/Addon/index.js:193
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Ocorreu um erro inesperado."
 
-#: src/disco/components/Addon/index.js:92
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Fechar"
 
@@ -155,15 +155,19 @@ msgstr "Esta extensão não é suportada pelo seu navegador."
 msgid "Discover Add-ons"
 msgstr "Descobrir extensões"
 
-#: src/disco/components/DiscoPane/index.js:120
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Política de privacidade"
+
+#: src/disco/pages/DiscoPane/index.js:120
 msgid "Find more add-ons"
 msgstr "Encontrar mais extensões"
 
-#: src/disco/components/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
 msgstr "Personalize seu Firefox"
 
-#: src/disco/components/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:142
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -179,10 +183,6 @@ msgstr ""
 "extensões fazem o seu navegador ser seu. Para o ajudar a começar, aqui estão "
 "algumas que recomendamos por suas funcionalidade e desempenho."
 
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "Política de privacidade"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "Sua sessão expirou"
@@ -195,7 +195,7 @@ msgstr "Ocorreu um erro inesperado"
 msgid "Reload To Continue"
 msgstr "Recarregue para continuar"
 
-#: src/ui/components/Notice/index.js:128
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr "Descartar este aviso"
 

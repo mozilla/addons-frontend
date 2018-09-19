@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-11 17:00+0000\n"
+"POT-Creation-Date: 2018-09-19 09:03+0000\n"
 "PO-Revision-Date: 2018-08-24 11:25+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -113,27 +113,27 @@ msgstr "已移除 %(name)s，點擊安裝。"
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安裝狀態未知。"
 
-#: src/disco/components/Addon/index.js:180
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "安裝失敗，請再試一次。"
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "下載失敗，請檢查網路連線。"
 
-#: src/disco/components/Addon/index.js:184
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "安裝時發生未預期的錯誤。"
 
-#: src/disco/components/Addon/index.js:188
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "移除時發生未預期的錯誤。"
 
-#: src/disco/components/Addon/index.js:193
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "發生未預期的錯誤。"
 
-#: src/disco/components/Addon/index.js:92
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "關閉"
 
@@ -153,15 +153,19 @@ msgstr "此附加元件不支援您的瀏覽器。"
 msgid "Discover Add-ons"
 msgstr "探索附加元件"
 
-#: src/disco/components/DiscoPane/index.js:120
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "隱私權保護政策"
+
+#: src/disco/pages/DiscoPane/index.js:120
 msgid "Find more add-ons"
 msgstr "看更多附加元件！"
 
-#: src/disco/components/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
-#: src/disco/components/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:142
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -172,10 +176,6 @@ msgstr ""
 "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有"
 "您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。"
 "為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
-
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "隱私權保護政策"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -189,7 +189,7 @@ msgstr "發生未預期的錯誤"
 msgid "Reload To Continue"
 msgstr "重新載入以繼續"
 
-#: src/ui/components/Notice/index.js:128
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr "忽略此通知"
 

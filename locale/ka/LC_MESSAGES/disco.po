@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-11 17:00+0000\n"
+"POT-Creation-Date: 2018-09-19 09:03+0000\n"
 "PO-Revision-Date: 2018-08-24 20:24+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,27 +115,27 @@ msgstr "%(name)s წაშლილია. დააწკაპეთ დას
 msgid "Install state for %(name)s is unknown."
 msgstr "დაყენების მდგომარეობა %(name)s-ის შესახებ, დაუდგენელია."
 
-#: src/disco/components/Addon/index.js:180
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "დაყენება ვერ მოხერხდა. სცადეთ მოგვიანებით."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "ჩამოტვირთვა ვერ მოხერხდა. გთხოვთ შეამოწმოთ ქსელთან კავშირი."
 
-#: src/disco/components/Addon/index.js:184
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "მოულოდნელი შეცდომა დაყენებისას."
 
-#: src/disco/components/Addon/index.js:188
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "მოულოდნელი შეცდომა ამოშლისას."
 
-#: src/disco/components/Addon/index.js:193
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "მოულოდნელი შეცდომა."
 
-#: src/disco/components/Addon/index.js:92
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "დახურვა"
 
@@ -155,15 +155,19 @@ msgstr "ეს დამატება არათავსებადია 
 msgid "Discover Add-ons"
 msgstr "აღმოაჩინეთ ახალი დამატებები"
 
-#: src/disco/components/DiscoPane/index.js:120
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "პირადულობის დაცვა"
+
+#: src/disco/pages/DiscoPane/index.js:120
 msgid "Find more add-ons"
 msgstr "სხვა დამატებების მოძიება"
 
-#: src/disco/components/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
 msgstr "მოირგეთ თქვენი Firefox"
 
-#: src/disco/components/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:142
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -178,10 +182,6 @@ msgstr ""
 "მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, "
 "ბრაუზერის წარმადობისა და შესაძლებლობების გასაუმჯობესებლად."
 
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "პირადულობის დაცვა"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "თქვენი სეანსი ამოიწურა"
@@ -194,7 +194,7 @@ msgstr "მოულოდნელი შეცდომა"
 msgid "Reload To Continue"
 msgstr "გასაგრძელებლად, ხელახლა გახსენით"
 
-#: src/ui/components/Notice/index.js:128
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr "ამ შეტყობინების დამალვა"
 

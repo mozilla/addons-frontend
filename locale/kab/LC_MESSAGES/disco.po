@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-11 17:00+0000\n"
+"POT-Creation-Date: 2018-09-19 09:03+0000\n"
 "PO-Revision-Date: 2018-08-11 12:01+0000\n"
 "Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,27 +119,27 @@ msgstr "%(name)s yettwakkes. Sit akken ad yebded."
 msgid "Install state for %(name)s is unknown."
 msgstr "Addad n usebded n %(name)s d arussin."
 
-#: src/disco/components/Addon/index.js:180
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "Asebded ur yeddi ara. Ma ulac aqilif, ɛreḍ tikelt nniḍen."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "Asider ur yeddi ara. Ma ulac aɣilif senqed tuqqna yinek."
 
-#: src/disco/components/Addon/index.js:184
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Teḍra-d tuccḍa tarussint deg usebded."
 
-#: src/disco/components/Addon/index.js:188
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Teḍra-d tuccḍa tarussint deg tukksa n usebded."
 
-#: src/disco/components/Addon/index.js:193
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Teḍra-d tuccḍa tarussint."
 
-#: src/disco/components/Addon/index.js:92
+#: src/disco/components/Addon/index.js:89
 msgid "Close"
 msgstr "Mdel"
 
@@ -159,15 +159,19 @@ msgstr "Azegrir-agi ur ittusefrak ara deg iminig-ik."
 msgid "Discover Add-ons"
 msgstr "Issin izegrar"
 
-#: src/disco/components/DiscoPane/index.js:120
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Tasertit n tbaḍnit"
+
+#: src/disco/pages/DiscoPane/index.js:120
 msgid "Find more add-ons"
 msgstr "Aff-d ugar n izegrar"
 
-#: src/disco/components/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:140
 msgid "Personalize Your Firefox"
 msgstr "Sagen Firefox inek"
 
-#: src/disco/components/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:142
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -181,10 +185,6 @@ msgstr ""
 "aggan n tunigin inek imeṛṛa. Akken ad tebduḍ, nefren-d kra akken tella "
 "tmellit nsen neɣ timahilin nsen."
 
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "Tasertit n tbaḍnit"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "Tiɣimit-ik tfuk"
@@ -197,7 +197,7 @@ msgstr "Teḍra-d tuccḍa tarussint"
 msgid "Reload To Continue"
 msgstr "Smiren akken ad tkemmleḍ"
 
-#: src/ui/components/Notice/index.js:128
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr "Sɛuzẓeg i walɣu-agi"
 
