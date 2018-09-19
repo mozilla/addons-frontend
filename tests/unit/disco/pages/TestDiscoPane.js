@@ -16,13 +16,13 @@ import {
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon } from 'core/reducers/addons';
-import { getDiscoResults } from 'disco/actions';
 import { NAVIGATION_CATEGORY } from 'disco/constants';
 import DiscoPane, {
   DiscoPaneBase,
   mapDispatchToProps,
   mapStateToProps,
 } from 'disco/pages/DiscoPane';
+import { getDiscoResults } from 'disco/reducers/discoResults';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {

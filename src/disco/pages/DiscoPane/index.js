@@ -13,7 +13,7 @@ import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/components/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
 import { getAddonByGUID } from 'core/reducers/addons';
-import { getDiscoResults } from 'disco/actions';
+import { getDiscoResults } from 'disco/reducers/discoResults';
 import { NAVIGATION_CATEGORY } from 'disco/constants';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import Addon from 'disco/components/Addon';

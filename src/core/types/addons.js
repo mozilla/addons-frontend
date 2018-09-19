@@ -29,6 +29,12 @@ type AddonFileType = {|
 
 type PartialAddonVersionType = {|
   channel: string,
+  compatibility?: {
+    [appName: string]: {|
+      min: string,
+      max: string,
+    |},
+  },
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,

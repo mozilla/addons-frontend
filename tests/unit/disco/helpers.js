@@ -2,8 +2,8 @@ import { normalize } from 'normalizr';
 
 import { loadAddons } from 'core/reducers/addons';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
-import { loadDiscoResults } from 'disco/actions';
 import { discoResult } from 'disco/api';
+import { loadDiscoResults } from 'disco/reducers/discoResults';
 import createStore from 'disco/store';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 

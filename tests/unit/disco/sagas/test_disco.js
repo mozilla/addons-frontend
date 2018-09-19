@@ -3,8 +3,10 @@ import SagaTester from 'redux-saga-tester';
 import addonsReducer, { loadAddons } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import * as api from 'disco/api';
-import { getDiscoResults, loadDiscoResults } from 'disco/actions';
-import discoResultsReducer from 'disco/reducers/discoResults';
+import discoResultsReducer, {
+  getDiscoResults,
+  loadDiscoResults,
+} from 'disco/reducers/discoResults';
 import discoSaga from 'disco/sagas/disco';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import {
