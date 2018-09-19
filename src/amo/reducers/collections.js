@@ -53,7 +53,7 @@ export const FINISH_EDITING_COLLECTION_DETAILS: 'FINISH_EDITING_COLLECTION_DETAI
   'FINISH_EDITING_COLLECTION_DETAILS';
 
 export type CollectionFilters = {|
-  page: number,
+  page: string,
   collectionSort: string,
 |};
 
