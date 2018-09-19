@@ -27,8 +27,4 @@ module.exports = {
 
   enableAMInstallButton: true,
   enableInlineAddonReview: true,
-
-  experiments: {
-    home_hero: true,
-  },
 };

@@ -13,8 +13,4 @@ module.exports = {
   loggingLevel: 'debug',
   enableAMInstallButton: true,
   enableInlineAddonReview: true,
-
-  experiments: {
-    home_hero: true,
-  },
 };
