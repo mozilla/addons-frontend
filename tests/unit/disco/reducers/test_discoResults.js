@@ -1,5 +1,4 @@
-import { loadDiscoResults } from 'disco/actions';
-import discoResults from 'disco/reducers/discoResults';
+import discoResults, { loadDiscoResults } from 'disco/reducers/discoResults';
 import {
   createFetchDiscoveryResult,
   fakeDiscoAddon,

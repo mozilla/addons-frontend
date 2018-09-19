@@ -12,6 +12,7 @@ import type {
   ExternalAddonType,
   ThemeData,
 } from 'core/types/addons';
+import type { ExternalDiscoAddonMap } from 'disco/reducers/discoResults';
 
 export const LOAD_ADDONS: 'LOAD_ADDONS' = 'LOAD_ADDONS';
 export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
@@ -24,16 +25,16 @@ type ExternalAddonMap = {
 };
 
 export type LoadAddonsAction = {|
-  payload: {| addons: ExternalAddonMap |},
+  payload: {| addons: ExternalAddonMap | ExternalDiscoAddonMap |},
   type: typeof LOAD_ADDONS,
 |};
 
 // TODO: We should remove this method and move all calls to `loadAddonResults`.
 // This function relies on normalizr messing with our response data.
 // See: https://github.com/mozilla/addons-frontend/issues/2917
-export function loadAddons(entities: {|
-  addons?: ExternalAddonMap,
-|}): LoadAddonsAction {
+export function loadAddons(entities: {
+  addons: ExternalAddonMap,
+}): LoadAddonsAction {
   if (!entities) {
     throw new Error('the entities parameter cannot be empty');
   }
