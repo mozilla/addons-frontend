@@ -2,7 +2,7 @@
 import React from 'react';
 
 type CreateChapterParams = {|
-  // TODO: look into what React.Node or ~ React.ComponentType<any>
+  // TODO: look into why React.Node or ~ React.ComponentType<any>
   // doesn't work here :/.
   Component: Function,
   sections: Array<any>,
@@ -11,7 +11,7 @@ type CreateChapterParams = {|
   showChapterTitle?: boolean,
 |};
 
-// TODO: add these
+// TODO: Add these (to fix current flow issues).
 export type SectionType = {|
   subtitle: string,
   sectionFn: Function,

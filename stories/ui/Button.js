@@ -15,7 +15,7 @@ const buttonTypes = [
   'confirm',
 ];
 
-// TODO: add flow type here once it's set up in Button component.
+// TODO: Add flow type here once it's set up in the Button component.
 function createSections(buttonType) {
   return [
     {
