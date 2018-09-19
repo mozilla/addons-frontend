@@ -51,6 +51,7 @@ import type { SearchState } from 'core/reducers/search';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
 import type { ReactRouterHistoryType } from 'core/types/router';
+import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
 
 export type AppState = {|
   abuse: AbuseState,
@@ -80,14 +81,6 @@ export type AppState = {|
   viewContext: ViewContextState,
 |};
 
-// This is a type function that takes a state type and returns a reducer
-// type, i.e. a function that accepts and returns the same state type.
-/* eslint-disable no-undef */
-type CreateReducerType = <AnyState>(
-  AnyState,
-) => (AnyState, action: Object) => AnyState;
-/* eslint-enable no-undef */
-
 // Given AppState, create a type for all possible application reducers.
 // See https://flow.org/en/docs/types/utilities/#toc-objmap
 type AppReducersType = $ObjMap<AppState, CreateReducerType>;
@@ -103,11 +96,6 @@ export const createRootReducer = ({
 }: CreateRootReducerParams) => {
   return connectRouter(history)(combineReducers(reducers));
 };
-
-type CreateStoreParams = {|
-  history: ReactRouterHistoryType,
-  initialState: Object,
-|};
 
 export const reducers: AppReducersType = {
   abuse,
