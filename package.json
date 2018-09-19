@@ -352,6 +352,9 @@
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"
   },
+  "storybook-deployer": {
+    "commitMessage": "[skip ci] Deploy Storybook to Github Pages"
+  },
   "bundlesize": [
     {
       "path": "./dist/@(amo|disco)-!(i18n-)*.js",
