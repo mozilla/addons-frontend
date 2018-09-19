@@ -8,6 +8,7 @@ import {
   GLOBAL_EVENT_STATUS_MAP,
   INACTIVE,
   INSTALL_EVENT_LIST,
+  ON_OPERATION_CANCELLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
 import { addQueryParams, isTheme } from 'core/utils';
@@ -43,7 +44,7 @@ type OptionalParams = {|
 
 type GetAddonStatusParams = {|
   addon: FirefoxAddon,
-  type: string,
+  type?: string,
 |};
 
 export function getAddonStatus({ addon, type }: GetAddonStatusParams) {
@@ -162,33 +163,61 @@ export function addChangeListeners(
     needsRestart: boolean,
   |}) => void,
   mozAddonManager: MozAddonManagerType,
+  { _log = log }: {| _log: typeof log |} = {},
 ) {
   function handleChangeEvent(e: AddonChangeEvent) {
-    const { id, type, needsRestart } = e;
+    const { id: guid, type, needsRestart } = e;
 
-    log.info('Event received', { type, id, needsRestart });
+    _log.info('Event received', { type, id: guid, needsRestart });
+
+    if (type === ON_OPERATION_CANCELLED_EVENT) {
+      // We need to retrieve the correct status for this add-on.
+      return getAddon(guid, { _mozAddonManager: mozAddonManager })
+        .then((addon) => {
+          const status = getAddonStatus({ addon });
+
+          return callback({
+            guid,
+            status,
+            needsRestart,
+          });
+        })
+        .catch((error) => {
+          _log.error(
+            'Unexpected error after having received onOperationCancelled event',
+            error,
+          );
+        });
+    }
 
     // eslint-disable-next-line no-prototype-builtins
     if (GLOBAL_EVENT_STATUS_MAP.hasOwnProperty(type)) {
       return callback({
-        guid: id,
+        guid,
         status: GLOBAL_EVENT_STATUS_MAP[type],
         needsRestart,
       });
     }
+
     throw new Error(`Unknown global event: ${type}`);
   }
 
   if (mozAddonManager && mozAddonManager.addEventListener) {
     for (const event of GLOBAL_EVENTS) {
-      log.info(`adding event listener for "${event}"`);
+      _log.info(`adding event listener for "${event}"`);
       mozAddonManager.addEventListener(event, handleChangeEvent);
     }
 
-    log.info('Global change event listeners have been initialized');
+    mozAddonManager.addEventListener(
+      ON_OPERATION_CANCELLED_EVENT,
+      handleChangeEvent,
+    );
+
+    _log.info('Global change event listeners have been initialized');
   } else {
-    log.info('mozAddonManager.addEventListener not available');
+    _log.info('mozAddonManager.addEventListener not available');
   }
+
   return handleChangeEvent;
 }
 
