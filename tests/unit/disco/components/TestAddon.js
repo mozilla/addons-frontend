@@ -47,10 +47,10 @@ import ThemeImage from 'ui/components/ThemeImage';
 
 function renderAddon(customProps = {}) {
   const props = {
+    _getClientCompatibility: () => ({ compatible: true, reason: null }),
     clientApp: CLIENT_APP_FIREFOX,
     enable: sinon.stub(),
     getBrowserThemeData: () => '{"theme":"data"}',
-    getClientCompatibility: () => ({ compatible: true, reason: null }),
     i18n: fakeI18n(),
     installTheme: sinon.stub(),
     setCurrentStatus: sinon.stub(),
@@ -195,7 +195,8 @@ describe(__filename, () => {
     });
 
     it('renders the heading', () => {
-      const root = renderAddon({ addon: result });
+      const { heading, ...addon } = result;
+      const root = renderAddon({ addon, heading });
 
       expect(root.find('.heading').html()).toContain('test-heading');
     });
@@ -209,12 +210,10 @@ describe(__filename, () => {
     });
 
     it('purifies the heading', () => {
-      const data = {
-        ...result,
-        heading:
-          '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
-      };
-      const root = renderAddon({ addon: data });
+      const heading =
+        '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>';
+
+      const root = renderAddon({ addon: result, heading });
 
       expect(root.find('.heading').html()).toContain(
         'Hey! This is <span>an add-on</span>',
@@ -222,12 +221,10 @@ describe(__filename, () => {
     });
 
     it('purifies the heading with a link and adds link attrs', () => {
-      const data = {
-        ...result,
-        heading:
-          'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
-      };
-      const root = renderAddon({ addon: data });
+      const heading =
+        'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>';
+
+      const root = renderAddon({ addon: result, heading });
       const headingHtml = root.find('.heading').html();
 
       expect(headingHtml).toContain('rel="noopener noreferrer"');
@@ -235,12 +232,10 @@ describe(__filename, () => {
     });
 
     it('purifies the heading with a bad link', () => {
-      const data = {
-        ...result,
-        heading:
-          'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>',
-      };
-      const root = renderAddon({ addon: data });
+      const heading =
+        'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>';
+
+      const root = renderAddon({ addon: result, heading });
       const link = root.find('.heading');
 
       // Make sure there is an anchor tag.
@@ -289,20 +284,24 @@ describe(__filename, () => {
     });
 
     it('does render a logo for an extension', () => {
-      const root = renderAddon({ addon: result });
+      const { heading, ...addon } = result;
+      const root = renderAddon({ addon, heading });
 
       expect(root.find('.logo')).toHaveLength(1);
     });
 
     it("doesn't render a theme image for an extension", () => {
-      const root = renderAddon({ addon: result });
+      const { heading, ...addon } = result;
+      const root = renderAddon({ addon, heading });
 
       expect(root.find('.Addon-ThemeImage-link')).toHaveLength(0);
       expect(root.find(ThemeImage)).toHaveLength(0);
     });
 
     it('throws on invalid add-on type', () => {
-      const root = renderAddon({ addon: result });
+      const { heading, ...addon } = result;
+      const root = renderAddon({ addon, heading });
+
       expect(root.find('.heading').html()).toContain('test-heading');
 
       const data = { ...result, type: 'Whatever' };
@@ -370,7 +369,7 @@ describe(__filename, () => {
           current_version: {},
         },
         ...result,
-        getClientCompatibility: () => ({
+        _getClientCompatibility: () => ({
           compatible: false,
           maxVersion: '4000000.0',
           minVersion,

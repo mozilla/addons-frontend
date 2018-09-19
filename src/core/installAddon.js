@@ -641,7 +641,7 @@ export function withInstallHelpers({
   _makeMapDispatchToProps = makeMapDispatchToProps,
   defaultInstallSource,
 }: {|
-  _makeMapDispatchToProps: typeof makeMapDispatchToProps,
+  _makeMapDispatchToProps?: typeof makeMapDispatchToProps,
   defaultInstallSource: string,
 |}) {
   if (typeof defaultInstallSource === 'undefined') {

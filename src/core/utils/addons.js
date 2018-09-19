@@ -15,7 +15,7 @@ export const getErrorMessage = ({
   error,
 }: {|
   i18n: I18nType,
-  error: string,
+  error: string | void,
 |}): string => {
   invariant(i18n, 'i18n is required');
 

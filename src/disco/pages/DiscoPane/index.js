@@ -167,7 +167,8 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
         {this.renderFindMoreButton({ position: 'top' })}
 
         {results.map((item) => (
-          <Addon addon={item} key={item.guid} />
+          // $FLOW_FIXME: addon should be a AddonType
+          <Addon addon={item} heading={item.heading} key={item.guid} />
         ))}
 
         {this.renderFindMoreButton({ position: 'bottom' })}
