@@ -33,7 +33,7 @@ export type LoadAddonsAction = {|
 // This function relies on normalizr messing with our response data.
 // See: https://github.com/mozilla/addons-frontend/issues/2917
 export function loadAddons(entities: {
-  addons: ExternalAddonMap,
+  addons: ExternalAddonMap | ExternalDiscoAddonMap,
 }): LoadAddonsAction {
   if (!entities) {
     throw new Error('the entities parameter cannot be empty');
