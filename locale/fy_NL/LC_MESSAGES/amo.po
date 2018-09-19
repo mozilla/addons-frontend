@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-19 08:55+0000\n"
-"PO-Revision-Date: 2018-09-19 11:12+0000\n"
+"PO-Revision-Date: 2018-09-19 11:15+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1051,15 +1051,15 @@ msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:227
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr ""
+msgstr "Genietsje fan miniatuerôfbyldingen neist jo sykresultaten"
 
 #: src/amo/components/HomeHeroBanner/index.js:233
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Remove formatting when saving text to your clipboard"
-msgstr ""
+msgstr "Smyt opmaak as jo tekst op jo klamboerd bewarje fuort"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Facebook Container"
@@ -1079,11 +1079,11 @@ msgstr "Jou it folsleine ynternet in nij úterlik"
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "Iridium for YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
 msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr ""
+msgstr "Spylje fideo’s ôf yn in pop-outfinster, meitsje skermôfbyldingen fan fideo’s en mear"
 
 #: src/amo/components/HomeHeroBanner/index.js:69
 msgid "Private Bookmarks"
@@ -1091,7 +1091,7 @@ msgstr "Private Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "Password-protect your personal bookmarks"
-msgstr ""
+msgstr "Beskermje jo persoanlike blêdwizers mei in wachtwurd"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "IP Address and Domain Information"
@@ -1263,7 +1263,7 @@ msgstr "Stjer-wurdearring wurdt bewarre"
 
 #: src/amo/components/RatingManager/index.js:297
 msgid "Star rating saved"
-msgstr ""
+msgstr "Stjer-wurdearring wurdt bewarre"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2481,11 +2481,11 @@ msgstr "Tank foar jo besite oan dizze website! Nim inkelde minuten de tiid om Fi
 
 #: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Ynstallaasje mislearre. Probearje it nochris."
 
 #: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Downloaden mislearre. Kontrolearje jo ferbining."
 
 #: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
