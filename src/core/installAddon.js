@@ -559,7 +559,6 @@ export class WithInstallHelpers extends React.Component<
       WrappedComponent,
       _addonManager,
       _installTheme,
-      _tracking,
       ...passThroughProps
     } = this.props;
 

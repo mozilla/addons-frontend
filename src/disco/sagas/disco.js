@@ -1,10 +1,11 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import log from 'core/logger';
-import { loadAddons } from 'core/reducers/addons';
+import { loadAddonResults } from 'core/reducers/addons';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import {
   GET_DISCO_RESULTS,
+  createExternalAddonMap,
   loadDiscoResults,
 } from 'disco/reducers/discoResults';
 import { getDiscoveryAddons } from 'disco/api';
@@ -21,7 +22,7 @@ export function* fetchDiscoveryAddons({
   try {
     const state = yield select(getState);
 
-    const { entities, result }: ExternalDiscoResultsType = yield call(
+    const { results }: ExternalDiscoResultsType = yield call(
       getDiscoveryAddons,
       {
         api: state.api,
@@ -29,8 +30,10 @@ export function* fetchDiscoveryAddons({
       },
     );
 
-    yield put(loadAddons(entities));
-    yield put(loadDiscoResults({ entities, result }));
+    const addons = createExternalAddonMap({ results });
+
+    yield put(loadAddonResults({ addons }));
+    yield put(loadDiscoResults({ results }));
   } catch (error) {
     log.warn(`Failed to fetch discovery add-ons: ${error}`);
 

@@ -3,24 +3,13 @@ import config from 'config';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
-import {
-  ADDON_TYPE_THEME,
-  GLOBAL_EVENTS,
-  INSTALL_STATE,
-  OS_ALL,
-  OS_ANDROID,
-  OS_LINUX,
-  OS_MAC,
-  OS_WINDOWS,
-} from 'core/constants';
+import { GLOBAL_EVENTS, INSTALL_STATE } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { createInternalAddon } from 'core/reducers/addons';
 import { NAVIGATION_CATEGORY } from 'disco/constants';
 import DiscoPane, {
   DiscoPaneBase,
   mapDispatchToProps,
-  mapStateToProps,
 } from 'disco/pages/DiscoPane';
 import { getDiscoResults } from 'disco/reducers/discoResults';
 import createStore from 'disco/store';
@@ -47,36 +36,16 @@ describe(__filename, () => {
   });
 
   function renderProps(customProps = {}) {
-    const i18n = fakeI18n();
-
-    let results;
-    if (typeof customProps.results === 'undefined') {
-      const mappedProps = mapStateToProps(
-        loadDiscoResultsIntoState([
-          {
-            heading: 'Discovery Addon 1',
-            description: 'informative text',
-            addon: {
-              ...fakeDiscoAddon,
-              guid: 'foo',
-            },
-          },
-        ]),
-      );
-      results = mappedProps.results;
-    }
-
     return {
-      errorHandler: createStubErrorHandler(),
+      _tracking: fakeTracking,
       dispatch: sinon.stub(),
-      i18n,
+      errorHandler: createStubErrorHandler(),
+      i18n: fakeI18n(),
       location: createFakeLocation(),
       match: {
         params: { platform: 'Darwin' },
       },
-      results,
       store: createStore().store,
-      _tracking: fakeTracking,
       ...customProps,
     };
   }
@@ -99,72 +68,6 @@ describe(__filename, () => {
       </Provider>,
     );
   }
-
-  describe('mapStateToProps', () => {
-    it('sets extension results', () => {
-      const addon = { ...fakeDiscoAddon };
-
-      const props = mapStateToProps(
-        loadDiscoResultsIntoState([
-          {
-            heading: 'The Add-on',
-            description: 'editorial text',
-            addon,
-          },
-        ]),
-      );
-
-      expect(props.results).toEqual([
-        {
-          ...addon,
-          addon: addon.guid,
-          description: 'editorial text',
-          heading: 'The Add-on',
-          platformFiles: {
-            [OS_ALL]: fakeDiscoAddon.current_version.files[0],
-            [OS_ANDROID]: undefined,
-            [OS_LINUX]: undefined,
-            [OS_MAC]: undefined,
-            [OS_WINDOWS]: undefined,
-          },
-          isMozillaSignedExtension: false,
-          isRestartRequired: false,
-          isWebExtension: true,
-        },
-      ]);
-    });
-
-    it('sets theme results', () => {
-      const addon = {
-        ...fakeDiscoAddon,
-        theme_data: {},
-        type: ADDON_TYPE_THEME,
-      };
-
-      const props = mapStateToProps(
-        loadDiscoResultsIntoState([
-          {
-            heading: 'The Theme',
-            description: 'editorial text',
-            addon,
-          },
-        ]),
-      );
-
-      // Adjust the theme guid to match how Firefox code does it internally.
-      const guid = '1234@personas.mozilla.org';
-
-      expect(props.results).toEqual([
-        {
-          ...createInternalAddon(addon),
-          addon: guid,
-          description: 'editorial text',
-          guid,
-          heading: 'The Theme',
-        },
-      ]);
-    });
-  });
 
   describe('mapDispatchToProps', () => {
     it('calls dispatch when handleGlobalEvent is called with data', () => {
