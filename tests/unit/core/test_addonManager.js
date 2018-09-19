@@ -252,13 +252,9 @@ describe(__filename, () => {
 
   describe('addChangeListener', () => {
     const fakeEventCallback = sinon.stub();
-    fakeMozAddonManager = {
-      addEventListener: sinon.stub(),
-    };
 
     beforeEach(() => {
       fakeEventCallback.resetHistory();
-      fakeMozAddonManager.addEventListener.resetHistory();
     });
 
     describe('global events', () => {
