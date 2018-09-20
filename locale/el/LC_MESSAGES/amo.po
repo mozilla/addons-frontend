@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-19 08:55+0000\n"
-"PO-Revision-Date: 2018-09-19 12:22+0000\n"
+"PO-Revision-Date: 2018-09-20 13:44+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -702,9 +702,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Λυπούμαστε, αλλά προέκυψε ένα σφάλμα στον εξυπηρετητή μας και δεν μπορέσαμε να ικανοποιήσουμε το αίτημα σας. Το σφάλμα αυτό έχει καταγραφεί και θα το διερευνήσουμε."
 
 #: src/amo/components/FeaturedAddonReview/index.js:77
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Κριτικές για το %(addonName)s"
+msgstr "Κριτική από %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:87
 msgid "The review was not found."
@@ -1263,9 +1262,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Απολαμβάνετε την εμπειρία σας με το %(addonName)s;"
 
 #: src/amo/components/RatingManager/index.js:296
-#, fuzzy
 msgid "Saving star rating"
-msgstr "Η βαθμολογία αστεριών σας:"
+msgstr "Γίνεται αποθήκευση βαθμολογίας αστεριών"
 
 #: src/amo/components/RatingManager/index.js:297
 msgid "Star rating saved"
@@ -2493,19 +2491,16 @@ msgid "Download failed. Please check your connection."
 msgstr "Αποτυχία λήψης. Παρακαλούμε ελέγξτε τη σύνδεσή σας."
 
 #: src/core/utils/addons.js:28
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Προέκυψε απροσδόκητο σφάλμα"
+msgstr "Προέκυψε απροσδόκητο σφάλμα κατά την εγκατάσταση."
 
 #: src/core/utils/addons.js:30
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Προέκυψε απροσδόκητο σφάλμα"
+msgstr "Προέκυψε απροσδόκητο σφάλμα κατά την απεγκατάσταση."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Προέκυψε απροσδόκητο σφάλμα"
+msgstr "Προέκυψε απροσδόκητο σφάλμα."
 
 #: src/ui/components/ConfirmButton/index.js:100
 msgid "Confirm"
