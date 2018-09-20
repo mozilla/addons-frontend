@@ -1,8 +1,7 @@
-/* eslint-disable react/no-danger */
+/* @flow */
 import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -20,7 +19,6 @@ import {
   UNINSTALLED,
   UNKNOWN,
   validAddonTypes,
-  validInstallStates,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
@@ -28,52 +26,49 @@ import tracking, { getAddonTypeForTracking } from 'core/tracking';
 import { isTheme } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
-import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
+import { getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
 import ThemeImage from 'ui/components/ThemeImage';
+import type { UserAgentInfoType } from 'core/reducers/api';
+import type { InstalledAddon } from 'core/reducers/installations';
+import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
+import type { AddonType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
+import type { AppState } from 'disco/store';
 
 import './styles.scss';
 
 const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
-export class AddonBase extends React.Component {
-  static propTypes = {
-    _config: PropTypes.object,
-    _tracking: PropTypes.object,
-    addon: PropTypes.shape({
-      description: PropTypes.string,
-      heading: PropTypes.string.isRequired,
-      icon_url: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      platformFiles: PropTypes.object,
-      type: PropTypes.oneOf(validAddonTypes).isRequired,
-    }),
-    clientApp: PropTypes.string.isRequired,
-    defaultInstallSource: PropTypes.string.isRequired,
-    enable: PropTypes.func.isRequired,
-    error: PropTypes.string,
-    getBrowserThemeData: PropTypes.func.isRequired,
-    getClientCompatibility: PropTypes.func,
-    hasAddonManager: PropTypes.bool.isRequired,
-    i18n: PropTypes.object.isRequired,
-    install: PropTypes.func.isRequired,
-    installTheme: PropTypes.func.isRequired,
-    isAddonEnabled: PropTypes.func,
-    setCurrentStatus: PropTypes.func.isRequired,
-    status: PropTypes.oneOf(validInstallStates).isRequired,
-    uninstall: PropTypes.func.isRequired,
-    userAgentInfo: PropTypes.object.isRequired,
-  };
+type Props = {|
+  addon: AddonType,
+  heading: string,
+|};
 
+type InternalProps = {|
+  ...Props,
+  ...WithInstallHelpersInjectedProps,
+  _config: typeof config,
+  _getClientCompatibility: typeof getClientCompatibility,
+  _tracking: typeof tracking,
+  clientApp: string,
+  defaultInstallSource: string,
+  error: string | void,
+  getBrowserThemeData: () => string,
+  i18n: I18nType,
+  status: $PropertyType<InstalledAddon, 'status'>,
+  userAgentInfo: UserAgentInfoType,
+|};
+
+export class AddonBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     _tracking: tracking,
-    getClientCompatibility: _getClientCompatibility,
+    _getClientCompatibility: getClientCompatibility,
   };
 
   getError() {
     const { error, i18n, status } = this.props;
-    const errorMessage = getErrorMessage({ i18n, error });
 
     return status === ERROR ? (
       <CSSTransition
@@ -82,7 +77,7 @@ export class AddonBase extends React.Component {
         timeout={CSS_TRANSITION_TIMEOUT}
       >
         <div className="notification error">
-          <p className="message">{errorMessage}</p>
+          <p className="message">{getErrorMessage({ i18n, error })}</p>
           {error && !error.startsWith('FATAL') ? (
             // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
             <a className="close" href="#" onClick={this.closeError}>
@@ -150,6 +145,7 @@ export class AddonBase extends React.Component {
     return (
       <div
         className="editorial-description"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(
           addon.description,
           ['a', 'blockquote', 'cite'],
@@ -158,7 +154,7 @@ export class AddonBase extends React.Component {
     );
   }
 
-  installTheme = (event) => {
+  installTheme = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     const { addon, installTheme, status } = this.props;
@@ -170,15 +166,21 @@ export class AddonBase extends React.Component {
     });
   };
 
-  closeError = (e) => {
+  closeError = (e: SyntheticEvent<any>) => {
     e.preventDefault();
+
     this.props.setCurrentStatus();
   };
 
-  clickHeadingLink = (e) => {
+  clickHeadingLink = (e: SyntheticEvent<HTMLAnchorElement>) => {
     const { addon, _tracking } = this.props;
 
-    if (e.target.nodeName.toLowerCase() === 'a') {
+    if (
+      e.target &&
+      // $FLOW_FIXME: the `nodeName` might be available
+      e.target.nodeName &&
+      e.target.nodeName.toLowerCase() === 'a'
+    ) {
       _tracking.sendEvent({
         action: getAddonTypeForTracking(addon.type),
         category: CLICK_CATEGORY,
@@ -187,7 +189,7 @@ export class AddonBase extends React.Component {
     }
   };
 
-  installStaticTheme = async (event) => {
+  installStaticTheme = async (event: SyntheticEvent<any>) => {
     const { enable, isAddonEnabled, install, status } = this.props;
     event.preventDefault();
 
@@ -206,15 +208,17 @@ export class AddonBase extends React.Component {
   render() {
     const {
       _config,
+      _getClientCompatibility,
       addon,
       clientApp,
       defaultInstallSource,
       enable,
-      getClientCompatibility,
       hasAddonManager,
+      heading,
       install,
       installTheme,
       isAddonEnabled,
+      setCurrentStatus,
       status,
       uninstall,
       userAgentInfo,
@@ -243,32 +247,37 @@ export class AddonBase extends React.Component {
       );
     }
 
-    const { compatible, minVersion, reason } = getClientCompatibility({
+    const { compatible, minVersion, reason } = _getClientCompatibility({
       addon,
       clientApp,
       userAgentInfo,
     });
 
     return (
-      // Disabling this is fine since the onClick is just being used to delegate
-      // click events bubbling from the link within the header.
-      // eslint-disable-next-line max-len
-      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
       <div className={addonClasses}>
         {this.getThemeImage()}
+
         {this.getLogo()}
+
         <div className="content">
           <TransitionGroup>{this.getError()}</TransitionGroup>
 
           <div className="copy">
+            {/* Disabling this is fine since the onClick is just being used to
+            delegate click events bubbling from the link within the header. */}
+            {/* eslint-disable-next-line max-len */}
+            {/* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */}
             <h2
               onClick={this.clickHeadingLink}
               className="heading"
-              dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(
-                addon.heading,
-                ['a', 'span'],
-              )}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(heading, [
+                'a',
+                'span',
+              ])}
             />
+            {/* eslint-enable jsx-a11y/no-noninteractive-element-interactions *}
+            {/* eslint-enable jsx-a11y/click-events-have-key-events */}
             {this.getDescription()}
           </div>
 
@@ -282,10 +291,11 @@ export class AddonBase extends React.Component {
               hasAddonManager={hasAddonManager}
               install={install}
               installTheme={installTheme}
+              isAddonEnabled={isAddonEnabled}
               puffy={false}
+              setCurrentStatus={setCurrentStatus}
               status={status || UNKNOWN}
               uninstall={uninstall}
-              isAddonEnabled={isAddonEnabled}
             />
           ) : (
             <InstallButton
@@ -302,13 +312,11 @@ export class AddonBase extends React.Component {
           <AddonCompatibilityError minVersion={minVersion} reason={reason} />
         ) : null}
       </div>
-      // eslint-disable-next-line max-len
-      /* eslint-enable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
     );
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state: AppState, ownProps: Props) {
   let installation = {};
   if (ownProps.addon) {
     installation = state.installations[ownProps.addon.guid] || {};
@@ -324,9 +332,11 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
+const Addon: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   connect(mapStateToProps),
   withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
 )(AddonBase);
+
+export default Addon;
