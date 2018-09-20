@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-19 08:55+0000\n"
-"PO-Revision-Date: 2018-09-14 10:57+0000\n"
-"Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
+"PO-Revision-Date: 2018-09-13 10:16+0000\n"
+"Last-Translator: Liudmyla <forworkfest@gmail.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1066,11 +1066,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:233
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Копіювати звичайний текст"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Remove formatting when saving text to your clipboard"
-msgstr ""
+msgstr "Видалити форматування під час збереження тексту в буфер обміну"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Facebook Container"
@@ -1103,7 +1103,7 @@ msgstr "Закладки"
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "Password-protect your personal bookmarks"
-msgstr ""
+msgstr "Захист паролем ваших особистих закладок"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "IP Address and Domain Information"
