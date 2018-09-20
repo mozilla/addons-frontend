@@ -438,17 +438,18 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               byLine={!this.isRatingOnly() && byLine}
               showRating={!this.isReply() && showRating}
             />
-            {this.isRatingOnly() && (
-              <Button
-                className="AddonReviewCard-writeReviewButton"
-                onClick={this.onClickToEditReview}
-                href="#writeReview"
-                buttonType="action"
-                puffy
-              >
-                {i18n.gettext('Write a review')}
-              </Button>
-            )}
+            {siteUser &&
+              this.isRatingOnly() && (
+                <Button
+                  className="AddonReviewCard-writeReviewButton"
+                  onClick={this.onClickToEditReview}
+                  href="#writeReview"
+                  buttonType="action"
+                  puffy
+                >
+                  {i18n.gettext('Write a review')}
+                </Button>
+              )}
           </React.Fragment>
         )}
         {errorHandler.renderErrorIfPresent()}
