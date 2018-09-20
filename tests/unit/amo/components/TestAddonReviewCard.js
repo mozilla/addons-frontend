@@ -877,6 +877,7 @@ describe(__filename, () => {
 
       const writeReview = root.find('.AddonReviewCard-writeReviewButton');
       expect(writeReview).toHaveLength(1);
+      expect(writeReview).toHaveProp('puffy', true);
 
       dispatchSpy.resetHistory();
       writeReview.simulate('click', createFakeEvent());
@@ -901,13 +902,16 @@ describe(__filename, () => {
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
-    it('does not provide a write review button for ratings on the user profile', () => {
+    it('can render a smaller write review button', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      const root = renderInline({ isUserProfile: true, review });
+      const root = renderInline({ review, smallerWriteReviewButton: true });
 
-      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
+      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveProp(
+        'puffy',
+        false,
+      );
     });
 
     it('prompts to cancel writing a new review', async () => {

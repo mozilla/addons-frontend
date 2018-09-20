@@ -45,6 +45,7 @@ type Props = {|
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
+  smallerWriteReviewButton?: boolean,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
@@ -71,6 +72,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     flaggable: true,
+    smallerWriteReviewButton: false,
     shortByLine: false,
     showRating: true,
     verticalButtons: false,
@@ -278,6 +280,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       flaggable,
       i18n,
       lang,
+      smallerWriteReviewButton,
       replyingToReview,
       review,
       shortByLine,
@@ -437,7 +440,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                   onClick={this.onClickToEditReview}
                   href="#writeReview"
                   buttonType="action"
-                  puffy
+                  puffy={!smallerWriteReviewButton}
                 >
                   {i18n.gettext('Write a review')}
                 </Button>
