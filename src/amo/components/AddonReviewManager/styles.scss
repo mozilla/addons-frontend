@@ -5,13 +5,6 @@
 .AddonReviewManager {
   font-size: $font-size-default;
 
-  .AddonReviewManager-Rating.Rating {
-    height: $default-line-height;
-    margin: 0;
-
-    @include margin-start(6px);
-  }
-
   .DismissibleTextForm-formFooter {
     font-size: $font-size-s;
     margin: 0;
@@ -36,7 +29,26 @@
 
 .AddonReviewManager-starRating {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+
+  .AddonReviewManager-Rating.Rating {
+    height: 36px;
+    margin: 12px 0;
+    width: 100%;
+  }
+
+  @include respond-to(large) {
+    flex-direction: row;
+
+    .AddonReviewManager-Rating.Rating {
+      height: $default-line-height;
+      margin: 0;
+      width: auto;
+
+      @include margin-start(6px);
+    }
+  }
 }
 
 .AddonReviewManager-savedRating {
