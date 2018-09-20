@@ -44,6 +44,10 @@
   .AddonReviewCard-ratingOnly .UserReview-byLine {
     display: none;
   }
+
+  .AddonReviewCard-writeReviewButton {
+    width: 100%;
+  }
 }
 
 .RatingManager-AddonReviewCard.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly) {

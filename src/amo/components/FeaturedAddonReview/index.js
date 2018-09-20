@@ -88,7 +88,11 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
           </div>
         </NestedStatus>
       ) : (
-        <AddonReviewCard addon={addon} review={featuredReview} />
+        <AddonReviewCard
+          addon={addon}
+          review={featuredReview}
+          smallerWriteReviewButton
+        />
       );
 
     return (
