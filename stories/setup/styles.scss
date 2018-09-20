@@ -34,3 +34,14 @@ body {
 .chapter-h3 {
   margin-top: 50px;
 }
+
+.story-header {
+  // Unfortunately I don't see a lot of classes with chapter
+  // so overriding the above style in this way seems to be
+  // the only way.
+  + div {
+    .section-header {
+      flex-grow: initial;
+    }
+  }
+}
