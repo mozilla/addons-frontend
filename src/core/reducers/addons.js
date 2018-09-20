@@ -5,6 +5,7 @@ import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
+import type { AppState as DiscoAppState } from 'disco/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 import type {
@@ -279,7 +280,7 @@ export const initialState: AddonsState = {
 };
 
 export const getAddonByID = (
-  state: AppState,
+  state: AppState | DiscoAppState,
   id: AddonID,
 ): AddonType | null => {
   return state.addons.byID[`${id}`] || null;
@@ -295,7 +296,7 @@ export const getAddonBySlug = (
 };
 
 export const getAddonByGUID = (
-  state: AppState,
+  state: AppState | DiscoAppState,
   guid: string,
 ): AddonType | null => {
   const addonId = state.addons.byGUID[guid];
