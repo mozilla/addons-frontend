@@ -1,4 +1,4 @@
-import { unloadAddonReviews } from 'amo/actions/reviews';
+import { setLatestReview, unloadAddonReviews } from 'amo/actions/reviews';
 import {
   ADDON_TYPE_EXTENSION,
   OS_ALL,
@@ -15,10 +15,12 @@ import addons, {
   getAddonBySlug,
   getAllAddons,
   getGuid,
+  initialState,
   isAddonLoading,
   loadAddons,
   loadAddonResults,
   removeUndefinedProps,
+  unloadAddonFromState,
 } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
@@ -29,6 +31,7 @@ import {
   createFakeAddon,
   dispatchClientMetadata,
   fakeAddon,
+  fakeReview,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
 
@@ -647,7 +650,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('unloadAddonReviews', () => {
+  describe('unloadAddonFromState', () => {
     it('unloads all data for an add-on', () => {
       const guid1 = '1@mozilla.com';
       const id1 = 1;
@@ -665,23 +668,84 @@ describe(__filename, () => {
         addon1,
         {
           ...fakeAddon,
-          ...fakeAddon,
           guid: guid2,
           id: id2,
           slug: slug2,
         },
       ];
-      let state = addons(
-        undefined,
+
+      let state;
+
+      state = addons(
+        state,
         loadAddons(createFetchAllAddonsResult(addonResults).entities),
       );
+      state = addons(
+        state,
+        fetchAddon({
+          slug: slug1,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
 
-      state = addons(state, unloadAddonReviews({ addonId: id1, reviewId: 1 }));
+      state = unloadAddonFromState(state, id1);
 
       expect(state.byGUID[addon1.guid]).toEqual(undefined);
       expect(state.byID[addon1.id]).toEqual(undefined);
       expect(state.bySlug[addon1.slug]).toEqual(undefined);
       expect(state.loadingBySlug[addon1.slug]).toEqual(false);
+    });
+
+    it('ignores non-existent add-ons', () => {
+      let state;
+
+      state = addons(
+        state,
+        loadAddons(
+          createFetchAllAddonsResult([{ ...fakeAddon, id: 1 }]).entities,
+        ),
+      );
+      state = unloadAddonFromState(state, 2);
+
+      expect(state.byID[1]).toBeDefined();
+    });
+  });
+
+  describe('unloadAddonReviews', () => {
+    it('calls unloadAddonFromState', () => {
+      const addonId = 4321;
+      const unloadAddonFromStateStub = sinon.stub();
+
+      const state = initialState;
+      addons(state, unloadAddonReviews({ addonId, reviewId: 1 }), {
+        _unloadAddonFromState: unloadAddonFromStateStub,
+      });
+
+      sinon.assert.calledWith(unloadAddonFromStateStub, state, addonId);
+    });
+  });
+
+  describe('setLatestReview', () => {
+    it('calls unloadAddonFromState', () => {
+      const addonId = 7721;
+      const unloadAddonFromStateStub = sinon.stub();
+
+      const state = initialState;
+      addons(
+        state,
+        setLatestReview({
+          addonId,
+          addonSlug: 'some-slug',
+          versionId: 8,
+          userId: 7,
+          review: { ...fakeReview },
+        }),
+        {
+          _unloadAddonFromState: unloadAddonFromStateStub,
+        },
+      );
+
+      sinon.assert.calledWith(unloadAddonFromStateStub, state, addonId);
     });
   });
 });
