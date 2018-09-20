@@ -7,8 +7,9 @@ import { connect } from 'react-redux';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_NO_OPENSEARCH,
+  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -64,6 +65,10 @@ export class AddonCompatibilityErrorBase extends React.Component {
     } else if (reason === INCOMPATIBLE_NO_OPENSEARCH) {
       message = i18n.gettext(
         'Your version of Firefox does not support search plugins.',
+      );
+    } else if (reason === INCOMPATIBLE_NON_RESTARTLESS_ADDON) {
+      message = i18n.gettext(
+        'Your version of Firefox does not support non-restartless add-ons.',
       );
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(

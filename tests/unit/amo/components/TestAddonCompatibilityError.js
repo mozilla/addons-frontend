@@ -7,8 +7,9 @@ import AddonCompatibilityError, {
 import createStore from 'amo/store';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_NO_OPENSEARCH,
+  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -203,6 +204,20 @@ describe(__filename, () => {
         .childAt(0)
         .html(),
     ).toContain('This add-on is not available on your platform.');
+  });
+
+  it('renders a notice if add-on is non-restartless', () => {
+    _dispatchClientMetadata();
+    const root = render({ reason: INCOMPATIBLE_NON_RESTARTLESS_ADDON });
+
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .childAt(0)
+        .html(),
+    ).toContain(
+      'Your version of Firefox does not support non-restartless add-ons.',
+    );
   });
 
   it('renders a notice and logs warning when reason code not known', () => {
