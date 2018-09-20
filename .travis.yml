@@ -82,7 +82,7 @@ jobs:
       <<: *tox
       env: TOXENV=dennis-lint
     - stage: Storybook deployment
-      if: branch = master
+      if: branch = master AND type = push AND fork = false
       language: node_js
       node_js: '8'
       script: echo "Deploying to GitHub Pages..."
