@@ -17,6 +17,7 @@ import AddonReviewCard, {
   AddonReviewCardBase,
 } from 'amo/components/AddonReviewCard';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
+import { logOutUser } from 'amo/reducers/users';
 import { ALL_SUPER_POWERS, CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -884,6 +885,20 @@ describe(__filename, () => {
         dispatchSpy,
         showEditReviewForm({ reviewId: review.id }),
       );
+    });
+
+    it('hides the write review button for ratings when not logged in', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      let root = renderInline({ review });
+
+      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(1);
+
+      store.dispatch(logOutUser());
+
+      root = renderInline({ review });
+      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
     it('prompts to cancel writing a new review', async () => {
