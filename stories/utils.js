@@ -32,7 +32,8 @@ const getPropString = (props: PropsMatrixType) => {
   return JSON.stringify(props, null, ' ').replace(/[{}]/g, '');
 };
 
-// Create Chapters is if you have an array of an array.
+// This is a helper function to display chapters if you have an array of array
+// to display.
 export const createChapters = ({
   Component,
   chapters,
@@ -56,7 +57,8 @@ export const createChapters = ({
   });
 };
 
-// Create Chapters is if you have an array display
+// This is a helper function to display sections (of chapters) if you have an
+// array to display.
 export const createSections = ({
   Component,
   children = 'Hello Text',
