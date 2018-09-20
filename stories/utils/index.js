@@ -5,9 +5,9 @@ type CreateChapterParams = {|
   // TODO: look into why React.Node or ~ React.ComponentType<any>
   // doesn't work here :/.
   Component: Function,
-  sections: Array<any>,
-  createSections: (any) => Array<Object>,
   children?: any,
+  createPropsMatrix: (any) => Array<Object>,
+  sections: Array<any>,
   showChapterTitle?: boolean,
 |};
 
@@ -25,14 +25,14 @@ export type ChapterType = {|
 export const createChapters = ({
   Component,
   sections,
-  createSections,
+  createPropsMatrix,
   children = 'Hello Text',
   showChapterTitle = true,
 }: CreateChapterParams = {}) => {
-  return sections.map(function(type) {
+  return sections.map((type) => {
     return {
       title: showChapterTitle ? type : undefined,
-      sections: createSections(type).map((section) => {
+      sections: createPropsMatrix(type).map((section) => {
         const propsString = JSON.stringify(section.props, null, ' ').replace(
           /[{}]/g,
           '',
@@ -46,3 +46,4 @@ export const createChapters = ({
     };
   });
 };
+

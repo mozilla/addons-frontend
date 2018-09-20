@@ -16,7 +16,7 @@ const buttonTypes = [
 ];
 
 // TODO: Add flow type here once it's set up in the Button component.
-function createSections(buttonType) {
+function createPropsMatrix(buttonType) {
   return [
     {
       props: {
@@ -62,7 +62,7 @@ storiesOf('Button', module).addWithChapters('Button variations', {
   chapters: createChapters({
     Component: Button,
     sections: buttonTypes,
-    createSections,
+    createPropsMatrix,
     children: label,
   }),
 });

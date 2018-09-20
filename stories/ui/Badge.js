@@ -1,7 +1,7 @@
 /* @flow */
 import { storiesOf } from '@storybook/react';
 
-import { createChapters } from 'stories/utils';
+import { createChapters, createSimpleSections } from 'stories/utils';
 import Badge from 'ui/components/Badge';
 import type { Props as BadgeProps } from 'ui/components/Badge';
 
@@ -19,7 +19,7 @@ type Props = {|
   props: BadgeProps,
 |};
 
-function createSections(type): Array<Props> {
+function createPropsMatrix(type): Array<Props> {
   return [
     {
       props: {
@@ -34,7 +34,7 @@ storiesOf('Badge', module).addWithChapters('Badge variations', {
   chapters: createChapters({
     Component: Badge,
     sections: types,
-    createSections,
+    createPropsMatrix,
     children: label,
     showChapterTitle: false,
   }),
