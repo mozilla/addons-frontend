@@ -198,7 +198,7 @@ describe(__filename, () => {
       const { heading, ...addon } = result;
       const root = renderAddon({ addon, heading });
 
-      expect(root.find('.heading').html()).toContain('test-heading');
+      expect(root.find('.heading').html()).toContain(heading);
     });
 
     it('renders the editorial description', () => {
@@ -285,14 +285,14 @@ describe(__filename, () => {
 
     it('does render a logo for an extension', () => {
       const { heading, ...addon } = result;
-      const root = renderAddon({ addon, heading });
+      const root = renderAddon({ addon });
 
       expect(root.find('.logo')).toHaveLength(1);
     });
 
     it("doesn't render a theme image for an extension", () => {
       const { heading, ...addon } = result;
-      const root = renderAddon({ addon, heading });
+      const root = renderAddon({ addon });
 
       expect(root.find('.Addon-ThemeImage-link')).toHaveLength(0);
       expect(root.find(ThemeImage)).toHaveLength(0);

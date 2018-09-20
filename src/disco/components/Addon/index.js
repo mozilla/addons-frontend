@@ -54,7 +54,7 @@ type InternalProps = {|
   clientApp: string,
   defaultInstallSource: string,
   error: string | void,
-  getBrowserThemeData: Function,
+  getBrowserThemeData: () => string,
   i18n: I18nType,
   status: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
