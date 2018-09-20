@@ -32,8 +32,27 @@ const getPropString = (props: PropsMatrixType) => {
   return JSON.stringify(props, null, ' ').replace(/[{}]/g, '');
 };
 
-// This is a helper function to display chapters if you have an array of array
-// to display.
+// This is a helper function to display sections (of chapters).
+export const createSections = ({
+  Component,
+  children = 'Hello Text',
+  createPropsMatrix,
+  createPropsMatrixParams,
+  otherSectionProps = {},
+}: CreateSectionParams = {}): Array<PropsMatrixType> => {
+  return createPropsMatrix(createPropsMatrixParams).map(
+    (section: PropsMatrixType) => {
+      const propsString = getPropString(section.props);
+      return {
+        subtitle: propsString !== '' ? propsString : 'default',
+        sectionFn: () => <Component {...section.props}>{children}</Component>,
+        ...otherSectionProps,
+      };
+    },
+  );
+};
+
+// This is a helper function to display chapters.
 export const createChapters = ({
   Component,
   chapters,
@@ -55,25 +74,4 @@ export const createChapters = ({
       ...otherChapterProps,
     };
   });
-};
-
-// This is a helper function to display sections (of chapters) if you have an
-// array to display.
-export const createSections = ({
-  Component,
-  children = 'Hello Text',
-  createPropsMatrix,
-  createPropsMatrixParams,
-  otherSectionProps = {},
-}: CreateSectionParams = {}): Array<PropsMatrixType> => {
-  return createPropsMatrix(createPropsMatrixParams).map(
-    (section: PropsMatrixType) => {
-      const propsString = getPropString(section.props);
-      return {
-        subtitle: propsString !== '' ? propsString : 'default',
-        sectionFn: () => <Component {...section.props}>{children}</Component>,
-        ...otherSectionProps,
-      };
-    },
-  );
 };

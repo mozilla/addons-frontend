@@ -25,7 +25,9 @@ body {
   }
 
   .section-subtitle {
-    margin: 0;
+    @include respond-to(large) {
+      margin: 0;
+    }
   }
 }
 
