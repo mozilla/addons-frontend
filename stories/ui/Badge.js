@@ -1,6 +1,7 @@
 /* @flow */
 import { storiesOf } from '@storybook/react';
 
+// $FLOW_FIXME flow not liking the path here ( will look into this more)
 import { createChapters } from 'stories/utils';
 import Badge from 'ui/components/Badge';
 import type { Props as BadgeProps } from 'ui/components/Badge';
