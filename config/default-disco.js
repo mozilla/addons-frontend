@@ -24,6 +24,7 @@ module.exports = {
     'enableAMInstallButton',
     'enableClientConsole',
     'enableDevTools',
+    'hctEnabled',
     'isDeployed',
     'isDevelopment',
     'langMap',

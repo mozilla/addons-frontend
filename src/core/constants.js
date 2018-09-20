@@ -109,6 +109,9 @@ export const TRACKING_TYPE_STATIC_THEME = ADDON_TYPE_STATIC_THEME;
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
+// HCT disco tracking category
+export const HCT_DISCO_CATEGORY = 'disco.interaction';
+
 // Add-on install tracking sources.
 // These key values may be linked to historic analytic data.
 export const INSTALL_SOURCE_COLLECTION = 'collection';
