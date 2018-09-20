@@ -527,6 +527,18 @@ describe(__filename, () => {
       });
     });
 
+    it('does not display a listing if the only review is also featured', () => {
+      const reviewId = 1;
+      const reviews = [{ ...fakeReview, id: reviewId }];
+      dispatchAddonReviews({ reviews });
+
+      const root = render({
+        params: { reviewId: reviewId.toString() },
+      });
+
+      expect(root.find('.AddonReviewList-reviews-listing')).toHaveLength(0);
+    });
+
     it("renders the add-on's icon in the header", () => {
       const addon = { ...fakeAddon };
       const header = renderAddonHeader({ addon });
