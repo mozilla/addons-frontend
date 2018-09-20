@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { createChapters } from 'stories/utils';
 import Button from 'ui/components/Button';
 
-const label = 'Hello Button';
 const buttonTypes = [
   undefined,
   'neutral',
@@ -61,8 +60,8 @@ function createPropsMatrix(buttonType) {
 storiesOf('Button', module).addWithChapters('Button variations', {
   chapters: createChapters({
     Component: Button,
-    sections: buttonTypes,
+    chapters: buttonTypes,
+    children: 'Hello Button',
     createPropsMatrix,
-    children: label,
   }),
 });

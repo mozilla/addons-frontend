@@ -33,9 +33,11 @@ function createPropsMatrix(type): Array<Props> {
 storiesOf('Badge', module).addWithChapters('Badge variations', {
   chapters: createChapters({
     Component: Badge,
-    sections: types,
-    createPropsMatrix,
+    chapters: types,
     children: label,
-    showChapterTitle: false,
+    createPropsMatrix,
+    otherChapterProps: {
+      title: undefined,
+    },
   }),
 });
