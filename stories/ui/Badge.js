@@ -1,7 +1,7 @@
 /* @flow */
 import { storiesOf } from '@storybook/react';
 // $FLOW_FIXME flow not liking the path here ( will look into this more)
-import { createChapters } from 'stories/utils'; // eslint-disable-line import/no-unresolved
+import { createChapters, createPropsSection } from 'stories/utils'; // eslint-disable-line import/no-unresolved
 
 import Badge from 'ui/components/Badge';
 import type { Props as BadgeProps } from 'ui/components/Badge';
@@ -16,7 +16,7 @@ const types = [
   'requires-payment',
 ];
 
-type Props = {|
+export type Props = {|
   props: BadgeProps,
 |};
 
@@ -32,13 +32,16 @@ function createPropsMatrix(type): Array<Props> {
 }
 
 storiesOf('Badge', module).addWithChapters('Badge variations', {
-  chapters: createChapters({
-    Component: Badge,
-    chapters: types,
-    children: label,
-    createPropsMatrix,
-    otherChapterProps: {
-      title: undefined,
-    },
-  }),
+  chapters: [
+    createPropsSection({ Component: Badge }),
+    ...createChapters({
+      Component: Badge,
+      chapters: types,
+      children: label,
+      createPropsMatrix,
+      otherChapterProps: {
+        title: undefined,
+      },
+    }),
+  ],
 });

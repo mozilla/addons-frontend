@@ -1,7 +1,7 @@
 /* @flow */
 import { storiesOf } from '@storybook/react';
 // $FLOW_FIXME flow not liking the path here ( will look into this more)
-import { createChapters } from 'stories/utils'; // eslint-disable-line import/no-unresolved
+import { createChapters, createPropsSection } from 'stories/utils'; // eslint-disable-line import/no-unresolved
 
 import Button from 'ui/components/Button';
 
@@ -59,10 +59,13 @@ function createPropsMatrix(buttonType) {
 }
 
 storiesOf('Button', module).addWithChapters('Button variations', {
-  chapters: createChapters({
-    Component: Button,
-    chapters: buttonTypes,
-    children: 'Hello Button',
-    createPropsMatrix,
-  }),
+  chapters: [
+    createPropsSection({ Component: Button }),
+    ...createChapters({
+      Component: Button,
+      chapters: buttonTypes,
+      children: 'Hello Button',
+      createPropsMatrix,
+    }),
+  ],
 });

@@ -1,6 +1,14 @@
 /* @flow */
 import React from 'react';
 
+type createPropsSectionParams = {|
+  // TODO: look into why React.Node or ~ React.ComponentType<any>
+  // doesn't work here :/.
+  Component: Function,
+  otherSectionProps?: Object,
+  sectionOptions?: Object,
+|};
+
 type PropsMatrixType = {|
   props: Object,
 |};
@@ -30,6 +38,27 @@ type CreateSectionParams = {|
 
 const getPropString = (props: PropsMatrixType) => {
   return JSON.stringify(props, null, ' ').replace(/[{}]/g, '');
+};
+
+// TODO: get this working with flow types
+// TODO: style this to look nicer.
+export const createPropsSection = ({
+  Component,
+  otherSectionProps = {},
+  sectionOptions = {},
+}: createPropsSectionParams = {}) => {
+  return {
+    sections: [
+      {
+        sectionFn: () => <Component />,
+        options: {
+          allowPropTablesToggling: true,
+          ...sectionOptions,
+        },
+        ...otherSectionProps,
+      },
+    ],
+  };
 };
 
 // This is a helper function to display sections (of chapters).
