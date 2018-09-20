@@ -1,4 +1,7 @@
-import discoResults, { loadDiscoResults } from 'disco/reducers/discoResults';
+import discoResults, {
+  initialState,
+  loadDiscoResults,
+} from 'disco/reducers/discoResults';
 import {
   createFetchDiscoveryResult,
   fakeDiscoAddon,
@@ -6,7 +9,9 @@ import {
 
 describe(__filename, () => {
   it('defaults to an empty array', () => {
-    expect(discoResults(undefined, { type: 'UNRELATED' })).toEqual([]);
+    expect(discoResults(undefined, { type: 'UNRELATED' })).toEqual(
+      initialState,
+    );
   });
 
   it('sets the state to the results', () => {
@@ -33,17 +38,19 @@ describe(__filename, () => {
       loadDiscoResults({ entities, result }),
     );
 
-    expect(state).toEqual([
-      {
-        heading: addon1.heading,
-        description: addon1.description,
-        addon: addon1.addon.guid,
-      },
-      {
-        heading: addon2.heading,
-        description: addon2.description,
-        addon: addon2.addon.guid,
-      },
-    ]);
+    expect(state).toEqual({
+      results: [
+        {
+          heading: addon1.heading,
+          description: addon1.description,
+          addon: addon1.addon.guid,
+        },
+        {
+          heading: addon2.heading,
+          description: addon2.description,
+          addon: addon2.addon.guid,
+        },
+      ],
+    });
   });
 });
