@@ -194,7 +194,13 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
     // When reviews have not loaded yet, make a list of 4 empty reviews
     // as a placeholder.
-    const allReviews = reviews || Array(4).fill(null);
+    const allReviews = reviews
+      ? // Remove the Featured Review from the array.
+        // TODO: Remove this code and use the API to filter out the featured
+        // review once https://github.com/mozilla/addons-server/issues/9424
+        // is fixed.
+        reviews.filter((review) => review.id.toString() !== reviewId)
+      : Array(4).fill(null);
     const iconUrl = getAddonIconUrl(addon);
     const iconImage = (
       <img
@@ -213,20 +219,20 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       header = <LoadingText />;
     }
 
-    const addonRatingCount =
+    const addonReviewCount =
       addon && addon.ratings ? addon.ratings.text_count : null;
     let addonName;
     let reviewCountHTML;
-    if (addon && addonRatingCount !== null) {
+    if (addon && addonReviewCount !== null) {
       addonName = <Link to={this.addonURL()}>{addon.name}</Link>;
       reviewCountHTML = i18n.sprintf(
         i18n.ngettext(
           '%(total)s review for this add-on',
           '%(total)s reviews for this add-on',
-          addonRatingCount,
+          addonReviewCount,
         ),
         {
-          total: i18n.formatNumber(addonRatingCount),
+          total: i18n.formatNumber(addonReviewCount),
         },
       );
     } else {
@@ -333,29 +339,23 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           {reviewId && (
             <FeaturedAddonReview addon={addon} reviewId={reviewId} />
           )}
-          <CardList
-            className="AddonReviewList-reviews-listing"
-            footer={paginator}
-            header={reviewCountHTML}
-          >
-            <ul>
-              {allReviews.map((review, index) => {
-                // TODO: Remove this and use the API to filter out the featured review once
-                // https://github.com/mozilla/addons-server/issues/9424 is fixed.
-                if (
-                  !reviewId ||
-                  (review && review.id.toString() !== reviewId)
-                ) {
+          {allReviews.length ? (
+            <CardList
+              className="AddonReviewList-reviews-listing"
+              footer={paginator}
+              header={reviewCountHTML}
+            >
+              <ul>
+                {allReviews.map((review, index) => {
                   return (
                     <li key={String(index)}>
                       <AddonReviewCard addon={addon} review={review} />
                     </li>
                   );
-                }
-                return null;
-              })}
-            </ul>
-          </CardList>
+                })}
+              </ul>
+            </CardList>
+          ) : null}
         </div>
       </div>
     );
