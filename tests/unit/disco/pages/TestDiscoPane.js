@@ -26,7 +26,6 @@ import { getDiscoResults } from 'disco/reducers/discoResults';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {
-  MockedSubComponent,
   createFakeLocation,
   createFakeTracking,
   createStubErrorHandler,
@@ -68,7 +67,6 @@ describe(__filename, () => {
     }
 
     return {
-      AddonComponent: MockedSubComponent,
       errorHandler: createStubErrorHandler(),
       dispatch: sinon.stub(),
       i18n,

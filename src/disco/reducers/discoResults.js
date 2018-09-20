@@ -10,7 +10,7 @@ export type ExternalDiscoAddonMap = {
   [guid: $PropertyType<AddonType, 'guid'>]: ExternalAddonType,
 };
 
-type ExternalDiscoResultType = {|
+export type ExternalDiscoResultType = {|
   // normalizr injects the add-on's GUID in the `addon` prop.
   addon: $PropertyType<AddonType, 'guid'>,
   description: string | null,

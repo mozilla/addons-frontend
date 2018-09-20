@@ -27,7 +27,7 @@ type FirefoxAddon = {|
   version: string,
 |};
 
-type MozAddonManagerType = {|
+export type MozAddonManagerType = {|
   addEventListener: (eventName: string, handler: Function) => void,
   createInstall: ({| url: string |}) => Promise<any>,
   getAddonByID: (guid: string) => Promise<FirefoxAddon>,
