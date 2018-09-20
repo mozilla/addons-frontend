@@ -8,7 +8,6 @@ import invariant from 'invariant';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
-import * as React from 'react';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 
@@ -113,20 +112,6 @@ export function JedSpy(data = {}) {
  */
 export function fakeI18n({ lang = config.get('defaultLang') } = {}) {
   return makeI18n({}, lang, JedSpy);
-}
-
-export class MockedSubComponent extends React.Component {
-  render() {
-    return <div />;
-  }
-}
-
-export function assertHasClass(el, className) {
-  expect(el.classList.contains(className)).toBeTruthy();
-}
-
-export function assertNotHasClass(el, className) {
-  expect(el.classList.contains(className)).toBeFalsy();
 }
 
 export const userAgentsByPlatform = {
