@@ -1,4 +1,8 @@
-import { setLatestReview, unloadAddonReviews } from 'amo/actions/reviews';
+import {
+  setLatestReview,
+  setReview,
+  unloadAddonReviews,
+} from 'amo/actions/reviews';
 import {
   ADDON_TYPE_EXTENSION,
   OS_ALL,
@@ -740,9 +744,29 @@ describe(__filename, () => {
           userId: 7,
           review: { ...fakeReview },
         }),
-        {
-          _unloadAddonFromState: unloadAddonFromStateStub,
-        },
+        { _unloadAddonFromState: unloadAddonFromStateStub },
+      );
+
+      sinon.assert.calledWith(unloadAddonFromStateStub, state, addonId);
+    });
+  });
+
+  describe('setReview', () => {
+    it('calls unloadAddonFromState', () => {
+      const addonId = 7721;
+      const unloadAddonFromStateStub = sinon.stub();
+
+      const state = initialState;
+      addons(
+        state,
+        setReview({
+          ...fakeReview,
+          addon: {
+            ...fakeReview.addon,
+            id: addonId,
+          },
+        }),
+        { _unloadAddonFromState: unloadAddonFromStateStub },
       );
 
       sinon.assert.calledWith(unloadAddonFromStateStub, state, addonId);

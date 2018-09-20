@@ -1,10 +1,15 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 
-import { SET_LATEST_REVIEW, UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
+import {
+  SET_LATEST_REVIEW,
+  SET_REVIEW,
+  UNLOAD_ADDON_REVIEWS,
+} from 'amo/actions/reviews';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type {
   SetLatestReviewAction,
+  SetReviewAction,
   UnloadAddonReviewsAction,
 } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
@@ -352,6 +357,7 @@ type Action =
   | LoadAddonsAction
   | LoadAddonResultsAction
   | SetLatestReviewAction
+  | SetReviewAction
   | UnloadAddonReviewsAction;
 
 export default function addonsReducer(
@@ -407,6 +413,8 @@ export default function addonsReducer(
         loadingBySlug,
       };
     }
+    case SET_REVIEW:
+      return _unloadAddonFromState(state, action.payload.addon.id);
     case SET_LATEST_REVIEW:
     case UNLOAD_ADDON_REVIEWS:
       return _unloadAddonFromState(state, action.payload.addonId);
