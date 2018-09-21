@@ -1,9 +1,17 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 
-import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
+import {
+  SET_LATEST_REVIEW,
+  SET_REVIEW,
+  UNLOAD_ADDON_REVIEWS,
+} from 'amo/actions/reviews';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
+import type {
+  SetLatestReviewAction,
+  SetReviewAction,
+  UnloadAddonReviewsAction,
+} from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
 import type { AppState as DiscoAppState } from 'disco/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -315,15 +323,49 @@ export const getAllAddons = (state: AppState): Array<AddonType> => {
   return Object.values(addons);
 };
 
+export function unloadAddonFromState(
+  addonsState: AddonsState,
+  addonId: number,
+) {
+  const addon = addonsState.byID[`${addonId}`];
+  if (addon) {
+    return {
+      ...addonsState,
+      byID: {
+        ...addonsState.byID,
+        [`${addonId}`]: undefined,
+      },
+      byGUID: {
+        ...addonsState.byGUID,
+        [addon.guid]: undefined,
+      },
+      bySlug: {
+        ...addonsState.bySlug,
+        [addon.slug]: undefined,
+      },
+      loadingBySlug: {
+        ...addonsState.loadingBySlug,
+        [addon.slug]: false,
+      },
+    };
+  }
+  return addonsState;
+}
+
 type Action =
   | FetchAddonAction
   | LoadAddonsAction
   | LoadAddonResultsAction
+  | SetLatestReviewAction
+  | SetReviewAction
   | UnloadAddonReviewsAction;
 
 export default function addonsReducer(
   state: AddonsState = initialState,
   action: Action,
+  {
+    _unloadAddonFromState = unloadAddonFromState,
+  }: {| _unloadAddonFromState: typeof unloadAddonFromState |} = {},
 ) {
   switch (action.type) {
     case FETCH_ADDON: {
@@ -371,32 +413,11 @@ export default function addonsReducer(
         loadingBySlug,
       };
     }
-    case UNLOAD_ADDON_REVIEWS: {
-      const { addonId } = action.payload;
-      const addon = state.byID[`${addonId}`];
-      if (addon) {
-        return {
-          ...state,
-          byID: {
-            ...state.byID,
-            [`${addonId}`]: undefined,
-          },
-          byGUID: {
-            ...state.byGUID,
-            [addon.guid]: undefined,
-          },
-          bySlug: {
-            ...state.bySlug,
-            [addon.slug]: undefined,
-          },
-          loadingBySlug: {
-            ...state.loadingBySlug,
-            [addon.slug]: false,
-          },
-        };
-      }
-      return state;
-    }
+    case SET_REVIEW:
+      return _unloadAddonFromState(state, action.payload.addon.id);
+    case SET_LATEST_REVIEW:
+    case UNLOAD_ADDON_REVIEWS:
+      return _unloadAddonFromState(state, action.payload.addonId);
     default:
       return state;
   }
