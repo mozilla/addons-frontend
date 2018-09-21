@@ -24,6 +24,7 @@ import * as middleware from 'core/middleware';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
 import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
+import { viewFrontendVersionHandler } from 'core/utils/server';
 import {
   setAuthToken,
   setClientApp,
@@ -201,7 +202,7 @@ function baseServer(
   // Following the ops monitoring convention, return version info at this URL.
   app.get('/__version__', viewVersion);
   // For AMO, this helps differentiate from /__version__ served by addons-server.
-  app.get('/__frontend_version__', viewVersion);
+  app.get('/__frontend_version__', viewFrontendVersionHandler());
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
