@@ -35,7 +35,6 @@ module.exports = {
   cookieName: 'frontend_auth_token',
   cookieSecure: true,
 
-  enableClientConsole: false,
   // Enable devtools for: Redux.
   enableDevTools: false,
   // Logging level, see:
@@ -103,7 +102,6 @@ module.exports = {
     'dismissedExperienceSurveyCookieName',
     'enableAMInstallButton',
     'enableAddonRecommendations',
-    'enableClientConsole',
     'enableDevTools',
     'enableExperienceSurvey',
     'enableInlineAddonReview',

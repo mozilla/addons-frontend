@@ -22,7 +22,6 @@ module.exports = {
     'defaultLang',
     'discoParamsToUse',
     'enableAMInstallButton',
-    'enableClientConsole',
     'enableDevTools',
     'hctEnabled',
     'isDeployed',
