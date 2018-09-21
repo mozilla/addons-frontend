@@ -46,6 +46,7 @@ export default {
     }),
     // optimizations
     new UglifyJsPlugin({
+      sourceMap: true,
       // Do not change these options without busting the cache.
       // See: https://github.com/mozilla/addons-frontend/issues/5796
       uglifyOptions: {
