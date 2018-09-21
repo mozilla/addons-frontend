@@ -52,8 +52,7 @@ module.exports = {
   resolve: {
     alias: {
       normalize: 'normalize.css/normalize.css',
-      stories: path.resolve(__dirname, '../'),
     },
-    modules: [path.resolve('./src'), 'node_modules'],
+    modules: [path.resolve('./src'), path.resolve('./stories'), 'node_modules'],
   },
 };

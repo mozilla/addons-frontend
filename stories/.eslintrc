@@ -4,5 +4,15 @@
       // Allow dev-dependencies in this directory.
       "devDependencies": true
     }],
-  }
+  },
+  "settings": {
+	  "import/resolver": {
+      "node": {
+      	"path": [
+      		"../stories"
+      	],
+        "moduleDirectory": ["node_modules", "src", "stories"]
+      }
+	  }
+	}
 }

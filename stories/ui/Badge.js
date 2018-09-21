@@ -2,9 +2,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-// $FLOW_FIXME flow not liking the path here ( will look into this more)
-import { createChapters } from 'stories/utils'; // eslint-disable-line import/no-unresolved
 
+// $FLOW_FIXME flow not liking the path here ( will look into this more)
+import { createChapters } from 'utils';
 import Badge from 'ui/components/Badge';
 import type { Props as BadgeProps } from 'ui/components/Badge';
 
