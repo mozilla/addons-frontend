@@ -24,6 +24,7 @@ import {
   HIDE_REPLY_TO_REVIEW_FORM,
   createInternalReview,
 } from 'amo/actions/reviews';
+import { SET_VIEW_CONTEXT } from 'core/constants';
 import type {
   DeleteAddonReviewAction,
   FetchReviewAction,
@@ -50,6 +51,7 @@ import type {
 } from 'amo/actions/reviews';
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
+import type { ViewContextActionType } from 'amo/reducers/viewContext';
 import type { AppState } from 'amo/store';
 
 type ReviewsById = {
@@ -311,7 +313,8 @@ type ReviewActionType =
   | SetReviewReplyAction
   | SetUserReviewsAction
   | ShowEditReviewFormAction
-  | ShowReplyToReviewFormAction;
+  | ShowReplyToReviewFormAction
+  | ViewContextActionType;
 
 export default function reviewsReducer(
   state: ReviewsState = initialState,
@@ -575,6 +578,12 @@ export default function reviewsReducer(
         };
       }
       return newState;
+    }
+    case SET_VIEW_CONTEXT: {
+      return {
+        ...state,
+        view: {},
+      };
     }
     default:
       return state;

@@ -22,7 +22,9 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import { setViewContext } from 'amo/actions/viewContext';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
+import { VIEW_CONTEXT_HOME } from 'core/constants';
 import reviewsReducer, {
   addReviewToState,
   changeViewState,
@@ -1217,6 +1219,22 @@ describe(__filename, () => {
         }),
       );
       expect(reviewsAreLoading({ reviews: state }, slug)).toBe(false);
+    });
+  });
+
+  describe('setViewContext', () => {
+    it('resets the view state', () => {
+      let state;
+
+      state = reviewsReducer(
+        undefined,
+        showEditReviewForm({
+          reviewId: 1,
+        }),
+      );
+      state = reviewsReducer(undefined, setViewContext(VIEW_CONTEXT_HOME));
+
+      expect(state.view).toEqual({});
     });
   });
 });
