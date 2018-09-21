@@ -1,4 +1,4 @@
-import { oneLineTrim } from 'common-tags';
+import { oneLine, oneLineTrim } from 'common-tags';
 import * as React from 'react';
 
 import AddonCompatibilityError, {
@@ -215,9 +215,8 @@ describe(__filename, () => {
         .find('.AddonCompatibilityError')
         .childAt(0)
         .html(),
-    ).toContain(
-      'Your version of Firefox does not support non-restartless add-ons.',
-    );
+    ).toContain(oneLine`Your version of Firefox does not support this add-on
+      because it requires a restart.`);
   });
 
   it('renders a notice and logs warning when reason code not known', () => {

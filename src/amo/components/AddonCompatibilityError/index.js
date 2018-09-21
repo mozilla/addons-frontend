@@ -67,9 +67,8 @@ export class AddonCompatibilityErrorBase extends React.Component {
         'Your version of Firefox does not support search plugins.',
       );
     } else if (reason === INCOMPATIBLE_NON_RESTARTLESS_ADDON) {
-      message = i18n.gettext(
-        'Your version of Firefox does not support non-restartless add-ons.',
-      );
+      message = i18n.gettext(`Your version of Firefox does not support this
+          add-on because it requires a restart.`);
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.',
