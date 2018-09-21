@@ -6,8 +6,9 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_NO_OPENSEARCH,
+  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -184,7 +185,7 @@ export function getClientCompatibility({
       mozCompare(browser.version, '61.0') >= 0
     ) {
       compatible = false;
-      reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
+      reason = INCOMPATIBLE_NON_RESTARTLESS_ADDON;
 
       _log.debug(
         'add-on is incompatible because it is a non-restartless add-on',
