@@ -247,7 +247,7 @@ export class AddonBase extends React.Component<InternalProps> {
       );
     }
 
-    const { compatible, minVersion, reason } = _getClientCompatibility({
+    const { compatible, reason } = _getClientCompatibility({
       addon,
       clientApp,
       userAgentInfo,
@@ -308,9 +308,7 @@ export class AddonBase extends React.Component<InternalProps> {
           )}
         </div>
 
-        {!compatible ? (
-          <AddonCompatibilityError minVersion={minVersion} reason={reason} />
-        ) : null}
+        {!compatible ? <AddonCompatibilityError reason={reason} /> : null}
       </div>
     );
   }

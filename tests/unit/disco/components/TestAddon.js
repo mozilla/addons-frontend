@@ -361,7 +361,6 @@ describe(__filename, () => {
 
     it('disables incompatible add-ons', () => {
       const { store } = createStore();
-      const minVersion = '400000.0';
       const reason = 'WHATEVER';
       const root = renderAddon({
         addon: {
@@ -372,14 +371,13 @@ describe(__filename, () => {
         _getClientCompatibility: () => ({
           compatible: false,
           maxVersion: '4000000.0',
-          minVersion,
+          minVersion: '123',
           reason,
         }),
         store,
       });
 
       const compatError = root.find(AddonCompatibilityError);
-      expect(compatError.prop('minVersion')).toEqual(minVersion);
       expect(compatError.prop('reason')).toEqual(reason);
     });
   });
