@@ -7,7 +7,6 @@ module.exports = {
   amoCDN: amoDevCDN,
   staticHost: amoDevCDN,
 
-  enableClientConsole: true,
   enableDevTools: true,
 
   // Content security policy.
