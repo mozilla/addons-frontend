@@ -1,7 +1,9 @@
 /* @flow */
+import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 // $FLOW_FIXME flow not liking the path here ( will look into this more)
-import { createChapters, createPropsSection } from 'stories/utils'; // eslint-disable-line import/no-unresolved
+import { createChapters } from 'stories/utils'; // eslint-disable-line import/no-unresolved
 
 import Button from 'ui/components/Button';
 
@@ -15,7 +17,6 @@ const buttonTypes = [
   'confirm',
 ];
 
-// TODO: Add flow type here once it's set up in the Button component.
 function createPropsMatrix(buttonType) {
   return [
     {
@@ -58,14 +59,20 @@ function createPropsMatrix(buttonType) {
   ];
 }
 
-storiesOf('Button', module).addWithChapters('Button variations', {
-  chapters: [
-    createPropsSection({ Component: Button }),
-    ...createChapters({
-      Component: Button,
-      chapters: buttonTypes,
-      children: 'Hello Button',
-      createPropsMatrix,
+storiesOf('Button', module)
+  .add(
+    'Badge props',
+    withInfo()(() => {
+      return <Button />;
     }),
-  ],
-});
+  )
+  .addWithChapters('Button variations', {
+    chapters: [
+      ...createChapters({
+        Component: Button,
+        chapters: buttonTypes,
+        children: 'Hello Button',
+        createPropsMatrix,
+      }),
+    ],
+  });

@@ -13,7 +13,14 @@ body {
 .section-container {
   border-bottom: 1px solid $background-grey;
   display: block;
-  padding: 20px;
+  flex-wrap: wrap;
+  padding: 24px;
+
+  > div {
+    // We are targeting a classless component
+    // and overriding where we can below.
+    flex-basis: 100%;
+  }
 
   @include respond-to(medium) {
     align-items: center;
@@ -21,7 +28,13 @@ body {
   }
 
   .section-header {
+    flex-basis: auto;
     flex-grow: 1;
+    margin-bottom: 12px;
+  }
+
+  .section-component-container {
+    flex-basis: auto;
   }
 
   .section-subtitle {
@@ -29,19 +42,16 @@ body {
       margin: 0;
     }
   }
+
+  .section-button-container {
+    float: left;
+  }
+
+  .section-subsection-title {
+    visibility: hidden;
+  }
 }
 
 .chapter-h3 {
-  margin-top: 50px;
-}
-
-.story-header {
-  // Unfortunately I don't see a lot of classes with chapter
-  // so overriding the above style in this way seems to be
-  // the only way.
-  + div {
-    .section-header {
-      flex-grow: initial;
-    }
-  }
+  margin-top: 48px;
 }

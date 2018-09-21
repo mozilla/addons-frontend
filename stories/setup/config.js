@@ -1,18 +1,34 @@
 import { configure, setAddon } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 import chaptersAddon, { setDefaults } from 'react-storybook-addon-chapters';
+import infoAddon, {
+  setDefaults as setAddonInfoDefaults,
+} from '@storybook/addon-info';
 
 // TBD: overrides chapters defaults. Do we want this?
 setDefaults({
   sectionOptions: {
     allowPropTablesToggling: false,
-    allowSourceToggling: false,
+    allowSourceToggling: true,
     showSource: false,
     useTheme: false,
   },
 });
 
 setAddon(chaptersAddon);
+
+setAddonInfoDefaults({
+  header: false, // Toggles display of header with component name and description
+  inline: true,
+  source: false,
+  styles: {
+    infoBody: {
+      fontSize: '12px',
+    },
+  },
+});
+
+setAddon(infoAddon);
 
 // Override some global-y setup options.
 // See https://www.npmjs.com/package/@storybook/addon-options.
