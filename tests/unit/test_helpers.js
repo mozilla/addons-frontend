@@ -11,6 +11,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import {
+  getFakeConfig,
   matchingSagaAction,
   shallowUntilTarget,
   unexpectedSuccess,
@@ -272,6 +273,24 @@ describe(__filename, () => {
       expect(error.message).toMatch(
         /saga called these action types.*none at all/,
       );
+    });
+  });
+
+  describe('getFakeConfig', () => {
+    it('throws an error when key is invalid', () => {
+      expect(() => {
+        getFakeConfig({ thisIsAnInvalidKey: true });
+      }).toThrow(/this key is invalid/);
+    });
+
+    it('does not throw when key is invalid and allowUnknownKeys is set to true', () => {
+      const value = 'some value';
+      const config = getFakeConfig(
+        { thisIsAnInvalidKey: value },
+        { allowUnknownKeys: true },
+      );
+
+      expect(config.get('thisIsAnInvalidKey')).toEqual(value);
     });
   });
 });

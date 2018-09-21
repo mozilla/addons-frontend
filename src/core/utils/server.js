@@ -1,36 +1,62 @@
 /* @flow */
-import fs from 'fs';
 import path from 'path';
 
+import fs from 'fs-extra';
 import config from 'config';
 import type { $Request, $Response } from 'express';
 
 import log from 'core/logger';
 
+const PREFIX = 'enableFeature';
+
+export const getFeatureFlagName = (featureFlagKey: string): string => {
+  return featureFlagKey.replace(PREFIX, '');
+};
+
 type ExpressHandler = (req: $Request, res: $Response) => void;
 
 type ViewFrontendVersionHandlerParams = {|
-  _config: typeof config,
-  _log: typeof log,
+  _config?: typeof config,
+  _log?: typeof log,
+  versionFilename?: string,
 |};
 
 export const viewFrontendVersionHandler = ({
   _config = config,
   _log = log,
-}: ViewFrontendVersionHandlerParams = {}): ExpressHandler => {
   // This is a magic file that gets written by deployment scripts.
-  const version = path.join(_config.get('basePath'), 'version.json');
+  versionFilename = 'version.json',
+}: ViewFrontendVersionHandlerParams = {}): ExpressHandler => {
+  const version = path.join(_config.get('basePath'), versionFilename);
+
+  const featureFlags = Object.keys(_config)
+    .filter((key) => {
+      return key.startsWith(PREFIX);
+    })
+    .reduce((map, key) => {
+      return {
+        ...map,
+        [getFeatureFlagName(key)]: _config.get(key),
+      };
+    }, {});
+
+  const experiments = _config.get('experiments');
 
   return (req: $Request, res: $Response) => {
-    fs.stat(version, (error) => {
+    fs.stat(version, async (error) => {
       if (error) {
         _log.error(
           `Could not stat version file ${version}: ${error.toString()}`,
         );
         res.sendStatus(415);
       } else {
-        res.setHeader('Content-Type', 'application/json');
-        fs.createReadStream(version).pipe(res);
+        const versionJson = await fs.readJson(version);
+
+        res.json({
+          ...versionJson,
+          experiments,
+          feature_flags: featureFlags,
+        });
       }
     });
   };

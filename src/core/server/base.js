@@ -199,7 +199,8 @@ function baseServer(
     });
   }
 
-  // Following the ops monitoring convention, return version info at this URL.
+  // Following the ops monitoring Dockerflow convention, return version info at
+  // this URL. See: https://github.com/mozilla-services/Dockerflow
   app.get('/__version__', viewVersion);
   // For AMO, this helps differentiate from /__version__ served by addons-server.
   app.get('/__frontend_version__', viewFrontendVersionHandler());
