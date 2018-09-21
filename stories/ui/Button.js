@@ -61,7 +61,7 @@ function createPropsMatrix(buttonType) {
 
 storiesOf('Button', module)
   .add(
-    'Badge props',
+    'Button props',
     withInfo()(() => {
       return <Button />;
     }),
