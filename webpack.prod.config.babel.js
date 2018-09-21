@@ -46,6 +46,8 @@ export default {
     }),
     // optimizations
     new UglifyJsPlugin({
+      // Even though devtool is set to source-map, this must be true to output source maps:
+      sourceMap: true,
       // Do not change these options without busting the cache.
       // See: https://github.com/mozilla/addons-frontend/issues/5796
       uglifyOptions: {
