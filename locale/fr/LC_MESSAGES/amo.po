@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-19 08:55+0000\n"
-"PO-Revision-Date: 2018-09-19 22:17+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-09-20 00:09+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -343,11 +343,11 @@ msgstr "Enregistré"
 
 #: src/amo/components/AddonReviewManager/index.js:138
 msgid "Update review"
-msgstr ""
+msgstr "Mettre à jour l’avis"
 
 #: src/amo/components/AddonReviewManager/index.js:143
 msgid "Updating review"
-msgstr ""
+msgstr "Mise à jour l’avis"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Submitting review"
@@ -703,11 +703,11 @@ msgstr "Une erreur s’est malheureusement produite sur notre serveur et nous n�
 
 #: src/amo/components/FeaturedAddonReview/index.js:77
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "Avis de %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:87
 msgid "The review was not found."
-msgstr ""
+msgstr "L’avis n’a pas été trouvé."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
