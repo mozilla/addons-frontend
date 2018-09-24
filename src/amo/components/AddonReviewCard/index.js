@@ -302,6 +302,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         : // translators: Example in English: "by UserName123, last week"
           i18n.gettext('by %(authorName)s, %(timestamp)s');
 
+      // This somewhat odd code is needed because we want to wrap the timestamp
+      // inside a Link component, and the whole thing is inside a string that
+      // needs to be localized, so we localize the string first and then
+      // inject the timestamp, wrapped in a Link, inside the string.
       const localized = i18n.sprintf(byLineString, {
         authorName: review.userName,
         timestamp: '__timestamp__',

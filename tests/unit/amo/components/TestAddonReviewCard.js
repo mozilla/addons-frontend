@@ -1017,6 +1017,29 @@ describe(__filename, () => {
 
       expect(renderByLine(root).text()).toContain('posted ');
     });
+
+    it('builds a byLine string by extracting the timestamp and inserting a link', () => {
+      const firstPart = 'this is the first part';
+      const lastPart = 'this is the last part';
+      const byLineString = `${firstPart} %(timestamp)s ${lastPart}`;
+      const i18n = {
+        ...fakeI18n(),
+        gettext: sinon.stub().returns(byLineString),
+      };
+      const review = _setReview(fakeReview);
+      const root = render({ i18n, shortByLine: true, review });
+
+      expect(
+        renderByLine(root)
+          .text()
+          .startsWith(firstPart),
+      ).toBe(true);
+      expect(
+        renderByLine(root)
+          .text()
+          .endsWith(lastPart),
+      ).toBe(true);
+    });
   });
 
   describe('Developer reply to a review', () => {
