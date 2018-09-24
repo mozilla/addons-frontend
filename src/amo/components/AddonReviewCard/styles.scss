@@ -97,15 +97,7 @@
   }
 }
 
-.AddonReviewCard-reply-header {
-  margin: 0 0 6px;
-
-  .Icon-reply-arrow {
-    @include margin-end(12px);
-  }
-}
-
 .AddonReviewCard-writeReviewButton {
   margin-top: 12px;
-  width: 100%;
+  width: auto;
 }

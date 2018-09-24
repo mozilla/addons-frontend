@@ -319,6 +319,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             review={userReview}
             shortByLine
             showRating={false}
+            smallerWriteReviewButton={false}
             verticalButtons
           />
         )}

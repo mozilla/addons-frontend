@@ -53,3 +53,15 @@
     @include focus();
   }
 }
+
+.UserReview-reply-header {
+  @include margin-end(6px);
+
+  color: $text-color-default;
+  margin-bottom: 6px;
+  margin-top: 0;
+
+  .Icon-reply-arrow {
+    @include margin-end(12px);
+  }
+}

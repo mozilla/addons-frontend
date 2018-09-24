@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import { fetchUserReviews, setUserReviews } from 'amo/actions/reviews';
+import {
+  createInternalReview,
+  fetchUserReviews,
+  setUserReviews,
+} from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
 import UserProfile, { extractId, UserProfileBase } from 'amo/pages/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import Link from 'amo/components/Link';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   fetchUserAccount,
@@ -25,7 +29,6 @@ import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
-import UserReview from 'ui/components/UserReview';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -808,8 +811,9 @@ describe(__filename, () => {
   it(`displays the user's reviews`, () => {
     const { params, store } = signInUserWithUsername('black-panther');
     const user = getCurrentUser(store.getState().users);
+    const review = fakeReview;
 
-    const reviews = [fakeReview];
+    const reviews = [review];
     _setUserReviews({ store, userId: user.id, reviews });
 
     const location = createFakeLocation({ query: { foo: 'bar' } });
@@ -823,53 +827,10 @@ describe(__filename, () => {
     );
     expect(root.find('.UserProfile-reviews')).toHaveProp('footer', null);
 
-    expect(root.find('.UserProfile-review')).toHaveLength(reviews.length);
-    expect(root.find('.UserProfile-review')).not.toHaveClassName(
-      'UserProfile-review--is-reply',
+    expect(root.find(AddonReviewCard)).toHaveProp(
+      'review',
+      createInternalReview(review),
     );
-
-    const byLine = shallow(root.find(UserReview).prop('byLine'), {
-      // The `Link` component needs the store.
-      context: { store },
-    });
-
-    expect(byLine.find(Link)).toHaveProp(
-      'to',
-      `/addon/${fakeReview.addon.slug}/reviews/${fakeReview.id}/`,
-    );
-    expect(byLine.find(Link).childAt(0)).toHaveText(
-      root
-        .instance()
-        .props.i18n.moment(fakeReview.created)
-        .fromNow(),
-    );
-    expect(byLine.text()).not.toContain('Developer response');
-  });
-
-  it('adds extra style when review is a developer response', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
-    const user = getCurrentUser(store.getState().users);
-
-    const reviews = [
-      {
-        ...fakeReview,
-        is_developer_reply: true,
-      },
-    ];
-    _setUserReviews({ store, userId: user.id, reviews });
-
-    const location = createFakeLocation({ query: { foo: 'bar' } });
-
-    const root = renderUserProfile({ location, params, store });
-
-    expect(root.find('.UserProfile-review')).toHaveLength(reviews.length);
-    expect(root.find('.UserProfile-review')).toHaveClassName(
-      'UserProfile-review--is-reply',
-    );
-
-    const byLine = shallow(<div>{root.find(UserReview).prop('byLine')}</div>);
-
-    expect(byLine.text()).toContain('Developer response');
   });
 
   it(`displays the user's reviews with pagination when there are more reviews than the default API page size`, () => {
@@ -895,7 +856,7 @@ describe(__filename, () => {
     expect(paginator).toHaveProp('pathname', '/user/black-panther/');
     expect(paginator).toHaveProp('queryParams', location.query);
 
-    expect(root.find(UserReview)).toHaveLength(DEFAULT_API_PAGE_SIZE);
+    expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
   });
 
   it(`does not display the user's reviews when current user is not the owner`, () => {

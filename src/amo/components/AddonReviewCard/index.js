@@ -41,10 +41,11 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  addon: AddonType | null,
+  addon?: AddonType | null,
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
+  smallerWriteReviewButton?: boolean,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showRating?: boolean,
@@ -71,26 +72,20 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     flaggable: true,
+    smallerWriteReviewButton: true,
     shortByLine: false,
     showRating: true,
     verticalButtons: false,
   };
 
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
-    const {
-      addon,
-      dispatch,
-      errorHandler,
-      isReplyToReviewId,
-      review,
-    } = this.props;
+    const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
-    invariant(addon, 'addon is required');
     invariant(review, 'review is required');
     dispatch(
       deleteAddonReview({
-        addonId: addon.id,
+        addonId: review.reviewAddon.id,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
         isReplyToReviewId,
@@ -184,7 +179,11 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 
   isReply() {
-    return this.props.isReplyToReviewId !== undefined;
+    const { isReplyToReviewId, review } = this.props;
+    return (
+      isReplyToReviewId !== undefined ||
+      Boolean(review && review.isDeveloperReply)
+    );
   }
 
   editPrompt() {
@@ -227,7 +226,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
   renderReply() {
     const {
-      addon,
       errorHandler,
       i18n,
       replyingToReview,
@@ -241,10 +239,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonReviewCard-reply">
-        <h4 className="AddonReviewCard-reply-header">
-          <Icon name="reply-arrow" />
-          {i18n.gettext('Developer response')}
-        </h4>
         {replyingToReview ? (
           <DismissibleTextForm
             className="AddonReviewCard-reply-form"
@@ -266,7 +260,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           />
         ) : (
           <AddonReviewCard
-            addon={addon}
             isReplyToReviewId={review.id}
             review={review.reply}
           />
@@ -287,6 +280,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       flaggable,
       i18n,
       lang,
+      smallerWriteReviewButton,
       replyingToReview,
       review,
       shortByLine,
@@ -435,8 +429,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             <UserReview
               controls={controls}
               review={review}
-              byLine={!this.isRatingOnly() && byLine}
+              byLine={byLine}
               showRating={!this.isReply() && showRating}
+              isReply={this.isReply()}
             />
             {siteUser &&
               this.isRatingOnly() && (
@@ -445,7 +440,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                   onClick={this.onClickToEditReview}
                   href="#writeReview"
                   buttonType="action"
-                  puffy
+                  puffy={!smallerWriteReviewButton}
                 >
                   {i18n.gettext('Write a review')}
                 </Button>

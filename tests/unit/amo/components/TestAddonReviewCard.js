@@ -35,7 +35,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
-import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserReview from 'ui/components/UserReview';
 
@@ -164,6 +163,7 @@ describe(__filename, () => {
     expect(rating).toHaveProp('review', review);
     expect(rating).toHaveProp('showRating', true);
     expect(rating).toHaveProp('byLine');
+    expect(rating).toHaveProp('isReply', false);
   });
 
   it('renders a custom className', () => {
@@ -877,6 +877,7 @@ describe(__filename, () => {
 
       const writeReview = root.find('.AddonReviewCard-writeReviewButton');
       expect(writeReview).toHaveLength(1);
+      expect(writeReview).toHaveProp('puffy', false);
 
       dispatchSpy.resetHistory();
       writeReview.simulate('click', createFakeEvent());
@@ -899,6 +900,18 @@ describe(__filename, () => {
 
       root = renderInline({ review });
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
+    });
+
+    it('can render a larger write review button', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      const root = renderInline({ review, smallerWriteReviewButton: false });
+
+      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveProp(
+        'puffy',
+        true,
+      );
     });
 
     it('prompts to cancel writing a new review', async () => {
@@ -944,8 +957,8 @@ describe(__filename, () => {
   });
 
   describe('byLine', () => {
-    function renderByLine(root) {
-      return shallow(root.find(UserReview).prop('byLine'));
+    function getByLineHtml(root) {
+      return shallow(root.find(UserReview).prop('byLine')).html();
     }
 
     it('renders a byLine with a permalink to the review', () => {
@@ -959,9 +972,9 @@ describe(__filename, () => {
       });
       const root = render({ review, store });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain(`/${lang}/${clientApp}/addon/${slug}/reviews/${review.id}/`);
+      expect(getByLineHtml(root)).toContain(
+        `/${lang}/${clientApp}/addon/${slug}/reviews/${review.id}/`,
+      );
     });
 
     it('renders a byLine with a relative date', () => {
@@ -969,22 +982,19 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, review });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain(i18n.moment(review.created).fromNow());
+      expect(getByLineHtml(root)).toContain(
+        i18n.moment(review.created).fromNow(),
+      );
     });
 
     it('renders a byLine with an author by default', () => {
-      const i18n = fakeI18n();
       const name = 'some_user';
       const review = signInAndDispatchSavedReview({
         reviewUserProps: { name },
       });
-      const root = render({ i18n, review });
+      const root = render({ review });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain(`by ${name},`);
+      expect(getByLineHtml(root)).toContain(`by ${name},`);
     });
 
     it('renders a short byLine for replies by default', () => {
@@ -994,28 +1004,14 @@ describe(__filename, () => {
 
       const root = renderReply({ i18n, reply });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain('posted ');
+      expect(getByLineHtml(root)).toContain('posted ');
     });
 
     it('renders a short byLine explicitly', () => {
-      const i18n = fakeI18n();
-      const review = signInAndDispatchSavedReview();
-      const root = render({ i18n, shortByLine: true, review });
+      const review = _setReview(fakeReview);
+      const root = render({ shortByLine: true, review });
 
-      expect(
-        renderByLine(root).prop('dangerouslySetInnerHTML').__html,
-      ).toContain('posted ');
-    });
-
-    it('does not render a byLine for ratings', () => {
-      const review = signInAndDispatchSavedReview({
-        externalReview: fakeRatingOnly,
-      });
-      const root = render({ review });
-
-      expect(root.find(UserReview)).toHaveProp('byLine', false);
+      expect(getByLineHtml(root)).toContain('posted ');
     });
   });
 
@@ -1027,7 +1023,6 @@ describe(__filename, () => {
 
       const replyComponent = root.find(AddonReviewCard);
       expect(replyComponent).toHaveLength(1);
-      expect(replyComponent).toHaveProp('addon', addon);
       expect(replyComponent).toHaveProp('review', reply);
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
     });
@@ -1037,6 +1032,12 @@ describe(__filename, () => {
 
       const rating = root.find(UserReview);
       expect(rating).toHaveProp('showRating', false);
+    });
+
+    it('passes isReply to the UserReview', () => {
+      const root = renderReply();
+
+      expect(root.find(UserReview)).toHaveProp('isReply', true);
     });
 
     it('hides rating stars even with showRating=true', () => {
@@ -1146,22 +1147,16 @@ describe(__filename, () => {
       );
     });
 
-    it('adds a developer response header to reply forms', () => {
-      const { review } = _setReviewReply();
-      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    it('renders a non-nested reply', () => {
+      const review = _setReview({
+        ...fakeReview,
+        is_developer_reply: true,
+      });
+      // Set showRating to true to prove that we will not show a rating for a reply.
+      const root = render({ review, showRating: true });
 
-      const root = render({ review });
-
-      const formContainer = root.find('.AddonReviewCard-reply');
-      expect(formContainer).toHaveLength(1);
-      expect(formContainer.find('.AddonReviewCard-reply-header')).toHaveLength(
-        1,
-      );
-
-      const icon = formContainer.find(Icon);
-      expect(icon).toHaveProp('name', 'reply-arrow');
-
-      expect(formContainer.find('.AddonReviewCard-reply-form')).toHaveLength(1);
+      const reviewComponent = root.find(UserReview);
+      expect(reviewComponent).toHaveProp('showRating', false);
     });
   });
 });
