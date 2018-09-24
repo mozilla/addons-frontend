@@ -23,7 +23,7 @@ type UIStateType = {|
 |};
 
 type Props = {|
-  children: React.Element<any> | string,
+  children: any,
   className?: string,
   header?: React.Element<any> | string,
   id: string,
@@ -34,7 +34,6 @@ type InternalProps = {|
   i18n: I18nType,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
-  children: React.Element<any>,
 |};
 
 const initialUIState: UIStateType = {
