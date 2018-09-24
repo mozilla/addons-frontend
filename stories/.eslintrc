@@ -6,13 +6,13 @@
     }],
   },
   "settings": {
-	  "import/resolver": {
+    "import/resolver": {
       "node": {
-      	"path": [
-      		"../stories"
-      	],
+        "path": [
+          "../stories"
+        ],
         "moduleDirectory": ["node_modules", "src", "stories"]
       }
-	  }
-	}
+    }
+  }
 }
