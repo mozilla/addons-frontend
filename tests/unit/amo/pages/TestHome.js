@@ -127,7 +127,7 @@ describe(__filename, () => {
   });
 
   it('renders a featured themes shelf if includeFeaturedThemes is true', () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
     const root = render({ _config: fakeConfig, includeFeaturedThemes: true });
 
     const shelves = root.find(LandingAddonsCard);
@@ -153,7 +153,7 @@ describe(__filename, () => {
   });
 
   it('renders a featured themes shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
     const root = render({ _config: fakeConfig, includeFeaturedThemes: true });
 
     const shelves = root.find(LandingAddonsCard);
@@ -166,7 +166,7 @@ describe(__filename, () => {
   });
 
   it('renders a featured themes shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
     const root = render({ _config: fakeConfig, includeFeaturedThemes: true });
 
     const shelves = root.find(LandingAddonsCard);

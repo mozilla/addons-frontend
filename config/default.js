@@ -105,7 +105,7 @@ module.exports = {
     'enableDevTools',
     'enableExperienceSurvey',
     'enableInlineAddonReview',
-    'enableStaticThemes',
+    'enableFeatureStaticThemes',
     'experiments',
     'fxaConfig',
     'hctEnabled',
@@ -307,14 +307,16 @@ module.exports = {
   discoParamsToUse: [],
 
 
-  // Feature flags. Please use the `enableFeature` prefix, see:
+  // Feature flags.
+  //
+  // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
   // Enable the TAAR Lite A/B test.
   enableFeatureAddonRecommendations: false,
 
   // Enable static themes.
-  enableStaticThemes: true,
+  enableFeatureStaticThemes: true,
 
   enableExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',

@@ -269,7 +269,7 @@ export const isTheme = (addonType) => {
 };
 
 export const getAddonTypeFilter = (addonType, { _config = config } = {}) => {
-  if (!_config.get('enableStaticThemes') || !isTheme(addonType)) {
+  if (!_config.get('enableFeatureStaticThemes') || !isTheme(addonType)) {
     return addonType;
   }
 
