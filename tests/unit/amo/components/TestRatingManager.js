@@ -606,6 +606,17 @@ describe(__filename, () => {
       expect(reviewCard).toHaveProp('review', createInternalReview(review));
     });
 
+    it('shows an AddonReviewCard with a larger button', () => {
+      const root = renderInline({
+        store: createStoreWithLatestReview(),
+      });
+
+      expect(root.find(AddonReviewCard)).toHaveProp(
+        'smallerWriteReviewButton',
+        false,
+      );
+    });
+
     it('hides UserRating and prompt when editing', () => {
       const review = { ...fakeReview, id: 8877 };
       const store = createStoreWithLatestReview({ review });

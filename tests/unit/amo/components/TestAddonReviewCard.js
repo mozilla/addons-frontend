@@ -877,7 +877,7 @@ describe(__filename, () => {
 
       const writeReview = root.find('.AddonReviewCard-writeReviewButton');
       expect(writeReview).toHaveLength(1);
-      expect(writeReview).toHaveProp('puffy', true);
+      expect(writeReview).toHaveProp('puffy', false);
 
       dispatchSpy.resetHistory();
       writeReview.simulate('click', createFakeEvent());
@@ -902,15 +902,15 @@ describe(__filename, () => {
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
-    it('can render a smaller write review button', () => {
+    it('can render a larger write review button', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      const root = renderInline({ review, smallerWriteReviewButton: true });
+      const root = renderInline({ review, smallerWriteReviewButton: false });
 
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveProp(
         'puffy',
-        false,
+        true,
       );
     });
 

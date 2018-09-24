@@ -218,11 +218,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
           {reviews.map((review) => {
             return (
               <li key={String(review.id)}>
-                <AddonReviewCard
-                  review={review}
-                  smallerWriteReviewButton
-                  shortByLine
-                />
+                <AddonReviewCard review={review} shortByLine />
               </li>
             );
           })}

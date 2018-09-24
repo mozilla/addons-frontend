@@ -72,7 +72,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     flaggable: true,
-    smallerWriteReviewButton: false,
+    smallerWriteReviewButton: true,
     shortByLine: false,
     showRating: true,
     verticalButtons: false,
