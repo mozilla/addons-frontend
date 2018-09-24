@@ -517,10 +517,10 @@ describe(__filename, () => {
     });
   });
 
-  describe('enableInlineAddonReview', () => {
+  describe('enableFeatureInlineAddonReview', () => {
     function renderInline(otherProps = {}) {
       const _config = getFakeConfig({
-        enableInlineAddonReview: true,
+        enableFeatureInlineAddonReview: true,
       });
       return render({ _config, ...otherProps });
     }

@@ -104,7 +104,7 @@ module.exports = {
     'enableFeatureAddonRecommendations',
     'enableDevTools',
     'enableFeatureExperienceSurvey',
-    'enableInlineAddonReview',
+    'enableFeatureInlineAddonReview',
     'enableFeatureStaticThemes',
     'experiments',
     'fxaConfig',
@@ -324,7 +324,7 @@ module.exports = {
   // Enable new InstallButton with mozAddonManager.
   enableFeatureAMInstallButton: false,
 
-  enableInlineAddonReview: false,
+  enableFeatureInlineAddonReview: false,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.

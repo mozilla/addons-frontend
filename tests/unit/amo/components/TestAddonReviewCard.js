@@ -55,7 +55,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
-      _config: getFakeConfig({ enableInlineAddonReview: false }),
+      _config: getFakeConfig({ enableFeatureInlineAddonReview: false }),
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
       store,
@@ -807,10 +807,10 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  describe('enableInlineAddonReview', () => {
+  describe('enableFeatureInlineAddonReview', () => {
     function renderInline(otherProps = {}) {
       const _config = getFakeConfig({
-        enableInlineAddonReview: true,
+        enableFeatureInlineAddonReview: true,
       });
       return render({ _config, ...otherProps });
     }
