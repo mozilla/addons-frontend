@@ -190,24 +190,24 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const { i18n } = this.props;
 
     if (this.isReply()) {
-      return i18n.gettext('Edit my reply');
+      return i18n.gettext('Edit reply');
     }
 
-    return i18n.gettext('Edit my review');
+    return i18n.gettext('Edit review');
   }
 
   deletePrompt() {
     const { i18n } = this.props;
 
     if (this.isReply()) {
-      return i18n.gettext('Delete my reply');
+      return i18n.gettext('Delete reply');
     }
 
     if (this.isRatingOnly()) {
-      return i18n.gettext('Delete my rating');
+      return i18n.gettext('Delete rating');
     }
 
-    return i18n.gettext('Delete my review');
+    return i18n.gettext('Delete review');
   }
 
   confirmDeletePrompt() {
@@ -402,13 +402,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       </div>
     );
 
-    let cancelButtonText;
-    if (verticalButtons) {
-      cancelButtonText = this.isRatingOnly()
-        ? i18n.gettext("Nevermind, I don't want to write a review")
-        : i18n.gettext("Nevermind, I don't want to edit my review");
-    }
-
     return (
       <div
         className={makeClassName('AddonReviewCard', className, {
@@ -422,7 +415,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         _config.get('enableFeatureInlineAddonReview') ? (
           <AddonReviewManager
             onCancel={this.onCancelEditReview}
-            cancelButtonText={cancelButtonText}
             puffyButtons={Boolean(verticalButtons)}
             review={review}
           />

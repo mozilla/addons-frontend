@@ -264,7 +264,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     const { addon, i18n, flashMessage, userReview } = this.props;
 
     const prompt = i18n.sprintf(
-      i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
+      i18n.gettext('How are you enjoying %(addonName)s?'),
       { addonName: addon.name },
     );
 

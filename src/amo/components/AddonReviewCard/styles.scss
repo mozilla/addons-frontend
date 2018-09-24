@@ -61,9 +61,14 @@
   .ConfirmButton-default-button {
     align-items: flex-start;
     border: 0;
-    color: $blue-50;
+    color: $text-color-default;
     height: auto;
     padding: 0;
+
+    &:active,
+    &:hover {
+      color: $link-color;
+    }
   }
 
   .ConfirmButton-buttons {
