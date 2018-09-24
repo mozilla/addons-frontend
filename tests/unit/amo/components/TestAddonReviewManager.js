@@ -88,16 +88,6 @@ describe(__filename, () => {
     sinon.assert.called(onCancel);
   });
 
-  it('passes cancelButtonText to DismissibleTextForm', () => {
-    const cancelButtonText = 'Nevermind, cancel it';
-    const root = render({ onCancel: sinon.stub(), cancelButtonText });
-
-    expect(root.find(DismissibleTextForm)).toHaveProp(
-      'dismissButtonText',
-      cancelButtonText,
-    );
-  });
-
   it('configures DismissibleTextForm without puffyButtons by default', () => {
     const root = render();
 

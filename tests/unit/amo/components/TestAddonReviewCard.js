@@ -219,7 +219,7 @@ describe(__filename, () => {
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
-    expect(deleteLink.children()).toHaveText('Delete my review');
+    expect(deleteLink.children()).toHaveText('Delete review');
     expect(deleteLink).toHaveProp(
       'message',
       'Do you really want to delete this review?',
@@ -234,7 +234,7 @@ describe(__filename, () => {
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
-    expect(deleteLink.children()).toHaveText('Delete my rating');
+    expect(deleteLink.children()).toHaveText('Delete rating');
     expect(deleteLink).toHaveProp(
       'message',
       'Do you really want to delete this rating?',
@@ -323,7 +323,7 @@ describe(__filename, () => {
     const root = render({ review });
 
     const editButton = renderControls(root).find('.AddonReviewCard-edit');
-    expect(editButton.text()).toContain('Edit my review');
+    expect(editButton.text()).toContain('Edit review');
     const clickEvent = createFakeEvent();
     editButton.simulate('click', clickEvent);
 
@@ -913,47 +913,6 @@ describe(__filename, () => {
         true,
       );
     });
-
-    it('prompts to cancel writing a new review', async () => {
-      const review = signInAndDispatchSavedReview({
-        // This is a new review without any text yet.
-        externalReview: fakeRatingOnly,
-      });
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
-      const root = renderInline({ review, verticalButtons: true });
-
-      const manager = root.find(AddonReviewManager);
-      expect(manager).toHaveProp(
-        'cancelButtonText',
-        "Nevermind, I don't want to write a review",
-      );
-    });
-
-    it('prompts to cancel editing an existing review', async () => {
-      const review = signInAndDispatchSavedReview({
-        externalReview: { ...fakeReview, body: 'This add-on is wonderful' },
-      });
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
-      const root = renderInline({ review, verticalButtons: true });
-
-      expect(root.find(AddonReviewManager)).toHaveProp(
-        'cancelButtonText',
-        "Nevermind, I don't want to edit my review",
-      );
-    });
-
-    it('does not configure a cancel prompt by default', async () => {
-      const review = signInAndDispatchSavedReview({
-        externalReview: { ...fakeReview, body: 'This add-on is wonderful' },
-      });
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
-      const root = renderInline({ review });
-
-      expect(root.find(AddonReviewManager)).toHaveProp(
-        'cancelButtonText',
-        undefined,
-      );
-    });
   });
 
   describe('byLine', () => {
@@ -1086,7 +1045,7 @@ describe(__filename, () => {
       const root = renderReply({ originalReviewId, reply: review });
 
       const editButton = renderControls(root).find('.AddonReviewCard-edit');
-      expect(editButton.text()).toContain('Edit my reply');
+      expect(editButton.text()).toContain('Edit reply');
       expect(editButton).toHaveLength(1);
 
       editButton.simulate('click', createFakeEvent());
@@ -1110,7 +1069,7 @@ describe(__filename, () => {
 
       const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
       expect(deleteLink).toHaveLength(1);
-      expect(deleteLink.children()).toHaveText('Delete my reply');
+      expect(deleteLink.children()).toHaveText('Delete reply');
       expect(deleteLink).toHaveProp(
         'message',
         'Do you really want to delete this reply?',
