@@ -1,3 +1,5 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
+
 import {
   SAVED_RATING,
   deleteAddonReview,
@@ -22,9 +24,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
-import { setViewContext } from 'amo/actions/viewContext';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
-import { VIEW_CONTEXT_HOME } from 'core/constants';
 import reviewsReducer, {
   addReviewToState,
   changeViewState,
@@ -1222,7 +1222,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('setViewContext', () => {
+  describe('LOCATION_CHANGE', () => {
     it('resets the view state', () => {
       let state;
 
@@ -1232,7 +1232,8 @@ describe(__filename, () => {
           reviewId: 1,
         }),
       );
-      state = reviewsReducer(undefined, setViewContext(VIEW_CONTEXT_HOME));
+
+      state = reviewsReducer(undefined, { type: LOCATION_CHANGE });
 
       expect(state.view).toEqual({});
     });
