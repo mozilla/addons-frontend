@@ -324,10 +324,12 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
               className={makeClassName('AMInstallButton-loading', {
                 'AMInstallButton-loading--puffy': this.props.puffy,
               })}
+              title={this.getButtonText()}
             >
-              <span className="AMInstallButton-loading-icon">
-                <Icon alt={this.getButtonText()} name="loading" />
-              </span>
+              <div className="AMInstallButton-loading-container">
+                <div className="AMInstallButton-loading-ball" />
+              </div>
+              <span className="visually-hidden">{this.getButtonText()}</span>
             </div>
           </CSSTransition>
         ) : (
