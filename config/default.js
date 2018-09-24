@@ -100,12 +100,12 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
-    'enableAMInstallButton',
-    'enableAddonRecommendations',
     'enableDevTools',
-    'enableExperienceSurvey',
-    'enableInlineAddonReview',
-    'enableStaticThemes',
+    'enableFeatureAMInstallButton',
+    'enableFeatureAddonRecommendations',
+    'enableFeatureExperienceSurvey',
+    'enableFeatureInlineAddonReview',
+    'enableFeatureStaticThemes',
     'experiments',
     'fxaConfig',
     'hctEnabled',
@@ -308,20 +308,23 @@ module.exports = {
 
 
   // Feature flags.
+  //
+  // Please use the `enableFeature` prefix, see:
+  // https://github.com/mozilla/addons-frontend/issues/6362.
 
   // Enable the TAAR Lite A/B test.
-  enableAddonRecommendations: false,
+  enableFeatureAddonRecommendations: false,
 
   // Enable static themes.
-  enableStaticThemes: true,
+  enableFeatureStaticThemes: true,
 
-  enableExperienceSurvey: false,
+  enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   // Enable new InstallButton with mozAddonManager.
-  enableAMInstallButton: false,
+  enableFeatureAMInstallButton: false,
 
-  enableInlineAddonReview: false,
+  enableFeatureInlineAddonReview: false,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.

@@ -440,7 +440,7 @@ describe(__filename, () => {
     _getLanding();
     _loadLanding();
 
-    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
 
     const root = render(
       { _config: fakeConfig },
@@ -471,7 +471,7 @@ describe(__filename, () => {
     _getLanding();
     _loadLanding();
 
-    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
 
     const root = render(
       { _config: fakeConfig },
@@ -554,7 +554,7 @@ describe(__filename, () => {
     _getLanding();
     _loadLanding();
 
-    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
 
     const root = render(
       { _config: fakeConfig },

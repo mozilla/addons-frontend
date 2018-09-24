@@ -318,7 +318,7 @@ describe(__filename, () => {
   });
 
   it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
 
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
 
@@ -348,7 +348,7 @@ describe(__filename, () => {
   });
 
   it('renders the themes shelves with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
 
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
 

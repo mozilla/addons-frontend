@@ -149,7 +149,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         versionId ${params.versionId || '[empty]'}`);
     }
 
-    if (_config.get('enableInlineAddonReview')) {
+    if (_config.get('enableFeatureInlineAddonReview')) {
       if (userReview) {
         dispatch(
           updateAddonReview({
@@ -248,7 +248,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     const { _config, userReview } = this.props;
     invariant(userReview, 'userReview is required');
 
-    if (_config.get('enableInlineAddonReview')) {
+    if (_config.get('enableFeatureInlineAddonReview')) {
       return <AddonReviewManager review={userReview} />;
     }
 
@@ -336,7 +336,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     return (
       <div className="RatingManager">
         {this.shouldShowTextEntry() ? this.renderTextEntry() : null}
-        {_config.get('enableInlineAddonReview')
+        {_config.get('enableFeatureInlineAddonReview')
           ? this.renderInlineReviewControls()
           : this.renderUserRatingForm()}
         <ReportAbuseButton addon={addon} />

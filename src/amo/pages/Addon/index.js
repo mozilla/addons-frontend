@@ -490,8 +490,8 @@ export class AddonBase extends React.Component {
 
     const isFireFox =
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
-    const enableAddonRecommendations =
-      config.get('enableAddonRecommendations') &&
+    const enableFeatureAddonRecommendations =
+      config.get('enableFeatureAddonRecommendations') &&
       addonType === ADDON_TYPE_EXTENSION;
     const showInstallButton = addon && isFireFox;
     const showGetFirefoxButton = addon && !isFireFox;
@@ -548,7 +548,7 @@ export class AddonBase extends React.Component {
                 ) : null}
 
                 {showInstallButton &&
-                  config.get('enableAMInstallButton') && (
+                  config.get('enableFeatureAMInstallButton') && (
                     <AMInstallButton
                       addon={addon}
                       defaultInstallSource={defaultInstallSource}
@@ -564,7 +564,7 @@ export class AddonBase extends React.Component {
                     />
                   )}
                 {showInstallButton &&
-                  config.get('enableAMInstallButton') === false && (
+                  config.get('enableFeatureAMInstallButton') === false && (
                     <InstallButton
                       {...this.props}
                       disabled={!isCompatible}
@@ -615,7 +615,7 @@ export class AddonBase extends React.Component {
 
             {this.renderShowMoreCard()}
 
-            {enableAddonRecommendations && (
+            {enableFeatureAddonRecommendations && (
               <AddonRecommendations addon={addon} />
             )}
           </div>

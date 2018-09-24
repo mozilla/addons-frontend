@@ -333,7 +333,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         {siteUser && review && review.userId === siteUser.id ? (
           <React.Fragment>
             {editingReview &&
-              !_config.get('enableInlineAddonReview') && (
+              !_config.get('enableFeatureInlineAddonReview') && (
                 // This will render an overlay to edit the review
                 <AddonReview
                   onEscapeOverlay={this.onEscapeReviewOverlay}
@@ -417,7 +417,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           'AddonReviewCard-verticalButtons': verticalButtons,
         })}
       >
-        {review && editingReview && _config.get('enableInlineAddonReview') ? (
+        {review &&
+        editingReview &&
+        _config.get('enableFeatureInlineAddonReview') ? (
           <AddonReviewManager
             onCancel={this.onCancelEditReview}
             cancelButtonText={cancelButtonText}

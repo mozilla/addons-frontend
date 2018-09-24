@@ -595,7 +595,7 @@ describe(__filename, () => {
   describe('AMInstallButton', () => {
     const renderWithAMInstallButton = (props = {}) => {
       return renderAddon({
-        _config: getFakeConfig({ enableAMInstallButton: true }),
+        _config: getFakeConfig({ enableFeatureAMInstallButton: true }),
         addon: { ...result },
         hasAddonManager: true,
         ...props,

@@ -261,7 +261,7 @@ describe(__filename, () => {
   });
 
   it('sets themes filters shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
     const root = render({ _config: fakeConfig });
     const selectFilters = root.find(Select);
 
@@ -273,7 +273,7 @@ describe(__filename, () => {
   });
 
   it('sets themes filters shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
-    const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
     const root = render({ _config: fakeConfig });
     const selectFilters = root.find(Select);
 

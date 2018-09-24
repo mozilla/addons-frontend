@@ -281,7 +281,7 @@ export class AddonBase extends React.Component<InternalProps> {
             {this.getDescription()}
           </div>
 
-          {_config.get('enableAMInstallButton') ? (
+          {_config.get('enableFeatureAMInstallButton') ? (
             <AMInstallButton
               addon={addon}
               className="Addon-install-button"
