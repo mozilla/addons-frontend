@@ -21,7 +21,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'discoParamsToUse',
-    'enableAMInstallButton',
+    'enableFeatureAMInstallButton',
     'enableDevTools',
     'hctEnabled',
     'isDeployed',

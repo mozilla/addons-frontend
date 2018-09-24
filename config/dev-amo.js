@@ -25,6 +25,6 @@ module.exports = {
     },
   },
 
-  enableAMInstallButton: true,
+  enableFeatureAMInstallButton: true,
   enableInlineAddonReview: true,
 };

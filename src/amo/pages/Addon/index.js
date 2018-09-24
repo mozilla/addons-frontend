@@ -548,7 +548,7 @@ export class AddonBase extends React.Component {
                 ) : null}
 
                 {showInstallButton &&
-                  config.get('enableAMInstallButton') && (
+                  config.get('enableFeatureAMInstallButton') && (
                     <AMInstallButton
                       addon={addon}
                       defaultInstallSource={defaultInstallSource}
@@ -564,7 +564,7 @@ export class AddonBase extends React.Component {
                     />
                   )}
                 {showInstallButton &&
-                  config.get('enableAMInstallButton') === false && (
+                  config.get('enableFeatureAMInstallButton') === false && (
                     <InstallButton
                       {...this.props}
                       disabled={!isCompatible}

@@ -1660,7 +1660,7 @@ describe(__filename, () => {
   describe('AMInstallButton', () => {
     const renderWithAMInstallButton = (props = {}) => {
       return shallowRender({
-        config: getFakeConfig({ enableAMInstallButton: true }),
+        config: getFakeConfig({ enableFeatureAMInstallButton: true }),
         hasAddonManager: true,
         ...props,
       });

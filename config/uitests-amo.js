@@ -17,5 +17,5 @@ module.exports = {
   loggingLevel: 'debug',
   enableNodeStatics: true,
 
-  enableAMInstallButton: true,
+  enableFeatureAMInstallButton: true,
 };

@@ -11,6 +11,6 @@ module.exports = {
   fxaConfig: 'local',
   trackingEnabled: false,
   loggingLevel: 'debug',
-  enableAMInstallButton: true,
+  enableFeatureAMInstallButton: true,
   enableInlineAddonReview: true,
 };
