@@ -65,7 +65,7 @@ describe(__filename, () => {
     expect(root.find(HomeHeroBanner)).toHaveLength(1);
   });
 
-  it.each([0, 1, 2])(
+  it.each([0, 1])(
     `renders a featured collection shelf at position %s`,
     (index) => {
       const collectionMetadata = getFeaturedCollectionsMetadata(fakeI18n())[
@@ -225,12 +225,30 @@ describe(__filename, () => {
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {
+    const includeFeaturedThemes = false;
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    // Note that we do not pass a value for includeFeaturedThemes so we can
-    // assert that the default value will be `false`.
+    render({ errorHandler, includeFeaturedThemes, store });
+
+    sinon.assert.callCount(fakeDispatch, 2);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchHomeAddons({
+        errorHandlerId: errorHandler.id,
+        collectionsToFetch: FEATURED_COLLECTIONS,
+        includeFeaturedThemes,
+      }),
+    );
+  });
+
+  it('includes featured themes by default', () => {
+    const errorHandler = createStubErrorHandler();
+    const { store } = dispatchClientMetadata();
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
     render({ errorHandler, store });
 
     sinon.assert.callCount(fakeDispatch, 2);
@@ -240,7 +258,7 @@ describe(__filename, () => {
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: false,
+        includeFeaturedThemes: true,
       }),
     );
   });
