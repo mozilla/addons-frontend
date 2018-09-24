@@ -11,7 +11,7 @@ more-itertools==4.3.0
 pluggy==0.7.1
 py==1.6.0
 PyPOM==2.1.0
-pytest==3.8.0
+pytest==3.8.1
 pytest-base-url==1.4.1
 pytest-firefox==0.1.1
 pytest-forked==0.2
@@ -23,7 +23,7 @@ pytest-variables==1.7.1
 pytest-xdist==1.23.0
 atomicwrites==1.2.0
 requests==2.19.1
-selenium==3.14.0
+selenium==3.14.1
 six==1.11.0
 urllib3==1.22
 zope.component==4.4.1
