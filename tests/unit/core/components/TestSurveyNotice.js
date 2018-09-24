@@ -30,7 +30,7 @@ describe(__filename, () => {
     const props = {
       _tracking: createFakeTracking(),
       _config: getFakeConfig({
-        enableExperienceSurvey: true,
+        enableFeatureExperienceSurvey: true,
       }),
       i18n: fakeI18n(),
       location: createFakeLocation(),
@@ -66,7 +66,7 @@ describe(__filename, () => {
   it('does not render a survey when it is disabled in the config', () => {
     const root = render({
       _config: getFakeConfig({
-        enableExperienceSurvey: false,
+        enableFeatureExperienceSurvey: false,
       }),
     });
 
@@ -123,7 +123,7 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
     render({
       _config: getFakeConfig({
-        enableExperienceSurvey: false,
+        enableFeatureExperienceSurvey: false,
       }),
       _tracking,
     });

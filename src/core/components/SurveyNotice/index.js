@@ -74,7 +74,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
   shouldShowNotice() {
     const { _config, _supportedLangs, siteLang, wasDismissed } = this.props;
     return (
-      _config.get('enableExperienceSurvey') &&
+      _config.get('enableFeatureExperienceSurvey') &&
       !wasDismissed &&
       _supportedLangs.includes(siteLang)
     );

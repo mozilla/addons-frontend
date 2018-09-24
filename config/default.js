@@ -103,7 +103,7 @@ module.exports = {
     'enableAMInstallButton',
     'enableFeatureAddonRecommendations',
     'enableDevTools',
-    'enableExperienceSurvey',
+    'enableFeatureExperienceSurvey',
     'enableInlineAddonReview',
     'enableFeatureStaticThemes',
     'experiments',
@@ -318,7 +318,7 @@ module.exports = {
   // Enable static themes.
   enableFeatureStaticThemes: true,
 
-  enableExperienceSurvey: false,
+  enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   // Enable new InstallButton with mozAddonManager.
