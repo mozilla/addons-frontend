@@ -17,41 +17,41 @@ const buttonTypes = [
   'confirm',
 ];
 
-function createPropsMatrix(buttonType) {
+function createPropsMatrix(chapter) {
   return [
     {
       props: {
-        buttonType,
+        buttonType: chapter,
       },
     },
     {
       props: {
-        buttonType,
+        buttonType: chapter,
         disabled: true,
       },
     },
     {
       props: {
-        buttonType,
+        buttonType: chapter,
         puffy: true,
       },
     },
     {
       props: {
-        buttonType,
+        buttonType: chapter,
         puffy: true,
         disabled: true,
       },
     },
     {
       props: {
-        buttonType,
+        buttonType: chapter,
         micro: true,
       },
     },
     {
       props: {
-        buttonType,
+        buttonType: chapter,
         micro: true,
         disabled: true,
       },
@@ -67,12 +67,10 @@ storiesOf('Button', module)
     }),
   )
   .addWithChapters('Button variations', {
-    chapters: [
-      ...createChapters({
-        Component: Button,
-        chapters: buttonTypes,
-        children: 'Hello Button',
-        createPropsMatrix,
-      }),
-    ],
+    chapters: createChapters({
+      Component: Button,
+      chapters: buttonTypes,
+      children: 'Hello Button',
+      createPropsMatrix,
+    }),
   });

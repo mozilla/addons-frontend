@@ -22,11 +22,11 @@ export type Props = {|
   props: BadgeProps,
 |};
 
-function createPropsMatrix(type): Array<Props> {
+function createPropsMatrix(chapter): Array<Props> {
   return [
     {
       props: {
-        type,
+        type: chapter,
         label,
       },
     },
