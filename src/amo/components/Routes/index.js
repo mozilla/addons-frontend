@@ -38,11 +38,7 @@ const Routes = ({ _config = config }: Props = {}) => (
     {/* TODO: Post launch update this URL and redirect see #3374/ */}
     <Route exact path="/:lang/review_guide" component={ReviewGuide} />
 
-    <Route
-      exact
-      path="/:lang/:application/"
-      component={(props) => <Home {...props} includeFeaturedThemes />}
-    />
+    <Route exact path="/:lang/:application/" component={Home} />
 
     <Route exact path="/:lang/:application/addon/:slug/" component={Addon} />
     <Route

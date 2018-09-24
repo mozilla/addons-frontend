@@ -76,7 +76,7 @@ export class HomeBase extends React.Component {
 
   static defaultProps = {
     _config: config,
-    includeFeaturedThemes: false,
+    includeFeaturedThemes: true,
   };
 
   constructor(props) {
