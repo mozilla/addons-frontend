@@ -27,9 +27,8 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
+  { slug: 'translation-tools', username: 'mozilla' },
   { slug: 'privacy-matters', username: 'mozilla' },
-  { slug: 'fall-themes', username: 'mozilla' },
-  { slug: 'youtube-boosters', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -47,22 +46,16 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more privacy & security extensions'),
-      header: i18n.gettext('Privacy & security'),
+      footerText: i18n.gettext('See more translation tools'),
+      header: i18n.gettext('Translation tools'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more fall themes'),
-      header: i18n.gettext('Fall themes'),
-      isTheme: true,
-      ...FEATURED_COLLECTIONS[1],
-    },
-    {
-      footerText: i18n.gettext('See more YouTube extensions'),
-      header: i18n.gettext('YouTube boosters'),
+      footerText: i18n.gettext('See more privacy & security extensions'),
+      header: i18n.gettext('Privacy & security'),
       isTheme: false,
-      ...FEATURED_COLLECTIONS[2],
+      ...FEATURED_COLLECTIONS[1],
     },
   ];
 };
@@ -296,15 +289,6 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        {(loading || collections[1]) && (
-          <FeaturedCollectionCard
-            addons={collections[1]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[1]}
-          />
-        )}
-
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={trendingExtensions}
@@ -321,12 +305,12 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[2]) && (
+        {(loading || collections[1]) && (
           <FeaturedCollectionCard
-            addons={collections[2]}
+            addons={collections[1]}
             className="Home-FeaturedCollection"
             loading={loading}
-            {...featuredCollectionsMetadata[2]}
+            {...featuredCollectionsMetadata[1]}
           />
         )}
 

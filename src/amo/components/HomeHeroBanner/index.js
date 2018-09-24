@@ -236,6 +236,47 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         ),
         url: '/addon/copy-plaintext/',
       },
+      {
+        title: i18n.gettext('Official Media Bias Fact Check Icon'),
+        description: i18n.gettext(
+          'Indicates the political bias of news sites with a tidy icon',
+        ),
+        url: '/addon/media-bias-fact-check-icon/',
+      },
+      {
+        title: i18n.gettext('Vertical Tabs Reloaded'),
+        description: i18n.gettext('Arrange tabs in a vertical fashion'),
+        url: '/addon/vertical-tabs-reloaded/',
+      },
+      {
+        title: i18n.gettext('Search Site'),
+        description: i18n.gettext(
+          'Search within just the domain you’re visiting',
+        ),
+        url: '/addon/search-site-we/',
+      },
+      {
+        title: i18n.gettext('Push to Kindle'),
+        description: i18n.gettext('Send any Web page to your Kindle device'),
+        url: '/addon/kindle-it/',
+      },
+      {
+        title: i18n.gettext('New Tab Homepage'),
+        description: i18n.gettext(
+          'Designate a custom home page for your new tabs',
+        ),
+        url: '/addon/new-tab-homepage/',
+      },
+      {
+        title: i18n.gettext('OneNote Web Clipper'),
+        description: i18n.gettext('Save, annotate & organize web content'),
+        url: '/addon/onenote-clipper/',
+      },
+      {
+        title: i18n.gettext('FoxyGestures'),
+        description: i18n.gettext('Customized mouse gestures'),
+        url: '/addon/foxy-gestures/',
+      },
     ];
   }
 

@@ -65,7 +65,7 @@ describe(__filename, () => {
     expect(root.find(HomeHeroBanner)).toHaveLength(1);
   });
 
-  it.each([0, 1, 2])(
+  it.each([0, 1])(
     `renders a featured collection shelf at position %s`,
     (index) => {
       const collectionMetadata = getFeaturedCollectionsMetadata(fakeI18n())[
