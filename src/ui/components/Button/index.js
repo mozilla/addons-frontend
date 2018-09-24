@@ -1,12 +1,30 @@
+/* @flow */
 import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import Link from 'amo/components/Link';
 import log from 'core/logger';
 
 import './styles.scss';
+
+type Props = {|
+  buttonType: string | 'none',
+  children?: React.Node,
+  className?: string,
+  disabled?: boolean | null,
+  externalDark?: boolean,
+  href?: string,
+  micro?: boolean,
+  name?: number,
+  noLink?: boolean,
+  onClick?: Function | null,
+  puffy?: boolean,
+  to?: string | Object,
+  target?: string,
+  type?: string,
+  'data-browsertheme'?: string,
+|};
 
 const BUTTON_TYPES = [
   'neutral',
@@ -18,19 +36,7 @@ const BUTTON_TYPES = [
   'none',
 ];
 
-export default class Button extends React.Component {
-  static propTypes = {
-    buttonType: PropTypes.string,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    href: PropTypes.string,
-    micro: PropTypes.bool,
-    noLink: PropTypes.bool,
-    puffy: PropTypes.bool,
-    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  };
-
+export default class Button extends React.Component<Props> {
   static defaultProps = {
     buttonType: 'none',
     disabled: false,
@@ -51,7 +57,7 @@ export default class Button extends React.Component {
       to,
       ...rest
     } = this.props;
-    const props = { ...rest };
+    const props: Object = { ...rest };
 
     if (!BUTTON_TYPES.includes(buttonType)) {
       throw new Error(oneLine`buttonType="${buttonType}" supplied but that is
