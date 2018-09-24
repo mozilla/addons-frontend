@@ -430,6 +430,41 @@ describe(__filename, () => {
       await api.callApi({ _config, endpoint });
       mockWindow.verify();
     });
+
+    it('logs a warning message when content type is unknown', async () => {
+      const body = 'long body content'.repeat(100);
+      const status = 'some-response-status';
+      const url = 'some-response-url';
+
+      mockWindow.expects('fetch').returns(
+        createApiResponse({
+          url,
+          status,
+          headers: generateHeaders({ 'Content-Type': null }),
+          text() {
+            return Promise.resolve(body);
+          },
+        }),
+      );
+
+      const _log = {
+        debug: sinon.stub(),
+        warn: sinon.stub(),
+      };
+
+      await api.callApi({ endpoint: 'resource', _log });
+      mockWindow.verify();
+
+      sinon.assert.calledWith(
+        _log.warn,
+        'Response from API was not JSON (was Content-Type: [unknown])',
+        {
+          body: body.substring(0, 100),
+          status,
+          url,
+        },
+      );
+    });
   });
 
   describe('makeQueryString', () => {

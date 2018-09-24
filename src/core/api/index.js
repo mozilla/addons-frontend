@@ -83,6 +83,7 @@ type CallApiParams = {|
   schema?: Object,
   _config?: typeof config,
   version?: string,
+  _log?: typeof log,
 |};
 
 export function callApi({
@@ -97,6 +98,7 @@ export function callApi({
   errorHandler,
   _config = config,
   version = _config.get('apiVersion'),
+  _log = log,
 }: CallApiParams): Promise<any> {
   if (!endpoint) {
     return Promise.reject(
@@ -165,14 +167,15 @@ export function callApi({
     : `${adjustedEndpoint}/`;
   let apiURL = `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
   if (_config.get('server')) {
-    log.debug('Encoding `apiURL` in UTF8 before fetch().');
+    _log.debug('Encoding `apiURL` in UTF8 before fetch().');
     // Workaround for https://github.com/bitinn/node-fetch/issues/245
     apiURL = utf8.encode(apiURL);
   }
 
   return fetch(apiURL, options)
     .then((response) => {
-      // There isn't always a 'Content-Type' in headers, e.g., with a DELETE method.
+      // There isn't always a 'Content-Type' in headers, e.g., with a DELETE
+      // method or 5xx responses.
       let contentType = response.headers.get('Content-Type');
       contentType = contentType && contentType.toLowerCase();
 
@@ -187,14 +190,19 @@ export function callApi({
           .then((jsonResponse) => ({ response, jsonResponse }));
       }
 
-      log.warn(
-        oneLine`Response from API was not JSON (was Content-Type:
-        ${contentType})`,
-        response,
-      );
-      return response.text().then(() => {
-        // jsonResponse should be an empty object in this case.
-        // Otherwise, its keys could be treated as generic API errors.
+      return response.text().then((text) => {
+        _log.warn(
+          oneLine`Response from API was not JSON (was Content-Type:
+            ${contentType || '[unknown]'})`,
+          {
+            body: text ? text.substring(0, 100) : '[empty]',
+            status: response.status || '[unknown]',
+            url: response.url || '[unknown]',
+          },
+        );
+
+        // jsonResponse should be an empty object in this case. Otherwise, its
+        // keys could be treated as generic API errors.
         return { jsonResponse: {}, response };
       });
     })
