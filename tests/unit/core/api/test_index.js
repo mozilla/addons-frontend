@@ -432,8 +432,9 @@ describe(__filename, () => {
     });
 
     it('logs a warning message when content type is unknown', async () => {
-      const url = 'some-response-url';
+      const body = 'long body content'.repeat(100);
       const status = 'some-response-status';
+      const url = 'some-response-url';
 
       mockWindow.expects('fetch').returns(
         createApiResponse({
@@ -441,7 +442,7 @@ describe(__filename, () => {
           status,
           headers: generateHeaders({ 'Content-Type': null }),
           text() {
-            return Promise.resolve('504');
+            return Promise.resolve(body);
           },
         }),
       );
@@ -458,8 +459,9 @@ describe(__filename, () => {
         _log.warn,
         'Response from API was not JSON (was Content-Type: [unknown])',
         {
-          url,
+          body: body.substring(0, 100),
           status,
+          url,
         },
       );
     });

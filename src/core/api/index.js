@@ -177,7 +177,7 @@ export function callApi({
       // There isn't always a 'Content-Type' in headers, e.g., with a DELETE
       // method or 5xx responses.
       let contentType = response.headers.get('Content-Type');
-      contentType = contentType ? contentType.toLowerCase() : '[unknown]';
+      contentType = contentType && contentType.toLowerCase();
 
       // This is a bit paranoid, but we ensure the API returns a JSON response
       // (see https://github.com/mozilla/addons-frontend/issues/1701).
@@ -190,16 +190,19 @@ export function callApi({
           .then((jsonResponse) => ({ response, jsonResponse }));
       }
 
-      _log.warn(
-        `Response from API was not JSON (was Content-Type: ${contentType})`,
-        {
-          url: response.url || '[unknown]',
-          status: response.status || '[unknown]',
-        },
-      );
-      return response.text().then(() => {
-        // jsonResponse should be an empty object in this case.
-        // Otherwise, its keys could be treated as generic API errors.
+      return response.text().then((text) => {
+        _log.warn(
+          oneLine`Response from API was not JSON (was Content-Type:
+            ${contentType || '[unknown]'})`,
+          {
+            body: text ? text.substring(0, 100) : '[empty]',
+            status: response.status || '[unknown]',
+            url: response.url || '[unknown]',
+          },
+        );
+
+        // jsonResponse should be an empty object in this case. Otherwise, its
+        // keys could be treated as generic API errors.
         return { jsonResponse: {}, response };
       });
     })
