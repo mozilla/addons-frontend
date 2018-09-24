@@ -44,6 +44,10 @@ const initialUIState: UIStateType = {
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
+  componentDidMount() {
+    this.truncateToMaxHeight(this.contents);
+  }
+
   componentWillReceiveProps(nextProps: InternalProps) {
     const { children } = this.props;
     const { children: newChildren } = nextProps;
