@@ -101,7 +101,7 @@ module.exports = {
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
     'enableAMInstallButton',
-    'enableAddonRecommendations',
+    'enableFeatureAddonRecommendations',
     'enableDevTools',
     'enableExperienceSurvey',
     'enableInlineAddonReview',
@@ -307,10 +307,11 @@ module.exports = {
   discoParamsToUse: [],
 
 
-  // Feature flags.
+  // Feature flags. Please use the `enableFeature` prefix, see:
+  // https://github.com/mozilla/addons-frontend/issues/6362.
 
   // Enable the TAAR Lite A/B test.
-  enableAddonRecommendations: false,
+  enableFeatureAddonRecommendations: false,
 
   // Enable static themes.
   enableStaticThemes: true,
