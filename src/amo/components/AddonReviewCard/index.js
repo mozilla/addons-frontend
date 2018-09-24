@@ -6,6 +6,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
@@ -14,7 +15,7 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
-import { isAddonAuthor, sanitizeHTML } from 'core/utils';
+import { isAddonAuthor } from 'core/utils';
 import {
   deleteAddonReview,
   hideEditReviewForm,
@@ -55,13 +56,11 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
-  clientApp: string,
   deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  lang: string,
   replyingToReview: boolean,
   siteUser: UserType | null,
   siteUserHasReplyPerm: boolean,
@@ -273,13 +272,11 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       _config,
       addon,
       className,
-      clientApp,
       deletingReview,
       editingReview,
       errorHandler,
       flaggable,
       i18n,
-      lang,
       smallerWriteReviewButton,
       replyingToReview,
       review,
@@ -294,33 +291,33 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const noAuthor = shortByLine || this.isReply();
 
     if (review) {
-      const timestamp = `
-        <a href="/${lang}/${clientApp}/addon/${
-        review.reviewAddon.slug
-      }/reviews/${review.id}/">
-          ${i18n.moment(review.created).fromNow()}
-        </a>
-      `;
+      const url = `/addon/${review.reviewAddon.slug}/reviews/${review.id}/`;
+      const timestamp = (
+        <Link to={url}>{i18n.moment(review.created).fromNow()}</Link>
+      );
+
       const byLineString = noAuthor
         ? // translators: Example in English: "posted last week"
           i18n.gettext('posted %(timestamp)s')
         : // translators: Example in English: "by UserName123, last week"
           i18n.gettext('by %(authorName)s, %(timestamp)s');
 
+      const localized = i18n.sprintf(byLineString, {
+        authorName: review.userName,
+        timestamp: '__timestamp__',
+      });
+
+      const parts = localized.split('__timestamp__');
+      const allParts = [parts.shift(), timestamp, ...parts];
+
       byLine = (
         <span
           className={makeClassName('', {
             'AddonReviewCard-authorByLine': !noAuthor,
           })}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={sanitizeHTML(
-            i18n.sprintf(byLineString, {
-              authorName: review.userName,
-              timestamp,
-            }),
-            ['a'],
-          )}
-        />
+        >
+          {allParts}
+        </span>
       );
     } else {
       byLine = <LoadingText />;
@@ -471,10 +468,8 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     }
   }
   return {
-    clientApp: state.api.clientApp,
     deletingReview,
     editingReview,
-    lang: state.api.lang,
     replyingToReview,
     siteUser: getCurrentUser(state.users),
     siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
