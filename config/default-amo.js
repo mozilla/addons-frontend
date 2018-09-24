@@ -119,4 +119,6 @@ module.exports = {
 
   // Turn on recommendations in details pages.
   enableFeatureAddonRecommendations: true,
+
+  enableFeatureAMInstallButton: true,
 };
