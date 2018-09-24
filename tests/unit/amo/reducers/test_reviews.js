@@ -1233,7 +1233,7 @@ describe(__filename, () => {
         }),
       );
 
-      state = reviewsReducer(undefined, { type: LOCATION_CHANGE });
+      state = reviewsReducer(state, { type: LOCATION_CHANGE });
 
       expect(state.view).toEqual({});
     });
