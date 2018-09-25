@@ -437,6 +437,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               isReply={this.isReply()}
             />
             {siteUser &&
+              review &&
+              review.userId === siteUser.id &&
               this.isRatingOnly() && (
                 <Button
                   className="AddonReviewCard-writeReviewButton"
