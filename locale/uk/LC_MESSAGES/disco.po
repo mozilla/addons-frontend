@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-19 09:03+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
 "PO-Revision-Date: 2018-08-27 10:08+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -15,37 +15,37 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Увімкнення"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Завантаження"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Встановлення"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Видалення"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:221
 #: src/core/components/InstallButton/index.js:265
 #: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "Встановити тему"
 
-#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/AMInstallButton/index.js:222
 #: src/core/components/InstallButton/index.js:296
 #: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
@@ -136,19 +136,19 @@ msgstr "Сталася неочікувана помилка під час ви�
 msgid "An unexpected error occurred."
 msgstr "Сталася неочікувана помилка."
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Закрити"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox для iOS не підтримує додатки."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr "Цей додаток несумісний з вашою версією Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "Цей додаток не підтримується вашим браузером."
 
@@ -160,15 +160,15 @@ msgstr "Відкрийте для себе додатки"
 msgid "Privacy Policy"
 msgstr "Політика приватності"
 
-#: src/disco/pages/DiscoPane/index.js:120
+#: src/disco/pages/DiscoPane/index.js:136
 msgid "Find more add-ons"
 msgstr "Знайдіть інші додатки"
 
-#: src/disco/pages/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "Персоналізуйте ваш Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

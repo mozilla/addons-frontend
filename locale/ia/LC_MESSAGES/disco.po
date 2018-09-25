@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-19 09:03+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
 "PO-Revision-Date: 2018-09-10 22:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,37 +14,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Activar"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Remover"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Activation"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Discargamento"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Installation"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Disinstallation"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:221
 #: src/core/components/InstallButton/index.js:265
 #: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "Installar thema"
 
-#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/AMInstallButton/index.js:222
 #: src/core/components/InstallButton/index.js:296
 #: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
@@ -136,19 +136,19 @@ msgstr "Un error non attendite occurreva durante le disinstallation."
 msgid "An unexpected error occurred."
 msgstr "Un error non attendite occurreva."
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Clauder"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox pro iOS non supporta actualmente additivos."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr "Iste additivo non supporta tu version de Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "Iste additivo non supporta tu navigator de web."
 
@@ -160,15 +160,15 @@ msgstr "Discoperi additivos"
 msgid "Privacy Policy"
 msgstr "Politica de confidentialitate"
 
-#: src/disco/pages/DiscoPane/index.js:120
+#: src/disco/pages/DiscoPane/index.js:136
 msgid "Find more add-ons"
 msgstr "Trova plus additivos"
 
-#: src/disco/pages/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "Personalisa tu Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
