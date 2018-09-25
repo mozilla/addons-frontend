@@ -10,6 +10,12 @@
   line-height: 1.1;
   padding: 4px;
 
+  &.Notice-light {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+  }
+
   &.Notice-dismissible {
     grid-template-columns: min-content auto min-content;
   }

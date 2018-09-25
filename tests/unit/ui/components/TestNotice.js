@@ -163,4 +163,10 @@ describe(__filename, () => {
     const button = root.find('.Notice-button');
     expect(button).toHaveProp('target', actionTarget);
   });
+
+  it('can render a light notice', () => {
+    const root = render({ light: true });
+
+    expect(root).toHaveClassName('Notice-light');
+  });
 });
