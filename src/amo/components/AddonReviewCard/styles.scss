@@ -50,7 +50,9 @@
     }
   }
 
-  .AddonReviewCard-delete:first-child .ConfirmButton-default-button {
+  .AddonReviewCard-ratingOnly.AddonReviewCard-verticalButtons
+    &
+    .ConfirmButton-default-button {
     color: $text-color-default;
 
     &:active,
