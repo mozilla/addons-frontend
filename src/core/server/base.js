@@ -24,6 +24,7 @@ import * as middleware from 'core/middleware';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
 import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
+import { viewFrontendVersionHandler } from 'core/utils/server';
 import {
   setAuthToken,
   setClientApp,
@@ -182,26 +183,11 @@ function baseServer(
     app.use(middleware.serveAssetsLocally());
   }
 
-  // Show version/commit information as JSON.
-  function viewVersion(req, res) {
-    // This is a magic file that gets written by deployment scripts.
-    const version = path.join(config.get('basePath'), 'version.json');
-
-    fs.stat(version, (error) => {
-      if (error) {
-        log.error(`Could not stat version file ${version}: ${error}`);
-        res.sendStatus(415);
-      } else {
-        res.setHeader('Content-Type', 'application/json');
-        fs.createReadStream(version).pipe(res);
-      }
-    });
-  }
-
-  // Following the ops monitoring convention, return version info at this URL.
-  app.get('/__version__', viewVersion);
+  // Following the ops monitoring Dockerflow convention, return version info at
+  // this URL. See: https://github.com/mozilla-services/Dockerflow
+  app.get('/__version__', viewFrontendVersionHandler());
   // For AMO, this helps differentiate from /__version__ served by addons-server.
-  app.get('/__frontend_version__', viewVersion);
+  app.get('/__frontend_version__', viewFrontendVersionHandler());
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));

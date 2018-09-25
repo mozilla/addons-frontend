@@ -442,9 +442,12 @@ export function createFakeUserAbuseReport({
 // if (fakeConfig.get('isDevelopment')) {
 //   ...
 // }
-export const getFakeConfig = (params = {}) => {
+export const getFakeConfig = (
+  params = {},
+  { allowUnknownKeys = false } = {},
+) => {
   for (const key of Object.keys(params)) {
-    if (!config.has(key)) {
+    if (!config.has(key) && !allowUnknownKeys) {
       // This will help alert us when a test accidentally relies
       // on an invalid config key.
       throw new Error(
