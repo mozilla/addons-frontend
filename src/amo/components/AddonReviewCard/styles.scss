@@ -49,6 +49,15 @@
       text-decoration: none;
     }
   }
+
+  .AddonReviewCard-delete:first-child .ConfirmButton-default-button {
+    color: $text-color-default;
+
+    &:active,
+    &:hover {
+      color: $link-color;
+    }
+  }
 }
 
 .AddonReviewCard-delete {
@@ -100,15 +109,4 @@
 .AddonReviewCard-writeReviewButton {
   margin-top: 12px;
   width: auto;
-}
-
-.AddonReviewCard-allControls
-  .AddonReviewCard-delete:first-child
-  .ConfirmButton-default-button {
-  color: $text-color-default;
-
-  &:active,
-  &:hover {
-    color: $link-color;
-  }
 }
