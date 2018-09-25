@@ -21,7 +21,7 @@ type Props = {|
   buttonType: ButtonType,
   children?: React.Node,
   className?: string,
-  disabled: boolean | null,
+  disabled: boolean,
   externalDark?: boolean,
   href?: string,
   micro: boolean,
@@ -29,6 +29,7 @@ type Props = {|
   noLink: boolean,
   onClick?: Function | null,
   puffy: boolean,
+  // TODO: make a better Object type.
   to?: string | Object,
   target?: string,
   type?: string,
