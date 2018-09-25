@@ -8,9 +8,6 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "path": [
-          "../stories"
-        ],
         "moduleDirectory": ["node_modules", "src", "stories"]
       }
     }
