@@ -6,9 +6,14 @@ import { withInfo } from '@storybook/addon-info';
 // $FLOW_FIXME flow not liking the path here ( will look into this more)
 import { createChapters } from 'utils';
 import Button from 'ui/components/Button';
+import type { Props as ButtonProps } from 'ui/components/Button';
+
+export type Props = {|
+  props: ButtonProps,
+|};
 
 const buttonTypes = [
-  undefined,
+  'none',
   'neutral',
   'alert',
   'light',
@@ -17,27 +22,30 @@ const buttonTypes = [
   'confirm',
 ];
 
-function createPropsMatrix(chapter) {
+function createPropsMatrix(chapter): Array<Props> {
   return [
     {
       props: {
-        buttonType: chapter,
+        ...Button.defaultProps,
       },
     },
     {
       props: {
+        ...Button.defaultProps,
         buttonType: chapter,
         disabled: true,
       },
     },
     {
       props: {
+        ...Button.defaultProps,
         buttonType: chapter,
         puffy: true,
       },
     },
     {
       props: {
+        ...Button.defaultProps,
         buttonType: chapter,
         puffy: true,
         disabled: true,
@@ -45,15 +53,27 @@ function createPropsMatrix(chapter) {
     },
     {
       props: {
+        ...Button.defaultProps,
         buttonType: chapter,
         micro: true,
       },
     },
     {
       props: {
+        ...Button.defaultProps,
         buttonType: chapter,
         micro: true,
         disabled: true,
+      },
+    },
+    {
+      props: {
+        ...Button.defaultProps,
+        buttonType: chapter,
+        externalDark: true,
+        puffy: true,
+        // TODO: We need to have a little bit more set up to see this ~:
+        // See https://github.com/mozilla/addons-frontend/pull/6389/files.
       },
     },
   ];
