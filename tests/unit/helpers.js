@@ -732,3 +732,13 @@ export async function matchingSagaAction(
   }
   return foundAction;
 }
+
+export const getFakeLogger = (params = {}) => {
+  return {
+    debug: sinon.stub(),
+    error: sinon.stub(),
+    info: sinon.stub(),
+    warn: sinon.stub(),
+    ...params,
+  };
+};
