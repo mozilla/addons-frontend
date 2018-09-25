@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-19 08:55+0000\n"
-"PO-Revision-Date: 2018-09-20 02:02+0000\n"
+"PO-Revision-Date: 2018-09-25 15:20+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -742,7 +742,7 @@ msgstr "您不能报告自己的评价"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
-msgstr "这是垃圾信息"
+msgstr "这是垃圾留言"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "Flagged as spam"
