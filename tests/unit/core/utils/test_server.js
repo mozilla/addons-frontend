@@ -3,10 +3,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import MockExpressResponse from 'mock-express-response';
 
-import {
-  getFeatureFlagName,
-  viewFrontendVersionHandler,
-} from 'core/utils/server';
+import { viewFrontendVersionHandler } from 'core/utils/server';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -55,12 +52,7 @@ describe(__filename, () => {
           ...versionJson,
           experiments,
           feature_flags: {
-            [getFeatureFlagName(
-              'enableFeatureFoo001',
-            )]: featureFlags.enableFeatureFoo001,
-            [getFeatureFlagName(
-              'enableFeatureBar123',
-            )]: featureFlags.enableFeatureBar123,
+            ...featureFlags,
           },
         });
 

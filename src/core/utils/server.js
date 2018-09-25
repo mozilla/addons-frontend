@@ -9,10 +9,6 @@ import log from 'core/logger';
 
 const PREFIX = 'enableFeature';
 
-export const getFeatureFlagName = (featureFlagKey: string): string => {
-  return featureFlagKey.replace(PREFIX, '');
-};
-
 type ExpressHandler = (req: $Request, res: $Response) => void;
 
 type ViewFrontendVersionHandlerParams = {|
@@ -36,7 +32,7 @@ export const viewFrontendVersionHandler = ({
     .reduce((map, key) => {
       return {
         ...map,
-        [getFeatureFlagName(key)]: _config.get(key),
+        [key]: _config.get(key),
       };
     }, {});
 
