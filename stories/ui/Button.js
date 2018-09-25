@@ -27,6 +27,7 @@ function createPropsMatrix(chapter): Array<Props> {
     {
       props: {
         ...Button.defaultProps,
+        buttonType: chapter,
       },
     },
     {
