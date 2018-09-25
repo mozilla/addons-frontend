@@ -831,7 +831,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               <Button
                 buttonType="alert"
                 className="UserProfileEdit-button UserProfileEdit-confirm-button"
-                disabled={user && user.num_addons_listed > 0}
+                disabled={!!(user && user.num_addons_listed > 0)}
                 onClick={this.onConfirmProfileDeletion}
                 puffy
               >
