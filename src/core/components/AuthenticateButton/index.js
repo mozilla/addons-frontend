@@ -17,6 +17,7 @@ import type { UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
+import type { ButtonType } from 'ui/components/Button';
 
 type HandleLogInFunc = (
   location: ReactRouterLocationType,
@@ -26,7 +27,7 @@ type HandleLogInFunc = (
 type HandleLogOutFunction = ({| api: ApiState |}) => Promise<void>;
 
 type Props = {|
-  buttonType?: string,
+  buttonType?: ButtonType,
   className?: string,
   handleLogIn?: HandleLogInFunc,
   handleLogOut?: HandleLogOutFunction,

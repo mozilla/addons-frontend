@@ -8,18 +8,27 @@ import log from 'core/logger';
 
 import './styles.scss';
 
+export type ButtonType =
+  | 'neutral'
+  | 'light'
+  | 'action'
+  | 'cancel'
+  | 'confirm'
+  | 'alert'
+  | 'none';
+
 type Props = {|
-  buttonType: string | 'none',
+  buttonType: ButtonType,
   children?: React.Node,
   className?: string,
-  disabled?: boolean | null,
+  disabled: boolean | null,
   externalDark?: boolean,
   href?: string,
-  micro?: boolean,
+  micro: boolean,
   name?: number,
-  noLink?: boolean,
+  noLink: boolean,
   onClick?: Function | null,
-  puffy?: boolean,
+  puffy: boolean,
   to?: string | Object,
   target?: string,
   type?: string,
@@ -57,7 +66,19 @@ export default class Button extends React.Component<Props> {
       to,
       ...rest
     } = this.props;
-    const props: Object = { ...rest };
+    const props: {|
+      ...$Rest<
+        Props,
+        {|
+          buttonType: ButtonType,
+          micro: boolean,
+          noLink: boolean,
+          puffy: boolean,
+        |},
+      >,
+      prependClientApp?: boolean,
+      prependLang?: boolean,
+    |} = { ...rest };
 
     if (!BUTTON_TYPES.includes(buttonType)) {
       throw new Error(oneLine`buttonType="${buttonType}" supplied but that is

@@ -8,17 +8,18 @@ import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
 import Button from 'ui/components/Button';
 import type { I18nType } from 'core/types/i18n';
+import type { ButtonType } from 'ui/components/Button';
 
 import './styles.scss';
 
 type Props = {|
-  buttonType?: string,
+  buttonType?: ButtonType,
   cancelButtonText?: string | null,
-  cancelButtonType?: string,
+  cancelButtonType?: ButtonType,
   children: React.Element<any> | string,
   className?: string,
   confirmButtonText?: string | null,
-  confirmButtonType?: string,
+  confirmButtonType?: ButtonType,
   id: string,
   message: string,
   onConfirm: Function,

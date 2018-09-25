@@ -15,6 +15,7 @@
     // These are undocumented utilities that ship with Flow
     // https://github.com/facebook/flow/issues/875
     "$ReadOnlyArray": true,
+    "$Rest": true,
     "$Shape": true,
     "$Keys": true,
     "$Values": true,

@@ -41,6 +41,7 @@ import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
+import type { ButtonType } from 'ui/components/Button';
 
 import './styles.scss';
 
@@ -71,7 +72,7 @@ type TrackParams = {|
 |};
 
 type ButtonProps = {|
-  buttonType: string,
+  buttonType: ButtonType,
   className: string,
   'data-browsertheme'?: string,
   disabled: boolean,
