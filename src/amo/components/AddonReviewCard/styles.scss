@@ -49,6 +49,19 @@
       text-decoration: none;
     }
   }
+
+  /* stylelint-disable */
+  .AddonReviewCard-ratingOnly.AddonReviewCard-verticalButtons
+    &
+    .ConfirmButton-default-button {
+    color: $text-color-default;
+    /* stylelint-enable */
+
+    &:active,
+    &:hover {
+      color: $link-color;
+    }
+  }
 }
 
 .AddonReviewCard-delete {
