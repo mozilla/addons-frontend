@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-19 09:03+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,37 +13,37 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Language: \n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "ǝʅqɐuƎ"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "ǝʌoɯǝᴚ"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "ƃuıʅqɐuƎ"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "ƃuıpɐoʅuʍoᗡ"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "ƃuıʅʅɐʇsuI"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "ƃuıʅʅɐʇsuıu∩"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:221
 #: src/core/components/InstallButton/index.js:265
 #: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "ǝɯǝɥ⊥ ʅʅɐʇsuI"
 
-#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/AMInstallButton/index.js:222
 #: src/core/components/InstallButton/index.js:296
 #: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
@@ -130,19 +130,19 @@ msgstr ".uoıʇɐʅʅɐʇsuıun ƃuıɹnp pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝu
 msgid "An unexpected error occurred."
 msgstr ".pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "ǝsoʅↃ"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ".suo-ppɐ ʇɹoddns ʎʅʇuǝɹɹnɔ ʇou sǝop SOı ɹoɟ xoɟǝɹıℲ"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr ".xoɟǝɹıℲ ɟo uoısɹǝʌ ɹnoʎ ʇɹoddns ʇou sǝop uo-ppɐ sıɥ⊥"
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr ".ɹǝsʍoɹq ɹnoʎ ʇɹoddns ʇou sǝop uo-ppɐ sıɥ⊥"
 
@@ -154,15 +154,15 @@ msgstr "suo-pp∀ ɹǝʌoɔsıᗡ"
 msgid "Privacy Policy"
 msgstr "ʎɔıʅoԀ ʎɔɐʌıɹԀ"
 
-#: src/disco/pages/DiscoPane/index.js:120
+#: src/disco/pages/DiscoPane/index.js:136
 msgid "Find more add-ons"
 msgstr "suo-ppɐ ǝɹoɯ puıℲ"
 
-#: src/disco/pages/DiscoPane/index.js:140
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "xoɟǝɹıℲ ɹno⅄ ǝzıʅɐuosɹǝԀ"
 
-#: src/disco/pages/DiscoPane/index.js:142
+#: src/disco/pages/DiscoPane/index.js:154
 msgid "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ".ʎʇıʅɐuoıʇɔunɟ puɐ ǝɔuɐɯɹoɟɹǝd ʇno-puɐʇs ɹıǝɥʇ ɹoɟ puǝɯɯoɔǝɹ ǝʍ ǝɯos ǝɹɐ ǝɹǝɥ ´pǝʇɹɐʇs ʇǝƃ noʎ dʅǝɥ o⊥ .sɹnoʎ ɹǝsʍoɹq ɹnoʎ ǝʞɐɯ suo-ppɐ ´ɹǝɟɐs puɐ ɹǝʇsɐɟ ƃuısʍoɹq ǝʞɐɯ ʇɐɥʇ sʅooʇ ʅnɟɹǝʍod oʇ sǝɯǝɥʇ ʅɐnsıʌ unɟ ɯoɹℲ .xoɟǝɹıℲ ɹnoʎ ǝzıʅɐuosɹǝd oʇ ʅʅɐʇsuı uɐɔ noʎ ʇɐɥʇ ´pʅɹoʍ ǝɥʇ ɹǝʌo ʅʅɐ sɹǝdoʅǝʌǝp ʎq pǝʇɐǝɹɔ ´suo-ppɐ ǝǝɹɟ ɟo spuɐsnoɥʇ ǝɹɐ ǝɹǝɥ⊥"
 
