@@ -32,6 +32,8 @@ body {
   }
 
   .section-subtitle {
+    color: #bbb;
+
     @include respond-to(large) {
       margin: 0;
     }
