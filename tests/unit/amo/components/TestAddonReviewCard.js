@@ -17,8 +17,9 @@ import AddonReviewCard, {
   AddonReviewCardBase,
 } from 'amo/components/AddonReviewCard';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
+import Link from 'amo/components/Link';
 import { logOutUser } from 'amo/reducers/users';
-import { ALL_SUPER_POWERS, CLIENT_APP_FIREFOX } from 'core/constants';
+import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -957,23 +958,20 @@ describe(__filename, () => {
   });
 
   describe('byLine', () => {
-    function getByLineHtml(root) {
-      return shallow(root.find(UserReview).prop('byLine')).html();
+    function renderByLine(root) {
+      return shallow(root.find(UserReview).prop('byLine'));
     }
 
     it('renders a byLine with a permalink to the review', () => {
       const slug = 'some-slug';
-      const clientApp = CLIENT_APP_FIREFOX;
-      const lang = 'en-US';
-
       const review = signInAndDispatchSavedReview({
         externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
-        clientMetadata: { clientApp, lang },
       });
       const root = render({ review, store });
 
-      expect(getByLineHtml(root)).toContain(
-        `/${lang}/${clientApp}/addon/${slug}/reviews/${review.id}/`,
+      expect(renderByLine(root).find(Link)).toHaveProp(
+        'to',
+        `/addon/${slug}/reviews/${review.id}/`,
       );
     });
 
@@ -982,9 +980,11 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, review });
 
-      expect(getByLineHtml(root)).toContain(
-        i18n.moment(review.created).fromNow(),
-      );
+      expect(
+        renderByLine(root)
+          .find(Link)
+          .children(),
+      ).toHaveText(i18n.moment(review.created).fromNow());
     });
 
     it('renders a byLine with an author by default', () => {
@@ -994,7 +994,11 @@ describe(__filename, () => {
       });
       const root = render({ review });
 
-      expect(getByLineHtml(root)).toContain(`by ${name},`);
+      expect(
+        renderByLine(root)
+          .find('.AddonReviewCard-authorByLine')
+          .text(),
+      ).toContain(`by ${name},`);
     });
 
     it('renders a short byLine for replies by default', () => {
@@ -1004,14 +1008,38 @@ describe(__filename, () => {
 
       const root = renderReply({ i18n, reply });
 
-      expect(getByLineHtml(root)).toContain('posted ');
+      expect(renderByLine(root).text()).toContain('posted ');
     });
 
     it('renders a short byLine explicitly', () => {
       const review = _setReview(fakeReview);
       const root = render({ shortByLine: true, review });
 
-      expect(getByLineHtml(root)).toContain('posted ');
+      expect(renderByLine(root).text()).toContain('posted ');
+    });
+
+    it('builds a byLine string by extracting the timestamp and inserting a link', () => {
+      const firstPart = 'this is the first part';
+      const lastPart = 'this is the last part';
+      const byLineString = `${firstPart} %(timestamp)s ${lastPart}`;
+      const i18n = {
+        ...fakeI18n(),
+        gettext: sinon.stub().returns(byLineString),
+      };
+      const review = _setReview(fakeReview);
+      const root = render({ i18n, shortByLine: true, review });
+
+      expect(
+        renderByLine(root)
+          .text()
+          .startsWith(firstPart),
+      ).toBe(true);
+      expect(
+        renderByLine(root)
+          .text()
+          .endsWith(lastPart),
+      ).toBe(true);
+      expect(renderByLine(root).find(Link)).toHaveLength(1);
     });
   });
 
