@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { compose } from 'redux';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-import 'react-super-responsive-table/src/SuperResponsiveTableStyle.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
