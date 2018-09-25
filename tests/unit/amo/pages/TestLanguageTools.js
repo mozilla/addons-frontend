@@ -229,4 +229,78 @@ describe(__filename, () => {
 
     expect(root.find('title')).toHaveText('Dictionaries and Language Packs');
   });
+
+  it('renders add-ons for all variants of a short locale', () => {
+    // The short locale is `az` here.
+    const addons = [
+      createFakeLanguageTool({
+        id: 1,
+        name: 'Azərbaycanca (AZ) Language Pack',
+        target_locale: 'az',
+        type: ADDON_TYPE_LANG,
+      }),
+      createFakeLanguageTool({
+        id: 2,
+        name: 'Azerbaijani Spell Checker',
+        target_locale: 'az-IR',
+        type: ADDON_TYPE_DICT,
+      }),
+    ];
+
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadLanguageTools({ languageTools: addons }));
+
+    const root = renderShallow({ store });
+
+    // We expect only one row with all the add-ons in it.
+    expect(root.find('.LanguageTools-table-row')).toHaveLength(1);
+
+    expect(root.find(LanguageToolList)).toHaveLength(2);
+    expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
+      addons[0],
+    ]);
+    expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
+      addons[1],
+    ]);
+  });
+
+  it('does not render add-ons for all variants of a short locale when the variant is a supported language', () => {
+    // The short locale is `fa` here, which is in the list of supported
+    // languages (`src/core/languages.js`) together with `fa-IR`.
+    const addons = [
+      createFakeLanguageTool({
+        id: 1,
+        name: 'Persian Dictionary',
+        target_locale: 'fa',
+        type: ADDON_TYPE_DICT,
+      }),
+      createFakeLanguageTool({
+        id: 2,
+        name: 'Persian (IR) Dictionary',
+        target_locale: 'fa-IR',
+        type: ADDON_TYPE_DICT,
+      }),
+      createFakeLanguageTool({
+        id: 3,
+        name: 'Lilak, Persian Spell Checker Dictionary',
+        target_locale: 'fa-IR',
+        type: ADDON_TYPE_DICT,
+      }),
+    ];
+
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadLanguageTools({ languageTools: addons }));
+
+    const root = renderShallow({ store });
+
+    expect(root.find('.LanguageTools-table-row')).toHaveLength(2);
+
+    expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
+      addons[0],
+    ]);
+    expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
+      addons[1],
+      addons[2],
+    ]);
+  });
 });
