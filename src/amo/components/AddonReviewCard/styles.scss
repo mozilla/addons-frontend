@@ -61,14 +61,9 @@
   .ConfirmButton-default-button {
     align-items: flex-start;
     border: 0;
-    color: $text-color-default;
+    color: $blue-50;
     height: auto;
     padding: 0;
-
-    &:active,
-    &:hover {
-      color: $link-color;
-    }
   }
 
   .ConfirmButton-buttons {
@@ -105,4 +100,15 @@
 .AddonReviewCard-writeReviewButton {
   margin-top: 12px;
   width: auto;
+}
+
+.AddonReviewCard-allControls
+  .AddonReviewCard-delete:first-child
+  .ConfirmButton-default-button {
+  color: $text-color-default;
+
+  &:active,
+  &:hover {
+    color: $link-color;
+  }
 }
