@@ -33,6 +33,7 @@ import {
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
@@ -109,6 +110,16 @@ export class UserProfileBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           page: this.getReviewsPage(location),
           userId: user.id,
+        }),
+      );
+    }
+    let idOrNameCheck = { ...location}.pathname.split('/')[4];
+    if(/^[0-9]+$/.test(idOrNameCheck)){
+      const newUrl= { ...user };
+      props.dispatch(
+          sendServerRedirect({
+              status: 302,
+            url: `/user/${newUrl.username}`,
         }),
       );
     }
