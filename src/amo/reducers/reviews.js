@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
   DELETE_ADDON_REVIEW,
@@ -575,6 +576,12 @@ export default function reviewsReducer(
         };
       }
       return newState;
+    }
+    case LOCATION_CHANGE: {
+      return {
+        ...state,
+        view: {},
+      };
     }
     default:
       return state;

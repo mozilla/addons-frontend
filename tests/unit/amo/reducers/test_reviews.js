@@ -1,3 +1,5 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
+
 import {
   SAVED_RATING,
   deleteAddonReview,
@@ -1217,6 +1219,23 @@ describe(__filename, () => {
         }),
       );
       expect(reviewsAreLoading({ reviews: state }, slug)).toBe(false);
+    });
+  });
+
+  describe('LOCATION_CHANGE', () => {
+    it('resets the view state', () => {
+      let state;
+
+      state = reviewsReducer(
+        undefined,
+        showEditReviewForm({
+          reviewId: 1,
+        }),
+      );
+
+      state = reviewsReducer(state, { type: LOCATION_CHANGE });
+
+      expect(state.view).toEqual({});
     });
   });
 });
