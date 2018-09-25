@@ -18,7 +18,7 @@ setDefaults({
 setAddon(chaptersAddon);
 
 setAddonInfoDefaults({
-  header: false, // Toggles display of header with component name and description
+  header: false,
   inline: true,
   source: false,
   styles: {

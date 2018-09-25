@@ -72,7 +72,8 @@ function createPropsMatrix(chapter): Array<Props> {
         buttonType: chapter,
         externalDark: true,
         puffy: true,
-        // TODO: We need to have a little bit more set up to see this ~:
+        // TODO: We need to have a little bit more set up for externalDark with href.
+        // The following will help get started with this ~:
         // See https://github.com/mozilla/addons-frontend/pull/6389/files.
       },
     },
