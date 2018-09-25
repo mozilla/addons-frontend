@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-19 08:55+0000\n"
+"POT-Creation-Date: 2018-09-25 19:00+0000\n"
 "PO-Revision-Date: 2018-09-08 12:11+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,30 +72,37 @@ msgstr "เข้ากันไม่ได้กับ Firefox Quantum"
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:56
+#: src/amo/components/AddonCompatibilityError/index.js:57
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
 msgstr ""
 "คุณจำเป็นต้อง <a href=\"%(downloadUrl)s\">ดาวน์โหลด Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:63
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "ส่วนเสริมนี้เข้ากันไม่ได้กับ Firefox รุ่นของคุณ"
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Firefox รุ่นของคุณไม่รองรับปลั๊กอินการค้นหา"
 
-#: src/amo/components/AddonCompatibilityError/index.js:69
+#: src/amo/components/AddonCompatibilityError/index.js:70
+#, fuzzy
+msgid ""
+"Your version of Firefox does not support this add-on because it requires a "
+"restart."
+msgstr "Firefox รุ่นของคุณไม่รองรับปลั๊กอินการค้นหา"
+
+#: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox สำหรับ iOS ไม่รองรับส่วนเสริมในขณะนี้"
 
-#: src/amo/components/AddonCompatibilityError/index.js:73
+#: src/amo/components/AddonCompatibilityError/index.js:77
 msgid "This add-on is not available on your platform."
 msgstr "ส่วนเสริมนี้ไม่พร้อมใช้งานบนแพลตฟอร์มของคุณ"
 
-#: src/amo/components/AddonCompatibilityError/index.js:76
+#: src/amo/components/AddonCompatibilityError/index.js:80
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -103,7 +110,7 @@ msgstr ""
 "ส่วนเสริมนี้ต้องการ <a href=\"%(downloadUrl)s\">Firefox รุ่นใหม่กว่า</a> (ขั้นต่ำรุ่น "
 "%(minVersion)s) คุณกำลังใช้ Firefox %(yourVersion)s"
 
-#: src/amo/components/AddonCompatibilityError/index.js:94
+#: src/amo/components/AddonCompatibilityError/index.js:98
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -205,7 +212,7 @@ msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
 #: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/pages/UserProfile/index.js:322
+#: src/amo/pages/UserProfile/index.js:300
 #: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "หน้าแรก"
@@ -254,7 +261,7 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:232
-#: src/amo/components/AddonReviewCard/index.js:449
+#: src/amo/components/AddonReviewCard/index.js:448
 msgid "Write a review"
 msgstr "เขียนบทวิจารณ์"
 
@@ -267,93 +274,88 @@ msgstr "ข้อความบทวิจารณ์"
 msgid "Submit review"
 msgstr "ส่งบทวิจารณ์"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:192
 msgid "Edit my reply"
 msgstr "แก้ไขการตอบกลับของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit my review"
 msgstr "แก้ไขบทวิจารณ์ของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:204
+#: src/amo/components/AddonReviewCard/index.js:202
 msgid "Delete my reply"
 msgstr "ลบการตอบกลับของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:208
+#: src/amo/components/AddonReviewCard/index.js:206
 #, fuzzy
 msgid "Delete my rating"
 msgstr "ลบบทวิจารณ์ของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:211
+#: src/amo/components/AddonReviewCard/index.js:209
 msgid "Delete my review"
 msgstr "ลบบทวิจารณ์ของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:216
 #, fuzzy
 msgid "Do you really want to delete this reply?"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:220
 #, fuzzy
 msgid "Do you really want to delete this rating?"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:223
 #, fuzzy
 msgid "Do you really want to delete this review?"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/AddonReviewCard/index.js:246
-#: src/amo/pages/UserProfile/index.js:224
-msgid "Developer response"
-msgstr "การตอบกลับของนักพัฒนา"
-
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:247
 msgid "Write a reply to this review."
 msgstr "เขียนการตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/AddonReviewCard/index.js:257
+#: src/amo/components/AddonReviewCard/index.js:250
 msgid "Update reply"
 msgstr "อัปเดตการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:251
 msgid "Publish reply"
 msgstr "เผยแพร่การตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:262
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Updating reply"
 msgstr "กำลังอัปเดตการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:263
+#: src/amo/components/AddonReviewCard/index.js:256
 msgid "Publishing reply"
 msgstr "กำลังเผยแพร่การตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:312
+#: src/amo/components/AddonReviewCard/index.js:301
 msgid "posted %(timestamp)s"
 msgstr "โพสต์เมื่อ %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:314
+#: src/amo/components/AddonReviewCard/index.js:303
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "โดย %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:361
+#: src/amo/components/AddonReviewCard/index.js:356
 msgid "Deleting…"
 msgstr "กำลังลบ…"
 
-#: src/amo/components/AddonReviewCard/index.js:371
+#: src/amo/components/AddonReviewCard/index.js:366
 #: src/ui/components/DismissibleTextForm/index.js:186
 msgid "Delete"
 msgstr "ลบ"
 
-#: src/amo/components/AddonReviewCard/index.js:397
+#: src/amo/components/AddonReviewCard/index.js:392
 msgid "Reply to this review"
 msgstr "ตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/AddonReviewCard/index.js:414
+#: src/amo/components/AddonReviewCard/index.js:409
 msgid "Nevermind, I don't want to write a review"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:415
+#: src/amo/components/AddonReviewCard/index.js:410
 msgid "Nevermind, I don't want to edit my review"
 msgstr ""
 
@@ -588,7 +590,7 @@ msgstr "URL ที่กำหนดเอง"
 
 #: src/amo/components/CollectionManager/index.js:298
 #: src/amo/pages/UserProfileEdit/index.js:847
-#: src/ui/components/ConfirmButton/index.js:107
+#: src/ui/components/ConfirmButton/index.js:108
 #: src/ui/components/DismissibleTextForm/index.js:172
 msgid "Cancel"
 msgstr "ยกเลิก"
@@ -688,7 +690,7 @@ msgid "Leave a note"
 msgstr "ข้อกฎหมาย"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "เอาออก"
 
@@ -950,7 +952,7 @@ msgid "Reviewer Tools"
 msgstr "เครื่องมือผู้วิจารณ์"
 
 #: src/amo/components/Header/index.js:161
-#: src/core/components/AuthenticateButton/index.js:79
+#: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
@@ -1149,6 +1151,64 @@ msgstr ""
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Remove formatting when saving text to your clipboard"
 msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:240
+msgid "Official Media Bias Fact Check Icon"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:241
+msgid "Indicates the political bias of news sites with a tidy icon"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:247
+msgid "Vertical Tabs Reloaded"
+msgstr "Vertical Tabs Reloaded"
+
+#: src/amo/components/HomeHeroBanner/index.js:248
+msgid "Arrange tabs in a vertical fashion"
+msgstr "จัดเรียงแท็บในแนวตั้ง"
+
+#: src/amo/components/HomeHeroBanner/index.js:252
+msgid "Search Site"
+msgstr "Search Site"
+
+#: src/amo/components/HomeHeroBanner/index.js:253
+msgid "Search within just the domain you’re visiting"
+msgstr "ค้นหาแค่ภายในโดเมนที่คุณกำลังเยี่ยมชม"
+
+#: src/amo/components/HomeHeroBanner/index.js:259
+msgid "Push to Kindle"
+msgstr "Push to Kindle"
+
+#: src/amo/components/HomeHeroBanner/index.js:260
+msgid "Send any Web page to your Kindle device"
+msgstr "ส่งหน้าเว็บใด ๆ ไปยังอุปกรณ์ Kindle ของคุณ"
+
+#: src/amo/components/HomeHeroBanner/index.js:264
+#, fuzzy
+msgid "New Tab Homepage"
+msgstr "หน้าแรก"
+
+#: src/amo/components/HomeHeroBanner/index.js:265
+msgid "Designate a custom home page for your new tabs"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:271
+#, fuzzy
+msgid "OneNote Web Clipper"
+msgstr "Notebook Web Clipper"
+
+#: src/amo/components/HomeHeroBanner/index.js:272
+msgid "Save, annotate & organize web content"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:276
+msgid "FoxyGestures"
+msgstr "FoxyGestures"
+
+#: src/amo/components/HomeHeroBanner/index.js:277
+msgid "Customized mouse gestures"
+msgstr "ท่าทางเมาส์ที่กำหนดเอง"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Facebook Container"
@@ -1450,12 +1510,12 @@ msgid "Search results"
 msgstr "ผลการค้นหา"
 
 #: src/amo/components/Search/index.js:126 src/amo/pages/Category/index.js:153
-#: src/amo/pages/Home/index.js:257 src/amo/pages/LandingPage/index.js:147
+#: src/amo/pages/Home/index.js:250 src/amo/pages/LandingPage/index.js:147
 msgid "Featured extensions"
 msgstr "ส่วนขยายที่แนะนำ"
 
 #: src/amo/components/Search/index.js:129 src/amo/pages/Category/index.js:186
-#: src/amo/pages/Home/index.js:293 src/amo/pages/LandingPage/index.js:176
+#: src/amo/pages/Home/index.js:286 src/amo/pages/LandingPage/index.js:176
 msgid "Featured themes"
 msgstr "ชุดตกแต่งที่แนะนำ"
 
@@ -1464,7 +1524,7 @@ msgid "Featured add-ons"
 msgstr "ส่วนเสริมที่แนะนำ"
 
 #: src/amo/components/Search/index.js:139 src/amo/pages/Category/index.js:163
-#: src/amo/pages/Home/index.js:312 src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:156
 msgid "Trending extensions"
 msgstr "ส่วนขยายที่กำลังนิยม"
 
@@ -1845,34 +1905,34 @@ msgstr "Metadata ส่วนขยาย"
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 
-#: src/amo/pages/AddonReviewList/index.js:203
+#: src/amo/pages/AddonReviewList/index.js:209
 msgid "Add-on icon"
 msgstr "ไอคอนส่วนเสริม"
 
-#: src/amo/pages/AddonReviewList/index.js:209
+#: src/amo/pages/AddonReviewList/index.js:215
 msgid "Reviews for %(addonName)s"
 msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:223
+#: src/amo/pages/AddonReviewList/index.js:229
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s บทวิจารณ์สำหรับส่วนเสริมนี้"
 
-#: src/amo/pages/AddonReviewList/index.js:252
+#: src/amo/pages/AddonReviewList/index.js:258
 msgid "by %(authorList)s"
 msgstr "โดย %(authorList)s"
 
-#: src/amo/pages/AddonReviewList/index.js:298
+#: src/amo/pages/AddonReviewList/index.js:304
 #, fuzzy
 msgid "%(averageRating)s star average"
 msgstr "%(averageRating)s จาก 5"
 
-#: src/amo/pages/Category/index.js:162 src/amo/pages/Home/index.js:258
+#: src/amo/pages/Category/index.js:162 src/amo/pages/Home/index.js:251
 #: src/amo/pages/LandingPage/index.js:155
 msgid "See more featured extensions"
 msgstr "ดูส่วนขยายที่แนะนำเพิ่มเติม"
 
-#: src/amo/pages/Category/index.js:172 src/amo/pages/Home/index.js:313
+#: src/amo/pages/Category/index.js:172 src/amo/pages/Home/index.js:297
 #: src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "ดูส่วนขยายที่กำลังนิยมเพิ่มเติม"
@@ -1881,7 +1941,7 @@ msgstr "ดูส่วนขยายที่กำลังนิยมเพ
 msgid "See more top rated extensions"
 msgstr "ดูส่วนขยายที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
-#: src/amo/pages/Category/index.js:195 src/amo/pages/Home/index.js:283
+#: src/amo/pages/Category/index.js:195 src/amo/pages/Home/index.js:276
 #: src/amo/pages/LandingPage/index.js:184
 msgid "See more featured themes"
 msgstr "ดูชุดตกแต่งที่แนะนำเพิ่มเติม"
@@ -1945,87 +2005,79 @@ msgstr "คุณไม่มีชุดสะสมใด ๆ"
 msgid "My collections"
 msgstr "ชุดสะสมของฉัน"
 
-#: src/amo/pages/Home/index.js:116
+#: src/amo/pages/Home/index.js:109
 msgid "Bookmarks"
 msgstr "ที่คั่นหน้า"
 
-#: src/amo/pages/Home/index.js:120
+#: src/amo/pages/Home/index.js:113
 msgid "Password managers"
 msgstr "ตัวจัดการรหัสผ่าน"
 
-#: src/amo/pages/Home/index.js:124
+#: src/amo/pages/Home/index.js:117
 msgid "Ad blockers"
 msgstr "ตัวปิดกั้นโฆษณา"
 
-#: src/amo/pages/Home/index.js:128
+#: src/amo/pages/Home/index.js:121
 msgid "Smarter Shopping"
 msgstr "การซื้อของที่ชาญฉลาดกว่า"
 
-#: src/amo/pages/Home/index.js:132
+#: src/amo/pages/Home/index.js:125
 msgid "Productivity"
 msgstr "ผลผลิต"
 
-#: src/amo/pages/Home/index.js:136
+#: src/amo/pages/Home/index.js:129
 msgid "Watching Videos"
 msgstr "การดูวิดีโอ"
 
-#: src/amo/pages/Home/index.js:164
+#: src/amo/pages/Home/index.js:157
 msgid "Abstract"
 msgstr "นามธรรม"
 
-#: src/amo/pages/Home/index.js:169
+#: src/amo/pages/Home/index.js:162
 msgid "Nature"
 msgstr "ธรรมชาติ"
 
-#: src/amo/pages/Home/index.js:174
+#: src/amo/pages/Home/index.js:167
 msgid "Film & TV"
 msgstr "ภาพยนตร์และโทรทัศน์"
 
-#: src/amo/pages/Home/index.js:179
+#: src/amo/pages/Home/index.js:172
 msgid "Scenery"
 msgstr "ทิวทัศน์"
 
-#: src/amo/pages/Home/index.js:184
+#: src/amo/pages/Home/index.js:177
 msgid "Music"
 msgstr "เพลง"
 
-#: src/amo/pages/Home/index.js:189
+#: src/amo/pages/Home/index.js:182
 msgid "Seasonal"
 msgstr "ฤดูกาล"
 
-#: src/amo/pages/Home/index.js:221
+#: src/amo/pages/Home/index.js:214
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "ปรับแต่งการทำงานของ Firefox ด้วยส่วนขยาย คุณอาจสนใจใน…"
 
-#: src/amo/pages/Home/index.js:223
+#: src/amo/pages/Home/index.js:216
 msgid "Change the way Firefox looks with themes."
 msgstr "เปลี่ยนรูปลักษณ์ของ Firefox ด้วยชุดตกแต่ง"
 
+#: src/amo/pages/Home/index.js:49
+msgid "See more translation tools"
+msgstr "ดูเครื่องมือการแปลเพิ่มเติม"
+
 #: src/amo/pages/Home/index.js:50
+msgid "Translation tools"
+msgstr "เครื่องมือการแปล"
+
+#: src/amo/pages/Home/index.js:55
 #, fuzzy
 msgid "See more privacy & security extensions"
 msgstr "ดูส่วนขยายความเป็นส่วนตัวเพิ่มเติม"
 
-#: src/amo/pages/Home/index.js:51
+#: src/amo/pages/Home/index.js:56
 #, fuzzy
 msgid "Privacy & security"
 msgstr "นโยบายความเป็นส่วนตัว"
-
-#: src/amo/pages/Home/index.js:56
-msgid "See more fall themes"
-msgstr "ดูชุดตกแต่งฤดูใบไม้ร่วงเพิ่มเติม"
-
-#: src/amo/pages/Home/index.js:57
-msgid "Fall themes"
-msgstr "ชุดตกแต่งฤดูใบไม้ร่วง"
-
-#: src/amo/pages/Home/index.js:62
-msgid "See more YouTube extensions"
-msgstr "ดูส่วนขยาย YouTube เพิ่มเติม"
-
-#: src/amo/pages/Home/index.js:63
-msgid "YouTube boosters"
-msgstr "ตัวเพิ่มประสิทธิภาพ YouTube"
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid ""
@@ -2343,57 +2395,52 @@ msgid ""
 "Make false statements, disparage add-on authors or personally insult them."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:216
+#: src/amo/pages/UserProfile/index.js:215
 msgid "My reviews"
 msgstr "บทวิจารณ์ของฉัน"
 
-#: src/amo/pages/UserProfile/index.js:226
-#, fuzzy
-msgid "Go to this review"
-msgstr "ตอบกลับบทวิจารณ์นี้"
-
-#: src/amo/pages/UserProfile/index.js:282
+#: src/amo/pages/UserProfile/index.js:260
 msgid "Add-ons developer"
 msgstr "นักพัฒนาส่วนเสริม"
 
-#: src/amo/pages/UserProfile/index.js:288
+#: src/amo/pages/UserProfile/index.js:266
 #, fuzzy
 msgid "Theme artist"
 msgstr "ชุดตกแต่งโดยศิลปินเหล่านี้"
 
-#: src/amo/pages/UserProfile/index.js:302
+#: src/amo/pages/UserProfile/index.js:280
 #: src/amo/pages/UserProfileEdit/index.js:458
 msgid "User Profile for %(user)s"
 msgstr "โปรไฟล์ผู้ใช้สำหรับ %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:332
+#: src/amo/pages/UserProfile/index.js:310
 #: src/amo/pages/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr "ตำแหน่งที่ตั้ง"
 
-#: src/amo/pages/UserProfile/index.js:340
+#: src/amo/pages/UserProfile/index.js:318
 #: src/amo/pages/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr "อาชีพ"
 
-#: src/amo/pages/UserProfile/index.js:347
+#: src/amo/pages/UserProfile/index.js:325
 msgid "User since"
 msgstr "ผู้ใช้ตั้งแต่"
 
-#: src/amo/pages/UserProfile/index.js:357
+#: src/amo/pages/UserProfile/index.js:335
 msgid "Number of add-ons"
 msgstr "จำนวนส่วนเสริม"
 
-#: src/amo/pages/UserProfile/index.js:363
+#: src/amo/pages/UserProfile/index.js:341
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:378
+#: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:402
+#: src/amo/pages/UserProfile/index.js:380
 msgid "Edit profile"
 msgstr "แก้ไขโปรไฟล์"
 
@@ -2573,39 +2620,39 @@ msgid ""
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "เปิดใช้งาน"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "กำลังเปิดใช้งาน"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "กำลังดาวน์โหลด"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "กำลังติดตั้ง"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "กำลังถอนการติดตั้ง"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:221
 #: src/core/components/InstallButton/index.js:265
 #: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "ติดตั้งชุดตกแต่ง"
 
-#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/AMInstallButton/index.js:222
 #: src/core/components/InstallButton/index.js:296
 #: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 
-#: src/core/components/AuthenticateButton/index.js:80
+#: src/core/components/AuthenticateButton/index.js:81
 msgid "Register or Log in"
 msgstr "ลงทะเบียนหรือเข้าสู่ระบบ"
 
@@ -2709,7 +2756,7 @@ msgstr "เกิดข้อผิดพลาดที่ไม่คาดค
 msgid "An unexpected error occurred."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
-#: src/ui/components/ConfirmButton/index.js:100
+#: src/ui/components/ConfirmButton/index.js:101
 msgid "Confirm"
 msgstr "ยืนยัน"
 
@@ -2791,6 +2838,26 @@ msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ�
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s ส่วนเสริม"
+
+#: src/ui/components/UserReview/index.js:97
+msgid "Developer response"
+msgstr "การตอบกลับของนักพัฒนา"
+
+#~ msgid "See more fall themes"
+#~ msgstr "ดูชุดตกแต่งฤดูใบไม้ร่วงเพิ่มเติม"
+
+#~ msgid "Fall themes"
+#~ msgstr "ชุดตกแต่งฤดูใบไม้ร่วง"
+
+#~ msgid "See more YouTube extensions"
+#~ msgstr "ดูส่วนขยาย YouTube เพิ่มเติม"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "ตัวเพิ่มประสิทธิภาพ YouTube"
+
+#, fuzzy
+#~ msgid "Go to this review"
+#~ msgstr "ตอบกลับบทวิจารณ์นี้"
 
 #, fuzzy
 #~ msgid "Browse the reviews for this add-on"
@@ -2927,12 +2994,6 @@ msgstr[0] "%(total)s ส่วนเสริม"
 #~ msgid "Tap to preview"
 #~ msgstr "แตะเพื่อแสดงตัวอย่าง"
 
-#~ msgid "Translation tools"
-#~ msgstr "เครื่องมือการแปล"
-
-#~ msgid "See more translation tools"
-#~ msgstr "ดูเครื่องมือการแปลเพิ่มเติม"
-
 #~ msgid "Privacy matters"
 #~ msgstr "เรื่องความเป็นส่วนตัว"
 
@@ -2966,12 +3027,6 @@ msgstr[0] "%(total)s ส่วนเสริม"
 
 #~ msgid "Protection against malware and data phishing scams"
 #~ msgstr "การป้องกันมัลแวร์และการหลอกลวงฟิชชิ่งข้อมูล"
-
-#~ msgid "Vertical Tabs Reloaded"
-#~ msgstr "Vertical Tabs Reloaded"
-
-#~ msgid "Arrange tabs in a vertical fashion"
-#~ msgstr "จัดเรียงแท็บในแนวตั้ง"
 
 #~ msgid "Worldwide Radio"
 #~ msgstr "Worldwide Radio"
@@ -3011,12 +3066,6 @@ msgstr[0] "%(total)s ส่วนเสริม"
 
 #~ msgid "Manage downloads from a tidy status bar"
 #~ msgstr "จัดการการดาวน์โหลดจากแถบสถานะที่เป็นระเบียบ"
-
-#~ msgid "FoxyGestures"
-#~ msgstr "FoxyGestures"
-
-#~ msgid "Customized mouse gestures"
-#~ msgstr "ท่าทางเมาส์ที่กำหนดเอง"
 
 #~ msgid "Session Sync"
 #~ msgstr "Session Sync"
@@ -3066,9 +3115,6 @@ msgstr[0] "%(total)s ส่วนเสริม"
 
 #~ msgid "Fill out a lot of forms? This might help"
 #~ msgstr "กรอกแบบฟอร์มจำนวนมาก? สิ่งนี้อาจช่วยได้"
-
-#~ msgid "Notebook Web Clipper"
-#~ msgstr "Notebook Web Clipper"
 
 #~ msgid "Flagfox"
 #~ msgstr "Flagfox"
@@ -3150,18 +3196,6 @@ msgstr[0] "%(total)s ส่วนเสริม"
 
 #~ msgid "Convert your open tabs into a list and save precious memory"
 #~ msgstr "แปลงแท็บที่เปิดอยู่ของคุณเป็นรายการและประหยัดหน่วยความจำอันมีค่า"
-
-#~ msgid "Push to Kindle"
-#~ msgstr "Push to Kindle"
-
-#~ msgid "Send any Web page to your Kindle device"
-#~ msgstr "ส่งหน้าเว็บใด ๆ ไปยังอุปกรณ์ Kindle ของคุณ"
-
-#~ msgid "Search Site"
-#~ msgstr "Search Site"
-
-#~ msgid "Search within just the domain you’re visiting"
-#~ msgstr "ค้นหาแค่ภายในโดเมนที่คุณกำลังเยี่ยมชม"
 
 #~ msgid "Click to close"
 #~ msgstr "คลิกเพื่อปิด"

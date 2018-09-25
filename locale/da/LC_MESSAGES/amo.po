@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-19 08:55+0000\n"
+"POT-Creation-Date: 2018-09-25 19:00+0000\n"
 "PO-Revision-Date: 2018-09-14 20:08+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
@@ -72,7 +72,7 @@ msgstr "Ikke kompatibel med Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Nogle funktioner kan kræve betaling"
 
-#: src/amo/components/AddonCompatibilityError/index.js:56
+#: src/amo/components/AddonCompatibilityError/index.js:57
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -80,23 +80,30 @@ msgstr ""
 "Du skal <a href=\"%(downloadUrl)s\">hente Firefox</a> for at installere "
 "denne tilføjelse."
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:63
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Denne tilføjelse er ikke kompatibel med din version af Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Din version af Firefox understøtter ikke søge-plugins."
 
-#: src/amo/components/AddonCompatibilityError/index.js:69
+#: src/amo/components/AddonCompatibilityError/index.js:70
+#, fuzzy
+msgid ""
+"Your version of Firefox does not support this add-on because it requires a "
+"restart."
+msgstr "Din version af Firefox understøtter ikke søge-plugins."
+
+#: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox til iOS understøtter i øjeblikket ikke tilføjelser."
 
-#: src/amo/components/AddonCompatibilityError/index.js:73
+#: src/amo/components/AddonCompatibilityError/index.js:77
 msgid "This add-on is not available on your platform."
 msgstr "Denne tilføjelse er ikke tilgængelig på din platform."
 
-#: src/amo/components/AddonCompatibilityError/index.js:76
+#: src/amo/components/AddonCompatibilityError/index.js:80
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -105,7 +112,7 @@ msgstr ""
 "Firefox</a> (mindst version %(minVersion)s). Du bruger Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:94
+#: src/amo/components/AddonCompatibilityError/index.js:98
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -209,7 +216,7 @@ msgid "More information"
 msgstr "Mere information"
 
 #: src/amo/components/AddonMoreInfo/index.js:45
-#: src/amo/pages/UserProfile/index.js:322
+#: src/amo/pages/UserProfile/index.js:300
 #: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "Hjemmeside"
@@ -262,7 +269,7 @@ msgstr ""
 "Fortæl os om din oplevelse med denne udvidelse. Vær konkret og kortfattet."
 
 #: src/amo/components/AddonReview/index.js:232
-#: src/amo/components/AddonReviewCard/index.js:449
+#: src/amo/components/AddonReviewCard/index.js:448
 msgid "Write a review"
 msgstr "Skriv en anmeldelse"
 
@@ -275,89 +282,84 @@ msgstr "Anmeldelsestekst"
 msgid "Submit review"
 msgstr "Indsend anmeldelse"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:192
 msgid "Edit my reply"
 msgstr "Rediger mit svar"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit my review"
 msgstr "Rediger min anmeldelse"
 
-#: src/amo/components/AddonReviewCard/index.js:204
+#: src/amo/components/AddonReviewCard/index.js:202
 msgid "Delete my reply"
 msgstr "Slet mit svar"
 
-#: src/amo/components/AddonReviewCard/index.js:208
+#: src/amo/components/AddonReviewCard/index.js:206
 msgid "Delete my rating"
 msgstr "Slet min bedømmelse"
 
-#: src/amo/components/AddonReviewCard/index.js:211
+#: src/amo/components/AddonReviewCard/index.js:209
 msgid "Delete my review"
 msgstr "Slet min anmeldelse"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:216
 msgid "Do you really want to delete this reply?"
 msgstr "Vil du virkelig slette dette svar?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:220
 msgid "Do you really want to delete this rating?"
 msgstr "Vil du virkelig slette denne bedømmelse?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this review?"
 msgstr "Vil du virkelig slette denne anmeldelse?"
 
-#: src/amo/components/AddonReviewCard/index.js:246
-#: src/amo/pages/UserProfile/index.js:224
-msgid "Developer response"
-msgstr "Svar fra udvikleren"
-
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:247
 msgid "Write a reply to this review."
 msgstr "Skriv et svar til denne anmeldelse."
 
-#: src/amo/components/AddonReviewCard/index.js:257
+#: src/amo/components/AddonReviewCard/index.js:250
 msgid "Update reply"
 msgstr "Opdater svar"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:251
 msgid "Publish reply"
 msgstr "Offentliggør svar"
 
-#: src/amo/components/AddonReviewCard/index.js:262
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Updating reply"
 msgstr "Opdaterer svar"
 
-#: src/amo/components/AddonReviewCard/index.js:263
+#: src/amo/components/AddonReviewCard/index.js:256
 msgid "Publishing reply"
 msgstr "Offentliggør svar"
 
-#: src/amo/components/AddonReviewCard/index.js:312
+#: src/amo/components/AddonReviewCard/index.js:301
 msgid "posted %(timestamp)s"
 msgstr "skrevet %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:314
+#: src/amo/components/AddonReviewCard/index.js:303
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "af %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:361
+#: src/amo/components/AddonReviewCard/index.js:356
 msgid "Deleting…"
 msgstr "Sletter…"
 
-#: src/amo/components/AddonReviewCard/index.js:371
+#: src/amo/components/AddonReviewCard/index.js:366
 #: src/ui/components/DismissibleTextForm/index.js:186
 msgid "Delete"
 msgstr "Slet"
 
-#: src/amo/components/AddonReviewCard/index.js:397
+#: src/amo/components/AddonReviewCard/index.js:392
 msgid "Reply to this review"
 msgstr "Svar på denne anmeldelse"
 
-#: src/amo/components/AddonReviewCard/index.js:414
+#: src/amo/components/AddonReviewCard/index.js:409
 msgid "Nevermind, I don't want to write a review"
 msgstr "Jeg vil alligevel ikke skrive en anmeldelse"
 
-#: src/amo/components/AddonReviewCard/index.js:415
+#: src/amo/components/AddonReviewCard/index.js:410
 msgid "Nevermind, I don't want to edit my review"
 msgstr "Jeg vil alligevel ikke redigere min anmeldelse"
 
@@ -585,7 +587,7 @@ msgstr "Tilpasset URL"
 
 #: src/amo/components/CollectionManager/index.js:298
 #: src/amo/pages/UserProfileEdit/index.js:847
-#: src/ui/components/ConfirmButton/index.js:107
+#: src/ui/components/ConfirmButton/index.js:108
 #: src/ui/components/DismissibleTextForm/index.js:172
 msgid "Cancel"
 msgstr "Annuller"
@@ -696,7 +698,7 @@ msgid "Leave a note"
 msgstr "Tilføj en kommentar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Fjern"
 
@@ -974,7 +976,7 @@ msgid "Reviewer Tools"
 msgstr "Anmeldelser"
 
 #: src/amo/components/Header/index.js:161
-#: src/core/components/AuthenticateButton/index.js:79
+#: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Log ud"
 
@@ -1166,6 +1168,64 @@ msgstr "Copy PlainText"
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Remove formatting when saving text to your clipboard"
 msgstr "Fjern formatering når du gemmer tekst i din udklipsholder"
+
+#: src/amo/components/HomeHeroBanner/index.js:240
+msgid "Official Media Bias Fact Check Icon"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:241
+msgid "Indicates the political bias of news sites with a tidy icon"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:247
+msgid "Vertical Tabs Reloaded"
+msgstr "Vertical Tabs Reloaded"
+
+#: src/amo/components/HomeHeroBanner/index.js:248
+msgid "Arrange tabs in a vertical fashion"
+msgstr "Arranger faner lodret"
+
+#: src/amo/components/HomeHeroBanner/index.js:252
+msgid "Search Site"
+msgstr "Search Site"
+
+#: src/amo/components/HomeHeroBanner/index.js:253
+msgid "Search within just the domain you’re visiting"
+msgstr "Begræns søgningen til websider på det domæne, du besøger"
+
+#: src/amo/components/HomeHeroBanner/index.js:259
+msgid "Push to Kindle"
+msgstr "Push to Kindle"
+
+#: src/amo/components/HomeHeroBanner/index.js:260
+msgid "Send any Web page to your Kindle device"
+msgstr "Send en webside til din Kindle-enhed"
+
+#: src/amo/components/HomeHeroBanner/index.js:264
+#, fuzzy
+msgid "New Tab Homepage"
+msgstr "Hjemmeside"
+
+#: src/amo/components/HomeHeroBanner/index.js:265
+msgid "Designate a custom home page for your new tabs"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:271
+#, fuzzy
+msgid "OneNote Web Clipper"
+msgstr "Notebook Web Clipper"
+
+#: src/amo/components/HomeHeroBanner/index.js:272
+msgid "Save, annotate & organize web content"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:276
+msgid "FoxyGestures"
+msgstr "FoxyGestures"
+
+#: src/amo/components/HomeHeroBanner/index.js:277
+msgid "Customized mouse gestures"
+msgstr "Tilpassede musebevægelser"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Facebook Container"
@@ -1485,12 +1545,12 @@ msgid "Search results"
 msgstr "Søgeresultater"
 
 #: src/amo/components/Search/index.js:126 src/amo/pages/Category/index.js:153
-#: src/amo/pages/Home/index.js:257 src/amo/pages/LandingPage/index.js:147
+#: src/amo/pages/Home/index.js:250 src/amo/pages/LandingPage/index.js:147
 msgid "Featured extensions"
 msgstr "Udvalgte udvidelser"
 
 #: src/amo/components/Search/index.js:129 src/amo/pages/Category/index.js:186
-#: src/amo/pages/Home/index.js:293 src/amo/pages/LandingPage/index.js:176
+#: src/amo/pages/Home/index.js:286 src/amo/pages/LandingPage/index.js:176
 msgid "Featured themes"
 msgstr "Udvalgte temaer"
 
@@ -1499,7 +1559,7 @@ msgid "Featured add-ons"
 msgstr "Udvalgte tilføjelser"
 
 #: src/amo/components/Search/index.js:139 src/amo/pages/Category/index.js:163
-#: src/amo/pages/Home/index.js:312 src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:156
 msgid "Trending extensions"
 msgstr "Trending udvidelser"
 
@@ -1888,34 +1948,34 @@ msgstr "Metadata for udvidelsen"
 msgid "Screenshots"
 msgstr "Skærmbilleder"
 
-#: src/amo/pages/AddonReviewList/index.js:203
+#: src/amo/pages/AddonReviewList/index.js:209
 msgid "Add-on icon"
 msgstr "Tilføjelses-ikon"
 
-#: src/amo/pages/AddonReviewList/index.js:209
+#: src/amo/pages/AddonReviewList/index.js:215
 msgid "Reviews for %(addonName)s"
 msgstr "Anmeldelser af %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:223
+#: src/amo/pages/AddonReviewList/index.js:229
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s anmeldelse af denne tilføjelse"
 msgstr[1] "%(total)s anmeldelser af denne tilføjelse"
 
-#: src/amo/pages/AddonReviewList/index.js:252
+#: src/amo/pages/AddonReviewList/index.js:258
 msgid "by %(authorList)s"
 msgstr "af %(authorList)s"
 
-#: src/amo/pages/AddonReviewList/index.js:298
+#: src/amo/pages/AddonReviewList/index.js:304
 msgid "%(averageRating)s star average"
 msgstr "%(averageRating)s stjerner i gennemsnit"
 
-#: src/amo/pages/Category/index.js:162 src/amo/pages/Home/index.js:258
+#: src/amo/pages/Category/index.js:162 src/amo/pages/Home/index.js:251
 #: src/amo/pages/LandingPage/index.js:155
 msgid "See more featured extensions"
 msgstr "Se flere udvalgte udvidelser"
 
-#: src/amo/pages/Category/index.js:172 src/amo/pages/Home/index.js:313
+#: src/amo/pages/Category/index.js:172 src/amo/pages/Home/index.js:297
 #: src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Se flere trending udvidelser"
@@ -1924,7 +1984,7 @@ msgstr "Se flere trending udvidelser"
 msgid "See more top rated extensions"
 msgstr "Se flere bedst bedømte udvidelser"
 
-#: src/amo/pages/Category/index.js:195 src/amo/pages/Home/index.js:283
+#: src/amo/pages/Category/index.js:195 src/amo/pages/Home/index.js:276
 #: src/amo/pages/LandingPage/index.js:184
 msgid "See more featured themes"
 msgstr "Se flere udvalgte temaer"
@@ -1990,85 +2050,77 @@ msgstr "Du har ikke nogen samlinger."
 msgid "My collections"
 msgstr "Mine samlinger"
 
-#: src/amo/pages/Home/index.js:116
+#: src/amo/pages/Home/index.js:109
 msgid "Bookmarks"
 msgstr "Bogmærker"
 
-#: src/amo/pages/Home/index.js:120
+#: src/amo/pages/Home/index.js:113
 msgid "Password managers"
 msgstr "Håndtering af adgangskoder"
 
-#: src/amo/pages/Home/index.js:124
+#: src/amo/pages/Home/index.js:117
 msgid "Ad blockers"
 msgstr "Annonceblokering"
 
-#: src/amo/pages/Home/index.js:128
+#: src/amo/pages/Home/index.js:121
 msgid "Smarter Shopping"
 msgstr "Smartere shopping"
 
-#: src/amo/pages/Home/index.js:132
+#: src/amo/pages/Home/index.js:125
 msgid "Productivity"
 msgstr "Produktivitet"
 
-#: src/amo/pages/Home/index.js:136
+#: src/amo/pages/Home/index.js:129
 msgid "Watching Videos"
 msgstr "At se videoer"
 
-#: src/amo/pages/Home/index.js:164
+#: src/amo/pages/Home/index.js:157
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/pages/Home/index.js:169
+#: src/amo/pages/Home/index.js:162
 msgid "Nature"
 msgstr "Natur"
 
-#: src/amo/pages/Home/index.js:174
+#: src/amo/pages/Home/index.js:167
 msgid "Film & TV"
 msgstr "Film & TV"
 
-#: src/amo/pages/Home/index.js:179
+#: src/amo/pages/Home/index.js:172
 msgid "Scenery"
 msgstr "Landskab"
 
-#: src/amo/pages/Home/index.js:184
+#: src/amo/pages/Home/index.js:177
 msgid "Music"
 msgstr "Musik"
 
-#: src/amo/pages/Home/index.js:189
+#: src/amo/pages/Home/index.js:182
 msgid "Seasonal"
 msgstr "Sæsonbestemt"
 
-#: src/amo/pages/Home/index.js:221
+#: src/amo/pages/Home/index.js:214
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Få nye funktioner ved hjælp af udvidelser. Er du interesseret i…"
 
-#: src/amo/pages/Home/index.js:223
+#: src/amo/pages/Home/index.js:216
 msgid "Change the way Firefox looks with themes."
 msgstr "Skift udseende på Firefox ved hjælp af temaer."
 
+#: src/amo/pages/Home/index.js:49
+msgid "See more translation tools"
+msgstr "Se flere oversættelsesværktøjer"
+
 #: src/amo/pages/Home/index.js:50
+msgid "Translation tools"
+msgstr "Oversættelsesværktøjer"
+
+#: src/amo/pages/Home/index.js:55
 msgid "See more privacy & security extensions"
 msgstr "Se flere privatlivs- & sikkerhedsudvidelser"
 
-#: src/amo/pages/Home/index.js:51
+#: src/amo/pages/Home/index.js:56
 msgid "Privacy & security"
 msgstr "Privatliv & sikkerhed"
-
-#: src/amo/pages/Home/index.js:56
-msgid "See more fall themes"
-msgstr "Se flere efterårs-temaer"
-
-#: src/amo/pages/Home/index.js:57
-msgid "Fall themes"
-msgstr "Efterårs-temaer"
-
-#: src/amo/pages/Home/index.js:62
-msgid "See more YouTube extensions"
-msgstr "Se flere YouTube-udvidelser"
-
-#: src/amo/pages/Home/index.js:63
-msgid "YouTube boosters"
-msgstr "YouTube-boostere"
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid ""
@@ -2465,56 +2517,51 @@ msgstr ""
 "Give falske udtalelser, nedgøre tilføjelsens udviklere eller komme med "
 "personlige fornærmelser."
 
-#: src/amo/pages/UserProfile/index.js:216
+#: src/amo/pages/UserProfile/index.js:215
 msgid "My reviews"
 msgstr "Mine anmeldelser"
 
-#: src/amo/pages/UserProfile/index.js:226
-#, fuzzy
-msgid "Go to this review"
-msgstr "Svar på denne anmeldelse"
-
-#: src/amo/pages/UserProfile/index.js:282
+#: src/amo/pages/UserProfile/index.js:260
 msgid "Add-ons developer"
 msgstr "Udvikler af tilføjelser"
 
-#: src/amo/pages/UserProfile/index.js:288
+#: src/amo/pages/UserProfile/index.js:266
 msgid "Theme artist"
 msgstr "Kunstner bag tema"
 
-#: src/amo/pages/UserProfile/index.js:302
+#: src/amo/pages/UserProfile/index.js:280
 #: src/amo/pages/UserProfileEdit/index.js:458
 msgid "User Profile for %(user)s"
 msgstr "Brugerprofil for %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:332
+#: src/amo/pages/UserProfile/index.js:310
 #: src/amo/pages/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr "Sted"
 
-#: src/amo/pages/UserProfile/index.js:340
+#: src/amo/pages/UserProfile/index.js:318
 #: src/amo/pages/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr "Beskæftigelse"
 
-#: src/amo/pages/UserProfile/index.js:347
+#: src/amo/pages/UserProfile/index.js:325
 msgid "User since"
 msgstr "Bruger siden"
 
-#: src/amo/pages/UserProfile/index.js:357
+#: src/amo/pages/UserProfile/index.js:335
 msgid "Number of add-ons"
 msgstr "Antal tilføjelser"
 
-#: src/amo/pages/UserProfile/index.js:363
+#: src/amo/pages/UserProfile/index.js:341
 msgid "Average rating of developer’s add-ons"
 msgstr "Gennemsnitlig bedømmelse af udviklerens tilføjelser"
 
-#: src/amo/pages/UserProfile/index.js:378
+#: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr "Biografi"
 
-#: src/amo/pages/UserProfile/index.js:402
+#: src/amo/pages/UserProfile/index.js:380
 msgid "Edit profile"
 msgstr "Rediger profil"
 
@@ -2725,39 +2772,39 @@ msgstr ""
 "hvis brugeren er udvikler og %(linkStart)sstår som ejer af tilføjelser"
 "%(linkEnd)s."
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Aktivér"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Aktiverer"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Henter"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Installerer"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Afinstallerer"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:221
 #: src/core/components/InstallButton/index.js:265
 #: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/AMInstallButton/index.js:222
 #: src/core/components/InstallButton/index.js:296
 #: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
 msgstr "Føj til Firefox"
 
-#: src/core/components/AuthenticateButton/index.js:80
+#: src/core/components/AuthenticateButton/index.js:81
 msgid "Register or Log in"
 msgstr "Registrer dig eller log ind"
 
@@ -2863,7 +2910,7 @@ msgstr "Der opstod en uventet fejl"
 msgid "An unexpected error occurred."
 msgstr "Der opstod en uventet fejl"
 
-#: src/ui/components/ConfirmButton/index.js:100
+#: src/ui/components/ConfirmButton/index.js:101
 msgid "Confirm"
 msgstr "Bekræft"
 
@@ -2948,6 +2995,26 @@ msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s tilføjelse"
 msgstr[1] "%(total)s tilføjelser"
+
+#: src/ui/components/UserReview/index.js:97
+msgid "Developer response"
+msgstr "Svar fra udvikleren"
+
+#~ msgid "See more fall themes"
+#~ msgstr "Se flere efterårs-temaer"
+
+#~ msgid "Fall themes"
+#~ msgstr "Efterårs-temaer"
+
+#~ msgid "See more YouTube extensions"
+#~ msgstr "Se flere YouTube-udvidelser"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "YouTube-boostere"
+
+#, fuzzy
+#~ msgid "Go to this review"
+#~ msgstr "Svar på denne anmeldelse"
 
 #~ msgid "Browse the reviews for this add-on"
 #~ msgstr "Gennemse anmeldelser af denne tilføjelse"
@@ -3068,12 +3135,6 @@ msgstr[1] "%(total)s tilføjelser"
 #~ msgid "Tap to preview"
 #~ msgstr "Tryk for at få vist eksempel"
 
-#~ msgid "Translation tools"
-#~ msgstr "Oversættelsesværktøjer"
-
-#~ msgid "See more translation tools"
-#~ msgstr "Se flere oversættelsesværktøjer"
-
 #~ msgid "Privacy matters"
 #~ msgstr "Beskyt dit privatliv"
 
@@ -3101,12 +3162,6 @@ msgstr[1] "%(total)s tilføjelser"
 
 #~ msgid "Protection against malware and data phishing scams"
 #~ msgstr "Beskyttelse mod malware og phishing-svindel"
-
-#~ msgid "Vertical Tabs Reloaded"
-#~ msgstr "Vertical Tabs Reloaded"
-
-#~ msgid "Arrange tabs in a vertical fashion"
-#~ msgstr "Arranger faner lodret"
 
 #~ msgid "Worldwide Radio"
 #~ msgstr "Worldwide Radio"
@@ -3159,12 +3214,6 @@ msgstr[1] "%(total)s tilføjelser"
 #~ msgid "Laser Cat"
 #~ msgstr "Laser Cat"
 
-#~ msgid "FoxyGestures"
-#~ msgstr "FoxyGestures"
-
-#~ msgid "Customized mouse gestures"
-#~ msgstr "Tilpassede musebevægelser"
-
 #~ msgid "Session Sync"
 #~ msgstr "Session Sync"
 
@@ -3209,9 +3258,6 @@ msgstr[1] "%(total)s tilføjelser"
 
 #~ msgid "Fill out a lot of forms? This might help"
 #~ msgstr "Udfylder du mange formularer? Her er hjælpen"
-
-#~ msgid "Notebook Web Clipper"
-#~ msgstr "Notebook Web Clipper"
 
 #~ msgid "Flagfox"
 #~ msgstr "Flagfox"
@@ -3287,18 +3333,6 @@ msgstr[1] "%(total)s tilføjelser"
 
 #~ msgid "Convert your open tabs into a list and save precious memory"
 #~ msgstr "Konvertér dine åbne faneblade til lister og spar dyrebar hukommelse"
-
-#~ msgid "Push to Kindle"
-#~ msgstr "Push to Kindle"
-
-#~ msgid "Send any Web page to your Kindle device"
-#~ msgstr "Send en webside til din Kindle-enhed"
-
-#~ msgid "Search Site"
-#~ msgstr "Search Site"
-
-#~ msgid "Search within just the domain you’re visiting"
-#~ msgstr "Begræns søgningen til websider på det domæne, du besøger"
 
 #~ msgid "Click to close"
 #~ msgstr "Klik for at lukke"
