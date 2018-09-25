@@ -902,6 +902,23 @@ describe(__filename, () => {
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
+    it('hides the write review button if the rating is not by the current user', () => {
+      const reviewUserId = 1;
+      const loggedInUserId = 2;
+      const review = _setReview({
+        ...fakeRatingOnly,
+        user: {
+          ...fakeRatingOnly.user,
+          id: reviewUserId,
+        },
+      });
+      dispatchSignInActions({ store, userId: loggedInUserId });
+
+      const root = renderInline({ review });
+
+      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
+    });
+
     it('can render a larger write review button', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
