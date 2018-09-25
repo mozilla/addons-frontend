@@ -39,7 +39,6 @@ import {
   hideReplyToReviewForm,
   setAddonReviews,
   setGroupedRatings,
-  setLatestReview,
   setReview,
   setReviewReply,
   setReviewWasFlagged,
@@ -279,17 +278,6 @@ function* manageAddonReview(
       yield put(flashReviewMessage(SAVED_REVIEW));
       yield put(hideEditReviewForm({ reviewId: reviewFromResponse.id }));
     }
-
-    invariant(reviewFromResponse.version, 'version is required');
-    yield put(
-      setLatestReview({
-        addonId: reviewFromResponse.addon.id,
-        addonSlug: reviewFromResponse.addon.slug,
-        review: reviewFromResponse,
-        userId: reviewFromResponse.user.id,
-        versionId: reviewFromResponse.version.id,
-      }),
-    );
 
     // Make the message disappear after some time.
     yield _delay(FLASH_SAVED_MESSAGE_DURATION);

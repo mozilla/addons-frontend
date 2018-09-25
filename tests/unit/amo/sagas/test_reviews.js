@@ -25,7 +25,6 @@ import {
   flashReviewMessage,
   setReview,
   setReviewReply,
-  setLatestReview,
   setReviewWasFlagged,
   setUserReviews,
   updateAddonReview,
@@ -745,38 +744,6 @@ describe(__filename, () => {
 
       const expectedAction = flashReviewMessage(ABORTED);
       await matchingSagaAction(sagaTester, matchMessage(expectedAction));
-    });
-
-    it('dispatches setLatestReview after saving a review', async () => {
-      const addonId = 98767;
-      const addonSlug = 'some-slug';
-      const body = 'This add-on works pretty well for me';
-      const rating = 4;
-      const userId = 12345;
-      const versionId = 7653;
-
-      const externalReview = createExternalReview({
-        addonId,
-        addonSlug,
-        body,
-        rating,
-        userId,
-        versionId,
-      });
-
-      mockApi.expects('submitReview').resolves(externalReview);
-
-      _createAddonReview({ addonId, body, rating, versionId });
-
-      const expectedAction = setLatestReview({
-        addonId,
-        addonSlug,
-        review: externalReview,
-        userId,
-        versionId,
-      });
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
     });
   });
 
