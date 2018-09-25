@@ -304,6 +304,10 @@ export const unfilteredLanguages = {
     English: 'Georgian',
     native: '\u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8',
   },
+  kab: {
+    English: 'Kabyle',
+    native: 'Taqbaylit',
+  },
   kk: {
     English: 'Kazakh',
     native: '\u049a\u0430\u0437\u0430\u049b',
