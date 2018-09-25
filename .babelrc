@@ -5,6 +5,7 @@
     "react"
   ],
   "plugins": [
+    "syntax-dynamic-import",
     "transform-class-properties",
     "transform-es2015-modules-commonjs",
     "transform-flow-strip-types"
