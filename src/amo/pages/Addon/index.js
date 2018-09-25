@@ -502,9 +502,6 @@ export class AddonBase extends React.Component {
 
     const isFireFox =
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
-    const enableFeatureAddonRecommendations =
-      config.get('enableFeatureAddonRecommendations') &&
-      addonType === ADDON_TYPE_EXTENSION;
     const showInstallButton = addon && isFireFox;
     const showGetFirefoxButton = addon && !isFireFox;
 
@@ -627,9 +624,7 @@ export class AddonBase extends React.Component {
 
             {this.renderShowMoreCard()}
 
-            {enableFeatureAddonRecommendations && (
-              <AddonRecommendations addon={addon} />
-            )}
+            { <AddonRecommendations addon={addon} /> }
           </div>
 
           {this.renderRatingsCard()}
