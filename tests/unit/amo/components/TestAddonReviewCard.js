@@ -1039,6 +1039,7 @@ describe(__filename, () => {
           .text()
           .endsWith(lastPart),
       ).toBe(true);
+      expect(renderByLine(root).find(Link)).toHaveLength(1);
     });
   });
 
