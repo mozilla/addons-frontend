@@ -9,7 +9,7 @@ import infoAddon, {
 setDefaults({
   sectionOptions: {
     allowPropTablesToggling: false,
-    allowSourceToggling: true,
+    allowSourceToggling: false,
     showSource: false,
     useTheme: false,
   },

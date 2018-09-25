@@ -16,25 +16,19 @@ body {
   flex-wrap: wrap;
   padding: 24px;
 
-  > div {
-    // We are targeting a classless component
-    // and overriding where we can below.
-    flex-basis: 100%;
-  }
-
   @include respond-to(medium) {
     align-items: center;
     display: flex;
   }
 
   .section-header {
-    flex-basis: auto;
+    flex-basis: 100%;
     flex-grow: 1;
     margin-bottom: 12px;
   }
 
   .section-component-container {
-    flex-basis: auto;
+    margin-top: 12px;
   }
 
   .section-subtitle {
