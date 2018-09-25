@@ -236,6 +236,7 @@ export type FetchAddonParams = {|
   slug: string,
 |};
 
+// TODO: noSchema ?
 export function fetchAddon({ api, slug }: FetchAddonParams) {
   const { clientApp, userAgentInfo } = api;
   const appVersion = userAgentInfo.browser.version;

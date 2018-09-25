@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import { oneLine } from 'common-tags';
 
 import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
@@ -15,6 +16,8 @@ import type {
 } from 'core/types/addons';
 import type { ExternalDiscoAddonMap } from 'disco/reducers/discoResults';
 
+export const UPDATE_ADDON_RATINGS: 'UPDATE_ADDON_RATINGS' =
+  'UPDATE_ADDON_RATINGS';
 export const LOAD_ADDONS: 'LOAD_ADDONS' = 'LOAD_ADDONS';
 export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
 export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
@@ -75,6 +78,29 @@ export function fetchAddon({
   return {
     type: FETCH_ADDON,
     payload: { errorHandlerId: errorHandler.id, slug },
+  };
+}
+
+type UpdateAddonRatingsParams = {|
+  addonId: number,
+  ratings: $PropertyType<AddonType, 'ratings'>,
+|};
+
+type UpdateAddonRatingsAction = {|
+  type: typeof UPDATE_ADDON_RATINGS,
+  payload: UpdateAddonRatingsParams,
+|};
+
+export function updateAddonRatings({
+  addonId,
+  ratings,
+}: UpdateAddonRatingsParams): UpdateAddonRatingsAction {
+  invariant(addonId, 'addonId is required');
+  invariant(ratings, 'ratings is required');
+
+  return {
+    type: UPDATE_ADDON_RATINGS,
+    payload: { addonId, ratings },
   };
 }
 
@@ -319,7 +345,10 @@ type Action =
   | FetchAddonAction
   | LoadAddonsAction
   | LoadAddonResultsAction
-  | UnloadAddonReviewsAction;
+  | SetLatestReviewAction
+  | SetReviewAction
+  | UnloadAddonReviewsAction
+  | UpdateAddonRatingsAction;
 
 export default function addonsReducer(
   state: AddonsState = initialState,
@@ -333,6 +362,24 @@ export default function addonsReducer(
         loadingBySlug: {
           ...state.loadingBySlug,
           [slug]: true,
+        },
+      };
+    }
+    case UPDATE_ADDON_RATINGS: {
+      const { addonId, ratings } = action.payload;
+      const addon = state.byID[addonId.toString()];
+      if (!addon) {
+        return state;
+      }
+
+      return {
+        ...state,
+        byID: {
+          ...state.byID,
+          [addonId]: {
+            ...addon,
+            ratings,
+          },
         },
       };
     }
