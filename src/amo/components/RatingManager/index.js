@@ -306,7 +306,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderInlineReviewControls() {
-    const { addon, editingReview, userReview } = this.props;
+    const { addon, editingReview, flashMessage, userReview } = this.props;
 
     return (
       <React.Fragment>
@@ -318,6 +318,10 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             flaggable={false}
             review={userReview}
             shortByLine
+            showControls={
+              flashMessage !== STARTED_SAVE_RATING &&
+              flashMessage !== SAVED_RATING
+            }
             showRating={false}
             smallerWriteReviewButton={false}
             verticalButtons
