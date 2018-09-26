@@ -285,6 +285,8 @@ If you run `yarn storybook`, you can see storybook locally here: http://localhos
 
 You can find the source files under the ./stories directory.
 
+Check it out on Github Pages: https://mozilla.github.io/addons-frontend/
+
 More info coming soon :)
 
 ### Building and running services
