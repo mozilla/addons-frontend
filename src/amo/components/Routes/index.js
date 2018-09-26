@@ -2,30 +2,103 @@
 import config from 'config';
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
 
-import About from 'amo/pages/StaticPages/About';
-import Addon from 'amo/pages/Addon';
-import AddonReviewList from 'amo/pages/AddonReviewList';
-import CategoriesPage from 'amo/pages/CategoriesPage';
-import Category from 'amo/pages/Category';
-import Collection from 'amo/pages/Collection';
-import CollectionEdit from 'amo/pages/CollectionEdit';
-import CollectionList from 'amo/pages/CollectionList';
 import Home from 'amo/pages/Home';
-import LandingPage from 'amo/pages/LandingPage';
-import LanguageTools from 'amo/pages/LanguageTools';
-import SearchTools from 'amo/pages/SearchTools';
-import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
-import SearchPage from 'amo/pages/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
-import UserProfile from 'amo/pages/UserProfile';
-import UserProfileEdit from 'amo/pages/UserProfileEdit';
-import SimulateAsyncError from 'core/pages/error-simulation/SimulateAsyncError';
-import SimulateClientError from 'core/pages/error-simulation/SimulateClientError';
-import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
+import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import type { ConfigType } from 'core/types/config';
+
+const About = Loadable({
+  loader: () => import('amo/pages/StaticPages/About'),
+  loading: () => <div>Loading...</div>,
+});
+
+const LandingPage = Loadable({
+  loader: () => import('amo/pages/LandingPage'),
+  loading: () => <div>Loading...</div>,
+});
+
+const CategoriesPage = Loadable({
+  loader: () => import('amo/pages/CategoriesPage'),
+  loading: () => <div>Loading...</div>,
+});
+
+const Addon = Loadable({
+  loader: () => import('amo/pages/Addon'),
+  loading: () => <div>Loading...</div>,
+});
+
+const AddonReviewList = Loadable({
+  loader: () => import('amo/pages/AddonReviewList'),
+  loading: () => <div>Loading...</div>,
+});
+
+const CollectionEdit = Loadable({
+  loader: () => import('amo/pages/CollectionEdit'),
+  loading: () => <div>Loading...</div>,
+});
+
+const LanguageTools = Loadable({
+  loader: () => import('amo/pages/LanguageTools'),
+  loading: () => <div>Loading...</div>,
+});
+
+const Collection = Loadable({
+  loader: () => import('amo/pages/Collection'),
+  loading: () => <div>Loading...</div>,
+});
+
+const CollectionList = Loadable({
+  loader: () => import('amo/pages/CollectionList'),
+  loading: () => <div>Loading...</div>,
+});
+
+const Category = Loadable({
+  loader: () => import('amo/pages/Category'),
+  loading: () => <div>Loading...</div>,
+});
+
+const ReviewGuide = Loadable({
+  loader: () => import('amo/pages/StaticPages/ReviewGuide'),
+  loading: () => <div>Loading...</div>,
+});
+
+const SearchPage = Loadable({
+  loader: () => import('amo/pages/StaticPages/ReviewGuide'),
+  loading: () => <div>Loading...</div>,
+});
+
+const UserProfile = Loadable({
+  loader: () => import('amo/pages/UserProfile'),
+  loading: () => <div>Loading...</div>,
+});
+
+const UserProfileEdit = Loadable({
+  loader: () => import('amo/pages/UserProfileEdit'),
+  loading: () => <div>Loading...</div>,
+});
+
+const SearchTools = Loadable({
+  loader: () => import('amo/pages/SearchTools'),
+  loading: () => <div>Loading...</div>,
+});
+
+const SimulateAsyncError = Loadable({
+  loader: () => import('core/pages/error-simulation/SimulateAsyncError'),
+  loading: () => <div>Loading...</div>,
+});
+
+const SimulateClientError = Loadable({
+  loader: () => import('core/pages/error-simulation/SimulateClientError'),
+  loading: () => <div>Loading...</div>,
+});
+
+const SimulateSyncError = Loadable({
+  loader: () => import('core/pages/error-simulation/SimulateSyncError'),
+  loading: () => <div>Loading...</div>,
+});
 
 type Props = {|
   _config?: ConfigType,
