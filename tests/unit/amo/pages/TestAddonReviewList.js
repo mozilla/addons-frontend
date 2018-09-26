@@ -476,8 +476,8 @@ describe(__filename, () => {
       const addon = fakeAddon;
       const internalAddon = createInternalAddon(addon);
       const reviews = [
-        { ...fakeReview, id: 1, rating: 1 },
-        { ...fakeReview, id: 2, rating: 2 },
+        { ...fakeReview, id: 1, score: 1 },
+        { ...fakeReview, id: 2, score: 2 },
       ];
       dispatchAddon(addon);
       dispatchAddonReviews({ reviews });
@@ -493,7 +493,7 @@ describe(__filename, () => {
 
       expect(items.at(0)).toHaveProp('review');
       expect(items.at(0).prop('review')).toMatchObject({
-        rating: reviews[0].score,
+        score: reviews[0].score,
       });
 
       // Second review.
@@ -502,14 +502,14 @@ describe(__filename, () => {
 
       expect(items.at(1)).toHaveProp('review');
       expect(items.at(1).prop('review')).toMatchObject({
-        rating: reviews[1].score,
+        score: reviews[1].score,
       });
     });
 
     it('does not include a review in the listing if the review is also featured', () => {
       const reviews = [
-        { ...fakeReview, id: 1, rating: 1 },
-        { ...fakeReview, id: 2, rating: 2 },
+        { ...fakeReview, id: 1, score: 1 },
+        { ...fakeReview, id: 2, score: 2 },
       ];
       dispatchAddonReviews({ reviews });
 

@@ -39,7 +39,6 @@ describe(__filename, () => {
       addon: undefined,
       body: undefined,
       score: undefined,
-      title: undefined,
       version: undefined,
     };
     const baseParams = {
@@ -309,7 +308,6 @@ describe(__filename, () => {
       const fakeResponse = replyToReviewResponse();
 
       const body = 'this is a reply to the review';
-      const title = 'title for the reply';
       const errorHandler = createStubErrorHandler();
 
       mockApi
@@ -319,7 +317,6 @@ describe(__filename, () => {
           errorHandler,
           body: {
             body,
-            title,
           },
           method: 'POST',
           auth: true,
@@ -332,7 +329,6 @@ describe(__filename, () => {
         body,
         errorHandler,
         originalReviewId: originalReview.id,
-        title,
       });
       mockApi.verify();
     });
