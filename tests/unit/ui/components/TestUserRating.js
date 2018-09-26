@@ -53,7 +53,7 @@ describe(__filename, () => {
 
   it('passes the rating from the review to Rating', () => {
     const root = render({ review: createInternalReview(fakeReview) });
-    expect(root).toHaveProp('rating', fakeReview.rating);
+    expect(root).toHaveProp('rating', fakeReview.score);
   });
 
   it('passes a null review to Rating', () => {

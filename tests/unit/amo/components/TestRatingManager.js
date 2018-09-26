@@ -258,7 +258,7 @@ describe(__filename, () => {
 
     return root
       .instance()
-      .onSelectRating(newReview.rating)
+      .onSelectRating(newReview.score)
       .then(() => {
         // Make sure the review is submitted in a way where it will be newly
         // created against the current version.
@@ -267,7 +267,7 @@ describe(__filename, () => {
           sinon.match({
             reviewId: undefined,
             versionId: addon.current_version.id,
-            rating: newReview.rating,
+            rating: newReview.score,
             addonId: newReview.addon.id,
           }),
         );
@@ -704,7 +704,7 @@ describe(__filename, () => {
         const apiState = store.getState().api;
 
         const params = {
-          rating: fakeReview.rating,
+          rating: fakeReview.score,
           apiState: { ...apiState, token: 'new-token' },
           addonId: fakeAddon.id,
           versionId: fakeReview.version.id,
@@ -736,7 +736,7 @@ describe(__filename, () => {
 
         const versionId = 54321;
         const params = {
-          rating: fakeReview.rating,
+          rating: fakeReview.score,
           apiState: { ...apiState, token: 'new-token' },
           addonId: fakeAddon.id,
           versionId,

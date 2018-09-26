@@ -93,7 +93,7 @@ describe(__filename, () => {
       id: fakeReview.id,
       isDeveloperReply: fakeReview.is_developer_reply,
       isLatest: fakeReview.is_latest,
-      rating: fakeReview.rating,
+      score: fakeReview.score,
       reply: null,
       title: fakeReview.title,
       userId: fakeReview.user.id,

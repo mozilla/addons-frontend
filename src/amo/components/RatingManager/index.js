@@ -121,7 +121,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
   }
 
-  onSelectRating = (rating: number) => {
+  onSelectRating = (score: number) => {
     const {
       _config,
       addon,
@@ -134,7 +134,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
     const params = {
       errorHandler,
-      rating,
+      score,
       apiState,
       addonId: addon.id,
       reviewId: undefined,
@@ -154,7 +154,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         dispatch(
           updateAddonReview({
             errorHandlerId: errorHandler.id,
-            rating,
+            score,
             reviewId: userReview.id,
           }),
         );
@@ -163,7 +163,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
           createAddonReview({
             addonId: addon.id,
             errorHandlerId: errorHandler.id,
-            rating,
+            score,
             versionId: version.id,
           }),
         );

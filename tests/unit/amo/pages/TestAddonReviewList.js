@@ -493,7 +493,7 @@ describe(__filename, () => {
 
       expect(items.at(0)).toHaveProp('review');
       expect(items.at(0).prop('review')).toMatchObject({
-        rating: reviews[0].rating,
+        rating: reviews[0].score,
       });
 
       // Second review.
@@ -502,7 +502,7 @@ describe(__filename, () => {
 
       expect(items.at(1)).toHaveProp('review');
       expect(items.at(1).prop('review')).toMatchObject({
-        rating: reviews[1].rating,
+        rating: reviews[1].score,
       });
     });
 

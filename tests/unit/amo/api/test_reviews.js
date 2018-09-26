@@ -38,7 +38,7 @@ describe(__filename, () => {
     const defaultParams = {
       addon: undefined,
       body: undefined,
-      rating: undefined,
+      score: undefined,
       title: undefined,
       version: undefined,
     };
@@ -65,7 +65,7 @@ describe(__filename, () => {
     it('posts a new add-on review', async () => {
       const params = {
         ...baseParams,
-        rating: 5,
+        score: 5,
         addonId: 445,
         versionId: 321,
         errorHandler: sinon.stub(),
@@ -79,7 +79,7 @@ describe(__filename, () => {
           body: {
             ...defaultParams,
             addon: params.addonId,
-            rating: params.rating,
+            score: params.score,
             version: params.versionId,
           },
           method: 'POST',

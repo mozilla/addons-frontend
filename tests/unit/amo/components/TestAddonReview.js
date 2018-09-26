@@ -126,7 +126,7 @@ describe(__filename, () => {
         expect(params.body).toEqual('some review');
         expect(params.addonId).toEqual(defaultReview.reviewAddon.id);
         expect(params.errorHandler).toEqual(errorHandler);
-        expect(params.rating).toEqual(defaultReview.rating);
+        expect(params.rating).toEqual(defaultReview.score);
         expect(params.reviewId).toEqual(defaultReview.id);
 
         const apiState = store.getState().api;

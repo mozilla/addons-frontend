@@ -35,7 +35,7 @@ export type ExternalReviewReplyType = {|
 
 export type ExternalReviewType = {|
   ...ExternalReviewTypeBase,
-  rating: number,
+  score: number,
   // This is a possible developer reply to the review.
   reply: ExternalReviewReplyType | null,
   version: ?{|
@@ -50,7 +50,7 @@ export type SubmitReviewParams = {|
   apiState: ApiState,
   body?: string,
   errorHandler?: ErrorHandlerType,
-  rating?: number | null,
+  score?: number | null,
   reviewId?: number,
   title?: string,
   versionId?: number,
@@ -63,7 +63,7 @@ export type SubmitReviewResponse = ExternalReviewType;
  */
 export function submitReview({
   addonId,
-  rating,
+  score,
   apiState,
   title,
   versionId,
@@ -74,7 +74,7 @@ export function submitReview({
   return new Promise((resolve) => {
     const review = {
       addon: undefined,
-      rating,
+      score,
       version: versionId,
       body,
       title,
