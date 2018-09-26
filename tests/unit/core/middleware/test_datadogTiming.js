@@ -34,9 +34,7 @@ describe(__filename, () => {
       });
       return serverTestHelper.testClient({
         config,
-        baseServerParams: {
-          _HotShots: StubHotShots,
-        },
+        _HotShots: StubHotShots,
         ...params,
       });
     };

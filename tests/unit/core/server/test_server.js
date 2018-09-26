@@ -23,7 +23,11 @@ import surveyReducer, {
   initialState as initialSurveyState,
 } from 'core/reducers/survey';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
-import { createUserAccountResponse, userAuthToken } from 'tests/unit/helpers';
+import {
+  createUserAccountResponse,
+  getFakeLogger,
+  userAuthToken,
+} from 'tests/unit/helpers';
 
 function createStoreAndSagas({
   history = createHistory({ req: { url: '' } }),
@@ -81,7 +85,7 @@ export class ServerTestHelper {
     sagaMiddleware = null,
     appSagas = null,
     config = defaultConfig,
-    baseServerParams = {},
+    ...baseServerParams
   } = {}) {
     function _createStoreAndSagas({ history }) {
       if (store === null) {
@@ -393,6 +397,35 @@ describe(__filename, () => {
 
       expect(response.status).toEqual(301);
       expect(response.headers.location).toEqual(newURL);
+    });
+
+    it('catches all errors and returns a 500', async () => {
+      const _log = getFakeLogger();
+      const _createHistory = () => {
+        throw new Error('oops');
+      };
+
+      const response = await testClient({ _createHistory, _log })
+        .get('/en-US/firefox/')
+        .end();
+
+      expect(response.statusCode).toEqual(500);
+
+      // Error caught in the main handler.
+      sinon.assert.calledWith(
+        _log.error,
+        sinon.match(/Caught an unexpected error while handling the request/),
+      );
+      // Error logged in the error handler.
+      sinon.assert.calledWith(
+        _log.error,
+        sinon.match(/Showing 500 page for error: Error: oops/),
+      );
+      // Error caught while trying to render a 500 page.
+      sinon.assert.calledWith(
+        _log.error,
+        sinon.match(/Additionally, the error handler caught an error:/),
+      );
     });
   });
 
