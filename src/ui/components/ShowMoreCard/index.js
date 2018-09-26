@@ -23,7 +23,7 @@ type UIStateType = {|
 |};
 
 type Props = {|
-  children: any,
+  children: React.Element<any>,
   className?: string,
   header?: React.Element<any> | string,
   id: string,
