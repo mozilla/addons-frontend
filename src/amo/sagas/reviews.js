@@ -281,21 +281,23 @@ function* manageAddonReview(
       yield put(hideEditReviewForm({ reviewId: reviewFromResponse.id }));
     }
 
-    invariant(reviewFromResponse.version, 'version is required');
-    yield put(
-      setLatestReview({
-        addonId: reviewFromResponse.addon.id,
-        addonSlug: reviewFromResponse.addon.slug,
-        review: reviewFromResponse,
-        userId: reviewFromResponse.user.id,
-        versionId: reviewFromResponse.version.id,
-      }),
-    );
+    if (!reviewFromResponse.is_developer_reply) {
+      invariant(reviewFromResponse.version, 'version is required');
+      yield put(
+        setLatestReview({
+          addonId: reviewFromResponse.addon.id,
+          addonSlug: reviewFromResponse.addon.slug,
+          review: reviewFromResponse,
+          userId: reviewFromResponse.user.id,
+          versionId: reviewFromResponse.version.id,
+        }),
+      );
 
-    // Reload the add-on to update its rating and review counts.
-    yield put(
-      fetchAddon({ errorHandler, slug: reviewFromResponse.addon.slug }),
-    );
+      // Reload the add-on to update its rating and review counts.
+      yield put(
+        fetchAddon({ errorHandler, slug: reviewFromResponse.addon.slug }),
+      );
+    }
 
     // Make the message disappear after some time.
     yield _delay(FLASH_SAVED_MESSAGE_DURATION);

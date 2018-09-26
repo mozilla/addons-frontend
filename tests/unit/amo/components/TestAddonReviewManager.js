@@ -260,6 +260,41 @@ describe(__filename, () => {
     expect(form).toHaveProp('submitButtonInProgressText', 'Updating review');
   });
 
+  it('hides the star rating for a reply', () => {
+    const root = render({
+      review: createInternalReview({
+        ...fakeReview,
+        is_developer_reply: true,
+      }),
+    });
+
+    expect(root.find('.AddonReviewManager-starRating')).toHaveLength(0);
+  });
+
+  it('hides the dismissible form footer for a reply', () => {
+    const root = render({
+      review: createInternalReview({
+        ...fakeReview,
+        is_developer_reply: true,
+      }),
+    });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('formFooter', null);
+  });
+
+  it('shows the expected button text for a reply', () => {
+    const root = render({
+      review: createInternalReview({
+        ...fakeReview,
+        is_developer_reply: true,
+      }),
+    });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('submitButtonText', 'Update reply');
+    expect(form).toHaveProp('submitButtonInProgressText', 'Updating reply');
+  });
+
   describe('extractId', () => {
     it('extracts an ID from the review', () => {
       const id = 551224;

@@ -88,8 +88,10 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
 
     /* eslint-disable react/no-danger */
-    const formFooter = (
+    const formFooter = !review.isDeveloperReply ? (
       <span dangerouslySetInnerHTML={sanitizeHTML(reviewGuideLink, ['a'])} />
+    ) : (
+      undefined
     );
     /* eslint-enable react/no-danger */
 
@@ -97,32 +99,48 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
       'Write about your experience with this add-on.',
     );
 
+    let submitButtonText = i18n.gettext('Submit review');
+    if (review.body) {
+      submitButtonText = review.isDeveloperReply
+        ? i18n.gettext('Update reply')
+        : i18n.gettext('Update review');
+    }
+
+    let submitButtonInProgressText = i18n.gettext('Submitting review');
+    if (review.body) {
+      submitButtonInProgressText = review.isDeveloperReply
+        ? i18n.gettext('Updating reply')
+        : i18n.gettext('Updating review');
+    }
+
     return (
       <div className="AddonReviewManager">
         {errorHandler.renderErrorIfPresent()}
-        <div className="AddonReviewManager-starRating">
-          <span>{i18n.gettext('Your star rating:')}</span>
-          <Rating
-            className="AddonReviewManager-Rating"
-            onSelectRating={this.onSubmitRating}
-            rating={
-              flashMessage === STARTED_SAVE_RATING ? undefined : review.score
-            }
-            styleSize="small"
-            yellowStars
-          />
-          <span
-            className={makeClassName('AddonReviewManager-savedRating', {
-              'AddonReviewManager-savedRating-hidden':
-                flashMessage !== STARTED_SAVE_RATING &&
-                flashMessage !== SAVED_RATING,
-            })}
-          >
-            {flashMessage === STARTED_SAVE_RATING
-              ? i18n.gettext('Saving')
-              : i18n.gettext('Saved')}
-          </span>
-        </div>
+        {!review.isDeveloperReply && (
+          <div className="AddonReviewManager-starRating">
+            <span>{i18n.gettext('Your star rating:')}</span>
+            <Rating
+              className="AddonReviewManager-Rating"
+              onSelectRating={this.onSubmitRating}
+              rating={
+                flashMessage === STARTED_SAVE_RATING ? undefined : review.score
+              }
+              styleSize="small"
+              yellowStars
+            />
+            <span
+              className={makeClassName('AddonReviewManager-savedRating', {
+                'AddonReviewManager-savedRating-hidden':
+                  flashMessage !== STARTED_SAVE_RATING &&
+                  flashMessage !== SAVED_RATING,
+              })}
+            >
+              {flashMessage === STARTED_SAVE_RATING
+                ? i18n.gettext('Saving')
+                : i18n.gettext('Saved')}
+            </span>
+          </div>
+        )}
         <DismissibleTextForm
           dismissButtonText={i18n.gettext('Cancel')}
           formFooter={formFooter}
@@ -131,16 +149,8 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
           onSubmit={this.onSubmitReview}
           placeholder={placeholder}
           puffyButtons={puffyButtons}
-          submitButtonText={
-            review.body
-              ? i18n.gettext('Update review')
-              : i18n.gettext('Submit review')
-          }
-          submitButtonInProgressText={
-            review.body
-              ? i18n.gettext('Updating review')
-              : i18n.gettext('Submitting review')
-          }
+          submitButtonText={submitButtonText}
+          submitButtonInProgressText={submitButtonInProgressText}
           text={review.body}
         />
       </div>

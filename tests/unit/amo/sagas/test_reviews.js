@@ -489,23 +489,25 @@ describe(__filename, () => {
     }
 
     function createExternalReview({
-      id = 76654,
-      body,
-      score = 4,
       addonId = fakeReview.addon.id,
       addonSlug = fakeReview.addon.slug,
+      body,
+      id = 76654,
+      isDeveloperReply = false,
+      score = 4,
       userId = fakeReview.user.id,
       versionId = fakeReview.version.id,
     } = {}) {
       return {
         ...fakeReview,
-        id,
         addon: {
           ...fakeAddon,
           id: addonId,
           slug: addonSlug,
         },
         body,
+        id,
+        is_developer_reply: isDeveloperReply,
         score,
         user: {
           ...fakeReview.user,
@@ -674,6 +676,26 @@ describe(__filename, () => {
       expect(action).toEqual(expectedAction);
     });
 
+    it('does not re-fetch the add-on after updating a reply', async () => {
+      const slug = 'the-addon-slug';
+      mockApi
+        .expects('submitReview')
+        .resolves(
+          createExternalReview({ addonSlug: slug, isDeveloperReply: true }),
+        );
+
+      _updateAddonReview();
+
+      const expectedAction = hideFlashedReviewMessage();
+      await sagaTester.waitFor(expectedAction.type);
+
+      const unexpectedAction = fetchAddon({ errorHandler, slug });
+
+      expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
+        unexpectedAction.type,
+      );
+    });
+
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
       mockApi.expects('submitReview').rejects(error);
@@ -791,6 +813,44 @@ describe(__filename, () => {
       });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
+    });
+
+    it('does not dispatch setLatestReview after saving a reply', async () => {
+      const addonId = 98767;
+      const addonSlug = 'some-slug';
+      const body = 'This add-on works pretty well for me';
+      const rating = 4;
+      const userId = 12345;
+      const versionId = 7653;
+
+      const externalReview = createExternalReview({
+        addonId,
+        addonSlug,
+        body,
+        isDeveloperReply: true,
+        rating,
+        userId,
+        versionId,
+      });
+
+      mockApi.expects('submitReview').resolves(externalReview);
+
+      _updateAddonReview();
+
+      const expectedAction = hideFlashedReviewMessage();
+      await sagaTester.waitFor(expectedAction.type);
+
+      const unexpectedAction = setLatestReview({
+        addonId,
+        addonSlug,
+        review: externalReview,
+        userId,
+        versionId,
+      });
+
+      expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
+        unexpectedAction.type,
+      );
     });
   });
 
