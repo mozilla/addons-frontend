@@ -186,7 +186,6 @@ export const fakeReview = Object.freeze({
   is_latest: false,
   is_developer_reply: false,
   body: 'It is Okay',
-  title: 'Review Title',
 });
 
 export const fakeCategory = Object.freeze({

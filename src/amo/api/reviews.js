@@ -21,7 +21,6 @@ type ExternalReviewTypeBase = {|
   id: number,
   is_developer_reply: boolean,
   is_latest: boolean,
-  title: string,
   user: {|
     id: number,
     name: string,
@@ -52,7 +51,6 @@ export type SubmitReviewParams = {|
   errorHandler?: ErrorHandlerType,
   score?: number | null,
   reviewId?: number,
-  title?: string,
   versionId?: number,
 |};
 
@@ -65,7 +63,6 @@ export function submitReview({
   addonId,
   score,
   apiState,
-  title,
   versionId,
   body,
   reviewId,
@@ -77,7 +74,6 @@ export function submitReview({
       score,
       version: versionId,
       body,
-      title,
     };
     let method = 'POST';
     let endpoint = 'ratings/rating';
@@ -112,7 +108,6 @@ type ReplyToReviewParams = {|
   body: string,
   errorHandler?: ErrorHandlerType,
   originalReviewId: number,
-  title?: string,
 |};
 
 export const replyToReview = ({
@@ -120,7 +115,6 @@ export const replyToReview = ({
   body,
   errorHandler,
   originalReviewId,
-  title,
 }: ReplyToReviewParams = {}): Promise<ExternalReviewReplyType> => {
   return new Promise((resolve) => {
     const endpoint = `ratings/rating/${originalReviewId}/reply/`;
@@ -130,7 +124,6 @@ export const replyToReview = ({
         auth: true,
         body: {
           body,
-          title,
         },
         endpoint,
         errorHandler,
