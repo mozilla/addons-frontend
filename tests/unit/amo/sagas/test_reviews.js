@@ -36,6 +36,7 @@ import {
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga, { FLASH_SAVED_MESSAGE_DURATION } from 'amo/sagas/reviews';
+import { fetchAddon } from 'core/reducers/addons';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
@@ -658,6 +659,19 @@ describe(__filename, () => {
       expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
         exampleHideAction.type,
       );
+    });
+
+    it('re-fetches the add-on after submitting a review', async () => {
+      const slug = 'the-addon-slug';
+      mockApi
+        .expects('submitReview')
+        .resolves(createExternalReview({ addonSlug: slug }));
+
+      _createAddonReview();
+
+      const expectedAction = fetchAddon({ errorHandler, slug });
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
     });
 
     it('dispatches an error', async () => {

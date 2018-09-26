@@ -46,6 +46,7 @@ import {
   setUserReviews,
 } from 'amo/actions/reviews';
 import log from 'core/logger';
+import { fetchAddon } from 'core/reducers/addons';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { AppState } from 'amo/store';
 import type {
@@ -289,6 +290,11 @@ function* manageAddonReview(
         userId: reviewFromResponse.user.id,
         versionId: reviewFromResponse.version.id,
       }),
+    );
+
+    // Reload the add-on to update its rating and review counts.
+    yield put(
+      fetchAddon({ errorHandler, slug: reviewFromResponse.addon.slug }),
     );
 
     // Make the message disappear after some time.
