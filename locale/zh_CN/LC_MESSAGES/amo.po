@@ -84,9 +84,8 @@ msgid "Your version of Firefox does not support search plugins."
 msgstr "您的 Firefox 版本不支持搜索插件。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-#, fuzzy
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "您的 Firefox 版本不支持搜索插件。"
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -1088,9 +1087,8 @@ msgid "Send any Web page to your Kindle device"
 msgstr "发送任何网页到 Kindle 设备"
 
 #: src/amo/components/HomeHeroBanner/index.js:264
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "主页"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Designate a custom home page for your new tabs"
