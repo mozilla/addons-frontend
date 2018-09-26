@@ -127,7 +127,7 @@
       }
     },
     "start-dev": {
-      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools --mode buffer'",
+      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools --mode buffer --tee | pino-pretty'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
@@ -136,7 +136,7 @@
       }
     },
     "start-dev-proxy": {
-      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools --mode buffer' 'node bin/proxy.js | pino-pretty'",
+      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools --mode buffer --tee | pino-pretty' 'node bin/proxy.js | pino-pretty'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
@@ -323,7 +323,7 @@
     "node-sass": "^4.5.2",
     "object.values": "^1.0.4",
     "photon-colors": "^3.0.1",
-    "pino-devtools": "^2.0.0",
+    "pino-devtools": "^2.1.0",
     "pino-pretty": "^2.0.1",
     "piping": "^1.0.0-rc.4",
     "po2json": "^0.4.5",
