@@ -106,21 +106,21 @@ describe(__filename, () => {
     const review = createInternalReview({
       ...fakeReview,
       id: 99654,
-      rating: 2,
+      score: 2,
     });
     const root = render({ store, review });
     const rating = root.find(Rating);
 
-    const newRating = 4;
+    const newScore = 4;
 
     // Simulate how Rating lets you select a star.
     const onSelectRating = rating.prop('onSelectRating');
-    onSelectRating(newRating);
+    onSelectRating(newScore);
 
     sinon.assert.calledWith(
       dispatchSpy,
       updateAddonReview({
-        rating: newRating,
+        score: newScore,
         errorHandlerId: root.instance().props.errorHandler.id,
         reviewId: review.id,
       }),
@@ -236,7 +236,7 @@ describe(__filename, () => {
     const root = render({
       review: createInternalReview({
         ...fakeReview,
-        rating: 5,
+        score: 5,
         body: undefined,
       }),
     });
@@ -250,7 +250,7 @@ describe(__filename, () => {
     const root = render({
       review: createInternalReview({
         ...fakeReview,
-        rating: 5,
+        score: 5,
         body: 'This add-on is nice',
       }),
     });

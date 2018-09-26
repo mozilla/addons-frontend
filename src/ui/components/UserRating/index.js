@@ -33,7 +33,7 @@ export const UserRatingBase = (props: Props) => {
     <Rating
       className={className}
       onSelectRating={onSelectRating}
-      rating={review && review.rating}
+      rating={review && review.score}
       readOnly={readOnly || false}
       styleSize={styleSize}
       yellowStars={isOwner}

@@ -36,7 +36,7 @@ const defaultReview = {
   },
   body: undefined,
   id: 3321,
-  rating: 5,
+  score: 5,
 };
 
 function fakeLocalState(overrides = {}) {
@@ -126,7 +126,7 @@ describe(__filename, () => {
         expect(params.body).toEqual('some review');
         expect(params.addonId).toEqual(defaultReview.reviewAddon.id);
         expect(params.errorHandler).toEqual(errorHandler);
-        expect(params.rating).toEqual(defaultReview.rating);
+        expect(params.score).toEqual(defaultReview.score);
         expect(params.reviewId).toEqual(defaultReview.id);
 
         const apiState = store.getState().api;
@@ -165,7 +165,6 @@ describe(__filename, () => {
     root.setProps({
       review: {
         ...defaultReview,
-        title: 'New title',
         body: 'New body',
       },
     });
@@ -289,7 +288,7 @@ describe(__filename, () => {
   });
 
   it('prompts you appropriately when you are happy', () => {
-    const root = render({ review: { ...defaultReview, rating: 4 } });
+    const root = render({ review: { ...defaultReview, score: 4 } });
     expect(root.find('.AddonReview-prompt').html()).toMatch(
       /Tell the world why you think this extension is fantastic!/,
     );
@@ -299,7 +298,7 @@ describe(__filename, () => {
   });
 
   it('prompts you appropriately when you are unhappy', () => {
-    const root = render({ review: { ...defaultReview, rating: 3 } });
+    const root = render({ review: { ...defaultReview, score: 3 } });
     expect(root.find('.AddonReview-prompt').html()).toMatch(
       /Tell the world about this extension/,
     );
@@ -351,14 +350,14 @@ describe(__filename, () => {
 
     const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
-    const newRating = 1;
-    onSelectRating(newRating);
+    const newScore = 1;
+    onSelectRating(newScore);
 
     sinon.assert.calledWith(
       fakeDispatch,
       setInternalReview({
         ...review,
-        rating: newRating,
+        score: newScore,
       }),
     );
   });
@@ -378,15 +377,15 @@ describe(__filename, () => {
 
     const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
-    const newRating = 1;
-    onSelectRating(newRating);
+    const newScore = 1;
+    onSelectRating(newScore);
 
     sinon.assert.calledWith(
       fakeDispatch,
       setInternalReview({
         ...review,
         body: enteredReviewText,
-        rating: newRating,
+        score: newScore,
       }),
     );
   });

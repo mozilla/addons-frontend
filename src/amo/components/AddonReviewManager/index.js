@@ -43,12 +43,12 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     puffyButtons: false,
   };
 
-  onSubmitRating = (rating: number) => {
+  onSubmitRating = (score: number) => {
     const { errorHandler, dispatch, review } = this.props;
 
     dispatch(
       updateAddonReview({
-        rating,
+        score,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
       }),
@@ -106,7 +106,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
             className="AddonReviewManager-Rating"
             onSelectRating={this.onSubmitRating}
             rating={
-              flashMessage === STARTED_SAVE_RATING ? undefined : review.rating
+              flashMessage === STARTED_SAVE_RATING ? undefined : review.score
             }
             styleSize="small"
             yellowStars

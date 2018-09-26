@@ -29,6 +29,7 @@ import {
 describe(__filename, () => {
   let mockWindow;
   const apiHost = config.get('apiHost');
+  const apiVersion = config.get('apiVersion');
 
   beforeEach(() => {
     mockWindow = sinon.mock(window);
@@ -82,7 +83,7 @@ describe(__filename, () => {
       const endpoint = 'project-ă-ă-â-â-日本語';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(`/api/v3/${endpoint}/`))
+        .withArgs(sinon.match(`/api/${apiVersion}/${endpoint}/`))
         .returns(createApiResponse());
 
       const clientConfig = getFakeConfig({ client: true, server: false });
@@ -95,7 +96,7 @@ describe(__filename, () => {
       const endpoint = 'diccionario-español-venezuela';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(utf8.encode(`/api/v3/${endpoint}/`)))
+        .withArgs(sinon.match(utf8.encode(`/api/${apiVersion}/${endpoint}/`)))
         .returns(createApiResponse());
 
       const serverConfig = getFakeConfig({ server: true });
@@ -223,7 +224,7 @@ describe(__filename, () => {
       const endpoint = 'some-endpoint/';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(`/api/v3/${endpoint}?`))
+        .withArgs(sinon.match(`/api/${apiVersion}/${endpoint}?`))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint });
@@ -234,7 +235,7 @@ describe(__filename, () => {
       const endpoint = '/some-endpoint/';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match('/api/v3/some-endpoint/?'))
+        .withArgs(sinon.match(`/api/${apiVersion}/some-endpoint/?`))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint });
@@ -301,10 +302,10 @@ describe(__filename, () => {
     });
 
     it('converts absolute URLs to relative', async () => {
-      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+      const endpoint = `https://elsewhere.org/api/${apiVersion}/some-endpoint/`;
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match('/api/v3/some-endpoint/'))
+        .withArgs(sinon.match(`/api/${apiVersion}/some-endpoint/`))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint });
@@ -312,7 +313,7 @@ describe(__filename, () => {
     });
 
     it('preserves query when converting absolute URLs', async () => {
-      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/?page=2';
+      const endpoint = `https://elsewhere.org/api/${apiVersion}/some-endpoint/?page=2`;
       mockWindow
         .expects('fetch')
         .withArgs(urlWithTheseParams({ page: 2 }))
@@ -343,7 +344,7 @@ describe(__filename, () => {
     });
 
     it('sends a JSON request when body is an object', async () => {
-      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+      const endpoint = `https://elsewhere.org/api/${apiVersion}/some-endpoint/`;
       const body = {
         some: 'value',
         another: 'attribute',
@@ -367,7 +368,7 @@ describe(__filename, () => {
     });
 
     it('does not set any "content-type" header when body is null', async () => {
-      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+      const endpoint = `https://elsewhere.org/api/${apiVersion}/some-endpoint/`;
 
       mockWindow
         .expects('fetch')
@@ -384,7 +385,7 @@ describe(__filename, () => {
     });
 
     it('does not send a JSON request when body is an instance of FormData', async () => {
-      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+      const endpoint = `https://elsewhere.org/api/${apiVersion}/some-endpoint/`;
       const body = new FormData();
       body.append('some', 'value');
 
@@ -418,13 +419,13 @@ describe(__filename, () => {
     });
 
     it('uses the config version as default value', async () => {
-      const apiVersion = '456';
-      const _config = getFakeConfig({ apiVersion });
+      const version = '456';
+      const _config = getFakeConfig({ apiVersion: version });
       const endpoint = '/some-endpoint/';
 
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(`/api/${apiVersion}/some-endpoint/`))
+        .withArgs(sinon.match(`/api/${version}/some-endpoint/`))
         .returns(createApiResponse());
 
       await api.callApi({ _config, endpoint });
@@ -530,7 +531,7 @@ describe(__filename, () => {
     it('sets the slug', async () => {
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match('/api/v3/addons/addon/foo/'))
+        .withArgs(sinon.match(`/api/${apiVersion}/addons/addon/foo/`))
         .returns(mockResponse());
       await _fetchAddon({ slug: 'foo' });
       mockWindow.verify();
@@ -584,7 +585,7 @@ describe(__filename, () => {
 
       await _fetchAddon({ slug: 'foo' }).then(unexpectedSuccess, (error) => {
         expect(error.message).toMatch(
-          new RegExp('Error calling: /api/v3/addons/addon/foo/'),
+          new RegExp(`Error calling: /api/${apiVersion}/addons/addon/foo/`),
         );
       });
     });
@@ -613,10 +614,10 @@ describe(__filename, () => {
 
     it('includes an abbreviated URL', () => {
       const error = _createApiError({
-        apiURL: `${apiHost}/api/v3/addons/addon/123/`,
+        apiURL: `${apiHost}/api/${apiVersion}/addons/addon/123/`,
       });
       expect(error.message).toMatch(
-        new RegExp('Error calling: /api/v3/addons/addon/123/'),
+        new RegExp(`Error calling: /api/${apiVersion}/addons/addon/123/`),
       );
     });
 
@@ -672,12 +673,12 @@ describe(__filename, () => {
     });
 
     it('uses the API version from config', () => {
-      const apiVersion = 'v789';
-      const _config = getFakeConfig({ apiVersion });
+      const version = 'v789';
+      const _config = getFakeConfig({ apiVersion: version });
       const location = createFakeLocation();
 
       expect(api.startLoginUrl({ _config, location })).toContain(
-        `/api/${apiVersion}/accounts/login/start/`,
+        `/api/${version}/accounts/login/start/`,
       );
     });
   });
@@ -695,7 +696,7 @@ describe(__filename, () => {
     it('calls the right API endpoint', async () => {
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match('/api/v3/addons/categories/'))
+        .withArgs(sinon.match(`/api/${apiVersion}/addons/categories/`))
         .returns(mockResponse());
 
       await api.categories({ api: dispatchClientMetadata().state.api });
@@ -711,7 +712,7 @@ describe(__filename, () => {
       mockWindow
         .expects('fetch')
         .withArgs(
-          sinon.match('/api/v3/accounts/session/'),
+          sinon.match(`/api/${apiVersion}/accounts/session/`),
           sinon.match({
             credentials: 'include',
             method: 'DELETE',

@@ -138,7 +138,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
       addonId: review.reviewAddon.id,
       apiState,
       errorHandler,
-      rating: review.rating,
+      score: review.score,
       reviewId: review.id,
       ...newReviewParams,
     };
@@ -176,14 +176,14 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     this.setState(newState);
   };
 
-  onSelectRating = (rating: number) => {
+  onSelectRating = (score: number) => {
     // Update the review object with a new rating but don't submit it
     // to the API yet.
     invariant(this.props.setInternalReview, 'setInternalReview() is undefined');
     this.props.setInternalReview({
       ...this.props.review,
       body: this.state.reviewBody || undefined,
-      rating,
+      score,
     });
   };
 
@@ -196,7 +196,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
 
     let placeholder;
     let promptText;
-    if (review.rating && review.rating > 3) {
+    if (review.score && review.score > 3) {
       promptText = i18n.gettext(
         `Tell the world why you think this extension is fantastic!
         Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`,

@@ -225,10 +225,10 @@ function* manageAddonReview(
   action: CreateAddonReviewAction | UpdateAddonReviewAction,
   { _delay = delay }: Options = {},
 ) {
-  const { body, errorHandlerId, rating } = action.payload;
+  const { body, errorHandlerId, score } = action.payload;
   const errorHandler = createErrorHandler(errorHandlerId);
 
-  const savingRating = !!rating;
+  const savingRating = !!score;
   const savingReview = !!body;
 
   yield put(errorHandler.createClearingAction());
@@ -244,7 +244,7 @@ function* manageAddonReview(
     const baseParams = {
       apiState: state.api,
       body,
-      rating,
+      score,
     };
     let params;
 

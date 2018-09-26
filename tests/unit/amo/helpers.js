@@ -176,7 +176,7 @@ export const fakeReview = Object.freeze({
     slug: fakeAddon.slug,
   },
   created: '2017-01-09T21:49:14Z',
-  rating: 3,
+  score: 3,
   version: fakeAddon.current_version,
   user: {
     id: 1234,
@@ -186,7 +186,6 @@ export const fakeReview = Object.freeze({
   is_latest: false,
   is_developer_reply: false,
   body: 'It is Okay',
-  title: 'Review Title',
 });
 
 export const fakeCategory = Object.freeze({

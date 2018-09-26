@@ -258,7 +258,7 @@ describe(__filename, () => {
 
     return root
       .instance()
-      .onSelectRating(newReview.rating)
+      .onSelectRating(newReview.score)
       .then(() => {
         // Make sure the review is submitted in a way where it will be newly
         // created against the current version.
@@ -267,7 +267,7 @@ describe(__filename, () => {
           sinon.match({
             reviewId: undefined,
             versionId: addon.current_version.id,
-            rating: newReview.rating,
+            score: newReview.score,
             addonId: newReview.addon.id,
           }),
         );
@@ -645,20 +645,20 @@ describe(__filename, () => {
       const addon = createInternalAddon(fakeAddon);
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
-      const rating = 5;
+      const score = 5;
       const version = fakeAddon.current_version;
 
       const root = renderInline({ addon, errorHandler, store, version });
 
       // This emulates clicking on a rating star.
-      root.find(UserRating).prop('onSelectRating')(rating);
+      root.find(UserRating).prop('onSelectRating')(score);
 
       sinon.assert.calledWith(
         dispatchSpy,
         createAddonReview({
           addonId: addon.id,
           errorHandlerId: errorHandler.id,
-          rating,
+          score,
           versionId: version.id,
         }),
       );
@@ -668,18 +668,18 @@ describe(__filename, () => {
       const store = createStoreWithLatestReview({ review: fakeReview });
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
-      const rating = 5;
+      const score = 5;
 
       const root = renderInline({ errorHandler, store });
 
       // This emulates clicking on a rating star.
-      root.find(UserRating).prop('onSelectRating')(rating);
+      root.find(UserRating).prop('onSelectRating')(score);
 
       sinon.assert.calledWith(
         dispatchSpy,
         updateAddonReview({
           errorHandlerId: errorHandler.id,
-          rating,
+          score,
           reviewId: fakeReview.id,
         }),
       );
@@ -704,7 +704,7 @@ describe(__filename, () => {
         const apiState = store.getState().api;
 
         const params = {
-          rating: fakeReview.rating,
+          score: fakeReview.score,
           apiState: { ...apiState, token: 'new-token' },
           addonId: fakeAddon.id,
           versionId: fakeReview.version.id,
@@ -736,7 +736,7 @@ describe(__filename, () => {
 
         const versionId = 54321;
         const params = {
-          rating: fakeReview.rating,
+          score: fakeReview.score,
           apiState: { ...apiState, token: 'new-token' },
           addonId: fakeAddon.id,
           versionId,

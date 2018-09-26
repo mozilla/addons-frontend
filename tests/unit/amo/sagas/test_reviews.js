@@ -469,7 +469,7 @@ describe(__filename, () => {
           addonId: 54321,
           body: 'pretty sweet add-on',
           errorHandlerId: errorHandler.id,
-          rating: 5,
+          score: 5,
           versionId: 1234,
           ...params,
         }),
@@ -481,7 +481,7 @@ describe(__filename, () => {
         updateAddonReview({
           body: 'I do not like this add-on',
           errorHandlerId: errorHandler.id,
-          rating: 1,
+          score: 1,
           reviewId: 88664,
           ...params,
         }),
@@ -491,7 +491,7 @@ describe(__filename, () => {
     function createExternalReview({
       id = 76654,
       body,
-      rating = 4,
+      score = 4,
       addonId = fakeReview.addon.id,
       addonSlug = fakeReview.addon.slug,
       userId = fakeReview.user.id,
@@ -506,7 +506,7 @@ describe(__filename, () => {
           slug: addonSlug,
         },
         body,
-        rating,
+        score,
         user: {
           ...fakeReview.user,
           id: userId,
@@ -539,13 +539,13 @@ describe(__filename, () => {
     it('creates an add-on review', async () => {
       const addonId = 98767;
       const body = 'This add-on works pretty well for me';
-      const rating = 4;
+      const score = 4;
       const versionId = 7653;
 
       const externalReview = createExternalReview({
         addonId,
         body,
-        rating,
+        score,
         versionId,
       });
 
@@ -556,12 +556,12 @@ describe(__filename, () => {
           addonId,
           apiState,
           body,
-          rating,
+          score,
           versionId,
         })
         .resolves(externalReview);
 
-      _createAddonReview({ addonId, body, rating, versionId });
+      _createAddonReview({ addonId, body, score, versionId });
 
       const expectedAction = setReview(externalReview);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -573,12 +573,12 @@ describe(__filename, () => {
     it('updates an add-on review', async () => {
       const reviewId = 87654;
       const body = 'This add-on is OK';
-      const rating = 3;
+      const score = 3;
 
       const externalReview = createExternalReview({
         id: reviewId,
         body,
-        rating,
+        score,
       });
 
       mockApi
@@ -587,12 +587,12 @@ describe(__filename, () => {
         .withArgs({
           apiState,
           body,
-          rating,
+          score,
           reviewId,
         })
         .resolves(externalReview);
 
-      _updateAddonReview({ body, rating, reviewId });
+      _updateAddonReview({ body, score, reviewId });
 
       const expectedAction = setReview(externalReview);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -633,7 +633,7 @@ describe(__filename, () => {
         .expects('submitReview')
         .resolves(createExternalReview({ id: reviewId }));
 
-      _updateAddonReview({ reviewId, body: undefined, rating: 4 });
+      _updateAddonReview({ reviewId, body: undefined, score: 4 });
 
       const expectedAction = hideFlashedReviewMessage();
       await sagaTester.waitFor(expectedAction.type);
@@ -687,12 +687,12 @@ describe(__filename, () => {
     });
 
     it('flashes the start of saving a rating', async () => {
-      const rating = 4;
-      const externalReview = createExternalReview({ rating });
+      const score = 4;
+      const externalReview = createExternalReview({ score });
 
       mockApi.expects('submitReview').resolves(externalReview);
 
-      _updateAddonReview({ body: undefined, rating });
+      _updateAddonReview({ body: undefined, score });
 
       const expectedAction = flashReviewMessage(STARTED_SAVE_RATING);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -705,7 +705,7 @@ describe(__filename, () => {
 
       mockApi.expects('submitReview').resolves(externalReview);
 
-      _updateAddonReview({ body, rating: undefined });
+      _updateAddonReview({ body, score: undefined });
 
       const expectedAction = flashReviewMessage(STARTED_SAVE_REVIEW);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -713,12 +713,12 @@ describe(__filename, () => {
     });
 
     it('flashes when a rating gets saved', async () => {
-      const rating = 4;
-      const externalReview = createExternalReview({ rating });
+      const score = 4;
+      const externalReview = createExternalReview({ score });
 
       mockApi.expects('submitReview').resolves(externalReview);
 
-      _updateAddonReview({ body: undefined, rating });
+      _updateAddonReview({ body: undefined, score });
 
       const expectedAction = flashReviewMessage(SAVED_RATING);
       await matchingSagaAction(sagaTester, matchMessage(expectedAction));
@@ -730,7 +730,7 @@ describe(__filename, () => {
 
       mockApi.expects('submitReview').resolves(externalReview);
 
-      _updateAddonReview({ body, rating: undefined });
+      _updateAddonReview({ body, score: undefined });
 
       const expectedAction = flashReviewMessage(SAVED_REVIEW);
       await matchingSagaAction(sagaTester, matchMessage(expectedAction));
@@ -765,7 +765,7 @@ describe(__filename, () => {
       const addonId = 98767;
       const addonSlug = 'some-slug';
       const body = 'This add-on works pretty well for me';
-      const rating = 4;
+      const score = 4;
       const userId = 12345;
       const versionId = 7653;
 
@@ -773,14 +773,14 @@ describe(__filename, () => {
         addonId,
         addonSlug,
         body,
-        rating,
+        score,
         userId,
         versionId,
       });
 
       mockApi.expects('submitReview').resolves(externalReview);
 
-      _createAddonReview({ addonId, body, rating, versionId });
+      _createAddonReview({ addonId, body, score, versionId });
 
       const expectedAction = setLatestReview({
         addonId,

@@ -57,9 +57,8 @@ export type UserReviewType = {|
   id: number,
   isDeveloperReply: boolean,
   isLatest: boolean,
-  rating: number | null,
+  score: number | null,
   reply: UserReviewType | null,
-  title: string,
   userId: number,
   userName: string,
   userUrl: string,
@@ -81,9 +80,8 @@ export function createInternalReview(
     id: review.id,
     isDeveloperReply: review.is_developer_reply,
     isLatest: review.is_latest,
-    rating: review.rating || null,
+    score: review.score || null,
     reply: review.reply ? createInternalReview(review.reply) : null,
-    title: review.title,
     userId: review.user.id,
     userName: review.user.name,
     userUrl: review.user.url,
@@ -553,7 +551,7 @@ type CreateAddonReviewParams = {|
   addonId: number,
   body?: string,
   errorHandlerId: string,
-  rating: number,
+  score: number,
   versionId: number,
 |};
 
@@ -566,24 +564,24 @@ export const createAddonReview = ({
   addonId,
   body,
   errorHandlerId,
-  rating,
+  score,
   versionId,
 }: CreateAddonReviewParams) => {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(rating, 'rating is required');
+  invariant(score, 'score is required');
   invariant(versionId, 'versionId is required');
 
   return {
     type: CREATE_ADDON_REVIEW,
-    payload: { addonId, body, errorHandlerId, rating, versionId },
+    payload: { addonId, body, errorHandlerId, score, versionId },
   };
 };
 
 type UpdateAddonReviewParams = {|
   body?: string,
   errorHandlerId: string,
-  rating?: number,
+  score?: number,
   reviewId: number,
 |};
 
@@ -595,7 +593,7 @@ export type UpdateAddonReviewAction = {|
 export const updateAddonReview = ({
   body,
   errorHandlerId,
-  rating,
+  score,
   reviewId,
 }: UpdateAddonReviewParams) => {
   invariant(errorHandlerId, 'errorHandlerId is required');
@@ -603,7 +601,7 @@ export const updateAddonReview = ({
 
   return {
     type: UPDATE_ADDON_REVIEW,
-    payload: { body, errorHandlerId, rating, reviewId },
+    payload: { body, errorHandlerId, score, reviewId },
   };
 };
 

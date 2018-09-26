@@ -254,7 +254,6 @@ export const fetchCurrentCollectionPage = ({
 
 export type ExternalCollectionAddon = {|
   addon: ExternalAddonType,
-  downloads: number,
   notes: string | null,
 |};
 

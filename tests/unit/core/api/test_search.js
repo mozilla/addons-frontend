@@ -193,7 +193,7 @@ describe(__filename, () => {
 
     return _search().then(unexpectedSuccess, (err) => {
       expect(err.response.status).toEqual(401);
-      expect(err.response.apiURL).toMatch('/api/v3/addons/search/');
+      expect(err.response.apiURL).toMatch('/api/v4/addons/search/');
     });
   });
 

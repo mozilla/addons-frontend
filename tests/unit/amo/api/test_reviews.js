@@ -38,8 +38,7 @@ describe(__filename, () => {
     const defaultParams = {
       addon: undefined,
       body: undefined,
-      rating: undefined,
-      title: undefined,
+      score: undefined,
       version: undefined,
     };
     const baseParams = {
@@ -65,7 +64,7 @@ describe(__filename, () => {
     it('posts a new add-on review', async () => {
       const params = {
         ...baseParams,
-        rating: 5,
+        score: 5,
         addonId: 445,
         versionId: 321,
         errorHandler: sinon.stub(),
@@ -75,11 +74,11 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           body: {
             ...defaultParams,
             addon: params.addonId,
-            rating: params.rating,
+            score: params.score,
             version: params.versionId,
           },
           method: 'POST',
@@ -105,7 +104,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${params.reviewId}`,
+          endpoint: `ratings/rating/${params.reviewId}`,
           body: {
             ...defaultParams,
             body: params.body,
@@ -132,7 +131,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${params.reviewId}`,
+          endpoint: `ratings/rating/${params.reviewId}`,
           body: {
             // Make sure that version is not passed in.
             ...defaultParams,
@@ -162,7 +161,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           params,
           apiState: undefined,
         })
@@ -179,7 +178,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           params,
           apiState,
         })
@@ -209,7 +208,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           // Make sure it filters with the correct params:
           params: {
             addon: params.addon,
@@ -309,17 +308,15 @@ describe(__filename, () => {
       const fakeResponse = replyToReviewResponse();
 
       const body = 'this is a reply to the review';
-      const title = 'title for the reply';
       const errorHandler = createStubErrorHandler();
 
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${originalReview.id}/reply/`,
+          endpoint: `ratings/rating/${originalReview.id}/reply/`,
           errorHandler,
           body: {
             body,
-            title,
           },
           method: 'POST',
           auth: true,
@@ -332,7 +329,6 @@ describe(__filename, () => {
         body,
         errorHandler,
         originalReviewId: originalReview.id,
-        title,
       });
       mockApi.verify();
     });
@@ -357,7 +353,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/flag`,
+          endpoint: `ratings/rating/${params.reviewId}/flag`,
           errorHandler: params.errorHandler,
           body: {
             flag: params.reason,
@@ -421,7 +417,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/`,
+          endpoint: `ratings/rating/${params.reviewId}/`,
           errorHandler: params.errorHandler,
           method: 'DELETE',
           apiState: params.apiState,
@@ -445,7 +441,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/`,
+          endpoint: `ratings/rating/${params.reviewId}/`,
           method: 'GET',
           apiState: params.apiState,
         })
