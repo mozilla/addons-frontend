@@ -106,10 +106,14 @@ export const computeNewCollectionPage = (
 
   let page = '1';
   if (pageSize) {
-    page = Math.ceil((numberOfAddons - 1) / pageSize);
-    if (parseInt(currentPage, 10) < page) {
-      page = currentPage;
+    const lastPage = Math.ceil((numberOfAddons - 1) / pageSize);
+
+    // If we are not on the last page, we can just return the current page.
+    if (parseInt(currentPage, 10) < lastPage) {
+      return currentPage;
     }
+
+    page = lastPage;
   }
 
   return page ? page.toString() : '1';
