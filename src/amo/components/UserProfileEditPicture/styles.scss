@@ -39,6 +39,11 @@ $picture-size: 128px;
     .Button {
       @include focus();
     }
+
+    // See: https://github.com/WICG/focus-visible
+    .UserProfileEditPicture-file-input:not(.focus-visible) + .Button {
+      box-shadow: none;
+    }
   }
 
   .UserProfileEditPicture-file-input {
