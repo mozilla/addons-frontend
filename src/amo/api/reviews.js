@@ -80,7 +80,7 @@ export function submitReview({
       title,
     };
     let method = 'POST';
-    let endpoint = 'reviews/review';
+    let endpoint = 'ratings/rating';
 
     if (reviewId) {
       endpoint = `${endpoint}/${reviewId}`;
@@ -123,7 +123,7 @@ export const replyToReview = ({
   title,
 }: ReplyToReviewParams = {}): Promise<ExternalReviewReplyType> => {
   return new Promise((resolve) => {
-    const endpoint = `reviews/review/${originalReviewId}/reply/`;
+    const endpoint = `ratings/rating/${originalReviewId}/reply/`;
 
     resolve(
       callApi({
@@ -182,7 +182,7 @@ export function getReviews({
     resolve(
       callApi({
         auth: true,
-        endpoint: 'reviews/review',
+        endpoint: 'ratings/rating',
         params: { user, addon, ...params },
         apiState,
       }),
@@ -257,7 +257,7 @@ export const flagReview = ({
           flag: reason,
           note,
         },
-        endpoint: `reviews/review/${reviewId}/flag`,
+        endpoint: `ratings/rating/${reviewId}/flag`,
         errorHandler,
         method: 'POST',
         apiState,
@@ -282,7 +282,7 @@ export const deleteReview = ({
     resolve(
       callApi({
         auth: true,
-        endpoint: `reviews/review/${reviewId}/`,
+        endpoint: `ratings/rating/${reviewId}/`,
         errorHandler,
         method: 'DELETE',
         apiState,
@@ -305,7 +305,7 @@ export const getReview = ({
     resolve(
       callApi({
         auth: true,
-        endpoint: `reviews/review/${reviewId}/`,
+        endpoint: `ratings/rating/${reviewId}/`,
         method: 'GET',
         apiState,
       }),

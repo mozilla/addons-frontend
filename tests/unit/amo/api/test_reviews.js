@@ -75,7 +75,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           body: {
             ...defaultParams,
             addon: params.addonId,
@@ -105,7 +105,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${params.reviewId}`,
+          endpoint: `ratings/rating/${params.reviewId}`,
           body: {
             ...defaultParams,
             body: params.body,
@@ -132,7 +132,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${params.reviewId}`,
+          endpoint: `ratings/rating/${params.reviewId}`,
           body: {
             // Make sure that version is not passed in.
             ...defaultParams,
@@ -162,7 +162,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           params,
           apiState: undefined,
         })
@@ -179,7 +179,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           params,
           apiState,
         })
@@ -209,7 +209,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           // Make sure it filters with the correct params:
           params: {
             addon: params.addon,
@@ -315,7 +315,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${originalReview.id}/reply/`,
+          endpoint: `ratings/rating/${originalReview.id}/reply/`,
           errorHandler,
           body: {
             body,
@@ -357,7 +357,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/flag`,
+          endpoint: `ratings/rating/${params.reviewId}/flag`,
           errorHandler: params.errorHandler,
           body: {
             flag: params.reason,
@@ -421,7 +421,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/`,
+          endpoint: `ratings/rating/${params.reviewId}/`,
           errorHandler: params.errorHandler,
           method: 'DELETE',
           apiState: params.apiState,
@@ -445,7 +445,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/`,
+          endpoint: `ratings/rating/${params.reviewId}/`,
           method: 'GET',
           apiState: params.apiState,
         })
