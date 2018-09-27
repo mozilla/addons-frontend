@@ -1,21 +1,14 @@
-@import '~core/css/inc/vars';
-@import '~ui/components/Rating/vars';
+@import '~amo/css/styles';
 
-$button-margin: 13px;
-$button-height: $rating-l-star-size + $rating-l-star-gutter -
-  ($button-margin * 2);
-
-.RatingManager-log-in-to-rate {
+.RatingManager-ratingControl {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 
 .RatingManager-log-in-to-rate-button {
-  align-items: center;
-  display: flex;
   font-size: $font-size-s;
-  height: $button-height;
-  justify-content: center;
-  margin-top: $rating-top-margin + $button-margin;
   padding: 0;
   position: absolute;
   width: 100%;
@@ -30,4 +23,47 @@ $button-height: $rating-l-star-size + $rating-l-star-gutter -
   legend {
     word-wrap: break-word;
   }
+
+  .AddonReviewCard-control {
+    margin: 0;
+  }
+
+  .AddonReviewCard-allControls {
+    justify-content: space-between;
+  }
+
+  .AddonReviewCard-ratingOnly .AddonReviewCard-allControls {
+    justify-content: center;
+  }
+
+  .DismissibleTextForm-delete-submit-buttons,
+  .DismissibleTextForm-submit {
+    width: 100%;
+  }
+
+  .AddonReviewCard-ratingOnly .UserReview-byLine {
+    display: none;
+  }
+
+  .AddonReviewCard-writeReviewButton {
+    width: 100%;
+  }
+}
+
+.RatingManager-AddonReviewCard.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly) {
+  background-color: transparentize($blue-50, 0.95);
+  border-radius: $border-radius-default;
+  padding: 12px;
+
+  @include respond-to(medium) {
+    padding: 12px 24px 12px 24px;
+  }
+}
+
+.RatingManager-UserRating {
+  margin: 12px;
+}
+
+.RatingManager-savedRating-withReview {
+  margin-bottom: 12px;
 }

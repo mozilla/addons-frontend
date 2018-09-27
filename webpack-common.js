@@ -25,7 +25,7 @@ if (config.get('enablePostCssLoader')) {
   );
 }
 
-export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
+export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   let styleRules;
 
   if (bundleStylesWithJs) {
@@ -39,8 +39,7 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
           {
             loader: 'postcss-loader',
             options: {
-              outputStyle: 'expanded',
-              plugins: () => postCssPlugins,
+              plugins: postCssPlugins,
             },
           },
         ],
@@ -53,7 +52,7 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => postCssPlugins,
+              plugins: postCssPlugins,
             },
           },
           { loader: 'sass-loader', options: { outputStyle: 'expanded' } },
@@ -61,9 +60,15 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
       },
     ];
   } else {
-    // In production, we create a separate CSS bundle rather than
-    // include styles with the JS bundle. This lets the style bundle
-    // load in parallel.
+    // In production, we create a separate CSS bundle rather than include
+    // styles with the JS bundle. This lets the style bundle load in parallel.
+
+    const cssLoaderOptions = {
+      importLoaders: 2,
+      sourceMap: true,
+      minimize: true,
+    };
+
     styleRules = [
       {
         test: /\.css$/,
@@ -72,15 +77,13 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
           use: [
             {
               loader: 'css-loader',
-              options: { importLoaders: 2, sourceMap: true },
+              options: cssLoaderOptions,
             },
             {
               loader: 'postcss-loader',
               options: {
-                outputStyle: 'expanded',
-                plugins: () => postCssPlugins,
+                plugins: postCssPlugins,
                 sourceMap: true,
-                sourceMapContents: true,
               },
             },
           ],
@@ -93,11 +96,13 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
           use: [
             {
               loader: 'css-loader',
-              options: { importLoaders: 2, sourceMap: true },
+              options: cssLoaderOptions,
             },
             {
               loader: 'postcss-loader',
-              options: { plugins: () => postCssPlugins },
+              options: {
+                plugins: postCssPlugins,
+              },
             },
             {
               loader: 'sass-loader',
@@ -118,7 +123,7 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
-      query: babelQuery,
+      options: babelOptions,
     },
     ...styleRules,
     {
@@ -149,11 +154,6 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
     new webpack.NormalModuleReplacementPlugin(
       /config$/,
       'core/client/config.js',
-    ),
-    // This replaces the logger with a more lightweight logger for the client.
-    new webpack.NormalModuleReplacementPlugin(
-      /core\/logger$/,
-      'core/client/logger.js',
     ),
     // This swaps the server side window object with a standard browser window.
     new webpack.NormalModuleReplacementPlugin(

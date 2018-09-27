@@ -1,10 +1,10 @@
 /* @flow */
 /* global Event, window */
-/* eslint-disable react/sort-comp */
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import { logOutFromServer, startLoginUrl } from 'core/api';
 import { getCurrentUser, logOutUser } from 'amo/reducers/users';
@@ -15,21 +15,22 @@ import type { AppState } from 'amo/store';
 import type { ApiState } from 'core/reducers/api';
 import type { UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
+import type { ButtonType } from 'ui/components/Button';
 
 type HandleLogInFunc = (
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
   options?: {| _window: typeof window |},
 ) => void;
 
 type HandleLogOutFunction = ({| api: ApiState |}) => Promise<void>;
 
 type Props = {|
-  buttonType?: string,
+  buttonType?: ButtonType,
   className?: string,
+  handleLogIn?: HandleLogInFunc,
   handleLogOut?: HandleLogOutFunction,
-  location: ReactRouterLocation,
   logInText?: string,
   logOutText?: string,
   noIcon?: boolean,
@@ -40,6 +41,7 @@ type InternalProps = {|
   api: ApiState,
   handleLogIn: HandleLogInFunc,
   i18n: I18nType,
+  location: ReactRouterLocationType,
   siteUser: UserType | null,
 |};
 
@@ -104,14 +106,21 @@ type StateMappedProps = {|
   siteUser: UserType | null,
 |};
 
-export const mapStateToProps = (state: AppState): StateMappedProps => ({
-  api: state.api,
-  handleLogIn(location, { _window = window } = {}) {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): StateMappedProps => {
+  const defaultHandleLogIn = (location, { _window = window } = {}) => {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });
-  },
-  siteUser: getCurrentUser(state.users),
-});
+  };
+
+  return {
+    api: state.api,
+    handleLogIn: ownProps.handleLogIn || defaultHandleLogIn,
+    siteUser: getCurrentUser(state.users),
+  };
+};
 
 type DispatchMappedProps = {|
   handleLogOut: HandleLogOutFunction,
@@ -133,6 +142,7 @@ export const mapDispatchToProps = (
 });
 
 const AuthenticateButton: React.ComponentType<Props> = compose(
+  withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps,

@@ -2,8 +2,10 @@ import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
+import { oneLine } from 'common-tags';
 import helmet from 'helmet';
 import config from 'config';
+import deepcopy from 'deepcopy';
 
 import log from 'core/logger';
 
@@ -20,7 +22,7 @@ export function getNoScriptStyles(
     `src/${appName}/noscript.css`,
   );
   try {
-    return fs.readFileSync(cssPath);
+    return fs.readFileSync(cssPath, 'utf8');
   } catch (e) {
     if (e.code !== 'ENOENT') {
       _log.info(`noscript styles could not be parsed from ${cssPath}`);
@@ -32,22 +34,30 @@ export function getNoScriptStyles(
 }
 
 export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
-  const cspConfig = _config.get('CSP') !== 'false' ? _config.get('CSP') : false;
+  const cspConfig =
+    _config.get('CSP') !== 'false' ? deepcopy(_config.get('CSP')) : false;
 
   if (cspConfig) {
     if (noScriptStyles) {
-      const hash = crypto
-        .createHash('sha256')
-        .update(noScriptStyles)
-        .digest('base64');
-      const cspValue = `'sha256-${hash}'`;
-      if (
-        cspConfig.directives &&
-        !cspConfig.directives.styleSrc.includes(cspValue)
-      ) {
-        cspConfig.directives.styleSrc.push(cspValue);
+      if (!_config.get('isDevelopment')) {
+        const hash = crypto
+          .createHash('sha256')
+          .update(noScriptStyles)
+          .digest('base64');
+
+        const cspValue = `'sha256-${hash}'`;
+        if (
+          cspConfig.directives &&
+          !cspConfig.directives.styleSrc.includes(cspValue)
+        ) {
+          cspConfig.directives.styleSrc.push(cspValue);
+        }
+      } else {
+        _log.debug(oneLine`CSP style-src hash has been omitted to allow
+          "unsafe-inline" in development`);
       }
     }
+
     return helmet.contentSecurityPolicy(cspConfig);
   }
 

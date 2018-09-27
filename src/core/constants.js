@@ -7,6 +7,7 @@ export const DOWNLOADING = 'DOWNLOADING';
 export const ENABLED = 'ENABLED';
 export const ENABLING = 'ENABLING';
 export const ERROR = 'ERROR';
+export const INACTIVE = 'INACTIVE';
 export const INSTALLED = 'INSTALLED';
 export const INSTALLING = 'INSTALLING';
 export const UNINSTALLED = 'UNINSTALLED';
@@ -15,11 +16,12 @@ export const UNKNOWN = 'UNKNOWN';
 export const validInstallStates = [
   DISABLED,
   DISABLING,
-  ENABLED,
-  ENABLING,
   DOWNLOADING,
   ENABLED,
+  ENABLED,
+  ENABLING,
   ERROR,
+  INACTIVE,
   INSTALLED,
   INSTALLING,
   UNINSTALLED,
@@ -100,12 +102,17 @@ export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
 export const INCOMPATIBLE_UNDER_MIN_VERSION = 'INCOMPATIBLE_UNDER_MIN_VERSION';
 export const INCOMPATIBLE_UNSUPPORTED_PLATFORM =
   'INCOMPATIBLE_UNSUPPORTED_PLATFORM';
+export const INCOMPATIBLE_NON_RESTARTLESS_ADDON =
+  'INCOMPATIBLE_NON_RESTARTLESS_ADDON';
 
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_STATIC_THEME = ADDON_TYPE_STATIC_THEME;
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
+
+// HCT disco tracking category
+export const HCT_DISCO_CATEGORY = 'disco.interaction';
 
 // Add-on install tracking sources.
 // These key values may be linked to historic analytic data.
@@ -165,10 +172,6 @@ export const SET_LANG = 'SET_LANG';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
-// InfoDialog action types.
-export const CLOSE_INFO = 'CLOSE_INFO';
-export const SHOW_INFO = 'SHOW_INFO';
-
 // Theme action.
 export const THEME_INSTALL = 'InstallBrowserTheme';
 
@@ -194,7 +197,10 @@ export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
 export const INSTALL_ERROR = 'INSTALL_ERROR';
 
 // Tracking install actions.
+export const ENABLE_ACTION = 'enable';
 export const INSTALL_ACTION = 'install';
+export const INSTALL_CANCELLED_ACTION = 'install:cancelled';
+export const INSTALL_DOWNLOAD_FAILED_ACTION = 'install:download-failed';
 export const INSTALL_STARTED_ACTION = 'install:started';
 export const UNINSTALL_ACTION = 'uninstall';
 
@@ -202,14 +208,26 @@ export const UNINSTALL_ACTION = 'uninstall';
 // WARNING: Do not change these without notifying data + metrics teams.
 // Changing these strings will break existing statistics without
 // updating the category matching at the same time.
-export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
+export const ENABLE_EXTENSION_CATEGORY = 'AMO Addon Activation';
+export const ENABLE_THEME_CATEGORY = 'AMO Theme Activation';
+
 export const INSTALL_EXTENSION_CATEGORY = 'AMO Addon Installs';
+export const INSTALL_THEME_CATEGORY = 'AMO Theme Installs';
 
-export const INSTALL_THEME_STARTED_CATEGORY = 'AMO Theme Installs Started';
-export const INSTALL_EXTENSION_STARTED_CATEGORY = 'AMO Addon Installs Started';
+export const INSTALL_CANCELLED_EXTENSION_CATEGORY =
+  'AMO Addon Installs Cancelled';
+export const INSTALL_CANCELLED_THEME_CATEGORY = 'AMO Theme Installs Cancelled';
 
-export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
+export const INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY =
+  'AMO Addon Installs Download Failed';
+export const INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY =
+  'AMO Theme Installs Download Failed';
+
+export const INSTALL_STARTED_EXTENSION_CATEGORY = 'AMO Addon Installs Started';
+export const INSTALL_STARTED_THEME_CATEGORY = 'AMO Theme Installs Started';
+
 export const UNINSTALL_EXTENSION_CATEGORY = 'AMO Addon Uninstalls';
+export const UNINSTALL_THEME_CATEGORY = 'AMO Theme Uninstalls';
 
 export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 
@@ -233,6 +251,8 @@ export const GLOBAL_EVENT_STATUS_MAP = {
   onEnabling: ENABLING,
   onDisabling: DISABLING,
 };
+// This mozAddonManager event has no one-to-one mapping.
+export const ON_OPERATION_CANCELLED_EVENT = 'onOperationCancelled';
 
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
@@ -303,3 +323,6 @@ export const RATINGS_MODERATE = 'Ratings:Moderate';
 export const USERS_EDIT = 'Users:Edit';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
+
+export const RTL = 'rtl';
+export const LTR = 'ltr';

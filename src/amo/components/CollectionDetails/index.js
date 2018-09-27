@@ -1,9 +1,12 @@
 /* @flow */
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import {
+  beginEditingCollectionDetails,
   collectionEditUrl,
+  collectionUrl,
   convertFiltersToQueryParams,
 } from 'amo/reducers/collections';
 import translate from 'core/i18n/translate';
@@ -16,23 +19,43 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
 export type Props = {|
   collection: CollectionType | null,
+  editing: boolean,
   filters: CollectionFilters,
+  hasEditPermission: boolean,
   showEditButton: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
+  dispatch: DispatchFunc,
   i18n: I18nType,
 |};
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
+  onEditDetails = (event: SyntheticEvent<HTMLButtonElement>) => {
+    const { dispatch } = this.props;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    dispatch(beginEditingCollectionDetails());
+  };
+
   render() {
-    const { collection, filters, i18n, showEditButton } = this.props;
+    const {
+      collection,
+      editing,
+      filters,
+      hasEditPermission,
+      i18n,
+      showEditButton,
+    } = this.props;
 
     return (
       <div className="CollectionDetails">
@@ -67,11 +90,12 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
             },
           ]}
         />
-        {showEditButton &&
-          collection && (
+        {collection &&
+          showEditButton &&
+          !editing && (
             <Button
-              className="CollectionDetails-edit-link"
               buttonType="neutral"
+              className="CollectionDetails-edit-button"
               puffy
               to={{
                 pathname: collectionEditUrl({ collection }),
@@ -81,13 +105,40 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
               {i18n.gettext('Edit this collection')}
             </Button>
           )}
+        {collection &&
+          editing &&
+          hasEditPermission && (
+            <Button
+              buttonType="neutral"
+              className="CollectionDetails-edit-details-button"
+              puffy
+              href="#editdetails"
+              onClick={this.onEditDetails}
+            >
+              {i18n.gettext('Edit collection details')}
+            </Button>
+          )}
+        {collection &&
+          editing && (
+            <Button
+              buttonType="cancel"
+              className="CollectionDetails-back-to-collection-button"
+              to={{
+                pathname: collectionUrl({ collection }),
+                query: convertFiltersToQueryParams(filters),
+              }}
+            >
+              {i18n.gettext('Back to collection')}
+            </Button>
+          )}
       </div>
     );
   }
 }
 
-const CollectionDetails: React.ComponentType<Props> = compose(translate())(
-  CollectionDetailsBase,
-);
+const CollectionDetails: React.ComponentType<Props> = compose(
+  translate(),
+  connect(),
+)(CollectionDetailsBase);
 
 export default CollectionDetails;

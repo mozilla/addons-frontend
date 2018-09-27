@@ -3,7 +3,6 @@
 import url from 'url';
 
 import utf8 from 'utf8';
-import 'isomorphic-fetch';
 import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
@@ -15,10 +14,11 @@ import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
 } from 'core/searchUtils';
+import { addQueryParams } from 'core/utils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 const { Entity } = normalizrSchema;
@@ -82,6 +82,8 @@ type CallApiParams = {|
   params?: Object,
   schema?: Object,
   _config?: typeof config,
+  version?: string,
+  _log?: typeof log,
 |};
 
 export function callApi({
@@ -95,6 +97,8 @@ export function callApi({
   credentials,
   errorHandler,
   _config = config,
+  version = _config.get('apiVersion'),
+  _log = log,
 }: CallApiParams): Promise<any> {
   if (!endpoint) {
     return Promise.reject(
@@ -105,13 +109,15 @@ export function callApi({
     errorHandler.clear();
   }
 
+  const apiPath = `${config.get('apiPath')}${version}`;
+
   const parsedUrl = url.parse(endpoint, true);
   let adjustedEndpoint = parsedUrl.pathname || '';
   if (!parsedUrl.host) {
     // If it's a relative URL, add the API prefix.
     const slash = !adjustedEndpoint.startsWith('/') ? '/' : '';
-    adjustedEndpoint = `${config.get('apiPath')}${slash}${adjustedEndpoint}`;
-  } else if (!adjustedEndpoint.startsWith(config.get('apiPath'))) {
+    adjustedEndpoint = `${apiPath}${slash}${adjustedEndpoint}`;
+  } else if (!adjustedEndpoint.startsWith(apiPath)) {
     // If it's an absolute URL, it must have the correct prefix.
     return Promise.reject(
       new Error(`Absolute URL "${endpoint}" has an unexpected prefix.`),
@@ -161,14 +167,15 @@ export function callApi({
     : `${adjustedEndpoint}/`;
   let apiURL = `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
   if (_config.get('server')) {
-    log.debug('Encoding `apiURL` in UTF8 before fetch().');
+    _log.debug('Encoding `apiURL` in UTF8 before fetch().');
     // Workaround for https://github.com/bitinn/node-fetch/issues/245
     apiURL = utf8.encode(apiURL);
   }
 
   return fetch(apiURL, options)
     .then((response) => {
-      // There isn't always a 'Content-Type' in headers, e.g., with a DELETE method.
+      // There isn't always a 'Content-Type' in headers, e.g., with a DELETE
+      // method or 5xx responses.
       let contentType = response.headers.get('Content-Type');
       contentType = contentType && contentType.toLowerCase();
 
@@ -183,14 +190,19 @@ export function callApi({
           .then((jsonResponse) => ({ response, jsonResponse }));
       }
 
-      log.warn(
-        oneLine`Response from API was not JSON (was Content-Type:
-        ${contentType})`,
-        response,
-      );
-      return response.text().then(() => {
-        // jsonResponse should be an empty object in this case.
-        // Otherwise, its keys could be treated as generic API errors.
+      return response.text().then((text) => {
+        _log.warn(
+          oneLine`Response from API was not JSON (was Content-Type:
+            ${contentType || '[unknown]'})`,
+          {
+            body: text ? text.substring(0, 100) : '[empty]',
+            status: response.status || '[unknown]',
+            url: response.url || '[unknown]',
+          },
+        );
+
+        // jsonResponse should be an empty object in this case. Otherwise, its
+        // keys could be treated as generic API errors.
         return { jsonResponse: {}, response };
       });
     })
@@ -219,14 +231,25 @@ export function callApi({
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
-type FetchAddonParams = {|
+export type FetchAddonParams = {|
   api: ApiState,
   slug: string,
 |};
 
 export function fetchAddon({ api, slug }: FetchAddonParams) {
+  const { clientApp, userAgentInfo } = api;
+  const appVersion = userAgentInfo.browser.version;
+  if (!appVersion) {
+    log.warn(
+      `Failed to parse appversion for client app ${clientApp || '[empty]'}`,
+    );
+  }
+
   return callApi({
-    endpoint: `addons/addon/${slug}`,
+    endpoint: addQueryParams(`addons/addon/${slug}`, {
+      app: clientApp,
+      appversion: appVersion,
+    }),
     schema: addon,
     auth: true,
     apiState: api,
@@ -234,11 +257,15 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
 }
 
 export function startLoginUrl({
+  _config = config,
   location,
 }: {|
-  location: ReactRouterLocation,
+  _config?: typeof config,
+  location: ReactRouterLocationType,
 |}) {
-  const configName = config.get('fxaConfig');
+  const apiVersion = _config.get('apiVersion');
+  const configName = _config.get('fxaConfig');
+
   const params = {
     config: undefined,
     to: url.format({ ...location }),
@@ -247,7 +274,8 @@ export function startLoginUrl({
     params.config = configName;
   }
   const query = makeQueryString(params);
-  return `${API_BASE}/accounts/login/start/${query}`;
+
+  return `${API_BASE}${apiVersion}/accounts/login/start/${query}`;
 }
 
 export function categories({ api }: {| api: ApiState |}) {

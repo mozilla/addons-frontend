@@ -1,57 +1,5 @@
 @import '~core/css/inc/vars';
 
-$body-font-color: #000;
-
-// This is the color used for the Header and Footer background and the
-// basis of the SearchForm and Footer background colors.
-$masthead-color: #343a40;
-$masthead-light-color: #495057;
-$footer-color: #212529;
-$accent-color: #ebebeb;
-
-// No "small" breakpoint is defined here because we are mobile-first.
-// Instead of adding a rule for only mobile, add a mobile rule and override
-// it with `@include respond-to(medium) { [...] }`.
-$breakpoints: (
-  // This breakpoint exists for tweaking of very small screens.
-    extraSmall: only screen and
-    (
-      max-width: 349px,
-    ),
-  mediumOnly: only screen and
-    (
-      min-width: 500px,
-    )
-    and
-    (
-      max-width: 719px,
-    ),
-  medium: only screen and
-    (
-      min-width: 500px,
-    ),
-  large: only screen and
-    (
-      min-width: 720px,
-    ),
-  extraLarge: only screen and
-    (
-      min-width: 900px,
-    ),
-  extraExtraLarge: only screen and
-    (
-      min-width: 1150px,
-    )
-);
-
-// Vertical spacing
-$vertical-space-xxs: 4px;
-$vertical-space-xs: 8px;
-$vertical-space-s: 16px;
-$vertical-space-m: 32px;
-$vertical-space-l: 64px;
-$vertical-space-xl: 128px;
-
 // Restrict content to this width on large screens.
 $max-content-width: 1366px;
 

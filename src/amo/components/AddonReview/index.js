@@ -8,10 +8,11 @@ import { compose } from 'redux';
 
 import { submitReview } from 'amo/api/reviews';
 import {
-  setDenormalizedReview as _setDenormalizedReview,
+  setInternalReview as _setInternalReview,
   setReview,
 } from 'amo/actions/reviews';
-import { refreshAddon as _refreshAddon, sanitizeHTML } from 'core/utils';
+import { fetchAddon } from 'core/api';
+import { sanitizeHTML } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import defaultLocalStateCreator, { LocalState } from 'core/localState';
@@ -21,6 +22,7 @@ import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/reviews';
 import type { AppState } from 'amo/store';
+import { loadAddons } from 'core/reducers/addons';
 import type { ApiState } from 'core/reducers/api';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
@@ -29,7 +31,7 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type SetDenormalizedReviewFunction = (review: $Shape<UserReviewType>) => void;
+type SetInternalReviewFunction = (review: $Shape<UserReviewType>) => void;
 
 type RefreshAddonFunction = (params: {|
   addonSlug: string,
@@ -42,7 +44,7 @@ type UpdateReviewTextFunction = (
 
 type DispatchMappedProps = {|
   refreshAddon?: RefreshAddonFunction,
-  setDenormalizedReview?: SetDenormalizedReviewFunction,
+  setInternalReview?: SetInternalReviewFunction,
   updateReviewText?: UpdateReviewTextFunction,
 |};
 
@@ -68,6 +70,7 @@ type State = {|
 
 export class AddonReviewBase extends React.Component<InternalProps, State> {
   localState: LocalState;
+
   reviewTextarea: React.ElementRef<'textarea'> | null;
 
   static defaultProps = {
@@ -117,12 +120,12 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
       onReviewSubmitted,
       refreshAddon,
       review,
-      setDenormalizedReview,
+      setInternalReview,
       updateReviewText,
     } = this.props;
     invariant(refreshAddon, 'refreshAddon() is undefined');
     invariant(updateReviewText, 'updateReviewText() is undefined');
-    invariant(setDenormalizedReview, 'setDenormalizedReview() is undefined');
+    invariant(setInternalReview, 'setInternalReview() is undefined');
 
     const { reviewBody } = this.state;
     event.preventDefault();
@@ -132,10 +135,10 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     const updatedReview = { ...review, ...newReviewParams };
 
     const params = {
-      addonId: review.addonId,
+      addonId: review.reviewAddon.id,
       apiState,
       errorHandler,
-      rating: review.rating,
+      score: review.score,
       reviewId: review.id,
       ...newReviewParams,
     };
@@ -145,7 +148,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     // Dispatch the new review to state so that the
     // component doesn't re-render with stale data while
     // the API request is in progress.
-    setDenormalizedReview(updatedReview);
+    setInternalReview(updatedReview);
 
     // Next, update the review with an actual API request.
     return updateReviewText(params).then(() =>
@@ -156,7 +159,7 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
         // Clear the locally stored state since we are in sync with
         // the API now.
         this.localState.clear(),
-        refreshAddon({ addonSlug: review.addonSlug, apiState }),
+        refreshAddon({ addonSlug: review.reviewAddon.slug, apiState }),
       ]),
     );
   };
@@ -173,30 +176,27 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     this.setState(newState);
   };
 
-  onSelectRating = (rating: number) => {
+  onSelectRating = (score: number) => {
     // Update the review object with a new rating but don't submit it
     // to the API yet.
-    invariant(
-      this.props.setDenormalizedReview,
-      'setDenormalizedReview() is undefined',
-    );
-    this.props.setDenormalizedReview({
+    invariant(this.props.setInternalReview, 'setInternalReview() is undefined');
+    this.props.setInternalReview({
       ...this.props.review,
       body: this.state.reviewBody || undefined,
-      rating,
+      score,
     });
   };
 
   render() {
     const { errorHandler, i18n, review } = this.props;
     const { reviewBody } = this.state;
-    if (!review || !review.id || !review.addonSlug) {
+    if (!review || !review.id || !review.reviewAddon.slug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
 
     let placeholder;
     let promptText;
-    if (review.rating && review.rating > 3) {
+    if (review.score && review.score > 3) {
       promptText = i18n.gettext(
         `Tell the world why you think this extension is fantastic!
         Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`,
@@ -220,11 +220,14 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
       linkEnd: '</a>',
     });
 
+    const overlayClassName = 'AddonReview-overlay';
+
     return (
       <OverlayCard
         visibleOnLoad
         onEscapeOverlay={this.props.onEscapeOverlay}
-        className="AddonReview"
+        className={overlayClassName}
+        id={overlayClassName}
       >
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         {/* eslint-disable react/no-danger */}
@@ -280,10 +283,12 @@ export const mapDispatchToProps = (
     refreshAddon:
       ownProps.refreshAddon ||
       (({ addonSlug, apiState }) => {
-        return _refreshAddon({ addonSlug, apiState, dispatch });
+        return fetchAddon({ slug: addonSlug, api: apiState }).then(
+          ({ entities }) => dispatch(loadAddons(entities)),
+        );
       }),
-    setDenormalizedReview: (review) => {
-      dispatch(_setDenormalizedReview(review));
+    setInternalReview: (review) => {
+      dispatch(_setInternalReview(review));
     },
     updateReviewText:
       ownProps.updateReviewText ||

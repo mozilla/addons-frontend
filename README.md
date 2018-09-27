@@ -19,7 +19,7 @@ Never submit security-related bugs through a Github Issue or by email.
 
 ## Requirements
 
-- You need [Node](https://nodejs.org/) 6.x which is the current [LTS](https://github.com/nodejs/LTS) (long term support) release.
+- You need [Node](https://nodejs.org/) 8.x which is the current [LTS](https://github.com/nodejs/LTS) (long term support) release.
 - Install [yarn](https://yarnpkg.com/en/) to manage dependencies and run scripts.
 
 The easiest way to manage multiple node versions in development is to use [nvm](https://github.com/creationix/nvm).
@@ -33,30 +33,39 @@ The easiest way to manage multiple node versions in development is to use [nvm](
 
 Here are some commands you can run:
 
-| Command                     | Description                                                                                                |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker                                                |
-| yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/)      |
-| yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker                                      |
-| yarn amo:stage              | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/)      |
-| yarn disco                  | Start the dev server (for Discovery Pane) using data from the dev server (https://addons-dev.allizom.org/) |
-| yarn flow                   | Run Flow. By default this checks for errors and exits                                                      |
-| yarn flow:check             | Explicitly check for Flow errors and exit                                                                  |
-| yarn flow:dev               | Continuously check for Flow errors                                                                         |
-| yarn eslint                 | Lint the JS                                                                                                |
-| yarn start-func-test-server | Start a Docker container for functional tests                                                              |
-| yarn stylelint              | Lint the SCSS                                                                                              |
-| yarn lint                   | Run all the JS + SCSS linters                                                                              |
-| yarn nsp-check              | Run [nsp][] to detect dependencies with known vulnerabilities                                              |
-| yarn prettier               | Run [Prettier][] to automatically format the entire codebase                                               |
-| yarn prettier-dev           | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch   |
-| yarn prettier-ci            | Run [Prettier][] and fail if some code has been changed without being formatted                            |
-| yarn version-check          | Check you have the required dependencies                                                                   |
-| yarn test                   | Run all tests (Enters [jest][] in `--watch` mode)                                                          |
-| yarn test-coverage          | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode)                        |
-| yarn test-coverage-once     | Run all tests, generate code coverage report, then exit                                                    |
-| yarn test-once              | Run all tests, run all JS + SCSS linters, then exit                                                        |
-| yarn test-ci                | Run all continuous integration checks. This is only meant to run on TravisCI.                              |
+| Command                     | Description                                                                                                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker                                                                                                                                     |
+| yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/)                                                                                           |
+| yarn amo:dev-https          | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
+| yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker                                                                                                                           |
+| yarn amo:stage              | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/)                                                                                           |
+| yarn build                  | Build an app specified with the `NODE_APP_INSTANCE` environment variable.                                                                                                                       |
+| yarn build-all              | Build all the applications.                                                                                                                                                                     |
+| yarn build-ci               | Run the `build-all` and `bundlesize` npm scripts.                                                                                                                                               |
+| yarn bundlesize             | Run [bundlesize][] to check the generated AMO bundle sizes. [Building AMO is required first](#building-and-running-services).                                                                   |
+| yarn disco                  | Start the dev server (for Discovery Pane) using data from the dev server (https://addons-dev.allizom.org/)                                                                                      |
+| yarn disco:https            | Same as `disco` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended)   |
+| yarn flow                   | Run Flow. By default this checks for errors and exits                                                                                                                                           |
+| yarn flow:check             | Explicitly check for Flow errors and exit                                                                                                                                                       |
+| yarn flow:dev               | Continuously check for Flow errors                                                                                                                                                              |
+| yarn eslint                 | Lint the JS                                                                                                                                                                                     |
+| yarn snyk                   | Run [snyk](#snyk) (without a command)                                                                                                                                                           |
+| yarn snyk-ci                | Run [snyk](#snyk) `test` and `monitor`                                                                                                                                                          |
+| yarn snyk-wizard            | Run [snyk](#snyk) `wizard` to fix an issue reported by snyk                                                                                                                                     |
+| yarn start-func-test-server | Start a Docker container for functional tests                                                                                                                                                   |
+| yarn stylelint              | Lint the SCSS                                                                                                                                                                                   |
+| yarn storybook              | Run [storybook](https://storybook.js.org/)                                                                                                                                                      |
+| yarn lint                   | Run all the JS + SCSS linters                                                                                                                                                                   |
+| yarn prettier               | Run [Prettier][] to automatically format the entire codebase                                                                                                                                    |
+| yarn prettier-dev           | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch                                                                                        |
+| yarn prettier-ci            | Run [Prettier][] and fail if some code has been changed without being formatted                                                                                                                 |
+| yarn version-check          | Check you have the required dependencies                                                                                                                                                        |
+| yarn test                   | Run all tests (Enters [jest][] in `--watch` mode)                                                                                                                                               |
+| yarn test-coverage          | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode)                                                                                                             |
+| yarn test-coverage-once     | Run all tests, generate code coverage report, then exit                                                                                                                                         |
+| yarn test-once              | Run all tests, run all JS + SCSS linters, then exit                                                                                                                                             |
+| yarn test-ci                | Run all continuous integration checks. This is only meant to run on TravisCI.                                                                                                                   |
 
 ### Running tests
 
@@ -165,6 +174,20 @@ export default ConfirmButton;
 
 We use [Prettier][] to automatically format our JavaScript code and stop all the on-going debates over styles. As a developer, you have to run it (with `yarn prettier-dev`) before submitting a Pull Request.
 
+### Snyk
+
+We use [snyk][] to continuously monitor our application's dependencies.
+
+As a member of the `add-ons-team`, you can fix an issue reported by running:
+
+```
+yarn snyk-wizard
+```
+
+The wizard allows you to decide whether you want to upgrade dependencies or ignore the issue for 30 days. See the existing reasons to ignore an issue in the [`.snyk`](.snyk) file. Snyk is a bit intrusive and changes many things (like re-adding `snyk test` to the npm `test` script): double check your changes before submitting a Pull Request. You have successfully fixed an issue when `yarn snyk-ci` does not complain. Make sure you open a Pull Request with a branch pushed to this repository and not from your fork, because the `snyk-ci` job (Travis CI) does not run on forks.
+
+Note: You should authenticate yourself once by running `yarn snyk auth` (no dash). It will open a link in your favorite browser and authenticate you locally.
+
 ### Code coverage
 
 To see a report of code coverage, type:
@@ -256,6 +279,16 @@ grip .
 
 Open its `localhost` URL and you will see the rendered `README.md` file. As you make edits, it will update automatically.
 
+### Storybook
+
+If you run `yarn storybook`, you can see storybook locally here: http://localhost:9001/.
+
+You can find the source files under the ./stories directory.
+
+Check it out on Github Pages: https://mozilla.github.io/addons-frontend/
+
+More info coming soon :)
+
 ### Building and running services
 
 The following are scripts that are used in deployment - you generally won't need unless you're testing something related to deployment or builds.
@@ -291,7 +324,6 @@ module.exports = {
   serverHost: '127.0.0.1',
   serverPort: 3000,
 
-  enableClientConsole: true,
   apiHost: apiStageHost,
   amoCDN: amoStageCDN,
 
@@ -374,7 +406,8 @@ At a later date if we need to move things out into their own project we still ca
 - Universal rendering via node
 - Unit tests with high coverage (aiming for 100%)
 
+[bundlesize]: https://github.com/siddharthkp/bundlesize
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
-[nsp]: https://github.com/nodesecurity/nsp
 [prettier]: https://prettier.io/
 [pretty-quick]: https://www.npmjs.com/package/pretty-quick
+[snyk]: https://snyk.io/

@@ -1,8 +1,8 @@
 # Develop features for mozAddonManager
 
-The AMO and Discovery Pane apps use the [`mozAddonManager`](https://bugzilla.mozilla.org/show_bug.cgi?id=1310752) web API to achieve a more seamless add-on installation user experience. However, this API is only available to a limited list of domains. If you go to https://addons.mozilla.org (production) in Firefox then `mozAddonManager` is available on the page. If you go to a development site then it's not.
+The AMO and Discovery Pane apps use the [`mozAddonManager`](https://bugzilla.mozilla.org/show_bug.cgi?id=1310752) web API to achieve a more seamless add-on installation user experience. However, this API is only available to a limited list of domains. If you go to https://addons.mozilla.org (production) in Firefox then `mozAddonManager` is available on the page. If you go to a non-production site (local, development or staging) then it's not by default.
 
-## Turning on mozAddonManager for development
+## Turning on mozAddonManager in -dev and -stage environments
 
 To access `mozAddonManager` on a development site like https://addons-dev.allizom.org or https://addons.allizom.org go to `about:config` in Firefox and set this property to `true`:
 
@@ -12,7 +12,7 @@ extensions.webapi.testing
 
 Refresh the page, open the JavaScript console, and you should see a global `mozAddonManager` object.
 
-## Install add-ons for development
+## Install add-ons in -dev and -stage environments
 
 To fully install add-ons from a development site like https://addons-dev.allizom.org or https://addons.allizom.org you will need to tell Firefox to honor their signing certificates. Go to `about:config` in Firefox and set this property to `true`:
 
@@ -34,11 +34,49 @@ To activate access to this API on a development site, first make sure you set th
 
 If you're testing on desktop Firefox to emulate Android (for development), you need to make sure your user agent looks like Firefox for Android. You can [save a custom device](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode#Saving_custom_devices) in [Responsive Design Mode](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode) with a [Firefox for Android user agent string](<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox#Android_(version_41_and_above)>). Make sure it is touch enabled. This will let you see the add-on installation switch on desktop.
 
-## Developing with a local server
+## Developing with a local HTTPS server (recommended)
+
+It is possible to serve the local development version of this project with HTTPS enabled on `example.com` which is a domain sanctioned for testing purposes. By doing this, you can access `mozAddonManager` locally and install add-ons with a regular [Firefox Nightly build](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) (no need to build Firefox yourself). All you need is to configure your environment as follows:
+
+1. Add a new entry to your `/etc/hosts` file (or equivalent on Windows systems):
+
+   ```
+   127.0.0.1   example.com
+   ```
+
+2. In a custom Firefox profile, install a self-signed CA certificate for `example.com`:
+
+   - Download [this file](https://raw.githubusercontent.com/mozilla/addons-frontend/master/bin/local-dev-server-certs/example.com.ca.crt.pem)
+   - Go to `about:preferences#privacy`
+   - Click the _View Certificates..._ button (at the bottom of the page)
+   - Click the _Import..._ button
+   - Choose the file you have downloaded before (`example.com.ca.crt.pem`)
+   - Accept this CA certificate to trust websites
+
+3. In your custom Firefox profile, go to `about:config`, void the warranty, and set these prefs. Afterwards, restart Firefox for them to take effect.
+
+   - set `extensions.webapi.testing` to `true` [to turn on `mozAddonManager`](#turning-on-mozaddonmanager-in--dev-and--stage-environments)
+   - set `xpinstall.signatures.dev-root` to `true` [to install add-ons](#install-add-ons-in--dev-and--stage-environments)
+
+4. Start `addons-frontend` with the command below:
+
+   ```
+   yarn amo:dev-https  # or yarn disco:dev-https for Disco Pane
+   ```
+
+This allows you to browse the project at https://example.com:3000/ (and not `localhost`).
+
+You are all set to develop with `mozAddonManager`!
+
+**Known issues**:
+
+- You cannot yet sign in when the site is running from `example.com`.
+
+## Developing with a local server and a patched Firefox
 
 When you're running a server locally for development, you need to grant `mozAddonManager` access to your `localhost` domain in addition to setting the `extensions.webapi.testing` preference to `true`.
 
-You can do this by building a version of Firefox with a custom patch.
+You can do this _the hard way_ by building a version of Firefox with a custom patch. **Try to use the [example.com method](#developing-with-a-local-https-server-recommended) first**.
 
 Start by [setting up your machine to build Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions). That page gives you a link to a helpful bootstrapping script. Run it like this:
 

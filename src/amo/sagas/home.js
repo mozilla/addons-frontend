@@ -12,6 +12,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_RANDOM,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
@@ -19,6 +20,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
 import type { FetchHomeAddonsAction } from 'amo/reducers/home';
 import type { SearchParams } from 'core/api/search';
+import { getAddonTypeFilter } from 'core/utils';
 
 export function* fetchHomeAddons({
   payload: { collectionsToFetch, errorHandlerId, includeFeaturedThemes },
@@ -69,9 +71,17 @@ export function* fetchHomeAddons({
   const featuredThemesParams: SearchParams = {
     api: state.api,
     filters: {
-      addonType: ADDON_TYPE_THEME,
+      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       ...featuredSearchFilters,
       page_size: LANDING_PAGE_THEME_COUNT,
+    },
+  };
+  const trendingExtensionsParams: SearchParams = {
+    api: state.api,
+    filters: {
+      addonType: ADDON_TYPE_EXTENSION,
+      page_size: LANDING_PAGE_EXTENSION_COUNT,
+      sort: SEARCH_SORT_TRENDING,
     },
   };
 
@@ -82,6 +92,7 @@ export function* fetchHomeAddons({
       featuredThemes: includeFeaturedThemes
         ? call(searchApi, featuredThemesParams)
         : null,
+      trendingExtensions: call(searchApi, trendingExtensionsParams),
     });
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
@@ -94,6 +105,7 @@ export function* fetchHomeAddons({
       collections,
       featuredExtensions: homeAddons.featuredExtensions,
       featuredThemes: homeAddons.featuredThemes,
+      trendingExtensions: homeAddons.trendingExtensions,
     }),
   );
 }

@@ -10,5 +10,6 @@ module.exports = {
   restrictSearchResultsToAppVersion: false,
   fxaConfig: 'local',
   trackingEnabled: false,
-  enableStaticThemes: true,
+  loggingLevel: 'debug',
+  enableFeatureInlineAddonReview: true,
 };

@@ -1,7 +1,8 @@
 /* @flow */
 
 export type I18nType = {|
-  formatNumber: (number) => string,
+  // This accepts string input to accomodate usage of number.toFixed()
+  formatNumber: (number | string) => string,
   gettext: (string) => string,
   ngettext: (string, string, number) => string,
   moment: (

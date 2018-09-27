@@ -56,14 +56,17 @@ type InternalProps = {|
 |};
 
 export class CategoriesBase extends React.Component<InternalProps> {
-  componentWillMount() {
+  constructor(props: InternalProps) {
+    super(props);
+
     const {
       addonType,
       categoriesState,
       dispatch,
       errorHandler,
       loading,
-    } = this.props;
+    } = props;
+
     invariant(addonType, 'addonType is undefined');
 
     if (!loading && !categoriesState) {

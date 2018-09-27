@@ -2,21 +2,26 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { matchPath, withRouter } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 import makeClassName from 'classnames';
 
-import DefaultErrorPage from 'core/components/ErrorPage';
-import translate from 'core/i18n/translate';
-import Footer from 'disco/components/Footer';
-
+// We have to import this style first to have it listed first in the final CSS
+// file. See: https://github.com/mozilla/addons-frontend/issues/3565
 import './styles.scss';
+
+/* eslint-disable import/first */
+import DefaultErrorPage from 'core/components/ErrorPage';
+import Footer from 'disco/components/Footer';
+import Routes, { DISCO_PANE_PATH } from 'disco/components/Routes';
+import translate from 'core/i18n/translate';
+/* eslint-enable import/first */
 
 export class AppBase extends React.Component {
   static propTypes = {
-    ErrorPage: PropTypes.node,
+    ErrorPage: PropTypes.func,
     browserVersion: PropTypes.string.isRequired,
-    children: PropTypes.node,
     i18n: PropTypes.object.isRequired,
   };
 
@@ -25,7 +30,8 @@ export class AppBase extends React.Component {
   };
 
   render() {
-    const { ErrorPage, browserVersion, children, i18n } = this.props;
+    const { ErrorPage, browserVersion, i18n } = this.props;
+
     const classes = makeClassName('disco-pane', {
       'padding-compensation': parseInt(browserVersion, 10) < 50,
     });
@@ -36,7 +42,11 @@ export class AppBase extends React.Component {
           <Helmet defaultTitle={i18n.gettext('Discover Add-ons')}>
             <meta name="robots" content="noindex" />
           </Helmet>
-          <ErrorPage>{children}</ErrorPage>
+
+          <ErrorPage>
+            <Routes />
+          </ErrorPage>
+
           <Footer />
         </div>
       </NestedStatus>
@@ -44,13 +54,19 @@ export class AppBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+function mapStateToProps(state, ownProps) {
+  const match = matchPath(ownProps.location.pathname, {
+    path: DISCO_PANE_PATH,
+    exact: true,
+  });
+
   return {
-    browserVersion: ownProps.params.version,
+    browserVersion: match ? match.params.version : '',
   };
 }
 
 export default compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(AppBase);

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
 "PO-Revision-Date: 2017-12-17 01:04+0000\n"
 "Last-Translator: Dylan <chano79thstreet+ffx@gmail.com>\n"
 "Language-Team: none\n"
@@ -13,6 +13,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Enable"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:209
+msgid "Remove"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:211
+msgid "Enabling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:213
+#, fuzzy
+msgid "Downloading"
+msgstr "Downloading %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:215
+#, fuzzy
+msgid "Installing"
+msgstr "Installing %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:217
+#, fuzzy
+msgid "Uninstalling"
+msgstr "Uninstalling %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
+msgid "Install Theme"
+msgstr "Install Theme"
+
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
+msgid "Add to Firefox"
+msgstr "Add to Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -39,27 +78,18 @@ msgstr "Page not found"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, but we can't find anything at the URL you entered."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Your add-on is ready"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Now you can access %(name)s from the toolbar."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
+#: src/core/components/InfoDialog/index.js:88
+#, fuzzy
+msgid "OK"
 msgstr "OK!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Install Theme"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Add to Firefox"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -89,63 +119,60 @@ msgstr "%(name)s is uninstalled. Click to install."
 msgid "Install state for %(name)s is unknown."
 msgstr "Install state for %(name)s is unknown."
 
-#: src/disco/components/Addon/index.js:136
-msgid "Preview of %(name)s"
-msgstr ""
-
-#: src/disco/components/Addon/index.js:174
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "Installation failed. Please try again."
 
-#: src/disco/components/Addon/index.js:176
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "Download failed. Please check your connection."
 
-#: src/disco/components/Addon/index.js:178
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "An unexpected error occurred during installation."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "An unexpected error occurred during uninstallation."
 
-#: src/disco/components/Addon/index.js:187
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "An unexpected error occurred."
 
-#: src/disco/components/Addon/index.js:195
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "This add-on will be uninstalled after you restart Firefox."
-
-#: src/disco/components/Addon/index.js:199
-msgid "Please restart Firefox to use this add-on."
-msgstr "Please restart Firefox to use this add-on."
-
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Close"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS does not currently support add-ons."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr "This add-on does not support your version of Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "This add-on does not support your browser."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Discover Add-ons"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: src/disco/pages/DiscoPane/index.js:136
+#, fuzzy
+msgid "Find more add-ons"
+msgstr "See more add-ons!"
+
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -162,14 +189,6 @@ msgstr ""
 "performance\n"
 "and functionality."
 
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "See more add-ons!"
-
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "Privacy Policy"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "Your session has expired"
@@ -182,9 +201,25 @@ msgstr "An unexpected error occurred."
 msgid "Reload To Continue"
 msgstr "Reload To Continue"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr ""
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr ""
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "This add-on will be uninstalled after you restart Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Please restart Firefox to use this add-on."
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Your add-on is ready"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Now you can access %(name)s from the toolbar."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr "Hover to preview or click to install %(name)s"

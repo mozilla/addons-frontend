@@ -25,5 +25,5 @@ module.exports = {
     },
   },
 
-  enableStaticThemes: true,
+  enableFeatureInlineAddonReview: true,
 };

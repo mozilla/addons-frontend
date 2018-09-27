@@ -74,6 +74,23 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a default cancel button', () => {
+    const root = shallowRender({ dismissButtonText: undefined });
+
+    expect(root.find('.DismissibleTextForm-dismiss').children()).toHaveText(
+      'Cancel',
+    );
+  });
+
+  it('lets you configure the cancel button text', () => {
+    const dismissButtonText = 'Nevermind, cancel it';
+    const root = shallowRender({ dismissButtonText });
+
+    expect(root.find('.DismissibleTextForm-dismiss').children()).toHaveText(
+      dismissButtonText,
+    );
+  });
+
   it('renders a placeholder', () => {
     const root = shallowRender({
       placeholder: 'Enter some text',
@@ -97,13 +114,11 @@ describe(__filename, () => {
   });
 
   it('focuses the textarea on mount', () => {
-    const root = mountRender();
+    mountRender();
     // This checks that textarea.focus() was called.
-    expect(
-      root
-        .find('textarea.DismissibleTextForm-textarea')
-        .matchesElement(document.activeElement),
-    ).toEqual(true);
+    expect(document.activeElement.className).toEqual(
+      'DismissibleTextForm-textarea',
+    );
   });
 
   it('calls back when dismissing the textarea', () => {
@@ -257,17 +272,54 @@ describe(__filename, () => {
   });
 
   it('creates micro buttons when requested', () => {
-    const root = shallowRender({ onDelete: sinon.stub(), microButtons: true });
+    const root = shallowRender({
+      microButtons: true,
+      onDelete: sinon.stub(),
+      onDismiss: sinon.stub(),
+    });
 
     expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', true);
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', true);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp('micro', true);
   });
 
-  it('creates non-micro buttons by default', () => {
-    const root = shallowRender({ onDelete: sinon.stub() });
+  it('creates puffy buttons when requested', () => {
+    const root = shallowRender({
+      onDelete: sinon.stub(),
+      onDismiss: sinon.stub(),
+      puffyButtons: true,
+    });
+
+    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', true);
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', true);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp('puffy', true);
+  });
+
+  it('creates non-micro, non-puffy buttons by default', () => {
+    const root = shallowRender({
+      onDismiss: sinon.stub(),
+      onDelete: sinon.stub(),
+    });
 
     expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', false);
     expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', false);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
+      'micro',
+      false,
+    );
+
+    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', false);
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', false);
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
+      'puffy',
+      false,
+    );
+  });
+
+  it('cannot create conflicting button types', () => {
+    expect(() => {
+      shallowRender({ puffyButtons: true, microButtons: true });
+    }).toThrow(/microButtons and puffyButtons cannot both be true/);
   });
 
   it('disables the delete button when there is no text', () => {
@@ -303,5 +355,28 @@ describe(__filename, () => {
 
     sinon.assert.called(event.preventDefault);
     sinon.assert.called(onDelete);
+  });
+
+  it('can hide the cancel/dismiss button', () => {
+    const root = shallowRender({ onDismiss: undefined });
+
+    expect(root.find('.DismissibleTextForm-dismiss')).toHaveLength(0);
+  });
+
+  it('hides a formFooter by default', () => {
+    const root = shallowRender();
+
+    expect(root.find('.DismissibleTextForm-formFooter')).toHaveLength(0);
+  });
+
+  it('renders a formFooter', () => {
+    const root = shallowRender({
+      formFooter: <div className="custom-formFooter" />,
+    });
+
+    expect(root.find('.DismissibleTextForm-formFooter')).toHaveLength(1);
+    expect(
+      root.find('.DismissibleTextForm-formFooter .custom-formFooter'),
+    ).toHaveLength(1);
   });
 });

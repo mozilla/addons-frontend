@@ -24,12 +24,15 @@ export type OnSubmitParams = {|
 
 type Props = {|
   className?: string,
+  dismissButtonText?: string,
+  formFooter?: React.Element<any>,
   onDelete?: null | (() => void),
-  onDismiss: () => void,
+  onDismiss?: () => void,
   onSubmit: (params: OnSubmitParams) => void,
   isSubmitting?: boolean,
   microButtons?: boolean,
   placeholder?: string,
+  puffyButtons?: boolean,
   submitButtonClassName?: string,
   submitButtonText?: string,
   submitButtonInProgressText?: string,
@@ -59,6 +62,8 @@ export class DismissibleTextFormBase extends React.Component<
 
   static defaultProps = {
     isSubmitting: false,
+    microButtons: false,
+    puffyButtons: false,
   };
 
   constructor(props: InternalProps) {
@@ -81,9 +86,11 @@ export class DismissibleTextFormBase extends React.Component<
   };
 
   onDismiss = (event: SyntheticEvent<any>) => {
+    const { onDismiss } = this.props;
     event.preventDefault();
+    invariant(onDismiss, 'onDismiss() is required');
 
-    this.props.onDismiss();
+    onDismiss();
   };
 
   onSubmit = (event: SyntheticEvent<any>) => {
@@ -99,11 +106,15 @@ export class DismissibleTextFormBase extends React.Component<
   render() {
     const {
       className,
+      dismissButtonText,
+      formFooter,
       i18n,
       isSubmitting,
       microButtons,
       onDelete,
+      onDismiss,
       placeholder,
+      puffyButtons,
       submitButtonClassName,
       submitButtonText,
       submitButtonInProgressText,
@@ -122,6 +133,11 @@ export class DismissibleTextFormBase extends React.Component<
         submitButtonInProgressText || i18n.gettext('Submitting'),
     };
 
+    invariant(
+      !(microButtons && puffyButtons),
+      'microButtons and puffyButtons cannot both be true; choose one',
+    );
+
     return (
       <form className={makeClassName('DismissibleTextForm-form', className)}>
         <Textarea
@@ -134,20 +150,28 @@ export class DismissibleTextFormBase extends React.Component<
           onChange={this.onTextChange}
           placeholder={text.placeholder}
         />
+        {formFooter && (
+          <div className="DismissibleTextForm-formFooter">{formFooter}</div>
+        )}
         <div className="DismissibleTextForm-buttons">
           {/*
             These buttons each have an href so that they become anchor tags.
             This prevents mobile taps from triggering their hover styles.
           */}
-          <Button
-            href="#cancel"
-            onClick={this.onDismiss}
-            className="DismissibleTextForm-dismiss"
-            disabled={isSubmitting}
-            type="cancel"
-          >
-            {i18n.gettext('Cancel')}
-          </Button>
+          {onDismiss && (
+            <Button
+              buttonType="neutral"
+              className="DismissibleTextForm-dismiss"
+              disabled={isSubmitting}
+              href="#cancel"
+              micro={microButtons}
+              onClick={this.onDismiss}
+              puffy={puffyButtons}
+              type="cancel"
+            >
+              {dismissButtonText || i18n.gettext('Cancel')}
+            </Button>
+          )}
           <span className="DismissibleTextForm-delete-submit-buttons">
             {onDelete && (
               <Button
@@ -157,6 +181,7 @@ export class DismissibleTextFormBase extends React.Component<
                 href="#delete"
                 onClick={this.onDelete}
                 micro={microButtons}
+                puffy={puffyButtons}
               >
                 {i18n.gettext('Delete')}
               </Button>
@@ -171,6 +196,7 @@ export class DismissibleTextFormBase extends React.Component<
               href="#submit"
               onClick={this.onSubmit}
               micro={microButtons}
+              puffy={puffyButtons}
             >
               {isSubmitting
                 ? text.submitButtonInProgressText

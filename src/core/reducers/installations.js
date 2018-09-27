@@ -20,16 +20,14 @@ export type InstalledAddon = {
   error?: string,
   guid: $PropertyType<AddonType, 'guid'>,
   needsRestart?: boolean,
-  // TODO: merge with core/constants.validInstallStates
-  // once that file supports Flow.
-  status?:
+  status:
     | 'DISABLED'
     | 'DISABLING'
-    | 'ENABLED'
-    | 'ENABLING'
     | 'DOWNLOADING'
     | 'ENABLED'
+    | 'ENABLING'
     | 'ERROR'
+    | 'INACTIVE'
     | 'INSTALLED'
     | 'INSTALLING'
     | 'UNINSTALLED'

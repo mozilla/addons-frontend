@@ -4,9 +4,9 @@ import url from 'url';
 import config from 'config';
 import { AllHtmlEntities } from 'html-entities';
 import invariant from 'invariant';
+import qhistory from 'qhistory';
+import { stringify, parse } from 'qs';
 
-import { loadAddons } from 'core/reducers/addons';
-import { fetchAddon } from 'core/api';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_OPENSEARCH,
@@ -102,12 +102,6 @@ export function sanitizeUserHTML(text) {
     'strong',
     'ul',
   ]);
-}
-
-export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
-  return fetchAddon({ slug: addonSlug, api: apiState }).then(({ entities }) =>
-    dispatch(loadAddons(entities)),
-  );
 }
 
 export function isAddonAuthor({ addon, userId }) {
@@ -275,7 +269,7 @@ export const isTheme = (addonType) => {
 };
 
 export const getAddonTypeFilter = (addonType, { _config = config } = {}) => {
-  if (!_config.get('enableStaticThemes') || !isTheme(addonType)) {
+  if (!_config.get('enableFeatureStaticThemes') || !isTheme(addonType)) {
     return addonType;
   }
 
@@ -303,4 +297,12 @@ export const normalizeFileNameId = (filename) => {
 
 export const getDisplayName = (component) => {
   return component.displayName || component.name || 'Component';
+};
+
+export const addQueryParamsToHistory = ({
+  history,
+  _parse = parse,
+  _stringify = stringify,
+}) => {
+  return qhistory(history, _stringify, _parse);
 };

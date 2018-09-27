@@ -20,6 +20,23 @@ import {
 
 describe(__filename, () => {
   describe('reducer', () => {
+    const _loadHomeAddons = ({
+      store,
+      collections = [],
+      featuredExtensions = createAddonsApiResult([fakeAddon]),
+      featuredThemes = createAddonsApiResult([fakeTheme]),
+      trendingExtensions = createAddonsApiResult([fakeAddon]),
+    }) => {
+      store.dispatch(
+        loadHomeAddons({
+          collections,
+          featuredExtensions,
+          featuredThemes,
+          trendingExtensions,
+        }),
+      );
+    };
+
     it('initializes properly', () => {
       const state = homeReducer(undefined, {});
       expect(state).toEqual(initialState);
@@ -33,17 +50,17 @@ describe(__filename, () => {
     it('loads the add-ons to display on homepage', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(
-        loadHomeAddons({
-          collections: [
-            createFakeCollectionAddonsListResponse({
-              addons: Array(10).fill(createFakeCollectionAddon()),
-            }),
-          ],
-          featuredExtensions: createAddonsApiResult([fakeAddon]),
-          featuredThemes: createAddonsApiResult([fakeTheme]),
-        }),
-      );
+      _loadHomeAddons({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: Array(10).fill(createFakeCollectionAddon()),
+          }),
+        ],
+        featuredExtensions: createAddonsApiResult([fakeAddon]),
+        featuredThemes: createAddonsApiResult([fakeTheme]),
+        trendingExtensions: createAddonsApiResult([fakeAddon]),
+      });
 
       const homeState = store.getState().home;
 
@@ -63,28 +80,29 @@ describe(__filename, () => {
       expect(homeState.featuredThemes).toEqual([
         createInternalAddon(fakeTheme),
       ]);
+      expect(homeState.trendingExtensions).toEqual([
+        createInternalAddon(fakeAddon),
+      ]);
     });
 
     it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(
-        loadHomeAddons({
-          collections: [
-            createFakeCollectionAddonsListResponse({
-              addons: Array(10).fill({
-                ...createFakeCollectionAddon({
-                  addon: {
-                    ...fakeAddon,
-                    type: ADDON_TYPE_THEME,
-                  },
-                }),
+      _loadHomeAddons({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: Array(10).fill({
+              ...createFakeCollectionAddon({
+                addon: {
+                  ...fakeAddon,
+                  type: ADDON_TYPE_THEME,
+                },
               }),
             }),
-          ],
-          featuredExtensions: createAddonsApiResult([fakeAddon]),
-        }),
-      );
+          }),
+        ],
+      });
 
       const homeState = store.getState().home;
 
@@ -104,13 +122,10 @@ describe(__filename, () => {
     it('loads a null for a missing collection', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(
-        loadHomeAddons({
-          collections: [null],
-          featuredExtensions: createAddonsApiResult([fakeAddon]),
-          featuredThemes: createAddonsApiResult([fakeTheme]),
-        }),
-      );
+      _loadHomeAddons({
+        store,
+        collections: [null],
+      });
 
       const homeState = store.getState().home;
 
@@ -121,17 +136,14 @@ describe(__filename, () => {
     it('returns null for an empty collection', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(
-        loadHomeAddons({
-          collections: [
-            createFakeCollectionAddonsListResponse({
-              addons: [],
-            }),
-          ],
-          featuredExtensions: createAddonsApiResult([fakeAddon]),
-          featuredThemes: createAddonsApiResult([fakeTheme]),
-        }),
-      );
+      _loadHomeAddons({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: [],
+          }),
+        ],
+      });
 
       const homeState = store.getState().home;
       expect(homeState.collections).toEqual([null]);
@@ -140,13 +152,11 @@ describe(__filename, () => {
     it('loads an empty array if featured themes is null', () => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(
-        loadHomeAddons({
-          collections: [],
-          featuredExtensions: createAddonsApiResult([fakeAddon]),
-          featuredThemes: null,
-        }),
-      );
+      _loadHomeAddons({
+        store,
+        collections: [],
+        featuredThemes: null,
+      });
 
       const homeState = store.getState().home;
       expect(homeState.featuredThemes).toEqual([]);

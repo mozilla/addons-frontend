@@ -6,20 +6,22 @@ import CollectionManager, {
   extractId,
 } from 'amo/components/CollectionManager';
 import {
+  beginCollectionModification,
   createCollection,
   createInternalCollection,
-  beginCollectionModification,
   finishCollectionModification,
+  finishEditingCollectionDetails,
   updateCollection,
 } from 'amo/reducers/collections';
-import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { decodeHtmlEntities } from 'core/utils';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
-  createFakeRouter,
+  createFakeHistory,
+  createFakeLocation,
   createStubErrorHandler,
   fakeI18n,
-  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -31,7 +33,7 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
-  let fakeRouter;
+  let fakeHistory;
   let store;
   const apiHost = config.get('apiHost');
   const signedInUserId = 123;
@@ -39,7 +41,7 @@ describe(__filename, () => {
   const lang = 'en-US';
 
   beforeEach(() => {
-    fakeRouter = createFakeRouter();
+    fakeHistory = createFakeHistory();
     store = dispatchClientMetadata().store;
     dispatchSignInActions({
       lang,
@@ -53,31 +55,33 @@ describe(__filename, () => {
     collection = createInternalCollection({
       detail: createFakeCollectionDetail(),
     }),
-    router = fakeRouter,
+    history = fakeHistory,
     ...customProps
   }) => {
     return {
       collection,
       creating: false,
       filters: {},
+      history,
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
-      router,
+      location: createFakeLocation(),
       store,
       ...customProps,
     };
   };
 
   const render = (customProps = {}) => {
-    const props = getProps(customProps);
+    const { history, ...props } = getProps(customProps);
+
     return shallowUntilTarget(
       <CollectionManager {...props} />,
       CollectionManagerBase,
+      { shallowOptions: createContextWithFakeRouter({ history }) },
     );
   };
 
-  const simulateCancel = (root) => {
-    root.find('.CollectionManager-cancel').simulate('click', createFakeEvent());
+  const simulateCancel = (root, event = createFakeEvent()) => {
+    root.find('.CollectionManager-cancel').simulate('click', event);
   };
 
   const simulateSubmit = (root) => {
@@ -121,7 +125,7 @@ describe(__filename, () => {
     const root = render({ collection: null, creating: false });
 
     expect(root.find('.CollectionManager-submit').children()).toHaveText(
-      'Save collection',
+      'Save changes',
     );
   });
 
@@ -319,8 +323,8 @@ describe(__filename, () => {
     const root = render({
       collection: null,
       creating: true,
-      router: createFakeRouter({
-        location: fakeRouterLocation({ query: { include_addon_id: id } }),
+      history: createFakeHistory({
+        location: createFakeLocation({ query: { include_addon_id: id } }),
       }),
     });
 
@@ -651,68 +655,25 @@ describe(__filename, () => {
     );
   });
 
-  it('resets form state on cancel', () => {
-    const collection = createInternalCollection({
-      detail: createFakeCollectionDetail(),
-    });
-    const root = render({ collection });
+  it('dispatches finishEditingCollectionDetails on cancel when editing', () => {
+    const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    typeInput({ root, name: 'name', text: 'New name' });
-    typeInput({ root, name: 'description', text: 'New description' });
+    const root = render({ editing: true });
 
-    simulateCancel(root);
+    const clickEvent = createFakeEvent();
+    simulateCancel(root, clickEvent);
 
-    const state = root.state();
-    expect(state.name).toEqual(collection.name);
-    expect(state.description).toEqual(collection.description);
+    sinon.assert.called(clickEvent.preventDefault);
+    sinon.assert.called(clickEvent.stopPropagation);
+    sinon.assert.calledWith(dispatchSpy, finishEditingCollectionDetails());
   });
 
-  it('clears any errors on cancel', () => {
-    const errorHandler = createStubErrorHandler();
-    const clearError = sinon.stub(errorHandler, 'clear');
-    const root = render({ errorHandler });
-
-    simulateCancel(root);
-
-    sinon.assert.called(clearError);
-  });
-
-  it('redirects to the detail view on cancel when editing', () => {
-    const clientApp = CLIENT_APP_FIREFOX;
-    const newLang = 'de';
-    const localStore = dispatchClientMetadata({ clientApp, lang: newLang })
-      .store;
-
-    const slug = 'my-collection';
-    const username = 'some-username';
-    const page = 1;
-    const sort = COLLECTION_SORT_NAME;
-    const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({
-        authorUsername: username,
-        slug,
-      }),
-    });
-    const root = render({
-      collection,
-      filters: { collectionSort: sort, page },
-      store: localStore,
-    });
-
-    simulateCancel(root);
-
-    sinon.assert.calledWith(fakeRouter.push, {
-      pathname: `/${newLang}/${clientApp}/collections/${username}/${slug}/`,
-      query: { collection_sort: sort, page },
-    });
-  });
-
-  it('calls router.goBack() on cancel when creating', () => {
+  it('calls history.goBack() on cancel when creating', () => {
     const root = render({ creating: true });
 
     simulateCancel(root);
 
-    sinon.assert.called(fakeRouter.goBack);
+    sinon.assert.called(fakeHistory.goBack);
   });
 
   it('populates form state when updating to a new collection', () => {

@@ -1,9 +1,6 @@
-@import '~normalize.css';
-@import '~photon-colors/photon-colors';
+@import '~normalize';
 @import '~core/css/inc/lib';
-@import '~core/css/inc/mixins';
-@import '~amo/css/inc/vars';
-@import '~ui/css/vars';
+@import '~amo/css/styles';
 
 html,
 body {
@@ -43,14 +40,14 @@ body {
 
   color: $body-font-color;
   font-size: $font-size-default;
-  line-height: 19px;
+  line-height: $default-line-height;
 }
 
 #react-view {
   height: 100%;
 }
 
-.amo {
+.App-amo {
   display: flex;
   flex-direction: column;
   min-height: 100%;

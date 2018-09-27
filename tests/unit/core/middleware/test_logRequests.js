@@ -10,11 +10,11 @@ describe(__filename, () => {
     const req = new MockExpressRequest();
     const res = new MockExpressResponse();
     const nextSpy = sinon.stub();
-    const logInfoStub = sinon.stub(log, 'info');
+    const logDebugStub = sinon.stub(log, 'debug');
 
     middleware(req, res, nextSpy);
 
-    sinon.assert.called(logInfoStub);
+    sinon.assert.called(logDebugStub);
     sinon.assert.calledOnce(nextSpy);
   });
 });

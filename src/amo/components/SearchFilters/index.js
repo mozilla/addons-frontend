@@ -3,7 +3,7 @@ import config from 'config';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import {
@@ -36,10 +36,10 @@ export class SearchFiltersBase extends React.Component {
     _config: PropTypes.object,
     clientApp: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
-    router: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
@@ -89,7 +89,7 @@ export class SearchFiltersBase extends React.Component {
   };
 
   doSearch({ newFilters }) {
-    const { clientApp, lang, pathname, router } = this.props;
+    const { clientApp, lang, history, pathname } = this.props;
 
     if (newFilters.page) {
       // Since it's now a new search, reset the page.
@@ -97,7 +97,7 @@ export class SearchFiltersBase extends React.Component {
       newFilters.page = 1;
     }
 
-    router.push({
+    history.push({
       pathname: `/${lang}/${clientApp}${pathname}`,
       query: convertFiltersToQueryParams(newFilters),
     });
@@ -148,10 +148,13 @@ export class SearchFiltersBase extends React.Component {
   render() {
     const { filters, i18n } = this.props;
 
+    const expandableCardName = 'SearchFilters';
+
     return (
       <ExpandableCard
-        className="SearchFilters"
+        className={expandableCardName}
         header={i18n.gettext('Filter results')}
+        id={expandableCardName}
       >
         <form autoComplete="off">
           <label className="SearchFilters-label" htmlFor="SearchFilters-Sort">
@@ -239,9 +242,11 @@ export function mapStateToProps(state) {
   };
 }
 
-export default compose(
+const SearchFilters = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ name: 'SearchFilters' }),
 )(SearchFiltersBase);
+
+export default SearchFilters;

@@ -1,10 +1,6 @@
 // Tracking categories.
 export const NAVIGATION_CATEGORY = 'Discovery Navigation';
 
-// Action types.
-export const GET_DISCO_RESULTS = 'GET_DISCO_RESULTS';
-export const LOAD_DISCO_RESULTS = 'LOAD_DISCO_RESULTS';
-
 // Keys for extensions and theme data in the discovery pane JSON blob.
 export const DISCO_DATA_THEME = 'theme';
 export const DISCO_DATA_EXTENSION = 'extension';

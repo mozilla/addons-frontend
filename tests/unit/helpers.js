@@ -1,22 +1,23 @@
 /* global Response */
 import url from 'url';
 
+import PropTypes from 'prop-types';
 import base64url from 'base64url';
 import config, { util as configUtil } from 'config';
 import invariant from 'invariant';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
-import * as React from 'react';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 
 import { getDjangoBase62 } from 'amo/utils';
 import * as coreApi from 'core/api';
+import { getAddonStatus } from 'core/addonManager';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
-import { initialApiState } from 'core/reducers/api';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
+import { selectUIState } from 'core/reducers/uiState';
 import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
@@ -62,6 +63,7 @@ const enabledExtension = Promise.resolve({
 
 export function getFakeAddonManagerWrapper({
   getAddon = enabledExtension,
+  hasAddonManager = true,
   permissionPromptsEnabled = true,
   ...overrides
 } = {}) {
@@ -69,9 +71,11 @@ export function getFakeAddonManagerWrapper({
     addChangeListeners: sinon.stub(),
     enable: sinon.stub().returns(Promise.resolve()),
     getAddon: sinon.stub().returns(getAddon),
+    getAddonStatus,
+    hasAddonManager: sinon.stub().returns(hasAddonManager),
+    hasPermissionPromptsEnabled: sinon.stub().returns(permissionPromptsEnabled),
     install: sinon.stub().returns(Promise.resolve()),
     uninstall: sinon.stub().returns(Promise.resolve()),
-    hasPermissionPromptsEnabled: sinon.stub().returns(permissionPromptsEnabled),
     ...overrides,
   };
 }
@@ -109,30 +113,6 @@ export function JedSpy(data = {}) {
 export function fakeI18n({ lang = config.get('defaultLang') } = {}) {
   return makeI18n({}, lang, JedSpy);
 }
-
-export class MockedSubComponent extends React.Component {
-  render() {
-    return <div />;
-  }
-}
-
-export function assertHasClass(el, className) {
-  expect(el.classList.contains(className)).toBeTruthy();
-}
-
-export function assertNotHasClass(el, className) {
-  expect(el.classList.contains(className)).toBeFalsy();
-}
-
-const { browser, os } = sampleUserAgentParsed;
-export const signedInApiState = Object.freeze({
-  ...initialApiState,
-  lang: 'en-US',
-  token: 'secret-token',
-  userAgent: sampleUserAgent,
-  userAgentInfo: { browser, os },
-  userId: 102345,
-});
 
 export const userAgentsByPlatform = {
   android: {
@@ -172,6 +152,8 @@ export const userAgentsByPlatform = {
       rv:33.0) Gecko/20100101 Firefox/33.0`,
     firefox57: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
       Gecko/20100101 Firefox/57.1`,
+    firefox61: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:61.0)
+      Gecko/20100101 Firefox/61.0`,
   },
   unix: {
     firefox51: oneLine`Mozilla/51.0.2 (X11; Unix x86_64; rv:29.0)
@@ -242,6 +224,7 @@ export function apiResponsePage({
   previous,
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
   results = [],
+  ...customResponseParams
 } = {}) {
   return {
     count: typeof count !== 'undefined' ? count : results.length,
@@ -249,6 +232,7 @@ export function apiResponsePage({
     page_size: pageSize,
     previous,
     results,
+    ...customResponseParams,
   };
 }
 
@@ -458,9 +442,12 @@ export function createFakeUserAbuseReport({
 // if (fakeConfig.get('isDevelopment')) {
 //   ...
 // }
-export const getFakeConfig = (params = {}) => {
+export const getFakeConfig = (
+  params = {},
+  { allowUnknownKeys = false } = {},
+) => {
   for (const key of Object.keys(params)) {
-    if (!config.has(key)) {
+    if (!config.has(key) && !allowUnknownKeys) {
       // This will help alert us when a test accidentally relies
       // on an invalid config key.
       throw new Error(
@@ -483,7 +470,10 @@ export const urlWithTheseParams = (params) => {
     const { query } = url.parse(urlString, true);
 
     for (const param in params) {
-      if (!query[param] || query[param] !== params[param].toString()) {
+      if (
+        query[param] === undefined ||
+        query[param] !== params[param].toString()
+      ) {
         return false;
       }
     }
@@ -495,9 +485,9 @@ export const urlWithTheseParams = (params) => {
 /*
  * Returns a fake ReactRouter location object.
  *
- * See ReactRouterLocation in 'core/types/router';
+ * See ReactRouterLocationType in 'core/types/router';
  */
-export const fakeRouterLocation = (props = {}) => {
+export const createFakeLocation = (props = {}) => {
   return {
     action: 'PUSH',
     hash: '',
@@ -510,19 +500,39 @@ export const fakeRouterLocation = (props = {}) => {
 };
 
 /*
- * Returns a fake ReactRouter object.
+ * Returns a fake ReactRouter history object.
  *
- * See ReactRouterType in 'core/types/router';
+ * See ReactRouterHistoryType in 'core/types/router';
  */
-export const createFakeRouter = ({
-  location = fakeRouterLocation(),
-  params = {},
-} = {}) => {
+export const createFakeHistory = ({ location = createFakeLocation() } = {}) => {
   return {
     location,
-    params,
-    push: sinon.spy(),
     goBack: sinon.spy(),
+    listen: sinon.spy(),
+    push: sinon.spy(),
+  };
+};
+
+export const createContextWithFakeRouter = ({
+  history = createFakeHistory(),
+  location = history.location,
+  match = {},
+  ...overrides
+} = {}) => {
+  return {
+    context: {
+      router: {
+        history,
+        route: {
+          location,
+          match,
+        },
+      },
+    },
+    childContextTypes: {
+      router: PropTypes.object.isRequired,
+    },
+    ...overrides,
   };
 };
 
@@ -624,20 +634,32 @@ export const createUserNotificationsResponse = () => {
  * propagate to all HOCs.
  */
 export function applyUIStateChanges({ root, store }) {
-  const ownProps = root.instance().props;
+  const rootProps = root.instance().props;
+  const { uiStateID } = rootProps;
   invariant(
-    ownProps.uiStateID,
+    uiStateID,
     'uiStateID cannot be undefined; was the component wrapped in withUIState()?',
   );
 
+  const state = store.getState();
+
+  if (selectUIState({ uiState: state.uiState, uiStateID }) === undefined) {
+    throw new Error(
+      'Cannot apply UI state changes because the component has not dispatched any setUIState() actions yet',
+    );
+  }
+
   const mapStateToProps = createUIStateMapper({
-    uiStateID: ownProps.uiStateID,
+    // This value is never used. The state is always selected from the
+    // Redux store.
+    initialState: {},
+    uiStateID,
   });
-  const stateProps = mapStateToProps(store.getState(), ownProps);
+  const stateProps = mapStateToProps(state, rootProps);
   const mappedProps = mergeUIStateProps(
     stateProps,
     { dispatch: store.dispatch },
-    ownProps,
+    rootProps,
   );
 
   root.setProps(mappedProps);
@@ -660,5 +682,63 @@ export const createFakeTracking = (overrides = {}) => {
     sendEvent: sinon.stub(),
     setDimension: sinon.stub(),
     ...overrides,
+  };
+};
+
+// Save a reference to the real setTimeout in case a test uses a mock
+// sinon clock.
+const globalSetTimeout = setTimeout;
+
+/*
+ * Wait until the saga dispatches an action causing isMatch(action)
+ * to return true, and return that action.
+ * Throw an error if the action is not dispatched.
+ *
+ * This is helpful for when a saga dispatches the same action
+ * but with differing payloads.
+ *
+ * For most cases you can probably just use sagaTester.waitFor() instead.
+ */
+export async function matchingSagaAction(
+  sagaTester,
+  isMatch,
+  { maxTries = 50 } = {},
+) {
+  let calledActions = [];
+  let foundAction;
+
+  for (let attempt = 0; attempt < maxTries; attempt++) {
+    calledActions = sagaTester.getCalledActions();
+    foundAction = calledActions.find(isMatch);
+    if (foundAction !== undefined) {
+      break;
+    }
+
+    // Yield a tick to the saga.
+    await new Promise((resolve) => globalSetTimeout(resolve, 1));
+  }
+
+  if (!foundAction) {
+    throw new Error(
+      `
+      The matcher function did not return true:
+
+      ${isMatch}
+
+      The saga called these action types: ${calledActions
+        .map((action) => action.type)
+        .join(', ') || '(none at all)'}`,
+    );
+  }
+  return foundAction;
+}
+
+export const getFakeLogger = (params = {}) => {
+  return {
+    debug: sinon.stub(),
+    error: sinon.stub(),
+    info: sinon.stub(),
+    warn: sinon.stub(),
+    ...params,
   };
 };

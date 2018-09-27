@@ -29,6 +29,12 @@ type AddonFileType = {|
 
 type PartialAddonVersionType = {|
   channel: string,
+  compatibility?: {
+    [appName: string]: {|
+      min: string,
+      max: string,
+    |},
+  },
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,
@@ -158,7 +164,6 @@ export type AddonType = {|
   ...ExternalAddonType,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
-  iconUrl?: string,
   platformFiles: {|
     // This seems necessary to help Flow know that computed
     // keys always return an AddonFileType.

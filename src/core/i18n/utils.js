@@ -5,6 +5,7 @@ import Jed from 'jed';
 import moment from 'moment';
 
 import log from 'core/logger';
+import { RTL, LTR } from 'core/constants';
 
 const defaultLang = config.get('defaultLang');
 const langs = config.get('langs');
@@ -108,13 +109,14 @@ export function isRtlLang(lang: string) {
 }
 
 export function getDirection(lang: string) {
-  return isRtlLang(lang) ? 'rtl' : 'ltr';
+  return isRtlLang(lang) ? RTL : LTR;
 }
 
 function qualityCmp(a, b) {
   if (a.quality === b.quality) {
     return 0;
-  } else if (a.quality < b.quality) {
+  }
+  if (a.quality < b.quality) {
     return 1;
   }
   return -1;

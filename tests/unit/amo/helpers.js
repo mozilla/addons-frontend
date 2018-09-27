@@ -28,7 +28,6 @@ import {
   createUserAccountResponse,
   randomId,
   sampleUserAgent,
-  signedInApiState as coreSignedInApiState,
   userAuthToken,
 } from 'tests/unit/helpers';
 
@@ -171,11 +170,13 @@ export const fakeReview = Object.freeze({
   id: 8876,
   // The API only provides a minimal add-on representation.
   addon: {
+    icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
     id: fakeAddon.id,
+    name: 'fake add-on name',
     slug: fakeAddon.slug,
   },
   created: '2017-01-09T21:49:14Z',
-  rating: 3,
+  score: 3,
   version: fakeAddon.current_version,
   user: {
     id: 1234,
@@ -183,8 +184,8 @@ export const fakeReview = Object.freeze({
     url: 'http://some.com/link/to/profile',
   },
   is_latest: false,
+  is_developer_reply: false,
   body: 'It is Okay',
-  title: 'Review Title',
 });
 
 export const fakeCategory = Object.freeze({
@@ -203,14 +204,6 @@ export const fakeRecommendations = Object.freeze({
   fallbackReason: 'timeout',
   loading: false,
   outcome: 'recommended_fallback',
-});
-
-/*
- * Redux store state for when a user has signed in.
- */
-export const signedInApiState = Object.freeze({
-  ...coreSignedInApiState,
-  clientApp: CLIENT_APP_FIREFOX,
 });
 
 export function dispatchClientMetadata({

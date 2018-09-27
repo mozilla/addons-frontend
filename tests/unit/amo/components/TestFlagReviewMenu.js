@@ -7,7 +7,7 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import {
-  denormalizeReview,
+  createInternalReview,
   setReviewWasFlagged,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
@@ -18,11 +18,7 @@ import FlagReviewMenu, {
 import { logOutUser } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
-import {
-  fakeI18n,
-  fakeRouterLocation,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 
@@ -36,8 +32,7 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
-      review: denormalizeReview(fakeReview),
+      review: createInternalReview(fakeReview),
       store,
       ...customProps,
     };
@@ -69,15 +64,13 @@ describe(__filename, () => {
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
-      const location = fakeRouterLocation();
-      const { menu } = renderMenu({ location });
+      const { menu } = renderMenu();
 
       // Only the button item should be rendered.
       expect(menu.find(ListItem)).toHaveLength(1);
 
       const authButton = menu.find(AuthenticateButton);
       expect(authButton).toHaveLength(1);
-      expect(authButton).toHaveProp('location', location);
     });
 
     it('prompts you to flag a review after login', () => {
@@ -103,7 +96,7 @@ describe(__filename, () => {
     });
 
     it('does not let you flag your own review', () => {
-      const review = denormalizeReview({ ...fakeReview });
+      const review = createInternalReview({ ...fakeReview });
       dispatchSignInActions({ store, userId: review.userId });
       const { menu } = renderMenu({ review });
 
@@ -113,7 +106,7 @@ describe(__filename, () => {
     });
 
     it('does not let you flag your own response', () => {
-      const review = denormalizeReview({ ...fakeReview });
+      const review = createInternalReview({ ...fakeReview });
       dispatchSignInActions({ store, userId: review.userId });
       const { menu } = renderMenu({ review, isDeveloperReply: true });
 
@@ -143,7 +136,7 @@ describe(__filename, () => {
     });
 
     it('configures FlagReview to flag as spam', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       const { menu } = renderMenu({ review });
 
       const flag = menu.find('.FlagReviewMenu-flag-spam-item').find(FlagReview);
@@ -154,7 +147,7 @@ describe(__filename, () => {
     });
 
     it('configures FlagReview to flag for language', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       const { menu } = renderMenu({ review });
 
       const flag = menu
@@ -167,7 +160,7 @@ describe(__filename, () => {
     });
 
     it('configures FlagReview to flag as bug/support', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       const { menu } = renderMenu({ review });
 
       const flag = menu
@@ -188,7 +181,7 @@ describe(__filename, () => {
     });
 
     it('changes prompt after review has been flagged', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       store.dispatch(
         setReviewWasFlagged({
           reason: REVIEW_FLAG_REASON_SPAM,
@@ -202,7 +195,7 @@ describe(__filename, () => {
     });
 
     it('does not change Flag prompt for other view state changes', () => {
-      const review = denormalizeReview(fakeReview);
+      const review = createInternalReview(fakeReview);
       // This initializes the flag view state which was triggering a bug.
       store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
 

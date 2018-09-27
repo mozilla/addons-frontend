@@ -1,0 +1,173 @@
+@import '~amo/css/styles';
+
+.Home {
+  @include page-padding();
+}
+
+.Home-FeaturedThemes {
+  .Card-contents {
+    .AddonsCard-list {
+      grid-template-columns: repeat(3, 33%);
+    }
+  }
+}
+
+.Home-SubjectShelf {
+  .Card-header {
+    display: block;
+
+    @include respond-to(extraLarge) {
+      display: none;
+    }
+  }
+
+  .Card-contents {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    overflow: auto;
+    width: 100%;
+
+    @include respond-to(extraLarge) {
+      border-top-left-radius: $border-radius-default;
+      border-top-right-radius: $border-radius-default;
+      flex-wrap: nowrap;
+      padding: 24px 36px;
+    }
+  }
+}
+
+.Home-SubjectShelf-text-wrapper {
+  align-self: center;
+  display: none;
+  height: auto;
+
+  @include respond-to(extraLarge) {
+    align-self: center;
+    display: block;
+    max-width: 130px;
+  }
+
+  @include respond-to(extraLarge) {
+    max-width: 250px;
+  }
+}
+
+.Home-SubjectShelf-subheading {
+  font-size: $font-size-m-smaller;
+  margin: 0;
+}
+
+.Home-SubjectShelf-list {
+  align-self: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0;
+  width: 100%;
+
+  @include respond-to(medium) {
+    flex-flow: row wrap;
+  }
+
+  @include respond-to(large) {
+    align-self: auto;
+    flex-wrap: nowrap;
+  }
+}
+
+.Home-SubjectShelf-list-item {
+  flex-grow: 1;
+  list-style-type: none;
+  text-align: center;
+  width: 100%;
+
+  @include respond-to(medium) {
+    margin: 12px 0;
+    width: 40%;
+  }
+
+  @include respond-to(large) {
+    margin: 0;
+  }
+}
+
+.Home-SubjectShelf-link {
+  align-items: center;
+  display: flex;
+  font-size: $font-size-m-smaller;
+  text-decoration: none;
+
+  @include respond-to(large) {
+    display: block;
+  }
+
+  &:link,
+  &:visited {
+    color: $black;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $link-color;
+    text-decoration: underline;
+  }
+}
+
+.Home-SubjectShelf-list-item .Icon {
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 64px;
+  border-radius: $border-radius-default;
+  content: '';
+  display: block;
+  height: 64px;
+  margin-bottom: 5px;
+  transform: scale(0.8);
+  width: 35%;
+
+  @include respond-to(medium) {
+    transform: initial;
+  }
+
+  @include respond-to(large) {
+    background-position: center;
+    width: 100%;
+  }
+
+  [dir='rtl'] & {
+    background-position: right;
+
+    @include respond-to(large) {
+      background-position: center;
+    }
+  }
+}
+
+.Icon-Home-SubjectShelf-ad-blockers {
+  background-image: url('./img/ad-blockers.svg');
+}
+
+.Icon-Home-SubjectShelf-password-managers {
+  background-image: url('./img/password-managers.svg');
+}
+
+.Icon-Home-SubjectShelf-bookmark-managers {
+  background-image: url('./img/bookmark-managers.svg');
+}
+
+.Icon-Home-SubjectShelf-watching-videos {
+  background-image: url('./img/watching-videos.svg');
+}
+
+.Icon-Home-SubjectShelf-smarter-shopping {
+  background-image: url('./img/smarter-shopping.svg');
+}
+
+.Icon-Home-SubjectShelf-be-more-productive {
+  background-image: url('./img/be-more-productive.svg');
+}

@@ -1,7 +1,6 @@
 /* @flow */
 import * as React from 'react';
 
-import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionSort from 'amo/components/CollectionSort';
 import Card from 'ui/components/Card';
 import type {
@@ -23,9 +22,6 @@ export default class CollectionControls extends React.Component<Props> {
 
     return (
       <Card className="CollectionControls">
-        {editing && (
-          <CollectionAddAddon collection={collection} filters={filters} />
-        )}
         <CollectionSort
           collection={collection}
           editing={editing}

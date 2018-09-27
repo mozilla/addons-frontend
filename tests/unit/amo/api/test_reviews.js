@@ -3,8 +3,10 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import {
+  deleteReview,
   flagReview,
   getLatestUserReview,
+  getReview,
   getReviews,
   replyToReview,
   submitReview,
@@ -19,11 +21,11 @@ import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   let mockApi;
-  let signedInApiState;
+  let apiState;
 
   beforeEach(() => {
     mockApi = sinon.mock(api);
-    signedInApiState = dispatchSignInActions().state.api;
+    apiState = dispatchSignInActions().state.api;
   });
 
   const getReviewsResponse = ({ reviews = [{ ...fakeReview }] } = {}) => {
@@ -36,12 +38,11 @@ describe(__filename, () => {
     const defaultParams = {
       addon: undefined,
       body: undefined,
-      rating: undefined,
-      title: undefined,
+      score: undefined,
       version: undefined,
     };
     const baseParams = {
-      apiState: signedInApiState,
+      apiState,
     };
     const submitReviewResponse = (review = { ...fakeReview }) => {
       return review;
@@ -63,7 +64,7 @@ describe(__filename, () => {
     it('posts a new add-on review', async () => {
       const params = {
         ...baseParams,
-        rating: 5,
+        score: 5,
         addonId: 445,
         versionId: 321,
         errorHandler: sinon.stub(),
@@ -73,11 +74,11 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           body: {
             ...defaultParams,
             addon: params.addonId,
-            rating: params.rating,
+            score: params.score,
             version: params.versionId,
           },
           method: 'POST',
@@ -103,7 +104,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${params.reviewId}`,
+          endpoint: `ratings/rating/${params.reviewId}`,
           body: {
             ...defaultParams,
             body: params.body,
@@ -130,7 +131,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${params.reviewId}`,
+          endpoint: `ratings/rating/${params.reviewId}`,
           body: {
             // Make sure that version is not passed in.
             ...defaultParams,
@@ -160,7 +161,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           params,
           apiState: undefined,
         })
@@ -177,15 +178,15 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           params,
-          apiState: signedInApiState,
+          apiState,
         })
         .returns(Promise.resolve(getReviewsResponse()));
 
       await getReviews({
         ...params,
-        apiState: signedInApiState,
+        apiState,
       });
       mockApi.verify();
     });
@@ -207,7 +208,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'reviews/review',
+          endpoint: 'ratings/rating',
           // Make sure it filters with the correct params:
           params: {
             addon: params.addon,
@@ -303,22 +304,19 @@ describe(__filename, () => {
     };
 
     it('calls the API', async () => {
-      const apiState = { ...signedInApiState };
       const originalReview = { ...fakeReview, id: 321 };
       const fakeResponse = replyToReviewResponse();
 
       const body = 'this is a reply to the review';
-      const title = 'title for the reply';
       const errorHandler = createStubErrorHandler();
 
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `reviews/review/${originalReview.id}/reply/`,
+          endpoint: `ratings/rating/${originalReview.id}/reply/`,
           errorHandler,
           body: {
             body,
-            title,
           },
           method: 'POST',
           auth: true,
@@ -331,7 +329,6 @@ describe(__filename, () => {
         body,
         errorHandler,
         originalReviewId: originalReview.id,
-        title,
       });
       mockApi.verify();
     });
@@ -340,7 +337,7 @@ describe(__filename, () => {
   describe('flagReview', () => {
     const defaultParams = () => {
       return {
-        apiState: { ...signedInApiState },
+        apiState,
         reason: REVIEW_FLAG_REASON_SPAM,
         reviewId: fakeReview.id,
       };
@@ -356,7 +353,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/flag`,
+          endpoint: `ratings/rating/${params.reviewId}/flag`,
           errorHandler: params.errorHandler,
           body: {
             flag: params.reason,
@@ -405,6 +402,54 @@ describe(__filename, () => {
       await flagReview(params).then(unexpectedSuccess, (error) => {
         expect(error.message).toMatch(/note parameter is required/);
       });
+    });
+  });
+
+  describe('deleteReview', () => {
+    it('calls the API', async () => {
+      const params = {
+        apiState,
+        errorHandler: createStubErrorHandler(),
+        reviewId: fakeReview.id,
+      };
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `ratings/rating/${params.reviewId}/`,
+          errorHandler: params.errorHandler,
+          method: 'DELETE',
+          apiState: params.apiState,
+        })
+        .returns(Promise.resolve());
+
+      await deleteReview(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('getReview', () => {
+    it('calls the API', async () => {
+      const params = {
+        apiState,
+        reviewId: fakeReview.id,
+      };
+      const fakeResponse = getReviewsResponse({ reviews: [fakeReview] });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `ratings/rating/${params.reviewId}/`,
+          method: 'GET',
+          apiState: params.apiState,
+        })
+        .resolves(fakeResponse);
+
+      const response = await getReview(params);
+      mockApi.verify();
+      expect(response).toEqual(fakeResponse);
     });
   });
 });

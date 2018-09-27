@@ -18,11 +18,9 @@ import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { UserType } from 'amo/reducers/users';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { ReactRouterLocation } from 'core/types/router';
 
 type Props = {|
   isDeveloperReply?: boolean,
-  location: ReactRouterLocation,
   openerClass?: string,
   review: UserReviewType,
 |};
@@ -43,7 +41,6 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
     const {
       i18n,
       isDeveloperReply,
-      location,
       openerClass,
       review,
       siteUser,
@@ -56,7 +53,6 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
         <ListItem key="login-required">
           <AuthenticateButton
             noIcon
-            location={location}
             logInText={
               isDeveloperReply
                 ? i18n.gettext('Log in to flag this response')

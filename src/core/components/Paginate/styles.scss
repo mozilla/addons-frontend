@@ -1,7 +1,4 @@
-@import '~photon-colors/photon-colors';
-
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import '~core/css/styles';
 
 .Paginate {
   padding: $padding-page;
@@ -51,7 +48,6 @@
 
 .Paginate .Button.Paginate-item--current-page {
   color: $black;
-  margin-top: 2px;
   opacity: 1;
 }
 

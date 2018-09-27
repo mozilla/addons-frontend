@@ -1,6 +1,4 @@
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import '~amo/css/styles';
 
 .AddonsCard--horizontal {
   @include respond-to(large) {

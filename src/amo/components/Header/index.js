@@ -81,6 +81,7 @@ export class HeaderBase extends React.Component {
             href="/developers/"
             external
             prependClientApp={false}
+            target="_blank"
           >
             {i18n.gettext('Developer Hub')}
           </Link>
@@ -163,7 +164,6 @@ export class HeaderBase extends React.Component {
           ) : (
             <AuthenticateButton
               className="Header-authenticate-button Header-button"
-              location={location}
               noIcon
             />
           )}

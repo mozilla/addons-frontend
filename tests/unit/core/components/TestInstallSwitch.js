@@ -1,3 +1,4 @@
+/* eslint react/no-find-dom-node: 0 */
 import * as React from 'react';
 import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
@@ -224,7 +225,7 @@ describe(__filename, () => {
 
     Simulate.click(root);
 
-    sinon.assert.calledWith(uninstall, { guid, installURL, name, type });
+    sinon.assert.calledWith(uninstall, { guid, name, type });
   });
 
   it('returns early when button is clicked on disabled switch', () => {

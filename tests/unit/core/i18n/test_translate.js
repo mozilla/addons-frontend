@@ -11,6 +11,7 @@ class OuterComponent extends React.Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
   };
+
   render() {
     const { children } = this.props;
     return <div>{children}</div>;
@@ -21,6 +22,7 @@ class InnerComponent extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
   };
+
   render() {
     const { i18n } = this.props;
     return <div>{i18n.gettext('hai')}</div>;

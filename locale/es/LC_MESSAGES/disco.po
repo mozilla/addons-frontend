@@ -1,11 +1,11 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2018-07-24 18:34+0000\n"
-"Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
+"PO-Revision-Date: 2018-09-11 17:33+0000\n"
+"Last-Translator: RickieES <rpmdisguise-nave@yahoo.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -14,15 +14,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Enable"
+msgstr "Activar"
+
+#: src/core/components/AMInstallButton/index.js:209
+msgid "Remove"
+msgstr "Eliminar"
+
+#: src/core/components/AMInstallButton/index.js:211
+msgid "Enabling"
+msgstr "Activando"
+
+#: src/core/components/AMInstallButton/index.js:213
+msgid "Downloading"
+msgstr "Descargando"
+
+#: src/core/components/AMInstallButton/index.js:215
+msgid "Installing"
+msgstr "Instalando"
+
+#: src/core/components/AMInstallButton/index.js:217
+msgid "Uninstalling"
+msgstr "Desinstalando"
+
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
+msgid "Install Theme"
+msgstr "Instalar tema"
+
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
+msgid "Add to Firefox"
+msgstr "Agregar a Firefox"
+
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Error del servidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Lo sentimos, pero ha habido un error y no hemos podido completar tu petición. Hemos registrado este error y vamos a investigarlo."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Lo sentimos, pero ha habido un error y no hemos podido completar tu "
+"petición. Hemos registrado este error y vamos a investigarlo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Código de error: %(status)s."
 
@@ -32,27 +73,21 @@ msgstr "Página no encontrada"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
+msgstr ""
+"Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Tu complemento está listo"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Ya puedes acceder a %(name)s desde la barra de herramientas."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
+#: src/core/components/InfoDialog/index.js:88
+#, fuzzy
+msgid "OK"
 msgstr "¡Vale!"
-
-#: src/core/components/InstallButton/index.js:259 src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Instalar tema"
-
-#: src/core/components/InstallButton/index.js:290 src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Agregar a Firefox"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -82,80 +117,75 @@ msgstr "%(name)s se ha desinstalado. Haz clic para instalar."
 msgid "Install state for %(name)s is unknown."
 msgstr "Se desconoce el estado de la instalación de %(name)s."
 
-#: src/disco/components/Addon/index.js:136
-msgid "Preview of %(name)s"
-msgstr "Vista previa de %(name)s"
-
-#: src/disco/components/Addon/index.js:174
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "Falló la instalación. Vuelve a intentarlo, por favor."
 
-#: src/disco/components/Addon/index.js:176
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "Falló la descarga. Comprueba tu conexión, por favor."
 
-#: src/disco/components/Addon/index.js:178
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Se ha producido un error inesperado durante la instalación."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Se ha producido un error inesperado durante la desinstalación."
 
-#: src/disco/components/Addon/index.js:187
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Se ha producido un error inesperado."
 
-#: src/disco/components/Addon/index.js:195
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "El complemento se desinstalará tras reiniciar Firefox."
-
-#: src/disco/components/Addon/index.js:199
-msgid "Please restart Firefox to use this add-on."
-msgstr "Por favor, reinicia Firefox para usar este complemento."
-
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Cerrar"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox para iOS no es compatible actualmente con complementos."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr "Este complemento no es compatible con tu versión de Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "Este complemento no es compatible con tu navegador."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Descubrir complementos"
-
-#: src/disco/components/DiscoPane/index.js:104
-msgid "Personalize Your Firefox"
-msgstr "Personaliza tu Firefox"
-
-#: src/disco/components/DiscoPane/index.js:106
-msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr ""
-"Hay miles de complementos gratis, creados por desarrolladores de todo el mundo\n"
-"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a herramientas \n"
-"y funciones alucinantes para que navegues más rápido y seguro. Los complementos te\n"
-"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos por su\n"
-"rendimiento y funcionalidad."
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "¡Ver más complementos!"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
 msgstr "Aviso de privacidad"
+
+#: src/disco/pages/DiscoPane/index.js:136
+msgid "Find more add-ons"
+msgstr "Encontrar más complementos"
+
+#: src/disco/pages/DiscoPane/index.js:152
+msgid "Personalize Your Firefox"
+msgstr "Personaliza tu Firefox"
+
+#: src/disco/pages/DiscoPane/index.js:154
+msgid ""
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"Hay miles de complementos gratis, creados por desarrolladores de todo el "
+"mundo\n"
+"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a "
+"herramientas \n"
+"y funciones alucinantes para que navegues más rápido y seguro. Los "
+"complementos te\n"
+"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos "
+"por su\n"
+"rendimiento y funcionalidad."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -169,9 +199,25 @@ msgstr "Se ha producido un error inesperado"
 msgid "Reload To Continue"
 msgstr "Recarga la página para continuar"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Ocultar este aviso"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "Vista previa de %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "El complemento se desinstalará tras reiniciar Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Por favor, reinicia Firefox para usar este complemento."
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Tu complemento está listo"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Ya puedes acceder a %(name)s desde la barra de herramientas."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr "Pasa por encima para verla o haz clic para instalar %(name)s"

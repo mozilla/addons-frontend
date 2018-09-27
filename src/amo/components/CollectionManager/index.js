@@ -3,13 +3,13 @@ import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import config from 'config';
 
 import {
-  convertFiltersToQueryParams,
   createCollection,
+  finishEditingCollectionDetails,
   updateCollection,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
@@ -27,7 +27,10 @@ import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  ReactRouterLocationType,
+} from 'core/types/router';
 
 import './styles.scss';
 
@@ -43,9 +46,10 @@ type InternalProps = {|
   currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isCollectionBeingModified: boolean,
-  router: ReactRouterType,
+  location: ReactRouterLocationType,
   siteLang: ?string,
 |};
 
@@ -75,47 +79,28 @@ export class CollectionManagerBase extends React.Component<
     }
   }
 
-  onCancel = (event: SyntheticEvent<any>) => {
-    const {
-      clientApp,
-      collection,
-      creating,
-      errorHandler,
-      filters,
-      router,
-      siteLang,
-    } = this.props;
+  onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
+    const { creating, dispatch, history } = this.props;
+
+    if (creating) {
+      history.goBack();
+    }
+
     event.preventDefault();
     event.stopPropagation();
 
-    if (creating) {
-      router.goBack();
-    }
-
-    invariant(collection, 'A collection must be loaded before you can cancel');
-    invariant(clientApp, 'A clientApp must be loaded before you can cancel');
-    invariant(siteLang, 'A siteLang must be loaded before you can cancel');
-
-    // Reset form state to the original collection object.
-    this.setState(this.propsToState(this.props));
-    errorHandler.clear();
-
-    const { authorUsername, slug } = collection;
-    router.push({
-      pathname: `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`,
-      query: convertFiltersToQueryParams(filters),
-    });
+    dispatch(finishEditingCollectionDetails());
   };
 
   onSubmit = (event: SyntheticEvent<any>) => {
     const {
-      creating,
       collection,
+      creating,
       currentUsername,
       dispatch,
       errorHandler,
       filters,
-      router,
+      location,
       siteLang,
     } = this.props;
     event.preventDefault();
@@ -142,7 +127,9 @@ export class CollectionManagerBase extends React.Component<
         createCollection({
           ...payload,
           defaultLocale: siteLang,
-          includeAddonId: router.location.query.include_addon_id,
+          // query parameter values are string, not number.
+          // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
+          includeAddonId: location.query.include_addon_id,
           username: currentUsername,
         }),
       );
@@ -236,7 +223,7 @@ export class CollectionManagerBase extends React.Component<
       formIsDisabled || formIsUnchanged || isNameBlank || isSlugBlank;
     const buttonText = creating
       ? i18n.gettext('Create collection')
-      : i18n.gettext('Save collection');
+      : i18n.gettext('Save changes');
 
     return (
       <form className="CollectionManager" onSubmit={this.onSubmit}>
@@ -284,7 +271,8 @@ export class CollectionManagerBase extends React.Component<
               trailing slash character (in the URL) from getting
               reversed when using direction: rtl.
             */}
-            {collectionUrlPrefix}&lrm;
+            {collectionUrlPrefix}
+            &lrm;
           </div>
           <input
             onChange={this.onTextInput}

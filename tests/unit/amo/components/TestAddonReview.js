@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
-import { SET_REVIEW } from 'amo/constants';
-import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
+import { setInternalReview, setReview } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
-import * as coreUtils from 'core/utils';
+import * as coreApi from 'core/api';
+import { loadAddons } from 'core/reducers/addons';
 import AddonReview, {
   mapDispatchToProps,
   mapStateToProps,
@@ -14,25 +14,29 @@ import AddonReview, {
 } from 'amo/components/AddonReview';
 import {
   dispatchClientMetadata,
+  dispatchSignInActions,
   fakeAddon,
   fakeReview,
-  signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
   shallowUntilTarget,
+  unexpectedSuccess,
 } from 'tests/unit/helpers';
 import OverlayCard from 'ui/components/OverlayCard';
 import UserRating from 'ui/components/UserRating';
 
 const defaultReview = {
-  addonId: fakeAddon.id,
-  addonSlug: fakeAddon.slug,
+  reviewAddon: {
+    id: fakeAddon.id,
+    slug: fakeAddon.slug,
+  },
   body: undefined,
   id: 3321,
-  rating: 5,
+  score: 5,
 };
 
 function fakeLocalState(overrides = {}) {
@@ -111,7 +115,7 @@ describe(__filename, () => {
 
         sinon.assert.calledWith(
           fakeDispatch,
-          setDenormalizedReview({
+          setInternalReview({
             ...defaultReview,
             body: 'some review',
           }),
@@ -120,9 +124,9 @@ describe(__filename, () => {
         sinon.assert.called(updateReviewText);
         const params = updateReviewText.firstCall.args[0];
         expect(params.body).toEqual('some review');
-        expect(params.addonId).toEqual(defaultReview.addonId);
+        expect(params.addonId).toEqual(defaultReview.reviewAddon.id);
         expect(params.errorHandler).toEqual(errorHandler);
-        expect(params.rating).toEqual(defaultReview.rating);
+        expect(params.score).toEqual(defaultReview.score);
         expect(params.reviewId).toEqual(defaultReview.id);
 
         const apiState = store.getState().api;
@@ -133,7 +137,7 @@ describe(__filename, () => {
 
         sinon.assert.called(refreshAddon);
         expect(refreshAddon.firstCall.args[0]).toEqual({
-          addonSlug: defaultReview.addonSlug,
+          addonSlug: defaultReview.reviewAddon.slug,
           apiState,
         });
 
@@ -142,11 +146,9 @@ describe(__filename, () => {
   });
 
   it('focuses the review text on mount', () => {
-    const root = mountRender();
+    mountRender();
     // This checks that reviewTextarea.focus() was called.
-    expect(
-      root.find('.AddonReview-textarea').matchesElement(document.activeElement),
-    ).toEqual(true);
+    expect(document.activeElement.className).toEqual('AddonReview-textarea');
   });
 
   it('it passes onEscapeOverlay to OverlayCard', () => {
@@ -163,7 +165,6 @@ describe(__filename, () => {
     root.setProps({
       review: {
         ...defaultReview,
-        title: 'New title',
         body: 'New body',
       },
     });
@@ -287,7 +288,7 @@ describe(__filename, () => {
   });
 
   it('prompts you appropriately when you are happy', () => {
-    const root = render({ review: { ...defaultReview, rating: 4 } });
+    const root = render({ review: { ...defaultReview, score: 4 } });
     expect(root.find('.AddonReview-prompt').html()).toMatch(
       /Tell the world why you think this extension is fantastic!/,
     );
@@ -297,7 +298,7 @@ describe(__filename, () => {
   });
 
   it('prompts you appropriately when you are unhappy', () => {
-    const root = render({ review: { ...defaultReview, rating: 3 } });
+    const root = render({ review: { ...defaultReview, score: 3 } });
     expect(root.find('.AddonReview-prompt').html()).toMatch(
       /Tell the world about this extension/,
     );
@@ -349,14 +350,14 @@ describe(__filename, () => {
 
     const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
-    const newRating = 1;
-    onSelectRating(newRating);
+    const newScore = 1;
+    onSelectRating(newScore);
 
     sinon.assert.calledWith(
       fakeDispatch,
-      setDenormalizedReview({
+      setInternalReview({
         ...review,
-        rating: newRating,
+        score: newScore,
       }),
     );
   });
@@ -376,35 +377,39 @@ describe(__filename, () => {
 
     const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
-    const newRating = 1;
-    onSelectRating(newRating);
+    const newScore = 1;
+    onSelectRating(newScore);
 
     sinon.assert.calledWith(
       fakeDispatch,
-      setDenormalizedReview({
+      setInternalReview({
         ...review,
         body: enteredReviewText,
-        rating: newRating,
+        score: newScore,
       }),
     );
   });
 
   describe('mapStateToProps', () => {
+    const { api } = dispatchSignInActions().state;
+
     it('maps apiState to props', () => {
-      const props = mapStateToProps({ api: signedInApiState });
-      expect(props.apiState).toEqual(signedInApiState);
+      const props = mapStateToProps({ api });
+      expect(props.apiState).toEqual(api);
     });
   });
 
   describe('mapDispatchToProps', () => {
-    let mockUtils;
-    let mockApi;
+    let mockReviewsApi;
+    let mockCoreApi;
     let dispatch;
     let actions;
 
+    const { api } = dispatchSignInActions().state;
+
     beforeEach(() => {
-      mockUtils = sinon.mock(coreUtils);
-      mockApi = sinon.mock(reviewsApi);
+      mockReviewsApi = sinon.mock(reviewsApi);
+      mockCoreApi = sinon.mock(coreApi);
       dispatch = sinon.stub();
       actions = mapDispatchToProps(dispatch, {});
     });
@@ -415,48 +420,61 @@ describe(__filename, () => {
           reviewId: 3333,
           body: 'some review text',
           addonSlug: 'chill-out',
-          apiState: signedInApiState,
+          apiState: api,
         };
 
-        mockApi
+        mockReviewsApi
           .expects('submitReview')
           .withArgs(params)
           .returns(Promise.resolve(fakeReview));
 
         return actions.updateReviewText({ ...params }).then(() => {
-          mockApi.verify();
+          mockReviewsApi.verify();
           sinon.assert.calledWith(dispatch, setReview(fakeReview));
         });
       });
     });
 
     describe('refreshAddon', () => {
-      it('binds dispatch and calls utils.refreshAddon()', () => {
-        const apiState = signedInApiState;
-        mockUtils
-          .expects('refreshAddon')
+      const addonSlug = fakeAddon.slug;
+      const apiState = dispatchSignInActions().state.api;
+
+      it('fetches and dispatches an add-on', async () => {
+        const { entities } = createFetchAddonResult(fakeAddon);
+        mockCoreApi
+          .expects('fetchAddon')
           .once()
-          .withArgs({ addonSlug: 'some-slug', apiState, dispatch })
-          .returns(Promise.resolve());
+          .withArgs({ slug: addonSlug, api: apiState })
+          .resolves({ entities });
+
+        await actions.refreshAddon({ addonSlug, apiState });
+
+        sinon.assert.calledWith(dispatch, loadAddons(entities));
+        mockCoreApi.verify();
+      });
+
+      it('handles 404s when loading the add-on', () => {
+        mockCoreApi
+          .expects('fetchAddon')
+          .rejects(new Error('Error accessing API'));
 
         return actions
-          .refreshAddon({ addonSlug: 'some-slug', apiState })
-          .then(() => mockUtils.verify());
+          .refreshAddon({ addonSlug, apiState })
+          .then(unexpectedSuccess, () => {
+            sinon.assert.notCalled(dispatch);
+          });
       });
     });
 
-    describe('setDenormalizedReview', () => {
-      it('dispatches a setReview action', () => {
+    describe('setInternalReview', () => {
+      it('dispatches a setInternalReview action', () => {
         const review = {
           ...defaultReview,
           body: 'some body',
         };
-        actions.setDenormalizedReview(review);
+        actions.setInternalReview(review);
 
-        sinon.assert.called(dispatch);
-        const action = dispatch.firstCall.args[0];
-        expect(action.type).toEqual(SET_REVIEW);
-        expect(action.payload).toEqual(review);
+        sinon.assert.calledWith(dispatch, setInternalReview(review));
       });
     });
   });

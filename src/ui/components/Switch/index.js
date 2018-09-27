@@ -27,7 +27,8 @@ export default class Switch extends React.Component {
     const { progress } = this.props;
     if (progress === Infinity) {
       return 100;
-    } else if (progress === -Infinity) {
+    }
+    if (progress === -Infinity) {
       return 0;
     }
     return progress;

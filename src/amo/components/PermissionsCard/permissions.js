@@ -14,6 +14,7 @@ import Permission from 'ui/components/Permission';
 /* eslint-disable no-continue */
 export class PermissionUtils {
   i18n: I18nType;
+
   permissionStrings: Object;
 
   constructor(i18n: I18nType) {
@@ -67,7 +68,7 @@ export class PermissionUtils {
   ): Array<string> {
     const agentOsName =
       userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
-    const platform = userAgentOSToPlatform[agentOsName];
+    const platform = agentOsName && userAgentOSToPlatform[agentOsName];
 
     if (!platform) {
       log.error(oneLine`No platform exists for user agent OS

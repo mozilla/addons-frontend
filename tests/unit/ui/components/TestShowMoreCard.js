@@ -1,90 +1,206 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
-import { findDOMNode } from 'react-dom';
-import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 
-import { ShowMoreCardBase, MAX_HEIGHT } from 'ui/components/ShowMoreCard';
-import { fakeI18n } from 'tests/unit/helpers';
-
-function render(props) {
-  return renderIntoDocument(<ShowMoreCardBase i18n={fakeI18n()} {...props} />);
-}
+import ShowMoreCard, {
+  extractId,
+  ShowMoreCardBase,
+  MAX_HEIGHT,
+} from 'ui/components/ShowMoreCard';
+import {
+  applyUIStateChanges,
+  createFakeEvent,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  it('reveals more text when clicking "show more" link', () => {
-    const root = render({ children: 'Hello I am description' });
-    const rootNode = findDOMNode(root);
+  const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
+    return {
+      i18n,
+      id: 'showMoreCard',
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
+  };
 
-    // We have to manually set the expanded flag to false because we
-    // don't have a clientHeight in the tests.
-    root.setState({ expanded: false });
-    expect(rootNode.className).not.toContain('.ShowMoreCard--expanded');
-    expect(root.state.expanded).toEqual(false);
-    expect(rootNode.querySelector('.Card-footer-link').textContent).toEqual(
-      'Expand to Read more',
+  function render({ children = 'some text', ...otherProps } = {}) {
+    const props = getProps(otherProps);
+    return shallowUntilTarget(
+      <ShowMoreCard {...props}>{children}</ShowMoreCard>,
+      ShowMoreCardBase,
     );
+  }
 
-    Simulate.click(rootNode.querySelector('.Card-footer-link a'));
+  it('reveals more text when clicking "read more" link', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
 
-    expect(rootNode.className).toContain('ShowMoreCard--expanded');
-    expect(root.state.expanded).toEqual(true);
+    // We are simulating the truncate method call.
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
 
-    expect(rootNode.querySelector('.Card-footer-link')).toEqual(null);
+    applyUIStateChanges({ root, store });
+
+    expect(root).toHaveProp('footerLink');
+    const footerLink = root.prop('footerLink');
+    const moreLink = shallow(footerLink).find('.ShowMoreCard-expand-link');
+
+    moreLink.simulate('click', createFakeEvent());
+
+    applyUIStateChanges({ root, store });
+
+    expect(root).toHaveProp('footerLink', null);
+
+    expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('is expanded by default', () => {
-    const root = render({ children: 'Hello I am description' });
-    expect(root.state.expanded).toEqual(true);
+    const root = render();
+
+    expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('truncates the contents if they are too long', () => {
-    const root = render({ children: 'Hello I am description' });
-    root.truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
-    expect(root.state.expanded).toEqual(false);
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+
+    // We are simulating the truncate method call.
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+
+    applyUIStateChanges({ root, store });
+
+    expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('renders className', () => {
-    const root = render({
-      children: <p>Hi</p>,
-      className: 'test',
-    });
-    const rootNode = findDOMNode(root);
-    expect(rootNode.className).toContain('test');
+    const className = 'test';
+    const root = render({ className });
+    expect(root).toHaveClassName(className);
   });
 
   it('renders children', () => {
     const root = render({ children: 'Hello I am description' });
-    const rootNode = findDOMNode(root);
-    expect(rootNode.textContent).toContain('Hello I am description');
+    const contents = root.find('.ShowMoreCard-contents');
+    expect(contents).toHaveText('Hello I am description');
   });
 
-  it('executes truncateToMaxHeight when it recieves props', () => {
-    const root = mount(<ShowMoreCardBase i18n={fakeI18n()} />);
-    const component = root.instance();
+  it("calls resetUIState if the children's html has changed", () => {
+    /* eslint-disable react/no-danger */
+    const root = render({
+      children: (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: '<span>First component text.</span>',
+          }}
+        />
+      ),
+    });
 
-    const contentNode = findDOMNode(component.contents);
-    const truncateToMaxHeight = sinon.spy(component, 'truncateToMaxHeight');
-    root.setProps(); // simulate any kind of update to properties
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
+
+    root.setProps({
+      children: (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: '<span>This is different Text.</span>',
+          }}
+        />
+      ),
+    });
+    /* eslint-enable react/no-danger */
+
+    sinon.assert.called(resetUIStateSpy);
+  });
+
+  it("calls resetUIState if the children's text has changed", () => {
+    const root = render({
+      children: 'Some text',
+    });
+
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
+
+    root.setProps({
+      children: 'Some new text',
+    });
+
+    sinon.assert.called(resetUIStateSpy);
+  });
+
+  it("does not call resetUIState if the children's html is the same", () => {
+    /* eslint-disable react/no-danger */
+    const children = (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: '<span>Some component text.</span>',
+        }}
+      />
+    );
+    /* eslint-enable react/no-danger */
+
+    const root = render({ children });
+
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
+
+    root.setProps({ children });
+
+    sinon.assert.notCalled(resetUIStateSpy);
+  });
+
+  it("does not call resetUIState if the children's text is the same", () => {
+    const children = 'Some text';
+    const root = render({ children });
+
+    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
+
+    root.setProps({ children });
+
+    sinon.assert.notCalled(resetUIStateSpy);
+  });
+
+  it('executes truncateToMaxHeight when it receives props changes', () => {
+    const root = render();
+
+    const contentNode = root.instance().contents;
+
+    const truncateToMaxHeight = sinon.spy(
+      root.instance(),
+      'truncateToMaxHeight',
+    );
+
+    // We are simulating any kind of update to properties.
+    root.setProps({ children: 'Some text' });
 
     sinon.assert.calledWith(truncateToMaxHeight, contentNode);
   });
 
-  it('expands if new child content is smaller', () => {
-    const root = mount(
-      <ShowMoreCardBase i18n={fakeI18n()}>
-        This would be very long content, but we cannot get `clientHeight` in the
-        tests, so this will be forced below (via setState()).
-      </ShowMoreCardBase>,
-    );
+  it('does not execute truncateToMaxHeight when "read more" has been expanded', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
 
-    // We have to manually set the expanded flag to false because we don't have
-    // a `clientHeight` in the tests.
-    root.setState({ expanded: false });
+    // We are simulating the truncate method call.
+    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
 
-    expect(root.state('expanded')).toEqual(false);
-    // This will call `componentWillReceiveProps()`, the content of `children`
-    // is for example purpose.
-    root.setProps({ children: 'short content' });
-    expect(root.state('expanded')).toEqual(true);
+    applyUIStateChanges({ root, store });
+
+    const footerLink = root.prop('footerLink');
+    const moreLink = shallow(footerLink).find('.ShowMoreCard-expand-link');
+
+    // Simulates clicking on "read more".
+    moreLink.simulate('click', createFakeEvent());
+
+    applyUIStateChanges({ root, store });
+
+    const truncateSpy = sinon.spy(root.instance(), 'truncateToMaxHeight');
+
+    root.setProps({ children: 'some text' });
+
+    sinon.assert.notCalled(truncateSpy);
+  });
+
+  describe('extractId', () => {
+    it('returns a unique ID provided by the ID prop', () => {
+      const id = 'custom-card-id';
+      expect(extractId(getProps({ id }))).toEqual(id);
+    });
   });
 });

@@ -1,8 +1,4 @@
-@import '~photon-colors/photon-colors';
-
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import '~ui/css/styles';
 
 $micro-font-size: 11px;
 $default-font-size: 13px;
@@ -52,7 +48,8 @@ $puffy-font-size: 15px;
     &.Button--puffy {
       border-radius: 4px;
       font-size: $puffy-font-size;
-      height: 48px;
+      height: auto;
+      min-height: 48px;
       padding: 0 16px;
 
       .Icon {
@@ -67,7 +64,8 @@ $puffy-font-size: 15px;
       &,
       &:link {
         font-size: $micro-font-size;
-        height: 24px;
+        height: auto;
+        min-height: 24px;
       }
 
       .Icon {
@@ -109,6 +107,11 @@ $puffy-font-size: 15px;
 
   &:focus {
     @include focus();
+
+    // See: https://github.com/WICG/focus-visible
+    &:not(.focus-visible) {
+      box-shadow: none;
+    }
   }
 
   &.Button--disabled {
@@ -141,8 +144,8 @@ $puffy-font-size: 15px;
 
 .Button--action {
   @include button(
-    $background: $blue-50,
-    $background-active: $blue-60,
+    $background: $blue-60,
+    $background-active: $blue-80,
     $background-hover: $blue-70
   );
 }
@@ -165,8 +168,8 @@ $puffy-font-size: 15px;
 
 .Button--alert {
   @include button(
-    $background: $red-50,
-    $background-active: $red-60,
+    $background: $red-60,
+    $background-active: $red-80,
     $background-hover: $red-70
   );
 }

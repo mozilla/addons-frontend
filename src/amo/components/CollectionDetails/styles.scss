@@ -1,6 +1,4 @@
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import '~amo/css/styles';
 
 .CollectionDetails {
   .MetadataCard {
@@ -24,7 +22,9 @@
   word-wrap: break-word;
 }
 
-.CollectionDetails-edit-link {
+.CollectionDetails-edit-button,
+.CollectionDetails-edit-details-button,
+.CollectionDetails-back-to-collection-button {
   margin-top: $padding-page;
   width: 100%;
 }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
 "PO-Revision-Date: 2017-08-25 08:27+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,6 +13,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Enable"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:209
+msgid "Remove"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:211
+msgid "Enabling"
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:213
+#, fuzzy
+msgid "Downloading"
+msgstr "Laster ned %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:215
+#, fuzzy
+msgid "Installing"
+msgstr "Installerer %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:217
+#, fuzzy
+msgid "Uninstalling"
+msgstr "Avinstallerer %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
+msgid "Install Theme"
+msgstr "Installer tema"
+
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
+msgid "Add to Firefox"
+msgstr "Legg til i Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -39,27 +78,18 @@ msgstr "Fant ikke siden"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Beklager, men vi kan ikke finne noe på nettadressen du skrev inn."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Utvidelsen din er klar"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Du kan nå få tilgang til %(name)s fra verktøylinjen."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
+#: src/core/components/InfoDialog/index.js:88
+#, fuzzy
+msgid "OK"
 msgstr "OK!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Installer tema"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Legg til i Firefox"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -89,63 +119,60 @@ msgstr "%(name)s er avinstallert. Klikk for å installere."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installeringsstatus for %(name)s er ukjent."
 
-#: src/disco/components/Addon/index.js:136
-msgid "Preview of %(name)s"
-msgstr ""
-
-#: src/disco/components/Addon/index.js:174
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "Installasjon mislyktes. Prøv igjen."
 
-#: src/disco/components/Addon/index.js:176
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "Nedlastning mislyktes. Kontroller tilkoblingen din."
 
-#: src/disco/components/Addon/index.js:178
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Det oppstod en uventet feil under installasjonen."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Det oppstod en uventet feil under avinstalleringen."
 
-#: src/disco/components/Addon/index.js:187
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Det oppstod en uventet feil."
 
-#: src/disco/components/Addon/index.js:195
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Denne utvidelsen vil bli avinstallert etter omstart av Firefox."
-
-#: src/disco/components/Addon/index.js:199
-msgid "Please restart Firefox to use this add-on."
-msgstr "Start Firefox på nytt for å bruke denne utvidelsen."
-
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Lukk"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS støtter ikke utvidelser for øyeblikket."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr "Denne utvidelsen støtter ikke din versjon av Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "Denne utvidelsen støtter ikke nettleseren din."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Oppdag utvidelser"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Personvernbestemmelser"
+
+#: src/disco/pages/DiscoPane/index.js:136
+#, fuzzy
+msgid "Find more add-ons"
+msgstr "Se flere utvidelser!"
+
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "Tilpass Firefox"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -159,14 +186,6 @@ msgstr ""
 "utvidelser gjør nettleseren din til din egen. For å hjelpe deg med å starte "
 "så har vi noen vi anbefaler for deres enestående ytelse og funksjonalitet."
 
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "Se flere utvidelser!"
-
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "Personvernbestemmelser"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "Økten din har utløpt"
@@ -179,9 +198,25 @@ msgstr "Det oppstod en uventet feil"
 msgid "Reload To Continue"
 msgstr "Oppdater for å fortsette"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr ""
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr ""
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Denne utvidelsen vil bli avinstallert etter omstart av Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Start Firefox på nytt for å bruke denne utvidelsen."
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Utvidelsen din er klar"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Du kan nå få tilgang til %(name)s fra verktøylinjen."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr ""

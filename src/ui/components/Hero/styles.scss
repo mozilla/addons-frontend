@@ -1,6 +1,4 @@
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import '~ui/css/styles';
 
 .Hero {
   margin: 0 0 $padding-page;
@@ -39,6 +37,19 @@
 
   @include respond-to(large) {
     grid-gap: $padding-page-l;
+  }
+}
+
+.HomeHeroBanner--small {
+  .Hero .HeroSection {
+    @include respond-to(medium) {
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        .HeroSection-content h3 {
+          font-size: $font-size-m;
+        }
+      }
+    }
   }
 }
 

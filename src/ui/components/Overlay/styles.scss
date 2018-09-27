@@ -1,11 +1,21 @@
-@import '~photon-colors/photon-colors';
+@import '~ui/css/styles';
+
+$z-index: 1000;
 
 .Overlay {
   display: none;
 }
 
 .Overlay--visible {
-  display: block;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $z-index;
 }
 
 .Overlay-background {
@@ -19,17 +29,10 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: $z-index + 1;
 }
 
 .Overlay-contents {
-  align-items: center;
   display: flex;
-  justify-content: center;
-  left: 0;
-  position: fixed;
-  top: 50%;
-  transform: translate(0, -50%);
-  width: 100%;
-  z-index: 1001;
+  z-index: $z-index + 2;
 }

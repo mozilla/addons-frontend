@@ -35,9 +35,11 @@ module.exports = {
   cookieName: 'frontend_auth_token',
   cookieSecure: true,
 
-  enableClientConsole: false,
   // Enable devtools for: Redux.
   enableDevTools: false,
+  // Logging level, see:
+  // https://github.com/pinojs/pino/blob/master/docs/API.md#parameters.
+  loggingLevel: 'info',
 
   // If true node will serve the static files.
   enableNodeStatics: false,
@@ -70,7 +72,8 @@ module.exports = {
   amoCDN: amoProdCDN,
   staticHost: amoProdCDN,
   apiHost: apiProdHost,
-  apiPath: '/api/v3',
+  apiPath: '/api/',
+  apiVersion: 'v4',
 
   // The version for the favicon.
   // This should be changed when a new favicon is pushed to the CDN to prevent
@@ -86,35 +89,40 @@ module.exports = {
   //
   clientConfigKeys: [
     'allowErrorSimulation',
-    'authTokenValidFor',
     'amoCDN',
     'apiHost',
     'apiPath',
+    'apiVersion',
     'appName',
-    'restrictSearchResultsToAppVersion',
+    'authTokenValidFor',
     'cookieMaxAge',
     'cookieName',
     'cookieSecure',
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
-    'enableClientConsole',
     'enableDevTools',
-    'enableExperienceSurvey',
-    'enableAddonRecommendations',
-    'enableStaticThemes',
+    'enableFeatureAMInstallButton',
+    'enableFeatureAddonRecommendations',
+    'enableFeatureExperienceSurvey',
+    'enableFeatureInlineAddonReview',
+    'enableFeatureStaticThemes',
+    'experiments',
     'fxaConfig',
+    'hctEnabled',
     'isDeployed',
     'isDevelopment',
-    'langs',
     'langMap',
+    'langs',
+    'loggingLevel',
     'publicSentryDsn',
+    'restrictSearchResultsToAppVersion',
     'rtlLangs',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
+    'validClientAppUrlExceptions',
     'validClientApplications',
     'validLocaleUrlExceptions',
-    'validClientAppUrlExceptions',
     'validTrailingSlashUrlExceptions',
   ],
 
@@ -165,6 +173,7 @@ module.exports = {
     'af',
     'ar',
     'ast',
+    'az',
     'bg',
     'bn-BD',
     'bs',
@@ -177,6 +186,7 @@ module.exports = {
     'dbr',
     'dsb',
     'el',
+    'en-CA',
     'en-GB',
     'en-US',
     'es',
@@ -189,6 +199,7 @@ module.exports = {
     'he',
     'hsb',
     'hu',
+    'ia',
     'id',
     'it',
     'ja',
@@ -244,6 +255,9 @@ module.exports = {
   // send a page view on initialization.
   trackingSendInitPageView: true,
 
+  // Hybrid Content Telemetry, off by default.
+  hctEnabled: false,
+
   enablePostCssLoader: true,
 
   // The list of valid client application names.
@@ -260,6 +274,13 @@ module.exports = {
 
   // The default app used in the URL.
   defaultClientApp: 'firefox',
+
+  // Dynamic JS chunk patterns to exclude. If these strings match any part of the JS file
+  // leaf name they will be excluded from being output in the HTML.
+  jsChunkExclusions: [
+    'i18n',
+    'disco-hct',
+  ],
 
   fxaConfig: null,
 
@@ -287,13 +308,27 @@ module.exports = {
 
 
   // Feature flags.
+  //
+  // Please use the `enableFeature` prefix, see:
+  // https://github.com/mozilla/addons-frontend/issues/6362.
 
   // Enable the TAAR Lite A/B test.
-  enableAddonRecommendations: false,
+  enableFeatureAddonRecommendations: false,
 
   // Enable static themes.
-  enableStaticThemes: false,
+  enableFeatureStaticThemes: true,
 
-  enableExperienceSurvey: false,
+  enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
+
+  // Enable new InstallButton with mozAddonManager.
+  enableFeatureAMInstallButton: false,
+
+  enableFeatureInlineAddonReview: false,
+
+  // The withExperiment HOC relies on this config to enable/disable A/B
+  // experiments.
+  experiments: {
+    home_hero: true,
+  },
 };

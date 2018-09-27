@@ -6,7 +6,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import { getAddonIconUrl } from 'core/imageUtils';
 import InstallSwitch from 'core/components/InstallSwitch';
@@ -79,15 +79,15 @@ export class InstallButtonBase extends React.Component {
     getClientCompatibility: PropTypes.func,
     guid: PropTypes.string.isRequired,
     handleChange: PropTypes.func,
-    hasAddonManager: PropTypes.bool,
+    hasAddonManager: PropTypes.bool.isRequired,
     header: PropTypes.string,
     headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     iconURL: PropTypes.string,
-    id: PropTypes.string,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
-    // See ReactRouterLocation in 'core/types/router'
+    // See ReactRouterLocationType in 'core/types/router'
     location: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     previewURL: PropTypes.string,
@@ -98,7 +98,7 @@ export class InstallButtonBase extends React.Component {
     uninstall: PropTypes.func.isRequired,
     updateURL: PropTypes.string,
     useButton: PropTypes.bool,
-    userAgentInfo: PropTypes.string.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
     version: PropTypes.string,
     _InstallTrigger: PropTypes.object,
     _config: PropTypes.object,
@@ -121,7 +121,12 @@ export class InstallButtonBase extends React.Component {
   installTheme = (event) => {
     event.preventDefault();
     const { addon, status, installTheme } = this.props;
-    installTheme(event.currentTarget, { ...addon, status });
+
+    installTheme(event.currentTarget, {
+      name: addon.name,
+      status,
+      type: addon.type,
+    });
   };
 
   installExtension = ({ installURL, event }) => {
@@ -215,10 +220,11 @@ export class InstallButtonBase extends React.Component {
       return null;
     }
 
-    // OpenSearch plugins display their own prompt so using the "Add to
-    // Firefox" button regardless on mozAddonManager support is a better UX.
     const useButton =
-      (hasAddonManager !== undefined && !hasAddonManager) ||
+      // mozAddonManager may only be available on the client.
+      (_config.get('client') && !hasAddonManager) ||
+      // OpenSearch plugins display their own prompt so using the "Add to
+      // Firefox" button regardless on mozAddonManager support is a better UX.
       addon.type === ADDON_TYPE_OPENSEARCH ||
       this.props.useButton;
     let button;
@@ -382,8 +388,10 @@ export function mapStateToProps(state) {
   };
 }
 
-export default compose(
+const InstallButton = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
 )(InstallButtonBase);
+
+export default InstallButton;

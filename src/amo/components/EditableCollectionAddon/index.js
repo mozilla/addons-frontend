@@ -16,7 +16,7 @@ import type {
   DeleteAddonNoteFunc,
   RemoveCollectionAddonFunc,
   SaveAddonNoteFunc,
-} from 'amo/components/Collection';
+} from 'amo/pages/Collection';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -202,6 +202,7 @@ const EditableCollectionAddon: React.ComponentType<Props> = compose(
     fileName: __filename,
     extractId,
     initialState: initialUIState,
+    resetOnUnmount: true,
   }),
 )(EditableCollectionAddonBase);
 

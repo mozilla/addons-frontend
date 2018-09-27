@@ -191,6 +191,10 @@ export const unfilteredLanguages = {
     English: 'Persian',
     native: '\u0641\u0627\u0631\u0633\u06cc',
   },
+  'fa-IR': {
+    English: 'Persian (Iran)',
+    native: '(\u0627\u06CC\u0631\u0627\u0646) \u0641\u0627\u0631\u0633\u06CC',
+  },
   ff: {
     English: 'Fulah',
     native: 'Pulaar-Fulfulde',
@@ -272,6 +276,10 @@ export const unfilteredLanguages = {
     English: 'Armenian',
     native: '\u0540\u0561\u0575\u0565\u0580\u0565\u0576',
   },
+  ia: {
+    English: 'Interlingua',
+    native: 'Interlingua',
+  },
   id: {
     English: 'Indonesian',
     native: 'Bahasa Indonesia',
@@ -299,6 +307,10 @@ export const unfilteredLanguages = {
   ka: {
     English: 'Georgian',
     native: '\u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8',
+  },
+  kab: {
+    English: 'Kabyle',
+    native: 'Taqbaylit',
   },
   kk: {
     English: 'Kazakh',

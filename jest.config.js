@@ -10,13 +10,15 @@ module.exports = {
   moduleNameMapper: {
     // Prevent un-transpiled react-photoswipe code being required.
     '^photoswipe$': '<rootDir>/node_modules/photoswipe',
-    // Use the client-side logger by default for tests.
-    '^core/logger$': '<rootDir>/src/core/client/logger',
     // Alias tests for tests to be able to import helpers.
     '^tests/(.*)$': '<rootDir>/tests/$1',
     // Replaces the following formats with an empty module.
     '^.+\\.(scss|css|svg|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
   },
+  reporters: [
+    '<rootDir>/tests/jest-reporters/fingers-crossed.js',
+    '<rootDir>/tests/jest-reporters/summary.js',
+  ],
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
@@ -37,6 +39,10 @@ module.exports = {
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
+  ],
+  watchPathIgnorePatterns: [
+    '<rootDir>/bin/server.js',
+    '<rootDir>/webpack-assets.json',
   ],
   verbose: false,
 };

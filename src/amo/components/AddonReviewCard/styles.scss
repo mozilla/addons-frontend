@@ -1,0 +1,116 @@
+@import '~amo/css/styles';
+
+.AddonReviewCard {
+  .Rating {
+    height: $default-line-height;
+  }
+
+  .UserReview-byLine {
+    flex-wrap: wrap;
+  }
+
+  .DismissibleTextForm-buttons {
+    margin-top: 6px;
+  }
+}
+
+.AddonReviewCard-verticalButtons {
+  .DismissibleTextForm-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 24px;
+  }
+
+  .DismissibleTextForm-dismiss {
+    margin-top: 12px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.AddonReviewCard-authorByLine {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.AddonReviewCard-allControls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    &:not(.Button) {
+      color: $blue-50;
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+
+  /* stylelint-disable */
+  .AddonReviewCard-ratingOnly.AddonReviewCard-verticalButtons
+    &
+    .ConfirmButton-default-button {
+    color: $text-color-default;
+    /* stylelint-enable */
+
+    &:active,
+    &:hover {
+      color: $link-color;
+    }
+  }
+}
+
+.AddonReviewCard-delete {
+  .ConfirmButton-cancel-button,
+  .ConfirmButton-confirm-button,
+  .ConfirmButton-default-button {
+    font-size: $font-size-s;
+  }
+
+  .ConfirmButton-default-button {
+    align-items: flex-start;
+    border: 0;
+    color: $blue-50;
+    height: auto;
+    padding: 0;
+  }
+
+  .ConfirmButton-buttons {
+    flex-flow: row-reverse;
+  }
+}
+
+.AddonReviewCard-control {
+  @include margin-start(6px);
+
+  @include respond-to(medium) {
+    @include margin-start(24px);
+  }
+
+  .Icon-reply-arrow {
+    @include margin-end(6px);
+  }
+}
+
+.AddonReviewCard-reply {
+  background-color: transparentize($blue-50, 0.95);
+  border-radius: $border-radius-default;
+  margin-top: 12px;
+  padding: 12px;
+
+  @include respond-to(medium) {
+    margin-top: 24px;
+    padding: 24px;
+
+    @include margin-start(12px);
+  }
+}
+
+.AddonReviewCard-writeReviewButton {
+  margin-top: 12px;
+  width: auto;
+}

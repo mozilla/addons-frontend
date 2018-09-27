@@ -6,10 +6,19 @@ import * as React from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
-import SearchForm from 'amo/components/SearchForm';
+// We have to import these styles first to have them listed first in the final
+// CSS file. See: https://github.com/mozilla/addons-frontend/issues/3565
+import 'core/fonts/fira.scss';
+import 'core/fonts/opensans.scss';
+import './styles.scss';
+
+/* eslint-disable import/first */
+import Routes from 'amo/components/Routes';
+import ScrollToTop from 'core/components/ScrollToTop';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
@@ -29,13 +38,10 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type { ReactRouterLocationType } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 import type { I18nType } from 'core/types/i18n';
-
-import 'core/fonts/fira.scss';
-import 'core/fonts/opensans.scss';
-import './styles.scss';
+/* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {
   mozAddonManager?: Object;
@@ -50,12 +56,11 @@ type Props = {|
   _navigator: typeof navigator,
   authToken?: string,
   authTokenValidFor?: number,
-  children?: React.Node,
   clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,
   isHomePage: boolean,
-  location: ReactRouterLocation,
+  location: ReactRouterLocationType,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   setUserAgent: (userAgent: string) => void,
@@ -64,6 +69,7 @@ type Props = {|
 
 export class AppBase extends React.Component<Props> {
   header: React.ElementRef<typeof Header>;
+
   scheduledLogout: TimeoutID;
 
   static defaultProps = {
@@ -118,6 +124,7 @@ export class AppBase extends React.Component<Props> {
 
   setLogOutTimer(authToken: string) {
     const { authTokenValidFor, logOutUser } = this.props;
+
     const expiresAt = authTokenValidFor;
     if (!expiresAt) {
       log.warn(oneLine`configured authTokenValidFor is falsey, not
@@ -195,7 +202,6 @@ export class AppBase extends React.Component<Props> {
       FooterComponent,
       HeaderComponent,
       InfoDialogComponent,
-      children,
       clientApp,
       i18n,
       isHomePage,
@@ -214,33 +220,39 @@ export class AppBase extends React.Component<Props> {
 
     return (
       <NestedStatus code={200}>
-        <div className="amo">
-          <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
-          <InfoDialogComponent />
-          <HeaderComponent
-            SearchFormComponent={SearchForm}
-            isHomePage={isHomePage}
-            location={location}
-            query={query}
-            ref={(ref) => {
-              this.header = ref;
-            }}
-          />
-          <div className="App-content">
-            <div className="App-content-wrapper">
-              <ErrorPage getErrorComponent={getErrorComponent}>
-                <div className="App-banner">
-                  <SurveyNotice location={location} />
-                </div>
-                {children}
-              </ErrorPage>
+        <ScrollToTop>
+          <div className="App-amo">
+            <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
+
+            <InfoDialogComponent />
+
+            <HeaderComponent
+              isHomePage={isHomePage}
+              location={location}
+              query={query}
+              ref={(ref) => {
+                this.header = ref;
+              }}
+            />
+
+            <div className="App-content">
+              <div className="App-content-wrapper">
+                <ErrorPage getErrorComponent={getErrorComponent}>
+                  <div className="App-banner">
+                    <SurveyNotice location={location} />
+                  </div>
+
+                  <Routes />
+                </ErrorPage>
+              </div>
             </div>
+
+            <FooterComponent
+              handleViewDesktop={this.onViewDesktop}
+              location={location}
+            />
           </div>
-          <FooterComponent
-            handleViewDesktop={this.onViewDesktop}
-            location={location}
-          />
-        </div>
+        </ScrollToTop>
       </NestedStatus>
     );
   }
@@ -268,6 +280,7 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 }
 
 const App: React.ComponentType<Props> = compose(
+  withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps,

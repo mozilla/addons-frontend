@@ -36,7 +36,9 @@ export function trailingSlashesMiddleware(
   ) {
     UrlParts[0] = `${UrlParts[0]}/`;
     return res.redirect(301, UrlParts.join('?'));
-  } else if (isValidTrailingSlashUrlException(urlToCheck, { _config })) {
+  }
+
+  if (isValidTrailingSlashUrlException(urlToCheck, { _config })) {
     log.info(
       'Not adding a trailing slash; validTrailingSlashUrlException found',
       urlToCheck,

@@ -1,6 +1,4 @@
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import '~amo/css/styles';
 
 $picture-size: 128px;
 
@@ -40,6 +38,11 @@ $picture-size: 128px;
   .UserProfileEditPicture-file--has-focus {
     .Button {
       @include focus();
+    }
+
+    // See: https://github.com/WICG/focus-visible
+    .UserProfileEditPicture-file-input:not(.focus-visible) + .Button {
+      box-shadow: none;
     }
   }
 

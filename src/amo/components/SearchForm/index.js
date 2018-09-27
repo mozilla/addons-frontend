@@ -1,9 +1,11 @@
 /* @flow */
+import url from 'url';
+
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -14,28 +16,36 @@ import type {
 } from 'amo/components/AutoSearchInput';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  ReactRouterLocationType,
+} from 'core/types/router';
 
 type Props = {|
   apiLang: string | null,
   className?: string,
   clientApp: string | null,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
+  location: ReactRouterLocationType,
   pathname: string,
   query?: string,
-  router: ReactRouterType,
 |};
 
 export class SearchFormBase extends React.Component<Props> {
   onSearch = (filters: SearchFilters) => {
-    this.props.router.push({
+    this.props.history.push({
       pathname: this.baseSearchURL(),
       query: convertFiltersToQueryParams(filters),
     });
   };
 
   onSuggestionSelected = (suggestion: SuggestionType) => {
-    this.props.router.push(suggestion.url);
+    const { pathname } = url.parse(suggestion.url);
+
+    if (pathname) {
+      this.props.history.push(pathname);
+    }
   };
 
   baseSearchURL() {
@@ -44,7 +54,7 @@ export class SearchFormBase extends React.Component<Props> {
   }
 
   render() {
-    const { className, i18n, query, router } = this.props;
+    const { className, i18n, location, query } = this.props;
 
     return (
       <form
@@ -55,7 +65,7 @@ export class SearchFormBase extends React.Component<Props> {
       >
         <AutoSearchInput
           inputName="q"
-          location={router.location}
+          location={location}
           onSearch={this.onSearch}
           onSuggestionSelected={this.onSuggestionSelected}
           query={query}

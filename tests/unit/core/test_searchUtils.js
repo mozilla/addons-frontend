@@ -2,7 +2,9 @@ import { oneLine } from 'common-tags';
 
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -267,6 +269,33 @@ describe(__filename, () => {
         category: 'some-category',
         clientApp: CLIENT_APP_FIREFOX,
         page: 123,
+      };
+
+      const newFilters = fixFiltersForAndroidThemes({ filters });
+      expect(newFilters).toEqual(filters);
+    });
+
+    it.each([ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEMES_FILTER])(
+      'sets addonType to ADDON_TYPE_THEME when clientApp is Android and addonType is %s',
+      (addonType) => {
+        const filters = {
+          addonType,
+          clientApp: CLIENT_APP_ANDROID,
+        };
+
+        const newFilters = fixFiltersForAndroidThemes({ filters });
+        expect(newFilters).toEqual({
+          ...filters,
+          addonType: ADDON_TYPE_THEME,
+          clientApp: CLIENT_APP_FIREFOX,
+        });
+      },
+    );
+
+    it('does not change addonType when clientApp is not Android', () => {
+      const filters = {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        clientApp: CLIENT_APP_FIREFOX,
       };
 
       const newFilters = fixFiltersForAndroidThemes({ filters });

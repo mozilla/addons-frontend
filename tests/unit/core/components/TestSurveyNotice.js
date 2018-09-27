@@ -17,7 +17,7 @@ import {
   createFakeTracking,
   fakeCookie,
   fakeI18n,
-  fakeRouterLocation,
+  createFakeLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -30,10 +30,10 @@ describe(__filename, () => {
     const props = {
       _tracking: createFakeTracking(),
       _config: getFakeConfig({
-        enableExperienceSurvey: true,
+        enableFeatureExperienceSurvey: true,
       }),
       i18n: fakeI18n(),
-      location: fakeRouterLocation(),
+      location: createFakeLocation(),
       store,
       ...customProps,
     };
@@ -66,7 +66,7 @@ describe(__filename, () => {
   it('does not render a survey when it is disabled in the config', () => {
     const root = render({
       _config: getFakeConfig({
-        enableExperienceSurvey: false,
+        enableFeatureExperienceSurvey: false,
       }),
     });
 
@@ -97,7 +97,7 @@ describe(__filename, () => {
   });
 
   it('links to a survey with location source', () => {
-    const location = fakeRouterLocation({ pathname: '/en-US/firefox/themes/' });
+    const location = createFakeLocation({ pathname: '/en-US/firefox/themes/' });
     const root = render({ location });
 
     const actionHref = getNoticeProp(root, 'actionHref');
@@ -123,7 +123,7 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
     render({
       _config: getFakeConfig({
-        enableExperienceSurvey: false,
+        enableFeatureExperienceSurvey: false,
       }),
       _tracking,
     });

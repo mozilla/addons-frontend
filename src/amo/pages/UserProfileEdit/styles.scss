@@ -1,0 +1,156 @@
+@import '~amo/css/styles';
+
+$font-size-aside: 10px;
+
+.UserProfileEdit {
+  @include page-padding();
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.UserProfileEdit-authenticate,
+.UserProfileEdit-user-links {
+  display: none;
+
+  @include respond-to(large) {
+    @include margin-end($padding-page);
+
+    display: block;
+    min-width: 300px;
+    width: 35%;
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      @include font-bold();
+
+      font-size: $font-size-default;
+      line-height: 2;
+      list-style-type: none;
+    }
+  }
+}
+
+.UserProfileEdit-authenticate {
+  display: block;
+}
+
+.UserProfileEdit-form-messages .Notice,
+.UserProfileEdit--Card {
+  margin-bottom: $padding-page;
+}
+
+.UserProfileEdit-notifications-aside,
+.UserProfileEdit-profile-aside {
+  color: $grey-50;
+  font-size: $font-size-aside;
+  margin-top: 0;
+
+  @include respond-to(large) {
+    @include margin(0, 0, 0, $padding-page);
+
+    float: right;
+    width: 35%;
+
+    [dir='rtl'] & {
+      float: left;
+    }
+  }
+}
+
+.UserProfileEdit--label {
+  display: block;
+}
+
+.UserProfileEdit-biography--help,
+.UserProfileEdit-email--help,
+.UserProfileEdit-homepage--help,
+.UserProfileEdit-notifications--help {
+  color: $grey-50;
+  display: block;
+  font-size: $font-size-aside;
+  margin-top: 4px;
+}
+
+.UserProfileEdit-notifications--help {
+  @include respond-to(large) {
+    width: 60%;
+  }
+}
+
+.UserProfileEdit input,
+.UserProfileEdit textarea {
+  width: 100%;
+
+  &:disabled {
+    background: $grey-20;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    @include focus();
+  }
+}
+
+.UserProfileEdit input {
+  @include respond-to(large) {
+    width: 60%;
+  }
+}
+
+.UserProfileEdit-username,
+.UserProfileEdit-displayName,
+.UserProfileEdit-location,
+.UserProfileEdit-occupation {
+  margin-bottom: 16px;
+}
+
+.UserProfileEdit-biography {
+  min-height: 3rem;
+  resize: vertical;
+}
+
+.UserProfileEdit-buttons-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  @include respond-to(medium) {
+    flex-flow: row-reverse;
+  }
+}
+
+.UserProfileEdit-button {
+  margin-bottom: $padding-page;
+
+  @include respond-to(medium) {
+    margin-bottom: 0;
+  }
+}
+
+.Overlay-contents .UserProfileEdit-deletion-modal {
+  max-width: 500px;
+
+  .Card-contents {
+    background: $base-color;
+    font-size: $font-size-default;
+
+    h2 {
+      font-size: $font-size-m;
+    }
+
+    p {
+      @include text-align-start();
+    }
+  }
+
+  .UserProfileEdit-buttons-wrapper {
+    margin-top: 2rem;
+  }
+}

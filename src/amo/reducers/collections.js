@@ -40,14 +40,20 @@ export const FINISH_COLLECTION_MODIFICATION: 'FINISH_COLLECTION_MODIFICATION' =
   'FINISH_COLLECTION_MODIFICATION';
 export const REMOVE_ADDON_FROM_COLLECTION: 'REMOVE_ADDON_FROM_COLLECTION' =
   'REMOVE_ADDON_FROM_COLLECTION';
+export const ADDON_REMOVED_FROM_COLLECTION: 'ADDON_REMOVED_FROM_COLLECTION' =
+  'ADDON_REMOVED_FROM_COLLECTION';
 export const DELETE_COLLECTION: 'DELETE_COLLECTION' = 'DELETE_COLLECTION';
 export const UPDATE_COLLECTION_ADDON: 'UPDATE_COLLECTION_ADDON' =
   'UPDATE_COLLECTION_ADDON';
 export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES' =
   'DELETE_COLLECTION_ADDON_NOTES';
+export const BEGIN_EDITING_COLLECTION_DETAILS: 'BEGIN_EDITING_COLLECTION_DETAILS' =
+  'BEGIN_EDITING_COLLECTION_DETAILS';
+export const FINISH_EDITING_COLLECTION_DETAILS: 'FINISH_EDITING_COLLECTION_DETAILS' =
+  'FINISH_EDITING_COLLECTION_DETAILS';
 
 export type CollectionFilters = {|
-  page: number,
+  page: string,
   collectionSort: string,
 |};
 
@@ -99,6 +105,8 @@ export type CollectionsState = {
   },
   isCollectionBeingModified: boolean,
   hasAddonBeenAdded: boolean,
+  hasAddonBeenRemoved: boolean,
+  editingCollectionDetails: boolean,
 };
 
 export const initialState: CollectionsState = {
@@ -109,6 +117,8 @@ export const initialState: CollectionsState = {
   addonInCollections: {},
   isCollectionBeingModified: false,
   hasAddonBeenAdded: false,
+  hasAddonBeenRemoved: false,
+  editingCollectionDetails: false,
 };
 
 type FetchCurrentCollectionParams = {|
@@ -244,7 +254,6 @@ export const fetchCurrentCollectionPage = ({
 
 export type ExternalCollectionAddon = {|
   addon: ExternalAddonType,
-  downloads: number,
   notes: string | null,
 |};
 
@@ -656,6 +665,16 @@ export const removeAddonFromCollection = ({
   };
 };
 
+type AddonRemovedFromCollectionAction = {|
+  type: typeof ADDON_REMOVED_FROM_COLLECTION,
+|};
+
+export const addonRemovedFromCollection = (): AddonRemovedFromCollectionAction => {
+  return {
+    type: ADDON_REMOVED_FROM_COLLECTION,
+  };
+};
+
 type DeleteCollectionParams = {|
   errorHandlerId: string,
   slug: string,
@@ -772,6 +791,26 @@ export const deleteCollectionAddonNotes = ({
   };
 };
 
+type BeginEditingCollectionDetailsAction = {|
+  type: typeof BEGIN_EDITING_COLLECTION_DETAILS,
+|};
+
+export const beginEditingCollectionDetails = (): BeginEditingCollectionDetailsAction => {
+  return {
+    type: BEGIN_EDITING_COLLECTION_DETAILS,
+  };
+};
+
+type FinishEditingCollectionDetailsAction = {|
+  type: typeof FINISH_EDITING_COLLECTION_DETAILS,
+|};
+
+export const finishEditingCollectionDetails = (): FinishEditingCollectionDetailsAction => {
+  return {
+    type: FINISH_EDITING_COLLECTION_DETAILS,
+  };
+};
+
 export const createInternalAddons = (
   items: ExternalCollectionAddons,
 ): Array<CollectionAddonType> => {
@@ -867,6 +906,7 @@ export const loadCollectionIntoState = ({
   // make sure we don't overwrite any existing addons.
   if (!internalCollection.addons && existingCollection) {
     internalCollection.addons = existingCollection.addons;
+    internalCollection.pageSize = existingCollection.pageSize;
   }
 
   return {
@@ -1294,9 +1334,13 @@ const reducer = (
       const collectionId = state.bySlug[slug];
 
       if (collectionId) {
-        const newIdMap = { ...state.byId };
-        delete newIdMap[collectionId];
-        return { ...state, byId: newIdMap };
+        return {
+          ...state,
+          byId: {
+            ...state.byId,
+            [collectionId]: undefined,
+          },
+        };
       }
       return state;
     }
@@ -1306,6 +1350,34 @@ const reducer = (
     case UPDATE_COLLECTION: {
       const { username } = action.payload;
       return unloadUserCollections({ state, username });
+    }
+
+    case REMOVE_ADDON_FROM_COLLECTION: {
+      return {
+        ...state,
+        hasAddonBeenRemoved: false,
+      };
+    }
+
+    case ADDON_REMOVED_FROM_COLLECTION: {
+      return {
+        ...state,
+        hasAddonBeenRemoved: true,
+      };
+    }
+
+    case BEGIN_EDITING_COLLECTION_DETAILS: {
+      return {
+        ...state,
+        editingCollectionDetails: true,
+      };
+    }
+
+    case FINISH_EDITING_COLLECTION_DETAILS: {
+      return {
+        ...state,
+        editingCollectionDetails: false,
+      };
     }
 
     default:

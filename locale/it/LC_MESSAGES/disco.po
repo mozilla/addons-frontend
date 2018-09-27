@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2017-08-25 14:52+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
+"PO-Revision-Date: 2018-08-25 10:01+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -13,6 +13,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Enable"
+msgstr "Attiva"
+
+#: src/core/components/AMInstallButton/index.js:209
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: src/core/components/AMInstallButton/index.js:211
+msgid "Enabling"
+msgstr "Attivazione in corso…"
+
+#: src/core/components/AMInstallButton/index.js:213
+msgid "Downloading"
+msgstr "Download in corso…"
+
+#: src/core/components/AMInstallButton/index.js:215
+msgid "Installing"
+msgstr "Installazione in corso…"
+
+#: src/core/components/AMInstallButton/index.js:217
+msgid "Uninstalling"
+msgstr "Disinstallazione in corso…"
+
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
+msgid "Install Theme"
+msgstr "Installa tema"
+
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
+msgid "Add to Firefox"
+msgstr "Aggiungi a Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -39,27 +75,19 @@ msgstr "Pagina non trovata"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Impossibile trovare l’URL specificato."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "Il componente aggiuntivo è pronto per essere utilizzato"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr "%(strongStart)s%(name)s%(strongEnd)s è stato aggiunto"
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Adesso è possibile accedere a %(name)s dalla barra degli strumenti."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
+"Gestisci i componenti aggiuntivi cliccando il pulsante Componenti aggiuntivi "
+"nel menu."
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
-msgstr "OK."
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Installa tema"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Aggiungi a Firefox"
+#: src/core/components/InfoDialog/index.js:88
+msgid "OK"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -90,69 +118,62 @@ msgstr ""
 msgid "Install state for %(name)s is unknown."
 msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
-#: src/disco/components/Addon/index.js:136
-#, fuzzy
-msgid "Preview of %(name)s"
-msgstr "Anteprima di %(name)s"
-
-#: src/disco/components/Addon/index.js:174
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
-#: src/disco/components/Addon/index.js:176
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Non è riuscito il download del componente aggiuntivo. Controlla la "
 "connessione alla rete."
 
-#: src/disco/components/Addon/index.js:178
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Si è verificato un errore inatteso durante l’installazione."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Si è verificato un errore inatteso durante la disinstallazione."
 
-#: src/disco/components/Addon/index.js:187
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore inatteso."
 
-#: src/disco/components/Addon/index.js:195
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
-"Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di "
-"Firefox."
-
-#: src/disco/components/Addon/index.js:199
-msgid "Please restart Firefox to use this add-on."
-msgstr "riavvia Firefox per utilizzare questo componente aggiuntivo."
-
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Chiudi"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Attualmente Firefox per iOS non supporta i componenti aggiuntivi."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr ""
 "Questo componente aggiuntivo non supporta la versione di Firefox in uso."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "Il browser in uso non supporta questo componente aggiuntivo."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Alla scoperta dei componenti aggiuntivi"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Informativa sulla privacy"
+
+#: src/disco/pages/DiscoPane/index.js:136
+msgid "Find more add-ons"
+msgstr "Trova altri componenti aggiuntivi"
+
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "Personalizza Firefox"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -169,14 +190,6 @@ msgstr ""
 "iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di "
 "consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
 
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "Scopri altri componenti aggiuntivi."
-
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "Informativa sulla privacy"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "Sessione scaduta"
@@ -189,9 +202,27 @@ msgstr "Si è verificato un errore inatteso"
 msgid "Reload To Continue"
 msgstr "Ricarica per continuare"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Chiudi questo avviso"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "Anteprima di %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr ""
+#~ "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di "
+#~ "Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "riavvia Firefox per utilizzare questo componente aggiuntivo."
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "Il componente aggiuntivo è pronto per essere utilizzato"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Adesso è possibile accedere a %(name)s dalla barra degli strumenti."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr ""

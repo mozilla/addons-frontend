@@ -15,8 +15,10 @@
     // These are undocumented utilities that ship with Flow
     // https://github.com/facebook/flow/issues/875
     "$ReadOnlyArray": true,
+    "$Rest": true,
     "$Shape": true,
     "$Keys": true,
+    "$Values": true,
     // See: https://github.com/facebook/flow/issues/1609
     "SyntheticEvent": true,
     "SyntheticInputEvent": true,
@@ -24,6 +26,7 @@
     "TimeoutID": true,
     // Standard DOM globals:
     "Generator": true,
+    "HTMLAnchorElement": true,
     "HTMLButtonElement": true,
     "HTMLElement": true,
     "HTMLInputElement": true,
@@ -41,13 +44,12 @@
     "jest"
   ],
   "rules": {
-    // FIXME: Deprecate use of findDOMNode https://github.com/mozilla/addons-frontend/issues/968
-    "react/no-find-dom-node": "off",
-    "react/sort-comp": "off",
-    // Prettier makes this rule obsolete.
+    // These rules are not compatible with Prettier.
+    "implicit-arrow-linebreak": "off",
     "indent": "off",
-    // This rule conflicts with Prettier.
-    "no-mixed-operators": "off"
+    "no-mixed-operators": "off",
+    "operator-linebreak": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "settings": {
     "import/ignore": [

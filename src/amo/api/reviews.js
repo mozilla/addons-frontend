@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 
 import { REVIEW_FLAG_REASON_OTHER } from 'amo/constants';
 import { callApi } from 'core/api';
@@ -10,14 +11,16 @@ import type { PaginatedApiResponse } from 'core/types/api';
 
 type ExternalReviewTypeBase = {|
   addon: {|
+    icon_url: string,
     id: number,
+    name: string,
     slug: string,
   |},
   body: string,
   created: Date,
   id: number,
+  is_developer_reply: boolean,
   is_latest: boolean,
-  title: string,
   user: {|
     id: number,
     name: string,
@@ -31,7 +34,7 @@ export type ExternalReviewReplyType = {|
 
 export type ExternalReviewType = {|
   ...ExternalReviewTypeBase,
-  rating: number,
+  score: number,
   // This is a possible developer reply to the review.
   reply: ExternalReviewReplyType | null,
   version: ?{|
@@ -43,38 +46,37 @@ export type ExternalReviewType = {|
 // can type check each one independently.
 export type SubmitReviewParams = {|
   addonId?: number,
-  apiState?: ApiState,
+  apiState: ApiState,
   body?: string,
   errorHandler?: ErrorHandlerType,
-  rating?: number | null,
+  score?: number | null,
   reviewId?: number,
-  title?: string,
   versionId?: number,
 |};
+
+export type SubmitReviewResponse = ExternalReviewType;
 
 /*
  * POST/PATCH an add-on review using the API.
  */
 export function submitReview({
   addonId,
-  rating,
+  score,
   apiState,
-  title,
   versionId,
   body,
   reviewId,
   ...apiCallParams
-}: SubmitReviewParams): Promise<ExternalReviewType> {
+}: SubmitReviewParams): Promise<SubmitReviewResponse> {
   return new Promise((resolve) => {
     const review = {
       addon: undefined,
-      rating,
+      score,
       version: versionId,
       body,
-      title,
     };
     let method = 'POST';
-    let endpoint = 'reviews/review';
+    let endpoint = 'ratings/rating';
 
     if (reviewId) {
       endpoint = `${endpoint}/${reviewId}`;
@@ -102,11 +104,10 @@ export function submitReview({
 }
 
 type ReplyToReviewParams = {|
-  apiState?: ApiState,
+  apiState: ApiState,
   body: string,
   errorHandler?: ErrorHandlerType,
   originalReviewId: number,
-  title?: string,
 |};
 
 export const replyToReview = ({
@@ -114,17 +115,15 @@ export const replyToReview = ({
   body,
   errorHandler,
   originalReviewId,
-  title,
 }: ReplyToReviewParams = {}): Promise<ExternalReviewReplyType> => {
   return new Promise((resolve) => {
-    const endpoint = `reviews/review/${originalReviewId}/reply/`;
+    const endpoint = `ratings/rating/${originalReviewId}/reply/`;
 
     resolve(
       callApi({
         auth: true,
         body: {
           body,
-          title,
         },
         endpoint,
         errorHandler,
@@ -138,7 +137,7 @@ export const replyToReview = ({
 export type GetReviewsParams = {|
   // This is the addon ID, slug, or guid.
   addon?: number | string,
-  apiState?: ApiState,
+  apiState: ApiState,
   filter?: string,
   page?: number,
   page_size?: number,
@@ -147,7 +146,21 @@ export type GetReviewsParams = {|
   version?: number,
 |};
 
-type GetReviewsApiResponse = PaginatedApiResponse<ExternalReviewType>;
+// A count of add-on ratings per star. These will all be 0 for add-ons
+// that have not yet been rated.
+export type GroupedRatingsType = {|
+  '1': number,
+  '2': number,
+  '3': number,
+  '4': number,
+  '5': number,
+|};
+
+export type GetReviewsApiResponse = {|
+  ...PaginatedApiResponse<ExternalReviewType>,
+  // This is undefined unless the request contained ?show_grouped_ratings=true.
+  grouped_ratings?: GroupedRatingsType,
+|};
 
 export function getReviews({
   apiState,
@@ -162,7 +175,7 @@ export function getReviews({
     resolve(
       callApi({
         auth: true,
-        endpoint: 'reviews/review',
+        endpoint: 'ratings/rating',
         params: { user, addon, ...params },
         apiState,
       }),
@@ -172,7 +185,7 @@ export function getReviews({
 
 export type GetLatestReviewParams = {|
   addon: number,
-  apiState?: ApiState,
+  apiState: ApiState,
   user: number,
   version: number,
 |};
@@ -194,7 +207,8 @@ export function getLatestUserReview({
     const reviews = response.results;
     if (reviews.length === 1) {
       return reviews[0];
-    } else if (reviews.length === 0) {
+    }
+    if (reviews.length === 0) {
       return null;
     }
     throw new Error(oneLine`Unexpectedly received multiple review objects:
@@ -203,7 +217,7 @@ export function getLatestUserReview({
 }
 
 type FlagReviewParams = {|
-  apiState?: ApiState,
+  apiState: ApiState,
   errorHandler?: ErrorHandlerType,
   note?: string,
   reason: FlagReviewReasonType,
@@ -236,9 +250,56 @@ export const flagReview = ({
           flag: reason,
           note,
         },
-        endpoint: `reviews/review/${reviewId}/flag`,
+        endpoint: `ratings/rating/${reviewId}/flag`,
         errorHandler,
         method: 'POST',
+        apiState,
+      }),
+    );
+  });
+};
+
+type DeleteReviewParams = {|
+  apiState: ApiState,
+  errorHandler: ErrorHandlerType,
+  reviewId: number,
+|};
+
+export const deleteReview = ({
+  apiState,
+  errorHandler,
+  reviewId,
+}: DeleteReviewParams = {}): Promise<void> => {
+  invariant(reviewId, 'reviewId is required');
+  return new Promise((resolve) => {
+    resolve(
+      callApi({
+        auth: true,
+        endpoint: `ratings/rating/${reviewId}/`,
+        errorHandler,
+        method: 'DELETE',
+        apiState,
+      }),
+    );
+  });
+};
+
+export type GetReviewParams = {|
+  apiState: ApiState,
+  reviewId: number,
+|};
+
+export const getReview = ({
+  apiState,
+  reviewId,
+}: GetReviewParams = {}): Promise<ExternalReviewType> => {
+  invariant(reviewId, 'reviewId is required');
+  return new Promise((resolve) => {
+    resolve(
+      callApi({
+        auth: true,
+        endpoint: `ratings/rating/${reviewId}/`,
+        method: 'GET',
         apiState,
       }),
     );

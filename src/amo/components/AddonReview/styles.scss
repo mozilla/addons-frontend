@@ -1,7 +1,6 @@
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
+@import '~amo/css/styles';
 
-.Overlay-contents .AddonReview {
+.Overlay-contents .AddonReview-overlay {
   .Card-contents {
     background: $base-color;
     max-height: 80vh;
@@ -10,6 +9,13 @@
 
   .Rating {
     margin: 6px 0 12px;
+    padding: 0 10px;
+
+    @include respond-to(large) {
+      min-width: 700px;
+      padding-left: 200px;
+      padding-right: 200px;
+    }
   }
 }
 

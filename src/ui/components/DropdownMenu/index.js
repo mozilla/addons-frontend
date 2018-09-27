@@ -85,6 +85,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
           className="DropdownMenu-button"
           onClick={this.handleOnClick}
           title={text}
+          type="button"
           aria-haspopup="true"
         >
           <span className="DropdownMenu-button-text">{text}</span>

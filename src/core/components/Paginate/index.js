@@ -79,11 +79,13 @@ export class PaginateBase extends React.Component<InternalProps> {
       return makePageNumbers({ start: 1, end: pageCount });
       // If we are showing less on the right than we should, define the start by
       // the end.
-    } else if (end - currentPage < showExtra) {
+    }
+    if (end - currentPage < showExtra) {
       return makePageNumbers({ start: end - showPages + 1, end });
       // If we are showing less on the left than we should, define the end by the
       // start.
-    } else if (currentPage - start < showExtra) {
+    }
+    if (currentPage - start < showExtra) {
       return makePageNumbers({ start, end: start + showPages - 1 });
     }
 

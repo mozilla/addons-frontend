@@ -11,6 +11,8 @@ import Adapter from 'enzyme-adapter-react-16';
 // See: github.com/mozilla/addons-frontend/pull/2540#discussion_r120926107
 import 'jest-enzyme';
 
+import 'core/polyfill';
+
 Enzyme.configure({ adapter: new Adapter() });
 
 if (!Object.values) {
@@ -21,24 +23,30 @@ class LocalStorageMock {
   constructor() {
     this.store = {};
   }
+
   clear() {
     Object.keys(this.store).forEach((key) => {
       delete this.store[key];
     });
   }
+
   getItem(key) {
     return this.store[key] || null;
   }
+
   setItem(key, value) {
     this.store[key] = value;
   }
+
   removeItem(key) {
     delete this.store[key];
   }
+
   key(index) {
     const keys = Object.keys(this.store);
     return keys[index] || null;
   }
+
   get length() {
     return Object.keys(this.store).length;
   }
@@ -72,6 +80,13 @@ global.sinon = sinon.createSandbox();
 
 // Stub the magic constant webpack normally supplies.
 global.CLIENT_CONFIG = require('core/utils').getClientConfig(config);
+
+// See: https://github.com/mozilla/addons-frontend/issues/1138
+global.fetch = (input) => {
+  throw new Error(
+    `API calls MUST be mocked. URL fetched: ${input.url || input}`,
+  );
+};
 
 afterEach(() => {
   global.sinon.restore();

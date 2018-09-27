@@ -1,10 +1,9 @@
 // Config specific to local development
 import { amoDevCDN, apiDevHost, sentryHost } from './lib/shared';
 
-const webpackServerHost = '127.0.0.1';
+const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = 3001;
 const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
-
 
 module.exports = {
   apiHost: apiDevHost,
@@ -18,7 +17,6 @@ module.exports = {
 
   cookieSecure: false,
 
-  enableClientConsole: true,
   enableDevTools: true,
 
   serverPort: 3000,
@@ -34,18 +32,26 @@ module.exports = {
         sentryHost,
         webpackHost,
       ],
+      fontSrc: [
+        webpackHost,
+      ],
       imgSrc: [
         "'self'",
+        'data:',
+        amoDevCDN,
         webpackHost,
       ],
       scriptSrc: [
         "'self'",
+        // webpack injects inline JS
+        "'unsafe-inline'",
         amoDevCDN,
         webpackHost,
       ],
       styleSrc: [
         "'self'",
-        'blob:',
+        // webpack injects inline CSS
+        "'unsafe-inline'",
       ],
     },
     reportOnly: true,

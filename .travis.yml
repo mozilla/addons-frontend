@@ -3,18 +3,18 @@ _aliases:
   - &tox
     language: python
     python: 3.6
-    before_install: nvm install 6
+    before_install: nvm install 8
     install: pip install tox
     script: tox
   - &node-prod
     # This is the NodeJS version we run in production.
     language: node_js
-    node_js: '6'
+    node_js: '8'
     before_install: npm install -g yarn
   - &node-next
     # This is the next NodeJS version we will support.
     language: node_js
-    node_js: '8'
+    node_js: '10'
     before_install: npm install -g yarn
 services:
   - docker
@@ -25,16 +25,20 @@ cache:
 
 # Allow to display job names on Travis-CI, see:
 # https://github.com/travis-ci/travis-ci/issues/5898#issuecomment-362490313
-script: yarn $COMMAND
+script: FORCE_COLOR=0 yarn $COMMAND
+
+# See: https://github.com/mozilla/addons-frontend/issues/3034
+install: yarn install --pure-lockfile
+
 jobs:
   include:
     # Test the build process.
     - stage:
       <<: *node-prod
-      env: ADDONS_FRONTEND_BUILD_ALL=1 COMMAND=build
+      env: COMMAND=build-ci
     - stage:
       <<: *node-next
-      env: ADDONS_FRONTEND_BUILD_ALL=1 COMMAND=build
+      env: COMMAND=build-all
     # Run the unit/integration tests.
     - stage:
       <<: *node-prod
@@ -47,7 +51,8 @@ jobs:
       env: COMMAND=lint
     - stage:
       <<: *node-prod
-      env: COMMAND=nsp-check
+      env: COMMAND=snyk-ci
+      if: fork = false
     - stage:
       <<: *node-prod
       env: COMMAND=prettier-ci
@@ -57,7 +62,7 @@ jobs:
       addons:
         firefox: latest-nightly
         hosts: example.com
-      env: TOXENV=discopane-ui-tests GECKODRIVER=0.20.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
+      env: TOXENV=discopane-ui-tests GECKODRIVER=0.21.0 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
       install:
         - yarn
         - yarn start-func-test-server &
@@ -76,3 +81,9 @@ jobs:
     - stage:
       <<: *tox
       env: TOXENV=dennis-lint
+    - stage: Storybook deployment
+      if: branch = master AND type = push AND fork = false
+      language: node_js
+      node_js: '8'
+      script: echo "Deploying to GitHub Pages..."
+      after_success: yarn storybook-deploy --ci > /dev/null 2>&1

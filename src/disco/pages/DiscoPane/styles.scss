@@ -1,0 +1,26 @@
+@import '~disco/css/styles';
+
+.disco-pane {
+  box-sizing: content-box;
+  margin: 0 auto;
+  max-width: 680px;
+  min-width: 260px;
+  padding: 10px 20px 20px;
+
+  @include respond-to(large) {
+    padding-top: 50px;
+  }
+}
+
+.disco-content {
+  color: $header-copy-font-color;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 620px;
+  width: 100%;
+
+  &:last-child {
+    display: block;
+    margin-bottom: 0;
+  }
+}

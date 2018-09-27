@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2018-03-17 09:50+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
+"PO-Revision-Date: 2018-08-24 16:38+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -13,6 +13,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Enable"
+msgstr "เปิดใช้งาน"
+
+#: src/core/components/AMInstallButton/index.js:209
+msgid "Remove"
+msgstr "เอาออก"
+
+#: src/core/components/AMInstallButton/index.js:211
+msgid "Enabling"
+msgstr "กำลังเปิดใช้งาน"
+
+#: src/core/components/AMInstallButton/index.js:213
+msgid "Downloading"
+msgstr "กำลังดาวน์โหลด"
+
+#: src/core/components/AMInstallButton/index.js:215
+msgid "Installing"
+msgstr "กำลังติดตั้ง"
+
+#: src/core/components/AMInstallButton/index.js:217
+msgid "Uninstalling"
+msgstr "กำลังถอนการติดตั้ง"
+
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
+msgid "Install Theme"
+msgstr "ติดตั้งชุดตกแต่ง"
+
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
+msgid "Add to Firefox"
+msgstr "เพิ่มไปยัง Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -37,27 +73,17 @@ msgstr "ไม่พบหน้า"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "ส่วนเสริมของคุณพร้อมแล้ว"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "ตอนนี้คุณสามารถเข้าถึง %(name)s ได้จากแถบเครื่องมือ"
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
-msgstr "ตกลง!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "ติดตั้งชุดตกแต่ง"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "เพิ่มไปยัง Firefox"
+#: src/core/components/InfoDialog/index.js:88
+msgid "OK"
+msgstr "ตกลง"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -87,63 +113,59 @@ msgstr "%(name)s ถูกถอนการติดตั้ง คลิก�
 msgid "Install state for %(name)s is unknown."
 msgstr "ไม่ทราบสถานะการติดตั้ง %(name)s"
 
-#: src/disco/components/Addon/index.js:136
-msgid "Preview of %(name)s"
-msgstr ""
-
-#: src/disco/components/Addon/index.js:174
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "การติดตั้งล้มเหลว โปรดลองอีกครั้ง"
 
-#: src/disco/components/Addon/index.js:176
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "การดาวน์โหลดล้มเหลว โปรดตรวจสอบการเชื่อมต่อของคุณ"
 
-#: src/disco/components/Addon/index.js:178
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการติดตั้ง"
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการถอนการติดตั้ง"
 
-#: src/disco/components/Addon/index.js:187
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
-#: src/disco/components/Addon/index.js:195
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "ส่วนเสริมนี้จะถูกถอนการติดตั้งหลังจากคุณเริ่มการทำงาน Firefox ใหม่"
-
-#: src/disco/components/Addon/index.js:199
-msgid "Please restart Firefox to use this add-on."
-msgstr "โปรดเริ่มการทำงาน Firefox ใหม่เพื่อใช้ส่วนเสริมนี้"
-
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "ปิด"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox สำหรับ iOS ไม่รองรับส่วนเสริมในขณะนี้"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr "ส่วนเสริมนี้ไม่รองรับ Firefox รุ่นของคุณ"
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "ส่วนเสริมนี้ไม่รองรับเบราว์เซอร์ของคุณ"
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "ค้นพบส่วนเสริม"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "นโยบายความเป็นส่วนตัว"
+
+#: src/disco/pages/DiscoPane/index.js:136
+msgid "Find more add-ons"
+msgstr "ค้นหาส่วนเสริมเพิ่มเติม"
+
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "ปรับแต่ง Firefox ของคุณ"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -155,14 +177,6 @@ msgstr ""
 "ตั้งแต่ชุดตกแต่งอันสนุกสนานไปจนถึงเครื่องมือทรงประสิทธิภาพที่ทำให้การท่องเว็บเร็วขึ้นและปลอดภัยขึ้น "
 "ส่วนเสริมทำให้เบราว์เซอร์ของคุณเป็นของคุณ เพื่อช่วยคุณเริ่มต้น "
 "นี่คือบางส่วนที่เราแนะนำสำหรับประสิทธิภาพและการทำงานที่โดดเด่น"
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "ดูส่วนเสริมเพิ่มเติม!"
-
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "นโยบายความเป็นส่วนตัว"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -176,9 +190,25 @@ msgstr "เกิดข้อผิดพลาดที่ไม่คาดค
 msgid "Reload To Continue"
 msgstr "โหลดใหม่เพื่อดำเนินการต่อ"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
 msgstr ""
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "ตัวอย่างของ %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "ส่วนเสริมนี้จะถูกถอนการติดตั้งหลังจากคุณเริ่มการทำงาน Firefox ใหม่"
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "โปรดเริ่มการทำงาน Firefox ใหม่เพื่อใช้ส่วนเสริมนี้"
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "ส่วนเสริมของคุณพร้อมแล้ว"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "ตอนนี้คุณสามารถเข้าถึง %(name)s ได้จากแถบเครื่องมือ"
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr "วางเมาส์เพื่อแสดงตัวอย่างหรือคลิกเพื่อติดตั้ง %(name)s"

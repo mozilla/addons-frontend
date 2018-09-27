@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {
-  denormalizeReview,
+  createInternalReview,
   flagReview,
   setReviewWasFlagged,
 } from 'amo/actions/reviews';
@@ -33,7 +33,7 @@ describe(__filename, () => {
       buttonText: 'flag the thing',
       i18n: fakeI18n(),
       reason: REVIEW_FLAG_REASON_SPAM,
-      review: denormalizeReview(fakeReview),
+      review: createInternalReview(fakeReview),
       store,
       wasFlaggedText: 'the thing was flagged',
       ...customProps,
@@ -43,7 +43,7 @@ describe(__filename, () => {
 
   it('can flag a review', () => {
     const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
-    const review = denormalizeReview({ ...fakeReview, id: 3321 });
+    const review = createInternalReview({ ...fakeReview, id: 3321 });
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ reason, review });
 
@@ -64,7 +64,7 @@ describe(__filename, () => {
 
   it('renders loading text while in progress', () => {
     const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
-    const review = denormalizeReview(fakeReview);
+    const review = createInternalReview(fakeReview);
     store.dispatch(
       flagReview({
         errorHandlerId: createStubErrorHandler().id,
@@ -87,7 +87,7 @@ describe(__filename, () => {
   it('renders post-flagged text', () => {
     const wasFlaggedText = 'The review was flagged';
     const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
-    const review = denormalizeReview(fakeReview);
+    const review = createInternalReview(fakeReview);
     store.dispatch(
       setReviewWasFlagged({
         reason,
@@ -108,7 +108,7 @@ describe(__filename, () => {
 
     // The user flags a review:
     const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
-    const review = denormalizeReview(fakeReview);
+    const review = createInternalReview(fakeReview);
     store.dispatch(
       flagReview({
         errorHandlerId: errorHandler.id,

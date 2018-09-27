@@ -1,6 +1,5 @@
-@import '~ui/css/vars';
+@import '~ui/css/styles';
 @import './vars';
-@import '~core/css/inc/mixins';
 
 @mixin icon($name) {
   background: url('./img/#{$name}.svg') center no-repeat;
@@ -14,6 +13,8 @@
 .Icon {
   content: '';
   display: inline-block;
+  // Do not let flex containers shrink icons.
+  flex-shrink: 0;
   height: $default-icon-size;
   width: $default-icon-size;
 }
@@ -104,6 +105,10 @@
 
 .Icon-star {
   @include icon($name: 'star');
+}
+
+.Icon-star-yellow {
+  @include icon($name: 'star-yellow');
 }
 
 .Icon-star-empty {
@@ -294,4 +299,12 @@
 
 .Icon-artist {
   @include icon($name: 'artist');
+}
+
+.Icon-delete {
+  @include icon($name: 'delete');
+}
+
+.Icon-plus-dark {
+  @include icon($name: 'plus-dark');
 }

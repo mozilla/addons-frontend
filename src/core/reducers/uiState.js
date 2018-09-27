@@ -9,6 +9,16 @@ export type UIStateState = {
 
 const initialState = {};
 
+export const selectUIState = ({
+  uiState,
+  uiStateID,
+}: {|
+  uiState: UIStateState,
+  uiStateID: string,
+|}) => {
+  return uiState[uiStateID];
+};
+
 type SetUIStateParams = {|
   id: string,
   change: Object,

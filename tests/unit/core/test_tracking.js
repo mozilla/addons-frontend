@@ -1,7 +1,10 @@
 /* global window */
+import hct from 'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib';
+
 import {
   Tracking,
   isDoNotTrackEnabled,
+  filterIdentifier,
   getAddonEventCategory,
   getAddonTypeForTracking,
 } from 'core/tracking';
@@ -12,12 +15,23 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  ENABLE_ACTION,
+  ENABLE_EXTENSION_CATEGORY,
+  ENABLE_THEME_CATEGORY,
+  CLICK_CATEGORY,
+  HCT_DISCO_CATEGORY,
   INSTALL_ACTION,
+  INSTALL_CANCELLED_ACTION,
+  INSTALL_CANCELLED_EXTENSION_CATEGORY,
+  INSTALL_CANCELLED_THEME_CATEGORY,
+  INSTALL_DOWNLOAD_FAILED_ACTION,
+  INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY,
+  INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY,
   INSTALL_EXTENSION_CATEGORY,
-  INSTALL_EXTENSION_STARTED_CATEGORY,
   INSTALL_STARTED_ACTION,
+  INSTALL_STARTED_EXTENSION_CATEGORY,
+  INSTALL_STARTED_THEME_CATEGORY,
   INSTALL_THEME_CATEGORY,
-  INSTALL_THEME_STARTED_CATEGORY,
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_INVALID,
   TRACKING_TYPE_STATIC_THEME,
@@ -26,40 +40,36 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
+import { getFakeConfig } from 'tests/unit/helpers';
+
+function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
+  return new Tracking({
+    _isDoNotTrackEnabled: () => false,
+    _config: getFakeConfig({
+      trackingEnabled: true,
+      trackingId: 'sample-tracking-id',
+      ...configOverrides,
+    }),
+    ...paramOverrides,
+  });
+}
 
 describe(__filename, () => {
   describe('Tracking', () => {
-    function stubConfig(overrides = {}) {
-      const config = {
-        trackingEnabled: true,
-        trackingId: 'sample-tracking-id',
-        ...overrides,
-      };
-      return { get: sinon.spy((key) => config[key]) };
-    }
-
-    function createTracking(overrides = {}) {
-      return new Tracking({
-        _isDoNotTrackEnabled: () => false,
-        _config: stubConfig(),
-        ...overrides,
-      });
-    }
-
     beforeEach(() => {
       window.ga = sinon.stub();
     });
 
     it('should not enable GA when configured off', () => {
       createTracking({
-        _config: stubConfig({ trackingEnabled: false }),
+        configOverrides: { trackingEnabled: false },
       });
       sinon.assert.notCalled(window.ga);
     });
 
     it('should not send events when tracking is configured off', () => {
       const tracking = createTracking({
-        _config: stubConfig({ trackingEnabled: false }),
+        configOverrides: { trackingEnabled: false },
       });
       tracking.sendEvent({
         category: 'whatever',
@@ -70,27 +80,28 @@ describe(__filename, () => {
 
     it('should disable GA due to missing id', () => {
       createTracking({
-        _isDoNotTrackEnabled: () => false,
-        _config: stubConfig({
-          trackingEnabled: true,
-          trackingId: null,
-        }),
+        configOverrides: { trackingId: null },
+        paramOverrides: {
+          _isDoNotTrackEnabled: () => false,
+        },
       });
       sinon.assert.notCalled(window.ga);
     });
 
     it('should disable GA due to Do Not Track', () => {
       createTracking({
-        _isDoNotTrackEnabled: () => true,
-        _config: stubConfig({ trackingEnabled: true }),
-        trackingEnabled: true,
+        paramOverrides: {
+          _isDoNotTrackEnabled: () => true,
+        },
       });
       sinon.assert.notCalled(window.ga);
     });
 
     it('should send initial page view when enabled', () => {
       createTracking({
-        _config: stubConfig({ trackingSendInitPageView: true }),
+        configOverrides: {
+          trackingSendInitPageView: true,
+        },
       });
       sinon.assert.calledWith(window.ga, 'send', 'pageview');
     });
@@ -106,7 +117,11 @@ describe(__filename, () => {
     });
 
     it('should not send initial page view when disabled', () => {
-      createTracking({ trackingSendInitPageView: false });
+      createTracking({
+        configOverrides: {
+          trackingSendInitPageView: false,
+        },
+      });
       // Make sure only 'create' and 'set' were called, not 'send'.
       sinon.assert.calledWith(window.ga, 'create');
       sinon.assert.calledWith(
@@ -229,19 +244,19 @@ describe(__filename, () => {
     it('returns the expected category when type is extension and installAction is install started', () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_STARTED_ACTION),
-      ).toEqual(INSTALL_EXTENSION_STARTED_CATEGORY);
+      ).toEqual(INSTALL_STARTED_EXTENSION_CATEGORY);
     });
 
     it('returns the expected category when type is lightweight theme and installAction is install started', () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_STARTED_ACTION),
-      ).toEqual(INSTALL_THEME_STARTED_CATEGORY);
+      ).toEqual(INSTALL_STARTED_THEME_CATEGORY);
     });
 
     it('returns the expected category when type is static theme and installAction is install started', () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_STARTED_ACTION),
-      ).toEqual(INSTALL_THEME_STARTED_CATEGORY);
+      ).toEqual(INSTALL_STARTED_THEME_CATEGORY);
     });
 
     it('returns the expected category when type is extension and installAction is uninstall', () => {
@@ -278,6 +293,69 @@ describe(__filename, () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_ACTION),
       ).toEqual(INSTALL_THEME_CATEGORY);
+    });
+
+    it('returns the expected category when type is extension and installAction is cancelled', () => {
+      expect(
+        getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_CANCELLED_ACTION),
+      ).toEqual(INSTALL_CANCELLED_EXTENSION_CATEGORY);
+    });
+
+    it('returns the expected category when type is lightweight theme and installAction is cancelled', () => {
+      expect(
+        getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_CANCELLED_ACTION),
+      ).toEqual(INSTALL_CANCELLED_THEME_CATEGORY);
+    });
+
+    it('returns the expected category when type is static theme and installAction is cancelled', () => {
+      expect(
+        getAddonEventCategory(
+          ADDON_TYPE_STATIC_THEME,
+          INSTALL_CANCELLED_ACTION,
+        ),
+      ).toEqual(INSTALL_CANCELLED_THEME_CATEGORY);
+    });
+
+    it('returns the expected category when type is extension and installAction is enable', () => {
+      expect(
+        getAddonEventCategory(ADDON_TYPE_EXTENSION, ENABLE_ACTION),
+      ).toEqual(ENABLE_EXTENSION_CATEGORY);
+    });
+
+    it('returns the expected category when type is lightweight theme and installAction is enable', () => {
+      expect(getAddonEventCategory(ADDON_TYPE_THEME, ENABLE_ACTION)).toEqual(
+        ENABLE_THEME_CATEGORY,
+      );
+    });
+
+    it('returns the expected category when type is static theme and installAction is enable', () => {
+      expect(
+        getAddonEventCategory(ADDON_TYPE_STATIC_THEME, ENABLE_ACTION),
+      ).toEqual(ENABLE_THEME_CATEGORY);
+    });
+
+    it('returns the expected category when type is extension and installAction is download failed', () => {
+      expect(
+        getAddonEventCategory(
+          ADDON_TYPE_EXTENSION,
+          INSTALL_DOWNLOAD_FAILED_ACTION,
+        ),
+      ).toEqual(INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY);
+    });
+
+    it('returns the expected category when type is lightweight theme and installAction is download failed', () => {
+      expect(
+        getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_DOWNLOAD_FAILED_ACTION),
+      ).toEqual(INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY);
+    });
+
+    it('returns the expected category when type is static theme and installAction is download failed', () => {
+      expect(
+        getAddonEventCategory(
+          ADDON_TYPE_STATIC_THEME,
+          INSTALL_DOWNLOAD_FAILED_ACTION,
+        ),
+      ).toEqual(INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY);
     });
   });
 
@@ -333,24 +411,186 @@ describe(__filename, () => {
     });
 
     it('should log that DNT disabled tracking', () => {
-      const fakeLog = { log: sinon.stub() };
+      const fakeLog = { info: sinon.stub() };
       isDoNotTrackEnabled({
         _log: fakeLog,
         _navigator: { doNotTrack: '1' },
         _window: {},
       });
 
-      sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
+      sinon.assert.calledWith(fakeLog.info, 'Do Not Track is enabled');
 
       // Check with `window.doNotTrack` as well, just for completeness.
-      fakeLog.log.resetHistory();
+      fakeLog.info.resetHistory();
       isDoNotTrackEnabled({
         _log: fakeLog,
         _navigator: {},
         _window: { doNotTrack: '1' },
       });
 
-      sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
+      sinon.assert.calledWith(fakeLog.info, 'Do Not Track is enabled');
+    });
+  });
+
+  describe('Hybrid Content Telemetry filterIdentifier()', () => {
+    it('should return content up to the default max length', () => {
+      expect(filterIdentifier('a'.repeat(26))).toHaveLength(20);
+    });
+
+    it('should return content up to the supplied max length', () => {
+      expect(filterIdentifier('a'.repeat(26), { maxLen: 10 })).toHaveLength(10);
+    });
+
+    it('should return content filtered for telemetry', () => {
+      expect(filterIdentifier('a/bcde/-#/._fgh', { maxLen: 10 })).toEqual(
+        'abcde_fgh',
+      );
+    });
+  });
+
+  describe('Tracking constants should not be changed or it risks breaking tracking stats', () => {
+    it('should not change the tracking constant for invalid', () => {
+      expect(TRACKING_TYPE_INVALID).toEqual('invalid');
+    });
+
+    it('should not change the tracking constant for an extension', () => {
+      expect(TRACKING_TYPE_EXTENSION).toEqual('addon');
+    });
+
+    it('should not change the tracking constant for theme', () => {
+      expect(TRACKING_TYPE_THEME).toEqual('theme');
+    });
+
+    it('should not change the tracking constant for static theme', () => {
+      expect(TRACKING_TYPE_STATIC_THEME).toEqual('statictheme');
+    });
+
+    it('should not change the tracking category constants for theme installs', () => {
+      expect(INSTALL_THEME_CATEGORY).toEqual('AMO Theme Installs');
+    });
+
+    it('should not change the tracking category constants for extension installs', () => {
+      expect(INSTALL_EXTENSION_CATEGORY).toEqual('AMO Addon Installs');
+    });
+
+    it('should not change the tracking category constants for starting theme installs', () => {
+      expect(INSTALL_STARTED_THEME_CATEGORY).toEqual(
+        'AMO Theme Installs Started',
+      );
+    });
+
+    it('should not change the tracking category constants for starting extension installs', () => {
+      expect(INSTALL_STARTED_EXTENSION_CATEGORY).toEqual(
+        'AMO Addon Installs Started',
+      );
+    });
+
+    it('should not change the tracking category constants for theme uninstalls', () => {
+      expect(UNINSTALL_THEME_CATEGORY).toEqual('AMO Theme Uninstalls');
+    });
+
+    it('should not change the tracking category constants for extension uninstalls', () => {
+      expect(UNINSTALL_EXTENSION_CATEGORY).toEqual('AMO Addon Uninstalls');
+    });
+
+    it('should not change the tracking category constants for clicks', () => {
+      expect(CLICK_CATEGORY).toEqual('AMO Addon / Theme Clicks');
+    });
+  });
+
+  describe('Hybrid Content Telemetry', () => {
+    let importStub;
+    let registerEventsSpy;
+
+    beforeEach(() => {
+      importStub = sinon.stub(hct, 'initPromise').callsFake(() => {
+        return Promise.resolve(hct);
+      });
+      registerEventsSpy = sinon.spy(hct, 'registerEvents');
+    });
+
+    afterEach(() => {
+      importStub.restore();
+      registerEventsSpy.restore();
+    });
+
+    it('should return null from the init promise if hctEnabled is false', async () => {
+      const tracking = createTracking({
+        configOverrides: { hctEnabled: false },
+      });
+      const hctLib = await tracking.hctInitPromise;
+      expect(hctLib).toEqual(null);
+    });
+
+    it('should return hct object from the init promise if hctEnabled is true', async () => {
+      const tracking = createTracking({
+        configOverrides: { hctEnabled: true },
+      });
+      const hctLib = await tracking.hctInitPromise;
+      expect(hctLib).toHaveProperty('canUpload');
+      expect(hctLib).toHaveProperty('initPromise');
+      expect(hctLib).toHaveProperty('recordEvent');
+      expect(hctLib).toHaveProperty('registerEvents');
+    });
+
+    it('should call registerEvents if hctEnabled is true', async () => {
+      const tracking = createTracking({
+        configOverrides: { hctEnabled: true },
+      });
+      await tracking.hctInitPromise;
+      sinon.assert.calledOnce(registerEventsSpy);
+    });
+  });
+
+  describe('Hybrid Content Telemetry Events', () => {
+    let importStub;
+    let canUploadStub;
+    let recordEventSpy;
+    const trackingData = {
+      method: INSTALL_EXTENSION_CATEGORY,
+      object: TRACKING_TYPE_EXTENSION,
+      value: 'value',
+    };
+
+    beforeEach(() => {
+      importStub = sinon.stub(hct, 'initPromise').callsFake(() => {
+        return Promise.resolve(hct);
+      });
+      canUploadStub = sinon.stub(hct, 'canUpload');
+      recordEventSpy = sinon.spy(hct, 'recordEvent');
+    });
+
+    afterEach(() => {
+      importStub.restore();
+      canUploadStub.restore();
+      recordEventSpy.restore();
+    });
+
+    it('should not call recordEvent if canUpload returns false', async () => {
+      canUploadStub.callsFake(() => false);
+      const tracking = createTracking({
+        configOverrides: { hctEnabled: true },
+      });
+
+      await tracking._hct(trackingData);
+      sinon.assert.notCalled(recordEventSpy);
+    });
+
+    it('should call recordEvent if canUpload is true', async () => {
+      canUploadStub.callsFake(() => true);
+      const tracking = createTracking({
+        configOverrides: { hctEnabled: true },
+      });
+
+      await tracking._hct(trackingData);
+      sinon.assert.calledOnce(recordEventSpy);
+      sinon.assert.calledWith(
+        recordEventSpy,
+        HCT_DISCO_CATEGORY,
+        filterIdentifier(INSTALL_EXTENSION_CATEGORY),
+        filterIdentifier(TRACKING_TYPE_EXTENSION),
+        'value',
+      );
     });
   });
 });

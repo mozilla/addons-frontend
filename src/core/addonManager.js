@@ -1,25 +1,80 @@
+/* @flow */
 /* global window */
 import log from 'core/logger';
 import {
-  GLOBAL_EVENT_STATUS_MAP,
+  DISABLED,
+  ENABLED,
   GLOBAL_EVENTS,
+  GLOBAL_EVENT_STATUS_MAP,
+  INACTIVE,
   INSTALL_EVENT_LIST,
+  ON_OPERATION_CANCELLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams, isTheme } from 'core/utils';
 
-const testHasWindow = () => typeof window !== 'undefined';
+// This is the representation of an add-on in Firefox.
+type FirefoxAddon = {|
+  canUninstall: boolean,
+  description: string,
+  id: string,
+  isActive: boolean,
+  isEnabled: boolean,
+  name: string,
+  setEnabled: (boolean) => void,
+  type: 'extension' | 'theme',
+  uninstall: () => void,
+  version: string,
+|};
 
-export function hasAddonManager({ hasWindow = testHasWindow, navigator } = {}) {
-  // Returns undefined if it cannot be determined if mozAddonManager is supported (likely server
-  // rendering with no window). Otherwise returns true/false based on mozAddonManager in navigator.
-  if (!navigator && !hasWindow()) {
-    return undefined;
+export type MozAddonManagerType = {|
+  addEventListener: (eventName: string, handler: Function) => void,
+  createInstall: ({| url: string |}) => Promise<any>,
+  getAddonByID: (guid: string) => Promise<FirefoxAddon>,
+  permissionPromptsEnabled: boolean,
+|};
+
+type PrivilegedNavigatorType = {|
+  mozAddonManager: MozAddonManagerType,
+|};
+
+type OptionalParams = {|
+  _mozAddonManager?: MozAddonManagerType,
+|};
+
+type GetAddonStatusParams = {|
+  addon: FirefoxAddon,
+  type?: string,
+|};
+
+export function getAddonStatus({ addon, type }: GetAddonStatusParams) {
+  const { isActive, isEnabled } = addon;
+
+  let status = DISABLED;
+
+  if (isActive && isEnabled) {
+    status = ENABLED;
+  } else if (!isTheme(type) && !isActive && isEnabled) {
+    // We only use the INACTIVE status for add-ons that are not themes.
+    status = INACTIVE;
   }
+
+  return status;
+}
+
+export function hasAddonManager({
+  navigator,
+}: { navigator: PrivilegedNavigatorType } = {}) {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
   return 'mozAddonManager' in (navigator || window.navigator);
 }
 
-export function hasPermissionPromptsEnabled({ navigator } = {}) {
+export function hasPermissionPromptsEnabled({
+  navigator,
+}: { navigator: PrivilegedNavigatorType } = {}) {
   if (module.exports.hasAddonManager({ navigator })) {
     const _navigator = navigator || window.navigator;
     return _navigator.mozAddonManager.permissionPromptsEnabled;
@@ -28,8 +83,8 @@ export function hasPermissionPromptsEnabled({ navigator } = {}) {
 }
 
 export function getAddon(
-  guid,
-  { _mozAddonManager = window.navigator.mozAddonManager } = {},
+  guid: string,
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
   if (_mozAddonManager || module.exports.hasAddonManager()) {
     // Resolves a promise with the addon on success.
@@ -44,10 +99,18 @@ export function getAddon(
   return Promise.reject(new Error('Cannot check add-on status'));
 }
 
+type OptionalInstallParams = {|
+  ...OptionalParams,
+  src: string,
+|};
+
 export function install(
-  _url,
-  eventCallback,
-  { _mozAddonManager = window.navigator.mozAddonManager, src } = {},
+  _url: string | void,
+  eventCallback: Function,
+  {
+    _mozAddonManager = window.navigator.mozAddonManager,
+    src,
+  }: OptionalInstallParams = {},
 ) {
   if (src === undefined) {
     return Promise.reject(new Error('No src for add-on install'));
@@ -70,8 +133,8 @@ export function install(
 }
 
 export function uninstall(
-  guid,
-  { _mozAddonManager = window.navigator.mozAddonManager } = {},
+  guid: string,
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
   return getAddon(guid, { _mozAddonManager })
     .then((addon) => {
@@ -87,36 +150,80 @@ export function uninstall(
     });
 }
 
-export function addChangeListeners(callback, mozAddonManager) {
-  function handleChangeEvent(e) {
-    const { id, type, needsRestart } = e;
-    log.info('Event received', { type, id, needsRestart });
+type AddonChangeEvent = {|
+  id: string,
+  needsRestart: boolean,
+  type: string,
+|};
+
+export function addChangeListeners(
+  callback: ({|
+    guid: string,
+    status: $Values<typeof GLOBAL_EVENT_STATUS_MAP>,
+    needsRestart: boolean,
+  |}) => void,
+  mozAddonManager: MozAddonManagerType,
+  { _log = log }: {| _log: typeof log |} = {},
+) {
+  function handleChangeEvent(e: AddonChangeEvent) {
+    const { id: guid, type, needsRestart } = e;
+
+    _log.info('Event received', { type, id: guid, needsRestart });
+
+    if (type === ON_OPERATION_CANCELLED_EVENT) {
+      // We need to retrieve the correct status for this add-on.
+      return getAddon(guid, { _mozAddonManager: mozAddonManager })
+        .then((addon) => {
+          const status = getAddonStatus({ addon });
+
+          return callback({
+            guid,
+            status,
+            needsRestart,
+          });
+        })
+        .catch((error) => {
+          _log.error(
+            'Unexpected error after having received onOperationCancelled event',
+            error,
+          );
+        });
+    }
+
     // eslint-disable-next-line no-prototype-builtins
     if (GLOBAL_EVENT_STATUS_MAP.hasOwnProperty(type)) {
       return callback({
-        guid: id,
+        guid,
         status: GLOBAL_EVENT_STATUS_MAP[type],
         needsRestart,
       });
     }
+
     throw new Error(`Unknown global event: ${type}`);
   }
 
   if (mozAddonManager && mozAddonManager.addEventListener) {
     for (const event of GLOBAL_EVENTS) {
-      log.info(`adding event listener for "${event}"`);
+      _log.info(`adding event listener for "${event}"`);
       mozAddonManager.addEventListener(event, handleChangeEvent);
     }
-    log.info('Global change event listeners have been initialized');
+
+    mozAddonManager.addEventListener(
+      ON_OPERATION_CANCELLED_EVENT,
+      handleChangeEvent,
+    );
+
+    _log.info('Global change event listeners have been initialized');
   } else {
-    log.info('mozAddonManager.addEventListener not available');
+    _log.info('mozAddonManager.addEventListener not available');
   }
+
   return handleChangeEvent;
 }
 
 export function enable(
-  guid,
-  { _mozAddonManager = window.navigator.mozAddonManager } = {},
+  guid: string,
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
   return getAddon(guid, { _mozAddonManager }).then((addon) => {
     log.info(`Enable ${guid}`);

@@ -47,13 +47,18 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     if (flagState) {
       if (flagState.inProgress && !errorHandler.hasError()) {
         return <LoadingText minWidth={60} />;
-      } else if (flagState.wasFlagged) {
+      }
+      if (flagState.wasFlagged) {
         return wasFlaggedText;
       }
     }
 
     return (
-      <button className="FlagReview-button" onClick={this.onClick}>
+      <button
+        className="FlagReview-button"
+        onClick={this.onClick}
+        type="button"
+      >
         {buttonText}
       </button>
     );

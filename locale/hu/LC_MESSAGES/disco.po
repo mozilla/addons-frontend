@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2017-08-23 18:45+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
+"PO-Revision-Date: 2018-08-24 09:53+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -13,6 +13,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Enable"
+msgstr "Engedélyezés"
+
+#: src/core/components/AMInstallButton/index.js:209
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: src/core/components/AMInstallButton/index.js:211
+msgid "Enabling"
+msgstr "Engedélyezés"
+
+#: src/core/components/AMInstallButton/index.js:213
+msgid "Downloading"
+msgstr "Letöltés"
+
+#: src/core/components/AMInstallButton/index.js:215
+msgid "Installing"
+msgstr "Telepítés"
+
+#: src/core/components/AMInstallButton/index.js:217
+msgid "Uninstalling"
+msgstr "Eltávolítás"
+
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
+msgid "Install Theme"
+msgstr "Téma telepítése"
+
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
+msgid "Add to Firefox"
+msgstr "Hozzáadás a Firefoxhoz"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -39,27 +75,17 @@ msgstr "Az oldal nem található"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sajnáljuk, de semmit sem találunk a megadott URL-en."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "A kiegészítője készen áll"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr "%(strongStart)s%(name)s%(strongEnd)s hozzáadva"
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Most már elérheti ezt az eszköztáron: %(name)s."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr "Kezelje kiegészítőit a Kiegészítőkre kattintva a menüben."
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
-msgstr "OK!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Téma telepítése"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Hozzáadás a Firefoxhoz"
+#: src/core/components/InfoDialog/index.js:88
+msgid "OK"
+msgstr "OK"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -90,64 +116,59 @@ msgstr "A(z) %(name)s el lett távolítva. Kattintson a telepítéshez."
 msgid "Install state for %(name)s is unknown."
 msgstr "A(z) %(name)s telepítési állapota ismeretlen."
 
-#: src/disco/components/Addon/index.js:136
-#, fuzzy
-msgid "Preview of %(name)s"
-msgstr "%(name)s előnézete"
-
-#: src/disco/components/Addon/index.js:174
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "A telepítés sikertelen. Kérjük, próbálja meg újra."
 
-#: src/disco/components/Addon/index.js:176
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
 msgstr "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
 
-#: src/disco/components/Addon/index.js:178
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Váratlan hiba történt a telepítés során."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Váratlan hiba történt az eltávolítás során."
 
-#: src/disco/components/Addon/index.js:187
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
-#: src/disco/components/Addon/index.js:195
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
-
-#: src/disco/components/Addon/index.js:199
-msgid "Please restart Firefox to use this add-on."
-msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
-
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Bezárás"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "A Firefox for iOS pillanatnyilag nem támogatja a kiegészítőket."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
 msgstr "Ez a kiegészítő nem támogatja az Ön Firefox verzióját."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
 msgstr "Ez a kiegészítő nem támogatja a böngészőjét."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
 msgstr "Kiegészítők felfedezése"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Adatvédelmi irányelvek"
+
+#: src/disco/pages/DiscoPane/index.js:136
+msgid "Find more add-ons"
+msgstr "Több kiegészítő keresése"
+
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
 msgstr "A Firefox testreszabása"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -165,14 +186,6 @@ msgstr ""
 "itt van néhány,\n"
 "amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "Több kiegészítő megtekintése!"
-
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr "Adatvédelmi irányelvek"
-
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "A munkamenet lejárt"
@@ -185,9 +198,25 @@ msgstr "Váratlan hiba történt"
 msgid "Reload To Continue"
 msgstr "Töltse újra a folytatáshoz"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Értesítés elvetése"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "%(title)s előnézete"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "A kiegészítője készen áll"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Most már elérheti ezt az eszköztáron: %(name)s."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr ""

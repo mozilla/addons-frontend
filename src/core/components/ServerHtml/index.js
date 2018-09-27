@@ -6,6 +6,12 @@ import serialize from 'serialize-javascript';
 import Helmet from 'react-helmet';
 import config from 'config';
 
+import { LTR } from 'core/constants';
+
+const JS_CHUNK_EXCLUDES = new RegExp(
+  `(?:${config.get('jsChunkExclusions').join('|')})`,
+);
+
 export default class ServerHtml extends Component {
   static propTypes = {
     appName: PropTypes.string.isRequired,
@@ -22,7 +28,7 @@ export default class ServerHtml extends Component {
   };
 
   static defaultProps = {
-    htmlDir: 'ltr',
+    htmlDir: LTR,
     htmlLang: 'en-US',
     trackingEnabled: false,
     _config: config,
@@ -33,7 +39,7 @@ export default class ServerHtml extends Component {
     const leafName = filePath.split('/').pop();
     let sriProps = {};
     // Only output files for the current app.
-    if (leafName.startsWith(appName) && !leafName.includes('i18n')) {
+    if (leafName.startsWith(appName) && !JS_CHUNK_EXCLUDES.test(leafName)) {
       if (includeSri) {
         sriProps = {
           integrity: sriData[leafName],
@@ -96,6 +102,7 @@ export default class ServerHtml extends Component {
 
   render() {
     const { component, htmlLang, htmlDir, noScriptStyles, store } = this.props;
+
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
     const content = component ? ReactDOM.renderToString(component) : '';

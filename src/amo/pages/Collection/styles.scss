@@ -1,0 +1,68 @@
+@import '~amo/css/styles';
+
+.Collection {
+  @include page-padding();
+}
+
+.Collection-login {
+  display: flex;
+}
+
+.Collection-detail,
+.CollectionList-create {
+  .Card-contents {
+    overflow: visible;
+  }
+}
+
+.Collection-author-name-value {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@include respond-to(large) {
+  .Collection-wrapper {
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-gap: 0 $padding-page-l;
+    grid-template-columns: minmax(300px, 35%) 1fr;
+    margin: 0;
+
+    .Collection-detail-wrapper {
+      grid-column: 1;
+    }
+
+    .Collection-items {
+      grid-column: 2;
+
+      .CardList {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.Collection-placeholder {
+  margin: 50px auto;
+  opacity: 0.75;
+  padding: 0 12px;
+  text-align: center;
+
+  @include respond-to(large) {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.Collection-delete-button {
+  margin-top: 24px;
+
+  .ConfirmButton-default-button {
+    width: 100%;
+  }
+}

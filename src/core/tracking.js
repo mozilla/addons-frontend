@@ -11,11 +11,22 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLICK_CATEGORY,
+  ENABLE_ACTION,
+  ENABLE_EXTENSION_CATEGORY,
+  ENABLE_THEME_CATEGORY,
+  HCT_DISCO_CATEGORY,
+  INSTALL_CANCELLED_ACTION,
+  INSTALL_CANCELLED_EXTENSION_CATEGORY,
+  INSTALL_CANCELLED_THEME_CATEGORY,
+  INSTALL_DOWNLOAD_FAILED_ACTION,
+  INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY,
+  INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY,
   INSTALL_EXTENSION_CATEGORY,
-  INSTALL_EXTENSION_STARTED_CATEGORY,
   INSTALL_STARTED_ACTION,
+  INSTALL_STARTED_EXTENSION_CATEGORY,
+  INSTALL_STARTED_THEME_CATEGORY,
   INSTALL_THEME_CATEGORY,
-  INSTALL_THEME_STARTED_CATEGORY,
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_INVALID,
   TRACKING_TYPE_STATIC_THEME,
@@ -26,6 +37,42 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 import { convertBoolean, isTheme } from 'core/utils';
+
+export function filterIdentifier(input, { maxLen = 20 } = {}) {
+  const output = input
+    .toLowerCase()
+    // Remove superfluous references
+    .replace(/amo/, '')
+    // remove leading and trailing whitespace
+    .trim()
+    // Remove chars that don't match the telemetry identifier requirements.
+    .replace(/[^a-z0-9_]+/g, '')
+    // Replace remaining spaces with underscores.
+    .replace(/\s+/g, '_')
+    // Truncate to fit maxLen (defaults to 20 chars).
+    .substring(0, maxLen);
+  return output;
+}
+
+const telemetryMethods = [
+  CLICK_CATEGORY,
+  ENABLE_EXTENSION_CATEGORY,
+  ENABLE_THEME_CATEGORY,
+  INSTALL_CANCELLED_EXTENSION_CATEGORY,
+  INSTALL_CANCELLED_THEME_CATEGORY,
+  INSTALL_EXTENSION_CATEGORY,
+  INSTALL_STARTED_EXTENSION_CATEGORY,
+  INSTALL_STARTED_THEME_CATEGORY,
+  INSTALL_THEME_CATEGORY,
+  UNINSTALL_EXTENSION_CATEGORY,
+  UNINSTALL_THEME_CATEGORY,
+].map(filterIdentifier);
+
+const telemetryObjects = [
+  TRACKING_TYPE_EXTENSION,
+  TRACKING_TYPE_THEME,
+  TRACKING_TYPE_STATIC_THEME,
+].map(filterIdentifier);
 
 export function isDoNotTrackEnabled({
   _log = log,
@@ -42,7 +89,7 @@ export function isDoNotTrackEnabled({
   // any browsers built on these stacks (Chromium, Tor Browser, etc.).
   const dnt = _navigator.doNotTrack || _window.doNotTrack;
   if (dnt === '1') {
-    _log.log('Do Not Track is enabled');
+    _log.info('Do Not Track is enabled');
     return true;
   }
 
@@ -56,31 +103,32 @@ export class Tracking {
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
   } = {}) {
     if (typeof window === 'undefined') {
-      /* istanbul ignore next */
       return;
     }
+
     this._log = log;
     this.logPrefix = '[GA]'; // this gets updated below
     this.id = _config.get('trackingId');
+    this.hctEnabled = false;
 
     if (!convertBoolean(_config.get('trackingEnabled'))) {
-      this.log('Disabled because trackingEnabled was false');
-      this.enabled = false;
+      this.log('GA disabled because trackingEnabled was false');
+      this.trackingEnabled = false;
     } else if (!this.id) {
-      this.log('Disabled because trackingId was empty');
-      this.enabled = false;
+      this.log('GA Disabled because trackingId was empty');
+      this.trackingEnabled = false;
     } else if (_isDoNotTrackEnabled()) {
       this.log(oneLine`Do Not Track Enabled; Google Analytics not
         loaded and tracking disabled`);
-      this.enabled = false;
+      this.trackingEnabled = false;
     } else {
       this.log('Google Analytics is enabled');
-      this.enabled = true;
+      this.trackingEnabled = true;
     }
 
-    this.logPrefix = `[GA: ${this.enabled ? 'ON' : 'OFF'}]`;
+    this.logPrefix = `[GA: ${this.trackingEnabled ? 'ON' : 'OFF'}]`;
 
-    if (this.enabled) {
+    if (this.trackingEnabled) {
       /* eslint-disable */
       // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
       window.ga =
@@ -98,6 +146,49 @@ export class Tracking {
       // (addons-frontend vs addons-server) is being used in analytics.
       ga('set', 'dimension3', 'addons-frontend');
     }
+
+    // Attempt to enable Hybrid content telemetry.
+    this.hctInitPromise = this.initHCT({ _config });
+  }
+
+  async initHCT({ _config = config } = {}) {
+    const hctEnabled = _config.get('hctEnabled');
+    if (typeof window !== 'undefined' && hctEnabled === true) {
+      log.info('Setting up the Hybrid Content Telemetry lib');
+      // Note: special webpack comments must be after the module name or
+      // babel-plugin-dynamic-import-node will blow-up.
+      try {
+        // prettier-ignore
+        const hybridContentTelemetry = await import(
+          'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib'
+          /* webpackChunkName: "disco-hct" */
+        );
+        await hybridContentTelemetry.initPromise();
+        let logHctReason;
+        if (!hybridContentTelemetry) {
+          logHctReason =
+            'HCT disabled because hctEnabled or hct object is not available';
+        } else {
+          logHctReason = 'HCT enabled';
+          this.hctEnabled = true;
+          hybridContentTelemetry.registerEvents(HCT_DISCO_CATEGORY, {
+            click: {
+              methods: telemetryMethods,
+              objects: telemetryObjects,
+            },
+          });
+        }
+        // Update the logging prefix to include HCT status.
+        this.logPrefix = oneLine`[GA: ${this.trackingEnabled ? 'ON' : 'OFF'}
+        | HCT: ${this.hctEnabled ? 'ON' : 'OFF'}]`;
+        this.log(logHctReason);
+        return hybridContentTelemetry;
+      } catch (err) {
+        log.error('Initialization failed', err);
+      }
+    }
+    log.info(`Not importing the HCT lib: hctEnabled: ${hctEnabled}`);
+    return Promise.resolve(null);
   }
 
   log(...args) {
@@ -107,8 +198,43 @@ export class Tracking {
   }
 
   _ga(...args) {
-    if (this.enabled) {
+    if (this.trackingEnabled) {
       window.ga(...args);
+    }
+  }
+
+  async _hct(data) {
+    const hybridContentTelemetry = await this.hctInitPromise;
+    if (hybridContentTelemetry) {
+      const canUpload = hybridContentTelemetry.canUpload();
+      if (canUpload === true) {
+        const method = filterIdentifier(data.method);
+        const object = filterIdentifier(data.object);
+        invariant(
+          telemetryMethods.includes(method),
+          `Method "${method}" must be one of the registered values: ${telemetryMethods.join(
+            ',',
+          )}`,
+        );
+        invariant(
+          telemetryObjects.includes(object),
+          `Object "${object}" must be one of the registered values: ${telemetryObjects.join(
+            ',',
+          )}`,
+        );
+        hybridContentTelemetry.recordEvent(
+          HCT_DISCO_CATEGORY,
+          method,
+          object,
+          data.value,
+        );
+      } else {
+        this.log(
+          `Not logging to telemetry because canUpload() returned: ${canUpload}`,
+        );
+      }
+    } else {
+      this.log(`Not logging to telemetry since hctEnabled: ${this.hctEnabled}`);
     }
   }
 
@@ -137,6 +263,12 @@ export class Tracking {
       eventValue: value,
     };
     this._ga('send', data);
+    // Hybrid content telemetry maps to the data used for GA.
+    this._hct({
+      method: category,
+      object: action,
+      value: label,
+    });
     this.log('sendEvent', JSON.stringify(data));
   }
 
@@ -185,10 +317,20 @@ export const getAddonEventCategory = (type, installAction) => {
   const isThemeType = isTheme(type);
 
   switch (installAction) {
+    case ENABLE_ACTION:
+      return isThemeType ? ENABLE_THEME_CATEGORY : ENABLE_EXTENSION_CATEGORY;
+    case INSTALL_CANCELLED_ACTION:
+      return isThemeType
+        ? INSTALL_CANCELLED_THEME_CATEGORY
+        : INSTALL_CANCELLED_EXTENSION_CATEGORY;
+    case INSTALL_DOWNLOAD_FAILED_ACTION:
+      return isThemeType
+        ? INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY
+        : INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY;
     case INSTALL_STARTED_ACTION:
       return isThemeType
-        ? INSTALL_THEME_STARTED_CATEGORY
-        : INSTALL_EXTENSION_STARTED_CATEGORY;
+        ? INSTALL_STARTED_THEME_CATEGORY
+        : INSTALL_STARTED_EXTENSION_CATEGORY;
     case UNINSTALL_ACTION:
       return isThemeType
         ? UNINSTALL_THEME_CATEGORY

@@ -2,7 +2,6 @@ import url from 'url';
 
 import config from 'config';
 
-import * as api from 'core/api';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
@@ -18,10 +17,11 @@ import {
   validAddonTypes,
 } from 'core/constants';
 import {
-  apiAddonTypeIsValid,
   addQueryParams,
+  addQueryParamsToHistory,
   addonHasVersionHistory,
   apiAddonType,
+  apiAddonTypeIsValid,
   convertBoolean,
   getAddonTypeFilter,
   getCategoryColor,
@@ -33,7 +33,6 @@ import {
   isValidClientApp,
   nl2br,
   normalizeFileNameId,
-  refreshAddon,
   removeProtocolFromURL,
   safePromise,
   sanitizeHTML,
@@ -42,10 +41,11 @@ import {
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
-import { createInternalAddon, loadAddons } from 'core/reducers/addons';
-import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
+import { createInternalAddon } from 'core/reducers/addons';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 import {
-  createFetchAddonResult,
+  createFakeHistory,
+  createFakeLocation,
   getFakeConfig,
   unexpectedSuccess,
   userAgents,
@@ -326,46 +326,6 @@ describe(__filename, () => {
 
     it('should be invalid if passed "whatever"', () => {
       expect(isValidClientApp('whatever', { _config })).toEqual(false);
-    });
-  });
-
-  describe('refreshAddon', () => {
-    const addonSlug = fakeAddon.slug;
-    const apiState = signedInApiState;
-    let dispatch;
-    let mockApi;
-
-    beforeEach(() => {
-      dispatch = sinon.spy();
-      mockApi = sinon.mock(api);
-    });
-
-    it('fetches and dispatches an add-on', () => {
-      const { entities } = createFetchAddonResult(fakeAddon);
-      mockApi
-        .expects('fetchAddon')
-        .once()
-        .withArgs({ slug: addonSlug, api: apiState })
-        .returns(Promise.resolve({ entities }));
-
-      return refreshAddon({ addonSlug, apiState, dispatch }).then(() => {
-        sinon.assert.calledWith(dispatch, loadAddons(entities));
-        mockApi.verify();
-      });
-    });
-
-    it('handles 404s when loading the add-on', () => {
-      mockApi
-        .expects('fetchAddon')
-        .once()
-        .withArgs({ slug: addonSlug, api: signedInApiState })
-        .returns(Promise.reject(new Error('Error accessing API')));
-      return refreshAddon({ addonSlug, apiState, dispatch }).then(
-        unexpectedSuccess,
-        () => {
-          sinon.assert.notCalled(dispatch);
-        },
-      );
     });
   });
 
@@ -684,7 +644,7 @@ describe(__filename, () => {
 
   describe('getAddonTypeFilter', () => {
     it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a lightweight theme', () => {
-      const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
       const addon = createInternalAddon({
         type: ADDON_TYPE_THEME,
         config: fakeConfig,
@@ -695,7 +655,7 @@ describe(__filename, () => {
     });
 
     it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a static theme', () => {
-      const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
       const addon = createInternalAddon({
         type: ADDON_TYPE_STATIC_THEME,
         config: fakeConfig,
@@ -706,7 +666,7 @@ describe(__filename, () => {
     });
 
     it('returns ADDON_TYPE_THEME when enabledStaticThemes is set to false', () => {
-      const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
       const addon = createInternalAddon({
         type: ADDON_TYPE_THEME,
         config: fakeConfig,
@@ -717,7 +677,7 @@ describe(__filename, () => {
     });
 
     it('returns ADDON_TYPE_EXTENSION when enabledStaticThemes is set to true and add-on type is an extension', () => {
-      const fakeConfig = getFakeConfig({ enableStaticThemes: true });
+      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
       const addon = createInternalAddon({
         type: ADDON_TYPE_EXTENSION,
         config: fakeConfig,
@@ -759,6 +719,34 @@ describe(__filename, () => {
 
     it('returns false if type is an extension', () => {
       expect(isTheme(ADDON_TYPE_EXTENSION)).toEqual(false);
+    });
+  });
+
+  describe('addQueryParamsToHistory', () => {
+    it('adds a query object to history.location', () => {
+      const history = createFakeHistory({
+        location: createFakeLocation({ query: null }),
+      });
+
+      expect(history).toHaveProperty('location.query', null);
+
+      const historyWithQueryParams = addQueryParamsToHistory({ history });
+
+      expect(historyWithQueryParams).toHaveProperty('location.query', {});
+    });
+
+    it('parses the query string to build the query object', () => {
+      const history = createFakeHistory({
+        location: createFakeLocation({ query: null, search: 'foo=123' }),
+      });
+
+      expect(history).toHaveProperty('location.query', null);
+
+      const historyWithQueryParams = addQueryParamsToHistory({ history });
+
+      expect(historyWithQueryParams).toHaveProperty('location.query', {
+        foo: '123',
+      });
     });
   });
 });

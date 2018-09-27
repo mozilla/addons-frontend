@@ -1,36 +1,57 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
-  CLEAR_ADDON_REVIEWS,
+  DELETE_ADDON_REVIEW,
+  FETCH_REVIEW,
+  FETCH_REVIEWS,
+  FLASH_REVIEW_MESSAGE,
+  HIDE_FLASHED_REVIEW_MESSAGE,
+  UNLOAD_ADDON_REVIEWS,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
-  SET_USER_REVIEWS,
+  SET_GROUPED_RATINGS,
+  SET_INTERNAL_REVIEW,
+  SET_LATEST_REVIEW,
   SET_REVIEW,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
+  SET_USER_REVIEWS,
   SHOW_EDIT_REVIEW_FORM,
   SHOW_REPLY_TO_REVIEW_FORM,
   HIDE_EDIT_REVIEW_FORM,
   HIDE_REPLY_TO_REVIEW_FORM,
-} from 'amo/constants';
-import { denormalizeReview } from 'amo/actions/reviews';
+  createInternalReview,
+} from 'amo/actions/reviews';
 import type {
-  ClearAddonReviewsAction,
+  DeleteAddonReviewAction,
+  FetchReviewAction,
+  FetchReviewsAction,
   FlagReviewAction,
+  FlashMessageType,
   HideEditReviewFormAction,
+  HideFlashedReviewMessageAction,
   HideReplyToReviewFormAction,
   ReviewWasFlaggedAction,
   SendReplyToReviewAction,
   SetAddonReviewsAction,
+  SetInternalReviewAction,
+  SetLatestReviewAction,
+  SetGroupedRatingsAction,
+  FlashReviewMessageAction,
   SetReviewAction,
   SetReviewReplyAction,
+  SetUserReviewsAction,
   ShowEditReviewFormAction,
   ShowReplyToReviewFormAction,
+  UnloadAddonReviewsAction,
   UserReviewType,
 } from 'amo/actions/reviews';
+import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
+import type { AppState } from 'amo/store';
 
 type ReviewsById = {
   [id: number]: UserReviewType,
@@ -48,11 +69,11 @@ type ReviewsData = {|
 |};
 
 type ReviewsByAddon = {
-  [slug: string]: StoredReviewsData,
+  [slug: string]: ?StoredReviewsData,
 };
 
 type ReviewsByUserId = {
-  [userId: number]: StoredReviewsData,
+  [userId: number]: ?StoredReviewsData,
 };
 
 export type FlagState = {
@@ -62,8 +83,10 @@ export type FlagState = {
 };
 
 type ViewStateByReviewId = {|
+  deletingReview: boolean,
   editingReview: boolean,
   flag: FlagState,
+  loadingReview: boolean,
   replyingToReview: boolean,
   submittingReply: boolean,
 |};
@@ -72,69 +95,58 @@ export type ReviewsState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
+  latestUserReview: {
+    // The latest user review for add-on / version
+    // or null if one does not exist yet.
+    [userIdAddonIdVersionId: string]: number | null,
+  },
+  groupedRatings: {
+    [addonId: number]: ?GroupedRatingsType,
+  },
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
-
-  // This is what the current data structure looks like:
-  // [userId: string]: {
-  //   [addonId: string]: {
-  //     [reviewId: string]: UserReviewType,
-  //   },
-  // },
-  //
-  // TODO: make this consistent by moving it from state[userId] to
-  // state.byUser[userId]
-  // https://github.com/mozilla/addons-frontend/issues/1791
-  //
-  // Also note that this needs to move to state.byUser before its type
-  // can be expressed in Flow without conflicting with state.byAddon.
-  //
+  // Short-lived messages about reviews.
+  flashMessage?: FlashMessageType,
+  loadingForSlug: {
+    [slug: string]: boolean,
+  },
 |};
 
 export const initialState: ReviewsState = {
   byAddon: {},
   byId: {},
   byUserId: {},
+  latestUserReview: {},
+  groupedRatings: {},
   // This stores review-related UI state.
   view: {},
+  flashMessage: undefined,
+  loadingForSlug: {},
 };
 
-type ExpandReviewObjectsParams = {|
-  state: ReviewsState,
-  reviews: Array<number>,
-|};
+export const selectReview = (
+  reviewsState: ReviewsState,
+  id: number,
+): UserReviewType | void => {
+  return reviewsState.byId[id];
+};
 
 export const expandReviewObjects = ({
   state,
   reviews,
-}: ExpandReviewObjectsParams): Array<UserReviewType> => {
+}: {|
+  state: ReviewsState,
+  reviews: Array<number>,
+|}): Array<UserReviewType> => {
   return reviews.map((id) => {
-    const review = state.byId[id];
+    const review = selectReview(state, id);
     if (!review) {
       throw new Error(`No stored review exists for ID ${id}`);
     }
     return review;
   });
 };
-
-function mergeInNewReview(
-  latestReview: UserReviewType,
-  oldReviews: { [reviewId: string]: UserReviewType } = {},
-): { [id: string]: Array<UserReviewType> } {
-  const mergedReviews = {};
-
-  Object.keys(oldReviews).forEach((id) => {
-    mergedReviews[id] = oldReviews[id];
-    if (latestReview.isLatest) {
-      // Reset the 'latest' flag for all old reviews.
-      mergedReviews[id].isLatest = false;
-    }
-  });
-
-  mergedReviews[latestReview.id] = latestReview;
-  return mergedReviews;
-}
 
 type StoreReviewObjectsParams = {|
   state: ReviewsState,
@@ -177,7 +189,9 @@ export const changeViewState = ({
     view: {
       ...state.view,
       [reviewId]: {
+        deletingReview: false,
         editingReview: false,
+        loadingReview: false,
         replyingToReview: false,
         submittingReply: false,
         ...state.view[reviewId],
@@ -209,24 +223,111 @@ export const getReviewsByUserId = (
     : null;
 };
 
+export const makeLatestUserReviewKey = ({
+  userId,
+  addonId,
+  versionId,
+}: {|
+  userId: number,
+  addonId: number,
+  versionId: number,
+|}) => {
+  return `user-${userId}/addon-${addonId}/version-${versionId}`;
+};
+
+export const selectLatestUserReview = ({
+  reviewsState,
+  userId,
+  addonId,
+  versionId,
+}: {|
+  reviewsState: ReviewsState,
+  userId: number,
+  addonId: number,
+  versionId: number,
+|}): UserReviewType | null | void => {
+  const key = makeLatestUserReviewKey({ userId, addonId, versionId });
+  const userReviewId = reviewsState.latestUserReview[key];
+
+  if (userReviewId === null) {
+    // This means we had previously attempted to fetch the latest
+    // user review but it does not exist.
+    return null;
+  }
+
+  // This either means we have not yet fetched a user review
+  // (return undefined) or we fetched and retrieved a user review
+  // (return the object).
+  return selectReview(reviewsState, userReviewId);
+};
+
+export const addReviewToState = ({
+  state,
+  review,
+}: {|
+  state: ReviewsState,
+  review: UserReviewType,
+|}) => {
+  return {
+    ...state,
+    byId: storeReviewObjects({ state, reviews: [review] }),
+    byUserId: {
+      ...state.byUserId,
+      // This will trigger a refresh from the server.
+      [review.userId]: undefined,
+    },
+    groupedRatings: {
+      ...state.groupedRatings,
+      // When adding a new rating, reset the cache of groupedRatings.
+      // This will trigger a refresh from the server.
+      [review.reviewAddon.id]: undefined,
+    },
+  };
+};
+
+export const reviewsAreLoading = (
+  state: AppState,
+  addonSlug: string,
+): boolean => {
+  return Boolean(state.reviews.loadingForSlug[addonSlug]);
+};
+
 type ReviewActionType =
-  | ClearAddonReviewsAction
+  | DeleteAddonReviewAction
+  | FetchReviewAction
+  | FetchReviewsAction
+  | FlagReviewAction
+  | FlashReviewMessageAction
+  | UnloadAddonReviewsAction
   | HideEditReviewFormAction
+  | HideFlashedReviewMessageAction
   | HideReplyToReviewFormAction
+  | ReviewWasFlaggedAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
+  | SetGroupedRatingsAction
+  | SetInternalReviewAction
+  | SetLatestReviewAction
   | SetReviewAction
   | SetReviewReplyAction
+  | SetUserReviewsAction
   | ShowEditReviewFormAction
-  | ShowReplyToReviewFormAction
-  | FlagReviewAction
-  | ReviewWasFlaggedAction;
+  | ShowReplyToReviewFormAction;
 
 export default function reviewsReducer(
   state: ReviewsState = initialState,
   action: ReviewActionType,
+  {
+    _addReviewToState = addReviewToState,
+  }: {| _addReviewToState: typeof addReviewToState |} = {},
 ) {
   switch (action.type) {
+    case DELETE_ADDON_REVIEW:
+      return changeViewState({
+        state,
+        reviewId: action.payload.reviewId,
+        stateChange: { deletingReview: true },
+      });
     case SEND_REPLY_TO_REVIEW:
       return changeViewState({
         state,
@@ -260,29 +361,60 @@ export default function reviewsReducer(
           submittingReply: false,
         },
       });
-    case SET_REVIEW: {
+    case SET_LATEST_REVIEW: {
       const { payload } = action;
-      const existingReviews = state[payload.userId]
-        ? state[payload.userId][payload.addonId]
-        : {};
-      const latestReview = payload;
+      const { addonId, addonSlug, userId, review, versionId } = payload;
+      const key = makeLatestUserReviewKey({ addonId, userId, versionId });
+
+      let { byId } = state;
+      if (review) {
+        byId = storeReviewObjects({
+          state,
+          reviews: [createInternalReview(review)],
+        });
+      }
+
       return {
         ...state,
-        byId: storeReviewObjects({ state, reviews: [payload] }),
+        byId,
+        byAddon: {
+          ...state.byAddon,
+          // Reset all add-on reviews to trigger a refresh from the server.
+          [addonSlug]: undefined,
+        },
         byUserId: {
           ...state.byUserId,
-          // This will trigger a refresh from the server.
-          [payload.userId]: undefined,
+          // Reset all user reviews to trigger a refresh from the server.
+          [userId]: undefined,
         },
-        [payload.userId]: {
-          ...state[payload.userId],
-          // TODO: this should be a list of review IDs, not objects. It will
-          // be complicated because we also need to preserve handling of the
-          // isLatest flag.
-          // https://github.com/mozilla/addons-frontend/issues/3221
-          [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
+        latestUserReview: {
+          ...state.latestUserReview,
+          [key]: review ? review.id : null,
         },
       };
+    }
+    case FETCH_REVIEW: {
+      return changeViewState({
+        state,
+        reviewId: action.payload.reviewId,
+        stateChange: { loadingReview: true },
+      });
+    }
+    case SET_REVIEW: {
+      const { payload } = action;
+      const review = createInternalReview(payload);
+
+      const newState = _addReviewToState({ state, review });
+      return changeViewState({
+        state: newState,
+        reviewId: review.id,
+        stateChange: { loadingReview: false },
+      });
+    }
+    case SET_INTERNAL_REVIEW: {
+      const { payload } = action;
+
+      return _addReviewToState({ state, review: payload });
     }
     case SET_REVIEW_REPLY: {
       const reviewId = action.payload.originalReviewId;
@@ -297,7 +429,7 @@ export default function reviewsReducer(
           ...state.byId,
           [review.id]: {
             ...review,
-            reply: denormalizeReview(action.payload.reply),
+            reply: createInternalReview(action.payload.reply),
           },
         },
       };
@@ -330,16 +462,22 @@ export default function reviewsReducer(
         },
       });
     }
-    case CLEAR_ADDON_REVIEWS: {
-      const { payload } = action;
-      const newState = { ...state };
-      delete newState.byAddon[payload.addonSlug];
-      return newState;
+    case FETCH_REVIEWS: {
+      const {
+        payload: { addonSlug },
+      } = action;
+      return {
+        ...state,
+        loadingForSlug: {
+          ...state.loadingForSlug,
+          [addonSlug]: true,
+        },
+      };
     }
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        denormalizeReview(review),
+        createInternalReview(review),
       );
 
       return {
@@ -353,12 +491,16 @@ export default function reviewsReducer(
             reviews: reviews.map((review) => review.id),
           },
         },
+        loadingForSlug: {
+          ...state.loadingForSlug,
+          [payload.addonSlug]: false,
+        },
       };
     }
     case SET_USER_REVIEWS: {
       const { payload } = action;
       const reviews = payload.reviews.map((review) =>
-        denormalizeReview(review),
+        createInternalReview(review),
       );
 
       return {
@@ -372,6 +514,73 @@ export default function reviewsReducer(
             reviews: reviews.map((review) => review.id),
           },
         },
+      };
+    }
+    case SET_GROUPED_RATINGS: {
+      const { payload } = action;
+      return {
+        ...state,
+        groupedRatings: {
+          ...state.groupedRatings,
+          [payload.addonId]: payload.grouping,
+        },
+      };
+    }
+    case FLASH_REVIEW_MESSAGE: {
+      const { payload } = action;
+      return {
+        ...state,
+        flashMessage: payload.message,
+      };
+    }
+    case HIDE_FLASHED_REVIEW_MESSAGE: {
+      return {
+        ...state,
+        flashMessage: undefined,
+      };
+    }
+    case UNLOAD_ADDON_REVIEWS: {
+      const {
+        payload: { reviewId },
+      } = action;
+
+      const newState = {
+        ...state,
+        view: {
+          ...state.view,
+          [reviewId]: undefined,
+        },
+      };
+
+      const reviewData = state.byId[reviewId];
+      if (reviewData) {
+        const { reviewAddon, userId } = reviewData;
+        return {
+          ...newState,
+          byAddon: {
+            ...newState.byAddon,
+            [reviewAddon.slug]: undefined,
+          },
+          byId: {
+            ...newState.byId,
+            [reviewId]: undefined,
+          },
+          byUserId: {
+            ...newState.byUserId,
+            [userId]: undefined,
+          },
+          groupedRatings: {
+            ...newState.groupedRatings,
+            [reviewAddon.id]: undefined,
+          },
+        };
+      }
+      return newState;
+    }
+    case LOCATION_CHANGE: {
+      return {
+        ...state,
+        view: {},
       };
     }
     default:

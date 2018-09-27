@@ -11,6 +11,7 @@ import './styles.scss';
 type Props = {|
   children?: any,
   linkTo?: Object | string,
+  onClick: Function,
   styleName?: string,
 |};
 
@@ -32,6 +33,7 @@ export default class HeroSection extends React.Component<Props> {
         {linkTo ? (
           <Link
             className="HeroSection-link-wrapper"
+            onClick={this.props.onClick}
             to={addQueryParams(linkTo, { src: INSTALL_SOURCE_HERO_PROMO })}
           >
             <div className="HeroSection-content">{children}</div>

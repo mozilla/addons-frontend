@@ -1,57 +1,87 @@
 /* @flow */
 import invariant from 'invariant';
 
-import {
-  CLEAR_ADDON_REVIEWS,
-  FETCH_REVIEWS,
-  FETCH_USER_REVIEWS,
-  HIDE_EDIT_REVIEW_FORM,
-  HIDE_REPLY_TO_REVIEW_FORM,
-  SEND_REPLY_TO_REVIEW,
-  SEND_REVIEW_FLAG,
-  SET_ADDON_REVIEWS,
-  SET_USER_REVIEWS,
-  SET_REVIEW,
-  SET_REVIEW_REPLY,
-  SET_REVIEW_WAS_FLAGGED,
-  SHOW_EDIT_REVIEW_FORM,
-  SHOW_REPLY_TO_REVIEW_FORM,
-} from 'amo/constants';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   ExternalReviewReplyType,
   ExternalReviewType,
+  GroupedRatingsType,
 } from 'amo/api/reviews';
 
+export const CREATE_ADDON_REVIEW: 'CREATE_ADDON_REVIEW' = 'CREATE_ADDON_REVIEW';
+export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
+  'SHOW_EDIT_REVIEW_FORM';
+export const SHOW_REPLY_TO_REVIEW_FORM: 'SHOW_REPLY_TO_REVIEW_FORM' =
+  'SHOW_REPLY_TO_REVIEW_FORM';
+export const FETCH_GROUPED_RATINGS: 'FETCH_GROUPED_RATINGS' =
+  'FETCH_GROUPED_RATINGS';
+export const FETCH_REVIEW: 'FETCH_REVIEW' = 'FETCH_REVIEW';
+export const FETCH_REVIEWS: 'FETCH_REVIEWS' = 'FETCH_REVIEWS';
+export const FETCH_USER_REVIEWS: 'FETCH_USER_REVIEWS' = 'FETCH_USER_REVIEWS';
+export const FLASH_REVIEW_MESSAGE: 'FLASH_REVIEW_MESSAGE' =
+  'FLASH_REVIEW_MESSAGE';
+export const HIDE_FLASHED_REVIEW_MESSAGE: 'HIDE_FLASHED_REVIEW_MESSAGE' =
+  'HIDE_FLASHED_REVIEW_MESSAGE';
+export const HIDE_EDIT_REVIEW_FORM: 'HIDE_EDIT_REVIEW_FORM' =
+  'HIDE_EDIT_REVIEW_FORM';
+export const HIDE_REPLY_TO_REVIEW_FORM: 'HIDE_REPLY_TO_REVIEW_FORM' =
+  'HIDE_REPLY_TO_REVIEW_FORM';
+export const SET_ADDON_REVIEWS: 'SET_ADDON_REVIEWS' = 'SET_ADDON_REVIEWS';
+export const SET_GROUPED_RATINGS: 'SET_GROUPED_RATINGS' = 'SET_GROUPED_RATINGS';
+export const SET_INTERNAL_REVIEW: 'SET_INTERNAL_REVIEW' = 'SET_INTERNAL_REVIEW';
+export const SET_USER_REVIEWS: 'SET_USER_REVIEWS' = 'SET_USER_REVIEWS';
+export const SET_REVIEW: 'SET_REVIEW' = 'SET_REVIEW';
+export const SET_LATEST_REVIEW: 'SET_LATEST_REVIEW' = 'SET_LATEST_REVIEW';
+export const SET_REVIEW_REPLY: 'SET_REVIEW_REPLY' = 'SET_REVIEW_REPLY';
+export const SET_REVIEW_WAS_FLAGGED: 'SET_REVIEW_WAS_FLAGGED' =
+  'SET_REVIEW_WAS_FLAGGED';
+export const SEND_REPLY_TO_REVIEW: 'SEND_REPLY_TO_REVIEW' =
+  'SEND_REPLY_TO_REVIEW';
+export const SEND_REVIEW_FLAG: 'SEND_REVIEW_FLAG' = 'SEND_REVIEW_FLAG';
+export const UPDATE_ADDON_REVIEW: 'UPDATE_ADDON_REVIEW' = 'UPDATE_ADDON_REVIEW';
+export const DELETE_ADDON_REVIEW: 'DELETE_ADDON_REVIEW' = 'DELETE_ADDON_REVIEW';
+export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
+  'UNLOAD_ADDON_REVIEWS';
+
+export type ReviewAddonType = {|
+  iconUrl: string,
+  id: number,
+  name: string,
+  slug: string,
+|};
+
 export type UserReviewType = {|
-  addonId: number,
-  addonSlug: string,
+  reviewAddon: ReviewAddonType,
   body?: string,
   created: Date,
   id: number,
+  isDeveloperReply: boolean,
   isLatest: boolean,
-  rating: number | null,
+  score: number | null,
   reply: UserReviewType | null,
-  title: string,
   userId: number,
   userName: string,
   userUrl: string,
   versionId: number | null,
 |};
 
-export function denormalizeReview(
+export function createInternalReview(
   review: ExternalReviewType | ExternalReviewReplyType,
 ): UserReviewType {
   return {
-    addonId: review.addon.id,
-    addonSlug: review.addon.slug,
+    reviewAddon: {
+      iconUrl: review.addon.icon_url,
+      id: review.addon.id,
+      name: review.addon.name,
+      slug: review.addon.slug,
+    },
     body: review.body,
     created: review.created,
     id: review.id,
+    isDeveloperReply: review.is_developer_reply,
     isLatest: review.is_latest,
-    rating: review.rating || null,
-    reply: review.reply ? denormalizeReview(review.reply) : null,
-    title: review.title,
+    score: review.score || null,
+    reply: review.reply ? createInternalReview(review.reply) : null,
     userId: review.user.id,
     userName: review.user.name,
     userUrl: review.user.url,
@@ -61,16 +91,15 @@ export function denormalizeReview(
 
 export type SetReviewAction = {|
   type: typeof SET_REVIEW,
-  payload: UserReviewType,
+  payload: ExternalReviewType,
 |};
 
 export const setReview = (review: ExternalReviewType): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  // TODO: move denormalizeReview() to the reducer.
-  // https://github.com/mozilla/addons-frontend/issues/3342
-  return { type: SET_REVIEW, payload: denormalizeReview(review) };
+
+  return { type: SET_REVIEW, payload: review };
 };
 
 type SetReviewReplyParams = {|
@@ -98,6 +127,32 @@ export const setReviewReply = ({
     payload: { originalReviewId, reply },
   };
 };
+
+type FetchReviewParams = {|
+  errorHandlerId: string,
+  reviewId: number,
+|};
+
+export type FetchReviewAction = {|
+  type: typeof FETCH_REVIEW,
+  payload: {|
+    errorHandlerId: string,
+    reviewId: number,
+  |},
+|};
+
+export function fetchReview({
+  errorHandlerId,
+  reviewId,
+}: FetchReviewParams): FetchReviewAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(reviewId, 'reviewId is required');
+
+  return {
+    type: FETCH_REVIEW,
+    payload: { errorHandlerId, reviewId },
+  };
+}
 
 type FetchReviewsParams = {|
   addonSlug: string,
@@ -128,6 +183,50 @@ export function fetchReviews({
   return {
     type: FETCH_REVIEWS,
     payload: { addonSlug, errorHandlerId, page },
+  };
+}
+
+type FetchGroupedRatingsParams = {|
+  addonId: number,
+  errorHandlerId: string,
+|};
+
+export type FetchGroupedRatingsAction = {|
+  type: typeof FETCH_GROUPED_RATINGS,
+  payload: FetchGroupedRatingsParams,
+|};
+
+export function fetchGroupedRatings({
+  addonId,
+  errorHandlerId,
+}: FetchGroupedRatingsParams): FetchGroupedRatingsAction {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  return {
+    type: FETCH_GROUPED_RATINGS,
+    payload: { addonId, errorHandlerId },
+  };
+}
+
+type SetGroupedRatingsParams = {|
+  addonId: number,
+  grouping: GroupedRatingsType,
+|};
+
+export type SetGroupedRatingsAction = {|
+  type: typeof SET_GROUPED_RATINGS,
+  payload: SetGroupedRatingsParams,
+|};
+
+export function setGroupedRatings({
+  addonId,
+  grouping,
+}: SetGroupedRatingsParams): SetGroupedRatingsAction {
+  invariant(addonId, 'addonId is required');
+  invariant(grouping, 'grouping is required');
+  return {
+    type: SET_GROUPED_RATINGS,
+    payload: { addonId, grouping },
   };
 }
 
@@ -201,13 +300,18 @@ export const setUserReviews = ({
   };
 };
 
-export const setDenormalizedReview = (
+export type SetInternalReviewAction = {|
+  type: typeof SET_INTERNAL_REVIEW,
+  payload: UserReviewType,
+|};
+
+export const setInternalReview = (
   review: UserReviewType,
-): SetReviewAction => {
+): SetInternalReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  return { type: SET_REVIEW, payload: review };
+  return { type: SET_INTERNAL_REVIEW, payload: review };
 };
 
 type SetAddonReviewsParams = {|
@@ -411,23 +515,179 @@ export const setReviewWasFlagged = ({
   };
 };
 
-type ClearAddonReviewsParams = {|
+type SetLatestReviewParams = {|
+  addonId: number,
   addonSlug: string,
+  review: ExternalReviewType | null,
+  userId: number,
+  versionId: number,
 |};
 
-export type ClearAddonReviewsAction = {|
-  type: typeof CLEAR_ADDON_REVIEWS,
-  payload: ClearAddonReviewsParams,
+export type SetLatestReviewAction = {|
+  type: typeof SET_LATEST_REVIEW,
+  payload: SetLatestReviewParams,
 |};
 
-export const clearAddonReviews = ({
+export const setLatestReview = ({
+  addonId,
   addonSlug,
-}: ClearAddonReviewsParams): ClearAddonReviewsAction => {
-  if (!addonSlug) {
-    throw new Error('the addonSlug parameter is required');
-  }
+  versionId,
+  review,
+  userId,
+}: SetLatestReviewParams): SetLatestReviewAction => {
+  invariant(addonId, 'addonId is required');
+  invariant(addonSlug, 'addonSlug is required');
+  invariant(review !== undefined, 'review is required');
+  invariant(userId, 'userId is required');
+  invariant(versionId, 'versionId is required');
+
   return {
-    type: CLEAR_ADDON_REVIEWS,
-    payload: { addonSlug },
+    type: SET_LATEST_REVIEW,
+    payload: { addonId, addonSlug, review, userId, versionId },
+  };
+};
+
+type CreateAddonReviewParams = {|
+  addonId: number,
+  body?: string,
+  errorHandlerId: string,
+  score: number,
+  versionId: number,
+|};
+
+export type CreateAddonReviewAction = {|
+  type: typeof CREATE_ADDON_REVIEW,
+  payload: CreateAddonReviewParams,
+|};
+
+export const createAddonReview = ({
+  addonId,
+  body,
+  errorHandlerId,
+  score,
+  versionId,
+}: CreateAddonReviewParams) => {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(score, 'score is required');
+  invariant(versionId, 'versionId is required');
+
+  return {
+    type: CREATE_ADDON_REVIEW,
+    payload: { addonId, body, errorHandlerId, score, versionId },
+  };
+};
+
+type UpdateAddonReviewParams = {|
+  body?: string,
+  errorHandlerId: string,
+  score?: number,
+  reviewId: number,
+|};
+
+export type UpdateAddonReviewAction = {|
+  type: typeof UPDATE_ADDON_REVIEW,
+  payload: UpdateAddonReviewParams,
+|};
+
+export const updateAddonReview = ({
+  body,
+  errorHandlerId,
+  score,
+  reviewId,
+}: UpdateAddonReviewParams) => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(reviewId, 'reviewId is required');
+
+  return {
+    type: UPDATE_ADDON_REVIEW,
+    payload: { body, errorHandlerId, score, reviewId },
+  };
+};
+
+export const ABORTED: 'aborted' = 'aborted';
+export const SAVED_RATING: 'saved-rating' = 'saved-rating';
+export const SAVED_REVIEW: 'saved-review' = 'saved-review';
+export const STARTED_SAVE_RATING: 'started-save-rating' = 'started-save-rating';
+export const STARTED_SAVE_REVIEW: 'started-save-review' = 'started-save-review';
+
+export type FlashMessageType =
+  | typeof ABORTED
+  | typeof SAVED_RATING
+  | typeof SAVED_REVIEW
+  | typeof STARTED_SAVE_RATING
+  | typeof STARTED_SAVE_REVIEW;
+
+export type FlashReviewMessageAction = {|
+  type: typeof FLASH_REVIEW_MESSAGE,
+  payload: { message: FlashMessageType },
+|};
+
+export const flashReviewMessage = (
+  message: FlashMessageType,
+): FlashReviewMessageAction => {
+  invariant(message, 'message is required');
+
+  return {
+    type: FLASH_REVIEW_MESSAGE,
+    payload: { message },
+  };
+};
+
+export type HideFlashedReviewMessageAction = {|
+  type: typeof HIDE_FLASHED_REVIEW_MESSAGE,
+|};
+
+export const hideFlashedReviewMessage = (): HideFlashedReviewMessageAction => {
+  return {
+    type: HIDE_FLASHED_REVIEW_MESSAGE,
+  };
+};
+
+type DeleteAddonReviewParams = {|
+  addonId: number,
+  errorHandlerId: string,
+  isReplyToReviewId?: number,
+  reviewId: number,
+|};
+
+export type DeleteAddonReviewAction = {|
+  type: typeof DELETE_ADDON_REVIEW,
+  payload: DeleteAddonReviewParams,
+|};
+
+export const deleteAddonReview = ({
+  addonId,
+  errorHandlerId,
+  isReplyToReviewId,
+  reviewId,
+}: DeleteAddonReviewParams) => {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(reviewId, 'reviewId is required');
+
+  return {
+    type: DELETE_ADDON_REVIEW,
+    payload: { addonId, errorHandlerId, isReplyToReviewId, reviewId },
+  };
+};
+
+type UnloadAddonReviewsParams = {|
+  addonId: number,
+  reviewId: number,
+|};
+
+export type UnloadAddonReviewsAction = {|
+  type: typeof UNLOAD_ADDON_REVIEWS,
+  payload: UnloadAddonReviewsParams,
+|};
+
+export const unloadAddonReviews = ({
+  addonId,
+  reviewId,
+}: UnloadAddonReviewsParams): UnloadAddonReviewsAction => {
+  return {
+    type: UNLOAD_ADDON_REVIEWS,
+    payload: { addonId, reviewId },
   };
 };

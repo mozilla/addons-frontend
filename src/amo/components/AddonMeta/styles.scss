@@ -1,6 +1,4 @@
-@import '~core/css/inc/mixins';
-@import '~amo/css/inc/vars';
-@import '~ui/css/vars';
+@import '~amo/css/styles';
 
 .AddonMeta-item {
   display: flex;
@@ -17,13 +15,6 @@
   padding: 0;
 }
 
-.AddonMeta-item-header {
-  display: block;
-  height: 17px;
-  margin: 0;
-  padding: 0;
-}
-
 .AddonMeta-item-subheader {
   @include font-light();
 
@@ -32,7 +23,53 @@
   padding: 0;
 }
 
-.AddonMeta .Rating-star-group {
-  @include margin-end(-2.5px);
-  @include margin-start(-2.5px);
+.AddonMeta-overallRating {
+  margin-bottom: 24px;
+
+  .Rating {
+    height: 16px;
+  }
+
+  .MetadataCard-list {
+    max-width: none;
+  }
+}
+
+.AddonMeta-rating-content,
+.AddonMeta-rating-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.AddonMeta .MetadataCard-content,
+.AddonMeta .MetadataCard-title {
+  a,
+  a:link,
+  a:visited {
+    color: $grey-50;
+    font-weight: normal;
+  }
+
+  a.AddonMeta-reviews-content-link {
+    &,
+    &:link,
+    &:visited {
+      color: $black;
+    }
+
+    &:active,
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  a:active,
+  a:hover {
+    color: $link-color;
+  }
+
+  a:focus {
+    @include focus();
+  }
 }

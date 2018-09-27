@@ -1,75 +1,70 @@
-/* eslint-disable react/no-danger */
-
+/* @flow */
+import config from 'config';
 import makeClassName from 'classnames';
-import { sprintf } from 'jed';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import InstallButton from 'core/components/InstallButton';
+import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
-  DOWNLOAD_FAILED,
   ERROR,
-  FATAL_ERROR,
-  FATAL_INSTALL_ERROR,
-  FATAL_UNINSTALL_ERROR,
-  INSTALL_FAILED,
   INSTALL_SOURCE_DISCOVERY,
-  UNINSTALLING,
+  UNINSTALLED,
+  UNKNOWN,
   validAddonTypes,
-  validInstallStates,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
-import { getAddonByGUID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
+import { isTheme } from 'core/utils';
+import { getErrorMessage } from 'core/utils/addons';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
-import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
+import { getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
+import ThemeImage from 'ui/components/ThemeImage';
+import type { UserAgentInfoType } from 'core/reducers/api';
+import type { InstalledAddon } from 'core/reducers/installations';
+import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
+import type { AddonType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
+import type { AppState } from 'disco/store';
 
 import './styles.scss';
 
 const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
-export class AddonBase extends React.Component {
-  static propTypes = {
-    addon: PropTypes.object.isRequired,
-    clientApp: PropTypes.string.isRequired,
-    // This is added by withInstallHelpers()
-    defaultInstallSource: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    error: PropTypes.string,
-    heading: PropTypes.string.isRequired,
-    getBrowserThemeData: PropTypes.func.isRequired,
-    getClientCompatibility: PropTypes.func,
-    i18n: PropTypes.object.isRequired,
-    iconUrl: PropTypes.string,
-    installTheme: PropTypes.func.isRequired,
-    platformFiles: PropTypes.object,
-    // See ReactRouterLocation in 'core/types/router'
-    location: PropTypes.object.isRequired,
-    needsRestart: PropTypes.bool,
-    previewURL: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    setCurrentStatus: PropTypes.func.isRequired,
-    status: PropTypes.oneOf(validInstallStates).isRequired,
-    type: PropTypes.oneOf(validAddonTypes).isRequired,
-    userAgentInfo: PropTypes.object.isRequired,
-    _tracking: PropTypes.object,
-  };
+type Props = {|
+  addon: AddonType,
+  heading: string,
+|};
 
+type InternalProps = {|
+  ...Props,
+  ...WithInstallHelpersInjectedProps,
+  _config: typeof config,
+  _getClientCompatibility: typeof getClientCompatibility,
+  _tracking: typeof tracking,
+  clientApp: string,
+  defaultInstallSource: string,
+  error: string | void,
+  getBrowserThemeData: () => string,
+  i18n: I18nType,
+  status: $PropertyType<InstalledAddon, 'status'>,
+  userAgentInfo: UserAgentInfoType,
+|};
+
+export class AddonBase extends React.Component<InternalProps> {
   static defaultProps = {
-    getClientCompatibility: _getClientCompatibility,
-    platformFiles: {},
-    needsRestart: false,
+    _config: config,
     _tracking: tracking,
+    _getClientCompatibility: getClientCompatibility,
   };
 
   getError() {
@@ -82,7 +77,7 @@ export class AddonBase extends React.Component {
         timeout={CSS_TRANSITION_TIMEOUT}
       >
         <div className="notification error">
-          <p className="message">{this.errorMessage()}</p>
+          <p className="message">{getErrorMessage({ i18n, error })}</p>
           {error && !error.startsWith('FATAL') ? (
             // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
             <a className="close" href="#" onClick={this.closeError}>
@@ -94,146 +89,149 @@ export class AddonBase extends React.Component {
     ) : null;
   }
 
-  getRestart() {
-    return this.props.needsRestart ? (
-      <CSSTransition
-        classNames="overlay"
-        key="restart-overlay"
-        timeout={CSS_TRANSITION_TIMEOUT}
-      >
-        <div className="notification restart">
-          <p className="message">{this.restartMessage()}</p>
-        </div>
-      </CSSTransition>
-    ) : null;
-  }
-
   getLogo() {
-    const { iconUrl } = this.props;
-    if (this.props.type === ADDON_TYPE_EXTENSION) {
+    const { addon } = this.props;
+
+    if (addon && addon.type === ADDON_TYPE_EXTENSION) {
       return (
         <div className="logo">
-          <img src={iconUrl} alt="" />
+          <img src={addon.icon_url} alt="" />
         </div>
       );
     }
+
     return null;
   }
 
   getThemeImage() {
-    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
-    if (this.props.type === ADDON_TYPE_THEME) {
-      /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
-      return (
-        <a
-          href="#"
-          className="theme-image"
-          data-browsertheme={getBrowserThemeData()}
-          onClick={this.installTheme}
-        >
-          <img
-            src={previewURL}
-            alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
-          />
-        </a>
-      );
-      /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
+    const { addon, getBrowserThemeData, hasAddonManager } = this.props;
+
+    if (!addon || !isTheme(addon.type)) {
+      return null;
     }
-    return null;
+
+    let imageLinkProps = {
+      className: 'Addon-ThemeImage-link',
+      href: '#',
+      onClick: this.installStaticTheme,
+    };
+
+    if (addon.type === ADDON_TYPE_THEME) {
+      imageLinkProps = {
+        ...imageLinkProps,
+        onClick: this.installTheme,
+        'data-browsertheme': getBrowserThemeData(),
+      };
+    }
+
+    const themeImage = <ThemeImage addon={addon} />;
+
+    return hasAddonManager ? (
+      <a {...imageLinkProps}>{themeImage}</a>
+    ) : (
+      // The `span` is needed to avoid an issue when the client hydrates the
+      // app after having received the server DOM.
+      <span>{themeImage}</span>
+    );
   }
 
   getDescription() {
-    const { description, type } = this.props;
+    const { addon } = this.props;
 
-    if (type === ADDON_TYPE_THEME) {
+    if (!addon || isTheme(addon.type)) {
       return null;
     }
 
     return (
       <div
         className="editorial-description"
-        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(description, [
-          'a',
-          'blockquote',
-          'cite',
-        ])}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(
+          addon.description,
+          ['a', 'blockquote', 'cite'],
+        )}
       />
     );
   }
 
-  installTheme = (event) => {
+  installTheme = (event: SyntheticEvent<any>) => {
     event.preventDefault();
+
     const { addon, installTheme, status } = this.props;
-    installTheme(event.currentTarget, { ...addon, status });
+
+    installTheme(event.currentTarget, {
+      name: addon.name,
+      status,
+      type: addon.type,
+    });
   };
 
-  errorMessage() {
-    const { error, i18n } = this.props;
-    switch (error) {
-      case INSTALL_FAILED:
-        return i18n.gettext('Installation failed. Please try again.');
-      case DOWNLOAD_FAILED:
-        return i18n.gettext('Download failed. Please check your connection.');
-      case FATAL_INSTALL_ERROR:
-        return i18n.gettext(
-          'An unexpected error occurred during installation.',
-        );
-      case FATAL_UNINSTALL_ERROR:
-        return i18n.gettext(
-          'An unexpected error occurred during uninstallation.',
-        );
-      case FATAL_ERROR:
-      default:
-        return i18n.gettext('An unexpected error occurred.');
-    }
-  }
-
-  restartMessage() {
-    const { status, i18n } = this.props;
-    switch (status) {
-      case UNINSTALLING:
-        return i18n.gettext(
-          'This add-on will be uninstalled after you restart Firefox.',
-        );
-      default:
-        return i18n.gettext('Please restart Firefox to use this add-on.');
-    }
-  }
-
-  closeError = (e) => {
+  closeError = (e: SyntheticEvent<any>) => {
     e.preventDefault();
+
     this.props.setCurrentStatus();
   };
 
-  clickHeadingLink = (e) => {
-    const { type, name, _tracking } = this.props;
+  clickHeadingLink = (e: SyntheticEvent<HTMLAnchorElement>) => {
+    const { addon, _tracking } = this.props;
 
-    if (e.target.nodeName.toLowerCase() === 'a') {
+    if (
+      e.target &&
+      // $FLOW_FIXME: the `nodeName` might be available
+      e.target.nodeName &&
+      e.target.nodeName.toLowerCase() === 'a'
+    ) {
       _tracking.sendEvent({
-        action: getAddonTypeForTracking(type),
+        action: getAddonTypeForTracking(addon.type),
         category: CLICK_CATEGORY,
-        label: name,
+        label: addon.name,
       });
+    }
+  };
+
+  installStaticTheme = async (event: SyntheticEvent<any>) => {
+    const { enable, isAddonEnabled, install, status } = this.props;
+    event.preventDefault();
+
+    if (status === UNINSTALLED) {
+      await install();
+    }
+
+    const isEnabled = await isAddonEnabled();
+
+    // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1477328.
+    if (!isEnabled) {
+      await enable();
     }
   };
 
   render() {
     const {
+      _config,
+      _getClientCompatibility,
       addon,
       clientApp,
       defaultInstallSource,
-      getClientCompatibility,
+      enable,
+      hasAddonManager,
       heading,
-      type,
+      install,
+      installTheme,
+      isAddonEnabled,
+      setCurrentStatus,
+      status,
+      uninstall,
       userAgentInfo,
     } = this.props;
+
+    const type = addon ? addon.type : undefined;
 
     if (typeof type !== 'undefined' && !validAddonTypes.includes(type)) {
       throw new Error(`Invalid addon type "${type}"`);
     }
 
     const addonClasses = makeClassName('addon', {
-      theme: type === ADDON_TYPE_THEME,
+      theme: isTheme(type),
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
@@ -249,73 +247,94 @@ export class AddonBase extends React.Component {
       );
     }
 
-    const { compatible, minVersion, reason } = getClientCompatibility({
+    const { compatible, reason } = _getClientCompatibility({
       addon,
       clientApp,
       userAgentInfo,
     });
 
     return (
-      // Disabling this is fine since the onClick is just being used to delegate
-      // click events bubbling from the link within the header.
-      // eslint-disable-next-line max-len
-      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
       <div className={addonClasses}>
         {this.getThemeImage()}
+
         {this.getLogo()}
+
         <div className="content">
-          <TransitionGroup>
-            {this.getError()}
-            {this.getRestart()}
-          </TransitionGroup>
+          <TransitionGroup>{this.getError()}</TransitionGroup>
+
           <div className="copy">
+            {/* Disabling this is fine since the onClick is just being used to
+            delegate click events bubbling from the link within the header. */}
+            {/* eslint-disable-next-line max-len */}
+            {/* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */}
             <h2
               onClick={this.clickHeadingLink}
               className="heading"
+              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(heading, [
                 'a',
                 'span',
               ])}
             />
+            {/* eslint-enable jsx-a11y/no-noninteractive-element-interactions *}
+            {/* eslint-enable jsx-a11y/click-events-have-key-events */}
             {this.getDescription()}
           </div>
-          {/* TODO: find the courage to remove {...this.props} */}
-          <InstallButton
-            {...this.props}
-            className="Addon-install-button"
-            defaultInstallSource={defaultInstallSource}
-            size="small"
-          />
+
+          {_config.get('enableFeatureAMInstallButton') ? (
+            <AMInstallButton
+              addon={addon}
+              className="Addon-install-button"
+              defaultInstallSource={defaultInstallSource}
+              disabled={!compatible}
+              enable={enable}
+              hasAddonManager={hasAddonManager}
+              install={install}
+              installTheme={installTheme}
+              isAddonEnabled={isAddonEnabled}
+              puffy={false}
+              setCurrentStatus={setCurrentStatus}
+              status={status || UNKNOWN}
+              uninstall={uninstall}
+            />
+          ) : (
+            <InstallButton
+              {...this.props.addon}
+              {...this.props}
+              className="Addon-install-button"
+              defaultInstallSource={defaultInstallSource}
+              size="small"
+            />
+          )}
         </div>
-        {!compatible ? (
-          <AddonCompatibilityError minVersion={minVersion} reason={reason} />
-        ) : null}
+
+        {!compatible ? <AddonCompatibilityError reason={reason} /> : null}
       </div>
-      // eslint-disable-next-line max-len
-      /* eslint-enable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
     );
   }
 }
 
-export function mapStateToProps(state, ownProps) {
-  // `ownProps.guid` is already "normalized" with `getGuid()` in the
-  // `DiscoPane` container component.
-  const installation = state.installations[ownProps.guid];
-  const addon = getAddonByGUID(state, ownProps.guid);
+export function mapStateToProps(state: AppState, ownProps: Props) {
+  let installation = {};
+  if (ownProps.addon) {
+    installation = state.installations[ownProps.addon.guid] || {};
+  }
 
   return {
-    addon,
-    ...addon,
-    ...installation,
+    error: installation.error,
+    status: installation.status || UNKNOWN,
     clientApp: state.api.clientApp,
-    platformFiles: addon ? addon.platformFiles : {},
+    // In addition to this component, this also is required by the
+    // `withInstallHelpers()` HOC.
     userAgentInfo: state.api.userAgentInfo,
   };
 }
 
-export default compose(
+const Addon: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   connect(mapStateToProps),
   withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
 )(AddonBase);
+
+export default Addon;

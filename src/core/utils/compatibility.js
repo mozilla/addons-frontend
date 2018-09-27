@@ -6,8 +6,9 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_NO_OPENSEARCH,
+  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -145,6 +146,7 @@ export function getClientCompatibility({
   clientApp,
   userAgentInfo,
   _window = typeof window !== 'undefined' ? window : {},
+  _log = log,
 } = {}) {
   // Check compatibility with client app.
   const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
@@ -173,8 +175,26 @@ export function getClientCompatibility({
     downloadUrl = FACEBOOK_CONTAINER_DOWNLOAD_URL;
   }
 
+  let compatible = agent.compatible && supportsClientApp;
+
+  if (compatible && addon && addon.isRestartRequired === true) {
+    const { browser } = userAgentInfo;
+
+    if (
+      browser.name === 'Firefox' &&
+      mozCompare(browser.version, '61.0') >= 0
+    ) {
+      compatible = false;
+      reason = INCOMPATIBLE_NON_RESTARTLESS_ADDON;
+
+      _log.debug(
+        'add-on is incompatible because it is a non-restartless add-on',
+      );
+    }
+  }
+
   return {
-    compatible: agent.compatible && supportsClientApp,
+    compatible,
     downloadUrl,
     maxVersion,
     minVersion,

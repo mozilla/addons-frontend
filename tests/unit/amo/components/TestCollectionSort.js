@@ -6,8 +6,9 @@ import CollectionSort, {
 import { createInternalCollection } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
-  createFakeRouter,
+  createFakeHistory,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -19,7 +20,7 @@ import {
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {
-    const props = {
+    const { history, ...props } = {
       collection: createInternalCollection({
         detail: createFakeCollectionDetail(),
         items: createFakeCollectionAddons(),
@@ -27,13 +28,16 @@ describe(__filename, () => {
       editing: false,
       filters: {},
       i18n: fakeI18n(),
-      router: createFakeRouter(),
+      history: createFakeHistory(),
       ...otherProps,
     };
 
     return shallowUntilTarget(
       <CollectionSort {...props} />,
       CollectionSortBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ history }),
+      },
     );
   };
 
@@ -64,7 +68,7 @@ describe(__filename, () => {
 
   describe('onSortSelect', () => {
     it.each([true, false])(
-      `calls router.push with expected pathname and query when a sort is selected and editing is %s`,
+      `calls history.push with expected pathname and query when a sort is selected and editing is %s`,
       (editing) => {
         const slug = 'some-slug';
         const username = 'some-username';
@@ -82,13 +86,13 @@ describe(__filename, () => {
         });
 
         const { store } = dispatchClientMetadata({ clientApp, lang });
-        const router = createFakeRouter();
+        const history = createFakeHistory();
 
         const root = render({
           collection,
           editing,
           filters: { page, collectionSort: sort },
-          router,
+          history,
           store,
         });
 
@@ -102,7 +106,7 @@ describe(__filename, () => {
           editing ? 'edit/' : ''
         }`;
 
-        sinon.assert.calledWith(router.push, {
+        sinon.assert.calledWith(history.push, {
           pathname,
           query: queryParams,
         });

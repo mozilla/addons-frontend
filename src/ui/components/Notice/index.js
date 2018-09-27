@@ -12,15 +12,21 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-const errorType: 'error' = 'error';
-const genericType: 'generic' = 'generic';
-const successType: 'success' = 'success';
-const firefoxRequiredType: 'firefox' = 'firefox';
+export const errorType: 'error' = 'error';
+export const genericType: 'generic' = 'generic';
+export const successType: 'success' = 'success';
+export const firefoxRequiredType: 'firefox' = 'firefox';
 const validTypes = [errorType, genericType, successType, firefoxRequiredType];
 
 type UIState = {|
   wasDismissed: boolean,
 |};
+
+export type NoticeType =
+  | typeof errorType
+  | typeof firefoxRequiredType
+  | typeof genericType
+  | typeof successType;
 
 type Props = {|
   actionHref?: string,
@@ -34,11 +40,7 @@ type Props = {|
   dismissible?: boolean,
   id?: string,
   onDismiss?: (SyntheticEvent<any>) => void,
-  type:
-    | typeof errorType
-    | typeof firefoxRequiredType
-    | typeof genericType
-    | typeof successType,
+  type: NoticeType,
 |};
 
 type InternalProps = {|
@@ -97,7 +99,6 @@ export class NoticeBase extends React.Component<InternalProps> {
         <Button
           className="Notice-button"
           micro
-          rel={actionTarget === '_blank' ? 'noopener noreferrer' : null}
           target={actionTarget}
           {...buttonProps}
         >

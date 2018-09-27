@@ -1,17 +1,27 @@
 /* @flow */
-/* global Node */
-/* eslint-disable react/sort-comp, react/no-unused-prop-types */
+/* eslint-disable react/no-unused-prop-types */
+import config from 'config';
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
-import { withRenderedErrorHandler } from 'core/errorHandler';
-import { setReview } from 'amo/actions/reviews';
-import { getLatestUserReview, submitReview } from 'amo/api/reviews';
-import DefaultAddonReview from 'amo/components/AddonReview';
-import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
-import DefaultReportAbuseButton from 'amo/components/ReportAbuseButton';
+import {
+  SAVED_RATING,
+  STARTED_SAVE_RATING,
+  createAddonReview,
+  setLatestReview,
+  updateAddonReview,
+} from 'amo/actions/reviews';
+import * as reviewsApi from 'amo/api/reviews';
+import AddonReview from 'amo/components/AddonReview';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
+import AddonReviewManager from 'amo/components/AddonReviewManager';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
+import ReportAbuseButton from 'amo/components/ReportAbuseButton';
+import { selectLatestUserReview } from 'amo/reducers/reviews';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -21,12 +31,14 @@ import {
   ADDON_TYPE_THEME,
   validAddonTypes as defaultValidAddonTypes,
 } from 'core/constants';
+import { withRenderedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import DefaultUserRating from 'ui/components/UserRating';
+import { genericType, successType } from 'ui/components/Notice';
+import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UserReviewType } from 'amo/actions/reviews';
+import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
 import type {
   GetLatestReviewParams,
   SubmitReviewParams,
@@ -34,13 +46,13 @@ import type {
 import type { DispatchFunc } from 'core/types/redux';
 import type { ApiState } from 'core/reducers/api';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
-import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 type LoadSavedReviewFunc = ({|
   addonId: $PropertyType<GetLatestReviewParams, 'addon'>,
+  addonSlug: string,
   apiState: ApiState,
   userId: $PropertyType<GetLatestReviewParams, 'user'>,
   versionId: $PropertyType<GetLatestReviewParams, 'version'>,
@@ -50,12 +62,12 @@ type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
 type Props = {|
   addon: AddonType,
-  location: ReactRouterLocation,
   onReviewSubmitted?: () => void,
   version: AddonVersionType,
 |};
 
 type DispatchMappedProps = {|
+  dispatch: DispatchFunc,
   loadSavedReview: LoadSavedReviewFunc,
   submitReview: SubmitReviewFunc,
 |};
@@ -63,15 +75,14 @@ type DispatchMappedProps = {|
 type InternalProps = {|
   ...Props,
   ...DispatchMappedProps,
-  AddonReview: typeof DefaultAddonReview,
-  AuthenticateButton: typeof DefaultAuthenticateButton,
-  UserRating: typeof DefaultUserRating,
-  ReportAbuseButton: typeof DefaultReportAbuseButton,
+  _config: typeof config,
   apiState: ApiState,
+  editingReview: boolean,
   errorHandler: ErrorHandlerType,
+  flashMessage?: FlashMessageType | void,
   i18n: I18nType,
   userId: number,
-  userReview: UserReviewType,
+  userReview?: UserReviewType | null,
 |};
 
 type State = {|
@@ -79,61 +90,87 @@ type State = {|
 |};
 
 export class RatingManagerBase extends React.Component<InternalProps, State> {
-  ratingLegend: React.ElementRef<'legend'> | null;
-
   static defaultProps = {
-    AddonReview: DefaultAddonReview,
-    AuthenticateButton: DefaultAuthenticateButton,
-    UserRating: DefaultUserRating,
-    ReportAbuseButton: DefaultReportAbuseButton,
+    _config: config,
   };
 
   constructor(props: InternalProps) {
     super(props);
-    const { apiState, loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
-    if (userId) {
-      log.info(`loading a saved rating (if it exists) for user ${userId}`);
+  }
+
+  componentDidMount() {
+    const {
+      addon,
+      apiState,
+      loadSavedReview,
+      userId,
+      userReview,
+      version,
+    } = this.props;
+
+    if (userId && userReview === undefined) {
+      log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({
         apiState,
         userId,
         addonId: addon.id,
+        addonSlug: addon.slug,
         versionId: version.id,
       });
     }
   }
 
-  onSelectRating = (rating: number) => {
-    const { userReview, version } = this.props;
+  onSelectRating = (score: number) => {
+    const {
+      _config,
+      addon,
+      apiState,
+      dispatch,
+      errorHandler,
+      userReview,
+      version,
+    } = this.props;
 
     const params = {
-      errorHandler: this.props.errorHandler,
-      rating,
-      apiState: this.props.apiState,
-      addonId: this.props.addon.id,
+      errorHandler,
+      score,
+      apiState,
+      addonId: addon.id,
       reviewId: undefined,
       versionId: version.id,
     };
 
     if (userReview) {
-      log.info(`Editing reviewId ${userReview.id}`);
-      if (userReview.versionId === params.versionId) {
-        log.info(oneLine`Updating reviewId ${userReview.id} for
-          versionId ${params.versionId || '[empty]'}`);
-        params.reviewId = userReview.id;
-      } else {
-        // Since we have a version mismatch, submit the review against the
-        // current most version, similar to how new reviews are created.
-        params.versionId =
-          this.props.addon.current_version &&
-          this.props.addon.current_version.id;
-        log.info(oneLine`Submitting a new review for
-          versionId ${params.versionId || '[empty]'}`);
-      }
+      log.debug(`Editing reviewId ${userReview.id}`);
+      params.reviewId = userReview.id;
     } else {
-      log.info(oneLine`Submitting a new review for
+      log.debug(oneLine`Submitting a new review for
         versionId ${params.versionId || '[empty]'}`);
     }
+
+    if (_config.get('enableFeatureInlineAddonReview')) {
+      if (userReview) {
+        dispatch(
+          updateAddonReview({
+            errorHandlerId: errorHandler.id,
+            score,
+            reviewId: userReview.id,
+          }),
+        );
+      } else {
+        dispatch(
+          createAddonReview({
+            addonId: addon.id,
+            errorHandlerId: errorHandler.id,
+            score,
+            versionId: version.id,
+          }),
+        );
+      }
+      return null;
+    }
+
     return this.props.submitReview(params).then(() => {
       this.setState({ showTextEntry: true });
     });
@@ -172,20 +209,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
   }
 
-  renderLogInToRate() {
-    const { AuthenticateButton, addon, location } = this.props;
-    return (
-      <div className="RatingManager-log-in-to-rate">
-        <AuthenticateButton
-          noIcon
-          className="RatingManager-log-in-to-rate-button"
-          location={location}
-          logInText={this.getLogInPrompt({ addonType: addon.type })}
-        />
-      </div>
-    );
-  }
-
   onReviewSubmitted = () => {
     this.setState({ showTextEntry: false });
     if (this.props.onReviewSubmitted) {
@@ -193,81 +216,165 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
   };
 
-  render() {
-    const {
-      AddonReview,
-      UserRating,
-      ReportAbuseButton,
-      i18n,
-      addon,
-      userId,
-      userReview,
-    } = this.props;
+  showTextEntry = (event: SyntheticEvent<any>) => {
+    event.preventDefault();
+    this.setState({ showTextEntry: true });
+  };
+
+  isSignedIn() {
+    return Boolean(this.props.userId);
+  }
+
+  shouldShowTextEntry() {
+    const { userReview } = this.props;
     const { showTextEntry } = this.state;
-    const isLoggedIn = Boolean(userId);
+
+    return showTextEntry && userReview && this.isSignedIn();
+  }
+
+  renderLogInToRate() {
+    const { addon } = this.props;
+
+    return (
+      <AuthenticateButton
+        noIcon
+        className="RatingManager-log-in-to-rate-button"
+        logInText={this.getLogInPrompt({ addonType: addon.type })}
+      />
+    );
+  }
+
+  renderTextEntry() {
+    const { _config, userReview } = this.props;
+    invariant(userReview, 'userReview is required');
+
+    if (_config.get('enableFeatureInlineAddonReview')) {
+      return <AddonReviewManager review={userReview} />;
+    }
+
+    return (
+      <AddonReview
+        onReviewSubmitted={this.onReviewSubmitted}
+        review={userReview}
+      />
+    );
+  }
+
+  renderUserRatingForm() {
+    const { addon, i18n, flashMessage, userReview } = this.props;
 
     const prompt = i18n.sprintf(
-      i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
+      i18n.gettext('How are you enjoying %(addonName)s?'),
       { addonName: addon.name },
     );
 
     return (
-      <div className="RatingManager">
-        {showTextEntry && isLoggedIn ? (
-          <AddonReview
-            onReviewSubmitted={this.onReviewSubmitted}
-            review={userReview}
-          />
-        ) : null}
-        <form action="">
-          <fieldset>
-            <legend
-              ref={(ref) => {
-                this.ratingLegend = ref;
-              }}
-            >
-              {prompt}
-            </legend>
-            {!isLoggedIn ? this.renderLogInToRate() : null}
+      <form action="">
+        <fieldset>
+          <legend className="RatingManager-legend">{prompt}</legend>
+          <div className="RatingManager-ratingControl">
+            {!this.isSignedIn() ? this.renderLogInToRate() : null}
             <UserRating
-              readOnly={!isLoggedIn}
+              className="RatingManager-UserRating"
+              readOnly={!this.isSignedIn()}
               onSelectRating={this.onSelectRating}
-              review={userReview}
+              review={!this.isSignedIn() ? null : userReview}
             />
-          </fieldset>
-        </form>
+          </div>
+          <RatingManagerNotice
+            className={
+              userReview && userReview.body
+                ? 'RatingManager-savedRating-withReview'
+                : null
+            }
+            hideMessage={
+              flashMessage !== STARTED_SAVE_RATING &&
+              flashMessage !== SAVED_RATING
+            }
+            message={
+              flashMessage === STARTED_SAVE_RATING
+                ? i18n.gettext('Saving star rating')
+                : i18n.gettext('Star rating saved')
+            }
+            type={
+              flashMessage === STARTED_SAVE_RATING ? genericType : successType
+            }
+          />
+        </fieldset>
+      </form>
+    );
+  }
+
+  renderInlineReviewControls() {
+    const { addon, editingReview, userReview } = this.props;
+
+    return (
+      <React.Fragment>
+        {!editingReview && this.renderUserRatingForm()}
+        {userReview && (
+          <AddonReviewCard
+            addon={addon}
+            className="RatingManager-AddonReviewCard"
+            flaggable={false}
+            review={userReview}
+            shortByLine
+            showRating={false}
+            smallerWriteReviewButton={false}
+            verticalButtons
+          />
+        )}
+      </React.Fragment>
+    );
+  }
+
+  render() {
+    const { _config, addon, version } = this.props;
+
+    invariant(addon, 'addon is required');
+    invariant(version, 'version is required');
+
+    return (
+      <div className="RatingManager">
+        {this.shouldShowTextEntry() ? this.renderTextEntry() : null}
+        {_config.get('enableFeatureInlineAddonReview')
+          ? this.renderInlineReviewControls()
+          : this.renderUserRatingForm()}
         <ReportAbuseButton addon={addon} />
       </div>
     );
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
+  if (userId && ownProps.addon) {
+    const addonId = ownProps.addon.id;
+    const versionId = ownProps.version.id;
 
-  // Look for the latest saved review by this user for this add-on.
-  if (userId && state.reviews && ownProps.addon) {
-    log.info(oneLine`Checking state for review by user ${userId},
-      addonId ${ownProps.addon.id}, versionId ${ownProps.version.id}`);
+    log.debug(oneLine`Looking for latest review of
+      addon:${addonId}/version:${versionId} by user:${userId}`);
 
-    const allUserReviews = state.reviews[userId] || {};
-    const addonReviews = allUserReviews[ownProps.addon.id] || {};
-    const latestId = Object.keys(addonReviews).find(
-      (reviewId) => addonReviews[reviewId].isLatest,
-    );
+    userReview = selectLatestUserReview({
+      reviewsState: state.reviews,
+      userId,
+      addonId,
+      versionId,
+    });
+  }
 
-    if (latestId) {
-      userReview = addonReviews[latestId];
-      log.info(
-        'Found the latest review in state for this component',
-        userReview,
-      );
+  let editingReview = false;
+  if (userReview) {
+    const view = state.reviews.view[userReview.id];
+    if (view) {
+      editingReview = view.editingReview;
     }
   }
 
   return {
     apiState: state.api,
+    editingReview,
+    flashMessage: state.reviews.flashMessage,
     userReview,
     userId,
   };
@@ -275,28 +382,72 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 
 export const mapDispatchToProps = (
   dispatch: DispatchFunc,
-): DispatchMappedProps => ({
-  loadSavedReview({ apiState, userId, addonId, versionId }) {
-    return getLatestUserReview({
-      apiState,
-      user: userId,
-      addon: addonId,
-      version: versionId,
-    }).then((review) => {
-      if (review) {
-        dispatch(setReview(review));
-      } else {
-        log.info(
-          `No saved review found for userId ${userId}, addonId ${addonId}`,
-        );
-      }
-    });
-  },
+  // We add `DispatchMappedProps` to override these functions in the tests.
+  ownProps: Props | DispatchMappedProps,
+): DispatchMappedProps => {
+  const loadSavedReview = ({
+    apiState,
+    userId,
+    addonId,
+    addonSlug,
+    versionId,
+  }) => {
+    return reviewsApi
+      .getLatestUserReview({
+        apiState,
+        user: userId,
+        addon: addonId,
+        version: versionId,
+      })
+      .then((review) => {
+        const _setLatestReview = (value) => {
+          return setLatestReview({
+            userId,
+            addonId,
+            addonSlug,
+            versionId,
+            review: value,
+          });
+        };
 
-  submitReview(params) {
-    return submitReview(params).then((review) => dispatch(setReview(review)));
-  },
-});
+        if (review) {
+          dispatch(_setLatestReview(review));
+        } else {
+          log.debug(
+            `No saved review found for userId ${userId}, addonId ${addonId}`,
+          );
+          dispatch(_setLatestReview(null));
+        }
+      });
+  };
+
+  const submitReview = (params) => {
+    return reviewsApi.submitReview(params).then((review) => {
+      // The API could possibly return a null review.version if that
+      // version was deleted. In that case, we fall back to the submitted
+      // versionId which came from the page data. It is highly unlikely
+      // that both of these will be empty.
+      const versionId =
+        (review.version && review.version.id) || params.versionId;
+      invariant(versionId, 'versionId cannot be empty');
+      dispatch(
+        setLatestReview({
+          addonId: review.addon.id,
+          addonSlug: review.addon.slug,
+          userId: review.user.id,
+          versionId,
+          review,
+        }),
+      );
+    });
+  };
+
+  return {
+    dispatch,
+    loadSavedReview: ownProps.loadSavedReview || loadSavedReview,
+    submitReview: ownProps.submitReview || submitReview,
+  };
+};
 
 export const RatingManagerWithI18n = translate()(RatingManagerBase);
 

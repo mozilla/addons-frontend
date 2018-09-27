@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { denormalizeReview } from 'amo/actions/reviews';
+import { createInternalReview } from 'amo/actions/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import Rating from 'ui/components/Rating';
 import UserRating, { UserRatingBase } from 'ui/components/UserRating';
@@ -28,7 +28,7 @@ function render(customProps = {}) {
 
 function signInAndReturnReview({ siteUserId, reviewUserId }) {
   dispatchSignInActions({ store, userId: siteUserId });
-  return denormalizeReview({
+  return createInternalReview({
     ...fakeReview,
     user: {
       ...fakeReview.user,
@@ -52,35 +52,43 @@ describe(__filename, () => {
   });
 
   it('passes the rating from the review to Rating', () => {
-    const root = render({ review: denormalizeReview(fakeReview) });
-    expect(root).toHaveProp('rating', fakeReview.rating);
+    const root = render({ review: createInternalReview(fakeReview) });
+    expect(root).toHaveProp('rating', fakeReview.score);
   });
 
-  it('passes isOwned: true to Rating if you wrote the review', () => {
+  it('passes a null review to Rating', () => {
+    expect(render({ review: null })).toHaveProp('rating', null);
+  });
+
+  it('passes an undefined review to Rating', () => {
+    expect(render({ review: undefined })).toHaveProp('rating', undefined);
+  });
+
+  it('passes yellowStars: true to Rating if you wrote the review', () => {
     const review = signInAndReturnReview({
       siteUserId: 123,
       reviewUserId: 123,
     });
     const root = render({ review });
-    expect(root).toHaveProp('isOwner', true);
+    expect(root).toHaveProp('yellowStars', true);
   });
 
-  it('passes isOwned: false to Rating if you did not write the review', () => {
+  it('passes yellowStars: false to Rating if you did not write the review', () => {
     const review = signInAndReturnReview({
       siteUserId: 123,
       reviewUserId: 456,
     });
     const root = render({ review });
-    expect(root).toHaveProp('isOwner', false);
+    expect(root).toHaveProp('yellowStars', false);
   });
 
-  it('passes isOwned: false to Rating if no user is logged in', () => {
+  it('passes yellowStars: false to Rating if no user is logged in', () => {
     const review = signInAndReturnReview({
       siteUserId: 123,
       reviewUserId: 123,
     });
     store.dispatch(logOutUser());
     const root = render({ review });
-    expect(root).toHaveProp('isOwner', false);
+    expect(root).toHaveProp('yellowStars', false);
   });
 });

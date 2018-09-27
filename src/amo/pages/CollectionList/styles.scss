@@ -1,0 +1,46 @@
+@import '~amo/css/styles';
+
+.CollectionList {
+  @include page-padding();
+
+  .Card-contents {
+    background: $white;
+    font-size: $font-size-m-smaller;
+
+    .CollectionList-listing {
+      padding-bottom: $padding-page;
+
+      @include respond-to(large) {
+        padding-bottom: $padding-page-l;
+      }
+    }
+  }
+}
+
+.CollectionList-wrapper {
+  @include respond-to(large) {
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-gap: 0 $padding-page-l;
+    grid-template-columns: minmax(300px, 35%) 1fr;
+    margin: 0;
+
+    .CollectionList-list.CardList {
+      margin: 0;
+    }
+  }
+}
+
+.CollectionList-create {
+  margin-top: 18px;
+  width: 100%;
+}
+
+.CollectionList-listing {
+  @include respond-to(large) {
+    display: grid;
+    grid-auto-flow: initial;
+    grid-template-columns: repeat(2, 50%);
+    margin: 0;
+  }
+}

@@ -118,5 +118,7 @@ module.exports = {
   authTokenValidFor: 2592000, // 30 days
 
   // Turn on recommendations in details pages.
-  enableAddonRecommendations: true,
+  enableFeatureAddonRecommendations: true,
+
+  enableFeatureAMInstallButton: true,
 };

@@ -87,6 +87,18 @@ describe(__filename, () => {
     expect(cancelButton.children()).toHaveText('Cancel');
   });
 
+  it('hides the default button after it is clicked', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
+
+    root
+      .find('.ConfirmButton-default-button')
+      .simulate('click', createFakeEvent());
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.ConfirmButton-default-button')).toHaveLength(0);
+  });
+
   it('passes props to the confirm button in the confirmation panel', () => {
     const { store } = dispatchClientMetadata();
     const confirmButtonText = 'neutral confirm button';

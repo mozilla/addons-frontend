@@ -7,24 +7,24 @@ import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 import Express from 'express';
 import helmet from 'helmet';
+import { createMemoryHistory } from 'history';
 import Raven from 'raven';
 import cookie from 'react-cookie';
 import * as React from 'react';
 import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
-import { Provider } from 'react-redux';
-import { RouterContext, createMemoryHistory, match } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
 import { END } from 'redux-saga';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import log from 'core/logger';
 import { createApiError } from 'core/api';
+import Root from 'core/components/Root';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
-import { convertBoolean } from 'core/utils';
+import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
+import { viewFrontendVersionHandler } from 'core/utils/server';
 import {
   setAuthToken,
   setClientApp,
@@ -37,9 +37,14 @@ import {
   langToLocale,
   makeI18n,
 } from 'core/i18n/utils';
-import I18nProvider from 'core/i18n/Provider';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
+
+export const createHistory = ({ req }) => {
+  return addQueryParamsToHistory({
+    history: createMemoryHistory({ initialEntries: [req.url] }),
+  });
+};
 
 export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
   const appName = config.get('appName');
@@ -92,9 +97,16 @@ function renderHTML({ props = {}, pageProps }) {
   return ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
 }
 
-function showErrorPage({ createStore, error = {}, req, res, status, config }) {
-  const memoryHistory = createMemoryHistory(req.url);
-  const { store } = createStore({ history: memoryHistory });
+function showErrorPage({
+  _createHistory,
+  createStore,
+  error = {},
+  req,
+  res,
+  status,
+  config,
+}) {
+  const { store } = createStore({ history: _createHistory({ req }) });
   const pageProps = getPageProps({ store, req, res, config });
 
   const componentDeclaredStatus = NestedStatus.rewind();
@@ -129,9 +141,16 @@ function hydrateOnClient({ res, props = {}, pageProps }) {
 }
 
 function baseServer(
-  routes,
+  App,
   createStore,
-  { appSagas, appInstanceName = null, config = defaultConfig, _HotShots } = {},
+  {
+    _HotShots,
+    _createHistory = createHistory,
+    _log = log,
+    appInstanceName = null,
+    appSagas,
+    config = defaultConfig,
+  } = {},
 ) {
   const appName =
     appInstanceName !== null ? appInstanceName : config.get('appName');
@@ -143,16 +162,16 @@ function baseServer(
   if (sentryDsn) {
     Raven.config(sentryDsn, { logger: 'server-js' }).install();
     app.use(Raven.requestHandler());
-    log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
+    _log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
     // The error handler is defined below.
   } else {
-    log.warn(
+    _log.warn(
       'Sentry reporting is disabled; Set config.sentryDsn to enable it.',
     );
   }
 
   if (config.get('useDatadog') && config.get('datadogHost')) {
-    log.info('Recording DataDog timing stats for all responses');
+    _log.info('Recording DataDog timing stats for all responses');
     app.use(middleware.datadogTiming({ _HotShots }));
   }
 
@@ -179,26 +198,11 @@ function baseServer(
     app.use(middleware.serveAssetsLocally());
   }
 
-  // Show version/commit information as JSON.
-  function viewVersion(req, res) {
-    // This is a magic file that gets written by deployment scripts.
-    const version = path.join(config.get('basePath'), 'version.json');
-
-    fs.stat(version, (error) => {
-      if (error) {
-        log.error(`Could not stat version file ${version}: ${error}`);
-        res.sendStatus(415);
-      } else {
-        res.setHeader('Content-Type', 'application/json');
-        fs.createReadStream(version).pipe(res);
-      }
-    });
-  }
-
-  // Following the ops monitoring convention, return version info at this URL.
-  app.get('/__version__', viewVersion);
+  // Following the ops monitoring Dockerflow convention, return version info at
+  // this URL. See: https://github.com/mozilla-services/Dockerflow
+  app.get('/__version__', viewFrontendVersionHandler());
   // For AMO, this helps differentiate from /__version__ served by addons-server.
-  app.get('/__frontend_version__', viewVersion);
+  app.get('/__frontend_version__', viewFrontendVersionHandler());
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
@@ -237,152 +241,151 @@ function baseServer(
     app.use(middleware.trailingSlashesMiddleware);
   }
 
-  app.use((req, res, next) => {
-    if (isDevelopment) {
-      log.info(oneLine`Clearing require cache for webpack isomorphic tools.
+  app.use(async (req, res, next) => {
+    try {
+      if (isDevelopment) {
+        _log.info(oneLine`Clearing require cache for webpack isomorphic tools.
         [Development Mode]`);
 
-      // clear require() cache if in development mode
-      webpackIsomorphicTools.refresh();
-    }
+        // clear require() cache if in development mode
+        webpackIsomorphicTools.refresh();
+      }
 
-    const cacheAllResponsesFor = config.get('cacheAllResponsesFor');
-    if (cacheAllResponsesFor) {
-      if (!isDevelopment) {
-        throw new Error(oneLine`You cannot simulate the cache with
+      // Make sure the initial page does not get stored. Specifically, we
+      // don't want the auth token in Redux state to hang around.
+      // See https://github.com/mozilla/addons-frontend/issues/6217
+      //
+      // The site operates as a single page app so this should really
+      // only affect how the browser loads the page when clicking
+      // the back button.
+      //
+      const cacheControl = ['no-store'];
+
+      const cacheAllResponsesFor = config.get('cacheAllResponsesFor');
+      if (cacheAllResponsesFor) {
+        if (!isDevelopment) {
+          throw new Error(oneLine`You cannot simulate the cache with
           the cacheAllResponsesFor config value when isDevelopment is false.
           In other words, we already do caching in hosted environments
           (via nginx) so this would be confusing!`);
-      }
-      log.warn(oneLine`Sending a Cache-Control header so that the client caches
+        }
+        _log.warn(oneLine`Sending a Cache-Control header so that the client caches
         all requests for ${cacheAllResponsesFor} seconds`);
-      res.set('Cache-Control', `public, max-age=${cacheAllResponsesFor}`);
-    }
+        cacheControl.push('public');
+        cacheControl.push(`max-age=${cacheAllResponsesFor}`);
+      }
 
-    // Vary the cache on Do Not Track headers.
-    res.vary('DNT');
+      res.set('Cache-Control', cacheControl.join(', '));
 
-    const memoryHistory = createMemoryHistory(req.url);
-    const { sagaMiddleware, store } = createStore({
-      history: memoryHistory,
-    });
-    const history = syncHistoryWithStore(memoryHistory, store);
+      // Vary the cache on Do Not Track headers.
+      res.vary('DNT');
 
-    match(
-      { history, location: req.url, routes },
-      async (matchError, redirectLocation, renderProps) => {
-        if (matchError) {
-          log.info(`match() returned an error for ${req.url}: ${matchError}`);
-          return next(matchError);
+      const history = _createHistory({ req });
+      const { sagaMiddleware, store } = createStore({ history });
+
+      let pageProps;
+      let runningSagas;
+
+      try {
+        cookie.plugToRequest(req, res);
+
+        let sagas = appSagas;
+        if (!sagas) {
+          // eslint-disable-next-line global-require, import/no-dynamic-require
+          sagas = require(`${appName}/sagas`).default;
+        }
+        runningSagas = sagaMiddleware.run(sagas);
+
+        // TODO: synchronize cookies with Redux store more automatically.
+        // See https://github.com/mozilla/addons-frontend/issues/5617
+        const token = cookie.load(config.get('cookieName'));
+        if (token) {
+          store.dispatch(setAuthToken(token));
+        }
+        if (
+          cookie.load(config.get('dismissedExperienceSurveyCookieName')) !==
+          undefined
+        ) {
+          store.dispatch(dismissSurvey());
         }
 
-        if (!renderProps) {
-          log.info(`match() did not return renderProps for ${req.url}`);
-          return showErrorPage({ createStore, status: 404, req, res, config });
-        }
+        pageProps = getPageProps({ noScriptStyles, store, req, res, config });
 
-        let pageProps;
-        let runningSagas;
+        if (config.get('disableSSR') === true) {
+          // This stops all running sagas.
+          store.dispatch(END);
 
-        try {
-          cookie.plugToRequest(req, res);
-
-          let sagas = appSagas;
-          if (!sagas) {
-            // eslint-disable-next-line global-require, import/no-dynamic-require
-            sagas = require(`${appName}/sagas`).default;
-          }
-          runningSagas = sagaMiddleware.run(sagas);
-
-          // TODO: synchronize cookies with Redux store more automatically.
-          // See https://github.com/mozilla/addons-frontend/issues/5617
-          const token = cookie.load(config.get('cookieName'));
-          if (token) {
-            store.dispatch(setAuthToken(token));
-          }
-          if (
-            cookie.load(config.get('dismissedExperienceSurveyCookieName')) !==
-            undefined
-          ) {
-            store.dispatch(dismissSurvey());
-          }
-
-          pageProps = getPageProps({ noScriptStyles, store, req, res, config });
-
-          if (config.get('disableSSR') === true) {
-            // This stops all running sagas.
-            store.dispatch(END);
-
-            await runningSagas.done;
-            log.warn('Server side rendering is disabled.');
-
-            return hydrateOnClient({ res, pageProps });
-          }
-        } catch (preLoadError) {
-          log.info(oneLine`Caught an error in match() before rendering:
-          ${preLoadError}`);
-          return next(preLoadError);
-        }
-
-        let i18nData = {};
-        const { htmlLang } = pageProps;
-        const locale = langToLocale(htmlLang);
-
-        try {
-          if (locale !== langToLocale(config.get('defaultLang'))) {
-            // eslint-disable-next-line global-require, import/no-dynamic-require
-            i18nData = require(`../../locale/${locale}/${appName}.js`);
-          }
-        } catch (e) {
-          log.info(`Locale JSON not found or required for locale: "${locale}"`);
-          log.info(
-            `Falling back to default lang: "${config.get('defaultLang')}"`,
-          );
-        }
-
-        const i18n = makeI18n(i18nData, htmlLang);
-
-        const InitialComponent = (
-          <I18nProvider i18n={i18n}>
-            <Provider store={store} key="provider">
-              <RouterContext {...renderProps} />
-            </Provider>
-          </I18nProvider>
-        );
-
-        const props = { component: InitialComponent };
-
-        // We need to render once because it will force components to
-        // dispatch data loading actions which get processed by sagas.
-        log.info('First component render to dispatch loading actions');
-        renderHTML({ props, pageProps });
-
-        // Send the redux-saga END action to stop sagas from running
-        // indefinitely. This is only done for server-side rendering.
-        store.dispatch(END);
-
-        try {
-          // Once all sagas have completed, we load the page.
           await runningSagas.done;
-          log.info('Second component render after sagas have finished');
+          _log.warn('Server side rendering is disabled.');
 
-          const finalHTML = renderHTML({ props, pageProps });
-
-          // A redirection has been requested, let's do it.
-          const { redirectTo } = store.getState();
-          if (redirectTo && redirectTo.url) {
-            log.info(oneLine`Redirection requested:
-            url=${redirectTo.url} status=${redirectTo.status}`);
-            return res.redirect(redirectTo.status, redirectTo.url);
-          }
-
-          return sendHTML({ res, html: finalHTML });
-        } catch (error) {
-          log.error(`Caught error during rendering: ${error}`);
-          return next(error);
+          return hydrateOnClient({ res, pageProps });
         }
-      },
-    );
+      } catch (preLoadError) {
+        _log.info(`Caught an error before rendering: ${preLoadError}`);
+        return next(preLoadError);
+      }
+
+      let i18nData = {};
+      const { htmlLang } = pageProps;
+      const locale = langToLocale(htmlLang);
+
+      try {
+        if (locale !== langToLocale(config.get('defaultLang'))) {
+          // eslint-disable-next-line global-require, import/no-dynamic-require
+          i18nData = require(`../../locale/${locale}/${appName}.js`);
+        }
+      } catch (e) {
+        _log.info(`Locale JSON not found or required for locale: "${locale}"`);
+        _log.info(
+          `Falling back to default lang: "${config.get('defaultLang')}"`,
+        );
+      }
+
+      const i18n = makeI18n(i18nData, htmlLang);
+
+      const props = {
+        component: (
+          <Root history={history} i18n={i18n} store={store}>
+            <App />
+          </Root>
+        ),
+      };
+
+      // We need to render once because it will force components to
+      // dispatch data loading actions which get processed by sagas.
+      _log.info('First component render to dispatch loading actions');
+      renderHTML({ props, pageProps });
+
+      // Send the redux-saga END action to stop sagas from running
+      // indefinitely. This is only done for server-side rendering.
+      store.dispatch(END);
+
+      try {
+        // Once all sagas have completed, we load the page.
+        await runningSagas.done;
+        _log.info('Second component render after sagas have finished');
+
+        const finalHTML = renderHTML({ props, pageProps });
+
+        // A redirection has been requested, let's do it.
+        const { redirectTo } = store.getState();
+        if (redirectTo && redirectTo.url) {
+          _log.info(oneLine`Redirection requested:
+            url=${redirectTo.url} status=${redirectTo.status}`);
+          return res.redirect(redirectTo.status, redirectTo.url);
+        }
+
+        return sendHTML({ res, html: finalHTML });
+      } catch (error) {
+        _log.error(`Caught error during rendering: ${error}`);
+        return next(error);
+      }
+    } catch (handlerError) {
+      _log.error(oneLine`Caught an unexpected error while handling the request:
+        ${handlerError}`);
+
+      return next(handlerError);
+    }
   });
 
   // Error handlers:
@@ -392,15 +395,34 @@ function baseServer(
   }
 
   app.use((error, req, res, next) => {
-    if (res.headersSent) {
-      log.warn(oneLine`Ignoring error for ${req.url}
-        because a response was already sent; error: ${error}`);
+    try {
+      if (res.headersSent) {
+        _log.warn(oneLine`Ignoring error for ${req.url} because a response was
+          already sent; error: ${error}`);
+
+        return next(error);
+      }
+
+      _log.error(`Showing 500 page for error: ${error}`);
+      _log.error(error); // log the stack trace too.
+
+      return showErrorPage({
+        _createHistory,
+        createStore,
+        error,
+        status: 500,
+        req,
+        res,
+        config,
+      });
+    } catch (recoveryError) {
+      _log.error(oneLine`Additionally, the error handler caught an error:
+        ${recoveryError}`);
+      _log.error(recoveryError); // log the stack trace too.
+
+      // Pass the original error to the next error handler.
       return next(error);
     }
-
-    log.error(`Showing 500 page for error: ${error}`);
-    log.error({ err: error }); // log the stack trace too.
-    return showErrorPage({ createStore, error, status: 500, req, res, config });
   });
 
   return app;
@@ -436,10 +458,10 @@ export function runServer({
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
         /* eslint-disable global-require, import/no-dynamic-require */
-        const routes = require(`${appName}/routes`).default;
+        const App = require(`${appName}/components/App`).default;
         const createStore = require(`${appName}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        let server = baseServer(routes, createStore, {
+        let server = baseServer(App, createStore, {
           appInstanceName: appName,
         });
         if (listen === true) {
@@ -479,6 +501,7 @@ export function runServer({
                 `[isDeployed:${config.get('isDeployed')}]`,
                 `[apiHost:${config.get('apiHost')}]`,
                 `[apiPath:${config.get('apiPath')}]`,
+                `[apiVersion:${config.get('apiVersion')}]`,
               ].join(' '),
             );
             if (proxyEnabled) {

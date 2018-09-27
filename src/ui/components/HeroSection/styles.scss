@@ -1,7 +1,4 @@
-@import '~photon-colors/photon-colors';
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import '~ui/css/styles';
 
 .HeroSection {
   border-radius: $border-radius-default;
@@ -20,6 +17,10 @@
   padding: $padding-page;
   position: relative;
   text-decoration: none;
+
+  .HomeHeroBanner--small & {
+    min-height: 50px;
+  }
 
   @include respond-to(large) {
     padding: $padding-page-l;

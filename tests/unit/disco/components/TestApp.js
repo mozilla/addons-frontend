@@ -1,130 +1,116 @@
+import { createMemoryHistory } from 'history';
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { findDOMNode } from 'react-dom';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-dom/test-utils';
 import NestedStatus from 'react-nested-status';
-import { Provider } from 'react-redux';
+import Helmet from 'react-helmet';
 
-import { AppBase, mapStateToProps } from 'disco/components/App';
+import App, { AppBase } from 'disco/components/App';
+import Footer from 'disco/components/Footer';
 import createStore from 'disco/store';
-import { createApiError } from 'core/api';
-import I18nProvider from 'core/i18n/Provider';
-import { loadErrorPage } from 'core/reducers/errorPage';
-import { fakeI18n } from 'tests/unit/helpers';
-
-class MyComponent extends React.Component {
-  render() {
-    return <p>The component</p>;
-  }
-}
-
-function renderProps(customProps = {}) {
-  return {
-    browserVersion: '50',
-    i18n: fakeI18n(),
-    store: createStore().store,
-    ...customProps,
-  };
-}
-
-function renderApp(customProps = {}) {
-  const props = renderProps(customProps);
-  const root = findRenderedComponentWithType(
-    renderIntoDocument(
-      <Provider store={props.store}>
-        <I18nProvider i18n={props.i18n}>
-          <AppBase {...props}>
-            <MyComponent />
-          </AppBase>
-        </I18nProvider>
-      </Provider>,
-    ),
-    AppBase,
-  );
-  return findDOMNode(root);
-}
+import {
+  createContextWithFakeRouter,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  function render({
+    browserVersion = '50',
+    history = null,
+    ...customProps
+  } = {}) {
+    if (!history) {
+      // eslint-disable-next-line no-param-reassign
+      history = createMemoryHistory({
+        initialEntries: [
+          `/en-US/firefox/discovery/pane/${browserVersion}/Darwin/normal/`,
+        ],
+      });
+    }
+
+    const store = customProps.store || createStore({ history }).store;
+
+    const props = {
+      history,
+      i18n: fakeI18n(),
+      store,
+      ...customProps,
+    };
+
+    return shallowUntilTarget(<App {...props} />, AppBase, {
+      shallowOptions: createContextWithFakeRouter({ history }),
+    });
+  }
+
+  const renderDiscoPane = (props = {}) => {
+    return render(props).find('.disco-pane');
+  };
+
   describe('App', () => {
-    it('renders its children', () => {
-      const rootNode = renderApp();
-      expect(rootNode.tagName.toLowerCase()).toEqual('div');
-      expect(rootNode.querySelector('p').textContent).toEqual('The component');
+    it('renders correctly', () => {
+      const root = render();
+      expect(root).toHaveLength(1);
+      expect(root).toHaveProp('code', 200);
+      expect(root.find('.disco-pane')).toHaveLength(1);
+    });
+
+    it('renders a ErrorPage', () => {
+      const SomeErrorPage = () => <div />;
+      const root = render({ ErrorPage: SomeErrorPage });
+      expect(root.find(SomeErrorPage)).toHaveLength(1);
+    });
+
+    it('renders a Helmet', () => {
+      const root = render();
+      const helmet = root.find(Helmet);
+      expect(helmet).toHaveLength(1);
+      expect(helmet).toHaveProp('defaultTitle', 'Discover Add-ons');
+      expect(helmet.find('meta')).toHaveLength(1);
+      expect(helmet.find('meta')).toHaveProp('content', 'noindex');
+    });
+
+    it('renders a Footer', () => {
+      const root = render();
+      expect(root.find(Footer)).toHaveLength(1);
     });
 
     it('renders padding compensation class for FF < 50', () => {
-      const rootNode = renderApp({ browserVersion: '49.0' });
-      expect(rootNode.className).toContain('padding-compensation');
+      const root = renderDiscoPane({ browserVersion: '49.0' });
+      expect(root).toHaveClassName('padding-compensation');
     });
 
     it('does not render padding compensation class for a bogus value', () => {
-      const rootNode = renderApp({ browserVersion: 'whatever' });
-      expect(rootNode.className).not.toContain('padding-compensation');
+      const root = renderDiscoPane({ browserVersion: 'whatever' });
+      expect(root).not.toHaveClassName('padding-compensation');
     });
 
     it('does not render padding compensation class for a undefined value', () => {
-      const rootNode = renderApp({ browserVersion: undefined });
-      expect(rootNode.className).not.toContain('padding-compensation');
+      const root = renderDiscoPane({ browserVersion: undefined });
+      expect(root).not.toHaveClassName('padding-compensation');
     });
 
     it('does not render padding compensation class for FF == 50', () => {
-      const rootNode = renderApp({ browserVersion: '50.0' });
-      expect(rootNode.className).not.toContain('padding-compensation');
+      const root = renderDiscoPane({ browserVersion: '50.0' });
+      expect(root).not.toHaveClassName('padding-compensation');
     });
 
     it('does not render padding compensation class for FF > 50', () => {
-      const rootNode = renderApp({ browserVersion: '52.0a1' });
-      expect(rootNode.className).not.toContain('padding-compensation');
+      const root = renderDiscoPane({ browserVersion: '52.0a1' });
+      expect(root).not.toHaveClassName('padding-compensation');
     });
 
     it('renders a response with a 200 status', () => {
-      const root = shallow(<AppBase {...renderProps()} />);
+      const root = shallow(<AppBase i18n={fakeI18n()} browserVersion="50" />);
       expect(root.find(NestedStatus)).toHaveProp('code', 200);
     });
-  });
 
-  describe('App errors', () => {
-    it('renders a 404', () => {
-      const { store } = createStore();
-      const error = createApiError({
-        apiURL: 'http://test.com',
-        response: { status: 404 },
+    it('sets browserVersion to empty string when path does not match', () => {
+      const history = createMemoryHistory({
+        initialEntries: ['/not-the-expected-path/'],
       });
-      store.dispatch(loadErrorPage({ error }));
 
-      const rootNode = renderApp({ store });
-      expect(rootNode.textContent).not.toContain('The component');
-      expect(rootNode.textContent).toContain('Page not found');
-    });
-
-    it('renders a generic error', () => {
-      const { store } = createStore();
-      const error = createApiError({
-        apiURL: 'http://test.com',
-        response: { status: 500 },
-      });
-      store.dispatch(loadErrorPage({ error }));
-
-      const rootNode = renderApp({ store });
-      expect(rootNode.textContent).not.toContain('The component');
-      expect(rootNode.textContent).toContain('Server Error');
-    });
-  });
-
-  describe('mapStateToProps', () => {
-    const fakeRouterParams = {
-      params: {
-        version: '49.0',
-      },
-    };
-
-    it('returns browserVersion', () => {
-      expect(mapStateToProps(null, fakeRouterParams).browserVersion).toEqual(
-        '49.0',
-      );
+      const root = render({ history });
+      expect(root.instance().props).toHaveProperty('browserVersion', '');
     });
   });
 });

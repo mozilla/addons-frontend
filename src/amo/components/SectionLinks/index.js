@@ -3,7 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
 import { setClientApp } from 'core/actions';
@@ -22,8 +22,9 @@ import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 import type { AppState } from 'amo/store';
 import type { ViewContextType } from 'amo/reducers/viewContext';
-import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterHistoryType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -32,7 +33,7 @@ type Props = {|
   clientApp: string,
   dispatch: DispatchFunc,
   i18n: I18nType,
-  router: Object,
+  history: ReactRouterHistoryType,
   viewContext: ViewContextType,
 |};
 
@@ -40,12 +41,12 @@ export class SectionLinksBase extends React.Component<Props> {
   setClientApp = (event: Object) => {
     event.preventDefault();
 
-    const { dispatch, router } = this.props;
+    const { dispatch, history } = this.props;
 
     const clientApp = event.currentTarget.getAttribute('data-clientapp');
 
     dispatch(setClientApp(clientApp));
-    router.push(event.currentTarget.getAttribute('href'));
+    history.push(event.currentTarget.getAttribute('href'));
   };
 
   render() {

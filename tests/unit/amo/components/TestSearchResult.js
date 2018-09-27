@@ -145,12 +145,13 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchResult--theme');
   });
 
-  it('does not render an image if the isAllowedOrigin is false', () => {
+  it('does not render a theme image if the isAllowedOrigin is false', () => {
     const root = render({
       _isAllowedOrigin: sinon.stub().returns(false),
       addon: createInternalAddon({
         ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
+        previews: [],
+        type: ADDON_TYPE_THEME,
       }),
     });
 
@@ -175,6 +176,14 @@ describe(__filename, () => {
     });
 
     expect(root.find('.SearchResult-icon')).not.toHaveProp('alt', '');
+  });
+
+  it('renders a loading class name while there is no addon', () => {
+    const root = render({ addon: null });
+
+    expect(root.find('.SearchResult-icon')).toHaveClassName(
+      '.SearchResult-icon--loading',
+    );
   });
 
   it('displays the thumbnail image as the default src for static theme', () => {

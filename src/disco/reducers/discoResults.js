@@ -1,12 +1,104 @@
-import { LOAD_DISCO_RESULTS } from 'disco/constants';
+/* @flow */
+import invariant from 'invariant';
 
-export default function discoResults(state = [], { type, payload }) {
-  switch (type) {
+import type { AddonType, ExternalAddonType } from 'core/types/addons';
+
+export const GET_DISCO_RESULTS: 'GET_DISCO_RESULTS' = 'GET_DISCO_RESULTS';
+export const LOAD_DISCO_RESULTS: 'LOAD_DISCO_RESULTS' = 'LOAD_DISCO_RESULTS';
+
+export type ExternalDiscoAddonMap = {
+  [guid: $PropertyType<AddonType, 'guid'>]: ExternalAddonType,
+};
+
+export type ExternalDiscoResultType = {|
+  // normalizr injects the add-on's GUID in the `addon` prop.
+  addon: $PropertyType<AddonType, 'guid'>,
+  description: string | null,
+  heading: string,
+  is_recommendation: boolean,
+|};
+
+export type ExternalDiscoResultsType = {|
+  entities: {|
+    addons: ExternalDiscoAddonMap,
+    discoResults: {| [guid: string]: ExternalDiscoResultType |},
+  |},
+  result: {|
+    count: number,
+    results: Array<$PropertyType<AddonType, 'guid'>>,
+  |},
+|};
+
+type DiscoResultsState = {|
+  results: Array<ExternalDiscoResultType>,
+|};
+
+export const initialState: DiscoResultsState = {
+  results: [],
+};
+
+type GetDiscoResultsParams = {|
+  errorHandlerId: string,
+  taarParams: {
+    [name: string]: string,
+    platform: string,
+  },
+|};
+
+export type GetDiscoResultsAction = {|
+  type: typeof GET_DISCO_RESULTS,
+  payload: GetDiscoResultsParams,
+|};
+
+export function getDiscoResults({
+  errorHandlerId,
+  taarParams,
+}: GetDiscoResultsParams = {}): GetDiscoResultsAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(taarParams.platform, 'taarParams.platform is required');
+
+  return {
+    type: GET_DISCO_RESULTS,
+    payload: { errorHandlerId, taarParams },
+  };
+}
+
+type LoadDiscoResultsParams = ExternalDiscoResultsType;
+
+type LoadDiscoResultsAction = {|
+  type: typeof LOAD_DISCO_RESULTS,
+  payload: LoadDiscoResultsParams,
+|};
+
+export function loadDiscoResults({
+  entities,
+  result,
+}: LoadDiscoResultsParams = {}): LoadDiscoResultsAction {
+  invariant(entities, 'entities are required');
+  invariant(result, 'result is required');
+
+  return {
+    type: LOAD_DISCO_RESULTS,
+    payload: { entities, result },
+  };
+}
+
+type Action = LoadDiscoResultsAction | GetDiscoResultsAction;
+
+export default function discoResults(
+  state: DiscoResultsState = initialState,
+  action: Action,
+): DiscoResultsState {
+  switch (action.type) {
     case LOAD_DISCO_RESULTS: {
-      const { entities, result } = payload;
-      // The API schema that complicates result.results can be found
-      // in disco/api.js
-      return result.results.map((guid) => entities.discoResults[guid]);
+      const { entities, result } = action.payload;
+
+      return {
+        ...state,
+        // The API schema that complicates result.results can be found in
+        // disco/api.js
+        results: result.results.map((guid) => entities.discoResults[guid]),
+      };
     }
     default:
       return state;

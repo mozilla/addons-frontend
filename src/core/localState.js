@@ -21,6 +21,7 @@ type LocalStateOptions = {|
 
 export class LocalState {
   id: string;
+
   localForage: typeof defaultLocalForage;
 
   constructor(

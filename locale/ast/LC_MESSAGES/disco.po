@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-24 17:04+0000\n"
-"PO-Revision-Date: 2017-02-02 13:58+0000\n"
+"POT-Creation-Date: 2018-09-25 19:05+0000\n"
+"PO-Revision-Date: 2018-09-15 17:10+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ast\n"
@@ -14,50 +14,78 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
+#: src/core/components/AMInstallButton/index.js:206
+msgid "Enable"
+msgstr "Activar"
+
+#: src/core/components/AMInstallButton/index.js:209
+msgid "Remove"
+msgstr "Desaniciar"
+
+#: src/core/components/AMInstallButton/index.js:211
+msgid "Enabling"
+msgstr "Activando"
+
+#: src/core/components/AMInstallButton/index.js:213
+msgid "Downloading"
+msgstr "Baxando"
+
+#: src/core/components/AMInstallButton/index.js:215
+msgid "Installing"
+msgstr "Instalando"
+
+#: src/core/components/AMInstallButton/index.js:217
+msgid "Uninstalling"
+msgstr "Desinstalando"
+
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
+msgid "Install Theme"
+msgstr "Instalar tema"
+
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
+msgid "Add to Firefox"
+msgstr "Amestar a Firefox"
+
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Fallu del sirvidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
 msgstr ""
+"Perdona pero hebo un fallu y nun pudimos completar la solicitú. Rexistremos "
+"esti fallu y vamos investigalu."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33
 #: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Códigu del fallu: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Nun s'alcontró la páxina"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Perdona pero nun podemos alcontrar nada na URL qu'introduxesti."
 
-#: src/core/components/InfoDialog/index.js:37
-msgid "Your add-on is ready"
-msgstr "El to add-on ta preparáu"
+#: src/core/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr "%(strongStart)s%(name)s%(strongEnd)s amestóse"
 
-#: src/core/components/InfoDialog/index.js:40
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Agora pues acceder a %(name)s dende la barra de ferramientes."
+#: src/core/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr "Xestiona los tos complementos faciendo clic nel menú de Complementos."
 
-#: src/core/components/InfoDialog/index.js:54
-msgid "OK!"
-msgstr "¡Val!"
-
-#: src/core/components/InstallButton/index.js:259
-#: src/core/components/InstallButton/index.js:305
-msgid "Install Theme"
-msgstr "Instalar tema"
-
-#: src/core/components/InstallButton/index.js:290
-#: src/core/components/InstallButton/index.js:306
-msgid "Add to Firefox"
-msgstr "Amestar a Firefox"
+#: src/core/components/InfoDialog/index.js:88
+msgid "OK"
+msgstr "Aceutar"
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "Downloading %(name)s."
@@ -69,11 +97,11 @@ msgstr "Instalando %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s ta instaláu y habilitáu. Primi pa desinstalar."
+msgstr "%(name)s ta instaláu y activáu. Fai clic pa desinstalar."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s ta deshabilitáu. Primi p'habilitar."
+msgstr "%(name)s ta desactiváu. Fai clic pa activar."
 
 #: src/core/components/InstallSwitch/index.js:84
 msgid "Uninstalling %(name)s."
@@ -81,70 +109,65 @@ msgstr "Desinstalando %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:87
 msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s ta desinstaláu. Primi pa instalar."
+msgstr "%(name)s ta desinstaláu. Fai clic pa instalar."
 
 #: src/core/components/InstallSwitch/index.js:90
 msgid "Install state for %(name)s is unknown."
-msgstr "Desconozse l'estáu d'instalación pa %(name)s."
+msgstr "Desconozse l'estáu de la instalación de %(name)s."
 
-#: src/disco/components/Addon/index.js:136
-msgid "Preview of %(name)s"
-msgstr ""
-
-#: src/disco/components/Addon/index.js:174
+#: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
 msgstr "Falló la instalación. Volvi tentalo, por favor."
 
-#: src/disco/components/Addon/index.js:176
+#: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
-msgstr "Falló la descarga. Comprueba la to conexón, por favor."
+msgstr "Falló la descarga. Comprueba la conexón, por favor."
 
-#: src/disco/components/Addon/index.js:178
+#: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
 msgstr "Asocedió un fallu inesperáu na instalación."
 
-#: src/disco/components/Addon/index.js:182
+#: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Asocedió un fallu inesperáu na desinstalación."
 
-#: src/disco/components/Addon/index.js:187
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
 msgstr "Asocedió un fallu inesperáu."
 
-#: src/disco/components/Addon/index.js:195
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Esti add-on desinstalaráse dempués de que reanicies Firefox."
-
-#: src/disco/components/Addon/index.js:199
-msgid "Please restart Firefox to use this add-on."
-msgstr "Reanicia Firefox pa usar esti add-on, por favor."
-
-#: src/disco/components/Addon/index.js:89
+#: src/disco/components/Addon/index.js:84
 msgid "Close"
 msgstr "Zarrar"
 
-#: src/disco/components/AddonCompatibilityError/index.js:37
+#: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Anguaño Firefox pa iOS nun sofita los complementos."
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
-#, fuzzy
+#: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
-msgstr "Esti add-on desinstalaráse dempués de que reanicies Firefox."
+msgstr "Esti complementu nun sofita la to versión de Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:47
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Esti complementu nun sofita'l restolador."
 
-#: src/disco/components/App/index.js:36
+#: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
-msgstr "Descubrir add-ons"
+msgstr "Descubrir complementos"
 
-#: src/disco/components/DiscoPane/index.js:104
+#: src/disco/components/Footer/index.js:30
+msgid "Privacy Policy"
+msgstr "Política de privacidá"
+
+#: src/disco/pages/DiscoPane/index.js:136
+msgid "Find more add-ons"
+msgstr "Alcontrar más complementos"
+
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
-msgstr "Personaliza'l to Firefox"
+msgstr "Personaliza Firefox"
 
-#: src/disco/components/DiscoPane/index.js:106
+#: src/disco/pages/DiscoPane/index.js:154
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -152,39 +175,43 @@ msgid ""
 "your browser yours. To help you get started, here are some we recommend for "
 "their stand-out performance and functionality."
 msgstr ""
-"Hai milenta add-ons de baldre, creaos polos desendolcadores de tol mundu, "
-"que pues\n"
-"instalar pa personalizar el to Firefox. Dende temes visuales guapos fasta "
-"ferramientes\n"
-"poderoses que faen el restolar más rápidu y seguru. Los add-ons faen el "
-"restolador de to\n"
-"y, p'ayudate a entamar, equí hai daqué qu'aconseyamos pa esi rindimientu y\n"
-"funcionalidá destacaos."
-
-#: src/disco/components/DiscoPane/index.js:139
-msgid "See more add-ons!"
-msgstr "¡Mira más add-ons!"
-
-#: src/disco/components/Footer/index.js:30
-msgid "Privacy Policy"
-msgstr ""
+"Hai milenta complementos, creaos por desendolcadores de tol mundu, que pues "
+"instalar pa personalizar Firefox. Dende temes visuales divertíos hasta "
+"ferramientes potentes pa facer el restolar más rápidu y seguru, los "
+"complementos faen el restolador de to. P'ayudate a entamar, equí hai "
+"dalgunos qu'aconseyamos pol so rindimientu y funcionalidá."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "La sesión caducó"
 
 #: src/ui/components/ErrorList/index.js:51
-#, fuzzy
 msgid "An unexpected error occurred"
-msgstr "Asocedió un fallu inesperáu."
+msgstr "Asocedió un fallu inesperáu"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Recargar pa siguir"
 
-#: src/ui/components/Notice/index.js:129
+#: src/ui/components/Notice/index.js:130
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Escartar esti avisu"
+
+#: src/ui/components/ThemeImage/index.js:30
+msgid "Preview of %(title)s"
+msgstr "Previsualización de %(title)s"
+
+#~ msgid "This add-on will be uninstalled after you restart Firefox."
+#~ msgstr "Esti add-on desinstalaráse dempués de que reanicies Firefox."
+
+#~ msgid "Please restart Firefox to use this add-on."
+#~ msgstr "Reanicia Firefox pa usar esti add-on, por favor."
+
+#~ msgid "Your add-on is ready"
+#~ msgstr "El to add-on ta preparáu"
+
+#~ msgid "Now you can access %(name)s from the toolbar."
+#~ msgstr "Agora pues acceder a %(name)s dende la barra de ferramientes."
 
 #~ msgid "Hover to preview or click to install %(name)s"
 #~ msgstr "Pasa penriba pa previsualizar o primi pa instalar %(name)s"

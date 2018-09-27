@@ -1,39 +1,80 @@
+/* @flow */
+import { createMemoryHistory } from 'history';
 import { createStore as _createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { browserHistory } from 'react-router';
-import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
 import { middleware } from 'core/store';
 import addons from 'core/reducers/addons';
-import errors from 'core/reducers/errors';
 import api from 'core/reducers/api';
 import errorPage from 'core/reducers/errorPage';
+import errors from 'core/reducers/errors';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
-import discoResults from 'disco/reducers/discoResults';
 import redirectTo from 'core/reducers/redirectTo';
 import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
+import discoResults from 'disco/reducers/discoResults';
+import type { AddonsState } from 'core/reducers/addons';
+import type { ApiState } from 'core/reducers/api';
+import type { ErrorPageState } from 'core/reducers/errorPage';
+import type { InfoDialogState } from 'core/reducers/infoDialog';
+import type { InstallationsState } from 'core/reducers/installations';
+import type { RedirectToState } from 'core/reducers/redirectTo';
+import type { SurveyState } from 'core/reducers/survey';
+import type { UIStateState } from 'core/reducers/uiState';
+import type { ReactRouterHistoryType } from 'core/types/router';
+import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
+
+export type AppState = {|
+  addons: AddonsState,
+  api: ApiState,
+  discoResults: Object,
+  errorPage: ErrorPageState,
+  errors: Object,
+  infoDialog: InfoDialogState,
+  installations: InstallationsState,
+  redirectTo: RedirectToState,
+  survey: SurveyState,
+  uiState: UIStateState,
+|};
+
+// Given AppState, create a type for all possible application reducers.
+// See https://flow.org/en/docs/types/utilities/#toc-objmap
+type AppReducersType = $ObjMap<AppState, CreateReducerType>;
+
+export type CreateRootReducerParams = {|
+  history: ReactRouterHistoryType,
+  reducers: AppReducersType,
+|};
+
+export const createRootReducer = ({
+  history,
+  reducers,
+}: CreateRootReducerParams) => {
+  return connectRouter(history)(combineReducers(reducers));
+};
+
+export const reducers: AppReducersType = {
+  addons,
+  api,
+  discoResults,
+  errorPage,
+  errors,
+  infoDialog,
+  installations,
+  redirectTo,
+  survey,
+  uiState,
+};
 
 export default function createStore({
-  history = browserHistory,
+  history = createMemoryHistory(),
   initialState = {},
-} = {}) {
+}: CreateStoreParams = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
-    combineReducers({
-      addons,
-      api,
-      errors,
-      discoResults,
-      errorPage,
-      installations,
-      infoDialog,
-      redirectTo,
-      routing,
-      survey,
-      uiState,
-    }),
+    createRootReducer({ history, reducers }),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),

@@ -1,162 +1,336 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import makeClassName from 'classnames';
 
 import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
+import tracking from 'core/tracking';
+import { withExperiment } from 'core/withExperiment';
+import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
 
-type Props = {|
+type InternalProps = {|
+  ...WithExperimentInjectedProps,
+  _tracking: typeof tracking,
   i18n: I18nType,
 |};
 
-export class HomeHeroBannerBase extends React.Component<Props> {
-  sections() {
+export const AB_HOME_HERO_EXPERIMENT = 'home_hero';
+export const AB_HOME_HERO_VARIANT_A = 'small';
+export const AB_HOME_HERO_VARIANT_B = 'large';
+export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';
+
+export class HomeHeroBannerBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _tracking: tracking,
+  };
+
+  componentDidMount() {
+    const { _tracking, experimentEnabled, variant } = this.props;
+
+    if (!experimentEnabled) {
+      return;
+    }
+
+    _tracking.sendEvent({
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Page View`,
+    });
+  }
+
+  getHeroes() {
     const { i18n } = this.props;
 
     return [
-      <HeroSection key="hero-1" linkTo="/addon/facebook-container/">
-        <h3>{i18n.gettext('Facebook Container')}</h3>
-
-        <p>
-          {i18n.gettext('Prevent Facebook from tracking you around the web')}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-2" linkTo="/addon/midnight-lizard-quantum/">
-        <h3>{i18n.gettext('Midnight Lizard')}</h3>
-
-        <p>{i18n.gettext('Give the entire internet a new look')}</p>
-      </HeroSection>,
-      <HeroSection key="hero-3" linkTo="/addon/turbo-download-manager/">
-        <h3>{i18n.gettext('Turbo Download Manager')}</h3>
-
-        <p>
-          {i18n.gettext(`Increase download speeds with multi-threading
-              support`)}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-4" linkTo="/addon/auth-helper/">
-        <h3>{i18n.gettext('Authenticator')}</h3>
-        <p>
-          {i18n.gettext('Generate 2-step verification codes right in Firefox')}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-5" linkTo="/addon/ip-address-and-domain-info/">
-        <h3>{i18n.gettext('IP Address and Domain Information')}</h3>
-        <p>
-          {i18n.gettext(
-            `See detailed info about every website you visit—IP address, location, provider & more`,
-          )}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-6" linkTo="/addon/new-tab-override/">
-        <h3>{i18n.gettext('New Tab Override')}</h3>
-
-        <p>
-          {i18n.gettext(
-            'Choose the page you see every time you open a new tab',
-          )}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-7" linkTo="/addon/forecastfox-fix-version/">
-        <h3>{i18n.gettext('Forecastfox')}</h3>
-
-        <p>
-          {i18n.gettext(
-            'Get instant global weather information right in Firefox',
-          )}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-8" linkTo="/addon/multi-account-containers/">
-        <h3>{i18n.gettext('Multi-Account Containers')}</h3>
-
-        <p>
-          {i18n.gettext(`Keep different parts of your online
-              life—work, personal, etc.—separated by color-coded tabs`)}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-9" linkTo="/addon/transparent-standalone-image/">
-        <h3>{i18n.gettext('Transparent Standalone Images')}</h3>
-
-        <p>{i18n.gettext('Render images on transparent backgrounds')}</p>
-      </HeroSection>,
-      <HeroSection key="hero-10" linkTo="/addon/tabliss/">
-        <h3>{i18n.gettext('Tabliss')}</h3>
-
-        <p>
-          {i18n.gettext(`Enjoy a gorgeous new tab page with customizable
-              backgrounds, local weather & more`)}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-11" linkTo="/addon/tree-style-tab/">
-        <h3>{i18n.gettext('Tree Style Tab')}</h3>
-
-        <p>
-          {i18n.gettext(
-            'Have a ton of open tabs? Organize them in a tidy sidebar',
-          )}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-12" linkTo="/addon/imagus/">
-        <h3>{i18n.gettext('Imagus')}</h3>
-
-        <p>{i18n.gettext('Enlarge images by hovering your mouse over it')}</p>
-      </HeroSection>,
-      <HeroSection key="hero-13" linkTo="/addon/privacy-possum/">
-        <h3>{i18n.gettext('Privacy Possum')}</h3>
-
-        <p>{i18n.gettext('Protect yourself against the sneakiest trackers')}</p>
-      </HeroSection>,
-      <HeroSection key="hero-14" linkTo="/addon/page-translate/">
-        <h3>{i18n.gettext('Page Translate')}</h3>
-
-        <p>
-          {i18n.gettext('Translate an entire web page with a couple clicks')}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-15" linkTo="/addon/textmarkerpro/">
-        <h3>{i18n.gettext('Textmarker')}</h3>
-
-        <p>{i18n.gettext('Highly customizable text highlighter')}</p>
-      </HeroSection>,
-      <HeroSection key="hero-16" linkTo="/addon/forget_me_not/">
-        <h3>{i18n.gettext('Forget Me Not')}</h3>
-
-        <p>
-          {i18n.gettext(`Make Firefox forget website data like cookies
-              & local storage`)}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-17" linkTo="/addon/groupspeeddial/">
-        <h3>{i18n.gettext('Group Speed Dial')}</h3>
-
-        <p>
-          {i18n.gettext(`Visual bookmarks for your favorite places on the
-              web`)}
-        </p>
-      </HeroSection>,
-      <HeroSection key="hero-18" linkTo="/addon/styl-us/">
-        <h3>{i18n.gettext('Stylus')}</h3>
-
-        <p>{i18n.gettext('Give your favorite websites a new look')}</p>
-      </HeroSection>,
+      {
+        title: i18n.gettext('Facebook Container'),
+        description: i18n.gettext(
+          'Prevent Facebook from tracking you around the web',
+        ),
+        url: '/addon/facebook-container/',
+      },
+      {
+        title: i18n.gettext('Midnight Lizard'),
+        description: i18n.gettext('Give the entire internet a new look'),
+        url: '/addon/midnight-lizard-quantum/',
+      },
+      {
+        title: i18n.gettext('Iridium for YouTube'),
+        description: i18n.gettext(
+          'Play videos in a pop-out window, take video screenshots & more',
+        ),
+        url: '/addon/particle-iridium/',
+      },
+      {
+        title: i18n.gettext('Private Bookmarks'),
+        description: i18n.gettext('Password-protect your personal bookmarks'),
+        url: '/addon/webext-private-bookmarks/',
+      },
+      {
+        title: i18n.gettext('IP Address and Domain Information'),
+        description: i18n.gettext(
+          'See detailed info about every website you visit—IP address, location, provider & more',
+        ),
+        url: '/addon/ip-address-and-domain-info/',
+      },
+      {
+        title: i18n.gettext('New Tab Override'),
+        description: i18n.gettext(
+          'Choose the page you see every time you open a new tab',
+        ),
+        url: '/addon/new-tab-override/',
+      },
+      {
+        title: i18n.gettext('Forecastfox'),
+        description: i18n.gettext(
+          'Get instant global weather information right in Firefox',
+        ),
+        url: '/addon/forecastfox-fix-version/',
+      },
+      {
+        title: i18n.gettext('Multi-Account Containers'),
+        description: i18n.gettext(
+          'Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs',
+        ),
+        url: '/addon/multi-account-containers/',
+      },
+      {
+        title: i18n.gettext('Transparent Standalone Images'),
+        description: i18n.gettext('Render images on transparent backgrounds'),
+        url: '/addon/transparent-standalone-image/',
+      },
+      {
+        title: i18n.gettext('Universal Bypass'),
+        description: i18n.gettext(
+          'Automatically skip annoying link shorteners',
+        ),
+        url: '/addon/universal-bypass/',
+      },
+      {
+        title: i18n.gettext('Tree Style Tab'),
+        description: i18n.gettext(
+          'Have a ton of open tabs? Organize them in a tidy sidebar',
+        ),
+        url: '/addon/tree-style-tab/',
+      },
+      {
+        title: i18n.gettext('Imagus'),
+        description: i18n.gettext(
+          'Enlarge images by hovering your mouse over it',
+        ),
+        url: '/addon/imagus/',
+      },
+      {
+        title: i18n.gettext('Privacy Possum'),
+        description: i18n.gettext(
+          'Protect yourself against the sneakiest trackers',
+        ),
+        url: '/addon/privacy-possum/',
+      },
+      {
+        title: i18n.gettext('Default Bookmark Folder'),
+        description: i18n.gettext(
+          'Change the default destination for your bookmarks',
+        ),
+        url: '/addon/default-bookmark-folder/',
+      },
+      {
+        title: i18n.gettext('Textmarker'),
+        description: i18n.gettext('Highly customizable text highlighter'),
+        url: '/addon/textmarkerpro/',
+      },
+      {
+        title: i18n.gettext('Watch2Gether'),
+        description: i18n.gettext('Watch videos simultaneously with others'),
+        url: '/addon/w2g/',
+      },
+      {
+        title: i18n.gettext('Context Search'),
+        description: i18n.gettext(
+          'Highlight text on any webpage to easily search the term',
+        ),
+        url: '/addon/contextual-search/',
+      },
+      {
+        title: i18n.gettext('Stylus'),
+        description: i18n.gettext('Give your favorite websites a new look'),
+        url: '/addon/styl-us/',
+      },
+      {
+        title: i18n.gettext('Search Encrypt'),
+        description: i18n.gettext('Privacy protection for your search data'),
+        url: '/addon/search-encrypt/',
+      },
+      {
+        title: i18n.gettext('Auto Tab Discard'),
+        description: i18n.gettext('Save memory by disabling inactive tabs'),
+        url: '/addon/auto-tab-discard/',
+      },
+      {
+        title: i18n.gettext('Update Scanner'),
+        description: i18n.gettext(
+          'Get notified when your selected websites update with new content',
+        ),
+        url: '/addon/update-scanner/',
+      },
+      {
+        title: i18n.gettext('Auto Fullscreen'),
+        description: i18n.gettext(
+          'Automatically start Firefox in full screen mode',
+        ),
+        url: '/addon/autofullscreen/',
+      },
+      {
+        title: i18n.gettext('Video Speed Controller'),
+        description: i18n.gettext(
+          'Adjust video playback speeds with shortcuts',
+        ),
+        url: '/addon/videospeed/',
+      },
+      {
+        title: i18n.gettext('View Image'),
+        description: i18n.gettext(
+          'Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images',
+        ),
+        url: '/addon/view-image/',
+      },
+      {
+        title: i18n.gettext('Neat URL'),
+        description: i18n.gettext('Clean up links for easy sharing'),
+        url: '/addon/neat-url/',
+      },
+      {
+        title: i18n.gettext('Glitter Drag'),
+        description: i18n.gettext(
+          'Drag text, images, or links to perform actions like copy, open, search, and more',
+        ),
+        url: '/addon/glitterdrag/',
+      },
+      {
+        title: i18n.gettext('Behind The Overlay Revival'),
+        description: i18n.gettext('Click a button to close annoying pop-ups'),
+        url: '/addon/behind-the-overlay-revival/',
+      },
+      {
+        title: i18n.gettext('Auto-Sort Bookmarks'),
+        description: i18n.gettext(
+          'Automatically sorts bookmarks so they’re in your preferred position',
+        ),
+        url: '/addon/auto-sort-bookmarks/',
+      },
+      {
+        title: i18n.gettext('Search Preview'),
+        description: i18n.gettext(
+          'Enjoy thumbnail images alongside your search returns',
+        ),
+        url: '/addon/searchpreview/',
+      },
+      {
+        title: i18n.gettext('Copy PlainText'),
+        description: i18n.gettext(
+          'Remove formatting when saving text to your clipboard',
+        ),
+        url: '/addon/copy-plaintext/',
+      },
+      {
+        title: i18n.gettext('Official Media Bias Fact Check Icon'),
+        description: i18n.gettext(
+          'Indicates the political bias of news sites with a tidy icon',
+        ),
+        url: '/addon/media-bias-fact-check-icon/',
+      },
+      {
+        title: i18n.gettext('Vertical Tabs Reloaded'),
+        description: i18n.gettext('Arrange tabs in a vertical fashion'),
+        url: '/addon/vertical-tabs-reloaded/',
+      },
+      {
+        title: i18n.gettext('Search Site'),
+        description: i18n.gettext(
+          'Search within just the domain you’re visiting',
+        ),
+        url: '/addon/search-site-we/',
+      },
+      {
+        title: i18n.gettext('Push to Kindle'),
+        description: i18n.gettext('Send any Web page to your Kindle device'),
+        url: '/addon/kindle-it/',
+      },
+      {
+        title: i18n.gettext('New Tab Homepage'),
+        description: i18n.gettext(
+          'Designate a custom home page for your new tabs',
+        ),
+        url: '/addon/new-tab-homepage/',
+      },
+      {
+        title: i18n.gettext('OneNote Web Clipper'),
+        description: i18n.gettext('Save, annotate & organize web content'),
+        url: '/addon/onenote-clipper/',
+      },
+      {
+        title: i18n.gettext('FoxyGestures'),
+        description: i18n.gettext('Customized mouse gestures'),
+        url: '/addon/foxy-gestures/',
+      },
     ];
   }
 
+  sections() {
+    return this.getHeroes().map((hero) => {
+      const { description, title, url } = hero;
+
+      return (
+        <HeroSection
+          key={url}
+          linkTo={url}
+          onClick={(e) => this.trackExperimentClick(e, title)}
+        >
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </HeroSection>
+      );
+    });
+  }
+
+  trackExperimentClick = (e: SyntheticEvent<HTMLElement>, title: string) => {
+    const { _tracking, experimentEnabled, variant } = this.props;
+
+    if (!experimentEnabled) {
+      return;
+    }
+
+    _tracking.sendEvent({
+      action: variant,
+      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
+      label: title,
+    });
+  };
+
   render() {
+    const homeBannerClass = makeClassName('HomeHeroBanner', {
+      'HomeHeroBanner--small': this.props.variant === AB_HOME_HERO_VARIANT_A,
+    });
+
     return (
-      <div className="HomeHeroBanner">
+      <div className={homeBannerClass}>
         <Hero name="Home" random sections={this.sections()} />
       </div>
     );
   }
 }
 
-const HomeHeroBanner: React.ComponentType<Props> = compose(translate())(
-  HomeHeroBannerBase,
-);
+const HomeHeroBanner: React.ComponentType<InternalProps> = compose(
+  translate(),
+  withExperiment({
+    id: AB_HOME_HERO_EXPERIMENT,
+    variantA: AB_HOME_HERO_VARIANT_A,
+    variantB: AB_HOME_HERO_VARIANT_B,
+  }),
+)(HomeHeroBannerBase);
 
 export default HomeHeroBanner;

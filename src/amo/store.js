@@ -1,8 +1,8 @@
 /* @flow */
+import { createMemoryHistory } from 'history';
 import { createStore as _createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { browserHistory } from 'react-router';
-import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
@@ -44,11 +44,14 @@ import type { ApiState } from 'core/reducers/api';
 import type { ErrorPageState } from 'core/reducers/errorPage';
 import type { FormOverlayState } from 'core/reducers/formOverlay';
 import type { LanguageToolsState } from 'core/reducers/languageTools';
+import type { InfoDialogState } from 'core/reducers/infoDialog';
 import type { InstallationsState } from 'core/reducers/installations';
 import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
+import type { ReactRouterHistoryType } from 'core/types/router';
+import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
 
 export type AppState = {|
   abuse: AbuseState,
@@ -63,14 +66,13 @@ export type AppState = {|
   formOverlay: FormOverlayState,
   heroBanners: Object,
   home: HomeState,
-  infoDialog: Object,
+  infoDialog: InfoDialogState,
   installations: InstallationsState,
   landing: Object,
   languageTools: LanguageToolsState,
   recommendations: RecommendationsState,
   redirectTo: RedirectToState,
   reviews: ReviewsState,
-  routing: Object,
   search: SearchState,
   survey: SurveyState,
   uiState: UIStateState,
@@ -79,58 +81,57 @@ export type AppState = {|
   viewContext: ViewContextState,
 |};
 
-// This is a type function that takes a state type and returns a reducer
-// type, i.e. a function that accepts and returns the same state type.
-/* eslint-disable no-undef */
-type CreateReducerType = <AnyState>(
-  AnyState,
-) => (AnyState, action: Object) => AnyState;
-/* eslint-enable no-undef */
-
 // Given AppState, create a type for all possible application reducers.
 // See https://flow.org/en/docs/types/utilities/#toc-objmap
 type AppReducersType = $ObjMap<AppState, CreateReducerType>;
 
-type CreateStoreParams = {|
-  history: Object,
-  initialState: Object,
+type CreateRootReducerParams = {|
+  history: ReactRouterHistoryType,
+  reducers: AppReducersType,
 |};
 
+export const createRootReducer = ({
+  history,
+  reducers,
+}: CreateRootReducerParams) => {
+  return connectRouter(history)(combineReducers(reducers));
+};
+
+export const reducers: AppReducersType = {
+  abuse,
+  addons,
+  addonsByAuthors,
+  api,
+  autocomplete,
+  categories,
+  collections,
+  errors,
+  errorPage,
+  formOverlay,
+  heroBanners,
+  home,
+  infoDialog,
+  installations,
+  landing,
+  languageTools,
+  recommendations,
+  redirectTo,
+  reviews,
+  search,
+  survey,
+  uiState,
+  userAbuseReports,
+  users,
+  viewContext,
+};
+
 export default function createStore({
-  history = browserHistory,
+  history = createMemoryHistory(),
   initialState = {},
 }: CreateStoreParams = {}) {
   const sagaMiddleware = createSagaMiddleware();
-  const reducers: AppReducersType = {
-    abuse,
-    addons,
-    addonsByAuthors,
-    api,
-    autocomplete,
-    categories,
-    collections,
-    errors,
-    errorPage,
-    formOverlay,
-    heroBanners,
-    home,
-    infoDialog,
-    installations,
-    landing,
-    languageTools,
-    recommendations,
-    redirectTo,
-    reviews,
-    routing,
-    search,
-    survey,
-    uiState,
-    userAbuseReports,
-    users,
-    viewContext,
-  };
   const store = _createStore(
-    combineReducers(reducers),
+    createRootReducer({ history, reducers }),
     initialState,
     middleware({
       routerMiddleware: routerMiddleware(history),

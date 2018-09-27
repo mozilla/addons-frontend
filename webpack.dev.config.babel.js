@@ -21,22 +21,9 @@ const babelrc = fs.readFileSync('./.babelrc');
 const babelrcObject = JSON.parse(babelrc);
 
 const babelPlugins = babelrcObject.plugins || [];
-const babelDevPlugins = [
-  [
-    'react-transform',
-    {
-      transforms: [
-        {
-          transform: 'react-transform-hmr',
-          imports: ['react'],
-          locals: ['module'],
-        },
-      ],
-    },
-  ],
-];
+const babelDevPlugins = ['react-hot-loader/babel'];
 
-const BABEL_QUERY = Object.assign({}, babelrcObject, {
+const babelOptions = Object.assign({}, babelrcObject, {
   plugins: localDevelopment
     ? babelPlugins.concat(babelDevPlugins)
     : babelPlugins,
@@ -57,10 +44,7 @@ for (const app of appsBuildList) {
 }
 
 export default Object.assign({}, webpackConfig, {
-  devtool: 'inline-source-map',
-  devServer: {
-    progress: true,
-  },
+  devtool: 'cheap-module-source-map',
   context: path.resolve(__dirname),
   entry: entryPoints,
   output: Object.assign({}, webpackConfig.output, {
@@ -70,7 +54,7 @@ export default Object.assign({}, webpackConfig, {
     publicPath: `//${webpackHost}:${webpackPort}/`,
   }),
   module: {
-    rules: getRules({ babelQuery: BABEL_QUERY, bundleStylesWithJs: true }),
+    rules: getRules({ babelOptions, bundleStylesWithJs: true }),
   },
   plugins: [
     ...getPlugins(),
@@ -87,6 +71,7 @@ export default Object.assign({}, webpackConfig, {
       'react-dom/umd/react-dom.development.js',
     ),
     new webpack.NormalModuleReplacementPlugin(/^redux$/, 'redux/dist/redux.js'),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),
