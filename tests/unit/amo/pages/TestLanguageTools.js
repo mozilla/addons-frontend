@@ -230,7 +230,7 @@ describe(__filename, () => {
     expect(root.find('title')).toHaveText('Dictionaries and Language Packs');
   });
 
-  it('renders add-ons for all variants of a short locale', () => {
+  it('renders add-ons for all variants of a short locale on a single row (only one supported language)', () => {
     // The short locale is `az` here.
     const addons = [
       createFakeLanguageTool({
@@ -264,7 +264,7 @@ describe(__filename, () => {
     ]);
   });
 
-  it('does not render add-ons for all variants of a short locale when the variant is a supported language', () => {
+  it('renders add-ons on two different rows corresponding to two supported languages', () => {
     // The short locale is `fa` here, which is in the list of supported
     // languages (`src/core/languages.js`) together with `fa-IR`.
     const addons = [
