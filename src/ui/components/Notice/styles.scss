@@ -14,6 +14,7 @@
     background-color: transparent;
     display: flex;
     justify-content: center;
+    line-height: $default-line-height;
     padding: 0;
   }
 
@@ -45,6 +46,14 @@
   width: 16px;
 }
 
+.Notice-light .Notice-icon {
+  // Reduce the icon size for light notices so that the total
+  // height of the notice adds up to $default-line-height.
+  background-size: 11px 11px;
+  height: 11px;
+  width: 11px;
+}
+
 .Notice-dismisser-button {
   cursor: pointer;
   padding: 0;
@@ -54,6 +63,10 @@
   display: inline-block;
   margin: 0;
   padding: 4px 0;
+
+  .Notice-light & {
+    padding: 0;
+  }
 
   // The spec calls for additional spacing
   // in front of the action button. This is
