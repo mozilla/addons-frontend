@@ -668,12 +668,20 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, finishEditingCollectionDetails());
   });
 
-  it('calls history.goBack() on cancel when creating', () => {
-    const root = render({ creating: true });
+  it('calls history.push() with language and clientApp on cancel when creating', () => {
+    const siteLang = 'de';
+    const clientApp = 'firefox';
+    const localStore = dispatchClientMetadata({ clientApp, lang: siteLang })
+      .store;
+
+    const root = render({ creating: true, store: localStore });
 
     simulateCancel(root);
 
-    sinon.assert.called(fakeHistory.goBack);
+    sinon.assert.calledWith(
+      fakeHistory.push,
+      `/${siteLang}/${clientApp}/collections/`,
+    );
   });
 
   it('populates form state when updating to a new collection', () => {
