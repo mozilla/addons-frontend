@@ -114,6 +114,10 @@ describe(__filename, () => {
       'buttonType',
       confirmButtonType,
     );
+    expect(root.find('.ConfirmButton-confirm-button')).toHaveProp(
+      'puffy',
+      false,
+    );
     expect(root.find('.ConfirmButton-confirm-button').children()).toHaveText(
       confirmButtonText,
     );
@@ -133,9 +137,39 @@ describe(__filename, () => {
       'buttonType',
       cancelButtonType,
     );
+    expect(root.find('.ConfirmButton-cancel-button')).toHaveProp(
+      'puffy',
+      false,
+    );
     expect(root.find('.ConfirmButton-cancel-button').children()).toHaveText(
       cancelButtonText,
     );
+  });
+
+  it('can make the buttons in the confirmation panel puffy', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ puffyButtons: true, store });
+
+    // Show the confirmation panel.
+    root.find(Button).simulate('click', createFakeEvent());
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.ConfirmButton-cancel-button')).toHaveProp('puffy', true);
+    expect(root.find('.ConfirmButton-confirm-button')).toHaveProp(
+      'puffy',
+      true,
+    );
+  });
+
+  it('can render a confirmation without a message', () => {
+    const { store } = dispatchClientMetadata();
+    const root = render({ message: undefined, store });
+
+    // Show the confirmation panel.
+    root.find(Button).simulate('click', createFakeEvent());
+    applyUIStateChanges({ root, store });
+
+    expect(root.find('.ConfirmButton-message')).toHaveLength(0);
   });
 
   it('closes the confirmation panel on cancel ', () => {

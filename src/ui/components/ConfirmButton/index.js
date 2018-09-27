@@ -21,8 +21,9 @@ type Props = {|
   confirmButtonText?: string | null,
   confirmButtonType?: ButtonType,
   id: string,
-  message: string,
+  message?: string,
   onConfirm: Function,
+  puffyButtons?: boolean,
 |};
 
 type UIStateType = {|
@@ -73,12 +74,12 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
       id,
       message,
       onConfirm,
+      puffyButtons,
       uiState,
     } = this.props;
 
     invariant(children, 'The children property is required');
     invariant(id, 'The id property is required');
-    invariant(message, 'The message property is required');
     invariant(onConfirm, 'The onConfirm property is required');
 
     const { showConfirmation } = uiState;
@@ -90,23 +91,28 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
     if (showConfirmation) {
       return (
         <div className={classNames}>
-          <span className="ConfirmButton-message">{message}</span>
-
+          {message && <span className="ConfirmButton-message">{message}</span>}
           <div className="ConfirmButton-buttons">
-            <Button
-              buttonType={confirmButtonType}
-              className="ConfirmButton-confirm-button"
-              onClick={this.onConfirm}
-            >
-              {confirmButtonText || i18n.gettext('Confirm')}
-            </Button>
-            <Button
-              buttonType={cancelButtonType}
-              className="ConfirmButton-cancel-button"
-              onClick={this.toggleConfirmation}
-            >
-              {cancelButtonText || i18n.gettext('Cancel')}
-            </Button>
+            <div className="ConfirmButton-confirm-button-container">
+              <Button
+                buttonType={confirmButtonType}
+                className="ConfirmButton-confirm-button"
+                onClick={this.onConfirm}
+                puffy={puffyButtons}
+              >
+                {confirmButtonText || i18n.gettext('Confirm')}
+              </Button>
+            </div>
+            <div className="ConfirmButton-cancel-button-container">
+              <Button
+                buttonType={cancelButtonType}
+                className="ConfirmButton-cancel-button"
+                onClick={this.toggleConfirmation}
+                puffy={puffyButtons}
+              >
+                {cancelButtonText || i18n.gettext('Cancel')}
+              </Button>
+            </div>
           </div>
         </div>
       );

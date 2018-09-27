@@ -230,10 +230,8 @@ describe(__filename, () => {
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
     expect(deleteLink.children()).toHaveText('Delete review');
-    expect(deleteLink).toHaveProp(
-      'message',
-      'Do you really want to delete this review?',
-    );
+    expect(deleteLink).toHaveProp('cancelButtonText', 'Keep review');
+    expect(deleteLink).toHaveProp('confirmButtonText', 'Delete review');
   });
 
   it('renders a delete link for a user rating', () => {
@@ -245,10 +243,8 @@ describe(__filename, () => {
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
     expect(deleteLink.children()).toHaveText('Delete rating');
-    expect(deleteLink).toHaveProp(
-      'message',
-      'Do you really want to delete this rating?',
-    );
+    expect(deleteLink).toHaveProp('cancelButtonText', 'Keep rating');
+    expect(deleteLink).toHaveProp('confirmButtonText', 'Delete rating');
   });
 
   it('does not render delete link when review belongs to another user', () => {
@@ -1124,10 +1120,8 @@ describe(__filename, () => {
       const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
       expect(deleteLink).toHaveLength(1);
       expect(deleteLink.children()).toHaveText('Delete reply');
-      expect(deleteLink).toHaveProp(
-        'message',
-        'Do you really want to delete this reply?',
-      );
+      expect(deleteLink).toHaveProp('cancelButtonText', 'Keep reply');
+      expect(deleteLink).toHaveProp('confirmButtonText', 'Delete reply');
     });
 
     it('dispatches deleteReview when a user deletes a developer reply', () => {
