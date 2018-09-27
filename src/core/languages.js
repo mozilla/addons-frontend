@@ -191,6 +191,10 @@ export const unfilteredLanguages = {
     English: 'Persian',
     native: '\u0641\u0627\u0631\u0633\u06cc',
   },
+  'fa-IR': {
+    English: 'Persian (Iran)',
+    native: '(\u0627\u06CC\u0631\u0627\u0646) \u0641\u0627\u0631\u0633\u06CC',
+  },
   ff: {
     English: 'Fulah',
     native: 'Pulaar-Fulfulde',

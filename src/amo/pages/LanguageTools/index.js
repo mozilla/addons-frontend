@@ -46,6 +46,8 @@ const sortedLanguages = Object.keys(unfilteredLanguages)
   })
   .sort((a, b) => a.english.localeCompare(b.english));
 
+const sortedLocales = sortedLanguages.map((language) => language.locale);
+
 export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
   if (!languageTools || !languageTools.length) {
     return null;
@@ -183,7 +185,13 @@ export class LanguageToolsBase extends React.Component<Props> {
             {languageTools.length
               ? sortedLanguages.map((language) => {
                   const toolsInLocale = languageTools.filter((addon) => {
-                    return addon.target_locale === language.locale;
+                    if (sortedLocales.includes(addon.target_locale)) {
+                      return addon.target_locale === language.locale;
+                    }
+
+                    const re = new RegExp(`${language.locale}(-\\w+)?`);
+
+                    return addon.target_locale && re.test(addon.target_locale);
                   });
 
                   // This means there are no language tools available in this
