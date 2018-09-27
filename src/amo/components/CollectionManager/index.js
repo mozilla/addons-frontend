@@ -42,7 +42,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  clientApp: ?string,
+  clientApp: string,
   currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -50,7 +50,7 @@ type InternalProps = {|
   i18n: I18nType,
   isCollectionBeingModified: boolean,
   location: ReactRouterLocationType,
-  siteLang: ?string,
+  siteLang: string,
 |};
 
 type State = {|
@@ -80,10 +80,11 @@ export class CollectionManagerBase extends React.Component<
   }
 
   onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
-    const { creating, dispatch, history } = this.props;
+    const { clientApp, creating, dispatch, history, siteLang } = this.props;
 
     if (creating) {
-      history.goBack();
+      // This is used over history.goBack in case the language changes.
+      history.push(`/${siteLang}/${clientApp}/collections/`);
     }
 
     event.preventDefault();
