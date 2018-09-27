@@ -279,7 +279,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(DismissibleTextForm)).toHaveProp('formFooter', null);
+    expect(root.find(DismissibleTextForm)).toHaveProp('formFooter', undefined);
   });
 
   it('shows the expected button text for a reply', () => {
