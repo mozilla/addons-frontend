@@ -342,14 +342,12 @@ msgid "Saved"
 msgstr "Gemt"
 
 #: src/amo/components/AddonReviewManager/index.js:138
-#, fuzzy
 msgid "Update review"
-msgstr "Opdater profil"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:143
-#, fuzzy
 msgid "Updating review"
-msgstr "Opdaterer svar"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Submitting review"
@@ -700,9 +698,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Beklager, men der var en fejl med vores server, og vi kunne ikke gennemføre din forespørgsel. Vi har registreret fejlen og vil undersøge den."
 
 #: src/amo/components/FeaturedAddonReview/index.js:77
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Anmeldelser af %(addonName)s"
+msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:87
 msgid "The review was not found."
@@ -1052,9 +1049,8 @@ msgid "Automatically sorts bookmarks so they’re in your preferred position"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:226
-#, fuzzy
 msgid "Search Preview"
-msgstr "SearchPreview"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:227
 msgid "Enjoy thumbnail images alongside your search returns"
@@ -1101,18 +1097,16 @@ msgid "Send any Web page to your Kindle device"
 msgstr "Send en webside til din Kindle-enhed"
 
 #: src/amo/components/HomeHeroBanner/index.js:264
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "Hjemmeside"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Designate a custom home page for your new tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:271
-#, fuzzy
 msgid "OneNote Web Clipper"
-msgstr "Notebook Web Clipper"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:272
 msgid "Save, annotate & organize web content"
@@ -1323,9 +1317,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hvordan er din oplevelse med %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:296
-#, fuzzy
 msgid "Saving star rating"
-msgstr "Din bedømmelse:"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:297
 msgid "Star rating saved"
@@ -2542,19 +2535,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:28
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Der opstod en uventet fejl"
+msgstr ""
 
 #: src/core/utils/addons.js:30
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Der opstod en uventet fejl"
+msgstr ""
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Der opstod en uventet fejl"
+msgstr ""
 
 #: src/ui/components/ConfirmButton/index.js:101
 msgid "Confirm"
