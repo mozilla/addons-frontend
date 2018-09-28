@@ -668,7 +668,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, finishEditingCollectionDetails());
   });
 
-  it('calls history.push() with language and clientApp on cancel when creating', () => {
+  it('calls history.push() when creating and language is defined', () => {
     const siteLang = 'de';
     const clientApp = 'firefox';
     const localStore = dispatchClientMetadata({ clientApp, lang: siteLang })
@@ -682,6 +682,17 @@ describe(__filename, () => {
       fakeHistory.push,
       `/${siteLang}/${clientApp}/collections/`,
     );
+  });
+
+  it('calls history.goBack() when creating and language is falsey', () => {
+    const siteLang = null;
+    const localStore = dispatchClientMetadata({ lang: siteLang }).store;
+
+    const root = render({ creating: true, store: localStore });
+
+    simulateCancel(root);
+
+    sinon.assert.called(fakeHistory.goBack);
   });
 
   it('populates form state when updating to a new collection', () => {
