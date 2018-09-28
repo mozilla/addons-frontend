@@ -271,6 +271,9 @@ function* manageAddonReview(
       submitParams,
     );
 
+    // TODO: move isReviewUpdate() over here so that
+    // the saga can pass isUpdate to setReview() and setLatestReview().
+
     yield put(setReview(reviewFromResponse));
 
     if (savingRating) {

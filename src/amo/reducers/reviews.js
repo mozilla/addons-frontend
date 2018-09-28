@@ -49,7 +49,7 @@ import type {
   UnloadAddonReviewsAction,
   UserReviewType,
 } from 'amo/actions/reviews';
-import type { GroupedRatingsType } from 'amo/api/reviews';
+import type { ExternalReviewType, GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { AppState } from 'amo/store';
 
@@ -261,6 +261,33 @@ export const selectLatestUserReview = ({
   return selectReview(reviewsState, userReviewId);
 };
 
+export function isReviewUpdate({
+  reviewsState,
+  newReviewId,
+  newReviewBody,
+}: {|
+  reviewsState: ReviewsState,
+  newReviewId: number,
+  newReviewBody: ?string,
+|}) {
+  const existingReview = selectReview(reviewsState, newReviewId);
+  console.log('EXISTING REVIEW', existingReview);
+  if (!existingReview) {
+    return false;
+  }
+
+  console.log('NEW REVIEW BODY', newReviewBody);
+
+  // If this update is actually turning a rating into a review then
+  // it's not an update.
+  const ratingToReview = !existingReview.body && newReviewBody;
+  if (ratingToReview) {
+    return false;
+  }
+
+  return true;
+}
+
 export const addReviewToState = ({
   state,
   review,
@@ -268,19 +295,41 @@ export const addReviewToState = ({
   state: ReviewsState,
   review: UserReviewType,
 |}) => {
-  return {
+  let shouldRefreshReviewList = true;
+  if (
+    isReviewUpdate({
+      reviewsState: state,
+      newReviewId: review.id,
+      newReviewBody: review.body,
+    })
+  ) {
+    shouldRefreshReviewList = false;
+  }
+
+  console.log('SHOULD REFRESH (addReviewToState)', shouldRefreshReviewList);
+
+  const newState = {
     ...state,
     byId: storeReviewObjects({ state, reviews: [review] }),
-    byUserId: {
-      ...state.byUserId,
-      // This will trigger a refresh from the server.
-      [review.userId]: undefined,
-    },
+    // TODO: is this needed for updates?
     groupedRatings: {
       ...state.groupedRatings,
       // When adding a new rating, reset the cache of groupedRatings.
       // This will trigger a refresh from the server.
       [review.reviewAddon.id]: undefined,
+    },
+  };
+
+  if (!shouldRefreshReviewList) {
+    return newState;
+  }
+
+  return {
+    ...newState,
+    byUserId: {
+      ...newState.byUserId,
+      // This will trigger a refresh from the server.
+      [review.userId]: undefined,
     },
   };
 };
@@ -366,30 +415,53 @@ export default function reviewsReducer(
       const { addonId, addonSlug, userId, review, versionId } = payload;
       const key = makeLatestUserReviewKey({ addonId, userId, versionId });
 
+      let shouldRefreshReviewList = true;
       let { byId } = state;
       if (review) {
+        if (
+          isReviewUpdate({
+            reviewsState: state,
+            newReviewId: review.id,
+            newReviewBody: review.body,
+          })
+        ) {
+          shouldRefreshReviewList = false;
+        }
         byId = storeReviewObjects({
           state,
           reviews: [createInternalReview(review)],
         });
       }
 
-      return {
+      console.log(
+        'SHOULD REFRESH (SET_LATEST_REVIEW)',
+        shouldRefreshReviewList,
+      );
+
+      const newState = {
         ...state,
         byId,
+        latestUserReview: {
+          ...state.latestUserReview,
+          [key]: review ? review.id : null,
+        },
+      };
+
+      if (!shouldRefreshReviewList) {
+        return newState;
+      }
+
+      return {
+        ...newState,
         byAddon: {
-          ...state.byAddon,
+          ...newState.byAddon,
           // Reset all add-on reviews to trigger a refresh from the server.
           [addonSlug]: undefined,
         },
         byUserId: {
-          ...state.byUserId,
+          ...newState.byUserId,
           // Reset all user reviews to trigger a refresh from the server.
           [userId]: undefined,
-        },
-        latestUserReview: {
-          ...state.latestUserReview,
-          [key]: review ? review.id : null,
         },
       };
     }
