@@ -194,7 +194,7 @@ describe(__filename, () => {
   it('displays the correct header for a reply', () => {
     const reviewId = 123;
     store.dispatch(
-      setReview({ ...fakeReview, id: reviewId, is_developer_reply: true }),
+      _setReview({ ...fakeReview, id: reviewId, is_developer_reply: true }),
     );
 
     const root = render({ reviewId });

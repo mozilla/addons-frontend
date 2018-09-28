@@ -857,6 +857,7 @@ describe(__filename, () => {
       const unexpectedAction = setLatestReview({
         addonId,
         addonSlug,
+        isUpdate: false,
         review: externalReview,
         userId,
         versionId,
