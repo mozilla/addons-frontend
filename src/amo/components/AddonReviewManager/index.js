@@ -77,6 +77,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
       puffyButtons,
     } = this.props;
 
+    const isReply = review.isDeveloperReply;
     const reviewGuideLink = i18n.sprintf(
       i18n.gettext(
         'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
@@ -88,7 +89,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
 
     /* eslint-disable react/no-danger */
-    const formFooter = !review.isDeveloperReply ? (
+    const formFooter = !isReply ? (
       <span dangerouslySetInnerHTML={sanitizeHTML(reviewGuideLink, ['a'])} />
     ) : (
       undefined
@@ -100,15 +101,12 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
 
     let submitButtonText = i18n.gettext('Submit review');
-    if (review.body) {
-      submitButtonText = review.isDeveloperReply
-        ? i18n.gettext('Update reply')
-        : i18n.gettext('Update review');
-    }
-
     let submitButtonInProgressText = i18n.gettext('Submitting review');
     if (review.body) {
-      submitButtonInProgressText = review.isDeveloperReply
+      submitButtonText = isReply
+        ? i18n.gettext('Update reply')
+        : i18n.gettext('Update review');
+      submitButtonInProgressText = isReply
         ? i18n.gettext('Updating reply')
         : i18n.gettext('Updating review');
     }
@@ -116,7 +114,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     return (
       <div className="AddonReviewManager">
         {errorHandler.renderErrorIfPresent()}
-        {!review.isDeveloperReply && (
+        {!isReply && (
           <div className="AddonReviewManager-starRating">
             <span>{i18n.gettext('Your star rating:')}</span>
             <Rating

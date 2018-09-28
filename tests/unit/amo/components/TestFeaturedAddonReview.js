@@ -197,7 +197,7 @@ describe(__filename, () => {
 
     expect(root.find('.FeaturedAddonReview-card')).toHaveProp(
       'header',
-      `Reply by ${fakeReview.user.name}`,
+      `Response by ${fakeReview.user.name}`,
     );
   });
 });

@@ -76,7 +76,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
     const featuredReviewHeader = featuredReview
       ? i18n.sprintf(
           featuredReview.isDeveloperReply
-            ? i18n.gettext('Reply by %(userName)s')
+            ? i18n.gettext('Response by %(userName)s')
             : i18n.gettext('Review by %(userName)s'),
           {
             userName: featuredReview.userName,

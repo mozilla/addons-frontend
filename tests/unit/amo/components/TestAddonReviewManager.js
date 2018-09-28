@@ -39,6 +39,13 @@ describe(__filename, () => {
     );
   };
 
+  const createInternalReply = () => {
+    return createInternalReview({
+      ...fakeReview,
+      is_developer_reply: true,
+    });
+  };
+
   it('configures Rating with the review rating', () => {
     const rating = 3;
     const review = createInternalReview({ ...fakeReview, rating });
@@ -262,10 +269,7 @@ describe(__filename, () => {
 
   it('hides the star rating for a reply', () => {
     const root = render({
-      review: createInternalReview({
-        ...fakeReview,
-        is_developer_reply: true,
-      }),
+      review: createInternalReply(),
     });
 
     expect(root.find('.AddonReviewManager-starRating')).toHaveLength(0);
@@ -273,10 +277,7 @@ describe(__filename, () => {
 
   it('hides the dismissible form footer for a reply', () => {
     const root = render({
-      review: createInternalReview({
-        ...fakeReview,
-        is_developer_reply: true,
-      }),
+      review: createInternalReply(),
     });
 
     expect(root.find(DismissibleTextForm)).toHaveProp('formFooter', undefined);
@@ -284,10 +285,7 @@ describe(__filename, () => {
 
   it('shows the expected button text for a reply', () => {
     const root = render({
-      review: createInternalReview({
-        ...fakeReview,
-        is_developer_reply: true,
-      }),
+      review: createInternalReply(),
     });
 
     const form = root.find(DismissibleTextForm);

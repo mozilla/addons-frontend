@@ -642,9 +642,7 @@ describe(__filename, () => {
 
       const exampleHideAction = hideEditReviewForm({ reviewId });
 
-      expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
-        exampleHideAction.type,
-      );
+      expect(sagaTester.numCalled(exampleHideAction.type)).toEqual(0);
     });
 
     it('does not hide the review form after a failed update', async () => {
@@ -658,9 +656,7 @@ describe(__filename, () => {
 
       const exampleHideAction = hideEditReviewForm({ reviewId: 321 });
 
-      expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
-        exampleHideAction.type,
-      );
+      expect(sagaTester.numCalled(exampleHideAction.type)).toEqual(0);
     });
 
     it('re-fetches the add-on after submitting a review', async () => {
@@ -691,9 +687,7 @@ describe(__filename, () => {
 
       const unexpectedAction = fetchAddon({ errorHandler, slug });
 
-      expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
-        unexpectedAction.type,
-      );
+      expect(sagaTester.numCalled(unexpectedAction.type)).toEqual(0);
     });
 
     it('dispatches an error', async () => {
@@ -848,9 +842,7 @@ describe(__filename, () => {
         versionId,
       });
 
-      expect(sagaTester.getCalledActions().map((a) => a.type)).not.toContain(
-        unexpectedAction.type,
-      );
+      expect(sagaTester.numCalled(unexpectedAction.type)).toEqual(0);
     });
   });
 
