@@ -1117,7 +1117,7 @@ describe(__filename, () => {
         },
       });
       const state = _addReviewToState({ state: prevState, review });
-      expect(state.byUserId[userId]).not.toBeDefined();
+      expect(state.byUserId[userId]).toBeUndefined();
     });
 
     it('does not reset byUserId data when updating a review', () => {
@@ -1170,7 +1170,7 @@ describe(__filename, () => {
         }),
       });
 
-      expect(state.groupedRatings[addonId]).not.toBeDefined();
+      expect(state.groupedRatings[addonId]).toBeUndefined();
     });
   });
 
