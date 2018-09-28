@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-09-20 05:43+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2018-09-27 16:12+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr "Uw versie van Firefox ondersteunt geen zoekplug-ins."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr ""
+msgstr "Uw versie van Firefox ondersteunt deze add-on niet, omdat deze een herstart vereist."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -1064,11 +1064,11 @@ msgstr "Verwijder opmaak als u tekst op uw klembord opslaat"
 
 #: src/amo/components/HomeHeroBanner/index.js:240
 msgid "Official Media Bias Fact Check Icon"
-msgstr ""
+msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:241
 msgid "Indicates the political bias of news sites with a tidy icon"
-msgstr ""
+msgstr "Geeft de politieke vooringenomenheid van nieuwswebsites aan met een keurig pictogram"
 
 #: src/amo/components/HomeHeroBanner/index.js:247
 msgid "Vertical Tabs Reloaded"
@@ -1096,19 +1096,19 @@ msgstr "Verzend webpagina’s naar uw Kindle-apparaat"
 
 #: src/amo/components/HomeHeroBanner/index.js:264
 msgid "New Tab Homepage"
-msgstr ""
+msgstr "New Tab Homepage"
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Designate a custom home page for your new tabs"
-msgstr ""
+msgstr "Wijs een aangepaste startpagina toe aan uw nieuwe tabbladen"
 
 #: src/amo/components/HomeHeroBanner/index.js:271
 msgid "OneNote Web Clipper"
-msgstr ""
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:272
 msgid "Save, annotate & organize web content"
-msgstr ""
+msgstr "Bewaar, annoteer en organiseer webinhoud"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "FoxyGestures"
