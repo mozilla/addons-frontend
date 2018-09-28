@@ -1042,7 +1042,7 @@ describe(__filename, () => {
         _setLatestReview({ isUpdate: true, addonSlug }),
       );
 
-      expect(state.byAddon[addonSlug]).not.toBeUndefined();
+      expect(state.byAddon[addonSlug]).toBeDefined();
     });
 
     it('resets all related user reviews', () => {
@@ -1077,7 +1077,7 @@ describe(__filename, () => {
         _setLatestReview({ isUpdate: true, userId }),
       );
 
-      expect(state.byUserId[userId]).not.toBeUndefined();
+      expect(state.byUserId[userId]).toBeDefined();
     });
   });
 
