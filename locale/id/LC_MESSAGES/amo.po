@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-09-28 17:55+0000\n"
+"PO-Revision-Date: 2018-09-28 18:26+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2530,19 +2530,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:28
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Terjadi kesalahan yang tidak diharapkan"
+msgstr "Terjadi galat yang tidak diharapkan saat pemasangan."
 
 #: src/core/utils/addons.js:30
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Terjadi kesalahan yang tidak diharapkan"
+msgstr "Terjadi galat yang tidak diharapkan saat pencopotan."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Terjadi kesalahan yang tidak diharapkan"
+msgstr "Terjadi galat yang tidak diharapkan."
 
 #: src/ui/components/ConfirmButton/index.js:101
 msgid "Confirm"
