@@ -49,7 +49,7 @@ import type {
   UnloadAddonReviewsAction,
   UserReviewType,
 } from 'amo/actions/reviews';
-import type { ExternalReviewType, GroupedRatingsType } from 'amo/api/reviews';
+import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { AppState } from 'amo/store';
 
@@ -261,57 +261,18 @@ export const selectLatestUserReview = ({
   return selectReview(reviewsState, userReviewId);
 };
 
-export function isReviewUpdate({
-  reviewsState,
-  newReviewId,
-  newReviewBody,
-}: {|
-  reviewsState: ReviewsState,
-  newReviewId: number,
-  newReviewBody: ?string,
-|}) {
-  const existingReview = selectReview(reviewsState, newReviewId);
-  console.log('EXISTING REVIEW', existingReview);
-  if (!existingReview) {
-    return false;
-  }
-
-  console.log('NEW REVIEW BODY', newReviewBody);
-
-  // If this update is actually turning a rating into a review then
-  // it's not an update.
-  const ratingToReview = !existingReview.body && newReviewBody;
-  if (ratingToReview) {
-    return false;
-  }
-
-  return true;
-}
-
 export const addReviewToState = ({
   state,
+  isUpdate,
   review,
 }: {|
   state: ReviewsState,
+  isUpdate: boolean,
   review: UserReviewType,
 |}) => {
-  let shouldRefreshReviewList = true;
-  if (
-    isReviewUpdate({
-      reviewsState: state,
-      newReviewId: review.id,
-      newReviewBody: review.body,
-    })
-  ) {
-    shouldRefreshReviewList = false;
-  }
-
-  console.log('SHOULD REFRESH (addReviewToState)', shouldRefreshReviewList);
-
   const newState = {
     ...state,
     byId: storeReviewObjects({ state, reviews: [review] }),
-    // TODO: is this needed for updates?
     groupedRatings: {
       ...state.groupedRatings,
       // When adding a new rating, reset the cache of groupedRatings.
@@ -320,7 +281,9 @@ export const addReviewToState = ({
     },
   };
 
-  if (!shouldRefreshReviewList) {
+  if (isUpdate) {
+    // For updates, we do not need to reset the state (seen below) since
+    // that will cause listing pages to refresh.
     return newState;
   }
 
@@ -412,31 +375,27 @@ export default function reviewsReducer(
       });
     case SET_LATEST_REVIEW: {
       const { payload } = action;
-      const { addonId, addonSlug, userId, review, versionId } = payload;
+      const {
+        addonId,
+        addonSlug,
+        isUpdate,
+        userId,
+        review,
+        versionId,
+      } = payload;
       const key = makeLatestUserReviewKey({ addonId, userId, versionId });
 
-      let shouldRefreshReviewList = true;
+      let shouldRefreshListings = true;
       let { byId } = state;
       if (review) {
-        if (
-          isReviewUpdate({
-            reviewsState: state,
-            newReviewId: review.id,
-            newReviewBody: review.body,
-          })
-        ) {
-          shouldRefreshReviewList = false;
+        if (isUpdate) {
+          shouldRefreshListings = false;
         }
         byId = storeReviewObjects({
           state,
           reviews: [createInternalReview(review)],
         });
       }
-
-      console.log(
-        'SHOULD REFRESH (SET_LATEST_REVIEW)',
-        shouldRefreshReviewList,
-      );
 
       const newState = {
         ...state,
@@ -447,7 +406,7 @@ export default function reviewsReducer(
         },
       };
 
-      if (!shouldRefreshReviewList) {
+      if (!shouldRefreshListings) {
         return newState;
       }
 
@@ -474,9 +433,13 @@ export default function reviewsReducer(
     }
     case SET_REVIEW: {
       const { payload } = action;
-      const review = createInternalReview(payload);
+      const review = createInternalReview(payload.review);
 
-      const newState = _addReviewToState({ state, review });
+      const newState = _addReviewToState({
+        isUpdate: payload.isUpdate,
+        state,
+        review,
+      });
       return changeViewState({
         state: newState,
         reviewId: review.id,
@@ -486,7 +449,7 @@ export default function reviewsReducer(
     case SET_INTERNAL_REVIEW: {
       const { payload } = action;
 
-      return _addReviewToState({ state, review: payload });
+      return _addReviewToState({ state, review: payload, isUpdate: false });
     }
     case SET_REVIEW_REPLY: {
       const reviewId = action.payload.originalReviewId;

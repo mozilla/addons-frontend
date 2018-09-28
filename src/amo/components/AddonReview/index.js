@@ -294,7 +294,7 @@ export const mapDispatchToProps = (
       ownProps.updateReviewText ||
       ((params) => {
         return submitReview(params).then((review) =>
-          dispatch(setReview(review)),
+          dispatch(setReview({ review, isUpdate: false })),
         );
       }),
   };

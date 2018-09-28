@@ -45,6 +45,7 @@ import {
   setReviewWasFlagged,
   setUserReviews,
 } from 'amo/actions/reviews';
+import { selectReview } from 'amo/reducers/reviews';
 import log from 'core/logger';
 import { fetchAddon } from 'core/reducers/addons';
 import { createErrorHandler, getState } from 'core/sagas/utils';
@@ -69,12 +70,38 @@ import type {
   SendReplyToReviewAction,
   UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
+import type { ReviewsState } from 'amo/reducers/reviews';
 
 // Number of millesconds that a message should be flashed on screen.
 export const FLASH_SAVED_MESSAGE_DURATION = 2000;
 
+export function isReviewUpdate({
+  reviewsState,
+  newReviewId,
+  newReviewBody,
+}: {|
+  reviewsState: ReviewsState,
+  newReviewId: number,
+  newReviewBody: ?string,
+|}) {
+  const existingReview = selectReview(reviewsState, newReviewId);
+  if (!existingReview) {
+    return false;
+  }
+
+  // If this update is actually turning a rating into a review then
+  // it's not an update.
+  const ratingToReview = !existingReview.body && newReviewBody;
+  if (ratingToReview) {
+    return false;
+  }
+
+  return true;
+}
+
 type Options = {|
   _delay?: typeof delay,
+  _isReviewUpdate?: typeof isReviewUpdate,
 |};
 
 function* fetchReviews({
@@ -223,7 +250,7 @@ function* handleFlagReview({
 
 function* manageAddonReview(
   action: CreateAddonReviewAction | UpdateAddonReviewAction,
-  { _delay = delay }: Options = {},
+  { _delay = delay, _isReviewUpdate = isReviewUpdate }: Options = {},
 ) {
   const { body, errorHandlerId, score } = action.payload;
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -271,10 +298,13 @@ function* manageAddonReview(
       submitParams,
     );
 
-    // TODO: move isReviewUpdate() over here so that
-    // the saga can pass isUpdate to setReview() and setLatestReview().
+    const isUpdate = _isReviewUpdate({
+      reviewsState: state.reviews,
+      newReviewId: reviewFromResponse.id,
+      newReviewBody: reviewFromResponse.body,
+    });
 
-    yield put(setReview(reviewFromResponse));
+    yield put(setReview({ review: reviewFromResponse, isUpdate }));
 
     if (savingRating) {
       yield put(flashReviewMessage(SAVED_RATING));
@@ -290,6 +320,7 @@ function* manageAddonReview(
         setLatestReview({
           addonId: reviewFromResponse.addon.id,
           addonSlug: reviewFromResponse.addon.slug,
+          isUpdate,
           review: reviewFromResponse,
           userId: reviewFromResponse.user.id,
           versionId: reviewFromResponse.version.id,
@@ -353,9 +384,9 @@ function* fetchReview({
       reviewId,
     };
 
-    const response: ExternalReviewType = yield call(getReview, params);
+    const review: ExternalReviewType = yield call(getReview, params);
 
-    yield put(setReview(response));
+    yield put(setReview({ review, isUpdate: false }));
   } catch (error) {
     log.warn(`Failed to get review ID ${reviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

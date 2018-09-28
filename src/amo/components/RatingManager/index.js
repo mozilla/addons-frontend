@@ -406,6 +406,7 @@ export const mapDispatchToProps = (
       .then((review) => {
         const _setLatestReview = (value) => {
           return setLatestReview({
+            isUpdate: false,
             userId,
             addonId,
             addonSlug,
@@ -438,6 +439,7 @@ export const mapDispatchToProps = (
         setLatestReview({
           addonId: review.addon.id,
           addonSlug: review.addon.slug,
+          isUpdate: false,
           userId: review.user.id,
           versionId,
           review,

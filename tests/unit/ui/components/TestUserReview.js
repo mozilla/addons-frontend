@@ -27,7 +27,7 @@ describe(__filename, () => {
   };
 
   const _setReview = (externalReview) => {
-    store.dispatch(setReview(externalReview));
+    store.dispatch(setReview({ review: externalReview, isUpdate: false }));
     return createInternalReview(externalReview);
   };
 

@@ -89,17 +89,24 @@ export function createInternalReview(
   };
 }
 
-export type SetReviewAction = {|
-  type: typeof SET_REVIEW,
-  payload: ExternalReviewType,
+type SetReviewParams = {|
+  review: ExternalReviewType,
+  isUpdate: boolean,
 |};
 
-export const setReview = (review: ExternalReviewType): SetReviewAction => {
-  if (!review) {
-    throw new Error('review cannot be empty');
-  }
+export type SetReviewAction = {|
+  type: typeof SET_REVIEW,
+  payload: SetReviewParams,
+|};
 
-  return { type: SET_REVIEW, payload: review };
+export const setReview = ({
+  review,
+  isUpdate,
+}: SetReviewParams): SetReviewAction => {
+  invariant(review, 'review is required');
+  invariant(isUpdate !== undefined, 'isUpdate is required');
+
+  return { type: SET_REVIEW, payload: { review, isUpdate } };
 };
 
 type SetReviewReplyParams = {|
@@ -518,6 +525,7 @@ export const setReviewWasFlagged = ({
 type SetLatestReviewParams = {|
   addonId: number,
   addonSlug: string,
+  isUpdate: boolean,
   review: ExternalReviewType | null,
   userId: number,
   versionId: number,
@@ -531,6 +539,7 @@ export type SetLatestReviewAction = {|
 export const setLatestReview = ({
   addonId,
   addonSlug,
+  isUpdate,
   versionId,
   review,
   userId,
@@ -540,10 +549,11 @@ export const setLatestReview = ({
   invariant(review !== undefined, 'review is required');
   invariant(userId, 'userId is required');
   invariant(versionId, 'versionId is required');
+  invariant(isUpdate !== undefined, 'isUpdate is required');
 
   return {
     type: SET_LATEST_REVIEW,
-    payload: { addonId, addonSlug, review, userId, versionId },
+    payload: { addonId, addonSlug, isUpdate, review, userId, versionId },
   };
 };
 

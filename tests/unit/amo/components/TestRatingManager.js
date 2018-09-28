@@ -79,6 +79,7 @@ describe(__filename, () => {
       setLatestReview({
         addonId: addon.id,
         addonSlug: addon.slug,
+        isUpdate: false,
         review,
         userId,
         versionId,
@@ -564,6 +565,7 @@ describe(__filename, () => {
         setLatestReview({
           addonId: addon.id,
           addonSlug: addon.slug,
+          isUpdate: false,
           review: null,
           userId,
           versionId,
@@ -758,6 +760,7 @@ describe(__filename, () => {
             setLatestReview({
               addonId: reviewResult.addon.id,
               addonSlug: reviewResult.addon.slug,
+              isUpdate: false,
               userId: reviewResult.user.id,
               versionId: reviewResult.version.id,
               review: reviewResult,
@@ -788,6 +791,7 @@ describe(__filename, () => {
             setLatestReview({
               addonId: reviewResult.addon.id,
               addonSlug: reviewResult.addon.slug,
+              isUpdate: false,
               userId: reviewResult.user.id,
               versionId,
               review: reviewResult,
@@ -831,6 +835,7 @@ describe(__filename, () => {
                 userId,
                 addonId,
                 addonSlug,
+                isUpdate: false,
                 versionId,
                 review: fakeReview,
               }),
@@ -859,6 +864,7 @@ describe(__filename, () => {
               setLatestReview({
                 addonId,
                 addonSlug,
+                isUpdate: false,
                 userId,
                 versionId,
                 review: null,

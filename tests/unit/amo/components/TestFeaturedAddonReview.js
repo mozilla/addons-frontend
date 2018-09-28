@@ -39,6 +39,10 @@ describe(__filename, () => {
     };
   };
 
+  function _setReview(review) {
+    return setReview({ review, isUpdate: false });
+  }
+
   const render = ({ ...customProps } = {}) => {
     const props = getProps(customProps);
 
@@ -80,7 +84,7 @@ describe(__filename, () => {
     store.dispatch(
       fetchReview({ errorHandlerId: errorHandler.id, reviewId: firstReviewId }),
     );
-    store.dispatch(setReview({ ...fakeReview, id: firstReviewId }));
+    store.dispatch(_setReview({ ...fakeReview, id: firstReviewId }));
     const dispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
@@ -128,7 +132,7 @@ describe(__filename, () => {
   it('does not fetch a review if one is already loaded', () => {
     const reviewId = 1;
     const errorHandler = createStubErrorHandler();
-    store.dispatch(setReview({ ...fakeReview, id: reviewId }));
+    store.dispatch(_setReview({ ...fakeReview, id: reviewId }));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
@@ -166,7 +170,7 @@ describe(__filename, () => {
 
   it('displays a featured review', () => {
     const reviewId = 123;
-    store.dispatch(setReview({ ...fakeReview, id: reviewId }));
+    store.dispatch(_setReview({ ...fakeReview, id: reviewId }));
 
     const root = render({ reviewId });
 
@@ -177,7 +181,7 @@ describe(__filename, () => {
 
   it('displays the correct header for a review', () => {
     const reviewId = 123;
-    store.dispatch(setReview({ ...fakeReview, id: reviewId }));
+    store.dispatch(_setReview({ ...fakeReview, id: reviewId }));
 
     const root = render({ reviewId });
 
