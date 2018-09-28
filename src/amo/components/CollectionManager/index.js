@@ -50,7 +50,7 @@ type InternalProps = {|
   i18n: I18nType,
   isCollectionBeingModified: boolean,
   location: ReactRouterLocationType,
-  siteLang: string,
+  siteLang: ?string,
 |};
 
 type State = {|
@@ -83,8 +83,11 @@ export class CollectionManagerBase extends React.Component<
     const { clientApp, creating, dispatch, history, siteLang } = this.props;
 
     if (creating) {
-      // This is used over history.goBack in case the language changes.
-      history.push(`/${siteLang}/${clientApp}/collections/`);
+      if (siteLang) {
+        history.push(`/${siteLang}/${clientApp}/collections/`);
+      } else {
+        history.goBack();
+      }
     }
 
     event.preventDefault();
