@@ -260,6 +260,12 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     );
   }
 
+  isMessageVisible() {
+    const { flashMessage } = this.props;
+
+    return [STARTED_SAVE_RATING, SAVED_RATING].includes(flashMessage);
+  }
+
   renderUserRatingForm() {
     const { addon, i18n, flashMessage, userReview } = this.props;
 
@@ -287,10 +293,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
                 ? 'RatingManager-savedRating-withReview'
                 : null
             }
-            hideMessage={
-              flashMessage !== STARTED_SAVE_RATING &&
-              flashMessage !== SAVED_RATING
-            }
+            hideMessage={!this.isMessageVisible()}
             message={
               flashMessage === STARTED_SAVE_RATING
                 ? i18n.gettext('Saving star rating')
@@ -318,6 +321,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             flaggable={false}
             review={userReview}
             shortByLine
+            showControls={!this.isMessageVisible()}
             showRating={false}
             smallerWriteReviewButton={false}
             verticalButtons

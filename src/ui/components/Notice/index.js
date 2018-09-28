@@ -39,6 +39,7 @@ type Props = {|
   className?: string,
   dismissible?: boolean,
   id?: string,
+  light?: boolean,
   onDismiss?: (SyntheticEvent<any>) => void,
   type: NoticeType,
 |};
@@ -74,6 +75,7 @@ export class NoticeBase extends React.Component<InternalProps> {
       className,
       dismissible,
       i18n,
+      light,
       type,
       uiState,
     } = this.props;
@@ -109,6 +111,7 @@ export class NoticeBase extends React.Component<InternalProps> {
 
     const finalClass = makeClassName('Notice', `Notice-${type}`, className, {
       'Notice-dismissible': dismissible,
+      'Notice-light': light,
     });
     return (
       <div className={finalClass}>

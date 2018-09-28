@@ -49,6 +49,7 @@ type Props = {|
   smallerWriteReviewButton?: boolean,
   review?: UserReviewType | null,
   shortByLine?: boolean,
+  showControls?: boolean,
   showRating?: boolean,
   verticalButtons?: boolean,
 |};
@@ -73,6 +74,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     flaggable: true,
     smallerWriteReviewButton: true,
     shortByLine: false,
+    showControls: true,
     showRating: true,
     verticalButtons: false,
   };
@@ -281,6 +283,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       replyingToReview,
       review,
       shortByLine,
+      showControls,
       showRating,
       siteUser,
       siteUserHasReplyPerm,
@@ -329,7 +332,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     const confirmButtonClassName = 'AddonReviewCard-delete';
 
-    const controls = (
+    const controls = showControls ? (
       <div className="AddonReviewCard-allControls">
         {siteUser && review && review.userId === siteUser.id ? (
           <React.Fragment>
@@ -401,7 +404,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           />
         ) : null}
       </div>
-    );
+    ) : null;
 
     return (
       <div

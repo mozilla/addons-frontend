@@ -181,6 +181,15 @@ describe(__filename, () => {
     expect(rating).toHaveProp('showRating', false);
   });
 
+  it('can hide controls', () => {
+    const root = render({
+      review: _setReview(fakeReview),
+      showControls: false,
+    });
+
+    expect(root.find(UserReview)).toHaveProp('controls', null);
+  });
+
   it('renders loading text for falsy reviews', () => {
     const root = render({ review: null });
 

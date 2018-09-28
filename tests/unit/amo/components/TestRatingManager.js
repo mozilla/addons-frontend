@@ -617,6 +617,42 @@ describe(__filename, () => {
       );
     });
 
+    it('shows controls by default', () => {
+      const root = renderInline({
+        store: createStoreWithLatestReview(),
+      });
+
+      expect(root.find(AddonReviewCard)).toHaveProp('showControls', true);
+    });
+
+    it('hides controls while showing a saving notification', () => {
+      const store = createStoreWithLatestReview();
+
+      store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
+      const root = renderInline({ store });
+
+      expect(root.find(AddonReviewCard)).toHaveProp('showControls', false);
+    });
+
+    it('hides controls while showing a saved notification', () => {
+      const store = createStoreWithLatestReview();
+
+      store.dispatch(flashReviewMessage(SAVED_RATING));
+      const root = renderInline({ store });
+
+      expect(root.find(AddonReviewCard)).toHaveProp('showControls', false);
+    });
+
+    it('shows controls when a notification is hidden', () => {
+      const store = createStoreWithLatestReview();
+      // Set a message then hide it.
+      store.dispatch(flashReviewMessage(SAVED_RATING));
+      store.dispatch(hideFlashedReviewMessage());
+      const root = renderInline({ store });
+
+      expect(root.find(AddonReviewCard)).toHaveProp('showControls', true);
+    });
+
     it('hides UserRating and prompt when editing', () => {
       const review = { ...fakeReview, id: 8877 };
       const store = createStoreWithLatestReview({ review });

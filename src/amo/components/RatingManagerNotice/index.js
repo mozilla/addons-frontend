@@ -28,7 +28,7 @@ const RatingManagerNotice = ({
 
   if (type) {
     return (
-      <Notice type={type} {...props}>
+      <Notice type={type} light {...props}>
         {message}
       </Notice>
     );
