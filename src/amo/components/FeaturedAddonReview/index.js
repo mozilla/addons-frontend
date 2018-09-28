@@ -74,9 +74,14 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
     const { addon, errorHandler, featuredReview, i18n } = this.props;
 
     const featuredReviewHeader = featuredReview
-      ? i18n.sprintf(i18n.gettext('Review by %(userName)s'), {
-          userName: featuredReview.userName,
-        })
+      ? i18n.sprintf(
+          featuredReview.isDeveloperReply
+            ? i18n.gettext('Response by %(userName)s')
+            : i18n.gettext('Review by %(userName)s'),
+          {
+            userName: featuredReview.userName,
+          },
+        )
       : null;
 
     const featuredReviewCard =

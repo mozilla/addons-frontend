@@ -296,7 +296,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     if (review) {
       const url = `/addon/${review.reviewAddon.slug}/reviews/${review.id}/`;
       const timestamp = (
-        <Link to={url}>{i18n.moment(review.created).fromNow()}</Link>
+        <Link key={review.id} to={url}>
+          {i18n.moment(review.created).fromNow()}
+        </Link>
       );
 
       const byLineString = noAuthor

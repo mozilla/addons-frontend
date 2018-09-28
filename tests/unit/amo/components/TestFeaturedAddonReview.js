@@ -175,7 +175,7 @@ describe(__filename, () => {
     expect(card.prop('review').id).toEqual(reviewId);
   });
 
-  it('displays the correct header for the review', () => {
+  it('displays the correct header for a review', () => {
     const reviewId = 123;
     store.dispatch(setReview({ ...fakeReview, id: reviewId }));
 
@@ -184,6 +184,20 @@ describe(__filename, () => {
     expect(root.find('.FeaturedAddonReview-card')).toHaveProp(
       'header',
       `Review by ${fakeReview.user.name}`,
+    );
+  });
+
+  it('displays the correct header for a reply', () => {
+    const reviewId = 123;
+    store.dispatch(
+      setReview({ ...fakeReview, id: reviewId, is_developer_reply: true }),
+    );
+
+    const root = render({ reviewId });
+
+    expect(root.find('.FeaturedAddonReview-card')).toHaveProp(
+      'header',
+      `Response by ${fakeReview.user.name}`,
     );
   });
 });

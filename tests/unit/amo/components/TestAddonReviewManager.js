@@ -39,6 +39,13 @@ describe(__filename, () => {
     );
   };
 
+  const createInternalReply = () => {
+    return createInternalReview({
+      ...fakeReview,
+      is_developer_reply: true,
+    });
+  };
+
   it('configures Rating with the review rating', () => {
     const rating = 3;
     const review = createInternalReview({ ...fakeReview, rating });
@@ -258,6 +265,32 @@ describe(__filename, () => {
     const form = root.find(DismissibleTextForm);
     expect(form).toHaveProp('submitButtonText', 'Update review');
     expect(form).toHaveProp('submitButtonInProgressText', 'Updating review');
+  });
+
+  it('hides the star rating for a reply', () => {
+    const root = render({
+      review: createInternalReply(),
+    });
+
+    expect(root.find('.AddonReviewManager-starRating')).toHaveLength(0);
+  });
+
+  it('hides the dismissible form footer for a reply', () => {
+    const root = render({
+      review: createInternalReply(),
+    });
+
+    expect(root.find(DismissibleTextForm)).toHaveProp('formFooter', undefined);
+  });
+
+  it('shows the expected button text for a reply', () => {
+    const root = render({
+      review: createInternalReply(),
+    });
+
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveProp('submitButtonText', 'Update reply');
+    expect(form).toHaveProp('submitButtonInProgressText', 'Updating reply');
   });
 
   describe('extractId', () => {
