@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-09-14 20:08+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"PO-Revision-Date: 2018-09-28 15:04+0000\n"
+"Last-Translator: Kim Ludvigsen <kim@kimsside.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr "Din version af Firefox understøtter ikke søge-plugins."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr ""
+msgstr "Din version af Firefox understøtter ikke denne tilføjelse, fordi den kræver en genstart."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -343,11 +343,11 @@ msgstr "Gemt"
 
 #: src/amo/components/AddonReviewManager/index.js:138
 msgid "Update review"
-msgstr ""
+msgstr "Opdater anmeldelse"
 
 #: src/amo/components/AddonReviewManager/index.js:143
 msgid "Updating review"
-msgstr ""
+msgstr "Opdaterer anmeldelse"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Submitting review"
@@ -699,11 +699,11 @@ msgstr "Beklager, men der var en fejl med vores server, og vi kunne ikke gennemf
 
 #: src/amo/components/FeaturedAddonReview/index.js:77
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "Anmeldelse af %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:87
 msgid "The review was not found."
-msgstr ""
+msgstr "Anmeldelsen blev ikke fundet."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -1050,7 +1050,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:226
 msgid "Search Preview"
-msgstr ""
+msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:227
 msgid "Enjoy thumbnail images alongside your search returns"
@@ -1098,7 +1098,7 @@ msgstr "Send en webside til din Kindle-enhed"
 
 #: src/amo/components/HomeHeroBanner/index.js:264
 msgid "New Tab Homepage"
-msgstr ""
+msgstr "New Tab Homepage"
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Designate a custom home page for your new tabs"
@@ -1106,11 +1106,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:271
 msgid "OneNote Web Clipper"
-msgstr ""
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:272
 msgid "Save, annotate & organize web content"
-msgstr ""
+msgstr "Gem, anmærk & organiser webindhold"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "FoxyGestures"
@@ -1318,11 +1318,11 @@ msgstr "Hvordan er din oplevelse med %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:296
 msgid "Saving star rating"
-msgstr ""
+msgstr "Gemmer bedømmelse"
 
 #: src/amo/components/RatingManager/index.js:297
 msgid "Star rating saved"
-msgstr ""
+msgstr "Bedømmelse gemt"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2528,23 +2528,23 @@ msgstr ""
 
 #: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installationen mislykkedes. Prøv igen."
 
 #: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Hentning mislykkedes. Kontrollér din forbindelse."
 
 #: src/core/utils/addons.js:28
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Der opstod en uventet fejl under installationen."
 
 #: src/core/utils/addons.js:30
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Der opstod en uventet fejl under afinstallationen."
 
 #: src/core/utils/addons.js:35
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Der opstod en uventet fejl."
 
 #: src/ui/components/ConfirmButton/index.js:101
 msgid "Confirm"
