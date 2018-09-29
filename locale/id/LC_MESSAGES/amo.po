@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-09-28 18:26+0000\n"
+"PO-Revision-Date: 2018-09-29 08:33+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -701,9 +701,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Maaf, tapi ada kesalahan dengan server kami dan kami tidak dapat menyelesaikan permintaan Anda. Kami telah mencatat kesalahan ini dan akan menyelidikinya."
 
 #: src/amo/components/FeaturedAddonReview/index.js:77
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Ulasan untuk %(addonName)s"
+msgstr "Ulasan oleh %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:87
 msgid "The review was not found."
