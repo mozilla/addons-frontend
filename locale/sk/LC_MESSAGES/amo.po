@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-09-04 13:44+0000\n"
+"PO-Revision-Date: 2018-09-30 10:42+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -84,9 +84,8 @@ msgid "Your version of Firefox does not support search plugins."
 msgstr "Vaša verzia Firefoxu nepodporuje vyhľadávacie moduly."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-#, fuzzy
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Vaša verzia Firefoxu nepodporuje vyhľadávacie moduly."
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -267,7 +266,7 @@ msgstr "Odstrániť moju odpoveď"
 
 #: src/amo/components/AddonReviewCard/index.js:206
 msgid "Delete my rating"
-msgstr ""
+msgstr "Odstrániť moje hodnotenie"
 
 #: src/amo/components/AddonReviewCard/index.js:209
 msgid "Delete my review"
@@ -279,7 +278,7 @@ msgstr "Naozaj chcete odstrániť túto odpoveď?"
 
 #: src/amo/components/AddonReviewCard/index.js:220
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "Naozaj chcete odstrániť toto hodnotenie?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this review?"
@@ -347,11 +346,11 @@ msgstr "Uložené"
 
 #: src/amo/components/AddonReviewManager/index.js:138
 msgid "Update review"
-msgstr ""
+msgstr "Aktualizovať recenziu"
 
 #: src/amo/components/AddonReviewManager/index.js:143
 msgid "Updating review"
-msgstr ""
+msgstr "Aktualizujem recenziu"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Submitting review"
@@ -704,11 +703,11 @@ msgstr "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo
 
 #: src/amo/components/FeaturedAddonReview/index.js:77
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "Recenzia od používateľa %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:87
 msgid "The review was not found."
-msgstr ""
+msgstr "Recenzia nebola nájdená."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -901,7 +900,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Universal Bypass"
-msgstr ""
+msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 #, fuzzy
@@ -1063,7 +1062,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:233
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Remove formatting when saving text to your clipboard"
@@ -1326,11 +1325,11 @@ msgstr "Ako si užívate používanie doplnku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:296
 msgid "Saving star rating"
-msgstr ""
+msgstr "Ukladám hodnotenie"
 
 #: src/amo/components/RatingManager/index.js:297
 msgid "Star rating saved"
-msgstr ""
+msgstr "Hodnotenie bolo uložené"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 #, fuzzy
@@ -1385,9 +1384,8 @@ msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Poli
 msgstr "Ak si myslíte, že tento používateľ porušuje %(linkTagStart)spravidlá stanovené Mozillou%(linkTagEnd)s, prosím, nahláste ho."
 
 #: src/amo/components/ReportUserAbuse/index.js:130
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Prosím, nepoužívajte tento formulár za účelom nahlásenia chyby alebo ako žiadosť o nové funkcie; toto hlásenie je odosielané Mozille a nie vývojárovi."
+msgstr "Prosím, nepoužívajte tento formulár za účelom nahlásenia chyby alebo ako žiadosť o nové funkcie; toto hlásenie je odosielané Mozille a nie tomuto používateľovi."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 #, fuzzy
@@ -1395,9 +1393,8 @@ msgid "Explain how this user is violating our policies."
 msgstr "Popíšte, ako doplnok porušuje naše pravidlá."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Ak chcete ohodnotiť tento doplnok, musíte sa prihlásiť"
+msgstr "Nahlásili ste tohoto používateľa"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1970,14 +1967,12 @@ msgid "Translation tools"
 msgstr "Nástroje na prekladanie"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more privacy & security extensions"
-msgstr "Ďalšie rozšírenia na ochranu súkromia"
+msgstr "Ďalšie rozšírenia na ochranu súkromia a vylepšenia bezpečnosti"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Privacy & security"
-msgstr "Zásady ochrany súkromia"
+msgstr "Súkromie a bezpečnosť"
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2126,6 +2121,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Nekritizujte doplnok za niečo, na čo je určený. Nepíšte napríklad negatívne recenziu kvôli zobrazovaniu reklám alebo zberu údajov, ak je práve to účel daného doplnku alebo je zber údajov potrebný "
+"pre fungovanie doplnku."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:121
 msgid "Frequently Asked Questions about Reviews"
@@ -2181,7 +2178,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:38
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Popíšte svoje skúsenosti s doplnkom tak, ako by ste ich popisovali svojmu kamarátovi."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:43
 msgid "Keep reviews concise and easy to understand."
@@ -2555,19 +2552,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:28
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Nastala neočakávaná chyba"
+msgstr "V priebehu inštalácie nastala neočakávaná chyba."
 
 #: src/core/utils/addons.js:30
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Nastala neočakávaná chyba"
+msgstr "V priebehu odinštalácie nastala neočakávaná chyba."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Nastala neočakávaná chyba"
+msgstr "Nastala neočakávaná chyba."
 
 #: src/ui/components/ConfirmButton/index.js:101
 msgid "Confirm"
