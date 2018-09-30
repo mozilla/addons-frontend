@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-09-30 10:42+0000\n"
+"PO-Revision-Date: 2018-09-30 10:41+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -85,7 +85,7 @@ msgstr "Vaša verzia Firefoxu nepodporuje vyhľadávacie moduly."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr ""
+msgstr "Vaša verzia Firefoxu nepodporuje tento doplnok, pretože vyžaduje reštart."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -1110,9 +1110,8 @@ msgid "Designate a custom home page for your new tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:271
-#, fuzzy
 msgid "OneNote Web Clipper"
-msgstr "Notebook Web Clipper"
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:272
 msgid "Save, annotate & organize web content"
@@ -2379,12 +2378,10 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr "Mozilla si vyhradzuje právo vás osobne kontaktovať ohľadne špecifických záležitostí týkajúcich sa vašich tu uverejnených doplnkov."
 
 #: src/amo/pages/UserProfileEdit/index.js:735
-#, fuzzy
 msgid "Updating your profile…"
 msgstr "Aktualizujem váš profil…"
 
 #: src/amo/pages/UserProfileEdit/index.js:736
-#, fuzzy
 msgid "Update My Profile"
 msgstr "Aktualizovať môj profil"
 
@@ -2397,7 +2394,6 @@ msgid "Update Profile"
 msgstr "Aktualizovať profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:750 src/amo/pages/UserProfileEdit/index.js:839
-#, fuzzy
 msgid "Delete My Profile"
 msgstr "Odstrániť môj profil"
 
