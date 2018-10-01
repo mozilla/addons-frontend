@@ -53,6 +53,6 @@ module.exports = {
     alias: {
       normalize: 'normalize.css/normalize.css',
     },
-    modules: [path.resolve('./src'), path.resolve('./stories'), 'node_modules'],
+    modules: [path.resolve('./src'), 'node_modules'],
   },
 };

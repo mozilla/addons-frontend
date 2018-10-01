@@ -3,8 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-// $FLOW_FIXME flow not liking the path here ( will look into this more)
-import { createChapters } from 'utils';
+import { createChapters } from '../utils';
 import Button from 'ui/components/Button';
 import type { Props as ButtonProps } from 'ui/components/Button';
 

@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 
 type PropsMatrixType = {|
   props: Object,
@@ -8,9 +8,7 @@ type PropsMatrixType = {|
 type ChapterType = string | number | void;
 
 type CreateChapterParams = {|
-  // TODO: look into why React.Node or ~ React.ComponentType<any>
-  // doesn't work here :/.
-  Component: Function,
+  Component: React.ComponentType<any>,
   chapters: Array<string | void>,
   children?: any,
   createPropsMatrix: (any) => Array<PropsMatrixType>,

@@ -13,17 +13,9 @@ body {
 .section-container {
   border-bottom: 1px solid $background-grey;
   display: block;
-  flex-wrap: wrap;
   padding: 24px;
 
-  @include respond-to(medium) {
-    align-items: center;
-    display: flex;
-  }
-
   .section-header {
-    flex-basis: 100%;
-    flex-grow: 1;
     margin-bottom: 12px;
   }
 
@@ -37,14 +29,6 @@ body {
     @include respond-to(large) {
       margin: 0;
     }
-  }
-
-  .section-button-container {
-    float: left;
-  }
-
-  .section-subsection-title {
-    visibility: hidden;
   }
 }
 
