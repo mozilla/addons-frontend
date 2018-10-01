@@ -220,8 +220,10 @@ export class AppBase extends React.Component<Props> {
       i18nValues,
     );
     let titleTemplate = i18n.sprintf(
-      i18n.gettext('%%s – Add-ons for Firefox (%(locale)s)'),
-      i18nValues,
+      i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
+      // We inject `%s` as a named argument to avoid localizer mistakes. Helmet
+      // will replace `%s` by the title supplied in other pages.
+      { ...i18nValues, title: '%s' },
     );
 
     if (clientApp === CLIENT_APP_ANDROID) {
@@ -230,8 +232,10 @@ export class AppBase extends React.Component<Props> {
         i18nValues,
       );
       titleTemplate = i18n.sprintf(
-        i18n.gettext('%%s – Add-ons for Android (%(locale)s)'),
-        i18nValues,
+        i18n.gettext('%(title)s – Add-ons for Android (%(locale)s)'),
+        // We inject `%s` as a named argument to avoid localizer mistakes.
+        // Helmet will replace `%s` by the title supplied in other pages.
+        { ...i18nValues, title: '%s' },
       );
     }
 
