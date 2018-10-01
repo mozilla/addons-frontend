@@ -217,7 +217,7 @@ function baseServer(
 
     app.get('/', (req, res) => {
       res.redirect(
-        301,
+        302,
         `/en-US/firefox/discovery/pane/${defaultVersion}/Darwin/normal`,
       );
     });
@@ -225,7 +225,7 @@ function baseServer(
     app.get('/:version/', (req, res) => {
       const version = req.params.version || defaultVersion;
       res.redirect(
-        301,
+        302,
         `/en-US/firefox/discovery/pane/${version}/Darwin/normal`,
       );
     });
