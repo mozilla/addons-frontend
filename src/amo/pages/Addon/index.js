@@ -624,7 +624,9 @@ export class AddonBase extends React.Component {
 
             {this.renderShowMoreCard()}
 
-            { <AddonRecommendations addon={addon} /> }
+            {addonType === ADDON_TYPE_EXTENSION && (
+              <AddonRecommendations addon={addon} />
+            )}
           </div>
 
           {this.renderRatingsCard()}

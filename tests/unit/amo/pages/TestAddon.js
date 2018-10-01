@@ -1190,18 +1190,34 @@ describe(__filename, () => {
   });
 
   it('renders recommendations for an extension', () => {
-    const fakeConfig = getFakeConfig();
     const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon, config: fakeConfig });
+    const root = shallowRender({ addon });
     expect(root.find(AddonRecommendations)).toHaveLength(1);
     expect(root.find(AddonRecommendations)).toHaveProp('addon', addon);
   });
 
   it('renders recommendations for an extension with no loaded add-on', () => {
-    const fakeConfig = getFakeConfig();
-    const root = shallowRender({ addon: null, config: fakeConfig });
+    const root = shallowRender({ addon: null });
     expect(root.find(AddonRecommendations)).toHaveLength(1);
     expect(root.find(AddonRecommendations)).toHaveProp('addon', null);
+  });
+
+  it('does not render recommendations if the add-on is not an extension', () => {
+    for (const addonType of [
+      ADDON_TYPE_COMPLETE_THEME,
+      ADDON_TYPE_DICT,
+      ADDON_TYPE_LANG,
+      ADDON_TYPE_OPENSEARCH,
+      ADDON_TYPE_THEME,
+    ]) {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        type: addonType,
+      });
+      const root = shallowRender({ addon });
+      console.log(root.debug());
+      expect(root.find(AddonRecommendations)).toHaveLength(0);
+    }
   });
 
   describe('read reviews footer', () => {
