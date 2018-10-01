@@ -32,7 +32,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox');
     sinon.assert.notCalled(fakeNext);
   });
 
@@ -42,7 +42,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox');
     sinon.assert.notCalled(fakeNext);
   });
 
@@ -52,7 +52,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever/');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever/');
   });
 
   it('should prepend a lang when missing but leave a valid app intact', () => {
@@ -61,7 +61,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
     sinon.assert.notCalled(fakeRes.vary);
   });
 
@@ -73,7 +73,7 @@ describe(__filename, () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(
       fakeRes.redirect,
-      302,
+      301,
       '/en-US/validprefix/whatever',
     );
     sinon.assert.notCalled(fakeRes.vary);
@@ -98,7 +98,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeRes.redirect,
-      302,
+      301,
       '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
     );
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
@@ -113,7 +113,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeRes.redirect,
-      302,
+      301,
       '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
     );
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
@@ -135,7 +135,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/developers/');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/developers/');
     sinon.assert.notCalled(fakeRes.vary);
   });
 
@@ -157,7 +157,7 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-BR/firefox/whatever');
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
 
@@ -167,7 +167,7 @@ describe(__filename, () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-PT/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-PT/firefox/whatever');
   });
 
   it('should vary on accept-language and user-agent', () => {
@@ -178,7 +178,7 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-BR/firefox/whatever');
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
@@ -192,7 +192,7 @@ describe(__filename, () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/android/whatever');
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/android/whatever');
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
@@ -237,7 +237,7 @@ describe(__filename, () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(
       fakeRes.redirect,
-      302,
+      301,
       '/en-US/firefox/foo/bar?test=1&bar=2',
     );
   });
