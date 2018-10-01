@@ -136,11 +136,22 @@ describe(__filename, () => {
       expect(root).toHaveProp('rel', 'next');
     });
 
-    it('does not add a rel attribute to a disabled link', () => {
-      const root = render({ currentPage: 3, page: 3 });
+    it('does not add a rel attribute when the page is the current page', () => {
+      const root = render({ page: 3, currentPage: 3 });
 
-      expect(root).toHaveProp('disabled', true);
       expect(root).not.toHaveProp('rel');
+    });
+
+    it('does not add a rel attribute when the page is not the immediate preceding page', () => {
+      const root = render({ page: 1, currentPage: 3, pageCount: 6 });
+
+      expect(root).toHaveProp('rel', null);
+    });
+
+    it('does not add a rel attribute when the page is not the immediate next page', () => {
+      const root = render({ page: 5, currentPage: 3, pageCount: 6 });
+
+      expect(root).toHaveProp('rel', null);
     });
   });
 });
