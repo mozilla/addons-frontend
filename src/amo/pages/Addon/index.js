@@ -517,6 +517,7 @@ export class AddonBase extends React.Component {
         {addon && (
           <Helmet>
             <title>{addon.name}</title>
+            <meta name="last-modified" content={addon.last_updated} />
           </Helmet>
         )}
 
