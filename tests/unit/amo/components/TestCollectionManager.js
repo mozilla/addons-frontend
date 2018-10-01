@@ -13,6 +13,7 @@ import {
   finishEditingCollectionDetails,
   updateCollection,
 } from 'amo/reducers/collections';
+import { setLang } from 'core/actions';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { decodeHtmlEntities } from 'core/utils';
 import {
@@ -685,10 +686,9 @@ describe(__filename, () => {
   });
 
   it('calls history.goBack() when creating and language is falsey', () => {
-    const siteLang = null;
-    const localStore = dispatchClientMetadata({ lang: siteLang }).store;
+    store.dispatch(setLang(undefined));
 
-    const root = render({ creating: true, store: localStore });
+    const root = render({ creating: true });
 
     simulateCancel(root);
 
