@@ -145,15 +145,55 @@ describe(__filename, () => {
   });
 
   it('configures a default HTML title for Firefox', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    const lang = 'fr';
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+      lang,
+    });
     const root = render({ store });
-    expect(root.find(Helmet)).toHaveProp('defaultTitle', 'Add-ons for Firefox');
+    expect(root.find(Helmet)).toHaveProp(
+      'defaultTitle',
+      `Add-ons for Firefox (${lang})`,
+    );
   });
 
   it('configures a default HTML title for Android', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const lang = 'fr';
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang,
+    });
     const root = render({ store });
-    expect(root.find(Helmet)).toHaveProp('defaultTitle', 'Add-ons for Android');
+    expect(root.find(Helmet)).toHaveProp(
+      'defaultTitle',
+      `Add-ons for Android (${lang})`,
+    );
+  });
+
+  it('defines a HTML title template for Firefox', () => {
+    const lang = 'fr';
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+      lang,
+    });
+    const root = render({ store });
+    expect(root.find(Helmet)).toHaveProp(
+      'titleTemplate',
+      `%s – Add-ons for Firefox (${lang})`,
+    );
+  });
+
+  it('defines a HTML title template for Android', () => {
+    const lang = 'fr';
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang,
+    });
+    const root = render({ store });
+    expect(root.find(Helmet)).toHaveProp(
+      'titleTemplate',
+      `%s – Add-ons for Android (${lang})`,
+    );
   });
 
   describe('handling expired auth tokens', () => {

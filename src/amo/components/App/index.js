@@ -60,6 +60,7 @@ type Props = {|
   handleGlobalEvent: () => void,
   i18n: I18nType,
   isHomePage: boolean,
+  lang: string,
   location: ReactRouterLocationType,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
@@ -205,17 +206,37 @@ export class AppBase extends React.Component<Props> {
       clientApp,
       i18n,
       isHomePage,
+      lang,
       location,
     } = this.props;
 
     const query = location.query ? location.query.q : null;
+    const i18nValues = {
+      locale: lang,
+    };
 
-    let defaultTitle = i18n.gettext('Add-ons for Firefox');
-    let titleTemplate = i18n.gettext('%s – Add-ons for Firefox');
+    let defaultTitle = i18n.sprintf(
+      i18n.gettext('Add-ons for Firefox (%(locale)s)'),
+      i18nValues,
+    );
+    let titleTemplate = i18n.sprintf(
+      i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)'),
+      // We inject `%s` as a named argument to avoid localizer mistakes. Helmet
+      // will replace `%s` by the title supplied in other pages.
+      { ...i18nValues, title: '%s' },
+    );
 
     if (clientApp === CLIENT_APP_ANDROID) {
-      defaultTitle = i18n.gettext('Add-ons for Android');
-      titleTemplate = i18n.gettext('%s – Add-ons for Android');
+      defaultTitle = i18n.sprintf(
+        i18n.gettext('Add-ons for Android (%(locale)s)'),
+        i18nValues,
+      );
+      titleTemplate = i18n.sprintf(
+        i18n.gettext('%(title)s – Add-ons for Android (%(locale)s)'),
+        // We inject `%s` as a named argument to avoid localizer mistakes.
+        // Helmet will replace `%s` by the title supplied in other pages.
+        { ...i18nValues, title: '%s' },
+      );
     }
 
     return (
@@ -262,6 +283,7 @@ export const mapStateToProps = (state: AppState) => ({
   authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
   isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
+  lang: state.api.lang,
   userAgent: state.api.userAgent,
 });
 
