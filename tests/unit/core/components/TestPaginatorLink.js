@@ -122,4 +122,25 @@ describe(__filename, () => {
       expect(link.prop('children')).toEqual('go to next page');
     });
   });
+
+  describe('"rel" attributes', () => {
+    it('adds a rel="prev" attribute when it is the immediate preceding page', () => {
+      const root = render({ page: 2, currentPage: 3 });
+
+      expect(root).toHaveProp('rel', 'prev');
+    });
+
+    it('adds a rel="next" attribute when it is the immediate next page', () => {
+      const root = render({ page: 4, currentPage: 3 });
+
+      expect(root).toHaveProp('rel', 'next');
+    });
+
+    it('does not add a rel attribute to a disabled link', () => {
+      const root = render({ currentPage: 3, page: 3 });
+
+      expect(root).toHaveProp('disabled', true);
+      expect(root).not.toHaveProp('rel');
+    });
+  });
 });

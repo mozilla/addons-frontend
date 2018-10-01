@@ -45,6 +45,13 @@ export default class PaginatorLink extends React.Component {
       throw new Error('The pageCount property cannot be undefined');
     }
 
+    let rel = null;
+    if (page + 1 === currentPage) {
+      rel = 'prev';
+    } else if (page - 1 === currentPage) {
+      rel = 'next';
+    }
+
     if (currentPage === page || page < 1 || page > pageCount) {
       const classNames = makeClassName('Paginate-item', className, {
         'Paginate-item--current-page': currentPage === page,
@@ -61,6 +68,7 @@ export default class PaginatorLink extends React.Component {
       <Button
         buttonType="cancel"
         className={makeClassName('Paginate-item', className)}
+        rel={rel}
         to={{ pathname, query: { ...queryParams, [pageParam]: page } }}
       >
         {text || page}
