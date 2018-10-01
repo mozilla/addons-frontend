@@ -1,4 +1,5 @@
 /* @flow */
+import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 
 import {
@@ -8,6 +9,8 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
 } from 'core/constants';
+import log from 'core/logger';
+import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 export const getErrorMessage = ({
@@ -34,4 +37,28 @@ export const getErrorMessage = ({
     default:
       return i18n.gettext('An unexpected error occurred.');
   }
+};
+
+export const getFileHash = ({
+  addon,
+  installURL,
+}: {|
+  addon: AddonType,
+  installURL: string,
+|}): string | void => {
+  const urlKey = installURL.split('?')[0];
+
+  if (addon.current_version) {
+    for (const file of addon.current_version.files) {
+      // The API sometimes appends ?src= to URLs so we just check the basename.
+      if (file.url.startsWith(urlKey)) {
+        return file.hash;
+      }
+    }
+  }
+
+  log.warn(oneLine`No file hash found for addon "${addon.slug}", installURL
+    "${installURL}" (as "${urlKey}")`);
+
+  return undefined;
 };

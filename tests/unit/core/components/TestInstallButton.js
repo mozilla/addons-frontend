@@ -6,7 +6,6 @@ import { mount } from 'enzyme';
 
 import createStore from 'amo/store';
 import InstallButton, {
-  getFileHash,
   InstallButtonBase,
 } from 'core/components/InstallButton';
 import InstallSwitch from 'core/components/InstallSwitch';
@@ -21,8 +20,6 @@ import {
   INSTALL_ACTION,
   INSTALL_STARTED_ACTION,
   OS_ALL,
-  OS_MAC,
-  OS_WINDOWS,
   UNKNOWN,
 } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
@@ -554,110 +551,6 @@ describe(__filename, () => {
       action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
       category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
       label: addon.name,
-    });
-  });
-
-  describe('getFileHash', () => {
-    const _getFileHash = ({
-      addon = createInternalAddon(fakeAddon),
-      installURL = 'https://a.m.o/addons/file.xpi',
-    } = {}) => {
-      return getFileHash({ addon, installURL });
-    };
-
-    it('requires an addon parameter', () => {
-      expect(() => _getFileHash({ addon: null })).toThrow(
-        /addon parameter cannot be empty/,
-      );
-    });
-
-    it('requires an installURL parameter', () => {
-      expect(() => _getFileHash({ installURL: null })).toThrow(
-        /installURL parameter cannot be empty/,
-      );
-    });
-
-    it('finds a file hash matching the URL', () => {
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [
-            {
-              platform: OS_MAC,
-              url: 'https://first-url',
-              hash: 'hash-of-first-file',
-            },
-            {
-              platform: OS_WINDOWS,
-              url: 'https://second-url',
-              hash: 'hash-of-second-file',
-            },
-          ],
-        }),
-      );
-
-      expect(_getFileHash({ addon, installURL: 'https://second-url' })).toEqual(
-        'hash-of-second-file',
-      );
-    });
-
-    it('strips query string parameters from the URL', () => {
-      const url = 'https://a.m.o/addons/file.xpi';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
-        }),
-      );
-
-      expect(
-        _getFileHash({
-          addon,
-          installURL: `${url}?src=some-install-source`,
-        }),
-      ).toEqual('hash-of-file');
-    });
-
-    it('handles addon file URLs with unrelated query strings', () => {
-      const url = 'https://a.m.o/addons/file.xpi';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [
-            {
-              platform: OS_ALL,
-              url: `${url}?src=some-install-source`,
-              hash: 'hash-of-file',
-            },
-          ],
-        }),
-      );
-
-      expect(
-        _getFileHash({
-          addon,
-          installURL: `${url}?src=some-install-source`,
-        }),
-      ).toEqual('hash-of-file');
-    });
-
-    it('does not find a file hash without a current version', () => {
-      const addon = createInternalAddon(
-        createFakeAddon({
-          current_version: undefined,
-        }),
-      );
-
-      expect(_getFileHash({ addon })).toBeUndefined();
-    });
-
-    it('does not find a file hash without files', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        current_version: {
-          ...fakeAddon.current_version,
-          files: [],
-        },
-      });
-
-      expect(_getFileHash({ addon })).toBeUndefined();
     });
   });
 });

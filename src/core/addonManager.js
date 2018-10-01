@@ -29,7 +29,7 @@ type FirefoxAddon = {|
 
 export type MozAddonManagerType = {|
   addEventListener: (eventName: string, handler: Function) => void,
-  createInstall: ({| url: string |}) => Promise<any>,
+  createInstall: ({| url: string, hash?: string | null |}) => Promise<any>,
   getAddonByID: (guid: string) => Promise<FirefoxAddon>,
   permissionPromptsEnabled: boolean,
 |};
@@ -102,6 +102,7 @@ export function getAddon(
 type OptionalInstallParams = {|
   ...OptionalParams,
   src: string,
+  hash?: string | null,
 |};
 
 export function install(
@@ -110,6 +111,7 @@ export function install(
   {
     _mozAddonManager = window.navigator.mozAddonManager,
     src,
+    hash,
   }: OptionalInstallParams = {},
 ) {
   if (src === undefined) {
@@ -117,7 +119,7 @@ export function install(
   }
   const url = addQueryParams(_url, { src });
 
-  return _mozAddonManager.createInstall({ url }).then((installObj) => {
+  return _mozAddonManager.createInstall({ url, hash }).then((installObj) => {
     const callback = (e) => eventCallback(installObj, e);
     for (const event of INSTALL_EVENT_LIST) {
       log.info(`[install] Adding listener for ${event}`);
