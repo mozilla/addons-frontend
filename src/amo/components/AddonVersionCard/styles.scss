@@ -1,0 +1,17 @@
+@import '~amo/css/styles';
+
+.AddonVersionCard {
+  display: flex;
+
+  .InstallButtonWrapper {
+    align-self: start;
+  }
+}
+
+.AddonVersionCard-releaseNotes {
+  margin-top: $padding-page;
+
+  @include respond-to(medium) {
+    margin-top: $padding-page-l;
+  }
+}
