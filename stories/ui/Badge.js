@@ -48,7 +48,7 @@ storiesOf('Badge', module)
       createPropsMatrix,
       otherChapterProps: {
         // Since Badge has a simple props matrix we don't need to display
-        // a title since there is only 1 item in the group (chapters).
+        // a title since there is only one item in each group (aka chapter).
         // TODO: maybe create separate createSections util helper.
         title: undefined,
       },
