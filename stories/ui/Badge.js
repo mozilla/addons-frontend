@@ -3,9 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import { createChapters } from '../utils';
 import Badge from 'ui/components/Badge';
 import type { Props as BadgeProps } from 'ui/components/Badge';
+
+import { createChapters } from '../utils';
 
 const label = 'Hello Badge';
 

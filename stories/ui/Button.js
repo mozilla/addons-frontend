@@ -3,9 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import { createChapters } from '../utils';
 import Button from 'ui/components/Button';
 import type { Props as ButtonProps } from 'ui/components/Button';
+
+import { createChapters } from '../utils';
 
 export type Props = {|
   props: ButtonProps,
