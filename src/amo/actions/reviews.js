@@ -89,24 +89,15 @@ export function createInternalReview(
   };
 }
 
-type SetReviewParams = {|
-  review: ExternalReviewType,
-  isUpdate: boolean,
-|};
-
 export type SetReviewAction = {|
   type: typeof SET_REVIEW,
-  payload: SetReviewParams,
+  payload: ExternalReviewType,
 |};
 
-export const setReview = ({
-  review,
-  isUpdate,
-}: SetReviewParams): SetReviewAction => {
+export const setReview = (review: ExternalReviewType): SetReviewAction => {
   invariant(review, 'review is required');
-  invariant(isUpdate !== undefined, 'isUpdate is required');
 
-  return { type: SET_REVIEW, payload: { review, isUpdate } };
+  return { type: SET_REVIEW, payload: review };
 };
 
 type SetReviewReplyParams = {|
@@ -525,7 +516,6 @@ export const setReviewWasFlagged = ({
 type SetLatestReviewParams = {|
   addonId: number,
   addonSlug: string,
-  isUpdate: boolean,
   review: ExternalReviewType | null,
   userId: number,
   versionId: number,
@@ -539,7 +529,6 @@ export type SetLatestReviewAction = {|
 export const setLatestReview = ({
   addonId,
   addonSlug,
-  isUpdate,
   versionId,
   review,
   userId,
@@ -549,11 +538,10 @@ export const setLatestReview = ({
   invariant(review !== undefined, 'review is required');
   invariant(userId, 'userId is required');
   invariant(versionId, 'versionId is required');
-  invariant(isUpdate !== undefined, 'isUpdate is required');
 
   return {
     type: SET_LATEST_REVIEW,
-    payload: { addonId, addonSlug, isUpdate, review, userId, versionId },
+    payload: { addonId, addonSlug, review, userId, versionId },
   };
 };
 

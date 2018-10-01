@@ -430,10 +430,7 @@ describe(__filename, () => {
 
         return actions.updateReviewText({ ...params }).then(() => {
           mockReviewsApi.verify();
-          sinon.assert.calledWith(
-            dispatch,
-            setReview({ review: fakeReview, isUpdate: false }),
-          );
+          sinon.assert.calledWith(dispatch, setReview(fakeReview));
         });
       });
     });

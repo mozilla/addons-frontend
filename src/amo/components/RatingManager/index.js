@@ -12,6 +12,7 @@ import {
   STARTED_SAVE_RATING,
   createAddonReview,
   setLatestReview,
+  setReview,
   updateAddonReview,
 } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
@@ -406,7 +407,6 @@ export const mapDispatchToProps = (
       .then((review) => {
         const _setLatestReview = (value) => {
           return setLatestReview({
-            isUpdate: false,
             userId,
             addonId,
             addonSlug,
@@ -416,6 +416,7 @@ export const mapDispatchToProps = (
         };
 
         if (review) {
+          dispatch(setReview(review));
           dispatch(_setLatestReview(review));
         } else {
           log.debug(
@@ -439,7 +440,6 @@ export const mapDispatchToProps = (
         setLatestReview({
           addonId: review.addon.id,
           addonSlug: review.addon.slug,
-          isUpdate: false,
           userId: review.user.id,
           versionId,
           review,

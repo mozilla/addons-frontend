@@ -22,6 +22,7 @@ import {
   hideEditReviewForm,
   hideFlashedReviewMessage,
   setLatestReview,
+  setReview,
   showEditReviewForm,
   updateAddonReview,
 } from 'amo/actions/reviews';
@@ -75,11 +76,13 @@ describe(__filename, () => {
   } = {}) => {
     const { store } = dispatchSignInActions({ userId });
 
+    if (review) {
+      store.dispatch(setReview(review));
+    }
     store.dispatch(
       setLatestReview({
         addonId: addon.id,
         addonSlug: addon.slug,
-        isUpdate: false,
         review,
         userId,
         versionId,
@@ -565,7 +568,6 @@ describe(__filename, () => {
         setLatestReview({
           addonId: addon.id,
           addonSlug: addon.slug,
-          isUpdate: false,
           review: null,
           userId,
           versionId,
@@ -738,7 +740,7 @@ describe(__filename, () => {
     });
 
     describe('submitReview', () => {
-      it('posts the review and dispatches the created review', () => {
+      it('posts the review and dispatches review actions', () => {
         const apiState = store.getState().api;
 
         const params = {
@@ -760,7 +762,6 @@ describe(__filename, () => {
             setLatestReview({
               addonId: reviewResult.addon.id,
               addonSlug: reviewResult.addon.slug,
-              isUpdate: false,
               userId: reviewResult.user.id,
               versionId: reviewResult.version.id,
               review: reviewResult,
@@ -791,7 +792,6 @@ describe(__filename, () => {
             setLatestReview({
               addonId: reviewResult.addon.id,
               addonSlug: reviewResult.addon.slug,
-              isUpdate: false,
               userId: reviewResult.user.id,
               versionId,
               review: reviewResult,
@@ -829,13 +829,13 @@ describe(__filename, () => {
           })
           .then(() => {
             mockApi.verify();
+            sinon.assert.calledWith(dispatch, setReview(fakeReview));
             sinon.assert.calledWith(
               dispatch,
               setLatestReview({
                 userId,
                 addonId,
                 addonSlug,
-                isUpdate: false,
                 versionId,
                 review: fakeReview,
               }),
@@ -864,7 +864,6 @@ describe(__filename, () => {
               setLatestReview({
                 addonId,
                 addonSlug,
-                isUpdate: false,
                 userId,
                 versionId,
                 review: null,

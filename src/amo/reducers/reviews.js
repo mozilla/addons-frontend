@@ -261,15 +261,44 @@ export const selectLatestUserReview = ({
   return selectReview(reviewsState, userReviewId);
 };
 
+export function isReviewUpdate({
+  reviewsState,
+  newReviewId,
+  newReviewBody,
+}: {|
+  reviewsState: ReviewsState,
+  newReviewId: number,
+  newReviewBody: ?string,
+|}) {
+  const existingReview = selectReview(reviewsState, newReviewId);
+  if (!existingReview) {
+    return false;
+  }
+
+  // If this update is actually turning a rating into a review then
+  // it's not an update.
+  if (!existingReview.body && newReviewBody) {
+    return false;
+  }
+
+  return true;
+}
+
 export const addReviewToState = ({
   state,
-  isUpdate,
   review,
+  _isReviewUpdate = isReviewUpdate,
 }: {|
   state: ReviewsState,
-  isUpdate: boolean,
   review: UserReviewType,
+  _isReviewUpdate?: typeof isReviewUpdate,
 |}) => {
+  const isUpdate = _isReviewUpdate({
+    reviewsState: state,
+    newReviewId: review.id,
+    newReviewBody: review.body,
+  });
+
   const newState = {
     ...state,
     byId: storeReviewObjects({ state, reviews: [review] }),
@@ -289,6 +318,11 @@ export const addReviewToState = ({
 
   return {
     ...newState,
+    byAddon: {
+      ...newState.byAddon,
+      // Reset all add-on reviews to trigger a refresh from the server.
+      [review.reviewAddon.slug]: undefined,
+    },
     byUserId: {
       ...newState.byUserId,
       // This will trigger a refresh from the server.
@@ -375,52 +409,22 @@ export default function reviewsReducer(
       });
     case SET_LATEST_REVIEW: {
       const { payload } = action;
-      const {
-        addonId,
-        addonSlug,
-        isUpdate,
-        userId,
-        review,
-        versionId,
-      } = payload;
+      const { addonId, userId, review, versionId } = payload;
       const key = makeLatestUserReviewKey({ addonId, userId, versionId });
 
-      let shouldRefreshListings = true;
-      let { byId } = state;
-      if (review) {
-        if (isUpdate) {
-          shouldRefreshListings = false;
-        }
-        byId = storeReviewObjects({
-          state,
-          reviews: [createInternalReview(review)],
-        });
-      }
-
-      const newState = {
-        ...state,
-        byId,
-        latestUserReview: {
-          ...state.latestUserReview,
-          [key]: review ? review.id : null,
-        },
-      };
-
-      if (!shouldRefreshListings) {
-        return newState;
+      if (review && !selectReview(state, review.id)) {
+        throw new Error(
+          `Cannot handle SET_LATEST_REVIEW because review ${
+            review.id
+          } has not been set`,
+        );
       }
 
       return {
-        ...newState,
-        byAddon: {
-          ...newState.byAddon,
-          // Reset all add-on reviews to trigger a refresh from the server.
-          [addonSlug]: undefined,
-        },
-        byUserId: {
-          ...newState.byUserId,
-          // Reset all user reviews to trigger a refresh from the server.
-          [userId]: undefined,
+        ...state,
+        latestUserReview: {
+          ...state.latestUserReview,
+          [key]: review ? review.id : null,
         },
       };
     }
@@ -433,13 +437,9 @@ export default function reviewsReducer(
     }
     case SET_REVIEW: {
       const { payload } = action;
-      const review = createInternalReview(payload.review);
+      const review = createInternalReview(payload);
 
-      const newState = _addReviewToState({
-        isUpdate: payload.isUpdate,
-        state,
-        review,
-      });
+      const newState = _addReviewToState({ state, review });
       return changeViewState({
         state: newState,
         reviewId: review.id,
@@ -449,7 +449,7 @@ export default function reviewsReducer(
     case SET_INTERNAL_REVIEW: {
       const { payload } = action;
 
-      return _addReviewToState({ state, review: payload, isUpdate: false });
+      return _addReviewToState({ state, review: payload });
     }
     case SET_REVIEW_REPLY: {
       const reviewId = action.payload.originalReviewId;

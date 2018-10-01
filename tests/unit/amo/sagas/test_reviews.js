@@ -35,15 +35,11 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
-import reviewsSaga, {
-  FLASH_SAVED_MESSAGE_DURATION,
-  isReviewUpdate,
-} from 'amo/sagas/reviews';
+import reviewsSaga, { FLASH_SAVED_MESSAGE_DURATION } from 'amo/sagas/reviews';
 import { fetchAddon } from 'core/reducers/addons';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
-  dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
   fakeReview,
@@ -57,7 +53,6 @@ import {
 describe(__filename, () => {
   let apiState;
   let fakeSagaDelay;
-  let fakeReviewUpdateCheck;
   let errorHandler;
   let mockApi;
   let sagaTester;
@@ -65,7 +60,6 @@ describe(__filename, () => {
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
     fakeSagaDelay = sinon.stub().resolves();
-    fakeReviewUpdateCheck = sinon.stub().returns(false);
     mockApi = sinon.mock(reviewsApi);
 
     const { state } = dispatchSignInActions();
@@ -75,45 +69,8 @@ describe(__filename, () => {
       reducers: { reviews: reviewsReducer, api: apiReducer },
     });
 
-    sagaTester.start(() =>
-      reviewsSaga({
-        _delay: fakeSagaDelay,
-        _isReviewUpdate: fakeReviewUpdateCheck,
-      }),
-    );
+    sagaTester.start(() => reviewsSaga({ _delay: fakeSagaDelay }));
   });
-
-  function createExternalReview({
-    id = 76654,
-    body,
-    score = 4,
-    addonId = fakeReview.addon.id,
-    addonSlug = fakeReview.addon.slug,
-    isDeveloperReply = false,
-    userId = fakeReview.user.id,
-    versionId = fakeReview.version.id,
-  } = {}) {
-    return {
-      ...fakeReview,
-      addon: {
-        ...fakeAddon,
-        id: addonId,
-        slug: addonSlug,
-      },
-      body,
-      id,
-      is_developer_reply: isDeveloperReply,
-      score,
-      user: {
-        ...fakeReview.user,
-        id: userId,
-      },
-      version: {
-        ...fakeReview.version,
-        id: versionId,
-      },
-    };
-  }
 
   describe('fetchReviews', () => {
     function _fetchReviews(params = {}) {
@@ -273,7 +230,7 @@ describe(__filename, () => {
 
     const _setFakeReview = (params = {}) => {
       const review = { ...fakeReview, id: 2, ...params };
-      sagaTester.dispatch(setReview({ review, isUpdate: false }));
+      sagaTester.dispatch(setReview(review));
       return review;
     };
 
@@ -531,6 +488,38 @@ describe(__filename, () => {
       );
     }
 
+    function createExternalReview({
+      addonId = fakeReview.addon.id,
+      addonSlug = fakeReview.addon.slug,
+      body,
+      id = 76654,
+      isDeveloperReply = false,
+      score = 4,
+      userId = fakeReview.user.id,
+      versionId = fakeReview.version.id,
+    } = {}) {
+      return {
+        ...fakeReview,
+        addon: {
+          ...fakeAddon,
+          id: addonId,
+          slug: addonSlug,
+        },
+        body,
+        id,
+        is_developer_reply: isDeveloperReply,
+        score,
+        user: {
+          ...fakeReview.user,
+          id: userId,
+        },
+        version: {
+          ...fakeReview.version,
+          id: versionId,
+        },
+      };
+    }
+
     function matchMessage(expectedAction) {
       return (maybeAction) => {
         return (
@@ -574,13 +563,9 @@ describe(__filename, () => {
         })
         .resolves(externalReview);
 
-      fakeReviewUpdateCheck.returns(false);
       _createAddonReview({ addonId, body, score, versionId });
 
-      const expectedAction = setReview({
-        review: externalReview,
-        isUpdate: false,
-      });
+      const expectedAction = setReview(externalReview);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
 
@@ -609,13 +594,9 @@ describe(__filename, () => {
         })
         .resolves(externalReview);
 
-      fakeReviewUpdateCheck.returns(true);
       _updateAddonReview({ body, score, reviewId });
 
-      const expectedAction = setReview({
-        review: externalReview,
-        isUpdate: true,
-      });
+      const expectedAction = setReview(externalReview);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
 
@@ -820,7 +801,6 @@ describe(__filename, () => {
       const expectedAction = setLatestReview({
         addonId,
         addonSlug,
-        isUpdate: false,
         review: externalReview,
         userId,
         versionId,
@@ -857,7 +837,6 @@ describe(__filename, () => {
       const unexpectedAction = setLatestReview({
         addonId,
         addonSlug,
-        isUpdate: false,
         review: externalReview,
         userId,
         versionId,
@@ -1012,7 +991,7 @@ describe(__filename, () => {
 
       _fetchReview({ reviewId });
 
-      const expectedAction = setReview({ review, isUpdate: false });
+      const expectedAction = setReview(review);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
 
@@ -1029,70 +1008,6 @@ describe(__filename, () => {
       const action = await sagaTester.waitFor(expectedAction.type);
 
       expect(action).toEqual(expectedAction);
-    });
-  });
-
-  describe('isReviewUpdate', () => {
-    it('returns true for updates', () => {
-      const { store } = dispatchClientMetadata();
-      const reviewId = 321;
-
-      // Add a new review to the store.
-      store.dispatch(
-        setReview({
-          review: createExternalReview({
-            id: reviewId,
-            body: 'This is a fantastic add-on',
-            score: 5,
-          }),
-          isUpdate: false,
-        }),
-      );
-
-      expect(
-        isReviewUpdate({
-          reviewsState: store.getState().reviews,
-          newReviewId: reviewId,
-          newReviewBody: 'This is a pretty good add-on',
-        }),
-      ).toEqual(true);
-    });
-
-    it('returns false when turning a rating into a review', () => {
-      const { store } = dispatchClientMetadata();
-      const reviewId = 321;
-
-      // Add a rating-only review to the store.
-      store.dispatch(
-        setReview({
-          review: createExternalReview({
-            id: reviewId,
-            body: undefined,
-            score: 5,
-          }),
-          isUpdate: false,
-        }),
-      );
-
-      expect(
-        isReviewUpdate({
-          reviewsState: store.getState().reviews,
-          newReviewId: reviewId,
-          newReviewBody: 'This is a pretty good add-on',
-        }),
-      ).toEqual(false);
-    });
-
-    it('returns false when no review exists in state', () => {
-      const { state } = dispatchClientMetadata();
-
-      expect(
-        isReviewUpdate({
-          reviewsState: state.reviews,
-          newReviewId: 321,
-          newReviewBody: 'This is a pretty good add-on',
-        }),
-      ).toEqual(false);
     });
   });
 });
