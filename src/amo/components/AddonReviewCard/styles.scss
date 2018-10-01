@@ -65,16 +65,9 @@
 }
 
 .AddonReviewCard-delete {
-  text-align: center;
-  width: 100%;
-
-  .ConfirmButton-buttons {
-    display: block;
-  }
-
   .ConfirmButton-cancel-button,
   .ConfirmButton-confirm-button {
-    width: 100%;
+    margin: 0 6px;
   }
 
   .ConfirmButton-cancel-button,

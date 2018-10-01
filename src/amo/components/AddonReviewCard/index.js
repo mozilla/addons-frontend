@@ -386,7 +386,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 confirmButtonText={this.confirmButtonText()}
                 id={`${confirmButtonClassName}-${review.id}`}
                 onConfirm={this.onClickToDeleteReview}
-                puffyButtons
+                puffyButtons={verticalButtons}
               >
                 {this.deletePrompt()}
               </ConfirmButton>
