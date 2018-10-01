@@ -1190,37 +1190,19 @@ describe(__filename, () => {
   });
 
   it('renders recommendations for an extension', () => {
-    const fakeConfig = getFakeConfig({
-      enableFeatureAddonRecommendations: true,
-    });
     const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon, config: fakeConfig });
+    const root = shallowRender({ addon });
     expect(root.find(AddonRecommendations)).toHaveLength(1);
     expect(root.find(AddonRecommendations)).toHaveProp('addon', addon);
   });
 
   it('renders recommendations for an extension with no loaded add-on', () => {
-    const fakeConfig = getFakeConfig({
-      enableFeatureAddonRecommendations: true,
-    });
-    const root = shallowRender({ addon: null, config: fakeConfig });
+    const root = shallowRender({ addon: null });
     expect(root.find(AddonRecommendations)).toHaveLength(1);
     expect(root.find(AddonRecommendations)).toHaveProp('addon', null);
   });
 
-  it('does not render recommendations if the config flag is false', () => {
-    const fakeConfig = getFakeConfig({
-      enableFeatureAddonRecommendations: false,
-    });
-    const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon, config: fakeConfig });
-    expect(root.find(AddonRecommendations)).toHaveLength(0);
-  });
-
   it('does not render recommendations if the add-on is not an extension', () => {
-    const fakeConfig = getFakeConfig({
-      enableFeatureAddonRecommendations: true,
-    });
     for (const addonType of [
       ADDON_TYPE_COMPLETE_THEME,
       ADDON_TYPE_DICT,
@@ -1232,7 +1214,7 @@ describe(__filename, () => {
         ...fakeAddon,
         type: addonType,
       });
-      const root = shallowRender({ addon, config: fakeConfig });
+      const root = shallowRender({ addon });
       expect(root.find(AddonRecommendations)).toHaveLength(0);
     }
   });

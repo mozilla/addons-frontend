@@ -117,8 +117,5 @@ module.exports = {
   // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
   authTokenValidFor: 2592000, // 30 days
 
-  // Turn on recommendations in details pages.
-  enableFeatureAddonRecommendations: true,
-
   enableFeatureAMInstallButton: true,
 };

@@ -102,7 +102,6 @@ module.exports = {
     'dismissedExperienceSurveyCookieName',
     'enableDevTools',
     'enableFeatureAMInstallButton',
-    'enableFeatureAddonRecommendations',
     'enableFeatureExperienceSurvey',
     'enableFeatureInlineAddonReview',
     'enableFeatureStaticThemes',
@@ -311,9 +310,6 @@ module.exports = {
   //
   // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
-
-  // Enable the TAAR Lite A/B test.
-  enableFeatureAddonRecommendations: false,
 
   // Enable static themes.
   enableFeatureStaticThemes: true,
