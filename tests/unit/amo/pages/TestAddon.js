@@ -1824,4 +1824,23 @@ describe(__filename, () => {
 
     expect(root.find('script[type="application/ld+json"]')).toHaveLength(1);
   });
+
+  it('renders a "date" meta tag', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon });
+
+    expect(root.find('meta[name="date"]')).toHaveLength(1);
+    expect(root.find('meta[name="date"]')).toHaveProp('content', addon.created);
+  });
+
+  it('renders a "last-modified" meta tag', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon });
+
+    expect(root.find('meta[name="last-modified"]')).toHaveLength(1);
+    expect(root.find('meta[name="last-modified"]')).toHaveProp(
+      'content',
+      addon.last_updated,
+    );
+  });
 });
