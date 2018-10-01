@@ -271,6 +271,7 @@
     "webpack-isomorphic-tools": "3.0.6"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.4.11",
     "@storybook/addon-options": "^3.4.10",
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
@@ -332,6 +333,7 @@
     "prettier": "1.14.3",
     "pretty-quick": "1.7.0",
     "react-hot-loader": "^4.3.3",
+    "react-storybook-addon-chapters": "^2.1.7",
     "react-test-renderer": "^16.5.2",
     "redux-saga-tester": "^1.0.372",
     "require-uncached": "^1.0.3",

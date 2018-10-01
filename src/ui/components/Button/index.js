@@ -17,7 +17,7 @@ export type ButtonType =
   | 'alert'
   | 'none';
 
-type Props = {|
+export type Props = {|
   buttonType: ButtonType,
   children?: React.Node,
   className?: string,

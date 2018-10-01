@@ -3,6 +3,6 @@
     "import/no-extraneous-dependencies": ["error", {
       // Allow dev-dependencies in this directory.
       "devDependencies": true
-    }],
+    }]
   }
 }

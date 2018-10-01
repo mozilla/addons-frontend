@@ -1,0 +1,37 @@
+@import '~amo/css/styles';
+
+html,
+body {
+  // This overrides the App background style which makes it hard to see
+  // in storybook.
+  background: #fff;
+  // Giving extra cushion so nothing gets covered.
+  padding: 24px 12px 12px;
+}
+
+// Setting up chapter styles.
+.section-container {
+  border-bottom: 1px solid $background-grey;
+  display: block;
+  padding: 24px;
+
+  .section-header {
+    margin-bottom: 12px;
+  }
+
+  .section-component-container {
+    margin-top: 12px;
+  }
+
+  .section-subtitle {
+    color: #bbb;
+
+    @include respond-to(large) {
+      margin: 0;
+    }
+  }
+}
+
+.chapter-h3 {
+  margin-top: 48px;
+}
