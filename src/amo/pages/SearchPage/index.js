@@ -91,7 +91,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
 
       props.dispatch(
         sendServerRedirect({
-          status: 302,
+          status: 301,
           url: `/${lang}/${clientApp}/search/${queryString}`,
         }),
       );

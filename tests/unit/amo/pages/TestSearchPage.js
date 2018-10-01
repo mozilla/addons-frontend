@@ -97,7 +97,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
-        status: 302,
+        status: 301,
         url: '/en-US/android/search/?type=extension',
       }),
     );
@@ -115,7 +115,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
-        status: 302,
+        status: 301,
         url: '/en-US/android/search/?type=dictionary',
       }),
     );
@@ -133,7 +133,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
-        status: 302,
+        status: 301,
         url: '/en-US/android/search/?type=search',
       }),
     );
@@ -151,7 +151,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
-        status: 302,
+        status: 301,
         url: '/en-US/android/search/?type=language',
       }),
     );
@@ -169,7 +169,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
-        status: 302,
+        status: 301,
         url: '/en-US/android/search/?type=persona',
       }),
     );
@@ -199,7 +199,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
-        status: 302,
+        status: 301,
         url: '/en-US/android/search/',
       }),
     );
@@ -226,7 +226,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
-        status: 302,
+        status: 301,
         url: '/en-US/android/search/?page=123',
       }),
     );

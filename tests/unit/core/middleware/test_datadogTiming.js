@@ -120,7 +120,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         hotShotsClient.increment,
-        'response_code.302.count',
+        'response_code.301.count',
       );
     });
   });

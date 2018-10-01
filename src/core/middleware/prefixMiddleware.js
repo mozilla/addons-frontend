@@ -126,7 +126,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     if (isApplicationFromHeader) {
       res.vary('user-agent');
     }
-    return res.redirect(302, newURL);
+    return res.redirect(301, newURL);
   }
 
   // Add the data to res.locals to be utilised later.
