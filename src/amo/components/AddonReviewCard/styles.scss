@@ -39,6 +39,10 @@
   justify-content: flex-end;
   margin-top: 0;
 
+  .ConfirmButton-buttons {
+    flex-flow: row-reverse;
+  }
+
   a:link,
   a:visited,
   a:hover,
