@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-10-01 11:10+0000\n"
+"PO-Revision-Date: 2018-10-01 11:12+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1054,15 +1054,15 @@ msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:208
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Kopyalama, açma, arama gibi işlemleri gerçekleştirmek için metni, resmi veya bağlantıyı sürükleyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:215
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Rahatsız edici açılır pencereleri tek düğmeyle kapatın"
 
 #: src/amo/components/HomeHeroBanner/index.js:219
 #, fuzzy
@@ -1071,7 +1071,7 @@ msgstr "Yer imleri"
 
 #: src/amo/components/HomeHeroBanner/index.js:220
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Yer imlerini istediğiniz konuma gelecek şekilde otomatik olarak sıralayın"
 
 #: src/amo/components/HomeHeroBanner/index.js:226
 #, fuzzy
