@@ -13,6 +13,7 @@ import {
   finishEditingCollectionDetails,
   updateCollection,
 } from 'amo/reducers/collections';
+import { setLang } from 'core/actions';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { decodeHtmlEntities } from 'core/utils';
 import {
@@ -668,7 +669,25 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, finishEditingCollectionDetails());
   });
 
-  it('calls history.goBack() on cancel when creating', () => {
+  it('calls history.push() when creating and language is defined', () => {
+    const siteLang = 'de';
+    const clientApp = 'firefox';
+    const localStore = dispatchClientMetadata({ clientApp, lang: siteLang })
+      .store;
+
+    const root = render({ creating: true, store: localStore });
+
+    simulateCancel(root);
+
+    sinon.assert.calledWith(
+      fakeHistory.push,
+      `/${siteLang}/${clientApp}/collections/`,
+    );
+  });
+
+  it('calls history.goBack() when creating and language is falsey', () => {
+    store.dispatch(setLang(undefined));
+
     const root = render({ creating: true });
 
     simulateCancel(root);

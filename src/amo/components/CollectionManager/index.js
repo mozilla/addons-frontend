@@ -42,7 +42,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  clientApp: ?string,
+  clientApp: string,
   currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -80,10 +80,14 @@ export class CollectionManagerBase extends React.Component<
   }
 
   onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
-    const { creating, dispatch, history } = this.props;
+    const { clientApp, creating, dispatch, history, siteLang } = this.props;
 
     if (creating) {
-      history.goBack();
+      if (siteLang) {
+        history.push(`/${siteLang}/${clientApp}/collections/`);
+      } else {
+        history.goBack();
+      }
     }
 
     event.preventDefault();
