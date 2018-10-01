@@ -98,14 +98,27 @@ export type SaveAddonNoteFunc = (
   notes: string,
 ) => void;
 
-export const computeNewCollectionPage = (
+type ComputeNewCollectionPageParams = {|
   collection: CollectionType,
-): string => {
+  currentPage: string,
+|};
+
+export const computeNewCollectionPage = ({
+  collection,
+  currentPage,
+}: ComputeNewCollectionPageParams): string => {
   const { numberOfAddons, pageSize } = collection;
 
   let page = '1';
   if (pageSize) {
-    page = Math.ceil((numberOfAddons - 1) / pageSize);
+    const lastPage = Math.ceil((numberOfAddons - 1) / pageSize);
+
+    // If we are not on the last page, we can just return the current page.
+    if (parseInt(currentPage, 10) < lastPage) {
+      return currentPage;
+    }
+
+    page = lastPage;
   }
 
   return page ? page.toString() : '1';
@@ -256,7 +269,11 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     let { page } = filters;
     let shouldPushNewRoute = false;
-    const newCollectionPage = computeNewCollectionPage(collection);
+
+    const newCollectionPage = computeNewCollectionPage({
+      collection,
+      currentPage: page,
+    });
 
     if (page !== newCollectionPage) {
       page = newCollectionPage;

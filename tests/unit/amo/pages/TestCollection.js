@@ -1137,7 +1137,63 @@ describe(__filename, () => {
     sinon.assert.notCalled(history.push);
   });
 
-  it('updates the page when removeAddon removes the last addon on the page', () => {
+  it("does not update the page when removeAddon is called and the current page isn't the last page", () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const detail = createFakeCollectionDetail({
+      authorId: authorUserId,
+      // This will simulate 1 item on the 3nd page.
+      count: DEFAULT_API_PAGE_SIZE * 2 + 1,
+    });
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = '1';
+    const sort = COLLECTION_SORT_NAME;
+    const location = createFakeLocation({
+      query: { page, collection_sort: sort },
+    });
+    const history = createFakeHistory({ location });
+
+    store.dispatch(
+      loadCurrentCollection({
+        addons,
+        detail,
+        pageSize: DEFAULT_API_PAGE_SIZE,
+      }),
+    );
+
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      history,
+      location,
+      store,
+    });
+
+    fakeDispatch.resetHistory();
+
+    // This simulates the user clicking the "Remove" button on the
+    // EditableCollectionAddon component.
+    root.instance().removeAddon(addonId);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      removeAddonFromCollection({
+        addonId,
+        errorHandlerId: errorHandler.id,
+        filters: { page, collectionSort: sort },
+        slug: detail.slug,
+        username: detail.author.username,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+
+    sinon.assert.notCalled(history.push);
+  });
+
+  it('updates the page when removeAddon removes the last addon from the current page', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
