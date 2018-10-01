@@ -1784,4 +1784,16 @@ describe(__filename, () => {
       getErrorMessage({ i18n: fakeI18n(), error }),
     );
   });
+
+  it('renders a description meta tag containing the add-on summary', () => {
+    const addon = createInternalAddon(fakeAddon);
+
+    const root = shallowRender({ addon });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]')).toHaveProp(
+      'content',
+      `Download ${addon.name} for Firefox. ${addon.summary}`,
+    );
+  });
 });

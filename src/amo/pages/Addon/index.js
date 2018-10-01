@@ -398,6 +398,24 @@ export class AddonBase extends React.Component {
     );
   }
 
+  getMetaDescription() {
+    const { addon, i18n } = this.props;
+
+    if (!addon) {
+      return null;
+    }
+
+    const content = i18n.sprintf(
+      i18n.gettext('Download %(addonName)s for Firefox. %(summary)s'),
+      {
+        addonName: addon.name,
+        summary: addon.summary,
+      },
+    );
+
+    return <meta name="description" content={content} />;
+  }
+
   render() {
     const {
       addon,
@@ -517,6 +535,7 @@ export class AddonBase extends React.Component {
         {addon && (
           <Helmet>
             <title>{addon.name}</title>
+            {this.getMetaDescription()}
           </Helmet>
         )}
 
