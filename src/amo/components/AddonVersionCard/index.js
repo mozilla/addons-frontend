@@ -23,7 +23,10 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
-  version: AddonVersionType | null,
+  headerText: string | null,
+  // An undefined version means the versions are still loading, whereas a null
+  // version means that no version exists.
+  version?: AddonVersionType | null,
 |};
 
 type InternalProps = {|
@@ -34,18 +37,36 @@ type InternalProps = {|
 |};
 
 export const AddonVersionCardBase = (props: InternalProps) => {
-  const { addon, i18n, installError, version, versionInfo } = props;
+  const { addon, headerText, i18n, installError, version, versionInfo } = props;
 
   if (version === null) {
-    return <LoadingText />;
+    return (
+      <li className="AddonVersionCard">
+        <div>
+          {headerText && (
+            <h1 className="AddonVersionCard-header">{headerText}</h1>
+          )}
+          <h2 className="AddonVersionCard-noVersion">
+            {i18n.gettext('No version found')}
+          </h2>
+        </div>
+      </li>
+    );
   }
 
-  const versionNumber = i18n.sprintf(
-    i18n.gettext('Version %(versionNumber)s'),
-    { versionNumber: version.version },
+  const versionNumber = version ? (
+    i18n.sprintf(i18n.gettext('Version %(versionNumber)s'), {
+      versionNumber: version.version,
+    })
+  ) : (
+    <LoadingText />
   );
 
   const getFileInfoText = () => {
+    if (!version) {
+      return <LoadingText />;
+    }
+
     if (!versionInfo || !versionInfo.created || !versionInfo.filesize) {
       return null;
     }
@@ -65,33 +86,36 @@ export const AddonVersionCardBase = (props: InternalProps) => {
     );
   };
 
-  const releaseNotes = sanitizeUserHTML(version.releaseNotes);
-
   let licenseLinkParams = {};
   let licenseLinkParts;
-  const { license } = version;
-  if (addon && license) {
-    const otherVars = {
-      licenseName: license.name,
-    };
-    licenseLinkParams = license.isCustom
-      ? { to: `/addon/${addon.slug}/license/` }
-      : { href: license.url, prependClientApp: false, prependLang: false };
-    const licenseText = i18n.gettext(
-      'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
-    );
-    licenseLinkParts = getLocalizedTextWithLinkParts({
-      i18n,
-      text: licenseText,
-      otherVars,
-    });
+  if (version) {
+    const { license } = version;
+    if (addon && license) {
+      const otherVars = {
+        licenseName: license.name,
+      };
+      licenseLinkParams = license.isCustom
+        ? { to: `/addon/${addon.slug}/license/` }
+        : { href: license.url, prependClientApp: false, prependLang: false };
+      const licenseText = i18n.gettext(
+        'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
+      );
+      licenseLinkParts = getLocalizedTextWithLinkParts({
+        i18n,
+        text: licenseText,
+        otherVars,
+      });
+    }
   }
 
   return (
     <li className="AddonVersionCard">
-      <AddonInstallError error={installError} />
-      <AddonCompatibilityError addon={addon} />
       <div>
+        {headerText && (
+          <h1 className="AddonVersionCard-header">{headerText}</h1>
+        )}
+        {version && <AddonInstallError error={installError} />}
+        {version && <AddonCompatibilityError addon={addon} version={version} />}
         <h2 className="AddonVersionCard-version">{versionNumber}</h2>
         {getFileInfoText()}
         {versionInfo && (
@@ -99,11 +123,15 @@ export const AddonVersionCardBase = (props: InternalProps) => {
             {versionInfo.compatibilityString}
           </div>
         )}
-        <div
-          className="AddonVersionCard-releaseNotes"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={releaseNotes}
-        />
+        {version ? (
+          <div
+            className="AddonVersionCard-releaseNotes"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={sanitizeUserHTML(version.releaseNotes)}
+          />
+        ) : (
+          <LoadingText />
+        )}
         {licenseLinkParts && (
           <div className="AddonVersionCard-license">
             {licenseLinkParts.beforeLinkText}
@@ -112,11 +140,12 @@ export const AddonVersionCardBase = (props: InternalProps) => {
           </div>
         )}
       </div>
-      {addon && (
+      {addon && version && (
         <InstallButtonWrapper
           addon={addon}
           defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
           getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+          version={version}
         />
       )}
     </li>

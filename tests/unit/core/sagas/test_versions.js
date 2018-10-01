@@ -64,7 +64,7 @@ describe(__filename, () => {
 
       _fetchVersions({ page, slug });
 
-      const expectedAction = loadVersions({ slug, versions });
+      const expectedAction = loadVersions({ slug, versions: versions.results });
 
       const loadAction = await sagaTester.waitFor(expectedAction.type);
       expect(loadAction).toEqual(expectedAction);

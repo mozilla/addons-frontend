@@ -57,7 +57,7 @@ export function* fetchVersions({
     };
     const versions = yield call(getVersions, params);
 
-    yield put(loadVersions({ slug, versions }));
+    yield put(loadVersions({ slug, versions: versions.results }));
   } catch (error) {
     log.warn(`Failed to fetch versions: ${error}`);
     yield put(errorHandler.createErrorAction(error));

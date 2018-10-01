@@ -29,6 +29,7 @@ export type Props = {|
   defaultInstallSource: string,
   getFirefoxButtonType: GetFirefoxButtonTypeType,
   puffy?: boolean,
+  version?: AddonVersionType | null,
 |};
 
 type InternalProps = {|
@@ -109,12 +110,12 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
 };
 
 export function mapStateToProps(state: AppState, ownProps: InternalProps) {
-  const { addon } = ownProps;
+  const { addon, version } = ownProps;
   const installedAddon = (addon && state.installations[addon.guid]) || {};
 
-  let currentVersion = null;
+  let currentVersion = version;
 
-  if (addon && addon.currentVersionId) {
+  if (addon && addon.currentVersionId && !currentVersion) {
     currentVersion = getVersionById({
       id: addon.currentVersionId,
       state: state.versions,

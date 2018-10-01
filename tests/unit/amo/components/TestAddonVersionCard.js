@@ -55,13 +55,38 @@ describe(__filename, () => {
     );
   };
 
-  it('returns only loading text if version is null', () => {
+  it('returns a card with a message if version is null', () => {
+    const headerText = 'some header text';
     const root = render({
+      headerText,
       version: null,
     });
 
-    expect(root.find(LoadingText)).toHaveLength(1);
-    expect(root.find('.AddonVersionCard')).toHaveLength(0);
+    expect(root.find('.AddonVersionCard-header')).toHaveText(headerText);
+    expect(root.find('.AddonVersionCard-noVersion')).toHaveText(
+      'No version found',
+    );
+  });
+
+  it('returns a card with LoadingText if version is undefined', () => {
+    const root = render({
+      version: undefined,
+    });
+
+    expect(root.find(LoadingText)).toHaveLength(3);
+  });
+
+  it('renders a header if headerText is provided', () => {
+    const headerText = 'some header text';
+    const root = render({ headerText });
+
+    expect(root.find('.AddonVersionCard-header')).toHaveText(headerText);
+  });
+
+  it('does not render a header if no headerText is provided', () => {
+    const root = render({ headerText: null });
+
+    expect(root.find('.AddonVersionCard-header')).toHaveLength(0);
   });
 
   it('renders a version number', () => {
@@ -255,12 +280,26 @@ describe(__filename, () => {
     expect(root.find(AddonInstallError)).toHaveProp('error', error);
   });
 
-  it('passes an add-on to AddonCompatibilityError', () => {
-    const addon = createInternalAddon(fakeAddon);
+  it('does not render an AddonInstallError if there is no version', () => {
+    const root = render({ version: null });
 
-    const root = render({ addon });
+    expect(root.find(AddonInstallError)).toHaveLength(0);
+  });
+
+  it('passes an add-on and a version to AddonCompatibilityError', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const version = createInternalVersion(fakeVersion);
+
+    const root = render({ addon, version });
 
     expect(root.find(AddonCompatibilityError)).toHaveProp('addon', addon);
+    expect(root.find(AddonCompatibilityError)).toHaveProp('version', version);
+  });
+
+  it('does not render an AddonCompatibilityError if there is no version', () => {
+    const root = render({ version: null });
+
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
   });
 
   it('passes an add-on to InstallButtonWrapper', () => {
@@ -273,6 +312,15 @@ describe(__filename, () => {
 
   it('does not render an InstallButtonWrapper if there is no add-on', () => {
     const root = render({ addon: null });
+
+    expect(root.find(InstallButtonWrapper)).toHaveLength(0);
+  });
+
+  it('does not render an InstallButtonWrapper if there is no version', () => {
+    const root = render({
+      addon: createInternalAddon(fakeAddon),
+      version: null,
+    });
 
     expect(root.find(InstallButtonWrapper)).toHaveLength(0);
   });

@@ -1,0 +1,20 @@
+@import '~amo/css/styles';
+
+.AddonVersions {
+  @include page-padding();
+
+  @include respond-to(large) {
+    display: flex;
+  }
+}
+
+.AddonVersions-versions {
+  margin-top: $padding-page;
+
+  @include respond-to(large) {
+    @include margin-start($padding-page-l);
+
+    margin-top: 0;
+    width: 65%;
+  }
+}
