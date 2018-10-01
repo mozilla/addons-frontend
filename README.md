@@ -368,15 +368,24 @@ brew cask install font-fira-sans font-open-sans font-chivo font-fira-mono
 
 ## What version is deployed?
 
-You can check to see what commit of `addons-frontend` is deployed by making a request like this:
+You can check to see what commit of `addons-frontend` is deployed as well as which A/B experiments are running and which feature flags are enabled by making a request like this:
 
 ```
 curl https://addons-dev.allizom.org/__frontend_version__
 {
-   "build" : "https://circleci.com/gh/mozilla/addons-server/6550",
-   "commit" : "87f49a40ee7a5e87d9b9efde8e91b9019e8b13d1",
-   "source" : "https://github.com/mozilla/addons-server",
-   "version" : ""
+    "build": "https://circleci.com/gh/mozilla/addons-frontend/10333",
+    "commit": "47edfa6f24e333897b25516c587f504e294e8fa9",
+    "experiments": {
+        "home_hero": true
+    },
+    "feature_flags": {
+        "enableFeatureAMInstallButton": true,
+        "enableFeatureExperienceSurvey": false,
+        "enableFeatureInlineAddonReview": true,
+        "enableFeatureStaticThemes": true
+    },
+    "source": "https://github.com/mozilla/addons-frontend",
+    "version": ""
 }
 ```
 
@@ -387,6 +396,8 @@ For consistency with monitoring scripts, the same data can be retrieved at this 
 ```
 curl https://addons-dev.allizom.org/__version__
 ```
+
+:bulb: You can install the [amo-info extension](https://addons.mozilla.org/en-US/firefox/addon/amo-info/) to easily view this information.
 
 ## Overview and rationale
 
