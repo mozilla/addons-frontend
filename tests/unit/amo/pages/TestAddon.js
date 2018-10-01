@@ -1215,7 +1215,6 @@ describe(__filename, () => {
         type: addonType,
       });
       const root = shallowRender({ addon });
-      console.log(root.debug());
       expect(root.find(AddonRecommendations)).toHaveLength(0);
     }
   });
