@@ -14,7 +14,7 @@ type AddonStatus =
   | 'lite-nominated'
   | 'review-pending';
 
-type AddonFileType = {|
+export type AddonFileType = {|
   created: string,
   hash: string,
   id: number,
@@ -23,18 +23,21 @@ type AddonFileType = {|
   is_webextension: boolean,
   permissions?: Array<string>,
   platform: 'all' | 'android' | 'mac' | 'linux' | 'windows',
+  size: number,
   status: AddonStatus,
   url: string,
 |};
 
-type PartialAddonVersionType = {|
+export type AddonCompatibilityType = {|
+  [appName: string]: {|
+    min: string,
+    max: string,
+  |},
+|};
+
+type PartialExternalAddonVersionType = {|
   channel: string,
-  compatibility?: {
-    [appName: string]: {|
-      min: string,
-      max: string,
-    |},
-  },
+  compatibility?: AddonCompatibilityType,
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,
@@ -46,8 +49,8 @@ type PartialAddonVersionType = {|
   version: string,
 |};
 
-export type AddonVersionType = {|
-  ...PartialAddonVersionType,
+export type ExternalAddonVersionType = {|
+  ...PartialExternalAddonVersionType,
   // The `text` property is omitted from addon.current_version.license.
   license: { name: string, url: string },
   release_notes?: string,
@@ -66,7 +69,7 @@ export type AddonAuthorType = {|
 |};
 
 export type LanguageToolType = {|
-  current_version: AddonVersionType,
+  current_version: ExternalAddonVersionType,
   default_locale: string,
   guid: string,
   id: number,
@@ -112,7 +115,7 @@ export type ExternalAddonType = {|
   contributions_url?: string,
   // If you make an API request as an admin for an incomplete
   // add-on (status=0) then the current_version could be null.
-  current_version?: AddonVersionType,
+  current_version?: ExternalAddonVersionType,
   default_locale: string,
   description?: string,
   edit_url?: string,
@@ -127,7 +130,7 @@ export type ExternalAddonType = {|
   is_featured?: boolean,
   is_source_public?: boolean,
   last_updated: Date | null,
-  latest_unlisted_version?: ?AddonVersionType,
+  latest_unlisted_version?: ?ExternalAddonVersionType,
   locale_disambiguation?: string,
   name: string,
   previews?: Array<Object>,
@@ -188,5 +191,5 @@ export type CollectionAddonType = {|
 export type SearchResultAddonType = {|
   ...AddonType,
   authors?: Array<PartialAddonAuthorType>,
-  current_version?: PartialAddonVersionType,
+  current_version?: PartialExternalAddonVersionType,
 |};

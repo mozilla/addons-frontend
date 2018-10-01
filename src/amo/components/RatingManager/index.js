@@ -46,7 +46,7 @@ import type {
 } from 'amo/api/reviews';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ApiState } from 'core/reducers/api';
-import type { AddonType, AddonVersionType } from 'core/types/addons';
+import type { AddonType, ExternalAddonVersionType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -64,7 +64,7 @@ type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 type Props = {|
   addon: AddonType,
   onReviewSubmitted?: () => void,
-  version: AddonVersionType,
+  version: ExternalAddonVersionType,
 |};
 
 type DispatchMappedProps = {|
