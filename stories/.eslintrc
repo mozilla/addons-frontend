@@ -3,13 +3,6 @@
     "import/no-extraneous-dependencies": ["error", {
       // Allow dev-dependencies in this directory.
       "devDependencies": true
-    }],
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "moduleDirectory": ["node_modules", "src", "stories"]
-      }
-    }
+    }]
   }
 }
