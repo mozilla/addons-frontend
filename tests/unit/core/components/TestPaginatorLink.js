@@ -122,4 +122,36 @@ describe(__filename, () => {
       expect(link.prop('children')).toEqual('go to next page');
     });
   });
+
+  describe('"rel" attributes', () => {
+    it('adds a rel="prev" attribute when it is the immediate preceding page', () => {
+      const root = render({ page: 2, currentPage: 3 });
+
+      expect(root).toHaveProp('rel', 'prev');
+    });
+
+    it('adds a rel="next" attribute when it is the immediate next page', () => {
+      const root = render({ page: 4, currentPage: 3 });
+
+      expect(root).toHaveProp('rel', 'next');
+    });
+
+    it('does not add a rel attribute when the page is the current page', () => {
+      const root = render({ page: 3, currentPage: 3 });
+
+      expect(root).not.toHaveProp('rel');
+    });
+
+    it('does not add a rel attribute when the page is not the immediate preceding page', () => {
+      const root = render({ page: 1, currentPage: 3, pageCount: 6 });
+
+      expect(root).toHaveProp('rel', null);
+    });
+
+    it('does not add a rel attribute when the page is not the immediate next page', () => {
+      const root = render({ page: 5, currentPage: 3, pageCount: 6 });
+
+      expect(root).toHaveProp('rel', null);
+    });
+  });
 });
