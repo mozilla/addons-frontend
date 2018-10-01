@@ -1784,4 +1784,15 @@ describe(__filename, () => {
       getErrorMessage({ i18n: fakeI18n(), error }),
     );
   });
+
+  it('renders a meta "last-modified" tag', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon });
+
+    expect(root.find('meta[name="last-modified"]')).toHaveLength(1);
+    expect(root.find('meta[name="last-modified"]')).toHaveProp(
+      'content',
+      addon.last_updated,
+    );
+  });
 });
