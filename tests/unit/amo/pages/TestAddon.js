@@ -1853,4 +1853,12 @@ describe(__filename, () => {
 
     expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
   });
+
+  it('renders a canonical link tag', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(root.find('link[rel="canonical"]')).toHaveProp('href', addon.url);
+  });
 });
