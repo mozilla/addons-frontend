@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
 import Link from 'amo/components/Link';
 import {
@@ -7,12 +8,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
-  ADDONS_CONTENTREVIEW,
-  ADDONS_EDIT,
-  ADDONS_POSTREVIEW,
-  ADMIN_TOOLS_VIEW,
   STATS_VIEW,
-  THEMES_REVIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -27,7 +23,7 @@ import LoadingText from 'ui/components/LoadingText';
 describe(__filename, () => {
   const { store } = dispatchClientMetadata();
 
-  function render(props = {}) {
+  function render(props) {
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddon(fakeAddon)}
@@ -472,83 +468,10 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(0);
   });
 
-  describe('Admin links', () => {
-    const slug = 'some-slug';
-    const renderWithPermission = (permission) => {
-      return render({
-        addon: createInternalAddon({
-          ...fakeAddon,
-          slug,
-        }),
-        store: dispatchSignInActions({
-          userProps: { permissions: [permission] },
-        }).store,
-      });
-    };
+  it('renders admin links', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon });
 
-    it('hides Admin Links heading if the user does not have permission for any links', () => {
-      const root = render();
-
-      expect(root.find('.AddonMoreInfo-admin-links')).toHaveLength(0);
-    });
-
-    it('shows the Admin Links heading if the user has permission for a link', () => {
-      const root = renderWithPermission(ADDONS_EDIT);
-
-      expect(root.find('.AddonMoreInfo-admin-links')).toHaveLength(1);
-    });
-
-    it('shows an edit add-on link if the user has permission', () => {
-      const root = renderWithPermission(ADDONS_EDIT);
-
-      expect(root.find('.AddonMoreInfo-edit-link')).toHaveProp(
-        'href',
-        `/developers/addon/${slug}/edit`,
-      );
-    });
-
-    it('shows an admin add-on link if the user has permission', () => {
-      const root = renderWithPermission(ADMIN_TOOLS_VIEW);
-
-      expect(root.find('.AddonMoreInfo-admin-link')).toHaveProp(
-        'href',
-        `/admin/addon/manage/${slug}/`,
-      );
-    });
-
-    it('shows a content review link if the user has permission', () => {
-      const root = renderWithPermission(ADDONS_CONTENTREVIEW);
-
-      expect(root.find('.AddonMoreInfo-contentReview-link')).toHaveProp(
-        'href',
-        `/reviewers/review-content/${slug}`,
-      );
-    });
-
-    it('shows a code review link if the user has permission', () => {
-      const root = renderWithPermission(ADDONS_POSTREVIEW);
-
-      expect(root.find('.AddonMoreInfo-codeReview-link')).toHaveProp(
-        'href',
-        `/reviewers/review/${slug}`,
-      );
-    });
-
-    it('shows a theme review link if the user has permission', () => {
-      const root = render({
-        addon: createInternalAddon({
-          ...fakeTheme,
-          slug,
-        }),
-        store: dispatchSignInActions({
-          userProps: { permissions: [THEMES_REVIEW] },
-        }).store,
-      });
-
-      expect(root.find('.AddonMoreInfo-themeReview-link')).toHaveProp(
-        'href',
-        `/reviewers/review/${slug}`,
-      );
-    });
+    expect(root.find(AddonAdminLinks)).toHaveProp('addon', addon);
   });
 });
