@@ -113,8 +113,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
         }),
       );
     }
-    let idOrNameCheck = { ...location}.pathname.split('/')[4];
-    if(/^[0-9]+$/.test(idOrNameCheck)){
+    const idOrNameCheck = props.match.params.username;
+    if(/\d+/.test(idOrNameCheck)){
       const newUrl= { ...user };
       props.dispatch(
           sendServerRedirect({
