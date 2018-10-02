@@ -8,7 +8,6 @@ import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
-import tracking from 'core/tracking';
 import { withExperiment } from 'core/withExperiment';
 import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
