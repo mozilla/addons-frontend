@@ -93,26 +93,22 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
         <div className={classNames}>
           {message && <span className="ConfirmButton-message">{message}</span>}
           <div className="ConfirmButton-buttons">
-            <div className="ConfirmButton-confirm-button-container">
-              <Button
-                buttonType={confirmButtonType}
-                className="ConfirmButton-confirm-button"
-                onClick={this.onConfirm}
-                puffy={puffyButtons}
-              >
-                {confirmButtonText || i18n.gettext('Confirm')}
-              </Button>
-            </div>
-            <div className="ConfirmButton-cancel-button-container">
-              <Button
-                buttonType={cancelButtonType}
-                className="ConfirmButton-cancel-button"
-                onClick={this.toggleConfirmation}
-                puffy={puffyButtons}
-              >
-                {cancelButtonText || i18n.gettext('Cancel')}
-              </Button>
-            </div>
+            <Button
+              buttonType={confirmButtonType}
+              className="ConfirmButton-confirm-button"
+              onClick={this.onConfirm}
+              puffy={puffyButtons}
+            >
+              {confirmButtonText || i18n.gettext('Confirm')}
+            </Button>
+            <Button
+              buttonType={cancelButtonType}
+              className="ConfirmButton-cancel-button"
+              onClick={this.toggleConfirmation}
+              puffy={puffyButtons}
+            >
+              {cancelButtonText || i18n.gettext('Cancel')}
+            </Button>
           </div>
         </div>
       );
