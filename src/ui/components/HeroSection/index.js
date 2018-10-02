@@ -11,7 +11,7 @@ import './styles.scss';
 type Props = {|
   children?: any,
   linkTo?: Object | string,
-  onClick: Function,
+  onClick?: () => void,
   styleName?: string,
 |};
 

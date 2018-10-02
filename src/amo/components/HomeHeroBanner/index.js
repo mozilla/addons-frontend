@@ -16,7 +16,6 @@ import './styles.scss';
 
 type InternalProps = {|
   ...WithExperimentInjectedProps,
-  _tracking: typeof tracking,
   i18n: I18nType,
 |};
 
@@ -26,12 +25,8 @@ export const AB_HOME_HERO_VARIANT_B = 'large';
 export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';
 
 export class HomeHeroBannerBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _tracking: tracking,
-  };
-
   componentDidMount() {
-    const { _tracking, experimentEnabled, variant } = this.props;
+    const { experimentEnabled, variant } = this.props;
 
     if (!experimentEnabled) {
       log.info('[HomeHeroBanner.componentDidMount] experiment not enabled');
@@ -40,11 +35,6 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     }
 
     log.info('[HomeHeroBanner.componentDidMount] variant is:', variant);
-
-    _tracking.sendEvent({
-      action: variant,
-      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Page View`,
-    });
   }
 
   getHeroes() {
@@ -290,31 +280,13 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
       const { description, title, url } = hero;
 
       return (
-        <HeroSection
-          key={url}
-          linkTo={url}
-          onClick={(e) => this.trackExperimentClick(e, title)}
-        >
+        <HeroSection key={url} linkTo={url}>
           <h3>{title}</h3>
           <p>{description}</p>
         </HeroSection>
       );
     });
   }
-
-  trackExperimentClick = (e: SyntheticEvent<HTMLElement>, title: string) => {
-    const { _tracking, experimentEnabled, variant } = this.props;
-
-    if (!experimentEnabled) {
-      return;
-    }
-
-    _tracking.sendEvent({
-      action: variant,
-      category: `${AB_HOME_HERO_EXPERIMENT_CATEGORY} / Click`,
-      label: title,
-    });
-  };
 
   render() {
     log.info('[HomeHeroBanner.render] variant is:', this.props.variant);
