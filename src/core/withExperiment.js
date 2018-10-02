@@ -60,6 +60,18 @@ export const withExperiment = ({
     constructor(props: withExperimentInternalProps) {
       super(props);
 
+      log.info('[WithExperiment.constructor] props:', {
+        _cookie: props._cookie,
+        variantA: props.variantA,
+        variantB: props.variantB,
+      });
+
+      log.info('[WithExperiment.constructor] this.props:', {
+        _cookie: this.props._cookie,
+        variantA: this.props.variantA,
+        variantB: this.props.variantB,
+      });
+
       if (!this.isExperimentEnabled()) {
         log.debug(`Experiment "${defaultId}" is not enabled by config.`);
         return;
