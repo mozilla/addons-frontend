@@ -480,7 +480,7 @@ describe(__filename, () => {
       expect(icon).toHaveLength(1);
       expect(icon).toHaveProp('name', 'delete');
 
-      expect(root.find('.AMInstallButton-loading-icon')).toHaveLength(0);
+      expect(root.find('.AMInstallButton-loading-button')).toHaveLength(0);
     },
   );
 
@@ -498,7 +498,7 @@ describe(__filename, () => {
     expect(icon).toHaveLength(1);
     expect(icon).toHaveProp('name', 'plus-dark');
 
-    expect(root.find('.AMInstallButton-loading-icon')).toHaveLength(0);
+    expect(root.find('.AMInstallButton-loading-button')).toHaveLength(0);
   });
 
   it('renders a "Add to Firefox" button when add-on is INACTIVE', () => {
@@ -517,9 +517,9 @@ describe(__filename, () => {
       expect(root).toHaveClassName('AMInstallButton');
       expect(root.find('.AMInstallButton-button')).toHaveLength(0);
 
-      expect(root.find('.AMInstallButton-loading')).toHaveLength(1);
-      expect(root.find(Icon)).toHaveLength(1);
-      expect(root.find(Icon)).toHaveProp('name', 'loading');
+      expect(root.find('.AMInstallButton-loading-button')).toHaveLength(1);
+      expect(root.find('.AMInstallButton-loader-container')).toHaveLength(1);
+      expect(root.find('.visually-hidden')).toHaveLength(1);
     },
   );
 
@@ -535,33 +535,45 @@ describe(__filename, () => {
     expect(root).toHaveClassName('AMInstallButton');
     expect(root.find('.AMInstallButton-button')).toHaveLength(0);
 
-    expect(root.find('.AMInstallButton-loading')).toHaveLength(1);
-    expect(root.find(Icon)).toHaveLength(1);
-    expect(root.find(Icon)).toHaveProp('name', 'loading');
+    expect(root.find('.AMInstallButton-loading-button')).toHaveLength(1);
+    expect(root.find('.AMInstallButton-loader-container')).toHaveLength(1);
+    expect(root.find('.visually-hidden')).toHaveLength(1);
   });
 
   it('sets an `alt` prop to the Icon when status is DOWNLOADING', () => {
     const root = render({ status: DOWNLOADING });
 
-    expect(root.find(Icon)).toHaveProp('alt', 'Downloading');
+    expect(root.find('.AMInstallButton-loading-button')).toHaveProp(
+      'title',
+      'Downloading',
+    );
   });
 
   it('sets an `alt` prop to the Icon when status is ENABLING', () => {
     const root = render({ status: ENABLING });
 
-    expect(root.find(Icon)).toHaveProp('alt', 'Enabling');
+    expect(root.find('.AMInstallButton-loading-button')).toHaveProp(
+      'title',
+      'Enabling',
+    );
   });
 
   it('sets an `alt` prop to the Icon when status is INSTALLING', () => {
     const root = render({ status: INSTALLING });
 
-    expect(root.find(Icon)).toHaveProp('alt', 'Installing');
+    expect(root.find('.AMInstallButton-loading-button')).toHaveProp(
+      'title',
+      'Installing',
+    );
   });
 
   it('sets an `alt` prop to the Icon when status is UNINSTALLING', () => {
     const root = render({ status: UNINSTALLING });
 
-    expect(root.find(Icon)).toHaveProp('alt', 'Uninstalling');
+    expect(root.find('.AMInstallButton-loading-button')).toHaveProp(
+      'title',
+      'Uninstalling',
+    );
   });
 
   it('calls the `uninstall` helper when uninstalling an add-on', () => {

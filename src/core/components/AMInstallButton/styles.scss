@@ -1,40 +1,5 @@
 @import '~core/css/styles';
 
-@mixin animated-icon($name, $steps, $svgWidth, $width) {
-  @keyframes #{$name} {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-($svgWidth - $width));
-    }
-  }
-
-  animation-duration: 1.05s;
-  animation-iteration-count: infinite;
-  animation-name: $name;
-  animation-timing-function: steps($steps);
-  background-image: url('./img/#{$name}.svg');
-  display: block;
-  height: 100%;
-  width: $svgWidth;
-
-  [dir='rtl'] & {
-    @keyframes #{$name}-rtl {
-      from {
-        transform: scaleX(-1) translateX(0);
-      }
-
-      to {
-        transform: scaleX(-1) translateX(-($svgWidth - $width));
-      }
-    }
-
-    animation-name: '#{$name}-rtl';
-  }
-}
-
 .AMInstallButton-transition-enter {
   opacity: 0.01;
 }
@@ -59,57 +24,106 @@
     }
   }
 
-  // Preload the loading animation SVG to prevent a flicker at the start of the
-  // animation.
-  .AMInstallButton-button:hover {
-    background-image: url('./img/loading.svg');
-    background-size: 0, 0;
-  }
-
   .AMInstallButton-button--enable {
     .Icon {
       margin-top: inherit;
     }
   }
 
-  .AMInstallButton-loading {
+  .AMInstallButton-loading-button {
     background-color: $grey-20;
     border-radius: 2px;
     height: 32px;
-    text-align: center;
+  }
+
+  .AMInstallButton-loader {
+    $borderRadiusReduction: 43%;
+    $height: 4px;
+    $heightReduction: 0.9;
+    $speed: 0.53s;
+    $width: 4px;
+    $widthIncrease: 1.6;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin: 0 auto;
     width: 32px;
 
-    .AMInstallButton-loading-icon {
-      $width: 16px;
+    @keyframes move {
+      0% {
+        transform: translateX(0);
+      }
 
-      display: inline-block;
-      height: 4px;
-      margin-top: 14px;
-      overflow-x: hidden;
+      100% {
+        transform: translateX(12px);
+      }
+    }
+
+    [dir='rtl'] & {
+      @keyframes move-rtl {
+        0% {
+          transform: scaleX(-1) translateX(0);
+        }
+
+        100% {
+          transform: scaleX(-1) translateX(12px);
+        }
+      }
+    }
+
+    @keyframes squash {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      30% {
+        border-radius: $borderRadiusReduction;
+        transform: scale($widthIncrease, $heightReduction);
+      }
+
+      70% {
+        border-radius: $borderRadiusReduction;
+        transform: scale($widthIncrease, $heightReduction);
+      }
+
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+    .AMInstallButton-loader-container {
+      @include margin-start(8px);
+
+      animation: move $speed cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite
+        alternate;
+      height: $height;
       width: $width;
 
-      .Icon-loading {
-        @include animated-icon(
-          $name: 'loading',
-          $steps: 60,
-          $svgWidth: 992px,
-          $width: $width
-        );
-      }
-
       [dir='rtl'] & {
-        // For some reasons, there is a small horizontal offset in RTL mode.
-        margin-left: -1px;
+        animation-name: move-rtl;
       }
+    }
+
+    .AMInstallButton-loader-ball {
+      animation: squash $speed ease-in-out infinite alternate;
+      background: $blue-60;
+      border-radius: 50%;
+      height: $height;
+      width: $width;
     }
   }
 
-  .AMInstallButton-loading--puffy {
+  .AMInstallButton-loading-button--puffy {
     height: 48px;
-    width: 48px;
 
-    .AMInstallButton-loading-icon {
-      margin-top: 22px;
+    .AMInstallButton-loader {
+      width: 48px;
+    }
+
+    .AMInstallButton-loader-container {
+      @include margin-start(16px);
     }
   }
 }
