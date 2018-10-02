@@ -316,6 +316,8 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       timeout: TRANSITION_TIMEOUT,
     };
 
+    const buttonText = this.getButtonText();
+
     return (
       <TransitionGroup className={makeClassName('AMInstallButton', className)}>
         {this.showLoadingAnimation() ? (
@@ -324,13 +326,13 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
               className={makeClassName('AMInstallButton-loading-button', {
                 'AMInstallButton-loading-button--puffy': this.props.puffy,
               })}
-              title={this.getButtonText()}
+              title={buttonText}
             >
               <div className="AMInstallButton-loader">
                 <div className="AMInstallButton-loader-container">
                   <div className="AMInstallButton-loader-ball" />
                 </div>
-                <span className="visually-hidden">{this.getButtonText()}</span>
+                <span className="visually-hidden">{buttonText}</span>
               </div>
             </div>
           </CSSTransition>
@@ -338,7 +340,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
           <CSSTransition key="button" {...transitionProps}>
             <Button {...buttonProps}>
               <Icon name={this.getIconName()} />
-              {this.getButtonText()}
+              {buttonText}
             </Button>
           </CSSTransition>
         )}
