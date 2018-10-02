@@ -175,8 +175,6 @@ function baseServer(
     app.use(middleware.datadogTiming({ _HotShots }));
   }
 
-  app.use(middleware.logRequests);
-
   // Set HTTP Strict Transport Security headers
   app.use(middleware.hsts());
 
