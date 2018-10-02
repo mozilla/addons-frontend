@@ -69,9 +69,24 @@ export const withExperiment = ({
 
       this.experimentCookie = _cookie.load(this.getCookieName());
 
+      log.info(
+        '[WithExperiment.constructor] cookie name:',
+        this.getCookieName(),
+      );
+
+      log.info(
+        '[WithExperiment.constructor] experiment cookie loaded:',
+        this.experimentCookie,
+      );
+
       if (this.experimentCookie === undefined) {
         this.experimentCookie = randomizer() >= 0.5 ? variantA : variantB;
         _cookie.save(this.getCookieName(), this.experimentCookie, cookieConfig);
+
+        log.info(
+          '[WithExperiment.constructor] experiment cookie saved:',
+          this.experimentCookie,
+        );
       }
     }
 
@@ -103,6 +118,8 @@ export const withExperiment = ({
           ? _cookie.load(this.getCookieName())
           : null,
       };
+
+      log.info('[WithExperiment.render] exposed props:', exposedProps);
 
       return <WrappedComponent {...exposedProps} {...props} />;
     }

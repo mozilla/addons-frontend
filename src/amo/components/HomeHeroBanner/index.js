@@ -3,6 +3,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import makeClassName from 'classnames';
 
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
@@ -33,8 +34,12 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     const { _tracking, experimentEnabled, variant } = this.props;
 
     if (!experimentEnabled) {
+      log.info('[HomeHeroBanner.componentDidMount] experiment not enabled');
+
       return;
     }
+
+    log.info('[HomeHeroBanner.componentDidMount] variant is:', variant);
 
     _tracking.sendEvent({
       action: variant,
@@ -312,6 +317,8 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   };
 
   render() {
+    log.info('[HomeHeroBanner.render] variant is:', this.props.variant);
+
     const homeBannerClass = makeClassName('HomeHeroBanner', {
       'HomeHeroBanner--small': this.props.variant === AB_HOME_HERO_VARIANT_A,
     });
