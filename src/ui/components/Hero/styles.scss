@@ -40,19 +40,6 @@
   }
 }
 
-.HomeHeroBanner--small {
-  .Hero .HeroSection {
-    @include respond-to(medium) {
-      &:nth-of-type(2),
-      &:nth-of-type(3) {
-        .HeroSection-content h3 {
-          font-size: $font-size-m;
-        }
-      }
-    }
-  }
-}
-
 .Hero .HeroSection {
   &:first-of-type {
     grid-area: first;
