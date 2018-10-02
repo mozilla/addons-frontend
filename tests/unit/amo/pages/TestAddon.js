@@ -1527,11 +1527,26 @@ describe(__filename, () => {
     expect(root.find('.Addon')).toHaveProp('data-site-identifier', 9001);
   });
 
-  it('renders an HTML title', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon });
+  it.each([
+    [ADDON_TYPE_DICT, 'Dictionary'],
+    [ADDON_TYPE_EXTENSION, 'Extension'],
+    [ADDON_TYPE_LANG, 'Language Pack'],
+    [ADDON_TYPE_OPENSEARCH, 'Add-on'],
+    [ADDON_TYPE_STATIC_THEME, 'Theme'],
+    [ADDON_TYPE_THEME, 'Theme'],
+  ])('renders an HTML title', (type, name) => {
+    const lang = 'fr';
 
-    expect(root.find('title')).toHaveText(addon.name);
+    const addon = createInternalAddon({ ...fakeAddon, type });
+    const { store } = dispatchClientMetadata({ lang });
+
+    store.dispatch(_loadAddons({ addon }));
+
+    const root = renderComponent({ params: { slug: addon.slug }, store });
+
+    expect(root.find('title')).toHaveText(
+      `${addon.name} – Get this ${name} for 🦊 Firefox (${lang})`,
+    );
   });
 
   it('does not render an HTML title when there is no add-on', () => {

@@ -401,10 +401,6 @@ export class AddonBase extends React.Component {
   getMetaDescription() {
     const { addon, i18n } = this.props;
 
-    if (!addon) {
-      return null;
-    }
-
     const content = i18n.sprintf(
       i18n.gettext('Download %(addonName)s for Firefox. %(summary)s'),
       {
@@ -414,6 +410,54 @@ export class AddonBase extends React.Component {
     );
 
     return <meta name="description" content={content} />;
+  }
+
+  getPageTitle() {
+    const { addon, i18n, lang } = this.props;
+
+    const i18nValues = {
+      addonName: addon.name,
+      locale: lang,
+    };
+
+    switch (addon.type) {
+      case ADDON_TYPE_DICT:
+        return i18n.sprintf(
+          // translators: please keep the fox emoji next to "Firefox".
+          i18n.gettext(`%(addonName)s – Get this Dictionary for 🦊 Firefox
+            (%(locale)s)`),
+          i18nValues,
+        );
+      case ADDON_TYPE_EXTENSION:
+        return i18n.sprintf(
+          // translators: please keep the fox emoji next to "Firefox".
+          i18n.gettext(`%(addonName)s – Get this Extension for 🦊 Firefox
+            (%(locale)s)`),
+          i18nValues,
+        );
+      case ADDON_TYPE_LANG:
+        return i18n.sprintf(
+          // translators: please keep the fox emoji next to "Firefox".
+          i18n.gettext(`%(addonName)s – Get this Language Pack for 🦊 Firefox
+            (%(locale)s)`),
+          i18nValues,
+        );
+      case ADDON_TYPE_STATIC_THEME:
+      case ADDON_TYPE_THEME:
+        return i18n.sprintf(
+          // translators: please keep the fox emoji next to "Firefox".
+          i18n.gettext(`%(addonName)s – Get this Theme for 🦊 Firefox
+            (%(locale)s)`),
+          i18nValues,
+        );
+      default:
+        return i18n.sprintf(
+          // translators: please keep the fox emoji next to "Firefox".
+          i18n.gettext(`%(addonName)s – Get this Add-on for 🦊 Firefox
+            (%(locale)s)`),
+          i18nValues,
+        );
+    }
   }
 
   render() {
@@ -533,8 +577,8 @@ export class AddonBase extends React.Component {
         data-site-identifier={addon ? addon.id : null}
       >
         {addon && (
-          <Helmet>
-            <title>{addon.name}</title>
+          <Helmet titleTemplate={null}>
+            <title>{this.getPageTitle()}</title>
             {this.getMetaDescription()}
           </Helmet>
         )}
