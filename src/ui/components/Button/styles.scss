@@ -2,7 +2,6 @@
 
 $micro-font-size: 11px;
 $default-font-size: 13px;
-$puffy-font-size: 15px;
 
 /* Button */
 @mixin button(
@@ -47,7 +46,7 @@ $puffy-font-size: 15px;
 
     &.Button--puffy {
       border-radius: 4px;
-      font-size: $puffy-font-size;
+      font-size: $font-size-puffy-buttons;
       height: auto;
       min-height: 48px;
       padding: 0 16px;
@@ -55,8 +54,8 @@ $puffy-font-size: 15px;
       .Icon {
         @include margin-end(8px);
 
-        height: $puffy-font-size;
-        width: $puffy-font-size;
+        height: $font-size-puffy-buttons;
+        width: $font-size-puffy-buttons;
       }
     }
 

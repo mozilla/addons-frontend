@@ -211,18 +211,32 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Delete review');
   }
 
-  confirmDeletePrompt() {
+  confirmButtonText() {
     const { i18n } = this.props;
 
     if (this.isReply()) {
-      return i18n.gettext('Do you really want to delete this reply?');
+      return i18n.gettext('Delete reply');
     }
 
     if (this.isRatingOnly()) {
-      return i18n.gettext('Do you really want to delete this rating?');
+      return i18n.gettext('Delete rating');
     }
 
-    return i18n.gettext('Do you really want to delete this review?');
+    return i18n.gettext('Delete review');
+  }
+
+  cancelButtonText() {
+    const { i18n } = this.props;
+
+    if (this.isReply()) {
+      return i18n.gettext('Keep reply');
+    }
+
+    if (this.isRatingOnly()) {
+      return i18n.gettext('Keep rating');
+    }
+
+    return i18n.gettext('Keep review');
   }
 
   renderReply() {
@@ -363,15 +377,16 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             ) : (
               <ConfirmButton
                 buttonType="cancel"
+                cancelButtonText={this.cancelButtonText()}
                 cancelButtonType="neutral"
                 className={makeClassName(
                   'AddonReviewCard-control',
                   confirmButtonClassName,
                 )}
-                confirmButtonText={i18n.gettext('Delete')}
+                confirmButtonText={this.confirmButtonText()}
                 id={`${confirmButtonClassName}-${review.id}`}
-                message={this.confirmDeletePrompt()}
                 onConfirm={this.onClickToDeleteReview}
+                puffyButtons={verticalButtons}
               >
                 {this.deletePrompt()}
               </ConfirmButton>
