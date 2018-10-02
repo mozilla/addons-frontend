@@ -57,6 +57,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  _siteUserCanManageReplies?: () => boolean,
   deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
@@ -239,8 +240,28 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Keep review');
   }
 
+  siteUserCanManageReplies() {
+    const {
+      addon,
+      siteUser,
+      siteUserHasReplyPerm,
+      _siteUserCanManageReplies,
+    } = this.props;
+    if (_siteUserCanManageReplies) {
+      // Return a stub implementation for testing.
+      return _siteUserCanManageReplies();
+    }
+    if (!siteUser) {
+      return false;
+    }
+    return (
+      isAddonAuthor({ addon, userId: siteUser.id }) || siteUserHasReplyPerm
+    );
+  }
+
   renderReply() {
     const {
+      addon,
       errorHandler,
       i18n,
       replyingToReview,
@@ -275,6 +296,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           />
         ) : (
           <AddonReviewCard
+            addon={addon}
             isReplyToReviewId={review.id}
             review={review.reply}
           />
@@ -286,7 +308,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   render() {
     const {
       _config,
-      addon,
       className,
       deletingReview,
       editingReview,
@@ -300,7 +321,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       showControls,
       showRating,
       siteUser,
-      siteUserHasReplyPerm,
       verticalButtons,
     } = this.props;
 
@@ -348,9 +368,15 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     const confirmButtonClassName = 'AddonReviewCard-delete';
 
+    const showEditControls =
+      review &&
+      siteUser &&
+      (review.userId === siteUser.id ||
+        (this.isReply() && this.siteUserCanManageReplies()));
+
     const controls = showControls ? (
       <div className="AddonReviewCard-allControls">
-        {siteUser && review && review.userId === siteUser.id ? (
+        {review && showEditControls ? (
           <React.Fragment>
             {editingReview &&
               !_config.get('enableFeatureInlineAddonReview') && (
@@ -395,13 +421,11 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         ) : null}
 
         {review &&
-        addon &&
-        siteUser &&
         !replyingToReview &&
         !review.reply &&
         !this.isReply() &&
-        (isAddonAuthor({ addon, userId: siteUser.id }) ||
-          siteUserHasReplyPerm) &&
+        this.siteUserCanManageReplies() &&
+        siteUser &&
         review.userId !== siteUser.id ? (
           <a
             href="#reply"
