@@ -180,79 +180,81 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }: Object) {
     const { addon, i18n } = this.props;
     return (
-      <DefinitionList className="AddonMoreInfo-dl">
-        {(homepage || supportUrl || supportEmail) && (
-          <Definition
-            className="AddonMoreInfo-links"
-            term={i18n.gettext('Add-on Links')}
-          >
-            <ul className="AddonMoreInfo-links-contents-list">
-              {homepage}
-              {supportUrl}
-              {supportEmail}
-            </ul>
-          </Definition>
-        )}
-        {version && (
-          <Definition
-            className="AddonMoreInfo-version"
-            term={i18n.gettext('Version')}
-          >
-            {version}
-          </Definition>
-        )}
-        {versionLastUpdated && (
-          <Definition
-            className="AddonMoreInfo-last-updated"
-            term={i18n.gettext('Last updated')}
-          >
-            {versionLastUpdated}
-          </Definition>
-        )}
-        {versionLicenseLink && (
-          <Definition
-            className="AddonMoreInfo-license"
-            term={i18n.gettext('License')}
-          >
-            {versionLicenseLink}
-          </Definition>
-        )}
-        {privacyPolicyLink && (
-          <Definition
-            className="AddonMoreInfo-privacy-policy"
-            term={i18n.gettext('Privacy Policy')}
-          >
-            {privacyPolicyLink}
-          </Definition>
-        )}
-        {eulaLink && (
-          <Definition
-            className="AddonMoreInfo-eula"
-            term={i18n.gettext('End-User License Agreement')}
-          >
-            {eulaLink}
-          </Definition>
-        )}
-        {versionHistoryLink && (
-          <Definition
-            className="AddonMoreInfo-version-history"
-            term={i18n.gettext('Version History')}
-          >
-            <ul className="AddonMoreInfo-links-contents-list">
-              {versionHistoryLink}
-            </ul>
-          </Definition>
-        )}
-        {statsLink && (
-          <Definition
-            className="AddonMoreInfo-stats"
-            term={i18n.gettext('Usage Statistics')}
-          >
-            {statsLink}
-          </Definition>
-        )}
+      <React.Fragment>
+        <DefinitionList className="AddonMoreInfo-dl">
+          {(homepage || supportUrl || supportEmail) && (
+            <Definition
+              className="AddonMoreInfo-links"
+              term={i18n.gettext('Add-on Links')}
+            >
+              <ul className="AddonMoreInfo-links-contents-list">
+                {homepage}
+                {supportUrl}
+                {supportEmail}
+              </ul>
+            </Definition>
+          )}
+          {version && (
+            <Definition
+              className="AddonMoreInfo-version"
+              term={i18n.gettext('Version')}
+            >
+              {version}
+            </Definition>
+          )}
+          {versionLastUpdated && (
+            <Definition
+              className="AddonMoreInfo-last-updated"
+              term={i18n.gettext('Last updated')}
+            >
+              {versionLastUpdated}
+            </Definition>
+          )}
+          {versionLicenseLink && (
+            <Definition
+              className="AddonMoreInfo-license"
+              term={i18n.gettext('License')}
+            >
+              {versionLicenseLink}
+            </Definition>
+          )}
+          {privacyPolicyLink && (
+            <Definition
+              className="AddonMoreInfo-privacy-policy"
+              term={i18n.gettext('Privacy Policy')}
+            >
+              {privacyPolicyLink}
+            </Definition>
+          )}
+          {eulaLink && (
+            <Definition
+              className="AddonMoreInfo-eula"
+              term={i18n.gettext('End-User License Agreement')}
+            >
+              {eulaLink}
+            </Definition>
+          )}
+          {versionHistoryLink && (
+            <Definition
+              className="AddonMoreInfo-version-history"
+              term={i18n.gettext('Version History')}
+            >
+              <ul className="AddonMoreInfo-links-contents-list">
+                {versionHistoryLink}
+              </ul>
+            </Definition>
+          )}
+          {statsLink && (
+            <Definition
+              className="AddonMoreInfo-stats"
+              term={i18n.gettext('Usage Statistics')}
+            >
+              {statsLink}
+            </Definition>
+          )}
+        </DefinitionList>
         <AddonAdminLinks addon={addon} />
-      </DefinitionList>
+      </React.Fragment>
     );
   }
 
