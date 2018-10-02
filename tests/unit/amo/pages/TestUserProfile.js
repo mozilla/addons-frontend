@@ -21,9 +21,11 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_FIREFOX,
   USERS_EDIT,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import ErrorList from 'ui/components/ErrorList';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -973,6 +975,28 @@ describe(__filename, () => {
 
     const paginator = shallow(root.find('.UserProfile-reviews').prop('footer'));
     expect(paginator).toHaveProp('pathname', `/user/${user.username}/`);
+  });
+
+  it('dispatches a server redirect when username is a numeric ID', () => {
+    const lang = 'fr';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const username = 'suhailsinghbains';
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userProps: defaultUserProps({ username }),
+    });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const user = getCurrentUser(store.getState().users);
+    renderUserProfile({ params: { username: user.id }, store });
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/${clientApp}/user/${username}/`,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   describe('errorHandler - extractId', () => {

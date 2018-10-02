@@ -67,11 +67,13 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   canEditProfile: boolean,
+  clientApp: string,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isOwner: boolean,
+  lang: string,
   pageSize: number | null,
   reviewCount: number | null,
   reviews: Array<UserReviewType> | null,
@@ -83,9 +85,11 @@ export class UserProfileBase extends React.Component<InternalProps> {
     super(props);
 
     const {
+      clientApp,
       dispatch,
       errorHandler,
       isOwner,
+      lang,
       location,
       match: { params },
       reviews,
@@ -104,24 +108,25 @@ export class UserProfileBase extends React.Component<InternalProps> {
           username: params.username,
         }),
       );
-    } else if (isOwner && !reviews) {
-      dispatch(
-        fetchUserReviews({
-          errorHandlerId: errorHandler.id,
-          page: this.getReviewsPage(location),
-          userId: user.id,
-        }),
-      );
-    }
-    const idOrNameCheck = props.match.params.username;
-    if(/\d+/.test(idOrNameCheck)){
-      const newUrl= { ...user };
-      props.dispatch(
+    } else {
+      if (/^\d+$/.test(params.username)) {
+        dispatch(
           sendServerRedirect({
-              status: 302,
-            url: `/user/${newUrl.username}`,
-        }),
-      );
+            status: 301,
+            url: `/${lang}/${clientApp}/user/${user.username}/`,
+          }),
+        );
+        return;
+      }
+      if (isOwner && !reviews) {
+        dispatch(
+          fetchUserReviews({
+            errorHandlerId: errorHandler.id,
+            page: this.getReviewsPage(location),
+            userId: user.id,
+          }),
+        );
+      }
     }
   }
 
@@ -455,8 +460,10 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 
   return {
     canEditProfile,
+    clientApp: state.api.clientApp,
     currentUser,
     isOwner,
+    lang: state.api.lang,
     pageSize: reviews ? reviews.pageSize : null,
     reviewCount: reviews ? reviews.reviewCount : null,
     reviews: reviews ? reviews.reviews : null,
