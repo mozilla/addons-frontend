@@ -171,6 +171,12 @@
   }
 }
 
+.Addon .AMInstallButton-loading-button {
+  @include respond-to(medium) {
+    width: 48px;
+  }
+}
+
 // Details section with lots of grid stuff, on larger displays.
 @include respond-to(large) {
   .Addon-details {
