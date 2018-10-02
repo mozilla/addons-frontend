@@ -1236,22 +1236,5 @@ describe(__filename, () => {
 
       expect(root.instance().siteUserCanManageReplies()).toEqual(true);
     });
-
-    it('lets any listed author manage reviews', () => {
-      const { addon } = signInAsAddonDeveloper();
-
-      const root = render({
-        addon,
-        review: _setReview({
-          ...fakeReview,
-          addon: {
-            id: addon.id,
-            slug: addon.slug,
-          },
-        }),
-      });
-
-      expect(root.instance().siteUserCanManageReplies()).toEqual(true);
-    });
   });
 });
