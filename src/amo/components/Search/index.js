@@ -38,7 +38,6 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  LinkComponent?: React.Node,
   enableSearchFilters?: boolean,
   filters: FiltersType,
   paginationQueryParams?: Object,
@@ -47,6 +46,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  LinkComponent: React.Node,
   context: string,
   count: number,
   dispatch: DispatchFunc,
