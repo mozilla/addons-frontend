@@ -261,72 +261,52 @@ export const selectLatestUserReview = ({
   return selectReview(reviewsState, userReviewId);
 };
 
-export function isReviewUpdate({
-  reviewsState,
-  newReviewId,
-  newReviewBody,
-}: {|
-  reviewsState: ReviewsState,
-  newReviewId: number,
-  newReviewBody: ?string,
-|}) {
-  const existingReview = selectReview(reviewsState, newReviewId);
-  if (!existingReview) {
-    return false;
-  }
-
-  // If this update is actually turning a rating into a review then
-  // it's not an update.
-  if (!existingReview.body && newReviewBody) {
-    return false;
-  }
-
-  return true;
-}
-
 export const addReviewToState = ({
   state,
   review,
-  _isReviewUpdate = isReviewUpdate,
 }: {|
   state: ReviewsState,
   review: UserReviewType,
-  _isReviewUpdate?: typeof isReviewUpdate,
 |}) => {
-  const isUpdate = _isReviewUpdate({
-    reviewsState: state,
-    newReviewId: review.id,
-    newReviewBody: review.body,
-  });
+  const existingReview = selectReview(state, review.id);
+  const ratingOrReviewExists = Boolean(existingReview);
 
-  const newState = {
-    ...state,
-    byId: storeReviewObjects({ state, reviews: [review] }),
-    groupedRatings: {
-      ...state.groupedRatings,
-      // When adding a new rating, reset the cache of groupedRatings.
-      // This will trigger a refresh from the server.
-      [review.reviewAddon.id]: undefined,
-    },
-  };
-
-  if (isUpdate) {
-    // For updates, we do not need to reset the state (seen below) since
-    // that will cause listing pages to refresh.
-    return newState;
+  let isReviewUpdate = ratingOrReviewExists;
+  if (existingReview && !existingReview.body && review.body) {
+    // If this update is actually upgrading a rating into a review then
+    // it's not an update.
+    isReviewUpdate = false;
   }
 
+  const byUserId = ratingOrReviewExists
+    ? state.byUserId
+    : {
+        ...state.byUserId,
+        // For any new rating object, reset the list
+        // to trigger a re-fetch from the server.
+        [review.userId]: undefined,
+      };
+
+  const byAddon = isReviewUpdate
+    ? state.byAddon
+    : {
+        ...state.byAddon,
+        // For any newly entered rating object *or* when upgrading a
+        // rating to a review, rest the review list to trigger a
+        // re-fetch from the server.
+        [review.reviewAddon.slug]: undefined,
+      };
+
   return {
-    ...newState,
-    byAddon: {
-      ...newState.byAddon,
-      // Reset all add-on reviews to trigger a refresh from the server.
-      [review.reviewAddon.slug]: undefined,
-    },
-    byUserId: {
-      ...newState.byUserId,
-      // This will trigger a refresh from the server.
-      [review.userId]: undefined,
+    ...state,
+    byId: storeReviewObjects({ state, reviews: [review] }),
+    byUserId,
+    byAddon,
+    groupedRatings: {
+      ...state.groupedRatings,
+      // When adding or updating a rating, reset the cache of
+      // groupedRatings. This will trigger a refresh from the server.
+      [review.reviewAddon.id]: undefined,
     },
   };
 };

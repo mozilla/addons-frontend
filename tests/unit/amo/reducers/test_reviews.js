@@ -31,7 +31,6 @@ import reviewsReducer, {
   expandReviewObjects,
   getReviewsByUserId,
   initialState,
-  isReviewUpdate,
   makeLatestUserReviewKey,
   reviewsAreLoading,
   storeReviewObjects,
@@ -992,8 +991,7 @@ describe(__filename, () => {
   describe('addReviewToState', () => {
     function _addReviewToState(params = {}) {
       return addReviewToState({
-        state: {},
-        _isReviewUpdate: sinon.stub().returns(false),
+        state: initialState,
         ...params,
       });
     }
@@ -1005,30 +1003,64 @@ describe(__filename, () => {
       expect(state.byId[review.id]).toEqual(review);
     });
 
-    it('resets the byUserId data when adding a new review', () => {
+    it('resets byUserId data when adding a new review', () => {
+      const reviewId1 = 1;
+      const reviewId2 = 2;
       const userId = 123;
 
       const prevState = reviewsReducer(
         undefined,
         _setUserReviews({
-          reviews: [fakeReview],
+          reviews: [{ ...fakeReview, id: reviewId1 }],
           userId,
         }),
       );
-      expect(prevState.byUserId[userId]).toBeDefined();
 
-      const _isReviewUpdate = sinon.stub().returns(false);
       const review = createInternalReview({
         ...fakeReview,
+        id: reviewId2,
+        body: 'This add-on is fantastic',
+        score: 5,
         user: {
           ...fakeReview.user,
           id: userId,
         },
       });
+
       const state = _addReviewToState({
         state: prevState,
         review,
-        _isReviewUpdate,
+      });
+      expect(state.byUserId[userId]).toBeUndefined();
+    });
+
+    it('resets byUserId data when adding a new rating', () => {
+      const reviewId1 = 1;
+      const reviewId2 = 2;
+      const userId = 123;
+
+      const prevState = reviewsReducer(
+        undefined,
+        _setUserReviews({
+          reviews: [{ ...fakeReview, id: reviewId1 }],
+          userId,
+        }),
+      );
+
+      const review = createInternalReview({
+        ...fakeReview,
+        id: reviewId2,
+        body: undefined,
+        score: 5,
+        user: {
+          ...fakeReview.user,
+          id: userId,
+        },
+      });
+
+      const state = _addReviewToState({
+        state: prevState,
+        review,
       });
       expect(state.byUserId[userId]).toBeUndefined();
     });
@@ -1045,7 +1077,6 @@ describe(__filename, () => {
       );
       expect(prevState.byUserId[userId]).toBeDefined();
 
-      const _isReviewUpdate = sinon.stub().returns(true);
       const review = createInternalReview({
         ...fakeReview,
         user: {
@@ -1056,8 +1087,44 @@ describe(__filename, () => {
       const state = _addReviewToState({
         state: prevState,
         review,
-        _isReviewUpdate,
       });
+      expect(state.byUserId[userId]).toBeDefined();
+    });
+
+    it('does not reset byUserId data when updating a rating', () => {
+      const userId = 123;
+      const externalReviewUser = {
+        ...fakeReview.user,
+        id: userId,
+      };
+
+      const ratingOnlyReview = {
+        ...fakeReview,
+        body: undefined,
+        score: 4,
+        user: externalReviewUser,
+      };
+
+      const prevState = reviewsReducer(
+        undefined,
+        _setUserReviews({
+          reviews: [ratingOnlyReview],
+          userId,
+        }),
+      );
+
+      // Upgrade the rating to a review.
+      const review = createInternalReview({
+        ...fakeReview,
+        body: 'This add-on is pretty good',
+        user: externalReviewUser,
+      });
+
+      const state = _addReviewToState({
+        state: prevState,
+        review,
+      });
+
       expect(state.byUserId[userId]).toBeDefined();
     });
 
@@ -1072,7 +1139,6 @@ describe(__filename, () => {
           reviews: [{ ...fakeReview, id: 1 }],
         }),
       );
-      const _isReviewUpdate = sinon.stub().returns(false);
       state = _addReviewToState({
         state,
         review: createInternalReview({
@@ -1083,13 +1149,13 @@ describe(__filename, () => {
           },
           id: 2,
         }),
-        _isReviewUpdate,
       });
 
       expect(state.byAddon[addonSlug]).toBeUndefined();
     });
 
-    it('does not reset all related add-on reviews for updates', () => {
+    it('resets add-on reviews when upgrading a rating to a review', () => {
+      const reviewId = 1;
       const addonSlug = 'some-slug';
 
       let state;
@@ -1097,10 +1163,9 @@ describe(__filename, () => {
         state,
         _setAddonReviews({
           addonSlug,
-          reviews: [{ ...fakeReview, id: 1 }],
+          reviews: [{ ...fakeReview, body: undefined, score: 5, id: reviewId }],
         }),
       );
-      const _isReviewUpdate = sinon.stub().returns(true);
       state = _addReviewToState({
         state,
         review: createInternalReview({
@@ -1109,9 +1174,46 @@ describe(__filename, () => {
             ...fakeReview.addon,
             slug: addonSlug,
           },
-          id: 2,
+          body: 'This add-on is pretty good',
+          score: 4,
+          id: reviewId,
         }),
-        _isReviewUpdate,
+      });
+
+      expect(state.byAddon[addonSlug]).toBeUndefined();
+    });
+
+    it('does not reset all related add-on reviews for updates', () => {
+      const reviewId = 1;
+      const addonSlug = 'some-slug';
+
+      let state;
+      state = reviewsReducer(
+        state,
+        _setAddonReviews({
+          addonSlug,
+          reviews: [
+            {
+              ...fakeReview,
+              body: 'This is a great add-on',
+              score: 5,
+              id: reviewId,
+            },
+          ],
+        }),
+      );
+      state = _addReviewToState({
+        state,
+        review: createInternalReview({
+          ...fakeReview,
+          addon: {
+            ...fakeReview.addon,
+            slug: addonSlug,
+          },
+          body: 'This add-on is OK',
+          score: 3,
+          id: reviewId,
+        }),
       });
 
       expect(state.byAddon[addonSlug]).toBeDefined();
@@ -1299,63 +1401,6 @@ describe(__filename, () => {
       state = reviewsReducer(state, { type: LOCATION_CHANGE });
 
       expect(state.view).toEqual({});
-    });
-  });
-
-  describe('isReviewUpdate', () => {
-    it('returns true for updates', () => {
-      const reviewId = 321;
-
-      const state = reviewsReducer(
-        undefined,
-        setReview({
-          ...fakeReview,
-          id: reviewId,
-          body: 'This is a fantastic add-on',
-          score: 5,
-        }),
-      );
-
-      expect(
-        isReviewUpdate({
-          reviewsState: state,
-          newReviewId: reviewId,
-          newReviewBody: 'This is a pretty good add-on',
-        }),
-      ).toEqual(true);
-    });
-
-    it('returns false when turning a rating into a review', () => {
-      const reviewId = 321;
-
-      // Add a rating-only review to the store.
-      const state = reviewsReducer(
-        undefined,
-        setReview({
-          ...fakeReview,
-          id: reviewId,
-          body: undefined,
-          score: 5,
-        }),
-      );
-
-      expect(
-        isReviewUpdate({
-          reviewsState: state,
-          newReviewId: reviewId,
-          newReviewBody: 'This is a pretty good add-on',
-        }),
-      ).toEqual(false);
-    });
-
-    it('returns false when no review exists in state', () => {
-      expect(
-        isReviewUpdate({
-          reviewsState: initialState,
-          newReviewId: 321,
-          newReviewBody: 'This is a pretty good add-on',
-        }),
-      ).toEqual(false);
     });
   });
 });
