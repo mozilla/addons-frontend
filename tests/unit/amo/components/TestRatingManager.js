@@ -22,6 +22,7 @@ import {
   hideEditReviewForm,
   hideFlashedReviewMessage,
   setLatestReview,
+  setReview,
   showEditReviewForm,
   updateAddonReview,
 } from 'amo/actions/reviews';
@@ -75,6 +76,9 @@ describe(__filename, () => {
   } = {}) => {
     const { store } = dispatchSignInActions({ userId });
 
+    if (review) {
+      store.dispatch(setReview(review));
+    }
     store.dispatch(
       setLatestReview({
         addonId: addon.id,
@@ -736,7 +740,7 @@ describe(__filename, () => {
     });
 
     describe('submitReview', () => {
-      it('posts the review and dispatches the created review', () => {
+      it('posts the review and dispatches review actions', () => {
         const apiState = store.getState().api;
 
         const params = {
@@ -825,6 +829,7 @@ describe(__filename, () => {
           })
           .then(() => {
             mockApi.verify();
+            sinon.assert.calledWith(dispatch, setReview(fakeReview));
             sinon.assert.calledWith(
               dispatch,
               setLatestReview({

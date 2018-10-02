@@ -268,18 +268,44 @@ export const addReviewToState = ({
   state: ReviewsState,
   review: UserReviewType,
 |}) => {
+  const existingReview = selectReview(state, review.id);
+  const ratingOrReviewExists = Boolean(existingReview);
+
+  let isReviewUpdate = ratingOrReviewExists;
+  if (existingReview && !existingReview.body && review.body) {
+    // If this update is actually upgrading a rating into a review then
+    // it's not an update.
+    isReviewUpdate = false;
+  }
+
+  const byUserId = ratingOrReviewExists
+    ? state.byUserId
+    : {
+        ...state.byUserId,
+        // For any new rating object, reset the list
+        // to trigger a re-fetch from the server.
+        [review.userId]: undefined,
+      };
+
+  const byAddon = isReviewUpdate
+    ? state.byAddon
+    : {
+        ...state.byAddon,
+        // For any newly entered rating object *or* when upgrading a
+        // rating to a review, rest the review list to trigger a
+        // re-fetch from the server.
+        [review.reviewAddon.slug]: undefined,
+      };
+
   return {
     ...state,
     byId: storeReviewObjects({ state, reviews: [review] }),
-    byUserId: {
-      ...state.byUserId,
-      // This will trigger a refresh from the server.
-      [review.userId]: undefined,
-    },
+    byUserId,
+    byAddon,
     groupedRatings: {
       ...state.groupedRatings,
-      // When adding a new rating, reset the cache of groupedRatings.
-      // This will trigger a refresh from the server.
+      // When adding or updating a rating, reset the cache of
+      // groupedRatings. This will trigger a refresh from the server.
       [review.reviewAddon.id]: undefined,
     },
   };
@@ -363,30 +389,19 @@ export default function reviewsReducer(
       });
     case SET_LATEST_REVIEW: {
       const { payload } = action;
-      const { addonId, addonSlug, userId, review, versionId } = payload;
+      const { addonId, userId, review, versionId } = payload;
       const key = makeLatestUserReviewKey({ addonId, userId, versionId });
 
-      let { byId } = state;
-      if (review) {
-        byId = storeReviewObjects({
-          state,
-          reviews: [createInternalReview(review)],
-        });
+      if (review && !selectReview(state, review.id)) {
+        throw new Error(
+          `Cannot handle SET_LATEST_REVIEW because review ${
+            review.id
+          } has not been set`,
+        );
       }
 
       return {
         ...state,
-        byId,
-        byAddon: {
-          ...state.byAddon,
-          // Reset all add-on reviews to trigger a refresh from the server.
-          [addonSlug]: undefined,
-        },
-        byUserId: {
-          ...state.byUserId,
-          // Reset all user reviews to trigger a refresh from the server.
-          [userId]: undefined,
-        },
         latestUserReview: {
           ...state.latestUserReview,
           [key]: review ? review.id : null,

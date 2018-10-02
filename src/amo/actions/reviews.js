@@ -95,9 +95,7 @@ export type SetReviewAction = {|
 |};
 
 export const setReview = (review: ExternalReviewType): SetReviewAction => {
-  if (!review) {
-    throw new Error('review cannot be empty');
-  }
+  invariant(review, 'review is required');
 
   return { type: SET_REVIEW, payload: review };
 };

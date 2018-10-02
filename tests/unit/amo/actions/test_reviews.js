@@ -1,13 +1,11 @@
 import {
   SET_INTERNAL_REVIEW,
-  SET_REVIEW,
   createInternalReview,
   fetchReviews,
   flagReview,
   reviewIdAction,
   sendReplyToReview,
   setInternalReview,
-  setReview,
   setReviewWasFlagged,
   setReviewReply,
 } from 'amo/actions/reviews';
@@ -43,17 +41,6 @@ describe(__filename, () => {
       const params = { ...defaultParams };
       delete params.page;
       expect(fetchReviews(params)).toMatchObject({ payload: { page: 1 } });
-    });
-  });
-
-  describe('setReview', () => {
-    it('requires a truthy review', () => {
-      expect(() => setReview()).toThrowError(/review cannot be empty/);
-    });
-
-    it('sets an action type', () => {
-      const action = setReview(fakeReview);
-      expect(action.type).toEqual(SET_REVIEW);
     });
   });
 

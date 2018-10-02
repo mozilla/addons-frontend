@@ -350,9 +350,9 @@ function* fetchReview({
       reviewId,
     };
 
-    const response: ExternalReviewType = yield call(getReview, params);
+    const review: ExternalReviewType = yield call(getReview, params);
 
-    yield put(setReview(response));
+    yield put(setReview(review));
   } catch (error) {
     log.warn(`Failed to get review ID ${reviewId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
