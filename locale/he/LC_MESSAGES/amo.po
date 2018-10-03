@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-03 17:45+0000\n"
+"PO-Revision-Date: 2018-10-03 18:04+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -270,19 +270,16 @@ msgid "Delete review"
 msgstr "מחיקת סקירה"
 
 #: src/amo/components/AddonReviewCard/index.js:232
-#, fuzzy
 msgid "Keep reply"
-msgstr "מחיקת התגובה שלי"
+msgstr "שמירת תגובה"
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Keep rating"
-msgstr "מחיקת הדירוג שלי"
+msgstr "שמירת דירוג"
 
 #: src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Keep review"
-msgstr "מחיקת הסקירה שלי"
+msgstr "שמירת סקירה"
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
@@ -439,11 +436,11 @@ msgstr "תוספות מאת המפתחים האלה"
 
 #: src/amo/components/App/index.js:219
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "תוספות עבור Firefox (%(locale)s)"
+msgstr "תוספות עבור Firefox ‏(%(locale)s)"
 
 #: src/amo/components/App/index.js:223
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%(title)s – תוספות עבור Firefox (%(locale)s)"
+msgstr "‏%(title)s – תוספות עבור Firefox ‏(%(locale)s)"
 
 #: src/amo/components/App/index.js:231
 msgid "Add-ons for Android (%(locale)s)"
@@ -451,7 +448,7 @@ msgstr "תוספות עבור אנדרואיד (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%(title)s – תוספות עבור אנדרואיד (%(locale)s)"
+msgstr "‏%(title)s – תוספות עבור אנדרואיד (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -1765,32 +1762,32 @@ msgstr "הערות שחרור עבור %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:405
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "הורדת %(addonName)s עבור Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:427
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "‏%(addonName)s – קבלת מילון זה עבור 🦊 Firefox ‏(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:434
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "‏%(addonName)s – קבלת הרחבה זו עבור 🦊 Firefox ‏(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:441
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "‏%(addonName)s – קבלת חבילת שפה זו עבור 🦊 Firefox ‏(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:449
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "‏%(addonName)s – קבלת ערכת נושא זו עבור 🦊 Firefox ‏(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:456
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "‏%(addonName)s – קבלת הרחבה זו עבור 🦊 Firefox ‏(%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:535
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
