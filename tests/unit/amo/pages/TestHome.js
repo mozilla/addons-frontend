@@ -17,7 +17,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
-  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -178,18 +178,18 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a trending extensions shelf', () => {
+  it('renders a popular extensions shelf', () => {
     const root = render();
 
     const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-TrendingExtensions');
-    expect(shelf).toHaveProp('header', 'Trending extensions');
-    expect(shelf).toHaveProp('footerText', 'See more trending extensions');
+    const shelf = shelves.find('.Home-PopularExtensions');
+    expect(shelf).toHaveProp('header', 'Popular extensions');
+    expect(shelf).toHaveProp('footerText', 'See more popular extensions');
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
-        sort: SEARCH_SORT_TRENDING,
+        sort: SEARCH_SORT_POPULAR,
       },
     });
     expect(shelf).toHaveProp('loading', true);
@@ -273,14 +273,14 @@ describe(__filename, () => {
       createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
     ];
     const featuredExtensions = createAddonsApiResult(addons);
-    const trendingExtensions = createAddonsApiResult(addons);
+    const popularExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
         featuredExtensions,
         featuredThemes: null,
-        trendingExtensions,
+        popularExtensions,
       }),
     );
 
@@ -313,14 +313,14 @@ describe(__filename, () => {
     const collections = [null, null, null];
     const featuredExtensions = createAddonsApiResult(addons);
     const featuredThemes = createAddonsApiResult([]);
-    const trendingExtensions = createAddonsApiResult(addons);
+    const popularExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
         featuredExtensions,
         featuredThemes,
-        trendingExtensions,
+        popularExtensions,
       }),
     );
 

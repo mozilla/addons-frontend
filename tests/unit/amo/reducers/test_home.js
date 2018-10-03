@@ -25,14 +25,14 @@ describe(__filename, () => {
       collections = [],
       featuredExtensions = createAddonsApiResult([fakeAddon]),
       featuredThemes = createAddonsApiResult([fakeTheme]),
-      trendingExtensions = createAddonsApiResult([fakeAddon]),
+      popularExtensions = createAddonsApiResult([fakeAddon]),
     }) => {
       store.dispatch(
         loadHomeAddons({
           collections,
           featuredExtensions,
           featuredThemes,
-          trendingExtensions,
+          popularExtensions,
         }),
       );
     };
@@ -59,7 +59,7 @@ describe(__filename, () => {
         ],
         featuredExtensions: createAddonsApiResult([fakeAddon]),
         featuredThemes: createAddonsApiResult([fakeTheme]),
-        trendingExtensions: createAddonsApiResult([fakeAddon]),
+        popularExtensions: createAddonsApiResult([fakeAddon]),
       });
 
       const homeState = store.getState().home;
@@ -80,7 +80,7 @@ describe(__filename, () => {
       expect(homeState.featuredThemes).toEqual([
         createInternalAddon(fakeTheme),
       ]);
-      expect(homeState.trendingExtensions).toEqual([
+      expect(homeState.popularExtensions).toEqual([
         createInternalAddon(fakeAddon),
       ]);
     });
