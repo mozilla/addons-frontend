@@ -320,7 +320,7 @@ module.exports = {
   // Enable new InstallButton with mozAddonManager.
   enableFeatureAMInstallButton: false,
 
-  enableFeatureInlineAddonReview: false,
+  enableFeatureInlineAddonReview: true,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
