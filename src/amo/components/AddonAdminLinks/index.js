@@ -3,7 +3,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import Link from 'amo/components/Link';
 import {
   ADDONS_CONTENTREVIEW,
   ADDONS_EDIT,
@@ -45,7 +44,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       i18n,
     } = this.props;
 
-    if (!addon) {
+    if (addon === null) {
       return null;
     }
 
@@ -64,68 +63,75 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
     const editLink = hasEditPermission ? (
       <li>
-        <Link
+        <a
           className="AddonAdminLinks-edit-link"
           href={`/developers/addon/${addon.slug}/edit`}
         >
           {i18n.gettext('Edit add-on')}
-        </Link>
+        </a>
       </li>
     ) : null;
 
-    const adminLink = hasAdminPermission ? (
+    const adminStatusLink = hasAdminPermission ? (
       <li>
-        <Link
-          className="AddonAdminLinks-admin-link"
+        <a
+          className="AddonAdminLinks-admin-status-link"
           href={`/admin/addon/manage/${addon.slug}/`}
         >
-          {i18n.gettext('Admin add-on')}
-        </Link>
+          {i18n.gettext('Admin add-on status')}
+        </a>
       </li>
     ) : null;
+
+    const adminLink =
+      hasAdminPermission && hasEditPermission ? (
+        <li>
+          <a
+            className="AddonAdminLinks-admin-link"
+            href={`/admin/models/addons/addon/${addon.id}`}
+          >
+            {i18n.gettext('Admin add-on')}
+          </a>
+        </li>
+      ) : null;
 
     const contentReviewLink = hasContentReviewPermission ? (
       <li>
-        <Link
+        <a
           className="AddonAdminLinks-contentReview-link"
           href={`/reviewers/review-content/${addon.slug}`}
         >
           {i18n.gettext('Content review add-on')}
-        </Link>
+        </a>
       </li>
     ) : null;
 
-    const codeReviewLink = showCodeReviewLink ? (
-      <li>
-        <Link
-          className="AddonAdminLinks-codeReview-link"
-          href={`/reviewers/review/${addon.slug}`}
-        >
-          {i18n.gettext('Code review add-on')}
-        </Link>
-      </li>
-    ) : null;
-
-    const themeReviewLink = showThemeReviewLink ? (
-      <li>
-        <Link
-          className="AddonAdminLinks-themeReview-link"
-          href={`/reviewers/review/${addon.slug}`}
-        >
-          {i18n.gettext('Review theme')}
-        </Link>
-      </li>
-    ) : null;
+    const codeReviewLinkText = isTheme(addon.type)
+      ? i18n.gettext('Review theme')
+      : i18n.gettext('Code review add-on');
+    const codeReviewLink =
+      showCodeReviewLink || showThemeReviewLink ? (
+        <li>
+          <a
+            className={`AddonAdminLinks-${
+              isTheme(addon.type) ? 'themeReview' : 'codeReview'
+            }-link`}
+            href={`/reviewers/review/${addon.slug}`}
+          >
+            {codeReviewLinkText}
+          </a>
+        </li>
+      ) : null;
 
     return (
       <DefinitionList className="AddonAdminLinks">
         <Definition term={i18n.gettext('Admin Links')}>
           <ul className="AddonAdminLinks-list">
             {editLink}
+            {adminStatusLink}
             {adminLink}
             {contentReviewLink}
             {codeReviewLink}
-            {themeReviewLink}
           </ul>
         </Definition>
       </DefinitionList>
