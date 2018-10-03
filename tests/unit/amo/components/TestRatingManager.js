@@ -52,6 +52,9 @@ import {
 
 describe(__filename, () => {
   function render(customProps = {}) {
+    const _config = getFakeConfig({
+      enableFeatureInlineAddonReview: false,
+    });
     const props = {
       addon: createInternalAddon(fakeAddon),
       errorHandler: createStubErrorHandler(),
@@ -61,6 +64,7 @@ describe(__filename, () => {
       submitReview: () => Promise.resolve(),
       userId: 91234,
       version: fakeAddon.current_version,
+      _config,
       ...customProps,
     };
 
