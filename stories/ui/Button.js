@@ -1,11 +1,12 @@
 /* @flow */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import Button from 'ui/components/Button';
 import type { Props as ButtonProps } from 'ui/components/Button';
 
+import Provider from '../setup/Provider';
 import { createChapters } from '../utils';
 
 export type Props = {|
@@ -73,15 +74,23 @@ function createPropsMatrix(chapter): Array<Props> {
         buttonType: chapter,
         externalDark: true,
         puffy: true,
-        // TODO: We need to have a little bit more set up for externalDark with href.
-        // The following will help get started with this ~:
-        // See https://github.com/mozilla/addons-frontend/pull/6389/files.
+        href: 'http://www.example.com',
+      },
+    },
+    {
+      props: {
+        ...Button.defaultProps,
+        buttonType: chapter,
+        externalDark: true,
+        micro: true,
+        href: 'http://www.example.com',
       },
     },
   ];
 }
 
 storiesOf('Button', module)
+  .addDecorator((story) => <Provider story={story()} />)
   .add(
     'Button props',
     withInfo()(() => {
