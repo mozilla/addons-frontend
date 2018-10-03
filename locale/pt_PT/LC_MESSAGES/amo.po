@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-03 17:38+0000\n"
+"PO-Revision-Date: 2018-10-03 21:38+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -250,44 +250,36 @@ msgid "Submit review"
 msgstr "Submeter análise"
 
 #: src/amo/components/AddonReviewCard/index.js:194
-#, fuzzy
 msgid "Edit reply"
-msgstr "Editar a minha resposta"
+msgstr "Editar resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:197
-#, fuzzy
 msgid "Edit review"
-msgstr "Editar a minha revisão"
+msgstr "Editar análise"
 
 #: src/amo/components/AddonReviewCard/index.js:204 src/amo/components/AddonReviewCard/index.js:218
-#, fuzzy
 msgid "Delete reply"
-msgstr "Apagar a minha resposta"
+msgstr "Apagar resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:208 src/amo/components/AddonReviewCard/index.js:222
-#, fuzzy
 msgid "Delete rating"
-msgstr "Apagar a minha avaliação"
+msgstr "Apagar avaliação"
 
 #: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:225
-#, fuzzy
 msgid "Delete review"
-msgstr "Apagar a minha análise"
+msgstr "Apagar análise"
 
 #: src/amo/components/AddonReviewCard/index.js:232
-#, fuzzy
 msgid "Keep reply"
-msgstr "Apagar a minha resposta"
+msgstr "Manter resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Keep rating"
-msgstr "Apagar a minha avaliação"
+msgstr "Manter avaliação"
 
 #: src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Keep review"
-msgstr "Apagar a minha análise"
+msgstr "Manter análise"
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
@@ -443,24 +435,20 @@ msgid "Add-ons by these developers"
 msgstr "Extras por estes programadores"
 
 #: src/amo/components/App/index.js:219
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Extras para o Firefox"
+msgstr "Extras para o Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Extras para o Firefox"
+msgstr "%(title)s – Extras para o Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
-#, fuzzy
 msgid "Add-ons for Android (%(locale)s)"
-msgstr "Extras para Android"
+msgstr "Extras para Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
-#, fuzzy
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s – Extras para Android"
+msgstr "%(title)s – Extras para Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -699,9 +687,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Desculpe, mas ocorreu um erro com o nosso servidor e não conseguimos completar o seu pedido. Registámos este erro e vamos investigá-lo."
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Análise por %(userName)s"
+msgstr "Resposta por %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
 msgid "Review by %(userName)s"
@@ -1316,9 +1303,8 @@ msgid "Log in to rate this add-on"
 msgstr "Iniciar sessão para avaliar este extra"
 
 #: src/amo/components/RatingManager/index.js:274
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Como está a desfrutar da sua experiência com %(addonName)s?"
+msgstr "Como está a desfrutar de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:300
 msgid "Saving star rating"
