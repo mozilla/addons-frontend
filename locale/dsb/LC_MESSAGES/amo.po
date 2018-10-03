@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-25 19:00+0000\n"
+"POT-Creation-Date: 2018-10-03 14:28+0000\n"
 "PO-Revision-Date: 2018-09-26 19:46+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -11,7 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:177
@@ -39,7 +40,8 @@ msgstr "%(collectionName)s pśidany"
 msgid "Add to…"
 msgstr "Pśidaś…"
 
-#: src/amo/components/AddAddonToCollection/index.js:266 src/amo/components/CollectionAddAddon/index.js:173
+#: src/amo/components/AddAddonToCollection/index.js:266
+#: src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
 msgstr "Zběrce pśidaś"
 
@@ -72,8 +74,12 @@ msgid "Some features may require payment"
 msgstr "Někotare funkcije mógli se płaśenje pominaś"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Musyśo <a href=\"%(downloadUrl)s\">Firefox ześěgnuś</a>, aby toś ten dodank instalěrował."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Musyśo <a href=\"%(downloadUrl)s\">Firefox ześěgnuś</a>, aby toś ten dodank "
+"instalěrował."
 
 #: src/amo/components/AddonCompatibilityError/index.js:63
 msgid "This add-on is not compatible with your version of Firefox."
@@ -84,8 +90,12 @@ msgid "Your version of Firefox does not support search plugins."
 msgstr "Waša wersija Firefox pytnice njepódpěra."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Waša wersija Firefox toś ten dodank njepódpěra, dokulaž se znowegostartowanje pomina."
+msgid ""
+"Your version of Firefox does not support this add-on because it requires a "
+"restart."
+msgstr ""
+"Waša wersija Firefox toś ten dodank njepódpěra, dokulaž se "
+"znowegostartowanje pomina."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -96,12 +106,21 @@ msgid "This add-on is not available on your platform."
 msgstr "Toś ten dodank njejo na wašej platformje k dispoziciji."
 
 #: src/amo/components/AddonCompatibilityError/index.js:80
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Toś ten dodank se <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> pomina (nanejmjenjej wersiju %(minVersion)s). Wužywaśo Firefox %(yourVersion)s."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Toś ten dodank se <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> "
+"pomina (nanejmjenjej wersiju %(minVersion)s). Wužywaśo Firefox "
+"%(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:98
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Waš wobglědowak dodanki njepódpěra. Móžośo <a href=\"%(downloadUrl)s\">Firefox ześěgnuś</a>, aby toś ten dodank instalěrował."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"Waš wobglědowak dodanki njepódpěra. Móžośo <a href=\"%(downloadUrl)s"
+"\">Firefox ześěgnuś</a>, aby toś ten dodank instalěrował."
 
 #: src/amo/components/AddonMeta/index.js:114
 msgid "%(total)s Star"
@@ -175,7 +194,8 @@ msgstr "Dodankowe wótzkaze"
 msgid "Version"
 msgstr "Wersija"
 
-#: src/amo/components/AddonMoreInfo/index.js:202 src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/AddonMoreInfo/index.js:202
+#: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Slědny raz zaktualizěrowany"
 
@@ -203,7 +223,9 @@ msgstr "Wužywańska statistika"
 msgid "More information"
 msgstr "Dalšne informacije"
 
-#: src/amo/components/AddonMoreInfo/index.js:45 src/amo/pages/UserProfile/index.js:300 src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/components/AddonMoreInfo/index.js:45
+#: src/amo/pages/UserProfile/index.js:300
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "Startowy bok"
 
@@ -228,22 +250,34 @@ msgid "Other popular extensions"
 msgstr "Druge woblubowane rozšyrjenja"
 
 #: src/amo/components/AddonReview/index.js:200
-msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Dajśo swětoju k wěsći, cogoždla maśo toś to rozšyrjenje za fantastiske! Mějśo se pšosym pó našych %(linkStart)ssměrnicach za pógódnośenja%(linkEnd)s."
+msgid ""
+"Tell the world why you think this extension is fantastic! Please follow our "
+"%(linkStart)sreview guidelines%(linkEnd)s."
+msgstr ""
+"Dajśo swětoju k wěsći, cogoždla maśo toś to rozšyrjenje za fantastiske! "
+"Mějśo se pšosym pó našych %(linkStart)ssměrnicach za pógódnośenja%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:204
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Dajśo nam k wěsći, což spódoba se wam na toś tom rozšyrjenju. Zwurazniśo se krotko a preciznje."
+msgstr ""
+"Dajśo nam k wěsći, což spódoba se wam na toś tom rozšyrjenju. Zwurazniśo se "
+"krotko a preciznje."
 
 #: src/amo/components/AddonReview/index.js:208
-msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Dajśo swětoju k wěsći, což na toś to rozšyrjenje dajośo. Mějśo se pšosym pó našych %(linkStart)ssměrnicach za pógódnośenja%(linkEnd)s."
+msgid ""
+"Tell the world about this extension. Please follow our %(linkStart)sreview "
+"guidelines%(linkEnd)s."
+msgstr ""
+"Dajśo swětoju k wěsći, což na toś to rozšyrjenje dajośo. Mějśo se pšosym pó "
+"našych %(linkStart)ssměrnicach za pógódnośenja%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:212
-msgid "Tell us about your experience with this extension. Be specific and concise."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
 msgstr "Wulicćo nam wó swójom dožywjenju z rozšyrjenim. Wulicćo z krotkim."
 
-#: src/amo/components/AddonReview/index.js:232 src/amo/components/AddonReviewCard/index.js:448
+#: src/amo/components/AddonReview/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:462
 msgid "Write a review"
 msgstr "Pišćo pógódnośenje"
 
@@ -251,119 +285,130 @@ msgstr "Pišćo pógódnośenje"
 msgid "Review text"
 msgstr "Tekst pógódnośenja"
 
-#: src/amo/components/AddonReview/index.js:265 src/amo/components/AddonReviewManager/index.js:139
+#: src/amo/components/AddonReview/index.js:265
+#: src/amo/components/AddonReviewManager/index.js:103
 msgid "Submit review"
 msgstr "Pógódnośenje wótpósłaś"
 
-#: src/amo/components/AddonReviewCard/index.js:192
-msgid "Edit my reply"
+#: src/amo/components/AddonReviewCard/index.js:194
+#, fuzzy
+msgid "Edit reply"
 msgstr "Mójo wótegrono wobźěłaś"
 
-#: src/amo/components/AddonReviewCard/index.js:195
-msgid "Edit my review"
+#: src/amo/components/AddonReviewCard/index.js:197
+#, fuzzy
+msgid "Edit review"
 msgstr "Mójo pógódnośenje wobźěłaś"
 
-#: src/amo/components/AddonReviewCard/index.js:202
-msgid "Delete my reply"
+#: src/amo/components/AddonReviewCard/index.js:204
+#: src/amo/components/AddonReviewCard/index.js:218
+#, fuzzy
+msgid "Delete reply"
 msgstr "Mójo wótegrono wulašowaś"
 
-#: src/amo/components/AddonReviewCard/index.js:206
-msgid "Delete my rating"
+#: src/amo/components/AddonReviewCard/index.js:208
+#: src/amo/components/AddonReviewCard/index.js:222
+#, fuzzy
+msgid "Delete rating"
 msgstr "Mójo pógódnośenje wulašowaś"
 
-#: src/amo/components/AddonReviewCard/index.js:209
-msgid "Delete my review"
+#: src/amo/components/AddonReviewCard/index.js:211
+#: src/amo/components/AddonReviewCard/index.js:225
+#, fuzzy
+msgid "Delete review"
 msgstr "Mójo pógódnośenje wulašowaś"
 
-#: src/amo/components/AddonReviewCard/index.js:216
-msgid "Do you really want to delete this reply?"
-msgstr "Cośo napšawdu toś to wótegrono wulašowaś?"
+#: src/amo/components/AddonReviewCard/index.js:232
+#, fuzzy
+msgid "Keep reply"
+msgstr "Mójo wótegrono wulašowaś"
 
-#: src/amo/components/AddonReviewCard/index.js:220
-msgid "Do you really want to delete this rating?"
-msgstr "Cośo napšawdu toś to pógódnośenje wulašowaś?"
+#: src/amo/components/AddonReviewCard/index.js:236
+#, fuzzy
+msgid "Keep rating"
+msgstr "Mójo pógódnośenje wulašowaś"
 
-#: src/amo/components/AddonReviewCard/index.js:223
-msgid "Do you really want to delete this review?"
-msgstr "Cośo napšawdu toś to pógódnośenje wulašowaś?"
+#: src/amo/components/AddonReviewCard/index.js:239
+#, fuzzy
+msgid "Keep review"
+msgstr "Mójo pógódnośenje wulašowaś"
 
-#: src/amo/components/AddonReviewCard/index.js:247
+#: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
 msgstr "Pišćo wótegrono na toś to pógódnośenje."
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:266
+#: src/amo/components/AddonReviewManager/index.js:107
 msgid "Update reply"
 msgstr "Wótegrono se aktualizěrujo"
 
-#: src/amo/components/AddonReviewCard/index.js:251
+#: src/amo/components/AddonReviewCard/index.js:267
 msgid "Publish reply"
 msgstr "Wótegrono wózjawiś"
 
-#: src/amo/components/AddonReviewCard/index.js:255
+#: src/amo/components/AddonReviewCard/index.js:271
+#: src/amo/components/AddonReviewManager/index.js:110
 msgid "Updating reply"
 msgstr "Wótegrono se aktualizěrujo"
 
-#: src/amo/components/AddonReviewCard/index.js:256
+#: src/amo/components/AddonReviewCard/index.js:272
 msgid "Publishing reply"
 msgstr "Wótegrono se wózjawja"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:320
 msgid "posted %(timestamp)s"
 msgstr "jo se napisał %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:303
+#: src/amo/components/AddonReviewCard/index.js:322
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "wót %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:356
+#: src/amo/components/AddonReviewCard/index.js:375
 msgid "Deleting…"
 msgstr "Lašujo se…"
 
-#: src/amo/components/AddonReviewCard/index.js:366 src/ui/components/DismissibleTextForm/index.js:186
-msgid "Delete"
-msgstr "Wulašowaś"
-
-#: src/amo/components/AddonReviewCard/index.js:392
+#: src/amo/components/AddonReviewCard/index.js:412
 msgid "Reply to this review"
 msgstr "Na toś to pógódnośenje wótegroniś"
 
-#: src/amo/components/AddonReviewCard/index.js:409
-msgid "Nevermind, I don't want to write a review"
-msgstr "Njewaźi, njocu pógódnośenje pisaś"
-
-#: src/amo/components/AddonReviewCard/index.js:410
-msgid "Nevermind, I don't want to edit my review"
-msgstr "Njewaźi, njocu swójo pógódnośenje wobdźěłaś"
-
-#: src/amo/components/AddonReviewManager/index.js:106
-msgid "Your star rating:"
-msgstr "Wašo gwězdowe pógódnośenje:"
-
-#: src/amo/components/AddonReviewManager/index.js:124
-msgid "Saving"
-msgstr "Składujo se"
-
-#: src/amo/components/AddonReviewManager/index.js:125
-msgid "Saved"
-msgstr "Skłaźony"
-
-#: src/amo/components/AddonReviewManager/index.js:138
-msgid "Update review"
-msgstr "Pógódnośenje aktualizěrowaś"
-
-#: src/amo/components/AddonReviewManager/index.js:143
-msgid "Updating review"
-msgstr "Pógódnośenje se aktualizěrujo"
-
-#: src/amo/components/AddonReviewManager/index.js:144
+#: src/amo/components/AddonReviewManager/index.js:104
 msgid "Submitting review"
 msgstr "Pógódnośenje se wótpóscelo"
 
-#: src/amo/components/AddonReviewManager/index.js:83
-msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Mějśo se pšosym pó našych %(linkStart)ssměrnicach za pógódnośenja%(linkEnd)s."
+#: src/amo/components/AddonReviewManager/index.js:108
+msgid "Update review"
+msgstr "Pógódnośenje aktualizěrowaś"
 
-#: src/amo/components/AddonReviewManager/index.js:98
+#: src/amo/components/AddonReviewManager/index.js:111
+msgid "Updating review"
+msgstr "Pógódnośenje se aktualizěrujo"
+
+#: src/amo/components/AddonReviewManager/index.js:119
+msgid "Your star rating:"
+msgstr "Wašo gwězdowe pógódnośenje:"
+
+#: src/amo/components/AddonReviewManager/index.js:137
+msgid "Saving"
+msgstr "Składujo se"
+
+#: src/amo/components/AddonReviewManager/index.js:138
+msgid "Saved"
+msgstr "Skłaźony"
+
+#: src/amo/components/AddonReviewManager/index.js:143
+#: src/amo/components/CollectionManager/index.js:302
+#: src/amo/pages/UserProfileEdit/index.js:847
+#: src/ui/components/ConfirmButton/index.js:110
+#: src/ui/components/DismissibleTextForm/index.js:172
+msgid "Cancel"
+msgstr "Pśetergnuś"
+
+#: src/amo/components/AddonReviewManager/index.js:82
+msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgstr ""
+"Mějśo se pšosym pó našych %(linkStart)ssměrnicach za pógódnośenja%(linkEnd)s."
+
+#: src/amo/components/AddonReviewManager/index.js:99
 msgid "Write about your experience with this add-on."
 msgstr "Pišćo wó swójom dožywjenju z toś tym dodankom."
 
@@ -447,20 +492,24 @@ msgstr "Dodanki wót %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Dodanki wót toś tych wuwijarjow"
 
-#: src/amo/components/App/index.js:213 src/amo/components/SectionLinks/index.js:153
-msgid "Add-ons for Firefox"
+#: src/amo/components/App/index.js:219
+#, fuzzy
+msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Dodanki za Firefox"
 
-#: src/amo/components/App/index.js:214
-msgid "%s – Add-ons for Firefox"
+#: src/amo/components/App/index.js:223
+#, fuzzy
+msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%s – Dodanki za Firefox"
 
-#: src/amo/components/App/index.js:217 src/amo/components/SectionLinks/index.js:140
-msgid "Add-ons for Android"
+#: src/amo/components/App/index.js:231
+#, fuzzy
+msgid "Add-ons for Android (%(locale)s)"
 msgstr "Dodanki za Android"
 
-#: src/amo/components/App/index.js:218
-msgid "%s – Add-ons for Android"
+#: src/amo/components/App/index.js:235
+#, fuzzy
+msgid "%(title)s – Add-ons for Android (%(locale)s)"
 msgstr "%s – Dodanki za Android"
 
 #: src/amo/components/AutoSearchInput/index.js:215
@@ -471,7 +520,8 @@ msgstr "Zacytujo se..."
 msgid "Find add-ons"
 msgstr "Dodanki pytaś"
 
-#: src/amo/components/AutoSearchInput/index.js:330 src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:330
+#: src/amo/components/AutoSearchInput/index.js:358
 msgid "Search"
 msgstr "Pytaś"
 
@@ -523,7 +573,8 @@ msgstr "Drobnostki zběrki wobźěłaś"
 msgid "Back to collection"
 msgstr "Slědk k zběrce"
 
-#: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
+#: src/amo/components/CollectionDetails/index.js:79
+#: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Dodanki"
 
@@ -531,29 +582,25 @@ msgstr "Dodanki"
 msgid "Creator"
 msgstr "Wuwijaŕ"
 
-#: src/amo/components/CollectionManager/index.js:225
+#: src/amo/components/CollectionManager/index.js:229
 msgid "Create collection"
 msgstr "Zběrku napóraś"
 
-#: src/amo/components/CollectionManager/index.js:226
+#: src/amo/components/CollectionManager/index.js:230
 msgid "Save changes"
 msgstr "Změny składowaś"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Collection name"
 msgstr "Mě zběrki"
 
-#: src/amo/components/CollectionManager/index.js:249
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Description"
 msgstr "Wopisanje"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:265
 msgid "Custom URL"
 msgstr "Swójska adresa"
-
-#: src/amo/components/CollectionManager/index.js:298 src/amo/pages/UserProfileEdit/index.js:847 src/ui/components/ConfirmButton/index.js:108 src/ui/components/DismissibleTextForm/index.js:172
-msgid "Cancel"
-msgstr "Pśetergnuś"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
@@ -584,12 +631,20 @@ msgid "Support these developers"
 msgstr "Toś te wuwijarje pódpěraś"
 
 #: src/amo/components/ContributeCard/index.js:37
-msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "Wuwijaŕ toś togo rozšyrjenja was pšosy, mały pśinošk pósćiś, aby jogo wuwiśe pódpěrał."
+msgid ""
+"The developer of this extension asks that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"Wuwijaŕ toś togo rozšyrjenja was pšosy, mały pśinošk pósćiś, aby jogo wuwiśe "
+"pódpěrał."
 
 #: src/amo/components/ContributeCard/index.js:39
-msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "Wuwijarje toś togo rozšyrjenja was pšose, mały pśinošk pósćiś, aby jogo wuwiśe pódpěrał."
+msgid ""
+"The developers of this extension ask that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+"Wuwijarje toś togo rozšyrjenja was pšose, mały pśinošk pósćiś, aby jogo "
+"wuwiśe pódpěrał."
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this artist"
@@ -600,12 +655,20 @@ msgid "Support these artists"
 msgstr "Toś te wuměłce pódpěraś"
 
 #: src/amo/components/ContributeCard/index.js:51
-msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr "Wuměłc toś teje drastwy was pšosy, mały pśinošk pósćiś, aby jeje napóranje pódpěrał."
+msgid ""
+"The artist of this theme asks that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+"Wuměłc toś teje drastwy was pšosy, mały pśinošk pósćiś, aby jeje napóranje "
+"pódpěrał."
 
 #: src/amo/components/ContributeCard/index.js:53
-msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr "Wuměłce toś teje drastwy was pšose, mały pśinošk pósćiś, aby jeje napóranje pódpěrał."
+msgid ""
+"The artists of this theme ask that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+"Wuměłce toś teje drastwy was pšose, mały pśinošk pósćiś, aby jeje napóranje "
+"pódpěrał."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this author"
@@ -616,18 +679,27 @@ msgid "Support these authors"
 msgstr "Toś te awtory pódpěraś"
 
 #: src/amo/components/ContributeCard/index.js:65
-msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr "Awtor toś togo dodanka was pšosy, mały pśinosk pósćiś, aby jogo źěło pódpěrał."
+msgid ""
+"The author of this add-on asks that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+"Awtor toś togo dodanka was pšosy, mały pśinosk pósćiś, aby jogo źěło "
+"pódpěrał."
 
 #: src/amo/components/ContributeCard/index.js:67
-msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr "Awtory toś togo dodanka was pšose, mały pśinosk pósćiś, aby jogo źěło pódpěrał."
+msgid ""
+"The authors of this add-on ask that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+"Awtory toś togo dodanka was pšose, mały pśinosk pósćiś, aby jogo źěło "
+"pódpěrał."
 
 #: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
 msgstr "Něnto pśinosowaś"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:40 src/amo/components/Footer/index.js:106
+#: src/amo/components/DownloadFirefoxButton/index.js:40
+#: src/amo/components/Footer/index.js:106
 msgid "Download Firefox"
 msgstr "Firefox ześěgnuś"
 
@@ -635,7 +707,8 @@ msgstr "Firefox ześěgnuś"
 msgid "Leave a note"
 msgstr "Zawóstajśo pśipisk"
 
-#: src/amo/components/EditableCollectionAddon/index.js:140 src/core/components/AMInstallButton/index.js:209
+#: src/amo/components/EditableCollectionAddon/index.js:140
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Wótwónoźeś"
 
@@ -656,24 +729,36 @@ msgid "Edit"
 msgstr "Wobźěłaś"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
-"Jolic sćo se pśizjawił a se mysliśo, až toś ta powěsć jo zmólka, <a href=\"%(url)s\">pišćo pšosym zmólkowu rozpšawu</a>. Dajśo nam k wěsći, wótkulž sćo pśišeł a na což sćo kśěł pśistup měś, a my "
-"rozwězajomy ten problem."
+"Jolic sćo se pśizjawił a se mysliśo, až toś ta powěsć jo zmólka, <a href="
+"\"%(url)s\">pišćo pšosym zmólkowu rozpšawu</a>. Dajśo nam k wěsći, wótkulž "
+"sćo pśišeł a na což sćo kśěł pśistup měś, a my rozwězajomy ten problem."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
 msgstr "Njeawtorizěrowany"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Bóžko njejsćo za pśistup k toś tomu bokoju awtorizěrowany. Jolic njejsćo pśizjawjony, pśizjawśo se z pomocu wótkaza górjejce na boku."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"Bóžko njejsćo za pśistup k toś tomu bokoju awtorizěrowany. Jolic njejsćo "
+"pśizjawjony, pśizjawśo se z pomocu wótkaza górjejce na boku."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
-"Jolic sćo so z pomocu wótkaza sem dostał, <a href=\"%(url)s\">pišćo pšosym zmólkowu rozpšawu</a>. Dajśo nam k wěsći, wótkulž sćo pśišeł a za cymž pytaśo a my buźomy našo nejlěpše cyniś, aby problem "
-"rozwězali."
+"Jolic sćo so z pomocu wótkaza sem dostał, <a href=\"%(url)s\">pišćo pšosym "
+"zmólkowu rozpšawu</a>. Dajśo nam k wěsći, wótkulž sćo pśišeł a za cymž "
+"pytaśo a my buźomy našo nejlěpše cyniś, aby problem rozwězali."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:41
 msgid "This add-on has been removed by its author."
@@ -687,31 +772,46 @@ msgstr "Toś ten dodank jo se wót administratora znjemóžnił."
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr "Bóžko njamóžomy nic na adresy namakaś, kótaruž sćo zapódał."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:57 src/core/components/ErrorPage/NotFound/index.js:27
+#: src/amo/components/ErrorPage/NotFound/index.js:57
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "Bok njejo se namakał"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"Jolic maśo pśidatne informacije, kótarež by nam pomagali, móžośo <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">zmólkowu rozpšawu pisaś</a>. Dajśo nam k wěsći, kótare kšace su k "
-"zmólce wjadli, a my buźomy našo nejlěpše cynić, aby jen rozwězali."
+"Jolic maśo pśidatne informacije, kótarež by nam pomagali, móžośo <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">zmólkowu rozpšawu "
+"pisaś</a>. Dajśo nam k wěsći, kótare kšace su k zmólce wjadli, a my buźomy "
+"našo nejlěpše cynić, aby jen rozwězali."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Serwerowa zmólka"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Bóžko jo zmólka z našym serwerom nastała a njejsmy mógli wašo napšašowanje dokóńcyś. Smy toś tu zmólku protokolěrowali a buźomy ju pśeslěźowaś."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"Bóžko jo zmólka z našym serwerom nastała a njejsmy mógli wašo napšašowanje "
+"dokóńcyś. Smy toś tu zmólku protokolěrowali a buźomy ju pśeslěźowaś."
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:79
+#, fuzzy
+msgid "Response by %(userName)s"
+msgstr "Pógódnośenja wót %(userName)s"
+
+#: src/amo/components/FeaturedAddonReview/index.js:80
 msgid "Review by %(userName)s"
 msgstr "Pógódnośenja wót %(userName)s"
 
-#: src/amo/components/FeaturedAddonReview/index.js:87
+#: src/amo/components/FeaturedAddonReview/index.js:92
 msgid "The review was not found."
 msgstr "Pógódnośenje njejo se namakało."
 
@@ -809,11 +909,13 @@ msgstr "Znjewužywanje wikoweje marki k wěsći daś"
 
 #: src/amo/components/Footer/index.js:194
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
-" or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
-"Jolic nic hynac %(startNotedLink)szapisane%(endNotedLink)s, se wopśimjeśe na toś tom sedle pód %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%%(endLicenseLink)s abo "
-"póznjejšeju wersiju licencěrujo."
+"Jolic nic hynac %(startNotedLink)szapisane%(endNotedLink)s, se wopśimjeśe na "
+"toś tom sedle pód %(startLicenseLink)sCreative Commons Attribution Share-"
+"Alike License v3.0%%(endLicenseLink)s abo póznjejšeju wersiju licencěrujo."
 
 #: src/amo/components/Footer/index.js:22
 msgid "Go to Mozilla's homepage"
@@ -855,11 +957,13 @@ msgstr "Klasiske desktopowe sedło pokazaś"
 msgid "View My Collections"
 msgstr "Móje zběrki pokazaś"
 
-#: src/amo/components/Header/index.js:109 src/amo/pages/UserProfileEdit/index.js:470
+#: src/amo/components/Header/index.js:109
+#: src/amo/pages/UserProfileEdit/index.js:470
 msgid "View My Profile"
 msgstr "Mój profil pokazaś"
 
-#: src/amo/components/Header/index.js:117 src/amo/pages/UserProfileEdit/index.js:476
+#: src/amo/components/Header/index.js:117
+#: src/amo/pages/UserProfileEdit/index.js:476
 msgid "Edit My Profile"
 msgstr "Mój profil wobźěłaś"
 
@@ -883,7 +987,8 @@ msgstr "Móje zapódaśa zastojaś"
 msgid "Reviewer Tools"
 msgstr "Rědy za pśeglědowarje"
 
-#: src/amo/components/Header/index.js:161 src/core/components/AuthenticateButton/index.js:80
+#: src/amo/components/Header/index.js:161
+#: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Wótzjawiś"
 
@@ -895,301 +1000,320 @@ msgstr "Dodanki za Firefox"
 msgid "My Account"
 msgstr "Mójo konto"
 
-#: src/amo/components/HomeHeroBanner/index.js:102
-msgid "Transparent Standalone Images"
-msgstr "Transparent Standalone Images"
-
-#: src/amo/components/HomeHeroBanner/index.js:103
-msgid "Render images on transparent backgrounds"
-msgstr "Wobraze na transparentnych slězynach kresliś"
-
-#: src/amo/components/HomeHeroBanner/index.js:107
+#: src/amo/components/HomeHeroBanner/index.js:101
 msgid "Universal Bypass"
 msgstr "Universal Bypass"
 
-#: src/amo/components/HomeHeroBanner/index.js:108
+#: src/amo/components/HomeHeroBanner/index.js:102
 msgid "Automatically skip annoying link shorteners"
 msgstr "Mólece krotke wótkaze awtomatiski pśeskócyś"
 
-#: src/amo/components/HomeHeroBanner/index.js:114
+#: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Tree Style Tab"
 msgstr "Rejtark w bomowem stilu"
 
-#: src/amo/components/HomeHeroBanner/index.js:115
+#: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr "Maśo wjelgin wjele wócynjonych rejtarkow? Organizěrujśo je w praktiskej bocnicy"
+msgstr ""
+"Maśo wjelgin wjele wócynjonych rejtarkow? Organizěrujśo je w praktiskej "
+"bocnicy"
 
-#: src/amo/components/HomeHeroBanner/index.js:121
+#: src/amo/components/HomeHeroBanner/index.js:115
 msgid "Imagus"
 msgstr "Imagus"
 
-#: src/amo/components/HomeHeroBanner/index.js:122
+#: src/amo/components/HomeHeroBanner/index.js:116
 msgid "Enlarge images by hovering your mouse over it"
 msgstr "Śěgniśo swóju myšku pó wobrazach, aby je pówětšył"
 
-#: src/amo/components/HomeHeroBanner/index.js:128
+#: src/amo/components/HomeHeroBanner/index.js:122
 msgid "Privacy Possum"
 msgstr "Privacy Possum"
 
-#: src/amo/components/HomeHeroBanner/index.js:129
+#: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Protect yourself against the sneakiest trackers"
 msgstr "Šćitajśo se pśeśiwo zakśebjatnym pśeslědowakam"
 
-#: src/amo/components/HomeHeroBanner/index.js:135
+#: src/amo/components/HomeHeroBanner/index.js:129
 msgid "Default Bookmark Folder"
 msgstr "Default Bookmark Folder"
 
-#: src/amo/components/HomeHeroBanner/index.js:136
+#: src/amo/components/HomeHeroBanner/index.js:130
 msgid "Change the default destination for your bookmarks"
 msgstr "Změńśo standardny cel za waše cytańske znamjenja"
 
-#: src/amo/components/HomeHeroBanner/index.js:142
+#: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Textmarker"
 msgstr "Textmarker"
 
-#: src/amo/components/HomeHeroBanner/index.js:143
+#: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Highly customizable text highlighter"
 msgstr "Pśiměrjujobny rěd za wuzwignjenje teksta"
 
-#: src/amo/components/HomeHeroBanner/index.js:147
+#: src/amo/components/HomeHeroBanner/index.js:141
 msgid "Watch2Gether"
 msgstr "Watch2Gether"
 
-#: src/amo/components/HomeHeroBanner/index.js:148
+#: src/amo/components/HomeHeroBanner/index.js:142
 msgid "Watch videos simultaneously with others"
 msgstr "Woglědujśo se wideo gromaźe z drugimi"
 
-#: src/amo/components/HomeHeroBanner/index.js:152
+#: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Context Search"
 msgstr "Kontekstowe pytanje"
 
-#: src/amo/components/HomeHeroBanner/index.js:153
+#: src/amo/components/HomeHeroBanner/index.js:147
 msgid "Highlight text on any webpage to easily search the term"
 msgstr "Wuzwigniśo tekst na webboku, aby jadnorje za wurazom pytał"
 
-#: src/amo/components/HomeHeroBanner/index.js:159
+#: src/amo/components/HomeHeroBanner/index.js:153
 msgid "Stylus"
 msgstr "Stylus"
 
-#: src/amo/components/HomeHeroBanner/index.js:160
+#: src/amo/components/HomeHeroBanner/index.js:154
 msgid "Give your favorite websites a new look"
 msgstr "Dajśo swójim nejlubšym websedłam nowy naglěd"
 
-#: src/amo/components/HomeHeroBanner/index.js:164
+#: src/amo/components/HomeHeroBanner/index.js:158
 msgid "Search Encrypt"
 msgstr "Search Encrypt"
 
-#: src/amo/components/HomeHeroBanner/index.js:165
+#: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Privacy protection for your search data"
 msgstr "Datowy šćit za waše pytańske daty"
 
-#: src/amo/components/HomeHeroBanner/index.js:169
+#: src/amo/components/HomeHeroBanner/index.js:163
 msgid "Auto Tab Discard"
 msgstr "Auto Tab Discard"
 
-#: src/amo/components/HomeHeroBanner/index.js:170
+#: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Save memory by disabling inactive tabs"
 msgstr "Znjemóžniśo inaktiwne rejtarki, aby skład zažarił"
 
-#: src/amo/components/HomeHeroBanner/index.js:174
+#: src/amo/components/HomeHeroBanner/index.js:168
 msgid "Update Scanner"
 msgstr "Update Scanner"
 
-#: src/amo/components/HomeHeroBanner/index.js:175
+#: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Get notified when your selected websites update with new content"
-msgstr "Dostańśo powěźeńki, gaž se waše websedła z nowym wopśimjeśim aktualizěruju"
+msgstr ""
+"Dostańśo powěźeńki, gaž se waše websedła z nowym wopśimjeśim aktualizěruju"
 
-#: src/amo/components/HomeHeroBanner/index.js:181
+#: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Auto Fullscreen"
 msgstr "Auto Fullscreen"
 
-#: src/amo/components/HomeHeroBanner/index.js:182
+#: src/amo/components/HomeHeroBanner/index.js:176
 msgid "Automatically start Firefox in full screen mode"
 msgstr "Firefox awtomatiski w modusu połneje wobrazowki awtomatiski startowaś"
 
-#: src/amo/components/HomeHeroBanner/index.js:188
+#: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Video Speed Controller"
 msgstr "Video Speed Controller"
 
-#: src/amo/components/HomeHeroBanner/index.js:189
+#: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Adjust video playback speeds with shortcuts"
 msgstr "Pśiměŕśo wótgrawańsku malsnosć wideo z tastowymi skrotconkami"
 
-#: src/amo/components/HomeHeroBanner/index.js:195
+#: src/amo/components/HomeHeroBanner/index.js:189
 msgid "View Image"
 msgstr "View Image"
 
-#: src/amo/components/HomeHeroBanner/index.js:196
+#: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr "Wobnowśo tłocaška ‚Wobraz pokazaś‘ a ‚Pó wobrazu pytaś‘ na Wobraze Google"
+msgstr ""
+"Wobnowśo tłocaška ‚Wobraz pokazaś‘ a ‚Pó wobrazu pytaś‘ na Wobraze Google"
 
-#: src/amo/components/HomeHeroBanner/index.js:202
+#: src/amo/components/HomeHeroBanner/index.js:196
 msgid "Neat URL"
 msgstr "Neat URL"
 
-#: src/amo/components/HomeHeroBanner/index.js:203
+#: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Clean up links for easy sharing"
 msgstr "Pórěźćo wótkaze za lažke źělenje"
 
-#: src/amo/components/HomeHeroBanner/index.js:207
+#: src/amo/components/HomeHeroBanner/index.js:201
 msgid "Glitter Drag"
 msgstr "Glitter Drag"
 
-#: src/amo/components/HomeHeroBanner/index.js:208
-msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr "Šěgniśo tekst, wobraze abo wótkaze, aby akcije ako kopěrowaś, wócyniś, pytaś a wěcej wuwjadł"
+#: src/amo/components/HomeHeroBanner/index.js:202
+msgid ""
+"Drag text, images, or links to perform actions like copy, open, search, and "
+"more"
+msgstr ""
+"Šěgniśo tekst, wobraze abo wótkaze, aby akcije ako kopěrowaś, wócyniś, pytaś "
+"a wěcej wuwjadł"
 
-#: src/amo/components/HomeHeroBanner/index.js:214
+#: src/amo/components/HomeHeroBanner/index.js:208
 msgid "Behind The Overlay Revival"
 msgstr "Behind The Overlay Revival"
 
-#: src/amo/components/HomeHeroBanner/index.js:215
+#: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Click a button to close annoying pop-ups"
 msgstr "Klikniśo na tłocašk, aby mólece wuskokujuce wokna zacynił"
 
-#: src/amo/components/HomeHeroBanner/index.js:219
+#: src/amo/components/HomeHeroBanner/index.js:213
 msgid "Auto-Sort Bookmarks"
 msgstr "Auto-Sort Bookmarks"
 
-#: src/amo/components/HomeHeroBanner/index.js:220
+#: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr "Sortěrujo cytańske znamjenja awtomatiski, aby na jich nejlubšem městnje byli"
+msgstr ""
+"Sortěrujo cytańske znamjenja awtomatiski, aby na jich nejlubšem městnje byli"
 
-#: src/amo/components/HomeHeroBanner/index.js:226
+#: src/amo/components/HomeHeroBanner/index.js:220
 msgid "Search Preview"
 msgstr "Search Preview"
 
-#: src/amo/components/HomeHeroBanner/index.js:227
+#: src/amo/components/HomeHeroBanner/index.js:221
 msgid "Enjoy thumbnail images alongside your search returns"
 msgstr "Wužyiwajśo miniaturki z pytańskimi wuslědkami"
 
-#: src/amo/components/HomeHeroBanner/index.js:233
+#: src/amo/components/HomeHeroBanner/index.js:227
 msgid "Copy PlainText"
 msgstr "Lutny tekst kopěrowaś"
 
-#: src/amo/components/HomeHeroBanner/index.js:234
+#: src/amo/components/HomeHeroBanner/index.js:228
 msgid "Remove formatting when saving text to your clipboard"
-msgstr "Formatěrowanje wótwónoźeś, gaž se tekst do wašogo mjazywótkłada składujo"
+msgstr ""
+"Formatěrowanje wótwónoźeś, gaž se tekst do wašogo mjazywótkłada składujo"
 
-#: src/amo/components/HomeHeroBanner/index.js:240
+#: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Official Media Bias Fact Check Icon"
 msgstr "Official Media Bias Fact Check Icon"
 
-#: src/amo/components/HomeHeroBanner/index.js:241
+#: src/amo/components/HomeHeroBanner/index.js:235
 msgid "Indicates the political bias of news sites with a tidy icon"
 msgstr "Pódawa politisku orientaciju powěsćowych sedłow z pěknym symbolom"
 
-#: src/amo/components/HomeHeroBanner/index.js:247
+#: src/amo/components/HomeHeroBanner/index.js:241
 msgid "Vertical Tabs Reloaded"
 msgstr "Vertical Tabs Reloaded"
 
-#: src/amo/components/HomeHeroBanner/index.js:248
+#: src/amo/components/HomeHeroBanner/index.js:242
 msgid "Arrange tabs in a vertical fashion"
 msgstr "Rejtarki wertikalnje rědowaś"
 
-#: src/amo/components/HomeHeroBanner/index.js:252
+#: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Search Site"
 msgstr "Sedło pśeglědaś"
 
-#: src/amo/components/HomeHeroBanner/index.js:253
+#: src/amo/components/HomeHeroBanner/index.js:247
 msgid "Search within just the domain you’re visiting"
 msgstr "Pśeglědajśo domenu, ku kótarejž se rowno woglědujośo"
 
-#: src/amo/components/HomeHeroBanner/index.js:259
+#: src/amo/components/HomeHeroBanner/index.js:253
 msgid "Push to Kindle"
 msgstr "Push to Kindle"
 
-#: src/amo/components/HomeHeroBanner/index.js:260
+#: src/amo/components/HomeHeroBanner/index.js:254
 msgid "Send any Web page to your Kindle device"
 msgstr "Pósćelśo webbok na swój rěd Kindle"
 
-#: src/amo/components/HomeHeroBanner/index.js:264
+#: src/amo/components/HomeHeroBanner/index.js:258
 msgid "New Tab Homepage"
 msgstr "New Tab Homepage"
 
-#: src/amo/components/HomeHeroBanner/index.js:265
+#: src/amo/components/HomeHeroBanner/index.js:259
 msgid "Designate a custom home page for your new tabs"
 msgstr "Nastajśo swójsku startowy bok za swóje nowe rejtarki"
 
-#: src/amo/components/HomeHeroBanner/index.js:271
+#: src/amo/components/HomeHeroBanner/index.js:265
 msgid "OneNote Web Clipper"
 msgstr "OneNote Web Clipper"
 
-#: src/amo/components/HomeHeroBanner/index.js:272
+#: src/amo/components/HomeHeroBanner/index.js:266
 msgid "Save, annotate & organize web content"
 msgstr "Składowajśo, komentěrujśo a organizěrujśo webwopśimjeśe"
 
-#: src/amo/components/HomeHeroBanner/index.js:276
+#: src/amo/components/HomeHeroBanner/index.js:270
 msgid "FoxyGestures"
 msgstr "FoxyGestures"
 
-#: src/amo/components/HomeHeroBanner/index.js:277
+#: src/amo/components/HomeHeroBanner/index.js:271
 msgid "Customized mouse gestures"
 msgstr "Pśiměrjobne gesty myški"
 
-#: src/amo/components/HomeHeroBanner/index.js:50
+#: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
 msgstr "Facebook Container"
 
-#: src/amo/components/HomeHeroBanner/index.js:51
+#: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Prevent Facebook from tracking you around the web"
 msgstr "Zawoborajśo Facebook, was pśez web slědowaś"
 
-#: src/amo/components/HomeHeroBanner/index.js:57
+#: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Midnight Lizard"
 msgstr "Midnight Lizard"
 
-#: src/amo/components/HomeHeroBanner/index.js:58
+#: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Give the entire internet a new look"
 msgstr "Dajśo internetoju nowy naglěd"
 
-#: src/amo/components/HomeHeroBanner/index.js:62
+#: src/amo/components/HomeHeroBanner/index.js:56
 msgid "Iridium for YouTube"
 msgstr "Iridium for YouTube"
 
-#: src/amo/components/HomeHeroBanner/index.js:63
+#: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr "Wideo we wuskokujucem woknje wótgraś, fota wobrazowki wideo napóraś a wěcej"
+msgstr ""
+"Wideo we wuskokujucem woknje wótgraś, fota wobrazowki wideo napóraś a wěcej"
 
-#: src/amo/components/HomeHeroBanner/index.js:69
+#: src/amo/components/HomeHeroBanner/index.js:63
 msgid "Private Bookmarks"
 msgstr "Priwatne cytańske znamjenja"
 
-#: src/amo/components/HomeHeroBanner/index.js:70
+#: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Password-protect your personal bookmarks"
 msgstr "Šćit z gronidłami za waše wósobinske cytańske znamjenja"
 
-#: src/amo/components/HomeHeroBanner/index.js:74
+#: src/amo/components/HomeHeroBanner/index.js:68
 msgid "IP Address and Domain Information"
 msgstr "Informacije wó IP-adresy a domenje"
 
-#: src/amo/components/HomeHeroBanner/index.js:75
-msgid "See detailed info about every website you visit—IP address, location, provider & more"
-msgstr "Woglědajśo se nadrobne informacije wó kuždem websedle, kótarež se woglědujośo - IP-adresu, městno, póbitowarja a wěcej"
+#: src/amo/components/HomeHeroBanner/index.js:69
+msgid ""
+"See detailed info about every website you visit—IP address, location, "
+"provider & more"
+msgstr ""
+"Woglědajśo se nadrobne informacije wó kuždem websedle, kótarež se "
+"woglědujośo - IP-adresu, městno, póbitowarja a wěcej"
 
-#: src/amo/components/HomeHeroBanner/index.js:81
+#: src/amo/components/HomeHeroBanner/index.js:75
 msgid "New Tab Override"
 msgstr "New Tab Override"
 
-#: src/amo/components/HomeHeroBanner/index.js:82
+#: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Choose the page you see every time you open a new tab"
 msgstr "Wubjeŕśo bok, kótaryž kuždy raz wiźiśo, gaž nowy rejtark wócynjaśo"
 
-#: src/amo/components/HomeHeroBanner/index.js:88
+#: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Forecastfox"
 msgstr "Forecastfox"
 
-#: src/amo/components/HomeHeroBanner/index.js:89
+#: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Get instant global weather information right in Firefox"
 msgstr "Wobstarajśo se globalne wjedrowe daty direktnje w swójom Firefox"
 
-#: src/amo/components/HomeHeroBanner/index.js:95
+#: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Multi-Account Containers"
 msgstr "Wěcejkontowe kontejnery"
 
+#: src/amo/components/HomeHeroBanner/index.js:90
+msgid ""
+"Keep different parts of your online life—work, personal, etc.—separated by "
+"color-coded tabs"
+msgstr ""
+"Rozeznajśo rozdźělne źěle wašogo žywjenja online - źěło, wósobinske atd. - "
+"pśez rejtarki koděrowane z barwami"
+
 #: src/amo/components/HomeHeroBanner/index.js:96
-msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Rozeznajśo rozdźělne źěle wašogo žywjenja online - źěło, wósobinske atd. - pśez rejtarki koděrowane z barwami"
+msgid "Transparent Standalone Images"
+msgstr "Transparent Standalone Images"
+
+#: src/amo/components/HomeHeroBanner/index.js:97
+msgid "Render images on transparent backgrounds"
+msgstr "Wobraze na transparentnych slězynach kresliś"
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1229,11 +1353,15 @@ msgstr "Daty do mjazywótkłada kopěrowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Rozšyŕśo wuwijarske rědy, aby pśistup k swójim datam we wócynjonych rejtarkach měł"
+msgstr ""
+"Rozšyŕśo wuwijarske rědy, aby pśistup k swójim datam we wócynjonych "
+"rejtarkach měł"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
-msgstr "Ześěgniśo dataje a cytajśo a změńśo ześěgnjeńsku historiju swójogo wobglědowaka"
+msgstr ""
+"Ześěgniśo dataje a cytajśo a změńśo ześěgnjeńsku historiju swójogo "
+"wobglědowaka"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
@@ -1247,7 +1375,8 @@ msgstr "Tekst wšych wócynjonych rejtarkow cytaś"
 msgid "Access your location"
 msgstr "Mějśo pśistup k swójomu městnoju"
 
-#: src/amo/components/PermissionsCard/permissions.js:42 src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
 msgstr "Mějśo pśistup k pśeglědowańskej historiji"
 
@@ -1295,39 +1424,40 @@ msgstr "Njewobgranicowanu licbu klientowych datow składowaś"
 msgid "Access browser activity during navigation"
 msgstr "Pśistup k aktiwiśe wobglědowaka za nawigaciju měś"
 
-#: src/amo/components/RatingManager/index.js:190
+#: src/amo/components/RatingManager/index.js:191
 msgid "Log in to rate this dictionary"
 msgstr "Pśizjawśo se, aby toś ten słownik pógódnośił"
 
-#: src/amo/components/RatingManager/index.js:192
+#: src/amo/components/RatingManager/index.js:193
 msgid "Log in to rate this language pack"
 msgstr "Pśizjawśo se, aby toś ten rěcny pakśik pógódnośił"
 
-#: src/amo/components/RatingManager/index.js:194
+#: src/amo/components/RatingManager/index.js:195
 msgid "Log in to rate this search plugin"
 msgstr "Pśizjawśo se aby toś tu pytnicu pógódnośił"
 
-#: src/amo/components/RatingManager/index.js:197
+#: src/amo/components/RatingManager/index.js:198
 msgid "Log in to rate this theme"
 msgstr "Pśizjawśo se, aby toś tu drastwu pógódnośił"
 
-#: src/amo/components/RatingManager/index.js:199
+#: src/amo/components/RatingManager/index.js:200
 msgid "Log in to rate this extension"
 msgstr "Pśizjawśo se, aby toś to rozšyrjenje pógódnośił"
 
-#: src/amo/components/RatingManager/index.js:207
+#: src/amo/components/RatingManager/index.js:208
 msgid "Log in to rate this add-on"
 msgstr "Pśizjawśo se, aby toś ten dodank pógódnośił"
 
-#: src/amo/components/RatingManager/index.js:267
-msgid "How are you enjoying your experience with %(addonName)s?"
+#: src/amo/components/RatingManager/index.js:274
+#, fuzzy
+msgid "How are you enjoying %(addonName)s?"
 msgstr "Kak se wam %(addonName)s spódoba?"
 
-#: src/amo/components/RatingManager/index.js:296
+#: src/amo/components/RatingManager/index.js:300
 msgid "Saving star rating"
 msgstr "Gwězdowe pógódnośenje se składujo"
 
-#: src/amo/components/RatingManager/index.js:297
+#: src/amo/components/RatingManager/index.js:301
 msgid "Star rating saved"
 msgstr "Gwězdowe pógódnośenje jo se składło"
 
@@ -1336,76 +1466,115 @@ msgid "You reported this add-on for abuse"
 msgstr "Sćo toś ten dodank znjewužywanja dla k wěsći dał"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
-msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja nastupajucy toś ten dodank k wěsći dał."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+"Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja "
+"nastupajucy toś ten dodank k wěsći dał."
 
-#: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "Njamóžomy na kuždu rozpšawu wó znjewužywanju wótegroniś, ale buźomy se z toś teju nastupnosću zaběraś."
+msgstr ""
+"Njamóžomy na kuždu rozpšawu wó znjewužywanju wótegroniś, ale buźomy se z toś "
+"teju nastupnosću zaběraś."
 
 #: src/amo/components/ReportAbuseButton/index.js:139
-msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
+msgid ""
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
+"%(linkTagEnd)s or has security or privacy issues, please report these issues "
+"to Mozilla using this form."
 msgstr ""
-"Jolic se toś ten dodank pśeśiwo %(linkTagStart)ssměrnicy Mozilla za dodanki%(linkTagEnd)s pśejźo abo ma problemy z wěstotu abo priwatnosću, dajśo pšosym Mozilla toś te problemy z pomocu toś togo "
-"formulara."
+"Jolic se toś ten dodank pśeśiwo %(linkTagStart)ssměrnicy Mozilla za dodanki"
+"%(linkTagEnd)s pśejźo abo ma problemy z wěstotu abo priwatnosću, dajśo "
+"pšosym Mozilla toś te problemy z pomocu toś togo formulara."
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 msgid "Report this add-on for abuse"
 msgstr "Toś ten dodank znjewužywanja dla k wěsći daś"
 
 #: src/amo/components/ReportAbuseButton/index.js:184
-msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Pšosym njewužywajśo toś ten formular, aby programowe zmólki abo žycenja za nowymi funkcijami dodanka k wěsći dał; toś ta rozpšawa se na Mozilla a nic na wuwijarja dodanka pósćelo."
+msgid ""
+"Please don't use this form to report bugs or request add-on features; this "
+"report will be sent to Mozilla and not to the add-on developer."
+msgstr ""
+"Pšosym njewužywajśo toś ten formular, aby programowe zmólki abo žycenja za "
+"nowymi funkcijami dodanka k wěsći dał; toś ta rozpšawa se na Mozilla a nic "
+"na wuwijarja dodanka pósćelo."
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr "Wujasniśo, w kakem nastupanju se toś ten dodank pśeśiwo našym pšawidłam pśejźo."
+msgstr ""
+"Wujasniśo, w kakem nastupanju se toś ten dodank pśeśiwo našym pšawidłam "
+"pśejźo."
 
 #: src/amo/components/ReportAbuseButton/index.js:213
 msgid "Dismiss"
 msgstr "Zachyśiś"
 
-#: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
+#: src/amo/components/ReportAbuseButton/index.js:223
+#: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Rozpšawa wó znjewužywanju pósłaś"
 
-#: src/amo/components/ReportAbuseButton/index.js:224 src/amo/components/ReportUserAbuse/index.js:144
+#: src/amo/components/ReportAbuseButton/index.js:224
+#: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "Rozpšawa wó znjewužywanju pósłaś"
 
-#: src/amo/components/ReportUserAbuse/index.js:100 src/amo/components/ReportUserAbuse/index.js:107
+#: src/amo/components/ReportUserAbuse/index.js:100
+#: src/amo/components/ReportUserAbuse/index.js:107
 msgid "Report this user for abuse"
 msgstr "Toś togo wužywarja znjewužywanja dla k wěsći daś"
 
 #: src/amo/components/ReportUserAbuse/index.js:114
-msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "Jolic se toś ten wužywaŕ pśeśiwo %(linkTagStart)ssměrnicy Mozilla za dodanki%(linkTagEnd)s pśejźo, dajśo to pšosym Mozillak k wěsći."
+msgid ""
+"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
+"%(linkTagEnd)s, please report this user to Mozilla."
+msgstr ""
+"Jolic se toś ten wužywaŕ pśeśiwo %(linkTagStart)ssměrnicy Mozilla za dodanki"
+"%(linkTagEnd)s pśejźo, dajśo to pšosym Mozillak k wěsći."
 
 #: src/amo/components/ReportUserAbuse/index.js:130
-msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Pšosym njewužywajśo toś ten formular, aby programowe zmólki k wěsći dał abo wužywarja kontaktěrował; waša rozpšawa se na Mozilla a nic na wužywarja pósćelo."
+msgid ""
+"Please don't use this form to report bugs or contact this user; your report "
+"will only be sent to Mozilla and not to this user."
+msgstr ""
+"Pšosym njewužywajśo toś ten formular, aby programowe zmólki k wěsći dał abo "
+"wužywarja kontaktěrował; waša rozpšawa se na Mozilla a nic na wužywarja "
+"pósćelo."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr "Wujasniśo, w kakem nastupanju se toś ten wužywaŕ pśeśiwo našym pšawidłam pśejźo."
+msgstr ""
+"Wujasniśo, w kakem nastupanju se toś ten wužywaŕ pśeśiwo našym pšawidłam "
+"pśejźo."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
 msgstr "Sćo toś togo wužywarja znjewužywanja dla k wěsći dał"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
-msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja nastupajucy toś togo wužywarja k wěsći dał."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this user."
+msgstr ""
+"Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja "
+"nastupajucy toś togo wužywarja k wěsći dał."
 
-#: src/amo/components/Search/index.js:121 src/amo/components/SearchResults/index.js:73
+#: src/amo/components/Search/index.js:121
+#: src/amo/components/SearchResults/index.js:73
 msgid "Search results"
 msgstr "Pytańske wuslědki"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Category/index.js:153 src/amo/pages/Home/index.js:250 src/amo/pages/LandingPage/index.js:147
+#: src/amo/components/Search/index.js:126 src/amo/pages/Category/index.js:153
+#: src/amo/pages/Home/index.js:250 src/amo/pages/LandingPage/index.js:147
 msgid "Featured extensions"
 msgstr "Pśedstajone rozšyrjenja"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Category/index.js:186 src/amo/pages/Home/index.js:286 src/amo/pages/LandingPage/index.js:176
+#: src/amo/components/Search/index.js:129 src/amo/pages/Category/index.js:186
+#: src/amo/pages/Home/index.js:286 src/amo/pages/LandingPage/index.js:176
 msgid "Featured themes"
 msgstr "Pśedstajone drastwy"
 
@@ -1413,11 +1582,13 @@ msgstr "Pśedstajone drastwy"
 msgid "Featured add-ons"
 msgstr "Pśedstajone dodanki"
 
-#: src/amo/components/Search/index.js:139 src/amo/pages/Category/index.js:163 src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:156
+#: src/amo/components/Search/index.js:139 src/amo/pages/Category/index.js:163
+#: src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:156
 msgid "Trending extensions"
 msgstr "Woblubowane rozšyrjenja"
 
-#: src/amo/components/Search/index.js:142 src/amo/pages/Category/index.js:196 src/amo/pages/LandingPage/index.js:185
+#: src/amo/components/Search/index.js:142 src/amo/pages/Category/index.js:196
+#: src/amo/pages/LandingPage/index.js:185
 msgid "Trending themes"
 msgstr "Woblubowane drastwy"
 
@@ -1425,11 +1596,13 @@ msgstr "Woblubowane drastwy"
 msgid "Trending add-ons"
 msgstr "Woblubowane dodanki"
 
-#: src/amo/components/Search/index.js:151 src/amo/pages/Category/index.js:173 src/amo/pages/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:151 src/amo/pages/Category/index.js:173
+#: src/amo/pages/LandingPage/index.js:165
 msgid "Top rated extensions"
 msgstr "Nejwušej pógódnośone rozšyrjenja"
 
-#: src/amo/components/Search/index.js:154 src/amo/pages/Category/index.js:206 src/amo/pages/LandingPage/index.js:191
+#: src/amo/components/Search/index.js:154 src/amo/pages/Category/index.js:206
+#: src/amo/pages/LandingPage/index.js:191
 msgid "Top rated themes"
 msgstr "Wusoko pógódnośone drastwy"
 
@@ -1521,7 +1694,8 @@ msgstr "\"%(query)s\" se pyta"
 msgid "Loading add-ons"
 msgstr "Dodanki se wužywaju"
 
-#: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:126
 msgid "All"
 msgstr "Wšykne"
 
@@ -1641,6 +1815,14 @@ msgstr "Pytańske rědy"
 msgid "Other Browser Sites"
 msgstr "Druge sedła wobglědowaka"
 
+#: src/amo/components/SectionLinks/index.js:140
+msgid "Add-ons for Android"
+msgstr "Dodanki za Android"
+
+#: src/amo/components/SectionLinks/index.js:153
+msgid "Add-ons for Firefox"
+msgstr "Dodanki za Firefox"
+
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
 msgstr "za Firefox"
@@ -1653,11 +1835,13 @@ msgstr "za Android"
 msgid "Explore"
 msgstr "Wuslěźiś"
 
-#: src/amo/components/SectionLinks/index.js:88 src/amo/pages/Category/index.js:152 src/amo/pages/LandingPage/index.js:231
+#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/pages/Category/index.js:152 src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Rozšyrjenja"
 
-#: src/amo/components/SectionLinks/index.js:98 src/amo/pages/Category/index.js:185 src/amo/pages/LandingPage/index.js:230
+#: src/amo/components/SectionLinks/index.js:98
+#: src/amo/pages/Category/index.js:185 src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Drastwy"
 
@@ -1678,8 +1862,12 @@ msgid "Add-ons Home Page"
 msgstr "Startowy bok dodankow"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
-msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr "wostańśo aktualny z powěsćami a tšojenjami, kótarež su relewantne za wuwijarje (inkluziwnje powěsćowy list about:addons)"
+msgid ""
+"stay up-to-date with news and events relevant to add-on developers "
+"(including the about:addons newsletter)"
+msgstr ""
+"wostańśo aktualny z powěsćami a tšojenjami, kótarež su relewantne za "
+"wuwijarje (inkluziwnje powěsćowy list about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -1743,7 +1931,9 @@ msgstr "Pśeglěd za %(title)s"
 
 #: src/amo/pages/Addon/index.js:216
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Toś ten dodank njedajo se pógódnośiś, dokulaž žedne wersije njejsu se wózjawili."
+msgstr ""
+"Toś ten dodank njedajo se pógódnośiś, dokulaž žedne wersije njejsu se "
+"wózjawili."
 
 #: src/amo/pages/Addon/index.js:225
 msgid "Read %(count)s review"
@@ -1785,27 +1975,60 @@ msgstr "Wó toś tej drastwje"
 msgid "About this add-on"
 msgstr "Wó toś tom dodanku"
 
-#: src/amo/pages/Addon/index.js:328
+#: src/amo/pages/Addon/index.js:334
 msgid "Release notes for %(addonVersion)s"
 msgstr "Wersijowe informacije za %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:461
+#: src/amo/pages/Addon/index.js:405
+msgid "Download %(addonName)s for Firefox. %(summary)s"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/pages/Addon/index.js:427
+msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/pages/Addon/index.js:434
+msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/pages/Addon/index.js:441
+msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/pages/Addon/index.js:449
+msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/pages/Addon/index.js:456
+msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+#: src/amo/pages/Addon/index.js:535
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)swót %(authorList)s%(endSpan)s"
 
-#: src/amo/pages/Addon/index.js:532
-msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr "To njejo zjawny lisćinowy zapisk. Wiźiśo jen jano, dokulaž maśo rozšyrjone pšawa."
+#: src/amo/pages/Addon/index.js:604
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+"To njejo zjawny lisćinowy zapisk. Wiźiśo jen jano, dokulaž maśo rozšyrjone "
+"pšawa."
 
-#: src/amo/pages/Addon/index.js:587
+#: src/amo/pages/Addon/index.js:659
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Jano z Firefox – Wobstarajśo se něnto Firefox"
 
-#: src/amo/pages/Addon/index.js:593
+#: src/amo/pages/Addon/index.js:665
 msgid "Extension Metadata"
 msgstr "Metadaty rozšyrjenja"
 
-#: src/amo/pages/Addon/index.js:610
+#: src/amo/pages/Addon/index.js:682
 msgid "Screenshots"
 msgstr "Fota wobrazowki"
 
@@ -1833,11 +2056,13 @@ msgstr "wót %(authorList)s"
 msgid "%(averageRating)s star average"
 msgstr "Pśerězne pógódnośenje: %(averageRating)s"
 
-#: src/amo/pages/Category/index.js:162 src/amo/pages/Home/index.js:251 src/amo/pages/LandingPage/index.js:155
+#: src/amo/pages/Category/index.js:162 src/amo/pages/Home/index.js:251
+#: src/amo/pages/LandingPage/index.js:155
 msgid "See more featured extensions"
 msgstr "Dalšne pśedstajone rozšyrjenja se woglědaś"
 
-#: src/amo/pages/Category/index.js:172 src/amo/pages/Home/index.js:297 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Category/index.js:172 src/amo/pages/Home/index.js:297
+#: src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Dalšne tuchylu woblubowane rozšyrjenja se woglědaś"
 
@@ -1845,7 +2070,8 @@ msgstr "Dalšne tuchylu woblubowane rozšyrjenja se woglědaś"
 msgid "See more top rated extensions"
 msgstr "Dalšne nejwušej pógódnośone rozšyrjenja se woglědaś"
 
-#: src/amo/pages/Category/index.js:195 src/amo/pages/Home/index.js:276 src/amo/pages/LandingPage/index.js:184
+#: src/amo/pages/Category/index.js:195 src/amo/pages/Home/index.js:276
+#: src/amo/pages/LandingPage/index.js:184
 msgid "See more featured themes"
 msgstr "Dalšne pśedstajone drastwy se woglědaś"
 
@@ -1857,27 +2083,29 @@ msgstr "Dalšne tuchylu woblubowane drastwy se woglědaś"
 msgid "See more top rated themes"
 msgstr "Dalšne nejwušej pógódnośone drastwy se woglědaś"
 
-#: src/amo/pages/Collection/index.js:356
+#: src/amo/pages/Collection/index.js:373
 msgid "Do you really want to delete this collection?"
 msgstr "Cośo napšawdu toś tu zběrku wulašowaś?"
 
-#: src/amo/pages/Collection/index.js:359
+#: src/amo/pages/Collection/index.js:376
 msgid "Delete this collection"
 msgstr "Toś tu zběrku wulašowaś"
 
-#: src/amo/pages/Collection/index.js:378
+#: src/amo/pages/Collection/index.js:395
 msgid "Log in to create a collection"
 msgstr "Pśizjewśo se, aby zběrku napórał"
 
-#: src/amo/pages/Collection/index.js:379
+#: src/amo/pages/Collection/index.js:396
 msgid "Log in to edit this collection"
 msgstr "Pśizjewśo se, aby toś tu zběrku wobźěłał"
 
-#: src/amo/pages/Collection/index.js:412
+#: src/amo/pages/Collection/index.js:429
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "Napórajśo nejpjerwjej swóju zběrku. Pótom móžośo rozšyrjenja a drastwy pśidaś."
+msgstr ""
+"Napórajśo nejpjerwjej swóju zběrku. Pótom móžośo rozšyrjenja a drastwy "
+"pśidaś."
 
-#: src/amo/pages/Collection/index.js:415
+#: src/amo/pages/Collection/index.js:432
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Pytajśo rozšyrjenja a drastwy, aby je swójej zběrce pśidał."
 
@@ -1890,8 +2118,12 @@ msgid "Log in to view your collections"
 msgstr "Pśizjewśo se, aby se zběrk woglědał"
 
 #: src/amo/pages/CollectionList/index.js:121
-msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr "Zběrki wólažcuju slědowanje wašych nejlubšych dodankow a źělenje wašogo perfektnje pśiměrjonego wobglědowaka z drugimi."
+msgid ""
+"Collections make it easy to keep track of favorite add-ons and share your "
+"perfectly customized browser with others."
+msgstr ""
+"Zběrki wólažcuju slědowanje wašych nejlubšych dodankow a źělenje wašogo "
+"perfektnje pśiměrjonego wobglědowaka z drugimi."
 
 #: src/amo/pages/CollectionList/index.js:130
 msgid "Create a collection"
@@ -1978,68 +2210,103 @@ msgid "Privacy & security"
 msgstr "Priwatnosć a wěstota"
 
 #: src/amo/pages/LandingPage/index.js:234
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Změńśo naglěd swójogo wobglědowaka. Wubjeŕśo z tysacow drastwow, aby Firefox naglěd dał, kótaryž cośo."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Změńśo naglěd swójogo wobglědowaka. Wubjeŕśo z tysacow drastwow, aby Firefox "
+"naglěd dał, kótaryž cośo."
 
 #: src/amo/pages/LandingPage/index.js:236
-msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "Wuslěźćo mócne rědy a funkcije, aby Firefox na swóje drobnostki pśiměrił."
+msgid ""
+"Explore powerful tools and features to customize Firefox and make the "
+"browser all your own."
+msgstr ""
+"Wuslěźćo mócne rědy a funkcije, aby Firefox na swóje drobnostki pśiměrił."
 
 #: src/amo/pages/LandingPage/index.js:270
 msgid "Explore all categories"
 msgstr "Wšykne kategorije wuslěźiś"
 
-#: src/amo/pages/LanguageTools/index.js:104
+#: src/amo/pages/LanguageTools/index.js:106
 msgid "Available for your locale"
 msgstr "Za wašu rěc k dispoziciji"
 
-#: src/amo/pages/LanguageTools/index.js:144
+#: src/amo/pages/LanguageTools/index.js:146
 msgid "Dictionaries and Language Packs"
 msgstr "Słowniki a rěcne pakśiki"
 
-#: src/amo/pages/LanguageTools/index.js:155
-msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "Gaž słownikowy dodank instalěrujośo, ma waš pšawopisna kontrola dalšnu rěc k dispoziciji, aby waš pšawopis kontrolěrowała."
+#: src/amo/pages/LanguageTools/index.js:157
+msgid ""
+"Installing a dictionary add-on will add a new language option to your spell-"
+"checker, which checks your spelling as you type in Firefox."
+msgstr ""
+"Gaž słownikowy dodank instalěrujośo, ma waš pšawopisna kontrola dalšnu rěc k "
+"dispoziciji, aby waš pšawopis kontrolěrowała."
 
-#: src/amo/pages/LanguageTools/index.js:160
-msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr "Rěcne pakśiki změniju pówjerchowu rěc wašogo wobglědowaka, inkluziwnje menijowe opcije a nastajenja."
+#: src/amo/pages/LanguageTools/index.js:162
+msgid ""
+"Language packs change your browser's interface language, including menu "
+"options and settings."
+msgstr ""
+"Rěcne pakśiki změniju pówjerchowu rěc wašogo wobglědowaka, inkluziwnje "
+"menijowe opcije a nastajenja."
 
-#: src/amo/pages/LanguageTools/index.js:166
+#: src/amo/pages/LanguageTools/index.js:168
 msgid "All Locales"
 msgstr "Wšykne rěcy"
 
-#: src/amo/pages/LanguageTools/index.js:172
+#: src/amo/pages/LanguageTools/index.js:174
 msgid "Locale Name"
 msgstr "Mě rěcy"
 
-#: src/amo/pages/LanguageTools/index.js:175
+#: src/amo/pages/LanguageTools/index.js:177
 msgid "Language Packs"
 msgstr "Rěcne pakśiki"
 
-#: src/amo/pages/LanguageTools/index.js:178
+#: src/amo/pages/LanguageTools/index.js:180
 msgid "Dictionaries"
 msgstr "Słowniki"
 
 #: src/amo/pages/StaticPages/About/index.js:122
-msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "Jolic cośo sobu cyniś, ale njejsćo techniski nazgónity, maśo tśi móžnosći, aby pomagał:"
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"Jolic cośo sobu cyniś, ale njejsćo techniski nazgónity, maśo tśi móžnosći, "
+"aby pomagał:"
 
 #: src/amo/pages/StaticPages/About/index.js:131
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Wobźělśo se na našom %(startLink)sforumje%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:144
-msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr "Pišćo swójo měnjenje wó swójich nejlubšych dodankach. Wuwijarje dodankow zawěsće lubjej swóje dodanki pólěpšuju a nowe naporaju, gaž wěźe, až se wužywarje jich źěło waže."
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"Pišćo swójo měnjenje wó swójich nejlubšych dodankach. Wuwijarje dodankow "
+"zawěsće lubjej swóje dodanki pólěpšuju a nowe naporaju, gaž wěźe, až se "
+"wužywarje jich źěło waže."
 
 #: src/amo/pages/StaticPages/About/index.js:149
-msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr "Dajśo swójim pśjaśelam a swójej familiji k wěsći, až Firefox jo malsny, wěsty wobglědowak, kótaryž jich priwatnosć šćita a až mógu jen z dodankami pśiměriś!"
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"Dajśo swójim pśjaśelam a swójej familiji k wěsći, až Firefox jo malsny, "
+"wěsty wobglědowak, kótaryž jich priwatnosć šćita a až mógu jen z dodankami "
+"pśiměriś!"
 
 #: src/amo/pages/StaticPages/About/index.js:157
-msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr "Aby se wó dalšnych móžnosćach informěrował, kak móžośo na zgromaźeństwje dodankow sobu źěłaś, woglědajsó se pšosym k našomu %(startLink)swikijoju%(endLink)s"
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s"
+msgstr ""
+"Aby se wó dalšnych móžnosćach informěrował, kak móžośo na zgromaźeństwje "
+"dodankow sobu źěłaś, woglědajsó se pšosym k našomu %(startLink)swikijoju"
+"%(endLink)s"
 
 #: src/amo/pages/StaticPages/About/index.js:171
 msgid "Get support"
@@ -2047,31 +2314,52 @@ msgstr "Pomoc dostaś"
 
 #: src/amo/pages/StaticPages/About/index.js:176
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
-"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Jolic cośo wěcej wó tom zgóniś, kak móžośo dodanki w Firefox zastojaś, abo jadnorje pomoc wó Firefox trjebaśo, woglědajśo se k %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. Joć tam wótegrono "
-"njenamakajośo, móžośo %(startForumLink)sse na forumje našogo zgromaźeństwa pšašaś%(endForumLink)s."
+"Jolic cośo wěcej wó tom zgóniś, kak móžośo dodanki w Firefox zastojaś, abo "
+"jadnorje pomoc wó Firefox trjebaśo, woglědajśo se k %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. Joć tam wótegrono njenamakajośo, móžośo "
+"%(startForumLink)sse na forumje našogo zgromaźeństwa pšašaś%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:197
-msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr "%(startLink)sInformacije wó tom, kak móžośo se z teamom dodankow Mozilla do zwiska stajiś, namakajośo how%(endLink)s."
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sInformacije wó tom, kak móžośo se z teamom dodankow Mozilla do "
+"zwiska stajiś, namakajośo how%(endLink)s."
 
-#: src/amo/pages/StaticPages/About/index.js:23 src/amo/pages/StaticPages/About/index.js:26
+#: src/amo/pages/StaticPages/About/index.js:23
+#: src/amo/pages/StaticPages/About/index.js:26
 msgid "About Firefox Add-ons"
 msgstr "Wó dodankach za Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:32
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
-"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
 msgstr ""
-"Addon.mozilla.org (AMO) jo oficielne sedło Mozilla za pytanje a instalěrowanje dodankow za wobglědowak Firefox. Pśidajśo nowe funkcije Firefox, pólěpšćo swóje interakcije z webwopśimjeśim a změńśo "
-"wenkowny naglěd swójogo wobglědowaka, aby swóje pśeglědowańske dožywjenje změnił a pśiměrił."
+"Addon.mozilla.org (AMO) jo oficielne sedło Mozilla za pytanje a "
+"instalěrowanje dodankow za wobglědowak Firefox. Pśidajśo nowe funkcije "
+"Firefox, pólěpšćo swóje interakcije z webwopśimjeśim a změńśo wenkowny "
+"naglěd swójogo wobglědowaka, aby swóje pśeglědowańske dožywjenje změnił a "
+"pśiměrił."
 
 #: src/amo/pages/StaticPages/About/index.js:42
-msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Jolic dodanki za Thunderbird abo SeaMonkey pytaśo, woglědajśo se pšosym k %(startTBLink)saddons.thunderbird.net%(endTBLink)s abo %(startSMLink)saddons.thunderbird.net//seamonkey%(endSMLink)s."
+msgid ""
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+msgstr ""
+"Jolic dodanki za Thunderbird abo SeaMonkey pytaśo, woglědajśo se pšosym k "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s abo %(startSMLink)saddons."
+"thunderbird.net//seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:59
 msgid "A community of creators"
@@ -2079,11 +2367,17 @@ msgstr "Zgromaźeństwo wuwijarjow"
 
 #: src/amo/pages/StaticPages/About/index.js:61
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
-"been automatically published and may be subject to review by a team of editors once publically listed."
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publically "
+"listed."
 msgstr ""
-"How nalicone dodanki su se wót towzyntow wuwijarjow a designerow drastwow z cełego swěta napórali, kótarež wót jadnotliwych hobbyjowych wuwijarjowy až k wjelikim pśedewześam dosegaju. Někotare "
-"dodanki nalicone na AMO su awtomatiski wózjawjone a mógu pśeglědanjeju teama wobźěłarjow pódlažaś, gaž se zjawnje pokazuju."
+"How nalicone dodanki su se wót towzyntow wuwijarjow a designerow drastwow z "
+"cełego swěta napórali, kótarež wót jadnotliwych hobbyjowych wuwijarjowy až k "
+"wjelikim pśedewześam dosegaju. Někotare dodanki nalicone na AMO su "
+"awtomatiski wózjawjone a mógu pśeglědanjeju teama wobźěłarjow pódlažaś, gaž "
+"se zjawnje pokazuju."
 
 #: src/amo/pages/StaticPages/About/index.js:70
 msgid "Get involved"
@@ -2091,40 +2385,65 @@ msgstr "Cyńśo sobu"
 
 #: src/amo/pages/StaticPages/About/index.js:72
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
-"the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
 msgstr ""
-"Mozilla jo za wšykne wužytny zašćitowaŕ interneta, wuwijamy Firefox, aby jen strowy, wótwórjony a pśistupny źaržali. Dodanki pódpěraju wólbu wužywarjow a pśiměrjobnosć w Firefox a móžośo na "
-"slědujucu wašnju sobu pomagaś:"
+"Mozilla jo za wšykne wužytny zašćitowaŕ interneta, wuwijamy Firefox, aby jen "
+"strowy, wótwórjony a pśistupny źaržali. Dodanki pódpěraju wólbu wužywarjow a "
+"pśiměrjobnosć w Firefox a móžośo na slědujucu wašnju sobu pomagaś:"
 
 #: src/amo/pages/StaticPages/About/index.js:82
-msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr "%(startLink)sNapórajśo swójski dodank%(endLink)s. Bitujomy dermotne góspodowanje a aktualizěrowańske słužby a móžomy wam pomagaś, wjeliki krejz wužywarjow dostaś."
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sNapórajśo swójski dodank%(endLink)s. Bitujomy dermotne "
+"góspodowanje a aktualizěrowańske słužby a móžomy wam pomagaś, wjeliki krejz "
+"wužywarjow dostaś."
 
 #: src/amo/pages/StaticPages/About/index.js:98
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
-"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
+"Help improve this website. It's open source, and you can file bugs and "
+"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
+"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
+"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
+"Github."
 msgstr ""
-"Pomagajśo toś to websedło pólěpšyś. Jo wótwórjonego žrědła, a móžośo zmólkowe rozpšawy pisaś a pórěźenja zapódaś. Móžośo z %(startGoodFirstBugLink)sdobreju zmólkoweju rozpšawu%(endGoodFirstBugLink)s"
-" zachopiś abo se wšykne njerozwězane problemy za %(startAddonsServerRepoLink)sserwer%(endAddonsServerRepoLink)s AMO a %(startAddonsFrontendRepoLink)sbok%(endAddonsFrontendRepoLink)s na Github "
+"Pomagajśo toś to websedło pólěpšyś. Jo wótwórjonego žrědła, a móžośo "
+"zmólkowe rozpšawy pisaś a pórěźenja zapódaś. Móžośo z "
+"%(startGoodFirstBugLink)sdobreju zmólkoweju rozpšawu%(endGoodFirstBugLink)s "
+"zachopiś abo se wšykne njerozwězane problemy za "
+"%(startAddonsServerRepoLink)sserwer%(endAddonsServerRepoLink)s AMO a "
+"%(startAddonsFrontendRepoLink)sbok%(endAddonsFrontendRepoLink)s na Github "
 "woglědaś."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:102
-msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr "Njepomjeńśo e-mailowu adresu, telefonowy numer abo druge wósobinske daty, daniž swójske daniž te z drugich wósobow."
+msgid ""
+"Include your own or anyone else’s email, phone number, or other personal "
+"details."
+msgstr ""
+"Njepomjeńśo e-mailowu adresu, telefonowy numer abo druge wósobinske daty, "
+"daniž swójske daniž te z drugich wósobow."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:107
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr "Njepišćo pógódnośenja za dodank, kótaryž jo se wót was abo wašeje organizacije wuwił abo se reprezentěrujo."
+msgstr ""
+"Njepišćo pógódnośenja za dodank, kótaryž jo se wót was abo wašeje "
+"organizacije wuwił abo se reprezentěrujo."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:112
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
-"add-on, or the add-on requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving "
+"a negative review of an add-on for displaying ads or requiring data "
+"gathering, when that is the intended purpose of the add-on, or the add-on "
+"requires gathering data to function."
 msgstr ""
-"Njekritizěrujśo dodank za něco, za což jo myslony. Njezawóstajajśo na pśikład negatiwne pógódnośenje dodanka, kótaryž wabjenje pokazujo abo musy daty zběraś, jolić to jo zaměr dodanka, abo jolic "
-"dodank musy daty zběraś, aby funkcioněrował."
+"Njekritizěrujśo dodank za něco, za což jo myslony. Njezawóstajajśo na "
+"pśikład negatiwne pógódnośenje dodanka, kótaryž wabjenje pokazujo abo musy "
+"daty zběraś, jolić to jo zaměr dodanka, abo jolic dodank musy daty zběraś, "
+"aby funkcioněrował."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:121
 msgid "Frequently Asked Questions about Reviews"
@@ -2136,19 +2455,30 @@ msgstr "Kak mógu problematiske pógódnośenje wózjawiś?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:125
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
-"evaluate whether or not to delete the review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this "
+"review\" and it will be submitted to the site for moderation. Our moderation "
+"team will use the Review Guidelines to evaluate whether or not to delete the "
+"review or restore it back to the site."
 msgstr ""
-"Pšosym klikniśo na „Toś to pógódnośenje k wěsći daś“, aby dał abo wóznamjenił póchmurne pógódnośenja k wěsći a pósćelo se k sedłoju za moderaciju. Naš moderaciski team buźo směrnice za pógódnośenja "
-"wužywaś, aby pósuźił, lěc měło se pógódnośenje wulašowaś abo nic, abo lěc měło se wótnowiś."
+"Pšosym klikniśo na „Toś to pógódnośenje k wěsći daś“, aby dał abo "
+"wóznamjenił póchmurne pógódnośenja k wěsći a pósćelo se k sedłoju za "
+"moderaciju. Naš moderaciski team buźo směrnice za pógódnośenja wužywaś, aby "
+"pósuźił, lěc měło se pógódnośenje wulašowaś abo nic, abo lěc měło se "
+"wótnowiś."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:132
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Som dodankowy awtor, mógu na pógódnośenja wótegroniś?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:138
-msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "Jo, awtory dodankow mógu jadnotliwe wótegrono na pógódnośenje daś. W našom %(startLink)sforumje%(endLink)s móžośo diskusijnu temu wótwóriś, aby póstarcył dalšnu diskusiju."
+msgid ""
+"Yes, add-on authors can provide a single response to a review. You can set "
+"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
+"additional discussion or follow-up."
+msgstr ""
+"Jo, awtory dodankow mógu jadnotliwe wótegrono na pógódnośenje daś. W našom "
+"%(startLink)sforumje%(endLink)s móžośo diskusijnu temu wótwóriś, aby "
+"póstarcył dalšnu diskusiju."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:152
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2156,23 +2486,32 @@ msgstr "Som awtor dodanka, mógu njepśijazne pógódnośenja lašowaś?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:157
 msgid ""
-"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
-"valid due to a new release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines "
+"outlined above, you can click \"Report this review\" and have it moderated. "
+"If a review included a complaint that is no longer valid due to a new "
+"release of your add-on, we may consider deleting the review."
 msgstr ""
-"W cełku nic. Ale jolic pógódnośenje górjejce wopisanej směrnicy za pógódnośenja njewótpowědujo, móžośo na „Toś to pógódnośenje k wěsći daś“ kliknuś, aby se moderěrowało. Jolic pógódnośenje dypk "
-"kritiki wopśimujo, kótaryž w nowej wersiji wašogo dodanka wěcej aktualny njejo, móžomy toś to pógódnośenje wulašowaś."
+"W cełku nic. Ale jolic pógódnośenje górjejce wopisanej směrnicy za "
+"pógódnośenja njewótpowědujo, móžośo na „Toś to pógódnośenje k wěsći daś“ "
+"kliknuś, aby se moderěrowało. Jolic pógódnośenje dypk kritiki wopśimujo, "
+"kótaryž w nowej wersiji wašogo dodanka wěcej aktualny njejo, móžomy toś to "
+"pógódnośenje wulašowaś."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:21 src/amo/pages/StaticPages/ReviewGuide/index.js:23
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:21
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:23
 msgid "Review Guidelines"
 msgstr "Směrnica za pógódnośenja"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:29
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
-" with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons "
+"you’ve installed and used. Our review moderation team reserves the right to "
+"refuse or remove any review that does not comply with these guidelines."
 msgstr ""
-"Pógódnośenja dodankow su móžnosć, aby wy dał swóje měnjenja wó dodankach k wěsći, kótarež sćo instalěrował a wužywał. Naš moderaciski team za pógódnośenja sebje pšawo wuměnja, pógódnośenja "
-"wótpokazaś abo wótwónoźeś, kótarež toś tym směrnicam njewótpowěduju."
+"Pógódnośenja dodankow su móžnosć, aby wy dał swóje měnjenja wó dodankach k "
+"wěsći, kótarež sćo instalěrował a wužywał. Naš moderaciski team za "
+"pógódnośenja sebje pšawo wuměnja, pógódnośenja wótpokazaś abo wótwónoźeś, "
+"kótarež toś tym směrnicam njewótpowěduju."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Tips for writing a great review"
@@ -2183,7 +2522,8 @@ msgid "Do:"
 msgstr "Dobre:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:38
-msgid "Write like you are telling a friend about your experience with the add-on."
+msgid ""
+"Write like you are telling a friend about your experience with the add-on."
 msgstr "Pišćo, kaž pśijaśeloju wó swójich nazgónjenjach z dodankom wulicujośo."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:43
@@ -2215,8 +2555,11 @@ msgid "Will you continue to use this add-on?"
 msgstr "Buźośo toś ten dodank dalej wužywaś?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:64
-msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr "Bjeŕśo se wokognuśe casa, aby swójo pógódnośenje pśecytał, nježli až jo wótpósćelośo, aby pisańske zmólki miniměrował."
+msgid ""
+"Take a moment to read your review before submitting it to minimize typos."
+msgstr ""
+"Bjeŕśo se wokognuśe casa, aby swójo pógódnośenje pśecytał, nježli až jo "
+"wótpósćelośo, aby pisańske zmólki miniměrował."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:69
 msgid "Don't:"
@@ -2224,31 +2567,46 @@ msgstr "Glědajśo:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:72
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "NJezapódajśo jadnosłowne pógódnośenja ako „Wjelicne!“, „Wuběrne“ abo „Špatne“."
+msgstr ""
+"NJezapódajśo jadnosłowne pógódnośenja ako „Wjelicne!“, „Wuběrne“ abo "
+"„Špatne“."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:77
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
-" on the add-on's detail page."
+"Post technical issues, support requests, or feature suggestions. Use the "
+"available support options for each add-on, if available. You can find them "
+"in the \"More information\" section in the sidebar on the add-on's detail "
+"page."
 msgstr ""
-"Njepišćo techniske problemy, pšosby wó pomoc abo naraźenja za nowe funkcije. Wužywajśo k dispoziciji stojece móžnosći pomocy wótpowědnego dodanka město togo, jolic k dispoziciji. Namakajośo je we "
-"wótrězku „Dalšne informacije“ w bocnicy na boku drobnostkow dodanka."
+"Njepišćo techniske problemy, pšosby wó pomoc abo naraźenja za nowe funkcije. "
+"Wužywajśo k dispoziciji stojece móžnosći pomocy wótpowědnego dodanka město "
+"togo, jolic k dispoziciji. Namakajośo je we wótrězku „Dalšne informacije“ w "
+"bocnicy na boku drobnostkow dodanka."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:82
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Njepišćo pógódnośenja za dodanki, kótarež njejsćo sam wužył."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:87
-msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr "Njewužywajśo wulgarne, seksualne wuraze abo wuraze, kótarež maju za gramoty połne."
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
+msgstr ""
+"Njewužywajśo wulgarne, seksualne wuraze abo wuraze, kótarež maju za gramoty "
+"połne."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:92
-msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr "Njewužywajśo HTML, wótkaze, žrědłowy kod abo źěle žrědłowego koda. Pógódnośenja směju jano lutny tekst wopśimowaś."
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"Njewužywajśo HTML, wótkaze, žrědłowy kod abo źěle žrědłowego koda. "
+"Pógódnośenja směju jano lutny tekst wopśimowaś."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:97
-msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr "Wopacne pódaśa cyniś, awtorow dodankow pónižyś abo jich wósobinski skśiwźiś."
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"Wopacne pódaśa cyniś, awtorow dodankow pónižyś abo jich wósobinski skśiwźiś."
 
 #: src/amo/pages/UserProfile/index.js:215
 msgid "My reviews"
@@ -2262,15 +2620,18 @@ msgstr "Dodankowy wuwijaŕ"
 msgid "Theme artist"
 msgstr "Drastwowy wuměłc"
 
-#: src/amo/pages/UserProfile/index.js:280 src/amo/pages/UserProfileEdit/index.js:458
+#: src/amo/pages/UserProfile/index.js:280
+#: src/amo/pages/UserProfileEdit/index.js:458
 msgid "User Profile for %(user)s"
 msgstr "Wužywarski profil za %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:310 src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfile/index.js:310
+#: src/amo/pages/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr "Městno"
 
-#: src/amo/pages/UserProfile/index.js:318 src/amo/pages/UserProfileEdit/index.js:625
+#: src/amo/pages/UserProfile/index.js:318
+#: src/amo/pages/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr "Pówołanje"
 
@@ -2286,7 +2647,8 @@ msgstr "Licba dodankow"
 msgid "Average rating of developer’s add-ons"
 msgstr "Pśerězne pógódnośenje dodankow wuwijarja"
 
-#: src/amo/pages/UserProfile/index.js:356 src/amo/pages/UserProfileEdit/index.js:647
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr "Biografija"
 
@@ -2331,8 +2693,12 @@ msgid "Email address cannot be changed here"
 msgstr "E-mailowa adresa njedajo se how změniś"
 
 #: src/amo/pages/UserProfileEdit/index.js:531
-msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "Móžośo swóju e-mailowu adresu na Firefox Accounts změniś. %(startLink)sTrjebaśo pomoc?%(endLink)s"
+msgid ""
+"You can change your email address on Firefox Accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+"Móžośo swóju e-mailowu adresu na Firefox Accounts změniś. "
+"%(startLink)sTrjebaśo pomoc?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:548
 msgid "Manage Firefox Accounts…"
@@ -2343,12 +2709,20 @@ msgid "Profile"
 msgstr "Profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:560
-msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr "Dajśo wužywarjam někotare informacije wó sebje. Toś te póla su opcionalne, ale budu drugim wužywarjam pomagaś, was lěpjej póznaś."
+msgid ""
+"Tell users a bit more information about yourself. These fields are optional, "
+"but they'll help other users get to know you better."
+msgstr ""
+"Dajśo wužywarjam někotare informacije wó sebje. Toś te póla su opcionalne, "
+"ale budu drugim wužywarjam pomagaś, was lěpjej póznaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:566
-msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr "Dajśo wužywarjam někotare informacije wó toś tom wužywarju. Toś te póla su opcionalne, ale budu drugim wužywarjam pomagaś, %(username)s lěpjej póznaś."
+msgid ""
+"Tell users a bit more information about this user. These fields are "
+"optional, but they'll help other users get to know %(username)s better."
+msgstr ""
+"Dajśo wužywarjam někotare informacije wó toś tom wužywarju. Toś te póla su "
+"opcionalne, ale budu drugim wužywarjam pomagaś, %(username)s lěpjej póznaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:576
 msgid "Display Name"
@@ -2375,16 +2749,29 @@ msgid "Notifications"
 msgstr "Powěźeńki"
 
 #: src/amo/pages/UserProfileEdit/index.js:697
-msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "Wótergi Mozilla wam mejlku wó pśichodnych wersijach a dodankowych tšojenjach sćelo. Pšosym wubjeŕśo temy, za kótarež zajmujośo."
+msgid ""
+"From time to time, Mozilla may send you email about upcoming releases and "
+"add-on events. Please select the topics you are interested in."
+msgstr ""
+"Wótergi Mozilla wam mejlku wó pśichodnych wersijach a dodankowych tšojenjach "
+"sćelo. Pšosym wubjeŕśo temy, za kótarež zajmujośo."
 
 #: src/amo/pages/UserProfileEdit/index.js:702
-msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr "Wótergi Mozilla toś tomu wužywarjeju mejlku wó pśichodnych wersijach a dodankowych tšojenjach sćelo. Pšosym wubjeŕśo temy, za kótarež se toś ten wužywaŕ zajmujo."
+msgid ""
+"From time to time, Mozilla may send this user email about upcoming releases "
+"and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+"Wótergi Mozilla toś tomu wužywarjeju mejlku wó pśichodnych wersijach a "
+"dodankowych tšojenjach sćelo. Pšosym wubjeŕśo temy, za kótarež se toś ten "
+"wužywaŕ zajmujo."
 
 #: src/amo/pages/UserProfileEdit/index.js:717
-msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr "Mozilla sebje pšawo wuměnjujo, se z wami wó wěstych nastupnosćach z wašymi góspodowanymi dodankami do zwiska stajiś."
+msgid ""
+"Mozilla reserves the right to contact you individually about specific "
+"concerns with your hosted add-ons."
+msgstr ""
+"Mozilla sebje pšawo wuměnjujo, se z wami wó wěstych nastupnosćach z wašymi "
+"góspodowanymi dodankami do zwiska stajiś."
 
 #: src/amo/pages/UserProfileEdit/index.js:735
 msgid "Updating your profile…"
@@ -2402,53 +2789,79 @@ msgstr "Profil se aktualizěrujo…"
 msgid "Update Profile"
 msgstr "Profil aktualizěrowaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:750 src/amo/pages/UserProfileEdit/index.js:839
+#: src/amo/pages/UserProfileEdit/index.js:750
+#: src/amo/pages/UserProfileEdit/index.js:839
 msgid "Delete My Profile"
 msgstr "Mój profil wulašowaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:751 src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:751
+#: src/amo/pages/UserProfileEdit/index.js:840
 msgid "Delete Profile"
 msgstr "Profil wulašowaś"
 
 #: src/amo/pages/UserProfileEdit/index.js:763
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr "WAŽNY: Lašowanje wašogo profila za dodanki Firefox njedajo se anulěrowaś."
+msgstr ""
+"WAŽNY: Lašowanje wašogo profila za dodanki Firefox njedajo se anulěrowaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:766
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr "WAŽNY: Lašowanje toś togo profila za dodanki Firefox njedajo se anulěrowaś."
+msgstr ""
+"WAŽNY: Lašowanje toś togo profila za dodanki Firefox njedajo se anulěrowaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:775
 msgid ""
-"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
-" will be anonymised and no longer editable."
+"Your data will be permanently removed, including profile details (picture, "
+"user name, display name, location, home page, biography, occupation) and "
+"notification preferences. Your reviews and ratings will be anonymised and no "
+"longer editable."
 msgstr ""
-"Waše daty budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje) a nastajenja powěźeńkow. Waše "
-"pśeglědanja a pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
+"Waše daty budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki "
+"(wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, "
+"žywjenjoběg, pówołanje) a nastajenja powěźeńkow. Waše pśeglědanja a "
+"pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
 
 #: src/amo/pages/UserProfileEdit/index.js:782
 msgid ""
-"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
-"ratings will be anonymised and no longer editable."
+"The user’s data will be permanently removed, including profile details "
+"(picture, user name, display name, location, home page, biography, "
+"occupation) and notification preferences. Reviews and ratings will be "
+"anonymised and no longer editable."
 msgstr ""
-"Daty wužywarjow budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje) a nastajenja powěźeńkow. "
-"Waše pśeglědanja a pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
+"Daty wužywarjow budu se na pśecej wótwónoźowaś, inkluziwnje profilowe "
+"drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, "
+"žywjenjoběg, pówołanje) a nastajenja powěźeńkow. Waše pśeglědanja a "
+"pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
 
 #: src/amo/pages/UserProfileEdit/index.js:792
-msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr "Gaž toś tu e-mailowu adresu wužywaśo, aby se zasej pla addons.mozilla.org pśizjawił, napórajośo nowy profil za dodanki Firefox, kótaryž njejo zwězany z profilom, kótaryž sćo wulašował."
+msgid ""
+"When you use this email address to log in again to addons.mozilla.org, you "
+"will create a new Firefox Add-ons profile that is in no way associated with "
+"the profile you deleted."
+msgstr ""
+"Gaž toś tu e-mailowu adresu wužywaśo, aby se zasej pla addons.mozilla.org "
+"pśizjawił, napórajośo nowy profil za dodanki Firefox, kótaryž njejo zwězany "
+"z profilom, kótaryž sćo wulašował."
 
 #: src/amo/pages/UserProfileEdit/index.js:805
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
-" add-ons before you can delete your profile."
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
+"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+"before you can delete your profile."
 msgstr ""
-"%(strongStart)sGlědajśo:%(strongEnd)s Njamóžośo swój profil wulašowaś, jolic sćo %(linkStart)sawtor dodankow%(linkEnd)s. Musyśo %(docLinkStart)sswójstwo pśenosowaś%(docLinkEnd)s abo dodanki "
-"wulašowaś, nježli až móžośo swój profil wulašowaś."
+"%(strongStart)sGlědajśo:%(strongEnd)s Njamóžośo swój profil wulašowaś, jolic "
+"sćo %(linkStart)sawtor dodankow%(linkEnd)s. Musyśo %(docLinkStart)sswójstwo "
+"pśenosowaś%(docLinkEnd)s abo dodanki wulašowaś, nježli až móžośo swój profil "
+"wulašowaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:812
-msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sGlědajśo:%(strongEnd)s Njamóžośo profil wužywarja wulašowaś, jolic wužywaŕ jo %(linkStart)sawtor dodankow%(linkEnd)s."
+msgid ""
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
+"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+msgstr ""
+"%(strongStart)sGlědajśo:%(strongEnd)s Njamóžośo profil wužywarja wulašowaś, "
+"jolic wužywaŕ jo %(linkStart)sawtor dodankow%(linkEnd)s."
 
 #: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
@@ -2470,11 +2883,15 @@ msgstr "Se instalěrujo"
 msgid "Uninstalling"
 msgstr "Se wótinstalěrujo"
 
-#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:265 src/core/components/InstallButton/index.js:311
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:265
+#: src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "Drastwu instalěrowaś"
 
-#: src/core/components/AMInstallButton/index.js:222 src/core/components/InstallButton/index.js:296 src/core/components/InstallButton/index.js:312
+#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/InstallButton/index.js:296
+#: src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
 msgstr "Programoju Firefox pśidaś"
 
@@ -2483,10 +2900,15 @@ msgid "Register or Log in"
 msgstr "Registrěrowaś abo pśizjawiś"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Bóžko jo zmólka nastała a njejsmy mógli wašo napšašowanje dokóńcyś. Smy toś tu zmólku protokolěrowali a buźomy ju pśeslěźowaś."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Bóžko jo zmólka nastała a njejsmy mógli wašo napšašowanje dokóńcyś. Smy toś "
+"tu zmólku protokolěrowali a buźomy ju pśeslěźowaś."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Zmólkowy kod: %(status)s."
 
@@ -2516,7 +2938,8 @@ msgstr "%(name)s se instalěrujo."
 
 #: src/core/components/InstallSwitch/index.js:76
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s jo zainstalěrowany a zmóžnjony. Klikniśo, aby jen wótinstalěrował."
+msgstr ""
+"%(name)s jo zainstalěrowany a zmóžnjony. Klikniśo, aby jen wótinstalěrował."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "%(name)s is disabled. Click to enable."
@@ -2551,8 +2974,12 @@ msgid "Take short survey"
 msgstr "Na krotkem napšašowanju se wobźěliś"
 
 #: src/core/components/SurveyNotice/index.js:139
-msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr "Źěkujomy se za waš woglěd na toś tom websedle! Bjeŕśo se někotare minuty casa, aby wó swójom dožywjenju z Firefox wulicował."
+msgid ""
+"Thanks for visiting this site! Please take a minute or two to tell Firefox "
+"about your experience."
+msgstr ""
+"Źěkujomy se za waš woglěd na toś tom websedle! Bjeŕśo se někotare minuty "
+"casa, aby wó swójom dožywjenju z Firefox wulicował."
 
 #: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
@@ -2574,7 +3001,7 @@ msgstr "Pśi wótinstalěrowanju jo njewótcakana zmólka nastała."
 msgid "An unexpected error occurred."
 msgstr "Njewótcakana zmólka jo nastała."
 
-#: src/ui/components/ConfirmButton/index.js:101
+#: src/ui/components/ConfirmButton/index.js:102
 msgid "Confirm"
 msgstr "Wobkšuśiś"
 
@@ -2589,6 +3016,10 @@ msgstr "Wótpósłaś"
 #: src/ui/components/DismissibleTextForm/index.js:133
 msgid "Submitting"
 msgstr "Sćelo se"
+
+#: src/ui/components/DismissibleTextForm/index.js:186
+msgid "Delete"
+msgstr "Wulašowaś"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -2634,7 +3065,7 @@ msgstr[3] "Mějśo pśistup k swójim datam na %(param)s drugich websedłach"
 msgid "Access your data for %(param)s"
 msgstr "Mějśo pśistup k swójim datam za %(param)s"
 
-#: src/ui/components/Notice/index.js:130
+#: src/ui/components/Notice/index.js:133
 msgid "Dismiss this notice"
 msgstr "Toś ten pokaz zachyśiś"
 
@@ -2654,7 +3085,7 @@ msgstr "Hyšći pógódnośenja njejsu"
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Aktualizěrujśo swójo pógódnośenje na %(starRating)s z 5 gwězdkow"
 
-#: src/ui/components/ShowMoreCard/index.js:60
+#: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Pokazaś</span> Wěcej cytaś"
 
@@ -2669,6 +3100,21 @@ msgstr[3] "%(total)s dodankow"
 #: src/ui/components/UserReview/index.js:97
 msgid "Developer response"
 msgstr "Wótegrono wuwijarja"
+
+#~ msgid "Do you really want to delete this reply?"
+#~ msgstr "Cośo napšawdu toś to wótegrono wulašowaś?"
+
+#~ msgid "Do you really want to delete this rating?"
+#~ msgstr "Cośo napšawdu toś to pógódnośenje wulašowaś?"
+
+#~ msgid "Do you really want to delete this review?"
+#~ msgstr "Cośo napšawdu toś to pógódnośenje wulašowaś?"
+
+#~ msgid "Nevermind, I don't want to write a review"
+#~ msgstr "Njewaźi, njocu pógódnośenje pisaś"
+
+#~ msgid "Nevermind, I don't want to edit my review"
+#~ msgstr "Njewaźi, njocu swójo pógódnośenje wobdźěłaś"
 
 #~ msgid "See more fall themes"
 #~ msgstr "Dalšne nazymske drastwy pokazaś"
@@ -2721,8 +3167,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Tabliss"
 #~ msgstr "Tabliss"
 
-#~ msgid "Enjoy a gorgeous new tab page with customizable backgrounds, local weather & more"
-#~ msgstr "Wužywajśo wjelicny nowy bok z pśiměrujobnymi slězynami, informacijami wó lokalnem wjedrje a wěcej"
+#~ msgid ""
+#~ "Enjoy a gorgeous new tab page with customizable backgrounds, local "
+#~ "weather & more"
+#~ msgstr ""
+#~ "Wužywajśo wjelicny nowy bok z pśiměrujobnymi slězynami, informacijami wó "
+#~ "lokalnem wjedrje a wěcej"
 
 #~ msgid "Save collection"
 #~ msgstr "Zběrku składowaś"
@@ -2807,7 +3257,9 @@ msgstr "Wótegrono wuwijarja"
 #~ msgstr "Ghostery"
 
 #~ msgid "Popular anti-tracking extension now has ad blocking ability"
-#~ msgstr "Woblubowane rozšyrjenje pśeśiwo slědowanjeju móžo něnto wabjenje blokěrowaś"
+#~ msgstr ""
+#~ "Woblubowane rozšyrjenje pśeśiwo slědowanjeju móžo něnto wabjenje "
+#~ "blokěrowaś"
 
 #~ msgid "Share Backported"
 #~ msgstr "Share Backported"
@@ -2848,8 +3300,11 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Black Menu for Google"
 #~ msgstr "Carny meni za Google"
 
-#~ msgid "Easy drop-down menu access to Google services like Search and Translate"
-#~ msgstr "Lažki pśistup pśez padajucy meni na słužby Google ako pytanje a pśełožowanje"
+#~ msgid ""
+#~ "Easy drop-down menu access to Google services like Search and Translate"
+#~ msgstr ""
+#~ "Lažki pśistup pśez padajucy meni na słužby Google ako pytanje a "
+#~ "pśełožowanje"
 
 #~ msgid "Image Search Options"
 #~ msgstr "Image Search Options"
@@ -2875,8 +3330,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Worldwide Radio"
 #~ msgstr "Worldwide Radio"
 
-#~ msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-#~ msgstr "Dobyśaŕ wuběźowanja rozšyrjenjow Quantum! Pósłuchajśo radijo z cełego swěta live"
+#~ msgid ""
+#~ "Quantum Extensions Challenge winner! Listen to live radio from around the "
+#~ "world"
+#~ msgstr ""
+#~ "Dobyśaŕ wuběźowanja rozšyrjenjow Quantum! Pósłuchajśo radijo z cełego "
+#~ "swěta live"
 
 #~ msgid "Update user's profile"
 #~ msgstr "Profil wužywarja aktualizěrowaś"
@@ -2890,11 +3349,19 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Attention: You are about to delete a profile. Are you sure?"
 #~ msgstr "Glědajśo: Cośo profil wulašowaś. Sćo se wěsty?"
 
-#~ msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-#~ msgstr "Wažny: Jolic dodanki wobsejźiśo, musyśo je k drugim wužywarjam pśenosowaś abo wulašowaś, nježli až móžośo swój profil wulašowaś."
+#~ msgid ""
+#~ "Important: if you own add-ons, you have to transfer them to other users "
+#~ "or to delete them before you can delete your profile."
+#~ msgstr ""
+#~ "Wažny: Jolic dodanki wobsejźiśo, musyśo je k drugim wužywarjam pśenosowaś "
+#~ "abo wulašowaś, nježli až móžośo swój profil wulašowaś."
 
-#~ msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-#~ msgstr "Wažny: Wužywarski profil dajo se jano wulašowaś, jolic wužywaŕ dodanki njama."
+#~ msgid ""
+#~ "Important: a user profile can only be deleted if the user does not own "
+#~ "any add-ons."
+#~ msgstr ""
+#~ "Wažny: Wužywarski profil dajo se jano wulašowaś, jolic wužywaŕ dodanki "
+#~ "njama."
 
 #~ msgid "Yes, delete my profile"
 #~ msgstr "Jo, mój profil wulašowaś"
@@ -2908,13 +3375,18 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Envify"
 #~ msgstr "Envify"
 
-#~ msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-#~ msgstr "Dobyśaŕ wuběźowanja rozšyrjenjow Quantum! Rozdźělne rejtarkowe barwy za rozdźělne wuwijarske wokoliny"
+#~ msgid ""
+#~ "Quantum Extensions Challenge winner! Different tab colors for different "
+#~ "dev environments"
+#~ msgstr ""
+#~ "Dobyśaŕ wuběźowanja rozšyrjenjow Quantum! Rozdźělne rejtarkowe barwy za "
+#~ "rozdźělne wuwijarske wokoliny"
 
 #~ msgid "Laser Cat"
 #~ msgstr "Laser Cat"
 
-#~ msgid "For moments on the internet when you need to fire lasers out of a cat"
+#~ msgid ""
+#~ "For moments on the internet when you need to fire lasers out of a cat"
 #~ msgstr "Za wokognuśa w interneśe, gaž musyśo lasery z kócki wustśěliś"
 
 #~ msgid "Manage downloads from a tidy status bar"
@@ -2923,8 +3395,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Session Sync"
 #~ msgstr "Session Sync"
 
-#~ msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-#~ msgstr "Dobyśaŕ wuběźowanja rozšyrjenjow Quantum! Składujśo pósejźenja ako cytańske znamjenja a mějśo pśistup na nje mjazy rědami"
+#~ msgid ""
+#~ "Quantum Extensions Challenge winner! Save sessions as bookmarks and "
+#~ "access them across devices"
+#~ msgstr ""
+#~ "Dobyśaŕ wuběźowanja rozšyrjenjow Quantum! Składujśo pósejźenja ako "
+#~ "cytańske znamjenja a mějśo pśistup na nje mjazy rědami"
 
 #~ msgid "Profile successfully updated"
 #~ msgstr "Profil jo se wuspěšnje zaktualizěrował"
@@ -3053,7 +3529,9 @@ msgstr "Wótegrono wuwijarja"
 #~ msgstr "OneTab"
 
 #~ msgid "Convert your open tabs into a list and save precious memory"
-#~ msgstr "Konwertěrujśo swóje wócynjone rejtarki do lisćiny a składujśo drogotny składowański rum"
+#~ msgstr ""
+#~ "Konwertěrujśo swóje wócynjone rejtarki do lisćiny a składujśo drogotny "
+#~ "składowański rum"
 
 #~ msgid "Click to close"
 #~ msgstr "Klikniśo, aby zacynił"
@@ -3067,17 +3545,26 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "See all the new featured extensions"
 #~ msgstr "Wšykne nowe pśedstajone rozšyrjenja se woglědaś"
 
-#~ msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-#~ msgstr "Pólěpšćo pytańske wuslědki z miniaturowym pśeglědom, sortěrowanim pó woblubowanosću a wěcej."
+#~ msgid ""
+#~ "Enhance search results with thumbnail previews, popularity ranks & more."
+#~ msgstr ""
+#~ "Pólěpšćo pytańske wuslědki z miniaturowym pśeglědom, sortěrowanim pó "
+#~ "woblubowanosću a wěcej."
 
-#~ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-#~ msgstr "Wulašujśo daty awtomatiski (cookieje, lokalny składowak atd.) na wšych sedłach, kótarež se woglědujośo, mimo tych na běłęj lisćinje."
+#~ msgid ""
+#~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
+#~ "visit except those on your whitelist."
+#~ msgstr ""
+#~ "Wulašujśo daty awtomatiski (cookieje, lokalny składowak atd.) na wšych "
+#~ "sedłach, kótarež se woglědujośo, mimo tych na běłęj lisćinje."
 
 #~ msgid "Zoom for Firefox"
 #~ msgstr "Zoom for Firefox"
 
 #~ msgid "Simple zoom in/out tool for a close-up view of any web content."
-#~ msgstr "Jadnory rěd za skalěrowanje, z kótarymž móžośo se webwopśimjeśe z bliskosći woglědaś."
+#~ msgstr ""
+#~ "Jadnory rěd za skalěrowanje, z kótarymž móžośo se webwopśimjeśe z "
+#~ "bliskosći woglědaś."
 
 #~ msgid "Temporary Containers"
 #~ msgstr "Nachylne kontejnery"
@@ -3088,8 +3575,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Momentum"
 #~ msgstr "Momentum"
 
-#~ msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-#~ msgstr "Wuměńśo swój nowy rejtark z wósobinskim pśeglědom - lisćinami nadawkow, pśedpowěźenjami wjedra a wěcej."
+#~ msgid ""
+#~ "Replace your new tab with a personal dashboard—to-do lists, weather "
+#~ "forecasts and more."
+#~ msgstr ""
+#~ "Wuměńśo swój nowy rejtark z wósobinskim pśeglědom - lisćinami nadawkow, "
+#~ "pśedpowěźenjami wjedra a wěcej."
 
 #~ msgid "Kimetrak"
 #~ msgstr "Kimetrak"
@@ -3113,7 +3604,8 @@ msgstr "Wótegrono wuwijarja"
 #~ msgstr "Dalšne wusoko pógódnośone rozšyrjenja se woglědaś"
 
 #~ msgid "Display tabs in a space-saving “tree” layout."
-#~ msgstr "Rejtarki w mało městna pominajucem “bomowem” wugótowanju zwobrazniś."
+#~ msgstr ""
+#~ "Rejtarki w mało městna pominajucem “bomowem” wugótowanju zwobrazniś."
 
 #~ msgid "Highlight any text and search Wikipedia."
 #~ msgstr "Tekst markěrowaś a we Wikipediji za nim pytaś."
@@ -3127,11 +3619,17 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Grammarly"
 #~ msgstr "Grammarly"
 
-#~ msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-#~ msgstr "Wobstarajśo se w interneśe pomoc wó gramatice . w socialnych medijach, mejlkach, dokumentach a wěcej."
+#~ msgid ""
+#~ "Get grammar help anywhere you write on the web—social media, email, docs "
+#~ "and more."
+#~ msgstr ""
+#~ "Wobstarajśo se w interneśe pomoc wó gramatice . w socialnych medijach, "
+#~ "mejlkach, dokumentach a wěcej."
 
 #~ msgid "Remove ads, promoted content, and other clutter from your feed."
-#~ msgstr "Wótwónoźćo wabjenje, sponsorowane wopśimjeśe a druge mólece elementy ze swójogo kanala."
+#~ msgstr ""
+#~ "Wótwónoźćo wabjenje, sponsorowane wopśimjeśe a druge mólece elementy ze "
+#~ "swójogo kanala."
 
 #~ msgid "LastPass Password Manager"
 #~ msgstr "Zastojnik gronidłow LastPass"
@@ -3148,7 +3646,8 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "Dalšne dodanki pokazaś, kótarež wašu priwatnosć šćitaju"
 
-#~ msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
+#~ msgid ""
+#~ "Translate a word, phrase, even an entire page. Supports 100+ languages."
 #~ msgstr "Pśełožćo słowa, sady a samo ceły bok. Pódpěra wěcej ako 100 rěcow."
 
 #~ msgid "Search by Image"
@@ -3169,8 +3668,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Decentraleyes"
 #~ msgstr "Decentraleyes"
 
-#~ msgid "Tracking protection against third-party sites aiming to mark your every online move."
-#~ msgstr "Slědowański šćit pśeśiwo sedłam tśeśich, kótarež wopytuju waše pógiby online registrěrowaś."
+#~ msgid ""
+#~ "Tracking protection against third-party sites aiming to mark your every "
+#~ "online move."
+#~ msgstr ""
+#~ "Slědowański šćit pśeśiwo sedłam tśeśich, kótarež wopytuju waše pógiby "
+#~ "online registrěrowaś."
 
 #~ msgid "Top privacy extensions"
 #~ msgstr "Nejwušej pógódnośone rozšyrjenja priwantnosći"
@@ -3182,7 +3685,9 @@ msgstr "Wótegrono wuwijarja"
 #~ msgstr "YouTube High Definition"
 
 #~ msgid "Play videos in HD, turn off annotations, change player size & more"
-#~ msgstr "Wideo w HD wótegraś, pśispomnjeśa znjemóžniś, wjelikosć wótgrawaka změniś a wěcej"
+#~ msgstr ""
+#~ "Wideo w HD wótegraś, pśispomnjeśa znjemóžniś, wjelikosć wótgrawaka změniś "
+#~ "a wěcej"
 
 #~ msgid "Productivity extensions"
 #~ msgstr "Rozšyrjenja produktiwity"
@@ -3196,11 +3701,16 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Block ads"
 #~ msgstr "Wabjenje blokěrowaś"
 
-#~ msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-#~ msgstr "How su někotare gnujuce rozšyrjenja priwatnosći, wót blokěrowakow až do rozšyrjenjow pśeśiwo pśeslědowanjeju"
+#~ msgid ""
+#~ "From ad blockers to anti-trackers, here are some impressive privacy "
+#~ "extensions"
+#~ msgstr ""
+#~ "How su někotare gnujuce rozšyrjenja priwatnosći, wót blokěrowakow až do "
+#~ "rozšyrjenjow pśeśiwo pśeslědowanjeju"
 
 #~ msgid "An extremely powerful ad blocker that’s simple to use"
-#~ msgstr "Wjelgin mócny wabjeński blokěrowak, kótaryž dajo se jadnorje wužywaś"
+#~ msgstr ""
+#~ "Wjelgin mócny wabjeński blokěrowak, kótaryž dajo se jadnorje wužywaś"
 
 #~ msgid "Beta Versions"
 #~ msgstr "Beta-wersije"
@@ -3232,8 +3742,14 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Addons"
 #~ msgstr "Dodanki"
 
-#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-#~ msgstr "Bóžko njamóžomy nic na adresy namakaś, kótaruž sćo pódał. Jolic sćo wótkazoju k dodankoju slědował, jo móžno, až dodank jo se wót swójogo awtora wótwónoźeł."
+#~ msgid ""
+#~ "Sorry, but we can't find anything at the address you entered. If you "
+#~ "followed a link to an add-on, it's possible that add-on has been removed "
+#~ "by its author."
+#~ msgstr ""
+#~ "Bóžko njamóžomy nic na adresy namakaś, kótaruž sćo pódał. Jolic sćo "
+#~ "wótkazoju k dodankoju slědował, jo móžno, až dodank jo se wót swójogo "
+#~ "awtora wótwónoźeł."
 
 #~ msgid "Manage API Keys"
 #~ msgstr "API-kluce zastojaś"
@@ -3241,8 +3757,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Themes change how Firefox looks"
 #~ msgstr "Drastwy wenkowny naglěd Firefox změnjaju"
 
-#~ msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-#~ msgstr "Toś ten ID jo wužytny za pytanje za zmólkami a identificěrowanje wašoho dodanka za administratorow sedła."
+#~ msgid ""
+#~ "This ID is useful for debugging and identifying your add-on to site "
+#~ "administrators."
+#~ msgstr ""
+#~ "Toś ten ID jo wužytny za pytanje za zmólkami a identificěrowanje wašoho "
+#~ "dodanka za administratorow sedła."
 
 #~ msgid "Site Identifier"
 #~ msgstr "Identifikator sedła"
@@ -3283,8 +3803,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "…or what it looks like"
 #~ msgstr "…abo jogo naglěd"
 
-#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-#~ msgstr "Instalěrujśo mócne rědy, kótarež pśeglědowanje maksnjejše a wěsćejše cynje, dodanki cynje waš wobglědowak k wašomu."
+#~ msgid ""
+#~ "Install powerful tools that make browsing faster and safer, add-ons make "
+#~ "your browser yours."
+#~ msgstr ""
+#~ "Instalěrujśo mócne rědy, kótarež pśeglědowanje maksnjejše a wěsćejše "
+#~ "cynje, dodanki cynje waš wobglědowak k wašomu."
 
 #~ msgid "Browse in your language"
 #~ msgstr "We wašej rěcy woglědaś"
@@ -3298,8 +3822,12 @@ msgstr "Wótegrono wuwijarja"
 #~ msgid "Browse by category"
 #~ msgstr "Pó kategoriji pśepytaś"
 
-#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-#~ msgstr "Rozšyrjenja su wósebne funkcije, kótarež móžośo Firefox pśidaś. Drastwy wam zmóžnjaju, naglěd wašogo wobglědowaka změniś."
+#~ msgid ""
+#~ "Extensions are special features you can add to Firefox. Themes let you "
+#~ "change your browser's appearance."
+#~ msgstr ""
+#~ "Rozšyrjenja su wósebne funkcije, kótarež móžośo Firefox pśidaś. Drastwy "
+#~ "wam zmóžnjaju, naglěd wašogo wobglědowaka změniś."
 
 #~ msgid "Fashionable"
 #~ msgstr "Modiski"
