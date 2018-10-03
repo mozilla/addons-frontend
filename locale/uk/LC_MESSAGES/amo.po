@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-25 19:00+0000\n"
-"PO-Revision-Date: 2018-10-01 10:31+0000\n"
+"PO-Revision-Date: 2018-10-01 10:41+0000\n"
 "Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2555,7 +2555,7 @@ msgstr "Дякуємо, що відвідали цей сайт! Будь лас
 
 #: src/core/utils/addons.js:24
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Не вдалося встановити. Повторіть спробу."
 
 #: src/core/utils/addons.js:26
 msgid "Download failed. Please check your connection."
