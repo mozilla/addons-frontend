@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-03 16:20+0000\n"
-"Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
+"PO-Revision-Date: 2018-10-03 17:10+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -272,24 +272,20 @@ msgid "Delete rating"
 msgstr "Izbriši oceno"
 
 #: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:225
-#, fuzzy
 msgid "Delete review"
-msgstr "Izbriši mojo oceno"
+msgstr "Izbriši oceno"
 
 #: src/amo/components/AddonReviewCard/index.js:232
-#, fuzzy
 msgid "Keep reply"
-msgstr "Izbriši moj odgovor"
+msgstr "Obdrži odgovor"
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Keep rating"
-msgstr "Izbriši mojo oceno"
+msgstr "Obdrži oceno"
 
 #: src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Keep review"
-msgstr "Izbriši mojo oceno"
+msgstr "Obdrži oceno"
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
@@ -445,19 +441,16 @@ msgid "Add-ons by these developers"
 msgstr "Dodatki izpod rok teh razvijalcev"
 
 #: src/amo/components/App/index.js:219
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Dodatki za Firefox"
+msgstr "Dodatki za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Dodatki za Firefox"
+msgstr "%s – Dodatki za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
-#, fuzzy
 msgid "Add-ons for Android (%(locale)s)"
-msgstr "Dodatki za Android"
+msgstr "Dodatki za Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
 #, fuzzy
