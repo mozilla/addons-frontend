@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -445,7 +445,7 @@ msgstr "Android 版附加元件站（%(locale)s）"
 
 #: src/amo/components/App/index.js:235
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s - Android 版附加元件站（%(locale)s）"
+msgstr "%(title)s - Android 版附加元件站（%(locale)s）"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
