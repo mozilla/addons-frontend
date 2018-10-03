@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-03 17:10+0000\n"
+"PO-Revision-Date: 2018-10-03 17:34+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -446,7 +446,7 @@ msgstr "Dodatki za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Dodatki za Firefox (%(locale)s)"
+msgstr "%(title)s – Dodatki za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
 msgid "Add-ons for Android (%(locale)s)"
@@ -696,9 +696,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Žal je prišlo do napake na našem strežniku in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Ocena uporabnika %(userName)s"
+msgstr "Odziv uporabnika %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
 msgid "Review by %(userName)s"
@@ -1313,7 +1312,6 @@ msgid "Log in to rate this add-on"
 msgstr "Prijavite se, da ocenite ta dodatek"
 
 #: src/amo/components/RatingManager/index.js:274
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Kako vam ugaja %(addonName)s?"
 
