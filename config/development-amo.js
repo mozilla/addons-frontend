@@ -11,5 +11,4 @@ module.exports = {
   fxaConfig: 'local',
   trackingEnabled: false,
   loggingLevel: 'debug',
-  enableFeatureInlineAddonReview: true,
 };
