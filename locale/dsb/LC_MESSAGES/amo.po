@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-03 16:31+0000\n"
+"PO-Revision-Date: 2018-10-03 16:35+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -256,44 +256,36 @@ msgid "Submit review"
 msgstr "Pógódnośenje wótpósłaś"
 
 #: src/amo/components/AddonReviewCard/index.js:194
-#, fuzzy
 msgid "Edit reply"
-msgstr "Mójo wótegrono wobźěłaś"
+msgstr "Wótegrono wobźěłaś"
 
 #: src/amo/components/AddonReviewCard/index.js:197
-#, fuzzy
 msgid "Edit review"
-msgstr "Mójo pógódnośenje wobźěłaś"
+msgstr "Pógódnośenje wobźěłaś"
 
 #: src/amo/components/AddonReviewCard/index.js:204 src/amo/components/AddonReviewCard/index.js:218
-#, fuzzy
 msgid "Delete reply"
-msgstr "Mójo wótegrono wulašowaś"
+msgstr "Wótegrono wulašowaś"
 
 #: src/amo/components/AddonReviewCard/index.js:208 src/amo/components/AddonReviewCard/index.js:222
-#, fuzzy
 msgid "Delete rating"
-msgstr "Mójo pógódnośenje wulašowaś"
+msgstr "Pógódnośenje wulašowaś"
 
 #: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:225
-#, fuzzy
 msgid "Delete review"
-msgstr "Mójo pógódnośenje wulašowaś"
+msgstr "Pógódnośenje wulašowaś"
 
 #: src/amo/components/AddonReviewCard/index.js:232
-#, fuzzy
 msgid "Keep reply"
-msgstr "Mójo wótegrono wulašowaś"
+msgstr "Wótegrono wobchowaś"
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Keep rating"
-msgstr "Mójo pógódnośenje wulašowaś"
+msgstr "Pógódnośenje wobchowaś"
 
 #: src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Keep review"
-msgstr "Mójo pógódnośenje wulašowaś"
+msgstr "Pógódnośenje wobchowaś"
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
@@ -449,24 +441,20 @@ msgid "Add-ons by these developers"
 msgstr "Dodanki wót toś tych wuwijarjow"
 
 #: src/amo/components/App/index.js:219
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Dodanki za Firefox"
+msgstr "Dodanki za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Dodanki za Firefox"
+msgstr "%(title)s – Dodanki za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
-#, fuzzy
 msgid "Add-ons for Android (%(locale)s)"
-msgstr "Dodanki za Android"
+msgstr "Dodanki za Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
-#, fuzzy
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s – Dodanki za Android"
+msgstr "%(title)s – Dodanki za Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -709,9 +697,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Bóžko jo zmólka z našym serwerom nastała a njejsmy mógli wašo napšašowanje dokóńcyś. Smy toś tu zmólku protokolěrowali a buźomy ju pśeslěźowaś."
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Pógódnośenja wót %(userName)s"
+msgstr "Wótegrono wót %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
 msgid "Review by %(userName)s"
@@ -1326,7 +1313,6 @@ msgid "Log in to rate this add-on"
 msgstr "Pśizjawśo se, aby toś ten dodank pógódnośił"
 
 #: src/amo/components/RatingManager/index.js:274
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Kak se wam %(addonName)s spódoba?"
 
@@ -1821,17 +1807,17 @@ msgstr "%(addonName)s – Wobstarajśo se rozšyrjenje za 🦊 Firefox (%(locale
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:441
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Wobstarajśo se rěcny pakśik za 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:449
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Wobstarajśo se drastwu za 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:456
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Wobstarajśo se dodank za 🦊 Firefox (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:535
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
