@@ -50,10 +50,7 @@ import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
-import type {
-  ReactRouterHistoryType,
-  LocationType,
-} from 'core/types/router';
+import type { ReactRouterHistoryType, LocationType } from 'core/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
 
 type AppStateWithoutRouter = {|
