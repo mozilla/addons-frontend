@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-04 06:07+0000\n"
+"PO-Revision-Date: 2018-10-04 07:16+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -84,9 +84,8 @@ msgid "Your version of Firefox does not support search plugins."
 msgstr "Ваша версія Firefox не підтримує пошукові плагіни."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-#, fuzzy
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Ваша версія Firefox не підтримує пошукові плагіни."
+msgstr "Ваша версія Firefox не підтримує цей додаток, тому що він потребує перезапуску."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -254,44 +253,36 @@ msgid "Submit review"
 msgstr "Відправити відгук"
 
 #: src/amo/components/AddonReviewCard/index.js:194
-#, fuzzy
 msgid "Edit reply"
-msgstr "Змінити відповідь"
+msgstr "Редагувати відповідь"
 
 #: src/amo/components/AddonReviewCard/index.js:197
-#, fuzzy
 msgid "Edit review"
-msgstr "Змінити відгук"
+msgstr "Редагувати відгук"
 
 #: src/amo/components/AddonReviewCard/index.js:204 src/amo/components/AddonReviewCard/index.js:218
-#, fuzzy
 msgid "Delete reply"
-msgstr "Видалити мою відповідь"
+msgstr "Видалити відповідь"
 
 #: src/amo/components/AddonReviewCard/index.js:208 src/amo/components/AddonReviewCard/index.js:222
-#, fuzzy
 msgid "Delete rating"
-msgstr "Видалити мою оцінку"
+msgstr "Видалити оцінку"
 
 #: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:225
-#, fuzzy
 msgid "Delete review"
-msgstr "Видалити мій відгук"
+msgstr "Видалити відгук"
 
 #: src/amo/components/AddonReviewCard/index.js:232
-#, fuzzy
 msgid "Keep reply"
-msgstr "Видалити мою відповідь"
+msgstr "Залишити відповідь"
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Keep rating"
-msgstr "Видалити мою оцінку"
+msgstr "Залишити оцінку"
 
 #: src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Keep review"
-msgstr "Видалити мій відгук"
+msgstr "Залишити відгук"
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
@@ -334,14 +325,12 @@ msgid "Submitting review"
 msgstr "Відправлення відгуку"
 
 #: src/amo/components/AddonReviewManager/index.js:108
-#, fuzzy
 msgid "Update review"
-msgstr "Оновити профіль"
+msgstr "Оновити відгук"
 
 #: src/amo/components/AddonReviewManager/index.js:111
-#, fuzzy
 msgid "Updating review"
-msgstr "Оновлення відповіді"
+msgstr "Оновлення відгуку"
 
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Your star rating:"
@@ -361,9 +350,8 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: src/amo/components/AddonReviewManager/index.js:82
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Розкажіть світу про це розширення. Будь ласка, дотримуйтесь наших %(linkStart)sвимог до відгуків%(linkEnd)s."
+msgstr "Дотримуйтесь наших %(linkStart)sвимог до відгуків%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:99
 msgid "Write about your experience with this add-on."
@@ -450,24 +438,20 @@ msgid "Add-ons by these developers"
 msgstr "Додатки від цих розробників"
 
 #: src/amo/components/App/index.js:219
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Додатки для Firefox"
+msgstr "Додатки для Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Додатки для Firefox"
+msgstr "%(title)s – Додатки для Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
-#, fuzzy
 msgid "Add-ons for Android (%(locale)s)"
-msgstr "Додатки для Android"
+msgstr "Додатки для Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
-#, fuzzy
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s – Додатки для Android"
+msgstr "%(title)s – Додатки для Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -522,9 +506,8 @@ msgid "Edit this collection"
 msgstr "Змінити цю збірку"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Змінити збірку"
+msgstr "Редагувати подробиці збірки"
 
 #: src/amo/components/CollectionDetails/index.js:131
 msgid "Back to collection"
@@ -709,14 +692,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Вибачте, але сталася помилка з нашим сервером, і ми не змогли виконати ваш запит. Ми записали цю помилку і будемо розслідувати її."
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Відгуки для %(addonName)s"
+msgstr "Відповідь від %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Відгуки для %(addonName)s"
+msgstr "Відгук від %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:92
 msgid "The review was not found."
@@ -907,9 +888,8 @@ msgid "Universal Bypass"
 msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:102
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "Автоматичний запуск Firefox в повноекранному режимі"
+msgstr "Автоматично пропускайте надокучливе скорочення посилань"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Tree Style Tab"
@@ -1104,18 +1084,16 @@ msgid "Send any Web page to your Kindle device"
 msgstr "Надсилайте будь-яку веб-сторінку до свого пристрою Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:258
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "Домашня сторінка"
+msgstr "Домівка нової вкладки"
 
 #: src/amo/components/HomeHeroBanner/index.js:259
 msgid "Designate a custom home page for your new tabs"
 msgstr "Призначте власну сторінку, яка буде завантажуватись при відкритті нових вкладок"
 
 #: src/amo/components/HomeHeroBanner/index.js:265
-#, fuzzy
 msgid "OneNote Web Clipper"
-msgstr "Notebook Web Clipper"
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:266
 msgid "Save, annotate & organize web content"
@@ -1154,9 +1132,8 @@ msgid "Play videos in a pop-out window, take video screenshots & more"
 msgstr "Відтворення відео у виринаючому вікні, створення знімків екрану відео та інше"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Private Bookmarks"
-msgstr "Закладки"
+msgstr "Приватні закладки"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Password-protect your personal bookmarks"
@@ -1331,14 +1308,12 @@ msgid "Log in to rate this add-on"
 msgstr "Увійдіть, щоб оцінити цей додаток"
 
 #: src/amo/components/RatingManager/index.js:274
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Які ваші враження від роботи з %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:300
-#, fuzzy
 msgid "Saving star rating"
-msgstr "Ваш зірковий рейтинг:"
+msgstr "Збереження оцінки"
 
 #: src/amo/components/RatingManager/index.js:301
 msgid "Star rating saved"
@@ -2606,19 +2581,16 @@ msgid "Download failed. Please check your connection."
 msgstr "Не вдалось завантажити. Будь ласка, перевірте підключення."
 
 #: src/core/utils/addons.js:28
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Сталася неочікувана помилка"
+msgstr "Під час встановлення сталася неочікувана помилка."
 
 #: src/core/utils/addons.js:30
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Сталася неочікувана помилка"
+msgstr "Під час вилучення сталася неочікувана помилка."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Сталася неочікувана помилка"
+msgstr "Сталася неочікувана помилка."
 
 #: src/ui/components/ConfirmButton/index.js:102
 msgid "Confirm"
