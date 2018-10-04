@@ -988,12 +988,12 @@ describe(__filename, () => {
     });
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const user = getCurrentUser(store.getState().users);
-    renderUserProfile({ params: { username: user.id }, store });
+    renderUserProfile({ params: { username: username }, store });
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/${lang}/${clientApp}/user/${username}/`,
+        url: `/${lang}/${clientApp}/user/${user.id}/`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);

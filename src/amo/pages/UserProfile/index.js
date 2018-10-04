@@ -109,11 +109,11 @@ export class UserProfileBase extends React.Component<InternalProps> {
         }),
       );
     } else {
-      if (/^\d+$/.test(params.username)) {
+      if (/^[a-zA-Z]+$/.test(params.username)) {
         dispatch(
           sendServerRedirect({
             status: 301,
-            url: `/${lang}/${clientApp}/user/${user.username}/`,
+            url: `/${lang}/${clientApp}/user/${user.id}/`,
           }),
         );
         return;
