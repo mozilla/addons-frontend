@@ -250,44 +250,36 @@ msgid "Submit review"
 msgstr "Beoordeling indienen"
 
 #: src/amo/components/AddonReviewCard/index.js:194
-#, fuzzy
 msgid "Edit reply"
-msgstr "Mijn antwoord bewerken"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:197
-#, fuzzy
 msgid "Edit review"
-msgstr "Mijn beoordeling bewerken"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:204 src/amo/components/AddonReviewCard/index.js:218
-#, fuzzy
 msgid "Delete reply"
-msgstr "Mijn antwoord verwijderen"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:208 src/amo/components/AddonReviewCard/index.js:222
-#, fuzzy
 msgid "Delete rating"
-msgstr "Mijn waardering verwijderen"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:225
-#, fuzzy
 msgid "Delete review"
-msgstr "Mijn beoordeling verwijderen"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:232
-#, fuzzy
 msgid "Keep reply"
-msgstr "Mijn antwoord verwijderen"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Keep rating"
-msgstr "Mijn waardering verwijderen"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Keep review"
-msgstr "Mijn beoordeling verwijderen"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
@@ -443,24 +435,20 @@ msgid "Add-ons by these developers"
 msgstr "Add-ons van deze ontwikkelaars"
 
 #: src/amo/components/App/index.js:219
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Add-ons voor Firefox"
+msgstr ""
 
 #: src/amo/components/App/index.js:223
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Add-ons voor Firefox"
+msgstr ""
 
 #: src/amo/components/App/index.js:231
-#, fuzzy
 msgid "Add-ons for Android (%(locale)s)"
-msgstr "Add-ons voor Android"
+msgstr ""
 
 #: src/amo/components/App/index.js:235
-#, fuzzy
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s – Add-ons voor Android"
+msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -700,9 +688,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Sorry, maar er is een fout opgetreden met onze server, en we konden uw aanvraag niet voltooien. We hebben deze fout vastgelegd en zullen hem onderzoeken."
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Beoordeling door %(userName)s"
+msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
 msgid "Review by %(userName)s"
@@ -1317,9 +1304,8 @@ msgid "Log in to rate this add-on"
 msgstr "Meld u aan om deze add-on te waarderen"
 
 #: src/amo/components/RatingManager/index.js:274
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Hoe beleeft u uw ervaring met %(addonName)s?"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:300
 msgid "Saving star rating"
