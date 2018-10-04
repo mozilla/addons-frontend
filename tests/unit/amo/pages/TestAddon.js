@@ -1317,7 +1317,7 @@ describe(__filename, () => {
     }
 
     it('is hidden when an add-on has not loaded yet', () => {
-      const root = shallowRender({ addon: undefined });
+      const root = shallowRender({ addon: null });
       expect(root.find('.AddonDescription-version-notes div')).toHaveLength(0);
     });
 

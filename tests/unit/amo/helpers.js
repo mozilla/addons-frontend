@@ -49,6 +49,7 @@ export const fakePlatformFile = Object.freeze({
   is_webextension: true,
   permissions: ['activeTab', 'webRequest'],
   platform: OS_ALL,
+  size: 123,
   status: 'public',
   url: 'https://a.m.o/files/321/addon.xpi',
 });
@@ -61,27 +62,33 @@ export const fakeAuthor = Object.freeze({
   username: 'krupa',
 });
 
+export const fakeVersion = Object.freeze({
+  channel: 'listed',
+  compatibility: {
+    [CLIENT_APP_ANDROID]: {
+      min: '48.0',
+      max: '*',
+    },
+    [CLIENT_APP_FIREFOX]: {
+      min: '48.0',
+      max: '*',
+    },
+  },
+  edit_url: 'https://addons.m.o/addon/chill-out/edit',
+  files: [fakePlatformFile],
+  id: 123,
+  is_strict_compatibility_enabled: false,
+  license: { name: 'tofulicense', url: 'http://license.com/' },
+  release_notes: 'Some release notes',
+  reviewed: '2014-11-22T10:09:01Z',
+  version: '2.0.0',
+});
+
 export const fakeAddon = Object.freeze({
   authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
-  current_version: {
-    compatibility: {
-      [CLIENT_APP_ANDROID]: {
-        min: '48.0',
-        max: '*',
-      },
-      [CLIENT_APP_FIREFOX]: {
-        min: '48.0',
-        max: '*',
-      },
-    },
-    id: 123,
-    license: { name: 'tofulicense', url: 'http://license.com/' },
-    version: '2.0.0',
-    files: [fakePlatformFile],
-    is_strict_compatibility_enabled: false,
-  },
+  current_version: fakeVersion,
   description: 'This is a longer description of the chill out add-on',
   default_locale: 'en-US',
   edit_url: 'https://addons.m.o/addon/chill-out/edit',
