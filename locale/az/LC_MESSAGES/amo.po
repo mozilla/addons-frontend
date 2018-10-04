@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -441,7 +441,7 @@ msgstr "Firefox üçün Əlavələr (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Firefox üçün Əlavələr (%(locale)s)"
+msgstr "%(title)s – Firefox üçün Əlavələr (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
 msgid "Add-ons for Android (%(locale)s)"
@@ -449,7 +449,7 @@ msgstr "Android üçün Əlavələr (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s – Android üçün Əlavələr (%(locale)s)"
+msgstr "%(title)s – Android üçün Əlavələr (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
