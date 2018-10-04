@@ -26,7 +26,7 @@ describe(__filename, () => {
   });
 
   describe('getCurrentURL', () => {
-    it('returns the base URL of the site with clientApp and lang', () => {
+    it(`returns the current URL from the router's state`, () => {
       const baseURL = 'http://example.org';
       const clientApp = CLIENT_APP_FIREFOX;
       const lang = 'fr';
