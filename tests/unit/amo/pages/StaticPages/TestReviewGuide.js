@@ -3,12 +3,21 @@ import * as React from 'react';
 import ReviewGuide, {
   ReviewGuideBase,
 } from 'amo/pages/StaticPages/ReviewGuide';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  fakeI18n,
+  getFakeConfig,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  function render() {
+  function render({
+    store = dispatchClientMetadata().store,
+    i18n = fakeI18n(),
+    ...props
+  } = {}) {
     return shallowUntilTarget(
-      <ReviewGuide i18n={fakeI18n()} />,
+      <ReviewGuide store={store} i18n={i18n} {...props} />,
       ReviewGuideBase,
     );
   }
