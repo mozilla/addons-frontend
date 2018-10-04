@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-04 01:12+0000\n"
+"PO-Revision-Date: 2018-10-04 01:21+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -248,44 +248,36 @@ msgid "Submit review"
 msgstr "Hantar ulasan"
 
 #: src/amo/components/AddonReviewCard/index.js:194
-#, fuzzy
 msgid "Edit reply"
-msgstr "Edit balasan saya"
+msgstr "Edit balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:197
-#, fuzzy
 msgid "Edit review"
-msgstr "Edit ulasan saya"
+msgstr "Edit ulasan"
 
 #: src/amo/components/AddonReviewCard/index.js:204 src/amo/components/AddonReviewCard/index.js:218
-#, fuzzy
 msgid "Delete reply"
-msgstr "Buang balasan saya"
+msgstr "Buang balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:208 src/amo/components/AddonReviewCard/index.js:222
-#, fuzzy
 msgid "Delete rating"
-msgstr "Buang kadaran saya"
+msgstr "Buang kadaran"
 
 #: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:225
-#, fuzzy
 msgid "Delete review"
-msgstr "Buang ulasan saya"
+msgstr "Buang ulasan"
 
 #: src/amo/components/AddonReviewCard/index.js:232
-#, fuzzy
 msgid "Keep reply"
-msgstr "Buang balasan saya"
+msgstr "Kekalkan balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Keep rating"
-msgstr "Buang kadaran saya"
+msgstr "Kekalkan kadaran"
 
 #: src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Keep review"
-msgstr "Buang ulasan saya"
+msgstr "Kekalkan ulasan"
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Write a reply to this review."
@@ -441,24 +433,20 @@ msgid "Add-ons by these developers"
 msgstr "Add-ons oleh para pembangun ini"
 
 #: src/amo/components/App/index.js:219
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Add-on untuk Firefox"
+msgstr "Add-on untuk Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Add-ons untuk Firefox"
+msgstr "%(title)s – Add-ons untuk Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
-#, fuzzy
 msgid "Add-ons for Android (%(locale)s)"
-msgstr "Add-ons untuk Android"
+msgstr "Add-on untuk Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
-#, fuzzy
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s - Add-ons untuk Android"
+msgstr "%(title)s – Add-on untuk Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -701,9 +689,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Maaf, tetapi ada ralat dengan pelayan kami dan kami tidak dapat melengkapkan permintaan anda. Kami telah menglog ralat ini dan akan menyiasatnya."
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Ulasan oleh %(userName)s"
+msgstr "Respons oleh %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
 msgid "Review by %(userName)s"
@@ -1319,9 +1306,8 @@ msgid "Log in to rate this add-on"
 msgstr "Log masuk untuk menilaikan add-on ini"
 
 #: src/amo/components/RatingManager/index.js:274
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Bagaimana anda menikmati pengalaman anda dengan %(addonName)s?"
+msgstr "Bagaimana anda sukakan %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:300
 msgid "Saving star rating"
@@ -1799,7 +1785,7 @@ msgstr "%(addonName)s – Dapatkan Tema ini untuk 🦊 Firefox (%(locale)s)"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:456
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Dapatkan Add-on ini untuk 🦊 Firefox (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:535
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
