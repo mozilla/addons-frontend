@@ -13,7 +13,6 @@ import type {
   ExternalAddonType,
   ThemeData,
 } from 'core/types/addons';
-import type { ExternalDiscoAddonMap } from 'disco/reducers/discoResults';
 
 export const LOAD_ADDONS: 'LOAD_ADDONS' = 'LOAD_ADDONS';
 export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
@@ -21,12 +20,12 @@ export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
 
 type AddonID = number;
 
-type ExternalAddonMap = {
+export type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
 };
 
 export type LoadAddonsAction = {|
-  payload: {| addons: ExternalAddonMap | ExternalDiscoAddonMap |},
+  payload: {| addons: ExternalAddonMap |},
   type: typeof LOAD_ADDONS,
 |};
 
@@ -34,7 +33,7 @@ export type LoadAddonsAction = {|
 // This function relies on normalizr messing with our response data.
 // See: https://github.com/mozilla/addons-frontend/issues/2917
 export function loadAddons(entities: {
-  addons: ExternalAddonMap | ExternalDiscoAddonMap,
+  addons: ExternalAddonMap,
 }): LoadAddonsAction {
   if (!entities) {
     throw new Error('the entities parameter cannot be empty');
@@ -229,7 +228,11 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
 
   const currentVersion = apiAddon.current_version;
 
-  if (currentVersion && currentVersion.files.length > 0) {
+  if (
+    currentVersion &&
+    currentVersion.files &&
+    currentVersion.files.length > 0
+  ) {
     currentVersion.files.forEach((file) => {
       // eslint-disable-next-line no-prototype-builtins
       // eslint-disable-next-line no-prototype-builtins

@@ -1,6 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
+import type { ExternalAddonMap } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const GET_DISCO_RESULTS: 'GET_DISCO_RESULTS' = 'GET_DISCO_RESULTS';
@@ -10,27 +11,29 @@ export type ExternalDiscoAddonMap = {
   [guid: $PropertyType<AddonType, 'guid'>]: ExternalAddonType,
 };
 
-export type ExternalDiscoResultType = {|
-  // normalizr injects the add-on's GUID in the `addon` prop.
-  addon: $PropertyType<AddonType, 'guid'>,
+type ExternalDiscoResultType = {|
+  addon: ExternalAddonType,
   description: string | null,
   heading: string,
   is_recommendation: boolean,
 |};
 
 export type ExternalDiscoResultsType = {|
-  entities: {|
-    addons: ExternalDiscoAddonMap,
-    discoResults: {| [guid: string]: ExternalDiscoResultType |},
-  |},
-  result: {|
-    count: number,
-    results: Array<$PropertyType<AddonType, 'guid'>>,
-  |},
+  count: number,
+  results: Array<ExternalDiscoResultType>,
 |};
 
+export type DiscoResultType = {|
+  addonId: $PropertyType<AddonType, 'id'>,
+  description: string | null,
+  heading: string,
+  isRecommendation: boolean,
+|};
+
+export type DiscoResultsType = Array<DiscoResultType>;
+
 type DiscoResultsState = {|
-  results: Array<ExternalDiscoResultType>,
+  results: DiscoResultsType,
 |};
 
 export const initialState: DiscoResultsState = {
@@ -63,7 +66,9 @@ export function getDiscoResults({
   };
 }
 
-type LoadDiscoResultsParams = ExternalDiscoResultsType;
+type LoadDiscoResultsParams = {|
+  results: Array<ExternalDiscoResultType>,
+|};
 
 type LoadDiscoResultsAction = {|
   type: typeof LOAD_DISCO_RESULTS,
@@ -71,17 +76,41 @@ type LoadDiscoResultsAction = {|
 |};
 
 export function loadDiscoResults({
-  entities,
-  result,
+  results,
 }: LoadDiscoResultsParams = {}): LoadDiscoResultsAction {
-  invariant(entities, 'entities are required');
-  invariant(result, 'result is required');
+  invariant(results, 'results are required');
 
   return {
     type: LOAD_DISCO_RESULTS,
-    payload: { entities, result },
+    payload: { results },
   };
 }
+
+export const createInternalResult = (
+  result: ExternalDiscoResultType,
+): DiscoResultType => {
+  return {
+    addonId: result.addon.id,
+    description: result.description || null,
+    heading: result.heading,
+    isRecommendation: result.is_recommendation,
+  };
+};
+
+type CreateExternalAddonMapParams = {|
+  results: Array<ExternalDiscoResultType>,
+|};
+
+export const createExternalAddonMap = ({
+  results,
+}: CreateExternalAddonMapParams): ExternalAddonMap => {
+  return results.map((result) => result.addon).reduce((addonsMap, addon) => {
+    return {
+      ...addonsMap,
+      [addon.slug]: addon,
+    };
+  }, {});
+};
 
 type Action = LoadDiscoResultsAction | GetDiscoResultsAction;
 
@@ -91,13 +120,11 @@ export default function discoResults(
 ): DiscoResultsState {
   switch (action.type) {
     case LOAD_DISCO_RESULTS: {
-      const { entities, result } = action.payload;
+      const { results } = action.payload;
 
       return {
         ...state,
-        // The API schema that complicates result.results can be found in
-        // disco/api.js
-        results: result.results.map((guid) => entities.discoResults[guid]),
+        results: results.map(createInternalResult),
       };
     }
     default:

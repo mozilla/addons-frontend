@@ -1,6 +1,4 @@
-import { normalize } from 'normalizr';
-
-import { discoResult, getDiscoveryAddons } from 'disco/api';
+import { getDiscoveryAddons } from 'disco/api';
 import createStore from 'disco/store';
 import * as coreApi from 'core/api';
 import { getFakeConfig } from 'tests/unit/helpers';
@@ -31,7 +29,6 @@ describe(__filename, () => {
       sinon.assert.calledWith(callApiMock, {
         endpoint: 'discovery',
         params: { platform: 'Windows' },
-        schema: { results: [discoResult] },
         apiState,
       });
     });
@@ -53,7 +50,6 @@ describe(__filename, () => {
           platform: 'Darwin',
           'telemetry-client-id': telemetryClientId,
         },
-        schema: { results: [discoResult] },
         apiState,
       });
     });
@@ -73,7 +69,6 @@ describe(__filename, () => {
       sinon.assert.calledWith(callApiMock, {
         endpoint: 'discovery',
         params: { fakeTestParam: 'foo', platform: 'Darwin' },
-        schema: { results: [discoResult] },
         apiState,
       });
     });
@@ -91,21 +86,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(callApiMock, {
         endpoint: 'discovery',
         params: { platform: 'Darwin' },
-        schema: { results: [discoResult] },
         apiState,
-      });
-    });
-  });
-
-  describe('discoResult', () => {
-    it("uses the addon's guid as an id", () => {
-      const normalized = normalize({ addon: { guid: '{foo}' } }, discoResult);
-      expect(normalized).toEqual({
-        entities: {
-          addons: { '{foo}': { guid: '{foo}' } },
-          discoResults: { '{foo}': { addon: '{foo}' } },
-        },
-        result: '{foo}',
       });
     });
   });

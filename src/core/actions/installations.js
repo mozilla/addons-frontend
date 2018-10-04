@@ -31,7 +31,6 @@ export const setInstallError = ({
   error,
 }: SetInstallErrorParams): SetInstallErrorAction => {
   invariant(guid, 'guid is required');
-  invariant(error, 'error is required');
 
   return {
     type: INSTALL_ERROR,

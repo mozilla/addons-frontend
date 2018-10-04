@@ -22,6 +22,7 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
+import { getAddonByID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
 import { isTheme } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
@@ -35,14 +36,16 @@ import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { AppState } from 'disco/store';
+import type { DiscoResultType } from 'disco/reducers/discoResults';
 
 import './styles.scss';
 
 const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
 type Props = {|
-  addon: AddonType,
-  heading: string,
+  addonId: $PropertyType<DiscoResultType, 'addonId'>,
+  description: $PropertyType<DiscoResultType, 'description'>,
+  heading: $PropertyType<DiscoResultType, 'heading'>,
 |};
 
 type InternalProps = {|
@@ -51,6 +54,7 @@ type InternalProps = {|
   _config: typeof config,
   _getClientCompatibility: typeof getClientCompatibility,
   _tracking: typeof tracking,
+  addon: AddonType,
   clientApp: string,
   defaultInstallSource: string,
   error: string | void,
@@ -136,7 +140,7 @@ export class AddonBase extends React.Component<InternalProps> {
   }
 
   getDescription() {
-    const { addon } = this.props;
+    const { addon, description } = this.props;
 
     if (!addon || isTheme(addon.type)) {
       return null;
@@ -146,10 +150,11 @@ export class AddonBase extends React.Component<InternalProps> {
       <div
         className="editorial-description"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(
-          addon.description,
-          ['a', 'blockquote', 'cite'],
-        )}
+        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(description, [
+          'a',
+          'blockquote',
+          'cite',
+        ])}
       />
     );
   }
@@ -314,13 +319,16 @@ export class AddonBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+function mapStateToProps(state: AppState, ownProps: Props) {
+  const addon = getAddonByID(state, ownProps.addonId);
+
   let installation = {};
-  if (ownProps.addon) {
-    installation = state.installations[ownProps.addon.guid] || {};
+  if (addon) {
+    installation = state.installations[addon.guid] || {};
   }
 
   return {
+    addon,
     error: installation.error,
     status: installation.status || UNKNOWN,
     clientApp: state.api.clientApp,

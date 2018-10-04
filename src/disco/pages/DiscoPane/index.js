@@ -12,7 +12,6 @@ import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/components/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
-import { getAddonByGUID } from 'core/reducers/addons';
 import { getDiscoResults } from 'disco/reducers/discoResults';
 import { NAVIGATION_CATEGORY } from 'disco/constants';
 import { makeQueryStringWithUTM } from 'disco/utils';
@@ -20,14 +19,13 @@ import Addon from 'disco/components/Addon';
 import Button from 'ui/components/Button';
 import type { MozAddonManagerType } from 'core/addonManager';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
   ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
-import type { ExternalDiscoResultType } from 'disco/reducers/discoResults';
+import type { DiscoResultsType } from 'disco/reducers/discoResults';
 import type { AppState } from 'disco/store';
 
 import './styles.scss';
@@ -49,10 +47,7 @@ type InternalProps = {|
   handleGlobalEvent: Function,
   i18n: I18nType,
   mozAddonManager: MozAddonManagerType,
-  results: Array<{|
-    ...ExternalDiscoResultType,
-    ...AddonType,
-  |}>,
+  results: DiscoResultsType,
 |};
 
 export class DiscoPaneBase extends React.Component<InternalProps> {
@@ -167,8 +162,12 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
         {this.renderFindMoreButton({ position: 'top' })}
 
         {results.map((item) => (
-          // $FLOW_FIXME: addon should be a AddonType
-          <Addon addon={item} heading={item.heading} key={item.guid} />
+          <Addon
+            addonId={item.addonId}
+            description={item.description}
+            heading={item.heading}
+            key={item.addonId}
+          />
         ))}
 
         {this.renderFindMoreButton({ position: 'bottom' })}
@@ -179,21 +178,11 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
   }
 }
 
-export function loadedAddons(state: AppState) {
-  return state.discoResults.results.map((result: ExternalDiscoResultType) => {
-    return {
-      ...result,
-      // `result` comes from the API call in `src/disco/api.js` and
-      // normalizer makes everything complicated...
-      // `result.addon` is actually the add-on's GUID.
-      ...getAddonByGUID(state, result.addon),
-    };
-  });
-}
+function mapStateToProps(state: AppState) {
+  const { results } = state.discoResults;
 
-export function mapStateToProps(state: AppState) {
   return {
-    results: loadedAddons(state),
+    results,
   };
 }
 
