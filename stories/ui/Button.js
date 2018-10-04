@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import Button from 'ui/components/Button';
