@@ -157,6 +157,9 @@ describe(__filename, () => {
       'href',
       `/reviewers/review/${slug}`,
     );
+    expect(root.find('.AddonAdminLinks-codeReview-link').children()).toHaveText(
+      'Review add-on code',
+    );
   });
 
   it('does not show a code review link if the user does not have permission', () => {
@@ -179,6 +182,9 @@ describe(__filename, () => {
       'href',
       `/reviewers/review/${slug}`,
     );
+    expect(
+      root.find('.AddonAdminLinks-themeReview-link').children(),
+    ).toHaveText('Review theme');
   });
 
   it('does not show a theme review link if the user does not have permission', () => {

@@ -108,7 +108,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
     const codeReviewLinkText = isTheme(addon.type)
       ? i18n.gettext('Review theme')
-      : i18n.gettext('Code review add-on');
+      : i18n.gettext('Review add-on code');
     const codeReviewLink =
       showCodeReviewLink || showThemeReviewLink ? (
         <li>
