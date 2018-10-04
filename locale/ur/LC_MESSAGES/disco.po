@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:36+0000\n"
-"PO-Revision-Date: 2018-08-14 17:07+0000\n"
+"PO-Revision-Date: 2018-10-04 13:07+0000\n"
 "Last-Translator: Tanzeel Khan <tanzeelkhan94@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -40,15 +40,11 @@ msgstr "%(name)s تنصِب کر رہا ہے۔"
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:265
-#: src/core/components/InstallButton/index.js:311
+#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:265 src/core/components/InstallButton/index.js:311
 msgid "Install Theme"
 msgstr "خیالیہ کی تنصیب کریں"
 
-#: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:296
-#: src/core/components/InstallButton/index.js:312
+#: src/core/components/AMInstallButton/index.js:222 src/core/components/InstallButton/index.js:296 src/core/components/InstallButton/index.js:312
 msgid "Add to Firefox"
 msgstr "Firefox میں شامل کریں"
 
@@ -57,13 +53,10 @@ msgid "Server Error"
 msgstr "پیش کار کا نقص"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr ""
 
@@ -142,15 +135,15 @@ msgstr "بند کریں"
 
 #: src/disco/components/AddonCompatibilityError/index.js:32
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "iOS کے لئے فائر فاکس فی الحال ایڈاون کی حمایت نہیں کرتا ہے۔"
 
 #: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "یہ ایڈاون آپ Firefox کے ورژن کی حمایت نہیں کرتا ہے۔"
 
 #: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "یہ ایڈاون آپ کے براؤزر کی حمایت نہیں کرتا ہے۔"
 
 #: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
@@ -167,15 +160,12 @@ msgstr "ایڈ-اون کے متعلق مزید جاننے کے لیئے"
 
 #: src/disco/pages/DiscoPane/index.js:152
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "اپنے Firefox کو ذاتی بنایں"
 
 #: src/disco/pages/DiscoPane/index.js:154
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
@@ -199,9 +189,7 @@ msgid "Preview of %(title)s"
 msgstr ""
 
 #~ msgid "Please restart Firefox to use this add-on."
-#~ msgstr ""
-#~ "براہ مہربانی اس ایڈ-اون کو استعمال کرنے کے لیئے Firefox کو دوبارہ شروع "
-#~ "کریں۔"
+#~ msgstr "براہ مہربانی اس ایڈ-اون کو استعمال کرنے کے لیئے Firefox کو دوبارہ شروع کریں۔"
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "آپ کا ایڈ-ان تیار ہے"
