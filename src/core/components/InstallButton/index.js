@@ -26,41 +26,12 @@ import tracking, {
   getAddonEventCategory,
 } from 'core/tracking';
 import { isTheme } from 'core/utils';
+import { getFileHash } from 'core/utils/addons';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 
 import './styles.scss';
-
-export const getFileHash = ({ addon, installURL } = {}) => {
-  if (!addon) {
-    throw new Error('The addon parameter cannot be empty');
-  }
-  if (!installURL) {
-    throw new Error('The installURL parameter cannot be empty');
-  }
-
-  const urlKey = installURL.split('?')[0];
-
-  // TODO: refactor createInternalAddon() to expose file objects
-  // per platform so we don't have to do this.
-  // https://github.com/mozilla/addons-frontend/issues/3871
-
-  if (addon.current_version) {
-    for (const file of addon.current_version.files) {
-      // The API sometimes appends ?src= to URLs so we just check the
-      // basename.
-      if (file.url.startsWith(urlKey)) {
-        return file.hash;
-      }
-    }
-  }
-
-  log.warn(oneLine`No file hash found for addon "${addon.slug}",
-    installURL "${installURL}" (as "${urlKey}")`);
-
-  return undefined;
-};
 
 export class InstallButtonBase extends React.Component {
   static propTypes = {

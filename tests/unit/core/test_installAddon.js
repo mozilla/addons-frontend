@@ -1235,9 +1235,16 @@ describe(__filename, () => {
       const installURL = 'https://mysite.com/download.xpi';
 
       it('calls addonManager.install()', () => {
+        const hash = 'some-sha-hash';
         const addon = createInternalAddon(
           createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
+            files: [
+              {
+                platform: OS_ALL,
+                url: installURL,
+                hash,
+              },
+            ],
           }),
         );
         const fakeAddonManager = getFakeAddonManagerWrapper();
@@ -1253,7 +1260,36 @@ describe(__filename, () => {
             fakeAddonManager.install,
             `${installURL}?src=${defaultInstallSource}`,
             sinon.match.func,
-            { src: defaultInstallSource },
+            { src: defaultInstallSource, hash },
+          );
+        });
+      });
+
+      it('passes an undefined hash when installURL is not found', () => {
+        const addon = createInternalAddon(
+          createFakeAddon({
+            files: [
+              {
+                platform: OS_ANDROID,
+                url: installURL,
+              },
+            ],
+          }),
+        );
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const { root } = renderWithInstallHelpers({
+          _addonManager: fakeAddonManager,
+          addon,
+          defaultInstallSource,
+        });
+        const { install } = root.instance().props;
+
+        return install(addon).then(() => {
+          sinon.assert.calledWith(
+            fakeAddonManager.install,
+            undefined,
+            sinon.match.func,
+            { src: defaultInstallSource, hash: undefined },
           );
         });
       });

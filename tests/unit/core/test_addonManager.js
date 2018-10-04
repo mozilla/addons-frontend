@@ -138,6 +138,22 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
         url: `${fakeInstallUrl}?src=home`,
+        hash: undefined,
+      });
+    });
+
+    it('passes the hash to createInstall() if provided', async () => {
+      const hash = 'some-sha-hash';
+
+      await addonManager.install(fakeInstallUrl, fakeCallback, {
+        _mozAddonManager: fakeMozAddonManager,
+        src: 'home',
+        hash,
+      });
+
+      sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
+        url: `${fakeInstallUrl}?src=home`,
+        hash,
       });
     });
 
@@ -194,14 +210,15 @@ describe(__filename, () => {
       sinon.assert.calledWith(fakeCallback, fakeInstallObj, fakeEvent);
     });
 
-    it('requires a src', () =>
-      addonManager
+    it('requires a src', () => {
+      return addonManager
         .install(fakeInstallUrl, fakeCallback, {
           _mozAddonManager: fakeMozAddonManager,
         })
-        .then(unexpectedSuccess, (e) =>
-          expect(e.message).toEqual('No src for add-on install'),
-        ));
+        .then(unexpectedSuccess, (e) => {
+          expect(e.message).toEqual('No src for add-on install');
+        });
+    });
   });
 
   describe('uninstall()', () => {

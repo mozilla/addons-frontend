@@ -75,6 +75,7 @@ import {
 } from 'core/reducers/api';
 import { showInfoDialog } from 'core/reducers/infoDialog';
 import { getDisplayName } from 'core/utils';
+import { getFileHash } from 'core/utils/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
@@ -493,6 +494,8 @@ export class WithInstallHelpers extends React.Component<
       resolve(installURL);
     })
       .then((installURL) => {
+        const hash = installURL && getFileHash({ addon, installURL });
+
         return _addonManager.install(
           installURL,
           makeProgressHandler({
@@ -502,7 +505,7 @@ export class WithInstallHelpers extends React.Component<
             name,
             type,
           }),
-          { src: defaultInstallSource },
+          { src: defaultInstallSource, hash },
         );
       })
       .then(() => {
