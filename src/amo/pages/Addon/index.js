@@ -450,6 +450,13 @@ export class AddonBase extends React.Component {
             (%(locale)s)`),
           i18nValues,
         );
+      case ADDON_TYPE_OPENSEARCH:
+        return i18n.sprintf(
+          // translators: please keep the fox emoji next to "Firefox".
+          i18n.gettext(`%(addonName)s – Get this Search Tool for 🦊 Firefox
+            (%(locale)s)`),
+          i18nValues,
+        );
       default:
         return i18n.sprintf(
           // translators: please keep the fox emoji next to "Firefox".

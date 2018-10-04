@@ -1531,9 +1531,10 @@ describe(__filename, () => {
     [ADDON_TYPE_DICT, 'Dictionary'],
     [ADDON_TYPE_EXTENSION, 'Extension'],
     [ADDON_TYPE_LANG, 'Language Pack'],
-    [ADDON_TYPE_OPENSEARCH, 'Add-on'],
+    [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
     [ADDON_TYPE_THEME, 'Theme'],
+    [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
   ])('renders an HTML title', (type, name) => {
     const lang = 'fr';
 
