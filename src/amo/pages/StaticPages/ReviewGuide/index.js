@@ -1,7 +1,6 @@
 /* @flow */
 import config from 'config';
 import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
