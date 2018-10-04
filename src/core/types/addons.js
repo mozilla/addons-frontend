@@ -156,6 +156,17 @@ export type ExternalAddonType = {|
   weekly_downloads: number,
 |};
 
+export type PlatformFilesType = {|
+  // This seems necessary to help Flow know that computed
+  // keys always return an AddonFileType.
+  [anyPlatform: string]: ?AddonFileType,
+  all: ?AddonFileType,
+  android: ?AddonFileType,
+  mac: ?AddonFileType,
+  linux: ?AddonFileType,
+  windows: ?AddonFileType,
+|};
+
 /*
  * This is our internal representation of an add-on, found in Redux state.
  *
@@ -167,16 +178,7 @@ export type AddonType = {|
   ...ExternalAddonType,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
-  platformFiles: {|
-    // This seems necessary to help Flow know that computed
-    // keys always return an AddonFileType.
-    [anyPlatform: string]: ?AddonFileType,
-    all: ?AddonFileType,
-    android: ?AddonFileType,
-    mac: ?AddonFileType,
-    linux: ?AddonFileType,
-    windows: ?AddonFileType,
-  |},
+  platformFiles: PlatformFilesType,
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,

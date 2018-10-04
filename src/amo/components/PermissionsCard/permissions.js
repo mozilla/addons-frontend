@@ -1,15 +1,13 @@
 /* @flow */
-import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import log from 'core/logger';
-import { OS_ALL } from 'core/constants';
-import { userAgentOSToPlatform } from 'core/installAddon';
+import { findFileForPlatform } from 'core/utils';
+import HostPermissions from 'ui/components/HostPermissions';
+import Permission from 'ui/components/Permission';
 import type { AddonType } from 'core/types/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
-import HostPermissions from 'ui/components/HostPermissions';
-import Permission from 'ui/components/Permission';
 
 /* eslint-disable no-continue */
 export class PermissionUtils {
@@ -65,23 +63,16 @@ export class PermissionUtils {
   getCurrentPermissions(
     addon: AddonType,
     userAgentInfo: UserAgentInfoType,
+    _findFileForPlatform: typeof findFileForPlatform = findFileForPlatform,
   ): Array<string> {
-    const agentOsName =
-      userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
-    const platform = agentOsName && userAgentOSToPlatform[agentOsName];
-
-    if (!platform) {
-      log.error(oneLine`No platform exists for user agent OS
-        "${agentOsName || '<undefined agentOsName>'}"`);
-      return [];
-    }
-
-    const file = addon.platformFiles[platform] || addon.platformFiles[OS_ALL];
+    const file = _findFileForPlatform({
+      userAgentInfo,
+      platformFiles: addon.platformFiles,
+    });
 
     if (!file) {
       log.debug(
-        oneLine`No file exists for platform "${agentOsName}"
-        (mapped to "${platform}"); platform files:`,
+        `No file exists for os "${userAgentInfo.os.toString()}"; platform files:`,
         addon.platformFiles,
       );
       return [];

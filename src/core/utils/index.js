@@ -15,9 +15,11 @@ import {
   ADDON_TYPE_THEMES_FILTER,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
+  OS_ALL,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
 import { AddonTypeNotFound } from 'core/errors';
+import { userAgentOSToPlatform } from 'core/installAddon';
 import log from 'core/logger';
 import purify from 'core/purify';
 
@@ -305,4 +307,14 @@ export const addQueryParamsToHistory = ({
   _stringify = stringify,
 }) => {
   return qhistory(history, _stringify, _parse);
+};
+
+export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
+  invariant(userAgentInfo, 'userAgentInfo is required');
+  invariant(platformFiles, 'platformFiles is required');
+
+  const agentOsName =
+    userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
+  const platform = agentOsName && userAgentOSToPlatform[agentOsName];
+  return (platform && platformFiles[platform]) || platformFiles[OS_ALL];
 };

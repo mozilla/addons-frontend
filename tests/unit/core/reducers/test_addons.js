@@ -9,6 +9,8 @@ import {
 } from 'core/constants';
 import addons, {
   createInternalAddon,
+  createPlatformFiles,
+  defaultPlatformFiles,
   fetchAddon,
   getAddonByGUID,
   getAddonByID,
@@ -23,7 +25,9 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakePlatformFile,
   fakeTheme,
+  fakeVersion,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -222,13 +226,9 @@ describe(__filename, () => {
   it('handles an empty array of files', () => {
     const addon = createFakeAddon({ files: [] });
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles).toMatchObject({
-      [OS_ALL]: undefined,
-      [OS_ANDROID]: undefined,
-      [OS_LINUX]: undefined,
-      [OS_MAC]: undefined,
-      [OS_WINDOWS]: undefined,
-    });
+    expect(state.byID[addon.id].platformFiles).toMatchObject(
+      defaultPlatformFiles,
+    );
   });
 
   it('handles files for unknown platforms', () => {
@@ -665,6 +665,40 @@ describe(__filename, () => {
       expect(state.byID[addon1.id]).toEqual(undefined);
       expect(state.bySlug).toEqual({ [slug2]: id2 });
       expect(state.loadingBySlug).toEqual({ [slug2]: false });
+    });
+  });
+
+  describe('createPlatformFiles', () => {
+    it('creates a default object if there is no version', () => {
+      expect(createPlatformFiles(undefined)).toEqual(defaultPlatformFiles);
+    });
+
+    it('creates a default object if there are no files', () => {
+      expect(createPlatformFiles({ ...fakeVersion, files: [] })).toEqual(
+        defaultPlatformFiles,
+      );
+    });
+
+    it('creates a PlatformFilesType object from a version with files', () => {
+      const windowsFile = {
+        ...fakePlatformFile,
+        platform: OS_WINDOWS,
+      };
+      const unknownPlatform = 'unknownPlatform';
+      const unknownFile = {
+        ...fakePlatformFile,
+        platform: unknownPlatform,
+      };
+      expect(
+        createPlatformFiles({
+          ...fakeVersion,
+          files: [windowsFile, unknownFile],
+        }),
+      ).toEqual({
+        ...defaultPlatformFiles,
+        [OS_WINDOWS]: windowsFile,
+        [unknownPlatform]: unknownFile,
+      });
     });
   });
 });

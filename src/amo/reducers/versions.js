@@ -1,10 +1,12 @@
 /* @flow */
 import invariant from 'invariant';
 
+import { createPlatformFiles } from 'core/reducers/addons';
+import { findFileForPlatform } from 'core/utils';
 import type {
   AddonCompatibilityType,
-  AddonFileType,
   ExternalAddonVersionType,
+  PlatformFilesType,
 } from 'core/types/addons';
 
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
@@ -13,7 +15,7 @@ export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
   created: string,
-  files: Array<AddonFileType>,
+  platformFiles: PlatformFilesType,
   filesize: number,
   id: number,
   license: { name: string, url: string },
@@ -24,18 +26,24 @@ export type AddonVersionType = {
 export const createInternalVersion = (
   version: ExternalAddonVersionType,
 ): AddonVersionType => {
-  // TODO: We should find the correct file, for now we'll just take the first one.
-  // Note that multiple files per version is going away, but not quite yet.
-  const file = version.files[0];
-  return {
+  const addonVersion = {
     compatibility: version.compatibility,
-    created: file.created,
-    files: version.files,
-    filesize: file.size,
+    platformFiles: createPlatformFiles(version),
     id: version.id,
     license: { name: version.license.name, url: version.license.url },
     releaseNotes: version.release_notes,
     version: version.version,
+  };
+
+  const file = findFileForPlatform({
+    platformFiles: addonVersion.platformFiles,
+    userAgentInfo: state.api.userAgentInfo, // this won't work currently
+  });
+
+  return {
+    ...addonVersion,
+    created: file.created,
+    filesize: file.size,
   };
 };
 
