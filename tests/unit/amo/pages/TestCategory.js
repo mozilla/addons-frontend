@@ -31,6 +31,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeCategory,
+  pushLocation,
 } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
@@ -835,5 +836,21 @@ describe(__filename, () => {
 
       expect(root.find(NotFound)).toHaveLength(0);
     });
+  });
+
+  it('renders a canonical link tag', () => {
+    const baseURL = 'https://example.org';
+    const _config = getFakeConfig({ baseURL });
+
+    const pathname = '/some-category-pathname/';
+    store.dispatch(pushLocation({ pathname }));
+
+    const root = render({ _config });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(root.find('link[rel="canonical"]')).toHaveProp(
+      'href',
+      `${baseURL}${pathname}`,
+    );
   });
 });

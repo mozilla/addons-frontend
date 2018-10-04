@@ -3,6 +3,7 @@ import config from 'config';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import Helmet from 'react-helmet';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
@@ -11,6 +12,7 @@ import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
+import { getCurrentURL } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -63,6 +65,7 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
+    currentURL: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     collections: PropTypes.array.isRequired,
@@ -199,8 +202,10 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      errorHandler,
+      _config,
+      currentURL,
       collections,
+      errorHandler,
       featuredExtensions,
       featuredThemes,
       i18n,
@@ -222,6 +227,10 @@ export class HomeBase extends React.Component {
 
     return (
       <div className="Home">
+        <Helmet>
+          <link rel="canonical" href={currentURL} />
+        </Helmet>
+
         <span
           className="visually-hidden do-not-remove"
           // eslint-disable-next-line react/no-danger
@@ -329,8 +338,9 @@ export class HomeBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state, ownProps) {
   return {
+    currentURL: getCurrentURL({ state, _config: ownProps._config }),
     collections: state.home.collections,
     featuredExtensions: state.home.featuredExtensions,
     resultsLoaded: state.home.resultsLoaded,

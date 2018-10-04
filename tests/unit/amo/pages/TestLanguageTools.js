@@ -15,6 +15,7 @@ import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeLanguageTool,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
@@ -302,5 +303,21 @@ describe(__filename, () => {
       addons[1],
       addons[2],
     ]);
+  });
+
+  it('renders a canonical link tag', () => {
+    const baseURL = 'https://example.org';
+    const _config = getFakeConfig({ baseURL });
+    const pathname = '/language-tools/';
+
+    const { store } = dispatchClientMetadata({ pathname });
+
+    const root = renderShallow({ _config, store });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(root.find('link[rel="canonical"]')).toHaveProp(
+      'href',
+      `${baseURL}${pathname}`,
+    );
   });
 });

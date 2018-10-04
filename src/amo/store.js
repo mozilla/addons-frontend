@@ -50,10 +50,13 @@ import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
-import type { ReactRouterHistoryType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  LocationType,
+} from 'core/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
 
-export type AppState = {|
+type AppStateWithoutRouter = {|
   abuse: AbuseState,
   addons: AddonsState,
   addonsByAuthors: AddonsByAuthorsState,
@@ -81,9 +84,17 @@ export type AppState = {|
   viewContext: ViewContextState,
 |};
 
+export type AppState = {|
+  ...AppStateWithoutRouter,
+  router: {|
+    action: 'PUSH' | 'POP',
+    location: LocationType,
+  |},
+|};
+
 // Given AppState, create a type for all possible application reducers.
 // See https://flow.org/en/docs/types/utilities/#toc-objmap
-type AppReducersType = $ObjMap<AppState, CreateReducerType>;
+type AppReducersType = $ObjMap<AppStateWithoutRouter, CreateReducerType>;
 
 type CreateRootReducerParams = {|
   history: ReactRouterHistoryType,
@@ -93,7 +104,7 @@ type CreateRootReducerParams = {|
 export const createRootReducer = ({
   history,
   reducers,
-}: CreateRootReducerParams) => {
+}: CreateRootReducerParams): AppState => {
   return connectRouter(history)(combineReducers(reducers));
 };
 

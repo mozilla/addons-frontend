@@ -18,6 +18,7 @@ import {
   createAddonsApiResult,
   dispatchClientMetadata,
   fakeAddon,
+  pushLocation,
 } from 'tests/unit/amo/helpers';
 import {
   createStubErrorHandler,
@@ -667,5 +668,21 @@ describe(__filename, () => {
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
     expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
     expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
+  });
+
+  it('renders a canonical link tag', () => {
+    const baseURL = 'https://example.org';
+    const _config = getFakeConfig({ baseURL });
+
+    const pathname = '/some-landing-pathname/';
+    store.dispatch(pushLocation({ pathname }));
+
+    const root = render({ _config, store });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(root.find('link[rel="canonical"]')).toHaveProp(
+      'href',
+      `${baseURL}${pathname}`,
+    );
   });
 });

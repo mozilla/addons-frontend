@@ -1,5 +1,6 @@
 import { normalize } from 'normalizr';
 import config from 'config';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 import createStore from 'amo/store';
 import {
@@ -213,15 +214,33 @@ export const fakeRecommendations = Object.freeze({
   outcome: 'recommended_fallback',
 });
 
+export const pushLocation = ({ pathname, search = '', hash = '' }) => {
+  return {
+    type: LOCATION_CHANGE,
+    payload: {
+      location: {
+        pathname,
+        search,
+        hash,
+      },
+      action: 'PUSH',
+    },
+  };
+};
+
 export function dispatchClientMetadata({
   store = createStore().store,
   clientApp = CLIENT_APP_ANDROID,
   lang = 'en-US',
   userAgent = sampleUserAgent,
+  pathname = `/${lang}/${clientApp}/`,
 } = {}) {
   store.dispatch(setClientApp(clientApp));
   store.dispatch(setLang(lang));
   store.dispatch(setUserAgent(userAgent));
+
+  // Simulate the behavior of connected-react-router.
+  store.dispatch(pushLocation({ pathname }));
 
   return {
     store,

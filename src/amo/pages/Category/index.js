@@ -13,6 +13,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { getCurrentURL } from 'amo/utils';
 import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -39,6 +40,7 @@ export class CategoryBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     addonTypeOfResults: PropTypes.string,
+    currentURL: PropTypes.string.isRequired,
     categoryOfResults: PropTypes.string,
     categories: PropTypes.object,
     clientApp: PropTypes.string,
@@ -229,6 +231,7 @@ export class CategoryBase extends React.Component {
 
   render() {
     const {
+      currentURL,
       categories,
       clientApp,
       errorHandler,
@@ -271,6 +274,7 @@ export class CategoryBase extends React.Component {
         {category && (
           <Helmet>
             <title>{`${category.name} – ${html.title}`}</title>
+            <link rel="canonical" href={currentURL} />
           </Helmet>
         )}
 
@@ -322,8 +326,9 @@ export class CategoryBase extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
+    currentURL: getCurrentURL({ state, _config: ownProps._config }),
     categories: state.categories.categories,
     clientApp: state.api.clientApp,
     loading: state.categories.loading || state.landing.loading,

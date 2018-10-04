@@ -12,6 +12,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Categories from 'amo/components/Categories';
+import { getCurrentURL } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -42,6 +43,7 @@ export class LandingPageBase extends React.Component {
     // `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
     addonTypeOfResults: PropTypes.string,
+    currentURL: PropTypes.string.isRequired,
     // This is a bug; context is used in `setViewContextType()`.
     // eslint-disable-next-line react/no-unused-prop-types
     context: PropTypes.string.isRequired,
@@ -210,6 +212,7 @@ export class LandingPageBase extends React.Component {
 
   render() {
     const {
+      currentURL,
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
@@ -247,6 +250,7 @@ export class LandingPageBase extends React.Component {
       >
         <Helmet>
           <title>{headingText[addonType]}</title>
+          <link rel="canonical" href={currentURL} />
         </Helmet>
 
         {errorHandler.renderErrorIfPresent()}
@@ -314,11 +318,12 @@ export class LandingPageBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state, ownProps) {
   const { landing, viewContext } = state;
 
   return {
     addonTypeOfResults: landing.addonType,
+    currentURL: getCurrentURL({ state, _config: ownProps._config }),
     context: viewContext.context,
     featuredAddons: landing.featured.results,
     highlyRatedAddons: landing.highlyRated.results,
