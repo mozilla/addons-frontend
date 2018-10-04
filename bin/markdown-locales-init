@@ -1,0 +1,35 @@
+#!/usr/bin/env node --use_strict
+/* eslint-disable no-console */
+
+// This creates pot (template) files.
+const gmd = require('gettext-markdown');
+const fs = require('fs');
+const path = require('path');
+const shell = require('shelljs');
+
+const guidesDir = path.join(__dirname, '../src/amo/guides');
+const templateDir = path.join(guidesDir, '/templates/LC_MESSAGES/')
+
+// Get guide md files.
+const files = fs.readdirSync(__dirname + '/../src/amo/guides/');
+const mdFiles = files.filter(file => path.extname(file) === '.md');
+
+shell.exec(`mkdir -p ${templateDir}`);
+
+for (file of mdFiles) {
+  const pot = gmd.md2pot(`${guidesDir}/${file}`);
+  const outputFile = `${file.replace('.md', '')}.pot`;
+  const output = `${templateDir}${outputFile}`;
+
+  fs.writeFile(output, pot, (e) => {
+    if (e) {
+      process.stdout.write(file + ' => ');
+      process.stdout.write(colors.red('WRITE FAILED') + '\n');
+      console.error(e);
+    } else {
+      process.stdout.write(file + ' => ');
+      process.stdout.write(output + '\n');
+    }
+  });
+}
+

@@ -11,6 +11,7 @@ import Category from 'amo/pages/Category';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
+import Guides from 'amo/pages/Guides';
 import Home from 'amo/pages/Home';
 import LandingPage from 'amo/pages/LandingPage';
 import LanguageTools from 'amo/pages/LanguageTools';
@@ -35,12 +36,19 @@ type Props = {|
 const Routes = ({ _config = config }: Props = {}) => (
   <Switch>
     <Route exact path="/:lang/about" component={About} />
+
     {/* TODO: Post launch update this URL and redirect see #3374/ */}
     <Route exact path="/:lang/review_guide" component={ReviewGuide} />
 
     <Route exact path="/:lang/:application/" component={Home} />
 
     <Route exact path="/:lang/:application/addon/:slug/" component={Addon} />
+
+    <Route
+      exact
+      path="/:lang/:application/guides/:guideSlug"
+      component={Guides}
+    />
     <Route
       exact
       path="/:lang/:application/addon/:addonSlug/reviews/:reviewId"

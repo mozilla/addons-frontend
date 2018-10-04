@@ -1,0 +1,80 @@
+#!/usr/bin/env node --use_strict
+/* eslint-disable no-console */
+
+require('babel-register');
+
+const gmd = require('gettext-markdown');
+const config = require('config');
+const fs = require('fs');
+const path = require('path');
+const shell = require('shelljs');
+
+const supportedLangs = config.get('langs');
+const localeDir = path.join(__dirname, '../src/amo/guides/locale');
+const templateDir = path.join(localeDir, '../templates/LC_MESSAGES/');
+const langToLocale = require('../src/core/i18n/utils').langToLocale;
+
+let lang;
+let locale;
+let outputFile;
+
+// Get guide md files.
+const files = fs.readdirSync(__dirname + '/../src/amo/guides/');
+const mdFiles = files.filter(file => path.extname(file) === '.md');
+
+for (file of mdFiles) {
+  // TODO: uncomment the following for loop when ready for all locales.
+  // For now we'll use locale af to sample this.
+  // for (supportedLang of supportedLangs) {
+
+    // locale = langToLocale(supportedLang);
+    const fileName = file.replace('.md', '');
+    locale = 'af';
+    shell.exec(`mkdir -p ${localeDir}/${locale}/LC_MESSAGES/`);
+    outputFile = path.join(localeDir, locale, 'LC_MESSAGES', `${fileName}.po`);
+    try {
+      fs.statSync(outputFile);
+      // eslint-disable-next-line no-console
+      console.log(`${outputFile} already exists skipping`);
+    } catch (e) {
+      if (e.code === 'ENOENT') {
+        shell.exec(`msginit --no-translator --input=${templateDir}${fileName}.pot
+                    --output-file=${outputFile} -l ${locale}`.replace('\n', ' '));
+      } else {
+        throw e;
+      }
+    }
+
+
+    let po = fs.readFileSync(`${localeDir}/${locale}/LC_MESSAGES/${fileName}.po`, 'utf-8');
+
+    // TODO: fuzzy ok? po2md wants a flag here.
+    po = '#, fuzzy' + '\n' + po;
+
+    // This creates md files from po files.
+    gmd.po2md(`${localeDir}/${locale}/LC_MESSAGES/${fileName}.po`, po)
+      .then((result) => {
+        for (let i in result) {
+          let _path = result[i].fn;
+          let lang = result[i].lang;
+          let data = result[i].data;
+          let poFile = result[i].po;
+
+          const mdFile = poFile.split('/').pop();
+          const mdOutput = `${poFile}`.replace(mdFile, '') + `${mdFile}`.replace('.po', '.md') + `.${lang}`;
+
+          fs.writeFile(mdOutput, data, (e) => {
+            if (e) {
+              process.stdout.write(poFile + ' => ');
+              process.stdout.write(colors.red('WRITE FAILED') + '\n');
+              console.error(e);
+            } else {
+              process.stdout.write(poFile + ' => ');
+              process.stdout.write(mdOutput + '\n');
+            }
+          });
+        }
+      })
+      .catch((e) => console.error(e));
+  // }
+}

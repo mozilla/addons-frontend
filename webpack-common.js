@@ -125,6 +125,14 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
       loader: 'babel-loader',
       options: babelOptions,
     },
+    {
+      test: /\.md$/,
+      use: [
+        {
+          loader: 'raw-loader',
+        },
+      ],
+    },
     ...styleRules,
     {
       test: /\.svg$/,
