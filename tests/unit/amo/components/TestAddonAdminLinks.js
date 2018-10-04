@@ -39,20 +39,16 @@ describe(__filename, () => {
     );
   }
 
-  const renderWithPermissions = ({ addon, permissions }) => {
+  const renderWithPermissions = ({
+    addon = createInternalAddon({
+      ...fakeAddon,
+      slug,
+    }),
+    permissions,
+  }) => {
     const perms = Array.isArray(permissions) ? permissions : [permissions];
-    return render({
-      addon:
-        addon === undefined
-          ? createInternalAddon({
-              ...fakeAddon,
-              slug,
-            })
-          : addon,
-      store: dispatchSignInActions({
-        userProps: { permissions: perms },
-      }).store,
-    });
+    dispatchSignInActions({ store, userProps: { permissions: perms } });
+    return render({ addon });
   };
 
   it('returns nothing if the user does not have permission for any links', () => {
@@ -171,14 +167,12 @@ describe(__filename, () => {
   });
 
   it('shows a theme review link for a theme if the user has permission', () => {
-    const root = render({
+    const root = renderWithPermissions({
       addon: createInternalAddon({
         ...fakeTheme,
         slug,
       }),
-      store: dispatchSignInActions({
-        userProps: { permissions: [THEMES_REVIEW] },
-      }).store,
+      permissions: THEMES_REVIEW,
     });
 
     expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
@@ -188,14 +182,12 @@ describe(__filename, () => {
   });
 
   it('does not show a theme review link if the user does not have permission', () => {
-    const root = render({
+    const root = renderWithPermissions({
       addon: createInternalAddon({
         ...fakeTheme,
         slug,
       }),
-      store: dispatchSignInActions({
-        userProps: { permissions: [ADDONS_EDIT] },
-      }).store,
+      permissions: ADDONS_EDIT,
     });
 
     expect(root.find('.AddonAdminLinks')).toHaveLength(1);
@@ -203,14 +195,12 @@ describe(__filename, () => {
   });
 
   it('does not show a theme review link if the user has permission but the add-on is not a theme', () => {
-    const root = render({
+    const root = renderWithPermissions({
       addon: createInternalAddon({
         ...fakeAddon,
         slug,
       }),
-      store: dispatchSignInActions({
-        userProps: { permissions: [ADDONS_EDIT, THEMES_REVIEW] },
-      }).store,
+      permissions: [ADDONS_EDIT, THEMES_REVIEW],
     });
 
     expect(root.find('.AddonAdminLinks')).toHaveLength(1);
