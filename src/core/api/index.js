@@ -348,8 +348,7 @@ export const allPages = async (
 
     if (response.next) {
       nextURL = response.next;
-      log.debug(oneLine`Fetching next page "${nextURL}" of
-        ${getNextResponse}`);
+      log.debug(`Fetching next page "${nextURL}"`);
     } else {
       return { count, page_size: pageSize, results };
     }
