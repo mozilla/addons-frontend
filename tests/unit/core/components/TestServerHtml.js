@@ -54,6 +54,14 @@ describe(__filename, () => {
     expect(meta).toHaveProp('content', 'test meta');
   });
 
+  it('renders script[type="application/ld+json"] inside helmet', () => {
+    const root = render();
+    // This is defined in the `FakeApp` component.
+    const script = root.find('script[type="application/ld+json"]');
+
+    expect(script).toHaveLength(1);
+  });
+
   it('renders GA script when trackingEnabled is true', () => {
     const root = render({ trackingEnabled: true });
     const ga = root.find({
@@ -85,7 +93,7 @@ describe(__filename, () => {
     const root = render();
     const js = root.find('script');
 
-    expect(js.at(1)).toHaveProp('src', '/foo/disco-blah.js');
+    expect(js.at(2)).toHaveProp('src', '/foo/disco-blah.js');
   });
 
   it('does not render i18n js in the assets list', () => {
@@ -112,8 +120,8 @@ describe(__filename, () => {
     const root = render();
     const js = root.find('script');
 
-    expect(js.at(1)).toHaveProp('integrity', 'sha512-disco-js');
-    expect(js.at(1)).toHaveProp('crossOrigin', 'anonymous');
+    expect(js.at(2)).toHaveProp('integrity', 'sha512-disco-js');
+    expect(js.at(2)).toHaveProp('crossOrigin', 'anonymous');
   });
 
   it('renders state as JSON', () => {

@@ -36,6 +36,7 @@ export default class FakeApp extends React.Component {
         <Helmet defaultTitle="test title">
           <meta name="description" content="test meta" />
           <link rel="canonical" href="/" />
+          <script type="application/ld+json">{`{}`}</script>
         </Helmet>
         {children}
       </div>
