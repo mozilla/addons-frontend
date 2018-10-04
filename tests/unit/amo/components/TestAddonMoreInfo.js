@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
 import Link from 'amo/components/Link';
 import {
@@ -465,5 +466,12 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(0);
+  });
+
+  it('renders admin links', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon });
+
+    expect(root.find(AddonAdminLinks)).toHaveProp('addon', addon);
   });
 });

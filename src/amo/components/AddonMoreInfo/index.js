@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import Link from 'amo/components/Link';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
@@ -21,12 +22,16 @@ import type { AppState } from 'amo/store';
 
 type Props = {|
   addon: AddonType | null,
+|};
+
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
   userId: number | null,
   hasStatsPermission: boolean,
 |};
 
-export class AddonMoreInfoBase extends React.Component<Props> {
+export class AddonMoreInfoBase extends React.Component<InternalProps> {
   listContent() {
     const { addon, i18n, userId, hasStatsPermission } = this.props;
 
@@ -173,80 +178,83 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     versionLicenseLink = null,
     versionHistoryLink = null,
   }: Object) {
-    const { i18n } = this.props;
+    const { addon, i18n } = this.props;
     return (
-      <DefinitionList className="AddonMoreInfo-dl">
-        {(homepage || supportUrl || supportEmail) && (
-          <Definition
-            className="AddonMoreInfo-links"
-            term={i18n.gettext('Add-on Links')}
-          >
-            <ul className="AddonMoreInfo-links-contents-list">
-              {homepage}
-              {supportUrl}
-              {supportEmail}
-            </ul>
-          </Definition>
-        )}
-        {version && (
-          <Definition
-            className="AddonMoreInfo-version"
-            term={i18n.gettext('Version')}
-          >
-            {version}
-          </Definition>
-        )}
-        {versionLastUpdated && (
-          <Definition
-            className="AddonMoreInfo-last-updated"
-            term={i18n.gettext('Last updated')}
-          >
-            {versionLastUpdated}
-          </Definition>
-        )}
-        {versionLicenseLink && (
-          <Definition
-            className="AddonMoreInfo-license"
-            term={i18n.gettext('License')}
-          >
-            {versionLicenseLink}
-          </Definition>
-        )}
-        {privacyPolicyLink && (
-          <Definition
-            className="AddonMoreInfo-privacy-policy"
-            term={i18n.gettext('Privacy Policy')}
-          >
-            {privacyPolicyLink}
-          </Definition>
-        )}
-        {eulaLink && (
-          <Definition
-            className="AddonMoreInfo-eula"
-            term={i18n.gettext('End-User License Agreement')}
-          >
-            {eulaLink}
-          </Definition>
-        )}
-        {versionHistoryLink && (
-          <Definition
-            className="AddonMoreInfo-version-history"
-            term={i18n.gettext('Version History')}
-          >
-            <ul className="AddonMoreInfo-links-contents-list">
-              {versionHistoryLink}
-            </ul>
-          </Definition>
-        )}
-        {statsLink && (
-          <Definition
-            className="AddonMoreInfo-stats"
-            term={i18n.gettext('Usage Statistics')}
-          >
-            {statsLink}
-          </Definition>
-        )}
-      </DefinitionList>
+      <React.Fragment>
+        <DefinitionList className="AddonMoreInfo-dl">
+          {(homepage || supportUrl || supportEmail) && (
+            <Definition
+              className="AddonMoreInfo-links"
+              term={i18n.gettext('Add-on Links')}
+            >
+              <ul className="AddonMoreInfo-links-contents-list">
+                {homepage}
+                {supportUrl}
+                {supportEmail}
+              </ul>
+            </Definition>
+          )}
+          {version && (
+            <Definition
+              className="AddonMoreInfo-version"
+              term={i18n.gettext('Version')}
+            >
+              {version}
+            </Definition>
+          )}
+          {versionLastUpdated && (
+            <Definition
+              className="AddonMoreInfo-last-updated"
+              term={i18n.gettext('Last updated')}
+            >
+              {versionLastUpdated}
+            </Definition>
+          )}
+          {versionLicenseLink && (
+            <Definition
+              className="AddonMoreInfo-license"
+              term={i18n.gettext('License')}
+            >
+              {versionLicenseLink}
+            </Definition>
+          )}
+          {privacyPolicyLink && (
+            <Definition
+              className="AddonMoreInfo-privacy-policy"
+              term={i18n.gettext('Privacy Policy')}
+            >
+              {privacyPolicyLink}
+            </Definition>
+          )}
+          {eulaLink && (
+            <Definition
+              className="AddonMoreInfo-eula"
+              term={i18n.gettext('End-User License Agreement')}
+            >
+              {eulaLink}
+            </Definition>
+          )}
+          {versionHistoryLink && (
+            <Definition
+              className="AddonMoreInfo-version-history"
+              term={i18n.gettext('Version History')}
+            >
+              <ul className="AddonMoreInfo-links-contents-list">
+                {versionHistoryLink}
+              </ul>
+            </Definition>
+          )}
+          {statsLink && (
+            <Definition
+              className="AddonMoreInfo-stats"
+              term={i18n.gettext('Usage Statistics')}
+            >
+              {statsLink}
+            </Definition>
+          )}
+        </DefinitionList>
+        <AddonAdminLinks addon={addon} />
+      </React.Fragment>
     );
   }
 
