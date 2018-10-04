@@ -51,7 +51,7 @@ export const initialState: VersionsState = {
 
 type FetchVersionsParams = {|
   errorHandlerId: string,
-  page?: number,
+  page?: string,
   slug: string,
 |};
 
@@ -62,9 +62,9 @@ export type FetchVersionsAction = {|
 
 export const fetchVersions = ({
   errorHandlerId,
-  page = 1,
+  page = '1',
   slug,
-}: FetchVersionsParams = {}): FetchVersionsAction => {
+}: FetchVersionsParams): FetchVersionsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(slug, 'slug is required');
 
@@ -97,7 +97,7 @@ export const loadVersions = ({
   };
 };
 
-type GetVersionsBySlugParams = {|
+type GetBySlugParams = {|
   slug: string,
   state: VersionsState,
 |};
@@ -105,7 +105,7 @@ type GetVersionsBySlugParams = {|
 export const getVersionsBySlug = ({
   slug,
   state,
-}: GetVersionsBySlugParams): Array<AddonVersionType> | null => {
+}: GetBySlugParams): Array<AddonVersionType> | null => {
   invariant(slug, 'slug is required');
   invariant(state, 'state is required');
 
@@ -113,15 +113,7 @@ export const getVersionsBySlug = ({
   return (infoForSlug && infoForSlug.versions) || null;
 };
 
-type GetLoadingBySlugParams = {|
-  slug: string,
-  state: VersionsState,
-|};
-
-export const getLoadingBySlug = ({
-  slug,
-  state,
-}: GetLoadingBySlugParams): boolean => {
+export const getLoadingBySlug = ({ slug, state }: GetBySlugParams): boolean => {
   invariant(slug, 'slug is required');
   invariant(state, 'state is required');
 

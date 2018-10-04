@@ -62,14 +62,14 @@ describe(__filename, () => {
   });
 
   describe(getLoadingBySlug, () => {
-    it('retuns false if versions have never been loaded', () => {
+    it('returns false if versions have never been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
       expect(getLoadingBySlug({ slug: 'some-slug', state })).toBe(false);
     });
   });
 
   describe(getVersionsBySlug, () => {
-    it('retuns null if no versions have been loaded', () => {
+    it('returns null if no versions have been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
       expect(getVersionsBySlug({ slug: 'some-slug', state })).toBe(null);
     });

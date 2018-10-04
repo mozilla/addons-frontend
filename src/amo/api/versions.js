@@ -8,7 +8,7 @@ import type { ExternalAddonVersionType } from 'core/types/addons';
 
 export type GetVersionsParams = {|
   api: ApiState,
-  page?: number,
+  page?: string,
   slug: string,
 |};
 
