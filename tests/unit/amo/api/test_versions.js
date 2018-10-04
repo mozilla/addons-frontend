@@ -10,7 +10,7 @@ describe(__filename, () => {
       const mockApi = sinon.mock(api);
       const slug = 'some-slug';
       const params = {
-        page: 123,
+        page: '123',
       };
 
       mockApi

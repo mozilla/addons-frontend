@@ -11,7 +11,7 @@ import { createStubErrorHandler } from 'tests/unit/helpers';
 import { dispatchClientMetadata, fakeVersion } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  const page = 2;
+  const page = '2';
   const slug = 'some-slug';
 
   let clientData;
