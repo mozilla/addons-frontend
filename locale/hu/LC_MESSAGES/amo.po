@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-04 12:52+0000\n"
+"PO-Revision-Date: 2018-10-04 12:53+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1774,22 +1774,22 @@ msgstr "%(addonName)s – Szerezze be ezt a szótárat a 🦊 Firefoxhoz (%(loca
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:434
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Szerezze be ezt a kiegészítőt a 🦊 Firefoxhoz (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:441
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Szerezze be ezt a nyelvi csomagot a 🦊 Firefoxhoz (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:449
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Szerezze be ezt a témát a 🦊 Firefoxhoz (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:456
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Szerezze be ezt a kiegészítőt a 🦊 Firefoxhoz (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:535
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
