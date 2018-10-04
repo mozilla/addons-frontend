@@ -4,7 +4,7 @@
 
 import path from 'path';
 
-import { amoProdCDN, apiProdHost, sentryHost } from './lib/shared';
+import { amoProdCDN, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
@@ -22,6 +22,9 @@ if (appName && !validAppNames.includes(appName)) {
 module.exports = {
   appName,
   basePath: path.resolve(__dirname, '../'),
+
+  // The base URL of the site (for SEO purpose).
+  baseURL: baseUrlProd,
 
   // These are reversed in src/core/client/config.js.
   client: false,
@@ -95,6 +98,7 @@ module.exports = {
     'apiVersion',
     'appName',
     'authTokenValidFor',
+    'baseURL',
     'cookieMaxAge',
     'cookieName',
     'cookieSecure',

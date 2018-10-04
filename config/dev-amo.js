@@ -1,8 +1,10 @@
-import { amoDevCDN } from './lib/shared';
+import { amoDevCDN, baseUrlDev } from './lib/shared';
 
 const staticHost = 'https://addons-amo-dev-cdn.allizom.org';
 
 module.exports = {
+  baseURL: baseUrlDev,
+
   staticHost,
 
   CSP: {
