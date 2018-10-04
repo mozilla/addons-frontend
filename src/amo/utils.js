@@ -3,12 +3,12 @@
 import base62 from 'base62';
 import config from 'config';
 import invariant from 'invariant';
-import type { AppState } from 'amo/store';
 
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import { makeQueryString } from 'core/api';
+import type { AppState } from 'amo/store';
 
 export function getErrorComponent(status: number | null) {
   switch (status) {

@@ -202,7 +202,6 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      _config,
       currentURL,
       collections,
       errorHandler,
