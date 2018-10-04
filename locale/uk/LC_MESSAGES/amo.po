@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-04 05:12+0000\n"
+"PO-Revision-Date: 2018-10-04 06:07+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1073,7 +1073,7 @@ msgstr "Видалити форматування під час збережен
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Official Media Bias Fact Check Icon"
-msgstr ""
+msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:235
 msgid "Indicates the political bias of news sites with a tidy icon"
@@ -1119,7 +1119,7 @@ msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:266
 msgid "Save, annotate & organize web content"
-msgstr ""
+msgstr "Зберігайте, коментуйте і впорядковуйте веб-вміст"
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "FoxyGestures"
@@ -1151,7 +1151,7 @@ msgstr "Iridium для YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr ""
+msgstr "Відтворення відео у виринаючому вікні, створення знімків екрану відео та інше"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
 #, fuzzy
@@ -1342,7 +1342,7 @@ msgstr "Ваш зірковий рейтинг:"
 
 #: src/amo/components/RatingManager/index.js:301
 msgid "Star rating saved"
-msgstr ""
+msgstr "Рейтинг збережено"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1803,32 +1803,32 @@ msgstr "Примітки до випуску для %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:405
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Завантажте %(addonName)s для Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:427
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Отримати цей словник для 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:434
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Отримати це розширення для 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:441
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Отримати цей мовний пакунок для 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:449
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Отримати цю тему для 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:456
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Отримати цей додаток для 🦊 Firefox (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:535
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
