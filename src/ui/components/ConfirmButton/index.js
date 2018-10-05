@@ -6,34 +6,34 @@ import { compose } from 'redux';
 
 import withUIState from 'core/withUIState';
 import Button from 'ui/components/Button';
-import ConfirmButtonDialog from 'ui/components/ConfirmButtonDialog';
+import ConfirmationDialog from 'ui/components/ConfirmationDialog';
 import type { ButtonType } from 'ui/components/Button';
-import type { Props as ConfirmButtonDialogProps } from 'ui/components/ConfirmButtonDialog';
+import type { Props as ConfirmationDialogProps } from 'ui/components/ConfirmationDialog';
 
 type Props = {|
   buttonType?: ButtonType,
   cancelButtonText?: $PropertyType<
-    ConfirmButtonDialogProps,
+    ConfirmationDialogProps,
     'cancelButtonText',
   >,
   cancelButtonType?: $PropertyType<
-    ConfirmButtonDialogProps,
+    ConfirmationDialogProps,
     'cancelButtonType',
   >,
   children: React.Element<any> | string,
   className?: string,
   confirmButtonText?: $PropertyType<
-    ConfirmButtonDialogProps,
+    ConfirmationDialogProps,
     'confirmButtonText',
   >,
   confirmButtonType?: $PropertyType<
-    ConfirmButtonDialogProps,
+    ConfirmationDialogProps,
     'confirmButtonType',
   >,
   id: string,
-  message?: $PropertyType<ConfirmButtonDialogProps, 'message'>,
-  onConfirm: $PropertyType<ConfirmButtonDialogProps, 'onConfirm'>,
-  puffyButtons?: $PropertyType<ConfirmButtonDialogProps, 'puffyButtons'>,
+  message?: $PropertyType<ConfirmationDialogProps, 'message'>,
+  onConfirm: $PropertyType<ConfirmationDialogProps, 'onConfirm'>,
+  puffyButtons?: $PropertyType<ConfirmationDialogProps, 'puffyButtons'>,
 |};
 
 type UIStateType = {|
@@ -95,7 +95,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
     return (
       <div className={classNames}>
         {showConfirmation ? (
-          <ConfirmButtonDialog
+          <ConfirmationDialog
             cancelButtonText={cancelButtonText}
             cancelButtonType={cancelButtonType}
             confirmButtonText={confirmButtonText}

@@ -5,7 +5,7 @@ import ConfirmButton, {
   ConfirmButtonBase,
   extractId,
 } from 'ui/components/ConfirmButton';
-import ConfirmButtonDialog from 'ui/components/ConfirmButtonDialog';
+import ConfirmationDialog from 'ui/components/ConfirmationDialog';
 import {
   applyUIStateChanges,
   createFakeEvent,
@@ -41,7 +41,7 @@ describe(__filename, () => {
   } = {}) => {
     const root = render({ store, ...otherProps });
 
-    // Click to open ConfirmButtonDialog.
+    // Click to open ConfirmationDialog.
     root.find(Button).simulate('click', createFakeEvent());
     applyUIStateChanges({ root, store });
 
@@ -49,7 +49,7 @@ describe(__filename, () => {
   };
 
   const getDialogProp = (root, propName) => {
-    const confirmDialog = root.find(ConfirmButtonDialog);
+    const confirmDialog = root.find(ConfirmationDialog);
     expect(confirmDialog).toHaveProp(propName);
     return confirmDialog.prop(propName);
   };
@@ -77,21 +77,21 @@ describe(__filename, () => {
     expect(root.find(Button).children()).toHaveText(children);
   });
 
-  it('shows ConfirmButtonDialog when button is clicked', () => {
+  it('shows ConfirmationDialog when button is clicked', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmButtonDialog)).toHaveLength(0);
+    expect(root.find(ConfirmationDialog)).toHaveLength(0);
 
     root.find(Button).simulate('click', createFakeEvent());
     applyUIStateChanges({ root, store });
 
     expect(root).toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmButtonDialog)).toHaveLength(1);
+    expect(root.find(ConfirmationDialog)).toHaveLength(1);
   });
 
-  it('configures ConfirmButtonDialog', () => {
+  it('configures ConfirmationDialog', () => {
     const cancelButtonText = 'Nevermind, take me back';
     const cancelButtonType = 'alert';
     const confirmButtonText = 'Do it!';
@@ -108,7 +108,7 @@ describe(__filename, () => {
       puffyButtons,
     });
 
-    const confirmDialog = root.find(ConfirmButtonDialog);
+    const confirmDialog = root.find(ConfirmationDialog);
     expect(confirmDialog).toHaveProp('cancelButtonText', cancelButtonText);
     expect(confirmDialog).toHaveProp('cancelButtonType', cancelButtonType);
     expect(confirmDialog).toHaveProp('confirmButtonText', confirmButtonText);
@@ -129,7 +129,7 @@ describe(__filename, () => {
     expect(root.find('.ConfirmButton-default-button')).toHaveLength(0);
   });
 
-  it('hides ConfirmButtonDialog via onCancel', () => {
+  it('hides ConfirmationDialog via onCancel', () => {
     const { store } = dispatchClientMetadata();
     const root = renderWithDialog({ store });
 
@@ -139,7 +139,7 @@ describe(__filename, () => {
 
     applyUIStateChanges({ root, store });
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmButtonDialog)).toHaveLength(0);
+    expect(root.find(ConfirmationDialog)).toHaveLength(0);
   });
 
   it('handles the onConfirm callback', () => {
@@ -155,7 +155,7 @@ describe(__filename, () => {
     applyUIStateChanges({ root, store });
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmButtonDialog)).toHaveLength(0);
+    expect(root.find(ConfirmationDialog)).toHaveLength(0);
     sinon.assert.calledWith(onConfirmSpy, event);
   });
 

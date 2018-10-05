@@ -27,7 +27,7 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const ConfirmButtonDialogBase = ({
+export const ConfirmationDialogBase = ({
   cancelButtonText,
   cancelButtonType = 'cancel',
   className,
@@ -40,14 +40,14 @@ export const ConfirmButtonDialogBase = ({
   puffyButtons,
 }: InternalProps) => {
   return (
-    <div className={makeClassName('ConfirmButtonDialog', className)}>
+    <div className={makeClassName('ConfirmationDialog', className)}>
       {message && (
-        <span className="ConfirmButtonDialog-message">{message}</span>
+        <span className="ConfirmationDialog-message">{message}</span>
       )}
-      <div className="ConfirmButtonDialog-buttons">
+      <div className="ConfirmationDialog-buttons">
         <Button
           buttonType={confirmButtonType}
-          className="ConfirmButtonDialog-confirm-button"
+          className="ConfirmationDialog-confirm-button"
           onClick={onConfirm}
           puffy={puffyButtons}
         >
@@ -55,7 +55,7 @@ export const ConfirmButtonDialogBase = ({
         </Button>
         <Button
           buttonType={cancelButtonType}
-          className="ConfirmButtonDialog-cancel-button"
+          className="ConfirmationDialog-cancel-button"
           onClick={onCancel}
           puffy={puffyButtons}
         >
@@ -66,8 +66,8 @@ export const ConfirmButtonDialogBase = ({
   );
 };
 
-const ConfirmButtonDialog: React.ComponentType<Props> = compose(translate())(
-  ConfirmButtonDialogBase,
+const ConfirmationDialog: React.ComponentType<Props> = compose(translate())(
+  ConfirmationDialogBase,
 );
 
-export default ConfirmButtonDialog;
+export default ConfirmationDialog;

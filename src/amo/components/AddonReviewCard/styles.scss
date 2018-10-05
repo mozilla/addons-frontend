@@ -39,7 +39,7 @@
   justify-content: flex-end;
   margin-top: 0;
 
-  .ConfirmButtonDialog-buttons {
+  .ConfirmationDialog-buttons {
     flex-flow: row-reverse;
   }
 
@@ -69,13 +69,13 @@
 }
 
 .AddonReviewCard-delete {
-  .ConfirmButtonDialog-cancel-button,
-  .ConfirmButtonDialog-confirm-button {
+  .ConfirmationDialog-cancel-button,
+  .ConfirmationDialog-confirm-button {
     margin: 0 6px;
   }
 
-  .ConfirmButtonDialog-cancel-button,
-  .ConfirmButtonDialog-confirm-button,
+  .ConfirmationDialog-cancel-button,
+  .ConfirmationDialog-confirm-button,
   .ConfirmButton-default-button {
     font-size: $font-size-s;
   }
