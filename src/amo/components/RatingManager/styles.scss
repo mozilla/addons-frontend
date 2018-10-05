@@ -41,18 +41,18 @@
       text-align: center;
       width: 100%;
 
-      .ConfirmButton-buttons {
+      .ConfirmButtonDialog-buttons {
         display: block;
       }
 
-      .ConfirmButton-cancel-button,
-      .ConfirmButton-confirm-button {
+      .ConfirmButtonDialog-cancel-button,
+      .ConfirmButtonDialog-confirm-button {
         font-size: $font-size-puffy-buttons;
         margin: 0;
         width: 100%;
       }
 
-      .ConfirmButton-cancel-button {
+      .ConfirmButtonDialog-cancel-button {
         margin-top: 12px;
       }
     }

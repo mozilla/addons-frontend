@@ -5,6 +5,7 @@ import ConfirmButton, {
   ConfirmButtonBase,
   extractId,
 } from 'ui/components/ConfirmButton';
+import ConfirmButtonDialog from 'ui/components/ConfirmButtonDialog';
 import {
   applyUIStateChanges,
   createFakeEvent,
@@ -34,6 +35,25 @@ describe(__filename, () => {
     );
   };
 
+  const renderWithDialog = ({
+    store = dispatchClientMetadata().store,
+    ...otherProps
+  } = {}) => {
+    const root = render({ store, ...otherProps });
+
+    // Click to open ConfirmButtonDialog.
+    root.find(Button).simulate('click', createFakeEvent());
+    applyUIStateChanges({ root, store });
+
+    return root;
+  };
+
+  const getDialogProp = (root, propName) => {
+    const confirmDialog = root.find(ConfirmButtonDialog);
+    expect(confirmDialog).toHaveProp(propName);
+    return confirmDialog.prop(propName);
+  };
+
   it('renders a button', () => {
     const root = render();
 
@@ -51,40 +71,50 @@ describe(__filename, () => {
   });
 
   it('passes the children prop to the button', () => {
-    const children = 'this is the text of the button shown by default';
+    const children = 'Do you really want to delete this?';
     const root = render({ children });
 
     expect(root.find(Button).children()).toHaveText(children);
   });
 
-  it('shows a confirmation panel when button is clicked', () => {
+  it('shows ConfirmButtonDialog when button is clicked', () => {
     const { store } = dispatchClientMetadata();
-    const message = 'this action is risky, are you sure?';
-    const root = render({ message, store });
+    const root = render({ store });
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.instance().props.uiState.showConfirmation).toEqual(false);
+    expect(root.find(ConfirmButtonDialog)).toHaveLength(0);
 
     root.find(Button).simulate('click', createFakeEvent());
     applyUIStateChanges({ root, store });
-    expect(root.instance().props.uiState.showConfirmation).toEqual(true);
 
     expect(root).toHaveClassName('ConfirmButton--show-confirmation');
+    expect(root.find(ConfirmButtonDialog)).toHaveLength(1);
+  });
 
-    expect(root.find('.ConfirmButton-message')).toHaveLength(1);
-    expect(root.find('.ConfirmButton-message')).toHaveText(message);
+  it('configures ConfirmButtonDialog', () => {
+    const cancelButtonText = 'Nevermind, take me back';
+    const cancelButtonType = 'alert';
+    const confirmButtonText = 'Do it!';
+    const confirmButtonType = 'alert';
+    const message = 'Do you really want to cancel?';
+    const puffyButtons = true;
 
-    expect(root.find(Button)).toHaveLength(2);
+    const root = renderWithDialog({
+      cancelButtonText,
+      cancelButtonType,
+      confirmButtonText,
+      confirmButtonType,
+      message,
+      puffyButtons,
+    });
 
-    const confirmButton = root.find(Button).at(0);
-    expect(confirmButton).toHaveClassName('ConfirmButton-confirm-button');
-    expect(confirmButton).toHaveProp('buttonType', 'alert');
-    expect(confirmButton.children()).toHaveText('Confirm');
-
-    const cancelButton = root.find(Button).at(1);
-    expect(cancelButton).toHaveClassName('ConfirmButton-cancel-button');
-    expect(cancelButton).toHaveProp('buttonType', 'cancel');
-    expect(cancelButton.children()).toHaveText('Cancel');
+    const confirmDialog = root.find(ConfirmButtonDialog);
+    expect(confirmDialog).toHaveProp('cancelButtonText', cancelButtonText);
+    expect(confirmDialog).toHaveProp('cancelButtonType', cancelButtonType);
+    expect(confirmDialog).toHaveProp('confirmButtonText', confirmButtonText);
+    expect(confirmDialog).toHaveProp('confirmButtonType', confirmButtonType);
+    expect(confirmDialog).toHaveProp('message', message);
+    expect(confirmDialog).toHaveProp('puffyButtons', puffyButtons);
   });
 
   it('hides the default button after it is clicked', () => {
@@ -99,121 +129,33 @@ describe(__filename, () => {
     expect(root.find('.ConfirmButton-default-button')).toHaveLength(0);
   });
 
-  it('passes props to the confirm button in the confirmation panel', () => {
+  it('hides ConfirmButtonDialog via onCancel', () => {
     const { store } = dispatchClientMetadata();
-    const confirmButtonText = 'neutral confirm button';
-    const confirmButtonType = 'neutral';
+    const root = renderWithDialog({ store });
 
-    const root = render({ confirmButtonText, confirmButtonType, store });
+    const onCancel = getDialogProp(root, 'onCancel');
+    // Simulate a cancellation.
+    onCancel(createFakeEvent());
 
-    // Show the confirmation panel.
-    root.find(Button).simulate('click', createFakeEvent());
     applyUIStateChanges({ root, store });
-
-    expect(root.find('.ConfirmButton-confirm-button')).toHaveProp(
-      'buttonType',
-      confirmButtonType,
-    );
-    expect(root.find('.ConfirmButton-confirm-button')).toHaveProp(
-      'puffy',
-      false,
-    );
-    expect(root.find('.ConfirmButton-confirm-button').children()).toHaveText(
-      confirmButtonText,
-    );
+    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
+    expect(root.find(ConfirmButtonDialog)).toHaveLength(0);
   });
 
-  it('passes props to the cancel button in the confirmation panel', () => {
-    const { store } = dispatchClientMetadata();
-    const cancelButtonText = 'neutral cancel button';
-    const cancelButtonType = 'neutral';
-    const root = render({ cancelButtonText, cancelButtonType, store });
-
-    // Show the confirmation panel.
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root.find('.ConfirmButton-cancel-button')).toHaveProp(
-      'buttonType',
-      cancelButtonType,
-    );
-    expect(root.find('.ConfirmButton-cancel-button')).toHaveProp(
-      'puffy',
-      false,
-    );
-    expect(root.find('.ConfirmButton-cancel-button').children()).toHaveText(
-      cancelButtonText,
-    );
-  });
-
-  it('can make the buttons in the confirmation panel puffy', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ puffyButtons: true, store });
-
-    // Show the confirmation panel.
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root.find('.ConfirmButton-cancel-button')).toHaveProp('puffy', true);
-    expect(root.find('.ConfirmButton-confirm-button')).toHaveProp(
-      'puffy',
-      true,
-    );
-  });
-
-  it('can render a confirmation without a message', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ message: undefined, store });
-
-    // Show the confirmation panel.
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root.find('.ConfirmButton-message')).toHaveLength(0);
-  });
-
-  it('closes the confirmation panel on cancel ', () => {
+  it('handles the onConfirm callback', () => {
     const { store } = dispatchClientMetadata();
     const onConfirmSpy = sinon.spy();
-    const root = render({ onConfirm: onConfirmSpy, store });
+    const root = renderWithDialog({ onConfirm: onConfirmSpy, store });
 
-    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
+    const onConfirm = getDialogProp(root, 'onConfirm');
 
-    // Show the confirmation panel.
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root).toHaveClassName('ConfirmButton--show-confirmation');
-    sinon.assert.notCalled(onConfirmSpy);
-
-    root
-      .find('.ConfirmButton-cancel-button')
-      .simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    sinon.assert.notCalled(onConfirmSpy);
-  });
-
-  it('calls the onConfirm prop when user clicks the "confirm" button', () => {
-    const { store } = dispatchClientMetadata();
-    const onConfirmSpy = sinon.spy();
-    const root = render({ onConfirm: onConfirmSpy, store });
-
-    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-
-    // Show the confirmation panel.
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root).toHaveClassName('ConfirmButton--show-confirmation');
-    sinon.assert.notCalled(onConfirmSpy);
-
+    // Simulate a confirmation.
     const event = createFakeEvent();
-    root.find('.ConfirmButton-confirm-button').simulate('click', event);
+    onConfirm(event);
     applyUIStateChanges({ root, store });
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
+    expect(root.find(ConfirmButtonDialog)).toHaveLength(0);
     sinon.assert.calledWith(onConfirmSpy, event);
   });
 

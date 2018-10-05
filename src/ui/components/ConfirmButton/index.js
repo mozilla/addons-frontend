@@ -4,26 +4,36 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
 import Button from 'ui/components/Button';
-import type { I18nType } from 'core/types/i18n';
+import ConfirmButtonDialog from 'ui/components/ConfirmButtonDialog';
 import type { ButtonType } from 'ui/components/Button';
-
-import './styles.scss';
+import type { Props as ConfirmButtonDialogProps } from 'ui/components/ConfirmButtonDialog';
 
 type Props = {|
   buttonType?: ButtonType,
-  cancelButtonText?: string | null,
-  cancelButtonType?: ButtonType,
+  cancelButtonText?: $PropertyType<
+    ConfirmButtonDialogProps,
+    'cancelButtonText',
+  >,
+  cancelButtonType?: $PropertyType<
+    ConfirmButtonDialogProps,
+    'cancelButtonType',
+  >,
   children: React.Element<any> | string,
   className?: string,
-  confirmButtonText?: string | null,
-  confirmButtonType?: ButtonType,
+  confirmButtonText?: $PropertyType<
+    ConfirmButtonDialogProps,
+    'confirmButtonText',
+  >,
+  confirmButtonType?: $PropertyType<
+    ConfirmButtonDialogProps,
+    'confirmButtonType',
+  >,
   id: string,
-  message?: string,
-  onConfirm: Function,
-  puffyButtons?: boolean,
+  message?: $PropertyType<ConfirmButtonDialogProps, 'message'>,
+  onConfirm: $PropertyType<ConfirmButtonDialogProps, 'onConfirm'>,
+  puffyButtons?: $PropertyType<ConfirmButtonDialogProps, 'puffyButtons'>,
 |};
 
 type UIStateType = {|
@@ -34,7 +44,6 @@ const initialUIState: UIStateType = { showConfirmation: false };
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
@@ -42,10 +51,6 @@ type InternalProps = {|
 export class ConfirmButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
     buttonType: 'neutral',
-    cancelButtonText: null,
-    cancelButtonType: 'cancel',
-    confirmButtonText: null,
-    confirmButtonType: 'alert',
   };
 
   onConfirm = (e: SyntheticEvent<HTMLButtonElement>) => {
@@ -70,7 +75,6 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
       className,
       confirmButtonText,
       confirmButtonType,
-      i18n,
       id,
       message,
       onConfirm,
@@ -88,41 +92,28 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
       'ConfirmButton--show-confirmation': showConfirmation,
     });
 
-    if (showConfirmation) {
-      return (
-        <div className={classNames}>
-          {message && <span className="ConfirmButton-message">{message}</span>}
-          <div className="ConfirmButton-buttons">
-            <Button
-              buttonType={confirmButtonType}
-              className="ConfirmButton-confirm-button"
-              onClick={this.onConfirm}
-              puffy={puffyButtons}
-            >
-              {confirmButtonText || i18n.gettext('Confirm')}
-            </Button>
-            <Button
-              buttonType={cancelButtonType}
-              className="ConfirmButton-cancel-button"
-              onClick={this.toggleConfirmation}
-              puffy={puffyButtons}
-            >
-              {cancelButtonText || i18n.gettext('Cancel')}
-            </Button>
-          </div>
-        </div>
-      );
-    }
-
     return (
       <div className={classNames}>
-        <Button
-          buttonType={buttonType}
-          className="ConfirmButton-default-button"
-          onClick={this.toggleConfirmation}
-        >
-          {children}
-        </Button>
+        {showConfirmation ? (
+          <ConfirmButtonDialog
+            cancelButtonText={cancelButtonText}
+            cancelButtonType={cancelButtonType}
+            confirmButtonText={confirmButtonText}
+            confirmButtonType={confirmButtonType}
+            onCancel={this.toggleConfirmation}
+            onConfirm={this.onConfirm}
+            message={message}
+            puffyButtons={puffyButtons}
+          />
+        ) : (
+          <Button
+            buttonType={buttonType}
+            className="ConfirmButton-default-button"
+            onClick={this.toggleConfirmation}
+          >
+            {children}
+          </Button>
+        )}
       </div>
     );
   }
@@ -133,7 +124,6 @@ export const extractId = (ownProps: Props) => {
 };
 
 const ConfirmButton: React.ComponentType<Props> = compose(
-  translate(),
   withUIState({
     fileName: __filename,
     extractId,
