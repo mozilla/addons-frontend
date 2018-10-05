@@ -167,7 +167,6 @@ export function getPlugins({
 
   if (includeCircularDependencyPlugin) {
     plugins.push(
-      // This allow us to exclude locales for other apps being built.
       new CircularDependencyPlugin({
         exclude: /node_modules/,
         failOnError: true,
