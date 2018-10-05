@@ -1812,4 +1812,45 @@ describe(__filename, () => {
       `Download ${addon.name} for Firefox. ${addon.summary}`,
     );
   });
+
+  it('renders Open Graph meta tags', () => {
+    const lang = 'fr';
+
+    const addon = createInternalAddon(fakeAddon);
+    const { store } = dispatchClientMetadata({ lang });
+
+    store.dispatch(_loadAddons({ addon }));
+
+    const root = renderComponent({ params: { slug: addon.slug }, store });
+
+    [
+      ['og:type', 'website'],
+      ['og:url', addon.url],
+      ['og:locale', lang],
+      ['og:image', addon.previews[0].image_url],
+    ].forEach(([property, expectedValue]) => {
+      expect(root.find(`meta[property="${property}"]`)).toHaveProp(
+        'content',
+        expectedValue,
+      );
+    });
+
+    expect(root.find(`meta[property="og:title"]`).prop('content')).toContain(
+      addon.name,
+    );
+    expect(
+      root.find(`meta[property="og:description"]`).prop('content'),
+    ).toContain(addon.summary);
+  });
+
+  it('does not render a "og:image" meta tag if add-on has no previews', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      previews: [],
+    });
+
+    const root = shallowRender({ addon });
+
+    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
+  });
 });
