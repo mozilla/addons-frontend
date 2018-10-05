@@ -12,14 +12,8 @@ import type { Props as ConfirmationDialogProps } from 'ui/components/Confirmatio
 
 type Props = {|
   buttonType?: ButtonType,
-  cancelButtonText?: $PropertyType<
-    ConfirmationDialogProps,
-    'cancelButtonText',
-  >,
-  cancelButtonType?: $PropertyType<
-    ConfirmationDialogProps,
-    'cancelButtonType',
-  >,
+  cancelButtonText?: $PropertyType<ConfirmationDialogProps, 'cancelButtonText'>,
+  cancelButtonType?: $PropertyType<ConfirmationDialogProps, 'cancelButtonType'>,
   children: React.Element<any> | string,
   className?: string,
   confirmButtonText?: $PropertyType<

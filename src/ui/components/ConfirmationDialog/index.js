@@ -41,9 +41,7 @@ export const ConfirmationDialogBase = ({
 }: InternalProps) => {
   return (
     <div className={makeClassName('ConfirmationDialog', className)}>
-      {message && (
-        <span className="ConfirmationDialog-message">{message}</span>
-      )}
+      {message && <span className="ConfirmationDialog-message">{message}</span>}
       <div className="ConfirmationDialog-buttons">
         <Button
           buttonType={confirmButtonType}
