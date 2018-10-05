@@ -18,7 +18,7 @@ shell.exec(`mkdir -p ${templateDir}`);
 
 for (file of mdFiles) {
   const pot = gmd.md2pot(`${guidesDir}/${file}`);
-  const outputFile = `${file.replace('.md', '')}.pot`;
+  const outputFile = `${path.basename(file, '.md')}.pot`;
   const output = `${templateDir}${outputFile}`;
 
   fs.writeFile(output, pot, (e) => {

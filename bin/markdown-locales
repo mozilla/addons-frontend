@@ -28,7 +28,7 @@ for (file of mdFiles) {
   // for (supportedLang of supportedLangs) {
 
     // locale = langToLocale(supportedLang);
-    const fileName = file.replace('.md', '');
+    const fileName = path.basename(file, '.md');
     locale = 'af';
     shell.exec(`mkdir -p ${localeDir}/${locale}/LC_MESSAGES/`);
     outputFile = path.join(localeDir, locale, 'LC_MESSAGES', `${fileName}.po`);

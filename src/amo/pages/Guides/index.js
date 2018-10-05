@@ -3,15 +3,21 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import log from 'core/logger';
+import { fetchGuideText } from 'amo/reducers/guides';
 import Card from 'ui/components/Card';
 import translate from 'core/i18n/translate';
+import type { GuideTextType } from 'amo/reducers/guides';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
+import { withFixedErrorHandler } from 'core/errorHandler';
 
 type InternalProps = {|
+  guideText: GuideTextType,
   i18n: I18nType,
   match: {
     params: {
@@ -20,52 +26,18 @@ type InternalProps = {|
   },
 |};
 
-type State = {|
-  guideText: string | null,
-|};
-
-export class GuideBase extends React.Component<InternalProps, State> {
+export class GuideBase extends React.Component<InternalProps> {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
   };
 
-  constructor(props: InternalProps) {
-    super(props);
-
-    this.state = {
-      guideText: '',
-    };
-
-    this.getText();
-  }
-
-  async getText() {
-    const { match } = this.props;
-    const { guideSlug } = match.params;
-
-    try {
-      // $FLOW_FIXME: This is a temp fix. If we go this route, I will look into fixing.
-      const text = await import(`amo/guides/${guideSlug}.md`);
-      this.setState({
-        guideText: text,
-      });
-    } catch (err) {
-      this.setState({
-        guideText: null,
-      });
-      log.warn(`There was an error with the ${guideSlug} file: ${err}`);
-    }
-  }
-
   render() {
-    const { i18n } = this.props;
-    const { guideText } = this.state;
+    const { guideText, i18n } = this.props;
 
-    // TODO: fix flash.
-    return typeof guideText === 'string' ? (
-      <Card header={i18n.gettext('About Firefox Add-ons')}>
+    return guideText ? (
+      <Card className="StaticPage">
         <Helmet>
-          <title>{i18n.gettext('About Firefox Add-ons')}</title>
+          <title>{i18n.gettext('About Firefox Add-ons - Guides')}</title>
         </Helmet>
         <ReactMarkdown source={guideText} />
       </Card>
@@ -75,4 +47,33 @@ export class GuideBase extends React.Component<InternalProps, State> {
   }
 }
 
-export default compose(translate())(GuideBase);
+export const mapStateToProps = (state: AppState) => {
+  return {
+    guideText: state.guides.text,
+  };
+};
+
+export function mapDispatchToProps(
+  dispatch: DispatchFunc,
+  ownProps: InternalProps,
+) {
+  const { match } = ownProps;
+  const { guideSlug } = match.params;
+
+  dispatch(fetchGuideText({ guideSlug, errorHandlerId: guideSlug }));
+}
+
+export const extractId = (ownProps: InternalProps) => {
+  return ownProps.match.params.guideSlug;
+};
+
+const Guide: React.ComponentType<InternalProps> = compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  translate(),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
+)(GuideBase);
+
+export default Guide;
