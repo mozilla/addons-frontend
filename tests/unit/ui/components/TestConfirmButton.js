@@ -45,6 +45,8 @@ describe(__filename, () => {
     root.find(Button).simulate('click', createFakeEvent());
     applyUIStateChanges({ root, store });
 
+    expect(root.find(ConfirmationDialog)).toHaveLength(1);
+
     return root;
   };
 
