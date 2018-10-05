@@ -271,6 +271,37 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         description: i18n.gettext('Customized mouse gestures'),
         url: '/addon/foxy-gestures/',
       },
+      {
+        title: i18n.gettext('Dark Reader'),
+        description: i18n.gettext(
+          'Go dark for a better web viewing experience',
+        ),
+        url: '/addon/darkreader/',
+      },
+      {
+        title: i18n.gettext('CookieBro'),
+        description: i18n.gettext('Automatically delete unwanted cookies'),
+        url: '/addon/cookiebro/',
+      },
+      {
+        title: i18n.gettext('Text MultiCopy'),
+        description: i18n.gettext(
+          'Save snippets of text to paste & organize later',
+        ),
+        url: '/addon/text-multicopy/',
+      },
+      {
+        title: i18n.gettext('Group Speed Dial'),
+        description: i18n.gettext(
+          'Visual bookmarks for your favorite places on the web',
+        ),
+        url: '/addon/groupspeeddial/',
+      },
+      {
+        title: i18n.gettext('Undo Close Tab Button'),
+        description: i18n.gettext('Never lose a page again'),
+        url: '/addon/undo-close-tab-button/',
+      },
     ];
   }
 

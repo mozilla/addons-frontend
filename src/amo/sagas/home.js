@@ -12,7 +12,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_RANDOM,
-  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
@@ -76,12 +76,12 @@ export function* fetchHomeAddons({
       page_size: LANDING_PAGE_THEME_COUNT,
     },
   };
-  const trendingExtensionsParams: SearchParams = {
+  const popularExtensionsParams: SearchParams = {
     api: state.api,
     filters: {
       addonType: ADDON_TYPE_EXTENSION,
       page_size: LANDING_PAGE_EXTENSION_COUNT,
-      sort: SEARCH_SORT_TRENDING,
+      sort: SEARCH_SORT_POPULAR,
     },
   };
 
@@ -92,7 +92,7 @@ export function* fetchHomeAddons({
       featuredThemes: includeFeaturedThemes
         ? call(searchApi, featuredThemesParams)
         : null,
-      trendingExtensions: call(searchApi, trendingExtensionsParams),
+      popularExtensions: call(searchApi, popularExtensionsParams),
     });
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
@@ -105,7 +105,7 @@ export function* fetchHomeAddons({
       collections,
       featuredExtensions: homeAddons.featuredExtensions,
       featuredThemes: homeAddons.featuredThemes,
-      trendingExtensions: homeAddons.trendingExtensions,
+      popularExtensions: homeAddons.popularExtensions,
     }),
   );
 }

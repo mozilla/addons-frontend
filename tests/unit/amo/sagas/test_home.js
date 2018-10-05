@@ -16,7 +16,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_RANDOM,
-  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -119,7 +119,7 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(featuredThemes));
 
-      const trendingExtensions = createAddonsApiResult([fakeAddon]);
+      const popularExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi
         .expects('search')
         .withArgs({
@@ -127,7 +127,7 @@ describe(__filename, () => {
           filters: {
             page_size: LANDING_PAGE_EXTENSION_COUNT,
             addonType: ADDON_TYPE_EXTENSION,
-            sort: SEARCH_SORT_TRENDING,
+            sort: SEARCH_SORT_POPULAR,
           },
         })
         .returns(Promise.resolve(featuredExtensions));
@@ -144,7 +144,7 @@ describe(__filename, () => {
         collections,
         featuredExtensions,
         featuredThemes,
-        trendingExtensions,
+        popularExtensions,
       });
 
       const expectedAction = await sagaTester.waitFor(loadAction.type);
@@ -162,10 +162,10 @@ describe(__filename, () => {
         .expects('search')
         .returns(Promise.resolve(featuredExtensions));
 
-      const trendingExtensions = createAddonsApiResult([fakeAddon]);
+      const popularExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi
         .expects('search')
-        .returns(Promise.resolve(trendingExtensions));
+        .returns(Promise.resolve(popularExtensions));
 
       _fetchHomeAddons({
         collectionsToFetch: [],
@@ -176,7 +176,7 @@ describe(__filename, () => {
         collections,
         featuredExtensions,
         featuredThemes: null,
-        trendingExtensions,
+        popularExtensions,
       });
 
       const expectedAction = await sagaTester.waitFor(loadAction.type);
@@ -203,10 +203,10 @@ describe(__filename, () => {
           .expects('search')
           .returns(Promise.resolve(featuredExtensions));
 
-        const trendingExtensions = createAddonsApiResult([fakeAddon]);
+        const popularExtensions = createAddonsApiResult([fakeAddon]);
         mockSearchApi
           .expects('search')
-          .returns(Promise.resolve(trendingExtensions));
+          .returns(Promise.resolve(popularExtensions));
 
         _fetchHomeAddons({
           collectionsToFetch: [
@@ -219,7 +219,7 @@ describe(__filename, () => {
           collections,
           featuredExtensions,
           featuredThemes: null,
-          trendingExtensions,
+          popularExtensions,
         });
 
         const expectedAction = await sagaTester.waitFor(loadAction.type);
