@@ -8785,9 +8785,9 @@ pino-syslog@^1.2.0:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@5.6.4:
-  version "5.6.4"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-5.6.4.tgz#e2242220d804b68cb0df8d48273f521b43d249d1"
+pino@5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.7.0.tgz#9ca520788662646877e050e8d0704f71735e1b12"
   dependencies:
     fast-json-parse "^1.0.3"
     fast-redact "^1.2.0"
