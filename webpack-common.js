@@ -137,7 +137,10 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   ];
 }
 
-export function getPlugins({ excludeOtherAppLocales = true } = {}) {
+export function getPlugins({
+  excludeOtherAppLocales = true,
+  includeCircularDependencyPlugin = true,
+} = {}) {
   const appName = config.get('appName');
   const clientConfig = getClientConfig(config);
 
@@ -160,11 +163,17 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
       /core\/window/,
       'core/browserWindow.js',
     ),
-    new CircularDependencyPlugin({
-      exclude: /node_modules/,
-      failOnError: true,
-    }),
   ];
+
+  if (includeCircularDependencyPlugin) {
+    plugins.push(
+      // This allow us to exclude locales for other apps being built.
+      new CircularDependencyPlugin({
+        exclude: /node_modules/,
+        failOnError: true,
+      }),
+    );
+  }
 
   if (excludeOtherAppLocales) {
     plugins.push(
