@@ -1,16 +1,23 @@
 /* @flow */
 import { createBrowserHistory } from 'history';
 import React from 'react';
-import { Provider as ReduxProvider } from 'react-redux';
 
-// Without core/polyfill we see the following error:
-// "regeneratorRuntime is not defined".
-import 'core/polyfill';
+import Root from 'core/components/Root';
+import { addQueryParamsToHistory } from 'core/utils';
 
 import { dispatchClientMetadata } from '../../tests/unit/amo/helpers';
+import { fakeI18n } from '../../tests/unit/helpers';
 
 const { store } = dispatchClientMetadata();
 
+const history = addQueryParamsToHistory({
+  history: createBrowserHistory(),
+});
+
 export default function Provider({ story }: Object) {
-	return <ReduxProvider store={store}>{story}</ReduxProvider>;
+  return (
+    <Root store={store} history={history} i18n={fakeI18n}>
+      {story}
+    </Root>
+  );
 }
