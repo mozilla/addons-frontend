@@ -136,6 +136,19 @@ describe(__filename, () => {
     });
   };
 
+  function createAddonAndReview() {
+    const addon = createInternalAddon(fakeAddon);
+    const review = _setReview({
+      ...fakeReview,
+      addon: {
+        id: addon.id,
+        slug: addon.slug,
+      },
+    });
+
+    return { addon, review };
+  }
+
   const signInAsAddonDeveloper = ({ developerUserId = 51123 } = {}) => {
     dispatchSignInActions({ store, userId: developerUserId });
 
@@ -151,6 +164,14 @@ describe(__filename, () => {
 
     return { addon };
   };
+
+  function createReviewAndSignInAsUnrelatedUser() {
+    // Sign in as someone other than the review author.
+    return signInAndDispatchSavedReview({
+      siteUserId: 123,
+      reviewUserId: 987,
+    });
+  }
 
   it('renders a review', () => {
     const review = _setReview({
@@ -214,11 +235,18 @@ describe(__filename, () => {
   });
 
   it('does not render edit link when review belongs to another user', () => {
-    const review = signInAndDispatchSavedReview({
-      siteUserId: 123,
-      reviewUserId: 987,
-    });
+    const review = createReviewAndSignInAsUnrelatedUser();
     const root = render({ review });
+
+    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
+  });
+
+  it('does not render edit link even when siteUserCanManageReplies() is true', () => {
+    const review = createReviewAndSignInAsUnrelatedUser();
+    const root = render({
+      review,
+      _siteUserCanManageReplies: sinon.stub().returns(true),
+    });
 
     expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
@@ -248,11 +276,20 @@ describe(__filename, () => {
   });
 
   it('does not render delete link when review belongs to another user', () => {
-    const review = signInAndDispatchSavedReview({
-      siteUserId: 123,
-      reviewUserId: 987,
-    });
+    const review = createReviewAndSignInAsUnrelatedUser();
     const root = render({ review });
+
+    expect(renderControls(root).find('.AddonReviewCard-delete')).toHaveLength(
+      0,
+    );
+  });
+
+  it('does not render a delete link even when siteUserCanManageReplies() is true', () => {
+    const review = createReviewAndSignInAsUnrelatedUser();
+    const root = render({
+      review,
+      _siteUserCanManageReplies: sinon.stub().returns(true),
+    });
 
     expect(renderControls(root).find('.AddonReviewCard-delete')).toHaveLength(
       0,
@@ -414,18 +451,16 @@ describe(__filename, () => {
     expect(root.find(FlagReviewMenu)).toHaveLength(0);
   });
 
-  it('lets the developer reply to a review', () => {
-    const { addon } = signInAsAddonDeveloper();
-    const review = _setReview({
-      ...fakeReview,
-      addon: {
-        id: addon.id,
-        slug: addon.slug,
-      },
-    });
+  it('allows review replies when siteUserCanManageReplies() is true', () => {
+    dispatchSignInActions({ store });
+    const { addon, review } = createAddonAndReview();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ addon, review });
+    const root = render({
+      addon,
+      review,
+      _siteUserCanManageReplies: sinon.stub().returns(true),
+    });
 
     const editButton = renderControls(root).find(
       '.AddonReviewCard-begin-reply',
@@ -444,42 +479,16 @@ describe(__filename, () => {
     );
   });
 
-  it('lets an admin reply to a review', () => {
-    dispatchSignInActions({
-      store,
-      userProps: { permissions: [ALL_SUPER_POWERS] },
-    });
-
-    const addon = createInternalAddon(fakeAddon);
-    const review = _setReview({
-      ...fakeReview,
-      addon: {
-        id: addon.id,
-        slug: addon.slug,
-      },
-    });
-
-    const root = render({ addon, review });
-
-    expect(
-      renderControls(root).find('.AddonReviewCard-begin-reply'),
-    ).toHaveLength(1);
-  });
-
-  it('does not let a regular user reply to a review', () => {
+  it('disallows review replies when siteUserCanManageReplies() is false', () => {
     dispatchSignInActions({ store });
-
-    const addon = createInternalAddon(fakeAddon);
-    const review = _setReview({
-      ...fakeReview,
-      addon: {
-        id: addon.id,
-        slug: addon.slug,
-      },
-    });
+    const { addon, review } = createAddonAndReview();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ addon, review });
+    const root = render({
+      addon,
+      review,
+      _siteUserCanManageReplies: sinon.stub().returns(false),
+    });
 
     expect(
       renderControls(root).find('.AddonReviewCard-begin-reply'),
@@ -1108,6 +1117,17 @@ describe(__filename, () => {
       );
     });
 
+    it('lets you edit a reply if siteUserCanManageReplies() is true', () => {
+      const review = createReviewAndSignInAsUnrelatedUser();
+      const root = renderReply({
+        reply: review,
+        _siteUserCanManageReplies: sinon.stub().returns(true),
+      });
+
+      const editButton = renderControls(root).find('.AddonReviewCard-edit');
+      expect(editButton).toHaveLength(1);
+    });
+
     it('renders a delete link for a developer reply', () => {
       const originalReviewId = 543;
       const developerUserId = 321;
@@ -1122,6 +1142,17 @@ describe(__filename, () => {
       expect(deleteLink.children()).toHaveText('Delete reply');
       expect(deleteLink).toHaveProp('cancelButtonText', 'Keep reply');
       expect(deleteLink).toHaveProp('confirmButtonText', 'Delete reply');
+    });
+
+    it('renders a delete link when siteUserCanManageReplies() is true', () => {
+      const review = createReviewAndSignInAsUnrelatedUser();
+      const root = renderReply({
+        reply: review,
+        _siteUserCanManageReplies: sinon.stub().returns(true),
+      });
+
+      const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
+      expect(deleteLink).toHaveLength(1);
     });
 
     it('dispatches deleteReview when a user deletes a developer reply', () => {
@@ -1164,6 +1195,46 @@ describe(__filename, () => {
 
       const reviewComponent = root.find(UserReview);
       expect(reviewComponent).toHaveProp('showRating', false);
+    });
+  });
+
+  describe('siteUserCanManageReplies', () => {
+    it('requires a signed in user', () => {
+      dispatchClientMetadata({ store });
+
+      const addon = createInternalAddon(fakeAddon);
+      const root = renderReply({ addon });
+
+      expect(root.instance().siteUserCanManageReplies()).toEqual(false);
+    });
+
+    it('does not let the wrong user manage replies', () => {
+      dispatchSignInActions({ store });
+
+      const addon = createInternalAddon(fakeAddon);
+      const root = renderReply({ addon });
+
+      expect(root.instance().siteUserCanManageReplies()).toEqual(false);
+    });
+
+    it('lets any admin manage replies', () => {
+      dispatchSignInActions({
+        store,
+        userProps: { permissions: [ALL_SUPER_POWERS] },
+      });
+
+      const addon = createInternalAddon(fakeAddon);
+      const root = renderReply({ addon });
+
+      expect(root.instance().siteUserCanManageReplies()).toEqual(true);
+    });
+
+    it('lets any listed author manage replies', () => {
+      const { addon } = signInAsAddonDeveloper();
+
+      const root = renderReply({ addon });
+
+      expect(root.instance().siteUserCanManageReplies()).toEqual(true);
     });
   });
 });
