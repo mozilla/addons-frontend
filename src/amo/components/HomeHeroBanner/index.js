@@ -298,13 +298,6 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         url: '/addon/groupspeeddial/',
       },
       {
-        title: i18n.gettext('Search Site'),
-        description: i18n.gettext(
-          'Search within just the domain you’re visiting',
-        ),
-        url: '/addon/search-site-we/',
-      },
-      {
         title: i18n.gettext('Undo Close Tab Button'),
         description: i18n.gettext('Never lose a page again'),
         url: '/addon/undo-close-tab-button/',
