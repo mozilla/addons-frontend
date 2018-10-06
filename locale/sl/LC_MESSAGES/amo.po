@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-03 18:51+0000\n"
+"PO-Revision-Date: 2018-10-06 10:24+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -453,9 +453,8 @@ msgid "Add-ons for Android (%(locale)s)"
 msgstr "Dodatki za Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
-#, fuzzy
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s – Dodatki za Android"
+msgstr "%(title)s – Dodatki za Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
