@@ -868,9 +868,8 @@ msgid "Manage My Submissions"
 msgstr ""
 
 #: src/amo/components/Header/index.js:151
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Žiadne recenzie"
+msgstr ""
 
 #: src/amo/components/Header/index.js:161 src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
@@ -889,9 +888,8 @@ msgid "Universal Bypass"
 msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:102
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "Automatické spúšťanie Firefoxu v režime celej obrazovky"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Tree Style Tab"
@@ -1291,7 +1289,7 @@ msgstr "Ak chcete ohodnotiť tento slovník, musíte sa prihlásiť"
 
 #: src/amo/components/RatingManager/index.js:193
 msgid "Log in to rate this language pack"
-msgstr "Ak chcete ohodnotiť tento jazykový balíček, musíte sa prihlásiť"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:195
 msgid "Log in to rate this search plugin"
@@ -1341,9 +1339,8 @@ msgstr ""
 "prostredníctvom tohto formulára."
 
 #: src/amo/components/ReportAbuseButton/index.js:155
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Prejsť na stránku doplnku"
+msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:184
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1378,9 +1375,8 @@ msgid "Please don't use this form to report bugs or contact this user; your repo
 msgstr "Prosím, nepoužívajte tento formulár za účelom nahlásenia chyby alebo ako žiadosť o nové funkcie; toto hlásenie je odosielané Mozille a nie tomuto používateľovi."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Popíšte, ako doplnok porušuje naše pravidlá."
+msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
@@ -1408,12 +1404,11 @@ msgstr "Vybrané doplnky"
 
 #: src/amo/components/Search/index.js:139 src/amo/pages/Category/index.js:163 src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:156
 msgid "Trending extensions"
-msgstr "Populárne rozšírenia"
+msgstr ""
 
 #: src/amo/components/Search/index.js:142 src/amo/pages/Category/index.js:196 src/amo/pages/LandingPage/index.js:185
-#, fuzzy
 msgid "Trending themes"
-msgstr "Najlepšie hodnotené témy vzhľadu"
+msgstr ""
 
 #: src/amo/components/Search/index.js:145
 msgid "Trending add-ons"
@@ -1872,9 +1867,8 @@ msgid "See more featured themes"
 msgstr "Ďalšie vybrané témy vzhľadu"
 
 #: src/amo/pages/Category/index.js:205 src/amo/pages/LandingPage/index.js:190
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Ďalšie odporúčané témy vzhľadu"
+msgstr ""
 
 #: src/amo/pages/Category/index.js:215 src/amo/pages/LandingPage/index.js:196
 msgid "See more top rated themes"
