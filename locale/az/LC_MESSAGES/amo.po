@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-04 16:49+0000\n"
+"PO-Revision-Date: 2018-10-06 01:12+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -1312,7 +1312,7 @@ msgstr "Ulduzunuz saxlanılır"
 
 #: src/amo/components/RatingManager/index.js:301
 msgid "Star rating saved"
-msgstr ""
+msgstr "Ulduz reytinqi saxlandı"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1447,14 +1447,14 @@ msgstr[1] "%(count)s əlavə tapıldı"
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
+msgstr[1] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 
 #: src/amo/components/SearchContextCard/index.js:49
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" üçün %(count)s lüğət tapıldı"
+msgstr[1] "\"%(query)s\" üçün %(count)s lüğət tapıldı"
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s language pack found for \"%(query)s\""
@@ -1482,7 +1482,7 @@ msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi"
 
 #: src/amo/components/SearchContextCard/index.js:94
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "\"%(query)s\" axtarılır"
 
 #: src/amo/components/SearchContextCard/index.js:98
 msgid "Loading add-ons"
@@ -1762,7 +1762,7 @@ msgstr "%(addonVersion)s üçün buraxılış qeydləri"
 
 #: src/amo/pages/Addon/index.js:405
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Firefox üçün %(addonName)s endir. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:427
@@ -1969,7 +1969,7 @@ msgstr "Daha çox tərcümə alətləri gör"
 
 #: src/amo/pages/Home/index.js:50
 msgid "Translation tools"
-msgstr ""
+msgstr "Tərcümə alətləri"
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more privacy & security extensions"
