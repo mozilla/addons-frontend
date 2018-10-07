@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-03 14:28+0000\n"
-"PO-Revision-Date: 2018-10-04 14:14+0000\n"
+"PO-Revision-Date: 2018-10-04 14:17+0000\n"
 "Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1769,7 +1769,7 @@ msgstr "Notes de version pour la version %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:405
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Télécharger %(addonName)s pour Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:427
@@ -1779,7 +1779,7 @@ msgstr "%(addonName)s – Adoptez ce dictionnaire pour 🦊 Firefox (%(locale)s
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:434
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Adoptez cette extension pour 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:441
@@ -1789,7 +1789,7 @@ msgstr "%(addonName)s – Adoptez ce paquetage linguistique pour 🦊 Firefox (%
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:449
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Adoptez ce thème pour 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:456
