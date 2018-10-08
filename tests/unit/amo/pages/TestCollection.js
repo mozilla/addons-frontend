@@ -1416,7 +1416,7 @@ describe(__filename, () => {
             slug: 'collection-bar',
           },
         },
-        location: createFakeLocation({ query: { page: 124 } }),
+        location: createFakeLocation({ query: { page: '124' } }),
       });
 
       expect(extractId(props)).toEqual('foo/collection-bar/124');

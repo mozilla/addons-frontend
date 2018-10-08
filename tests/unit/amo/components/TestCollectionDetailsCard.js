@@ -57,7 +57,7 @@ describe(__filename, () => {
 
   it('renders a configured CollectionDetails when not creating or editing', () => {
     const collection = createFakeCollection();
-    const filters = { page: 1 };
+    const filters = { page: '1' };
 
     const root = render({
       collection,
@@ -228,7 +228,7 @@ describe(__filename, () => {
 
   it('renders a configured CollectionManager when creating', () => {
     const collection = null;
-    const filters = { page: 1 };
+    const filters = { page: '1' };
 
     const root = render({
       collection,

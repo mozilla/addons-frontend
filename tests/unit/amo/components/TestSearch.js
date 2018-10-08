@@ -137,7 +137,7 @@ describe(__filename, () => {
   it('dispatches the search on props change', () => {
     const root = render();
 
-    const newFilters = { query: 'I am a new query', page: 1 };
+    const newFilters = { query: 'I am a new query', page: '1' };
     root.setProps({ filters: newFilters });
 
     sinon.assert.calledWith(
@@ -347,11 +347,11 @@ describe(__filename, () => {
         ...props,
         filters: {
           ...props.filters,
-          page: 123,
+          page: '123',
         },
       };
 
-      expect(extractId(ownProps)).toEqual(123);
+      expect(extractId(ownProps)).toEqual('123');
     });
 
     it('generates a unique ID even when there is no page filter', () => {

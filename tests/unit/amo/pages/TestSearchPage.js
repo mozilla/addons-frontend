@@ -219,7 +219,7 @@ describe(__filename, () => {
 
   it('redirects without affecting the other parameters', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const query = { page: 123, platform: 'all' };
+    const query = { page: '123', platform: 'all' };
 
     render({ location: createFakeLocation({ query }), store });
 
@@ -238,7 +238,7 @@ describe(__filename, () => {
     const { state } = dispatchClientMetadata({ clientApp });
     const location = createFakeLocation({
       query: {
-        page: 2,
+        page: '2',
         q: 'burger',
       },
     });
@@ -248,7 +248,7 @@ describe(__filename, () => {
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-US',
         filters: {
-          page: 2,
+          page: '2',
           query: 'burger',
         },
       });
@@ -264,7 +264,7 @@ describe(__filename, () => {
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-US',
         filters: {
-          page: 2,
+          page: '2',
           query: 'burger',
         },
       });
@@ -280,7 +280,7 @@ describe(__filename, () => {
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-US',
         filters: {
-          page: 2,
+          page: '2',
           query: 'burger',
         },
       });

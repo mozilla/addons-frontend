@@ -18,7 +18,7 @@ describe(__filename, () => {
     const defaultParams = Object.freeze({
       addonSlug: fakeAddon.slug,
       errorHandlerId: 'some-error-handler-id',
-      page: 1,
+      page: '1',
     });
 
     it('requires a truthy add-on slug', () => {
@@ -40,7 +40,7 @@ describe(__filename, () => {
     it('defaults to page 1', () => {
       const params = { ...defaultParams };
       delete params.page;
-      expect(fetchReviews(params)).toMatchObject({ payload: { page: 1 } });
+      expect(fetchReviews(params)).toMatchObject({ payload: { page: '1' } });
     });
   });
 

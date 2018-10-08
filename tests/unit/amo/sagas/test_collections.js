@@ -41,7 +41,7 @@ import {
 describe(__filename, () => {
   const username = 'some-user';
   const slug = 'collection-slug';
-  const filters = { page: 1 };
+  const filters = { page: '1' };
 
   let clientData;
   let errorHandler;
@@ -341,7 +341,7 @@ describe(__filename, () => {
         collectionId: 5432,
         slug: 'a-collection',
         editing: true,
-        filters: { page: 1 },
+        filters: { page: '1' },
         username: 'some-user',
       };
       const state = sagaTester.getState();
@@ -426,7 +426,7 @@ describe(__filename, () => {
         updateCollection({
           collectionSlug: 'some-collection',
           errorHandlerId: errorHandler.id,
-          filters: { page: 1 },
+          filters: { page: '1' },
           slug,
           username,
           ...params,
@@ -756,7 +756,7 @@ describe(__filename, () => {
         removeAddonFromCollection({
           addonId: 543,
           errorHandlerId: errorHandler.id,
-          filters: { page: 1 },
+          filters: { page: '1' },
           slug: 'some-collection',
           username: 'some-user',
           ...params,
@@ -916,7 +916,7 @@ describe(__filename, () => {
           addonId: 543,
           errorHandlerId: errorHandler.id,
           notes: '',
-          filters: { page: 1 },
+          filters: { page: '1' },
           slug: 'some-collection',
           username: 'some-user',
           ...params,
@@ -928,7 +928,7 @@ describe(__filename, () => {
       const params = {
         addonId: 123,
         notes: 'Here are some notes',
-        filters: { page: 2 },
+        filters: { page: '2' },
         slug: 'some-other-slug',
         username: 'some-other-user',
       };
@@ -986,7 +986,7 @@ describe(__filename, () => {
     it('deletes notes for a collection add-on by updating the notes to an empty string', async () => {
       const params = {
         addonId: 123,
-        filters: { page: 2 },
+        filters: { page: '2' },
         slug: 'some-other-slug',
         username: 'some-other-user',
       };

@@ -93,7 +93,7 @@ describe(__filename, () => {
               featured: true,
               sort: SEARCH_SORT_RANDOM,
             },
-            page: 1,
+            page: '1',
           })
           .returns(Promise.resolve(featured));
 
@@ -111,7 +111,7 @@ describe(__filename, () => {
               ...baseFilters,
               sort: SEARCH_SORT_TOP_RATED,
             },
-            page: 1,
+            page: '1',
           })
           .returns(Promise.resolve(highlyRated));
 
@@ -129,7 +129,7 @@ describe(__filename, () => {
               ...baseFilters,
               sort: SEARCH_SORT_TRENDING,
             },
-            page: 1,
+            page: '1',
           })
           .returns(Promise.resolve(trending));
 
@@ -188,7 +188,7 @@ describe(__filename, () => {
             featured: true,
             sort: SEARCH_SORT_RANDOM,
           },
-          page: 1,
+          page: '1',
         })
         .returns(Promise.resolve(featured));
 
@@ -203,7 +203,7 @@ describe(__filename, () => {
             ...baseFilters,
             sort: SEARCH_SORT_TOP_RATED,
           },
-          page: 1,
+          page: '1',
         })
         .returns(Promise.resolve(highlyRated));
 
@@ -218,7 +218,7 @@ describe(__filename, () => {
             ...baseFilters,
             sort: SEARCH_SORT_TRENDING,
           },
-          page: 1,
+          page: '1',
         })
         .returns(Promise.resolve(trending));
 
@@ -258,7 +258,7 @@ describe(__filename, () => {
             featured: true,
             sort: SEARCH_SORT_RANDOM,
           },
-          page: 1,
+          page: '1',
         })
         .returns(Promise.resolve(featured));
 
@@ -273,7 +273,7 @@ describe(__filename, () => {
             ...baseFilters,
             sort: SEARCH_SORT_TOP_RATED,
           },
-          page: 1,
+          page: '1',
         })
         .returns(Promise.resolve(highlyRated));
 
@@ -288,7 +288,7 @@ describe(__filename, () => {
             ...baseFilters,
             sort: SEARCH_SORT_TRENDING,
           },
-          page: 1,
+          page: '1',
         })
         .returns(Promise.resolve(trending));
 

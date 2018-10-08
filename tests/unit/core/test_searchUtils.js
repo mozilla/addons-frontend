@@ -131,7 +131,7 @@ describe(__filename, () => {
       const queryParams = convertFiltersToQueryParams({
         addonType: ADDON_TYPE_THEME,
         compatibleWithVersion: '57.0',
-        page: 4,
+        page: '4',
         query: 'Cool things',
         author: 'johndoe',
         tag: 'firefox57',
@@ -139,7 +139,7 @@ describe(__filename, () => {
 
       expect(queryParams).toEqual({
         appversion: '57.0',
-        page: 4,
+        page: '4',
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
         author: 'johndoe',
@@ -152,7 +152,7 @@ describe(__filename, () => {
     it('converts query params', () => {
       const filters = convertQueryParamsToFilters({
         appversion: '57.0',
-        page: 4,
+        page: '4',
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
         tag: 'firefox57',
@@ -161,7 +161,7 @@ describe(__filename, () => {
       expect(filters).toEqual({
         addonType: ADDON_TYPE_THEME,
         compatibleWithVersion: '57.0',
-        page: 4,
+        page: '4',
         query: 'Cool things',
         tag: 'firefox57',
       });
@@ -268,7 +268,7 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_THEME,
         category: 'some-category',
         clientApp: CLIENT_APP_FIREFOX,
-        page: 123,
+        page: '123',
       };
 
       const newFilters = fixFiltersForAndroidThemes({ filters });

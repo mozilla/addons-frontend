@@ -265,7 +265,7 @@ describe(__filename, () => {
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
       const addonSlug = fakeAddon.slug;
-      const page = 2;
+      const page = '2';
 
       render({
         reviews: null,
@@ -710,11 +710,11 @@ describe(__filename, () => {
         // Render with an empty query string.
         const root = renderWithPagination({ location: createFakeLocation() });
 
-        expect(renderFooter(root)).toHaveProp('currentPage', 1);
+        expect(renderFooter(root)).toHaveProp('currentPage', '1');
       });
 
       it('sets the paginator to the query string page', () => {
-        const page = 3;
+        const page = '3';
 
         const root = renderWithPagination({
           location: createFakeLocation({ query: { page } }),

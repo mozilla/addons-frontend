@@ -128,7 +128,7 @@ describe(__filename, () => {
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername, slug }),
     });
-    const filters = { page: 1 };
+    const filters = { page: '1' };
 
     const root = render({ collection, filters, showEditButton: true });
 
@@ -173,7 +173,7 @@ describe(__filename, () => {
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername, slug }),
     });
-    const filters = { page: 1 };
+    const filters = { page: '1' };
 
     const root = render({ collection, filters, editing: true });
 
