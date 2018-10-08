@@ -8,7 +8,6 @@ import config, { util as configUtil } from 'config';
 import invariant from 'invariant';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
-import { normalize } from 'normalizr';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 
@@ -379,11 +378,9 @@ export function dispatchSearchResults({
   );
   store.dispatch(
     searchLoad({
-      entities: { addons },
-      result: {
-        count: Object.keys(addons).length,
-        results: Object.keys(addons),
-      },
+      count: Object.keys(addons).length,
+      results: Object.keys(addons),
+      pageSize: coreApi.DEFAULT_API_PAGE_SIZE,
     }),
   );
 
@@ -391,17 +388,10 @@ export function dispatchSearchResults({
 }
 
 export function createAddonsApiResult(results) {
-  // Return a normalized add-ons response just like many utility functions do.
-  // For example: core.api.featured(), core.api.search()...
-  return normalize(
-    {
-      count: results.length,
-      results,
-    },
-    {
-      results: [coreApi.addon],
-    },
-  );
+  return {
+    count: results.length,
+    results,
+  };
 }
 
 export function createFakeAutocompleteResult({
@@ -693,21 +683,6 @@ export function apiResponsePage({
     results,
     ...customResponseParams,
   };
-}
-
-export function createFetchAddonResult(addon) {
-  // Simulate how callApi() applies the add-on schema to
-  // the API server response.
-  return normalize(addon, coreApi.addon);
-}
-
-export function createFetchAllAddonsResult(addons) {
-  return normalize(
-    // Simulate an API response that returns an array of addons.
-    { results: addons },
-    // Simulate how callApi() would apply an add-on schema to results.
-    { results: [coreApi.addon] },
-  );
 }
 
 /*

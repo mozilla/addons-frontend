@@ -3,7 +3,6 @@
 import url from 'url';
 
 import utf8 from 'utf8';
-import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
@@ -21,12 +20,8 @@ import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocationType } from 'core/types/router';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
-const { Entity } = normalizrSchema;
 
 export const DEFAULT_API_PAGE_SIZE = 25;
-
-export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
-export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 
 export function makeQueryString(query: { [key: string]: any }) {
   const resolvedQuery = { ...query };
@@ -80,7 +75,6 @@ type CallApiParams = {|
   errorHandler?: ErrorHandlerType,
   method?: 'GET' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'PUT' | 'PATCH',
   params?: Object,
-  schema?: Object,
   _config?: typeof config,
   version?: string,
   _log?: typeof log,
@@ -88,7 +82,6 @@ type CallApiParams = {|
 
 export function callApi({
   endpoint,
-  schema,
   params = {},
   auth = false,
   apiState = initialApiState,
@@ -227,8 +220,7 @@ export function callApi({
         }
         throw fetchError;
       },
-    )
-    .then((response) => (schema ? normalize(response, schema) : response));
+    );
 }
 
 export type FetchAddonParams = {|
@@ -250,7 +242,6 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
       app: clientApp,
       appversion: appVersion,
     }),
-    schema: addon,
     auth: true,
     apiState: api,
   });
@@ -281,7 +272,6 @@ export function startLoginUrl({
 export function categories({ api }: {| api: ApiState |}) {
   return callApi({
     endpoint: 'addons/categories',
-    schema: { results: [category] },
     apiState: api,
   });
 }

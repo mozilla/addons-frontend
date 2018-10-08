@@ -22,7 +22,7 @@ import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/reviews';
 import type { AppState } from 'amo/store';
-import { loadAddons } from 'core/reducers/addons';
+import { loadAddonResults } from 'core/reducers/addons';
 import type { ApiState } from 'core/reducers/api';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
@@ -284,7 +284,9 @@ export const mapDispatchToProps = (
       ownProps.refreshAddon ||
       (({ addonSlug, apiState }) => {
         return fetchAddon({ slug: addonSlug, api: apiState }).then(
-          ({ entities }) => dispatch(loadAddons(entities)),
+          (response) => {
+            dispatch(loadAddonResults({ addons: response.results }));
+          },
         );
       }),
     setInternalReview: (review) => {

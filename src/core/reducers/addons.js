@@ -14,39 +14,10 @@ import type {
   ThemeData,
 } from 'core/types/addons';
 
-export const LOAD_ADDONS: 'LOAD_ADDONS' = 'LOAD_ADDONS';
 export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
 export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
 
 type AddonID = number;
-
-export type ExternalAddonMap = {
-  [addonSlug: string]: ExternalAddonType,
-};
-
-export type LoadAddonsAction = {|
-  payload: {| addons: ExternalAddonMap |},
-  type: typeof LOAD_ADDONS,
-|};
-
-// TODO: We should remove this method and move all calls to `loadAddonResults`.
-// This function relies on normalizr messing with our response data.
-// See: https://github.com/mozilla/addons-frontend/issues/2917
-export function loadAddons(entities: {
-  addons: ExternalAddonMap,
-}): LoadAddonsAction {
-  if (!entities) {
-    throw new Error('the entities parameter cannot be empty');
-  }
-  return {
-    type: LOAD_ADDONS,
-    // TODO: after https://github.com/mozilla/addons-frontend/issues/2917
-    // hopefully this can be a little less fragile. Right now if the
-    // caller passes in an incorrect `entities` then we have no way of
-    // throwing an error.
-    payload: { addons: entities.addons || {} },
-  };
-}
 
 type FetchAddonParams = {|
   errorHandler: ErrorHandlerType,
@@ -78,11 +49,11 @@ export function fetchAddon({
 }
 
 type LoadAddonResultsParams = {|
-  addons: ExternalAddonMap,
+  addons: Array<ExternalAddonType>,
 |};
 
 export type LoadAddonResultsAction = {|
-  payload: {| addons: ExternalAddonMap |},
+  payload: LoadAddonResultsParams,
   type: typeof LOAD_ADDON_RESULTS,
 |};
 
@@ -328,7 +299,6 @@ export const getAllAddons = (state: AppState): Array<AddonType> => {
 
 type Action =
   | FetchAddonAction
-  | LoadAddonsAction
   | LoadAddonResultsAction
   | UnloadAddonReviewsAction;
 
@@ -347,7 +317,6 @@ export default function addonsReducer(
         },
       };
     }
-    case LOAD_ADDONS:
     case LOAD_ADDON_RESULTS: {
       const { addons: loadedAddons } = action.payload;
 
@@ -356,8 +325,8 @@ export default function addonsReducer(
       const bySlug = { ...state.bySlug };
       const loadingBySlug = { ...state.loadingBySlug };
 
-      Object.keys(loadedAddons).forEach((key) => {
-        const addon = createInternalAddon(loadedAddons[key]);
+      loadedAddons.forEach((loadedAddon) => {
+        const addon = createInternalAddon(loadedAddon);
         // Flow wants hash maps with string keys.
         // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
         byID[`${addon.id}`] = addon;
