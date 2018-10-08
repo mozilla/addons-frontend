@@ -20,7 +20,7 @@ export type SearchParams = {|
     compatibleWithVersion?: number | string,
     featured?: boolean,
     operatingSystem?: string,
-    page?: number,
+    page?: string,
     page_size?: number,
     query?: string,
     sort?: string,

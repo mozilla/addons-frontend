@@ -176,10 +176,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
     return `${this.getURL()}edit/`;
   }
 
-  getReviewsPage(location: ReactRouterLocationType): number {
-    const currentPage = parseInt(location.query.page, 10);
-
-    return Number.isNaN(currentPage) || currentPage < 1 ? 1 : currentPage;
+  getReviewsPage(location: ReactRouterLocationType): string {
+    return (location.query && location.query.page) || '1';
   }
 
   renderReviews() {

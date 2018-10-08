@@ -1,6 +1,6 @@
 /* @flow */
 
-type QueryParams = { [queryParam: string]: string | number };
+type QueryParams = { [queryParam: string]: string };
 
 type PushParams = {|
   pathname: string,

@@ -12,7 +12,7 @@ import './styles.scss';
 type Props = {|
   LinkComponent: React.Node,
   count: number,
-  currentPage?: string | number,
+  currentPage?: string,
   pageParam?: string,
   pathname?: string,
   perPage: number,

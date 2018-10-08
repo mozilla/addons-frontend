@@ -94,7 +94,7 @@ export class SearchFiltersBase extends React.Component {
     if (newFilters.page) {
       // Since it's now a new search, reset the page.
       // eslint-disable-next-line
-      newFilters.page = 1;
+      newFilters.page = '1';
     }
 
     history.push({
