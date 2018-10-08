@@ -2,35 +2,18 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import HomeHeroBanner, {
-  AB_HOME_HERO_EXPERIMENT,
-  AB_HOME_HERO_VARIANT_A,
-  AB_HOME_HERO_VARIANT_B,
   HomeHeroBannerBase,
 } from 'amo/components/HomeHeroBanner';
 import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import Hero from 'ui/components/Hero';
 import {
   dispatchClientMetadata,
-  fakeCookies,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
-// Skip `withCookies` HOC since Enzyme does not support the React Context API.
-// See: https://github.com/mozilla/addons-frontend/issues/6839
-jest.mock('react-cookie', () => ({
-  withCookies: (component) => component,
-}));
-
 describe(__filename, () => {
   const defaultProps = {
-    _config: getFakeConfig({
-      experiments: {
-        [AB_HOME_HERO_EXPERIMENT]: true,
-      },
-    }),
-    cookies: fakeCookies(),
     i18n: fakeI18n(),
     store: dispatchClientMetadata().store,
   };
@@ -45,16 +28,6 @@ describe(__filename, () => {
   it('renders a HomeHeroBanner', () => {
     const root = render();
     expect(root).toHaveClassName('HomeHeroBanner');
-  });
-
-  it('renders with the "small" experiment classname', () => {
-    const root = render({ variant: AB_HOME_HERO_VARIANT_A });
-    expect(root).toHaveClassName('HomeHeroBanner--small');
-  });
-
-  it('renders without the "small" experiment classname', () => {
-    const root = render({ variant: AB_HOME_HERO_VARIANT_B });
-    expect(root).not.toHaveClassName('HomeHeroBanner--small');
   });
 
   it('renders a carousel with random sections', () => {

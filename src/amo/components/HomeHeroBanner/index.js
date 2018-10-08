@@ -1,7 +1,6 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
-import makeClassName from 'classnames';
 
 import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import log from 'core/logger';
@@ -9,36 +8,16 @@ import translate from 'core/i18n/translate';
 import { addQueryParams } from 'core/utils';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
-import { withExperiment } from 'core/withExperiment';
 import type { I18nType } from 'core/types/i18n';
-import type { WithExperimentInjectedProps } from 'core/withExperiment';
 import type { HeroSectionsType } from 'ui/components/Hero';
 
 import './styles.scss';
 
 type InternalProps = {|
-  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
-export const AB_HOME_HERO_EXPERIMENT = 'homeHero';
-export const AB_HOME_HERO_VARIANT_A = 'small';
-export const AB_HOME_HERO_VARIANT_B = 'large';
-export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';
-
 export class HomeHeroBannerBase extends React.Component<InternalProps> {
-  componentDidMount() {
-    const { experimentEnabled, variant } = this.props;
-
-    if (!experimentEnabled) {
-      log.info('[HomeHeroBanner.componentDidMount] experiment not enabled');
-
-      return;
-    }
-
-    log.info('[HomeHeroBanner.componentDidMount] variant is:', variant);
-  }
-
   getHeroes() {
     const { i18n } = this.props;
 
@@ -314,27 +293,16 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   }
 
   render() {
-    log.info('[HomeHeroBanner.render] variant is:', this.props.variant);
-
-    const homeBannerClass = makeClassName('HomeHeroBanner', {
-      'HomeHeroBanner--small': this.props.variant === AB_HOME_HERO_VARIANT_A,
-    });
-
     return (
-      <div className={homeBannerClass}>
+      <div className="HomeHeroBanner">
         <Hero name="Home" random sections={this.sections()} />
       </div>
     );
   }
 }
 
-const HomeHeroBanner: React.ComponentType<InternalProps> = compose(
-  translate(),
-  withExperiment({
-    id: AB_HOME_HERO_EXPERIMENT,
-    variantA: AB_HOME_HERO_VARIANT_A,
-    variantB: AB_HOME_HERO_VARIANT_B,
-  }),
-)(HomeHeroBannerBase);
+const HomeHeroBanner: React.ComponentType<InternalProps> = compose(translate())(
+  HomeHeroBannerBase,
+);
 
 export default HomeHeroBanner;
