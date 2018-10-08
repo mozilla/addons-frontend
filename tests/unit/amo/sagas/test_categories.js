@@ -44,8 +44,7 @@ describe(__filename, () => {
 
   it('should get Api from state then make API request to categories', async () => {
     const mockApi = sinon.mock(api);
-    const entities = sinon.stub();
-    const result = sinon.stub();
+    const results = [];
 
     mockApi
       .expects('categories')
@@ -53,7 +52,7 @@ describe(__filename, () => {
       .withArgs({
         api: { ...initialState.api },
       })
-      .returns(Promise.resolve({ entities, result }));
+      .returns(Promise.resolve(results));
 
     expect(sagaTester.getState()).toEqual(initialState);
 
@@ -72,7 +71,7 @@ describe(__filename, () => {
     expect(calledActions[0]).toEqual(_categoriesFetch());
 
     // Next action is loading the categories returned by the API.
-    expect(calledActions[1]).toEqual(actions.categoriesLoad({ result }));
+    expect(calledActions[1]).toEqual(actions.categoriesLoad(results));
 
     mockApi.verify();
   });
@@ -95,8 +94,6 @@ describe(__filename, () => {
 
   it('should respond to all CATEGORIES_FETCH actions', async () => {
     const mockApi = sinon.mock(api);
-    const entities = sinon.stub();
-    const result = sinon.stub();
 
     mockApi
       .expects('categories')
@@ -104,7 +101,7 @@ describe(__filename, () => {
       .withArgs({
         api: { ...initialState.api },
       })
-      .returns(Promise.resolve({ entities, result }));
+      .returns(Promise.resolve({ results: [] }));
 
     sagaTester.dispatch(_categoriesFetch());
     // Dispatch the fetch action again to ensure takeEvery() is respected

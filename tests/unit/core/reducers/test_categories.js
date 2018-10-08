@@ -39,7 +39,7 @@ describe(__filename, () => {
     let state;
 
     beforeAll(() => {
-      const result = [
+      const results = [
         {
           ...fakeCategory,
           application: CLIENT_APP_ANDROID,
@@ -111,11 +111,11 @@ describe(__filename, () => {
           type: 'FAKE_TYPE',
         },
       ];
-      state = categories(initialState, categoriesLoad({ result }));
+      state = categories(initialState, categoriesLoad(results));
     });
 
     it('sets the categories in a sorted order', () => {
-      const result = [
+      const results = [
         {
           ...fakeCategory,
           application: CLIENT_APP_ANDROID,
@@ -173,7 +173,7 @@ describe(__filename, () => {
           type: ADDON_TYPE_THEME,
         },
       ];
-      state = categories(initialState, categoriesLoad({ result }));
+      state = categories(initialState, categoriesLoad(results));
 
       // Notice all Firefox theme categories are also set as Android theme
       // categories and no Android categories are returned. This reflects the

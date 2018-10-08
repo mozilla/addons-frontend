@@ -14,8 +14,10 @@ export function* fetchCategories({ payload: { errorHandlerId } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
-    const response = yield call(categoriesApi, { api: state.api });
-    yield put(categoriesLoad(response));
+
+    const results = yield call(categoriesApi, { api: state.api });
+
+    yield put(categoriesLoad(results));
   } catch (error) {
     log.warn('Categories failed to load:', error);
     yield put(errorHandler.createErrorAction(error));

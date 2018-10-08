@@ -10,9 +10,9 @@ export function categoriesFetch({ errorHandlerId } = {}) {
   };
 }
 
-export function categoriesLoad(response) {
+export function categoriesLoad(results) {
   return {
     type: CATEGORIES_LOAD,
-    payload: { result: response.result },
+    payload: { results },
   };
 }

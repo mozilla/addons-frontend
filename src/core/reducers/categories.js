@@ -33,7 +33,7 @@ export default function categories(state = initialState, action) {
       return { ...initialState, loading: true };
     case CATEGORIES_LOAD: {
       const categoryList = emptyCategoryList();
-      Object.values(payload.result).forEach((category) => {
+      Object.values(payload.results).forEach((category) => {
         // This category has no data, so skip it.
         if (!category || !category.application) {
           log.warn('category or category.application was false-y.', category);

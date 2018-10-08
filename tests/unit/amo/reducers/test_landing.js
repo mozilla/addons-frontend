@@ -60,13 +60,6 @@ describe(__filename, () => {
     });
 
     it('resets each set of add-ons', () => {
-      const entities = {
-        addons: {
-          bar: { ...fakeAddon, slug: 'bar' },
-          foo: { ...fakeAddon, slug: 'foo' },
-          food: { ...fakeAddon, slug: 'food' },
-        },
-      };
       const state = landing(
         {
           ...initialState,
@@ -118,13 +111,6 @@ describe(__filename, () => {
     });
 
     it('does not set null keys', () => {
-      const entities = {
-        addons: {
-          bar: { ...fakeAddon, slug: 'bar' },
-          foo: { ...fakeAddon, slug: 'foo' },
-          food: { ...fakeAddon, slug: 'food' },
-        },
-      };
       const { highlyRated } = landing(
         {
           ...initialState,
