@@ -2,8 +2,6 @@ import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import { getCanonicalURL, getErrorComponent } from 'amo/utils';
-import { CLIENT_APP_FIREFOX } from 'core/constants';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -32,7 +30,7 @@ describe(__filename, () => {
       const _config = getFakeConfig({ baseURL });
 
       expect(getCanonicalURL({ _config, locationPathname })).toEqual(
-        `${baseURL}/${locationPathname}/`,
+        `${baseURL}${locationPathname}`,
       );
     });
   });

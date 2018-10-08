@@ -214,7 +214,7 @@ export const fakeRecommendations = Object.freeze({
   outcome: 'recommended_fallback',
 });
 
-export const pushLocation = ({ pathname, search = '', hash = '' }) => {
+export const onLocationChanged = ({ pathname, search = '', hash = '' }) => {
   return {
     type: LOCATION_CHANGE,
     payload: {
@@ -239,8 +239,8 @@ export function dispatchClientMetadata({
   store.dispatch(setLang(lang));
   store.dispatch(setUserAgent(userAgent));
 
-  // Simulate the behavior of connected-react-router.
-  store.dispatch(pushLocation({ pathname }));
+  // Simulate the behavior of `connected-react-router`.
+  store.dispatch(onLocationChanged({ pathname }));
 
   return {
     store,

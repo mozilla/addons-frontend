@@ -31,7 +31,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeCategory,
-  pushLocation,
+  onLocationChanged,
 } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
@@ -843,7 +843,7 @@ describe(__filename, () => {
     const _config = getFakeConfig({ baseURL });
 
     const pathname = '/some-category-pathname/';
-    store.dispatch(pushLocation({ pathname }));
+    store.dispatch(onLocationChanged({ pathname }));
 
     const root = render({ _config });
 
