@@ -2,7 +2,6 @@
 /* eslint camelcase: 0 */
 import base62 from 'base62';
 import config from 'config';
-import invariant from 'invariant';
 
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
