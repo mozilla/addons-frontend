@@ -72,25 +72,18 @@ describe(__filename, () => {
         results: [],
       };
       response = {
-        result: { results: ['foo', 'food'] },
-        entities: {
-          addons: {
-            bar: { ...fakeAddon, slug: 'bar' },
-            foo: { ...fakeAddon, slug: 'foo' },
-            food: { ...fakeAddon, slug: 'food' },
-          },
-        },
+        count: 3,
+        results: [
+          { ...fakeAddon, slug: 'bar' },
+          { ...fakeAddon, slug: 'foo' },
+          { ...fakeAddon, slug: 'food' },
+        ],
+        pageSize: 25,
       };
     });
 
     function getNextState() {
-      return search(
-        initialLoadedState,
-        searchLoad({
-          entities: response.entities,
-          result: response.result,
-        }),
-      );
+      return search(initialLoadedState, searchLoad(response));
     }
 
     it('sets loading', () => {
@@ -100,19 +93,8 @@ describe(__filename, () => {
 
     it('sets the results', () => {
       const { results } = getNextState();
-      expect(results).toEqual([
-        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
-        createInternalAddon({ ...fakeAddon, slug: 'food' }),
-      ]);
-    });
 
-    it('sets the results in order', () => {
-      response.result.results = ['food', 'foo'];
-      const { results } = getNextState();
-      expect(results).toEqual([
-        createInternalAddon({ ...fakeAddon, slug: 'food' }),
-        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
-      ]);
+      expect(results).toEqual(response.results.map(createInternalAddon));
     });
   });
 

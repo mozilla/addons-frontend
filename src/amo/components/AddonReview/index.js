@@ -283,11 +283,9 @@ export const mapDispatchToProps = (
     refreshAddon:
       ownProps.refreshAddon ||
       (({ addonSlug, apiState }) => {
-        return fetchAddon({ slug: addonSlug, api: apiState }).then(
-          (response) => {
-            dispatch(loadAddonResults({ addons: response.results }));
-          },
-        );
+        return fetchAddon({ slug: addonSlug, api: apiState }).then((addon) => {
+          dispatch(loadAddonResults({ addons: [addon] }));
+        });
       }),
     setInternalReview: (review) => {
       dispatch(_setInternalReview(review));

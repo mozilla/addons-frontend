@@ -169,24 +169,6 @@ describe(__filename, () => {
     return _search({ addonType: undefined }).then(() => mockWindow.verify());
   });
 
-  it('normalizes the response', () => {
-    mockWindow
-      .expects('fetch')
-      .once()
-      .returns(mockResponse());
-
-    return _search({ filters: { query: 'foo' } }).then((results) => {
-      expect(results.result.results).toEqual(['foo', 'food', 'football']);
-      expect(results.entities).toEqual({
-        addons: {
-          foo: { ...fakeAddon, slug: 'foo' },
-          food: { ...fakeAddon, slug: 'food' },
-          football: { ...fakeAddon, slug: 'football' },
-        },
-      });
-    });
-  });
-
   it('surfaces status and apiURL on Error instance', () => {
     mockWindow
       .expects('fetch')

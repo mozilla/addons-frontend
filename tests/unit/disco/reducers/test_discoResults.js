@@ -79,16 +79,13 @@ describe(__filename, () => {
         createDiscoResult({ addon: addon2 }),
       ];
 
-      expect(createExternalAddonMap({ results })).toEqual({
-        [addon1.slug]: addon1,
-        [addon2.slug]: addon2,
-      });
+      expect(createExternalAddonMap({ results })).toEqual([addon1, addon2]);
     });
 
     it('returns an empty map when there is no add-on', () => {
       const results = [];
 
-      expect(createExternalAddonMap({ results })).toEqual({});
+      expect(createExternalAddonMap({ results })).toEqual([]);
     });
   });
 });
