@@ -180,4 +180,10 @@ describe(__filename, () => {
     expect(root.find('noscript')).toHaveLength(1);
     expect(root.find('noscript').html()).toContain(noScriptStyles);
   });
+
+  it('renders link[rel="canonical"] inside helmet', () => {
+    const root = render();
+    // This is defined in the `FakeApp` component.
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+  });
 });
