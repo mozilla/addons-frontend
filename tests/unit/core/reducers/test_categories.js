@@ -111,7 +111,7 @@ describe(__filename, () => {
           type: 'FAKE_TYPE',
         },
       ];
-      state = categories(initialState, categoriesLoad(results));
+      state = categories(initialState, categoriesLoad({ results }));
     });
 
     it('sets the categories in a sorted order', () => {
@@ -173,7 +173,7 @@ describe(__filename, () => {
           type: ADDON_TYPE_THEME,
         },
       ];
-      state = categories(initialState, categoriesLoad(results));
+      state = categories(initialState, categoriesLoad({ results }));
 
       // Notice all Firefox theme categories are also set as Android theme
       // categories and no Android categories are returned. This reflects the

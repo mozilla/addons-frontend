@@ -71,7 +71,7 @@ describe(__filename, () => {
     expect(calledActions[0]).toEqual(_categoriesFetch());
 
     // Next action is loading the categories returned by the API.
-    expect(calledActions[1]).toEqual(actions.categoriesLoad(results));
+    expect(calledActions[1]).toEqual(actions.categoriesLoad({ results }));
 
     mockApi.verify();
   });

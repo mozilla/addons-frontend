@@ -45,10 +45,7 @@ describe(__filename, () => {
 
   function _categoriesLoad(actionParams = {}) {
     store.dispatch(
-      categoriesLoad({
-        result: [fakeCategory],
-        ...actionParams,
-      }),
+      categoriesLoad({ results: [fakeCategory], ...actionParams }),
     );
   }
 
@@ -182,7 +179,7 @@ describe(__filename, () => {
   });
 
   it('does not fetch categories when an empty set was loaded', () => {
-    _categoriesLoad({ result: [] });
+    _categoriesLoad({ results: [] });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
@@ -281,7 +278,7 @@ describe(__filename, () => {
 
     _categoriesFetch();
     _categoriesLoad({
-      result: [{ ...fakeCategory }, { ...fakeCategory, slug: category }],
+      results: [{ ...fakeCategory }, { ...fakeCategory, slug: category }],
     });
     _getLanding();
     _loadLanding();
@@ -314,7 +311,7 @@ describe(__filename, () => {
 
     _categoriesFetch();
     _categoriesLoad({
-      result: [{ ...fakeCategory }, { ...fakeCategory, type: addonType }],
+      results: [{ ...fakeCategory }, { ...fakeCategory, type: addonType }],
     });
     _getLanding();
     _loadLanding();
@@ -369,7 +366,7 @@ describe(__filename, () => {
   it('sets the correct header/footer texts and links for extensions', () => {
     _categoriesFetch();
     _categoriesLoad({
-      result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
+      results: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
     });
     _getLanding();
     _loadLanding();
@@ -618,7 +615,7 @@ describe(__filename, () => {
   it('renders an HTML title for an extension category', () => {
     _categoriesFetch();
     _categoriesLoad({
-      result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
+      results: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
     });
     _getLanding();
     _loadLanding();
@@ -665,7 +662,7 @@ describe(__filename, () => {
       { autoDispatchCategories = true, ...options } = {},
     ) {
       if (autoDispatchCategories) {
-        _categoriesLoad({ result: [decoyCategory, targetCategory] });
+        _categoriesLoad({ results: [decoyCategory, targetCategory] });
       }
       return render(props, {
         // Since we loaded our own, tell the parent helper not to.
