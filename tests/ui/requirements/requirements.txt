@@ -12,7 +12,7 @@ pathlib2==2.3.2
 pluggy==0.7.1
 py==1.6.0
 PyPOM==2.1.0
-pytest==3.8.1
+pytest==3.8.2
 pytest-base-url==1.4.1
 pytest-firefox==0.1.1
 pytest-forked==0.2
@@ -29,5 +29,5 @@ selenium==3.14.1
 six==1.11.0
 urllib3==1.22
 zope.component==4.4.1
-zope.event==4.3.0
+zope.event==4.4
 zope.interface==4.5.0
