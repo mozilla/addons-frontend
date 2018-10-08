@@ -12,7 +12,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Categories from 'amo/components/Categories';
-import { getCurrentURL } from 'amo/utils';
+import { getCanonicalURL } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -43,7 +43,6 @@ export class LandingPageBase extends React.Component {
     // `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
     addonTypeOfResults: PropTypes.string,
-    currentURL: PropTypes.string.isRequired,
     // This is a bug; context is used in `setViewContextType()`.
     // eslint-disable-next-line react/no-unused-prop-types
     context: PropTypes.string.isRequired,
@@ -52,6 +51,7 @@ export class LandingPageBase extends React.Component {
     featuredAddons: PropTypes.array.isRequired,
     highlyRatedAddons: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
+    locationPathname: PropTypes.string.isRequired,
     trendingAddons: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     match: PropTypes.shape({
@@ -212,11 +212,12 @@ export class LandingPageBase extends React.Component {
 
   render() {
     const {
-      currentURL,
+      _config,
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
       loading,
+      locationPathname,
       trendingAddons,
       i18n,
     } = this.props;
@@ -250,7 +251,10 @@ export class LandingPageBase extends React.Component {
       >
         <Helmet>
           <title>{headingText[addonType]}</title>
-          <link rel="canonical" href={currentURL} />
+          <link
+            rel="canonical"
+            href={getCanonicalURL({ locationPathname, _config })}
+          />
         </Helmet>
 
         {errorHandler.renderErrorIfPresent()}
@@ -318,16 +322,16 @@ export class LandingPageBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state) {
   const { landing, viewContext } = state;
 
   return {
     addonTypeOfResults: landing.addonType,
-    currentURL: getCurrentURL({ state, _config: ownProps._config }),
     context: viewContext.context,
     featuredAddons: landing.featured.results,
     highlyRatedAddons: landing.highlyRated.results,
     loading: landing.loading,
+    locationPathname: state.router.location.pathname,
     trendingAddons: landing.trending.results,
     resultsLoaded: landing.resultsLoaded && landing.category === null,
   };

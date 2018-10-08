@@ -5,7 +5,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { getCurrentURL } from 'amo/utils';
+import { getCanonicalURL } from 'amo/utils';
 import Card from 'ui/components/Card';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -15,10 +15,9 @@ import type { I18nType } from 'core/types/i18n';
 import '../styles.scss';
 
 type Props = {|
-  // eslint-disable-next-line react/no-unused-prop-types
   _config: typeof config,
-  currentURL: string,
   i18n: I18nType,
+  locationPathname: string,
 |};
 
 export class ReviewGuideBase extends React.Component<Props> {
@@ -27,13 +26,16 @@ export class ReviewGuideBase extends React.Component<Props> {
   };
 
   render() {
-    const { currentURL, i18n } = this.props;
+    const { _config, i18n, locationPathname } = this.props;
 
     return (
       <Card className="StaticPage" header={i18n.gettext('Review Guidelines')}>
         <Helmet>
           <title>{i18n.gettext('Review Guidelines')}</title>
-          <link rel="canonical" href={currentURL} />
+          <link
+            rel="canonical"
+            href={getCanonicalURL({ locationPathname, _config })}
+          />
         </Helmet>
 
         <div className="StaticPageWrapper">
@@ -179,9 +181,9 @@ export class ReviewGuideBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState) => {
   return {
-    currentURL: getCurrentURL({ state, _config: ownProps._config }),
+    locationPathname: state.router.location.pathname,
   };
 };
 

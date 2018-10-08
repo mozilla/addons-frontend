@@ -12,7 +12,7 @@ import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
-import { getCurrentURL } from 'amo/utils';
+import { getCanonicalURL } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -65,14 +65,14 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
-    currentURL: PropTypes.string.isRequired,
+    collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    collections: PropTypes.array.isRequired,
     featuredExtensions: PropTypes.array.isRequired,
     featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     includeFeaturedThemes: PropTypes.bool,
+    locationPathname: PropTypes.string.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
     popularExtensions: PropTypes.array.isRequired,
   };
@@ -202,13 +202,14 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      currentURL,
+      _config,
       collections,
       errorHandler,
       featuredExtensions,
       featuredThemes,
       i18n,
       includeFeaturedThemes,
+      locationPathname,
       resultsLoaded,
       popularExtensions,
     } = this.props;
@@ -227,7 +228,10 @@ export class HomeBase extends React.Component {
     return (
       <div className="Home">
         <Helmet>
-          <link rel="canonical" href={currentURL} />
+          <link
+            rel="canonical"
+            href={getCanonicalURL({ locationPathname, _config })}
+          />
         </Helmet>
 
         <span
@@ -337,14 +341,14 @@ export class HomeBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state) {
   return {
-    currentURL: getCurrentURL({ state, _config: ownProps._config }),
     collections: state.home.collections,
     featuredExtensions: state.home.featuredExtensions,
-    resultsLoaded: state.home.resultsLoaded,
     featuredThemes: state.home.featuredThemes,
+    locationPathname: state.router.location.pathname,
     popularExtensions: state.home.popularExtensions,
+    resultsLoaded: state.home.resultsLoaded,
   };
 }
 

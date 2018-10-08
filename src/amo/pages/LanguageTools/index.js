@@ -10,7 +10,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
-import { getCurrentURL } from 'amo/utils';
+import { getCanonicalURL } from 'amo/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import {
   ADDON_TYPE_DICT,
@@ -69,14 +69,13 @@ export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
 };
 
 type Props = {|
-  // eslint-disable-next-line react/no-unused-prop-types
   _config: typeof config,
-  currentURL: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   lang: string,
   languageTools: Array<LanguageToolType>,
+  locationPathname: string,
 |};
 
 export class LanguageToolsBase extends React.Component<Props> {
@@ -150,7 +149,13 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 
   render() {
-    const { currentURL, languageTools, errorHandler, i18n } = this.props;
+    const {
+      _config,
+      languageTools,
+      locationPathname,
+      errorHandler,
+      i18n,
+    } = this.props;
 
     const header = i18n.gettext('Dictionaries and Language Packs');
 
@@ -158,7 +163,10 @@ export class LanguageToolsBase extends React.Component<Props> {
       <Card className="LanguageTools" header={header}>
         <Helmet>
           <title>{header}</title>
-          <link rel="canonical" href={currentURL} />
+          <link
+            rel="canonical"
+            href={getCanonicalURL({ locationPathname, _config })}
+          />
         </Helmet>
 
         {errorHandler.renderErrorIfPresent()}
@@ -274,11 +282,11 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (state: AppState) => {
   return {
-    currentURL: getCurrentURL({ state, _config: ownProps._config }),
     lang: state.api.lang,
     languageTools: getAllLanguageTools(state),
+    locationPathname: state.router.location.pathname,
   };
 };
 

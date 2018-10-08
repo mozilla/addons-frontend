@@ -8,7 +8,6 @@ import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import { makeQueryString } from 'core/api';
-import type { AppState } from 'amo/store';
 
 export function getErrorComponent(status: number | null) {
   switch (status) {
@@ -56,16 +55,12 @@ export const makeQueryStringWithUTM = ({
   });
 };
 
-export const getCurrentURL = ({
+export const getCanonicalURL = ({
   _config = config,
-  state,
+  locationPathname,
 }: {|
   _config?: typeof config,
-  state: AppState,
+  locationPathname: string,
 |}): string => {
-  const { location } = state.router;
-
-  invariant(location, 'location is required');
-
-  return `${_config.get('baseURL')}${location.pathname}`;
+  return `${_config.get('baseURL')}${locationPathname}`;
 };
