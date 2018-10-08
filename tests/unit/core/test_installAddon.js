@@ -55,18 +55,15 @@ import {
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
-import * as installAddon from 'core/installAddon';
-import * as themeInstall from 'core/themeInstall';
-import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
-
-const {
+import {
   WithInstallHelpers,
+  findInstallURL,
   installTheme,
-  makeProgressHandler,
   makeMapDispatchToProps,
-  mapStateToProps,
+  makeProgressHandler,
   withInstallHelpers,
-} = installAddon;
+} from 'core/installAddon';
+import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 
 const INVALID_TYPE = 'not-a-real-type';
 
@@ -301,7 +298,7 @@ describe(__filename, () => {
         );
       const userAgentInfo = userAgent && UAParser(userAgent);
 
-      return installAddon.findInstallURL({
+      return findInstallURL({
         location,
         platformFiles: addon && addon.platformFiles,
         userAgentInfo,
@@ -601,16 +598,6 @@ describe(__filename, () => {
   describe('withInstallHelpers', () => {
     const defaultInstallSource = 'some-install-source';
     const WrappedComponent = sinon.stub();
-
-    function getMapStateToProps({
-      _tracking,
-      installations = {},
-      state = {},
-    } = {}) {
-      return mapStateToProps({ installations, addons: {} }, state, {
-        _tracking,
-      });
-    }
 
     describe('isAddonEnabled', () => {
       it('returns true when the add-on is enabled', async () => {
@@ -1737,16 +1724,6 @@ describe(__filename, () => {
         installTheme(node, addon, stubs);
         sinon.assert.notCalled(stubs._tracking.sendEvent);
         sinon.assert.notCalled(stubs._themeInstall);
-      });
-
-      describe('getBrowserThemeData', () => {
-        it('formats the browser theme data', () => {
-          const { getBrowserThemeData } = getMapStateToProps();
-          sinon.stub(themeInstall, 'getThemeData').returns({ foo: 'wat' });
-          expect(getBrowserThemeData({ some: 'data' })).toEqual(
-            '{"foo":"wat"}',
-          );
-        });
       });
     });
   });
