@@ -39,15 +39,12 @@ export function* fetchAddonsByAuthors({ payload }) {
       },
     });
 
-    // TODO: remove the line below and pass `response.addons` directly once
-    // https://github.com/mozilla/addons-frontend/issues/2917 is done.
-    const addons = Object.values(response.entities.addons || {});
-    const { count } = response.result;
+    const { count, results } = response;
 
     yield put(
       loadAddonsByAuthors({
         addonType,
-        addons,
+        addons: results,
         authorUsernames,
         count,
         forAddonSlug,

@@ -57,18 +57,9 @@ export const fetchHomeAddons = ({
   };
 };
 
-type ExternalAddonMap = {
-  [addonSlug: string]: ExternalAddonType,
-};
-
 type ApiAddonsResponse = {|
-  result: {|
-    count: number,
-    results: Array<string>,
-  |},
-  entities: {|
-    addons: ExternalAddonMap,
-  |},
+  count: number,
+  results: Array<ExternalAddonType>,
 |};
 
 type LoadHomeAddonsParams = {|
@@ -109,10 +100,7 @@ type Action = FetchHomeAddonsAction | LoadHomeAddonsAction;
 const createInternalAddons = (
   response: ApiAddonsResponse,
 ): Array<AddonType> => {
-  const { result, entities } = response;
-  return result.results.map((slug) =>
-    createInternalAddon(entities.addons[slug]),
-  );
+  return response.results.map((addon) => createInternalAddon(addon));
 };
 
 const reducer = (

@@ -29,9 +29,9 @@ export default function landing(state = initialState, action) {
       ['featured', 'highlyRated', 'trending'].forEach((key) => {
         if (payload[key]) {
           newState[key] = {
-            count: payload[key].result.count,
-            results: payload[key].result.results.map((slug) =>
-              createInternalAddon(payload[key].entities.addons[slug]),
+            count: payload[key].count,
+            results: payload[key].results.map((addon) =>
+              createInternalAddon(addon),
             ),
           };
         }

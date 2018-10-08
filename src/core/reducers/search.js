@@ -79,14 +79,9 @@ export function searchStart({
 }
 
 type SearchLoadParams = {|
-  entities: {|
-    addons: { [slug: string]: ExternalAddonType },
-  |},
-  result: {|
-    count: number,
-    page_size: number,
-    results: Array<string>,
-  |},
+  count: number,
+  pageSize: number,
+  results: Array<ExternalAddonType>,
 |};
 
 type SearchLoadAction = {|
@@ -95,15 +90,15 @@ type SearchLoadAction = {|
 |};
 
 export function searchLoad({
-  entities,
-  result,
+  count,
+  pageSize,
+  results,
 }: SearchLoadParams): SearchLoadAction {
-  invariant(entities, 'entities are required');
-  invariant(result, 'result is required');
+  invariant(results, 'results are required');
 
   return {
     type: SEARCH_LOADED,
-    payload: { entities, result },
+    payload: { count, pageSize, results },
   };
 }
 
@@ -134,12 +129,10 @@ export default function search(
 
       return {
         ...state,
-        count: payload.result.count,
+        count: payload.count,
         loading: false,
-        pageSize: payload.result.page_size,
-        results: payload.result.results.map((slug) =>
-          createInternalAddon(payload.entities.addons[slug]),
-        ),
+        pageSize: payload.pageSize,
+        results: payload.results.map((addon) => createInternalAddon(addon)),
       };
     }
     case SEARCH_ABORTED:

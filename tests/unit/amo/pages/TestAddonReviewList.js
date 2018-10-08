@@ -24,17 +24,17 @@ import {
 import {
   fetchAddon,
   createInternalAddon,
-  loadAddons,
+  loadAddonResults,
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import {
+  createFakeLocation,
   createFetchAddonResult,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   fakeReview,
-  createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { setError } from 'core/actions/errors';
@@ -79,7 +79,7 @@ describe(__filename, () => {
   };
 
   const dispatchAddon = (addon = fakeAddon) => {
-    store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
+    store.dispatch(loadAddonResults({ addons: [addon] }));
   };
 
   const dispatchAddonReviews = ({
