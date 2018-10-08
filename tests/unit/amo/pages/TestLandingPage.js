@@ -23,7 +23,6 @@ import {
 import {
   createStubErrorHandler,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -318,9 +317,7 @@ describe(__filename, () => {
     });
   });
 
-  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
-
+  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter', () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
 
     const fakeParams = {
@@ -328,7 +325,7 @@ describe(__filename, () => {
     };
     const match = { params: fakeParams };
 
-    const root = render({ match, _config: fakeConfig });
+    const root = render({ match });
 
     const addonCards = root.find(LandingAddonsCard);
 
@@ -345,36 +342,6 @@ describe(__filename, () => {
     expect(addonCards.at(2)).toHaveProp('footerLink');
     expect(addonCards.at(2).props().footerLink.query.addonType).toEqual(
       ADDON_TYPE_THEMES_FILTER,
-    );
-  });
-
-  it('renders the themes shelves with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
-
-    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
-
-    const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
-    };
-    const match = { params: fakeParams };
-
-    const root = render({ match, _config: fakeConfig });
-
-    const addonCards = root.find(LandingAddonsCard);
-
-    expect(addonCards.at(0)).toHaveProp('footerLink');
-    expect(addonCards.at(0).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEME,
-    );
-
-    expect(addonCards.at(1)).toHaveProp('footerLink');
-    expect(addonCards.at(1).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEME,
-    );
-
-    expect(addonCards.at(2)).toHaveProp('footerLink');
-    expect(addonCards.at(2).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEME,
     );
   });
 

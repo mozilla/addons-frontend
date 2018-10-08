@@ -3,7 +3,6 @@ import * as React from 'react';
 import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
   OS_LINUX,
 } from 'core/constants';
@@ -18,7 +17,6 @@ import {
   createStubErrorHandler,
   fakeI18n,
   createFakeLocation,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -260,9 +258,8 @@ describe(__filename, () => {
     expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
   });
 
-  it('sets themes filters shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
-    const root = render({ _config: fakeConfig });
+  it('sets themes filters shelf with the ADDON_TYPE_THEMES_FILTER filter', () => {
+    const root = render();
     const selectFilters = root.find(Select);
 
     const optionValues = selectFilters
@@ -270,17 +267,5 @@ describe(__filename, () => {
       .children()
       .map((option) => option.props().value);
     expect(optionValues).toContain(ADDON_TYPE_THEMES_FILTER);
-  });
-
-  it('sets themes filters shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
-    const root = render({ _config: fakeConfig });
-    const selectFilters = root.find(Select);
-
-    const optionValues = selectFilters
-      .find('#SearchFilters-AddonType')
-      .children()
-      .map((option) => option.props().value);
-    expect(optionValues).toContain(ADDON_TYPE_THEME);
   });
 });
