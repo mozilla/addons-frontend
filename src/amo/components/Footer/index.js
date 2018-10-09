@@ -59,6 +59,11 @@ export class FooterBase extends React.Component {
                 </Link>
               </li>
               <li>
+                <a href="https://developer.mozilla.org/docs/Mozilla/Add-ons/AMO/Policy">
+                  {i18n.gettext('Developer Policies')}
+                </a>
+              </li>
+              <li>
                 <a href="https://discourse.mozilla-community.org/c/add-ons">
                   {i18n.gettext('Forum')}
                 </a>
