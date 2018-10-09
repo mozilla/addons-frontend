@@ -303,21 +303,13 @@ describe(__filename, () => {
     });
 
     it('is incompatible if no matching platform file exists', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        current_version: {
-          ...fakeAddon.current_version,
-          files: [
-            {
-              ...fakeAddon.current_version.files[0],
-              platform: OS_MAC,
-            },
-          ],
-        },
-      });
-      const userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40);
-
-      expect(isCompatibleWithUserAgent({ addon, userAgentInfo })).toEqual({
+      expect(
+        isCompatibleWithUserAgent({
+          _findInstallURL: sinon.stub().returns(undefined),
+          addon: createInternalAddon(fakeAddon),
+          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
+        }),
+      ).toEqual({
         compatible: false,
         reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
       });

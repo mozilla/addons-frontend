@@ -1,12 +1,16 @@
+import UAParser from 'ua-parser-js';
+
 import versionsReducer, {
   createInternalVersion,
   fetchVersions,
   getLoadingBySlug,
+  getVersionInfo,
   getVersionsBySlug,
   initialState,
   loadVersions,
 } from 'amo/reducers/versions';
-import { fakeVersion } from 'tests/unit/helpers';
+import { createPlatformFiles } from 'core/reducers/addons';
+import { fakeVersion, userAgentsByPlatform } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to its initial state', () => {
@@ -61,6 +65,22 @@ describe(__filename, () => {
     ]);
   });
 
+  describe(createInternalVersion, () => {
+    it('returns an object with the expected AddonVersionType', () => {
+      expect(createInternalVersion(fakeVersion)).toEqual({
+        compatibility: fakeVersion.compatibility,
+        platformFiles: createPlatformFiles(fakeVersion),
+        id: fakeVersion.id,
+        license: {
+          name: fakeVersion.license.name,
+          url: fakeVersion.license.url,
+        },
+        releaseNotes: fakeVersion.release_notes,
+        version: fakeVersion.version,
+      });
+    });
+  });
+
   describe(getLoadingBySlug, () => {
     it('returns false if versions have never been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
@@ -72,6 +92,34 @@ describe(__filename, () => {
     it('returns null if no versions have been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
       expect(getVersionsBySlug({ slug: 'some-slug', state })).toBe(null);
+    });
+  });
+
+  describe(getVersionInfo, () => {
+    it('returns created and filesize from a version file', () => {
+      const created = Date().toString();
+      const size = 1234;
+      const _findFileForPlatform = sinon.stub().returns({ created, size });
+
+      expect(
+        getVersionInfo({
+          _findFileForPlatform,
+          version: createInternalVersion(fakeVersion),
+          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
+        }),
+      ).toEqual({ created, filesize: size });
+    });
+
+    it('returns undefined values when no file is found', () => {
+      const _findFileForPlatform = sinon.stub().returns(undefined);
+
+      expect(
+        getVersionInfo({
+          _findFileForPlatform,
+          version: createInternalVersion(fakeVersion),
+          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
+        }),
+      ).toEqual({ created: undefined, filesize: undefined });
     });
   });
 });

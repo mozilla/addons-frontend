@@ -2,8 +2,6 @@ import { unloadAddonReviews } from 'amo/actions/reviews';
 import {
   ADDON_TYPE_EXTENSION,
   OS_ALL,
-  OS_ANDROID,
-  OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
 } from 'core/constants';
@@ -118,11 +116,8 @@ describe(__filename, () => {
     expect(state.byID[extension.id]).toEqual({
       ...extension,
       platformFiles: {
+        ...defaultPlatformFiles,
         [OS_ALL]: fakeAddon.current_version.files[0],
-        [OS_ANDROID]: undefined,
-        [OS_LINUX]: undefined,
-        [OS_MAC]: undefined,
-        [OS_WINDOWS]: undefined,
       },
       isRestartRequired: false,
       isWebExtension: true,
@@ -147,11 +142,8 @@ describe(__filename, () => {
       description: theme.description,
       guid: getGuid(theme),
       platformFiles: {
+        ...defaultPlatformFiles,
         [OS_ALL]: fakeTheme.current_version.files[0],
-        [OS_ANDROID]: undefined,
-        [OS_LINUX]: undefined,
-        [OS_MAC]: undefined,
-        [OS_WINDOWS]: undefined,
       },
       isRestartRequired: false,
       isWebExtension: true,

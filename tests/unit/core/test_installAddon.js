@@ -4,6 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
+import { createInternalVersion } from 'amo/reducers/versions';
 import createStore from 'amo/store';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import {
@@ -32,9 +33,6 @@ import {
   INSTALL_THEME_CATEGORY,
   OS_ALL,
   OS_ANDROID,
-  OS_LINUX,
-  OS_MAC,
-  OS_WINDOWS,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
   TRACKING_TYPE_INVALID,
@@ -50,7 +48,9 @@ import {
   createFakeTracking,
   createFakeLocation,
   fakeAddon,
+  fakePlatformFile,
   fakeTheme,
+  fakeVersion,
   getFakeAddonManagerWrapper,
   getFakeConfig,
   sampleUserAgentParsed,
@@ -286,282 +286,57 @@ describe(__filename, () => {
 
   describe('findInstallURL', () => {
     const _findInstallURL = ({
-      addonFiles = [],
+      url = '',
       location = createFakeLocation(),
       userAgent = userAgentsByPlatform.windows.firefox40,
       ...params
     } = {}) => {
-      const addon =
-        addonFiles &&
-        createInternalAddon(
-          createFakeAddon({
-            files: addonFiles,
-          }),
-        );
-      const userAgentInfo = userAgent && UAParser(userAgent);
+      const _findFileForPlatform = sinon
+        .stub()
+        .returns({ ...fakePlatformFile, url });
+      const userAgentInfo =
+        userAgent && UAParser(userAgentsByPlatform.windows.firefox40);
+      const { platformFiles } = createInternalVersion(fakeVersion);
 
       return findInstallURL({
+        _findFileForPlatform,
         location,
-        platformFiles: addon && addon.platformFiles,
+        platformFiles,
         userAgentInfo,
         ...params,
       });
     };
 
-    it('finds a Windows install URL', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              platform: OS_MAC,
-              url: 'https://a.m.o/files/mac.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.windows.firefox40,
-        }),
-      ).toEqual('https://a.m.o/files/windows.xpi');
-    });
-
-    it('finds a Mac OS install URL', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              platform: OS_MAC,
-              url: 'https://a.m.o/files/mac.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.mac.firefox33,
-        }),
-      ).toEqual('https://a.m.o/files/mac.xpi');
-    });
-
-    it('finds a Linux install URL', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              platform: OS_LINUX,
-              url: 'https://a.m.o/files/linux.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.linux.firefox10,
-        }),
-      ).toEqual('https://a.m.o/files/linux.xpi');
-    });
-
-    it('finds a Linux Ubuntu install URL', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_LINUX,
-              url: 'https://a.m.o/files/linux.xpi',
-            },
-          ],
-          // This parses to the name Ubuntu instead of Linux.
-          userAgent: userAgentsByPlatform.linux.firefox57Ubuntu,
-        }),
-      ).toEqual('https://a.m.o/files/linux.xpi');
-    });
-
-    it('gives a Linux install URL to Unix platforms', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_LINUX,
-              url: 'https://a.m.o/files/linux.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.unix.firefox51,
-        }),
-      ).toEqual('https://a.m.o/files/linux.xpi');
-    });
-
-    it('gives a Linux install URL to BSD platforms', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_LINUX,
-              url: 'https://a.m.o/files/linux.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.bsd.firefox40FreeBSD,
-        }),
-      ).toEqual('https://a.m.o/files/linux.xpi');
-    });
-
-    it('finds an Android mobile install URL', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              platform: OS_ANDROID,
-              url: 'https://a.m.o/files/android.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.android.firefox40Mobile,
-        }),
-      ).toEqual('https://a.m.o/files/android.xpi');
-    });
-
-    it('finds an Android tablet install URL', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              platform: OS_ANDROID,
-              url: 'https://a.m.o/files/android.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.android.firefox40Tablet,
-        }),
-      ).toEqual('https://a.m.o/files/android.xpi');
-    });
-
-    it('returns an all-platform URL for unsupported platforms', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              platform: OS_ALL,
-              url: 'https://a.m.o/files/all.xpi',
-            },
-          ],
-          // This platform is unsupported.
-          userAgent: userAgentsByPlatform.firefoxOS.firefox26,
-        }),
-      ).toEqual('https://a.m.o/files/all.xpi');
-    });
-
-    it('gives preference to a specific platform URL', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              // Make sure the all-platform file doesn't win.
-              platform: OS_ALL,
-              url: 'https://a.m.o/files/all.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.windows.firefox40,
-        }),
-      ).toEqual('https://a.m.o/files/windows.xpi');
-    });
-
-    it('returns undefined when nothing else matches', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_WINDOWS,
-              url: 'https://a.m.o/files/windows.xpi',
-            },
-            {
-              platform: OS_MAC,
-              url: 'https://a.m.o/files/mac.xpi',
-            },
-          ],
-          userAgent: userAgentsByPlatform.android.firefox40Tablet,
-        }),
-      ).toEqual(undefined);
-    });
-
-    it('returns undefined for user agents with an unknown platform', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [
-            {
-              platform: OS_LINUX,
-              url: 'https://a.m.o/files/linux.xpi',
-            },
-          ],
-          userAgent: 'some-completely-wacko-user-agent-string',
-        }),
-      ).toEqual(undefined);
-    });
-
-    it('returns undefined when no files exist', () => {
-      expect(
-        _findInstallURL({
-          addonFiles: [],
-          userAgent: userAgentsByPlatform.windows.firefox40,
-        }),
-      ).toEqual(undefined);
-    });
-
-    it('requires platformFiles', () => {
-      expect(() => _findInstallURL({ addonFiles: null })).toThrow(
-        /platformFiles parameter is required/,
-      );
-    });
-
-    it('requires userAgentInfo', () => {
-      expect(() => _findInstallURL({ userAgent: null })).toThrow(
-        /userAgentInfo parameter is required/,
-      );
-    });
-
     it('adds a default source to the install URL', () => {
-      const baseURL = 'https://a.m.o/files/addon.xpi';
+      const url = 'https://a.m.o/files/addon.xpi';
       expect(
         _findInstallURL({
-          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+          url,
           defaultInstallSource: 'homepage',
         }),
-      ).toEqual(`${baseURL}?src=homepage`);
+      ).toEqual(`${url}?src=homepage`);
     });
 
     it('only adds a source to the URL when defined', () => {
-      const baseURL = 'https://a.m.o/files/addon.xpi';
+      const url = 'https://a.m.o/files/addon.xpi';
       expect(
         _findInstallURL({
-          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+          url,
           defaultInstallSource: null,
         }),
-      ).toEqual(baseURL);
+      ).toEqual(url);
     });
 
     it('prefers an external source over the default', () => {
-      const baseURL = 'https://a.m.o/files/addon.xpi';
+      const url = 'https://a.m.o/files/addon.xpi';
       const externalSource = 'my-reddit-post';
       expect(
         _findInstallURL({
-          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+          url,
           location: createFakeLocation({ query: { src: externalSource } }),
           defaultInstallSource: 'default-source',
         }),
-      ).toEqual(`${baseURL}?src=${externalSource}`);
+      ).toEqual(`${url}?src=${externalSource}`);
     });
 
     it('requires a location when appending a source', () => {
@@ -571,24 +346,19 @@ describe(__filename, () => {
     });
 
     it('allows undefined locations when not appending a source', () => {
-      const baseURL = 'https://a.m.o/files/addon.xpi';
+      const url = 'https://a.m.o/files/addon.xpi';
       expect(
         _findInstallURL({
           appendSource: false,
           location: null,
-          addonFiles: [{ platform: OS_ALL, url: baseURL }],
+          url,
         }),
-      ).toEqual(baseURL);
+      ).toEqual(url);
     });
 
     it('preserves the install URL query string', () => {
       const url = _findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_ALL,
-            url: 'https://a.m.o/files/mac.xpi?lang=he',
-          },
-        ],
+        url: 'https://a.m.o/files/mac.xpi?lang=he',
         defaultInstallSource: 'homepage',
       });
 

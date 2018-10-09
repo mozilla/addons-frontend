@@ -1,10 +1,11 @@
 /* @flow */
 import url from 'url';
 
-import * as React from 'react';
-import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
 import config from 'config';
+import invariant from 'invariant';
+import * as React from 'react';
+import { connect } from 'react-redux';
 
 import { getAddonIconUrl } from 'core/imageUtils';
 import { setInstallError, setInstallState } from 'core/actions/installations';
@@ -33,7 +34,6 @@ import {
   INSTALL_STARTED_ACTION,
   INSTALL_STARTED_THEME_CATEGORY,
   INSTALL_THEME_CATEGORY,
-  OS_ALL,
   OS_ANDROID,
   OS_LINUX,
   OS_MAC,
@@ -74,10 +74,10 @@ import {
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
 import { showInfoDialog } from 'core/reducers/infoDialog';
-import { getDisplayName } from 'core/utils';
+import { findFileForPlatform, getDisplayName } from 'core/utils';
 import { getFileHash } from 'core/utils/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
-import type { AddonType } from 'core/types/addons';
+import type { AddonType, PlatformFilesType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
 
@@ -209,10 +209,11 @@ export const userAgentOSToPlatform = {
 };
 
 type FindInstallUrlParams = {|
+  _findFileForPlatform?: typeof findFileForPlatform,
   appendSource?: boolean,
   defaultInstallSource?: string,
   location?: ReactRouterLocationType,
-  platformFiles: $PropertyType<AddonType, 'platformFiles'>,
+  platformFiles: PlatformFilesType,
   userAgentInfo: UserAgentInfoType,
 |};
 
@@ -221,50 +222,30 @@ type FindInstallUrlParams = {|
  * platform.
  */
 export const findInstallURL = ({
+  _findFileForPlatform = findFileForPlatform,
   appendSource = true,
   defaultInstallSource,
   location,
   platformFiles,
   userAgentInfo,
 }: FindInstallUrlParams): string | void => {
-  if (!platformFiles) {
-    throw new Error('The platformFiles parameter is required');
-  }
-  if (!userAgentInfo) {
-    throw new Error('The userAgentInfo parameter is required');
-  }
-
   let source;
   if (appendSource) {
-    if (!location) {
-      throw new Error(
-        'The location parameter is required when appendSource is true',
-      );
-    }
+    invariant(
+      location,
+      'The location parameter is required when appendSource is true',
+    );
     source = location.query.src || defaultInstallSource;
   }
 
-  const agentOsName =
-    userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
-  const platform = agentOsName && userAgentOSToPlatform[agentOsName];
-  const platformFile = platform && platformFiles[platform];
+  const platformFile = _findFileForPlatform({
+    platformFiles,
+    userAgentInfo,
+  });
 
-  let installURL;
-  if (platformFile) {
-    installURL = platformFile.url;
-  }
-
-  if (!installURL && platformFiles[OS_ALL]) {
-    installURL = platformFiles[OS_ALL].url;
-  }
+  const installURL = platformFile && platformFile.url;
 
   if (!installURL) {
-    // This could happen for themes which do not have version files.
-    log.debug(
-      oneLine`No install URL exists for platform "${agentOsName}"
-      (mapped to "${platform}"); platform files:`,
-      platformFiles,
-    );
     return undefined;
   }
 

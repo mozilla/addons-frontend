@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 
 import { createPlatformFiles } from 'core/reducers/addons';
+import type { UserAgentInfoType } from 'core/reducers/api';
 import { findFileForPlatform } from 'core/utils';
 import type {
   AddonCompatibilityType,
@@ -14,9 +15,7 @@ export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
-  created: string,
   platformFiles: PlatformFilesType,
-  filesize: number,
   id: number,
   license: { name: string, url: string },
   releaseNotes?: string,
@@ -26,24 +25,13 @@ export type AddonVersionType = {
 export const createInternalVersion = (
   version: ExternalAddonVersionType,
 ): AddonVersionType => {
-  const addonVersion = {
+  return {
     compatibility: version.compatibility,
     platformFiles: createPlatformFiles(version),
     id: version.id,
     license: { name: version.license.name, url: version.license.url },
     releaseNotes: version.release_notes,
     version: version.version,
-  };
-
-  const file = findFileForPlatform({
-    platformFiles: addonVersion.platformFiles,
-    userAgentInfo: state.api.userAgentInfo, // this won't work currently
-  });
-
-  return {
-    ...addonVersion,
-    created: file.created,
-    filesize: file.size,
   };
 };
 
@@ -127,6 +115,33 @@ export const getLoadingBySlug = ({ slug, state }: GetBySlugParams): boolean => {
 
   const infoForSlug = state.bySlug[slug];
   return Boolean(infoForSlug && infoForSlug.loading);
+};
+
+type VersionInfoType = {|
+  created?: string,
+  filesize?: number,
+|};
+
+type GetVersionInfoParams = {|
+  _findFileForPlatform?: typeof findFileForPlatform,
+  userAgentInfo: UserAgentInfoType,
+  version: AddonVersionType,
+|};
+
+export const getVersionInfo = ({
+  _findFileForPlatform = findFileForPlatform,
+  userAgentInfo,
+  version,
+}: GetVersionInfoParams): VersionInfoType => {
+  const file = _findFileForPlatform({
+    platformFiles: version.platformFiles,
+    userAgentInfo,
+  });
+
+  return {
+    created: file ? file.created : undefined,
+    filesize: file ? file.size : undefined,
+  };
 };
 
 type Action = FetchVersionsAction | LoadVersionsAction;
