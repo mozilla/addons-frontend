@@ -16,12 +16,41 @@ import {
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
   OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
 import { AddonTypeNotFound } from 'core/errors';
-import { userAgentOSToPlatform } from 'core/installAddon';
 import log from 'core/logger';
 import purify from 'core/purify';
+import {
+  USER_AGENT_OS_ANDROID,
+  USER_AGENT_OS_BSD_DRAGONFLY,
+  USER_AGENT_OS_BSD_FREEBSD,
+  USER_AGENT_OS_BSD_NETBSD,
+  USER_AGENT_OS_BSD_OPENBSD,
+  USER_AGENT_OS_BSD_PC,
+  USER_AGENT_OS_LINUX,
+  USER_AGENT_OS_LINUX_ARCH,
+  USER_AGENT_OS_LINUX_CENTOS,
+  USER_AGENT_OS_LINUX_DEBIAN,
+  USER_AGENT_OS_LINUX_FEDORA,
+  USER_AGENT_OS_LINUX_GENTOO,
+  USER_AGENT_OS_LINUX_GNU,
+  USER_AGENT_OS_LINUX_LINPUS,
+  USER_AGENT_OS_LINUX_PC,
+  USER_AGENT_OS_LINUX_REDHAT,
+  USER_AGENT_OS_LINUX_SLACKWARE,
+  USER_AGENT_OS_LINUX_SUSE,
+  USER_AGENT_OS_LINUX_UBUNTU,
+  USER_AGENT_OS_LINUX_VECTOR,
+  USER_AGENT_OS_LINUX_ZENWALK,
+  USER_AGENT_OS_MAC,
+  USER_AGENT_OS_UNIX,
+  USER_AGENT_OS_WINDOWS,
+} from 'core/reducers/api';
 
 export function getClientConfig(_config) {
   const clientConfig = {};
@@ -307,6 +336,35 @@ export const addQueryParamsToHistory = ({
   _stringify = stringify,
 }) => {
   return qhistory(history, _stringify, _parse);
+};
+
+export const userAgentOSToPlatform = {
+  [USER_AGENT_OS_ANDROID.toLowerCase()]: OS_ANDROID,
+  [USER_AGENT_OS_MAC.toLowerCase()]: OS_MAC,
+  [USER_AGENT_OS_WINDOWS.toLowerCase()]: OS_WINDOWS,
+  // Not all of these are strictly Linux but giving them a Linux XPI
+  // will probably work 99% of the time.
+  [USER_AGENT_OS_BSD_DRAGONFLY.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_FREEBSD.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_NETBSD.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_OPENBSD.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_PC.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_ARCH.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_CENTOS.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_DEBIAN.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_FEDORA.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_GENTOO.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_GNU.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_LINPUS.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_PC.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_REDHAT.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_SLACKWARE.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_SUSE.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_UBUNTU.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_VECTOR.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_ZENWALK.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_UNIX.toLowerCase()]: OS_LINUX,
 };
 
 export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
