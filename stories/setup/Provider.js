@@ -1,12 +1,11 @@
 /* @flow */
 import { createBrowserHistory } from 'history';
 import React from 'react';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 import Root from 'core/components/Root';
 import { addQueryParamsToHistory } from 'core/utils';
-
-import { dispatchClientMetadata } from '../../tests/unit/amo/helpers';
-import { fakeI18n } from '../../tests/unit/helpers';
 
 const { store } = dispatchClientMetadata();
 
