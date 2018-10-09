@@ -22,6 +22,7 @@ import { fakeI18n, fakeTheme } from 'tests/unit/helpers';
 describe(__filename, () => {
   function renderButton(props = {}) {
     const renderProps = {
+      addon: createInternalAddon(fakeTheme),
       dispatch: sinon.spy(),
       enable: sinon.spy(),
       install: sinon.spy(),

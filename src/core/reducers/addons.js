@@ -100,16 +100,7 @@ export function createInternalThemeData(
     accentcolor: apiAddon.theme_data.accentcolor,
     author: apiAddon.theme_data.author,
     category: apiAddon.theme_data.category,
-
-    // TODO: Set this back to apiAddon.theme_data.description after
-    // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
-    // theme_data will contain `description: 'None'` when the description is
-    // actually `null` and we don't want to set that on the addon itself so we
-    // reset it in case it's been overwritten.
-    //
-    // See also https://github.com/mozilla/addons-server/issues/5650.
-    description: apiAddon.description,
-
+    description: apiAddon.theme_data.description,
     detailURL: apiAddon.theme_data.detailURL,
     footer: apiAddon.theme_data.footer,
     footerURL: apiAddon.theme_data.footerURL,
@@ -177,25 +168,9 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
     isRestartRequired: false,
     isWebExtension: false,
     isMozillaSignedExtension: false,
+
+    themeData: createInternalThemeData(apiAddon),
   };
-
-  if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
-    const themeData = createInternalThemeData(apiAddon);
-
-    if (themeData !== null) {
-      // This merges theme_data into the addon.
-      //
-      // TODO: Let's stop doing that because it's confusing. Lots of deep
-      // button/install code will need to be fixed.
-      //
-      // Use addon.themeData[themeProp] instead of addon[themeProp].
-      addon = {
-        ...addon,
-        ...removeUndefinedProps(themeData),
-        themeData,
-      };
-    }
-  }
 
   const currentVersion = apiAddon.current_version;
 

@@ -20,7 +20,6 @@ import {
 import translate from 'core/i18n/translate';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
-import { getThemeData } from 'core/themeInstall';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
@@ -228,7 +227,7 @@ export class InstallButtonBase extends React.Component {
           buttonType="action"
           className={buttonClass}
           disabled={buttonIsDisabled}
-          data-browsertheme={JSON.stringify(getThemeData(addon))}
+          data-browsertheme={JSON.stringify(addon.themeData)}
           onClick={this.installTheme}
           puffy
         >
@@ -312,8 +311,6 @@ export class InstallButtonBase extends React.Component {
           - a higher-order component (HOC)
           - evil clowns (maybe)
           - or something else we aren't sure of
-          Also, some of these props are not used directly by `InstallSwitch`;
-          they are required for `getThemeData()`.
         */}
         <InstallSwitch
           accentcolor={this.props.accentcolor}

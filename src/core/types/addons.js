@@ -165,7 +165,6 @@ export type ExternalAddonType = {|
  */
 export type AddonType = {|
   ...ExternalAddonType,
-  ...ThemeData,
   // Here are some custom properties for our internal representation.
   platformFiles: {|
     // This seems necessary to help Flow know that computed
@@ -180,7 +179,7 @@ export type AddonType = {|
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,
-  themeData?: ThemeData,
+  themeData: ThemeData | null,
 |};
 
 export type CollectionAddonType = {|

@@ -124,6 +124,7 @@ describe(__filename, () => {
       isRestartRequired: false,
       isWebExtension: true,
       isMozillaSignedExtension: false,
+      themeData: null,
     });
   });
 
@@ -135,12 +136,7 @@ describe(__filename, () => {
     // what we expect it to below.
     const expectedTheme = {
       ...theme,
-      // Expect theme_data to be merged into the addon.
-      ...theme.theme_data,
-      themeData: {
-        ...theme.theme_data,
-        description: theme.description,
-      },
+      themeData: theme.theme_data,
       description: theme.description,
       guid: getGuid(theme),
       platformFiles: {
@@ -249,26 +245,6 @@ describe(__filename, () => {
         url: 'https://a.m.o/files/somewhere.xpi',
       },
     });
-  });
-
-  it('does not use description from theme_data', () => {
-    // See: https://github.com/mozilla/addons-frontend/issues/2569
-    // Can be removed when
-    // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
-    const theme = {
-      ...fakeTheme,
-      description: null,
-      slug: 'baz',
-      id: 42,
-      theme_data: {
-        ...fakeTheme.theme_data,
-        description: 'None',
-        id: 42,
-      },
-    };
-    const state = addons({}, loadAddonResults({ addons: [theme] }));
-
-    expect(state.byID[theme.id].description).toEqual(null);
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {

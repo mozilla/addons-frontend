@@ -24,7 +24,6 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import * as themeInstall from 'core/themeInstall';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 import Icon from 'ui/components/Icon';
 import {
@@ -167,7 +166,7 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', false);
     expect(button).toHaveProp(
       'data-browsertheme',
-      JSON.stringify(themeInstall.getThemeData(addon)),
+      JSON.stringify(addon.themeData),
     );
     expect(button).toHaveProp('href', installURL);
     expect(button).toHaveProp('onClick', root.instance().installTheme);

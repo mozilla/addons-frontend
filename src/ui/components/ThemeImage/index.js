@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 
@@ -33,7 +34,9 @@ export const ThemeImageBase = ({
 
     let previewURL = getPreviewImage(addon);
     if (!previewURL && addon.type === ADDON_TYPE_THEME) {
-      previewURL = addon.previewURL;
+      invariant(addon.themeData, 'themeData is required');
+
+      previewURL = addon.themeData.previewURL;
     }
 
     return (

@@ -24,7 +24,6 @@ import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
-import { getThemeData } from 'core/themeInstall';
 import { isTheme } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
@@ -124,7 +123,7 @@ export class AddonBase extends React.Component<InternalProps> {
       imageLinkProps = {
         ...imageLinkProps,
         onClick: this.installTheme,
-        'data-browsertheme': JSON.stringify(getThemeData(addon)),
+        'data-browsertheme': JSON.stringify(addon.themeData),
       };
     }
 
