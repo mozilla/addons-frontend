@@ -50,10 +50,12 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
     const showCodeReviewLink = hasCodeReviewPermission && !isTheme(addon.type);
     const showThemeReviewLink = hasThemeReviewPermission && isTheme(addon.type);
+    const showContentReviewLink =
+      hasContentReviewPermission && !isTheme(addon.type);
     const hasALink =
       hasEditPermission ||
       hasAdminPermission ||
-      hasContentReviewPermission ||
+      showContentReviewLink ||
       showCodeReviewLink ||
       showThemeReviewLink;
 
@@ -95,7 +97,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         </li>
       ) : null;
 
-    const contentReviewLink = hasContentReviewPermission ? (
+    const contentReviewLink = showContentReviewLink ? (
       <li>
         <a
           className="AddonAdminLinks-contentReview-link"

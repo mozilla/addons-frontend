@@ -150,6 +150,19 @@ describe(__filename, () => {
     expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveLength(0);
   });
 
+  it('does not show a content review link for a theme', () => {
+    const root = renderWithPermissions({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        slug,
+      }),
+      permissions: [ADDONS_CONTENTREVIEW, ADDONS_EDIT],
+    });
+
+    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
+    expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveLength(0);
+  });
+
   it('shows a code review link for an extension if the user has permission', () => {
     const root = renderWithPermissions({ permissions: ADDONS_POSTREVIEW });
 
