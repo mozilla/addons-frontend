@@ -60,7 +60,7 @@
     padding-top: 0;
   }
 
-  .AddonReviewCard-ratingOnly.AddonReviewCard-verticalButtons & {
+  .AddonReviewCard-ratingOnly.AddonReviewCard-smallCard & {
     color: $text-color-default;
 
     &:active,
@@ -101,7 +101,7 @@
   width: auto;
 }
 
-.AddonReviewCard-verticalButtons {
+.AddonReviewCard-smallCard {
   .AddonReviewCard-control {
     margin: 0;
   }
@@ -177,7 +177,7 @@
 }
 
 /* stylelint-disable */
-.AddonReviewCard:not(.AddonReviewCard-verticalButtons)
+.AddonReviewCard:not(.AddonReviewCard-smallCard)
   .AddonReviewCard-confirmDeleteDialog {
   /* stylelint-enable */
   flex-direction: column;

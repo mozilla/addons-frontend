@@ -53,8 +53,7 @@ type Props = {|
   shortByLine?: boolean,
   showControls?: boolean,
   showRating?: boolean,
-  // TODO: rename to smallCard ?
-  verticalButtons?: boolean,
+  smallCard?: boolean,
 |};
 
 type InternalProps = {|
@@ -81,7 +80,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     shortByLine: false,
     showControls: true,
     showRating: true,
-    verticalButtons: false,
+    smallCard: false,
   };
 
   onBeginDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
@@ -247,9 +246,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 
   confirmDeleteButtonText() {
-    const { i18n, verticalButtons } = this.props;
+    const { i18n, smallCard } = this.props;
 
-    if (!verticalButtons) {
+    if (!smallCard) {
       return i18n.gettext('Delete');
     }
 
@@ -265,9 +264,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 
   cancelDeleteButtonText() {
-    const { i18n, verticalButtons } = this.props;
+    const { i18n, smallCard } = this.props;
 
-    if (!verticalButtons) {
+    if (!smallCard) {
       return i18n.gettext('Cancel');
     }
 
@@ -364,7 +363,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       showControls,
       showRating,
       siteUser,
-      verticalButtons,
+      smallCard,
     } = this.props;
 
     let byLine;
@@ -410,7 +409,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     }
 
     let controlsAreVisible = showControls;
-    if (beginningToDeleteReview && !verticalButtons) {
+    if (beginningToDeleteReview && !smallCard) {
       controlsAreVisible = false;
     }
 
@@ -493,7 +492,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         className={makeClassName('AddonReviewCard', className, {
           'AddonReviewCard-ratingOnly': this.isRatingOnly(),
           'AddonReviewCard-viewOnly': !editingReview,
-          'AddonReviewCard-verticalButtons': verticalButtons,
+          'AddonReviewCard-smallCard': smallCard,
         })}
       >
         <div className="AddonReviewCard-container">
@@ -502,7 +501,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           _config.get('enableFeatureInlineAddonReview') ? (
             <AddonReviewManager
               onCancel={this.onCancelEditReview}
-              puffyButtons={Boolean(verticalButtons)}
+              puffyButtons={Boolean(smallCard)}
               review={review}
             />
           ) : (
@@ -524,8 +523,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             confirmButtonText={this.confirmDeleteButtonText()}
             onCancel={this.onCancelDeleteReview}
             onConfirm={this.onClickToDeleteReview}
-            message={verticalButtons ? undefined : this.confirmDeletePrompt()}
-            puffyButtons={verticalButtons}
+            message={smallCard ? undefined : this.confirmDeletePrompt()}
+            puffyButtons={smallCard}
           />
         )}
         {this.renderReply()}

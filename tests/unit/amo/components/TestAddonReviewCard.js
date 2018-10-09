@@ -248,7 +248,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const editButton = renderControls(root).find('.AddonReviewCard-edit');
     expect(editButton).toHaveLength(0);
@@ -315,7 +315,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
@@ -324,7 +324,7 @@ describe(__filename, () => {
 
   it('renders a delete link for a user review', () => {
     const review = signInAndDispatchSavedReview();
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
@@ -355,7 +355,7 @@ describe(__filename, () => {
   it('begins deleting when clicking a delete link for a review', () => {
     const review = signInAndDispatchSavedReview();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
@@ -387,7 +387,7 @@ describe(__filename, () => {
       externalReview: fakeRatingOnly,
     });
     store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
     expect(dialog).toHaveProp('cancelButtonText', 'Keep rating');
@@ -399,19 +399,19 @@ describe(__filename, () => {
       externalReview: fakeReview,
     });
     store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
     expect(dialog).toHaveProp('cancelButtonText', 'Keep review');
     expect(dialog).toHaveProp('confirmButtonText', 'Delete review');
   });
 
-  it('does not render a confirmation message for verticalButtons=true', () => {
+  it('does not render a confirmation message for smallCard=true', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeReview,
     });
     store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
     expect(dialog).toHaveProp('message', undefined);
@@ -500,7 +500,7 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render({ review, verticalButtons: true });
+    const root = render({ review, smallCard: true });
 
     const controls = renderControls(root);
     expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(1);
@@ -523,7 +523,7 @@ describe(__filename, () => {
     });
     errorHandler.handle(new Error('some unexpected error'));
 
-    const root = render({ errorHandler, review, verticalButtons: true });
+    const root = render({ errorHandler, review, smallCard: true });
 
     const controls = renderControls(root);
     expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(0);
@@ -985,11 +985,11 @@ describe(__filename, () => {
       expect(manager).toHaveProp('puffyButtons', false);
     });
 
-    it('configures AddonReviewManager with puffyButtons when verticalButtons=true', () => {
+    it('configures AddonReviewManager with puffyButtons when smallCard=true', () => {
       const review = signInAndDispatchSavedReview();
       store.dispatch(showEditReviewForm({ reviewId: review.id }));
 
-      const root = render({ review, verticalButtons: true });
+      const root = render({ review, smallCard: true });
 
       const manager = root.find(AddonReviewManager);
       expect(manager).toHaveProp('puffyButtons', true);
@@ -1315,7 +1315,7 @@ describe(__filename, () => {
       );
     });
 
-    it('renders a confirm button for deleting a reply when verticalButtons=true', () => {
+    it('renders a confirm button for deleting a reply when smallCard=true', () => {
       const originalReviewId = 543;
       const developerUserId = 321;
       const review = signInAndDispatchSavedReview({
@@ -1326,7 +1326,7 @@ describe(__filename, () => {
       const root = renderReply({
         originalReviewId,
         reply: review,
-        verticalButtons: true,
+        smallCard: true,
       });
 
       const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
