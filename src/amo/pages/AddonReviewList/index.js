@@ -316,6 +316,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         {addon && (
           <Helmet>
             <title>{header}</title>
+            {reviewId && <meta name="robots" content="noindex, follow" />}
           </Helmet>
         )}
 
