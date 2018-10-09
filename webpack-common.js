@@ -25,7 +25,11 @@ if (config.get('enablePostCssLoader')) {
   );
 }
 
-export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
+export function getRules({
+  babelOptions,
+  bundleStylesWithJs = false,
+  includeBabelLoader = true,
+} = {}) {
   let styleRules;
 
   if (bundleStylesWithJs) {
@@ -118,13 +122,20 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
     ];
   }
 
-  return [
-    {
+  let babelLoader = {};
+  // The main purpose for this is when we call getRules from the storybook setup
+  // (stories), it causes flow not to work.
+  if (includeBabelLoader) {
+    babelLoader = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
       options: babelOptions,
-    },
+    };
+  }
+
+  return [
+    babelLoader,
     ...styleRules,
     {
       test: /\.svg$/,
