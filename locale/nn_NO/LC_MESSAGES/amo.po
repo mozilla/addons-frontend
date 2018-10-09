@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:07+0000\n"
+"POT-Creation-Date: 2018-10-09 22:03+0000\n"
 "PO-Revision-Date: 2018-08-27 14:16+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -862,12 +862,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Rapportert som ein feilrapport eller brukarstøtteførespurnad"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Flagga"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Flagg"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Flagga"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
