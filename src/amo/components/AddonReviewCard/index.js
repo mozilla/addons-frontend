@@ -305,6 +305,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       i18n,
       replyingToReview,
       review,
+      smallCard,
       submittingReply,
     } = this.props;
 
@@ -338,6 +339,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             addon={addon}
             isReplyToReviewId={review.id}
             review={review.reply}
+            smallCard={smallCard}
           />
         )}
       </div>
@@ -487,6 +489,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return (
       <div
         className={makeClassName('AddonReviewCard', className, {
+          'AddonReviewCard-isReply': this.isReply(),
           'AddonReviewCard-ratingOnly': this.isRatingOnly(),
           'AddonReviewCard-viewOnly': !editingReview,
           'AddonReviewCard-smallCard': smallCard,

@@ -5,6 +5,10 @@
     height: $default-line-height;
   }
 
+  &:not(.AddonReviewCard-smallCard) .UserReview-body {
+    margin-bottom: 18px;
+  }
+
   .UserReview-byLine {
     flex-wrap: wrap;
   }
@@ -28,7 +32,7 @@
 .AddonReviewCard-allControls {
   align-items: flex-start;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-top: 0;
 
   a,
@@ -73,10 +77,10 @@
 }
 
 .AddonReviewCard-control {
-  @include margin-start(6px);
+  @include margin-end(6px);
 
   @include respond-to(medium) {
-    @include margin-start(24px);
+    @include margin-end(24px);
   }
 
   .Icon-reply-arrow {
@@ -165,7 +169,7 @@
   }
 
   /* stylelint-disable */
-  &.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly)
+  &.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly):not(.AddonReviewCard-isReply)
     > .AddonReviewCard-container {
     /* stylelint-enable */
     background-color: transparentize($blue-50, 0.95);
