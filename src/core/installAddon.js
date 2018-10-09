@@ -246,6 +246,11 @@ export const findInstallURL = ({
   const installURL = platformFile && platformFile.url;
 
   if (!installURL) {
+    // This could happen for themes which do not have version files.
+    log.debug(
+      oneLine` No file exists for os "${userAgentInfo.os.toString()}"; platform files:`,
+      platformFiles,
+    );
     return undefined;
   }
 

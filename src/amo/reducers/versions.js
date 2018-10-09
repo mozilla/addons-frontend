@@ -2,8 +2,8 @@
 import invariant from 'invariant';
 
 import { createPlatformFiles } from 'core/reducers/addons';
-import type { UserAgentInfoType } from 'core/reducers/api';
 import { findFileForPlatform } from 'core/utils';
+import type { UserAgentInfoType } from 'core/reducers/api';
 import type {
   AddonCompatibilityType,
   ExternalAddonVersionType,
