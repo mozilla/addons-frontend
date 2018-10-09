@@ -14,12 +14,4 @@ module.exports = {
   module: {
     rules: [...getRules({ babelOptions, bundleStylesWithJs: true })],
   },
-  plugins: [...getPlugins({ includeCircularDependencyPlugin: false })],
-  resolve: {
-    alias: {
-      normalize: 'normalize.css/normalize.css',
-      tests: path.resolve('./tests'),
-    },
-    modules: [path.resolve('./src'), 'node_modules'],
-  },
 };
