@@ -86,7 +86,7 @@ describe(__filename, () => {
     expect(Object.keys(state.byID).sort()).toEqual(['123', '456']);
   });
 
-  it('store all add-on slugs with their IDs', () => {
+  it('stores all add-on slugs with their IDs', () => {
     const addonResults = [
       { ...fakeAddon, slug: 'first-slug', id: 123 },
       { ...fakeAddon, slug: 'second-slug', id: 456 },
@@ -98,6 +98,21 @@ describe(__filename, () => {
     expect(state.bySlug).toEqual({
       'first-slug': 123,
       'second-slug': 456,
+    });
+  });
+
+  it('stores all add-on slugs in lowercase', () => {
+    const addonResults = [
+      { ...fakeAddon, slug: 'FIRST', id: 123 },
+      { ...fakeAddon, slug: 'SeCond', id: 456 },
+    ];
+    const state = addons(
+      undefined,
+      loadAddons(createFetchAllAddonsResult(addonResults).entities),
+    );
+    expect(state.bySlug).toEqual({
+      first: 123,
+      second: 456,
     });
   });
 
@@ -558,6 +573,18 @@ describe(__filename, () => {
       expect(getAddonBySlug(state, 'slug')).toEqual(null);
     });
 
+    it('returns null when slug is null', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(getAddonBySlug(state, null)).toEqual(null);
+    });
+
+    it('returns null when slug is undefined', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(getAddonBySlug(state, undefined)).toEqual(null);
+    });
+
     it('returns an add-on by slug', () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
@@ -565,6 +592,15 @@ describe(__filename, () => {
       expect(getAddonBySlug(store.getState(), fakeAddon.slug)).toEqual(
         createInternalAddon(fakeAddon),
       );
+    });
+
+    it('is case insensitive', () => {
+      const { store } = dispatchClientMetadata();
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
+
+      expect(
+        getAddonBySlug(store.getState(), fakeAddon.slug.toUpperCase()),
+      ).toEqual(createInternalAddon(fakeAddon));
     });
   });
 
@@ -628,6 +664,42 @@ describe(__filename, () => {
       expect(isAddonLoading({ addons: state }, slug)).toBe(true);
     });
 
+    it('is case insensitive', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({
+          slug,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(isAddonLoading({ addons: state }, slug.toUpperCase())).toBe(true);
+    });
+
+    it('returns false when slug is null', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({
+          slug,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(isAddonLoading({ addons: state }, null)).toBe(false);
+    });
+
+    it('returns false when slug is undefined', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({
+          slug,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(isAddonLoading({ addons: state }, undefined)).toBe(false);
+    });
+
     it('returns false for an add-on that has finished loading', () => {
       const slug = 'some-slug';
       const addonResults = [{ ...fakeAddon, slug }];
@@ -651,7 +723,8 @@ describe(__filename, () => {
     it('unloads all data for an add-on', () => {
       const guid1 = '1@mozilla.com';
       const id1 = 1;
-      const slug1 = 'slug-1';
+      // Keep this slug in uppercase to make sure we unload it.
+      const slug1 = 'SLUG-1';
       const guid2 = '2@mozilla.com';
       const id2 = 2;
       const slug2 = 'slug-2';
@@ -680,8 +753,8 @@ describe(__filename, () => {
 
       expect(state.byGUID[addon1.guid]).toEqual(undefined);
       expect(state.byID[addon1.id]).toEqual(undefined);
-      expect(state.bySlug[addon1.slug]).toEqual(undefined);
-      expect(state.loadingBySlug[addon1.slug]).toEqual(false);
+      expect(state.bySlug).toEqual({ [slug2]: id2 });
+      expect(state.loadingBySlug).toEqual({ [slug2]: false });
     });
   });
 });

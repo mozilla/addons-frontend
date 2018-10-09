@@ -125,9 +125,10 @@ export class AddonBase extends React.Component {
       const { slug } = params;
 
       if (addon) {
-        // We want to make sure the slug converts to a positive
-        // number/ID before we try redirecting.
-        if (slugIsPositiveID(slug)) {
+        // We want to make sure the slug converts to a positive number/ID
+        // before we try redirecting. We also want to make sure the case of the
+        // slug parameter matches the add-on's slug case.
+        if (slugIsPositiveID(slug) || addon.slug !== slug) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
           dispatch(

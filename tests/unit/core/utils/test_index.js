@@ -23,6 +23,7 @@ import {
   apiAddonType,
   apiAddonTypeIsValid,
   convertBoolean,
+  decodeHtmlEntities,
   getAddonTypeFilter,
   getCategoryColor,
   getClientApp,
@@ -37,9 +38,8 @@ import {
   safePromise,
   sanitizeHTML,
   sanitizeUserHTML,
-  decodeHtmlEntities,
-  visibleAddonType,
   trimAndAddProtocolToUrl,
+  visibleAddonType,
 } from 'core/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';

@@ -23,18 +23,21 @@ import {
   deleteCollectionAddonNotes,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
+  getCurrentCollection,
   loadCurrentCollection,
   removeAddonFromCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import {
+  CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
   INSTALL_SOURCE_COLLECTION,
   INSTALL_SOURCE_FEATURED_COLLECTION,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   createFakeEvent,
   createFakeHistory,
@@ -536,30 +539,6 @@ describe(__filename, () => {
         ...newParams,
       }),
     );
-  });
-
-  it('compares username values in lower case', () => {
-    const username = 'Mozilla';
-    const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata();
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({ authorUsername: username }),
-    });
-
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    const wrapper = renderComponent({ errorHandler, store });
-    fakeDispatch.resetHistory();
-
-    wrapper.setProps({
-      match: {
-        params: { slug: defaultSlug, username: username.toLowerCase() },
-      },
-    });
-
-    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('dispatches fetchCurrentCollection when slug param has changed', () => {
@@ -1391,6 +1370,67 @@ describe(__filename, () => {
         username: detail.author.username,
       }),
     );
+  });
+  it('sends a server redirect when username is not lower case', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    _loadCurrentCollection({ store });
+
+    fakeDispatch.resetHistory();
+
+    const collection = getCurrentCollection(store.getState().collections);
+
+    const params = {
+      slug: collection.slug,
+      username: collection.authorUsername.toUpperCase(),
+    };
+    renderComponent({ match: { params }, store });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/${clientApp}/collections/${collection.authorUsername}/${
+          collection.slug
+        }/`,
+      }),
+    );
+    sinon.assert.calledOnce(fakeDispatch);
+  });
+
+  it('sends a server redirect when slug is not lower case', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    _loadCurrentCollection({ store });
+
+    fakeDispatch.resetHistory();
+
+    const collection = getCurrentCollection(store.getState().collections);
+
+    const params = {
+      slug: collection.slug.toUpperCase(),
+      username: collection.authorUsername,
+    };
+    renderComponent({ match: { params }, store });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/${clientApp}/collections/${collection.authorUsername}/${
+          collection.slug
+        }/`,
+      }),
+    );
+    sinon.assert.calledOnce(fakeDispatch);
   });
 
   describe('errorHandler - extractId', () => {
