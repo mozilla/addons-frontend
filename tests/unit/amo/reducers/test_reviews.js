@@ -2,6 +2,8 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
   SAVED_RATING,
+  beginDeleteAddonReview,
+  cancelDeleteAddonReview,
   deleteAddonReview,
   unloadAddonReviews,
   createInternalReview,
@@ -662,6 +664,37 @@ describe(__filename, () => {
     });
   });
 
+  describe('beginDeleteAddonReview', () => {
+    it('stores view state about beginning to delete a review', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(
+        undefined,
+        beginDeleteAddonReview({ reviewId: review.id }),
+      );
+
+      expect(state.view[review.id].beginningToDeleteReview).toEqual(true);
+    });
+  });
+
+  describe('cancelDeleteAddonReview', () => {
+    it('stores view state about cancelling deleting a review', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      let state;
+      state = reviewsReducer(
+        state,
+        beginDeleteAddonReview({ reviewId: review.id }),
+      );
+      state = reviewsReducer(
+        state,
+        cancelDeleteAddonReview({ reviewId: review.id }),
+      );
+
+      expect(state.view[review.id].beginningToDeleteReview).toEqual(false);
+    });
+  });
+
   describe('review flagging', () => {
     it('stores view state about flagging a review', () => {
       const review = { ...fakeReview, id: 837 };
@@ -790,6 +823,7 @@ describe(__filename, () => {
       });
 
       expect(state.view[review.id]).toEqual({
+        beginningToDeleteReview: false,
         deletingReview: false,
         editingReview: false,
         flag: {},
@@ -1347,6 +1381,26 @@ describe(__filename, () => {
       );
 
       expect(state.view[review.id].deletingReview).toEqual(true);
+    });
+
+    it('exits beginDeleteAddonReview state', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      let state;
+      state = reviewsReducer(
+        state,
+        beginDeleteAddonReview({ reviewId: review.id }),
+      );
+      state = reviewsReducer(
+        state,
+        deleteAddonReview({
+          addonId: fakeAddon.id,
+          errorHandlerId: 'some-id',
+          reviewId: review.id,
+        }),
+      );
+
+      expect(state.view[review.id].beginningToDeleteReview).toEqual(false);
     });
   });
 

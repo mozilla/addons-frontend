@@ -12,19 +12,10 @@
   .DismissibleTextForm-buttons {
     margin-top: 6px;
   }
-}
 
-.AddonReviewCard-verticalButtons {
-  .DismissibleTextForm-buttons {
-    display: flex;
-    flex-direction: column-reverse;
-    margin-top: 24px;
-  }
-
-  .DismissibleTextForm-dismiss {
-    margin-top: 12px;
-    text-align: center;
-    width: 100%;
+  .ErrorList .ErrorList-item {
+    margin: 0;
+    padding: 12px 0;
   }
 }
 
@@ -35,13 +26,10 @@
 }
 
 .AddonReviewCard-allControls {
+  align-items: flex-start;
   display: flex;
   justify-content: flex-end;
   margin-top: 0;
-
-  .ConfirmationDialog-buttons {
-    flex-flow: row-reverse;
-  }
 
   a:link,
   a:visited,
@@ -53,39 +41,32 @@
       text-decoration: none;
     }
   }
-
-  /* stylelint-disable */
-  .AddonReviewCard-ratingOnly.AddonReviewCard-verticalButtons
-    &
-    .ConfirmButton-default-button {
-    color: $text-color-default;
-    /* stylelint-enable */
-
-    &:active,
-    &:hover {
-      color: $link-color;
-    }
-  }
 }
 
 .AddonReviewCard-delete {
-  .ConfirmationDialog-cancel-button,
-  .ConfirmationDialog-confirm-button {
-    margin: 0 6px;
+  background: none;
+  border: 0;
+  color: $blue-50;
+  font-size: $font-size-s;
+  height: auto;
+  line-height: $default-line-height;
+  padding: 0;
+
+  &.Button.Button--neutral:hover {
+    background: none;
   }
 
-  .ConfirmationDialog-cancel-button,
-  .ConfirmationDialog-confirm-button,
-  .ConfirmButton-default-button {
-    font-size: $font-size-s;
+  &.Button.Button--neutral:active {
+    padding-top: 0;
   }
 
-  .ConfirmButton-default-button {
-    align-items: flex-start;
-    border: 0;
-    color: $blue-50;
-    height: auto;
-    padding: 0;
+  .AddonReviewCard-ratingOnly.AddonReviewCard-verticalButtons & {
+    color: $text-color-default;
+
+    &:active,
+    &:hover {
+      color: $blue-50;
+    }
   }
 }
 
@@ -118,4 +99,119 @@
 .AddonReviewCard-writeReviewButton {
   margin-top: 12px;
   width: auto;
+}
+
+.AddonReviewCard-verticalButtons {
+  .AddonReviewCard-control {
+    margin: 0;
+  }
+
+  .AddonReviewCard-allControls {
+    justify-content: space-between;
+  }
+
+  &.AddonReviewCard-ratingOnly {
+    .AddonReviewCard-allControls {
+      justify-content: center;
+    }
+
+    .UserReview-byLine {
+      display: none;
+    }
+  }
+
+  .AddonReviewCard-confirmDeleteDialog {
+    margin-top: 12px;
+    text-align: center;
+    width: 100%;
+
+    .ConfirmationDialog-buttons {
+      display: block;
+    }
+
+    .ConfirmationDialog-cancel-button,
+    .ConfirmationDialog-confirm-button {
+      font-size: $font-size-puffy-buttons;
+      margin: 0;
+      width: 100%;
+    }
+
+    .ConfirmationDialog-cancel-button {
+      margin-top: 12px;
+    }
+  }
+
+  .AddonReviewCard-writeReviewButton {
+    width: 100%;
+  }
+
+  .DismissibleTextForm-delete-submit-buttons,
+  .DismissibleTextForm-submit {
+    width: 100%;
+  }
+
+  .DismissibleTextForm-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 24px;
+  }
+
+  .DismissibleTextForm-dismiss {
+    margin-top: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* stylelint-disable */
+  &.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly)
+    > .AddonReviewCard-container {
+    /* stylelint-enable */
+    background-color: transparentize($blue-50, 0.95);
+    border-radius: $border-radius-default;
+    padding: 12px;
+
+    @include respond-to(medium) {
+      padding: 12px 24px 12px 24px;
+    }
+  }
+}
+
+/* stylelint-disable */
+.AddonReviewCard:not(.AddonReviewCard-verticalButtons)
+  .AddonReviewCard-confirmDeleteDialog {
+  /* stylelint-enable */
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 6px;
+
+  @include respond-to(medium) {
+    flex-direction: row;
+  }
+
+  &,
+  .ConfirmationDialog-buttons {
+    align-items: center;
+    column-gap: 12px;
+    display: flex;
+  }
+
+  .ConfirmationDialog-buttons {
+    flex-direction: row;
+
+    .Button {
+      margin: 0;
+    }
+
+    &,
+    .Button {
+      width: 100%;
+    }
+
+    @include respond-to(medium) {
+      &,
+      .Button {
+        width: auto;
+      }
+    }
+  }
 }
