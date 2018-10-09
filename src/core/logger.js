@@ -1,6 +1,7 @@
 import config from 'config';
 
 let pino = null;
+let httpContext = null;
 if (process.env.NODE_ENV === 'test') {
   // We explicitely require the "browser" (client) version of Pino to write
   // logs with `console` and not `stdout` so that Jest can handle the output.
@@ -14,11 +15,32 @@ if (process.env.NODE_ENV === 'test') {
   //
   // eslint-disable-next-line global-require
   pino = require('pino');
+  // We do not require httpContext in the test suite because it eats all the
+  // memory we have (and more...).
+  //
+  // eslint-disable-next-line global-require
+  httpContext = require('universal-express-http-context');
 }
 
-const appName = config.get('appName');
-
-export default pino({
+const pinoLogger = pino({
   level: config.get('loggingLevel'),
-  name: appName,
+  name: config.get('appName'),
 });
+
+export default ['debug', 'error', 'fatal', 'info', 'trace', 'warn'].reduce(
+  (decoratedLogger, level) => {
+    return {
+      ...decoratedLogger,
+      [level]: (...args) => {
+        const requestId = httpContext && httpContext.get('amo-request-id');
+
+        if (requestId) {
+          pinoLogger[level]({ amo_request_id: requestId }, ...args);
+        } else {
+          pinoLogger[level](...args);
+        }
+      },
+    };
+  },
+  {},
+);
