@@ -572,12 +572,26 @@ describe(__filename, () => {
 
       const state = reviewsReducer(
         undefined,
-        showEditReviewForm({
-          reviewId: review.id,
-        }),
+        showEditReviewForm({ reviewId: review.id }),
       );
 
       expect(state.view[review.id].editingReview).toEqual(true);
+    });
+
+    it('exits beginDeleteAddonReview state', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      let state;
+      state = reviewsReducer(
+        state,
+        beginDeleteAddonReview({ reviewId: review.id }),
+      );
+      state = reviewsReducer(
+        state,
+        showEditReviewForm({ reviewId: review.id }),
+      );
+
+      expect(state.view[review.id].beginningToDeleteReview).toEqual(false);
     });
   });
 
@@ -587,12 +601,26 @@ describe(__filename, () => {
 
       const state = reviewsReducer(
         undefined,
-        showReplyToReviewForm({
-          reviewId: review.id,
-        }),
+        showReplyToReviewForm({ reviewId: review.id }),
       );
 
       expect(state.view[review.id].replyingToReview).toEqual(true);
+    });
+
+    it('exits beginDeleteAddonReview state', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      let state;
+      state = reviewsReducer(
+        state,
+        beginDeleteAddonReview({ reviewId: review.id }),
+      );
+      state = reviewsReducer(
+        state,
+        showReplyToReviewForm({ reviewId: review.id }),
+      );
+
+      expect(state.view[review.id].beginningToDeleteReview).toEqual(false);
     });
   });
 

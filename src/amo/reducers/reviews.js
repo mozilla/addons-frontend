@@ -384,13 +384,13 @@ export default function reviewsReducer(
       return changeViewState({
         state,
         reviewId: action.payload.reviewId,
-        stateChange: { editingReview: true },
+        stateChange: { beginningToDeleteReview: false, editingReview: true },
       });
     case SHOW_REPLY_TO_REVIEW_FORM:
       return changeViewState({
         state,
         reviewId: action.payload.reviewId,
-        stateChange: { replyingToReview: true },
+        stateChange: { beginningToDeleteReview: false, replyingToReview: true },
       });
     case HIDE_EDIT_REVIEW_FORM:
       return changeViewState({
