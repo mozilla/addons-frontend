@@ -69,7 +69,6 @@ describe(__filename, () => {
       _getClientCompatibility: () => ({ compatible: true, reason: null }),
       addonId: addon.id,
       description,
-      getBrowserThemeData: () => '{"theme":"data"}',
       heading,
       i18n: fakeI18n(),
       store,

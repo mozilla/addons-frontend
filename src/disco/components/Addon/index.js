@@ -24,6 +24,7 @@ import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
+import { getThemeData } from 'core/themeInstall';
 import { isTheme } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
@@ -58,7 +59,6 @@ type InternalProps = {|
   clientApp: string,
   defaultInstallSource: string,
   error: string | void,
-  getBrowserThemeData: () => string,
   i18n: I18nType,
   status: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
@@ -108,7 +108,7 @@ export class AddonBase extends React.Component<InternalProps> {
   }
 
   getThemeImage() {
-    const { addon, getBrowserThemeData, hasAddonManager } = this.props;
+    const { addon, hasAddonManager } = this.props;
 
     if (!addon || !isTheme(addon.type)) {
       return null;
@@ -124,7 +124,7 @@ export class AddonBase extends React.Component<InternalProps> {
       imageLinkProps = {
         ...imageLinkProps,
         onClick: this.installTheme,
-        'data-browsertheme': getBrowserThemeData(),
+        'data-browsertheme': JSON.stringify(getThemeData(addon)),
       };
     }
 

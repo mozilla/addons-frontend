@@ -9,7 +9,7 @@ import config from 'config';
 import { getAddonIconUrl } from 'core/imageUtils';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
-import themeInstall, { getThemeData } from 'core/themeInstall';
+import themeInstall from 'core/themeInstall';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
@@ -581,19 +581,6 @@ export class WithInstallHelpers extends React.Component<
   }
 }
 
-// We cannot use `AppState` because it depends on the app (amo or disco).
-// eslint-disable-next-line amo/redux-app-state
-export function mapStateToProps(
-  state: Object,
-  ownProps: WithInstallHelpersProps,
-) {
-  return {
-    getBrowserThemeData() {
-      return JSON.stringify(getThemeData(ownProps.addon));
-    },
-  };
-}
-
 export function makeMapDispatchToProps({
   WrappedComponent,
   defaultInstallSource,
@@ -655,7 +642,7 @@ export function withInstallHelpers({
     )})`;
 
     return connect(
-      mapStateToProps,
+      undefined,
       _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
     )(WithInstallHelpers);
   };
