@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-03 14:36+0000\n"
+"POT-Creation-Date: 2018-10-09 21:10+0000\n"
 "PO-Revision-Date: 2018-08-24 13:36+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,14 +40,14 @@ msgid "Uninstalling"
 msgstr "Se wótinstalěrujo"
 
 #: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:265
-#: src/core/components/InstallButton/index.js:311
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:282
 msgid "Install Theme"
 msgstr "Drastwu instalěrowaś"
 
 #: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:296
-#: src/core/components/InstallButton/index.js:312
+#: src/core/components/InstallButton/index.js:267
+#: src/core/components/InstallButton/index.js:283
 msgid "Add to Firefox"
 msgstr "Programoju Firefox pśidaś"
 
@@ -117,27 +117,27 @@ msgstr "%(name)s jo wótinstalěrowany. Klikniśo na „Instalěrowaś“."
 msgid "Install state for %(name)s is unknown."
 msgstr "Instalěrowański status za %(name)s jo njeznaty."
 
-#: src/core/utils/addons.js:24
+#: src/core/utils/addons.js:27
 msgid "Installation failed. Please try again."
 msgstr "Instalacija njejo se raźiła. Pšosym wopytajśo hyšći raz."
 
-#: src/core/utils/addons.js:26
+#: src/core/utils/addons.js:29
 msgid "Download failed. Please check your connection."
 msgstr "Ześěgnjenje njejo se raźiło. Pšosym pśeglědujśo swój zwisk."
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:31
 msgid "An unexpected error occurred during installation."
 msgstr "Njewótcakana zmólka jo pśi instalěrowanju nastała."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewótcakana zmólka jo pśi wótinstalěrowanju nastała."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred."
 msgstr "Njewótcakana zmólka jo nastała."
 
-#: src/disco/components/Addon/index.js:84
+#: src/disco/components/Addon/index.js:88
 msgid "Close"
 msgstr "Zacyniś"
 
@@ -161,15 +161,15 @@ msgstr "Dodanki namakaś"
 msgid "Privacy Policy"
 msgstr "Pšawidła priwatnosći"
 
-#: src/disco/pages/DiscoPane/index.js:136
+#: src/disco/pages/DiscoPane/index.js:131
 msgid "Find more add-ons"
 msgstr "Woglědajśo se dalšne dodanki"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:147
 msgid "Personalize Your Firefox"
 msgstr "Pśiměŕśo swój Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:154
+#: src/disco/pages/DiscoPane/index.js:149
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

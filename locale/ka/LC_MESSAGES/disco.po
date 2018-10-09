@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-03 14:36+0000\n"
+"POT-Creation-Date: 2018-10-09 21:10+0000\n"
 "PO-Revision-Date: 2018-08-24 20:24+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,14 +39,14 @@ msgid "Uninstalling"
 msgstr "იშლება"
 
 #: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:265
-#: src/core/components/InstallButton/index.js:311
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:282
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
 #: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:296
-#: src/core/components/InstallButton/index.js:312
+#: src/core/components/InstallButton/index.js:267
+#: src/core/components/InstallButton/index.js:283
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -115,27 +115,27 @@ msgstr "%(name)s წაშლილია. დააწკაპეთ დას
 msgid "Install state for %(name)s is unknown."
 msgstr "დაყენების მდგომარეობა %(name)s-ის შესახებ, დაუდგენელია."
 
-#: src/core/utils/addons.js:24
+#: src/core/utils/addons.js:27
 msgid "Installation failed. Please try again."
 msgstr "დაყენება ვერ მოხერხდა. სცადეთ მოგვიანებით."
 
-#: src/core/utils/addons.js:26
+#: src/core/utils/addons.js:29
 msgid "Download failed. Please check your connection."
 msgstr "ჩამოტვირთვა ვერ მოხერხდა. გთხოვთ შეამოწმოთ ქსელთან კავშირი."
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:31
 msgid "An unexpected error occurred during installation."
 msgstr "მოულოდნელი შეცდომა დაყენებისას."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during uninstallation."
 msgstr "მოულოდნელი შეცდომა ამოშლისას."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred."
 msgstr "მოულოდნელი შეცდომა."
 
-#: src/disco/components/Addon/index.js:84
+#: src/disco/components/Addon/index.js:88
 msgid "Close"
 msgstr "დახურვა"
 
@@ -159,15 +159,15 @@ msgstr "აღმოაჩინეთ ახალი დამატებე�
 msgid "Privacy Policy"
 msgstr "პირადულობის დაცვა"
 
-#: src/disco/pages/DiscoPane/index.js:136
+#: src/disco/pages/DiscoPane/index.js:131
 msgid "Find more add-ons"
 msgstr "სხვა დამატებების მოძიება"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:147
 msgid "Personalize Your Firefox"
 msgstr "მოირგეთ თქვენი Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:154
+#: src/disco/pages/DiscoPane/index.js:149
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

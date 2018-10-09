@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-03 14:36+0000\n"
+"POT-Creation-Date: 2018-10-09 21:10+0000\n"
 "PO-Revision-Date: 2018-08-25 10:01+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -39,14 +39,14 @@ msgid "Uninstalling"
 msgstr "Disinstallazione in corso…"
 
 #: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:265
-#: src/core/components/InstallButton/index.js:311
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:282
 msgid "Install Theme"
 msgstr "Installa tema"
 
 #: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:296
-#: src/core/components/InstallButton/index.js:312
+#: src/core/components/InstallButton/index.js:267
+#: src/core/components/InstallButton/index.js:283
 msgid "Add to Firefox"
 msgstr "Aggiungi a Firefox"
 
@@ -118,29 +118,29 @@ msgstr ""
 msgid "Install state for %(name)s is unknown."
 msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
-#: src/core/utils/addons.js:24
+#: src/core/utils/addons.js:27
 msgid "Installation failed. Please try again."
 msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
-#: src/core/utils/addons.js:26
+#: src/core/utils/addons.js:29
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Non è riuscito il download del componente aggiuntivo. Controlla la "
 "connessione alla rete."
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:31
 msgid "An unexpected error occurred during installation."
 msgstr "Si è verificato un errore inatteso durante l’installazione."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Si è verificato un errore inatteso durante la disinstallazione."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore inatteso."
 
-#: src/disco/components/Addon/index.js:84
+#: src/disco/components/Addon/index.js:88
 msgid "Close"
 msgstr "Chiudi"
 
@@ -165,15 +165,15 @@ msgstr "Alla scoperta dei componenti aggiuntivi"
 msgid "Privacy Policy"
 msgstr "Informativa sulla privacy"
 
-#: src/disco/pages/DiscoPane/index.js:136
+#: src/disco/pages/DiscoPane/index.js:131
 msgid "Find more add-ons"
 msgstr "Trova altri componenti aggiuntivi"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:147
 msgid "Personalize Your Firefox"
 msgstr "Personalizza Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:154
+#: src/disco/pages/DiscoPane/index.js:149
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

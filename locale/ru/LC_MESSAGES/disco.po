@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-03 14:36+0000\n"
+"POT-Creation-Date: 2018-10-09 21:10+0000\n"
 "PO-Revision-Date: 2018-08-26 12:25+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -40,14 +40,14 @@ msgid "Uninstalling"
 msgstr "Удаление"
 
 #: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:265
-#: src/core/components/InstallButton/index.js:311
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:282
 msgid "Install Theme"
 msgstr "Установить тему"
 
 #: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:296
-#: src/core/components/InstallButton/index.js:312
+#: src/core/components/InstallButton/index.js:267
+#: src/core/components/InstallButton/index.js:283
 msgid "Add to Firefox"
 msgstr "Добавить в Firefox"
 
@@ -116,27 +116,27 @@ msgstr "%(name)s удалено. Щёлкните, чтобы установит
 msgid "Install state for %(name)s is unknown."
 msgstr "Состояние установки %(name)s неизвестно."
 
-#: src/core/utils/addons.js:24
+#: src/core/utils/addons.js:27
 msgid "Installation failed. Please try again."
 msgstr "Установка не удалась. Пожалуйста, попробуйте позже."
 
-#: src/core/utils/addons.js:26
+#: src/core/utils/addons.js:29
 msgid "Download failed. Please check your connection."
 msgstr "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:31
 msgid "An unexpected error occurred during installation."
 msgstr "При установке произошла непредвиденная ошибка."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during uninstallation."
 msgstr "При удалении произошла непредвиденная ошибка."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred."
 msgstr "Произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon/index.js:84
+#: src/disco/components/Addon/index.js:88
 msgid "Close"
 msgstr "Закрыть"
 
@@ -160,15 +160,15 @@ msgstr "Откройте для себя дополнения"
 msgid "Privacy Policy"
 msgstr "Политика приватности"
 
-#: src/disco/pages/DiscoPane/index.js:136
+#: src/disco/pages/DiscoPane/index.js:131
 msgid "Find more add-ons"
 msgstr "Найти больше дополнений"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:147
 msgid "Personalize Your Firefox"
 msgstr "Настройте под себя свой Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:154
+#: src/disco/pages/DiscoPane/index.js:149
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

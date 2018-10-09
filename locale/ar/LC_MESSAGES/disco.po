@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-03 14:36+0000\n"
+"POT-Creation-Date: 2018-10-09 21:10+0000\n"
 "PO-Revision-Date: 2018-09-13 06:38+0000\n"
 "Last-Translator: Ruba <ruba.awayes@gmail.com>\n"
 "Language-Team: none\n"
@@ -43,14 +43,14 @@ msgid "Uninstalling"
 msgstr "يُلغي تثبيت %(name)s."
 
 #: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:265
-#: src/core/components/InstallButton/index.js:311
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:282
 msgid "Install Theme"
 msgstr "ثبّت السمة"
 
 #: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:296
-#: src/core/components/InstallButton/index.js:312
+#: src/core/components/InstallButton/index.js:267
+#: src/core/components/InstallButton/index.js:283
 msgid "Add to Firefox"
 msgstr "أضِف إلى فَيَرفُكس"
 
@@ -118,27 +118,27 @@ msgstr "أُلغي تثبيت %(name)s. انقر لتثبيته."
 msgid "Install state for %(name)s is unknown."
 msgstr "حالة تثبيت %(name)s مجهولة."
 
-#: src/core/utils/addons.js:24
+#: src/core/utils/addons.js:27
 msgid "Installation failed. Please try again."
 msgstr "فشل التثبيت. رجاء أعِد المحاولة."
 
-#: src/core/utils/addons.js:26
+#: src/core/utils/addons.js:29
 msgid "Download failed. Please check your connection."
 msgstr "فشل التنزيل. رجاء افحص اتصالك."
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:31
 msgid "An unexpected error occurred during installation."
 msgstr "حدث عطل غير متوقع أثناء التثبيت."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during uninstallation."
 msgstr "حدث عطل غير متوقع أثناء إلغاء التثبيت."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred."
 msgstr "حدث عطل غير متوقع."
 
-#: src/disco/components/Addon/index.js:84
+#: src/disco/components/Addon/index.js:88
 msgid "Close"
 msgstr "أغلق"
 
@@ -162,16 +162,16 @@ msgstr "استكشف الإضافات"
 msgid "Privacy Policy"
 msgstr "سياسة الخصوصية"
 
-#: src/disco/pages/DiscoPane/index.js:136
+#: src/disco/pages/DiscoPane/index.js:131
 #, fuzzy
 msgid "Find more add-ons"
 msgstr "اطّلع على المزيد من الإضافات!"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:147
 msgid "Personalize Your Firefox"
 msgstr "خصّص فَيَرفُكس لديك"
 
-#: src/disco/pages/DiscoPane/index.js:154
+#: src/disco/pages/DiscoPane/index.js:149
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
