@@ -31,14 +31,16 @@
   justify-content: flex-end;
   margin-top: 0;
 
-  a:link,
-  a:visited,
-  a:hover,
-  a:active {
-    &:not(.Button) {
+  a,
+  button {
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
       color: $blue-50;
       font-weight: normal;
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 }
