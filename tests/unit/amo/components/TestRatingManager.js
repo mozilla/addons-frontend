@@ -614,17 +614,6 @@ describe(__filename, () => {
       expect(reviewCard).toHaveProp('review', createInternalReview(review));
     });
 
-    it('shows an AddonReviewCard with a larger button', () => {
-      const root = renderInline({
-        store: createStoreWithLatestReview(),
-      });
-
-      expect(root.find(AddonReviewCard)).toHaveProp(
-        'smallerWriteReviewButton',
-        false,
-      );
-    });
-
     it('shows controls by default', () => {
       const root = renderInline({
         store: createStoreWithLatestReview(),

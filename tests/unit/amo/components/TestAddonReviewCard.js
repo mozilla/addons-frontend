@@ -269,20 +269,6 @@ describe(__filename, () => {
     expect(root.find(UserReview)).toHaveProp('controls', null);
   });
 
-  it('does not render any controls when deletingReview', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(
-      deleteAddonReview({
-        addonId: fakeAddon.id,
-        errorHandlerId: 'some-error-handler',
-        reviewId: review.id,
-      }),
-    );
-    const root = render({ review });
-
-    expect(root.find(UserReview)).toHaveProp('controls', null);
-  });
-
   it('does not let you edit without a review', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ review: null });
@@ -1079,11 +1065,11 @@ describe(__filename, () => {
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
-    it('can render a larger write review button', () => {
+    it('will render a larger write review button for smallCard=true', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      const root = render({ review, smallerWriteReviewButton: false });
+      const root = render({ review, smallCard: true });
 
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveProp(
         'puffy',

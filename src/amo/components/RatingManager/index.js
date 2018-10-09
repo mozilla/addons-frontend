@@ -325,7 +325,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             showControls={!this.isMessageVisible()}
             showRating={false}
             smallCard
-            smallerWriteReviewButton={false}
           />
         )}
       </React.Fragment>
