@@ -13,6 +13,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { getCanonicalURL } from 'amo/utils';
 import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -48,6 +49,7 @@ export class CategoryBase extends React.Component {
     highlyRatedAddons: PropTypes.array,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
+    locationPathname: PropTypes.string.isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({
         slug: PropTypes.string,
@@ -229,12 +231,14 @@ export class CategoryBase extends React.Component {
 
   render() {
     const {
+      _config,
       categories,
       clientApp,
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
       loading,
+      locationPathname,
       match: { params },
       trendingAddons,
     } = this.props;
@@ -271,6 +275,10 @@ export class CategoryBase extends React.Component {
         {category && (
           <Helmet>
             <title>{`${category.name} – ${html.title}`}</title>
+            <link
+              rel="canonical"
+              href={getCanonicalURL({ locationPathname, _config })}
+            />
           </Helmet>
         )}
 
@@ -324,15 +332,16 @@ export class CategoryBase extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    categories: state.categories.categories,
-    clientApp: state.api.clientApp,
-    loading: state.categories.loading || state.landing.loading,
     addonTypeOfResults: state.landing.addonType,
+    categories: state.categories.categories,
     categoryOfResults: state.landing.category,
+    clientApp: state.api.clientApp,
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
-    trendingAddons: state.landing.trending.results,
+    loading: state.categories.loading || state.landing.loading,
+    locationPathname: state.router.location.pathname,
     resultsLoaded: state.landing.resultsLoaded,
+    trendingAddons: state.landing.trending.results,
   };
 }
 

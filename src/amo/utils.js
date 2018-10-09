@@ -1,12 +1,14 @@
+/* @flow */
 /* eslint camelcase: 0 */
 import base62 from 'base62';
+import config from 'config';
 
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import { makeQueryString } from 'core/api';
 
-export function getErrorComponent(status) {
+export function getErrorComponent(status: number | null) {
   switch (status) {
     case 401:
       return NotAuthorized;
@@ -38,11 +40,26 @@ export const makeQueryStringWithUTM = ({
   utm_medium = 'referral',
   utm_campaign = 'non-fx-button',
   utm_content,
-}) => {
+}: {|
+  utm_source?: string,
+  utm_medium?: string,
+  utm_campaign?: string,
+  utm_content: string,
+|}): string => {
   return makeQueryString({
     utm_source,
     utm_medium,
     utm_campaign,
     utm_content,
   });
+};
+
+export const getCanonicalURL = ({
+  _config = config,
+  locationPathname,
+}: {|
+  _config?: typeof config,
+  locationPathname: string,
+|}): string => {
+  return `${_config.get('baseURL')}${locationPathname}`;
 };

@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
@@ -9,6 +10,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
+import { getCanonicalURL } from 'amo/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import {
   ADDON_TYPE_DICT,
@@ -67,14 +69,20 @@ export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
 };
 
 type Props = {|
-  languageTools: Array<LanguageToolType>,
+  _config: typeof config,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   lang: string,
+  languageTools: Array<LanguageToolType>,
+  locationPathname: string,
 |};
 
 export class LanguageToolsBase extends React.Component<Props> {
+  static defaultProps = {
+    _config: config,
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -141,7 +149,13 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 
   render() {
-    const { languageTools, errorHandler, i18n } = this.props;
+    const {
+      _config,
+      languageTools,
+      locationPathname,
+      errorHandler,
+      i18n,
+    } = this.props;
 
     const header = i18n.gettext('Dictionaries and Language Packs');
 
@@ -149,6 +163,10 @@ export class LanguageToolsBase extends React.Component<Props> {
       <Card className="LanguageTools" header={header}>
         <Helmet>
           <title>{header}</title>
+          <link
+            rel="canonical"
+            href={getCanonicalURL({ locationPathname, _config })}
+          />
         </Helmet>
 
         {errorHandler.renderErrorIfPresent()}
@@ -266,8 +284,9 @@ export class LanguageToolsBase extends React.Component<Props> {
 
 export const mapStateToProps = (state: AppState) => {
   return {
-    languageTools: getAllLanguageTools(state),
     lang: state.api.lang,
+    languageTools: getAllLanguageTools(state),
+    locationPathname: state.router.location.pathname,
   };
 };
 
