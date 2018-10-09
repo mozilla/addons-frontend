@@ -735,6 +735,38 @@ describe(__filename, () => {
       const root = render();
       expect(root.find('title')).toHaveLength(0);
     });
+
+    it('does not render a robots meta tag', () => {
+      const reviews = [
+        { ...fakeReview, id: 1, score: 1 },
+        { ...fakeReview, id: 2, score: 2 },
+      ];
+      dispatchAddon(createInternalAddon(fakeAddon));
+      dispatchAddonReviews({ reviews });
+
+      const root = render();
+
+      expect(root.find('meta[name="robots"]')).toHaveLength(0);
+    });
+
+    it('renders a robots meta tag when there is a featured review', () => {
+      const reviews = [
+        { ...fakeReview, id: 1, score: 1 },
+        { ...fakeReview, id: 2, score: 2 },
+      ];
+      dispatchAddon(createInternalAddon(fakeAddon));
+      dispatchAddonReviews({ reviews });
+
+      const root = render({
+        params: { reviewId: reviews[0].id.toString() },
+      });
+
+      expect(root.find('meta[name="robots"]')).toHaveLength(1);
+      expect(root.find('meta[name="robots"]')).toHaveProp(
+        'content',
+        'noindex, follow',
+      );
+    });
   });
 
   describe('overallRatingStars', () => {
