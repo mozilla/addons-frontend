@@ -48,7 +48,7 @@ import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
-import { getAddonIconUrl } from 'core/imageUtils';
+import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
@@ -398,18 +398,16 @@ export class AddonBase extends React.Component {
     );
   }
 
-  getMetaDescription() {
+  getPageDescription() {
     const { addon, i18n } = this.props;
 
-    const content = i18n.sprintf(
+    return i18n.sprintf(
       i18n.gettext('Download %(addonName)s for Firefox. %(summary)s'),
       {
         addonName: addon.name,
         summary: addon.summary,
       },
     );
-
-    return <meta name="description" content={content} />;
   }
 
   getPageTitle() {
@@ -465,6 +463,30 @@ export class AddonBase extends React.Component {
           i18nValues,
         );
     }
+  }
+
+  renderMetaOpenGraph() {
+    const { addon, lang } = this.props;
+
+    const tags = [
+      <meta key="og:type" property="og:type" content="website" />,
+      <meta key="og:url" property="og:url" content={addon.url} />,
+      <meta key="og:title" property="og:title" content={this.getPageTitle()} />,
+      <meta
+        key="og:description"
+        property="og:description"
+        content={this.getPageDescription()}
+      />,
+      <meta key="og:locale" property="og:locale" content={lang} />,
+    ];
+
+    const image = getPreviewImage(addon);
+
+    if (image) {
+      tags.push(<meta key="og:image" property="og:image" content={image} />);
+    }
+
+    return tags;
   }
 
   render() {
@@ -586,7 +608,8 @@ export class AddonBase extends React.Component {
         {addon && (
           <Helmet titleTemplate={null}>
             <title>{this.getPageTitle()}</title>
-            {this.getMetaDescription()}
+            <meta name="description" content={this.getPageDescription()} />
+            {this.renderMetaOpenGraph()}
           </Helmet>
         )}
 
