@@ -11,8 +11,8 @@ export type LocationType = {|
   hash: string, // e.g. #some-anchor
   key: string,
   pathname: string, // e.g. /en-US/firefox/addon/tab-mix-plus/reviews/
-  search: string, // e.g. ?q=search-string
-  state?: Object,
+  search: string, // e.g. ?q=search-strin
+  state?: Object, // sometimes available, this should probably not be used.
 |};
 
 export type ReactRouterLocationType = {|

@@ -53,7 +53,7 @@ import type { UIStateState } from 'core/reducers/uiState';
 import type { ReactRouterHistoryType, LocationType } from 'core/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
 
-type AppStateWithoutRouter = {|
+type InternalAppState = {|
   abuse: AbuseState,
   addons: AddonsState,
   addonsByAuthors: AddonsByAuthorsState,
@@ -82,7 +82,7 @@ type AppStateWithoutRouter = {|
 |};
 
 export type AppState = {|
-  ...AppStateWithoutRouter,
+  ...InternalAppState,
   router: {|
     action: 'PUSH' | 'POP',
     location: LocationType,
@@ -91,7 +91,7 @@ export type AppState = {|
 
 // Given AppState, create a type for all possible application reducers.
 // See https://flow.org/en/docs/types/utilities/#toc-objmap
-type AppReducersType = $ObjMap<AppStateWithoutRouter, CreateReducerType>;
+type AppReducersType = $ObjMap<InternalAppState, CreateReducerType>;
 
 type CreateRootReducerParams = {|
   history: ReactRouterHistoryType,
