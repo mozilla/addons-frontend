@@ -532,6 +532,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           review &&
           review.userId === siteUser.id &&
           this.isRatingOnly() &&
+          !beginningToDeleteReview &&
           !editingReview && (
             <Button
               className="AddonReviewCard-writeReviewButton"

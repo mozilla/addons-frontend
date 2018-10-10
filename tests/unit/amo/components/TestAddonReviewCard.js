@@ -1044,6 +1044,17 @@ describe(__filename, () => {
       expect(writeReview).toHaveLength(0);
     });
 
+    it('hides the write review button when beginning to delete a rating', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+      const root = render({ review });
+
+      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
+      expect(writeReview).toHaveLength(0);
+    });
+
     it('hides the write review button for ratings when not logged in', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
