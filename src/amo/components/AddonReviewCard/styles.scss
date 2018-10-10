@@ -5,7 +5,7 @@
     height: $default-line-height;
   }
 
-  &:not(.AddonReviewCard-smallCard) .UserReview-body {
+  &:not(.AddonReviewCard-slim) .UserReview-body {
     margin-bottom: 18px;
   }
 
@@ -66,7 +66,7 @@
     padding-top: 0;
   }
 
-  .AddonReviewCard-ratingOnly.AddonReviewCard-smallCard & {
+  .AddonReviewCard-ratingOnly.AddonReviewCard-slim & {
     color: $text-color-default;
 
     &:active,
@@ -107,7 +107,7 @@
   width: auto;
 }
 
-.AddonReviewCard-smallCard {
+.AddonReviewCard-slim {
   .AddonReviewCard-control {
     margin: 0;
   }
@@ -183,7 +183,7 @@
 }
 
 /* stylelint-disable */
-.AddonReviewCard:not(.AddonReviewCard-smallCard)
+.AddonReviewCard:not(.AddonReviewCard-slim)
   .AddonReviewCard-confirmDeleteDialog {
   /* stylelint-enable */
   flex-direction: column;

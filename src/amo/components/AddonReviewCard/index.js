@@ -52,7 +52,12 @@ type Props = {|
   shortByLine?: boolean,
   showControls?: boolean,
   showRating?: boolean,
-  smallCard?: boolean,
+  // When true, this renders things *bigger* because the container is
+  // more slim than usual, like the Rate Your Experience card.
+  //
+  // When false (the default), it is to say that the container is wider,
+  // like an add-on review listing or a user profile listing.
+  slim?: boolean,
 |};
 
 type InternalProps = {|
@@ -78,7 +83,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     shortByLine: false,
     showControls: true,
     showRating: true,
-    smallCard: false,
+    slim: false,
   };
 
   onBeginDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
@@ -244,9 +249,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 
   confirmDeleteButtonText() {
-    const { i18n, smallCard } = this.props;
+    const { i18n, slim } = this.props;
 
-    if (!smallCard) {
+    if (!slim) {
       return i18n.gettext('Delete');
     }
 
@@ -262,9 +267,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 
   cancelDeleteButtonText() {
-    const { i18n, smallCard } = this.props;
+    const { i18n, slim } = this.props;
 
-    if (!smallCard) {
+    if (!slim) {
       return i18n.gettext('Cancel');
     }
 
@@ -305,7 +310,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       i18n,
       replyingToReview,
       review,
-      smallCard,
+      slim,
       submittingReply,
     } = this.props;
 
@@ -339,7 +344,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             addon={addon}
             isReplyToReviewId={review.id}
             review={review.reply}
-            smallCard={smallCard}
+            slim={slim}
           />
         )}
       </div>
@@ -362,7 +367,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       showControls,
       showRating,
       siteUser,
-      smallCard,
+      slim,
     } = this.props;
 
     let byLine;
@@ -492,7 +497,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           'AddonReviewCard-isReply': this.isReply(),
           'AddonReviewCard-ratingOnly': this.isRatingOnly(),
           'AddonReviewCard-viewOnly': !editingReview,
-          'AddonReviewCard-smallCard': smallCard,
+          'AddonReviewCard-slim': slim,
         })}
       >
         <div className="AddonReviewCard-container">
@@ -501,7 +506,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           _config.get('enableFeatureInlineAddonReview') ? (
             <AddonReviewManager
               onCancel={this.onCancelEditReview}
-              puffyButtons={Boolean(smallCard)}
+              puffyButtons={slim}
               review={review}
             />
           ) : (
@@ -523,8 +528,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             confirmButtonText={this.confirmDeleteButtonText()}
             onCancel={this.onCancelDeleteReview}
             onConfirm={this.onClickToDeleteReview}
-            message={smallCard ? undefined : this.confirmDeletePrompt()}
-            puffyButtons={smallCard}
+            message={slim ? undefined : this.confirmDeletePrompt()}
+            puffyButtons={slim}
           />
         )}
         {this.renderReply()}
@@ -539,7 +544,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               onClick={this.onClickToEditReview}
               href="#writeReview"
               buttonType="action"
-              puffy={smallCard}
+              puffy={slim}
             >
               {i18n.gettext('Write a review')}
             </Button>

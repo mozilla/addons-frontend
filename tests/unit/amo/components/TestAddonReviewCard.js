@@ -368,36 +368,36 @@ describe(__filename, () => {
     expect(dialog).toHaveProp('confirmButtonText', 'Delete');
   });
 
-  it('renders delete confirmation buttons for a rating with smallCard=true', () => {
+  it('renders delete confirmation buttons for a rating with slim=true', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
     store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, smallCard: true });
+    const root = render({ review, slim: true });
 
     const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
     expect(dialog).toHaveProp('cancelButtonText', 'Keep rating');
     expect(dialog).toHaveProp('confirmButtonText', 'Delete rating');
   });
 
-  it('renders delete confirmation buttons for a review with smallCard=true', () => {
+  it('renders delete confirmation buttons for a review with slim=true', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeReview,
     });
     store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, smallCard: true });
+    const root = render({ review, slim: true });
 
     const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
     expect(dialog).toHaveProp('cancelButtonText', 'Keep review');
     expect(dialog).toHaveProp('confirmButtonText', 'Delete review');
   });
 
-  it('does not render a confirmation message for smallCard=true', () => {
+  it('does not render a confirmation message for slim=true', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeReview,
     });
     store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, smallCard: true });
+    const root = render({ review, slim: true });
 
     const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
     expect(dialog).toHaveProp('message', undefined);
@@ -971,11 +971,11 @@ describe(__filename, () => {
       expect(manager).toHaveProp('puffyButtons', false);
     });
 
-    it('configures AddonReviewManager with puffyButtons when smallCard=true', () => {
+    it('configures AddonReviewManager with puffyButtons when slim=true', () => {
       const review = signInAndDispatchSavedReview();
       store.dispatch(showEditReviewForm({ reviewId: review.id }));
 
-      const root = render({ review, smallCard: true });
+      const root = render({ review, slim: true });
 
       const manager = root.find(AddonReviewManager);
       expect(manager).toHaveProp('puffyButtons', true);
@@ -1076,11 +1076,11 @@ describe(__filename, () => {
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
-    it('will render a larger write review button for smallCard=true', () => {
+    it('will render a larger write review button for slim=true', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      const root = render({ review, smallCard: true });
+      const root = render({ review, slim: true });
 
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveProp(
         'puffy',
@@ -1312,7 +1312,7 @@ describe(__filename, () => {
       );
     });
 
-    it('renders a confirm button for deleting a reply when smallCard=true', () => {
+    it('renders a confirm button for deleting a reply when slim=true', () => {
       const originalReviewId = 543;
       const developerUserId = 321;
       const review = signInAndDispatchSavedReview({
@@ -1323,7 +1323,7 @@ describe(__filename, () => {
       const root = renderReply({
         originalReviewId,
         reply: review,
-        smallCard: true,
+        slim: true,
       });
 
       const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
