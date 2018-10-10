@@ -30,8 +30,9 @@
     "flow:dev": "flow stop; flow start; chokidar .flowconfig flow/ stories/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "markdown-locales-create-potFile": "node bin/markdown-locales-init",
-    "markdown-locales-create-final": "better-npm-run markdown-locales",
+    "markdown-pot-locales": "node bin/markdown-pot-locales",
+    "markdown-po-locales": "better-npm-run markdown-po-locales",
+    "markdown-md-locales": "better-npm-run markdown-md-locales",
     "prettier": "prettier --write '**'",
     "prettier-ci": "npm run prettier -- --list-different || (echo '\n\nThis failure means you did not run `yarn prettier-dev` before committing\n\n' && exit 1)",
     "prettier-dev": "pretty-quick --branch master",
@@ -160,8 +161,14 @@
         "NODE_ICU_DATA": "./node_modules/full-icu"
       }
     },
-    "markdown-locales": {
-      "command": "node ./bin/markdown-locales",
+    "markdown-po-locales": {
+      "command": "node ./bin/markdown-po-locales",
+      "env": {
+        "NODE_PATH": "./:./src"
+      }
+    },
+    "markdown-md-locales": {
+      "command": "node ./bin/markdown-md-locales",
       "env": {
         "NODE_PATH": "./:./src"
       }
