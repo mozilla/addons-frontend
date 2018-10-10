@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 15:34+0000\n"
+"PO-Revision-Date: 2018-10-10 18:10+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -44,39 +44,32 @@ msgid "Add to collection"
 msgstr "Zběrce přidać"
 
 #: src/amo/components/AddonAdminLinks/index.js:104
-#, fuzzy
 msgid "Content review add-on"
-msgstr "něchtó pisa pohódnoćenje mojeho přidatka"
+msgstr "Přidatk za přepruwowanje wobsaha"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
-#, fuzzy
 msgid "Review theme"
-msgstr "Tekst pohódnoćenja"
+msgstr "Drastu přepruwować"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Pohódnoćenja za %(addonName)s"
+msgstr "Žórłowy kod přidatka přepruwować"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
-#, fuzzy
 msgid "Admin Links"
-msgstr "Přidatkowe wotkazy"
+msgstr "Wotkazy administrować"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
-#, fuzzy
 msgid "Edit add-on"
-msgstr "Přidatki pytać"
+msgstr "Přidatk wobdźěłać"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Přidatki so wužiwaja"
+msgstr "Přidatkowy status administrować"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Přidatki pytać"
+msgstr "Přidatk administrować"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -860,9 +853,8 @@ msgid "Developer Hub"
 msgstr "Wuwiwarski róžk"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Wotmołwa wuwiwarja"
+msgstr "Wuwiwarske prawidła"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1158,12 +1150,11 @@ msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
-msgstr ""
+msgstr "Lěpši napohlad weba přez ćmowe barby"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Placki"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
@@ -1190,9 +1181,8 @@ msgid "Undo Close Tab Button"
 msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
-#, fuzzy
 msgid "Never lose a page again"
-msgstr "Njezhubjejće ženje wjace stronu."
+msgstr "Njezhubjejće ženje wjace stronu"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1898,9 +1888,8 @@ msgstr "%(addonName)s – Wobstarajće sej drastu za 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:454
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Wobstarajće sej drastu za 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Wobstarajće sej pytanski nastroj za 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:461
@@ -2092,13 +2081,12 @@ msgid "Privacy & security"
 msgstr "Priwatnosć a wěstota"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "Dalše přełožowanske nastroje pokazać"
+msgstr "Dalše nastroje škita dźěći pokazać"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
-msgstr ""
+msgstr "Nastroje škita dźěći"
 
 #: src/amo/pages/LandingPage/index.js:238
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
