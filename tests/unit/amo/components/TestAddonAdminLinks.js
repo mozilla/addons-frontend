@@ -154,7 +154,6 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddon({
         ...fakeTheme,
-        slug,
       }),
       permissions: [ADDONS_CONTENTREVIEW, ADDONS_EDIT],
     });
