@@ -108,7 +108,6 @@ module.exports = {
     'enableFeatureAMInstallButton',
     'enableFeatureExperienceSurvey',
     'enableFeatureInlineAddonReview',
-    'enableFeatureStaticThemes',
     'experiments',
     'fxaConfig',
     'hctEnabled',
@@ -314,9 +313,6 @@ module.exports = {
   //
   // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
-
-  // Enable static themes.
-  enableFeatureStaticThemes: true,
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',

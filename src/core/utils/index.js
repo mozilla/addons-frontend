@@ -268,8 +268,8 @@ export const isTheme = (addonType) => {
   return ADDON_TYPE_THEMES.includes(addonType);
 };
 
-export const getAddonTypeFilter = (addonType, { _config = config } = {}) => {
-  if (!_config.get('enableFeatureStaticThemes') || !isTheme(addonType)) {
+export const getAddonTypeFilter = (addonType) => {
+  if (!isTheme(addonType)) {
     return addonType;
   }
 

@@ -435,18 +435,13 @@ describe(__filename, () => {
     });
   });
 
-  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
+  it('sets the correct footer links for themes', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();
     _loadLanding();
 
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
-
-    const root = render(
-      { _config: fakeConfig },
-      { autoDispatchCategories: false },
-    );
+    const root = render({ autoDispatchCategories: false });
 
     const landingShelves = root.find(LandingAddonsCard);
 
@@ -463,37 +458,6 @@ describe(__filename, () => {
     expect(landingShelves.at(2)).toHaveProp('footerLink');
     expect(landingShelves.at(2).props().footerLink.query.addonType).toEqual(
       ADDON_TYPE_THEMES_FILTER,
-    );
-  });
-
-  it('renders the themes shelves with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
-    _categoriesFetch();
-    _categoriesLoad();
-    _getLanding();
-    _loadLanding();
-
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
-
-    const root = render(
-      { _config: fakeConfig },
-      { autoDispatchCategories: false },
-    );
-
-    const landingShelves = root.find(LandingAddonsCard);
-
-    expect(landingShelves.at(0)).toHaveProp('footerLink');
-    expect(landingShelves.at(0).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEME,
-    );
-
-    expect(landingShelves.at(1)).toHaveProp('footerLink');
-    expect(landingShelves.at(1).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEME,
-    );
-
-    expect(landingShelves.at(2)).toHaveProp('footerLink');
-    expect(landingShelves.at(2).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEME,
     );
   });
 
@@ -555,12 +519,7 @@ describe(__filename, () => {
     _getLanding();
     _loadLanding();
 
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
-
-    const root = render(
-      { _config: fakeConfig },
-      { autoDispatchCategories: false },
-    );
+    const root = render({ autoDispatchCategories: false });
 
     const landingShelves = root.find(LandingAddonsCard);
     expect(landingShelves).toHaveLength(3);
@@ -574,7 +533,7 @@ describe(__filename, () => {
     expect(landingShelves.at(0)).toHaveProp('footerLink', {
       pathname: `/search/`,
       query: {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_THEMES_FILTER,
         category: fakeCategory.slug,
         featured: true,
       },
@@ -589,7 +548,7 @@ describe(__filename, () => {
     expect(landingShelves.at(1)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_THEMES_FILTER,
         category: fakeCategory.slug,
         sort: SEARCH_SORT_TOP_RATED,
       },
@@ -604,7 +563,7 @@ describe(__filename, () => {
     expect(landingShelves.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_THEMES_FILTER,
         category: fakeCategory.slug,
         sort: SEARCH_SORT_TRENDING,
       },

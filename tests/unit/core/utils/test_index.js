@@ -46,7 +46,6 @@ import { fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeHistory,
   createFakeLocation,
-  getFakeConfig,
   unexpectedSuccess,
   userAgents,
 } from 'tests/unit/helpers';
@@ -643,48 +642,19 @@ describe(__filename, () => {
   });
 
   describe('getAddonTypeFilter', () => {
-    it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a lightweight theme', () => {
-      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
-      const addon = createInternalAddon({
-        type: ADDON_TYPE_THEME,
-        config: fakeConfig,
-      });
-      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
-        ADDON_TYPE_THEMES_FILTER,
-      );
+    it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a lightweight theme', () => {
+      const addon = createInternalAddon({ type: ADDON_TYPE_THEME });
+      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
     });
 
-    it('returns ADDON_TYPE_THEMES_FILTER when enabledStaticThemes is set to true and add-on type is a static theme', () => {
-      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
-      const addon = createInternalAddon({
-        type: ADDON_TYPE_STATIC_THEME,
-        config: fakeConfig,
-      });
-      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
-        ADDON_TYPE_THEMES_FILTER,
-      );
+    it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a static theme', () => {
+      const addon = createInternalAddon({ type: ADDON_TYPE_STATIC_THEME });
+      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
     });
 
-    it('returns ADDON_TYPE_THEME when enabledStaticThemes is set to false', () => {
-      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
-      const addon = createInternalAddon({
-        type: ADDON_TYPE_THEME,
-        config: fakeConfig,
-      });
-      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
-        ADDON_TYPE_THEME,
-      );
-    });
-
-    it('returns ADDON_TYPE_EXTENSION when enabledStaticThemes is set to true and add-on type is an extension', () => {
-      const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
-      const addon = createInternalAddon({
-        type: ADDON_TYPE_EXTENSION,
-        config: fakeConfig,
-      });
-      expect(getAddonTypeFilter(addon.type, { _config: fakeConfig })).toEqual(
-        ADDON_TYPE_EXTENSION,
-      );
+    it('returns ADDON_TYPE_EXTENSION when add-on type is an extension', () => {
+      const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION });
+      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_EXTENSION);
     });
   });
 

@@ -15,7 +15,6 @@ import { createInternalCollection } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
@@ -127,8 +126,7 @@ describe(__filename, () => {
   });
 
   it('renders a featured themes shelf if includeFeaturedThemes is true', () => {
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
-    const root = render({ _config: fakeConfig, includeFeaturedThemes: true });
+    const root = render({ includeFeaturedThemes: true });
 
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedThemes');
@@ -137,7 +135,7 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_THEMES_FILTER,
         featured: true,
       },
     });
@@ -150,32 +148,6 @@ describe(__filename, () => {
 
     const shelves = root.find(LandingAddonsCard);
     expect(shelves.find('.Home-FeaturedThemes')).toHaveLength(0);
-  });
-
-  it('renders a featured themes shelf with the ADDON_TYPE_THEMES_FILTER filter if static theme is enabled', () => {
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: true });
-    const root = render({ _config: fakeConfig, includeFeaturedThemes: true });
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedThemes');
-
-    expect(shelf.at(0)).toHaveProp('footerLink');
-    expect(shelf.at(0).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEMES_FILTER,
-    );
-  });
-
-  it('renders a featured themes shelf with the ADDON_TYPE_THEME filter if static theme is disabled', () => {
-    const fakeConfig = getFakeConfig({ enableFeatureStaticThemes: false });
-    const root = render({ _config: fakeConfig, includeFeaturedThemes: true });
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedThemes');
-
-    expect(shelf.at(0)).toHaveProp('footerLink');
-    expect(shelf.at(0).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEME,
-    );
   });
 
   it('renders a popular extensions shelf', () => {
