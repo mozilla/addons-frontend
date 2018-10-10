@@ -23,6 +23,7 @@ import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -434,7 +435,7 @@ describe(__filename, () => {
     });
   });
 
-  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter', () => {
+  it('sets the correct footer links for themes', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();

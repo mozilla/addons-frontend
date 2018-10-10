@@ -8,7 +8,6 @@ import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES_FILTER,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
@@ -23,6 +22,7 @@ import {
 import {
   createStubErrorHandler,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -315,34 +315,6 @@ describe(__filename, () => {
       pathname: '/search/',
       query: { addonType, sort: SEARCH_SORT_TRENDING },
     });
-  });
-
-  it('renders the themes shelves with the ADDON_TYPE_THEMES_FILTER filter', () => {
-    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
-
-    const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
-    };
-    const match = { params: fakeParams };
-
-    const root = render({ match });
-
-    const addonCards = root.find(LandingAddonsCard);
-
-    expect(addonCards.at(0)).toHaveProp('footerLink');
-    expect(addonCards.at(0).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEMES_FILTER,
-    );
-
-    expect(addonCards.at(1)).toHaveProp('footerLink');
-    expect(addonCards.at(1).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEMES_FILTER,
-    );
-
-    expect(addonCards.at(2)).toHaveProp('footerLink');
-    expect(addonCards.at(2).props().footerLink.query.addonType).toEqual(
-      ADDON_TYPE_THEMES_FILTER,
-    );
   });
 
   it('passes an isTheme prop as true if type is a theme', () => {
