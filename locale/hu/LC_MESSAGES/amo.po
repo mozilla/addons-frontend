@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 09:11+0000\n"
+"PO-Revision-Date: 2018-10-10 09:14+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -56,24 +56,20 @@ msgid "Review add-on code"
 msgstr "Kiegészítő kódjának értékelése"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
-#, fuzzy
 msgid "Admin Links"
-msgstr "Kiegészítő hivatkozásai"
+msgstr "Adminisztrátori hivatkozások"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
-#, fuzzy
 msgid "Edit add-on"
-msgstr "Kiegészítők keresése"
+msgstr "Kiegészítő szerkesztése"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Kiegészítők betöltése"
+msgstr "Kiegészítő-állapot adminisztrációja"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Kiegészítők keresése"
+msgstr "Kiegészítő adminisztrációja"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -847,9 +843,8 @@ msgid "Developer Hub"
 msgstr "Fejlesztőközpont"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Fejlesztői válasz"
+msgstr "Fejlesztői irányelvek"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1145,12 +1140,11 @@ msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
-msgstr ""
+msgstr "Sötét mód a jobb webes megtekintési élményért"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Sütik"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
@@ -1162,7 +1156,7 @@ msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
-msgstr ""
+msgstr "Mentsen szövegrészleteket későbbi beillesztéshez és rendszerezéshez"
 
 #: src/amo/components/HomeHeroBanner/index.js:294
 msgid "Group Speed Dial"
@@ -1177,9 +1171,8 @@ msgid "Undo Close Tab Button"
 msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
-#, fuzzy
 msgid "Never lose a page again"
-msgstr "Ne veszítsen el egyetlen lapot sem."
+msgstr "Ne veszítsen el egyetlen lapot sem"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1867,9 +1860,8 @@ msgstr "%(addonName)s – Szerezze be ezt a témát a 🦊 Firefoxhoz (%(locale)
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:454
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Szerezze be ezt a témát a 🦊 Firefoxhoz (%(locale)s)"
+msgstr "%(addonName)s – Szerezze be ezt a keresőeszközt a 🦊 Firefoxhoz (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:461
@@ -2059,9 +2051,8 @@ msgid "Privacy & security"
 msgstr "Adatvédelem és biztonság"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "További fordítási eszközök megtekintése"
+msgstr "További szülői felügyeleti eszközök megtekintése"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
