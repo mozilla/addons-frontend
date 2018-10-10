@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 08:51+0000\n"
+"PO-Revision-Date: 2018-10-10 09:11+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -105,11 +105,11 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Bạn cần <a href=\"%(downloadUrl)s\">tải Firefox</a> để cài đặt tiện ích này."
 
 #: src/amo/components/AddonCompatibilityError/index.js:63
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Tiện ích này không tương thích với phiên bản Firefox của bạn."
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "Your version of Firefox does not support search plugins."
@@ -117,7 +117,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr ""
+msgstr "Phiên bản Firefox của bạn không hỗ trợ tiện ích này vì nó yêu cầu khởi động lại."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -125,21 +125,20 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:77
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Tiện ích này không có sẵn cho nền tảng của bạn."
 
 #: src/amo/components/AddonCompatibilityError/index.js:80
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Tiện ích này yêu cầu <a href=\"%(downloadUrl)s\">phiên bản mới hơn của Firefox</a> (hỗ trợ phiên bản thấp nhất là %(minVersion)s). Bạn đang sử dụng Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:98
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr "Trình duyệt của bạn không hỗ trợ add-on. Bạn có thể <a href=\"%(downloadUrl)s\">tải về Firefox</a> để cài đặt add-on này."
 
 #: src/amo/components/AddonMeta/index.js:114
-#, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] "Giới thiệu add-on này"
+msgstr[0] "%(total)s Sao"
 
 #: src/amo/components/AddonMeta/index.js:123
 msgid "Not rated yet"
@@ -179,15 +178,15 @@ msgstr "Được sử dụng bởi"
 
 #: src/amo/components/AddonMoreInfo/index.js:132
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:145
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Đọc chính sách riêng tư của tiện ích này"
 
 #: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Đọc thỏa thuận cấp phép cho tiện ích này"
 
 #: src/amo/components/AddonMoreInfo/index.js:162
 msgid "See all versions"
@@ -195,7 +194,7 @@ msgstr "Xem tất cả phiên bản"
 
 #: src/amo/components/AddonMoreInfo/index.js:188
 msgid "Add-on Links"
-msgstr ""
+msgstr "Liên kết tiện ích"
 
 #: src/amo/components/AddonMoreInfo/index.js:200
 msgid "Version"
@@ -377,16 +376,16 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:137
 msgid "Saving"
-msgstr ""
+msgstr "Đang lưu"
 
 #: src/amo/components/AddonReviewManager/index.js:138
 msgid "Saved"
-msgstr ""
+msgstr "Đã lưu"
 
 #: src/amo/components/AddonReviewManager/index.js:143 src/amo/components/CollectionManager/index.js:302 src/amo/pages/UserProfileEdit/index.js:847 src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:172
 msgid "Cancel"
-msgstr ""
+msgstr "Hủy bỏ"
 
 #: src/amo/components/AddonReviewManager/index.js:82
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -485,27 +484,27 @@ msgstr "Hỗ trợ nhà phát triển này"
 
 #: src/amo/components/App/index.js:219
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "Tiện ích cho Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:223
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Tiện ích cho Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:231
 msgid "Add-ons for Android (%(locale)s)"
-msgstr ""
+msgstr "Tiện ích cho Firefox dành cho Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Tiện ích cho Firefox dành cho Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
-msgstr ""
+msgstr "Đang tải"
 
 #: src/amo/components/AutoSearchInput/index.js:305
 msgid "Find add-ons"
-msgstr "Tìm các add-on"
+msgstr "Tìm tiện ích"
 
 #: src/amo/components/AutoSearchInput/index.js:330 src/amo/components/AutoSearchInput/index.js:358
 msgid "Search"
@@ -536,14 +535,12 @@ msgid "Browse all themes in this category."
 msgstr ""
 
 #: src/amo/components/CollectionAddAddon/index.js:158
-#, fuzzy
 msgid "Added to collection"
-msgstr "Thêm vào bộ sưu tập"
+msgstr "Đã thêm vào bộ sưu tập"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Thêm vào bộ sưu tập"
+msgstr "Đã xóa khỏi bộ sưu tập"
 
 #: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
@@ -576,11 +573,11 @@ msgstr "Tạo bộ sưu tập"
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Save changes"
-msgstr ""
+msgstr "Lưu thay đổi"
 
 #: src/amo/components/CollectionManager/index.js:239
 msgid "Collection name"
-msgstr ""
+msgstr "Tên bộ sưu tập"
 
 #: src/amo/components/CollectionManager/index.js:253
 msgid "Description"
@@ -588,7 +585,7 @@ msgstr "Mô tả"
 
 #: src/amo/components/CollectionManager/index.js:265
 msgid "Custom URL"
-msgstr ""
+msgstr "Tùy chỉnh URL"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
@@ -596,15 +593,15 @@ msgstr "Sắp xếp tiện ích theo"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "Mới nhất xếp trước"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "Cũ nhất xếp trước"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
@@ -616,7 +613,7 @@ msgstr "Hỗ trợ nhà phát triển này"
 
 #: src/amo/components/ContributeCard/index.js:33
 msgid "Support these developers"
-msgstr ""
+msgstr "Hỗ trợ các nhà phát triển này"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -668,28 +665,27 @@ msgstr "Tải về Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:130
 msgid "Leave a note"
-msgstr ""
+msgstr "Để lại một ghi chú"
 
 #: src/amo/components/EditableCollectionAddon/index.js:140 src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
-msgstr ""
+msgstr "Xóa"
 
 #: src/amo/components/EditableCollectionAddon/index.js:147
 msgid "User comment"
 msgstr "Nhận xét của người dùng"
 
 #: src/amo/components/EditableCollectionAddon/index.js:159
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Giới thiệu add-on này"
+msgstr "Thêm một ý kiến về tiện ích này."
 
 #: src/amo/components/EditableCollectionAddon/index.js:160
 msgid "Save"
-msgstr ""
+msgstr "Lưu lại"
 
 #: src/amo/components/EditableCollectionAddon/index.js:181
 msgid "Edit"
-msgstr ""
+msgstr "Chỉnh sửa"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -709,7 +705,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:41
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Tiện ích này đã bị gỡ bỏ bởi tác giả."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:43
 msgid "This add-on has been disabled by an administrator."
