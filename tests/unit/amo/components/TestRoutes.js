@@ -15,7 +15,7 @@ describe(__filename, () => {
 
   it('renders the routes for the amo app', () => {
     const root = render();
-    expect(root.find(Route)).toHaveLength(27);
+    expect(root.find(Route)).toHaveLength(28);
   });
 
   describe('path = /:lang/:application/401/', () => {

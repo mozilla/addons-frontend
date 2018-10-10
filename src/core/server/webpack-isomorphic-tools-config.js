@@ -16,6 +16,9 @@ export default {
       extensions: ['svg'],
       parser: WebpackIsomorphicToolsPlugin.url_loader_parser,
     },
+    md: {
+      extensions: ['md'],
+    },
     style_modules: {
       extensions: ['css', 'scss'],
       filter: (module, regex, options, log) => {
