@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 09:11+0000\n"
+"PO-Revision-Date: 2018-10-10 09:28+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -334,7 +334,7 @@ msgstr "התגובה מפורסמת"
 
 #: src/amo/components/AddonReviewCard/index.js:340
 msgid "posted %(timestamp)s"
-msgstr "פורסם %(timestamp)s"
+msgstr "מועד פרסום: %(timestamp)s"
 
 #: src/amo/components/AddonReviewCard/index.js:342
 msgid "by %(authorName)s, %(timestamp)s"
