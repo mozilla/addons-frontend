@@ -47,7 +47,9 @@
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
-    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
+    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "betterScripts": {
     "build": {
@@ -268,7 +270,8 @@
     "url": "0.11.0",
     "url-loader": "1.1.2",
     "utf8": "3.0.0",
-    "webpack-isomorphic-tools": "3.0.6"
+    "webpack-isomorphic-tools": "3.0.6",
+    "snyk": "^1.103.0"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.4.11",
@@ -296,13 +299,13 @@
     "bundlesize": "^0.17.0",
     "chalk": "^2.0.1",
     "cheerio": "^1.0.0-rc.2",
-    "chokidar-cli": "^1.2.0",
+    "chokidar-cli": "^1.2.1",
     "circular-dependency-plugin": "^4.2.1",
-    "codecov": "^3.0.0",
+    "codecov": "^3.0.1",
     "concurrently": "^4.0.1",
     "content-security-policy-parser": "^0.1.0",
     "cookie": "^0.3.1",
-    "css-loader": "^0.28.3",
+    "css-loader": "^0.28.11",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.3.0",
@@ -321,7 +324,7 @@
     "json-loader": "^0.5.4",
     "mock-express-request": "^0.2.0",
     "mock-express-response": "^0.2.0",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.9.1",
     "object.values": "^1.0.4",
     "photon-colors": "^3.0.1",
     "pino-devtools": "^2.1.0",
@@ -342,9 +345,8 @@
     "semver": "^5.3.0",
     "shelljs": "^0.8.0",
     "sinon": "^6.0.0",
-    "snyk": "^1.69.7",
     "style-loader": "^0.23.0",
-    "stylelint": "^9.1.1",
+    "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-config-suitcss": "^14.0.0",
     "supertest": "^3.0.0",
