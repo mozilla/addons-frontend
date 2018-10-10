@@ -1,11 +1,13 @@
 /* global Intl */
 /* @flow */
 import config from 'config';
+import filesize from 'filesize';
 import Jed from 'jed';
 import moment from 'moment';
 
 import log from 'core/logger';
 import { RTL, LTR } from 'core/constants';
+import type { I18nType } from 'core/types/i18n';
 
 const defaultLang = config.get('defaultLang');
 const langs = config.get('langs');
@@ -229,6 +231,39 @@ function oneLineTranslationString(translationKey) {
   }
   return translationKey;
 }
+
+type FormatFilesizeParams = {|
+  _filesize: typeof filesize,
+  i18n: I18nType,
+  size: number,
+|};
+
+// Translates a file size in bytes into a localized user-friendly format.
+export const formatFilesize = ({
+  _filesize = filesize,
+  i18n,
+  size,
+}: FormatFilesizeParams): string | null => {
+  const sizeStrings = {
+    // These are the expected values for the unit of measure returned by
+    // filesize. Realistically we shouldn't get anything back larger than TB.
+    B: i18n.gettext('%(formattedSize)s B'),
+    KB: i18n.gettext('%(formattedSize)s KB'),
+    MB: i18n.gettext('%(formattedSize)s MB'),
+    GB: i18n.gettext('%(formattedSize)s GB'),
+    TB: i18n.gettext('%(formattedSize)s TB'),
+  };
+
+  const [sizeNum, sizeName] = _filesize(size).split(' ');
+  if (!sizeNum || !sizeName) {
+    return null;
+  }
+
+  const formattedSize = i18n.formatNumber(sizeNum);
+  const sizeString = sizeStrings[sizeName];
+
+  return sizeString ? i18n.sprintf(sizeString, { formattedSize }) : null;
+};
 
 type I18nConfig = {|
   // The following keys configure Jed.

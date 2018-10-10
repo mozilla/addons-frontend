@@ -4,6 +4,7 @@ import { oneLine } from 'common-tags';
 
 import * as utils from 'core/i18n/utils';
 import { RTL, LTR } from 'core/constants';
+import { fakeI18n } from 'tests/unit/helpers';
 
 const defaultLang = config.get('defaultLang');
 
@@ -508,5 +509,49 @@ describe(__filename, () => {
       const i18n = utils.makeI18n({}, 'fr', FakeJed);
       expect(i18n.moment('1988-09-22').format('ll')).toEqual('22 sept. 1988');
     });
+  });
+
+  describe('formatFilesize', () => {
+    const _formatFilesize = ({ _filesize, i18n = fakeI18n(), size = 123 }) => {
+      return utils.formatFilesize({ _filesize, i18n, size });
+    };
+
+    it('receives an expected string from filesize', () => {
+      // This is a sanity check, verifying that filesize does in fact return
+      // what we expect.
+      // Without it filesize could break and we'd never know.
+      const size = 123;
+      expect(_formatFilesize({ size })).toEqual(`${size} B`);
+    });
+
+    it('formats the number returned by filesize', () => {
+      const size = 1234;
+      const _filesize = sinon.stub().returns(`${size} B`);
+      expect(_formatFilesize({ _filesize, size })).toEqual('1,234 B');
+    });
+
+    it('returns null for an invalid string from filesize', () => {
+      const _filesize = sinon.stub().returns('123');
+      expect(_formatFilesize({ _filesize })).toEqual(null);
+    });
+
+    it('returns null for an invalid unit of measure from filesize', () => {
+      const _filesize = sinon.stub().returns('123 BOB');
+      expect(_formatFilesize({ _filesize })).toEqual(null);
+    });
+
+    it.each(['B', 'KB', 'MB', 'GB', 'TB'])(
+      'calls i18n.sprintf with the expected substitution for size %s',
+      (sizeName) => {
+        const i18n = fakeI18n();
+        const size = '123';
+        const _filesize = sinon.stub().returns(`${size} ${sizeName}`);
+
+        _formatFilesize({ _filesize, i18n });
+        sinon.assert.calledWith(i18n.sprintf, `%(formattedSize)s ${sizeName}`, {
+          formattedSize: size,
+        });
+      },
+    );
   });
 });
