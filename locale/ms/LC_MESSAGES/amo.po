@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 09:57+0000\n"
+"PO-Revision-Date: 2018-10-10 15:47+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -44,39 +44,32 @@ msgid "Add to collection"
 msgstr "Tambah ke koleksi"
 
 #: src/amo/components/AddonAdminLinks/index.js:104
-#, fuzzy
 msgid "Content review add-on"
-msgstr "seseorang menulis ulasan untuk add-on saya"
+msgstr "Kandungan ulasan add-on"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
-#, fuzzy
 msgid "Review theme"
-msgstr "Teks ulasan"
+msgstr "Ulasan tema"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Ulasan untuk %(addonName)s"
+msgstr "Ulasan kod add-on"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
-#, fuzzy
 msgid "Admin Links"
-msgstr "Pautan Add-on"
+msgstr "Pautan Pentadbir"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
-#, fuzzy
 msgid "Edit add-on"
-msgstr "Cari add-ons"
+msgstr "Edit add-on"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Memuat add-on"
+msgstr "Status pentadbir add-on"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Cari add-ons"
+msgstr "Pentadbir add-on"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -852,9 +845,8 @@ msgid "Developer Hub"
 msgstr "Hab Pembangun"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Respons pembangun"
+msgstr "Polisi Pembangun"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1154,9 +1146,8 @@ msgid "Go dark for a better web viewing experience"
 msgstr "Bergelap untuk pengalaman melayari web yang lebih baik"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Kuki"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
@@ -1183,9 +1174,8 @@ msgid "Undo Close Tab Button"
 msgstr "Butang Batal Tutup Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
-#, fuzzy
 msgid "Never lose a page again"
-msgstr "Jangan sampai hilang halaman lagi."
+msgstr "Jangan sampai hilang halaman lagi"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1866,9 +1856,8 @@ msgstr "%(addonName)s – Dapatkan Tema ini untuk 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:454
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Tema ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Alatan Carian untuk 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:461
@@ -2058,9 +2047,8 @@ msgid "Privacy & security"
 msgstr "Privasi & keselamatan"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "Lihat selanjutnya ekstensi penterjemahan"
+msgstr "Lihat kawalan parental selanjutnya"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
