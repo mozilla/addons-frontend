@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 02:31+0000\n"
+"PO-Revision-Date: 2018-10-10 02:33+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -44,9 +44,8 @@ msgid "Add to collection"
 msgstr "新增至收藏集"
 
 #: src/amo/components/AddonAdminLinks/index.js:104
-#, fuzzy
 msgid "Content review add-on"
-msgstr "某位使用者評論我的附加元件"
+msgstr "內容審核附加元件"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
 #, fuzzy
@@ -59,24 +58,20 @@ msgid "Review add-on code"
 msgstr "%(addonName)s 的評論"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
-#, fuzzy
 msgid "Admin Links"
-msgstr "附加元件網址"
+msgstr "附加元件鏈結"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
-#, fuzzy
 msgid "Edit add-on"
-msgstr "尋找附加元件"
+msgstr "編輯附加元件"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "正在載入附加元件"
+msgstr "管理員附加元件狀態"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
-#, fuzzy
 msgid "Admin add-on"
-msgstr "尋找附加元件"
+msgstr "管理員附加元件"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -843,9 +838,8 @@ msgid "Developer Hub"
 msgstr "開發者交流中心"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "開發者回應"
+msgstr "開發者政策"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1144,9 +1138,8 @@ msgid "Go dark for a better web viewing experience"
 msgstr "讓畫面變暗，有更好的上網體驗"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Cookie"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
@@ -1158,7 +1151,7 @@ msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
-msgstr ""
+msgstr "儲存文字，稍後再管理或貼上"
 
 #: src/amo/components/HomeHeroBanner/index.js:294
 msgid "Group Speed Dial"
@@ -1173,9 +1166,8 @@ msgid "Undo Close Tab Button"
 msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
-#, fuzzy
 msgid "Never lose a page again"
-msgstr "別再搞丟分頁了。"
+msgstr "不再搞丟分頁"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1852,9 +1844,8 @@ msgstr "%(addonName)s – 下載 🦊 Firefox 佈景主題（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:454
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 下載 🦊 Firefox 佈景主題（%(locale)s）"
+msgstr "%(addonName)s – 下載 🦊 Firefox 搜尋工具（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:461
@@ -2043,9 +2034,8 @@ msgid "Privacy & security"
 msgstr "隱私與安全"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "看更多翻譯工具"
+msgstr "看更多家長控制工具"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
