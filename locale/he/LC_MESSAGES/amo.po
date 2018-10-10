@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 05:50+0000\n"
+"PO-Revision-Date: 2018-10-10 09:11+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -190,7 +190,7 @@ msgstr "קריאת הסכם הרישיון עבור תוספת זו"
 
 #: src/amo/components/AddonMoreInfo/index.js:162
 msgid "See all versions"
-msgstr "צפייה בכל הגרסאות"
+msgstr "הצגת כל הגרסאות"
 
 #: src/amo/components/AddonMoreInfo/index.js:188
 msgid "Add-on Links"
@@ -1151,7 +1151,7 @@ msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
-msgstr "מחיקה אוטומטית של עוגיות לא רצויות"
+msgstr "מחיקה אוטומטית של עוגיות בלתי רצויות"
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
