@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 07:24+0000\n"
+"PO-Revision-Date: 2018-10-10 09:11+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -44,34 +44,28 @@ msgid "Add to collection"
 msgstr "Toevoegen aan collectie"
 
 #: src/amo/components/AddonAdminLinks/index.js:104
-#, fuzzy
 msgid "Content review add-on"
-msgstr "iemand schrijft een beoordeling over mijn add-on"
+msgstr "Inhoudsbeoordeling van add-on"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
-#, fuzzy
 msgid "Review theme"
-msgstr "Tekst beoordelen"
+msgstr "Thema beoordelen"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Beoordelingen voor %(addonName)s"
+msgstr "Add-oncode beoordelen"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
-#, fuzzy
 msgid "Admin Links"
-msgstr "Add-on-koppelingen"
+msgstr "Beheerderskoppelingen"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
-#, fuzzy
 msgid "Edit add-on"
-msgstr "Add-ons zoeken"
+msgstr "Add-on bewerken"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Add-ons worden geladen"
+msgstr "Add-onstatus beheren"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
 #, fuzzy
@@ -1149,7 +1143,7 @@ msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
-msgstr ""
+msgstr "Zoek het donker op voor een betere kijkbeleving van het web"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 #, fuzzy
@@ -1158,15 +1152,15 @@ msgstr "Cookies"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
-msgstr ""
+msgstr "Verwijder automatisch ongewenste cookies"
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
-msgstr ""
+msgstr "Sla stukjes tekst op om ze later te plakken en organiseren"
 
 #: src/amo/components/HomeHeroBanner/index.js:294
 msgid "Group Speed Dial"
@@ -2069,7 +2063,7 @@ msgstr "Meer vertaalhulpmiddelen bekijken"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
-msgstr ""
+msgstr "Ouderlijk toezicht"
 
 #: src/amo/pages/LandingPage/index.js:238
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
