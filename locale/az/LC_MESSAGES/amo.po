@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 12:33+0000\n"
+"PO-Revision-Date: 2018-10-10 12:59+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -2040,9 +2040,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Firefox-un necə göründüyünü mövzularla dəyişdirin."
 
 #: src/amo/pages/Home/index.js:309
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Digər məşhur uzantılar"
+msgstr "Daha çox məşhur uzantıları gör"
 
 #: src/amo/pages/Home/index.js:51
 msgid "See more privacy & security extensions"
@@ -2053,9 +2052,8 @@ msgid "Privacy & security"
 msgstr "Məxfilik və təhlükəsizlik"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "Daha çox tərcümə alətləri gör"
+msgstr "Daha çox valideyn idarəsi alətlərini gör"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
