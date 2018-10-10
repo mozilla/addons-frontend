@@ -248,7 +248,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    const root = render({ review, smallCard: true });
+    const root = render({ review });
 
     const editButton = renderControls(root).find('.AddonReviewCard-edit');
     expect(editButton).toHaveLength(0);
@@ -301,7 +301,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    const root = render({ review, smallCard: true });
+    const root = render({ review });
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
@@ -310,7 +310,7 @@ describe(__filename, () => {
 
   it('renders a delete link for a user review', () => {
     const review = signInAndDispatchSavedReview();
-    const root = render({ review, smallCard: true });
+    const root = render({ review });
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
@@ -341,7 +341,7 @@ describe(__filename, () => {
   it('begins deleting when clicking a delete link for a review', () => {
     const review = signInAndDispatchSavedReview();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review, smallCard: true });
+    const root = render({ review });
 
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
@@ -368,7 +368,7 @@ describe(__filename, () => {
     expect(dialog).toHaveProp('confirmButtonText', 'Delete');
   });
 
-  it('renders delete confirmation buttons for a rating', () => {
+  it('renders delete confirmation buttons for a rating with smallCard=true', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
@@ -380,7 +380,7 @@ describe(__filename, () => {
     expect(dialog).toHaveProp('confirmButtonText', 'Delete rating');
   });
 
-  it('renders delete confirmation buttons for a review', () => {
+  it('renders delete confirmation buttons for a review with smallCard=true', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeReview,
     });
@@ -486,7 +486,7 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render({ review, smallCard: true });
+    const root = render({ review });
 
     const controls = renderControls(root);
     expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(1);
@@ -509,7 +509,7 @@ describe(__filename, () => {
     });
     errorHandler.handle(new Error('some unexpected error'));
 
-    const root = render({ errorHandler, review, smallCard: true });
+    const root = render({ errorHandler, review });
 
     const controls = renderControls(root);
     expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(0);
