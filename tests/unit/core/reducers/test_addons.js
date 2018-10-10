@@ -506,6 +506,18 @@ describe(__filename, () => {
       );
       expect(state.loadingBySlug[slug]).toBe(true);
     });
+
+    it('is case insensitive', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({
+          slug: slug.toUpperCase(),
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(state.loadingBySlug).toHaveProperty(slug);
+    });
   });
 
   describe('loadAddons', () => {
@@ -585,6 +597,12 @@ describe(__filename, () => {
       expect(getAddonBySlug(state, undefined)).toEqual(null);
     });
 
+    it('returns null when slug is not a string', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(getAddonBySlug(state, 123)).toEqual(null);
+    });
+
     it('returns an add-on by slug', () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
@@ -595,12 +613,16 @@ describe(__filename, () => {
     });
 
     it('is case insensitive', () => {
-      const { store } = dispatchClientMetadata();
-      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
+      const slug = 'some-slug';
 
-      expect(
-        getAddonBySlug(store.getState(), fakeAddon.slug.toUpperCase()),
-      ).toEqual(createInternalAddon(fakeAddon));
+      const { store } = dispatchClientMetadata();
+      store.dispatch(
+        loadAddons(createFetchAddonResult({ ...fakeAddon, slug }).entities),
+      );
+
+      expect(getAddonBySlug(store.getState(), slug.toUpperCase())).toEqual(
+        createInternalAddon({ ...fakeAddon, slug }),
+      );
     });
   });
 
@@ -674,6 +696,18 @@ describe(__filename, () => {
         }),
       );
       expect(isAddonLoading({ addons: state }, slug.toUpperCase())).toBe(true);
+    });
+
+    it('returns false when slug is not a string', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddon({
+          slug,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(isAddonLoading({ addons: state }, 123)).toBe(false);
     });
 
     it('returns false when slug is null', () => {

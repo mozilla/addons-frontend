@@ -1371,14 +1371,23 @@ describe(__filename, () => {
       }),
     );
   });
-  it('sends a server redirect when username is not lower case', () => {
+
+  it(`sends a server redirect when username parameter case is not the same as the collection's author name`, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'fr';
+    const authorUsername = 'john';
 
     const { store } = dispatchClientMetadata({ clientApp, lang });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    _loadCurrentCollection({ store });
+    const collectionAddons = createFakeCollectionAddons();
+    const collectionDetail = createFakeCollectionDetail({ authorUsername });
+
+    _loadCurrentCollection({
+      store,
+      addons: collectionAddons,
+      detail: collectionDetail,
+    });
 
     fakeDispatch.resetHistory();
 
@@ -1386,7 +1395,7 @@ describe(__filename, () => {
 
     const params = {
       slug: collection.slug,
-      username: collection.authorUsername.toUpperCase(),
+      username: authorUsername.toUpperCase(),
     };
     renderComponent({ match: { params }, store });
 
@@ -1402,21 +1411,29 @@ describe(__filename, () => {
     sinon.assert.calledOnce(fakeDispatch);
   });
 
-  it('sends a server redirect when slug is not lower case', () => {
+  it('sends a server redirect when slug parameter case is not the same as the collection slug', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'fr';
+    const slug = 'some-slug-collection';
 
     const { store } = dispatchClientMetadata({ clientApp, lang });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    _loadCurrentCollection({ store });
+    const collectionAddons = createFakeCollectionAddons();
+    const collectionDetail = createFakeCollectionDetail({ slug });
+
+    _loadCurrentCollection({
+      store,
+      addons: collectionAddons,
+      detail: collectionDetail,
+    });
 
     fakeDispatch.resetHistory();
 
     const collection = getCurrentCollection(store.getState().collections);
 
     const params = {
-      slug: collection.slug.toUpperCase(),
+      slug: slug.toUpperCase(),
       username: collection.authorUsername,
     };
     renderComponent({ match: { params }, store });

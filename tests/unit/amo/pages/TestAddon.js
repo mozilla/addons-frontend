@@ -622,15 +622,17 @@ describe(__filename, () => {
 
   // See: https://github.com/mozilla/addons-frontend/issues/4271.
   it("dispatches a server redirect when slug param case does not match the add-on's slug case", () => {
+    const slug = 'some-slug';
+
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddon({ ...fakeAddon, slug });
     store.dispatch(_loadAddons({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
       // Set the slug param to all uppercase
-      params: { slug: addon.slug.toUpperCase() },
+      params: { slug: slug.toUpperCase() },
       store,
     });
 

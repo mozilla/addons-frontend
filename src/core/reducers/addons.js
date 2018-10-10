@@ -343,7 +343,7 @@ export default function addonsReducer(
         ...state,
         loadingBySlug: {
           ...state.loadingBySlug,
-          [slug]: true,
+          [slug.toLowerCase()]: true,
         },
       };
     }
