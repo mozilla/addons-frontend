@@ -408,7 +408,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     }
 
     let controlsAreVisible = showControls;
-    if (beginningToDeleteReview && (this.isRatingOnly() || !smallCard)) {
+    if (beginningToDeleteReview) {
       controlsAreVisible = false;
     }
 

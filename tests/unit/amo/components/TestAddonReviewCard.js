@@ -269,16 +269,6 @@ describe(__filename, () => {
     expect(root.find(UserReview)).toHaveProp('controls', null);
   });
 
-  it('does not render controls for smallCard ratings when beginningToDeleteReview', () => {
-    const review = signInAndDispatchSavedReview({
-      externalReview: fakeRatingOnly,
-    });
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, smallCard: true });
-
-    expect(root.find(UserReview)).toHaveProp('controls', null);
-  });
-
   it('does not let you edit without a review', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ review: null });
