@@ -293,7 +293,11 @@ export const getAddonBySlug = (
   state: AppState,
   slug: string,
 ): AddonType | null => {
-  const addonId = state.addons.bySlug[slug];
+  if (typeof slug !== 'string') {
+    return null;
+  }
+
+  const addonId = state.addons.bySlug[slug.toLowerCase()];
 
   return getAddonByID(state, addonId);
 };
@@ -308,7 +312,11 @@ export const getAddonByGUID = (
 };
 
 export const isAddonLoading = (state: AppState, slug: string): boolean => {
-  return Boolean(state.addons.loadingBySlug[slug]);
+  if (typeof slug !== 'string') {
+    return false;
+  }
+
+  return Boolean(state.addons.loadingBySlug[slug.toLowerCase()]);
 };
 
 export const getAllAddons = (state: AppState): Array<AddonType> => {
@@ -335,7 +343,7 @@ export default function addonsReducer(
         ...state,
         loadingBySlug: {
           ...state.loadingBySlug,
-          [slug]: true,
+          [slug.toLowerCase()]: true,
         },
       };
     }
@@ -355,8 +363,8 @@ export default function addonsReducer(
         byID[`${addon.id}`] = addon;
 
         if (addon.slug) {
-          bySlug[addon.slug] = addon.id;
-          loadingBySlug[addon.slug] = false;
+          bySlug[addon.slug.toLowerCase()] = addon.id;
+          loadingBySlug[addon.slug.toLowerCase()] = false;
         }
 
         if (addon.guid) {
@@ -390,11 +398,11 @@ export default function addonsReducer(
           },
           bySlug: {
             ...state.bySlug,
-            [addon.slug]: undefined,
+            [addon.slug.toLowerCase()]: undefined,
           },
           loadingBySlug: {
             ...state.loadingBySlug,
-            [addon.slug]: false,
+            [addon.slug.toLowerCase()]: undefined,
           },
         };
       }

@@ -37,6 +37,7 @@ import {
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import Card from 'ui/components/Card';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import type {
@@ -69,6 +70,7 @@ type InternalProps = {|
   ...Props,
   _config: typeof config,
   _isFeaturedCollection: typeof isFeaturedCollection,
+  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   filters: CollectionFilters,
@@ -225,11 +227,31 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     if (
       collection &&
-      (collection.slug !== params.slug ||
+      (collection.slug.toLowerCase() !== params.slug.toLowerCase() ||
         collection.authorUsername.toLowerCase() !==
           params.username.toLowerCase())
     ) {
       collectionChanged = true;
+    }
+
+    // See: https://github.com/mozilla/addons-frontend/issues/4271
+    if (
+      !collectionChanged &&
+      collection &&
+      (params.username !== collection.authorUsername ||
+        params.slug !== collection.slug)
+    ) {
+      const { lang, clientApp } = this.props;
+
+      this.props.dispatch(
+        sendServerRedirect({
+          status: 301,
+          url: `/${lang}/${clientApp}/collections/${
+            collection.authorUsername
+          }/${collection.slug}/`,
+        }),
+      );
+      return;
     }
 
     if (!collection || collectionChanged) {
@@ -510,7 +532,9 @@ export class CollectionBase extends React.Component<InternalProps> {
 }
 
 export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
-  const { loading } = state.collections.current;
+  const { api, collections } = state;
+
+  const { loading } = collections.current;
   const { creating, location } = ownProps;
 
   const filters = {
@@ -526,10 +550,12 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
     collection && currentUser && collection.authorId === currentUser.id;
 
   return {
+    clientApp: api.clientApp,
     collection,
     filters,
     isLoggedIn: !!currentUser,
     isOwner,
+    lang: api.lang,
     loading,
   };
 };
