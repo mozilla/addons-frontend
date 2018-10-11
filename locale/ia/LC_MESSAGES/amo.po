@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 14:41+0000\n"
+"PO-Revision-Date: 2018-10-11 02:29+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -64,9 +64,8 @@ msgid "Admin Links"
 msgstr "Ligamines del additivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
-#, fuzzy
 msgid "Edit add-on"
-msgstr "Trovar le additivos"
+msgstr "Rediger additivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
 #, fuzzy
@@ -851,9 +850,8 @@ msgid "Developer Hub"
 msgstr "Centro de developpatores"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Responsa de disveloppator"
+msgstr "Politicas de developpator"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1146,24 +1144,23 @@ msgstr "Gestos del mus personalisate"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Cookies"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
-msgstr ""
+msgstr "Deler automaticamente cookies indesiderate"
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Texto MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
@@ -1183,7 +1180,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:302
 msgid "Never lose a page again"
-msgstr ""
+msgstr "Nunquam perder un pagina de novo"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1871,9 +1868,8 @@ msgstr "%(addonName)s – Obtene iste thema pro 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:454
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obtene iste thema pro 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obtene iste utensile de recerca pro 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:461
@@ -2055,9 +2051,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Cambia le apparentia de Firefox con le themas."
 
 #: src/amo/pages/Home/index.js:309
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Altere extensiones popular"
+msgstr "Vide altere extensiones popular"
 
 #: src/amo/pages/Home/index.js:51
 msgid "See more privacy & security extensions"
@@ -2068,9 +2063,8 @@ msgid "Privacy & security"
 msgstr "Confidentialitate & securitate"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "Vide altere utensiles de traduction"
+msgstr "Vide altere controlos parental"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
