@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-11 07:32+0000\n"
+"PO-Revision-Date: 2018-10-11 07:43+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -539,9 +539,8 @@ msgid "Added to collection"
 msgstr "Добавена към списък"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Добавена към списък"
+msgstr "Премахната от списък"
 
 #: src/amo/components/CollectionAddAddon/index.js:168
 msgid "Find an add-on to include in this collection"
@@ -552,14 +551,12 @@ msgid "Edit this collection"
 msgstr "Променяне на списъка"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Промяна на списъка"
+msgstr "Промяна на информацията на списъка"
 
 #: src/amo/components/CollectionDetails/index.js:131
-#, fuzzy
 msgid "Back to collection"
-msgstr "Добавяне към списък"
+msgstr "Назад към списъка"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -570,13 +567,12 @@ msgid "Creator"
 msgstr "Създател"
 
 #: src/amo/components/CollectionManager/index.js:229
-#, fuzzy
 msgid "Create collection"
 msgstr "Създаване на списък"
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Save changes"
-msgstr ""
+msgstr "Запазване"
 
 #: src/amo/components/CollectionManager/index.js:239
 msgid "Collection name"
@@ -739,18 +735,16 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Съжаляваме, но възникна грешка на сървъра и не завършихме вашата заявка. Грешката е записана при нас и ще я проверим."
 
 #: src/amo/components/FeaturedAddonReview/index.js:79
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Отзиви за %(addonName)s"
+msgstr "Отговор от %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Отзиви за %(addonName)s"
+msgstr "Отзив от %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:92
 msgid "The review was not found."
-msgstr ""
+msgstr "Отзивът не е намерен."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -942,9 +936,8 @@ msgid "Universal Bypass"
 msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:102
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "Автоматично търсене на кодове за намаления"
+msgstr "Автоматично прескачане на досадните скъсени препратки"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Tree Style Tab"
@@ -952,7 +945,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Тонове отворени раздели? Подредете ги в удобна странична лента"
 
 #: src/amo/components/HomeHeroBanner/index.js:115
 msgid "Imagus"
@@ -960,7 +953,7 @@ msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:116
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Увеличавайте изображения, чрез посочване с мишкката"
 
 #: src/amo/components/HomeHeroBanner/index.js:122
 msgid "Privacy Possum"
@@ -1011,9 +1004,8 @@ msgid "Give your favorite websites a new look"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:158
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Резултати"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 #, fuzzy
@@ -1022,16 +1014,15 @@ msgstr "Защита на лични данни"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Save memory by disabling inactive tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:168
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Обновяване на отговора"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Get notified when your selected websites update with new content"
@@ -1039,7 +1030,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:176
 #, fuzzy
@@ -1048,7 +1039,7 @@ msgstr "Автоматично търсене на кодове за намал�
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Adjust video playback speeds with shortcuts"
@@ -1056,7 +1047,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:189
 msgid "View Image"
-msgstr ""
+msgstr "View Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
@@ -1064,7 +1055,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:196
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Clean up links for easy sharing"
@@ -1072,7 +1063,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:201
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
@@ -1080,25 +1071,23 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:208
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Click a button to close annoying pop-ups"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:213
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Отметки"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:220
-#, fuzzy
 msgid "Search Preview"
-msgstr "SearchPreview"
+msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
 msgid "Enjoy thumbnail images alongside your search returns"
@@ -1106,7 +1095,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:227
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "Remove formatting when saving text to your clipboard"
@@ -1114,7 +1103,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Official Media Bias Fact Check Icon"
-msgstr ""
+msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:235
 msgid "Indicates the political bias of news sites with a tidy icon"
@@ -1122,7 +1111,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:241
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:242
 msgid "Arrange tabs in a vertical fashion"
@@ -1145,18 +1134,16 @@ msgid "Send any Web page to your Kindle device"
 msgstr "Изпратете всяка страница на вашето устройство Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:258
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "Страница"
+msgstr "New Tab Homepage"
 
 #: src/amo/components/HomeHeroBanner/index.js:259
 msgid "Designate a custom home page for your new tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:265
-#, fuzzy
 msgid "OneNote Web Clipper"
-msgstr "Notebook Web Clipper"
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:266
 msgid "Save, annotate & organize web content"
@@ -1164,7 +1151,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "FoxyGestures"
-msgstr "Gesturefy"
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:271
 msgid "Customized mouse gestures"
@@ -1172,16 +1159,15 @@ msgstr "Повече от 40 адаптивни жеста с мишката."
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Бисквитки"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
@@ -1189,7 +1175,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
@@ -1208,14 +1194,12 @@ msgid "Undo Close Tab Button"
 msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
-#, fuzzy
 msgid "Never lose a page again"
-msgstr "Никога повече не губете страница."
+msgstr "Никога вече не губете страница"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
-#, fuzzy
 msgid "Facebook Container"
-msgstr "Facebook Filter"
+msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Prevent Facebook from tracking you around the web"
@@ -1223,7 +1207,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Midnight Lizard"
-msgstr ""
+msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Give the entire internet a new look"
@@ -1231,16 +1215,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "Iridium for YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Play videos in a pop-out window, take video screenshots & more"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Private Bookmarks"
-msgstr "Отметки"
+msgstr "Private Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Password-protect your personal bookmarks"
@@ -1248,7 +1231,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "IP Address and Domain Information"
-msgstr ""
+msgstr "IP Address and Domain Information"
 
 #: src/amo/components/HomeHeroBanner/index.js:69
 msgid "See detailed info about every website you visit—IP address, location, provider & more"
@@ -1256,15 +1239,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Изберете страницата, която се зарежда при отваряне на нов раздел"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Forecastfox"
-msgstr ""
+msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Get instant global weather information right in Firefox"
@@ -1280,11 +1263,11 @@ msgstr "Разделете отделните части на живота си 
 
 #: src/amo/components/HomeHeroBanner/index.js:96
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Преглед на изображенията на прозрачен фон"
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1415,9 +1398,8 @@ msgid "Log in to rate this add-on"
 msgstr "За да оцените тази добавка се впишете"
 
 #: src/amo/components/RatingManager/index.js:274
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Колко удовлетворени се чувствате от %(addonName)s?"
+msgstr "Как оценявате %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:300
 #, fuzzy
