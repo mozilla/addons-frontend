@@ -1854,6 +1854,32 @@ describe(__filename, () => {
     expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
   });
 
+  it('renders a "og:image" meta tag with the preview URL if add-on is a lightweight theme', () => {
+    const addon = createInternalAddon(fakeTheme);
+
+    const root = shallowRender({ addon });
+
+    expect(root.find(`meta[property="og:image"]`)).toHaveLength(1);
+    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
+      'content',
+      addon.themeData.previewURL,
+    );
+  });
+
+  it('does not render a "og:image" meta tag if lightweight theme does not have a preview URL', () => {
+    const addon = createInternalAddon({
+      ...fakeTheme,
+      theme_data: {
+        ...fakeTheme.theme_data,
+        previewURL: null,
+      },
+    });
+
+    const root = shallowRender({ addon });
+
+    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
+  });
+
   it('renders a canonical link tag', () => {
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon });
