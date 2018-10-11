@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:10+0000\n"
-"PO-Revision-Date: 2018-08-27 14:16+0000\n"
+"PO-Revision-Date: 2018-10-11 10:42+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -38,15 +38,11 @@ msgstr "Installerer"
 msgid "Uninstalling"
 msgstr "Avinstallerer"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:236
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:236 src/core/components/InstallButton/index.js:282
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:267
-#: src/core/components/InstallButton/index.js:283
+#: src/core/components/AMInstallButton/index.js:222 src/core/components/InstallButton/index.js:267 src/core/components/InstallButton/index.js:283
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -55,15 +51,10 @@ msgid "Server Error"
 msgstr "Tenarfeil"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre "
-"førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Feilkode: %(status)s."
 
@@ -77,11 +68,11 @@ msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s er lagt til"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Handter tillegga dine ved å klikke på Tillegg i menyen."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -169,15 +160,11 @@ msgstr "Tilpass Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan "
-"personleggjere surfinga di på nettet — du kan legge til alt frå artige tema "
-"til kraftfulle verktøy og funksjonar. Her er nokre du kan prøve."
+"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan personleggjere surfinga di på nettet — du kan legge til alt frå artige tema til kraftfulle verktøy og funksjonar. Her er "
+"nokre du kan prøve."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -193,7 +180,7 @@ msgstr "Oppdater for å fortsetje"
 
 #: src/ui/components/Notice/index.js:133
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Avvis denne meldinga"
 
 #: src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
@@ -212,9 +199,7 @@ msgstr "Førehandsvising av %(title)s"
 #~ msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Hald musepeikaren over for å førehandsvise eller klikk for å installere "
-#~ "%(name)s"
+#~ msgstr "Hald musepeikaren over for å førehandsvise eller klikk for å installere %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Hald musepeikaren over bildet for å førehandsvise"
