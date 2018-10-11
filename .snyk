@@ -113,8 +113,11 @@ ignore:
     - chokidar > node-pre-gyp > tar > chownr:
         reason: Our production app does not use chokidar
         expires: '2018-08-30T21:19:40.011Z'
+      chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: Our production app does not use chokidar
+        expires: '2018-11-10T12:45:45.390Z'
     - chokidar > fsevents > node-pre-gyp > tar > chownr:
         reason: Our production app does not use chokidar
         expires: '2018-08-30T21:19:40.012Z'
 patch: {}
-version: v1.10.2
+version: v1.12.0
