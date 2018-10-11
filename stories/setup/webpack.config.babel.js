@@ -14,11 +14,5 @@ module.exports = {
   module: {
     rules: [...getRules({ babelOptions, bundleStylesWithJs: true })],
   },
-  // TODO: add the circularDependency plugin back once the following issue is fixed:
-  // https://github.com/mozilla/addons-frontend/issues/6561.
-  plugins: [
-    ...getPlugins({
-      includeCircularDependencyPlugin: false,
-    }),
-  ],
+  plugins: [...getPlugins()],
 };
