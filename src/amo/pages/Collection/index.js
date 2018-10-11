@@ -514,7 +514,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const { creating, location } = ownProps;
 
   const filters = {
-    page: location.query.page || 1,
+    page: location.query.page || '1',
     collectionSort:
       location.query.collection_sort || COLLECTION_SORT_DATE_ADDED_DESCENDING,
   };

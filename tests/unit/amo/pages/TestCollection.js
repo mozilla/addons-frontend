@@ -227,7 +227,7 @@ describe(__filename, () => {
 
     // These are the expected default values for filters.
     const filters = {
-      page: 1,
+      page: '1',
       collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
     };
 
