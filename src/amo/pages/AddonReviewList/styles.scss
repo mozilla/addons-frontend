@@ -22,84 +22,10 @@
   }
 }
 
-.AddonReviewList-overallRatingStars {
-  margin: 0 0 12px;
-
-  @include respond-to(extraExtraLarge) {
-    margin-bottom: 24px;
-  }
-}
-
-.AddonReviewList-addon {
-  @include respond-to(large) {
-    min-width: 300px;
-    width: 35%;
-  }
-}
-
 .AddonReviewList-reviews {
   @include respond-to(large) {
     @include margin-start($padding-page-l);
 
     width: 65%;
   }
-}
-
-.AddonReviewList-header {
-  align-items: center;
-  display: flex;
-  justify-content: start;
-  padding: 0 0 12px;
-}
-
-.AddonReviewList-header-icon {
-  @include margin-end(12px);
-
-  align-items: center;
-  display: flex;
-  height: 36px;
-
-  .AddonReviewList--statictheme & {
-    display: none;
-  }
-}
-
-.AddonReviewList-header-text {
-  // See: https://stackoverflow.com/questions/36150458
-  min-width: 50%;
-}
-
-.AddonReviewList-header-icon-image {
-  display: block;
-  height: 36px;
-}
-
-.AddonReviewList-header-addonName {
-  font-size: $font-size-m;
-  margin: 0;
-  padding: 0;
-  word-wrap: break-word;
-
-  a,
-  a:link {
-    color: $link-color;
-    text-decoration: none;
-  }
-}
-
-.AddonReviewList-header-authors {
-  font-size: font-size-m;
-  margin: 0;
-  padding: 0;
-
-  a,
-  a:link {
-    color: $black;
-  }
-}
-
-.AddonReviewList-addonAverage {
-  color: $grey-50;
-  margin-top: 6px;
-  text-align: center;
 }
