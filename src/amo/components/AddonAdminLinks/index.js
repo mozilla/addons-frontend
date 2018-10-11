@@ -7,6 +7,7 @@ import {
   ADDONS_CONTENTREVIEW,
   ADDONS_EDIT,
   ADDONS_POSTREVIEW,
+  ADDON_TYPE_THEME,
   ADMIN_TOOLS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
@@ -67,7 +68,9 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       <li>
         <a
           className="AddonAdminLinks-edit-link"
-          href={`/developers/addon/${addon.slug}/edit`}
+          href={`/developers/${
+            addon.type === ADDON_TYPE_THEME ? 'theme' : 'addon'
+          }/${addon.slug}/edit`}
         >
           {i18n.gettext('Edit add-on')}
         </a>
