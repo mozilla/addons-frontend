@@ -7,6 +7,7 @@ import {
   ADDONS_CONTENTREVIEW,
   ADDONS_EDIT,
   ADDONS_POSTREVIEW,
+  ADDON_TYPE_STATIC_THEME,
   ADMIN_TOOLS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
@@ -196,7 +197,26 @@ describe(__filename, () => {
     expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveLength(0);
   });
 
-  it('shows a theme review link for a theme if the user has permission', () => {
+  it('shows a theme review link for a static theme if the user has permission', () => {
+    const root = renderWithPermissions({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        slug,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+      permissions: THEMES_REVIEW,
+    });
+
+    expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
+      'href',
+      `/reviewers/review/${slug}`,
+    );
+    expect(
+      root.find('.AddonAdminLinks-themeReview-link').children(),
+    ).toHaveText('Review theme');
+  });
+
+  it('shows a theme review link for a lightweight theme if the user has permission', () => {
     const root = renderWithPermissions({
       addon: createInternalAddon({
         ...fakeTheme,
@@ -207,7 +227,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
       'href',
-      `/reviewers/review/${slug}`,
+      `/reviewers/themes/queue/single/${slug}`,
     );
     expect(
       root.find('.AddonAdminLinks-themeReview-link').children(),
