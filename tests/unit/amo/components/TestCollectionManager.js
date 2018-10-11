@@ -355,7 +355,7 @@ describe(__filename, () => {
   });
 
   it('updates the collection on submit', () => {
-    const filters = { page: 1 };
+    const filters = { page: '1' };
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
@@ -532,7 +532,7 @@ describe(__filename, () => {
     const name = 'trishul';
     const slug = 'trishul';
     const errorHandler = createStubErrorHandler();
-    const filters = { page: 1 };
+    const filters = { page: '1' };
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
@@ -627,7 +627,7 @@ describe(__filename, () => {
 
   it('allows a blank description', () => {
     const errorHandler = createStubErrorHandler();
-    const filters = { page: 1 };
+    const filters = { page: '1' };
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });

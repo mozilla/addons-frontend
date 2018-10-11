@@ -155,7 +155,7 @@ export function fetchReview({
 type FetchReviewsParams = {|
   addonSlug: string,
   errorHandlerId: string,
-  page?: number,
+  page?: string,
 |};
 
 export type FetchReviewsAction = {|
@@ -163,14 +163,14 @@ export type FetchReviewsAction = {|
   payload: {|
     addonSlug: string,
     errorHandlerId: string,
-    page: number,
+    page: string,
   |},
 |};
 
 export function fetchReviews({
   addonSlug,
   errorHandlerId,
-  page = 1,
+  page = '1',
 }: FetchReviewsParams): FetchReviewsAction {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId cannot be empty');
@@ -230,7 +230,7 @@ export function setGroupedRatings({
 
 type FetchUserReviewsParams = {|
   errorHandlerId: string,
-  page?: number,
+  page?: string,
   userId: number,
 |};
 
@@ -238,7 +238,7 @@ export type FetchUserReviewsAction = {|
   type: typeof FETCH_USER_REVIEWS,
   payload: {|
     errorHandlerId: string,
-    page: number,
+    page: string,
     userId: number,
   |},
 |};
@@ -246,7 +246,7 @@ export type FetchUserReviewsAction = {|
 export function fetchUserReviews({
   errorHandlerId,
   userId,
-  page = 1,
+  page = '1',
 }: FetchUserReviewsParams): FetchUserReviewsAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');

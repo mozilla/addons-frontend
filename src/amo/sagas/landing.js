@@ -47,17 +47,17 @@ export function* fetchLandingAddons({
           featured: true,
           sort: SEARCH_SORT_RANDOM,
         },
-        page: 1,
+        page: '1',
       }),
       call(searchApi, {
         api,
         filters: { ...filters, sort: SEARCH_SORT_TOP_RATED },
-        page: 1,
+        page: '1',
       }),
       call(searchApi, {
         api,
         filters: { ...filters, sort: SEARCH_SORT_TRENDING },
-        page: 1,
+        page: '1',
       }),
     ]);
 

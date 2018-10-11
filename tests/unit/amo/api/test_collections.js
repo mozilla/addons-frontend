@@ -100,7 +100,7 @@ describe(__filename, () => {
 
     it('calls the collection add-ons list API', async () => {
       const filters = {
-        page: 1,
+        page: '1',
         collectionSort: COLLECTION_SORT_DATE_ADDED_ASCENDING,
       };
 

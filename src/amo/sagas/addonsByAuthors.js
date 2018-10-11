@@ -33,7 +33,7 @@ export function* fetchAddonsByAuthors({ payload }) {
         addonType: getAddonTypeFilter(addonType),
         author: authorUsernames.sort().join(','),
         exclude_addons: forAddonSlug,
-        page: page || 1,
+        page: page || '1',
         page_size: pageSize,
         sort: sort || SEARCH_SORT_TRENDING,
       },

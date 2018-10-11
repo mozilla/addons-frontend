@@ -49,7 +49,7 @@ export type FetchAddonsByAuthorsParams = {|
   authorUsernames: Array<string>,
   errorHandlerId: string,
   forAddonSlug?: string,
-  page?: number,
+  page?: string,
   pageSize: number,
   sort?: string,
 |};

@@ -92,7 +92,7 @@ describe(__filename, () => {
           addon: fakeAddon.slug,
           apiState,
           filter: 'without_empty_body',
-          page: 1,
+          page: '1',
         })
         .returns(
           Promise.resolve(
@@ -422,7 +422,7 @@ describe(__filename, () => {
         .once()
         .withArgs({
           apiState,
-          page: 1,
+          page: '1',
           user: userId,
         })
         .returns(

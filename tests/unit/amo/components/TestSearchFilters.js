@@ -196,7 +196,7 @@ describe(__filename, () => {
       pathname: `/en-US/android/search/`,
       query: convertFiltersToQueryParams({
         featured: true,
-        page: 1,
+        page: '1',
         query: 'Music player',
       }),
     });
@@ -206,7 +206,7 @@ describe(__filename, () => {
     const root = render({
       filters: {
         featured: true,
-        page: 42,
+        page: '42',
         query: 'Music player',
       },
     });
@@ -217,7 +217,7 @@ describe(__filename, () => {
     sinon.assert.calledWithExactly(fakeHistory.push, {
       pathname: `/en-US/android/search/`,
       query: convertFiltersToQueryParams({
-        page: 1,
+        page: '1',
         query: 'Music player',
       }),
     });
@@ -226,7 +226,7 @@ describe(__filename, () => {
   it('resets the page filter when a select is updated', () => {
     const root = render({
       filters: {
-        page: 42,
+        page: '42',
         query: 'Cool things',
       },
     });
@@ -245,7 +245,7 @@ describe(__filename, () => {
       pathname: `/en-US/android/search/`,
       query: convertFiltersToQueryParams({
         addonType: ADDON_TYPE_EXTENSION,
-        page: 1,
+        page: '1',
         query: 'Cool things',
       }),
     });

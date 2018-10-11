@@ -18,7 +18,7 @@ export type FiltersType = {|
   addonType?: string,
   featured?: boolean,
   operatingSystem?: string,
-  page?: number,
+  page?: string,
   query?: Object,
   sort?: string,
 |};

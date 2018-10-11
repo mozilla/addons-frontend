@@ -227,7 +227,7 @@ describe(__filename, () => {
 
     // These are the expected default values for filters.
     const filters = {
-      page: 1,
+      page: '1',
       collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
     };
 
@@ -1416,7 +1416,7 @@ describe(__filename, () => {
             slug: 'collection-bar',
           },
         },
-        location: createFakeLocation({ query: { page: 124 } }),
+        location: createFakeLocation({ query: { page: '124' } }),
       });
 
       expect(extractId(props)).toEqual('foo/collection-bar/124');

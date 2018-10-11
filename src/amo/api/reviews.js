@@ -139,7 +139,7 @@ export type GetReviewsParams = {|
   addon?: number | string,
   apiState: ApiState,
   filter?: string,
-  page?: number,
+  page?: string,
   page_size?: number,
   show_grouped_ratings?: boolean,
   user?: number,

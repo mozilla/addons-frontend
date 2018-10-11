@@ -68,7 +68,7 @@ describe(__filename, () => {
         currentLocale: 'en-US',
         location: createFakeLocation({
           pathname: '/en-US/firefox/nowhere/',
-          query: { page: 1, q: 'search' },
+          query: { page: '1', q: 'search' },
         }),
         newLocale: 'en-GB',
       });

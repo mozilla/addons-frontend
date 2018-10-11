@@ -729,7 +729,7 @@ describe(__filename, () => {
       dispatchSpy,
       fetchUserReviews({
         errorHandlerId: errorHandler.id,
-        page: 1,
+        page: '1',
         userId: user.id,
       }),
     );
@@ -754,7 +754,7 @@ describe(__filename, () => {
 
     dispatchSpy.resetHistory();
 
-    const newPage = 2;
+    const newPage = '2';
 
     root.setProps({
       location: createFakeLocation({ query: { page: newPage } }),
@@ -852,7 +852,7 @@ describe(__filename, () => {
     const paginator = shallow(root.find('.UserProfile-reviews').prop('footer'));
     expect(paginator.instance()).toBeInstanceOf(Paginate);
     expect(paginator).toHaveProp('count', DEFAULT_API_PAGE_SIZE + 2);
-    expect(paginator).toHaveProp('currentPage', 1);
+    expect(paginator).toHaveProp('currentPage', '1');
     expect(paginator).toHaveProp('pathname', '/user/black-panther/');
     expect(paginator).toHaveProp('queryParams', location.query);
 
@@ -900,7 +900,7 @@ describe(__filename, () => {
     store.dispatch(loadUserAccount({ user }));
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const location = createFakeLocation({ query: { page: 1 } });
+    const location = createFakeLocation({ query: { page: '1' } });
 
     // See this other user profile page.
     const params = { username: user.username };
@@ -908,7 +908,7 @@ describe(__filename, () => {
 
     dispatchSpy.resetHistory();
 
-    const newPage = 2;
+    const newPage = '2';
 
     root.setProps({
       location: createFakeLocation({ query: { page: newPage } }),

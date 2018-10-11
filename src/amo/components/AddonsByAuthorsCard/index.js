@@ -148,7 +148,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     location: ReactRouterLocationType,
     pageParam: string,
     paginate: boolean,
-  |}): number | void {
+  |}): string | void {
     // We don't want to set a `page` when there is no pagination.
     if (!paginate) {
       return undefined;
@@ -156,7 +156,9 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
 
     const currentPage = parseInt(location.query[pageParam], 10);
 
-    return Number.isNaN(currentPage) || currentPage < 1 ? 1 : currentPage;
+    return Number.isNaN(currentPage) || currentPage < 1
+      ? '1'
+      : currentPage.toString();
   }
 
   dispatchFetchAddonsByAuthors({

@@ -818,7 +818,7 @@ describe(__filename, () => {
 
       expect(paginator.instance()).toBeInstanceOf(Paginate);
       expect(paginator).toHaveProp('count', count);
-      expect(paginator).toHaveProp('currentPage', 1);
+      expect(paginator).toHaveProp('currentPage', '1');
       expect(paginator).toHaveProp('pageParam', 'page');
       expect(paginator).toHaveProp('pathname', pathname);
       expect(paginator).toHaveProp('perPage', numberOfAddons);
@@ -837,7 +837,7 @@ describe(__filename, () => {
     it('passes all the query parameters to the Paginate component', () => {
       const location = createFakeLocation({
         query: {
-          page: 2,
+          page: '2',
           other: 'param',
         },
       });
@@ -846,7 +846,7 @@ describe(__filename, () => {
 
       expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
         'currentPage',
-        2,
+        '2',
       );
       expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
         'queryParams',
@@ -857,14 +857,14 @@ describe(__filename, () => {
     it('sets the current page based on the `pageParam`', () => {
       const pageParam = 'my-page-parameter';
       const location = createFakeLocation({
-        query: { [pageParam]: 123 },
+        query: { [pageParam]: '123' },
       });
 
       const root = renderWithPagination({ location, pageParam });
 
       expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
         'currentPage',
-        123,
+        '123',
       );
     });
 
@@ -877,7 +877,7 @@ describe(__filename, () => {
 
       expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
         'currentPage',
-        1,
+        '1',
       );
     });
 
@@ -890,20 +890,20 @@ describe(__filename, () => {
 
       expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
         'currentPage',
-        1,
+        '1',
       );
     });
 
     it('sets the current page to 1 when query parameter has a negative value', () => {
       const location = createFakeLocation({
-        query: { page: -11 },
+        query: { page: '-11' },
       });
 
       const root = renderWithPagination({ location });
 
       expect(shallow(root.find(AddonsCard).prop('footer'))).toHaveProp(
         'currentPage',
-        1,
+        '1',
       );
     });
 
@@ -929,7 +929,7 @@ describe(__filename, () => {
           addonType: ADDON_TYPE_EXTENSION,
           authorUsernames,
           errorHandlerId: errorHandler.id,
-          page: 1,
+          page: '1',
           pageSize: numberOfAddons,
           sort: SEARCH_SORT_POPULAR,
         }),
@@ -943,7 +943,7 @@ describe(__filename, () => {
 
       const authorUsernames = ['test2'];
       const numberOfAddons = 4;
-      const location = createFakeLocation({ query: { page: 1 } });
+      const location = createFakeLocation({ query: { page: '1' } });
 
       const root = renderWithPagination({
         addonType: ADDON_TYPE_EXTENSION,
@@ -956,7 +956,7 @@ describe(__filename, () => {
 
       dispatchSpy.resetHistory();
 
-      const newPage = 2;
+      const newPage = '2';
       root.setProps({
         location: createFakeLocation({ query: { page: newPage } }),
       });

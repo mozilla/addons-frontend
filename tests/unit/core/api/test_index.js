@@ -257,7 +257,7 @@ describe(__filename, () => {
       const endpoint = 'some-endpoint/?page=2';
       mockWindow
         .expects('fetch')
-        .withArgs(urlWithTheseParams({ page: 3 }))
+        .withArgs(urlWithTheseParams({ page: '3' }))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint, params: { page: 3 } });
@@ -268,7 +268,7 @@ describe(__filename, () => {
       const endpoint = 'some-endpoint/?page=1';
       mockWindow
         .expects('fetch')
-        .withArgs(urlWithTheseParams({ page: 1, color: 'blue' }))
+        .withArgs(urlWithTheseParams({ page: '1', color: 'blue' }))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint, params: { color: 'blue' } });

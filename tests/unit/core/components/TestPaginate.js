@@ -190,7 +190,7 @@ describe(__filename, () => {
       // This happens when passing the value of a query string parameter
       // directly to the component (highly probable).
       it('converts current page as string to number', () => {
-        expect(getCurrentPage({ currentPage: '123' })).toEqual(123);
+        expect(getCurrentPage({ currentPage: 123 })).toEqual(123);
       });
 
       it('returns 1 when current page is invalid', () => {

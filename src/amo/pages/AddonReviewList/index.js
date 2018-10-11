@@ -156,7 +156,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 
   getCurrentPage(location: ReactRouterLocationType) {
-    return location.query.page || 1;
+    return location.query.page || '1';
   }
 
   render() {
