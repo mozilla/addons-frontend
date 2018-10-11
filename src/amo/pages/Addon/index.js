@@ -480,7 +480,9 @@ export class AddonBase extends React.Component {
       <meta key="og:locale" property="og:locale" content={lang} />,
     ];
 
-    const image = getPreviewImage(addon);
+    const image = addon.themeData
+      ? addon.themeData.previewURL
+      : getPreviewImage(addon);
 
     if (image) {
       tags.push(<meta key="og:image" property="og:image" content={image} />);
