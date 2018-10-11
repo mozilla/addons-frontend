@@ -227,14 +227,22 @@ export const fakeRecommendations = Object.freeze({
   outcome: 'recommended_fallback',
 });
 
-export const onLocationChanged = ({ pathname, search = '', hash = '' }) => {
+export const onLocationChanged = ({
+  pathname,
+  search = '',
+  hash = '',
+  state,
+  ...others
+}) => {
   return {
     type: LOCATION_CHANGE,
     payload: {
       location: {
+        hash,
         pathname,
         search,
-        hash,
+        state,
+        ...others,
       },
       action: 'PUSH',
     },
