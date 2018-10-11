@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-10 20:06+0000\n"
+"PO-Revision-Date: 2018-10-10 20:07+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -55,7 +55,7 @@ msgstr "Mon avis"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
 msgid "Review add-on code"
-msgstr ""
+msgstr "Revue du code de l’extension"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
 msgid "Admin Links"
@@ -2064,7 +2064,7 @@ msgstr "Vie privée et sécurité"
 
 #: src/amo/pages/Home/index.js:57
 msgid "See more parental controls"
-msgstr ""
+msgstr "Voir davantage de systèmes de contrôle parental"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
