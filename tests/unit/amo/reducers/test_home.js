@@ -16,7 +16,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeTheme,
-} from 'tests/unit/amo/helpers';
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {

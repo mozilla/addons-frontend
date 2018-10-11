@@ -25,11 +25,9 @@ import { ErrorHandler } from 'core/errorHandler';
 import { resetSearch, searchStart } from 'core/reducers/search';
 import ErrorList from 'ui/components/ErrorList';
 import {
+  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSearchResults,
-} from 'tests/unit/amo/helpers';
-import {
-  createStubErrorHandler,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

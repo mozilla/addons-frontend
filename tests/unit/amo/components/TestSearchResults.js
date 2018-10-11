@@ -4,8 +4,12 @@ import AddonsCard from 'amo/components/AddonsCard';
 import SearchResults, { SearchResultsBase } from 'amo/components/SearchResults';
 import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'core/constants';
 import Paginate from 'core/components/Paginate';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(props = {}) {

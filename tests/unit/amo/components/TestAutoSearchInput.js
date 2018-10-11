@@ -18,12 +18,10 @@ import {
 } from 'core/reducers/autocomplete';
 import {
   createFakeAutocompleteResult,
-  dispatchAutocompleteResults,
-  dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
-import {
   createFakeEvent,
   createStubErrorHandler,
+  dispatchAutocompleteResults,
+  dispatchClientMetadata,
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,

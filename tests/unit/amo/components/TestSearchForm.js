@@ -6,12 +6,10 @@ import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
-  createFakeAutocompleteResult,
-  dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
-import {
   createContextWithFakeRouter,
+  createFakeAutocompleteResult,
   createFakeHistory,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
   simulateComponentCallback,

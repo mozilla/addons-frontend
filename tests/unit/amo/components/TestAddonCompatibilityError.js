@@ -15,8 +15,8 @@ import {
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
 import Notice from 'ui/components/Notice';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
   userAgentsByPlatform,

@@ -8,8 +8,11 @@ import abuseReducer, {
   sendAddonAbuseReport,
   showAddonAbuseReportUI,
 } from 'core/reducers/abuse';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import { createFakeAddonAbuseReport } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  createFakeAddonAbuseReport,
+  fakeAddon,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {

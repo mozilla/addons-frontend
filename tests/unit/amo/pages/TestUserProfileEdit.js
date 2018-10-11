@@ -28,15 +28,13 @@ import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';
 import {
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import {
   createFakeEvent,
   createFakeHistory,
   createStubErrorHandler,
   createUserAccountResponse,
   createUserNotificationsResponse,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

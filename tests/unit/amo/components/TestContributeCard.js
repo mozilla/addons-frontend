@@ -12,8 +12,7 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const createAddon = (params) => {

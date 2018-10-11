@@ -19,10 +19,10 @@ import {
 import apiReducer from 'core/reducers/api';
 import {
   createAddonsApiResult,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-} from 'tests/unit/amo/helpers';
-import { createStubErrorHandler } from 'tests/unit/helpers';
+} from 'tests/unit/helpers';
 import { getAddonTypeFilter } from 'core/utils';
 
 describe(__filename, () => {

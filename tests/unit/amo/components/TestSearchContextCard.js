@@ -8,8 +8,9 @@ import {
   dispatchClientMetadata,
   dispatchSearchResults,
   fakeAddon,
-} from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,

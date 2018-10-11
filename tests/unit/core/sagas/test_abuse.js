@@ -8,10 +8,11 @@ import abuseReducer, {
 } from 'core/reducers/abuse';
 import apiReducer from 'core/reducers/api';
 import abuseSaga from 'core/sagas/abuse';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeAddonAbuseReport,
   createStubErrorHandler,
+  dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {

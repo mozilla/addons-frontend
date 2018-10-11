@@ -3,7 +3,7 @@ import reducer, {
   autocompleteLoad,
   autocompleteStart,
 } from 'core/reducers/autocomplete';
-import { createFakeAutocompleteResult } from 'tests/unit/amo/helpers';
+import { createFakeAutocompleteResult } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {

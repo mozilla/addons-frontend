@@ -19,14 +19,14 @@ import {
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
-import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createAddonsApiResult,
   createFakeCollectionAddonsListResponse,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeTheme,
-} from 'tests/unit/amo/helpers';
+} from 'tests/unit/helpers';
 import { getAddonTypeFilter } from 'core/utils';
 
 describe(__filename, () => {

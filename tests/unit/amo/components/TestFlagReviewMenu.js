@@ -17,8 +17,12 @@ import FlagReviewMenu, {
 } from 'amo/components/FlagReviewMenu';
 import { logOutUser } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchSignInActions,
+  fakeI18n,
+  fakeReview,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 

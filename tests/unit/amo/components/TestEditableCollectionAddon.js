@@ -7,11 +7,12 @@ import EditableCollectionAddon, {
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   applyUIStateChanges,
   createFakeEvent,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
   setUIState,
   shallowUntilTarget,

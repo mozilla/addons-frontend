@@ -6,8 +6,12 @@ import * as React from 'react';
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakePreview, fakeTheme } from 'tests/unit/amo/helpers';
-import { fakeI18n } from 'tests/unit/helpers';
+import {
+  fakeAddon,
+  fakeI18n,
+  fakePreview,
+  fakeTheme,
+} from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';

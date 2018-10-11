@@ -4,7 +4,7 @@ import * as React from 'react';
 import { getCurrentUser } from 'amo/reducers/users';
 import Icon from 'ui/components/Icon';
 import UserAvatar from 'ui/components/UserAvatar';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function renderUserAvatar({ ...props } = {}) {

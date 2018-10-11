@@ -5,7 +5,7 @@ import {
   loadDiscoResults,
 } from 'disco/reducers/discoResults';
 import createStore from 'disco/store';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon } from 'tests/unit/helpers';
 
 export function createFetchDiscoveryResult(results) {
   return {

@@ -45,10 +45,12 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { showInfoDialog } from 'core/reducers/infoDialog';
-import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
+  createFakeAddon,
   createFakeTracking,
   createFakeLocation,
+  fakeAddon,
+  fakeTheme,
   getFakeAddonManagerWrapper,
   getFakeConfig,
   sampleUserAgentParsed,

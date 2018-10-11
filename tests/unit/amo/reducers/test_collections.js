@@ -35,13 +35,13 @@ import reducer, {
 } from 'amo/reducers/collections';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { COLLECTION_SORT_NAME } from 'core/constants';
-import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddon,
   createFakeCollectionAddons,
   createFakeCollectionDetail,
+  createStubErrorHandler,
   fakeAddon,
-} from 'tests/unit/amo/helpers';
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {

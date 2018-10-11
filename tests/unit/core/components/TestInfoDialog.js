@@ -3,8 +3,11 @@ import * as React from 'react';
 
 import InfoDialog, { InfoDialogBase } from 'core/components/InfoDialog';
 import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = (props = {}) => {

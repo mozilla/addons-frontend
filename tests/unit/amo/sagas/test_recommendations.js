@@ -8,8 +8,11 @@ import recommendationsReducer, {
 } from 'amo/reducers/recommendations';
 import recommendationsSaga from 'amo/sagas/recommendations';
 import apiReducer from 'core/reducers/api';
-import { createStubErrorHandler } from 'tests/unit/helpers';
-import { fakeAddon, dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  createStubErrorHandler,
+  fakeAddon,
+  dispatchClientMetadata,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let errorHandler;

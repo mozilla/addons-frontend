@@ -21,16 +21,14 @@ import addons, {
   removeUndefinedProps,
 } from 'core/reducers/addons';
 import {
+  createFakeAddon,
   createFetchAddonResult,
   createFetchAllAddonsResult,
   createStubErrorHandler,
-} from 'tests/unit/helpers';
-import {
-  createFakeAddon,
   dispatchClientMetadata,
   fakeAddon,
   fakeTheme,
-} from 'tests/unit/amo/helpers';
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('ignores unrelated actions', () => {

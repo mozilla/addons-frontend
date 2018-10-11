@@ -11,15 +11,13 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import {
-  createFakeAutocompleteResult,
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import {
   apiResponsePage,
   createApiResponse,
-  createStubErrorHandler,
+  createFakeAutocompleteResult,
   createFakeLocation,
+  createStubErrorHandler,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   generateHeaders,
   getFakeConfig,
   unexpectedSuccess,

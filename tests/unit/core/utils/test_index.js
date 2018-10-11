@@ -42,10 +42,10 @@ import {
   trimAndAddProtocolToUrl,
 } from 'core/utils';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeHistory,
   createFakeLocation,
+  fakeAddon,
   unexpectedSuccess,
   userAgents,
 } from 'tests/unit/helpers';

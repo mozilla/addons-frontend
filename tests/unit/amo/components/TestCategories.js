@@ -11,8 +11,12 @@ import {
 } from 'core/constants';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
-import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
+import {
+  createStubErrorHandler,
+  dispatchClientMetadata,
+  fakeCategory,
+  fakeI18n,
+} from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 describe(__filename, () => {

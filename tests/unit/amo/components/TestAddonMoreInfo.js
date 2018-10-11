@@ -15,9 +15,10 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeI18n,
   fakeTheme,
-} from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {

@@ -11,9 +11,9 @@ import {
   getAllLanguageTools,
   loadLanguageTools,
 } from 'core/reducers/languageTools';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeLanguageTool,
+  dispatchClientMetadata,
   fakeI18n,
   getFakeConfig,
   shallowUntilTarget,

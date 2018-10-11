@@ -13,11 +13,12 @@ import {
   sendAddonAbuseReport,
 } from 'core/reducers/abuse';
 import ErrorList from 'ui/components/ErrorList';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeAddonAbuseReport,
   createFakeEvent,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

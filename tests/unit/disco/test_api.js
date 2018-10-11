@@ -1,8 +1,7 @@
 import { getDiscoveryAddons } from 'disco/api';
 import createStore from 'disco/store';
 import * as coreApi from 'core/api';
-import { getFakeConfig } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let apiState;

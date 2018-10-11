@@ -40,13 +40,11 @@ import { fetchAddon } from 'core/reducers/addons';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
+  apiResponsePage,
+  createStubErrorHandler,
   dispatchSignInActions,
   fakeAddon,
   fakeReview,
-} from 'tests/unit/amo/helpers';
-import {
-  apiResponsePage,
-  createStubErrorHandler,
   matchingSagaAction,
 } from 'tests/unit/helpers';
 

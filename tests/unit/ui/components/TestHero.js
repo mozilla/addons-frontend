@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { setHeroBannerOrder } from 'core/reducers/heroBanners';
 import Hero from 'ui/components/Hero';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const defaultProps = {

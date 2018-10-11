@@ -28,16 +28,18 @@ import * as themeInstall from 'core/themeInstall';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 import { addQueryParamsToHistory } from 'core/utils';
 import {
+  createFakeAddon,
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeMozWindow,
+  fakeAddon,
   fakeI18n,
+  fakeTheme,
   createFakeLocation,
   getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { createFakeAddon, fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
 describe(__filename, () => {

@@ -12,9 +12,9 @@ import {
 } from 'core/constants';
 import { dismissSurvey } from 'core/reducers/survey';
 import Notice from 'ui/components/Notice';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeTracking,
+  dispatchClientMetadata,
   fakeCookie,
   fakeI18n,
   createFakeLocation,

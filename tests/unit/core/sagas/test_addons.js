@@ -4,10 +4,11 @@ import * as api from 'core/api';
 import addonsReducer, { LOAD_ADDONS, fetchAddon } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
+  dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {

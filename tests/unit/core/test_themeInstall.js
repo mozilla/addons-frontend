@@ -1,8 +1,7 @@
 import { createInternalAddon } from 'core/reducers/addons';
 import themeInstall, { getThemeData } from 'core/themeInstall';
 import { THEME_INSTALL } from 'core/constants';
-import { fakeTheme } from 'tests/unit/amo/helpers';
-import { createFakeEvent } from 'tests/unit/helpers';
+import { createFakeEvent, fakeTheme } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('sets-up the event for install', () => {

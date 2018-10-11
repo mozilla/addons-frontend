@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import SearchSuggestion from 'amo/components/SearchSuggestion';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon } from 'tests/unit/helpers';
 import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 
 describe(__filename, () => {

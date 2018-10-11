@@ -11,9 +11,9 @@ import apiReducer from 'core/reducers/api';
 import autocompleteSaga from 'core/sagas/autocomplete';
 import {
   createFakeAutocompleteResult,
+  createStubErrorHandler,
   dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import { createStubErrorHandler } from 'tests/unit/helpers';
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let errorHandler;

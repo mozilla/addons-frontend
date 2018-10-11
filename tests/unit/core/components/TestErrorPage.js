@@ -6,9 +6,12 @@ import ErrorPage, { ErrorPageBase } from 'core/components/ErrorPage';
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { getErrorComponent } from 'core/utils/errors';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   let store;

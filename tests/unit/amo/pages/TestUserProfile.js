@@ -30,14 +30,12 @@ import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
 import {
-  dispatchClientMetadata,
-  dispatchSignInActions,
-  fakeReview,
-} from 'tests/unit/amo/helpers';
-import {
   createStubErrorHandler,
   createUserAccountResponse,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeI18n,
+  fakeReview,
   createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

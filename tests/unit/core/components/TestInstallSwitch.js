@@ -17,8 +17,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeTheme } from 'tests/unit/amo/helpers';
-import { fakeI18n } from 'tests/unit/helpers';
+import { fakeI18n, fakeTheme } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function renderButton(props = {}) {

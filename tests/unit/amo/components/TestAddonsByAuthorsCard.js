@@ -26,13 +26,11 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import {
+  createContextWithFakeRouter,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeAuthor,
-} from 'tests/unit/amo/helpers';
-import {
-  createContextWithFakeRouter,
-  createStubErrorHandler,
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,

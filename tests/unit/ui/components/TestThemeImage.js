@@ -7,8 +7,12 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import ThemeImage, { ThemeImageBase } from 'ui/components/ThemeImage';
-import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  fakeAddon,
+  fakeI18n,
+  fakeTheme,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = (props = {}) => {

@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

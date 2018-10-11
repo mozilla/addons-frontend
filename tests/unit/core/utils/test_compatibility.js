@@ -28,9 +28,10 @@ import {
   isCompatibleWithUserAgent,
   isQuantumCompatible,
 } from 'core/utils/compatibility';
-import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 import {
+  createFakeAddon,
   createFakeMozWindow,
+  fakeAddon,
   userAgents,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';

@@ -16,7 +16,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import installations from 'core/reducers/installations';
-import { fakeInstalledAddon } from 'tests/unit/amo/helpers';
+import { fakeInstalledAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('is an empty object by default', () => {

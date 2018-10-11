@@ -8,9 +8,10 @@ import {
   createFakeAddon,
   dispatchClientMetadata,
   fakeAddon,
+  fakeI18n,
   fakePlatformFile,
-} from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
 import Permission from 'ui/components/Permission';
 

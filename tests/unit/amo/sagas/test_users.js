@@ -16,12 +16,12 @@ import usersReducer, {
 import * as api from 'amo/api/users';
 import { setAuthToken } from 'core/actions';
 import apiReducer from 'core/reducers/api';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
   createStubErrorHandler,
   createUserAccountResponse,
   createUserNotificationsResponse,
+  dispatchClientMetadata,
   userAuthToken,
 } from 'tests/unit/helpers';
 

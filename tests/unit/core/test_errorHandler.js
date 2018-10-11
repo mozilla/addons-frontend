@@ -13,8 +13,11 @@ import {
   withFixedErrorHandler,
   withRenderedErrorHandler,
 } from 'core/errorHandler';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
 import ErrorList from 'ui/components/ErrorList';
 

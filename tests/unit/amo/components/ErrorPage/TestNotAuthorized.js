@@ -6,8 +6,11 @@ import NotAuthorized, {
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import Card from 'ui/components/Card';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchSignInActions,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ ...props }) => {

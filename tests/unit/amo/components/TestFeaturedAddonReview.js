@@ -8,10 +8,11 @@ import FeaturedAddonReview, {
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import { createApiError } from 'core/api';
 import { ErrorHandler } from 'core/errorHandler';
-import { dispatchClientMetadata, fakeReview } from 'tests/unit/amo/helpers';
 import {
   createStubErrorHandler,
+  dispatchClientMetadata,
   fakeI18n,
+  fakeReview,
   createFakeLocation,
   shallowUntilTarget,
   createContextWithFakeRouter,

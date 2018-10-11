@@ -7,8 +7,11 @@ import SearchPage, {
 } from 'amo/pages/SearchPage';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX, OS_MAC } from 'core/constants';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { createFakeLocation, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createFakeLocation,
+  dispatchClientMetadata,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;

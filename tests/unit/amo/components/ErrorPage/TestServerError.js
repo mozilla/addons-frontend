@@ -5,8 +5,11 @@ import ServerError, {
 } from 'amo/components/ErrorPage/ServerError';
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchSignInActions,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ ...props }) => {

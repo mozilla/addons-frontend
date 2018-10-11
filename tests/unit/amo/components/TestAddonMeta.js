@@ -8,8 +8,12 @@ import AddonMeta, {
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { createInternalAddon } from 'core/reducers/addons';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
 

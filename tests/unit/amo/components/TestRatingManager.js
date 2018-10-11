@@ -39,14 +39,12 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
 import {
+  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
-  fakeReview,
-} from 'tests/unit/amo/helpers';
-import {
-  createStubErrorHandler,
   fakeI18n,
+  fakeReview,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

@@ -8,7 +8,7 @@ import { put, select } from 'redux-saga/effects';
 
 import apiReducer from 'core/reducers/api';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('does not allow usage of dispatch from a saga', () => {

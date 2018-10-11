@@ -6,9 +6,9 @@ import {
   finishFormOverlaySubmit,
   openFormOverlay,
 } from 'core/reducers/formOverlay';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

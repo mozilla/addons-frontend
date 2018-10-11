@@ -5,7 +5,7 @@ import CollectionControls from 'amo/components/CollectionControls';
 import CollectionSort from 'amo/components/CollectionSort';
 import { createInternalCollection } from 'amo/reducers/collections';
 import { COLLECTION_SORT_NAME } from 'core/constants';
-import { createFakeCollectionDetail } from 'tests/unit/amo/helpers';
+import { createFakeCollectionDetail } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {

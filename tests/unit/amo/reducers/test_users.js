@@ -25,12 +25,10 @@ import {
   THEMES_REVIEW,
 } from 'core/constants';
 import {
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import {
   createUserAccountResponse,
   createUserNotificationsResponse,
+  dispatchClientMetadata,
+  dispatchSignInActions,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {

@@ -4,8 +4,8 @@ import LanguagePicker, {
   LanguagePickerBase,
   changeLocaleURL,
 } from 'amo/components/LanguagePicker';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  dispatchClientMetadata,
   fakeI18n,
   createFakeLocation,
   createFakeEvent,

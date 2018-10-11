@@ -8,8 +8,11 @@ import {
   ERROR_ADDON_DISABLED_BY_DEV,
 } from 'core/constants';
 import { loadErrorPage } from 'core/reducers/errorPage';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchSignInActions,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(customProps = {}) {
