@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-11 02:28+0000\n"
+"PO-Revision-Date: 2018-10-11 02:33+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -57,7 +57,7 @@ msgstr "审核附加组件代码"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
 msgid "Admin Links"
-msgstr "管理员链接"
+msgstr "管理链接"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
 msgid "Edit add-on"
@@ -65,11 +65,11 @@ msgstr "编辑附加组件"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
 msgid "Admin add-on status"
-msgstr "管理员附加组件状态"
+msgstr "管理附加组件状态"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
 msgid "Admin add-on"
-msgstr "管理员附加组件"
+msgstr "管理附加组件"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
