@@ -137,10 +137,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   ];
 }
 
-export function getPlugins({
-  excludeOtherAppLocales = true,
-  includeCircularDependencyPlugin = true,
-} = {}) {
+export function getPlugins({ excludeOtherAppLocales = true } = {}) {
   const appName = config.get('appName');
   const clientConfig = getClientConfig(config);
 
@@ -163,7 +160,6 @@ export function getPlugins({
       /core\/window/,
       'core/browserWindow.js',
     ),
-
     new CircularDependencyPlugin({
       exclude: /node_modules/,
       failOnError: true,
