@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-09-20 17:58+0000\n"
-"Last-Translator: Fabio M Caldas <fabiomcaldas@gmail.com>\n"
+"PO-Revision-Date: 2018-10-11 13:09+0000\n"
+"Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -292,9 +292,8 @@ msgid "Edit review"
 msgstr "Sunting ulasan saya"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:219
-#, fuzzy
 msgid "Delete reply"
-msgstr "Hapus balasan saya"
+msgstr "Hapus balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:223
 #, fuzzy
@@ -302,9 +301,8 @@ msgid "Delete rating"
 msgstr "Hapus ulasan saya"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:226
-#, fuzzy
 msgid "Delete review"
-msgstr "Hapus ulasan saya"
+msgstr "Hapus ulasan"
 
 #: src/amo/components/AddonReviewCard/index.js:233
 #, fuzzy
@@ -1164,9 +1162,8 @@ msgid "Go dark for a better web viewing experience"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Kuki"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
