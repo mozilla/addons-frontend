@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-05 06:46+0000\n"
+"PO-Revision-Date: 2018-10-11 02:28+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -45,31 +45,31 @@ msgstr "添加到收藏集"
 
 #: src/amo/components/AddonAdminLinks/index.js:104
 msgid "Content review add-on"
-msgstr ""
+msgstr "内容审核附加组件"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
 msgid "Review theme"
-msgstr ""
+msgstr "审核主题"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
 msgid "Review add-on code"
-msgstr ""
+msgstr "审核附加组件代码"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
 msgid "Admin Links"
-msgstr ""
+msgstr "管理员链接"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
 msgid "Edit add-on"
-msgstr ""
+msgstr "编辑附加组件"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
 msgid "Admin add-on status"
-msgstr ""
+msgstr "管理员附加组件状态"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
 msgid "Admin add-on"
-msgstr ""
+msgstr "管理员附加组件"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -837,7 +837,7 @@ msgstr "开发者中心"
 
 #: src/amo/components/Footer/index.js:63
 msgid "Developer Policies"
-msgstr ""
+msgstr "开发者政策"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1129,27 +1129,27 @@ msgstr "可定制的鼠标手势"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
-msgstr ""
+msgstr "让页面变暗，获得更好的上网体验"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "CookieBro"
-msgstr ""
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
-msgstr ""
+msgstr "自动删除不需要的 Cookie"
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
-msgstr ""
+msgstr "保存文本片段以便稍后粘贴和整理"
 
 #: src/amo/components/HomeHeroBanner/index.js:294
 msgid "Group Speed Dial"
@@ -1165,7 +1165,7 @@ msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
 msgid "Never lose a page again"
-msgstr ""
+msgstr "不再弄丢标签页"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1843,7 +1843,7 @@ msgstr "%(addonName)s – 下载 🦊 Firefox 主题（%(locale)s）"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:454
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载 🦊 Firefox 搜索工具（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:461
@@ -2033,11 +2033,11 @@ msgstr "隐私与安全"
 
 #: src/amo/pages/Home/index.js:57
 msgid "See more parental controls"
-msgstr ""
+msgstr "看看更多家长控制工具"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
-msgstr ""
+msgstr "家长控制"
 
 #: src/amo/pages/LandingPage/index.js:238
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
