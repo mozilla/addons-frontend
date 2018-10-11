@@ -10,7 +10,7 @@ import {
   setReviewReply,
 } from 'amo/actions/reviews';
 import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
-import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeReview } from 'tests/unit/helpers';
 
 // See reducer tests for more coverage of review actions.
 describe(__filename, () => {

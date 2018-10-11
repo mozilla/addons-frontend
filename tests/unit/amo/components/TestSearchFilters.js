@@ -8,13 +8,13 @@ import {
 } from 'core/constants';
 import { searchStart } from 'core/reducers/search';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import Select from 'ui/components/Select';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeHistory,
   createStubErrorHandler,
+  dispatchClientMetadata,
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,

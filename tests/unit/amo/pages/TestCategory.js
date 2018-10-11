@@ -21,18 +21,16 @@ import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 import {
-  createStubErrorHandler,
-  fakeI18n,
-  getFakeConfig,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
-import {
   createAddonsApiResult,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeCategory,
+  fakeI18n,
+  getFakeConfig,
   onLocationChanged,
-} from 'tests/unit/amo/helpers';
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let errorHandler;

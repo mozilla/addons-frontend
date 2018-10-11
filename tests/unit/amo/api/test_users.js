@@ -15,11 +15,9 @@ import {
   createApiResponse,
   createUserAccountResponse,
   createUserNotificationsResponse,
-} from 'tests/unit/helpers';
-import {
   dispatchSignInActions,
   dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let mockApi;

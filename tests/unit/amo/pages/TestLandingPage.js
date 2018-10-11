@@ -15,14 +15,12 @@ import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType, getAddonTypeFilter } from 'core/utils';
 import {
   createAddonsApiResult,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-  onLocationChanged,
-} from 'tests/unit/amo/helpers';
-import {
-  createStubErrorHandler,
   fakeI18n,
   getFakeConfig,
+  onLocationChanged,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';

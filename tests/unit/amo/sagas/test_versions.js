@@ -7,8 +7,11 @@ import versionsReducer, {
 } from 'amo/reducers/versions';
 import versionsSaga from 'amo/sagas/versions';
 import apiReducer from 'core/reducers/api';
-import { createStubErrorHandler } from 'tests/unit/helpers';
-import { dispatchClientMetadata, fakeVersion } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  createStubErrorHandler,
+  fakeVersion,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const page = '2';

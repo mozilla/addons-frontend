@@ -20,15 +20,13 @@ import {
 } from 'core/constants';
 import {
   createContextWithFakeRouter,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeCookie,
   fakeI18n,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
-import {
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   function renderProps(customProps = {}) {

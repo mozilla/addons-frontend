@@ -31,12 +31,12 @@ import collectionsSaga from 'amo/sagas/collections';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
-import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
+  createStubErrorHandler,
   dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const username = 'some-user';

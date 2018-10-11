@@ -23,19 +23,17 @@ import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import {
-  createStubErrorHandler,
-  fakeI18n,
-  getFakeConfig,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
-import {
   createAddonsApiResult,
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-} from 'tests/unit/amo/helpers';
+  fakeI18n,
+  getFakeConfig,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const getProps = () => {

@@ -10,7 +10,7 @@ import {
 } from 'amo/constants';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(customProps = {}) {

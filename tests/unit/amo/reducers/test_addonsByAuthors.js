@@ -16,7 +16,7 @@ import reducer, {
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeAuthor, fakeTheme } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeAuthor, fakeTheme } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const fakeAuthorOne = { ...fakeAuthor, username: 'test', id: 51 };

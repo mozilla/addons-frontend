@@ -13,16 +13,14 @@ import AddonReview, {
   AddonReviewBase,
 } from 'amo/components/AddonReview';
 import {
-  dispatchClientMetadata,
-  dispatchSignInActions,
-  fakeAddon,
-  fakeReview,
-} from 'tests/unit/amo/helpers';
-import {
   createFakeEvent,
   createFetchAddonResult,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  dispatchSignInActions,
+  fakeAddon,
   fakeI18n,
+  fakeReview,
   shallowUntilTarget,
   unexpectedSuccess,
 } from 'tests/unit/helpers';

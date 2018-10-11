@@ -1,7 +1,6 @@
 import * as api from 'core/api';
 import { getRecommendations } from 'amo/api/recommendations';
-import { createApiResponse } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { createApiResponse, dispatchClientMetadata } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('calls the recommendations API', async () => {

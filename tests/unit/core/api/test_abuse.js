@@ -1,11 +1,12 @@
 import * as api from 'core/api';
 import { reportAddon, reportUser } from 'core/api/abuse';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
   createFakeAddonAbuseReport,
   createFakeUserAbuseReport,
   createUserAccountResponse,
+  dispatchClientMetadata,
+  fakeAddon,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {

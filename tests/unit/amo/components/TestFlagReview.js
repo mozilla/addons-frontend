@@ -11,11 +11,12 @@ import {
 } from 'amo/constants';
 import FlagReview, { FlagReviewBase } from 'amo/components/FlagReview';
 import { ErrorHandler } from 'core/errorHandler';
-import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   createStubErrorHandler,
+  dispatchSignInActions,
   fakeI18n,
+  fakeReview,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';

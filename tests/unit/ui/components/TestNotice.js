@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { setUIState as setUIStateAction } from 'core/reducers/uiState';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
   setUIState,

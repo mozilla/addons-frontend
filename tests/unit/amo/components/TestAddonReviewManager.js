@@ -16,8 +16,12 @@ import AddonReviewManager, {
 } from 'amo/components/AddonReviewManager';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
-import { dispatchClientMetadata, fakeReview } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  fakeReview,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Rating from 'ui/components/Rating';
 

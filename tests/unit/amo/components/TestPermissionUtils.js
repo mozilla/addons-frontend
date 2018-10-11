@@ -3,8 +3,12 @@ import UAParser from 'ua-parser-js';
 import { PermissionUtils } from 'amo/components/PermissionsCard/permissions';
 import { createInternalAddon } from 'core/reducers/addons';
 import { OS_ALL, OS_MAC } from 'core/constants';
-import { fakeI18n, userAgentsByPlatform } from 'tests/unit/helpers';
-import { createFakeAddon, fakePlatformFile } from 'tests/unit/amo/helpers';
+import {
+  createFakeAddon,
+  fakeI18n,
+  fakePlatformFile,
+  userAgentsByPlatform,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let permissionUtils;

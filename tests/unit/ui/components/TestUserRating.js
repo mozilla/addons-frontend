@@ -7,9 +7,10 @@ import UserRating, { UserRatingBase } from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
+  fakeI18n,
   fakeReview,
-} from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 let store;
 

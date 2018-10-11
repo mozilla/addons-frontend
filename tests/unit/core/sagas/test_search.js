@@ -9,8 +9,10 @@ import searchReducer, {
   searchStart,
 } from 'core/reducers/search';
 import searchSaga from 'core/sagas/search';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler } from 'tests/unit/helpers';
+import {
+  createStubErrorHandler,
+  dispatchSignInActions,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let errorHandler;

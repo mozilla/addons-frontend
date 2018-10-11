@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Overlay from 'ui/components/Overlay';
 import OverlayCard from 'ui/components/OverlayCard';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const getProps = ({ ...props } = {}) => {

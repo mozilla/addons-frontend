@@ -7,7 +7,7 @@ import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import CardList from 'ui/components/CardList';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let addons;

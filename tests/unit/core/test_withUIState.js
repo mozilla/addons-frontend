@@ -4,8 +4,11 @@ import * as React from 'react';
 
 import withUIState, { generateId } from 'core/withUIState';
 import { setUIState } from 'core/reducers/uiState';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { applyUIStateChanges, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  applyUIStateChanges,
+  dispatchClientMetadata,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('withUIState', () => {

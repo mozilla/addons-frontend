@@ -25,15 +25,13 @@ import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createFakeEvent,
+  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
-  fakeReview,
-} from 'tests/unit/amo/helpers';
-import {
-  createFakeEvent,
-  createStubErrorHandler,
   fakeI18n,
+  fakeReview,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

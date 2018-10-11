@@ -8,11 +8,11 @@ import HomeHeroBanner, {
 } from 'amo/components/HomeHeroBanner';
 import Hero from 'ui/components/Hero';
 import {
+  dispatchClientMetadata,
   fakeI18n,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const defaultProps = {

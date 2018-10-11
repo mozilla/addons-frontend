@@ -18,14 +18,12 @@ import {
 } from 'amo/reducers/recommendations';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
-  dispatchClientMetadata,
-  fakeAddon,
-  fakeRecommendations,
-} from 'tests/unit/amo/helpers';
-import {
   createFakeTracking,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
+  fakeRecommendations,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';

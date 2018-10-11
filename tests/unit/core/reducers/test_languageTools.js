@@ -4,8 +4,10 @@ import reducer, {
   initialState,
   loadLanguageTools,
 } from 'core/reducers/languageTools';
-import { createFakeLanguageTool } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  createFakeLanguageTool,
+  dispatchClientMetadata,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('initializes properly', () => {

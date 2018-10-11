@@ -15,9 +15,10 @@ import * as api from 'core/api';
 import {
   apiResponsePage,
   createStubErrorHandler,
+  dispatchSignInActions,
+  fakeReview,
   unexpectedSuccess,
 } from 'tests/unit/helpers';
-import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   let mockApi;

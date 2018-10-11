@@ -13,14 +13,12 @@ import {
   createInternalCollection,
 } from 'amo/reducers/collections';
 import {
+  createFakeCollectionDetail,
   createFakeEvent,
+  dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import {
-  createFakeCollectionDetail,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {

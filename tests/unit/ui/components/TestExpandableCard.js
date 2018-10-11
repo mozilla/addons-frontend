@@ -8,10 +8,10 @@ import ExpandableCard, {
 import {
   applyUIStateChanges,
   createFakeEvent,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {

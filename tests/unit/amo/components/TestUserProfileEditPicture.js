@@ -7,11 +7,9 @@ import { getCurrentUser } from 'amo/reducers/users';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import UserAvatar from 'ui/components/UserAvatar';
 import {
+  applyUIStateChanges,
   dispatchClientMetadata,
   dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import {
-  applyUIStateChanges,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

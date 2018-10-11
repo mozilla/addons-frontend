@@ -2,7 +2,7 @@ import { getLanding } from 'amo/actions/landing';
 import landing, { initialState } from 'amo/reducers/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to not loading', () => {

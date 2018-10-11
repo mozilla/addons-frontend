@@ -9,13 +9,15 @@ import discoResultsReducer, {
   loadDiscoResults,
 } from 'disco/reducers/discoResults';
 import discoSaga from 'disco/sagas/disco';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import {
+  createStubErrorHandler,
+  dispatchSignInActions,
+} from 'tests/unit/helpers';
 import {
   createDiscoResult,
   createFetchDiscoveryResult,
   fakeDiscoAddon,
 } from 'tests/unit/disco/helpers';
-import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('fetchDiscoveryAddons', () => {

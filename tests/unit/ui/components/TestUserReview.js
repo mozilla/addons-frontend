@@ -5,8 +5,12 @@ import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import UserReview, { UserReviewBase } from 'ui/components/UserReview';
-import { dispatchClientMetadata, fakeReview } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  fakeReview,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;

@@ -12,15 +12,13 @@ import {
 } from 'amo/reducers/collections';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
+  createFakeCollectionDetail,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import {
-  createFakeCollectionDetail,
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
 import UserCollection from 'ui/components/UserCollection';
 
 describe(__filename, () => {

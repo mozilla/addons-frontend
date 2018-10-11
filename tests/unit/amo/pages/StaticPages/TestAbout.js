@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import About, { AboutBase } from 'amo/pages/StaticPages/About';
 import {
+  dispatchClientMetadata,
   fakeI18n,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   function render({

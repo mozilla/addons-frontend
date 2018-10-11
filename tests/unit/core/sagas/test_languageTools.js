@@ -7,10 +7,10 @@ import languageToolsReducer, {
 } from 'core/reducers/languageTools';
 import apiReducer from 'core/reducers/api';
 import languageToolsSaga from 'core/sagas/languageTools';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeLanguageTool,
   createStubErrorHandler,
+  dispatchClientMetadata,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {

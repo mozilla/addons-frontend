@@ -5,10 +5,10 @@ import { withRouter } from 'react-router-dom';
 
 import Root from 'core/components/Root';
 import translate from 'core/i18n/translate';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeHistory,
   createFakeLocation,
+  dispatchClientMetadata,
   fakeI18n,
 } from 'tests/unit/helpers';
 

@@ -12,11 +12,11 @@ import {
   VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'core/constants';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeHistory,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

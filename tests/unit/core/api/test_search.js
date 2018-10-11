@@ -6,9 +6,10 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
+  dispatchSignInActions,
+  fakeAddon,
   unexpectedSuccess,
   urlWithTheseParams,
   userAgents,

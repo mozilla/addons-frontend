@@ -16,12 +16,12 @@ import {
   MOZILLA_COLLECTIONS_EDIT,
   MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
-import { shallowUntilTarget } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {

@@ -9,8 +9,12 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createFakeAddon,
+  fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import Badge from 'ui/components/Badge';
 
 describe(__filename, () => {

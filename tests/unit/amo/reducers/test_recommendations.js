@@ -6,8 +6,7 @@ import reducer, {
   loadRecommendations,
 } from 'amo/reducers/recommendations';
 import { createInternalAddon } from 'core/reducers/addons';
-import { createStubErrorHandler } from 'tests/unit/helpers';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { createStubErrorHandler, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('initializes properly', () => {

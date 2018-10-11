@@ -3,9 +3,9 @@ import * as React from 'react';
 import {
   applyUIStateChanges,
   createFakeEvent,
+  dispatchClientMetadata,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import Overlay, { OverlayBase, extractId } from 'ui/components/Overlay';
 
 describe(__filename, () => {

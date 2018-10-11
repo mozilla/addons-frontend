@@ -55,16 +55,14 @@ import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { addQueryParamsToHistory } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import {
+  createFetchAddonResult,
+  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeI18n,
   fakeInstalledAddon,
   fakeTheme,
-} from 'tests/unit/amo/helpers';
-import {
-  createFetchAddonResult,
-  createStubErrorHandler,
-  fakeI18n,
   createFakeLocation,
   getFakeConfig,
   sampleUserAgentParsed,

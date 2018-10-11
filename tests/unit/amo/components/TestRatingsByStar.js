@@ -7,8 +7,12 @@ import RatingsByStar, {
 } from 'amo/components/RatingsByStar';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 

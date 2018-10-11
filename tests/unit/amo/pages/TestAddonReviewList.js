@@ -28,14 +28,12 @@ import {
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import {
-  dispatchClientMetadata,
-  fakeAddon,
-  fakeReview,
-} from 'tests/unit/amo/helpers';
-import {
   createFetchAddonResult,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
+  fakeReview,
   createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

@@ -17,12 +17,13 @@ import {
   updateCollectionAddon,
 } from 'amo/api/collections';
 import { COLLECTION_SORT_DATE_ADDED_ASCENDING } from 'core/constants';
-import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
 import {
+  apiResponsePage,
+  createApiResponse,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
   dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let mockApi;

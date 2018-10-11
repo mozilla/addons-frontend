@@ -6,17 +6,15 @@ import CollectionSort, {
 import { createInternalCollection } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import {
+  createFakeCollectionAddons,
+  createFakeCollectionDetail,
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeHistory,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import {
-  createFakeCollectionAddons,
-  createFakeCollectionDetail,
-  dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {

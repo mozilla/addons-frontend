@@ -9,13 +9,11 @@ import AuthenticateButton, {
   mapStateToProps,
 } from 'core/components/AuthenticateButton';
 import {
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import {
   createContextWithFakeRouter,
   createFakeEvent,
   createUserAccountResponse,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,

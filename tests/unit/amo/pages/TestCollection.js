@@ -39,21 +39,19 @@ import {
 import { ErrorHandler } from 'core/errorHandler';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
+  createFakeCollectionAddon,
+  createFakeCollectionAddons,
+  createFakeCollectionDetail,
   createFakeEvent,
   createFakeHistory,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  dispatchSignInActions,
+  fakeAddon,
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import {
-  createFakeCollectionAddon,
-  createFakeCollectionAddons,
-  createFakeCollectionDetail,
-  dispatchClientMetadata,
-  dispatchSignInActions,
-  fakeAddon,
-} from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   const defaultCollectionDetail = createFakeCollectionDetail();

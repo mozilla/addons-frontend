@@ -6,7 +6,7 @@ import versionsReducer, {
   initialState,
   loadVersions,
 } from 'amo/reducers/versions';
-import { fakeVersion } from 'tests/unit/amo/helpers';
+import { fakeVersion } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to its initial state', () => {

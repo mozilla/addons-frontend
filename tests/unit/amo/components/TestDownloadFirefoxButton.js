@@ -3,8 +3,12 @@ import * as React from 'react';
 import DownloadFirefoxButton, {
   DownloadFirefoxButtonBase,
 } from 'amo/components/DownloadFirefoxButton';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget, userAgents } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  shallowUntilTarget,
+  userAgents,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(props = {}) {

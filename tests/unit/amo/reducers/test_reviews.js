@@ -38,7 +38,7 @@ import reviewsReducer, {
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeReview } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function setFakeReview({

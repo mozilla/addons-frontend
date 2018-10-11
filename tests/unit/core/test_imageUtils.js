@@ -2,7 +2,7 @@ import config from 'config';
 
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakePreview } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakePreview } from 'tests/unit/helpers';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 
 describe(__filename, () => {

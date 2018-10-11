@@ -7,11 +7,9 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import {
+  createFakeEvent,
   dispatchClientMetadata,
   dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
-import {
-  createFakeEvent,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

@@ -4,11 +4,11 @@ import ReviewGuide, {
   ReviewGuideBase,
 } from 'amo/pages/StaticPages/ReviewGuide';
 import {
+  dispatchClientMetadata,
   fakeI18n,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
   function render({

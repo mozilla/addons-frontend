@@ -13,12 +13,12 @@ import {
 import { ErrorHandler } from 'core/errorHandler';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import ErrorList from 'ui/components/ErrorList';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   createFakeUserAbuseReport,
   createStubErrorHandler,
   createUserAccountResponse,
+  dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

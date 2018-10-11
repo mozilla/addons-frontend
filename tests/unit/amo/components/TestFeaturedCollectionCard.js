@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon } from 'tests/unit/helpers';
 import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'core/constants';
 
 describe(__filename, () => {

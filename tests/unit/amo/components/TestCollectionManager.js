@@ -18,18 +18,16 @@ import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { decodeHtmlEntities } from 'core/utils';
 import {
   createContextWithFakeRouter,
+  createFakeCollectionDetail,
   createFakeEvent,
   createFakeHistory,
   createFakeLocation,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import {
-  createFakeCollectionDetail,
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 

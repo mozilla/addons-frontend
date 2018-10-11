@@ -11,7 +11,7 @@ import {
 } from 'core/constants';
 import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import categories, { initialState } from 'core/reducers/categories';
-import { fakeCategory } from 'tests/unit/amo/helpers';
+import { fakeCategory } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to an empty set of categories', () => {

@@ -9,11 +9,11 @@ import userAbuseReportsReducer, {
 } from 'amo/reducers/userAbuseReports';
 import apiReducer from 'core/reducers/api';
 import userAbuseReportsSaga from 'amo/sagas/userAbuseReports';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import {
   createFakeUserAbuseReport,
   createStubErrorHandler,
   createUserAccountResponse,
+  dispatchSignInActions,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {

@@ -16,15 +16,13 @@ import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createContextWithFakeRouter,
   createFakeCollectionDetail,
+  createFakeEvent,
+  createFakeHistory,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
-} from 'tests/unit/amo/helpers';
-import {
-  createContextWithFakeRouter,
-  createFakeEvent,
-  createFakeHistory,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';

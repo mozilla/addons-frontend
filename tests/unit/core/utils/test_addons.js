@@ -10,8 +10,7 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { getErrorMessage, getFileHash } from 'core/utils/addons';
-import { fakeI18n } from 'tests/unit/helpers';
-import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
+import { createFakeAddon, fakeAddon, fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getErrorMessage', () => {

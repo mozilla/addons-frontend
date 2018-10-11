@@ -19,17 +19,15 @@ import {
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import {
   applyUIStateChanges,
+  createFakeAutocompleteResult,
+  createFakeCollectionDetail,
   createStubErrorHandler,
+  dispatchClientMetadata,
+  dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
   simulateComponentCallback,
 } from 'tests/unit/helpers';
-import {
-  createFakeAutocompleteResult,
-  createFakeCollectionDetail,
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
 import Card from 'ui/components/Card';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';

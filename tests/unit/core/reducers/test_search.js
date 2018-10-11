@@ -6,7 +6,7 @@ import search, {
   searchLoad,
   searchStart,
 } from 'core/reducers/search';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to an set of filters', () => {

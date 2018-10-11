@@ -15,8 +15,8 @@ import {
   convertOSToFilterValue,
   fixFiltersForAndroidThemes,
 } from 'core/searchUtils';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  dispatchClientMetadata,
   getFakeConfig,
   userAgents,
   userAgentsByPlatform,
