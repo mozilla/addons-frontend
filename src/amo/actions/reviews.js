@@ -40,6 +40,10 @@ export const SEND_REPLY_TO_REVIEW: 'SEND_REPLY_TO_REVIEW' =
 export const SEND_REVIEW_FLAG: 'SEND_REVIEW_FLAG' = 'SEND_REVIEW_FLAG';
 export const UPDATE_ADDON_REVIEW: 'UPDATE_ADDON_REVIEW' = 'UPDATE_ADDON_REVIEW';
 export const DELETE_ADDON_REVIEW: 'DELETE_ADDON_REVIEW' = 'DELETE_ADDON_REVIEW';
+export const BEGIN_DELETE_ADDON_REVIEW: 'BEGIN_DELETE_ADDON_REVIEW' =
+  'BEGIN_DELETE_ADDON_REVIEW';
+export const CANCEL_DELETE_ADDON_REVIEW: 'CANCEL_DELETE_ADDON_REVIEW' =
+  'CANCEL_DELETE_ADDON_REVIEW';
 export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
   'UNLOAD_ADDON_REVIEWS';
 
@@ -667,6 +671,42 @@ export const deleteAddonReview = ({
   return {
     type: DELETE_ADDON_REVIEW,
     payload: { addonId, errorHandlerId, isReplyToReviewId, reviewId },
+  };
+};
+
+type BeginDeleteAddonReviewParams = {|
+  reviewId: number,
+|};
+
+export type BeginDeleteAddonReviewAction = {|
+  type: typeof BEGIN_DELETE_ADDON_REVIEW,
+  payload: BeginDeleteAddonReviewParams,
+|};
+
+export const beginDeleteAddonReview = ({
+  reviewId,
+}: BeginDeleteAddonReviewParams): BeginDeleteAddonReviewAction => {
+  return {
+    type: BEGIN_DELETE_ADDON_REVIEW,
+    payload: { reviewId },
+  };
+};
+
+type CancelDeleteAddonReviewParams = {|
+  reviewId: number,
+|};
+
+export type CancelDeleteAddonReviewAction = {|
+  type: typeof CANCEL_DELETE_ADDON_REVIEW,
+  payload: CancelDeleteAddonReviewParams,
+|};
+
+export const cancelDeleteAddonReview = ({
+  reviewId,
+}: CancelDeleteAddonReviewParams): CancelDeleteAddonReviewAction => {
+  return {
+    type: CANCEL_DELETE_ADDON_REVIEW,
+    payload: { reviewId },
   };
 };
 

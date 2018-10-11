@@ -2,6 +2,8 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import {
+  beginDeleteAddonReview,
+  cancelDeleteAddonReview,
   deleteAddonReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
@@ -55,7 +57,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
-      _config: getFakeConfig({ enableFeatureInlineAddonReview: false }),
+      _config: getFakeConfig({ enableFeatureInlineAddonReview: true }),
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
       store,
@@ -66,6 +68,13 @@ describe(__filename, () => {
       AddonReviewCardBase,
     );
   };
+
+  function renderWithoutInline(otherProps = {}) {
+    const _config = getFakeConfig({
+      enableFeatureInlineAddonReview: false,
+    });
+    return render({ _config, ...otherProps });
+  }
 
   const renderControls = (root) => {
     return shallow(root.find(UserReview).prop('controls'));
@@ -225,22 +234,6 @@ describe(__filename, () => {
     expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
 
-  it('cannot edit without a review', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review: null });
-
-    root.instance().onClickToEditReview(createFakeEvent());
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('does not render edit link when review belongs to another user', () => {
-    const review = createReviewAndSignInAsUnrelatedUser();
-    const root = render({ review });
-
-    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
-  });
-
   it('does not render edit link even when siteUserCanManageReplies() is true', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
     const root = render({
@@ -251,15 +244,57 @@ describe(__filename, () => {
     expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
 
-  it('renders a delete link for a user review', () => {
-    const review = signInAndDispatchSavedReview();
+  it('does not render an edit link for ratings', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
     const root = render({ review });
 
-    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
-    expect(deleteLink).toHaveLength(1);
-    expect(deleteLink.children()).toHaveText('Delete review');
-    expect(deleteLink).toHaveProp('cancelButtonText', 'Keep review');
-    expect(deleteLink).toHaveProp('confirmButtonText', 'Delete review');
+    const editButton = renderControls(root).find('.AddonReviewCard-edit');
+    expect(editButton).toHaveLength(0);
+  });
+
+  it('does not render edit link when the review belongs to another user', () => {
+    const review = createReviewAndSignInAsUnrelatedUser();
+    const root = render({ review });
+
+    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
+  });
+
+  it('does not render any controls when beginningToDeleteReview', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const root = render({ review });
+
+    expect(root.find(UserReview)).toHaveProp('controls', null);
+  });
+
+  it('does not let you edit without a review', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review: null });
+
+    root.instance().onClickToEditReview(createFakeEvent());
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('lets you begin editing your review', () => {
+    const review = signInAndDispatchSavedReview();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ review });
+
+    const editButton = renderControls(root).find('.AddonReviewCard-edit');
+    expect(editButton.text()).toContain('Edit review');
+    const clickEvent = createFakeEvent();
+    editButton.simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.preventDefault);
+    sinon.assert.calledWith(
+      dispatchSpy,
+      showEditReviewForm({
+        reviewId: review.id,
+      }),
+    );
   });
 
   it('renders a delete link for a user rating', () => {
@@ -271,11 +306,18 @@ describe(__filename, () => {
     const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
     expect(deleteLink).toHaveLength(1);
     expect(deleteLink.children()).toHaveText('Delete rating');
-    expect(deleteLink).toHaveProp('cancelButtonText', 'Keep rating');
-    expect(deleteLink).toHaveProp('confirmButtonText', 'Delete rating');
   });
 
-  it('does not render delete link when review belongs to another user', () => {
+  it('renders a delete link for a user review', () => {
+    const review = signInAndDispatchSavedReview();
+    const root = render({ review });
+
+    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
+    expect(deleteLink).toHaveLength(1);
+    expect(deleteLink.children()).toHaveText('Delete review');
+  });
+
+  it('does not render delete link when the review belongs to another user', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
     const root = render({ review });
 
@@ -296,17 +338,131 @@ describe(__filename, () => {
     );
   });
 
+  it('begins deleting when clicking a delete link for a review', () => {
+    const review = signInAndDispatchSavedReview();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ review });
+
+    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
+    expect(deleteLink).toHaveLength(1);
+
+    const fakeEvent = createFakeEvent();
+    deleteLink.simulate('click', fakeEvent);
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      beginDeleteAddonReview({ reviewId: review.id }),
+    );
+    sinon.assert.called(fakeEvent.preventDefault);
+  });
+
+  it('renders generic delete confirmation buttons', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const root = render({ review });
+
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+    expect(dialog).toHaveProp('cancelButtonText', 'Cancel');
+    expect(dialog).toHaveProp('confirmButtonText', 'Delete');
+  });
+
+  it('renders delete confirmation buttons for a rating with slim=true', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const root = render({ review, slim: true });
+
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+    expect(dialog).toHaveProp('cancelButtonText', 'Keep rating');
+    expect(dialog).toHaveProp('confirmButtonText', 'Delete rating');
+  });
+
+  it('renders delete confirmation buttons for a review with slim=true', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeReview,
+    });
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const root = render({ review, slim: true });
+
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+    expect(dialog).toHaveProp('cancelButtonText', 'Keep review');
+    expect(dialog).toHaveProp('confirmButtonText', 'Delete review');
+  });
+
+  it('does not render a confirmation message for slim=true', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeReview,
+    });
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const root = render({ review, slim: true });
+
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+    expect(dialog).toHaveProp('message', undefined);
+  });
+
+  it('renders a confirmation prompt for deleting a review', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeReview,
+    });
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const root = render({ review });
+
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+    expect(dialog).toHaveProp(
+      'message',
+      'Do you really want to delete this review?',
+    );
+  });
+
+  it('renders a confirmation prompt for deleting a rating', () => {
+    const review = signInAndDispatchSavedReview({
+      externalReview: fakeRatingOnly,
+    });
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const root = render({ review });
+
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+    expect(dialog).toHaveProp(
+      'message',
+      'Do you really want to delete this rating?',
+    );
+  });
+
+  it('lets you cancel deleting a review', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ review });
+
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+
+    // This emulates a user clicking the cancel button.
+    const onCancel = dialog.prop('onCancel');
+    const fakeEvent = createFakeEvent();
+    onCancel(fakeEvent);
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      cancelDeleteAddonReview({ reviewId: review.id }),
+    );
+    sinon.assert.called(fakeEvent.preventDefault);
+  });
+
   it('dispatches deleteReview when a user deletes a review', () => {
     const review = signInAndDispatchSavedReview();
+    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
     const { errorHandler } = root.instance().props;
 
-    const deleteButton = renderControls(root).find('.AddonReviewCard-delete');
+    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
     const deleteEvent = createFakeEvent();
 
     // This emulates a user clicking the delete button and confirming.
-    const onDelete = deleteButton.prop('onConfirm');
+    const onDelete = dialog.prop('onConfirm');
     onDelete(deleteEvent);
 
     sinon.assert.calledOnce(deleteEvent.preventDefault);
@@ -360,35 +516,6 @@ describe(__filename, () => {
     expect(controls.find('.AddonReviewCard-delete')).toHaveLength(1);
   });
 
-  it('lets you begin editing your review', () => {
-    const review = signInAndDispatchSavedReview();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review });
-
-    const editButton = renderControls(root).find('.AddonReviewCard-edit');
-    expect(editButton.text()).toContain('Edit review');
-    const clickEvent = createFakeEvent();
-    editButton.simulate('click', clickEvent);
-
-    sinon.assert.called(clickEvent.preventDefault);
-    sinon.assert.calledWith(
-      dispatchSpy,
-      showEditReviewForm({
-        reviewId: review.id,
-      }),
-    );
-  });
-
-  it('does not provide an edit link for ratings', () => {
-    const review = signInAndDispatchSavedReview({
-      externalReview: fakeRatingOnly,
-    });
-    const root = render({ review });
-
-    const editButton = renderControls(root).find('.AddonReviewCard-edit');
-    expect(editButton).toHaveLength(0);
-  });
-
   it('adds AddonReviewCard-ratingOnly to rating-only reviews', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
@@ -414,7 +541,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     store.dispatch(showEditReviewForm({ reviewId: review.id }));
 
-    const root = render({ review });
+    const root = renderWithoutInline({ review });
 
     const reviewComponent = renderControls(root).find(AddonReview);
     expect(reviewComponent).toHaveLength(1);
@@ -746,7 +873,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     store.dispatch(showEditReviewForm({ reviewId: review.id }));
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review });
+    const root = renderWithoutInline({ review });
 
     const reviewComponent = renderControls(root).find(AddonReview);
     expect(reviewComponent).toHaveProp('onEscapeOverlay');
@@ -776,7 +903,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     store.dispatch(showEditReviewForm({ reviewId: review.id }));
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review });
+    const root = renderWithoutInline({ review });
 
     const reviewComponent = renderControls(root).find(AddonReview);
     expect(reviewComponent).toHaveProp('onReviewSubmitted');
@@ -823,16 +950,9 @@ describe(__filename, () => {
   });
 
   describe('enableFeatureInlineAddonReview', () => {
-    function renderInline(otherProps = {}) {
-      const _config = getFakeConfig({
-        enableFeatureInlineAddonReview: true,
-      });
-      return render({ _config, ...otherProps });
-    }
-
     it('shows UserReview by default', () => {
       const review = signInAndDispatchSavedReview();
-      const root = renderInline({ review });
+      const root = render({ review });
 
       expect(root.find(AddonReviewManager)).toHaveLength(0);
       expect(root.find(UserReview)).toHaveLength(1);
@@ -842,7 +962,7 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       store.dispatch(showEditReviewForm({ reviewId: review.id }));
 
-      const root = renderInline({ review });
+      const root = render({ review });
 
       expect(root.find(UserReview)).toHaveLength(0);
       const manager = root.find(AddonReviewManager);
@@ -851,11 +971,11 @@ describe(__filename, () => {
       expect(manager).toHaveProp('puffyButtons', false);
     });
 
-    it('configures AddonReviewManager with puffyButtons when verticalButtons=true', () => {
+    it('configures AddonReviewManager with puffyButtons when slim=true', () => {
       const review = signInAndDispatchSavedReview();
       store.dispatch(showEditReviewForm({ reviewId: review.id }));
 
-      const root = renderInline({ review, verticalButtons: true });
+      const root = render({ review, slim: true });
 
       const manager = root.find(AddonReviewManager);
       expect(manager).toHaveProp('puffyButtons', true);
@@ -866,7 +986,7 @@ describe(__filename, () => {
       store.dispatch(showEditReviewForm({ reviewId: review.id }));
       const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      const root = renderInline({ review });
+      const root = render({ review });
 
       const manager = root.find(AddonReviewManager);
       expect(manager).toHaveProp('onCancel');
@@ -888,7 +1008,7 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      const root = renderInline({ review });
+      const root = render({ review });
 
       const writeReview = root.find('.AddonReviewCard-writeReviewButton');
       expect(writeReview).toHaveLength(1);
@@ -903,17 +1023,39 @@ describe(__filename, () => {
       );
     });
 
+    it('hides the write review button while editing', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const root = render({ review });
+
+      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
+      expect(writeReview).toHaveLength(0);
+    });
+
+    it('hides the write review button when beginning to delete a rating', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+      const root = render({ review });
+
+      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
+      expect(writeReview).toHaveLength(0);
+    });
+
     it('hides the write review button for ratings when not logged in', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      let root = renderInline({ review });
+      let root = render({ review });
 
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(1);
 
       store.dispatch(logOutUser());
 
-      root = renderInline({ review });
+      root = render({ review });
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
@@ -929,16 +1071,16 @@ describe(__filename, () => {
       });
       dispatchSignInActions({ store, userId: loggedInUserId });
 
-      const root = renderInline({ review });
+      const root = render({ review });
 
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
     });
 
-    it('can render a larger write review button', () => {
+    it('will render a larger write review button for slim=true', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      const root = renderInline({ review, smallerWriteReviewButton: false });
+      const root = render({ review, slim: true });
 
       expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveProp(
         'puffy',
@@ -1140,8 +1282,6 @@ describe(__filename, () => {
       const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
       expect(deleteLink).toHaveLength(1);
       expect(deleteLink.children()).toHaveText('Delete reply');
-      expect(deleteLink).toHaveProp('cancelButtonText', 'Keep reply');
-      expect(deleteLink).toHaveProp('confirmButtonText', 'Delete reply');
     });
 
     it('renders a delete link when siteUserCanManageReplies() is true', () => {
@@ -1155,6 +1295,41 @@ describe(__filename, () => {
       expect(deleteLink).toHaveLength(1);
     });
 
+    it('renders a confirmation prompt for deleting a reply', () => {
+      const originalReviewId = 543;
+      const developerUserId = 321;
+      const review = signInAndDispatchSavedReview({
+        siteUserId: developerUserId,
+        reviewUserId: developerUserId,
+      });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+      const root = renderReply({ originalReviewId, reply: review });
+
+      const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+      expect(dialog).toHaveProp(
+        'message',
+        'Do you really want to delete this reply?',
+      );
+    });
+
+    it('renders a confirm button for deleting a reply when slim=true', () => {
+      const originalReviewId = 543;
+      const developerUserId = 321;
+      const review = signInAndDispatchSavedReview({
+        siteUserId: developerUserId,
+        reviewUserId: developerUserId,
+      });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+      const root = renderReply({
+        originalReviewId,
+        reply: review,
+        slim: true,
+      });
+
+      const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+      expect(dialog).toHaveProp('confirmButtonText', 'Delete reply');
+    });
+
     it('dispatches deleteReview when a user deletes a developer reply', () => {
       const originalReviewId = 543;
       const developerUserId = 321;
@@ -1162,15 +1337,16 @@ describe(__filename, () => {
         siteUserId: developerUserId,
         reviewUserId: developerUserId,
       });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
       const dispatchSpy = sinon.spy(store, 'dispatch');
 
       const root = renderReply({ originalReviewId, reply: review });
       const { errorHandler } = root.instance().props;
 
       const deleteEvent = createFakeEvent();
-      const deleteButton = renderControls(root).find('.AddonReviewCard-delete');
+      const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
       // This emulates a user clicking the delete button and confirming.
-      const onDelete = deleteButton.prop('onConfirm');
+      const onDelete = dialog.prop('onConfirm');
       onDelete(deleteEvent);
 
       sinon.assert.calledOnce(deleteEvent.preventDefault);

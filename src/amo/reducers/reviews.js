@@ -3,6 +3,8 @@ import { oneLine } from 'common-tags';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
+  BEGIN_DELETE_ADDON_REVIEW,
+  CANCEL_DELETE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
   FETCH_REVIEW,
   FETCH_REVIEWS,
@@ -26,6 +28,8 @@ import {
   createInternalReview,
 } from 'amo/actions/reviews';
 import type {
+  BeginDeleteAddonReviewAction,
+  CancelDeleteAddonReviewAction,
   DeleteAddonReviewAction,
   FetchReviewAction,
   FetchReviewsAction,
@@ -83,6 +87,7 @@ export type FlagState = {
 };
 
 type ViewStateByReviewId = {|
+  beginningToDeleteReview: boolean,
   deletingReview: boolean,
   editingReview: boolean,
   flag: FlagState,
@@ -189,6 +194,7 @@ export const changeViewState = ({
     view: {
       ...state.view,
       [reviewId]: {
+        beginningToDeleteReview: false,
         deletingReview: false,
         editingReview: false,
         loadingReview: false,
@@ -319,6 +325,8 @@ export const reviewsAreLoading = (
 };
 
 type ReviewActionType =
+  | BeginDeleteAddonReviewAction
+  | CancelDeleteAddonReviewAction
   | DeleteAddonReviewAction
   | FetchReviewAction
   | FetchReviewsAction
@@ -348,11 +356,23 @@ export default function reviewsReducer(
   }: {| _addReviewToState: typeof addReviewToState |} = {},
 ) {
   switch (action.type) {
+    case BEGIN_DELETE_ADDON_REVIEW:
+      return changeViewState({
+        state,
+        reviewId: action.payload.reviewId,
+        stateChange: { beginningToDeleteReview: true },
+      });
+    case CANCEL_DELETE_ADDON_REVIEW:
+      return changeViewState({
+        state,
+        reviewId: action.payload.reviewId,
+        stateChange: { beginningToDeleteReview: false },
+      });
     case DELETE_ADDON_REVIEW:
       return changeViewState({
         state,
         reviewId: action.payload.reviewId,
-        stateChange: { deletingReview: true },
+        stateChange: { beginningToDeleteReview: false, deletingReview: true },
       });
     case SEND_REPLY_TO_REVIEW:
       return changeViewState({
@@ -364,13 +384,13 @@ export default function reviewsReducer(
       return changeViewState({
         state,
         reviewId: action.payload.reviewId,
-        stateChange: { editingReview: true },
+        stateChange: { beginningToDeleteReview: false, editingReview: true },
       });
     case SHOW_REPLY_TO_REVIEW_FORM:
       return changeViewState({
         state,
         reviewId: action.payload.reviewId,
-        stateChange: { replyingToReview: true },
+        stateChange: { beginningToDeleteReview: false, replyingToReview: true },
       });
     case HIDE_EDIT_REVIEW_FORM:
       return changeViewState({

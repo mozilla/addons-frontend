@@ -17,6 +17,8 @@ import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import { isAddonAuthor } from 'core/utils';
 import {
+  beginDeleteAddonReview,
+  cancelDeleteAddonReview,
   deleteAddonReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
@@ -25,7 +27,7 @@ import {
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import Button from 'ui/components/Button';
-import ConfirmButton from 'ui/components/ConfirmButton';
+import ConfirmationDialog from 'ui/components/ConfirmationDialog';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -46,18 +48,23 @@ type Props = {|
   className?: string,
   flaggable?: boolean,
   isReplyToReviewId?: number,
-  smallerWriteReviewButton?: boolean,
   review?: UserReviewType | null,
   shortByLine?: boolean,
   showControls?: boolean,
   showRating?: boolean,
-  verticalButtons?: boolean,
+  // When true, this renders things *bigger* because the container is
+  // more slim than usual, like the Rate Your Experience card.
+  //
+  // When false (the default), it is to say that the container is wider,
+  // like an add-on review listing or a user profile listing.
+  slim?: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
   _config: typeof config,
   _siteUserCanManageReplies?: () => boolean,
+  beginningToDeleteReview: boolean,
   deletingReview: boolean,
   dispatch: DispatchFunc,
   editingReview: boolean,
@@ -73,11 +80,26 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     flaggable: true,
-    smallerWriteReviewButton: true,
     shortByLine: false,
     showControls: true,
     showRating: true,
-    verticalButtons: false,
+    slim: false,
+  };
+
+  onBeginDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+    const { dispatch, review } = this.props;
+    event.preventDefault();
+
+    invariant(review, 'review is required');
+    dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+  };
+
+  onCancelDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+    const { dispatch, review } = this.props;
+    event.preventDefault();
+
+    invariant(review, 'review is required');
+    dispatch(cancelDeleteAddonReview({ reviewId: review.id }));
   };
 
   onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
@@ -212,8 +234,26 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Delete review');
   }
 
-  confirmButtonText() {
+  confirmDeletePrompt() {
     const { i18n } = this.props;
+
+    if (this.isReply()) {
+      return i18n.gettext('Do you really want to delete this reply?');
+    }
+
+    if (this.isRatingOnly()) {
+      return i18n.gettext('Do you really want to delete this rating?');
+    }
+
+    return i18n.gettext('Do you really want to delete this review?');
+  }
+
+  confirmDeleteButtonText() {
+    const { i18n, slim } = this.props;
+
+    if (!slim) {
+      return i18n.gettext('Delete');
+    }
 
     if (this.isReply()) {
       return i18n.gettext('Delete reply');
@@ -226,8 +266,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Delete review');
   }
 
-  cancelButtonText() {
-    const { i18n } = this.props;
+  cancelDeleteButtonText() {
+    const { i18n, slim } = this.props;
+
+    if (!slim) {
+      return i18n.gettext('Cancel');
+    }
 
     if (this.isReply()) {
       return i18n.gettext('Keep reply');
@@ -266,6 +310,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       i18n,
       replyingToReview,
       review,
+      slim,
       submittingReply,
     } = this.props;
 
@@ -299,6 +344,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             addon={addon}
             isReplyToReviewId={review.id}
             review={review.reply}
+            slim={slim}
           />
         )}
       </div>
@@ -308,20 +354,20 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   render() {
     const {
       _config,
+      beginningToDeleteReview,
       className,
       deletingReview,
       editingReview,
       errorHandler,
       flaggable,
       i18n,
-      smallerWriteReviewButton,
       replyingToReview,
       review,
       shortByLine,
       showControls,
       showRating,
       siteUser,
-      verticalButtons,
+      slim,
     } = this.props;
 
     let byLine;
@@ -366,7 +412,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       byLine = <LoadingText />;
     }
 
-    const confirmButtonClassName = 'AddonReviewCard-delete';
+    let controlsAreVisible = showControls;
+    if (beginningToDeleteReview) {
+      controlsAreVisible = false;
+    }
 
     const showEditControls =
       review &&
@@ -374,7 +423,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       (review.userId === siteUser.id ||
         (this.isReply() && this.siteUserCanManageReplies()));
 
-    const controls = showControls ? (
+    const controls = controlsAreVisible ? (
       <div className="AddonReviewCard-allControls">
         {review && showEditControls ? (
           <React.Fragment>
@@ -401,21 +450,16 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 {i18n.gettext('Deleting…')}
               </span>
             ) : (
-              <ConfirmButton
-                buttonType="cancel"
-                cancelButtonText={this.cancelButtonText()}
-                cancelButtonType="neutral"
+              <Button
+                buttonType="neutral"
                 className={makeClassName(
                   'AddonReviewCard-control',
-                  confirmButtonClassName,
+                  'AddonReviewCard-delete',
                 )}
-                confirmButtonText={this.confirmButtonText()}
-                id={`${confirmButtonClassName}-${review.id}`}
-                onConfirm={this.onClickToDeleteReview}
-                puffyButtons={verticalButtons}
+                onClick={this.onBeginDeleteReview}
               >
                 {this.deletePrompt()}
-              </ConfirmButton>
+              </Button>
             )}
           </React.Fragment>
         ) : null}
@@ -450,21 +494,22 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return (
       <div
         className={makeClassName('AddonReviewCard', className, {
+          'AddonReviewCard-isReply': this.isReply(),
           'AddonReviewCard-ratingOnly': this.isRatingOnly(),
           'AddonReviewCard-viewOnly': !editingReview,
-          'AddonReviewCard-verticalButtons': verticalButtons,
+          'AddonReviewCard-slim': slim,
         })}
       >
-        {review &&
-        editingReview &&
-        _config.get('enableFeatureInlineAddonReview') ? (
-          <AddonReviewManager
-            onCancel={this.onCancelEditReview}
-            puffyButtons={Boolean(verticalButtons)}
-            review={review}
-          />
-        ) : (
-          <React.Fragment>
+        <div className="AddonReviewCard-container">
+          {review &&
+          editingReview &&
+          _config.get('enableFeatureInlineAddonReview') ? (
+            <AddonReviewManager
+              onCancel={this.onCancelEditReview}
+              puffyButtons={slim}
+              review={review}
+            />
+          ) : (
             <UserReview
               controls={controls}
               review={review}
@@ -472,30 +517,45 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               showRating={!this.isReply() && showRating}
               isReply={this.isReply()}
             />
-            {siteUser &&
-              review &&
-              review.userId === siteUser.id &&
-              this.isRatingOnly() && (
-                <Button
-                  className="AddonReviewCard-writeReviewButton"
-                  onClick={this.onClickToEditReview}
-                  href="#writeReview"
-                  buttonType="action"
-                  puffy={!smallerWriteReviewButton}
-                >
-                  {i18n.gettext('Write a review')}
-                </Button>
-              )}
-          </React.Fragment>
+          )}
+          {errorHandler.renderErrorIfPresent()}
+        </div>
+        {beginningToDeleteReview && (
+          <ConfirmationDialog
+            className="AddonReviewCard-confirmDeleteDialog"
+            cancelButtonText={this.cancelDeleteButtonText()}
+            cancelButtonType="neutral"
+            confirmButtonText={this.confirmDeleteButtonText()}
+            onCancel={this.onCancelDeleteReview}
+            onConfirm={this.onClickToDeleteReview}
+            message={slim ? undefined : this.confirmDeletePrompt()}
+            puffyButtons={slim}
+          />
         )}
-        {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}
+        {siteUser &&
+          review &&
+          review.userId === siteUser.id &&
+          this.isRatingOnly() &&
+          !beginningToDeleteReview &&
+          !editingReview && (
+            <Button
+              className="AddonReviewCard-writeReviewButton"
+              onClick={this.onClickToEditReview}
+              href="#writeReview"
+              buttonType="action"
+              puffy={slim}
+            >
+              {i18n.gettext('Write a review')}
+            </Button>
+          )}
       </div>
     );
   }
 }
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
+  let beginningToDeleteReview = false;
   let deletingReview = false;
   let editingReview = false;
   let replyingToReview = false;
@@ -503,6 +563,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
     if (view) {
+      beginningToDeleteReview = view.beginningToDeleteReview;
       deletingReview = view.deletingReview;
       editingReview = view.editingReview;
       replyingToReview = view.replyingToReview;
@@ -510,6 +571,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     }
   }
   return {
+    beginningToDeleteReview,
     deletingReview,
     editingReview,
     replyingToReview,

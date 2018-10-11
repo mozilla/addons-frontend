@@ -23,63 +23,6 @@
   legend {
     word-wrap: break-word;
   }
-
-  .AddonReviewCard-control {
-    margin: 0;
-  }
-
-  .AddonReviewCard-allControls {
-    justify-content: space-between;
-  }
-
-  .AddonReviewCard-ratingOnly {
-    .AddonReviewCard-allControls {
-      justify-content: center;
-    }
-
-    .AddonReviewCard-delete {
-      text-align: center;
-      width: 100%;
-
-      .ConfirmationDialog-buttons {
-        display: block;
-      }
-
-      .ConfirmationDialog-cancel-button,
-      .ConfirmationDialog-confirm-button {
-        font-size: $font-size-puffy-buttons;
-        margin: 0;
-        width: 100%;
-      }
-
-      .ConfirmationDialog-cancel-button {
-        margin-top: 12px;
-      }
-    }
-  }
-
-  .DismissibleTextForm-delete-submit-buttons,
-  .DismissibleTextForm-submit {
-    width: 100%;
-  }
-
-  .AddonReviewCard-ratingOnly .UserReview-byLine {
-    display: none;
-  }
-
-  .AddonReviewCard-writeReviewButton {
-    width: 100%;
-  }
-}
-
-.RatingManager-AddonReviewCard.AddonReviewCard-viewOnly:not(.AddonReviewCard-ratingOnly) {
-  background-color: transparentize($blue-50, 0.95);
-  border-radius: $border-radius-default;
-  padding: 12px;
-
-  @include respond-to(medium) {
-    padding: 12px 24px 12px 24px;
-  }
 }
 
 .RatingManager-UserRating {
