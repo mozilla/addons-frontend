@@ -82,7 +82,6 @@
 .Home-SubjectShelf-list-item {
   flex-grow: 1;
   list-style-type: none;
-  text-align: center;
   width: 100%;
 
   @include respond-to(medium) {
@@ -92,6 +91,7 @@
 
   @include respond-to(large) {
     margin: 0;
+    text-align: center;
   }
 }
 
