@@ -163,16 +163,12 @@ export function getPlugins({
       /core\/window/,
       'core/browserWindow.js',
     ),
-  ];
 
-  if (includeCircularDependencyPlugin) {
-    plugins.push(
-      new CircularDependencyPlugin({
-        exclude: /node_modules/,
-        failOnError: true,
-      }),
-    );
-  }
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
+    }),
+  ];
 
   if (excludeOtherAppLocales) {
     plugins.push(
