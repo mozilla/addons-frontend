@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-11 17:23+0000\n"
-"Last-Translator: Jakob Kappel <jakobkpetersen@gmail.com>\n"
+"PO-Revision-Date: 2018-10-12 13:29+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -872,7 +872,7 @@ msgstr "Status for websted"
 
 #: src/amo/components/Footer/index.js:98
 msgid "View classic desktop site"
-msgstr "Vis klassisk desktop-site"
+msgstr "Vis klassisk desktop-version"
 
 #: src/amo/components/Header/index.js:101
 msgid "View My Collections"
