@@ -481,7 +481,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           </a>
         ) : null}
 
-        {flaggable && review ? (
+        {/* Do not render the "flag" button for replies made by the current user */}
+        {flaggable && review && siteUser && siteUser.id !== review.userId ? (
           <FlagReviewMenu
             isDeveloperReply={this.isReply()}
             openerClass="AddonReviewCard-control"
