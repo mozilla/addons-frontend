@@ -17,6 +17,7 @@ const toSource = require('tosource');
 const oneLine = require('common-tags').oneLine;
 
 const appName = config.get('appName');
+const momentLangMap = config.get('momentLangMap');
 
 if (!appName) {
   console.log(chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
@@ -50,7 +51,17 @@ poFiles.forEach((pofile) => {
     var defineLocale = null;
     try {
       const momentLocale = locale.replace('_', '-').toLowerCase();
-      const localeModulePath = `moment/locale/${momentLocale}`;
+      const mappedLocale = momentLangMap[momentLocale];
+
+      let localeModulePath = `moment/locale/${momentLocale}`;
+
+      if (mappedLocale) {
+        localeModulePath = `moment/locale/${mappedLocale}`;
+
+        console.info(oneLine`${locale} is mapped to ${mappedLocale} in
+          configuration, therefore ${mappedLocale} will be used.`);
+      }
+
       // Check for the locale first; if it doesn't exist we don't have
       // a moment locale that matches.
       fs.accessSync(`./node_modules/${localeModulePath}.js`);
