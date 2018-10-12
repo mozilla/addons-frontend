@@ -21,8 +21,6 @@ import addons, {
 } from 'core/reducers/addons';
 import {
   createFakeAddon,
-  createFetchAddonResult,
-  createFetchAllAddonsResult,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -97,10 +95,7 @@ describe(__filename, () => {
       { ...fakeAddon, slug: 'FIRST', id: 123 },
       { ...fakeAddon, slug: 'SeCond', id: 456 },
     ];
-    const state = addons(
-      undefined,
-      loadAddonResults(createFetchAllAddonsResult(addonResults).entities),
-    );
+    const state = addons(undefined, loadAddonResults({ addons: addonResults }));
     expect(state.bySlug).toEqual({
       first: 123,
       second: 456,
@@ -525,14 +520,13 @@ describe(__filename, () => {
 
     it('is case insensitive', () => {
       const slug = 'some-slug';
+      const externalAddon = { ...fakeAddon, slug };
 
       const { store } = dispatchClientMetadata();
-      store.dispatch(
-        loadAddonResults(createFetchAddonResult({ ...fakeAddon, slug })),
-      );
+      store.dispatch(loadAddonResults({ addons: [externalAddon] }));
 
       expect(getAddonBySlug(store.getState(), slug.toUpperCase())).toEqual(
-        createInternalAddon({ ...fakeAddon, slug }),
+        createInternalAddon(externalAddon),
       );
     });
   });

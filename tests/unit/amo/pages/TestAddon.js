@@ -56,7 +56,6 @@ import { addQueryParamsToHistory } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import {
   createFakeLocation,
-  createFetchAddonResult,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -153,7 +152,7 @@ describe(__filename, () => {
     return loadAddonResults({ addons: [addon] });
   };
 
-  const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
+  const _loadAddonResultsByAuthors = ({ addon, addonsByAuthors }) => {
     return loadAddonsByAuthors({
       addons: addonsByAuthors,
       authorUsernames: ['foo'],
@@ -625,7 +624,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = createInternalAddon({ ...fakeAddon, slug });
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
@@ -1403,7 +1402,7 @@ describe(__filename, () => {
       store.dispatch(_loadAddonResults({ addon }));
 
       if (addonsByAuthors) {
-        store.dispatch(_loadAddonsByAuthors({ addon, addonsByAuthors }));
+        store.dispatch(_loadAddonResultsByAuthors({ addon, addonsByAuthors }));
       }
 
       return { store };
@@ -1843,7 +1842,7 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const { store } = dispatchClientMetadata({ lang });
 
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const root = renderComponent({ params: { slug: addon.slug }, store });
 

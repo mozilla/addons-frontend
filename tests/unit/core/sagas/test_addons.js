@@ -8,9 +8,7 @@ import addonsReducer, {
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
 import {
-  createFetchAddonResult,
   createStubErrorHandler,
-  dispatchSignInActions,
   dispatchSignInActions,
   fakeAddon,
 } from 'tests/unit/helpers';

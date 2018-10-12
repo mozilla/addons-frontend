@@ -29,7 +29,6 @@ import {
 import ErrorList from 'ui/components/ErrorList';
 import {
   createFakeLocation,
-  createFetchAddonResult,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
