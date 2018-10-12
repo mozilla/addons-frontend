@@ -100,9 +100,17 @@ yarn test-once
 
 ### Flow
 
-There is limited support for using [Flow](https://flowtype.org/) to check for problems in the source code.
+There is limited support for using [Flow](https://flowtype.org/) to validate the intention of our program.
 
-To check for Flow issues during development while you edit files, run:
+As you run tests you will see a report of Flow errors at the end of the test output:
+
+    yarn test
+
+If you would like to run tests without Flow checks, set an environment variable:
+
+    NO_FLOW=1 yarn test
+
+To only check for Flow issues during development while you edit files, run:
 
     yarn flow:dev
 

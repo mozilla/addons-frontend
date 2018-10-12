@@ -18,6 +18,7 @@ module.exports = {
   reporters: [
     '<rootDir>/tests/jest-reporters/fingers-crossed.js',
     '<rootDir>/tests/jest-reporters/summary.js',
+    '<rootDir>/tests/jest-reporters/flow-check.js',
   ],
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
   testPathIgnorePatterns: [
