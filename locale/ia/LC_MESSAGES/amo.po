@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-11 02:29+0000\n"
+"PO-Revision-Date: 2018-10-12 05:45+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -44,38 +44,32 @@ msgid "Add to collection"
 msgstr "Adder al collection"
 
 #: src/amo/components/AddonAdminLinks/index.js:104
-#, fuzzy
 msgid "Content review add-on"
-msgstr "alicuno scribe un revision de mi additivo"
+msgstr "Additivo de revision de contento"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
-#, fuzzy
 msgid "Review theme"
-msgstr "Testo pro revision"
+msgstr "Thema de revision"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Revisiones pro %(addonName)s"
+msgstr "Codice de additivo de revision"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
-#, fuzzy
 msgid "Admin Links"
-msgstr "Ligamines del additivo"
+msgstr "Ligamines del administrator"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
 msgid "Edit add-on"
 msgstr "Rediger additivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Cargamento de additivos"
+msgstr "Stato de additivo de administrator"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Trovar le additivos"
+msgstr "Additivo del administrator"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
