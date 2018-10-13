@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-07 10:09+0000\n"
+"PO-Revision-Date: 2018-10-13 09:48+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -49,11 +49,11 @@ msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:110
 msgid "Review theme"
-msgstr ""
+msgstr "Revisiona tema"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
 msgid "Review add-on code"
-msgstr ""
+msgstr "Revisiona codice componente aggiuntivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
 msgid "Admin Links"
@@ -61,7 +61,7 @@ msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:70
 msgid "Edit add-on"
-msgstr ""
+msgstr "Modifica componente aggiuntivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
 msgid "Admin add-on status"
@@ -850,7 +850,7 @@ msgstr "Centro di sviluppo"
 
 #: src/amo/components/Footer/index.js:63
 msgid "Developer Policies"
-msgstr ""
+msgstr "Criteri per sviluppatori"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1142,7 +1142,7 @@ msgstr "Azioni del mouse personalizzabili"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
@@ -1150,19 +1150,19 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "CookieBro"
-msgstr ""
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
-msgstr ""
+msgstr "Elimina automaticamente i cookie indesiderati"
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
-msgstr ""
+msgstr "Salva frammenti di testo per incollarli o organizzarli in un secondo momento"
 
 #: src/amo/components/HomeHeroBanner/index.js:294
 msgid "Group Speed Dial"
@@ -1178,7 +1178,7 @@ msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
 msgid "Never lose a page again"
-msgstr ""
+msgstr "Non perdere mai più una pagina"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1867,7 +1867,7 @@ msgstr "%(addonName)s – Scarica il tema per 🦊 Firefox (%(locale)s)"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:454
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Scarica questo strumento di ricerca per 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:461
@@ -2058,11 +2058,11 @@ msgstr "Privacy e sicurezza"
 
 #: src/amo/pages/Home/index.js:57
 msgid "See more parental controls"
-msgstr ""
+msgstr "Visualizza altri strumenti per il controllo genitori"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
-msgstr ""
+msgstr "Controllo genitori"
 
 #: src/amo/pages/LandingPage/index.js:238
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
