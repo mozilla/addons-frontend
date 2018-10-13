@@ -1,11 +1,13 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api';
-import addonsReducer, { LOAD_ADDONS, fetchAddon } from 'core/reducers/addons';
+import addonsReducer, {
+  loadAddonResults,
+  fetchAddon,
+} from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
 import {
-  createFetchAddonResult,
   createStubErrorHandler,
   dispatchSignInActions,
   fakeAddon,
@@ -44,23 +46,24 @@ describe(__filename, () => {
       .expects('fetchAddon')
       .once()
       .withArgs({ slug: fakeAddon.slug, api: { ...apiState } })
-      .returns(Promise.resolve(createFetchAddonResult(fakeAddon)));
+      .returns(Promise.resolve(fakeAddon));
 
     _fetchAddon({ slug: fakeAddon.slug });
 
-    // The saga should respond by dispatching the addon entity.
-    await sagaTester.waitFor(LOAD_ADDONS);
+    const expectedAction = loadAddonResults({ addons: [fakeAddon] });
+    await sagaTester.waitFor(expectedAction.type);
+
     mockApi.verify();
   });
 
   it('clears the error handler', async () => {
-    mockApi
-      .expects('fetchAddon')
-      .returns(Promise.resolve(createFetchAddonResult(fakeAddon)));
+    mockApi.expects('fetchAddon').returns(Promise.resolve(fakeAddon));
 
     _fetchAddon();
 
-    await sagaTester.waitFor(LOAD_ADDONS);
+    const expectedAction = loadAddonResults({ addons: [fakeAddon] });
+    await sagaTester.waitFor(expectedAction.type);
+
     expect(sagaTester.getCalledActions()[1]).toEqual(
       errorHandler.createClearingAction(),
     );

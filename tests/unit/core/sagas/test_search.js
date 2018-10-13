@@ -40,15 +40,12 @@ describe(__filename, () => {
   }
 
   it('searches the API for add-ons', async () => {
-    const entities = sinon.stub();
-    const result = sinon.stub();
-
     const filters = { page: 2, query: 'test' };
 
     mockApi
       .expects('search')
       .once()
-      .returns(Promise.resolve({ entities, result }));
+      .returns(Promise.resolve({ results: [], count: 0 }));
 
     _searchStart({ filters });
 

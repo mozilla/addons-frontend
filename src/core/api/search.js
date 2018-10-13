@@ -1,5 +1,5 @@
 /* @flow */
-import { addon, callApi } from 'core/api';
+import { callApi } from 'core/api';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
@@ -35,7 +35,6 @@ export function search({ api, auth = false, filters = {} }: SearchParams) {
 
   return callApi({
     endpoint: 'addons/search',
-    schema: { results: [addon] },
     params: convertFiltersToQueryParams(newFilters),
     apiState: api,
     auth,

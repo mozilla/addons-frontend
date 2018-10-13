@@ -25,9 +25,9 @@ export function* fetchSearchResults({ payload }) {
       auth: true,
       filters,
     });
-    const { entities, result } = response;
+    const { count, page_size: pageSize, results } = response;
 
-    yield put(searchLoad({ entities, result }));
+    yield put(searchLoad({ count, pageSize, results }));
   } catch (error) {
     log.warn(`Search results failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));

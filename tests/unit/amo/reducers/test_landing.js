@@ -60,19 +60,15 @@ describe(__filename, () => {
     });
 
     it('resets each set of add-ons', () => {
-      const entities = {
-        addons: {
-          bar: { ...fakeAddon, slug: 'bar' },
-          foo: { ...fakeAddon, slug: 'foo' },
-          food: { ...fakeAddon, slug: 'food' },
-        },
-      };
       const state = landing(
         {
           ...initialState,
           featured: {
-            entities,
-            result: { count: 2, results: ['foo', 'food'] },
+            count: 2,
+            results: [
+              { ...fakeAddon, slug: 'foo' },
+              { ...fakeAddon, slug: 'food' },
+            ],
           },
         },
         getLanding({
@@ -89,23 +85,19 @@ describe(__filename, () => {
 
   describe('LANDING_LOADED', () => {
     it('sets the results', () => {
-      const entities = {
-        addons: {
-          bar: { ...fakeAddon, slug: 'bar' },
-          foo: { ...fakeAddon, slug: 'foo' },
-          food: { ...fakeAddon, slug: 'food' },
-        },
-      };
       const state = landing(initialState, {
         type: 'LANDING_LOADED',
         payload: {
           addonType: ADDON_TYPE_THEME,
           featured: {
-            entities,
-            result: { count: 2, results: ['foo', 'food'] },
+            count: 2,
+            results: [
+              { ...fakeAddon, slug: 'foo' },
+              { ...fakeAddon, slug: 'food' },
+            ],
           },
-          highlyRated: { entities, result: { count: 0, results: [] } },
-          trending: { entities, result: { count: 0, results: [] } },
+          highlyRated: { count: 0, results: [] },
+          trending: { count: 0, results: [] },
         },
       });
       expect(state.featured.count).toEqual(2);
@@ -119,13 +111,6 @@ describe(__filename, () => {
     });
 
     it('does not set null keys', () => {
-      const entities = {
-        addons: {
-          bar: { ...fakeAddon, slug: 'bar' },
-          foo: { ...fakeAddon, slug: 'foo' },
-          food: { ...fakeAddon, slug: 'food' },
-        },
-      };
       const { highlyRated } = landing(
         {
           ...initialState,
@@ -136,10 +121,13 @@ describe(__filename, () => {
           payload: {
             addonType: ADDON_TYPE_THEME,
             featured: {
-              entities,
-              result: { count: 2, results: ['foo', 'food'] },
+              count: 2,
+              results: [
+                { ...fakeAddon, slug: 'foo' },
+                { ...fakeAddon, slug: 'food' },
+              ],
             },
-            trending: { entities, result: { count: 0, results: [] } },
+            trending: { count: 0, results: [] },
           },
         },
       );

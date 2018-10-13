@@ -7,7 +7,7 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
-import { FETCH_ADDON, loadAddons } from 'core/reducers/addons';
+import { FETCH_ADDON, loadAddonResults } from 'core/reducers/addons';
 import log from 'core/logger';
 import type { FetchAddonParams } from 'core/api';
 import type { FetchAddonAction } from 'core/reducers/addons';
@@ -23,9 +23,9 @@ export function* fetchAddon({
     const state = yield select(getState);
 
     const params: FetchAddonParams = { api: state.api, slug };
-    const response = yield call(fetchAddonFromApi, params);
+    const addon = yield call(fetchAddonFromApi, params);
 
-    yield put(loadAddons(response.entities));
+    yield put(loadAddonResults({ addons: [addon] }));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

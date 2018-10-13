@@ -1,15 +1,10 @@
 /* @flow */
 import invariant from 'invariant';
 
-import type { ExternalAddonMap } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const GET_DISCO_RESULTS: 'GET_DISCO_RESULTS' = 'GET_DISCO_RESULTS';
 export const LOAD_DISCO_RESULTS: 'LOAD_DISCO_RESULTS' = 'LOAD_DISCO_RESULTS';
-
-export type ExternalDiscoAddonMap = {
-  [guid: $PropertyType<AddonType, 'guid'>]: ExternalAddonType,
-};
 
 type ExternalDiscoResultType = {|
   addon: ExternalAddonType,
@@ -103,13 +98,8 @@ type CreateExternalAddonMapParams = {|
 
 export const createExternalAddonMap = ({
   results,
-}: CreateExternalAddonMapParams): ExternalAddonMap => {
-  return results.map((result) => result.addon).reduce((addonsMap, addon) => {
-    return {
-      ...addonsMap,
-      [addon.slug]: addon,
-    };
-  }, {});
+}: CreateExternalAddonMapParams): Array<ExternalAddonType> => {
+  return results.map((result) => result.addon);
 };
 
 type Action = LoadDiscoResultsAction | GetDiscoResultsAction;

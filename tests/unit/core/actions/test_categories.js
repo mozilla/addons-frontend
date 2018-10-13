@@ -1,5 +1,5 @@
 import * as actions from 'core/actions/categories';
-import { CATEGORIES_FETCH, CATEGORIES_LOAD } from 'core/constants';
+import { CATEGORIES_FETCH } from 'core/constants';
 
 describe(__filename, () => {
   describe('CATEGORIES_FETCH', () => {
@@ -22,22 +22,6 @@ describe(__filename, () => {
       expect(
         _categoriesFetch({ errorHandlerId }).payload.errorHandlerId,
       ).toEqual(errorHandlerId);
-    });
-  });
-
-  describe('CATEGORIES_LOAD', () => {
-    const response = {
-      entities: {},
-      result: ['foo', 'bar'],
-    };
-    const action = actions.categoriesLoad(response);
-
-    it('sets the type', () => {
-      expect(action.type).toEqual(CATEGORIES_LOAD);
-    });
-
-    it('sets the payload', () => {
-      expect(action.payload.result).toEqual(['foo', 'bar']);
     });
   });
 });

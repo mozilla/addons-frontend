@@ -21,7 +21,7 @@ import createStore from 'amo/store';
 import {
   createInternalAddon,
   fetchAddon as fetchAddonAction,
-  loadAddons,
+  loadAddonResults,
 } from 'core/reducers/addons';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -55,7 +55,7 @@ import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { addQueryParamsToHistory } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import {
-  createFetchAddonResult,
+  createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -63,7 +63,6 @@ import {
   fakeI18n,
   fakeInstalledAddon,
   fakeTheme,
-  createFakeLocation,
   getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -149,11 +148,11 @@ describe(__filename, () => {
 
   const getClientCompatibilityFalse = () => incompatibleClientResult;
 
-  const _loadAddons = ({ addon = fakeAddon }) => {
-    return loadAddons(createFetchAddonResult(addon).entities);
+  const _loadAddonResults = ({ addon = fakeAddon }) => {
+    return loadAddonResults({ addons: [addon] });
   };
 
-  const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
+  const _loadAddonResultsByAuthors = ({ addon, addonsByAuthors }) => {
     return loadAddonsByAuthors({
       addons: addonsByAuthors,
       authorUsernames: ['foo'],
@@ -555,7 +554,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = createInternalAddon(fakeAddon);
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
@@ -578,7 +577,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = createInternalAddon(fakeAddon);
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
@@ -606,7 +605,7 @@ describe(__filename, () => {
       slug: '-1234',
     });
 
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
@@ -625,7 +624,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = createInternalAddon({ ...fakeAddon, slug });
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
@@ -696,7 +695,7 @@ describe(__filename, () => {
     });
 
     const { store } = dispatchClientMetadata();
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const root = renderComponent({ params: { slug: addon.slug }, store });
 
@@ -1171,7 +1170,7 @@ describe(__filename, () => {
   it('sets an install source', () => {
     const addon = fakeAddon;
     const { store } = dispatchClientMetadata();
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
     const root = renderComponent({
       params: { slug: addon.slug },
       store,
@@ -1307,7 +1306,7 @@ describe(__filename, () => {
       });
 
       const { store } = dispatchClientMetadata();
-      store.dispatch(_loadAddons({ addon }));
+      store.dispatch(_loadAddonResults({ addon }));
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
@@ -1400,10 +1399,10 @@ describe(__filename, () => {
     const dispatchAddonData = ({ addon, addonsByAuthors }) => {
       const { store } = dispatchClientMetadata();
 
-      store.dispatch(_loadAddons({ addon }));
+      store.dispatch(_loadAddonResults({ addon }));
 
       if (addonsByAuthors) {
-        store.dispatch(_loadAddonsByAuthors({ addon, addonsByAuthors }));
+        store.dispatch(_loadAddonResultsByAuthors({ addon, addonsByAuthors }));
       }
 
       return { store };
@@ -1565,7 +1564,7 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeAddon, type });
     const { store } = dispatchClientMetadata({ lang });
 
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const root = renderComponent({ params: { slug: addon.slug }, store });
 
@@ -1604,7 +1603,7 @@ describe(__filename, () => {
     }
 
     function fetchAddon({ addon = fakeAddon } = {}) {
-      store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
+      store.dispatch(_loadAddonResults(addon));
     }
 
     function _mapStateToProps(
@@ -1792,7 +1791,7 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const root = renderComponent({ params: { slug: addon.slug }, store });
 
@@ -1803,7 +1802,7 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const { store } = dispatchClientMetadata();
 
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     // User clicks the install button.
     store.dispatch(
@@ -1843,7 +1842,7 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const { store } = dispatchClientMetadata({ lang });
 
-    store.dispatch(_loadAddons({ addon }));
+    store.dispatch(_loadAddonResults({ addon }));
 
     const root = renderComponent({ params: { slug: addon.slug }, store });
 
