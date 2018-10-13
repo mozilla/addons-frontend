@@ -132,16 +132,19 @@ export const getVersionInfo = ({
   _findFileForPlatform = findFileForPlatform,
   userAgentInfo,
   version,
-}: GetVersionInfoParams): VersionInfoType => {
+}: GetVersionInfoParams): VersionInfoType | null => {
   const file = _findFileForPlatform({
     platformFiles: version.platformFiles,
     userAgentInfo,
   });
 
-  return {
-    created: file ? file.created : undefined,
-    filesize: file ? file.size : undefined,
-  };
+  if (file) {
+    return {
+      created: file.created,
+      filesize: file.size,
+    };
+  }
+  return null;
 };
 
 type Action = FetchVersionsAction | LoadVersionsAction;

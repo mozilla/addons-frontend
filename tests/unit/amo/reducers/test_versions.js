@@ -65,7 +65,7 @@ describe(__filename, () => {
     ]);
   });
 
-  describe(createInternalVersion, () => {
+  describe('createInternalVersion', () => {
     it('returns an object with the expected AddonVersionType', () => {
       expect(createInternalVersion(fakeVersion)).toEqual({
         compatibility: fakeVersion.compatibility,
@@ -81,21 +81,21 @@ describe(__filename, () => {
     });
   });
 
-  describe(getLoadingBySlug, () => {
+  describe('getLoadingBySlug', () => {
     it('returns false if versions have never been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
       expect(getLoadingBySlug({ slug: 'some-slug', state })).toBe(false);
     });
   });
 
-  describe(getVersionsBySlug, () => {
+  describe('getVersionsBySlug', () => {
     it('returns null if no versions have been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
       expect(getVersionsBySlug({ slug: 'some-slug', state })).toBe(null);
     });
   });
 
-  describe(getVersionInfo, () => {
+  describe('getVersionInfo', () => {
     it('returns created and filesize from a version file', () => {
       const created = Date().toString();
       const size = 1234;
@@ -110,7 +110,7 @@ describe(__filename, () => {
       ).toEqual({ created, filesize: size });
     });
 
-    it('returns undefined values when no file is found', () => {
+    it('returns null values when no file is found', () => {
       const _findFileForPlatform = sinon.stub().returns(undefined);
 
       expect(
@@ -119,7 +119,7 @@ describe(__filename, () => {
           version: createInternalVersion(fakeVersion),
           userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
         }),
-      ).toEqual({ created: undefined, filesize: undefined });
+      ).toEqual(null);
     });
   });
 });

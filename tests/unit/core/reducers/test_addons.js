@@ -223,25 +223,6 @@ describe(__filename, () => {
     );
   });
 
-  it('handles files for unknown platforms', () => {
-    const addon = createFakeAddon({
-      files: [
-        {
-          platform: 'unexpectedPlatform',
-          url: 'https://a.m.o/files/somewhere.xpi',
-        },
-      ],
-    });
-    const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles).toMatchObject({
-      unexpectedPlatform: {
-        ...fakeAddon.current_version.files[0],
-        platform: 'unexpectedPlatform',
-        url: 'https://a.m.o/files/somewhere.xpi',
-      },
-    });
-  });
-
   it('does not use description from theme_data', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/2569
     // Can be removed when
@@ -676,6 +657,23 @@ describe(__filename, () => {
         ...fakePlatformFile,
         platform: OS_WINDOWS,
       };
+      const macFile = {
+        ...fakePlatformFile,
+        platform: OS_MAC,
+      };
+      expect(
+        createPlatformFiles({
+          ...fakeVersion,
+          files: [windowsFile, macFile],
+        }),
+      ).toEqual({
+        ...defaultPlatformFiles,
+        [OS_WINDOWS]: windowsFile,
+        [OS_MAC]: macFile,
+      });
+    });
+
+    it('handles files for unknown platforms', () => {
       const unknownPlatform = 'unknownPlatform';
       const unknownFile = {
         ...fakePlatformFile,
@@ -684,11 +682,10 @@ describe(__filename, () => {
       expect(
         createPlatformFiles({
           ...fakeVersion,
-          files: [windowsFile, unknownFile],
+          files: [unknownFile],
         }),
       ).toEqual({
         ...defaultPlatformFiles,
-        [OS_WINDOWS]: windowsFile,
         [unknownPlatform]: unknownFile,
       });
     });

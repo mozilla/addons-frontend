@@ -157,9 +157,6 @@ export type ExternalAddonType = {|
 |};
 
 export type PlatformFilesType = {|
-  // This seems necessary to help Flow know that computed
-  // keys always return an AddonFileType.
-  [anyPlatform: string]: ?AddonFileType,
   all: ?AddonFileType,
   android: ?AddonFileType,
   mac: ?AddonFileType,
