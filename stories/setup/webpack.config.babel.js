@@ -1,4 +1,4 @@
-import { getPlugins, getRules } from '../../webpack-common';
+import { getRules } from '../../webpack-common';
 import webpackConfig, {
   babelOptions as defaultBabelOptions,
 } from '../../webpack.dev.config.babel';
@@ -14,5 +14,4 @@ module.exports = {
   module: {
     rules: [...getRules({ babelOptions, bundleStylesWithJs: true })],
   },
-  plugins: [...getPlugins()],
 };
