@@ -19,6 +19,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
+import { createInternalVersion } from 'amo/reducers/versions';
 import createStore from 'amo/store';
 import {
   createInternalAddon,
@@ -63,6 +64,7 @@ import {
   fakeI18n,
   fakeInstalledAddon,
   fakeTheme,
+  fakeVersion,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -76,6 +78,7 @@ function renderProps({
   addon = createInternalAddon(fakeAddon),
   params,
   setCurrentStatus = sinon.spy(),
+  version = createInternalVersion(fakeVersion),
   ...customProps
 } = {}) {
   const i18n = fakeI18n();
@@ -94,6 +97,7 @@ function renderProps({
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     store: dispatchClientMetadata().store,
+    version,
     // withInstallHelpers HOC injected props
     defaultInstallSource: 'default install source',
     enable: sinon.stub(),
@@ -917,17 +921,20 @@ describe(__filename, () => {
   it('configures the overall ratings section', () => {
     const location = createFakeLocation();
     const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon, location }).find(RatingManagerWithI18n);
+    const root = shallowRender({
+      addon,
+      location,
+      version: createInternalVersion(fakeVersion),
+    }).find(RatingManagerWithI18n);
     expect(root.prop('addon')).toEqual(addon);
     expect(root.prop('location')).toEqual(location);
   });
 
   it('does not show a ratings manager without a version', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      current_version: null,
+    const root = shallowRender({
+      addon: createInternalAddon(fakeAddon),
+      version: null,
     });
-    const root = shallowRender({ addon });
 
     expect(root.find(RatingManagerWithI18n)).toHaveLength(0);
     expect(root.find('.Addon-no-rating-manager')).toHaveLength(1);
@@ -1183,22 +1190,14 @@ describe(__filename, () => {
   });
 
   describe('version release notes', () => {
-    function addonWithVersion(version = {}) {
-      return createInternalAddon({
-        ...fakeAddon,
-        current_version: version && {
-          ...fakeAddon.current_version,
-          version: '2.5.0',
-          release_notes: 'Changed some stuff',
-          ...version,
-        },
+    function renderWithVersion(props = {}) {
+      return shallowRender({
+        version: createInternalVersion({ ...fakeVersion, ...props }),
       });
     }
 
-    function getReleaseNotes(...args) {
-      const root = shallowRender({
-        addon: addonWithVersion(...args),
-      });
+    function getReleaseNotes(releaseNotes) {
+      const root = renderWithVersion({ release_notes: releaseNotes });
       return root.find('.AddonDescription-version-notes div').render();
     }
 
@@ -1208,50 +1207,42 @@ describe(__filename, () => {
     });
 
     it('is hidden when the add-on does not have a current version', () => {
-      const root = shallowRender({ addon: addonWithVersion(null) });
+      const root = shallowRender({ version: null });
       expect(root.find('.AddonDescription-version-notes div')).toHaveLength(0);
     });
 
     it('is hidden when the current version does not have release notes', () => {
-      const root = shallowRender({
-        addon: addonWithVersion({ release_notes: null }),
-      });
+      const root = renderWithVersion({ release_notes: null });
       expect(root.find('.AddonDescription-version-notes div')).toHaveLength(0);
     });
 
     it('shows the version string', () => {
-      const root = shallowRender({
-        addon: addonWithVersion({
-          version: 'v1.4.5',
-        }),
-      });
+      const version = 'v1.4.5';
+      const root = renderWithVersion({ version });
       const card = root.find('.AddonDescription-version-notes');
       expect(card.prop('header')).toEqual('Release notes for v1.4.5');
     });
 
     it('shows the release notes', () => {
-      const root = shallowRender({
-        addon: addonWithVersion({
-          release_notes: 'Fixed some stuff',
-        }),
-      });
+      const releaseNotes = 'Fixed some stuff';
+      const root = renderWithVersion({ release_notes: releaseNotes });
       const notes = root.find('.AddonDescription-version-notes div');
-      expect(notes.html()).toContain('Fixed some stuff');
+      expect(notes.html()).toContain(releaseNotes);
     });
 
     it('allows some HTML tags', () => {
-      const root = getReleaseNotes({
-        release_notes: '<b>lots</b> <i>of</i> <blink>bug fixes</blink>',
-      });
+      const root = getReleaseNotes(
+        '<b>lots</b> <i>of</i> <blink>bug fixes</blink>',
+      );
       expect(root.html()).toMatch(
         new RegExp('<b>lots</b> <i>of</i> bug fixes'),
       );
     });
 
     it('allows some ul-li tags', () => {
-      const root = getReleaseNotes({
-        release_notes: '<b>The List</b><ul><li>one</li><li>two</li></ul>',
-      });
+      const root = getReleaseNotes(
+        '<b>The List</b><ul><li>one</li><li>two</li></ul>',
+      );
       expect(root.html()).toMatch(
         new RegExp('<b>The List</b><ul><li>one</li><li>two</li></ul>'),
       );
@@ -1437,7 +1428,7 @@ describe(__filename, () => {
     }
 
     function fetchAddon({ addon = fakeAddon } = {}) {
-      store.dispatch(_loadAddonResults(addon));
+      store.dispatch(_loadAddonResults({ addon }));
     }
 
     function _mapStateToProps(
@@ -1460,6 +1451,21 @@ describe(__filename, () => {
       expect(clientApp).toEqual(clientAppFromAgent);
       const { browser, os } = sampleUserAgentParsed;
       expect(userAgentInfo).toEqual({ browser, os });
+    });
+
+    it('sets the version for a loaded add-on', () => {
+      const versionId = 111;
+      const apiVersion = { ...fakeVersion, id: versionId };
+      signIn();
+      fetchAddon({
+        addon: {
+          ...fakeAddon,
+          current_version: apiVersion,
+        },
+      });
+
+      const { version } = _mapStateToProps();
+      expect(version).toEqual(createInternalVersion(apiVersion));
     });
 
     it('sets installStatus to INSTALLED when add-on is installed', () => {
@@ -1504,11 +1510,12 @@ describe(__filename, () => {
       expect(installStatus).toEqual(status);
     });
 
-    it('handles a non-existant add-on', () => {
+    it('handles a non-existent add-on', () => {
       signIn();
-      const { addon } = _mapStateToProps();
+      const { addon, version } = _mapStateToProps();
 
       expect(addon).toEqual(null);
+      expect(version).toEqual(null);
     });
   });
 

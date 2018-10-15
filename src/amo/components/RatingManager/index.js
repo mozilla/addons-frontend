@@ -39,6 +39,7 @@ import log from 'core/logger';
 import { sanitizeHTML } from 'core/utils';
 import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
+import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
@@ -48,7 +49,7 @@ import type {
 } from 'amo/api/reviews';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ApiState } from 'core/reducers/api';
-import type { AddonType, ExternalAddonVersionType } from 'core/types/addons';
+import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -66,7 +67,7 @@ type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 type Props = {|
   addon: AddonType,
   onReviewSubmitted?: () => void,
-  version: ExternalAddonVersionType,
+  version: AddonVersionType,
 |};
 
 type DispatchMappedProps = {|
