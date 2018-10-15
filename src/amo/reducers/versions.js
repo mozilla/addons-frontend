@@ -1,7 +1,17 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { createPlatformFiles } from 'core/reducers/addons';
+import { LOAD_ADDONS_BY_AUTHORS } from 'amo/reducers/addonsByAuthors';
+import {
+  LOAD_COLLECTION_ADDONS,
+  LOAD_CURRENT_COLLECTION,
+  LOAD_CURRENT_COLLECTION_PAGE,
+} from 'amo/reducers/collections';
+import { LOAD_HOME_ADDONS } from 'amo/reducers/home';
+import { LOAD_RECOMMENDATIONS } from 'amo/reducers/recommendations';
+import { LANDING_LOADED } from 'core/constants';
+import { LOAD_ADDON_RESULTS, createPlatformFiles } from 'core/reducers/addons';
+import { SEARCH_LOADED } from 'core/reducers/search';
 import { findFileForPlatform } from 'core/utils';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type {
@@ -13,13 +23,13 @@ import type {
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
 export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
-type VersionIdType = number;
+export type VersionIdType = number;
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
   platformFiles: PlatformFilesType,
   id: VersionIdType,
-  license: { name: string, url: string },
+  license: { name: string, url: string } | null,
   releaseNotes?: string,
   version: string,
 };
@@ -31,7 +41,9 @@ export const createInternalVersion = (
     compatibility: version.compatibility,
     platformFiles: createPlatformFiles(version),
     id: version.id,
-    license: { name: version.license.name, url: version.license.url },
+    license: version.license
+      ? { name: version.license.name, url: version.license.url }
+      : null,
     releaseNotes: version.release_notes,
     version: version.version,
   };
@@ -230,6 +242,90 @@ const reducer = (
             versionIds: versions.map((version) => version.id),
             loading: false,
           },
+        },
+      };
+    }
+
+    case LOAD_ADDONS_BY_AUTHORS:
+    case LOAD_ADDON_RESULTS:
+    case LOAD_COLLECTION_ADDONS:
+    case LOAD_CURRENT_COLLECTION:
+    case LOAD_CURRENT_COLLECTION_PAGE:
+    case LOAD_RECOMMENDATIONS:
+    case SEARCH_LOADED: {
+      const { addons, results } = action.payload;
+
+      const items = addons || results;
+      const newVersions = {};
+      for (const addon of items) {
+        // For collection related actions, the addon is available in addon.addon.
+        const addonToUse = addon.addon || addon;
+        if (addonToUse.current_version) {
+          const version = createInternalVersion(addonToUse.current_version);
+          newVersions[version.id] = version;
+        }
+      }
+
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          ...newVersions,
+        },
+      };
+    }
+
+    case LOAD_HOME_ADDONS: {
+      const { collections, shelves } = action.payload;
+
+      const newVersions = {};
+      for (const shelf of Object.keys(shelves)) {
+        for (const addon of shelves[shelf].results) {
+          if (addon.current_version) {
+            const version = createInternalVersion(addon.current_version);
+            newVersions[version.id] = version;
+          }
+        }
+      }
+
+      for (const collection of collections) {
+        if (collection && collection.results) {
+          for (const addon of collection.results) {
+            const version = createInternalVersion(addon.addon.current_version);
+            newVersions[version.id] = version;
+          }
+        }
+      }
+
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          ...newVersions,
+        },
+      };
+    }
+
+    case LANDING_LOADED: {
+      const { featured, highlyRated, trending } = action.payload;
+
+      const newVersions = {};
+      for (const apiResponse of [featured, highlyRated, trending]) {
+        if (apiResponse) {
+          for (const addon of apiResponse.results) {
+            if (addon.current_version) {
+              const version = createInternalVersion(addon.current_version);
+              newVersions[version.id] = version;
+            }
+          }
+        }
+      }
+
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          ...newVersions,
         },
       };
     }
