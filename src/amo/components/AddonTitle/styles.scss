@@ -11,10 +11,6 @@
   width: 100%;
   word-wrap: break-word;
 
-  .Addon-theme & {
-    margin: $padding-page-l 0;
-  }
-
   @include respond-to(medium) {
     font-size: $font-size-xl;
   }

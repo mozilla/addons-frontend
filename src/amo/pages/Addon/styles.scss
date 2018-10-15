@@ -76,6 +76,10 @@
   }
 }
 
+.Addon-theme .AddonTitle {
+  margin: $padding-page-l 0;
+}
+
 .Addon-header {
   display: grid;
   grid-template-columns: 1fr;
