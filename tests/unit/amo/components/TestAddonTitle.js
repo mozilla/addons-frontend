@@ -168,4 +168,20 @@ describe(__filename, () => {
     // Finally, it should be the "by"
     expect(authors.childAt(4).text()).toEqual('by');
   });
+
+  it('does not link to the add-on detail page when the "linkToAddon" prop is false', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon, linkToAddon: false });
+
+    expect(root.find(Link)).toHaveLength(1);
+  });
+
+  it('links to the add-on detail page when the "linkToAddon" prop is true', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon, linkToAddon: true });
+
+    expect(root.find(Link)).toHaveLength(2);
+    expect(root.find(Link).at(0)).toHaveProp('children', addon.name);
+    expect(root.find(Link).at(0)).toHaveProp('to', `/addon/${addon.slug}/`);
+  });
 });

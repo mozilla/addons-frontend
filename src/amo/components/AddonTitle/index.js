@@ -15,6 +15,7 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
+  linkToAddon?: boolean,
 |};
 
 type InternalProps = {|
@@ -23,7 +24,12 @@ type InternalProps = {|
   isRTL: boolean,
 |};
 
-export const AddonTitleBase = ({ addon, i18n, isRTL }: InternalProps) => {
+export const AddonTitleBase = ({
+  addon,
+  i18n,
+  isRTL,
+  linkToAddon = false,
+}: InternalProps) => {
   const authors = [];
 
   if (addon && addon.authors) {
@@ -54,7 +60,11 @@ export const AddonTitleBase = ({ addon, i18n, isRTL }: InternalProps) => {
     <h1 className="AddonTitle">
       {addon ? (
         <React.Fragment>
-          {addon.name}
+          {linkToAddon ? (
+            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
+          ) : (
+            addon.name
+          )}
           {authors.length > 0 && (
             <span className="AddonTitle-author">
               {isRTL ? (
