@@ -3,6 +3,7 @@ import * as React from 'react';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
 import Link from 'amo/components/Link';
+import { loadVersions } from 'amo/reducers/versions';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -17,12 +18,16 @@ import {
   fakeAddon,
   fakeI18n,
   fakeTheme,
+  fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
-  const { store } = dispatchClientMetadata();
+  let store;
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
 
   function render(props) {
     return shallowUntilTarget(
@@ -89,7 +94,7 @@ describe(__filename, () => {
     delete partialAddon.homepage;
     delete partialAddon.support_email;
     delete partialAddon.support_url;
-    const root = render({ addon: createInternalAddon(partialAddon) });
+    const root = render({ addon: partialAddon });
 
     expect(root.find('.AddonMoreInfo-links')).toHaveLength(0);
   });
@@ -97,7 +102,7 @@ describe(__filename, () => {
   it('does not render a homepage if none exists', () => {
     const partialAddon = createInternalAddon(fakeAddon);
     delete partialAddon.homepage;
-    const root = render({ addon: createInternalAddon(partialAddon) });
+    const root = render({ addon: partialAddon });
 
     expect(root.find('.AddonMoreInfo-homepage')).toHaveLength(0);
   });
@@ -129,7 +134,7 @@ describe(__filename, () => {
   it('does not render a support link if none exists', () => {
     const partialAddon = createInternalAddon(fakeAddon);
     delete partialAddon.support_url;
-    const root = render({ addon: createInternalAddon(partialAddon) });
+    const root = render({ addon: partialAddon });
 
     expect(root.find('.AddonMoreInfo-support-link')).toHaveLength(0);
   });
@@ -158,28 +163,32 @@ describe(__filename, () => {
     expect(link).toHaveProp('href', 'mailto:ba@bar.com');
   });
 
-  it('renders the version number of an add-on', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      current_version: {
-        ...fakeAddon.current_version,
-        version: '2.0.1',
-      },
+  const _loadVersions = (versionProps = {}) => {
+    return loadVersions({
+      slug: fakeAddon.slug,
+      versions: [
+        {
+          ...fakeVersion,
+          ...versionProps,
+        },
+      ],
     });
-    const root = render({ addon });
+  };
+
+  it('renders the version number of an add-on', () => {
+    store.dispatch(_loadVersions({ version: '2.0.1' }));
+    const root = render({});
 
     expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
   });
 
   it('renders the license and link', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      current_version: {
-        ...fakeAddon.current_version,
+    store.dispatch(
+      _loadVersions({
         license: { name: 'tofulicense', url: 'http://license.com/' },
-      },
-    });
-    const root = render({ addon });
+      }),
+    );
+    const root = render({});
     const link = root.find('.AddonMoreInfo-license-link');
 
     expect(root.find('.AddonMoreInfo-license')).toHaveProp('term', 'License');
@@ -188,42 +197,22 @@ describe(__filename, () => {
   });
 
   it('renders the license info without a link if the url is null', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      current_version: {
-        ...fakeAddon.current_version,
-        license: { name: 'justText', url: null },
-      },
-    });
-    const root = render({ addon });
+    store.dispatch(_loadVersions({ license: { name: 'justText', url: null } }));
+    const root = render({});
     expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
 
     const link = root.find('.AddonMoreInfo-license-name');
     expect(link.children()).toIncludeText('justText');
   });
 
-  it('does not render any license info if the license is null', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      current_version: {
-        ...fakeAddon.current_version,
-        license: null,
-      },
-    });
-    const root = render({ addon });
-    expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
-  });
-
   it('does not prefix a license link with the add-ons URL', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3339
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      current_version: {
-        ...fakeAddon.current_version,
+    store.dispatch(
+      _loadVersions({
         license: { name: 'tofulicense', url: 'www.license.com/' },
-      },
-    });
-    const root = render({ addon });
+      }),
+    );
+    const root = render({});
     const link = root.find('.AddonMoreInfo-license-link');
 
     expect(link).toHaveProp('prependClientApp', false);
