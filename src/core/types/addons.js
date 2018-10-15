@@ -42,6 +42,7 @@ export type PartialExternalAddonVersionType = {|
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,
+  is_strict_compatibility_enabled: boolean,
   reviewed: Date,
   // This is the developer-defined version number.
   // It could, for example, be set to "0".

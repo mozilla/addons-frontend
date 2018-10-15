@@ -27,9 +27,10 @@ export type VersionIdType = number;
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
-  platformFiles: PlatformFilesType,
   id: VersionIdType,
+  isStrictCompatibilityEnabled: boolean,
   license: { name: string, url: string } | null,
+  platformFiles: PlatformFilesType,
   releaseNotes?: string,
   version: string,
 };
@@ -39,11 +40,14 @@ export const createInternalVersion = (
 ): AddonVersionType => {
   return {
     compatibility: version.compatibility,
-    platformFiles: createPlatformFiles(version),
     id: version.id,
+    isStrictCompatibilityEnabled: Boolean(
+      version.is_strict_compatibility_enabled,
+    ),
     license: version.license
       ? { name: version.license.name, url: version.license.url }
       : null,
+    platformFiles: createPlatformFiles(version),
     releaseNotes: version.release_notes,
     version: version.version,
   };

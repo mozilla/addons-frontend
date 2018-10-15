@@ -11,7 +11,7 @@ import type { I18nType } from 'core/types/i18n';
 import './style.scss';
 
 type Props = {|
-  reason: string,
+  reason: string | null,
 |};
 
 type InternalProps = {|

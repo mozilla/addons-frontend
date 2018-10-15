@@ -1,5 +1,7 @@
+/* @flow */
 /* global window */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 import mozCompare from 'mozilla-version-comparator';
 
 import {
@@ -15,6 +17,9 @@ import {
 } from 'core/constants';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
+import type { AddonVersionType } from 'core/reducers/versions';
+import type { UserAgentInfoType } from 'core/reducers/api';
+import type { AddonType } from 'core/types/addons';
 
 // HACK: This is the GUID for the Facebook Container
 // add-on, which has a special-cased download URL supplied.
@@ -23,21 +28,37 @@ export const FACEBOOK_CONTAINER_ADDON_GUID = '@contain-facebook';
 export const FACEBOOK_CONTAINER_DOWNLOAD_URL =
   'https://www.mozilla.org/firefox/facebookcontainer/';
 
-export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
+export type GetCompatibleVersionsParams = {|
+  _log?: typeof log,
+  addon: AddonType,
+  clientApp: string,
+  currentVersion: AddonVersionType,
+|};
+
+export type CompatibleVersionsType = {|
+  supportsClientApp: boolean,
+  maxVersion: string | null,
+  minVersion: string | null,
+|};
+
+export function getCompatibleVersions({
+  _log = log,
+  addon,
+  clientApp,
+  currentVersion,
+}: GetCompatibleVersionsParams = {}): CompatibleVersionsType {
   let maxVersion = null;
   let minVersion = null;
   // Assume the add-on is incompatible until we see explicit support
   // in current_version.compatibility
   let supportsClientApp = false;
 
-  if (addon) {
-    if (
-      addon.current_version &&
-      addon.current_version.compatibility[clientApp]
-    ) {
+  if (currentVersion.compatibility) {
+    const compatInfo = currentVersion.compatibility[clientApp];
+    if (compatInfo) {
       supportsClientApp = true;
-      maxVersion = addon.current_version.compatibility[clientApp].max;
-      minVersion = addon.current_version.compatibility[clientApp].min;
+      maxVersion = compatInfo.max;
+      minVersion = compatInfo.min;
     }
 
     if (!supportsClientApp) {
@@ -48,19 +69,34 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   return { supportsClientApp, maxVersion, minVersion };
 }
 
+export type IsCompatibleWithUserAgentParams = {|
+  _findInstallURL?: typeof findInstallURL,
+  _log?: typeof log,
+  _window?: typeof window | Object,
+  addon: AddonType,
+  currentVersion: AddonVersionType,
+  maxVersion: string | null,
+  minVersion: string | null,
+  userAgentInfo: UserAgentInfoType,
+|};
+
+export type CompatibleWithUserAgentType = {|
+  compatible: boolean,
+  reason: string | null,
+|};
+
 export function isCompatibleWithUserAgent({
   _findInstallURL = findInstallURL,
+  _log = log,
+  _window = typeof window !== 'undefined' ? window : {},
   addon,
+  currentVersion,
   maxVersion,
   minVersion,
   userAgentInfo,
-  _log = log,
-  _window = typeof window !== 'undefined' ? window : {},
-} = {}) {
+}: IsCompatibleWithUserAgentParams = {}): CompatibleWithUserAgentType {
   // If the userAgent is false there was likely a programming error.
-  if (!userAgentInfo) {
-    throw new Error('userAgentInfo is required');
-  }
+  invariant(userAgentInfo, 'userAgentInfo is required');
 
   const { browser, os } = userAgentInfo;
 
@@ -83,7 +119,7 @@ export function isCompatibleWithUserAgent({
     // confused by this as tofumatt was.
     // See: https://github.com/mozilla/addons-frontend/issues/2074#issuecomment-286983423
     if (maxVersion && mozCompare(browser.version, maxVersion) === 1) {
-      if (addon.current_version.is_strict_compatibility_enabled) {
+      if (currentVersion.isStrictCompatibilityEnabled) {
         return { compatible: false, reason: INCOMPATIBLE_OVER_MAX_VERSION };
       }
 
@@ -105,7 +141,7 @@ export function isCompatibleWithUserAgent({
       }
 
       // `minVersion` is always respected, regardless of
-      // `is_strict_compatibility_enabled`'s value.
+      // `isStrictCompatibilityEnabled`'s value.
       return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
     }
 
@@ -120,11 +156,12 @@ export function isCompatibleWithUserAgent({
     // we need to make sure it has a matching platform file
     // to work around some bugs.
     // See https://github.com/mozilla/addons-server/issues/6576
+    const { platformFiles } = currentVersion;
     if (
       addon.type === ADDON_TYPE_EXTENSION &&
       !_findInstallURL({
         appendSource: false,
-        platformFiles: addon.platformFiles,
+        platformFiles,
         userAgentInfo,
       })
     ) {
@@ -142,22 +179,42 @@ export function isCompatibleWithUserAgent({
   return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
 }
 
+export type GetClientCompatibilityParams = {|
+  _log?: typeof log,
+  _window?: typeof window | {},
+  addon: AddonType,
+  clientApp: string,
+  currentVersion: AddonVersionType,
+  userAgentInfo: UserAgentInfoType,
+|};
+
+export type ClientCompatibilityType = {|
+  compatible: boolean,
+  downloadUrl?: string,
+  maxVersion: string | null,
+  minVersion: string | null,
+  reason: string | null,
+|};
+
 export function getClientCompatibility({
   addon,
   clientApp,
+  currentVersion,
   userAgentInfo,
   _window = typeof window !== 'undefined' ? window : {},
   _log = log,
-} = {}) {
+}: GetClientCompatibilityParams = {}): ClientCompatibilityType {
   // Check compatibility with client app.
   const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
     addon,
     clientApp,
+    currentVersion,
   });
 
   // Check compatibility with user agent.
   const agent = isCompatibleWithUserAgent({
     addon,
+    currentVersion,
     maxVersion,
     minVersion,
     userAgentInfo,
@@ -203,7 +260,11 @@ export function getClientCompatibility({
   };
 }
 
-export const isQuantumCompatible = ({ addon }) => {
+export const isQuantumCompatible = ({
+  addon,
+}: {|
+  addon: AddonType,
+|}): boolean => {
   // TODO: refactor code that inspects the real compatibility
   // object and re-use that logic to accomplish this instead.
   // https://github.com/mozilla/addons-frontend/issues/3814

@@ -92,12 +92,15 @@ describe(__filename, () => {
     it('returns an object with the expected AddonVersionType', () => {
       expect(createInternalVersion(fakeVersion)).toEqual({
         compatibility: fakeVersion.compatibility,
-        platformFiles: createPlatformFiles(fakeVersion),
         id: fakeVersion.id,
+        isStrictCompatibilityEnabled: Boolean(
+          fakeVersion.is_strict_compatibility_enabled,
+        ),
         license: {
           name: fakeVersion.license.name,
           url: fakeVersion.license.url,
         },
+        platformFiles: createPlatformFiles(fakeVersion),
         releaseNotes: fakeVersion.release_notes,
         version: fakeVersion.version,
       });
