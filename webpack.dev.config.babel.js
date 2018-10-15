@@ -23,7 +23,7 @@ const babelrcObject = JSON.parse(babelrc);
 const babelPlugins = babelrcObject.plugins || [];
 const babelDevPlugins = ['react-hot-loader/babel'];
 
-const babelOptions = Object.assign({}, babelrcObject, {
+export const babelOptions = Object.assign({}, babelrcObject, {
   plugins: localDevelopment
     ? babelPlugins.concat(babelDevPlugins)
     : babelPlugins,
