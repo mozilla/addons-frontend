@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 
 import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { removeUndefinedProps } from 'core/utils/addons';
 import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
 import type { AppState as DiscoAppState } from 'disco/store';
@@ -77,16 +78,6 @@ export function getGuid(addon: ExternalAddonType): string {
     return `${addon.id}@personas.mozilla.org`;
   }
   return addon.guid;
-}
-
-export function removeUndefinedProps(object: Object): Object {
-  const newObject = {};
-  Object.keys(object).forEach((key) => {
-    if (typeof object[key] !== 'undefined') {
-      newObject[key] = object[key];
-    }
-  });
-  return newObject;
 }
 
 export function createInternalThemeData(

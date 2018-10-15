@@ -10,6 +10,7 @@ import {
   INSTALL_FAILED,
 } from 'core/constants';
 import log from 'core/logger';
+import { getPreviewImage } from 'core/imageUtils';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -61,4 +62,52 @@ export const getFileHash = ({
     "${installURL}" (as "${urlKey}")`);
 
   return undefined;
+};
+
+export function removeUndefinedProps(object: Object): Object {
+  const newObject = {};
+  Object.keys(object).forEach((key) => {
+    if (typeof object[key] !== 'undefined') {
+      newObject[key] = object[key];
+    }
+  });
+  return newObject;
+}
+
+export const getAddonJsonLinkedData = ({
+  addon,
+  ratingThreshold = 3.3,
+}: {|
+  addon: AddonType,
+  ratingThreshold: number,
+|}): Object => {
+  const { current_version: currentVersion, ratings } = addon;
+
+  let aggregateRating;
+  if (ratings && ratings.count > 0 && ratings.average >= ratingThreshold) {
+    aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingCount: ratings.count,
+      ratingValue: ratings.average,
+    };
+  }
+
+  return removeUndefinedProps({
+    '@context': 'http://schema.org',
+    '@type': 'WebApplication',
+    name: addon.name,
+    url: addon.url,
+    image: getPreviewImage(addon),
+    applicationCategory: 'http://schema.org/OtherApplication',
+    operatingSystem: 'Firefox',
+    description: addon.summary,
+    offers: {
+      '@type': 'Offer',
+      availability: 'http://schema.org/InStock',
+      price: 0,
+      priceCurrency: 'USD',
+    },
+    version: currentVersion ? currentVersion.version : undefined,
+    aggregateRating,
+  });
 };

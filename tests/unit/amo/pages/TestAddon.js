@@ -1816,4 +1816,12 @@ describe(__filename, () => {
     expect(root.find('link[rel="canonical"]')).toHaveLength(1);
     expect(root.find('link[rel="canonical"]')).toHaveProp('href', addon.url);
   });
+
+  it('renders JSON linked data', () => {
+    const addon = createInternalAddon(fakeAddon);
+
+    const root = shallowRender({ addon });
+
+    expect(root.find('script[type="application/ld+json"]')).toHaveLength(1);
+  });
 });

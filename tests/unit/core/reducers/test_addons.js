@@ -17,7 +17,6 @@ import addons, {
   getGuid,
   isAddonLoading,
   loadAddonResults,
-  removeUndefinedProps,
 } from 'core/reducers/addons';
 import {
   createFakeAddon,
@@ -434,28 +433,6 @@ describe(__filename, () => {
         }),
       );
       expect(state.loadingBySlug).toHaveProperty(slug);
-    });
-  });
-
-  describe('removeUndefinedProps', () => {
-    it('removes undefined properties', () => {
-      expect(removeUndefinedProps({ thing: undefined })).toEqual({});
-    });
-
-    it('preserves falsy properties', () => {
-      expect(removeUndefinedProps({ thing: false })).toEqual({ thing: false });
-    });
-
-    it('preserves other properties', () => {
-      expect(removeUndefinedProps({ thing: 'thing' })).toEqual({
-        thing: 'thing',
-      });
-    });
-
-    it('does not modify the original object', () => {
-      const example = { thing: undefined };
-      removeUndefinedProps(example);
-      expect(example).toEqual({ thing: undefined });
     });
   });
 

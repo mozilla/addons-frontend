@@ -117,6 +117,7 @@ export default class ServerHtml extends Component {
           {head.link.toComponent()}
           {head.title.toComponent()}
           {head.meta.toComponent()}
+          {head.script.toComponent()}
           {this.getStyle()}
           {noScriptStyles ? (
             <noscript>
