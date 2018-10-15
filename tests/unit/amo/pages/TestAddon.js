@@ -10,6 +10,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
+import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
@@ -237,9 +238,9 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('renders a name', () => {
+  it('renders an AddonTitle component', () => {
     const root = shallowRender();
-    expect(root.find('h1').html()).toContain('Chill Out');
+    expect(root.find(AddonTitle)).toHaveLength(1);
   });
 
   it('renders without an add-on', () => {
@@ -266,7 +267,6 @@ describe(__filename, () => {
       root.find('.AddonDescription-contents').find(LoadingText),
     ).toHaveLength(1);
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
-    expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
     expect(
       root
         .find('.Addon-overall-rating')
@@ -279,6 +279,7 @@ describe(__filename, () => {
     expect(root.find(AddonMeta)).toHaveProp('addon', null);
     expect(root.find(AddonMoreInfo)).toHaveProp('addon', null);
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
+    expect(root.find(AddonTitle)).toHaveProp('addon', null);
 
     // Since withInstallHelpers relies on this, make sure it's initialized.
     expect(root.instance().props.platformFiles).toEqual({});
@@ -492,64 +493,6 @@ describe(__filename, () => {
     expect(root.find(NotFound)).toHaveProp('errorCode', errorCode);
   });
 
-  it('renders a single author', () => {
-    const authorUrl = 'http://olympia.test/en-US/firefox/user/krupa/';
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        authors: [
-          {
-            name: 'Krupa',
-            url: authorUrl,
-          },
-        ],
-      }),
-    });
-    expect(root.find('.Addon-title').html()).toContain('Krupa');
-    expect(root.find('.Addon-title').html()).toContain(authorUrl);
-  });
-
-  it('renders multiple authors', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        authors: [
-          {
-            name: 'Krupa',
-            url: 'http://olympia.test/en-US/firefox/user/krupa/',
-          },
-          {
-            name: 'Fligtar',
-            url: 'http://olympia.test/en-US/firefox/user/fligtar/',
-          },
-        ],
-      }),
-    });
-    expect(root.find('h1').html()).toContain('Krupa');
-    expect(root.find('h1').html()).toContain('Fligtar');
-  });
-
-  it('renders an author without url', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        authors: [
-          {
-            name: 'Krupa',
-            url: null,
-          },
-        ],
-      }),
-    });
-    expect(root.find('.Addon-title').html()).toContain('Krupa');
-    expect(
-      root
-        .find('.Addon-title')
-        .render()
-        .find('a'),
-    ).toHaveLength(0);
-  });
-
   it('dispatches a server redirect when slug is a numeric ID', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
@@ -643,19 +586,6 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
-  it('sanitizes a title', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        name: '<script>alert(document.cookie);</script>',
-      }),
-    });
-    // Make sure an actual script tag was not created.
-    expect(root.find('h1 script')).toHaveLength(0);
-    // Make sure the script removed.
-    expect(root.find('h1').html()).not.toContain('<script>');
-  });
-
   it('sanitizes a summary', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
     const root = shallowRender({
@@ -703,30 +633,6 @@ describe(__filename, () => {
     // has been removed.
     expect(root.find('.AddonDescription-contents').html()).toEqual(
       '<div class="AddonDescription-contents"></div>',
-    );
-  });
-
-  it('allows certain HTML tags in the title', () => {
-    const name = 'Krupa';
-    const url = 'http://olympia.test/en-US/firefox/user/krupa/';
-
-    const root = renderAsDOMNode({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        authors: [
-          {
-            name,
-            url,
-          },
-        ],
-      }),
-    });
-
-    const title = root.find('.Addon-title');
-    // Make sure these tags were whitelisted and make sure the santizer didn't
-    // strip the class attribute:
-    expect(title.html()).toContain(
-      `<span class="Addon-author">by <a href="${url}">${name}</a></span>`,
     );
   });
 
