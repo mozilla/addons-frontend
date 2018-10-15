@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
 import LoadingText from 'ui/components/LoadingText';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -19,46 +19,44 @@ type InternalProps = {|
 |};
 
 export const AddonTitleBase = ({ addon, i18n }: InternalProps) => {
-  let children;
-  let htmlTitle;
+  const authors = [];
 
-  if (addon) {
-    let title;
-    if (!addon.authors) {
-      title = addon.name;
-    } else {
-      const authorList = addon.authors.map((author) => {
-        if (author.url) {
-          return `<a href="${author.url}">${author.name}</a>`;
-        }
+  if (addon && addon.authors) {
+    const nbAuthors = addon.authors.length;
 
-        return author.name;
-      });
-
-      title = i18n.sprintf(
-        // translators: Example: The Add-On <span>by The Author</span>
-        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'),
-        {
-          addonName: addon.name,
-          authorList: authorList.join(', '),
-          startSpan: '<span class="AddonTitle-author">',
-          endSpan: '</span>',
-        },
+    addon.authors.forEach((author, index) => {
+      authors.push(
+        author.url ? (
+          <Link key={author.id} to={`/user/${author.username}/`}>
+            {author.name}
+          </Link>
+        ) : (
+          author.name
+        ),
       );
-    }
 
-    htmlTitle = sanitizeHTML(title, ['a', 'span']);
-  } else {
-    children = <LoadingText width={70} />;
+      if (index + 1 < nbAuthors) {
+        authors.push(', ');
+      }
+    });
   }
 
   return (
-    <h1
-      className="AddonTitle"
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={htmlTitle}
-    >
-      {children}
+    <h1 className="AddonTitle">
+      {addon ? (
+        <React.Fragment>
+          {addon.name}
+          {authors.length > 0 && (
+            <span className="AddonTitle-author">
+              {// translators: Example: "add-on" by "some authors"
+              i18n.gettext('by')}{' '}
+              {authors}
+            </span>
+          )}
+        </React.Fragment>
+      ) : (
+        <LoadingText width={70} />
+      )}
     </h1>
   );
 };

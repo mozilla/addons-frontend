@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { oneLine } from 'common-tags';
 
 import AddonTitle, { AddonTitleBase } from 'amo/components/AddonTitle';
+import Link from 'amo/components/Link';
 import { createInternalAddon } from 'core/reducers/addons';
 import LoadingText from 'ui/components/LoadingText';
 import { shallowUntilTarget, fakeAddon, fakeI18n } from 'tests/unit/helpers';
@@ -26,54 +26,64 @@ describe(__filename, () => {
       addon: createInternalAddon({ ...fakeAddon, name }),
     });
 
-    expect(root.html()).toContain(name);
+    expect(root).toIncludeText(name);
   });
 
   it('renders a single author', () => {
-    const authorUrl = 'http://olympia.test/en-US/firefox/user/krupa/';
+    const author = {
+      ...fakeAddon.authors[0],
+      username: 'some-username',
+    };
+
     const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        authors: [
-          {
-            name: 'Krupa',
-            url: authorUrl,
-          },
-        ],
-      }),
+      addon: createInternalAddon({ ...fakeAddon, authors: [author] }),
     });
 
-    expect(root.html()).toContain('Krupa');
-    expect(root.html()).toContain(authorUrl);
+    expect(root.find(Link)).toHaveLength(1);
+    expect(root.find(Link)).toHaveProp('children', author.name);
+    expect(root.find(Link)).toHaveProp('to', `/user/${author.username}/`);
   });
 
   it('renders multiple authors', () => {
+    const author1 = {
+      ...fakeAddon.authors[0],
+      name: 'Author 1',
+      username: 'author-1',
+    };
+    const author2 = {
+      ...fakeAddon.authors[0],
+      name: 'Author 2',
+      username: 'author-2',
+    };
+
     const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        authors: [
-          {
-            name: 'Krupa',
-            url: 'http://olympia.test/en-US/firefox/user/krupa/',
-          },
-          {
-            name: 'Fligtar',
-            url: 'http://olympia.test/en-US/firefox/user/fligtar/',
-          },
-        ],
-      }),
+      addon: createInternalAddon({ ...fakeAddon, authors: [author1, author2] }),
     });
 
-    expect(root.html()).toContain('Krupa');
-    expect(root.html()).toContain('Fligtar');
-    expect(root.render().find('a')).toHaveLength(2);
+    expect(root.find(Link)).toHaveLength(2);
+    expect(root.find(Link).at(0)).toHaveProp('children', author1.name);
+    expect(root.find(Link).at(0)).toHaveProp(
+      'to',
+      `/user/${author1.username}/`,
+    );
+    expect(root.find(Link).at(1)).toHaveProp('children', author2.name);
+    expect(root.find(Link).at(1)).toHaveProp(
+      'to',
+      `/user/${author2.username}/`,
+    );
+    // This assertion is used to make sure we add commas between each author
+    // link/name.
+    expect(root).toIncludeText(
+      'by <Connect(LinkBase) />, <Connect(LinkBase) />',
+    );
   });
 
   it('renders without authors', () => {
     const addon = createInternalAddon({ ...fakeAddon, authors: null });
     const root = render({ addon });
 
-    expect(root.html()).toContain(addon.name);
+    // This makes sure only the add-on name is displayed.
+    expect(root.text()).toEqual(addon.name);
   });
 
   it('renders an author without url', () => {
@@ -89,8 +99,8 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.html()).toContain('Krupa');
-    expect(root.render().find('a')).toHaveLength(0);
+    expect(root).toIncludeText('Krupa');
+    expect(root.find(Link)).toHaveLength(0);
   });
 
   it('sanitizes a title', () => {
@@ -98,6 +108,7 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         name: '<script>alert(document.cookie);</script>',
+        authors: [],
       }),
     });
 
@@ -105,27 +116,5 @@ describe(__filename, () => {
     expect(root.find('h1 script')).toHaveLength(0);
     // Make sure the script removed.
     expect(root.find('h1').html()).not.toContain('<script>');
-  });
-
-  it('allows certain HTML tags in the title', () => {
-    const name = 'Krupa';
-    const url = 'http://olympia.test/en-US/firefox/user/krupa/';
-
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        authors: [
-          {
-            name,
-            url,
-          },
-        ],
-      }),
-    });
-
-    // Make sure these tags were whitelisted and make sure the santizer didn't
-    // strip the class attribute:
-    expect(root).toHaveHTML(oneLine`<h1 class="AddonTitle">Chill Out <span
-      class="AddonTitle-author">by <a href="${url}">${name}</a></span></h1>`);
   });
 });
