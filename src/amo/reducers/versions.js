@@ -13,10 +13,12 @@ import type {
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
 export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
+type VersionIdType = number;
+
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
   platformFiles: PlatformFilesType,
-  id: number,
+  id: VersionIdType,
   license: { name: string, url: string },
   releaseNotes?: string,
   version: string,
@@ -36,12 +38,16 @@ export const createInternalVersion = (
 };
 
 export type VersionsState = {
+  byId: {
+    [id: number]: AddonVersionType,
+  },
   bySlug: {
-    [slug: string]: { versions: Array<AddonVersionType>, loading: boolean },
+    [slug: string]: { versionIds: Array<VersionIdType>, loading: boolean },
   },
 };
 
 export const initialState: VersionsState = {
+  byId: {},
   bySlug: {},
 };
 
@@ -106,7 +112,13 @@ export const getVersionsBySlug = ({
   invariant(state, 'state is required');
 
   const infoForSlug = state.bySlug[slug];
-  return (infoForSlug && infoForSlug.versions) || null;
+  const versionIds = infoForSlug && infoForSlug.versionIds;
+  if (versionIds) {
+    return versionIds.map((versionId) => {
+      return state.byId[versionId];
+    });
+  }
+  return null;
 };
 
 export const getLoadingBySlug = ({ slug, state }: GetBySlugParams): boolean => {
@@ -124,27 +136,50 @@ type VersionInfoType = {|
 
 type GetVersionInfoParams = {|
   _findFileForPlatform?: typeof findFileForPlatform,
+  state: VersionsState,
   userAgentInfo: UserAgentInfoType,
-  version: AddonVersionType,
+  versionId: VersionIdType,
 |};
 
 export const getVersionInfo = ({
   _findFileForPlatform = findFileForPlatform,
+  state,
   userAgentInfo,
-  version,
+  versionId,
 }: GetVersionInfoParams): VersionInfoType | null => {
-  const file = _findFileForPlatform({
-    platformFiles: version.platformFiles,
-    userAgentInfo,
-  });
+  const version = state.byId[versionId];
 
-  if (file) {
-    return {
-      created: file.created,
-      filesize: file.size,
-    };
+  if (version) {
+    const file = _findFileForPlatform({
+      platformFiles: version.platformFiles,
+      userAgentInfo,
+    });
+
+    if (file) {
+      return {
+        created: file.created,
+        filesize: file.size,
+      };
+    }
   }
+
   return null;
+};
+
+type GetVersionByIdParams = {|
+  id: VersionIdType,
+  state: VersionsState,
+|};
+
+export const getVersionById = ({
+  id,
+  state,
+}: GetVersionByIdParams): AddonVersionType | null => {
+  invariant(id, 'id is required');
+  invariant(state, 'state is required');
+
+  const version = state.byId[id];
+  return version || null;
 };
 
 type Action = FetchVersionsAction | LoadVersionsAction;
@@ -161,7 +196,7 @@ const reducer = (
         bySlug: {
           ...state.bySlug,
           [slug]: {
-            versions: null,
+            versionIds: null,
             loading: true,
           },
         },
@@ -171,12 +206,21 @@ const reducer = (
     case LOAD_VERSIONS: {
       const { slug, versions } = action.payload;
 
+      const newVersions = {};
+      for (const version of versions) {
+        newVersions[version.id] = createInternalVersion(version);
+      }
+
       return {
         ...state,
+        byId: {
+          ...state.byId,
+          ...newVersions,
+        },
         bySlug: {
           ...state.bySlug,
           [slug]: {
-            versions: versions.map(createInternalVersion),
+            versionIds: versions.map((version) => version.id),
             loading: false,
           },
         },
