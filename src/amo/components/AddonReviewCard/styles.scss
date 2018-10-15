@@ -189,9 +189,12 @@
   flex-direction: column;
   flex-wrap: wrap;
 
-  .ConfirmationDialog-confirm-button,
-  .ConfirmationDialog-cancel-button {
-    &.Button {
+  .Button.ConfirmationDialog-cancel-button {
+    @include margin-start(6px);
+  }
+
+  .Button.ConfirmationDialog-confirm-button {
+    @include respond-to(medium) {
       @include margin-start(6px);
     }
   }
