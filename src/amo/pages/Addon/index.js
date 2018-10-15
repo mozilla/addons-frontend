@@ -14,6 +14,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
+import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -553,30 +554,6 @@ export class AddonBase extends React.Component {
       showSummary = true;
     }
 
-    const titleProps = {};
-    if (addon) {
-      const authorList = addon.authors.map((author) => {
-        if (author.url) {
-          return `<a href="${author.url}">${author.name}</a>`;
-        }
-
-        return author.name;
-      });
-      const title = i18n.sprintf(
-        // translators: Example: The Add-On <span>by The Author</span>
-        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'),
-        {
-          addonName: addon.name,
-          authorList: authorList.join(', '),
-          startSpan: '<span class="Addon-author">',
-          endSpan: '</span>',
-        },
-      );
-      titleProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
-    } else {
-      titleProps.children = <LoadingText width={70} />;
-    }
-
     const addonPreviews = addon ? addon.previews : [];
 
     let isCompatible = false;
@@ -644,7 +621,7 @@ export class AddonBase extends React.Component {
             <header className="Addon-header">
               {this.headerImage()}
 
-              <h1 className="Addon-title" {...titleProps} />
+              <AddonTitle addon={addon} />
 
               <AddonBadges addon={addon} />
 

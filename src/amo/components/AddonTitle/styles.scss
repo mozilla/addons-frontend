@@ -1,0 +1,37 @@
+@import '~amo/css/styles';
+
+.AddonTitle {
+  @include font-regular();
+
+  color: $black;
+  font-size: $font-size-l;
+  grid-column: 1 / span 2;
+  line-height: 1.1;
+  margin: 0 0 $padding-page-l;
+  width: 100%;
+  word-wrap: break-word;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
+
+  .AddonTitle-author {
+    @include font-light();
+
+    display: block;
+    padding-top: 3px;
+    word-wrap: break-word;
+
+    &,
+    a,
+    a:link {
+      font-size: $font-size-m;
+      font-weight: normal;
+      text-decoration: none;
+
+      @include respond-to(medium) {
+        font-size: $font-size-l;
+      }
+    }
+  }
+}
