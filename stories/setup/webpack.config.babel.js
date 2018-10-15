@@ -14,5 +14,4 @@ module.exports = {
   module: {
     rules: [...getRules({ babelOptions, bundleStylesWithJs: true })],
   },
-  plugins: [...getPlugins()],
 };
