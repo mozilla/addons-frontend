@@ -2,13 +2,13 @@ import { unloadAddonReviews } from 'amo/actions/reviews';
 import {
   ADDON_TYPE_EXTENSION,
   OS_ALL,
-  OS_ANDROID,
-  OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
 } from 'core/constants';
 import addons, {
   createInternalAddon,
+  createPlatformFiles,
+  defaultPlatformFiles,
   fetchAddon,
   getAddonByGUID,
   getAddonByID,
@@ -23,7 +23,9 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakePlatformFile,
   fakeTheme,
+  fakeVersion,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -114,11 +116,8 @@ describe(__filename, () => {
     expect(state.byID[extension.id]).toEqual({
       ...extension,
       platformFiles: {
+        ...defaultPlatformFiles,
         [OS_ALL]: fakeAddon.current_version.files[0],
-        [OS_ANDROID]: undefined,
-        [OS_LINUX]: undefined,
-        [OS_MAC]: undefined,
-        [OS_WINDOWS]: undefined,
       },
       isRestartRequired: false,
       isWebExtension: true,
@@ -143,11 +142,8 @@ describe(__filename, () => {
       description: theme.description,
       guid: getGuid(theme),
       platformFiles: {
+        ...defaultPlatformFiles,
         [OS_ALL]: fakeTheme.current_version.files[0],
-        [OS_ANDROID]: undefined,
-        [OS_LINUX]: undefined,
-        [OS_MAC]: undefined,
-        [OS_WINDOWS]: undefined,
       },
       isRestartRequired: false,
       isWebExtension: true,
@@ -222,32 +218,9 @@ describe(__filename, () => {
   it('handles an empty array of files', () => {
     const addon = createFakeAddon({ files: [] });
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles).toMatchObject({
-      [OS_ALL]: undefined,
-      [OS_ANDROID]: undefined,
-      [OS_LINUX]: undefined,
-      [OS_MAC]: undefined,
-      [OS_WINDOWS]: undefined,
-    });
-  });
-
-  it('handles files for unknown platforms', () => {
-    const addon = createFakeAddon({
-      files: [
-        {
-          platform: 'unexpectedPlatform',
-          url: 'https://a.m.o/files/somewhere.xpi',
-        },
-      ],
-    });
-    const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles).toMatchObject({
-      unexpectedPlatform: {
-        ...fakeAddon.current_version.files[0],
-        platform: 'unexpectedPlatform',
-        url: 'https://a.m.o/files/somewhere.xpi',
-      },
-    });
+    expect(state.byID[addon.id].platformFiles).toMatchObject(
+      defaultPlatformFiles,
+    );
   });
 
   it('does not use description from theme_data', () => {
@@ -665,6 +638,56 @@ describe(__filename, () => {
       expect(state.byID[addon1.id]).toEqual(undefined);
       expect(state.bySlug).toEqual({ [slug2]: id2 });
       expect(state.loadingBySlug).toEqual({ [slug2]: false });
+    });
+  });
+
+  describe('createPlatformFiles', () => {
+    it('creates a default object if there is no version', () => {
+      expect(createPlatformFiles(undefined)).toEqual(defaultPlatformFiles);
+    });
+
+    it('creates a default object if there are no files', () => {
+      expect(createPlatformFiles({ ...fakeVersion, files: [] })).toEqual(
+        defaultPlatformFiles,
+      );
+    });
+
+    it('creates a PlatformFilesType object from a version with files', () => {
+      const windowsFile = {
+        ...fakePlatformFile,
+        platform: OS_WINDOWS,
+      };
+      const macFile = {
+        ...fakePlatformFile,
+        platform: OS_MAC,
+      };
+      expect(
+        createPlatformFiles({
+          ...fakeVersion,
+          files: [windowsFile, macFile],
+        }),
+      ).toEqual({
+        ...defaultPlatformFiles,
+        [OS_WINDOWS]: windowsFile,
+        [OS_MAC]: macFile,
+      });
+    });
+
+    it('handles files for unknown platforms', () => {
+      const unknownPlatform = 'unknownPlatform';
+      const unknownFile = {
+        ...fakePlatformFile,
+        platform: unknownPlatform,
+      };
+      expect(
+        createPlatformFiles({
+          ...fakeVersion,
+          files: [unknownFile],
+        }),
+      ).toEqual({
+        ...defaultPlatformFiles,
+        [unknownPlatform]: unknownFile,
+      });
     });
   });
 });

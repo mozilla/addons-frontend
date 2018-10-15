@@ -49,6 +49,7 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
 }
 
 export function isCompatibleWithUserAgent({
+  _findInstallURL = findInstallURL,
   addon,
   maxVersion,
   minVersion,
@@ -121,7 +122,7 @@ export function isCompatibleWithUserAgent({
     // See https://github.com/mozilla/addons-server/issues/6576
     if (
       addon.type === ADDON_TYPE_EXTENSION &&
-      !findInstallURL({
+      !_findInstallURL({
         appendSource: false,
         platformFiles: addon.platformFiles,
         userAgentInfo,

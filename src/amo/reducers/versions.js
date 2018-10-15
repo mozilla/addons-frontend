@@ -1,10 +1,13 @@
 /* @flow */
 import invariant from 'invariant';
 
+import { createPlatformFiles } from 'core/reducers/addons';
+import { findFileForPlatform } from 'core/utils';
+import type { UserAgentInfoType } from 'core/reducers/api';
 import type {
   AddonCompatibilityType,
-  AddonFileType,
   ExternalAddonVersionType,
+  PlatformFilesType,
 } from 'core/types/addons';
 
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
@@ -12,9 +15,7 @@ export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
-  created: string,
-  files: Array<AddonFileType>,
-  filesize: number,
+  platformFiles: PlatformFilesType,
   id: number,
   license: { name: string, url: string },
   releaseNotes?: string,
@@ -24,14 +25,9 @@ export type AddonVersionType = {
 export const createInternalVersion = (
   version: ExternalAddonVersionType,
 ): AddonVersionType => {
-  // TODO: We should find the correct file, for now we'll just take the first one.
-  // Note that multiple files per version is going away, but not quite yet.
-  const file = version.files[0];
   return {
     compatibility: version.compatibility,
-    created: file.created,
-    files: version.files,
-    filesize: file.size,
+    platformFiles: createPlatformFiles(version),
     id: version.id,
     license: { name: version.license.name, url: version.license.url },
     releaseNotes: version.release_notes,
@@ -119,6 +115,36 @@ export const getLoadingBySlug = ({ slug, state }: GetBySlugParams): boolean => {
 
   const infoForSlug = state.bySlug[slug];
   return Boolean(infoForSlug && infoForSlug.loading);
+};
+
+type VersionInfoType = {|
+  created?: string,
+  filesize?: number,
+|};
+
+type GetVersionInfoParams = {|
+  _findFileForPlatform?: typeof findFileForPlatform,
+  userAgentInfo: UserAgentInfoType,
+  version: AddonVersionType,
+|};
+
+export const getVersionInfo = ({
+  _findFileForPlatform = findFileForPlatform,
+  userAgentInfo,
+  version,
+}: GetVersionInfoParams): VersionInfoType | null => {
+  const file = _findFileForPlatform({
+    platformFiles: version.platformFiles,
+    userAgentInfo,
+  });
+
+  if (file) {
+    return {
+      created: file.created,
+      filesize: file.size,
+    };
+  }
+  return null;
 };
 
 type Action = FetchVersionsAction | LoadVersionsAction;

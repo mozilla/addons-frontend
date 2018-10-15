@@ -465,9 +465,6 @@ describe(__filename, () => {
       const reason = 'WHATEVER';
 
       const root = render({
-        addonProps: {
-          current_version: {},
-        },
         _getClientCompatibility: () => ({
           compatible: false,
           maxVersion: '4000000.0',
