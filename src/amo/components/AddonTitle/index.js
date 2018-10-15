@@ -1,9 +1,13 @@
 /* @flow */
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
+import { isRtlLang } from 'core/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
+import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -16,15 +20,20 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  isRTL: boolean,
 |};
 
-export const AddonTitleBase = ({ addon, i18n }: InternalProps) => {
+export const AddonTitleBase = ({ addon, i18n, isRTL }: InternalProps) => {
   const authors = [];
 
   if (addon && addon.authors) {
-    const nbAuthors = addon.authors.length;
+    const addonAuthors = addon.authors;
 
-    addon.authors.forEach((author, index) => {
+    // translators: A comma, used in a list of authors: a1, a2, a3.
+    const comma = i18n.gettext(',');
+    const separator = isRTL ? ` ${comma}` : `${comma} `;
+
+    addonAuthors.forEach((author, index) => {
       authors.push(
         author.url ? (
           <Link key={author.id} to={`/user/${author.username}/`}>
@@ -35,8 +44,8 @@ export const AddonTitleBase = ({ addon, i18n }: InternalProps) => {
         ),
       );
 
-      if (index + 1 < nbAuthors) {
-        authors.push(', ');
+      if (index + 1 < addonAuthors.length) {
+        authors.push(separator);
       }
     });
   }
@@ -48,9 +57,17 @@ export const AddonTitleBase = ({ addon, i18n }: InternalProps) => {
           {addon.name}
           {authors.length > 0 && (
             <span className="AddonTitle-author">
-              {// translators: Example: "add-on" by "some authors"
-              i18n.gettext('by')}{' '}
-              {authors}
+              {isRTL ? (
+                <React.Fragment>
+                  {authors}{' '}
+                  {// translators: Example: add-on "by" some authors
+                  i18n.gettext('by')}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {i18n.gettext('by')} {authors}
+                </React.Fragment>
+              )}
             </span>
           )}
         </React.Fragment>
@@ -61,6 +78,15 @@ export const AddonTitleBase = ({ addon, i18n }: InternalProps) => {
   );
 };
 
-const AddonTitle: React.ComponentType<Props> = translate()(AddonTitleBase);
+const mapStateToProps = (state: AppState) => {
+  return {
+    isRTL: isRtlLang(state.api.lang || ''),
+  };
+};
+
+const AddonTitle: React.ComponentType<Props> = compose(
+  translate(),
+  connect(mapStateToProps),
+)(AddonTitleBase);
 
 export default AddonTitle;
