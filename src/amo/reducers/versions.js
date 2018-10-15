@@ -123,14 +123,13 @@ type GetBySlugParams = {|
 export const getVersionsBySlug = ({
   slug,
   state,
-}: GetBySlugParams): Array<AddonVersionType> | null => {
+}: GetBySlugParams): Array<AddonVersionType> => {
   invariant(slug, 'slug is required');
   invariant(state, 'state is required');
 
   const infoForSlug = state.bySlug[slug];
-  const versionIds = infoForSlug && infoForSlug.versionIds;
-  if (versionIds) {
-    return versionIds.map((versionId) => {
+  if (infoForSlug) {
+    return infoForSlug.versionIds.map((versionId) => {
       const version = getVersionById({ id: versionId, state });
       if (!version) {
         throw new Error(
@@ -140,7 +139,7 @@ export const getVersionsBySlug = ({
       return version;
     });
   }
-  return null;
+  return [];
 };
 
 export const getLoadingBySlug = ({ slug, state }: GetBySlugParams): boolean => {
@@ -202,7 +201,7 @@ const reducer = (
         bySlug: {
           ...state.bySlug,
           [slug]: {
-            versionIds: null,
+            versionIds: [],
             loading: true,
           },
         },
