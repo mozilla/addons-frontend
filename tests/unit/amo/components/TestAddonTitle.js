@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 
 import AddonTitle, { AddonTitleBase } from 'amo/components/AddonTitle';
 import { createInternalAddon } from 'core/reducers/addons';
+import LoadingText from 'ui/components/LoadingText';
 import { shallowUntilTarget, fakeAddon, fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -12,6 +13,21 @@ describe(__filename, () => {
       AddonTitleBase,
     );
   };
+
+  it('renders a LoadingText component when add-on is passed', () => {
+    const root = render({ addon: null });
+
+    expect(root.find(LoadingText)).toHaveLength(1);
+  });
+
+  it('renders the name of the add-on', () => {
+    const name = 'some addon name';
+    const root = render({
+      addon: createInternalAddon({ ...fakeAddon, name }),
+    });
+
+    expect(root.html()).toContain(name);
+  });
 
   it('renders a single author', () => {
     const authorUrl = 'http://olympia.test/en-US/firefox/user/krupa/';
