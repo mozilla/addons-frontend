@@ -99,6 +99,22 @@ export const loadVersions = ({
   };
 };
 
+type GetVersionByIdParams = {|
+  id: VersionIdType,
+  state: VersionsState,
+|};
+
+export const getVersionById = ({
+  id,
+  state,
+}: GetVersionByIdParams): AddonVersionType | null => {
+  invariant(id, 'id is required');
+  invariant(state, 'state is required');
+
+  const version = state.byId[id];
+  return version || null;
+};
+
 type GetBySlugParams = {|
   slug: string,
   state: VersionsState,
@@ -115,7 +131,13 @@ export const getVersionsBySlug = ({
   const versionIds = infoForSlug && infoForSlug.versionIds;
   if (versionIds) {
     return versionIds.map((versionId) => {
-      return state.byId[versionId];
+      const version = getVersionById({ id: versionId, state });
+      if (!version) {
+        throw new Error(
+          `No version was found for slug ${slug} using versionId ${versionId}`,
+        );
+      }
+      return version;
     });
   }
   return null;
@@ -147,7 +169,7 @@ export const getVersionInfo = ({
   userAgentInfo,
   versionId,
 }: GetVersionInfoParams): VersionInfoType | null => {
-  const version = state.byId[versionId];
+  const version = getVersionById({ id: versionId, state });
 
   if (version) {
     const file = _findFileForPlatform({
@@ -164,22 +186,6 @@ export const getVersionInfo = ({
   }
 
   return null;
-};
-
-type GetVersionByIdParams = {|
-  id: VersionIdType,
-  state: VersionsState,
-|};
-
-export const getVersionById = ({
-  id,
-  state,
-}: GetVersionByIdParams): AddonVersionType | null => {
-  invariant(id, 'id is required');
-  invariant(state, 'state is required');
-
-  const version = state.byId[id];
-  return version || null;
 };
 
 type Action = FetchVersionsAction | LoadVersionsAction;
