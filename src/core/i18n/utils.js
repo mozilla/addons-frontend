@@ -254,12 +254,12 @@ export const formatFilesize = ({
     TB: i18n.gettext('%(formattedSize)s TB'),
   };
 
-  const [sizeNum, sizeName] = _filesize(size).split(' ');
-  if (!sizeNum || !sizeName) {
+  const [sizeNumber, sizeName] = _filesize(size).split(' ');
+  if (!sizeNumber || !sizeName) {
     return null;
   }
 
-  const formattedSize = i18n.formatNumber(sizeNum);
+  const formattedSize = i18n.formatNumber(sizeNumber);
   const sizeString = sizeStrings[sizeName];
 
   return sizeString ? i18n.sprintf(sizeString, { formattedSize }) : null;
