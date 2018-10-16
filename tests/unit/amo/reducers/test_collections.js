@@ -1378,4 +1378,12 @@ describe(__filename, () => {
       sinon.assert.calledWith(_collectionUrl, { ...params });
     });
   });
+
+  describe('createInternalCollection', () => {
+    it('prevents the name to be `null`', () => {
+      const detail = createFakeCollectionDetail({ name: null });
+
+      expect(createInternalCollection({ detail })).toHaveProperty('name', '');
+    });
+  });
 });
