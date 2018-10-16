@@ -5,6 +5,8 @@ import infoAddon, {
   setDefaults as setAddonInfoDefaults,
 } from '@storybook/addon-info';
 
+import 'core/polyfill';
+
 // TBD: overrides chapters defaults. Do we want this?
 setDefaults({
   sectionOptions: {
