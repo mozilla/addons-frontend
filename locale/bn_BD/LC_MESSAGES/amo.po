@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:07+0000\n"
+"POT-Creation-Date: 2018-10-16 16:15+0000\n"
 "PO-Revision-Date: 2018-02-01 18:44+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -44,37 +44,37 @@ msgstr "যোগ করতে…"
 msgid "Add to collection"
 msgstr "সংগ্রহতে যোগ করুন"
 
-#: src/amo/components/AddonAdminLinks/index.js:104
+#: src/amo/components/AddonAdminLinks/index.js:109
 #, fuzzy
 msgid "Content review add-on"
 msgstr "অ্যাড-অনের জন্য %(total)s পর্যালোচনা"
 
-#: src/amo/components/AddonAdminLinks/index.js:110
+#: src/amo/components/AddonAdminLinks/index.js:115
 #, fuzzy
 msgid "Review theme"
 msgstr "টেক্সট পর্যালোচনা করুন"
 
-#: src/amo/components/AddonAdminLinks/index.js:111
+#: src/amo/components/AddonAdminLinks/index.js:116
 #, fuzzy
 msgid "Review add-on code"
 msgstr "পর্যালোচনা %(addonName)s এর জন্যে"
 
-#: src/amo/components/AddonAdminLinks/index.js:128
+#: src/amo/components/AddonAdminLinks/index.js:137
 #, fuzzy
 msgid "Admin Links"
 msgstr "অ্যাড-অন লিংক"
 
-#: src/amo/components/AddonAdminLinks/index.js:70
+#: src/amo/components/AddonAdminLinks/index.js:75
 #, fuzzy
 msgid "Edit add-on"
 msgstr "অ্যাড-অন খুঁজুন"
 
-#: src/amo/components/AddonAdminLinks/index.js:81
+#: src/amo/components/AddonAdminLinks/index.js:86
 #, fuzzy
 msgid "Admin add-on status"
 msgstr "অ্যাড-অন লোড হচ্ছে"
 
-#: src/amo/components/AddonAdminLinks/index.js:93
+#: src/amo/components/AddonAdminLinks/index.js:98
 #, fuzzy
 msgid "Admin add-on"
 msgstr "অ্যাড-অন খুঁজুন"
@@ -254,7 +254,7 @@ msgid "More information"
 msgstr "আরও তথ্য"
 
 #: src/amo/components/AddonMoreInfo/index.js:50
-#: src/amo/pages/UserProfile/index.js:300
+#: src/amo/pages/UserProfile/index.js:298
 #: src/amo/pages/UserProfileEdit/index.js:596
 msgid "Homepage"
 msgstr "হোমপেজ"
@@ -302,7 +302,7 @@ msgid ""
 msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
 #: src/amo/components/AddonReview/index.js:232
-#: src/amo/components/AddonReviewCard/index.js:486
+#: src/amo/components/AddonReviewCard/index.js:549
 msgid "Write a review"
 msgstr "পর্যালোচনা লিখুন"
 
@@ -315,85 +315,114 @@ msgstr "টেক্সট পর্যালোচনা করুন"
 msgid "Submit review"
 msgstr "পর্যালোচনা লিখুন"
 
-#: src/amo/components/AddonReviewCard/index.js:195
+#: src/amo/components/AddonReviewCard/index.js:217
 #, fuzzy
 msgid "Edit reply"
 msgstr "আমার উত্তর সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:198
+#: src/amo/components/AddonReviewCard/index.js:220
 #, fuzzy
 msgid "Edit review"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:205
-#: src/amo/components/AddonReviewCard/index.js:219
+#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:259
 #, fuzzy
 msgid "Delete reply"
 msgstr "আমার উত্তর সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:209
-#: src/amo/components/AddonReviewCard/index.js:223
+#: src/amo/components/AddonReviewCard/index.js:231
+#: src/amo/components/AddonReviewCard/index.js:263
 #, fuzzy
 msgid "Delete rating"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:212
-#: src/amo/components/AddonReviewCard/index.js:226
+#: src/amo/components/AddonReviewCard/index.js:234
+#: src/amo/components/AddonReviewCard/index.js:266
 #, fuzzy
 msgid "Delete review"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:233
+#: src/amo/components/AddonReviewCard/index.js:241
+#, fuzzy
+msgid "Do you really want to delete this reply?"
+msgstr "সংগ্রহটি সম্পাদনা করুন"
+
+#: src/amo/components/AddonReviewCard/index.js:245
+#, fuzzy
+msgid "Do you really want to delete this rating?"
+msgstr "সংগ্রহটি সম্পাদনা করুন"
+
+#: src/amo/components/AddonReviewCard/index.js:248
+#, fuzzy
+msgid "Do you really want to delete this review?"
+msgstr "সংগ্রহটি সম্পাদনা করুন"
+
+#: src/amo/components/AddonReviewCard/index.js:255
+#: src/ui/components/DismissibleTextForm/index.js:186
+msgid "Delete"
+msgstr ""
+
+#: src/amo/components/AddonReviewCard/index.js:273
+#: src/amo/components/AddonReviewManager/index.js:143
+#: src/amo/components/CollectionManager/index.js:302
+#: src/amo/pages/UserProfileEdit/index.js:847
+#: src/ui/components/ConfirmationDialog/index.js:60
+#: src/ui/components/DismissibleTextForm/index.js:172
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+#: src/amo/components/AddonReviewCard/index.js:277
 #, fuzzy
 msgid "Keep reply"
 msgstr "আমার উত্তর সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:237
+#: src/amo/components/AddonReviewCard/index.js:281
 #, fuzzy
 msgid "Keep rating"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:284
 #, fuzzy
 msgid "Keep review"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:284
+#: src/amo/components/AddonReviewCard/index.js:329
 msgid "Write a reply to this review."
 msgstr "পর্যালোচনার উত্তর লিখুন।"
 
-#: src/amo/components/AddonReviewCard/index.js:287
+#: src/amo/components/AddonReviewCard/index.js:332
 #: src/amo/components/AddonReviewManager/index.js:107
 msgid "Update reply"
 msgstr "উত্তর হালনাগাদ করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:288
+#: src/amo/components/AddonReviewCard/index.js:333
 msgid "Publish reply"
 msgstr "উত্তর প্রকাশ করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:292
+#: src/amo/components/AddonReviewCard/index.js:337
 #: src/amo/components/AddonReviewManager/index.js:110
 msgid "Updating reply"
 msgstr "উত্তর হালনাগাদ করা হচ্ছে"
 
-#: src/amo/components/AddonReviewCard/index.js:293
+#: src/amo/components/AddonReviewCard/index.js:338
 msgid "Publishing reply"
 msgstr "উত্তর প্রকাশ করা হচ্ছে"
 
-#: src/amo/components/AddonReviewCard/index.js:340
+#: src/amo/components/AddonReviewCard/index.js:386
 msgid "posted %(timestamp)s"
 msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
 
-#: src/amo/components/AddonReviewCard/index.js:342
+#: src/amo/components/AddonReviewCard/index.js:388
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s দ্বারা, %(timestamp)s এ"
 
-#: src/amo/components/AddonReviewCard/index.js:401
+#: src/amo/components/AddonReviewCard/index.js:450
 #, fuzzy
 msgid "Deleting…"
 msgstr "অনুসন্ধান করা হচ্ছে..."
 
-#: src/amo/components/AddonReviewCard/index.js:436
+#: src/amo/components/AddonReviewCard/index.js:480
 msgid "Reply to this review"
 msgstr "এই রিভিউ এর উত্তর দিন"
 
@@ -424,14 +453,6 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
-#: src/amo/components/AddonReviewManager/index.js:143
-#: src/amo/components/CollectionManager/index.js:302
-#: src/amo/pages/UserProfileEdit/index.js:847
-#: src/ui/components/ConfirmationDialog/index.js:60
-#: src/ui/components/DismissibleTextForm/index.js:172
-msgid "Cancel"
-msgstr "বাতিল করুন"
-
 #: src/amo/components/AddonReviewManager/index.js:82
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr ""
@@ -441,95 +462,99 @@ msgstr ""
 msgid "Write about your experience with this add-on."
 msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:226
+#: src/amo/components/AddonsByAuthorsCard/index.js:228
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s দ্বারা আরও অভিধান"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:229
+#: src/amo/components/AddonsByAuthorsCard/index.js:231
 msgid "More dictionaries by these translators"
 msgstr "এই অনুবাদকদের দ্বারা আরও অভিধান"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:233
+#: src/amo/components/AddonsByAuthorsCard/index.js:235
 #, fuzzy
 msgid "Dictionaries by %(author)s"
 msgstr "%(author)s দ্বারা আরও অভিধান"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:236
+#: src/amo/components/AddonsByAuthorsCard/index.js:238
 #, fuzzy
 msgid "Dictionaries by these translators"
 msgstr "এই অনুবাদকদের দ্বারা আরও অভিধান"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:243
+#: src/amo/components/AddonsByAuthorsCard/index.js:245
 msgid "More extensions by %(author)s"
 msgstr "%(author)s দ্বারা আরও এক্সটেনশানগুলি"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:246
+#: src/amo/components/AddonsByAuthorsCard/index.js:248
 msgid "More extensions by these developers"
 msgstr "এই ডেভেলোপারের আরো এক্সটেনশন"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:250
+#: src/amo/components/AddonsByAuthorsCard/index.js:252
 #, fuzzy
 msgid "Extensions by %(author)s"
 msgstr "%(author)s দ্বারা আরও এক্সটেনশানগুলি"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:253
+#: src/amo/components/AddonsByAuthorsCard/index.js:255
 #, fuzzy
 msgid "Extensions by these developers"
 msgstr "এই ডেভেলোপারের আরো এক্সটেনশন"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:260
+#: src/amo/components/AddonsByAuthorsCard/index.js:262
 msgid "More language packs by %(author)s"
 msgstr "%(author)s দ্বারা আরও ভাষা প্যাকগুলি"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:263
+#: src/amo/components/AddonsByAuthorsCard/index.js:265
 msgid "More language packs by these translators"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:267
+#: src/amo/components/AddonsByAuthorsCard/index.js:269
 #, fuzzy
 msgid "Language packs by %(author)s"
 msgstr "%(author)s দ্বারা আরও ভাষা প্যাকগুলি"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:270
+#: src/amo/components/AddonsByAuthorsCard/index.js:272
 #, fuzzy
 msgid "Language packs by these translators"
 msgstr "এই অনুবাদকদের দ্বারা আরও অভিধান"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:278
+#: src/amo/components/AddonsByAuthorsCard/index.js:280
 msgid "More themes by %(author)s"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:281
+#: src/amo/components/AddonsByAuthorsCard/index.js:283
 msgid "More themes by these artists"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:285
+#: src/amo/components/AddonsByAuthorsCard/index.js:287
 #, fuzzy
 msgid "Themes by %(author)s"
 msgstr "%(authorList)s দ্বারা"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:288
+#: src/amo/components/AddonsByAuthorsCard/index.js:290
 #, fuzzy
 msgid "Themes by these artists"
 msgstr "শিল্পীকে সমর্থন করুন"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:295
+#: src/amo/components/AddonsByAuthorsCard/index.js:297
 msgid "More add-ons by %(author)s"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:298
+#: src/amo/components/AddonsByAuthorsCard/index.js:300
 msgid "More add-ons by these developers"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:302
+#: src/amo/components/AddonsByAuthorsCard/index.js:304
 #, fuzzy
 msgid "Add-ons by %(author)s"
 msgstr "%(author)s দ্বারা আরও অভিধান"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:305
+#: src/amo/components/AddonsByAuthorsCard/index.js:307
 #, fuzzy
 msgid "Add-ons by these developers"
 msgstr "এই ডেভেলোপারের আরো এক্সটেনশন"
+
+#: src/amo/components/AddonTitle/index.js:40
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)s দ্বারা %(authorList)s %(endSpan)s"
 
 #: src/amo/components/App/index.js:219
 #, fuzzy
@@ -862,12 +887,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "ফ্ল্যাগকৃত"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "ফ্লাগ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "ফ্ল্যাগকৃত"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1414,93 +1439,93 @@ msgstr "অ্যাড-অন সম্বন্ধে"
 msgid "Learn more about permissions"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:28
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Get data from the clipboard"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Input data to the clipboard"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Open files downloaded to your computer"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Read the text of all open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Access your location"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:42
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:54
 #, fuzzy
 msgid "Access browsing history"
 msgstr "সংস্করণ ইতিহাস"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Monitor extension usage and manage themes"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Exchange messages with programs other than Firefox"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:49
+#: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Display notifications to you"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Provide cryptographic authentication services"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Control browser proxy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:52
+#: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Read and modify privacy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Access recently closed tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Hide and show browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Store unlimited amount of client-side data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browser activity during navigation"
 msgstr ""
 
@@ -1973,109 +1998,135 @@ msgstr "প্রোফাইল দেখুন"
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:181 src/ui/components/ThemeImage/index.js:30
+#: src/amo/pages/Addon/index.js:184 src/ui/components/ThemeImage/index.js:30
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:216
+#: src/amo/pages/Addon/index.js:219
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:225
+#: src/amo/pages/Addon/index.js:228
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s রিভিউ সমূহ পড়ুন"
 msgstr[1] "সকল %(count)s রিভিউ সমূহ পড়ুন"
 
-#: src/amo/pages/Addon/index.js:245
+#: src/amo/pages/Addon/index.js:248
 msgid "No reviews yet"
 msgstr "এখনও কোন পর্যালোচনা করা হয়নি"
 
-#: src/amo/pages/Addon/index.js:255
+#: src/amo/pages/Addon/index.js:258
 msgid "Rate your experience"
 msgstr "আমাদের অভিজ্ঞতার মূল্যায়ন দিন"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:277
 msgid "About this dictionary"
 msgstr "অভিধান সম্বন্ধে"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:280
 msgid "About this extension"
 msgstr "এক্সটেনশন সম্বন্ধে"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:283
 msgid "About this language pack"
 msgstr "ভাষা প্যাকের সম্বন্ধে"
 
-#: src/amo/pages/Addon/index.js:283
+#: src/amo/pages/Addon/index.js:286
 msgid "About this search plugin"
 msgstr "অনুসন্ধান প্লাগইন সম্বন্ধে"
 
-#: src/amo/pages/Addon/index.js:287
+#: src/amo/pages/Addon/index.js:290
 msgid "About this theme"
 msgstr "থিমের সম্বন্ধে"
 
-#: src/amo/pages/Addon/index.js:290
+#: src/amo/pages/Addon/index.js:293
 msgid "About this add-on"
 msgstr "অ্যাড-অন সম্বন্ধে"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:337
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s এর জন্য রিলিজ নোট"
 
-#: src/amo/pages/Addon/index.js:405
+#: src/amo/pages/Addon/index.js:408
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
+#: src/amo/pages/Addon/index.js:429
+#, fuzzy
+msgid "%(addonName)s – Get this Dictionary for 🦊 Android (%(locale)s)"
+msgstr "%s – Firefox এর জন্য অ্যাড-অন"
+
+#: src/amo/pages/Addon/index.js:436
+#, fuzzy
+msgid "%(addonName)s – Get this Extension for 🦊 Android (%(locale)s)"
+msgstr "%s – Firefox এর জন্য অ্যাড-অন"
+
+#: src/amo/pages/Addon/index.js:443
+#, fuzzy
+msgid "%(addonName)s – Get this Language Pack for 🦊 Android (%(locale)s)"
+msgstr "%s – Firefox এর জন্য অ্যাড-অন"
+
+#: src/amo/pages/Addon/index.js:451
+#, fuzzy
+msgid "%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)"
+msgstr "%s – Firefox এর জন্য অ্যাড-অন"
+
+#: src/amo/pages/Addon/index.js:459
+#, fuzzy
+msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
+msgstr "%s – Firefox এর জন্য অ্যাড-অন"
+
+#: src/amo/pages/Addon/index.js:466
+#, fuzzy
+msgid "%(addonName)s – Get this Add-on for 🦊 Android (%(locale)s)"
+msgstr "%s – Firefox এর জন্য অ্যাড-অন"
+
 # please keep the fox emoji next to "Firefox".
-#: src/amo/pages/Addon/index.js:425
+#: src/amo/pages/Addon/index.js:477
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/pages/Addon/index.js:432
+#: src/amo/pages/Addon/index.js:484
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/pages/Addon/index.js:439
+#: src/amo/pages/Addon/index.js:491
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/pages/Addon/index.js:447
+#: src/amo/pages/Addon/index.js:499
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:454
+#: src/amo/pages/Addon/index.js:506
 #, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
 msgstr "%s – Firefox এর জন্য অ্যাড-অন"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/pages/Addon/index.js:461
+#: src/amo/pages/Addon/index.js:513
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:564
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s দ্বারা %(authorList)s %(endSpan)s"
-
-#: src/amo/pages/Addon/index.js:635
+#: src/amo/pages/Addon/index.js:680
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:690
+#: src/amo/pages/Addon/index.js:735
 msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:696
+#: src/amo/pages/Addon/index.js:741
 msgid "Extension Metadata"
 msgstr "এক্সটেনশন মেটাডাটা"
 
-#: src/amo/pages/Addon/index.js:713
+#: src/amo/pages/Addon/index.js:758
 msgid "Screenshots"
 msgstr "স্ক্রীনশট"
 
@@ -2128,31 +2179,31 @@ msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম দেখ
 msgid "See more top rated themes"
 msgstr "সর্বোচ্চ রেট পাওয়া থিম দেখুন"
 
-#: src/amo/pages/Collection/index.js:373
+#: src/amo/pages/Collection/index.js:395
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/pages/Collection/index.js:376
+#: src/amo/pages/Collection/index.js:398
 #, fuzzy
 msgid "Delete this collection"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/pages/Collection/index.js:395
+#: src/amo/pages/Collection/index.js:417
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/pages/Collection/index.js:396
+#: src/amo/pages/Collection/index.js:418
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/pages/Collection/index.js:429
+#: src/amo/pages/Collection/index.js:451
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:432
+#: src/amo/pages/Collection/index.js:454
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
@@ -2579,57 +2630,57 @@ msgstr ""
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:215
+#: src/amo/pages/UserProfile/index.js:213
 #, fuzzy
 msgid "My reviews"
 msgstr "পর্যালোচনা"
 
-#: src/amo/pages/UserProfile/index.js:260
+#: src/amo/pages/UserProfile/index.js:258
 #, fuzzy
 msgid "Add-ons developer"
 msgstr "এই ডেভেলোপারের আরো এক্সটেনশন"
 
-#: src/amo/pages/UserProfile/index.js:266
+#: src/amo/pages/UserProfile/index.js:264
 #, fuzzy
 msgid "Theme artist"
 msgstr "শিল্পীকে সমর্থন করুন"
 
-#: src/amo/pages/UserProfile/index.js:280
+#: src/amo/pages/UserProfile/index.js:278
 #: src/amo/pages/UserProfileEdit/index.js:458
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "\"%(query)s\" এর জন্য অনুসন্ধান ফলাফল"
 
-#: src/amo/pages/UserProfile/index.js:310
+#: src/amo/pages/UserProfile/index.js:308
 #: src/amo/pages/UserProfileEdit/index.js:613
 msgid "Location"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:318
+#: src/amo/pages/UserProfile/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:625
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:325
+#: src/amo/pages/UserProfile/index.js:323
 #, fuzzy
 msgid "User since"
 msgstr "ব্যবহারকারী"
 
-#: src/amo/pages/UserProfile/index.js:335
+#: src/amo/pages/UserProfile/index.js:333
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "জনপ্রিয় অ্যাড-অন"
 
-#: src/amo/pages/UserProfile/index.js:341
+#: src/amo/pages/UserProfile/index.js:339
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:354
 #: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Biography"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:380
+#: src/amo/pages/UserProfile/index.js:378
 #, fuzzy
 msgid "Edit profile"
 msgstr "প্রোফাইল সম্পাদনা করুন"
@@ -2944,25 +2995,25 @@ msgid ""
 "about your experience."
 msgstr ""
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 #, fuzzy
 msgid "An unexpected error occurred during installation."
 msgstr "একটি অপ্রত্যাশিত ত্রুটি সংঘটিত হয়েছে"
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 #, fuzzy
 msgid "An unexpected error occurred during uninstallation."
 msgstr "একটি অপ্রত্যাশিত ত্রুটি সংঘটিত হয়েছে"
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 #, fuzzy
 msgid "An unexpected error occurred."
 msgstr "একটি অপ্রত্যাশিত ত্রুটি সংঘটিত হয়েছে"
@@ -2982,10 +3033,6 @@ msgstr "জমা দিন"
 #: src/ui/components/DismissibleTextForm/index.js:133
 msgid "Submitting"
 msgstr "জমা হচ্ছে"
-
-#: src/ui/components/DismissibleTextForm/index.js:186
-msgid "Delete"
-msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -3068,18 +3115,6 @@ msgstr "ডেভেলপারদের সাড়া"
 #, fuzzy
 #~ msgid "Translation tools"
 #~ msgstr "আরো উৎপাদনশীল সরঞ্জাম দেখুন"
-
-#, fuzzy
-#~ msgid "Do you really want to delete this reply?"
-#~ msgstr "সংগ্রহটি সম্পাদনা করুন"
-
-#, fuzzy
-#~ msgid "Do you really want to delete this rating?"
-#~ msgstr "সংগ্রহটি সম্পাদনা করুন"
-
-#, fuzzy
-#~ msgid "Do you really want to delete this review?"
-#~ msgstr "সংগ্রহটি সম্পাদনা করুন"
 
 #, fuzzy
 #~ msgid "See more fall themes"
