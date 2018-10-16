@@ -8756,9 +8756,9 @@ pino-pretty@^2.0.1:
     split2 "^2.2.0"
     through2 "^2.0.3"
 
-pino-std-serializers@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.2.1.tgz#ceb583374358c75949e9c4ddbdd690428c15958e"
+pino-std-serializers@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.3.0.tgz#34eeaab97c055c28e22c0542ae55978e7e427786"
 
 pino-syslog@^1.2.0:
   version "1.2.0"
@@ -8772,15 +8772,15 @@ pino-syslog@^1.2.0:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@5.7.0:
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-5.7.0.tgz#9ca520788662646877e050e8d0704f71735e1b12"
+pino@5.8.0:
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.8.0.tgz#b566f78617c53c2bae91d30ad62d52cd1074df4a"
   dependencies:
     fast-json-parse "^1.0.3"
     fast-redact "^1.2.0"
     fast-safe-stringify "^2.0.6"
     flatstr "^1.0.5"
-    pino-std-serializers "^2.2.1"
+    pino-std-serializers "^2.3.0"
     pump "^3.0.0"
     quick-format-unescaped "^3.0.0"
     sonic-boom "^0.6.1"
