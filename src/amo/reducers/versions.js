@@ -42,7 +42,10 @@ export type VersionsState = {
     [id: number]: AddonVersionType,
   },
   bySlug: {
-    [slug: string]: { versionIds: Array<VersionIdType>, loading: boolean },
+    [slug: string]: {
+      versionIds: Array<VersionIdType> | null,
+      loading: boolean,
+    },
   },
 };
 
@@ -128,14 +131,13 @@ export const getVersionsBySlug = ({
   invariant(state, 'state is required');
 
   const infoForSlug = state.bySlug[slug];
-  if (infoForSlug) {
+  if (infoForSlug && infoForSlug.versionIds) {
     return infoForSlug.versionIds.map((versionId) => {
       const version = getVersionById({ id: versionId, state });
-      if (!version) {
-        throw new Error(
-          `No version was found for slug ${slug} using versionId ${versionId}`,
-        );
-      }
+      invariant(
+        version,
+        `missing version for slug ${slug} and versionId ${versionId}`,
+      );
       return version;
     });
   }
@@ -201,7 +203,7 @@ const reducer = (
         bySlug: {
           ...state.bySlug,
           [slug]: {
-            versionIds: [],
+            versionIds: null,
             loading: true,
           },
         },

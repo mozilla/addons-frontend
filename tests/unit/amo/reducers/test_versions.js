@@ -94,23 +94,6 @@ describe(__filename, () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
       expect(getVersionsBySlug({ slug: 'some-slug', state })).toEqual([]);
     });
-
-    it('throws when an expected version is not found for a slug', () => {
-      const slug = 'some-slug';
-      const versions = [fakeVersion];
-      const state = versionsReducer(
-        undefined,
-        loadVersions({ slug, versions }),
-      );
-
-      // We have to manually remove the version in order to trigger the error.
-      delete state.byId[fakeVersion.id];
-      expect(() => getVersionsBySlug({ slug: 'some-slug', state })).toThrow(
-        `No version was found for slug ${slug} using versionId ${
-          fakeVersion.id
-        }`,
-      );
-    });
   });
 
   describe('getVersionInfo', () => {
