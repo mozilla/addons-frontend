@@ -61,7 +61,7 @@ It is possible to serve the local development version of this project with HTTPS
 4. Start `addons-frontend` with the command below:
 
    ```
-   yarn amo:dev-https  # or yarn disco:dev-https for Disco Pane
+   yarn amo:dev-https  # or yarn disco:https for Disco Pane
    ```
 
 This allows you to browse the project at https://example.com:3000/ (and not `localhost`).
