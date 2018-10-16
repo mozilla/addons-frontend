@@ -601,7 +601,9 @@ export class AddonBase extends React.Component {
             <link rel="canonical" href={addon.url} />
             <meta name="description" content={this.getPageDescription()} />
             <meta name="date" content={addon.created} />
-            <meta name="last-modified" content={addon.last_updated} />
+            {addon.last_updated && (
+              <meta name="last-modified" content={addon.last_updated} />
+            )}
             {this.renderMetaOpenGraph()}
             {this.renderJsonLinkedData()}
           </Helmet>

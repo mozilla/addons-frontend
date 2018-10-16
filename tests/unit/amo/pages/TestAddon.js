@@ -1843,4 +1843,14 @@ describe(__filename, () => {
       addon.last_updated,
     );
   });
+
+  it('does not render a "last-modified" meta tag when date is not defined', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      last_updated: null,
+    });
+    const root = shallowRender({ addon });
+
+    expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
+  });
 });
