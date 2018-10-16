@@ -9,7 +9,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
 
 import './styles.scss';
@@ -29,67 +29,196 @@ export class SearchContextCardBase extends React.Component {
 
   render() {
     const { count, filters, i18n, loading } = this.props;
-    const { query } = filters;
+    const { query, category } = filters;
     const { addonType } = filters;
 
     let searchText;
 
-    if (!loading && query && addonType) {
-      if (addonType === ADDON_TYPE_EXTENSION) {
-        searchText = i18n.sprintf(
-          i18n.ngettext(
-            '%(count)s extension found for "%(query)s"',
-            '%(count)s extensions found for "%(query)s"',
-            count,
-          ),
-          { count: i18n.formatNumber(count), query },
-        );
-      } else if (addonType === ADDON_TYPE_DICT) {
-        searchText = i18n.sprintf(
-          i18n.ngettext(
-            '%(count)s dictionary found for "%(query)s"',
-            '%(count)s dictionaries found for "%(query)s"',
-            count,
-          ),
-          { count: i18n.formatNumber(count), query },
-        );
-      } else if (addonType === ADDON_TYPE_LANG) {
-        searchText = i18n.sprintf(
-          i18n.ngettext(
-            '%(count)s language pack found for "%(query)s"',
-            '%(count)s language packs found for "%(query)s"',
-            count,
-          ),
-          { count: i18n.formatNumber(count), query },
-        );
-      } else if (addonType === ADDON_TYPE_THEME) {
-        searchText = i18n.sprintf(
-          i18n.ngettext(
-            '%(count)s theme found for "%(query)s"',
-            '%(count)s themes found for "%(query)s"',
-            count,
-          ),
-          { count: i18n.formatNumber(count), query },
-        );
-      } else {
-        searchText = i18n.sprintf(
-          i18n.ngettext(
-            '%(count)s result found for "%(query)s"',
-            '%(count)s results found for "%(query)s"',
-            count,
-          ),
-          { count: i18n.formatNumber(count), query },
-        );
+    if (!loading) {
+      switch (addonType) {
+        case ADDON_TYPE_EXTENSION:
+          if (category) {
+            const categoryName = category.replace('-', ' ');
+
+            if (query) {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s extension found for "%(query)s" in %(categoryName)s',
+                  '%(count)s extensions found for "%(query)s" in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), query, categoryName },
+              );
+            } else {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s extension found in %(categoryName)s',
+                  '%(count)s extensions found in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), categoryName },
+              );
+            }
+          } else if (query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found for "%(query)s"',
+                '%(count)s extensions found for "%(query)s"',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query },
+            );
+          } else {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found',
+                '%(count)s extensions found',
+                count,
+              ),
+              { count: i18n.formatNumber(count) },
+            );
+          }
+          break;
+        case ADDON_TYPE_DICT:
+          if (category) {
+            const categoryName = category.replace('-', ' ');
+
+            if (query) {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s result found for "%(query)s" in %(categoryName)s',
+                  '%(count)s results found for "%(query)s" in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), query, categoryName },
+              );
+            } else {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s result found in %(categoryName)s',
+                  '%(count)s results found in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), categoryName },
+              );
+            }
+          } else if (query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found for "%(query)s"',
+                '%(count)s results found for "%(query)s"',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query },
+            );
+          } else {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found',
+                '%(count)s results found',
+                count,
+              ),
+              { count: i18n.formatNumber(count) },
+            );
+          }
+          break;
+        case ADDON_TYPE_LANG:
+          if (category) {
+            const categoryName = category.replace('-', ' ');
+
+            if (query) {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s result found for "%(query)s" in %(categoryName)s',
+                  '%(count)s results found for "%(query)s" in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), query, categoryName },
+              );
+            } else {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s result found in %(categoryName)s',
+                  '%(count)s results found in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), categoryName },
+              );
+            }
+          } else if (query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found for "%(query)s"',
+                '%(count)s results found for "%(query)s"',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query },
+            );
+          } else {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found',
+                '%(count)s results found',
+                count,
+              ),
+              { count: i18n.formatNumber(count) },
+            );
+          }
+          break;
+        case ADDON_TYPE_THEMES_FILTER:
+          if (category) {
+            const categoryName = category.replace('-', ' ');
+
+            if (query) {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s theme found for "%(query)s" in %(categoryName)s',
+                  '%(count)s themes found for "%(query)s" in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), query, categoryName },
+              );
+            } else {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s theme found in %(categoryName)s',
+                  '%(count)s themes found in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), categoryName },
+              );
+            }
+          } else if (query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found for "%(query)s"',
+                '%(count)s themes found for "%(query)s"',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query },
+            );
+          } else {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found',
+                '%(count)s themes found',
+                count,
+              ),
+              { count: i18n.formatNumber(count) },
+            );
+          }
+          break;
+        default:
+          searchText = i18n.sprintf(
+            i18n.ngettext(
+              '%(count)s result found for "%(query)s"',
+              '%(count)s results found for "%(query)s"',
+              count,
+            ),
+            { count: i18n.formatNumber(count), query },
+          );
+          break;
       }
-    } else if (!loading && query) {
-      searchText = i18n.sprintf(
-        i18n.ngettext(
-          '%(count)s result for "%(query)s"',
-          '%(count)s results for "%(query)s"',
-          count,
-        ),
-        { count: i18n.formatNumber(count), query },
-      );
     } else if (loading && query) {
       searchText = i18n.sprintf(i18n.gettext('Searching for "%(query)s"'), {
         query,
@@ -98,15 +227,6 @@ export class SearchContextCardBase extends React.Component {
       searchText = i18n.gettext('Loading add-ons');
     } else if (!loading && count === 0) {
       searchText = i18n.gettext('No add-ons found');
-    } else {
-      searchText = i18n.sprintf(
-        i18n.ngettext(
-          '%(count)s add-on found',
-          '%(count)s add-ons found',
-          count,
-        ),
-        { count: i18n.formatNumber(count) },
-      );
     }
 
     return (
