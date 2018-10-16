@@ -41,6 +41,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
@@ -413,12 +414,61 @@ export class AddonBase extends React.Component {
   }
 
   getPageTitle() {
-    const { addon, i18n, lang } = this.props;
+    const { addon, clientApp, i18n, lang } = this.props;
 
     const i18nValues = {
       addonName: addon.name,
       locale: lang,
     };
+
+    if (clientApp === CLIENT_APP_ANDROID) {
+      switch (addon.type) {
+        case ADDON_TYPE_DICT:
+          return i18n.sprintf(
+            // translators: please keep the fox emoji next to "Android".
+            i18n.gettext(`%(addonName)s – Get this Dictionary for 🦊 Android
+            (%(locale)s)`),
+            i18nValues,
+          );
+        case ADDON_TYPE_EXTENSION:
+          return i18n.sprintf(
+            // translators: please keep the fox emoji next to "Android".
+            i18n.gettext(`%(addonName)s – Get this Extension for 🦊 Android
+            (%(locale)s)`),
+            i18nValues,
+          );
+        case ADDON_TYPE_LANG:
+          return i18n.sprintf(
+            // translators: please keep the fox emoji next to "Android".
+            i18n.gettext(`%(addonName)s – Get this Language Pack for 🦊 Android
+            (%(locale)s)`),
+            i18nValues,
+          );
+        case ADDON_TYPE_STATIC_THEME:
+        case ADDON_TYPE_THEME:
+          return i18n.sprintf(
+            // translators: please keep the fox emoji next to "Android".
+            i18n.gettext(
+              `%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)`,
+            ),
+            i18nValues,
+          );
+        case ADDON_TYPE_OPENSEARCH:
+          return i18n.sprintf(
+            // translators: please keep the fox emoji next to "Android".
+            i18n.gettext(`%(addonName)s – Get this Search Tool for 🦊 Android
+            (%(locale)s)`),
+            i18nValues,
+          );
+        default:
+          return i18n.sprintf(
+            // translators: please keep the fox emoji next to "Android".
+            i18n.gettext(`%(addonName)s – Get this Add-on for 🦊 Android
+            (%(locale)s)`),
+            i18nValues,
+          );
+      }
+    }
 
     switch (addon.type) {
       case ADDON_TYPE_DICT:
