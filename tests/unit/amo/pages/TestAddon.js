@@ -39,6 +39,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -1464,11 +1465,14 @@ describe(__filename, () => {
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
     [ADDON_TYPE_THEME, 'Theme'],
     [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
-  ])('renders an HTML title', (type, name) => {
+  ])('renders an HTML title for Firefox (add-on type: %s)', (type, name) => {
     const lang = 'fr';
 
     const addon = createInternalAddon({ ...fakeAddon, type });
-    const { store } = dispatchClientMetadata({ lang });
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+      lang,
+    });
 
     store.dispatch(_loadAddonResults({ addon }));
 
@@ -1476,6 +1480,32 @@ describe(__filename, () => {
 
     expect(root.find('title')).toHaveText(
       `${addon.name} – Get this ${name} for 🦊 Firefox (${lang})`,
+    );
+  });
+
+  it.each([
+    [ADDON_TYPE_DICT, 'Dictionary'],
+    [ADDON_TYPE_EXTENSION, 'Extension'],
+    [ADDON_TYPE_LANG, 'Language Pack'],
+    [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
+    [ADDON_TYPE_STATIC_THEME, 'Theme'],
+    [ADDON_TYPE_THEME, 'Theme'],
+    [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
+  ])('renders an HTML title for Android (add-on type: %s)', (type, name) => {
+    const lang = 'fr';
+
+    const addon = createInternalAddon({ ...fakeAddon, type });
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang,
+    });
+
+    store.dispatch(_loadAddonResults({ addon }));
+
+    const root = renderComponent({ params: { slug: addon.slug }, store });
+
+    expect(root.find('title')).toHaveText(
+      `${addon.name} – Get this ${name} for 🦊 Android (${lang})`,
     );
   });
 
