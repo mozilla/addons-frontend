@@ -512,8 +512,13 @@ describe(__filename, () => {
   });
 
   describe('formatFilesize', () => {
-    const _formatFilesize = ({ _filesize, i18n = fakeI18n(), size = 123 }) => {
-      return utils.formatFilesize({ _filesize, i18n, size });
+    const _formatFilesize = ({
+      _filesize,
+      _log,
+      i18n = fakeI18n(),
+      size = 123,
+    }) => {
+      return utils.formatFilesize({ _filesize, _log, i18n, size });
     };
 
     it('receives an expected string from filesize', () => {
@@ -530,14 +535,34 @@ describe(__filename, () => {
       expect(_formatFilesize({ _filesize, size })).toEqual('1,234 B');
     });
 
-    it('returns null for an invalid string from filesize', () => {
+    it('returns the size for an invalid string from filesize', () => {
+      const size = 987;
       const _filesize = sinon.stub().returns('123');
-      expect(_formatFilesize({ _filesize })).toEqual(null);
+      expect(_formatFilesize({ _filesize, size })).toEqual(size.toString());
     });
 
-    it('returns null for an invalid unit of measure from filesize', () => {
+    it('logs an error for an invalid string from filesize', () => {
+      const fakeLog = {
+        error: sinon.stub(),
+      };
+      const _filesize = sinon.stub().returns('123');
+      _formatFilesize({ _filesize, _log: fakeLog });
+      sinon.assert.called(fakeLog.error);
+    });
+
+    it('returns the size for an invalid unit of measure from filesize', () => {
+      const size = 987;
+      const _filesize = sinon.stub().returns(`${size} BOB`);
+      expect(_formatFilesize({ _filesize, size })).toEqual(size.toString());
+    });
+
+    it('logs an error for an invalid unit of measure from filesize', () => {
+      const fakeLog = {
+        error: sinon.stub(),
+      };
       const _filesize = sinon.stub().returns('123 BOB');
-      expect(_formatFilesize({ _filesize })).toEqual(null);
+      _formatFilesize({ _filesize, _log: fakeLog });
+      sinon.assert.called(fakeLog.error);
     });
 
     it.each(['B', 'KB', 'MB', 'GB', 'TB'])(
@@ -548,8 +573,8 @@ describe(__filename, () => {
         const _filesize = sinon.stub().returns(`${size} ${sizeName}`);
 
         _formatFilesize({ _filesize, i18n });
-        sinon.assert.calledWith(i18n.sprintf, `%(formattedSize)s ${sizeName}`, {
-          formattedSize: size,
+        sinon.assert.calledWith(i18n.sprintf, `%(localizedSize)s ${sizeName}`, {
+          localizedSize: size,
         });
       },
     );
