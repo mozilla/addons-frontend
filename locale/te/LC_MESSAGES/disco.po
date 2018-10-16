@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2018-08-21 12:15+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,23 +113,23 @@ msgstr "%(name)s నిర్మూలించబడింది. స్థా�
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s స్థాపన స్థితి తెలియదు."
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "స్థాపన విఫలమైంది. మళ్ళి ప్రయత్నించండి."
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr "దింపుకోలు విఫలమైంది. దయచేసి మీ అనుసంధానానీ తనిఖీ చేయండి."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "స్థాపన సమయంలో ఊహించని పొరపాటు జరిగింది."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "నిర్మూలించే సమయంలో ఊహించని పొరపాటు జరిగింది."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "అనుకోని లోపం సంభవించింది."
 
