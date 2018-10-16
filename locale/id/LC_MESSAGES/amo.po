@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-09 21:07+0000\n"
-"PO-Revision-Date: 2018-10-16 05:45+0000\n"
-"Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
+"PO-Revision-Date: 2018-10-16 14:26+0000\n"
+"Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -44,38 +44,32 @@ msgid "Add to collection"
 msgstr "Tambahkan ke koleksi"
 
 #: src/amo/components/AddonAdminLinks/index.js:104
-#, fuzzy
 msgid "Content review add-on"
-msgstr "seseorang menulis tinjauan atas pengaya saya "
+msgstr "Tinjauan konten pengaya"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
-#, fuzzy
 msgid "Review theme"
-msgstr "Teks ulasan"
+msgstr "Tema tinjauan"
 
 #: src/amo/components/AddonAdminLinks/index.js:111
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Ulasan untuk %(addonName)s"
+msgstr "Tinjau kode pengaya"
 
 #: src/amo/components/AddonAdminLinks/index.js:128
-#, fuzzy
 msgid "Admin Links"
-msgstr "Tautan Pengaya"
+msgstr "Tautan Admin"
 
 #: src/amo/components/AddonAdminLinks/index.js:70
 msgid "Edit add-on"
 msgstr "Edit pengaya"
 
 #: src/amo/components/AddonAdminLinks/index.js:81
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Memuat pengaya"
+msgstr "Status admin pengaya"
 
 #: src/amo/components/AddonAdminLinks/index.js:93
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Temukan pengaya"
+msgstr "Admin pengaya"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -118,9 +112,8 @@ msgid "Your version of Firefox does not support search plugins."
 msgstr "Versi Firefox Anda tidak mendukung plugin pencarian."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-#, fuzzy
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Versi Firefox Anda tidak mendukung plugin pencarian."
+msgstr "Versi Firefox Anda tidak mendukung pengaya ini karena membutuhkan start ulang."
 
 #: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
@@ -287,9 +280,8 @@ msgid "Edit reply"
 msgstr "Sunting balasan saya"
 
 #: src/amo/components/AddonReviewCard/index.js:198
-#, fuzzy
 msgid "Edit review"
-msgstr "Sunting ulasan saya"
+msgstr "Sunting tinjauan"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:219
 msgid "Delete reply"
@@ -315,9 +307,8 @@ msgid "Keep rating"
 msgstr "Hapus ulasan saya"
 
 #: src/amo/components/AddonReviewCard/index.js:240
-#, fuzzy
 msgid "Keep review"
-msgstr "Hapus ulasan saya"
+msgstr "Pertahankan tinjauan"
 
 #: src/amo/components/AddonReviewCard/index.js:284
 msgid "Write a reply to this review."
@@ -361,11 +352,11 @@ msgstr "Mengirim ulasan"
 
 #: src/amo/components/AddonReviewManager/index.js:108
 msgid "Update review"
-msgstr "Perbarui ulasan"
+msgstr "Perbarui tinjauan"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Updating review"
-msgstr "Memperbarui ulasan"
+msgstr "Memperbarui tinjauan"
 
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Your star rating:"
@@ -733,7 +724,7 @@ msgstr "Tanggapan oleh %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:80
 msgid "Review by %(userName)s"
-msgstr "Ulasan oleh %(userName)s"
+msgstr "Tinjauan oleh %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:92
 msgid "The review was not found."
@@ -1009,7 +1000,7 @@ msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Menghemat memori dengan menonaktifkan tab yang tidak aktif"
 
 #: src/amo/components/HomeHeroBanner/index.js:168
 msgid "Update Scanner"
@@ -1017,7 +1008,7 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:169
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Dapatkan pemberitahuan ketika situs web yang Anda pilih diperbarui dengan konten baru"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Auto Fullscreen"
@@ -1025,15 +1016,15 @@ msgstr "Layar Penuh Otomatis"
 
 #: src/amo/components/HomeHeroBanner/index.js:176
 msgid "Automatically start Firefox in full screen mode"
-msgstr ""
+msgstr "Memulai Firefox dalam mode layar penuh secara otomatis"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Pengontrol Kecepatan Video"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Sesuaikan kecepatan putar ulang video dengan pemintas"
 
 #: src/amo/components/HomeHeroBanner/index.js:189
 msgid "View Image"
@@ -1041,15 +1032,15 @@ msgstr "Lihat Gambar"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Hidupkan kembali tombol ‘Lihat Gambar’ dan ‘Pencarian dengan Gambar’ pada Google Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:196
 msgid "Neat URL"
-msgstr ""
+msgstr "URL Teratur"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Bersihkan tautan agar mudah dibagikan"
 
 #: src/amo/components/HomeHeroBanner/index.js:201
 msgid "Glitter Drag"
@@ -1077,7 +1068,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:220
 msgid "Search Preview"
-msgstr "Pratinjau Pencarian"
+msgstr "Cari Pratinjau"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
 msgid "Enjoy thumbnail images alongside your search returns"
@@ -1121,7 +1112,7 @@ msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:254
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Kirim laman Web apapun ke perangkat Kindle anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:258
 msgid "New Tab Homepage"
@@ -1137,7 +1128,7 @@ msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:266
 msgid "Save, annotate & organize web content"
-msgstr ""
+msgstr "Simpan, beri keterangan & atur konten web"
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "FoxyGestures"
@@ -1161,7 +1152,7 @@ msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
-msgstr ""
+msgstr "Hapus kuki yang tidak diinginkan secara otomatis"
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
@@ -1181,7 +1172,7 @@ msgstr "Markah visual untuk tempat favorit Anda di web"
 
 #: src/amo/components/HomeHeroBanner/index.js:301
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Tombol Batalkan Tutup Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
 msgid "Never lose a page again"
