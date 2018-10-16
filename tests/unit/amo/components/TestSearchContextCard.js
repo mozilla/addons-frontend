@@ -146,8 +146,8 @@ describe(__filename, () => {
     );
   });
 
-  it('should render ADDON_TYPE_THEMES_FILTER result with category name when present without any hyphen', () => {
-    const category = 'fun-bookmarks';
+  it('should render results with category and query for addonType ADDON_TYPE_THEMES_FILTER', () => {
+    const category = 'bookmarks';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -160,7 +160,56 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 theme found for "test" in fun bookmarks',
+      '1 theme found for "test" in bookmarks',
+    );
+  });
+
+  it('should render results with category without hyphens for addonType ADDON_TYPE_THEMES_FILTER', () => {
+    const category = 'fun-bookmarks';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        category,
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 theme found in fun bookmarks',
+    );
+  });
+
+  it('should render results with category and no query if not provided for addonType ADDON_TYPE_THEMES_FILTER', () => {
+    const category = 'fun-bookmarks';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        category,
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 theme found in fun bookmarks',
+    );
+  });
+
+  it('should render results without category or query when not provided for addonType ADDON_TYPE_THEMES_FILTER', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 theme found',
     );
   });
 
@@ -195,21 +244,18 @@ describe(__filename, () => {
     );
   });
 
-  it('should render ADDON_TYPE_DICT result with category name when present without any hyphen', () => {
-    const category = 'fun-bookmarks';
+  it('should render results without query when not provided for addonType ADDON_TYPE_DICT', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_DICT,
-        category,
-        query: 'test',
       },
     });
 
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 result found for "test" in fun bookmarks',
+      '1 result found',
     );
   });
 
@@ -244,21 +290,52 @@ describe(__filename, () => {
     );
   });
 
-  it('should render ADDON_TYPE_EXTENSION result with category name when present without any hyphen', () => {
+  it('should render results with category without hyphens for addonType ADDON_TYPE_EXTENSION', () => {
     const category = 'fun-bookmarks';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         category,
-        query: 'test',
       },
     });
 
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 extension found for "test" in fun bookmarks',
+      '1 extension found in fun bookmarks',
+    );
+  });
+
+  it('should render results with category and no query if not provided for addonType ADDON_TYPE_EXTENSION', () => {
+    const category = 'fun-bookmarks';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category,
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 extension found in fun bookmarks',
+    );
+  });
+
+  it('should render results without category or query when not provided for addonType ADDON_TYPE_EXTENSION', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 extension found',
     );
   });
 
@@ -293,29 +370,26 @@ describe(__filename, () => {
     );
   });
 
-  it('should render ADDON_TYPE_LANG result with category name when present without any hyphen', () => {
-    const category = 'fun-bookmarks';
+  it('should render results without query when not provided for addonType ADDON_TYPE_LANG', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_LANG,
-        category,
-        query: 'test',
       },
     });
 
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 result found for "test" in fun bookmarks',
+      '1 result found',
     );
   });
 
-  it('should render singular form when only one result is found with addonType theme', () => {
+  it('should render singular form when only one result is found with addonType does not exist', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
-        addonType: 'theme',
+        addonType: 'random',
         query: 'test',
       },
     });
@@ -327,10 +401,10 @@ describe(__filename, () => {
     );
   });
 
-  it('should render plural form when multiple results are found with addonType theme', () => {
+  it('should render plural form when multiple results are found for an addonType that does not exist', () => {
     const { store } = dispatchSearchResults({
       filters: {
-        addonType: 'theme',
+        addonType: 'random',
         query: 'test',
       },
     });
@@ -339,6 +413,35 @@ describe(__filename, () => {
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       '2 results found for "test"',
+    );
+  });
+
+  it('should render plural form when multiple results are found for an addonType that does not exist', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: 'random',
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 results found for "test"',
+    );
+  });
+
+  it('should render results without query when not provided for addonType that does not exist', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: 'random',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '2 results found',
     );
   });
 });

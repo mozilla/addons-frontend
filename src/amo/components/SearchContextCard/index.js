@@ -79,92 +79,6 @@ export class SearchContextCardBase extends React.Component {
             );
           }
           break;
-        case ADDON_TYPE_DICT:
-          if (category) {
-            const categoryName = category.replace('-', ' ');
-
-            if (query) {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s result found for "%(query)s" in %(categoryName)s',
-                  '%(count)s results found for "%(query)s" in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), query, categoryName },
-              );
-            } else {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s result found in %(categoryName)s',
-                  '%(count)s results found in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), categoryName },
-              );
-            }
-          } else if (query) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
-                '%(count)s result found for "%(query)s"',
-                '%(count)s results found for "%(query)s"',
-                count,
-              ),
-              { count: i18n.formatNumber(count), query },
-            );
-          } else {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
-                '%(count)s result found',
-                '%(count)s results found',
-                count,
-              ),
-              { count: i18n.formatNumber(count) },
-            );
-          }
-          break;
-        case ADDON_TYPE_LANG:
-          if (category) {
-            const categoryName = category.replace('-', ' ');
-
-            if (query) {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s result found for "%(query)s" in %(categoryName)s',
-                  '%(count)s results found for "%(query)s" in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), query, categoryName },
-              );
-            } else {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s result found in %(categoryName)s',
-                  '%(count)s results found in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), categoryName },
-              );
-            }
-          } else if (query) {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
-                '%(count)s result found for "%(query)s"',
-                '%(count)s results found for "%(query)s"',
-                count,
-              ),
-              { count: i18n.formatNumber(count), query },
-            );
-          } else {
-            searchText = i18n.sprintf(
-              i18n.ngettext(
-                '%(count)s result found',
-                '%(count)s results found',
-                count,
-              ),
-              { count: i18n.formatNumber(count) },
-            );
-          }
-          break;
         case ADDON_TYPE_THEMES_FILTER:
           if (category) {
             const categoryName = category.replace('-', ' ');
@@ -209,14 +123,25 @@ export class SearchContextCardBase extends React.Component {
           }
           break;
         default:
-          searchText = i18n.sprintf(
-            i18n.ngettext(
-              '%(count)s result found for "%(query)s"',
-              '%(count)s results found for "%(query)s"',
-              count,
-            ),
-            { count: i18n.formatNumber(count), query },
-          );
+          if (query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found for "%(query)s"',
+                '%(count)s results found for "%(query)s"',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query },
+            );
+          } else {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found',
+                '%(count)s results found',
+                count,
+              ),
+              { count: i18n.formatNumber(count) },
+            );
+          }
           break;
       }
     } else if (loading && query) {
