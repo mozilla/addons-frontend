@@ -79,7 +79,7 @@ export const getAddonJsonLinkedData = ({
   ratingThreshold = 3.3,
 }: {|
   addon: AddonType,
-  ratingThreshold: number,
+  ratingThreshold?: number,
 |}): Object => {
   const { current_version: currentVersion, ratings } = addon;
 
