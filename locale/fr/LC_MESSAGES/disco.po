@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2018-08-24 10:41+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -116,23 +116,23 @@ msgstr "%(name)s a été désinstallé. Cliquez pour l’installer."
 msgid "Install state for %(name)s is unknown."
 msgstr "État d’installation inconnu pour %(name)s."
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "Échec de l’installation. Veuillez réessayer."
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr "Échec du téléchargement. Veuillez vérifier votre connexion."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "Une erreur inattendue s’est produite pendant l’installation."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Une erreur inattendue s’est produite pendant la désinstallation."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "Une erreur inattendue s’est produite."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2017-08-24 11:48+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -119,23 +119,23 @@ msgstr "%(name)s حذف شده. برای نصب کلیک کنید."
 msgid "Install state for %(name)s is unknown."
 msgstr "وضعیت نصب برای %(name)s ناشناس است."
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "نصب شکست خورد. لطفا دوباره تلاش کنید."
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "یک خطا غیر منتظره در هنگام نصب رُخ داد."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "یک خطا غیر منتظره در هنگام حذف رُخ داد."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "یک خطا غیر منتظره رُخ داد."
 

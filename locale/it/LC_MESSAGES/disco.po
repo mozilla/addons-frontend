@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2018-08-25 10:01+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -118,25 +118,25 @@ msgstr ""
 msgid "Install state for %(name)s is unknown."
 msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Non è riuscito il download del componente aggiuntivo. Controlla la "
 "connessione alla rete."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "Si è verificato un errore inatteso durante l’installazione."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Si è verificato un errore inatteso durante la disinstallazione."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore inatteso."
 

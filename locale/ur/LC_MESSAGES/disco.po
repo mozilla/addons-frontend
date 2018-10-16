@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2018-10-04 13:07+0000\n"
 "Last-Translator: Tanzeel Khan <tanzeelkhan94@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,23 +116,23 @@ msgstr ""
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "تنصیب کاری ناکام ہوگئی۔ براہ مہربانی پھر کوشش کریں۔"
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr "ڈائونلوڈ ناکام ہو گئی، براہ مہربانی اپنے کنکشن کی بڑتال کریں۔"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "تنصیب کے دوران ایک غیر متوقع نقص پہش آیا ہے۔"
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr ""
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr ""
 

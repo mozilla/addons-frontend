@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2018-08-21 13:17+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -118,23 +118,23 @@ msgstr "%(name)s este dezinstalat. Clic pentru instalare."
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "S-a produs o eroare neașteptată în timpul instalării."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "S-a produs o eroare neașteptată în timpul dezinstalării."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "S-a produs o eroare neașteptată."
 

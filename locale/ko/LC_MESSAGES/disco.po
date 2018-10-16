@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2017-12-28 02:51+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -119,23 +119,23 @@ msgstr "%(name)s가 제거되었습니다. 설치하려면 클릭하세요."
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s의 설치 상태를 알 수 없습니다."
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "설치 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "설치 제거 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "예상치 못 한 오류가 발생하였습니다."
 

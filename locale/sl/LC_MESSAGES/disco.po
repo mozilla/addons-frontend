@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2018-08-24 12:25+0000\n"
 "Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
 "Language-Team: none\n"
@@ -116,23 +116,23 @@ msgstr "%(name)s je bil odstranjen. Kliknite za namestitev."
 msgid "Install state for %(name)s is unknown."
 msgstr "Ni znano, ali je %(name)s nameščen ali ne."
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "Namestitev ni uspela. Poskusite znova."
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr "Prenos ni uspel. Preverite svojo povezavo."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "Med nameščanjem je prišlo do nepričakovane napake."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Med odstranjevanjem je prišlo do nepričakovane napake."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "Prišlo je do nepričakovane napake."
 

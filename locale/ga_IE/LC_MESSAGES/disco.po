@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-09 21:10+0000\n"
+"POT-Creation-Date: 2018-10-16 16:19+0000\n"
 "PO-Revision-Date: 2017-07-03 20:00+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -122,24 +122,24 @@ msgstr "Díshuiteáladh %(name)s. Cliceáil chun é a shuiteáil arís."
 msgid "Install state for %(name)s is unknown."
 msgstr "Níl a fhios againn an bhfuil %(name)s suiteáilte nó nach bhfuil."
 
-#: src/core/utils/addons.js:27
+#: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
 msgstr "Theip ar an tsuiteáil. Bain triail eile as."
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Theip ar an íoslódáil. Déan cinnte go bhfuil tú ceangailte leis an líonra."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
 msgstr "Tharla earráid gan súil leis le linn suiteála."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:34
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Tharla earráid gan súil leis le linn díshuiteála."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred."
 msgstr "Tharla earráid gan súil leis."
 
