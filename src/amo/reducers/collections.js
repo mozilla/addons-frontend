@@ -877,7 +877,7 @@ export const createInternalCollection = ({
   description: detail.description,
   id: detail.id,
   lastUpdatedDate: detail.modified,
-  name: detail.name,
+  name: detail.name || '',
   numberOfAddons: detail.addon_count,
   pageSize,
   slug: detail.slug,
