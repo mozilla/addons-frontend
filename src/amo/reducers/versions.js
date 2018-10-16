@@ -126,7 +126,7 @@ type GetBySlugParams = {|
 export const getVersionsBySlug = ({
   slug,
   state,
-}: GetBySlugParams): Array<AddonVersionType> => {
+}: GetBySlugParams): Array<AddonVersionType> | null => {
   invariant(slug, 'slug is required');
   invariant(state, 'state is required');
 
@@ -141,7 +141,7 @@ export const getVersionsBySlug = ({
       return version;
     });
   }
-  return [];
+  return null;
 };
 
 export const getLoadingBySlug = ({ slug, state }: GetBySlugParams): boolean => {

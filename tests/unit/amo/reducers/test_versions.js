@@ -37,7 +37,7 @@ describe(__filename, () => {
       fetchVersions({ errorHandlerId: 1, slug }),
     );
 
-    expect(getVersionsBySlug({ slug, state })).toEqual([]);
+    expect(getVersionsBySlug({ slug, state })).toEqual(null);
   });
 
   it('clears the loading flag when loading versions', () => {
@@ -90,9 +90,9 @@ describe(__filename, () => {
   });
 
   describe('getVersionsBySlug', () => {
-    it('returns an empty array if no versions have been loaded', () => {
+    it('returns null if no versions have been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
-      expect(getVersionsBySlug({ slug: 'some-slug', state })).toEqual([]);
+      expect(getVersionsBySlug({ slug: 'some-slug', state })).toEqual(null);
     });
   });
 
