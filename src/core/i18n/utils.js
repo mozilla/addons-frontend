@@ -1,11 +1,13 @@
 /* global Intl */
 /* @flow */
 import config from 'config';
+import filesize from 'filesize';
 import Jed from 'jed';
 import moment from 'moment';
 
 import log from 'core/logger';
 import { RTL, LTR } from 'core/constants';
+import type { I18nType } from 'core/types/i18n';
 
 const defaultLang = config.get('defaultLang');
 const langs = config.get('langs');
@@ -229,6 +231,55 @@ function oneLineTranslationString(translationKey) {
   }
   return translationKey;
 }
+
+type FormatFilesizeParams = {|
+  _filesize: typeof filesize,
+  _log: typeof log,
+  i18n: I18nType,
+  size: number,
+|};
+
+// Translates a file size in bytes into a localized user-friendly format.
+export const formatFilesize = ({
+  _filesize = filesize,
+  _log = log,
+  i18n,
+  size,
+}: FormatFilesizeParams): string | null => {
+  const sizeStrings = {
+    // These are the expected values for the unit of measure returned by
+    // filesize. Realistically we shouldn't get anything back larger than TB.
+    /* eslint-disable max-len */
+    // translators: B is an abbreviation of Bytes in English. Localize it if necessary but use a short abbreviation.
+    B: i18n.gettext('%(localizedSize)s B'),
+    // translators: KB is an abbreviation of Kilobytes in English. Localize it if necessary but use a short abbreviation.
+    KB: i18n.gettext('%(localizedSize)s KB'),
+    // translators: MB is an abbreviation of Megabytes in English. Localize it if necessary but use a short abbreviation.
+    MB: i18n.gettext('%(localizedSize)s MB'),
+    // translators: GB is an abbreviation of Gigabytes in English. Localize it if necessary but use a short abbreviation.
+    GB: i18n.gettext('%(localizedSize)s GB'),
+    // translators: TB is an abbreviation of Terabytes in English. Localize it if necessary but use a short abbreviation.
+    TB: i18n.gettext('%(localizedSize)s TB'),
+    /* eslint-enable max-len */
+  };
+
+  const [sizeNumber, sizeName] = _filesize(size).split(' ');
+  if (!sizeNumber || !sizeName) {
+    _log.error(
+      `Filesize returned sizeNumber: "${sizeNumber}", sizeName: "${sizeName}" size "${size}"`,
+    );
+    return i18n.formatNumber(size);
+  }
+
+  const localizedSize = i18n.formatNumber(sizeNumber);
+  const sizeString = sizeStrings[sizeName];
+  if (!sizeString) {
+    _log.error(`Filesize returned unrecognized unit: ${sizeName}`);
+    return localizedSize;
+  }
+
+  return i18n.sprintf(sizeString, { localizedSize });
+};
 
 type I18nConfig = {|
   // The following keys configure Jed.

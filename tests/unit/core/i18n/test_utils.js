@@ -4,6 +4,7 @@ import { oneLine } from 'common-tags';
 
 import * as utils from 'core/i18n/utils';
 import { RTL, LTR } from 'core/constants';
+import { fakeI18n, getFakeLogger } from 'tests/unit/helpers';
 
 const defaultLang = config.get('defaultLang');
 
@@ -508,5 +509,64 @@ describe(__filename, () => {
       const i18n = utils.makeI18n({}, 'fr', FakeJed);
       expect(i18n.moment('1988-09-22').format('ll')).toEqual('22 sept. 1988');
     });
+  });
+
+  describe('formatFilesize', () => {
+    const _formatFilesize = ({
+      _filesize,
+      _log,
+      i18n = fakeI18n(),
+      size = 123,
+    }) => {
+      return utils.formatFilesize({ _filesize, _log, i18n, size });
+    };
+
+    it('formats the number returned by filesize', () => {
+      const size = 1000;
+      expect(_formatFilesize({ size })).toEqual('1,000 B');
+    });
+
+    it('returns the size for an invalid string from filesize', () => {
+      const size = 987;
+      const _filesize = sinon.stub().returns('123');
+      expect(_formatFilesize({ _filesize, size })).toEqual(size.toString());
+    });
+
+    it('logs an error for an invalid string from filesize', () => {
+      const fakeLog = getFakeLogger();
+      const _filesize = sinon.stub().returns('123');
+      _formatFilesize({ _filesize, _log: fakeLog });
+      sinon.assert.called(fakeLog.error);
+    });
+
+    it('returns the size for an invalid unit of measure from filesize', () => {
+      const size = 987;
+      const _filesize = sinon.stub().returns(`${size} BOB`);
+      expect(_formatFilesize({ _filesize, size })).toEqual(size.toString());
+    });
+
+    it('logs an error for an invalid unit of measure from filesize', () => {
+      const fakeLog = getFakeLogger();
+      const _filesize = sinon.stub().returns('123 BOB');
+      _formatFilesize({ _filesize, _log: fakeLog });
+      sinon.assert.called(fakeLog.error);
+    });
+
+    it.each([
+      ['B', 123, '123'],
+      ['KB', 1234, '1.21'],
+      ['MB', 1234567, '1.18'],
+      ['GB', 1234567890, '1.15'],
+      ['TB', 1234567890123, '1.12'],
+    ])(
+      'calls i18n.sprintf with the expected substitution for size %s',
+      (sizeName, size, localizedSize) => {
+        const i18n = fakeI18n();
+        _formatFilesize({ size, i18n });
+        sinon.assert.calledWith(i18n.sprintf, `%(localizedSize)s ${sizeName}`, {
+          localizedSize,
+        });
+      },
+    );
   });
 });
