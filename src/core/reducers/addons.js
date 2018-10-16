@@ -160,6 +160,7 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
     average_daily_users: apiAddon.average_daily_users,
     categories: apiAddon.categories,
     contributions_url: apiAddon.contributions_url,
+    created: apiAddon.created,
     current_version: apiAddon.current_version,
     default_locale: apiAddon.default_locale,
     description: apiAddon.description,

@@ -113,6 +113,7 @@ export type ExternalAddonType = {|
   average_daily_users?: number,
   categories?: Object,
   contributions_url?: string,
+  created: Date,
   // If you make an API request as an admin for an incomplete
   // add-on (status=0) then the current_version could be null.
   current_version?: ExternalAddonVersionType,
