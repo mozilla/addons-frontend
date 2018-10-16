@@ -1465,7 +1465,7 @@ describe(__filename, () => {
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
     [ADDON_TYPE_THEME, 'Theme'],
     [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
-  ])('renders an HTML title for Firefox', (type, name) => {
+  ])('renders an HTML title for Firefox (add-on type: %s)', (type, name) => {
     const lang = 'fr';
 
     const addon = createInternalAddon({ ...fakeAddon, type });
@@ -1491,7 +1491,7 @@ describe(__filename, () => {
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
     [ADDON_TYPE_THEME, 'Theme'],
     [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
-  ])('renders an HTML title for Android', (type, name) => {
+  ])('renders an HTML title for Android (add-on type: %s)', (type, name) => {
     const lang = 'fr';
 
     const addon = createInternalAddon({ ...fakeAddon, type });
