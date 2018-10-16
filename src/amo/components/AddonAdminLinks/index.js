@@ -72,7 +72,8 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
             addon.type === ADDON_TYPE_THEME ? 'theme' : 'addon'
           }/${addon.slug}/edit`}
         >
-          {i18n.gettext('Edit add-on')}
+          {// translators: This action allows a user to edit an add-on's properties.
+          i18n.gettext('Edit add-on')}
         </a>
       </li>
     ) : null;
@@ -83,7 +84,8 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           className="AddonAdminLinks-admin-status-link"
           href={`/admin/addon/manage/${addon.slug}/`}
         >
-          {i18n.gettext('Admin add-on status')}
+          {// translators: This action allows a user to edit the status of an add-on.
+          i18n.gettext('Admin add-on status')}
         </a>
       </li>
     ) : null;
@@ -95,7 +97,8 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
             className="AddonAdminLinks-admin-link"
             href={`/admin/models/addons/addon/${addon.id}`}
           >
-            {i18n.gettext('Admin add-on')}
+            {// translators: This action allows a user to maintain an add-on.
+            i18n.gettext('Admin add-on')}
           </a>
         </li>
       ) : null;
@@ -106,14 +109,17 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           className="AddonAdminLinks-contentReview-link"
           href={`/reviewers/review-content/${addon.slug}`}
         >
-          {i18n.gettext('Content review add-on')}
+          {// translators: This action allows a user to perform a content review of an add-on.
+          i18n.gettext('Content review add-on')}
         </a>
       </li>
     ) : null;
 
     const codeReviewLinkText = isTheme(addon.type)
-      ? i18n.gettext('Review theme')
-      : i18n.gettext('Review add-on code');
+      ? // translators: This action allows a user to perform a review of a theme.
+        i18n.gettext('Review theme')
+      : // translators: This action allows a user to perform a review of an add-on's code.
+        i18n.gettext('Review add-on code');
     const reviewUrl =
       addon.type === ADDON_TYPE_THEME
         ? `/reviewers/themes/queue/single/${addon.slug}`
