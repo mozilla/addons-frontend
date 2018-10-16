@@ -15,7 +15,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
 
 describe(__filename, () => {
@@ -70,7 +70,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '2 results for "test"',
+      '2 results found for "test"',
     );
   });
 
@@ -79,7 +79,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '2 add-ons found',
+      '2 results found',
     );
   });
 
@@ -90,7 +90,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 result for "test"',
+      '1 result found for "test"',
     );
   });
 
@@ -102,7 +102,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 add-on found',
+      '1 result found',
     );
   });
 
@@ -111,15 +111,15 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      'No add-ons found',
+      '0 results found',
     );
   });
 
-  it('should render singular form when only one result is found with addonType ADDON_TYPE_THEME', () => {
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_THEMES_FILTER', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_THEMES_FILTER,
         query: 'test',
       },
     });
@@ -131,10 +131,10 @@ describe(__filename, () => {
     );
   });
 
-  it('should render plural form when multiple results are found with addonType ADDON_TYPE_THEME', () => {
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_THEMES_FILTER', () => {
     const { store } = dispatchSearchResults({
       filters: {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_THEMES_FILTER,
         query: 'test',
       },
     });
@@ -143,6 +143,24 @@ describe(__filename, () => {
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       '2 themes found for "test"',
+    );
+  });
+
+  it('should render ADDON_TYPE_THEMES_FILTER result with category name when present without any hyphen', () => {
+    const category = 'fun-bookmarks';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_THEMES_FILTER,
+        category,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 theme found for "test" in fun bookmarks',
     );
   });
 
@@ -158,7 +176,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 dictionary found for "test"',
+      '1 result found for "test"',
     );
   });
 
@@ -173,7 +191,25 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '2 dictionaries found for "test"',
+      '2 results found for "test"',
+    );
+  });
+
+  it('should render ADDON_TYPE_DICT result with category name when present without any hyphen', () => {
+    const category = 'fun-bookmarks';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_DICT,
+        category,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 result found for "test" in fun bookmarks',
     );
   });
 
@@ -208,6 +244,24 @@ describe(__filename, () => {
     );
   });
 
+  it('should render ADDON_TYPE_EXTENSION result with category name when present without any hyphen', () => {
+    const category = 'fun-bookmarks';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 extension found for "test" in fun bookmarks',
+    );
+  });
+
   it('should render singular form when only one result is found with addonType ADDON_TYPE_LANG', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
@@ -220,7 +274,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 language pack found for "test"',
+      '1 result found for "test"',
     );
   });
 
@@ -235,7 +289,25 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '2 language packs found for "test"',
+      '2 results found for "test"',
+    );
+  });
+
+  it('should render ADDON_TYPE_LANG result with category name when present without any hyphen', () => {
+    const category = 'fun-bookmarks';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_LANG,
+        category,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      '1 result found for "test" in fun bookmarks',
     );
   });
 
