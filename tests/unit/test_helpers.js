@@ -1,7 +1,11 @@
 /* eslint-disable react/no-multi-comp */
-import { shallow } from 'enzyme';
 import React, { Component } from 'react';
+import { ConnectedRouter } from 'connected-react-router';
+import { shallow, mount } from 'enzyme';
+import { createMemoryHistory } from 'history';
 import { compose } from 'redux';
+import { Provider } from 'react-redux';
+import { Route } from 'react-router-dom';
 import SagaTester from 'redux-saga-tester';
 
 // Disabled because of
@@ -10,9 +14,11 @@ import SagaTester from 'redux-saga-tester';
 import { put, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
+import createStore from 'amo/store';
 import {
   getFakeConfig,
   matchingSagaAction,
+  onLocationChanged,
   shallowUntilTarget,
   unexpectedSuccess,
 } from 'tests/unit/helpers';
@@ -291,6 +297,36 @@ describe(__filename, () => {
       );
 
       expect(config.get('thisIsAnInvalidKey')).toEqual(value);
+    });
+  });
+
+  describe('onLocationChanged', () => {
+    // If this test case fails, it means `connected-react-router` has changed
+    // its `onLocationChanged` redux action.
+    // See: https://github.com/mozilla/addons-frontend/issues/6560
+    it('returns the same payload as the connected-react-router action', () => {
+      const history = createMemoryHistory();
+      const { store } = createStore({ history });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      mount(
+        <Provider store={store}>
+          <ConnectedRouter history={history}>
+            <Route path="/" render={() => <div>Welcome</div>} />
+          </ConnectedRouter>
+        </Provider>,
+      );
+
+      dispatchSpy.resetHistory();
+
+      const pathname = '/foo';
+      history.push(pathname);
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        onLocationChanged({ pathname, key: sinon.match.string }),
+      );
+      sinon.assert.calledOnce(dispatchSpy);
     });
   });
 });
