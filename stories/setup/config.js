@@ -5,8 +5,6 @@ import infoAddon, {
   setDefaults as setAddonInfoDefaults,
 } from '@storybook/addon-info';
 
-// Without core/polyfill we see the following error:
-// "regeneratorRuntime is not defined".
 import 'core/polyfill';
 
 // TBD: overrides chapters defaults. Do we want this?
