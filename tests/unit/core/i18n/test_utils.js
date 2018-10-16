@@ -521,13 +521,6 @@ describe(__filename, () => {
       return utils.formatFilesize({ _filesize, _log, i18n, size });
     };
 
-    it('receives an expected string from filesize', () => {
-      // This is a sanity check, verifying that filesize does in fact return
-      // what we expect.
-      const size = 123;
-      expect(_formatFilesize({ size })).toEqual(`${size} B`);
-    });
-
     it('formats the number returned by filesize', () => {
       const size = 1000;
       expect(_formatFilesize({ size })).toEqual('1,000 B');
