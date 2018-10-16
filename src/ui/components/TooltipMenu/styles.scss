@@ -55,7 +55,9 @@
 
   .ListItem,
   .CardList .ListItem {
+    align-items: center;
     background: none;
+    display: flex;
     margin: 0;
     padding: 6px;
     padding-top: 0;
