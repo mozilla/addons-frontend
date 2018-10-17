@@ -68,13 +68,11 @@ export class HomeBase extends React.Component {
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    featuredExtensions: PropTypes.array.isRequired,
-    featuredThemes: PropTypes.array.isRequired,
+    shelves: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     includeFeaturedThemes: PropTypes.bool,
     locationPathname: PropTypes.string.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-    popularExtensions: PropTypes.array.isRequired,
   };
 
   static defaultProps = {
@@ -205,13 +203,11 @@ export class HomeBase extends React.Component {
       _config,
       collections,
       errorHandler,
-      featuredExtensions,
-      featuredThemes,
+      shelves,
       i18n,
       includeFeaturedThemes,
       locationPathname,
       resultsLoaded,
-      popularExtensions,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -257,7 +253,7 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={featuredExtensions}
+          addons={shelves.featuredExtensions}
           className="Home-FeaturedExtensions"
           header={i18n.gettext('Featured extensions')}
           footerText={i18n.gettext('See more featured extensions')}
@@ -283,7 +279,7 @@ export class HomeBase extends React.Component {
         {includeFeaturedThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
-            addons={featuredThemes}
+            addons={shelves.featuredThemes}
             className="Home-FeaturedThemes"
             footerText={i18n.gettext('See more featured themes')}
             footerLink={{
@@ -303,7 +299,7 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={popularExtensions}
+          addons={shelves.popularExtensions}
           className="Home-PopularExtensions"
           header={i18n.gettext('Popular extensions')}
           footerText={i18n.gettext('See more popular extensions')}
@@ -344,10 +340,8 @@ export class HomeBase extends React.Component {
 export function mapStateToProps(state) {
   return {
     collections: state.home.collections,
-    featuredExtensions: state.home.featuredExtensions,
-    featuredThemes: state.home.featuredThemes,
+    shelves: state.home.shelves,
     locationPathname: state.router.location.pathname,
-    popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
   };
 }

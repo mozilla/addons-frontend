@@ -142,9 +142,7 @@ describe(__filename, () => {
 
       const loadAction = loadHomeAddons({
         collections,
-        featuredExtensions,
-        featuredThemes,
-        popularExtensions,
+        shelves: { featuredExtensions, featuredThemes, popularExtensions },
       });
 
       const expectedAction = await sagaTester.waitFor(loadAction.type);
@@ -174,9 +172,11 @@ describe(__filename, () => {
 
       const loadAction = loadHomeAddons({
         collections,
-        featuredExtensions,
-        featuredThemes: null,
-        popularExtensions,
+        shelves: {
+          featuredExtensions,
+          featuredThemes: null,
+          popularExtensions,
+        },
       });
 
       const expectedAction = await sagaTester.waitFor(loadAction.type);
@@ -217,9 +217,11 @@ describe(__filename, () => {
 
         const loadAction = loadHomeAddons({
           collections,
-          featuredExtensions,
-          featuredThemes: null,
-          popularExtensions,
+          shelves: {
+            featuredExtensions,
+            featuredThemes: null,
+            popularExtensions,
+          },
         });
 
         const expectedAction = await sagaTester.waitFor(loadAction.type);

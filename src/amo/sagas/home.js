@@ -103,9 +103,7 @@ export function* fetchHomeAddons({
   yield put(
     loadHomeAddons({
       collections,
-      featuredExtensions: homeAddons.featuredExtensions,
-      featuredThemes: homeAddons.featuredThemes,
-      popularExtensions: homeAddons.popularExtensions,
+      shelves: homeAddons,
     }),
   );
 }

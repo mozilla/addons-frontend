@@ -15,24 +15,15 @@ import {
   createFakeCollectionAddonsListResponse,
   dispatchClientMetadata,
   fakeAddon,
-  fakeTheme,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {
-    const _loadHomeAddons = ({
-      store,
-      collections = [],
-      featuredExtensions = createAddonsApiResult([fakeAddon]),
-      featuredThemes = createAddonsApiResult([fakeTheme]),
-      popularExtensions = createAddonsApiResult([fakeAddon]),
-    }) => {
+    const _loadHomeAddons = ({ store, collections = [], shelves = {} }) => {
       store.dispatch(
         loadHomeAddons({
           collections,
-          featuredExtensions,
-          featuredThemes,
-          popularExtensions,
+          shelves,
         }),
       );
     };
@@ -47,7 +38,7 @@ describe(__filename, () => {
       expect(state).toEqual(initialState);
     });
 
-    it('loads the add-ons to display on homepage', () => {
+    it('loads collections', () => {
       const { store } = dispatchClientMetadata();
 
       _loadHomeAddons({
@@ -57,9 +48,6 @@ describe(__filename, () => {
             addons: Array(10).fill(createFakeCollectionAddon()),
           }),
         ],
-        featuredExtensions: createAddonsApiResult([fakeAddon]),
-        featuredThemes: createAddonsApiResult([fakeTheme]),
-        popularExtensions: createAddonsApiResult([fakeAddon]),
       });
 
       const homeState = store.getState().home;
@@ -74,14 +62,30 @@ describe(__filename, () => {
           createInternalAddon(fakeAddon),
         ),
       );
-      expect(homeState.featuredExtensions).toEqual([
-        createInternalAddon(fakeAddon),
+    });
+
+    it('loads shelves', () => {
+      const { store } = dispatchClientMetadata();
+      const shelfName1 = 'someShelfName1';
+      const shelfName2 = 'someShelfName2';
+      const addon1 = { ...fakeAddon, slug: 'addon1' };
+      const addon2 = { ...fakeAddon, slug: 'addon2' };
+
+      _loadHomeAddons({
+        store,
+        shelves: {
+          [shelfName1]: createAddonsApiResult([addon1]),
+          [shelfName2]: createAddonsApiResult([addon2]),
+        },
+      });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.shelves[shelfName1]).toEqual([
+        createInternalAddon(addon1),
       ]);
-      expect(homeState.featuredThemes).toEqual([
-        createInternalAddon(fakeTheme),
-      ]);
-      expect(homeState.popularExtensions).toEqual([
-        createInternalAddon(fakeAddon),
+      expect(homeState.shelves[shelfName2]).toEqual([
+        createInternalAddon(addon2),
       ]);
     });
 
@@ -147,19 +151,6 @@ describe(__filename, () => {
 
       const homeState = store.getState().home;
       expect(homeState.collections).toEqual([null]);
-    });
-
-    it('loads an empty array if featured themes is null', () => {
-      const { store } = dispatchClientMetadata();
-
-      _loadHomeAddons({
-        store,
-        collections: [],
-        featuredThemes: null,
-      });
-
-      const homeState = store.getState().home;
-      expect(homeState.featuredThemes).toEqual([]);
     });
 
     it('sets `resultsLoaded` to `false` when fetching home add-ons', () => {

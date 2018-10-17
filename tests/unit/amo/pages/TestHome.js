@@ -243,14 +243,11 @@ describe(__filename, () => {
       createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
     ];
     const featuredExtensions = createAddonsApiResult(addons);
-    const popularExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
-        featuredExtensions,
-        featuredThemes: null,
-        popularExtensions,
+        shelves: { featuredExtensions },
       }),
     );
 
@@ -282,15 +279,11 @@ describe(__filename, () => {
 
     const collections = [null, null, null];
     const featuredExtensions = createAddonsApiResult(addons);
-    const featuredThemes = createAddonsApiResult([]);
-    const popularExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
-        featuredExtensions,
-        featuredThemes,
-        popularExtensions,
+        shelves: { featuredExtensions },
       }),
     );
 
