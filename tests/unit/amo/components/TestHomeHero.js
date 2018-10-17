@@ -26,18 +26,6 @@ describe(__filename, () => {
     expect(root).toHaveClassName('HomeHero');
   });
 
-  it('renders a header section with text', () => {
-    const root = render();
-
-    expect(root.find('.HomeHero-title')).toIncludeText(
-      'Extensions are like apps for your browsers.',
-    );
-
-    expect(root.find('.HomeHero-subtitle')).toIncludeText(
-      'They add features to Firefox to make browsing faster, smarter, or just plain fun.',
-    );
-  });
-
   it('renders the hero sections', () => {
     const root = render();
     const heroSections = root.find(Hero);
