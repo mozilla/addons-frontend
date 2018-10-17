@@ -1,0 +1,98 @@
+@import '~amo/css/styles';
+
+.HomeHero-header {
+  color: $black;
+  padding: 0 12px 12px;
+  text-align: center;
+
+  @include respond-to(medium) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @include respond-to(large) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.HomeHero-title {
+  font-size: $font-size-xl;
+  line-height: 1;
+  margin: 24px 0 20px;
+}
+
+.HomeHero-subtitle {
+  font-size: $font-size-l;
+  font-weight: normal;
+  line-height: 1;
+  margin: 12px 0 24px;
+}
+
+.HomeHero-cards {
+  .Card-contents {
+    background: none;
+    padding: 0;
+  }
+
+  .Hero-contents {
+    grid-template: none;
+    grid-template-areas: none;
+    grid-template-columns: none;
+    margin-bottom: 8px;
+    padding: 0 12px;
+
+    @include respond-to(medium) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    @include respond-to(large) {
+      grid-gap: 30px;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  h4 {
+    font-size: $font-size-m;
+    font-weight: normal;
+    margin: 12px 0;
+    text-align: center;
+  }
+}
+
+.HomeHero-card {
+  .Card-contents {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 0 12px;
+
+    @include respond-to(large) {
+      min-height: 138px;
+    }
+
+    @include respond-to(extraLarge) {
+      min-height: 0;
+    }
+  }
+}
+
+.HomeHero-link {
+  &:link {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+.HomeHero-icon {
+  &.Icon {
+    height: 40px;
+    width: 40px;
+  }
+}
