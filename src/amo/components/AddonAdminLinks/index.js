@@ -72,7 +72,8 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
             addon.type === ADDON_TYPE_THEME ? 'theme' : 'addon'
           }/${addon.slug}/edit`}
         >
-          {// translators: This action allows a user to edit an add-on's properties.
+          {// eslint-disable-next-line max-len
+          // translators: This action allows the add-on developer or an admin to edit an add-on's properties.
           i18n.gettext('Edit add-on')}
         </a>
       </li>
@@ -84,7 +85,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           className="AddonAdminLinks-admin-status-link"
           href={`/admin/addon/manage/${addon.slug}/`}
         >
-          {// translators: This action allows a user to edit the status of an add-on.
+          {// translators: This action allows an admin to edit the status of an add-on.
           i18n.gettext('Admin add-on status')}
         </a>
       </li>
@@ -97,7 +98,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
             className="AddonAdminLinks-admin-link"
             href={`/admin/models/addons/addon/${addon.id}`}
           >
-            {// translators: This action allows a user to maintain an add-on.
+            {// translators: This action allows an admin to maintain an add-on.
             i18n.gettext('Admin add-on')}
           </a>
         </li>
@@ -109,16 +110,16 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           className="AddonAdminLinks-contentReview-link"
           href={`/reviewers/review-content/${addon.slug}`}
         >
-          {// translators: This action allows a user to perform a content review of an add-on.
+          {// translators: This action allows a reviewer to perform a content review of an add-on.
           i18n.gettext('Content review add-on')}
         </a>
       </li>
     ) : null;
 
     const codeReviewLinkText = isTheme(addon.type)
-      ? // translators: This action allows a user to perform a review of a theme.
+      ? // translators: This action allows a reviewer to perform a review of a theme.
         i18n.gettext('Review theme')
-      : // translators: This action allows a user to perform a review of an add-on's code.
+      : // translators: This action allows a reviewer to perform a review of an add-on's code.
         i18n.gettext('Review add-on code');
     const reviewUrl =
       addon.type === ADDON_TYPE_THEME
