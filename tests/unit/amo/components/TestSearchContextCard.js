@@ -146,55 +146,38 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with category and query for addonType ADDON_TYPE_THEMES_FILTER', () => {
-    const category = 'bookmarks';
+  it('should render results with categoryName and query for addonType ADDON_TYPE_THEMES_FILTER', () => {
+    const categoryName = 'Bookmarks & Stuff';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
-        category,
+        category: 'Bookmarks',
         query: 'test',
       },
     });
 
-    const root = render({ store });
+    const root = render({ store, categoryName });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 theme found for "test" in bookmarks',
+      `1 theme found for "test" in ${categoryName}`,
     );
   });
 
-  it('should render results with category without hyphens for addonType ADDON_TYPE_THEMES_FILTER', () => {
-    const category = 'fun-bookmarks';
+  it('should render results with categoryName and no query if not provided for addonType ADDON_TYPE_THEMES_FILTER', () => {
+    const categoryName = 'Fun Bookmarks';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
-        category,
+        category: 'fun-bookmarks',
       },
     });
 
-    const root = render({ store });
+    const root = render({ store, categoryName });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 theme found in fun bookmarks',
-    );
-  });
-
-  it('should render results with category and no query if not provided for addonType ADDON_TYPE_THEMES_FILTER', () => {
-    const category = 'fun-bookmarks';
-    const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
-      filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        category,
-      },
-    });
-
-    const root = render({ store });
-
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 theme found in fun bookmarks',
+      `1 theme found in ${categoryName}`,
     );
   });
 
@@ -290,37 +273,20 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with category without hyphens for addonType ADDON_TYPE_EXTENSION', () => {
-    const category = 'fun-bookmarks';
+  it('should render results with categoryName and no query if not provided for addonType ADDON_TYPE_EXTENSION', () => {
+    const categoryName = 'Cool Animals';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
-        category,
+        category: 'cool-animals',
       },
     });
 
-    const root = render({ store });
+    const root = render({ store, categoryName });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 extension found in fun bookmarks',
-    );
-  });
-
-  it('should render results with category and no query if not provided for addonType ADDON_TYPE_EXTENSION', () => {
-    const category = 'fun-bookmarks';
-    const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
-      filters: {
-        addonType: ADDON_TYPE_EXTENSION,
-        category,
-      },
-    });
-
-    const root = render({ store });
-
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 extension found in fun bookmarks',
+      `1 extension found in ${categoryName}`,
     );
   });
 
@@ -398,21 +364,6 @@ describe(__filename, () => {
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       '1 result found for "test"',
-    );
-  });
-
-  it('should render plural form when multiple results are found for an addonType that does not exist', () => {
-    const { store } = dispatchSearchResults({
-      filters: {
-        addonType: 'random',
-        query: 'test',
-      },
-    });
-
-    const root = render({ store });
-
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '2 results found for "test"',
     );
   });
 

@@ -3,19 +3,16 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { categoriesFetch } from 'core/actions/categories';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_DICT,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_THEMES_FILTER,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEMES_FILTER } from 'core/constants';
 
 import './styles.scss';
 
 export class SearchContextCardBase extends React.Component {
   static propTypes = {
+    categoryName: PropTypes.string,
     count: PropTypes.number,
     filters: PropTypes.object,
     i18n: PropTypes.object.isRequired,
@@ -28,18 +25,15 @@ export class SearchContextCardBase extends React.Component {
   };
 
   render() {
-    const { count, filters, i18n, loading } = this.props;
-    const { query, category } = filters;
-    const { addonType } = filters;
+    const { categoryName, count, filters, i18n, loading } = this.props;
+    const { addonType, query, category } = filters;
 
     let searchText;
 
     if (!loading) {
       switch (addonType) {
         case ADDON_TYPE_EXTENSION:
-          if (category) {
-            const categoryName = category.replace('-', ' ');
-
+          if (category && categoryName) {
             if (query) {
               searchText = i18n.sprintf(
                 i18n.ngettext(
@@ -80,9 +74,7 @@ export class SearchContextCardBase extends React.Component {
           }
           break;
         case ADDON_TYPE_THEMES_FILTER:
-          if (category) {
-            const categoryName = category.replace('-', ' ');
-
+          if (category && categoryName) {
             if (query) {
               searchText = i18n.sprintf(
                 i18n.ngettext(
@@ -164,13 +156,67 @@ export class SearchContextCardBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    categoriesState: state.categories.categories,
+    clientApp: state.api.clientApp,
     count: state.search.count,
     filters: state.search.filters,
     loading: state.search.loading,
   };
 }
 
+export function mapDispatchToProps(dispatch) {
+  dispatch(categoriesFetch({ errorHandlerId: 'SearchContextCard' }));
+}
+
+function mergeProps(state, dispatchProps, ownProps) {
+  const {
+    categoriesState,
+    clientApp,
+    filters: { category: currentCategory },
+  } = state;
+
+  const allCategories = [];
+
+  if (categoriesState && clientApp) {
+    Object.keys(categoriesState[clientApp]).forEach((type) => {
+      Object.keys(categoriesState[clientApp][type]).forEach((category) => {
+        const { slug } = categoriesState[clientApp][type][category];
+        const { name } = categoriesState[clientApp][type][category];
+        allCategories.push({
+          [slug]: {
+            name,
+            slug,
+          },
+        });
+      });
+    });
+  }
+
+  const translatedCategory =
+    currentCategory &&
+    allCategories.length &&
+    allCategories.find(
+      (category) =>
+        category[currentCategory] &&
+        category[currentCategory].slug === currentCategory,
+    );
+
+  return {
+    categoryName:
+      translatedCategory &&
+      currentCategory &&
+      translatedCategory[currentCategory] &&
+      translatedCategory[currentCategory].name,
+    ...state,
+    ...ownProps,
+  };
+}
+
 export default compose(
-  connect(mapStateToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps,
+  ),
   translate(),
 )(SearchContextCardBase);
