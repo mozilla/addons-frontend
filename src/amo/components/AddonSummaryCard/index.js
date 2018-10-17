@@ -46,7 +46,7 @@ export class AddonSummaryCardBase extends React.Component<InternalProps> {
         </div>
         <div className="AddonSummaryCard-header-text">
           <h1 className="visually-hidden">{headerText}</h1>
-          <AddonTitle addon={addon} />
+          <AddonTitle addon={addon} linkToAddon />
         </div>
       </div>
     );
