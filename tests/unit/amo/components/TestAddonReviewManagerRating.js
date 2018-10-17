@@ -49,4 +49,16 @@ describe(__filename, () => {
 
     expect(root.find(Rating)).toHaveProp('onSelectRating', onSelectRating);
   });
+
+  it('sets readOnly correctly when onSelectRating is defined', () => {
+    const root = render({ onSelectRating: sinon.stub() });
+
+    expect(root.find(Rating)).toHaveProp('readOnly', false);
+  });
+
+  it('sets readOnly correctly when onSelectRating is undefined', () => {
+    const root = render({ onSelectRating: undefined });
+
+    expect(root.find(Rating)).toHaveProp('readOnly', true);
+  });
 });

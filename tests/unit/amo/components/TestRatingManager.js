@@ -16,8 +16,10 @@ import { logOutUser } from 'amo/reducers/users';
 import {
   SAVED_RATING,
   STARTED_SAVE_RATING,
+  beginDeleteAddonReview,
   createAddonReview,
   createInternalReview,
+  deleteAddonReview,
   flashReviewMessage,
   hideEditReviewForm,
   hideFlashedReviewMessage,
@@ -29,6 +31,7 @@ import {
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
+import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManager, {
   RatingManagerBase,
   mapDispatchToProps,
@@ -597,6 +600,94 @@ describe(__filename, () => {
       expect(rating).toHaveLength(1);
       expect(rating).toHaveProp('readOnly', true);
       expect(rating).toHaveProp('review', null);
+    });
+
+    it('configures AddonReviewManagerRating when beginningToDeleteReview', () => {
+      const addon = createInternalAddon(fakeAddon);
+      const review = { ...fakeReview, score: 4 };
+      const userId = 9987;
+      const store = createStoreWithLatestReview({ addon, review, userId });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+
+      const root = renderInline({ store, addon, userId });
+
+      expect(root.find(UserRating)).toHaveLength(0);
+
+      const managerRating = root.find(AddonReviewManagerRating);
+      expect(managerRating).toHaveLength(1);
+      expect(managerRating).toHaveProp('rating', review.score);
+    });
+
+    it('also configures AddonReviewManagerRating while deletingReview', () => {
+      const addon = createInternalAddon({ ...fakeAddon });
+      const review = { ...fakeReview };
+      const userId = 9987;
+      const store = createStoreWithLatestReview({ addon, review, userId });
+      store.dispatch(
+        deleteAddonReview({
+          addonId: addon.id,
+          errorHandlerId: 'some-error-handler',
+          reviewId: review.id,
+        }),
+      );
+
+      const root = renderInline({ store, addon, userId });
+
+      expect(root.find(UserRating)).toHaveLength(0);
+      expect(root.find(AddonReviewManagerRating)).toHaveLength(1);
+    });
+
+    it('prompts to delete a review when beginningToDeleteReview', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        name: 'uBlock Origin',
+      });
+      const review = { ...fakeReview, body: 'This add-on is nice' };
+      const userId = 9987;
+      const store = createStoreWithLatestReview({ addon, review, userId });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+
+      const root = renderInline({ store, addon, userId });
+
+      const prompt = root.find('.RatingManager-legend').text();
+      expect(prompt).toContain('Are you sure you want to delete your review');
+      expect(prompt).toContain(addon.name);
+    });
+
+    it('prompts to delete a rating when beginningToDeleteReview', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        name: 'uBlock Origin',
+      });
+      const review = { ...fakeReview, body: undefined, score: 4 };
+      const userId = 9987;
+      const store = createStoreWithLatestReview({ addon, review, userId });
+      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+
+      const root = renderInline({ store, addon, userId });
+
+      const prompt = root.find('.RatingManager-legend').text();
+      expect(prompt).toContain('Are you sure you want to delete your rating');
+      expect(prompt).toContain(addon.name);
+    });
+
+    it('still prompts to delete a review while deletingReview', () => {
+      const addon = createInternalAddon({ ...fakeAddon });
+      const review = { ...fakeReview };
+      const userId = 9987;
+      const store = createStoreWithLatestReview({ addon, review, userId });
+      store.dispatch(
+        deleteAddonReview({
+          addonId: addon.id,
+          errorHandlerId: 'some-error-handler',
+          reviewId: review.id,
+        }),
+      );
+
+      const root = renderInline({ store, addon, userId });
+
+      const prompt = root.find('.RatingManager-legend').text();
+      expect(prompt).toContain('Are you sure you want to delete');
     });
 
     it('shows AddonReviewCard with a saved review', () => {

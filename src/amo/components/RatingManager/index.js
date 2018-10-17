@@ -19,6 +19,7 @@ import * as reviewsApi from 'amo/api/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
+import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
@@ -36,6 +37,7 @@ import { withRenderedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { genericType, successType } from 'ui/components/Notice';
+import Rating from 'ui/components/Rating';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -78,6 +80,8 @@ type InternalProps = {|
   ...DispatchMappedProps,
   _config: typeof config,
   apiState: ApiState,
+  beginningToDeleteReview: boolean,
+  deletingReview: boolean,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
   flashMessage?: FlashMessageType | void,
@@ -268,25 +272,54 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
   }
 
   renderUserRatingForm() {
-    const { addon, i18n, flashMessage, userReview } = this.props;
+    const {
+      addon,
+      beginningToDeleteReview,
+      deletingReview,
+      i18n,
+      flashMessage,
+      userReview,
+    } = this.props;
 
-    const prompt = i18n.sprintf(
-      i18n.gettext('How are you enjoying %(addonName)s?'),
-      { addonName: addon.name },
-    );
+    const onDeleteScreen = beginningToDeleteReview || deletingReview;
+    let prompt;
+    if (userReview && onDeleteScreen) {
+      if (userReview.body) {
+        prompt = i18n.gettext(
+          'Are you sure you want to delete your review of %(addonName)s?',
+        );
+      } else {
+        // A review without a body is a rating.
+        prompt = i18n.gettext(
+          'Are you sure you want to delete your rating of %(addonName)s?',
+        );
+      }
+    } else {
+      prompt = i18n.gettext('How are you enjoying %(addonName)s?');
+    }
 
     return (
       <form action="">
         <fieldset>
-          <legend className="RatingManager-legend">{prompt}</legend>
+          <legend className="RatingManager-legend">
+            {i18n.sprintf(prompt, { addonName: addon.name })}
+          </legend>
           <div className="RatingManager-ratingControl">
             {!this.isSignedIn() ? this.renderLogInToRate() : null}
-            <UserRating
-              className="RatingManager-UserRating"
-              readOnly={!this.isSignedIn()}
-              onSelectRating={this.onSelectRating}
-              review={!this.isSignedIn() ? null : userReview}
-            />
+            {userReview && onDeleteScreen ? (
+              <AddonReviewManagerRating
+                className="RatingManager-AddonReviewManagerRating"
+                onSelectRating={undefined}
+                rating={userReview.score}
+              />
+            ) : (
+              <UserRating
+                className="RatingManager-UserRating"
+                readOnly={!this.isSignedIn()}
+                onSelectRating={this.onSelectRating}
+                review={!this.isSignedIn() ? null : userReview}
+              />
+            )}
           </div>
           <RatingManagerNotice
             className={
@@ -367,16 +400,22 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
     });
   }
 
+  let deletingReview = false;
+  let beginningToDeleteReview = false;
   let editingReview = false;
   if (userReview) {
     const view = state.reviews.view[userReview.id];
     if (view) {
+      beginningToDeleteReview = view.beginningToDeleteReview;
+      deletingReview = view.deletingReview;
       editingReview = view.editingReview;
     }
   }
 
   return {
     apiState: state.api,
+    beginningToDeleteReview,
+    deletingReview,
     editingReview,
     flashMessage: state.reviews.flashMessage,
     userReview,

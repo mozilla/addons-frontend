@@ -28,12 +28,15 @@ export const AddonReviewManagerRatingBase = ({
   onSelectRating,
   rating,
 }: InternalProps) => {
+  const readOnly = !onSelectRating;
+
   return (
     <div className={makeClassName('AddonReviewManagerRating', className)}>
       <span>{i18n.gettext('Your star rating:')}</span>
       <Rating
         onSelectRating={onSelectRating}
         rating={rating}
+        readOnly={readOnly}
         styleSize="small"
         yellowStars
       />
