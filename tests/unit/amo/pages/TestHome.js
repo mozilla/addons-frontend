@@ -8,6 +8,7 @@ import Home, {
   isFeaturedCollection,
 } from 'amo/pages/Home';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
+import HomeHero from 'amo/components/HomeHero';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
@@ -437,5 +438,19 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       /Customize Firefox with extensions/,
     );
+  });
+
+  it('renders HomeHeroBanner if the enableNewHomeHero config flag is false', () => {
+    const _config = getFakeConfig({ enableNewHomeHero: false });
+
+    const root = render({ _config });
+    expect(root.find(HomeHeroBanner)).toHaveLength(1);
+  });
+
+  it('renders HomeHero if the enableNewHomeHero config flag is true', () => {
+    const _config = getFakeConfig({ enableNewHomeHero: true });
+
+    const root = render({ _config });
+    expect(root.find(HomeHero)).toHaveLength(1);
   });
 });
