@@ -108,7 +108,7 @@ describe(__filename, () => {
     expect(Object.keys(state.byID)).toEqual([]);
   });
 
-  it('stores a modified extension object', () => {
+  it('stores an internal representation of an extension', () => {
     const extension = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
     const state = addons(undefined, loadAddonResults({ addons: [extension] }));
 
@@ -128,7 +128,7 @@ describe(__filename, () => {
     });
   });
 
-  it('stores a modified theme object', () => {
+  it('stores an internal representation of a theme', () => {
     const theme = { ...fakeTheme };
     const state = addons(undefined, loadAddonResults({ addons: [theme] }));
 
@@ -137,7 +137,6 @@ describe(__filename, () => {
     const expectedTheme = {
       ...theme,
       themeData: theme.theme_data,
-      description: theme.description,
       guid: getGuid(theme),
       platformFiles: {
         [OS_ALL]: fakeTheme.current_version.files[0],
