@@ -102,7 +102,7 @@ describe(__filename, () => {
       addon: createInternalAddon({ ...fakeAddon, name: 'Some Add-on' }),
     });
 
-    expect(root.find('.RatingManager-legend')).toIncludeText('Some Add-on');
+    expect(root.find('.RatingManager-legend').html()).toContain('Some Add-on');
   });
 
   it('loads saved ratings on construction', () => {
@@ -649,7 +649,7 @@ describe(__filename, () => {
 
       const root = renderInline({ store, addon, userId });
 
-      const prompt = root.find('.RatingManager-legend').text();
+      const prompt = root.find('.RatingManager-legend').html();
       expect(prompt).toContain('Are you sure you want to delete your review');
       expect(prompt).toContain(addon.name);
     });
@@ -666,7 +666,7 @@ describe(__filename, () => {
 
       const root = renderInline({ store, addon, userId });
 
-      const prompt = root.find('.RatingManager-legend').text();
+      const prompt = root.find('.RatingManager-legend').html();
       expect(prompt).toContain('Are you sure you want to delete your rating');
       expect(prompt).toContain(addon.name);
     });
@@ -686,7 +686,7 @@ describe(__filename, () => {
 
       const root = renderInline({ store, addon, userId });
 
-      const prompt = root.find('.RatingManager-legend').text();
+      const prompt = root.find('.RatingManager-legend').html();
       expect(prompt).toContain('Are you sure you want to delete');
     });
 

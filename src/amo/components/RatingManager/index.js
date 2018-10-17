@@ -36,6 +36,7 @@ import {
 import { withRenderedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { sanitizeHTML } from 'core/utils';
 import { genericType, successType } from 'ui/components/Notice';
 import Rating from 'ui/components/Rating';
 import UserRating from 'ui/components/UserRating';
@@ -298,12 +299,18 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
       prompt = i18n.gettext('How are you enjoying %(addonName)s?');
     }
 
+    const promptHTML = sanitizeHTML(
+      i18n.sprintf(prompt, { addonName: `<b>${addon.name}</b>` }),
+      ['b'],
+    );
+
     return (
       <form action="">
         <fieldset>
-          <legend className="RatingManager-legend">
-            {i18n.sprintf(prompt, { addonName: addon.name })}
-          </legend>
+          <legend
+            className="RatingManager-legend"
+            dangerouslySetInnerHTML={promptHTML}
+          />
           <div className="RatingManager-ratingControl">
             {!this.isSignedIn() ? this.renderLogInToRate() : null}
             {userReview && onDeleteScreen ? (
