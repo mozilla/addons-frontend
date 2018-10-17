@@ -3,8 +3,6 @@ module.exports = {
 
   baseURL: 'http://localhost:3000',
 
-  enableNewHomeHero: true,
-
   proxyApiHost: 'http://olympia.test',
   proxyPort: 3000,
   proxyEnabled: true,
