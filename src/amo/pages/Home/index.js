@@ -9,6 +9,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
+import HomeHero from 'amo/components/HomeHero';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
@@ -245,7 +246,7 @@ export class HomeBase extends React.Component {
 
         {errorHandler.renderErrorIfPresent()}
 
-        <HomeHeroBanner />
+        {_config.get('enableNewHomeHero') ? <HomeHero /> : <HomeHeroBanner />}
 
         <Card
           className="Home-SubjectShelf Home-CuratedCollections"
