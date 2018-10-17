@@ -10,6 +10,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
+import AddonHead from 'amo/components/AddonHead';
 import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
@@ -39,7 +40,6 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -244,6 +244,11 @@ describe(__filename, () => {
     expect(root.find(AddonTitle)).toHaveLength(1);
   });
 
+  it('renders an AddonHead component', () => {
+    const root = shallowRender();
+    expect(root.find(AddonHead)).toHaveLength(1);
+  });
+
   it('renders without an add-on', () => {
     const errorHandler = createStubErrorHandler();
     const slugParam = 'some-addon'; // as passed through the URL.
@@ -281,6 +286,7 @@ describe(__filename, () => {
     expect(root.find(AddonMoreInfo)).toHaveProp('addon', null);
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
     expect(root.find(AddonTitle)).toHaveProp('addon', null);
+    expect(root.find(AddonHead)).toHaveProp('addon', null);
 
     // Since withInstallHelpers relies on this, make sure it's initialized.
     expect(root.instance().props.platformFiles).toEqual({});
@@ -1457,64 +1463,6 @@ describe(__filename, () => {
     expect(root.find('.Addon')).toHaveProp('data-site-identifier', 9001);
   });
 
-  it.each([
-    [ADDON_TYPE_DICT, 'Dictionary'],
-    [ADDON_TYPE_EXTENSION, 'Extension'],
-    [ADDON_TYPE_LANG, 'Language Pack'],
-    [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
-    [ADDON_TYPE_STATIC_THEME, 'Theme'],
-    [ADDON_TYPE_THEME, 'Theme'],
-    [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
-  ])('renders an HTML title for Firefox (add-on type: %s)', (type, name) => {
-    const lang = 'fr';
-
-    const addon = createInternalAddon({ ...fakeAddon, type });
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-      lang,
-    });
-
-    store.dispatch(_loadAddonResults({ addon }));
-
-    const root = renderComponent({ params: { slug: addon.slug }, store });
-
-    expect(root.find('title')).toHaveText(
-      `${addon.name} – Get this ${name} for 🦊 Firefox (${lang})`,
-    );
-  });
-
-  it.each([
-    [ADDON_TYPE_DICT, 'Dictionary'],
-    [ADDON_TYPE_EXTENSION, 'Extension'],
-    [ADDON_TYPE_LANG, 'Language Pack'],
-    [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
-    [ADDON_TYPE_STATIC_THEME, 'Theme'],
-    [ADDON_TYPE_THEME, 'Theme'],
-    [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
-  ])('renders an HTML title for Android (add-on type: %s)', (type, name) => {
-    const lang = 'fr';
-
-    const addon = createInternalAddon({ ...fakeAddon, type });
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
-      lang,
-    });
-
-    store.dispatch(_loadAddonResults({ addon }));
-
-    const root = renderComponent({ params: { slug: addon.slug }, store });
-
-    expect(root.find('title')).toHaveText(
-      `${addon.name} – Get this ${name} for 🦊 Android (${lang})`,
-    );
-  });
-
-  it('does not render an HTML title when there is no add-on', () => {
-    const root = shallowRender({ addon: null, params: { slug: 'some-slug' } });
-
-    expect(root.find('title')).toHaveLength(0);
-  });
-
   it('renders a ContributeCard', () => {
     const root = shallowRender();
     expect(root.find(ContributeCard)).toHaveLength(1);
@@ -1758,129 +1706,5 @@ describe(__filename, () => {
       'children',
       getErrorMessage({ i18n: fakeI18n(), error }),
     );
-  });
-
-  it('renders a description meta tag containing the add-on summary', () => {
-    const addon = createInternalAddon(fakeAddon);
-
-    const root = shallowRender({ addon });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]')).toHaveProp(
-      'content',
-      `Download ${addon.name} for Firefox. ${addon.summary}`,
-    );
-  });
-
-  it('renders Open Graph meta tags', () => {
-    const lang = 'fr';
-
-    const addon = createInternalAddon(fakeAddon);
-    const { store } = dispatchClientMetadata({ lang });
-
-    store.dispatch(_loadAddonResults({ addon }));
-
-    const root = renderComponent({ params: { slug: addon.slug }, store });
-
-    [
-      ['og:type', 'website'],
-      ['og:url', addon.url],
-      ['og:locale', lang],
-      ['og:image', addon.previews[0].image_url],
-    ].forEach(([property, expectedValue]) => {
-      expect(root.find(`meta[property="${property}"]`)).toHaveProp(
-        'content',
-        expectedValue,
-      );
-    });
-
-    expect(root.find(`meta[property="og:title"]`).prop('content')).toContain(
-      addon.name,
-    );
-    expect(
-      root.find(`meta[property="og:description"]`).prop('content'),
-    ).toContain(addon.summary);
-  });
-
-  it('does not render a "og:image" meta tag if add-on has no previews', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      previews: [],
-    });
-
-    const root = shallowRender({ addon });
-
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
-  });
-
-  it('renders a "og:image" meta tag with the preview URL if add-on is a lightweight theme', () => {
-    const addon = createInternalAddon(fakeTheme);
-
-    const root = shallowRender({ addon });
-
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(1);
-    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
-      'content',
-      addon.themeData.previewURL,
-    );
-  });
-
-  it('does not render a "og:image" meta tag if lightweight theme does not have a preview URL', () => {
-    const addon = createInternalAddon({
-      ...fakeTheme,
-      theme_data: {
-        ...fakeTheme.theme_data,
-        previewURL: null,
-      },
-    });
-
-    const root = shallowRender({ addon });
-
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
-  });
-
-  it('renders a canonical link tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp('href', addon.url);
-  });
-
-  it('renders JSON linked data', () => {
-    const addon = createInternalAddon(fakeAddon);
-
-    const root = shallowRender({ addon });
-
-    expect(root.find('script[type="application/ld+json"]')).toHaveLength(1);
-  });
-
-  it('renders a "date" meta tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon });
-
-    expect(root.find('meta[name="date"]')).toHaveLength(1);
-    expect(root.find('meta[name="date"]')).toHaveProp('content', addon.created);
-  });
-
-  it('renders a "last-modified" meta tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon });
-
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(1);
-    expect(root.find('meta[name="last-modified"]')).toHaveProp(
-      'content',
-      addon.last_updated,
-    );
-  });
-
-  it('does not render a "last-modified" meta tag when date is not defined', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      last_updated: null,
-    });
-    const root = shallowRender({ addon });
-
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
   });
 });
