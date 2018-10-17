@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-17 13:50+0000\n"
+"PO-Revision-Date: 2018-10-17 13:54+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -502,9 +502,8 @@ msgid "Add-ons for Android (%(locale)s)"
 msgstr "Tillegg for Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:235
-#, fuzzy
 msgid "%(title)s – Add-ons for Android (%(locale)s)"
-msgstr "%s – Utvidingar for Android"
+msgstr "%(title)s – Tillegg for Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -559,9 +558,8 @@ msgid "Edit this collection"
 msgstr "Rediger denne samlinga"
 
 #: src/amo/components/CollectionDetails/index.js:118
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Rediger samlinga"
+msgstr "Rediger samlingsdetaljar"
 
 #: src/amo/components/CollectionDetails/index.js:131
 #, fuzzy
