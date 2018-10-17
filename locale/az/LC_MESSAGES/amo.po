@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-17 22:32+0000\n"
+"PO-Revision-Date: 2018-10-17 22:36+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -1185,15 +1185,15 @@ msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:295
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "Web-dəki sevimli yerləriniz üçün vizual əlfəcinlər"
 
 #: src/amo/components/HomeHeroBanner/index.js:301
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
 msgid "Never lose a page again"
-msgstr ""
+msgstr "Bir də səhifə itirməyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1205,15 +1205,15 @@ msgstr "Facebook-a sizi internetdə izləməyə imkan verməyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Midnight Lizard"
-msgstr ""
+msgstr "Midnight Lizard"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Give the entire internet a new look"
-msgstr ""
+msgstr "Bütün internetə yeni görünüş verin"
 
 #: src/amo/components/HomeHeroBanner/index.js:56
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "YouTube üçün Iridium"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Play videos in a pop-out window, take video screenshots & more"
@@ -1225,7 +1225,7 @@ msgstr "Məxfi Əlfəcinlər"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Password-protect your personal bookmarks"
-msgstr ""
+msgstr "Şəxsi əlfəcinlərinizi parolla qoruyun"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "IP Address and Domain Information"
@@ -1241,15 +1241,15 @@ msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Hər yeni vərəq açdığınızda görəcəyiniz səhifəni seçin"
 
 #: src/amo/components/HomeHeroBanner/index.js:82
 msgid "Forecastfox"
-msgstr ""
+msgstr "Forecastfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Get instant global weather information right in Firefox"
-msgstr ""
+msgstr "Bütün dünya üçün hava məlumatlarını birbaşa Firefox-da alın"
 
 #: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Multi-Account Containers"
@@ -1261,11 +1261,11 @@ msgstr "Onlayn həyatınızın fərqli hissələrini—iş, şəxsi və s.—rə
 
 #: src/amo/components/HomeHeroBanner/index.js:96
 msgid "Transparent Standalone Images"
-msgstr ""
+msgstr "Transparent Standalone Images"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Render images on transparent backgrounds"
-msgstr ""
+msgstr "Şəkillər şəffaf arxa üzərində göstərilsin"
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
