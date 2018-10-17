@@ -38,7 +38,6 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { sanitizeHTML } from 'core/utils';
 import { genericType, successType } from 'ui/components/Notice';
-import Rating from 'ui/components/Rating';
 import UserRating from 'ui/components/UserRating';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -307,10 +306,12 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     return (
       <form action="">
         <fieldset>
+          {/* eslint-disable react/no-danger */}
           <legend
             className="RatingManager-legend"
             dangerouslySetInnerHTML={promptHTML}
           />
+          {/* eslint-enable react/no-danger */}
           <div className="RatingManager-ratingControl">
             {!this.isSignedIn() ? this.renderLogInToRate() : null}
             {userReview && onDeleteScreen ? (

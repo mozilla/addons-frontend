@@ -94,7 +94,7 @@ describe(__filename, () => {
       }),
     );
 
-    return store;
+    return { addon, review, userId, versionId, store };
   };
 
   it('prompts you to rate the add-on by name', () => {
@@ -128,7 +128,6 @@ describe(__filename, () => {
   });
 
   it('does not load a saved review when none exists', () => {
-    const userId = 12889;
     const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
     const version = {
       ...fakeAddon.current_version,
@@ -136,10 +135,10 @@ describe(__filename, () => {
     };
     const loadSavedReview = sinon.spy();
 
-    const store = createStoreWithLatestReview({
+    const { store } = createStoreWithLatestReview({
       addon,
       review: null,
-      userId,
+      userId: 12889,
       versionId: version.id,
     });
 
@@ -167,7 +166,7 @@ describe(__filename, () => {
 
   it('passes the review once it has loaded', () => {
     const externalReview = { ...fakeReview, id: 432 };
-    const store = createStoreWithLatestReview({ review: externalReview });
+    const { store } = createStoreWithLatestReview({ review: externalReview });
     const root = render({ store });
 
     const rating = root.find(UserRating);
@@ -175,7 +174,7 @@ describe(__filename, () => {
   });
 
   it('passes review=null when no saved review exists', () => {
-    const store = createStoreWithLatestReview({ review: null });
+    const { store } = createStoreWithLatestReview({ review: null });
     const root = render({ store });
 
     // This exits the loading state.
@@ -214,10 +213,7 @@ describe(__filename, () => {
   });
 
   it('updates a rating with the review ID', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const review = fakeReview;
-    const store = createStoreWithLatestReview({ addon, review });
-
+    const { addon, review, store } = createStoreWithLatestReview();
     const submitReview = sinon.spy(() => Promise.resolve());
 
     const root = render({ addon, store, submitReview });
@@ -237,7 +233,6 @@ describe(__filename, () => {
   });
 
   it('does not update an existing review if its version does not match', () => {
-    const userId = 92345;
     const submitReview = sinon.spy(() => Promise.resolve());
 
     // Set up a situation where the user is viewing a new version
@@ -256,10 +251,10 @@ describe(__filename, () => {
       id: newReview.addon.id,
     });
 
-    const store = createStoreWithLatestReview({
+    const { store } = createStoreWithLatestReview({
       addon,
       review: newReview,
-      userId,
+      userId: 92345,
       versionId: oldVersionId,
     });
 
@@ -284,7 +279,7 @@ describe(__filename, () => {
   });
 
   it('renders and configures AddonReview after submitting a rating', () => {
-    const store = createStoreWithLatestReview();
+    const { store } = createStoreWithLatestReview();
     const root = render({ store });
 
     expect(root.find(AddonReview)).toHaveLength(0);
@@ -308,7 +303,7 @@ describe(__filename, () => {
 
   it('calls back to the parent component after submitting a review', () => {
     const parentOnReviewSubmitted = sinon.stub();
-    const store = createStoreWithLatestReview();
+    const { store } = createStoreWithLatestReview();
 
     const root = render({
       onReviewSubmitted: parentOnReviewSubmitted,
@@ -350,8 +345,7 @@ describe(__filename, () => {
   });
 
   it('configures a rating component', () => {
-    const review = fakeReview;
-    const store = createStoreWithLatestReview({ review });
+    const { review, store } = createStoreWithLatestReview();
 
     const root = render({ store });
 
@@ -426,7 +420,7 @@ describe(__filename, () => {
   });
 
   it('sets a custom className for RatingManagerNotice when a review exists', () => {
-    const store = createStoreWithLatestReview();
+    const { store } = createStoreWithLatestReview();
     const root = render({ store });
     const message = root.find(RatingManagerNotice);
     expect(message).toHaveProp(
@@ -434,6 +428,7 @@ describe(__filename, () => {
       'RatingManager-savedRating-withReview',
     );
   });
+
   it('does not set a custom className for RatingManagerNotice when no review exists', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
@@ -542,7 +537,7 @@ describe(__filename, () => {
     });
 
     it('does not show text entry after submitting a rating', async () => {
-      const store = createStoreWithLatestReview();
+      const { store } = createStoreWithLatestReview();
       const root = renderInline({ store });
       expect(root.find(AddonReviewManager)).toHaveLength(0);
 
@@ -553,7 +548,7 @@ describe(__filename, () => {
     });
 
     it('does not render AddonReviewManager if not signed in', async () => {
-      const store = createStoreWithLatestReview();
+      const { store } = createStoreWithLatestReview();
       store.dispatch(logOutUser());
       const root = renderInline({ store });
 
@@ -603,10 +598,8 @@ describe(__filename, () => {
     });
 
     it('configures AddonReviewManagerRating when beginningToDeleteReview', () => {
-      const addon = createInternalAddon(fakeAddon);
       const review = { ...fakeReview, score: 4 };
-      const userId = 9987;
-      const store = createStoreWithLatestReview({ addon, review, userId });
+      const { addon, userId, store } = createStoreWithLatestReview({ review });
       store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
 
       const root = renderInline({ store, addon, userId });
@@ -619,10 +612,7 @@ describe(__filename, () => {
     });
 
     it('also configures AddonReviewManagerRating while deletingReview', () => {
-      const addon = createInternalAddon({ ...fakeAddon });
-      const review = { ...fakeReview };
-      const userId = 9987;
-      const store = createStoreWithLatestReview({ addon, review, userId });
+      const { addon, review, userId, store } = createStoreWithLatestReview();
       store.dispatch(
         deleteAddonReview({
           addonId: addon.id,
@@ -643,8 +633,7 @@ describe(__filename, () => {
         name: 'uBlock Origin',
       });
       const review = { ...fakeReview, body: 'This add-on is nice' };
-      const userId = 9987;
-      const store = createStoreWithLatestReview({ addon, review, userId });
+      const { userId, store } = createStoreWithLatestReview({ addon, review });
       store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
 
       const root = renderInline({ store, addon, userId });
@@ -660,8 +649,7 @@ describe(__filename, () => {
         name: 'uBlock Origin',
       });
       const review = { ...fakeReview, body: undefined, score: 4 };
-      const userId = 9987;
-      const store = createStoreWithLatestReview({ addon, review, userId });
+      const { userId, store } = createStoreWithLatestReview({ addon, review });
       store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
 
       const root = renderInline({ store, addon, userId });
@@ -672,10 +660,7 @@ describe(__filename, () => {
     });
 
     it('still prompts to delete a review while deletingReview', () => {
-      const addon = createInternalAddon({ ...fakeAddon });
-      const review = { ...fakeReview };
-      const userId = 9987;
-      const store = createStoreWithLatestReview({ addon, review, userId });
+      const { addon, review, userId, store } = createStoreWithLatestReview();
       store.dispatch(
         deleteAddonReview({
           addonId: addon.id,
@@ -696,7 +681,7 @@ describe(__filename, () => {
         body: 'This is hands down the best ad blocker',
       };
       const root = renderInline({
-        store: createStoreWithLatestReview({ review }),
+        store: createStoreWithLatestReview({ review }).store,
       });
 
       const reviewCard = root.find(AddonReviewCard);
@@ -705,14 +690,14 @@ describe(__filename, () => {
 
     it('shows controls by default', () => {
       const root = renderInline({
-        store: createStoreWithLatestReview(),
+        store: createStoreWithLatestReview().store,
       });
 
       expect(root.find(AddonReviewCard)).toHaveProp('showControls', true);
     });
 
     it('hides controls while showing a saving notification', () => {
-      const store = createStoreWithLatestReview();
+      const { store } = createStoreWithLatestReview();
 
       store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
       const root = renderInline({ store });
@@ -721,7 +706,7 @@ describe(__filename, () => {
     });
 
     it('hides controls while showing a saved notification', () => {
-      const store = createStoreWithLatestReview();
+      const { store } = createStoreWithLatestReview();
 
       store.dispatch(flashReviewMessage(SAVED_RATING));
       const root = renderInline({ store });
@@ -730,7 +715,7 @@ describe(__filename, () => {
     });
 
     it('shows controls when a notification is hidden', () => {
-      const store = createStoreWithLatestReview();
+      const { store } = createStoreWithLatestReview();
       // Set a message then hide it.
       store.dispatch(flashReviewMessage(SAVED_RATING));
       store.dispatch(hideFlashedReviewMessage());
@@ -740,8 +725,7 @@ describe(__filename, () => {
     });
 
     it('hides UserRating and prompt when editing', () => {
-      const review = { ...fakeReview, id: 8877 };
-      const store = createStoreWithLatestReview({ review });
+      const { review, store } = createStoreWithLatestReview();
       store.dispatch(showEditReviewForm({ reviewId: review.id }));
       const root = renderInline({ store });
 
@@ -750,8 +734,7 @@ describe(__filename, () => {
     });
 
     it('shows UserRating and prompt when not editing', () => {
-      const review = { ...fakeReview, id: 8877 };
-      const store = createStoreWithLatestReview({ review });
+      const { review, store } = createStoreWithLatestReview();
 
       store.dispatch(showEditReviewForm({ reviewId: review.id }));
       store.dispatch(hideEditReviewForm({ reviewId: review.id }));
@@ -787,7 +770,7 @@ describe(__filename, () => {
     });
 
     it('updates an existing rating', () => {
-      const store = createStoreWithLatestReview({ review: fakeReview });
+      const { store } = createStoreWithLatestReview();
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
       const score = 5;
