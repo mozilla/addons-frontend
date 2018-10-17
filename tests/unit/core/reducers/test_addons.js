@@ -109,7 +109,7 @@ describe(__filename, () => {
     expect(Object.keys(state.byID)).toEqual([]);
   });
 
-  it('stores a modified extension object', () => {
+  it('stores an internal representation of an extension', () => {
     const extension = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
     const state = addons(undefined, loadAddonResults({ addons: [extension] }));
 
@@ -122,10 +122,11 @@ describe(__filename, () => {
       isRestartRequired: false,
       isWebExtension: true,
       isMozillaSignedExtension: false,
+      themeData: null,
     });
   });
 
-  it('stores a modified theme object', () => {
+  it('stores an internal representation of a theme', () => {
     const theme = { ...fakeTheme };
     const state = addons(undefined, loadAddonResults({ addons: [theme] }));
 
@@ -133,13 +134,7 @@ describe(__filename, () => {
     // what we expect it to below.
     const expectedTheme = {
       ...theme,
-      // Expect theme_data to be merged into the addon.
-      ...theme.theme_data,
-      themeData: {
-        ...theme.theme_data,
-        description: theme.description,
-      },
-      description: theme.description,
+      themeData: theme.theme_data,
       guid: getGuid(theme),
       platformFiles: {
         ...defaultPlatformFiles,
@@ -221,26 +216,6 @@ describe(__filename, () => {
     expect(state.byID[addon.id].platformFiles).toMatchObject(
       defaultPlatformFiles,
     );
-  });
-
-  it('does not use description from theme_data', () => {
-    // See: https://github.com/mozilla/addons-frontend/issues/2569
-    // Can be removed when
-    // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
-    const theme = {
-      ...fakeTheme,
-      description: null,
-      slug: 'baz',
-      id: 42,
-      theme_data: {
-        ...fakeTheme.theme_data,
-        description: 'None',
-        id: 42,
-      },
-    };
-    const state = addons({}, loadAddonResults({ addons: [theme] }));
-
-    expect(state.byID[theme.id].description).toEqual(null);
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {

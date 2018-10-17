@@ -18,7 +18,6 @@ import {
   validInstallStates as validStates,
 } from 'core/constants';
 import log from 'core/logger';
-import { getThemeData } from 'core/themeInstall';
 import Switch from 'ui/components/Switch';
 
 export class InstallSwitchBase extends React.Component {
@@ -145,26 +144,7 @@ export class InstallSwitchBase extends React.Component {
   };
 
   render() {
-    const browsertheme = JSON.stringify(
-      getThemeData({
-        accentcolor: this.props.accentcolor,
-        author: this.props.author,
-        category: this.props.category,
-        description: this.props.description,
-        detailURL: this.props.detailURL,
-        footer: this.props.footer,
-        footerURL: this.props.footerURL,
-        header: this.props.header,
-        headerURL: this.props.headerURL,
-        iconURL: this.props.iconURL,
-        id: this.props.id,
-        name: this.props.name,
-        previewURL: this.props.previewURL,
-        textcolor: this.props.textcolor,
-        updateURL: this.props.updateURL,
-        version: this.props.version,
-      }),
-    );
+    const browsertheme = JSON.stringify(this.props.addon.themeData);
     const { disabled, handleChange, slug, status, ...otherProps } = this.props;
 
     if (!validStates.includes(status)) {

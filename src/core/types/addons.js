@@ -174,13 +174,12 @@ export type PlatformFilesType = {|
  */
 export type AddonType = {|
   ...ExternalAddonType,
-  ...ThemeData,
   // Here are some custom properties for our internal representation.
   platformFiles: PlatformFilesType,
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,
-  themeData?: ThemeData,
+  themeData: ThemeData | null,
 |};
 
 export type CollectionAddonType = {|
