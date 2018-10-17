@@ -554,7 +554,7 @@ describe(__filename, () => {
   });
 
   it('lets you flag a review', () => {
-    const review = createReviewAndSignInAsUnrelatedUser();
+    const review = _setReview(fakeReview);
     const root = render({ review });
 
     const flag = renderControls(root).find(FlagReviewMenu);
@@ -569,12 +569,11 @@ describe(__filename, () => {
   });
 
   it('lets you flag a developer reply', () => {
-    const review = createReviewAndSignInAsUnrelatedUser();
-    review.isDeveloperReply = true;
-    const root = render({ review });
+    const { reply } = _setReviewReply();
+    const root = renderReply({ reply });
 
     const flag = renderControls(root).find(FlagReviewMenu);
-    expect(flag).toHaveProp('review', review);
+    expect(flag).toHaveProp('review', reply);
     expect(flag).toHaveProp('isDeveloperReply', true);
   });
 
