@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-16 18:12+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-10-13 14:08+0000\n"
+"Last-Translator: Alpha <adrien.gat@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1164,7 +1164,7 @@ msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:276
 msgid "Go dark for a better web viewing experience"
-msgstr ""
+msgstr "Un thème sombre pour une meilleure expérience de lecture sur le Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "CookieBro"
@@ -1176,7 +1176,7 @@ msgstr "Supprime automatiquement les cookies indésirables"
 
 #: src/amo/components/HomeHeroBanner/index.js:287
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:288
 msgid "Save snippets of text to paste & organize later"
