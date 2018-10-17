@@ -26,7 +26,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName('HomeHero');
   });
 
-  it('renders a header section with introductory text', () => {
+  it('renders a header section with text', () => {
     const root = render();
 
     expect(root.find('.HomeHero-title')).toIncludeText(

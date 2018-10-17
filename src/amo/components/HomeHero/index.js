@@ -39,7 +39,7 @@ export class HomeHeroBase extends React.Component<InternalProps> {
     ];
   }
 
-  getHeaderSection() {
+  getHeroHeader() {
     const { i18n } = this.props;
 
     return (
@@ -56,7 +56,7 @@ export class HomeHeroBase extends React.Component<InternalProps> {
     );
   }
 
-  getSections() {
+  getHeroSections() {
     return this.getHeroes().map((hero) => {
       const { title, icon, url } = hero;
 
@@ -76,10 +76,10 @@ export class HomeHeroBase extends React.Component<InternalProps> {
   render() {
     return (
       <div className="HomeHero">
-        {this.getHeaderSection()}
+        {this.getHeroHeader()}
 
         <div className="HomeHero-cards">
-          <Hero name="Home" sections={this.getSections()} />
+          <Hero name="Home" sections={this.getHeroSections()} />
         </div>
       </div>
     );
