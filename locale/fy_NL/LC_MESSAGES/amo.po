@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-17 16:14+0000\n"
+"PO-Revision-Date: 2018-10-17 21:07+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -44,39 +44,32 @@ msgid "Add to collection"
 msgstr "Tafoegje oan kolleksje"
 
 #: src/amo/components/AddonAdminLinks/index.js:109
-#, fuzzy
 msgid "Content review add-on"
-msgstr "ien skriuwt in beoardieling foar myn add-on"
+msgstr "Ynhâldsbeoardieling fan add-on"
 
 #: src/amo/components/AddonAdminLinks/index.js:115
-#, fuzzy
 msgid "Review theme"
-msgstr "Tekst beoardiele"
+msgstr "Tema beoardiele"
 
 #: src/amo/components/AddonAdminLinks/index.js:116
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Beoardielingen foar %(addonName)s"
+msgstr "Add-onkoade beoardiele"
 
 #: src/amo/components/AddonAdminLinks/index.js:137
-#, fuzzy
 msgid "Admin Links"
-msgstr "Add-on-keppelingen"
+msgstr "Behearderskeppelingen"
 
 #: src/amo/components/AddonAdminLinks/index.js:75
-#, fuzzy
 msgid "Edit add-on"
-msgstr "Add-ons sykje"
+msgstr "Add-on bewurkje"
 
 #: src/amo/components/AddonAdminLinks/index.js:86
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Add-ons wurde laden"
+msgstr "Add-onsteat beheare"
 
 #: src/amo/components/AddonAdminLinks/index.js:98
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Add-ons sykje"
+msgstr "Add-on beheare"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -870,9 +863,8 @@ msgid "Developer Hub"
 msgstr "Untwikkelershub"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Antwurd ûntwikkeler"
+msgstr "Untwikkelersbelied"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1171,9 +1163,8 @@ msgid "Go dark for a better web viewing experience"
 msgstr "Sykje it donker op foar in bettere sjochûnderfining op it web"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
-#, fuzzy
 msgid "CookieBro"
-msgstr "Cookies"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:283
 msgid "Automatically delete unwanted cookies"
@@ -1200,9 +1191,8 @@ msgid "Undo Close Tab Button"
 msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:302
-#, fuzzy
 msgid "Never lose a page again"
-msgstr "Reitsje nea mear in side kwyt."
+msgstr "Reitsje nea mear in side kwyt"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Facebook Container"
@@ -1870,39 +1860,33 @@ msgstr "Download %(addonName)s foar Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:429
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dit wurdboek downloade foar 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dit wurdboek downloade foar 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:436
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dizze útwreiding downloade foar 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dizze útwreiding downloade foar 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:443
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dit taalpakket downloade foar 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dit taalpakket downloade foar 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:451
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dit tema downloade foar 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dit tema downloade foar 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:459
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dit tema downloade foar 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dit sykhelpmiddel downloade foar 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:466
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dizze add-on downloade foar 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dizze add-on downloade foar 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:477
@@ -1926,9 +1910,8 @@ msgstr "%(addonName)s – Dit tema downloade foar 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:506
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Dit tema downloade foar 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dit sykhelpmiddel downloade foar 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:513
@@ -2114,9 +2097,8 @@ msgid "Privacy & security"
 msgstr "Privacy en befeiliging"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "Mear oersetark besjen"
+msgstr "Mear útwreidingen foar âlderlik tafersjoch besjen"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
