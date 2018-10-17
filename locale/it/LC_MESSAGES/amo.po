@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-17 06:55+0000\n"
+"PO-Revision-Date: 2018-10-17 11:08+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -57,7 +57,7 @@ msgstr "Revisiona codice componente aggiuntivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:137
 msgid "Admin Links"
-msgstr ""
+msgstr "Gestisci link"
 
 #: src/amo/components/AddonAdminLinks/index.js:75
 msgid "Edit add-on"
@@ -65,11 +65,11 @@ msgstr "Modifica componente aggiuntivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:86
 msgid "Admin add-on status"
-msgstr ""
+msgstr "Gestisci stato componente aggiuntivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:98
 msgid "Admin add-on"
-msgstr ""
+msgstr "Gestisci componente aggiuntivo"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
