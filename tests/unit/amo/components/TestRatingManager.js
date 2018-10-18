@@ -672,7 +672,7 @@ describe(__filename, () => {
       const root = renderInline({ store, addon, userId });
 
       const prompt = root.find('.RatingManager-legend').html();
-      expect(prompt).toContain('Are you sure you want to delete');
+      expect(prompt).toContain('Are you sure you want to delete your review');
     });
 
     it('shows AddonReviewCard with a saved review', () => {
