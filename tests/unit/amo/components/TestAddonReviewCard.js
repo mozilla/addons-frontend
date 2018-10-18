@@ -180,13 +180,6 @@ describe(__filename, () => {
     });
   }
 
-  function createReviewAndSignInAsSameUser() {
-    return signInAndDispatchSavedReview({
-      siteUserId: 123,
-      reviewUserId: 123,
-    });
-  }
-
   it('renders a review', () => {
     const review = _setReview({
       ...fakeReview,
@@ -584,12 +577,18 @@ describe(__filename, () => {
   });
 
   it('hides the flag button if you wrote the review', () => {
-    const review = createReviewAndSignInAsSameUser();
-    const root = render({ review });
+    const originalReviewId = 123;
+    const review = signInAndDispatchSavedReview({
+      siteUserId: originalReviewId,
+    });
+    let root = render({ review });
 
-    expect(
-      renderControls(root).find('.TooltipMenu-opener AddonReviewCard-control'),
-    ).toHaveLength(0);
+    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
+
+    store.dispatch(logOutUser());
+
+    root = render({ review });
+    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(1);
   });
 
   it('allows review replies when siteUserCanManageReplies() is true', () => {
