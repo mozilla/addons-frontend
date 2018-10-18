@@ -553,7 +553,7 @@ describe(__filename, () => {
     expect(reviewComponent).toHaveProp('review', review);
   });
 
-  it('lets you flag a review', () => {
+  it('shows FlagReviewMenu when signed out', () => {
     const review = _setReview(fakeReview);
     const root = render({ review });
 
@@ -581,12 +581,6 @@ describe(__filename, () => {
     const root = render({ review: null });
 
     expect(root.find(FlagReviewMenu)).toHaveLength(0);
-  });
-
-  it('renders the flag button when not signed in', () => {
-    const root = render({ review: _setReview(fakeReview) });
-
-    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(1);
   });
 
   it('hides the flag button if you wrote the review', () => {
