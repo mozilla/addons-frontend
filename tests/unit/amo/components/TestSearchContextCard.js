@@ -152,12 +152,16 @@ describe(__filename, () => {
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
-        category: 'Bookmarks',
+        category: 'bookmarks',
         query: 'test',
       },
     });
 
-    const root = render({ store, categoryName });
+    const root = render({ store });
+
+    // This simulates time for categories fetching and getting
+    // translated category name.
+    root.setProps({ categoryName });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `1 theme found for "test" in ${categoryName}`,
@@ -165,7 +169,7 @@ describe(__filename, () => {
   });
 
   it('should render results with categoryName and no query if not provided for addonType ADDON_TYPE_THEMES_FILTER', () => {
-    const categoryName = 'Fun Bookmarks';
+    const categoryName = 'Bookmarks & Stuff';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -175,6 +179,10 @@ describe(__filename, () => {
     });
 
     const root = render({ store, categoryName });
+
+    // This simulates time for categories fetching and getting
+    // translated category name.
+    root.setProps({ categoryName });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `1 theme found in ${categoryName}`,
@@ -273,17 +281,43 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query if not provided for addonType ADDON_TYPE_EXTENSION', () => {
-    const categoryName = 'Cool Animals';
+  it('should render results with categoryName and query for addonType ADDON_TYPE_EXTENSION', () => {
+    const categoryName = 'Bookmarks & Stuff';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
-        category: 'cool-animals',
+        category: 'bookmarks',
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    // This simulates time for categories fetching and getting
+    // translated category name.
+    root.setProps({ categoryName });
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      `1 extension found for "test" in ${categoryName}`,
+    );
+  });
+
+  it('should render results with categoryName and no query if not provided for addonType ADDON_TYPE_EXTENSION', () => {
+    const categoryName = 'Bookmarks & Stuff';
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category: 'bookmarks',
       },
     });
 
     const root = render({ store, categoryName });
+
+    // This simulates time for categories fetching and getting
+    // translated category name.
+    root.setProps({ categoryName });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `1 extension found in ${categoryName}`,

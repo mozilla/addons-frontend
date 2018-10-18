@@ -155,40 +155,46 @@ export class SearchContextCardBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  const categoriesState = state.categories.categories;
-  const clientApp = state.api.clientApp;
   const { category: currentCategory } = state.search.filters;
+  let categoryName;
 
-  const allCategories = [];
+  if (currentCategory && !categoryName) {
+    const categoriesState = state.categories.categories;
+    const { clientApp } = state.api;
+    const allCategories = [];
 
-  if (categoriesState && clientApp) {
-    Object.keys(categoriesState[clientApp]).forEach((type) => {
-      Object.keys(categoriesState[clientApp][type]).forEach((category) => {
-        const { slug } = categoriesState[clientApp][type][category];
-        const { name } = categoriesState[clientApp][type][category];
-        allCategories.push({
-          [slug]: {
-            name,
-            slug,
-          },
+    if (categoriesState && clientApp) {
+      Object.keys(categoriesState[clientApp]).forEach((type) => {
+        Object.keys(categoriesState[clientApp][type]).forEach((category) => {
+          const { slug } = categoriesState[clientApp][type][category];
+          const { name } = categoriesState[clientApp][type][category];
+          allCategories.push({
+            [slug]: {
+              name,
+              slug,
+            },
+          });
         });
       });
-    });
-  }
-  const translatedCategory =
-    currentCategory &&
-    allCategories.length &&
-    allCategories.find(
-      (category) =>
-        category[currentCategory] &&
-        category[currentCategory].slug === currentCategory,
-    );
-  return {
-    categoryName:
-      translatedCategory &&
+    }
+
+    const translatedCategory =
       currentCategory &&
-      translatedCategory[currentCategory] &&
-      translatedCategory[currentCategory].name,
+      allCategories.length &&
+      allCategories.find(
+        (category) =>
+          category[currentCategory] &&
+          category[currentCategory].slug === currentCategory,
+      );
+
+    categoryName =
+      translatedCategory && translatedCategory[currentCategory]
+        ? translatedCategory[currentCategory].name
+        : null;
+  }
+
+  return {
+    categoryName,
     count: state.search.count,
     filters: state.search.filters,
     loading: state.search.loading,
