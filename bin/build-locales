@@ -14,10 +14,9 @@ const glob = require('glob');
 const shelljs = require('shelljs');
 const chalk = require('chalk');
 const toSource = require('tosource');
-const oneLine = require('common-tags').oneLine;
+const { oneLine } = require('common-tags');
 
 const appName = config.get('appName');
-const momentLangMap = config.get('momentLangMap');
 
 if (!appName) {
   console.log(chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
@@ -27,6 +26,24 @@ if (!appName) {
 const localeDir = path.join(__dirname, '../locale');
 const poFiles = glob.sync(`${localeDir}/**/${appName}.po`);
 const dest = path.join(__dirname, '../src/locale/');
+
+const getLocaleModulePath = (locale, { _config = config } = {}) => {
+  const momentLangMap = _config.get('momentLangMap');
+
+  const momentLocale = locale.replace('_', '-').toLowerCase();
+  const mappedLocale = momentLangMap[momentLocale];
+
+  let localeModulePath = `moment/locale/${momentLocale}`;
+
+  if (mappedLocale) {
+    localeModulePath = `moment/locale/${mappedLocale}`;
+
+    console.info(oneLine`${locale} is mapped to ${mappedLocale} in
+      configuration, therefore ${mappedLocale} will be used.`);
+  }
+
+  return localeModulePath;
+};
 
 poFiles.forEach((pofile) => {
   const dir = path.dirname(pofile);
@@ -50,17 +67,7 @@ poFiles.forEach((pofile) => {
   if (appName === 'amo') {
     var defineLocale = null;
     try {
-      const momentLocale = locale.replace('_', '-').toLowerCase();
-      const mappedLocale = momentLangMap[momentLocale];
-
-      let localeModulePath = `moment/locale/${momentLocale}`;
-
-      if (mappedLocale) {
-        localeModulePath = `moment/locale/${mappedLocale}`;
-
-        console.info(oneLine`${locale} is mapped to ${mappedLocale} in
-          configuration, therefore ${mappedLocale} will be used.`);
-      }
+      const localeModulePath = getLocaleModulePath(locale);
 
       // Check for the locale first; if it doesn't exist we don't have
       // a moment locale that matches.
@@ -92,3 +99,7 @@ poFiles.forEach((pofile) => {
   fs.writeFileSync(
     localeOutputFilePath, `module.exports = ${toSource(localeObject)}`);
 });
+
+module.exports = {
+  getLocaleModulePath,
+};

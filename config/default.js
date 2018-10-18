@@ -240,8 +240,8 @@ module.exports = {
   },
   rtlLangs: ['ar', 'fa', 'he', 'ur'],
   defaultLang: 'en-US',
-  // Mapping for missing moment locales that we can still map to existing ones.
-  // Moment locales are lowercase and do not use an underscore.
+  // Some missing moment locales can be mapped to existing ones. Note: moment
+  // locales are lowercase and do not use an underscore.
   // See: https://github.com/mozilla/addons-frontend/issues/1515
   momentLangMap: {
     'bn-bd': 'bn',
