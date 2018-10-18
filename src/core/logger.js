@@ -1,5 +1,7 @@
 import config from 'config';
 
+import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+
 let pino = null;
 let httpContext = null;
 if (process.env.NODE_ENV === 'test') {
@@ -32,7 +34,7 @@ export default ['debug', 'error', 'fatal', 'info', 'trace', 'warn'].reduce(
     return {
       ...decoratedLogger,
       [level]: (...args) => {
-        const requestId = httpContext && httpContext.get('amo-request-id');
+        const requestId = httpContext && httpContext.get(AMO_REQUEST_ID_HEADER);
 
         if (requestId) {
           pinoLogger[level]({ amo_request_id: requestId }, ...args);

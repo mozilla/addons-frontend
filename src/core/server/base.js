@@ -16,13 +16,13 @@ import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
-import uuidv4 from 'uuid/v4';
 
 import log from 'core/logger';
 import { createApiError } from 'core/api';
 import Root from 'core/components/Root';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
+import requestId from 'core/middleware/requestId';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
 import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
@@ -164,13 +164,7 @@ function baseServer(
   app.use(httpContext.middleware);
 
   // This middleware adds a correlation ID to the HTTP context and response.
-  app.use((req, res, next) => {
-    const requestId = req.headers['amo-request-id'] || uuidv4();
-
-    httpContext.set('amo-request-id', requestId);
-    res.setHeader('amo-request-id', requestId);
-    next();
-  });
+  app.use(requestId);
 
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {
