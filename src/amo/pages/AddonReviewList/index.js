@@ -1,14 +1,13 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
 import makeClassName from 'classnames';
-import { oneLine } from 'common-tags';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonReviewCard from 'amo/components/AddonReviewCard';
-import RatingsByStar from 'amo/components/RatingsByStar';
+import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -21,15 +20,11 @@ import {
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
-import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -201,75 +196,30 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         // is fixed.
         reviews.filter((review) => review.id.toString() !== reviewId)
       : Array(4).fill(null);
-    const iconUrl = getAddonIconUrl(addon);
-    const iconImage = (
-      <img
-        className="AddonReviewList-header-icon-image"
-        src={iconUrl}
-        alt={i18n.gettext('Add-on icon')}
-      />
-    );
 
-    let header;
-    if (addon) {
-      header = i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
-        addonName: addon.name,
-      });
-    } else {
-      header = <LoadingText />;
-    }
+    const header = addon
+      ? i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
+          addonName: addon.name,
+        })
+      : '';
 
     const addonReviewCount =
       addon && addon.ratings ? addon.ratings.text_count : null;
-    let addonName;
-    let reviewCountHTML;
-    if (addon && addonReviewCount !== null) {
-      addonName = <Link to={this.addonURL()}>{addon.name}</Link>;
-      reviewCountHTML = i18n.sprintf(
-        i18n.ngettext(
-          '%(total)s review for this add-on',
-          '%(total)s reviews for this add-on',
-          addonReviewCount,
-        ),
-        {
-          total: i18n.formatNumber(addonReviewCount),
-        },
+    const reviewCountHTML =
+      addon && addonReviewCount !== null ? (
+        i18n.sprintf(
+          i18n.ngettext(
+            '%(total)s review for this add-on',
+            '%(total)s reviews for this add-on',
+            addonReviewCount,
+          ),
+          {
+            total: i18n.formatNumber(addonReviewCount),
+          },
+        )
+      ) : (
+        <LoadingText />
       );
-    } else {
-      addonName = <LoadingText />;
-      reviewCountHTML = <LoadingText />;
-    }
-
-    const authorProps = {};
-    if (addon && addon.authors) {
-      const authorList = addon.authors.map((author) => {
-        if (author.url) {
-          return oneLine`
-            <a
-              class="AddonReviewList-addon-author-link"
-              href="${author.url}"
-            >${author.name}</a>`;
-        }
-
-        return author.name;
-      });
-      const title = i18n.sprintf(
-        // translators: Example: by The Author, The Next Author
-        i18n.gettext('by %(authorList)s'),
-        {
-          addonName: addon.name,
-          authorList: authorList.join(', '),
-        },
-      );
-      authorProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
-    } else {
-      authorProps.children = <LoadingText />;
-    }
-    /* eslint-disable jsx-a11y/heading-has-content */
-    const authorsHTML = (
-      <h3 className="AddonReviewList-header-authors" {...authorProps} />
-    );
-    /* eslint-enable jsx-a11y/heading-has-content */
 
     const paginator =
       addon && reviewCount && pageSize && reviewCount > pageSize ? (
@@ -281,30 +231,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           perPage={pageSize}
         />
       ) : null;
-
-    const metaHeader = (
-      <div className="AddonReviewList-header">
-        <div className="AddonReviewList-header-icon">
-          {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}
-        </div>
-        <div className="AddonReviewList-header-text">
-          <h1 className="visually-hidden">{header}</h1>
-          <h2 className="AddonReviewList-header-addonName">{addonName}</h2>
-          {authorsHTML}
-        </div>
-      </div>
-    );
-
-    let addonAverage;
-    if (addon && addon.ratings) {
-      const averageRating = i18n.formatNumber(addon.ratings.average.toFixed(1));
-      addonAverage = i18n.sprintf(
-        // translators: averageRating is a localized number, such as 4.5
-        // in English or ٤٫٧ in Arabic.
-        i18n.gettext('%(averageRating)s star average'),
-        { averageRating },
-      );
-    }
 
     return (
       <div
@@ -322,19 +248,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
         {errorHandler.renderErrorIfPresent()}
 
-        <Card header={metaHeader} className="AddonReviewList-addon">
-          <div className="AddonReviewList-overallRatingStars">
-            <Rating
-              rating={addon && addon.ratings && addon.ratings.average}
-              readOnly
-              yellowStars
-            />
-            <div className="AddonReviewList-addonAverage">
-              {addon ? addonAverage : <LoadingText minWidth={20} />}
-            </div>
-          </div>
-          <RatingsByStar addon={addon} />
-        </Card>
+        <AddonSummaryCard addon={addon} headerText={header} />
 
         <div className="AddonReviewList-reviews">
           {reviewId && (
