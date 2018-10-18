@@ -4,6 +4,9 @@ import { TransitionGroup } from 'react-transition-group';
 import createStore from 'amo/store';
 import AMInstallButton, {
   AMInstallButtonBase,
+  EXPERIMENT_CATEGORY,
+  VARIANT_BLUE,
+  VARIANT_GREEN,
 } from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
@@ -37,6 +40,7 @@ import {
   fakeTheme,
   createFakeLocation,
   getFakeConfig,
+  getFakeLogger,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -77,10 +81,12 @@ describe(__filename, () => {
     defaultInstallSource: '',
     disabled: false,
     enable: sinon.stub(),
+    experimentEnabled: false,
     hasAddonManager: true,
     i18n: fakeI18n(),
     install: sinon.stub(),
     installTheme: sinon.stub(),
+    isAddonEnabled: sinon.stub(),
     location: createFakeLocation(),
     status: UNINSTALLED,
     store: createStore().store,
@@ -317,7 +323,7 @@ describe(__filename, () => {
   });
 
   it('calls `window.external.AddSearchProvider` to install a search provider', () => {
-    const fakeLog = { info: sinon.stub() };
+    const fakeLog = getFakeLogger();
     const fakeWindow = createFakeMozWindow();
     const installURL = 'https://a.m.o/files/addon.xpi';
 
@@ -639,5 +645,46 @@ describe(__filename, () => {
     const root = renderOpenSearch({ status: UNKNOWN });
 
     expect(root.find(Button)).toHaveProp('disabled', false);
+  });
+
+  describe('install_button_color experiment', () => {
+    const renderWithExperiment = (props = {}) => {
+      return render({
+        experimentEnabled: true,
+        ...props,
+      });
+    };
+
+    it('adds a CSS class name when variant is VARIANT_GREEN', () => {
+      const root = renderWithExperiment({ variant: VARIANT_GREEN });
+
+      expect(root).toHaveClassName('AMInstallButton--green');
+    });
+
+    it('does not add a CSS class name when variant is not VARIANT_GREEN', () => {
+      const root = renderWithExperiment({ variant: VARIANT_BLUE });
+
+      expect(root).not.toHaveClassName('AMInstallButton--green');
+    });
+
+    it('sends a tracking event when mounted on the client', () => {
+      const _tracking = createFakeTracking();
+      const variant = VARIANT_BLUE;
+
+      renderWithExperiment({ _tracking, variant });
+
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: variant,
+        category: EXPERIMENT_CATEGORY,
+      });
+    });
+
+    it('does not send any tracking event when experiment is disabled', () => {
+      const _tracking = createFakeTracking();
+
+      render({ _tracking, experimentEnabled: false });
+
+      sinon.assert.notCalled(_tracking.sendEvent);
+    });
   });
 });
