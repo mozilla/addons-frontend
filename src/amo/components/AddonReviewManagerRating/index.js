@@ -13,7 +13,7 @@ export type Props = {|
   children?: React.Element<any> | string,
   className?: string,
   onSelectRating: ((score: number) => void) | void,
-  rating: number | void | null,
+  rating: ?number,
 |};
 
 type InternalProps = {|
