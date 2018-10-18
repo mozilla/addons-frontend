@@ -32,8 +32,13 @@
 .AddonReviewCard-allControls {
   align-items: flex-start;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 0;
+
+  @include respond-to(medium) {
+    justify-content: flex-start;
+  }
 
   .AddonReviewCard-control {
     &,
@@ -76,7 +81,9 @@
 }
 
 .AddonReviewCard-control {
-  @include margin-end(6px);
+  display: flex;
+  max-width: 33%;
+  text-align: center;
 
   @include respond-to(medium) {
     @include margin-end(24px);
