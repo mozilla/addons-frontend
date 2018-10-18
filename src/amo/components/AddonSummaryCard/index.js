@@ -25,60 +25,60 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export class AddonSummaryCardBase extends React.Component<InternalProps> {
-  render() {
-    const { addon, headerText, i18n } = this.props;
+export const AddonSummaryCardBase = ({
+  addon,
+  headerText,
+  i18n,
+}: InternalProps) => {
+  const addonUrl = addon ? `/addon/${addon.slug}/` : '';
+  const iconUrl = getAddonIconUrl(addon);
+  const iconImage = (
+    <img
+      className="AddonSummaryCard-header-icon-image"
+      src={iconUrl}
+      alt={i18n.gettext('Add-on icon')}
+    />
+  );
 
-    const addonUrl = addon ? `/addon/${addon.slug}/` : '';
-    const iconUrl = getAddonIconUrl(addon);
-    const iconImage = (
-      <img
-        className="AddonSummaryCard-header-icon-image"
-        src={iconUrl}
-        alt={i18n.gettext('Add-on icon')}
-      />
-    );
-
-    const metaHeader = (
-      <div className="AddonSummaryCard-header">
-        <div className="AddonSummaryCard-header-icon">
-          {addon ? <Link to={addonUrl}>{iconImage}</Link> : iconImage}
-        </div>
-        <div className="AddonSummaryCard-header-text">
-          <h1 className="visually-hidden">{headerText}</h1>
-          <AddonTitle addon={addon} linkToAddon />
-        </div>
+  const metaHeader = (
+    <div className="AddonSummaryCard-header">
+      <div className="AddonSummaryCard-header-icon">
+        {addon ? <Link to={addonUrl}>{iconImage}</Link> : iconImage}
       </div>
-    );
+      <div className="AddonSummaryCard-header-text">
+        <h1 className="visually-hidden">{headerText}</h1>
+        <AddonTitle addon={addon} linkToAddon />
+      </div>
+    </div>
+  );
 
-    let addonAverage;
-    if (addon && addon.ratings) {
-      const averageRating = i18n.formatNumber(addon.ratings.average.toFixed(1));
-      addonAverage = i18n.sprintf(
-        // eslint-disable-next-line max-len
-        // translators: averageRating is a localized number, such as 4.5 in English or ٤٫٧ in Arabic.
-        i18n.gettext('%(averageRating)s star average'),
-        { averageRating },
-      );
-    }
-
-    return (
-      <Card header={metaHeader} className="AddonSummaryCard">
-        <div className="AddonSummaryCard-overallRatingStars">
-          <Rating
-            rating={addon && addon.ratings && addon.ratings.average}
-            readOnly
-            yellowStars
-          />
-          <div className="AddonSummaryCard-addonAverage">
-            {addon ? addonAverage : <LoadingText minWidth={20} />}
-          </div>
-        </div>
-        <RatingsByStar addon={addon} />
-      </Card>
+  let addonAverage;
+  if (addon && addon.ratings) {
+    const averageRating = i18n.formatNumber(addon.ratings.average.toFixed(1));
+    addonAverage = i18n.sprintf(
+      // eslint-disable-next-line max-len
+      // translators: averageRating is a localized number, such as 4.5 in English or ٤٫٧ in Arabic.
+      i18n.gettext('%(averageRating)s star average'),
+      { averageRating },
     );
   }
-}
+
+  return (
+    <Card header={metaHeader} className="AddonSummaryCard">
+      <div className="AddonSummaryCard-overallRatingStars">
+        <Rating
+          rating={addon && addon.ratings && addon.ratings.average}
+          readOnly
+          yellowStars
+        />
+        <div className="AddonSummaryCard-addonAverage">
+          {addon ? addonAverage : <LoadingText minWidth={20} />}
+        </div>
+      </div>
+      <RatingsByStar addon={addon} />
+    </Card>
+  );
+};
 
 const AddonSummaryCard: React.ComponentType<Props> = compose(translate())(
   AddonSummaryCardBase,

@@ -113,7 +113,7 @@ describe(__filename, () => {
     });
 
     it('renders an AddonSummaryCard without an addon', () => {
-      const root = render({ addon: null });
+      const root = render();
 
       const summary = root.find(AddonSummaryCard);
       expect(summary).toHaveProp('addon', null);
