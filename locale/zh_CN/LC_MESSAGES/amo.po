@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-11 02:26+0000\n"
+"PO-Revision-Date: 2018-10-17 09:56+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1843,32 +1843,32 @@ msgstr "下载 Firefox 上的 %(addonName)s。%(summary)s"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:429
 msgid "%(addonName)s – Get this Dictionary for 🦊 Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 字典（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:436
 msgid "%(addonName)s – Get this Extension for 🦊 Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 扩展（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:443
 msgid "%(addonName)s – Get this Language Pack for 🦊 Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 语言包（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:451
 msgid "%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 主题（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:459
 msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 搜索工具（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:466
 msgid "%(addonName)s – Get this Add-on for 🦊 Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 附加组件（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:477
