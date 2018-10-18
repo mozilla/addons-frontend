@@ -155,25 +155,9 @@ export class SearchContextCardBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return {
-    categoriesState: state.categories.categories,
-    clientApp: state.api.clientApp,
-    count: state.search.count,
-    filters: state.search.filters,
-    loading: state.search.loading,
-  };
-}
-
-export function mapDispatchToProps(dispatch) {
-  dispatch(categoriesFetch({ errorHandlerId: 'SearchContextCard' }));
-}
-
-function mergeProps(state, dispatchProps, ownProps) {
-  const {
-    categoriesState,
-    clientApp,
-    filters: { category: currentCategory },
-  } = state;
+  const categoriesState = state.categories.categories;
+  const clientApp = state.api.clientApp;
+  const { category: currentCategory } = state.search.filters;
 
   const allCategories = [];
 
@@ -191,7 +175,6 @@ function mergeProps(state, dispatchProps, ownProps) {
       });
     });
   }
-
   const translatedCategory =
     currentCategory &&
     allCategories.length &&
@@ -200,23 +183,26 @@ function mergeProps(state, dispatchProps, ownProps) {
         category[currentCategory] &&
         category[currentCategory].slug === currentCategory,
     );
-
   return {
     categoryName:
       translatedCategory &&
       currentCategory &&
       translatedCategory[currentCategory] &&
       translatedCategory[currentCategory].name,
-    ...state,
-    ...ownProps,
+    count: state.search.count,
+    filters: state.search.filters,
+    loading: state.search.loading,
   };
+}
+
+export function mapDispatchToProps(dispatch) {
+  dispatch(categoriesFetch({ errorHandlerId: 'SearchContextCard' }));
 }
 
 export default compose(
   connect(
     mapStateToProps,
     mapDispatchToProps,
-    mergeProps,
   ),
   translate(),
 )(SearchContextCardBase);
