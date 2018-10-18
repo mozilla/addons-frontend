@@ -141,7 +141,12 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
     return (
       <DefinitionList className="AddonAdminLinks">
-        <Definition term={i18n.gettext('Admin Links')}>
+        <Definition
+          term={
+            // translators: This action allows a admin to access the private links.
+            i18n.gettext('Admin Links')
+          }
+        >
           <ul className="AddonAdminLinks-list">
             {editLink}
             {adminStatusLink}
