@@ -102,7 +102,9 @@ describe(__filename, () => {
       addon: createInternalAddon({ ...fakeAddon, name: 'Some Add-on' }),
     });
 
-    expect(root.find('.RatingManager-legend').html()).toContain('Some Add-on');
+    const prompt = root.find('.RatingManager-legend').html();
+    expect(prompt).toContain('How are you enjoying');
+    expect(prompt).toContain('Some Add-on');
   });
 
   it('loads saved ratings on construction', () => {
