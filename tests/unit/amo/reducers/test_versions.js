@@ -4,6 +4,7 @@ import versionsReducer, {
   createInternalVersion,
   fetchVersions,
   getLoadingBySlug,
+  getVersionById,
   getVersionInfo,
   getVersionsBySlug,
   initialState,
@@ -36,7 +37,7 @@ describe(__filename, () => {
       fetchVersions({ errorHandlerId: 1, slug }),
     );
 
-    expect(getVersionsBySlug({ slug, state })).toBe(null);
+    expect(getVersionsBySlug({ slug, state })).toEqual(null);
   });
 
   it('clears the loading flag when loading versions', () => {
@@ -91,7 +92,7 @@ describe(__filename, () => {
   describe('getVersionsBySlug', () => {
     it('returns null if no versions have been loaded', () => {
       const state = versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' });
-      expect(getVersionsBySlug({ slug: 'some-slug', state })).toBe(null);
+      expect(getVersionsBySlug({ slug: 'some-slug', state })).toEqual(null);
     });
   });
 
@@ -101,23 +102,73 @@ describe(__filename, () => {
       const size = 1234;
       const _findFileForPlatform = sinon.stub().returns({ created, size });
 
+      const state = versionsReducer(
+        undefined,
+        loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
+      );
+
       expect(
         getVersionInfo({
           _findFileForPlatform,
-          version: createInternalVersion(fakeVersion),
+          state,
+          versionId: fakeVersion.id,
           userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
         }),
       ).toEqual({ created, filesize: size });
     });
 
-    it('returns null values when no file is found', () => {
+    it('returns null when no version has been loaded', () => {
       const _findFileForPlatform = sinon.stub().returns(undefined);
 
       expect(
         getVersionInfo({
           _findFileForPlatform,
-          version: createInternalVersion(fakeVersion),
+          state: initialState,
+          versionId: 1,
           userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns null when no file is found', () => {
+      const _findFileForPlatform = sinon.stub().returns(undefined);
+
+      const state = versionsReducer(
+        undefined,
+        loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
+      );
+
+      expect(
+        getVersionInfo({
+          _findFileForPlatform,
+          state,
+          versionId: fakeVersion.id,
+          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
+        }),
+      ).toEqual(null);
+    });
+  });
+
+  describe('getVersionById', () => {
+    it('returns a loaded version', () => {
+      const state = versionsReducer(
+        undefined,
+        loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
+      );
+
+      expect(
+        getVersionById({
+          state,
+          id: fakeVersion.id,
+        }),
+      ).toEqual(createInternalVersion(fakeVersion));
+    });
+
+    it('returns null when no version has been loaded', () => {
+      expect(
+        getVersionById({
+          state: initialState,
+          id: fakeVersion.id,
         }),
       ).toEqual(null);
     });
