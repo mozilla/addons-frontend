@@ -577,18 +577,14 @@ describe(__filename, () => {
   });
 
   it('hides the flag button if you wrote the review', () => {
-    const originalReviewId = 123;
+    const siteUserId = 123;
     const review = signInAndDispatchSavedReview({
-      siteUserId: originalReviewId,
+      siteUserId,
+      reviewUserId: siteUserId,
     });
-    let root = render({ review });
+    const root = render({ review });
 
     expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
-
-    store.dispatch(logOutUser());
-
-    root = render({ review });
-    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(1);
   });
 
   it('allows review replies when siteUserCanManageReplies() is true', () => {
