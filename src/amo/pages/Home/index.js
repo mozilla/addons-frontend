@@ -18,6 +18,7 @@ import {
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -30,7 +31,6 @@ import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
   { slug: 'privacy-matters', username: 'mozilla' },
-  { slug: 'parental-controls', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -267,14 +267,21 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[0]) && (
-          <FeaturedCollectionCard
-            addons={collections[0]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[0]}
-          />
-        )}
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={shelves.trendingExtensions}
+          className="Home-TrendingExtensions"
+          header={i18n.gettext('Trending extensions')}
+          footerText={i18n.gettext('See more trending extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_TRENDING,
+            },
+          }}
+          loading={loading}
+        />
 
         {includeFeaturedThemes && (
           <LandingAddonsCard
@@ -313,12 +320,12 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[1]) && (
+        {(loading || collections[0]) && (
           <FeaturedCollectionCard
-            addons={collections[1]}
+            addons={collections[0]}
             className="Home-FeaturedCollection"
             loading={loading}
-            {...featuredCollectionsMetadata[1]}
+            {...featuredCollectionsMetadata[0]}
           />
         )}
 
