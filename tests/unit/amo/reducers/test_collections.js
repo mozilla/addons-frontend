@@ -33,17 +33,27 @@ import reducer, {
   unloadCollectionBySlug,
   updateCollection,
 } from 'amo/reducers/collections';
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { COLLECTION_SORT_NAME } from 'core/constants';
 import {
   createFakeCollectionAddon,
   createFakeCollectionAddons,
+  createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
   createStubErrorHandler,
   fakeAddon,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const _loadCurrentCollection = ({
+    addons = createFakeCollectionAddonsListResponse(),
+    detail = createFakeCollectionDetail(),
+  } = {}) => {
+    return loadCurrentCollection({
+      addons,
+      detail,
+    });
+  };
+
   describe('reducer', () => {
     it('initializes properly', () => {
       const state = reducer(undefined, {});
@@ -83,15 +93,12 @@ describe(__filename, () => {
     });
 
     it('resets add-ons when fetching a collection page', () => {
-      const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       let state = reducer(
         undefined,
-        loadCurrentCollection({
-          addons: collectionAddons,
+        _loadCurrentCollection({
           detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -108,15 +115,14 @@ describe(__filename, () => {
     });
 
     it('loads a collection', () => {
-      const collectionAddons = createFakeCollectionAddons();
+      const collectionAddons = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail();
 
       const state = reducer(
         undefined,
-        loadCurrentCollection({
+        _loadCurrentCollection({
           addons: collectionAddons,
           detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -126,26 +132,15 @@ describe(__filename, () => {
       expect(loadedCollection).toEqual(
         createInternalCollection({
           detail: collectionDetail,
-          items: collectionAddons,
-          pageSize: DEFAULT_API_PAGE_SIZE,
+          addons: collectionAddons,
         }),
       );
       expect(state.current.loading).toEqual(false);
     });
 
     it('resets the current collection when fetching a new collection', () => {
-      const collectionAddons = createFakeCollectionAddons();
-      const collectionDetail = createFakeCollectionDetail();
-
       // 1. User loads a collection.
-      let state = reducer(
-        undefined,
-        loadCurrentCollection({
-          addons: collectionAddons,
-          detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
-        }),
-      );
+      let state = reducer(undefined, _loadCurrentCollection());
 
       // 2. User navigates to another collection.
       state = reducer(
@@ -162,16 +157,14 @@ describe(__filename, () => {
     });
 
     it('resets the add-ons when fetching a new collection page', () => {
-      const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       // 1. User loads a collection.
       let state = reducer(
         undefined,
-        loadCurrentCollection({
-          addons: collectionAddons,
+        _loadCurrentCollection({
+          addons: createFakeCollectionAddonsListResponse(),
           detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -189,23 +182,21 @@ describe(__filename, () => {
       expect(getCurrentCollection(state)).toEqual({
         ...createInternalCollection({
           detail: collectionDetail,
-          items: collectionAddons.results,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
         addons: [],
+        numberOfAddons: null,
+        pageSize: null,
       });
     });
 
     it('cannot load collection page without a current collection', () => {
-      const addons = createFakeCollectionAddons();
+      const addons = createFakeCollectionAddonsListResponse();
 
       expect(() =>
         reducer(
           undefined,
           loadCurrentCollectionPage({
             addons,
-            numberOfAddons: 5,
-            pageSize: DEFAULT_API_PAGE_SIZE,
           }),
         ),
       ).toThrow(/current collection does not exist/);
@@ -213,39 +204,30 @@ describe(__filename, () => {
 
     it('loads a collection page', () => {
       const notes = 'These are some notes';
-      const collectionAddons = createFakeCollectionAddons();
-      const collectionDetail = createFakeCollectionDetail();
 
-      let state = reducer(
-        undefined,
-        loadCurrentCollection({
-          addons: collectionAddons,
-          detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
-        }),
-      );
+      let state = reducer(undefined, _loadCurrentCollection());
 
       const fakeCollectionAddon = createFakeCollectionAddon({
         addon: { ...fakeAddon, id: 333 },
         notes,
       });
-      const newAddons = createFakeCollectionAddons({
+      const newAddons = createFakeCollectionAddonsListResponse({
         addons: [fakeCollectionAddon],
       });
       state = reducer(
         state,
         loadCurrentCollectionPage({
           addons: newAddons,
-          numberOfAddons: 5,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
       const loadedCollection = getCurrentCollection(state);
 
       expect(loadedCollection).not.toEqual(null);
-      expect(loadedCollection.addons).toEqual(createInternalAddons(newAddons));
-      expect(loadedCollection.numberOfAddons).toEqual(5);
+      expect(loadedCollection.addons).toEqual(
+        createInternalAddons(newAddons.results),
+      );
+      expect(loadedCollection.numberOfAddons).toEqual(newAddons.count);
       expect(state.current.loading).toEqual(false);
       expect(loadedCollection.addons[0].notes).toEqual(notes);
     });
@@ -273,19 +255,15 @@ describe(__filename, () => {
 
       let state = reducer(
         undefined,
-        loadCurrentCollection({
-          addons: createFakeCollectionAddons(),
+        _loadCurrentCollection({
           detail: firstCollection,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
       state = reducer(
         state,
-        loadCurrentCollection({
-          addons: createFakeCollectionAddons(),
+        _loadCurrentCollection({
           detail: secondCollection,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -335,8 +313,8 @@ describe(__filename, () => {
 
     it('loads user collections by ID', () => {
       const username = 'some-user';
-      const firstCollection = createFakeCollectionDetail({ id: 1 });
-      const secondCollection = createFakeCollectionDetail({ id: 2 });
+      const firstCollection = createFakeCollectionDetail({ id: 1, count: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2, count: 2 });
 
       const state = reducer(
         undefined,
@@ -353,12 +331,14 @@ describe(__filename, () => {
       expect(state.byId[userState.collections[0]]).toEqual(
         createInternalCollection({
           detail: firstCollection,
+          numberOfAddons: firstCollection.addon_count,
           pageSize: null,
         }),
       );
       expect(state.byId[userState.collections[1]]).toEqual(
         createInternalCollection({
           detail: secondCollection,
+          numberOfAddons: secondCollection.addon_count,
           pageSize: null,
         }),
       );
@@ -708,11 +688,10 @@ describe(__filename, () => {
 
   describe('loadCollectionIntoState', () => {
     it('preserves existing collection addons', () => {
-      const fakePageSize = 5;
       const fakeCollectionAddon = createFakeCollectionAddon({
         addon: { ...fakeAddon, id: 1 },
       });
-      const addons = createFakeCollectionAddons({
+      const addons = createFakeCollectionAddonsListResponse({
         addons: [fakeCollectionAddon],
       });
       const collection = createFakeCollectionDetail({
@@ -724,24 +703,24 @@ describe(__filename, () => {
         state: initialState,
         collection,
         addons,
-        pageSize: fakePageSize,
       });
 
       // Simulate loading it a second time but without addons.
       state = loadCollectionIntoState({ state, collection });
 
       const collectionInState = state.byId[collection.id];
-      expect(collectionInState.addons).toEqual(createInternalAddons(addons));
-      expect(collectionInState.pageSize).toEqual(fakePageSize);
+      expect(collectionInState.addons).toEqual(
+        createInternalAddons(addons.results),
+      );
     });
 
     it('loads notes for collection add-ons', () => {
       const notes = 'These are some notes.';
       const fakeCollectionAddon = createFakeCollectionAddon({ notes });
-      const addons = createFakeCollectionAddons({
+      const addons = createFakeCollectionAddonsListResponse({
         addons: [fakeCollectionAddon],
       });
-      const collection = createFakeCollectionDetail({ addons });
+      const collection = createFakeCollectionDetail({ addons: addons.results });
 
       const state = loadCollectionIntoState({
         state: initialState,
@@ -761,20 +740,18 @@ describe(__filename, () => {
 
     it('returns a collection', () => {
       const id = 45321;
-      const addons = createFakeCollectionAddons();
+      const addons = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail({ id });
       const internalCollection = createInternalCollection({
-        items: addons,
+        addons,
         detail: collectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       });
 
       const state = reducer(
         undefined,
-        loadCurrentCollection({
+        _loadCurrentCollection({
           addons,
           detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -796,20 +773,18 @@ describe(__filename, () => {
 
     it('returns the current collection', () => {
       const id = 45321;
-      const addons = createFakeCollectionAddons();
+      const addons = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail({ id });
       const internalCollection = createInternalCollection({
-        items: addons,
+        addons,
         detail: collectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       });
 
       const state = reducer(
         undefined,
-        loadCurrentCollection({
+        _loadCurrentCollection({
           addons,
           detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -831,7 +806,7 @@ describe(__filename, () => {
       const fakeCollectionAddon = createFakeCollectionAddon({
         addon: { ...fakeAddon, id: 1 },
       });
-      const addons = createFakeCollectionAddons({
+      const addons = createFakeCollectionAddonsListResponse({
         addons: [fakeCollectionAddon],
       });
       const collectionDetail = createFakeCollectionDetail();
@@ -839,10 +814,9 @@ describe(__filename, () => {
       // Load a collection with add-ons.
       let state = reducer(
         undefined,
-        loadCurrentCollection({
+        _loadCurrentCollection({
           addons,
           detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -929,15 +903,12 @@ describe(__filename, () => {
     });
 
     it('deletes a collection', () => {
-      const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       let state = reducer(
         undefined,
-        loadCurrentCollection({
-          addons: collectionAddons,
+        _loadCurrentCollection({
           detail: collectionDetail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -949,25 +920,23 @@ describe(__filename, () => {
     it('preserves other collections', () => {
       let state;
 
-      const collection1Addons = createFakeCollectionAddons();
+      const collection1Addons = createFakeCollectionAddonsListResponse();
       const collection1Detail = createFakeCollectionDetail();
       state = reducer(
         state,
-        loadCurrentCollection({
+        _loadCurrentCollection({
           addons: collection1Addons,
           detail: collection1Detail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
-      const collection2Addons = createFakeCollectionAddons();
+      const collection2Addons = createFakeCollectionAddonsListResponse();
       const collection2Detail = createFakeCollectionDetail();
       state = reducer(
         state,
-        loadCurrentCollection({
+        _loadCurrentCollection({
           addons: collection2Addons,
           detail: collection2Detail,
-          pageSize: DEFAULT_API_PAGE_SIZE,
         }),
       );
 
@@ -977,8 +946,7 @@ describe(__filename, () => {
       expect(state.byId[collection1Detail.id]).toEqual(
         createInternalCollection({
           detail: collection1Detail,
-          items: collection1Addons,
-          pageSize: DEFAULT_API_PAGE_SIZE,
+          addons: collection1Addons,
         }),
       );
     });
@@ -1019,8 +987,9 @@ describe(__filename, () => {
     });
 
     it('returns collection objects when ids are passed in via meta.collections', () => {
-      const firstCollection = createFakeCollectionDetail({ id: 1 });
-      const secondCollection = createFakeCollectionDetail({ id: 2 });
+      const firstCollection = createFakeCollectionDetail({ id: 1, count: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2, count: 2 });
+
       const meta = {
         collections: [firstCollection.id, secondCollection.id],
       };
@@ -1038,12 +1007,14 @@ describe(__filename, () => {
       expect(collections[0]).toEqual(
         createInternalCollection({
           detail: firstCollection,
+          numberOfAddons: firstCollection.addon_count,
           pageSize: null,
         }),
       );
       expect(collections[1]).toEqual(
         createInternalCollection({
           detail: secondCollection,
+          numberOfAddons: secondCollection.addon_count,
           pageSize: null,
         }),
       );
@@ -1069,6 +1040,7 @@ describe(__filename, () => {
       expect(collections[0]).toEqual(
         createInternalCollection({
           detail: firstCollection,
+          numberOfAddons: firstCollection.addon_count,
           pageSize: null,
         }),
       );
@@ -1150,6 +1122,33 @@ describe(__filename, () => {
       const detail = createFakeCollectionDetail({ name: null });
 
       expect(createInternalCollection({ detail })).toHaveProperty('name', '');
+    });
+
+    it('defaults the numberOfAddons to 0', () => {
+      expect(
+        createInternalCollection({ detail: createFakeCollectionDetail() }),
+      ).toHaveProperty('numberOfAddons', 0);
+    });
+
+    it('uses a count from addons for numberOfAddons', () => {
+      const count = 19;
+
+      expect(
+        createInternalCollection({
+          addons: createFakeCollectionAddonsListResponse({ count }),
+          detail: createFakeCollectionDetail(),
+        }),
+      ).toHaveProperty('numberOfAddons', count);
+    });
+
+    it('uses a passed in numberOfAddons when there are no addons', () => {
+      const numberOfAddons = 19;
+      expect(
+        createInternalCollection({
+          detail: createFakeCollectionDetail(),
+          numberOfAddons,
+        }),
+      ).toHaveProperty('numberOfAddons', numberOfAddons);
     });
   });
 });

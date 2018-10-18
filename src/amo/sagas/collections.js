@@ -86,13 +86,10 @@ export function* fetchCurrentCollection({
       addons: call(api.getCollectionAddons, addonsParams),
     });
 
-    const addonsToLoad = addons.results;
-
     yield put(
       loadCurrentCollection({
-        addons: addonsToLoad,
+        addons,
         detail,
-        pageSize: addons.page_size,
       }),
     );
   } catch (error) {
@@ -122,9 +119,7 @@ export function* fetchCurrentCollectionPage({
 
     yield put(
       loadCurrentCollectionPage({
-        addons: addons.results,
-        numberOfAddons: addons.count,
-        pageSize: addons.page_size,
+        addons,
       }),
     );
   } catch (error) {
@@ -299,9 +294,7 @@ export function* modifyCollection(
 
         yield put(
           loadCurrentCollection({
-            addons: [],
             detail: localizedDetail,
-            pageSize: null,
           }),
         );
       }

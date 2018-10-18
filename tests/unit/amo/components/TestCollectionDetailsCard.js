@@ -17,7 +17,7 @@ import {
   MOZILLA_COLLECTIONS_EDIT,
 } from 'core/constants';
 import {
-  createFakeCollectionAddons,
+  createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
   dispatchSignInActions,
   shallowUntilTarget,
@@ -48,7 +48,7 @@ describe(__filename, () => {
     slug = 'some-slug',
   } = {}) => {
     return createInternalCollection({
-      addons: createFakeCollectionAddons(),
+      addons: createFakeCollectionAddonsListResponse(),
       detail: createFakeCollectionDetail({
         authorId,
         authorUsername,

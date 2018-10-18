@@ -424,7 +424,7 @@ const reducer = (
     case SEARCH_LOADED: {
       const { addons, results } = action.payload;
 
-      const items = addons || results;
+      const items = addons ? addons.results || addons : results;
       const newVersions = {};
       for (const addon of items) {
         // For collection related actions, the addon is available in addon.addon.

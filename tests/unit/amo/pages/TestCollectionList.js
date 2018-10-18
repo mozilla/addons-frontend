@@ -227,7 +227,10 @@ describe(__filename, () => {
     expect(userCollections).toHaveLength(2);
 
     userCollections.forEach((collection, index) => {
-      const expected = createInternalCollection({ detail: collections[index] });
+      const expected = createInternalCollection({
+        detail: collections[index],
+        numberOfAddons: collections[index].addon_count,
+      });
 
       expect(collection).toHaveProp('authorId', expected.authorId);
       expect(collection).toHaveProp('id', expected.id);
