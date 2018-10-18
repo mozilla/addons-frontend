@@ -583,7 +583,13 @@ describe(__filename, () => {
     expect(root.find(FlagReviewMenu)).toHaveLength(0);
   });
 
-  it('hides flag button if you wrote the review', () => {
+  it('renders the flag button when not signed in', () => {
+    const root = render({ review: _setReview(fakeReview) });
+
+    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(1);
+  });
+
+  it('hides the flag button if you wrote the review', () => {
     const review = createReviewAndSignInAsSameUser();
     const root = render({ review });
 
