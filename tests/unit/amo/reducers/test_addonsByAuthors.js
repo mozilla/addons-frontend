@@ -390,6 +390,7 @@ describe(__filename, () => {
       const secondAuthorId = fakeAuthorTwo.id;
       const thirdAuthorId = fakeAuthorThree.id;
       const addons = fakeExternalAddons();
+
       const params = getParams({
         addons: Object.values(addons),
         authorIds: [fakeAuthorOne.id, fakeAuthorTwo.id, fakeAuthorThree.id],
@@ -933,7 +934,7 @@ describe(__filename, () => {
     });
 
     it('resets count when fetching add-ons by authors', () => {
-      const count = 123;
+      const count = randomAuthorId1;
 
       const prevState = reducer(
         undefined,
