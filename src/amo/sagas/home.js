@@ -11,8 +11,9 @@ import { FETCH_HOME_ADDONS, loadHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_RANDOM,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RANDOM,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
@@ -84,15 +85,24 @@ export function* fetchHomeAddons({
       sort: SEARCH_SORT_POPULAR,
     },
   };
+  const trendingExtensionsParams: SearchParams = {
+    api: state.api,
+    filters: {
+      addonType: ADDON_TYPE_EXTENSION,
+      page_size: LANDING_PAGE_EXTENSION_COUNT,
+      sort: SEARCH_SORT_TRENDING,
+    },
+  };
 
-  let homeAddons = {};
+  let shelves = {};
   try {
-    homeAddons = yield all({
+    shelves = yield all({
       featuredExtensions: call(searchApi, featuredExtensionsParams),
       featuredThemes: includeFeaturedThemes
         ? call(searchApi, featuredThemesParams)
         : null,
       popularExtensions: call(searchApi, popularExtensionsParams),
+      trendingExtensions: call(searchApi, trendingExtensionsParams),
     });
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
@@ -103,9 +113,7 @@ export function* fetchHomeAddons({
   yield put(
     loadHomeAddons({
       collections,
-      featuredExtensions: homeAddons.featuredExtensions,
-      featuredThemes: homeAddons.featuredThemes,
-      popularExtensions: homeAddons.popularExtensions,
+      shelves,
     }),
   );
 }

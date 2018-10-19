@@ -14,6 +14,8 @@ module.exports = {
     '^tests/(.*)$': '<rootDir>/tests/$1',
     // Replaces the following formats with an empty module.
     '^.+\\.(scss|css|svg|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
+    // Alias bin for bin scripts.
+    '^bin/(.*)$': '<rootDir>/bin/$1',
   },
   reporters: [
     '<rootDir>/tests/jest-reporters/fingers-crossed.js',

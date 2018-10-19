@@ -1,0 +1,82 @@
+@import '~amo/css/styles';
+
+.AddonSummaryCard-overallRatingStars {
+  margin: 0 0 12px;
+
+  @include respond-to(extraExtraLarge) {
+    margin-bottom: 24px;
+  }
+}
+
+.AddonSummaryCard {
+  @include respond-to(large) {
+    min-width: 300px;
+    width: 35%;
+  }
+}
+
+.AddonSummaryCard-header {
+  align-items: center;
+  display: flex;
+  justify-content: start;
+  padding: 0 0 12px;
+}
+
+.AddonSummaryCard-header-icon {
+  @include margin-end(12px);
+
+  align-items: center;
+  display: flex;
+  height: 36px;
+
+  .AddonSummaryCard--statictheme & {
+    display: none;
+  }
+}
+
+.AddonSummaryCard-header-text {
+  // See: https://stackoverflow.com/questions/36150458
+  min-width: 50%;
+
+  .AddonTitle {
+    @include font-bold();
+
+    font-size: $font-size-m;
+    line-height: $default-line-height;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+
+    a,
+    a:link {
+      color: $link-color;
+      text-decoration: none;
+    }
+
+    .AddonTitle-author {
+      @include font-bold();
+
+      font-size: $font-size-m;
+      margin: 0;
+      padding: 0;
+
+      a,
+      a:link {
+        color: $black;
+        font-size: $font-size-m;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.AddonSummaryCard-header-icon-image {
+  display: block;
+  height: 36px;
+}
+
+.AddonSummaryCard-addonAverage {
+  color: $grey-50;
+  margin-top: 6px;
+  text-align: center;
+}

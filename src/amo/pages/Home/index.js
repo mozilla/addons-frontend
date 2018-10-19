@@ -18,6 +18,7 @@ import {
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -30,7 +31,6 @@ import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
   { slug: 'privacy-matters', username: 'mozilla' },
-  { slug: 'parental-controls', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -68,13 +68,11 @@ export class HomeBase extends React.Component {
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    featuredExtensions: PropTypes.array.isRequired,
-    featuredThemes: PropTypes.array.isRequired,
+    shelves: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     includeFeaturedThemes: PropTypes.bool,
     locationPathname: PropTypes.string.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-    popularExtensions: PropTypes.array.isRequired,
   };
 
   static defaultProps = {
@@ -205,13 +203,11 @@ export class HomeBase extends React.Component {
       _config,
       collections,
       errorHandler,
-      featuredExtensions,
-      featuredThemes,
+      shelves,
       i18n,
       includeFeaturedThemes,
       locationPathname,
       resultsLoaded,
-      popularExtensions,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -257,7 +253,7 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={featuredExtensions}
+          addons={shelves.featuredExtensions}
           className="Home-FeaturedExtensions"
           header={i18n.gettext('Featured extensions')}
           footerText={i18n.gettext('See more featured extensions')}
@@ -271,19 +267,26 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[0]) && (
-          <FeaturedCollectionCard
-            addons={collections[0]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[0]}
-          />
-        )}
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={shelves.trendingExtensions}
+          className="Home-TrendingExtensions"
+          header={i18n.gettext('Trending extensions')}
+          footerText={i18n.gettext('See more trending extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_TRENDING,
+            },
+          }}
+          loading={loading}
+        />
 
         {includeFeaturedThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
-            addons={featuredThemes}
+            addons={shelves.featuredThemes}
             className="Home-FeaturedThemes"
             footerText={i18n.gettext('See more featured themes')}
             footerLink={{
@@ -303,7 +306,7 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={popularExtensions}
+          addons={shelves.popularExtensions}
           className="Home-PopularExtensions"
           header={i18n.gettext('Popular extensions')}
           footerText={i18n.gettext('See more popular extensions')}
@@ -317,12 +320,12 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[1]) && (
+        {(loading || collections[0]) && (
           <FeaturedCollectionCard
-            addons={collections[1]}
+            addons={collections[0]}
             className="Home-FeaturedCollection"
             loading={loading}
-            {...featuredCollectionsMetadata[1]}
+            {...featuredCollectionsMetadata[0]}
           />
         )}
 
@@ -344,10 +347,8 @@ export class HomeBase extends React.Component {
 export function mapStateToProps(state) {
   return {
     collections: state.home.collections,
-    featuredExtensions: state.home.featuredExtensions,
-    featuredThemes: state.home.featuredThemes,
+    shelves: state.home.shelves,
     locationPathname: state.router.location.pathname,
-    popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
   };
 }

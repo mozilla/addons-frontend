@@ -1,9 +1,13 @@
 /* @flow */
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { isRtlLang } from 'core/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
+import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -11,58 +15,88 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
+  linkToAddon?: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  isRTL: boolean,
 |};
 
-export const AddonTitleBase = ({ addon, i18n }: InternalProps) => {
-  let children;
-  let htmlTitle;
+export const AddonTitleBase = ({
+  addon,
+  i18n,
+  isRTL,
+  linkToAddon = false,
+}: InternalProps) => {
+  const authors = [];
 
-  if (addon) {
-    let title;
-    if (!addon.authors) {
-      title = addon.name;
-    } else {
-      const authorList = addon.authors.map((author) => {
-        if (author.url) {
-          return `<a href="${author.url}">${author.name}</a>`;
-        }
+  if (addon && addon.authors) {
+    const addonAuthors = addon.authors;
 
-        return author.name;
-      });
+    // translators: A comma, used in a list of authors: a1, a2, a3.
+    const comma = i18n.gettext(',');
+    const separator = isRTL ? ` ${comma}` : `${comma} `;
 
-      title = i18n.sprintf(
-        // translators: Example: The Add-On <span>by The Author</span>
-        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'),
-        {
-          addonName: addon.name,
-          authorList: authorList.join(', '),
-          startSpan: '<span class="AddonTitle-author">',
-          endSpan: '</span>',
-        },
+    addonAuthors.forEach((author, index) => {
+      authors.push(
+        author.url ? (
+          <Link key={author.id} to={`/user/${author.username}/`}>
+            {author.name}
+          </Link>
+        ) : (
+          author.name
+        ),
       );
-    }
 
-    htmlTitle = sanitizeHTML(title, ['a', 'span']);
-  } else {
-    children = <LoadingText width={70} />;
+      if (index + 1 < addonAuthors.length) {
+        authors.push(separator);
+      }
+    });
   }
 
   return (
-    <h1
-      className="AddonTitle"
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={htmlTitle}
-    >
-      {children}
+    <h1 className="AddonTitle">
+      {addon ? (
+        <React.Fragment>
+          {linkToAddon ? (
+            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
+          ) : (
+            addon.name
+          )}
+          {authors.length > 0 && (
+            <span className="AddonTitle-author">
+              {isRTL ? (
+                <React.Fragment>
+                  {authors}{' '}
+                  {// translators: Example: add-on "by" some authors
+                  i18n.gettext('by')}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {i18n.gettext('by')} {authors}
+                </React.Fragment>
+              )}
+            </span>
+          )}
+        </React.Fragment>
+      ) : (
+        <LoadingText width={70} />
+      )}
     </h1>
   );
 };
 
-const AddonTitle: React.ComponentType<Props> = translate()(AddonTitleBase);
+const mapStateToProps = (state: AppState) => {
+  return {
+    isRTL: isRtlLang(state.api.lang || ''),
+  };
+};
+
+const AddonTitle: React.ComponentType<Props> = compose(
+  translate(),
+  connect(mapStateToProps),
+)(AddonTitleBase);
 
 export default AddonTitle;

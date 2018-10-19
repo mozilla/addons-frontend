@@ -298,8 +298,9 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
     const inputProps = {
       className: 'AutoSearchInput-query',
-      minLength: SEARCH_TERM_MIN_LENGTH,
+      id: `AutoSearchInput-${inputName}`,
       maxLength: SEARCH_TERM_MAX_LENGTH,
+      minLength: SEARCH_TERM_MIN_LENGTH,
       name: inputName,
       onChange: this.handleSearchChange,
       placeholder: inputPlaceholder || i18n.gettext('Find add-ons'),
@@ -325,7 +326,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
           className={makeClassName('AutoSearchInput-label', {
             'visually-hidden': !showInputLabel,
           })}
-          htmlFor={inputName}
+          htmlFor={inputProps.id}
         >
           {inputLabelText || i18n.gettext('Search')}
         </label>

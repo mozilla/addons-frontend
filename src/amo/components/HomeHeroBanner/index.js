@@ -48,11 +48,6 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         url: '/addon/facebook-container/',
       },
       {
-        title: i18n.gettext('Midnight Lizard'),
-        description: i18n.gettext('Give the entire internet a new look'),
-        url: '/addon/midnight-lizard-quantum/',
-      },
-      {
         title: i18n.gettext('Iridium for YouTube'),
         description: i18n.gettext(
           'Play videos in a pop-out window, take video screenshots & more',
@@ -63,13 +58,6 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         title: i18n.gettext('Private Bookmarks'),
         description: i18n.gettext('Password-protect your personal bookmarks'),
         url: '/addon/webext-private-bookmarks/',
-      },
-      {
-        title: i18n.gettext('IP Address and Domain Information'),
-        description: i18n.gettext(
-          'See detailed info about every website you visit—IP address, location, provider & more',
-        ),
-        url: '/addon/ip-address-and-domain-info/',
       },
       {
         title: i18n.gettext('New Tab Override'),
@@ -91,11 +79,6 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
           'Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs',
         ),
         url: '/addon/multi-account-containers/',
-      },
-      {
-        title: i18n.gettext('Transparent Standalone Images'),
-        description: i18n.gettext('Render images on transparent backgrounds'),
-        url: '/addon/transparent-standalone-image/',
       },
       {
         title: i18n.gettext('Universal Bypass'),

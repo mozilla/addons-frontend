@@ -32,8 +32,13 @@
 .AddonReviewCard-allControls {
   align-items: flex-start;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 0;
+
+  @include respond-to(medium) {
+    justify-content: flex-start;
+  }
 
   .AddonReviewCard-control:not(.AddonReviewCard-deleting) {
     &,
@@ -76,7 +81,26 @@
 }
 
 .AddonReviewCard-control {
-  @include margin-end(6px);
+  display: flex;
+  max-width: 33%;
+  text-align: center;
+
+  &:only-child {
+    max-width: 100%;
+  }
+
+  // This adjusts the max-width when there are only two items. It selects
+  // the element based on its position then selects all siblings.
+
+  /* stylelint-disable max-line-length */
+
+  // https://stackoverflow.com/questions/8720931/can-css-detect-the-number-of-children-an-element-has
+
+  /* stylelint-enable max-line-length */
+  &:first-child:nth-last-child(2),
+  &:first-child:nth-last-child(2) ~ & {
+    max-width: 50%;
+  }
 
   @include respond-to(medium) {
     @include margin-end(24px);

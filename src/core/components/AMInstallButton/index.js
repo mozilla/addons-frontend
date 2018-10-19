@@ -27,7 +27,6 @@ import {
 import translate from 'core/i18n/translate';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
-import { getThemeData } from 'core/themeInstall';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
@@ -302,7 +301,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
           'AMInstallButton-button--enable',
         );
       } else if (addon.type === ADDON_TYPE_THEME) {
-        buttonProps['data-browsertheme'] = JSON.stringify(getThemeData(addon));
+        buttonProps['data-browsertheme'] = JSON.stringify(addon.themeData);
         buttonProps.onClick = this.installTheme;
       } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
         buttonProps.onClick = this.installOpenSearch;
