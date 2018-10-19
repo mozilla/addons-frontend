@@ -69,6 +69,7 @@ export type ExternalUserType = {|
   is_verified?: boolean,
   permissions?: Array<string>,
   read_dev_agreement?: boolean,
+  fxa_edit_email_url?: string,
 |};
 
 export type UserType = {|
