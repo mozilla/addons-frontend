@@ -633,6 +633,18 @@ describe(__filename, () => {
     });
   });
 
+  it('sets an `id` to the input and a `htmlFor` attribute to the `label`', () => {
+    const inputName = 'my-custom-input';
+    const root = render({ inputName });
+
+    const expectedId = `AutoSearchInput-${inputName}`;
+    expect(root.find(Autosuggest).prop('inputProps')).toHaveProperty(
+      'id',
+      expectedId,
+    );
+    expect(root.find('label')).toHaveProp('htmlFor', expectedId);
+  });
+
   describe('error handling', () => {
     it('creates an error handler ID with inputName', () => {
       const inputName = 'my-custom-input';
