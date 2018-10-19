@@ -94,9 +94,9 @@ export function* fetchHomeAddons({
     },
   };
 
-  let homeAddons = {};
+  let shelves = {};
   try {
-    homeAddons = yield all({
+    shelves = yield all({
       featuredExtensions: call(searchApi, featuredExtensionsParams),
       featuredThemes: includeFeaturedThemes
         ? call(searchApi, featuredThemesParams)
@@ -113,7 +113,7 @@ export function* fetchHomeAddons({
   yield put(
     loadHomeAddons({
       collections,
-      shelves: homeAddons,
+      shelves,
     }),
   );
 }

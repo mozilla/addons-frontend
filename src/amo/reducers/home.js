@@ -106,11 +106,6 @@ const reducer = (
     case LOAD_HOME_ADDONS: {
       const { collections, shelves } = action.payload;
 
-      const shelvesToLoad = {};
-      Object.keys(shelves).forEach((shelfName) => {
-        shelvesToLoad[shelfName] = createInternalAddons(shelves[shelfName]);
-      });
-
       return {
         ...state,
         collections: collections.map((collection) => {
@@ -125,7 +120,12 @@ const reducer = (
           return null;
         }),
         resultsLoaded: true,
-        shelves: shelvesToLoad,
+        shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
+          return {
+            ...shelvesToLoad,
+            [shelfName]: createInternalAddons(shelves[shelfName]),
+          };
+        }, {}),
       };
     }
 
