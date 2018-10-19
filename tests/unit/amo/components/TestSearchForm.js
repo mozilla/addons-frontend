@@ -50,6 +50,7 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find('.SearchForm')).toHaveLength(1);
+    expect(root.find('.SearchForm')).toHaveProp('role', 'search');
   });
 
   it('configures an initial query value', () => {

@@ -62,6 +62,7 @@ export class SearchFormBase extends React.Component<Props> {
         className={makeClassName('SearchForm', className)}
         method="GET"
         data-no-csrf
+        role="search"
       >
         <AutoSearchInput
           inputName="q"
