@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-19 05:10+0000\n"
+"PO-Revision-Date: 2018-10-19 05:27+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -933,27 +933,27 @@ msgstr "Hesabım"
 
 #: src/amo/components/HomeHeroBanner/index.js:101
 msgid "Universal Bypass"
-msgstr ""
+msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:102
 msgid "Automatically skip annoying link shorteners"
-msgstr ""
+msgstr "Zəhlətökən keçid qısaldıcılarını avtomatik atlayın"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Kalan açıq vərəqləriniz var? Onları tək kənar paneldə nizamlayın"
 
 #: src/amo/components/HomeHeroBanner/index.js:115
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:116
 msgid "Enlarge images by hovering your mouse over it"
-msgstr ""
+msgstr "Siçanınızı şəkillərin üstünə gətirərək şəkilləri böyüdün"
 
 #: src/amo/components/HomeHeroBanner/index.js:122
 msgid "Privacy Possum"
@@ -961,15 +961,15 @@ msgstr "Privacy Possum"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Protect yourself against the sneakiest trackers"
-msgstr ""
+msgstr "Özünüzü daha gizli izləyicilərdən qoruyun"
 
 #: src/amo/components/HomeHeroBanner/index.js:129
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:130
 msgid "Change the default destination for your bookmarks"
-msgstr ""
+msgstr "Əlfəcinləriniz üçün standart qovluğu dəyişdirin"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Textmarker"
@@ -2647,7 +2647,7 @@ msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Bu saytı ziyarət etdiyiniz üçün təşəkkürlər! Lütfən bir neçə dəqiqənizi ayıraraq Firefox ilə təcrübənizi danışın."
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
