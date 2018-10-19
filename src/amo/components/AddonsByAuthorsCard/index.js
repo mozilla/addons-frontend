@@ -109,7 +109,6 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     location: newLocation,
     pageParam,
     paginate,
-    loading,
   }: InternalProps) {
     const {
       addonType: oldAddonType,
