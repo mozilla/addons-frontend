@@ -85,6 +85,18 @@
   max-width: 33%;
   text-align: center;
 
+  &:only-child {
+    max-width: 100%;
+  }
+
+  // This adjusts the max-width when there are only two items. It selects
+  // the element based on its position then selects all siblings.
+  // https://stackoverflow.com/questions/8720931/can-css-detect-the-number-of-children-an-element-has
+  &:first-child:nth-last-child(2),
+  &:first-child:nth-last-child(2) ~ & {
+    max-width: 50%;
+  }
+
   @include respond-to(medium) {
     @include margin-end(24px);
   }
