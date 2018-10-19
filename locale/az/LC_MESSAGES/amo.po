@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-17 22:36+0000\n"
+"PO-Revision-Date: 2018-10-19 05:10+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: az\n"
@@ -1858,54 +1858,48 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Firefox üçün %(addonName)s endir. %(summary)s"
 
 #: src/amo/pages/Addon/index.js:429
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Bu axtarış alətini 🦊 Firefox üçün əldə edin (%(locale)s)"
+msgstr "%(addonName)s – Bu lüğəti 🦊 Android üçün əldə edin (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:436
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Bu axtarış alətini 🦊 Firefox üçün əldə edin (%(locale)s)"
+msgstr "%(addonName)s – Bu Uzantını 🦊 Android üçün əldə edin (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:443
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Bu axtarış alətini 🦊 Firefox üçün əldə edin (%(locale)s)"
+msgstr "%(addonName)s – Bu Dil Paketini 🦊 Android üçün əldə edin (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:451
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Bu axtarış alətini 🦊 Firefox üçün əldə edin (%(locale)s)"
+msgstr "%(addonName)s – Bu Mövzunu 🦊 Android üçün əldə edin (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:459
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Bu axtarış alətini 🦊 Firefox üçün əldə edin (%(locale)s)"
+msgstr "%(addonName)s – Bu Axtarış Alətini 🦊 Android üçün əldə edin (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:466
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Bu axtarış alətini 🦊 Firefox üçün əldə edin (%(locale)s)"
+msgstr "%(addonName)s – Bu Əlavəni 🦊 Android üçün əldə edin (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:477
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Bu Lüğəti 🦊 Firefox üçün əldə edin (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:484
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Bu Uzantını 🦊 Firefox üçün əldə edin (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:491
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Bu Dil Paketini 🦊 Firefox üçün əldə edin (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:499
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Bu Mövzunu 🦊 Firefox üçün əldə edin (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:506
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
@@ -1914,7 +1908,7 @@ msgstr "%(addonName)s – Bu axtarış alətini 🦊 Firefox üçün əldə edin
 # please keep the fox emoji next to "Firefox".
 #: src/amo/pages/Addon/index.js:513
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Bu Əlavəni 🦊 Firefox üçün əldə edin (%(locale)s)"
 
 #: src/amo/pages/Addon/index.js:680
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
