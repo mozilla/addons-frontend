@@ -43,6 +43,9 @@ module.exports = {
   // Logging level, see:
   // https://github.com/pinojs/pino/blob/master/docs/API.md#parameters.
   loggingLevel: 'info',
+  // Enable the httpContext/requestId middleware, see:
+  // https://github.com/mozilla/addons-frontend/issues/6537
+  enableRequestID: true,
 
   // If true node will serve the static files.
   enableNodeStatics: false,
@@ -108,6 +111,7 @@ module.exports = {
     'enableFeatureAMInstallButton',
     'enableFeatureExperienceSurvey',
     'enableFeatureInlineAddonReview',
+    'enableRequestID',
     'experiments',
     'fxaConfig',
     'hctEnabled',

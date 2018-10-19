@@ -1,5 +1,5 @@
 /* @flow */
-import httpContext from 'universal-express-http-context';
+import httpContext from 'express-http-context';
 import uuidv4 from 'uuid/v4';
 import type { $Request, $Response, NextFunction, Middleware } from 'express';
 

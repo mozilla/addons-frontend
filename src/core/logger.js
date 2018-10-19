@@ -17,17 +17,23 @@ if (process.env.NODE_ENV === 'test') {
   //
   // eslint-disable-next-line global-require
   pino = require('pino');
-  // We do not require httpContext in the test suite because it eats all the
-  // memory we have (and more...).
-  //
-  // eslint-disable-next-line global-require
-  httpContext = require('universal-express-http-context');
 }
 
 const pinoLogger = pino({
   level: config.get('loggingLevel'),
   name: config.get('appName'),
 });
+
+if (config.get('enableRequestID')) {
+  // eslint-disable-next-line global-require
+  httpContext = require('express-http-context');
+
+  if (typeof httpContext.get !== 'function') {
+    // Set the `httpContext` to `null` so that it does not need an extra check
+    // on the browser.
+    httpContext = null;
+  }
+}
 
 export default ['debug', 'error', 'fatal', 'info', 'trace', 'warn'].reduce(
   (decoratedLogger, level) => {

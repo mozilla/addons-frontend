@@ -5151,7 +5151,7 @@ expect@^23.1.0:
     jest-message-util "^23.1.0"
     jest-regex-util "^23.0.0"
 
-express-http-context@^1.1.0:
+express-http-context@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.1.0.tgz#ce79a03ecab45e0fbf3b342cf5a2d39c83e34cda"
   integrity sha512-LS47HseitRIxzBHDEQrlVwZkEkMaViM+nhRCrlWYxPNIu7W8KUZyNUOxiD93OghHesl7y+DhBYuz3yfaNHDvVA==
@@ -14280,13 +14280,6 @@ unist-util-visit@^1.1.0:
   integrity sha512-9ntYcxPFtl44gnwXrQKZ5bMqXMY0ZHzUpqMFiU4zcc8mmf/jzYm8GhYgezuUlX4cJIM1zIDYaO6fG/fI+L6iiQ==
   dependencies:
     unist-util-is "^2.1.1"
-
-universal-express-http-context@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/universal-express-http-context/-/universal-express-http-context-1.1.0.tgz#1a4350ef0974dd0211428a74ec1eae7a3cd9cf3f"
-  integrity sha512-0Loc8NcNvHV8OJ0I3F4eiorT+ptgYgcfd4pgNN2mWucWJMfzpFWvp9NU/jn27rFGZ/kRDTjGeecOcMFKLEVrAg==
-  dependencies:
-    express-http-context "^1.1.0"
 
 universalify@^0.1.0:
   version "0.1.2"

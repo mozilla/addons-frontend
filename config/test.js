@@ -6,4 +6,7 @@ module.exports = {
   allowErrorSimulation: true,
   isDeployed: false,
   loggingLevel: 'debug',
+  // We do not enable the request ID feature because httpContext eats all the
+  // memory we have (and more...).
+  enableRequestID: false,
 };

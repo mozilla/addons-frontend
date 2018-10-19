@@ -6,7 +6,7 @@ import 'core/polyfill';
 import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 import Express from 'express';
-import httpContext from 'universal-express-http-context';
+import httpContext from 'express-http-context';
 import helmet from 'helmet';
 import { createMemoryHistory } from 'history';
 import Raven from 'raven';
@@ -160,11 +160,12 @@ function baseServer(
   const app = new Express();
   app.disable('x-powered-by');
 
-  // This middleware must be set very early.
-  app.use(httpContext.middleware);
-
-  // This middleware adds a correlation ID to the HTTP context and response.
-  app.use(requestId);
+  if (config.get('enableRequestID')) {
+    // This middleware must be set very early.
+    app.use(httpContext.middleware);
+    // This middleware adds a correlation ID to the HTTP context and response.
+    app.use(requestId);
+  }
 
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {

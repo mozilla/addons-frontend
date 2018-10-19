@@ -23,6 +23,7 @@ module.exports = {
     'discoParamsToUse',
     'enableDevTools',
     'enableFeatureAMInstallButton',
+    'enableRequestID',
     'hctEnabled',
     'isDeployed',
     'isDevelopment',
