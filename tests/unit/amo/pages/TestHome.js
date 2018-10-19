@@ -440,15 +440,15 @@ describe(__filename, () => {
     );
   });
 
-  it('renders HomeHeroBanner if the enableNewHomeHero config flag is false', () => {
-    const _config = getFakeConfig({ enableNewHomeHero: false });
+  it('renders HomeHeroBanner if the enableFeatureNewHomeHero config flag is false', () => {
+    const _config = getFakeConfig({ enableFeatureNewHomeHero: false });
 
     const root = render({ _config });
     expect(root.find(HomeHeroBanner)).toHaveLength(1);
   });
 
-  it('renders HomeHero if the enableNewHomeHero config flag is true', () => {
-    const _config = getFakeConfig({ enableNewHomeHero: true });
+  it('renders HomeHero if the enableFeatureNewHomeHero config flag is true', () => {
+    const _config = getFakeConfig({ enableFeatureNewHomeHero: true });
 
     const root = render({ _config });
     expect(root.find(HomeHero)).toHaveLength(1);

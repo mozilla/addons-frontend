@@ -246,7 +246,11 @@ export class HomeBase extends React.Component {
 
         {errorHandler.renderErrorIfPresent()}
 
-        {_config.get('enableNewHomeHero') ? <HomeHero /> : <HomeHeroBanner />}
+        {_config.get('enableFeatureNewHomeHero') ? (
+          <HomeHero />
+        ) : (
+          <HomeHeroBanner />
+        )}
 
         <Card
           className="Home-SubjectShelf Home-CuratedCollections"
