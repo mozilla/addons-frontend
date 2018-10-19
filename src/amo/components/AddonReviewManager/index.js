@@ -10,11 +10,11 @@ import {
   STARTED_SAVE_REVIEW,
   updateAddonReview,
 } from 'amo/actions/reviews';
+import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import Rating from 'ui/components/Rating';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -115,17 +115,12 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
       <div className="AddonReviewManager">
         {errorHandler.renderErrorIfPresent()}
         {!isReply && (
-          <div className="AddonReviewManager-starRating">
-            <span>{i18n.gettext('Your star rating:')}</span>
-            <Rating
-              className="AddonReviewManager-Rating"
-              onSelectRating={this.onSubmitRating}
-              rating={
-                flashMessage === STARTED_SAVE_RATING ? undefined : review.score
-              }
-              styleSize="small"
-              yellowStars
-            />
+          <AddonReviewManagerRating
+            onSelectRating={this.onSubmitRating}
+            rating={
+              flashMessage === STARTED_SAVE_RATING ? undefined : review.score
+            }
+          >
             <span
               className={makeClassName('AddonReviewManager-savedRating', {
                 'AddonReviewManager-savedRating-hidden':
@@ -137,7 +132,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
                 ? i18n.gettext('Saving')
                 : i18n.gettext('Saved')}
             </span>
-          </div>
+          </AddonReviewManagerRating>
         )}
         <DismissibleTextForm
           dismissButtonText={i18n.gettext('Cancel')}

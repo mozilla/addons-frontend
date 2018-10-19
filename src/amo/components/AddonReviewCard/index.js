@@ -502,6 +502,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         })}
       >
         <div className="AddonReviewCard-container">
+          {errorHandler.renderErrorIfPresent()}
           {review &&
           editingReview &&
           _config.get('enableFeatureInlineAddonReview') ? (
@@ -519,7 +520,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               isReply={this.isReply()}
             />
           )}
-          {errorHandler.renderErrorIfPresent()}
         </div>
         {beginningToDeleteReview && (
           <ConfirmationDialog

@@ -1,0 +1,25 @@
+@import '~amo/css/styles';
+
+.AddonReviewManagerRating {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  .Rating {
+    height: 36px;
+    margin: 12px 0;
+    width: 100%;
+  }
+
+  @include respond-to(large) {
+    flex-direction: row;
+
+    .Rating {
+      height: $default-line-height;
+      margin: 0;
+      width: auto;
+
+      @include margin-start(6px);
+    }
+  }
+}

@@ -14,6 +14,7 @@ import AddonReviewManager, {
   AddonReviewManagerBase,
   extractId,
 } from 'amo/components/AddonReviewManager';
+import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import {
@@ -23,7 +24,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import Rating from 'ui/components/Rating';
 
 describe(__filename, () => {
   const getProps = (props = {}) => {
@@ -50,12 +50,12 @@ describe(__filename, () => {
     });
   };
 
-  it('configures Rating with the review rating', () => {
+  it('configures AddonReviewManagerRating with the review rating', () => {
     const rating = 3;
     const review = createInternalReview({ ...fakeReview, rating });
     const root = render({ review });
 
-    const ratingComponent = root.find(Rating);
+    const ratingComponent = root.find(AddonReviewManagerRating);
     expect(ratingComponent).toHaveProp('rating', rating);
   });
 
@@ -120,11 +120,11 @@ describe(__filename, () => {
       score: 2,
     });
     const root = render({ store, review });
-    const rating = root.find(Rating);
+    const rating = root.find(AddonReviewManagerRating);
 
     const newScore = 4;
 
-    // Simulate how Rating lets you select a star.
+    // Emulate how AddonReviewManagerRating lets you select a star.
     const onSelectRating = rating.prop('onSelectRating');
     onSelectRating(newScore);
 
@@ -238,7 +238,7 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    const rating = root.find(Rating);
+    const rating = root.find(AddonReviewManagerRating);
     // This will render a loading state.
     expect(rating).toHaveProp('rating', undefined);
   });

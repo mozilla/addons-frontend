@@ -40,7 +40,7 @@
     justify-content: flex-start;
   }
 
-  .AddonReviewCard-control {
+  .AddonReviewCard-control:not(.AddonReviewCard-deleting) {
     &,
     &:link,
     &:visited,

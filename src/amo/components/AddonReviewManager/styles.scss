@@ -27,30 +27,6 @@
   }
 }
 
-.AddonReviewManager-starRating {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  .AddonReviewManager-Rating.Rating {
-    height: 36px;
-    margin: 12px 0;
-    width: 100%;
-  }
-
-  @include respond-to(large) {
-    flex-direction: row;
-
-    .AddonReviewManager-Rating.Rating {
-      height: $default-line-height;
-      margin: 0;
-      width: auto;
-
-      @include margin-start(6px);
-    }
-  }
-}
-
 .AddonReviewManager-savedRating {
   @include margin-start(6px);
 
