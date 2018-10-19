@@ -140,11 +140,13 @@ export const getLoadingForAuthorIds = (
   authorIds: Array<number>,
   addonType?: string,
 ): boolean | null => {
-  return (
-    addonsByAuthorsState.loadingFor[
-      joinAuthorIdsAndAddonType(authorIds, addonType)
-    ] || null
-  );
+  const key = joinAuthorIdsAndAddonType(authorIds, addonType);
+
+  if (addonsByAuthorsState.loadingFor[key] === undefined) {
+    return null;
+  }
+
+  return addonsByAuthorsState.loadingFor[key];
 };
 
 export const getCountForAuthorIds = (

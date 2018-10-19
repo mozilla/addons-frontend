@@ -530,11 +530,21 @@ describe(__filename, () => {
     );
   });
 
-  it('does not render AddonsByAuthorsCards without a user', () => {
+  it('renders AddonsByAuthorsCards without a user', () => {
     const username = 'not-loaded';
     const root = renderUserProfile({ params: { username } });
 
-    expect(root.find(AddonsByAuthorsCard)).toHaveLength(0);
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorIds', null);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'authorDisplayName',
+      null,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('authorIds', null);
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'authorDisplayName',
+      null,
+    );
   });
 
   it('renders AddonsByAuthorsCard for extensions', () => {

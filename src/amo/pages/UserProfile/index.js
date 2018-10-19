@@ -380,39 +380,35 @@ export class UserProfileBase extends React.Component<InternalProps> {
             ) : null}
           </Card>
 
-          {user && (
-            // TODO: use `params.userId` when we switch to user IDs in URLs,
-            // see: https://github.com/mozilla/addons-frontend/issues/6526
-            <div className="UserProfile-addons-and-reviews">
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_EXTENSION}
-                authorDisplayName={user.name}
-                authorIds={[user.id]}
-                errorHandler={errorHandler}
-                numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
-                pageParam="page_e"
-                paginate
-                pathname={this.getURL()}
-                showMore={false}
-                showSummary
-                type="vertical"
-              />
+          <div className="UserProfile-addons-and-reviews">
+            <AddonsByAuthorsCard
+              addonType={ADDON_TYPE_EXTENSION}
+              authorDisplayName={user ? user.name : null}
+              authorIds={user ? [user.id] : null}
+              errorHandler={errorHandler}
+              numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
+              pageParam="page_e"
+              paginate
+              pathname={this.getURL()}
+              showMore={false}
+              showSummary
+              type="vertical"
+            />
 
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_THEME}
-                authorDisplayName={user.name}
-                authorIds={[user.id]}
-                errorHandler={errorHandler}
-                numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
-                pageParam="page_t"
-                paginate
-                pathname={this.getURL()}
-                showMore={false}
-              />
+            <AddonsByAuthorsCard
+              addonType={ADDON_TYPE_THEME}
+              authorDisplayName={user ? user.name : null}
+              authorIds={user ? [user.id] : null}
+              errorHandler={errorHandler}
+              numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
+              pageParam="page_t"
+              paginate
+              pathname={this.getURL()}
+              showMore={false}
+            />
 
-              {this.renderReviews()}
-            </div>
-          )}
+            {this.renderReviews()}
+          </div>
         </div>
       </div>
     );

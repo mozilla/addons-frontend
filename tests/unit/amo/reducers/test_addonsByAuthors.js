@@ -879,6 +879,19 @@ describe(__filename, () => {
 
       expect(getLoadingForAuthorIds(state, [])).toEqual(null);
     });
+
+    it('returns false when loading is defined', () => {
+      const state = reducer(
+        undefined,
+        loadAddonsByAuthors({
+          ...params,
+          addons: [],
+          count: 0,
+        }),
+      );
+
+      expect(getLoadingForAuthorIds(state, [randomAuthorId1])).toEqual(false);
+    });
   });
 
   describe('getCountForAuthorIds', () => {
@@ -934,7 +947,7 @@ describe(__filename, () => {
     });
 
     it('resets count when fetching add-ons by authors', () => {
-      const count = randomAuthorId1;
+      const count = 123;
 
       const prevState = reducer(
         undefined,
