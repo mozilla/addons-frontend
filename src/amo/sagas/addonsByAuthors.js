@@ -12,7 +12,7 @@ import { getAddonTypeFilter } from 'core/utils';
 export function* fetchAddonsByAuthors({ payload }) {
   const {
     addonType,
-    authorUsernames,
+    authorIds,
     errorHandlerId,
     forAddonSlug,
     page,
@@ -31,7 +31,7 @@ export function* fetchAddonsByAuthors({ payload }) {
       api: state.api,
       filters: {
         addonType: getAddonTypeFilter(addonType),
-        author: authorUsernames.sort().join(','),
+        author: authorIds.join(','),
         exclude_addons: forAddonSlug,
         page: page || '1',
         page_size: pageSize,
@@ -45,7 +45,7 @@ export function* fetchAddonsByAuthors({ payload }) {
       loadAddonsByAuthors({
         addonType,
         addons: results,
-        authorUsernames,
+        authorIds,
         count,
         forAddonSlug,
         pageSize,

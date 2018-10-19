@@ -12,9 +12,9 @@ import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
   fetchAddonsByAuthors,
-  getAddonsForUsernames,
-  getCountForAuthorNames,
-  getLoadingForAuthorNames,
+  getAddonsForAuthorIds,
+  getCountForAuthorIds,
+  getLoadingForAuthorIds,
 } from 'amo/reducers/addonsByAuthors';
 import Paginate from 'core/components/Paginate';
 import {
@@ -41,7 +41,7 @@ import './styles.scss';
 type Props = {|
   addonType?: string,
   authorDisplayName: string,
-  authorUsernames: Array<string>,
+  authorIds: Array<number>,
   className?: string,
   errorHandler?: ErrorHandlerType,
   forAddonSlug?: string,
@@ -68,7 +68,7 @@ type InternalProps = {|
 
 type DispatchFetchAddonsByAuthorsParams = {|
   addonType: $PropertyType<FetchAddonsByAuthorsParams, 'addonType'>,
-  authorUsernames: $PropertyType<FetchAddonsByAuthorsParams, 'authorUsernames'>,
+  authorIds: $PropertyType<FetchAddonsByAuthorsParams, 'authorIds'>,
   forAddonSlug: $PropertyType<FetchAddonsByAuthorsParams, 'forAddonSlug'>,
   page: $PropertyType<FetchAddonsByAuthorsParams, 'page'>,
 |};
@@ -87,7 +87,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
 
     const {
       addonType,
-      authorUsernames,
+      authorIds,
       forAddonSlug,
       location,
       pageParam,
@@ -96,7 +96,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
 
     this.dispatchFetchAddonsByAuthors({
       addonType,
-      authorUsernames,
+      authorIds,
       forAddonSlug,
       page: this.getCurrentPage({ location, paginate, pageParam }),
     });
@@ -104,15 +104,16 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
 
   componentWillReceiveProps({
     addonType: newAddonType,
-    authorUsernames: newAuthorNames,
+    authorIds: newAuthorIds,
     forAddonSlug: newForAddonSlug,
     location: newLocation,
     pageParam,
     paginate,
+    loading,
   }: InternalProps) {
     const {
       addonType: oldAddonType,
-      authorUsernames: oldAuthorNames,
+      authorIds: oldAuthorIds,
       forAddonSlug: oldForAddonSlug,
       location: oldLocation,
     } = this.props;
@@ -124,12 +125,12 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     if (
       oldAddonType !== newAddonType ||
       oldForAddonSlug !== newForAddonSlug ||
-      !deepEqual(oldAuthorNames, newAuthorNames) ||
+      !deepEqual(oldAuthorIds, newAuthorIds) ||
       newPage
     ) {
       this.dispatchFetchAddonsByAuthors({
         addonType: newAddonType,
-        authorUsernames: newAuthorNames,
+        authorIds: newAuthorIds,
         forAddonSlug: newForAddonSlug,
         page: this.getCurrentPage({
           location: newLocation,
@@ -163,7 +164,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
 
   dispatchFetchAddonsByAuthors({
     addonType,
-    authorUsernames,
+    authorIds,
     forAddonSlug,
     page,
   }: DispatchFetchAddonsByAuthorsParams) {
@@ -183,7 +184,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     this.props.dispatch(
       fetchAddonsByAuthors({
         addonType,
-        authorUsernames,
+        authorIds,
         errorHandlerId: errorHandler.id,
         forAddonSlug,
         page,
@@ -198,7 +199,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       addonType,
       addons,
       authorDisplayName,
-      authorUsernames,
+      authorIds,
       className,
       errorHandler,
       i18n,
@@ -229,14 +230,14 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
                 author: authorDisplayName,
               }),
               i18n.gettext('More dictionaries by these translators'),
-              authorUsernames.length,
+              authorIds.length,
             )
           : i18n.ngettext(
               i18n.sprintf(i18n.gettext('Dictionaries by %(author)s'), {
                 author: authorDisplayName,
               }),
               i18n.gettext('Dictionaries by these translators'),
-              authorUsernames.length,
+              authorIds.length,
             );
         break;
       case ADDON_TYPE_EXTENSION:
@@ -246,14 +247,14 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
                 author: authorDisplayName,
               }),
               i18n.gettext('More extensions by these developers'),
-              authorUsernames.length,
+              authorIds.length,
             )
           : i18n.ngettext(
               i18n.sprintf(i18n.gettext('Extensions by %(author)s'), {
                 author: authorDisplayName,
               }),
               i18n.gettext('Extensions by these developers'),
-              authorUsernames.length,
+              authorIds.length,
             );
         break;
       case ADDON_TYPE_LANG:
@@ -263,14 +264,14 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
                 author: authorDisplayName,
               }),
               i18n.gettext('More language packs by these translators'),
-              authorUsernames.length,
+              authorIds.length,
             )
           : i18n.ngettext(
               i18n.sprintf(i18n.gettext('Language packs by %(author)s'), {
                 author: authorDisplayName,
               }),
               i18n.gettext('Language packs by these translators'),
-              authorUsernames.length,
+              authorIds.length,
             );
         break;
       case ADDON_TYPE_STATIC_THEME:
@@ -281,14 +282,14 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
                 author: authorDisplayName,
               }),
               i18n.gettext('More themes by these artists'),
-              authorUsernames.length,
+              authorIds.length,
             )
           : i18n.ngettext(
               i18n.sprintf(i18n.gettext('Themes by %(author)s'), {
                 author: authorDisplayName,
               }),
               i18n.gettext('Themes by these artists'),
-              authorUsernames.length,
+              authorIds.length,
             );
         break;
       default:
@@ -298,14 +299,14 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
                 author: authorDisplayName,
               }),
               i18n.gettext('More add-ons by these developers'),
-              authorUsernames.length,
+              authorIds.length,
             )
           : i18n.ngettext(
               i18n.sprintf(i18n.gettext('Add-ons by %(author)s'), {
                 author: authorDisplayName,
               }),
               i18n.gettext('Add-ons by these developers'),
-              authorUsernames.length,
+              authorIds.length,
             );
     }
 
@@ -357,25 +358,25 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
 }
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
-  const { addonType, authorUsernames, forAddonSlug, numberOfAddons } = ownProps;
+  const { addonType, authorIds, forAddonSlug, numberOfAddons } = ownProps;
 
-  let addons = getAddonsForUsernames(
+  let addons = getAddonsForAuthorIds(
     state.addonsByAuthors,
-    authorUsernames,
+    authorIds,
     addonType,
     forAddonSlug,
   );
   addons = addons ? addons.slice(0, numberOfAddons) : addons;
 
-  const count = getCountForAuthorNames(
+  const count = getCountForAuthorIds(
     state.addonsByAuthors,
-    authorUsernames,
+    authorIds,
     addonType,
   );
 
-  const loading = getLoadingForAuthorNames(
+  const loading = getLoadingForAuthorIds(
     state.addonsByAuthors,
-    authorUsernames,
+    authorIds,
     addonType,
   );
 

@@ -157,7 +157,7 @@ describe(__filename, () => {
   const _loadAddonResultsByAuthors = ({ addon, addonsByAuthors }) => {
     return loadAddonsByAuthors({
       addons: addonsByAuthors,
-      authorUsernames: ['foo'],
+      authorIds: [123],
       count: addonsByAuthors.length,
       forAddonSlug: addon.slug,
       pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -1394,8 +1394,8 @@ describe(__filename, () => {
 
       expect(root).toHaveClassName('.Addon-MoreAddonsCard');
       expect(root).toHaveProp(
-        'authorUsernames',
-        addon.authors.map((author) => author.username),
+        'authorIds',
+        addon.authors.map((author) => author.id),
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
@@ -1417,8 +1417,8 @@ describe(__filename, () => {
 
       expect(root).toHaveClassName('.Addon-MoreAddonsCard');
       expect(root).toHaveProp(
-        'authorUsernames',
-        addon.authors.map((author) => author.username),
+        'authorIds',
+        addon.authors.map((author) => author.id),
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
