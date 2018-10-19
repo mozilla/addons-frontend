@@ -91,7 +91,12 @@
 
   // This adjusts the max-width when there are only two items. It selects
   // the element based on its position then selects all siblings.
+
+  /* stylelint-disable max-line-length */
+
   // https://stackoverflow.com/questions/8720931/can-css-detect-the-number-of-children-an-element-has
+
+  /* stylelint-enable max-line-length */
   &:first-child:nth-last-child(2),
   &:first-child:nth-last-child(2) ~ & {
     max-width: 50%;
