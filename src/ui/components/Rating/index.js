@@ -131,6 +131,9 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       if (hoveringOverStar !== null) {
         isSelected = thisRating <= hoveringOverStar;
       }
+
+      const title = this.renderTitle(rating, readOnly, thisRating);
+      
       const props = {
         className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
           'Rating-selected-star': isSelected,
@@ -140,7 +143,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         key: `rating-${thisRating}`,
         onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
-        title: this.renderTitle(rating, readOnly, thisRating),
+          title
       };
 
       if (readOnly) {
@@ -151,9 +154,21 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         props.onClick = this.onSelectRating;
       }
 
+      const id = `Rating-rating-${thisRating}-title`;
+
       return (
         // eslint-disable-next-line react/jsx-key
-        <button type="button" value={thisRating} {...props} />
+        <React.Fragment>
+          <button
+            aria-describedby={id}
+            type="buttn"
+            value={thisRating}
+            {...props}
+          />
+          <span id={id} className="visually-hidden">
+            {title}
+          </span>
+        </React.Fragment>
       );
     });
   }
