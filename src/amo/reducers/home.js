@@ -14,18 +14,14 @@ export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 
 export type HomeState = {
   collections: Array<Object | null>,
-  featuredExtensions: Array<AddonType>,
   resultsLoaded: boolean,
-  featuredThemes: Array<AddonType>,
-  popularExtensions: Array<AddonType>,
+  shelves: { [shelfName: string]: Array<AddonType> },
 };
 
 export const initialState: HomeState = {
   collections: [],
-  featuredExtensions: [],
   resultsLoaded: false,
-  featuredThemes: [],
-  popularExtensions: [],
+  shelves: {},
 };
 
 type FetchHomeAddonsParams = {|
@@ -64,9 +60,7 @@ type ApiAddonsResponse = {|
 
 type LoadHomeAddonsParams = {|
   collections: Array<Object | null>,
-  featuredExtensions: ApiAddonsResponse,
-  featuredThemes?: ApiAddonsResponse,
-  popularExtensions: ApiAddonsResponse,
+  shelves: { [shelfName: string]: ApiAddonsResponse },
 |};
 
 type LoadHomeAddonsAction = {|
@@ -76,21 +70,16 @@ type LoadHomeAddonsAction = {|
 
 export const loadHomeAddons = ({
   collections,
-  featuredExtensions,
-  featuredThemes,
-  popularExtensions,
+  shelves,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   invariant(collections, 'collections is required');
-  invariant(featuredExtensions, 'featuredExtensions is required');
-  invariant(popularExtensions, 'popularExtensions is required');
+  invariant(shelves, 'shelves is required');
 
   return {
     type: LOAD_HOME_ADDONS,
     payload: {
       collections,
-      featuredExtensions,
-      featuredThemes,
-      popularExtensions,
+      shelves,
     },
   };
 };
@@ -115,12 +104,7 @@ const reducer = (
       };
 
     case LOAD_HOME_ADDONS: {
-      const {
-        collections,
-        featuredExtensions,
-        featuredThemes,
-        popularExtensions,
-      } = action.payload;
+      const { collections, shelves } = action.payload;
 
       return {
         ...state,
@@ -135,12 +119,13 @@ const reducer = (
           }
           return null;
         }),
-        featuredExtensions: createInternalAddons(featuredExtensions),
-        featuredThemes: featuredThemes
-          ? createInternalAddons(featuredThemes)
-          : [],
         resultsLoaded: true,
-        popularExtensions: createInternalAddons(popularExtensions),
+        shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
+          return {
+            ...shelvesToLoad,
+            [shelfName]: createInternalAddons(shelves[shelfName]),
+          };
+        }, {}),
       };
     }
 
