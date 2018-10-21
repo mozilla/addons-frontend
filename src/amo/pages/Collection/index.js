@@ -473,11 +473,13 @@ export class CollectionBase extends React.Component<InternalProps> {
             />
             {this.renderDeleteButton()}
           </Card>
-          <CollectionControls
-            collection={collection}
-            editing={editing}
-            filters={filters}
-          />
+          {!creating && (
+            <CollectionControls
+              collection={collection}
+              editing={editing}
+              filters={filters}
+            />
+          )}
         </div>
         <div className="Collection-items">
           {editing && (
