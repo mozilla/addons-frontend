@@ -1503,7 +1503,7 @@ describe(__filename, () => {
         }),
       );
 
-      const permissions = state.addonReviewPermissions[`${addonId}-${userId}`];
+      const permissions = state.reviewPermissions[`${addonId}-${userId}`];
       expect(permissions.loading).toEqual(true);
       expect(permissions.canReplyToReviews).toEqual(undefined);
     });
@@ -1533,7 +1533,7 @@ describe(__filename, () => {
         }),
       );
 
-      const permissions = state.addonReviewPermissions[`${addonId}-${userId}`];
+      const permissions = state.reviewPermissions[`${addonId}-${userId}`];
       expect(permissions.loading).toEqual(false);
       expect(permissions.canReplyToReviews).toEqual(false);
     });
