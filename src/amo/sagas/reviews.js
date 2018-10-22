@@ -84,7 +84,9 @@ function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page },
 }: FetchReviewsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
+
   try {
+    yield put(errorHandler.createClearingAction());
     const state = yield select(getState);
 
     const params: GetReviewsParams = {
@@ -115,7 +117,9 @@ function* fetchReviewPermissions({
   payload: { errorHandlerId, addonId, userId },
 }: FetchReviewPermissionsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
+
   try {
+    yield put(errorHandler.createClearingAction());
     const state: AppState = yield select(getState);
 
     const params: GetReviewsParams = {

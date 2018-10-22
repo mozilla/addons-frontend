@@ -118,6 +118,17 @@ describe(__filename, () => {
       );
     });
 
+    it('clears the error handler', async () => {
+      mockApi.expects('getReviews').resolves(apiResponsePage());
+
+      _fetchReviews();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
       mockApi.expects('getReviews').returns(Promise.reject(error));
@@ -154,12 +165,7 @@ describe(__filename, () => {
           apiState,
           show_permissions_for: userId,
         })
-        .resolves(
-          apiResponsePage({
-            results: [],
-            can_reply: true,
-          }),
-        );
+        .resolves(apiResponsePage({ can_reply: true }));
 
       _fetchReviewPermissions({ addonId, userId });
 
@@ -172,6 +178,19 @@ describe(__filename, () => {
       const action = await sagaTester.waitFor(expectedAction.type);
       mockApi.verify();
 
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('clears the error handler', async () => {
+      mockApi
+        .expects('getReviews')
+        .resolves(apiResponsePage({ can_reply: true }));
+
+      _fetchReviewPermissions();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
     });
 
@@ -211,7 +230,6 @@ describe(__filename, () => {
       // response page is returned with 0 results and a new
       // grouped_ratings object.
       return apiResponsePage({
-        results: [],
         grouped_ratings: grouping,
       });
     };
