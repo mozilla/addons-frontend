@@ -101,7 +101,7 @@ type ViewStateByReviewId = {|
 |};
 
 export type ReviewsState = {|
-  reviewPermissions: {
+  permissions: {
     [addonIdAndUserId: string]: {|
       loading: boolean,
       canReplyToReviews: ?boolean,
@@ -129,7 +129,7 @@ export type ReviewsState = {|
 |};
 
 export const initialState: ReviewsState = {
-  reviewPermissions: {},
+  permissions: {},
   byAddon: {},
   byId: {},
   byUserId: {},
@@ -167,7 +167,7 @@ export function selectReviewPermissions({
   addonId: number,
   userId: number,
 |}) {
-  return reviewsState.reviewPermissions[
+  return reviewsState.permissions[
     makeReviewPermissionsKey({ addonId, userId })
   ];
 }
@@ -659,8 +659,8 @@ export default function reviewsReducer(
       const { addonId, userId } = action.payload;
       return {
         ...state,
-        reviewPermissions: {
-          ...state.reviewPermissions,
+        permissions: {
+          ...state.permissions,
           [makeReviewPermissionsKey({ addonId, userId })]: {
             loading: true,
             canReplyToReviews: undefined,
@@ -672,8 +672,8 @@ export default function reviewsReducer(
       const { addonId, userId, canReplyToReviews } = action.payload;
       return {
         ...state,
-        reviewPermissions: {
-          ...state.reviewPermissions,
+        permissions: {
+          ...state.permissions,
           [makeReviewPermissionsKey({ addonId, userId })]: {
             loading: false,
             canReplyToReviews,
