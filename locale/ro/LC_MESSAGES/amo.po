@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-16 21:50+0000\n"
+"PO-Revision-Date: 2018-10-22 13:36+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1424,7 +1424,7 @@ msgstr "Să acceseze filele browserului"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Hide and show browser tabs"
-msgstr "Să ascundă şi să afișeze filele browserului"
+msgstr "Să ascundă și să afișeze filele browserului"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Store unlimited amount of client-side data"
