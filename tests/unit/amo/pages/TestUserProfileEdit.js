@@ -1661,7 +1661,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, errorHandler.createClearingAction());
   });
 
-  it('renders a FxA management link', () => {
+  it('renders a FxA management link to the current logged-in user', () => {
     const link = 'http://example.org/settings?uid=fxa-id-123';
     const root = renderUserProfileEdit({
       userProps: {
