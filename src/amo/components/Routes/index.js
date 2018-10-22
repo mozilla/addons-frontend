@@ -5,6 +5,10 @@ import { Route, Switch } from 'react-router-dom';
 
 import About from 'amo/pages/StaticPages/About';
 import Addon from 'amo/pages/Addon';
+import AddonInfo, {
+  ADDON_INFO_TYPE_EULA,
+  ADDON_INFO_TYPE_PRIVACY_POLICY,
+} from 'amo/pages/AddonInfo';
 import AddonReviewList from 'amo/pages/AddonReviewList';
 import CategoriesPage from 'amo/pages/CategoriesPage';
 import Category from 'amo/pages/Category';
@@ -50,6 +54,22 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/addon/:addonSlug/reviews/"
       component={AddonReviewList}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application/addon/:slug/privacy/"
+      component={(props) => (
+        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_PRIVACY_POLICY} />
+      )}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application/addon/:slug/eula/"
+      component={(props) => (
+        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_EULA} />
+      )}
     />
 
     <Route

@@ -1,0 +1,17 @@
+@import '~amo/css/styles';
+
+.AddonInfo {
+  @include page-padding();
+
+  @include respond-to(large) {
+    display: flex;
+  }
+}
+
+.AddonInfo-info {
+  @include respond-to(large) {
+    @include margin-start($padding-page-l);
+
+    width: 65%;
+  }
+}
