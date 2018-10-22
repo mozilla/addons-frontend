@@ -23,7 +23,7 @@ import {
   DELETE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
   FETCH_REVIEW,
-  FETCH_REVIEW_ADDON_PERMISSIONS,
+  FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   SAVED_RATING,
@@ -42,7 +42,7 @@ import {
   setGroupedRatings,
   setLatestReview,
   setReview,
-  setReviewAddonPermissions,
+  setReviewPermissions,
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
@@ -65,7 +65,7 @@ import type {
   DeleteAddonReviewAction,
   FetchGroupedRatingsAction,
   FetchReviewAction,
-  FetchReviewAddonPermissionsAction,
+  FetchReviewPermissionsAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
@@ -111,9 +111,9 @@ function* fetchReviews({
   }
 }
 
-function* fetchReviewAddonPermissions({
+function* fetchReviewPermissions({
   payload: { errorHandlerId, addonId, userId },
-}: FetchReviewAddonPermissionsAction): Generator<any, any, any> {
+}: FetchReviewPermissionsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state: AppState = yield select(getState);
@@ -131,7 +131,7 @@ function* fetchReviewAddonPermissions({
     );
 
     yield put(
-      setReviewAddonPermissions({
+      setReviewPermissions({
         addonId,
         canReplyToReviews: response.can_reply,
         userId,
@@ -401,7 +401,7 @@ export default function* reviewsSaga(
 ): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_REVIEW, fetchReview);
-  yield takeLatest(FETCH_REVIEW_ADDON_PERMISSIONS, fetchReviewAddonPermissions);
+  yield takeLatest(FETCH_REVIEW_PERMISSIONS, fetchReviewPermissions);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);

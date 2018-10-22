@@ -7,7 +7,7 @@ import {
   CANCEL_DELETE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
   FETCH_REVIEW,
-  FETCH_REVIEW_ADDON_PERMISSIONS,
+  FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
   FLASH_REVIEW_MESSAGE,
   HIDE_FLASHED_REVIEW_MESSAGE,
@@ -19,7 +19,7 @@ import {
   SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
   SET_REVIEW,
-  SET_REVIEW_ADDON_PERMISSIONS,
+  SET_REVIEW_PERMISSIONS,
   SET_REVIEW_REPLY,
   SET_REVIEW_WAS_FLAGGED,
   SET_USER_REVIEWS,
@@ -34,7 +34,7 @@ import type {
   CancelDeleteAddonReviewAction,
   DeleteAddonReviewAction,
   FetchReviewAction,
-  FetchReviewAddonPermissionsAction,
+  FetchReviewPermissionsAction,
   FetchReviewsAction,
   FlagReviewAction,
   FlashMessageType,
@@ -49,7 +49,7 @@ import type {
   SetGroupedRatingsAction,
   FlashReviewMessageAction,
   SetReviewAction,
-  SetReviewAddonPermissionsAction,
+  SetReviewPermissionsAction,
   SetReviewReplyAction,
   SetUserReviewsAction,
   ShowEditReviewFormAction,
@@ -148,7 +148,7 @@ export const selectReview = (
   return reviewsState.byId[id];
 };
 
-function makeAddonReviewPermissionsKey({
+function makeReviewPermissionsKey({
   addonId,
   userId,
 }: {|
@@ -158,7 +158,7 @@ function makeAddonReviewPermissionsKey({
   return `${addonId}-${userId}`;
 }
 
-export function selectReviewAddonPermissions({
+export function selectReviewPermissions({
   reviewsState,
   addonId,
   userId,
@@ -168,7 +168,7 @@ export function selectReviewAddonPermissions({
   userId: number,
 |}) {
   return reviewsState.addonReviewPermissions[
-    makeAddonReviewPermissionsKey({ addonId, userId })
+    makeReviewPermissionsKey({ addonId, userId })
   ];
 }
 
@@ -364,7 +364,7 @@ type ReviewActionType =
   | CancelDeleteAddonReviewAction
   | DeleteAddonReviewAction
   | FetchReviewAction
-  | FetchReviewAddonPermissionsAction
+  | FetchReviewPermissionsAction
   | FetchReviewsAction
   | FlagReviewAction
   | FlashReviewMessageAction
@@ -379,7 +379,7 @@ type ReviewActionType =
   | SetInternalReviewAction
   | SetLatestReviewAction
   | SetReviewAction
-  | SetReviewAddonPermissionsAction
+  | SetReviewPermissionsAction
   | SetReviewReplyAction
   | SetUserReviewsAction
   | ShowEditReviewFormAction
@@ -655,26 +655,26 @@ export default function reviewsReducer(
         view: {},
       };
     }
-    case FETCH_REVIEW_ADDON_PERMISSIONS: {
+    case FETCH_REVIEW_PERMISSIONS: {
       const { addonId, userId } = action.payload;
       return {
         ...state,
         addonReviewPermissions: {
           ...state.addonReviewPermissions,
-          [makeAddonReviewPermissionsKey({ addonId, userId })]: {
+          [makeReviewPermissionsKey({ addonId, userId })]: {
             loading: true,
             canReplyToReviews: undefined,
           },
         },
       };
     }
-    case SET_REVIEW_ADDON_PERMISSIONS: {
+    case SET_REVIEW_PERMISSIONS: {
       const { addonId, userId, canReplyToReviews } = action.payload;
       return {
         ...state,
         addonReviewPermissions: {
           ...state.addonReviewPermissions,
-          [makeAddonReviewPermissionsKey({ addonId, userId })]: {
+          [makeReviewPermissionsKey({ addonId, userId })]: {
             loading: false,
             canReplyToReviews,
           },

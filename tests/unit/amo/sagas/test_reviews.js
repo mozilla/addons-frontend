@@ -13,7 +13,7 @@ import {
   deleteAddonReview,
   fetchGroupedRatings,
   fetchReview,
-  fetchReviewAddonPermissions,
+  fetchReviewPermissions,
   fetchReviews,
   fetchUserReviews,
   flagReview,
@@ -25,7 +25,7 @@ import {
   setGroupedRatings,
   flashReviewMessage,
   setReview,
-  setReviewAddonPermissions,
+  setReviewPermissions,
   setReviewReply,
   setLatestReview,
   setReviewWasFlagged,
@@ -130,10 +130,10 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchReviewAddonPermissions', () => {
-    function _fetchReviewAddonPermissions(params = {}) {
+  describe('fetchReviewPermissions', () => {
+    function _fetchReviewPermissions(params = {}) {
       sagaTester.dispatch(
-        fetchReviewAddonPermissions({
+        fetchReviewPermissions({
           errorHandlerId: errorHandler.id,
           addonId: 5432,
           userId: 98432,
@@ -161,9 +161,9 @@ describe(__filename, () => {
           }),
         );
 
-      _fetchReviewAddonPermissions({ addonId, userId });
+      _fetchReviewPermissions({ addonId, userId });
 
-      const expectedAction = setReviewAddonPermissions({
+      const expectedAction = setReviewPermissions({
         addonId,
         canReplyToReviews: true,
         userId,
@@ -179,7 +179,7 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
       mockApi.expects('getReviews').rejects(error);
 
-      _fetchReviewAddonPermissions();
+      _fetchReviewPermissions();
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

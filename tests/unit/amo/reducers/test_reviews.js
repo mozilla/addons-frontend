@@ -5,7 +5,7 @@ import {
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
   deleteAddonReview,
-  fetchReviewAddonPermissions,
+  fetchReviewPermissions,
   unloadAddonReviews,
   createInternalReview,
   fetchReview,
@@ -19,7 +19,7 @@ import {
   setGroupedRatings,
   setInternalReview,
   setLatestReview,
-  setReviewAddonPermissions,
+  setReviewPermissions,
   flashReviewMessage,
   setReview,
   setReviewReply,
@@ -37,7 +37,7 @@ import reviewsReducer, {
   initialState,
   makeLatestUserReviewKey,
   reviewsAreLoading,
-  selectReviewAddonPermissions,
+  selectReviewPermissions,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
@@ -1489,14 +1489,14 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchReviewAddonPermissions', () => {
+  describe('fetchReviewPermissions', () => {
     it('prepares to fetch permissions', () => {
       const addonId = 123;
       const userId = 321;
 
       const state = reviewsReducer(
         undefined,
-        fetchReviewAddonPermissions({
+        fetchReviewPermissions({
           addonId,
           errorHandlerId: 'some-error-handler',
           userId,
@@ -1509,7 +1509,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('setReviewAddonPermissions', () => {
+  describe('setReviewPermissions', () => {
     it('sets permissions', () => {
       const addonId = 123;
       const userId = 321;
@@ -1518,7 +1518,7 @@ describe(__filename, () => {
 
       state = reviewsReducer(
         state,
-        fetchReviewAddonPermissions({
+        fetchReviewPermissions({
           addonId,
           errorHandlerId: 'some-error-handler',
           userId,
@@ -1526,7 +1526,7 @@ describe(__filename, () => {
       );
       state = reviewsReducer(
         state,
-        setReviewAddonPermissions({
+        setReviewPermissions({
           addonId,
           canReplyToReviews: false,
           userId,
@@ -1539,21 +1539,21 @@ describe(__filename, () => {
     });
   });
 
-  describe('selectReviewAddonPermissions', () => {
+  describe('selectReviewPermissions', () => {
     it('returns existing results', () => {
       const addonId = 123;
       const userId = 321;
 
       const state = reviewsReducer(
         undefined,
-        fetchReviewAddonPermissions({
+        fetchReviewPermissions({
           addonId,
           errorHandlerId: 'some-error-handler',
           userId,
         }),
       );
 
-      const permissions = selectReviewAddonPermissions({
+      const permissions = selectReviewPermissions({
         reviewsState: state,
         addonId,
         userId,
@@ -1565,7 +1565,7 @@ describe(__filename, () => {
     });
 
     it('returns undefined for non-existent results', () => {
-      const permissions = selectReviewAddonPermissions({
+      const permissions = selectReviewPermissions({
         reviewsState: initialState,
         addonId: 1,
         userId: 2,
