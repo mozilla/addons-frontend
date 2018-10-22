@@ -12,11 +12,11 @@ import {
   OS_MAC,
   OS_WINDOWS,
 } from 'core/constants';
-import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
-import type { AppState } from 'amo/store';
-import type { AppState as DiscoAppState } from 'disco/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
+import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
+import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
+import type { AppState } from 'amo/store';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import type {
   AddonType,
   ExternalAddonType,
@@ -24,11 +24,40 @@ import type {
   PlatformFilesType,
   ThemeData,
 } from 'core/types/addons';
+import type { AppState as DiscoAppState } from 'disco/store';
+
+export const FETCH_ADDON_INFO: 'FETCH_ADDON_INFO' = 'FETCH_ADDON_INFO';
+export const LOAD_ADDON_INFO: 'LOAD_ADDON_INFO' = 'LOAD_ADDON_INFO';
 
 export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
 export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
 
 type AddonID = number;
+
+export type AddonInfoType = {
+  eula: string | null,
+  privacyPolicy: string | null,
+};
+
+export type AddonsState = {|
+  // Flow wants hash maps with string keys.
+  // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
+  byID: { [addonId: string]: AddonType },
+  byGUID: { [addonGUID: string]: AddonID },
+  bySlug: { [addonSlug: string]: AddonID },
+  infoBySlug: {
+    [slug: string]: { info: AddonInfoType, loading: boolean },
+  },
+  loadingBySlug: { [addonSlug: string]: boolean },
+|};
+
+export const initialState: AddonsState = {
+  byID: {},
+  byGUID: {},
+  bySlug: {},
+  infoBySlug: {},
+  loadingBySlug: {},
+};
 
 type FetchAddonParams = {|
   errorHandler: ErrorHandlerType,
@@ -80,6 +109,52 @@ export function loadAddonResults({
     payload: { addons },
   };
 }
+
+type FetchAddonInfoParams = {|
+  errorHandlerId: string,
+  slug: string,
+|};
+
+export type FetchAddonInfoAction = {|
+  type: typeof FETCH_ADDON_INFO,
+  payload: FetchAddonInfoParams,
+|};
+
+export const fetchAddonInfo = ({
+  errorHandlerId,
+  slug,
+}: FetchAddonInfoParams): FetchAddonInfoAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(slug, 'slug is required');
+
+  return {
+    type: FETCH_ADDON_INFO,
+    payload: { errorHandlerId, slug },
+  };
+};
+
+type LoadAddonInfoParams = {|
+  info: ExternalAddonInfoType,
+  slug: string,
+|};
+
+type LoadAddonInfoAction = {|
+  type: typeof LOAD_ADDON_INFO,
+  payload: LoadAddonInfoParams,
+|};
+
+export const loadAddonInfo = ({
+  info,
+  slug,
+}: LoadAddonInfoParams = {}): LoadAddonInfoAction => {
+  invariant(info, 'info is required');
+  invariant(slug, 'slug is required');
+
+  return {
+    type: LOAD_ADDON_INFO,
+    payload: { info, slug },
+  };
+};
 
 export function getGuid(addon: ExternalAddonType): string {
   if (addon.type === ADDON_TYPE_THEME) {
@@ -226,22 +301,6 @@ export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
   return addon;
 }
 
-export type AddonsState = {|
-  // Flow wants hash maps with string keys.
-  // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
-  byID: { [addonId: string]: AddonType },
-  byGUID: { [addonGUID: string]: AddonID },
-  bySlug: { [addonSlug: string]: AddonID },
-  loadingBySlug: { [addonSlug: string]: boolean },
-|};
-
-export const initialState: AddonsState = {
-  byID: {},
-  byGUID: {},
-  bySlug: {},
-  loadingBySlug: {},
-};
-
 export const getAddonByID = (
   state: AppState | DiscoAppState,
   id: AddonID,
@@ -286,8 +345,37 @@ export const getAllAddons = (state: AppState): Array<AddonType> => {
   return Object.values(addons);
 };
 
+type GetBySlugParams = {|
+  slug: string,
+  state: AddonsState,
+|};
+
+export const getAddonInfoBySlug = ({
+  slug,
+  state,
+}: GetBySlugParams): AddonInfoType | null => {
+  invariant(slug, 'slug is required');
+  invariant(state, 'state is required');
+
+  const infoForSlug = state.infoBySlug[slug];
+  return (infoForSlug && infoForSlug.info) || null;
+};
+
+export const getInfoLoadingBySlug = ({
+  slug,
+  state,
+}: GetBySlugParams): boolean => {
+  invariant(slug, 'slug is required');
+  invariant(state, 'state is required');
+
+  const infoForSlug = state.infoBySlug[slug];
+  return Boolean(infoForSlug && infoForSlug.loading);
+};
+
 type Action =
   | FetchAddonAction
+  | FetchAddonInfoAction
+  | LoadAddonInfoAction
   | LoadAddonResultsAction
   | UnloadAddonReviewsAction;
 
@@ -306,6 +394,7 @@ export default function addonsReducer(
         },
       };
     }
+
     case LOAD_ADDON_RESULTS: {
       const { addons: loadedAddons } = action.payload;
 
@@ -340,6 +429,7 @@ export default function addonsReducer(
         loadingBySlug,
       };
     }
+
     case UNLOAD_ADDON_REVIEWS: {
       const { addonId } = action.payload;
       const addon = state.byID[`${addonId}`];
@@ -366,6 +456,39 @@ export default function addonsReducer(
       }
       return state;
     }
+
+    case FETCH_ADDON_INFO: {
+      const { slug } = action.payload;
+      return {
+        ...state,
+        infoBySlug: {
+          ...state.infoBySlug,
+          [slug]: {
+            info: null,
+            loading: true,
+          },
+        },
+      };
+    }
+
+    case LOAD_ADDON_INFO: {
+      const {
+        slug,
+        info: { eula, privacyPolicy },
+      } = action.payload;
+
+      return {
+        ...state,
+        infoBySlug: {
+          ...state.infoBySlug,
+          [slug]: {
+            info: { eula, privacyPolicy },
+            loading: false,
+          },
+        },
+      };
+    }
+
     default:
       return state;
   }

@@ -10,12 +10,17 @@ import addons, {
   createPlatformFiles,
   defaultPlatformFiles,
   fetchAddon,
+  fetchAddonInfo,
   getAddonByGUID,
   getAddonByID,
   getAddonBySlug,
+  getAddonInfoBySlug,
   getAllAddons,
   getGuid,
+  getInfoLoadingBySlug,
+  initialState,
   isAddonLoading,
+  loadAddonInfo,
   loadAddonResults,
 } from 'core/reducers/addons';
 import {
@@ -23,12 +28,19 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakeAddonInfo,
   fakePlatformFile,
   fakeTheme,
   fakeVersion,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  it('defaults to its initial state', () => {
+    expect(addons(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(
+      initialState,
+    );
+  });
+
   it('ignores unrelated actions', () => {
     const firstState = addons(
       undefined,
@@ -662,6 +674,69 @@ describe(__filename, () => {
       ).toEqual({
         ...defaultPlatformFiles,
         [unknownPlatform]: unknownFile,
+      });
+    });
+  });
+
+  describe('addonInfo', () => {
+    it('sets a loading flag when fetching info', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddonInfo({ errorHandlerId: 1, slug }),
+      );
+
+      expect(getInfoLoadingBySlug({ state, slug })).toBe(true);
+    });
+
+    it('clears info when fetching info', () => {
+      const slug = 'some-slug';
+      const state = addons(
+        undefined,
+        fetchAddonInfo({ errorHandlerId: 1, slug }),
+      );
+
+      expect(getAddonInfoBySlug({ slug, state })).toEqual(null);
+    });
+
+    it('clears the loading flag when loading info', () => {
+      let state;
+      const slug = 'some-slug';
+      state = addons(undefined, fetchAddonInfo({ errorHandlerId: 1, slug }));
+      state = addons(
+        state,
+        loadAddonInfo({
+          info: fakeAddonInfo,
+          slug,
+        }),
+      );
+
+      expect(getInfoLoadingBySlug({ slug, state })).toBe(false);
+    });
+
+    it('loads info', () => {
+      const slug = 'some-slug';
+      const info = fakeAddonInfo;
+      const state = addons(undefined, loadAddonInfo({ slug, info }));
+
+      expect(getAddonInfoBySlug({ slug, state })).toEqual(info);
+    });
+
+    describe('getInfoLoadingBySlug', () => {
+      it('returns false if info has never been loaded', () => {
+        const state = addons(undefined, {
+          type: 'SOME_OTHER_ACTION',
+        });
+        expect(getInfoLoadingBySlug({ slug: 'some-slug', state })).toBe(false);
+      });
+    });
+
+    describe('getAddonInfoBySlug', () => {
+      it('returns null if no info has been loaded', () => {
+        const state = addons(undefined, {
+          type: 'SOME_OTHER_ACTION',
+        });
+        expect(getAddonInfoBySlug({ slug: 'some-slug', state })).toEqual(null);
       });
     });
   });
