@@ -148,7 +148,7 @@ export const selectReview = (
   return reviewsState.byId[id];
 };
 
-function makeReviewPermissionsKey({
+function makePermissionsKey({
   addonId,
   userId,
 }: {|
@@ -167,9 +167,7 @@ export function selectReviewPermissions({
   addonId: number,
   userId: number,
 |}) {
-  return reviewsState.permissions[
-    makeReviewPermissionsKey({ addonId, userId })
-  ];
+  return reviewsState.permissions[makePermissionsKey({ addonId, userId })];
 }
 
 export const expandReviewObjects = ({
@@ -661,7 +659,7 @@ export default function reviewsReducer(
         ...state,
         permissions: {
           ...state.permissions,
-          [makeReviewPermissionsKey({ addonId, userId })]: {
+          [makePermissionsKey({ addonId, userId })]: {
             loading: true,
             canReplyToReviews: undefined,
           },
@@ -674,7 +672,7 @@ export default function reviewsReducer(
         ...state,
         permissions: {
           ...state.permissions,
-          [makeReviewPermissionsKey({ addonId, userId })]: {
+          [makePermissionsKey({ addonId, userId })]: {
             loading: false,
             canReplyToReviews,
           },
