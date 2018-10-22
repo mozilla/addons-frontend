@@ -23,6 +23,7 @@ import {
   DELETE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
   FETCH_REVIEW,
+  FETCH_REVIEW_ADDON_PERMISSIONS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   SAVED_RATING,
@@ -41,6 +42,7 @@ import {
   setGroupedRatings,
   setLatestReview,
   setReview,
+  setReviewAddonPermissions,
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
@@ -63,6 +65,7 @@ import type {
   DeleteAddonReviewAction,
   FetchGroupedRatingsAction,
   FetchReviewAction,
+  FetchReviewAddonPermissionsAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
@@ -104,6 +107,40 @@ function* fetchReviews({
     );
   } catch (error) {
     log.warn(`Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
+function* fetchReviewAddonPermissions({
+  payload: { errorHandlerId, addonId, userId },
+}: FetchReviewAddonPermissionsAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  try {
+    const state: AppState = yield select(getState);
+
+    const params: GetReviewsParams = {
+      addon: addonId,
+      apiState: state.api,
+      show_permissions_for: userId,
+    };
+
+    const response: GetReviewsApiResponse = yield call(getReviews, params);
+    invariant(
+      response.can_reply !== undefined,
+      'response.can_reply was unexpectedly undefined',
+    );
+
+    yield put(
+      setReviewAddonPermissions({
+        addonId,
+        canReplyToReviews: response.can_reply,
+        userId,
+      }),
+    );
+  } catch (error) {
+    log.warn(
+      `Failed to load review permissions for add-on ID ${addonId}, user ID ${userId}: ${error}`,
+    );
     yield put(errorHandler.createErrorAction(error));
   }
 }
@@ -364,6 +401,7 @@ export default function* reviewsSaga(
 ): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_REVIEW, fetchReview);
+  yield takeLatest(FETCH_REVIEW_ADDON_PERMISSIONS, fetchReviewAddonPermissions);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);

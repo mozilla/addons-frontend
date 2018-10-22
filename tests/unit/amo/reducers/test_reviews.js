@@ -5,6 +5,7 @@ import {
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
   deleteAddonReview,
+  fetchReviewAddonPermissions,
   unloadAddonReviews,
   createInternalReview,
   fetchReview,
@@ -18,6 +19,7 @@ import {
   setGroupedRatings,
   setInternalReview,
   setLatestReview,
+  setReviewAddonPermissions,
   flashReviewMessage,
   setReview,
   setReviewReply,
@@ -35,6 +37,7 @@ import reviewsReducer, {
   initialState,
   makeLatestUserReviewKey,
   reviewsAreLoading,
+  selectReviewAddonPermissions,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
@@ -1483,6 +1486,92 @@ describe(__filename, () => {
       state = reviewsReducer(state, { type: LOCATION_CHANGE });
 
       expect(state.view).toEqual({});
+    });
+  });
+
+  describe('fetchReviewAddonPermissions', () => {
+    it('prepares to fetch permissions', () => {
+      const addonId = 123;
+      const userId = 321;
+
+      const state = reviewsReducer(
+        undefined,
+        fetchReviewAddonPermissions({
+          addonId,
+          errorHandlerId: 'some-error-handler',
+          userId,
+        }),
+      );
+
+      const permissions = state.addonReviewPermissions[`${addonId}-${userId}`];
+      expect(permissions.loading).toEqual(true);
+      expect(permissions.canReplyToReviews).toEqual(undefined);
+    });
+  });
+
+  describe('setReviewAddonPermissions', () => {
+    it('sets permissions', () => {
+      const addonId = 123;
+      const userId = 321;
+
+      let state;
+
+      state = reviewsReducer(
+        state,
+        fetchReviewAddonPermissions({
+          addonId,
+          errorHandlerId: 'some-error-handler',
+          userId,
+        }),
+      );
+      state = reviewsReducer(
+        state,
+        setReviewAddonPermissions({
+          addonId,
+          canReplyToReviews: false,
+          userId,
+        }),
+      );
+
+      const permissions = state.addonReviewPermissions[`${addonId}-${userId}`];
+      expect(permissions.loading).toEqual(false);
+      expect(permissions.canReplyToReviews).toEqual(false);
+    });
+  });
+
+  describe('selectReviewAddonPermissions', () => {
+    it('returns existing results', () => {
+      const addonId = 123;
+      const userId = 321;
+
+      const state = reviewsReducer(
+        undefined,
+        fetchReviewAddonPermissions({
+          addonId,
+          errorHandlerId: 'some-error-handler',
+          userId,
+        }),
+      );
+
+      const permissions = selectReviewAddonPermissions({
+        reviewsState: state,
+        addonId,
+        userId,
+      });
+      expect(permissions).toEqual({
+        loading: true,
+        canReplyToReviews: undefined,
+      });
+    });
+
+    it('returns undefined for non-existent results', () => {
+      const permissions = selectReviewAddonPermissions({
+        reviewsState: initialState,
+        addonId: 1,
+        userId: 2,
+      });
+
+      expect(permissions).toEqual(undefined);
     });
   });
 });

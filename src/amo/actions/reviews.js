@@ -16,6 +16,8 @@ export const SHOW_REPLY_TO_REVIEW_FORM: 'SHOW_REPLY_TO_REVIEW_FORM' =
 export const FETCH_GROUPED_RATINGS: 'FETCH_GROUPED_RATINGS' =
   'FETCH_GROUPED_RATINGS';
 export const FETCH_REVIEW: 'FETCH_REVIEW' = 'FETCH_REVIEW';
+export const FETCH_REVIEW_ADDON_PERMISSIONS: 'FETCH_REVIEW_ADDON_PERMISSIONS' =
+  'FETCH_REVIEW_ADDON_PERMISSIONS';
 export const FETCH_REVIEWS: 'FETCH_REVIEWS' = 'FETCH_REVIEWS';
 export const FETCH_USER_REVIEWS: 'FETCH_USER_REVIEWS' = 'FETCH_USER_REVIEWS';
 export const FLASH_REVIEW_MESSAGE: 'FLASH_REVIEW_MESSAGE' =
@@ -27,6 +29,8 @@ export const HIDE_EDIT_REVIEW_FORM: 'HIDE_EDIT_REVIEW_FORM' =
 export const HIDE_REPLY_TO_REVIEW_FORM: 'HIDE_REPLY_TO_REVIEW_FORM' =
   'HIDE_REPLY_TO_REVIEW_FORM';
 export const SET_ADDON_REVIEWS: 'SET_ADDON_REVIEWS' = 'SET_ADDON_REVIEWS';
+export const SET_REVIEW_ADDON_PERMISSIONS: 'SET_REVIEW_ADDON_PERMISSIONS' =
+  'SET_REVIEW_ADDON_PERMISSIONS';
 export const SET_GROUPED_RATINGS: 'SET_GROUPED_RATINGS' = 'SET_GROUPED_RATINGS';
 export const SET_INTERNAL_REVIEW: 'SET_INTERNAL_REVIEW' = 'SET_INTERNAL_REVIEW';
 export const SET_USER_REVIEWS: 'SET_USER_REVIEWS' = 'SET_USER_REVIEWS';
@@ -185,6 +189,61 @@ export function fetchReviews({
   return {
     type: FETCH_REVIEWS,
     payload: { addonSlug, errorHandlerId, page },
+  };
+}
+
+type FetchReviewAddonPermissionsParams = {|
+  errorHandlerId: string,
+  addonId: number,
+  userId: number,
+|};
+
+export type FetchReviewAddonPermissionsAction = {|
+  type: typeof FETCH_REVIEW_ADDON_PERMISSIONS,
+  payload: FetchReviewAddonPermissionsParams,
+|};
+
+export function fetchReviewAddonPermissions({
+  errorHandlerId,
+  addonId,
+  userId,
+}: FetchReviewAddonPermissionsParams): FetchReviewAddonPermissionsAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(addonId, 'addonId is required');
+  invariant(userId, 'userId is required');
+
+  return {
+    type: FETCH_REVIEW_ADDON_PERMISSIONS,
+    payload: { errorHandlerId, addonId, userId },
+  };
+}
+
+type SetReviewAddonPermissionsParams = {|
+  addonId: number,
+  userId: number,
+  canReplyToReviews: boolean,
+|};
+
+export type SetReviewAddonPermissionsAction = {|
+  type: typeof SET_REVIEW_ADDON_PERMISSIONS,
+  payload: SetReviewAddonPermissionsParams,
+|};
+
+export function setReviewAddonPermissions({
+  addonId,
+  userId,
+  canReplyToReviews,
+}: SetReviewAddonPermissionsParams): SetReviewAddonPermissionsAction {
+  invariant(addonId, 'addonId is required');
+  invariant(userId, 'userId is required');
+  invariant(
+    typeof canReplyToReviews !== 'undefined',
+    'canReplyToReviews is required',
+  );
+
+  return {
+    type: SET_REVIEW_ADDON_PERMISSIONS,
+    payload: { addonId, userId, canReplyToReviews },
   };
 }
 

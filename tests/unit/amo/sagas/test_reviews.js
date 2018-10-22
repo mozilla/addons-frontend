@@ -13,6 +13,7 @@ import {
   deleteAddonReview,
   fetchGroupedRatings,
   fetchReview,
+  fetchReviewAddonPermissions,
   fetchReviews,
   fetchUserReviews,
   flagReview,
@@ -24,6 +25,7 @@ import {
   setGroupedRatings,
   flashReviewMessage,
   setReview,
+  setReviewAddonPermissions,
   setReviewReply,
   setLatestReview,
   setReviewWasFlagged,
@@ -121,6 +123,63 @@ describe(__filename, () => {
       mockApi.expects('getReviews').returns(Promise.reject(error));
 
       _fetchReviews();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('fetchReviewAddonPermissions', () => {
+    function _fetchReviewAddonPermissions(params = {}) {
+      sagaTester.dispatch(
+        fetchReviewAddonPermissions({
+          errorHandlerId: errorHandler.id,
+          addonId: 5432,
+          userId: 98432,
+          ...params,
+        }),
+      );
+    }
+
+    it('fetches review permissions from the API', async () => {
+      const addonId = 12344;
+      const userId = 912345;
+
+      mockApi
+        .expects('getReviews')
+        .once()
+        .withArgs({
+          addon: addonId,
+          apiState,
+          show_permissions_for: userId,
+        })
+        .resolves(
+          apiResponsePage({
+            results: [],
+            can_reply: true,
+          }),
+        );
+
+      _fetchReviewAddonPermissions({ addonId, userId });
+
+      const expectedAction = setReviewAddonPermissions({
+        addonId,
+        canReplyToReviews: true,
+        userId,
+      });
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      mockApi.verify();
+
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('getReviews').rejects(error);
+
+      _fetchReviewAddonPermissions();
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
