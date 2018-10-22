@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-16 16:15+0000\n"
-"PO-Revision-Date: 2018-10-18 15:25+0000\n"
+"PO-Revision-Date: 2018-10-22 13:14+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -64,9 +64,8 @@ msgid "Admin Links"
 msgstr "ลิงก์ส่วนเสริม"
 
 #: src/amo/components/AddonAdminLinks/index.js:75
-#, fuzzy
 msgid "Edit add-on"
-msgstr "ค้นหาส่วนเสริม"
+msgstr "แก้ไขส่วนเสริม"
 
 #: src/amo/components/AddonAdminLinks/index.js:86
 #, fuzzy
@@ -404,7 +403,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:137
 msgid "Saving"
-msgstr ""
+msgstr "กำลังบันทึก"
 
 #: src/amo/components/AddonReviewManager/index.js:138
 msgid "Saved"
