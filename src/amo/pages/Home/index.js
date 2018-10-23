@@ -228,6 +228,13 @@ export class HomeBase extends React.Component {
             rel="canonical"
             href={getCanonicalURL({ locationPathname, _config })}
           />
+          <meta
+            name="description"
+            content={i18n.gettext(`Customize Firefox with extensions and
+              themes. They’re like apps for your browser, and they can block
+              annoying ads, protect passwords, change browser appearance, and
+              more.`)}
+          />
         </Helmet>
 
         <span
