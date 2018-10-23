@@ -7,6 +7,7 @@ import type {
   ExternalReviewType,
   GroupedRatingsType,
 } from 'amo/api/reviews';
+import type { UserId } from 'amo/reducers/users';
 
 export const CREATE_ADDON_REVIEW: 'CREATE_ADDON_REVIEW' = 'CREATE_ADDON_REVIEW';
 export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
@@ -195,7 +196,7 @@ export function fetchReviews({
 type FetchReviewPermissionsParams = {|
   errorHandlerId: string,
   addonId: number,
-  userId: number,
+  userId: UserId,
 |};
 
 export type FetchReviewPermissionsAction = {|
