@@ -12,6 +12,7 @@ import recommendations from 'amo/reducers/recommendations';
 import reviews from 'amo/reducers/reviews';
 import userAbuseReports from 'amo/reducers/userAbuseReports';
 import users from 'amo/reducers/users';
+import versions from 'amo/reducers/versions';
 import viewContext from 'amo/reducers/viewContext';
 import abuse from 'core/reducers/abuse';
 import addons from 'core/reducers/addons';
@@ -37,6 +38,7 @@ import type { RecommendationsState } from 'amo/reducers/recommendations';
 import type { ReviewsState } from 'amo/reducers/reviews';
 import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
 import type { UsersState } from 'amo/reducers/users';
+import type { VersionsState } from 'amo/reducers/versions';
 import type { ViewContextState } from 'amo/reducers/viewContext';
 import type { AbuseState } from 'core/reducers/abuse';
 import type { AddonsState } from 'core/reducers/addons';
@@ -78,6 +80,7 @@ type InternalAppState = {|
   uiState: UIStateState,
   userAbuseReports: UserAbuseReportsState,
   users: UsersState,
+  versions: VersionsState,
   viewContext: ViewContextState,
 |};
 
@@ -130,6 +133,7 @@ export const reducers: AppReducersType = {
   uiState,
   userAbuseReports,
   users,
+  versions,
   viewContext,
 };
 

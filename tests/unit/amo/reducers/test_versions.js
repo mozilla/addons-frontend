@@ -1,5 +1,17 @@
 import UAParser from 'ua-parser-js';
 
+import { loadAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
+import {
+  loadCollectionAddons,
+  loadCurrentCollectionPage,
+  loadCurrentCollection,
+} from 'amo/reducers/collections';
+import { loadHomeAddons } from 'amo/reducers/home';
+import { loadLanding } from 'amo/actions/landing';
+import {
+  OUTCOME_RECOMMENDED,
+  loadRecommendations,
+} from 'amo/reducers/recommendations';
 import versionsReducer, {
   createInternalVersion,
   fetchVersions,
@@ -10,8 +22,18 @@ import versionsReducer, {
   initialState,
   loadVersions,
 } from 'amo/reducers/versions';
-import { createPlatformFiles } from 'core/reducers/addons';
-import { fakeVersion, userAgentsByPlatform } from 'tests/unit/helpers';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import { createPlatformFiles, loadAddonResults } from 'core/reducers/addons';
+import { searchLoad } from 'core/reducers/search';
+import {
+  createAddonsApiResult,
+  createFakeCollectionAddon,
+  createFakeCollectionDetail,
+  fakeAddon,
+  fakeVersion,
+  userAgentsByPlatform,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to its initial state', () => {
@@ -171,6 +193,327 @@ describe(__filename, () => {
           id: fakeVersion.id,
         }),
       ).toEqual(null);
+    });
+  });
+
+  describe('load versions for add-ons', () => {
+    const versionId = 99;
+    const version = { ...fakeVersion, id: versionId };
+
+    describe('LOAD_ADDONS_BY_AUTHORS', () => {
+      const _loadAddonsByAuthors = ({
+        addons = [{ ...fakeAddon, current_version: version }],
+      } = {}) => {
+        return loadAddonsByAuthors({
+          addons,
+          authorUsernames: [fakeAddon.authors[0].username],
+          count: addons.length,
+          pageSize: DEFAULT_API_PAGE_SIZE,
+        });
+      };
+
+      it('loads versions', () => {
+        const state = versionsReducer(undefined, _loadAddonsByAuthors());
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+
+      it('handles no add-ons', () => {
+        const state = versionsReducer(
+          undefined,
+          _loadAddonsByAuthors({ addons: [] }),
+        );
+
+        expect(state.byId).toEqual({});
+      });
+
+      it('handles an add-on without a current_version', () => {
+        const state = versionsReducer(
+          undefined,
+          _loadAddonsByAuthors({
+            addons: [
+              {
+                ...fakeAddon,
+                current_version: undefined,
+              },
+            ],
+          }),
+        );
+
+        expect(state.byId).toEqual({});
+      });
+    });
+
+    describe('LOAD_CURRENT_COLLECTION', () => {
+      it('loads versions', () => {
+        const fakeCollectionAddon = createFakeCollectionAddon({
+          addon: { ...fakeAddon, current_version: version },
+        });
+
+        const state = versionsReducer(
+          undefined,
+          loadCurrentCollection({
+            addons: [fakeCollectionAddon],
+            detail: createFakeCollectionDetail(),
+            pageSize: DEFAULT_API_PAGE_SIZE,
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+    });
+
+    describe('LOAD_CURRENT_COLLECTION_PAGE', () => {
+      it('loads versions', () => {
+        const fakeCollectionAddon = createFakeCollectionAddon({
+          addon: { ...fakeAddon, current_version: version },
+        });
+
+        const state = versionsReducer(
+          undefined,
+          loadCurrentCollectionPage({
+            addons: [fakeCollectionAddon],
+            numberOfAddons: 1,
+            pageSize: DEFAULT_API_PAGE_SIZE,
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+    });
+
+    describe('LOAD_COLLECTION_ADDONS', () => {
+      it('loads versions', () => {
+        const fakeCollectionAddon = createFakeCollectionAddon({
+          addon: { ...fakeAddon, current_version: version },
+        });
+
+        const state = versionsReducer(
+          undefined,
+          loadCollectionAddons({
+            addons: [fakeCollectionAddon],
+            slug: 'sone-slug',
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+    });
+
+    describe('LOAD_HOME_ADDONS', () => {
+      it('loads versions from shelves', () => {
+        const state = versionsReducer(
+          undefined,
+          loadHomeAddons({
+            collections: [],
+            shelves: {
+              featuredExtensions: createAddonsApiResult([
+                { ...fakeAddon, current_version: version },
+              ]),
+            },
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+
+      it('loads versions for collections', () => {
+        const versionId2 = 111;
+        const version2 = { ...fakeVersion, id: versionId2 };
+        const fakeCollectionAddon1 = createFakeCollectionAddon({
+          addon: { ...fakeAddon, current_version: version },
+        });
+        const fakeCollectionAddon2 = createFakeCollectionAddon({
+          addon: { ...fakeAddon, current_version: version2 },
+        });
+
+        const state = versionsReducer(
+          undefined,
+          loadHomeAddons({
+            collections: [
+              { results: [fakeCollectionAddon1] },
+              { results: [fakeCollectionAddon2] },
+            ],
+            shelves: {},
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+        expect(
+          getVersionById({
+            state,
+            id: versionId2,
+          }),
+        ).toEqual(createInternalVersion(version2));
+      });
+    });
+
+    describe('LANDING_LOADED', () => {
+      it('loads versions for featured add-ons', () => {
+        const state = versionsReducer(
+          undefined,
+          loadLanding({
+            addonType: ADDON_TYPE_EXTENSION,
+            featured: createAddonsApiResult([
+              { ...fakeAddon, current_version: version },
+            ]),
+            highlyRated: createAddonsApiResult([]),
+            trending: createAddonsApiResult([]),
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+
+      it('loads versions for highlyRated add-ons', () => {
+        const state = versionsReducer(
+          undefined,
+          loadLanding({
+            addonType: ADDON_TYPE_EXTENSION,
+            featured: createAddonsApiResult([]),
+            highlyRated: createAddonsApiResult([
+              { ...fakeAddon, current_version: version },
+            ]),
+            trending: createAddonsApiResult([]),
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+
+      it('loads versions for trending add-ons', () => {
+        const state = versionsReducer(
+          undefined,
+          loadLanding({
+            addonType: ADDON_TYPE_EXTENSION,
+            featured: createAddonsApiResult([]),
+            highlyRated: createAddonsApiResult([]),
+            trending: createAddonsApiResult([
+              { ...fakeAddon, current_version: version },
+            ]),
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+    });
+
+    describe('LOAD_RECOMMENDATIONS', () => {
+      it('loads versions', () => {
+        const state = versionsReducer(
+          undefined,
+          loadRecommendations({
+            addons: [
+              {
+                ...fakeAddon,
+                current_version: version,
+              },
+            ],
+            guid: fakeAddon.guid,
+            outcome: OUTCOME_RECOMMENDED,
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+    });
+
+    describe('LOAD_ADDON_RESULTS', () => {
+      it('loads versions', () => {
+        const state = versionsReducer(
+          undefined,
+          loadAddonResults({
+            addons: [
+              {
+                ...fakeAddon,
+                current_version: version,
+              },
+            ],
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+    });
+
+    describe('SEARCH_LOADED', () => {
+      it('loads versions', () => {
+        const state = versionsReducer(
+          undefined,
+          searchLoad({
+            count: 1,
+            pageSize: DEFAULT_API_PAGE_SIZE,
+            results: [
+              {
+                ...fakeAddon,
+                current_version: version,
+              },
+            ],
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
     });
   });
 });

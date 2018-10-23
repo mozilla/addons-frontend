@@ -1,4 +1,5 @@
 /* @flow */
+import type { VersionIdType } from 'amo/reducers/versions';
 import type { AddonTypeType } from 'core/constants';
 
 type AddonStatus =
@@ -175,6 +176,7 @@ export type PlatformFilesType = {|
 export type AddonType = {|
   ...ExternalAddonType,
   // Here are some custom properties for our internal representation.
+  currentVersionId: VersionIdType | null,
   platformFiles: PlatformFilesType,
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
