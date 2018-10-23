@@ -26,21 +26,14 @@ describe(__filename, () => {
     expect(root.find('.Footer-legal-link')).toHaveText('Legal');
     expect(root.find('.Footer-legal-link')).toHaveProp(
       'href',
-      'https://www.mozilla.org/about/legal/',
+      'https://www.mozilla.org/about/legal/terms/mozilla/',
     );
     expect(root.find('.Footer-cookies-link')).toHaveText('Cookies');
     expect(root.find('.Footer-cookies-link')).toHaveProp(
       'href',
       'https://www.mozilla.org/privacy/websites/#cookies',
     );
-    expect(root.find('.Footer-trademark-abuse-link')).toHaveText(
-      'Report Trademark Abuse',
-    );
-    expect(root.find('.Footer-trademark-abuse-link')).toHaveProp(
-      'href',
-      'https://www.mozilla.org/about/legal/fraud-report/',
-    );
-
+    
     // This link isn't localized because MDN will 404 on some
     // locales and not others.
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
