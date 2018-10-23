@@ -33,7 +33,7 @@ describe(__filename, () => {
       'href',
       'https://www.mozilla.org/about/legal/terms/mozilla/',
     );
-    
+
     // This link isn't localized because MDN will 404 on some
     // locales and not others.
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
