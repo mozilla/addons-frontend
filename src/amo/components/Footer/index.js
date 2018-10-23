@@ -176,17 +176,9 @@ export class FooterBase extends React.Component {
             <li>
               <a
                 className="Footer-legal-link"
-                href="https://www.mozilla.org/about/legal/"
+                href="https://www.mozilla.org/about/legal/terms/mozilla/"
               >
                 {i18n.gettext('Legal')}
-              </a>
-            </li>
-            <li>
-              <a
-                className="Footer-trademark-abuse-link"
-                href="https://www.mozilla.org/about/legal/fraud-report/"
-              >
-                {i18n.gettext('Report Trademark Abuse')}
               </a>
             </li>
           </ul>
