@@ -176,7 +176,7 @@ export const getAddonsForAuthorIds = (
 ): Array<SearchResultAddonType> | null => {
   invariant(
     authorIds && authorIds.length,
-    'At least one author ID is required.',
+    'At least one authorId is required.',
   );
 
   const ids = authorIds
