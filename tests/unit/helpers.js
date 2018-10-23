@@ -303,6 +303,7 @@ export function createUserAccountResponse({
   /* eslint-disable camelcase */
   average_addon_rating = 4.3,
   display_name = null,
+  fxa_edit_email_url = 'https://example.org/settings',
   is_addon_developer = false,
   is_artist = false,
   num_addons_listed = 1,
@@ -319,6 +320,7 @@ export function createUserAccountResponse({
     biography,
     created,
     display_name,
+    fxa_edit_email_url,
     homepage,
     id,
     is_addon_developer,

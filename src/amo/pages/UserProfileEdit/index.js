@@ -540,14 +540,16 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     )}
                   />
                 )}
-                {isEditingCurrentUser && (
-                  <a
-                    href="https://accounts.firefox.com/settings"
-                    className="UserProfileEdit-manage-account-link"
-                  >
-                    {i18n.gettext('Manage Firefox Accounts…')}
-                  </a>
-                )}
+                {isEditingCurrentUser &&
+                  user &&
+                  user.fxa_edit_email_url && (
+                    <a
+                      href={user.fxa_edit_email_url}
+                      className="UserProfileEdit-manage-account-link"
+                    >
+                      {i18n.gettext('Manage Firefox Accounts…')}
+                    </a>
+                  )}
               </div>
             </Card>
 

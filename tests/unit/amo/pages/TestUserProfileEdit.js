@@ -976,6 +976,7 @@ describe(__filename, () => {
       users a bit more information about this user. These fields are optional,
       but they'll help other users get to know willdurand better.`);
 
+    // We do not render this link when user is not the current logged-in user.
     expect(root.find('.UserProfileEdit-manage-account-link')).toHaveLength(0);
 
     expect(root.find({ htmlFor: 'biography' })).toHaveText(
@@ -1658,5 +1659,20 @@ describe(__filename, () => {
     root.unmount();
 
     sinon.assert.calledWith(dispatchSpy, errorHandler.createClearingAction());
+  });
+
+  it('renders a FxA management link to the current logged-in user', () => {
+    const link = 'http://example.org/settings?uid=fxa-id-123';
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        fxa_edit_email_url: link,
+      },
+    });
+
+    expect(root.find('.UserProfileEdit-manage-account-link')).toHaveProp(
+      'href',
+      link,
+    );
   });
 });
