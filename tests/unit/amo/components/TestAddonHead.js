@@ -242,9 +242,12 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
 
     const _hrefLangs = ['x-default'];
+    const aliasKey = 'x-default';
+    const aliasValue = 'en-US';
     const hrefLangsMap = {
-      'x-default': 'en-US',
+      [aliasKey]: aliasValue,
     };
+
     const _config = getFakeConfig({ baseURL, hrefLangsMap });
     const { store } = dispatchClientMetadata({ clientApp });
 
@@ -253,13 +256,11 @@ describe(__filename, () => {
     expect(root.find('link[rel="alternate"]')).toHaveLength(_hrefLangs.length);
     expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
       'hrefLang',
-      _hrefLangs[0],
+      aliasKey,
     );
     expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
       'href',
-      `${baseURL}/${hrefLangsMap[_hrefLangs[0]]}/${clientApp}/addon/${
-        addon.slug
-      }/`,
+      `${baseURL}/${aliasValue}/${clientApp}/addon/${addon.slug}/`,
     );
   });
 
@@ -267,7 +268,7 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const lang = 'fr';
 
-    const _hrefLangs = ['fr', 'en-US'];
+    const _hrefLangs = [lang, 'en-US'];
     // We mark the current locale as excluded.
     const _config = getFakeConfig({ unsupportedHrefLangs: [lang] });
     const { store } = dispatchClientMetadata({ lang });
@@ -276,4 +277,23 @@ describe(__filename, () => {
 
     expect(root.find('link[rel="alternate"]')).toHaveLength(0);
   });
+
+  // This test case ensures the production configuration is taken into account.
+  it.each([['x-default', 'en-US'], ['pt', 'pt-PT'], ['en', 'en-US']])(
+    'renders a "x-default" alternate link',
+    (hrefLang, locale) => {
+      const addon = createInternalAddon(fakeAddon);
+      const baseURL = 'https://example.org';
+      const clientApp = CLIENT_APP_FIREFOX;
+      const _config = getFakeConfig({ baseURL });
+      const { store } = dispatchClientMetadata({ clientApp });
+
+      const root = render({ _config, addon, store });
+
+      expect(root.find(`link[hrefLang="${hrefLang}"]`)).toHaveProp(
+        'href',
+        `${baseURL}/${locale}/${clientApp}/addon/${addon.slug}/`,
+      );
+    },
+  );
 });
