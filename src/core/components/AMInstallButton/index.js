@@ -47,6 +47,7 @@ import './styles.scss';
 type Props = {|
   ...WithInstallHelpersInjectedProps,
   addon: AddonType,
+  buttonLabel?: string,
   className?: string,
   defaultInstallSource: string,
   disabled: boolean,
@@ -198,7 +199,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   }
 
   getButtonText() {
-    const { addon, i18n, status } = this.props;
+    const { addon, i18n, status, buttonLabel } = this.props;
 
     switch (status) {
       case DISABLED:
@@ -216,6 +217,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
         return i18n.gettext('Uninstalling');
       case INACTIVE:
       default:
+        if (buttonLabel) {
+          return buttonLabel;
+        }
         return isTheme(addon.type)
           ? i18n.gettext('Install Theme')
           : i18n.gettext('Add to Firefox');
