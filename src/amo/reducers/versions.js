@@ -311,12 +311,10 @@ const reducer = (
 
       const newVersions = {};
       for (const apiResponse of [featured, highlyRated, trending]) {
-        if (apiResponse) {
-          for (const addon of apiResponse.results) {
-            if (addon.current_version) {
-              const version = createInternalVersion(addon.current_version);
-              newVersions[version.id] = version;
-            }
+        for (const addon of apiResponse.results) {
+          if (addon.current_version) {
+            const version = createInternalVersion(addon.current_version);
+            newVersions[version.id] = version;
           }
         }
       }

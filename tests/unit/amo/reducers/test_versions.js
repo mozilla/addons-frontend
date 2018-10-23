@@ -201,21 +201,19 @@ describe(__filename, () => {
     const version = { ...fakeVersion, id: versionId };
 
     describe('LOAD_ADDONS_BY_AUTHORS', () => {
+      const _loadAddonsByAuthors = ({
+        addons = [{ ...fakeAddon, current_version: version }],
+      } = {}) => {
+        return loadAddonsByAuthors({
+          addons,
+          authorUsernames: [fakeAddon.authors[0].username],
+          count: addons.length,
+          pageSize: DEFAULT_API_PAGE_SIZE,
+        });
+      };
+
       it('loads versions', () => {
-        const state = versionsReducer(
-          undefined,
-          loadAddonsByAuthors({
-            addons: [
-              {
-                ...fakeAddon,
-                current_version: version,
-              },
-            ],
-            authorUsernames: [fakeAddon.authors[0].username],
-            count: 1,
-            pageSize: DEFAULT_API_PAGE_SIZE,
-          }),
-        );
+        const state = versionsReducer(undefined, _loadAddonsByAuthors());
 
         expect(
           getVersionById({
@@ -228,12 +226,7 @@ describe(__filename, () => {
       it('handles no add-ons', () => {
         const state = versionsReducer(
           undefined,
-          loadAddonsByAuthors({
-            addons: [],
-            authorUsernames: [fakeAddon.authors[0].username],
-            count: 1,
-            pageSize: DEFAULT_API_PAGE_SIZE,
-          }),
+          _loadAddonsByAuthors({ addons: [] }),
         );
 
         expect(state.byId).toEqual({});
@@ -242,16 +235,13 @@ describe(__filename, () => {
       it('handles an add-on without a current_version', () => {
         const state = versionsReducer(
           undefined,
-          loadAddonsByAuthors({
+          _loadAddonsByAuthors({
             addons: [
               {
                 ...fakeAddon,
                 current_version: undefined,
               },
             ],
-            authorUsernames: [fakeAddon.authors[0].username],
-            count: 1,
-            pageSize: DEFAULT_API_PAGE_SIZE,
           }),
         );
 
