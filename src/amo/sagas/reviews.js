@@ -23,6 +23,7 @@ import {
   DELETE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
   FETCH_REVIEW,
+  FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
   FETCH_USER_REVIEWS,
   SAVED_RATING,
@@ -41,6 +42,7 @@ import {
   setGroupedRatings,
   setLatestReview,
   setReview,
+  setReviewPermissions,
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
@@ -63,6 +65,7 @@ import type {
   DeleteAddonReviewAction,
   FetchGroupedRatingsAction,
   FetchReviewAction,
+  FetchReviewPermissionsAction,
   FetchReviewsAction,
   FetchUserReviewsAction,
   FlagReviewAction,
@@ -81,7 +84,9 @@ function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page },
 }: FetchReviewsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
+
   try {
+    yield put(errorHandler.createClearingAction());
     const state = yield select(getState);
 
     const params: GetReviewsParams = {
@@ -104,6 +109,42 @@ function* fetchReviews({
     );
   } catch (error) {
     log.warn(`Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
+function* fetchReviewPermissions({
+  payload: { errorHandlerId, addonId, userId },
+}: FetchReviewPermissionsAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  try {
+    yield put(errorHandler.createClearingAction());
+    const state: AppState = yield select(getState);
+
+    const params: GetReviewsParams = {
+      addon: addonId,
+      apiState: state.api,
+      show_permissions_for: userId,
+    };
+
+    const response: GetReviewsApiResponse = yield call(getReviews, params);
+    invariant(
+      response.can_reply !== undefined,
+      'response.can_reply was unexpectedly undefined',
+    );
+
+    yield put(
+      setReviewPermissions({
+        addonId,
+        canReplyToReviews: response.can_reply,
+        userId,
+      }),
+    );
+  } catch (error) {
+    log.warn(
+      `Failed to load review permissions for add-on ID ${addonId}, user ID ${userId}: ${error}`,
+    );
     yield put(errorHandler.createErrorAction(error));
   }
 }
@@ -364,6 +405,7 @@ export default function* reviewsSaga(
 ): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_REVIEW, fetchReview);
+  yield takeLatest(FETCH_REVIEW_PERMISSIONS, fetchReviewPermissions);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(FETCH_USER_REVIEWS, fetchUserReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);

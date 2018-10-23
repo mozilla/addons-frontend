@@ -13,6 +13,7 @@ import {
   deleteAddonReview,
   fetchGroupedRatings,
   fetchReview,
+  fetchReviewPermissions,
   fetchReviews,
   fetchUserReviews,
   flagReview,
@@ -24,6 +25,7 @@ import {
   setGroupedRatings,
   flashReviewMessage,
   setReview,
+  setReviewPermissions,
   setReviewReply,
   setLatestReview,
   setReviewWasFlagged,
@@ -116,11 +118,87 @@ describe(__filename, () => {
       );
     });
 
+    it('clears the error handler', async () => {
+      mockApi.expects('getReviews').resolves(apiResponsePage());
+
+      _fetchReviews();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
       mockApi.expects('getReviews').returns(Promise.reject(error));
 
       _fetchReviews();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('fetchReviewPermissions', () => {
+    function _fetchReviewPermissions(params = {}) {
+      sagaTester.dispatch(
+        fetchReviewPermissions({
+          errorHandlerId: errorHandler.id,
+          addonId: 5432,
+          userId: 98432,
+          ...params,
+        }),
+      );
+    }
+
+    it('fetches review permissions from the API', async () => {
+      const addonId = 12344;
+      const userId = 912345;
+
+      mockApi
+        .expects('getReviews')
+        .once()
+        .withArgs({
+          addon: addonId,
+          apiState,
+          show_permissions_for: userId,
+        })
+        .resolves(apiResponsePage({ can_reply: true }));
+
+      _fetchReviewPermissions({ addonId, userId });
+
+      const expectedAction = setReviewPermissions({
+        addonId,
+        canReplyToReviews: true,
+        userId,
+      });
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      mockApi.verify();
+
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('clears the error handler', async () => {
+      mockApi
+        .expects('getReviews')
+        .resolves(apiResponsePage({ can_reply: true }));
+
+      _fetchReviewPermissions();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('getReviews').rejects(error);
+
+      _fetchReviewPermissions();
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

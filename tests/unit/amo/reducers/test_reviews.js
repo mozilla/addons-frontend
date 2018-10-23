@@ -5,6 +5,7 @@ import {
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
   deleteAddonReview,
+  fetchReviewPermissions,
   unloadAddonReviews,
   createInternalReview,
   fetchReview,
@@ -18,6 +19,7 @@ import {
   setGroupedRatings,
   setInternalReview,
   setLatestReview,
+  setReviewPermissions,
   flashReviewMessage,
   setReview,
   setReviewReply,
@@ -35,6 +37,7 @@ import reviewsReducer, {
   initialState,
   makeLatestUserReviewKey,
   reviewsAreLoading,
+  selectReviewPermissions,
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
@@ -340,8 +343,9 @@ describe(__filename, () => {
   describe('unloadAddonReviews', () => {
     const loadReviewDataIntoState = ({
       addonId,
-      addonSlug,
-      grouping,
+      addonSlug = 'some-slug',
+      grouping = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+      permissionsToSet = { canReplyToReviews: true },
       startState,
       reviewId,
       userId,
@@ -350,16 +354,17 @@ describe(__filename, () => {
         ...fakeReview,
         id: reviewId,
         addon: {
+          ...fakeReview.addon,
           id: addonId,
           slug: addonSlug,
         },
         user: { id: userId },
       };
 
-      let state;
+      let state = startState;
 
       // Initialize values into the byId, byAddon, byUserId, groupedRatings and view buckets.
-      state = reviewsReducer(startState, setReview(review));
+      state = reviewsReducer(state, setReview(review));
 
       state = reviewsReducer(
         state,
@@ -392,6 +397,15 @@ describe(__filename, () => {
           someFlag: true,
         },
       });
+
+      state = reviewsReducer(
+        state,
+        setReviewPermissions({
+          addonId,
+          userId,
+          ...permissionsToSet,
+        }),
+      );
 
       return state;
     };
@@ -428,7 +442,7 @@ describe(__filename, () => {
       expect(state.view[reviewId]).toEqual(undefined);
     });
 
-    it('it unloads cached view data even for deleted reviews', () => {
+    it('unloads cached view data even for deleted reviews', () => {
       // This covers the case where a reply is deleted and then another reply is added
       // and we expect the view state for the reply to be cleared out.
       const addonId = 1;
@@ -448,6 +462,29 @@ describe(__filename, () => {
       state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
 
       expect(state.view[reviewId]).toEqual(undefined);
+    });
+
+    it('unloads review permissions', () => {
+      const addonId = 145;
+      const reviewId = 321;
+      const userId = 9643;
+
+      let state = loadReviewDataIntoState({
+        addonId,
+        reviewId,
+        permissionsToSet: { canReplyToReviews: true },
+        userId,
+      });
+
+      expect(
+        selectReviewPermissions({ reviewsState: state, addonId, userId }),
+      ).toBeDefined();
+
+      state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
+
+      expect(
+        selectReviewPermissions({ reviewsState: state, addonId, userId }),
+      ).not.toBeDefined();
     });
 
     it('preserves unrelated reviews data', () => {
@@ -1483,6 +1520,100 @@ describe(__filename, () => {
       state = reviewsReducer(state, { type: LOCATION_CHANGE });
 
       expect(state.view).toEqual({});
+    });
+  });
+
+  describe('fetchReviewPermissions', () => {
+    it('prepares to fetch permissions', () => {
+      const addonId = 123;
+      const userId = 321;
+
+      const state = reviewsReducer(
+        undefined,
+        fetchReviewPermissions({
+          addonId,
+          errorHandlerId: 'some-error-handler',
+          userId,
+        }),
+      );
+
+      const permissions = selectReviewPermissions({
+        reviewsState: state,
+        addonId,
+        userId,
+      });
+      expect(permissions.loading).toEqual(true);
+      expect(permissions.canReplyToReviews).toEqual(undefined);
+    });
+  });
+
+  describe('setReviewPermissions', () => {
+    it('sets permissions', () => {
+      const addonId = 123;
+      const userId = 321;
+
+      let state;
+
+      state = reviewsReducer(
+        state,
+        fetchReviewPermissions({
+          addonId,
+          errorHandlerId: 'some-error-handler',
+          userId,
+        }),
+      );
+      state = reviewsReducer(
+        state,
+        setReviewPermissions({
+          addonId,
+          canReplyToReviews: false,
+          userId,
+        }),
+      );
+
+      const permissions = selectReviewPermissions({
+        reviewsState: state,
+        addonId,
+        userId,
+      });
+      expect(permissions.loading).toEqual(false);
+      expect(permissions.canReplyToReviews).toEqual(false);
+    });
+  });
+
+  describe('selectReviewPermissions', () => {
+    it('returns existing results', () => {
+      const addonId = 123;
+      const userId = 321;
+
+      const state = reviewsReducer(
+        undefined,
+        fetchReviewPermissions({
+          addonId,
+          errorHandlerId: 'some-error-handler',
+          userId,
+        }),
+      );
+
+      const permissions = selectReviewPermissions({
+        reviewsState: state,
+        addonId,
+        userId,
+      });
+      expect(permissions).toEqual({
+        loading: true,
+        canReplyToReviews: undefined,
+      });
+    });
+
+    it('returns undefined for non-existent results', () => {
+      const permissions = selectReviewPermissions({
+        reviewsState: initialState,
+        addonId: 1,
+        userId: 2,
+      });
+
+      expect(permissions).toEqual(undefined);
     });
   });
 });

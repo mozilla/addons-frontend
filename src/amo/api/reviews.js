@@ -142,6 +142,7 @@ export type GetReviewsParams = {|
   page?: string,
   page_size?: number,
   show_grouped_ratings?: boolean,
+  show_permissions_for?: number,
   user?: number,
   version?: number,
 |};
@@ -158,6 +159,8 @@ export type GroupedRatingsType = {|
 
 export type GetReviewsApiResponse = {|
   ...PaginatedApiResponse<ExternalReviewType>,
+  // This is undefined unless the request contained addon and show_permissions_for.
+  can_reply?: boolean,
   // This is undefined unless the request contained ?show_grouped_ratings=true.
   grouped_ratings?: GroupedRatingsType,
 |};
