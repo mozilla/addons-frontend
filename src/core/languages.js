@@ -630,10 +630,19 @@ export const unfilteredLanguages = {
 };
 /* eslint-enable */
 
-export default config.get('langs').reduce((object, locale) => {
+const supportedLanguages = config.get('langs').reduce((object, locale) => {
   if (typeof unfilteredLanguages[locale] !== 'undefined') {
     return { ...object, [locale]: unfilteredLanguages[locale] };
   }
 
   return object;
 }, {});
+
+export const hrefLangs = [
+  ...Object.keys(config.get('hrefLangsMap')),
+  ...Object.keys(supportedLanguages).filter(
+    (locale) => !config.get('unsupportedHrefLangs').includes(locale),
+  ),
+];
+
+export default supportedLanguages;

@@ -25,6 +25,7 @@ module.exports = {
     'enableFeatureAMInstallButton',
     'enableRequestID',
     'hctEnabled',
+    'hrefLangsMap',
     'isDeployed',
     'isDevelopment',
     'langMap',
@@ -35,6 +36,7 @@ module.exports = {
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
+    'unsupportedHrefLangs',
   ],
 
   staticHost,

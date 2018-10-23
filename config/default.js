@@ -115,6 +115,7 @@ module.exports = {
     'experiments',
     'fxaConfig',
     'hctEnabled',
+    'hrefLangsMap',
     'isDeployed',
     'isDevelopment',
     'langMap',
@@ -126,6 +127,7 @@ module.exports = {
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
+    'unsupportedHrefLangs',
     'validClientAppUrlExceptions',
     'validClientApplications',
     'validLocaleUrlExceptions',
@@ -234,6 +236,22 @@ module.exports = {
     'zh-CN',
     'zh-TW',
   ],
+  // Exclusion list of unsupported locales for alternate links, see:
+  // https://github.com/mozilla/addons-frontend/issues/6644
+  unsupportedHrefLangs: [
+    'ast',
+    'cak',
+    'dsb',
+    'hsb',
+    'kab',
+  ],
+  // Map of locale aliases for "alternate" links, see:
+  // https://github.com/mozilla/addons-frontend/issues/6644
+  hrefLangsMap: {
+    'x-default': 'en-US',
+    en: 'en-US',
+    pt: 'pt-PT',
+  },
   // Map of short langs to longer ones.
   langMap: {
     en: 'en-US',
