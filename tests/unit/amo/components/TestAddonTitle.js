@@ -185,14 +185,14 @@ describe(__filename, () => {
     expect(root.find(Link).at(0)).toHaveProp('to', `/addon/${addon.slug}/`);
   });
 
-  it('renders an h1 tag as default', () => {
+  it('renders ComponentTag as an h1 tag by default', () => {
     const root = render();
 
     expect(root.find('h1.AddonTitle')).toHaveLength(1);
   });
 
-  it('renders a span tag when isPageTitle is false', () => {
-    const root = render({ isPageTitle: false });
+  it('renders the element tag that is specified by ComponentTag', () => {
+    const root = render({ ComponentTag: 'span' });
 
     expect(root.find('h1')).toHaveLength(0);
     expect(root.find('span.AddonTitle')).toHaveLength(1);

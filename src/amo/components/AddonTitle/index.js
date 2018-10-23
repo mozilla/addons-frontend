@@ -14,8 +14,8 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
+  ComponentTag?: string,
   addon: AddonType | null,
-  isPageTitle?: boolean,
   linkToAddon?: boolean,
 |};
 
@@ -26,11 +26,11 @@ type InternalProps = {|
 |};
 
 export const AddonTitleBase = ({
+  ComponentTag = 'h1',
   addon,
   i18n,
   isRTL,
   linkToAddon = false,
-  isPageTitle = true,
 }: InternalProps) => {
   const authors = [];
 
@@ -58,37 +58,35 @@ export const AddonTitleBase = ({
     });
   }
 
-  const title = addon ? (
-    <React.Fragment>
-      {linkToAddon ? (
-        <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
-      ) : (
-        addon.name
-      )}
-      {authors.length > 0 && (
-        <span className="AddonTitle-author">
-          {isRTL ? (
-            <React.Fragment>
-              {authors}{' '}
-              {// translators: Example: add-on "by" some authors
-              i18n.gettext('by')}
-            </React.Fragment>
+  return (
+    <ComponentTag className="AddonTitle">
+      {addon ? (
+        <React.Fragment>
+          {linkToAddon ? (
+            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
           ) : (
-            <React.Fragment>
-              {i18n.gettext('by')} {authors}
-            </React.Fragment>
+            addon.name
           )}
-        </span>
+          {authors.length > 0 && (
+            <span className="AddonTitle-author">
+              {isRTL ? (
+                <React.Fragment>
+                  {authors}{' '}
+                  {// translators: Example: add-on "by" some authors
+                  i18n.gettext('by')}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {i18n.gettext('by')} {authors}
+                </React.Fragment>
+              )}
+            </span>
+          )}
+        </React.Fragment>
+      ) : (
+        <LoadingText width={70} />
       )}
-    </React.Fragment>
-  ) : (
-    <LoadingText width={70} />
-  );
-
-  return isPageTitle ? (
-    <h1 className="AddonTitle">{title}</h1>
-  ) : (
-    <span className="AddonTitle">{title}</span>
+    </ComponentTag>
   );
 };
 
