@@ -2,9 +2,10 @@
 import invariant from 'invariant';
 
 import { createPlatformFiles } from 'core/reducers/addons';
+import type { AddonType } from 'core/types/addons';
+
 export const FETCH_GUIDE_ADDONS: 'FETCH_GUIDE_ADDONS' = 'FETCH_GUIDE_ADDONS';
 export const LOAD_GUIDE_ADDONS: 'LOAD_GUIDE_ADDONS' = 'LOAD_GUIDE_ADDONS';
-import type { AddonType } from 'core/types/addons';
 
 export type GuideType = {|
   addons: Array<AddonType>,

@@ -10,7 +10,6 @@ import apiReducer from 'core/reducers/api';
 import {
   dispatchClientMetadata,
   createStubErrorHandler,
-  fakeGuide,
   fakeAddon,
 } from 'tests/unit/helpers';
 
