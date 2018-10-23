@@ -32,7 +32,7 @@ export class HomeHeroBase extends React.Component<InternalProps> {
         url: '/guides/organize-your-tabs',
       },
       {
-        title: i18n.gettext('Elevate Your Media Experience'),
+        title: i18n.gettext('Enhance Your Media Experience'),
         icon: 'video',
         url: '/guides/elevate-your-media',
       },
