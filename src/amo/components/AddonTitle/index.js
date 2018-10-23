@@ -15,6 +15,7 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
+  isPageTitle?: boolean,
   linkToAddon?: boolean,
 |};
 
@@ -29,6 +30,7 @@ export const AddonTitleBase = ({
   i18n,
   isRTL,
   linkToAddon = false,
+  isPageTitle = true,
 }: InternalProps) => {
   const authors = [];
 
@@ -56,35 +58,37 @@ export const AddonTitleBase = ({
     });
   }
 
-  return (
-    <h1 className="AddonTitle">
-      {addon ? (
-        <React.Fragment>
-          {linkToAddon ? (
-            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
-          ) : (
-            addon.name
-          )}
-          {authors.length > 0 && (
-            <span className="AddonTitle-author">
-              {isRTL ? (
-                <React.Fragment>
-                  {authors}{' '}
-                  {// translators: Example: add-on "by" some authors
-                  i18n.gettext('by')}
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {i18n.gettext('by')} {authors}
-                </React.Fragment>
-              )}
-            </span>
-          )}
-        </React.Fragment>
+  const title = addon ? (
+    <React.Fragment>
+      {linkToAddon ? (
+        <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
       ) : (
-        <LoadingText width={70} />
+        addon.name
       )}
-    </h1>
+      {authors.length > 0 && (
+        <span className="AddonTitle-author">
+          {isRTL ? (
+            <React.Fragment>
+              {authors}{' '}
+              {// translators: Example: add-on "by" some authors
+              i18n.gettext('by')}
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {i18n.gettext('by')} {authors}
+            </React.Fragment>
+          )}
+        </span>
+      )}
+    </React.Fragment>
+  ) : (
+    <LoadingText width={70} />
+  );
+
+  return isPageTitle ? (
+    <h1 className="AddonTitle">{title}</h1>
+  ) : (
+    <span className="AddonTitle">{title}</span>
   );
 };
 
