@@ -837,6 +837,7 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveLength(0);
     expect(wrapper.find(CollectionDetailsCard)).toHaveProp('creating', true);
+    expect(wrapper.find(CollectionControls)).toHaveLength(0);
   });
 
   it('does not render the pagination when no add-ons in the collection', () => {
