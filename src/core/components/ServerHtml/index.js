@@ -15,6 +15,7 @@ const JS_CHUNK_EXCLUDES = new RegExp(
 export default class ServerHtml extends Component {
   static propTypes = {
     appName: PropTypes.string.isRequired,
+    appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
     htmlDir: PropTypes.string,
@@ -22,7 +23,6 @@ export default class ServerHtml extends Component {
     includeSri: PropTypes.bool.isRequired,
     noScriptStyles: PropTypes.string,
     sriData: PropTypes.object.isRequired,
-    store: PropTypes.object.isRequired,
     trackingEnabled: PropTypes.bool,
     _config: PropTypes.object,
   };
@@ -101,7 +101,13 @@ export default class ServerHtml extends Component {
   }
 
   render() {
-    const { component, htmlLang, htmlDir, noScriptStyles, store } = this.props;
+    const {
+      appState,
+      component,
+      htmlLang,
+      htmlDir,
+      noScriptStyles,
+    } = this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
@@ -128,7 +134,7 @@ export default class ServerHtml extends Component {
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />
           <script
-            dangerouslySetInnerHTML={{ __html: serialize(store.getState()) }}
+            dangerouslySetInnerHTML={{ __html: serialize(appState) }}
             type="application/json"
             id="redux-store-state"
           />
