@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-16 16:19+0000\n"
+"POT-Creation-Date: 2018-10-23 17:55+0000\n"
 "PO-Revision-Date: 2018-08-27 10:08+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -15,39 +15,39 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:210
 msgid "Enabling"
 msgstr "Увімкнення"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:212
 msgid "Downloading"
 msgstr "Завантаження"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Installing"
 msgstr "Встановлення"
 
-#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Uninstalling"
 msgstr "Видалення"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:236
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/InstallButton/index.js:235
+#: src/core/components/InstallButton/index.js:281
 msgid "Install Theme"
 msgstr "Встановити тему"
 
-#: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:267
-#: src/core/components/InstallButton/index.js:283
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:266
+#: src/core/components/InstallButton/index.js:282
 msgid "Add to Firefox"
 msgstr "Додати до Firefox"
 
@@ -88,33 +88,53 @@ msgstr "Керуйте додатками в розділі меню Додат�
 msgid "OK"
 msgstr "OK"
 
-#: src/core/components/InstallSwitch/index.js:69
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Downloading %(name)s."
 msgstr "Завантаження %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:72
+#: src/core/components/InstallSwitch/index.js:71
 msgid "Installing %(name)s."
 msgstr "Встановлення %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:76
+#: src/core/components/InstallSwitch/index.js:75
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s встановлено й увімкнено. Натисніть для видалення."
 
-#: src/core/components/InstallSwitch/index.js:81
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s вимкнено. Натисніть для увімкнення."
 
-#: src/core/components/InstallSwitch/index.js:84
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "Видалення %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:87
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s видалено. Натисніть для встановлення."
 
-#: src/core/components/InstallSwitch/index.js:90
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr "Стан встановлення для %(name)s невідомий."
+
+#: src/core/i18n/utils.js:254
+msgid "%(localizedSize)s B"
+msgstr ""
+
+#: src/core/i18n/utils.js:256
+msgid "%(localizedSize)s KB"
+msgstr ""
+
+#: src/core/i18n/utils.js:258
+msgid "%(localizedSize)s MB"
+msgstr ""
+
+#: src/core/i18n/utils.js:260
+msgid "%(localizedSize)s GB"
+msgstr ""
+
+#: src/core/i18n/utils.js:262
+msgid "%(localizedSize)s TB"
+msgstr ""
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
@@ -136,7 +156,7 @@ msgstr "Сталася неочікувана помилка під час ви�
 msgid "An unexpected error occurred."
 msgstr "Сталася неочікувана помилка."
 
-#: src/disco/components/Addon/index.js:88
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "Закрити"
 
@@ -199,7 +219,7 @@ msgstr "Перезавантажте для продовження"
 msgid "Dismiss this notice"
 msgstr "Відхилити це сповіщення"
 
-#: src/ui/components/ThemeImage/index.js:30
+#: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Перегляд %(title)s"
 
