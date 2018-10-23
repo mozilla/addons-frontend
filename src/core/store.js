@@ -5,7 +5,7 @@ import { createLogger } from 'redux-logger';
 
 import log from 'core/logger';
 
-export const minimalReduxLogger = (store) => (next) => (action) => {
+export const minimalReduxLogger = () => (next) => (action) => {
   log.info('Dispatching', action.type);
   return next(action);
 };
