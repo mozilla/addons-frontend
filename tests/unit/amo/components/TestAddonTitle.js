@@ -184,4 +184,19 @@ describe(__filename, () => {
     expect(root.find(Link).at(0)).toHaveProp('children', addon.name);
     expect(root.find(Link).at(0)).toHaveProp('to', `/addon/${addon.slug}/`);
   });
+
+  it('renders an h1 tag as default', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon });
+
+    expect(root.find('h1.AddonTitle')).toHaveLength(1);
+  });
+
+  it('renders a span tag when isPageTitle is false', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon, isPageTitle: false });
+
+    expect(root.find('h1')).toHaveLength(0);
+    expect(root.find('span.AddonTitle')).toHaveLength(1);
+  });
 });
