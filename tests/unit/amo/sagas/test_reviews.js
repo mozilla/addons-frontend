@@ -230,6 +230,7 @@ describe(__filename, () => {
       // response page is returned with 0 results and a new
       // grouped_ratings object.
       return apiResponsePage({
+        results: [],
         grouped_ratings: grouping,
       });
     };
