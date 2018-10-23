@@ -5,6 +5,7 @@ import type { $Request, $Response, NextFunction, Middleware } from 'express';
 
 import { AMO_REQUEST_ID_HEADER } from 'core/constants';
 
+// This middleware adds a correlation ID to the HTTP context and response.
 const requestId = (
   req: $Request,
   res: $Response,

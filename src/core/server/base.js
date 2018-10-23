@@ -163,7 +163,6 @@ function baseServer(
   if (config.get('enableRequestID')) {
     // This middleware must be set very early.
     app.use(httpContext.middleware);
-    // This middleware adds a correlation ID to the HTTP context and response.
     app.use(requestId);
   }
 
