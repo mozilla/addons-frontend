@@ -186,15 +186,13 @@ describe(__filename, () => {
   });
 
   it('renders an h1 tag as default', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon });
+    const root = render();
 
     expect(root.find('h1.AddonTitle')).toHaveLength(1);
   });
 
   it('renders a span tag when isPageTitle is false', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon, isPageTitle: false });
+    const root = render({ isPageTitle: false });
 
     expect(root.find('h1')).toHaveLength(0);
     expect(root.find('span.AddonTitle')).toHaveLength(1);
