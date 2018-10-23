@@ -280,7 +280,7 @@ describe(__filename, () => {
 
   // This test case ensures the production configuration is taken into account.
   it.each([['x-default', 'en-US'], ['pt', 'pt-PT'], ['en', 'en-US']])(
-    'renders a "x-default" alternate link',
+    'renders a "%s" alternate link',
     (hrefLang, locale) => {
       const addon = createInternalAddon(fakeAddon);
       const baseURL = 'https://example.org';
