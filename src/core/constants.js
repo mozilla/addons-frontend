@@ -326,3 +326,5 @@ export const ALL_SUPER_POWERS = '*:*';
 
 export const RTL = 'rtl';
 export const LTR = 'ltr';
+
+export const AMO_REQUEST_ID_HEADER = 'amo-request-id';

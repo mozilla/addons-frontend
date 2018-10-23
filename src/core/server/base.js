@@ -6,6 +6,7 @@ import 'core/polyfill';
 import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 import Express from 'express';
+import httpContext from 'express-http-context';
 import helmet from 'helmet';
 import { createMemoryHistory } from 'history';
 import Raven from 'raven';
@@ -21,6 +22,7 @@ import { createApiError } from 'core/api';
 import Root from 'core/components/Root';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
+import requestId from 'core/middleware/requestId';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
 import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
@@ -157,6 +159,12 @@ function baseServer(
 
   const app = new Express();
   app.disable('x-powered-by');
+
+  if (config.get('enableRequestID')) {
+    // This middleware must be set very early.
+    app.use(httpContext.middleware);
+    app.use(requestId);
+  }
 
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {
