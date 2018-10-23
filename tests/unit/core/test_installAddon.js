@@ -89,6 +89,7 @@ const defaultProps = (overrides = {}) => {
   sinon.stub(store, 'dispatch');
 
   const addon = createInternalAddon(fakeAddon);
+  const currentVersion = createInternalVersion(fakeVersion);
 
   return {
     _addonManager: getFakeAddonManagerWrapper(),
@@ -97,6 +98,7 @@ const defaultProps = (overrides = {}) => {
     location: createFakeLocation(),
     store,
     userAgentInfo: sampleUserAgentParsed,
+    currentVersion,
     ...overrides,
   };
 };
@@ -995,26 +997,25 @@ describe(__filename, () => {
 
       it('calls addonManager.install()', () => {
         const hash = 'some-sha-hash';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [
-              {
-                platform: OS_ALL,
-                url: installURL,
-                hash,
-              },
-            ],
-          }),
-        );
+        const currentVersion = createInternalVersion({
+          ...fakeVersion,
+          files: [
+            {
+              platform: OS_ALL,
+              url: installURL,
+              hash,
+            },
+          ],
+        });
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const { root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
-          addon,
+          currentVersion,
           defaultInstallSource,
         });
         const { install } = root.instance().props;
 
-        return install(addon).then(() => {
+        return install().then(() => {
           sinon.assert.calledWith(
             fakeAddonManager.install,
             `${installURL}?src=${defaultInstallSource}`,
@@ -1025,25 +1026,24 @@ describe(__filename, () => {
       });
 
       it('passes an undefined hash when installURL is not found', () => {
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [
-              {
-                platform: OS_ANDROID,
-                url: installURL,
-              },
-            ],
-          }),
-        );
+        const currentVersion = createInternalVersion({
+          ...fakeVersion,
+          files: [
+            {
+              platform: OS_ANDROID,
+              url: installURL,
+            },
+          ],
+        });
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const { root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
-          addon,
+          currentVersion,
           defaultInstallSource,
         });
         const { install } = root.instance().props;
 
-        return install(addon).then(() => {
+        return install().then(() => {
           sinon.assert.calledWith(
             fakeAddonManager.install,
             undefined,

@@ -47,6 +47,7 @@ import { showInfoDialog } from 'core/reducers/infoDialog';
 import { findFileForPlatform, getDisplayName } from 'core/utils';
 import { getFileHash } from 'core/utils/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType, PlatformFilesType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
@@ -216,6 +217,7 @@ type WithInstallHelpersProps = {|
   _installTheme: typeof installTheme,
   _tracking: typeof tracking,
   addon: AddonType,
+  currentVersion: AddonVersionType,
   defaultInstallSource: string,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -390,13 +392,15 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       _addonManager,
       _tracking,
       addon,
+      currentVersion,
       defaultInstallSource,
       dispatch,
       location,
       userAgentInfo,
     } = this.props;
 
-    const { guid, name, platformFiles, type } = addon;
+    const { guid, name, type } = addon;
+    const { platformFiles } = currentVersion;
 
     return new Promise((resolve) => {
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
@@ -416,7 +420,9 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       resolve(installURL);
     })
       .then((installURL) => {
-        const hash = installURL && getFileHash({ addon, installURL });
+        const hash =
+          installURL &&
+          getFileHash({ addon, installURL, version: currentVersion });
 
         return _addonManager.install(
           installURL,
