@@ -510,6 +510,16 @@ describe(__filename, () => {
     expect(button.childAt(1)).toHaveText('Add to Firefox');
   });
 
+  it("renders a custom button label when it's passed in", () => {
+    const buttonLabel = 'Install here';
+
+    const root = render({ buttonLabel });
+
+    const button = root.find(Button);
+    expect(button).toHaveLength(1);
+    expect(button.childAt(1)).toHaveText(buttonLabel);
+  });
+
   it.each([DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING])(
     'renders a loading Icon when add-on is %s',
     (status) => {
