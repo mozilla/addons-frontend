@@ -293,6 +293,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     const {
       _addonManager,
       addon,
+      currentVersion,
       defaultInstallSource,
       dispatch,
       location,
@@ -308,7 +309,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    const { guid, platformFiles, type } = addon;
+    const { guid, type } = addon;
+    const { platformFiles } = currentVersion;
 
     const installURL = findInstallURL({
       defaultInstallSource,
