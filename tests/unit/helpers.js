@@ -228,6 +228,11 @@ export const fakeRecommendations = Object.freeze({
   outcome: 'recommended_fallback',
 });
 
+export const fakeAddonInfo = {
+  eula: 'eula text',
+  privacy_policy: ' some privacy policy text',
+};
+
 export const onLocationChanged = ({
   pathname,
   search = '',
