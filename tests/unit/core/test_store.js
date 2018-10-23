@@ -1,4 +1,4 @@
-import { middleware } from 'core/store';
+import { middleware, minimalReduxLogger } from 'core/store';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -10,7 +10,7 @@ describe(__filename, () => {
     });
   };
 
-  it('includes the middleware in development', () => {
+  it('includes logging middleware on the client while in development', () => {
     const _createLogger = sinon.stub();
     expect(
       typeof middleware({
@@ -19,6 +19,26 @@ describe(__filename, () => {
       }),
     ).toBe('function');
     sinon.assert.called(_createLogger);
+  });
+
+  it('includes logging middleware on the server while in development', () => {
+    const _applyMiddleware = sinon.stub();
+    const _minimalReduxLogger = sinon.stub();
+
+    expect(
+      typeof middleware({
+        _applyMiddleware,
+        _config: configForDev(true, { server: true }),
+        _minimalReduxLogger,
+      }),
+    ).toBe('function');
+
+    sinon.assert.calledWith(
+      _applyMiddleware,
+      sinon.match((...args) => {
+        return args.includes(_minimalReduxLogger);
+      }),
+    );
   });
 
   it('does not apply middleware if not in development', () => {
@@ -86,5 +106,21 @@ describe(__filename, () => {
 
     expect(typeof middleware({ _config, _window })).toBe('function');
     sinon.assert.notCalled(_window.__REDUX_DEVTOOLS_EXTENSION__);
+  });
+
+  describe('minimalReduxLogger', () => {
+    it('process an action', () => {
+      const action = sinon.stub();
+      const reducerResult = { someState: 'yes' };
+      const next = sinon.stub().returns(reducerResult);
+      const store = sinon.stub();
+
+      const handleNext = minimalReduxLogger(store);
+      const handleAction = handleNext(next);
+      const result = handleAction(action);
+
+      sinon.assert.calledWith(next, action);
+      expect(result).toEqual(reducerResult);
+    });
   });
 });
