@@ -10,23 +10,18 @@ export type GetAddonInfoParams = {|
 |};
 
 export type ExternalAddonInfoType = {|
-  eula: string | null,
-  privacyPolicy: string | null,
+  eula: string,
+  privacy_policy: string,
 |};
 
-export const getAddonInfo = async ({
-  api,
-  slug,
-}: GetAddonInfoParams = {}): Promise<ExternalAddonInfoType | null> => {
+export const getAddonInfo = ({ api, slug }: GetAddonInfoParams = {}): Promise<
+  ExternalAddonInfoType,
+> => {
   invariant(slug, 'slug is required');
 
-  const response = await callApi({
+  return callApi({
     apiState: api,
     auth: true,
     endpoint: `addons/addon/${slug}/eula_policy/`,
   });
-  return {
-    eula: response ? response.eula : null,
-    privacyPolicy: response ? response.privacy_policy : null,
-  };
 };

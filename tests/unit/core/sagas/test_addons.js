@@ -93,6 +93,7 @@ describe(__filename, () => {
     beforeEach(() => {
       mockApi = sinon.mock(addonInfoApi);
     });
+
     function _fetchAddonInfo(slug = 'some-slug') {
       sagaTester.dispatch(
         fetchAddonInfo({

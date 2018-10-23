@@ -7,6 +7,7 @@ import {
 } from 'core/constants';
 import addons, {
   createInternalAddon,
+  createInternalAddonInfo,
   createPlatformFiles,
   defaultPlatformFiles,
   fetchAddon,
@@ -17,7 +18,7 @@ import addons, {
   getAddonInfoBySlug,
   getAllAddons,
   getGuid,
-  getInfoLoadingBySlug,
+  isAddonInfoLoading,
   initialState,
   isAddonLoading,
   loadAddonInfo,
@@ -686,7 +687,7 @@ describe(__filename, () => {
         fetchAddonInfo({ errorHandlerId: 1, slug }),
       );
 
-      expect(getInfoLoadingBySlug({ state, slug })).toBe(true);
+      expect(isAddonInfoLoading({ state, slug })).toBe(true);
     });
 
     it('clears info when fetching info', () => {
@@ -702,7 +703,7 @@ describe(__filename, () => {
     it('clears the loading flag when loading info', () => {
       let state;
       const slug = 'some-slug';
-      state = addons(undefined, fetchAddonInfo({ errorHandlerId: 1, slug }));
+      state = addons(state, fetchAddonInfo({ errorHandlerId: 1, slug }));
       state = addons(
         state,
         loadAddonInfo({
@@ -711,7 +712,7 @@ describe(__filename, () => {
         }),
       );
 
-      expect(getInfoLoadingBySlug({ slug, state })).toBe(false);
+      expect(isAddonInfoLoading({ slug, state })).toBe(false);
     });
 
     it('loads info', () => {
@@ -719,15 +720,17 @@ describe(__filename, () => {
       const info = fakeAddonInfo;
       const state = addons(undefined, loadAddonInfo({ slug, info }));
 
-      expect(getAddonInfoBySlug({ slug, state })).toEqual(info);
+      expect(getAddonInfoBySlug({ slug, state })).toEqual(
+        createInternalAddonInfo(info),
+      );
     });
 
-    describe('getInfoLoadingBySlug', () => {
+    describe('isAddonInfoLoading', () => {
       it('returns false if info has never been loaded', () => {
         const state = addons(undefined, {
           type: 'SOME_OTHER_ACTION',
         });
-        expect(getInfoLoadingBySlug({ slug: 'some-slug', state })).toBe(false);
+        expect(isAddonInfoLoading({ slug: 'some-slug', state })).toBe(false);
       });
     });
 

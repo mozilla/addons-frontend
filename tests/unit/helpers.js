@@ -230,7 +230,7 @@ export const fakeRecommendations = Object.freeze({
 
 export const fakeAddonInfo = {
   eula: 'eula text',
-  privacyPolicy: ' some privacy policy text',
+  privacy_policy: ' some privacy policy text',
 };
 
 export const onLocationChanged = ({

@@ -35,8 +35,8 @@ export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
 type AddonID = number;
 
 export type AddonInfoType = {
-  eula: string | null,
-  privacyPolicy: string | null,
+  eula: string,
+  privacyPolicy: string,
 };
 
 export type AddonsState = {|
@@ -46,7 +46,7 @@ export type AddonsState = {|
   byGUID: { [addonGUID: string]: AddonID },
   bySlug: { [addonSlug: string]: AddonID },
   infoBySlug: {
-    [slug: string]: { info: AddonInfoType, loading: boolean },
+    [slug: string]: {| info: AddonInfoType, loading: boolean |},
   },
   loadingBySlug: { [addonSlug: string]: boolean },
 |};
@@ -361,7 +361,7 @@ export const getAddonInfoBySlug = ({
   return (infoForSlug && infoForSlug.info) || null;
 };
 
-export const getInfoLoadingBySlug = ({
+export const isAddonInfoLoading = ({
   slug,
   state,
 }: GetBySlugParams): boolean => {
@@ -370,6 +370,15 @@ export const getInfoLoadingBySlug = ({
 
   const infoForSlug = state.infoBySlug[slug];
   return Boolean(infoForSlug && infoForSlug.loading);
+};
+
+export const createInternalAddonInfo = (
+  addonInfo: ExternalAddonInfoType,
+): AddonInfoType => {
+  return {
+    eula: addonInfo.eula,
+    privacyPolicy: addonInfo.privacy_policy,
+  };
 };
 
 type Action =
@@ -472,17 +481,14 @@ export default function addonsReducer(
     }
 
     case LOAD_ADDON_INFO: {
-      const {
-        slug,
-        info: { eula, privacyPolicy },
-      } = action.payload;
+      const { slug, info } = action.payload;
 
       return {
         ...state,
         infoBySlug: {
           ...state.infoBySlug,
           [slug]: {
-            info: { eula, privacyPolicy },
+            info: createInternalAddonInfo(info),
             loading: false,
           },
         },

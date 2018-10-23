@@ -16,7 +16,11 @@ import {
 } from 'core/reducers/addons';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { GetAddonInfoParams } from 'amo/api/addonInfo';
+import type {
+  ExternalAddonInfoType,
+  GetAddonInfoParams,
+} from 'amo/api/addonInfo';
+import type { AppState } from 'amo/store';
 import type { FetchAddonParams } from 'core/api';
 import type {
   FetchAddonAction,
@@ -41,7 +45,7 @@ export function* fetchAddon({
   }
 }
 
-export function* fetchAddonInfoAction({
+export function* fetchAddonInfo({
   payload: { errorHandlerId, slug },
 }: FetchAddonInfoAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -49,22 +53,22 @@ export function* fetchAddonInfoAction({
   yield put(errorHandler.createClearingAction());
 
   try {
-    const state = yield select(getState);
+    const state: AppState = yield select(getState);
 
     const params: GetAddonInfoParams = {
       api: state.api,
       slug,
     };
-    const info = yield call(getAddonInfo, params);
+    const info: ExternalAddonInfoType = yield call(getAddonInfo, params);
 
     yield put(loadAddonInfo({ slug, info }));
   } catch (error) {
-    log.warn(`Failed to fetch versions: ${error}`);
+    log.warn(`Failed to fetch add-on info: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }
 
 export default function* addonsSaga(): Generator<any, any, any> {
   yield takeEvery(FETCH_ADDON, fetchAddon);
-  yield takeLatest(FETCH_ADDON_INFO, fetchAddonInfoAction);
+  yield takeLatest(FETCH_ADDON_INFO, fetchAddonInfo);
 }
