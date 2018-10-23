@@ -343,8 +343,9 @@ describe(__filename, () => {
   describe('unloadAddonReviews', () => {
     const loadReviewDataIntoState = ({
       addonId,
-      addonSlug,
-      grouping,
+      addonSlug = 'some-slug',
+      grouping = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+      permissionsToSet = { canReplyToReviews: true },
       startState,
       reviewId,
       userId,
@@ -353,16 +354,17 @@ describe(__filename, () => {
         ...fakeReview,
         id: reviewId,
         addon: {
+          ...fakeReview.addon,
           id: addonId,
           slug: addonSlug,
         },
         user: { id: userId },
       };
 
-      let state;
+      let state = startState;
 
       // Initialize values into the byId, byAddon, byUserId, groupedRatings and view buckets.
-      state = reviewsReducer(startState, setReview(review));
+      state = reviewsReducer(state, setReview(review));
 
       state = reviewsReducer(
         state,
@@ -395,6 +397,15 @@ describe(__filename, () => {
           someFlag: true,
         },
       });
+
+      state = reviewsReducer(
+        state,
+        setReviewPermissions({
+          addonId,
+          userId,
+          ...permissionsToSet,
+        }),
+      );
 
       return state;
     };
@@ -431,7 +442,7 @@ describe(__filename, () => {
       expect(state.view[reviewId]).toEqual(undefined);
     });
 
-    it('it unloads cached view data even for deleted reviews', () => {
+    it('unloads cached view data even for deleted reviews', () => {
       // This covers the case where a reply is deleted and then another reply is added
       // and we expect the view state for the reply to be cleared out.
       const addonId = 1;
@@ -451,6 +462,29 @@ describe(__filename, () => {
       state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
 
       expect(state.view[reviewId]).toEqual(undefined);
+    });
+
+    it('unloads review permissions', () => {
+      const addonId = 145;
+      const reviewId = 321;
+      const userId = 9643;
+
+      let state = loadReviewDataIntoState({
+        addonId,
+        reviewId,
+        permissionsToSet: { canReplyToReviews: true },
+        userId,
+      });
+
+      expect(
+        selectReviewPermissions({ reviewsState: state, addonId, userId }),
+      ).toBeDefined();
+
+      state = reviewsReducer(state, unloadAddonReviews({ addonId, reviewId }));
+
+      expect(
+        selectReviewPermissions({ reviewsState: state, addonId, userId }),
+      ).not.toBeDefined();
     });
 
     it('preserves unrelated reviews data', () => {
