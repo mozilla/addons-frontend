@@ -79,7 +79,7 @@ describe(__filename, () => {
     const root = render({ addon, store });
 
     expect(root.find('title')).toHaveText(
-      `${addon.name} – Get this ${name} for 🦊 Android (${lang})`,
+      `${addon.name} – Get this ${name} for 🦊 Firefox Android (${lang})`,
     );
   });
 
