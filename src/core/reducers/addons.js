@@ -35,8 +35,8 @@ export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
 type AddonID = number;
 
 export type AddonInfoType = {
-  eula: string,
-  privacyPolicy: string,
+  eula: string | null,
+  privacyPolicy: string | null,
 };
 
 export type AddonsState = {|
@@ -473,7 +473,7 @@ export default function addonsReducer(
         infoBySlug: {
           ...state.infoBySlug,
           [slug]: {
-            info: null,
+            info: undefined,
             loading: true,
           },
         },

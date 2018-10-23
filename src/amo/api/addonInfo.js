@@ -10,8 +10,8 @@ export type GetAddonInfoParams = {|
 |};
 
 export type ExternalAddonInfoType = {|
-  eula: string,
-  privacy_policy: string,
+  eula: string | null,
+  privacy_policy: string | null,
 |};
 
 export const getAddonInfo = ({ api, slug }: GetAddonInfoParams = {}): Promise<
