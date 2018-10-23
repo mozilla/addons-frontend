@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-16 16:19+0000\n"
+"POT-Creation-Date: 2018-10-23 17:55+0000\n"
 "PO-Revision-Date: 2018-09-11 17:33+0000\n"
 "Last-Translator: RickieES <rpmdisguise-nave@yahoo.es>\n"
 "Language-Team: none\n"
@@ -14,39 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Enable"
 msgstr "Activar"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Remove"
 msgstr "Eliminar"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:210
 msgid "Enabling"
 msgstr "Activando"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:212
 msgid "Downloading"
 msgstr "Descargando"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Installing"
 msgstr "Instalando"
 
-#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Uninstalling"
 msgstr "Desinstalando"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:236
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/InstallButton/index.js:235
+#: src/core/components/InstallButton/index.js:281
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:267
-#: src/core/components/InstallButton/index.js:283
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:266
+#: src/core/components/InstallButton/index.js:282
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
@@ -89,33 +89,53 @@ msgstr ""
 msgid "OK"
 msgstr "¡Vale!"
 
-#: src/core/components/InstallSwitch/index.js:69
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Downloading %(name)s."
 msgstr "Descargando %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:72
+#: src/core/components/InstallSwitch/index.js:71
 msgid "Installing %(name)s."
 msgstr "Instalando %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:76
+#: src/core/components/InstallSwitch/index.js:75
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s está instalado y activado. Haz clic para desinstalar."
 
-#: src/core/components/InstallSwitch/index.js:81
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s está desactivado. Haz clic para activar."
 
-#: src/core/components/InstallSwitch/index.js:84
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "Desinstalando %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:87
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s se ha desinstalado. Haz clic para instalar."
 
-#: src/core/components/InstallSwitch/index.js:90
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr "Se desconoce el estado de la instalación de %(name)s."
+
+#: src/core/i18n/utils.js:254
+msgid "%(localizedSize)s B"
+msgstr ""
+
+#: src/core/i18n/utils.js:256
+msgid "%(localizedSize)s KB"
+msgstr ""
+
+#: src/core/i18n/utils.js:258
+msgid "%(localizedSize)s MB"
+msgstr ""
+
+#: src/core/i18n/utils.js:260
+msgid "%(localizedSize)s GB"
+msgstr ""
+
+#: src/core/i18n/utils.js:262
+msgid "%(localizedSize)s TB"
+msgstr ""
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
@@ -137,7 +157,7 @@ msgstr "Se ha producido un error inesperado durante la desinstalación."
 msgid "An unexpected error occurred."
 msgstr "Se ha producido un error inesperado."
 
-#: src/disco/components/Addon/index.js:88
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "Cerrar"
 
@@ -203,7 +223,7 @@ msgstr "Recarga la página para continuar"
 msgid "Dismiss this notice"
 msgstr "Ocultar este aviso"
 
-#: src/ui/components/ThemeImage/index.js:30
+#: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Vista previa de %(title)s"
 

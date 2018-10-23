@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-16 16:19+0000\n"
+"POT-Creation-Date: 2018-10-23 17:55+0000\n"
 "PO-Revision-Date: 2017-12-28 02:51+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:208
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:210
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:212
 #, fuzzy
 msgid "Downloading"
 msgstr "%(name)s를 다운로드 중입니다."
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 #, fuzzy
 msgid "Installing"
 msgstr "%(name)s를 설치 중입니다."
 
-#: src/core/components/AMInstallButton/index.js:217
+#: src/core/components/AMInstallButton/index.js:216
 #, fuzzy
 msgid "Uninstalling"
 msgstr "%(name)s를 제거하는 중입니다."
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:236
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/InstallButton/index.js:235
+#: src/core/components/InstallButton/index.js:281
 msgid "Install Theme"
 msgstr "테마 설치"
 
-#: src/core/components/AMInstallButton/index.js:222
-#: src/core/components/InstallButton/index.js:267
-#: src/core/components/InstallButton/index.js:283
+#: src/core/components/AMInstallButton/index.js:221
+#: src/core/components/InstallButton/index.js:266
+#: src/core/components/InstallButton/index.js:282
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -91,33 +91,53 @@ msgstr ""
 msgid "OK"
 msgstr "좋습니다!"
 
-#: src/core/components/InstallSwitch/index.js:69
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Downloading %(name)s."
 msgstr "%(name)s를 다운로드 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:72
+#: src/core/components/InstallSwitch/index.js:71
 msgid "Installing %(name)s."
 msgstr "%(name)s를 설치 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:76
+#: src/core/components/InstallSwitch/index.js:75
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s가 설치되었고 활성화되었습니다. 제거하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:81
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s가 비활성화되었습니다. 활성화 하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:84
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s를 제거하는 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:87
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s가 제거되었습니다. 설치하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:90
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s의 설치 상태를 알 수 없습니다."
+
+#: src/core/i18n/utils.js:254
+msgid "%(localizedSize)s B"
+msgstr ""
+
+#: src/core/i18n/utils.js:256
+msgid "%(localizedSize)s KB"
+msgstr ""
+
+#: src/core/i18n/utils.js:258
+msgid "%(localizedSize)s MB"
+msgstr ""
+
+#: src/core/i18n/utils.js:260
+msgid "%(localizedSize)s GB"
+msgstr ""
+
+#: src/core/i18n/utils.js:262
+msgid "%(localizedSize)s TB"
+msgstr ""
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
@@ -139,7 +159,7 @@ msgstr "설치 제거 중에 예상치 못 한 오류가 발생하였습니다."
 msgid "An unexpected error occurred."
 msgstr "예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon/index.js:88
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "닫기"
 
@@ -201,7 +221,7 @@ msgstr "새로 고침해서 계속하기"
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/ThemeImage/index.js:30
+#: src/ui/components/ThemeImage/index.js:31
 #, fuzzy
 msgid "Preview of %(title)s"
 msgstr "%(name)s 미리보기"
