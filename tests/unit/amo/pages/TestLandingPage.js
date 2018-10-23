@@ -622,4 +622,20 @@ describe(__filename, () => {
       `${baseURL}${pathname}`,
     );
   });
+
+  it.each([
+    [ADDON_TYPE_EXTENSION, /Extensions add/],
+    [ADDON_TYPE_THEME, /Change how Firefox looks/],
+  ])('renders a "description" meta tag for %s', (addonType, partialContent) => {
+    const root = render({
+      match: {
+        params: { visibleAddonType: visibleAddonType(addonType) },
+      },
+    });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      partialContent,
+    );
+  });
 });

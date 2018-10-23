@@ -210,6 +210,26 @@ export class LandingPageBase extends React.Component {
     return component;
   }
 
+  getPageDescription() {
+    const {
+      i18n,
+      match: { params },
+    } = this.props;
+
+    const addonType = apiAddonType(params.visibleAddonType);
+
+    if (isTheme(addonType)) {
+      return i18n.gettext(`Change how Firefox looks with themes. Tailor your
+        experience to your tastes. Cute critters, evil robots, beautiful
+        landscapes...choose from thousands of options.`);
+    }
+
+    return i18n.gettext(`Extensions add features to Firefox so you can
+      customize your browsing experience. Protect passwords, download videos,
+      find deals, block annoying ads, and more with these apps for your
+      browser.`);
+  }
+
   render() {
     const {
       _config,
@@ -255,6 +275,7 @@ export class LandingPageBase extends React.Component {
             rel="canonical"
             href={getCanonicalURL({ locationPathname, _config })}
           />
+          <meta name="description" content={this.getPageDescription()} />
         </Helmet>
 
         {errorHandler.renderErrorIfPresent()}
