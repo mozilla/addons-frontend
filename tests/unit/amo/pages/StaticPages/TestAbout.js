@@ -41,4 +41,13 @@ describe(__filename, () => {
       `${baseURL}${pathname}`,
     );
   });
+
+  it('renders a "description" meta tag', () => {
+    const root = render();
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      /The official Mozilla site/,
+    );
+  });
 });
