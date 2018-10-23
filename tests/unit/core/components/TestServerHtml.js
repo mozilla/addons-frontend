@@ -21,17 +21,13 @@ describe(__filename, () => {
     Helmet.canUseDOM = _helmetCanUseDOM;
   });
 
-  const fakeStore = {
-    getState: () => ({ foo: 'bar' }),
-  };
-
   function render(opts = {}) {
     const pageProps = {
       appName: 'disco',
+      appState: { appStateExample: { things: 'lots-of-things' } },
       component: <FakeApp />,
       assets: fakeAssets,
       includeSri: true,
-      store: fakeStore,
       trackingEnabled: false,
       sriData: fakeSRIData,
       ...opts,
@@ -125,13 +121,13 @@ describe(__filename, () => {
   });
 
   it('renders state as JSON', () => {
-    const store = fakeStore;
-    const root = render({ store });
+    const appState = { usersExample: ['first-user', 'second-user'] };
+    const root = render({ appState });
     const json = root.find('#redux-store-state');
 
     expect(json).toHaveLength(1);
     expect(JSON.parse(json.prop('dangerouslySetInnerHTML').__html)).toEqual(
-      store.getState(),
+      appState,
     );
   });
 

@@ -87,7 +87,6 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
     includeSri: isDeployed,
     noScriptStyles,
     sriData,
-    store,
     // A DNT header set to "1" means Do Not Track
     trackingEnabled:
       convertBoolean(config.get('trackingEnabled')) &&
@@ -95,8 +94,15 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
   };
 }
 
-function renderHTML({ props = {}, pageProps }) {
-  return ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+function renderHTML({ props = {}, pageProps, store }) {
+  // Capture the store state before beginning to render any components.
+  // This will ensure that no other components in the render tree will
+  // modify state before ServerHtml has a chance to serialize it.
+  // https://github.com/mozilla/addons-frontend/issues/6729
+  const appState = store.getState();
+  return ReactDOM.renderToString(
+    <ServerHtml {...pageProps} {...props} appState={appState} />,
+  );
 }
 
 function showErrorPage({
@@ -120,7 +126,7 @@ function showErrorPage({
   const apiError = createApiError({ response: { status: adjustedStatus } });
   store.dispatch(loadErrorPage({ error: apiError }));
 
-  const HTML = renderHTML({ pageProps });
+  const HTML = renderHTML({ pageProps, store });
   return res
     .status(adjustedStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
@@ -135,9 +141,9 @@ function sendHTML({ res, html }) {
     .end();
 }
 
-function hydrateOnClient({ res, props = {}, pageProps }) {
+function hydrateOnClient({ res, props = {}, pageProps, store }) {
   return sendHTML({
-    html: renderHTML({ props, pageProps }),
+    html: renderHTML({ props, pageProps, store }),
     res,
   });
 }
@@ -324,7 +330,7 @@ function baseServer(
           await runningSagas.done;
           _log.warn('Server side rendering is disabled.');
 
-          return hydrateOnClient({ res, pageProps });
+          return hydrateOnClient({ res, pageProps, store });
         }
       } catch (preLoadError) {
         _log.info(`Caught an error before rendering: ${preLoadError}`);
@@ -360,7 +366,7 @@ function baseServer(
       // We need to render once because it will force components to
       // dispatch data loading actions which get processed by sagas.
       _log.info('First component render to dispatch loading actions');
-      renderHTML({ props, pageProps });
+      renderHTML({ props, pageProps, store });
 
       // Send the redux-saga END action to stop sagas from running
       // indefinitely. This is only done for server-side rendering.
@@ -371,7 +377,7 @@ function baseServer(
         await runningSagas.done;
         _log.info('Second component render after sagas have finished');
 
-        const finalHTML = renderHTML({ props, pageProps });
+        const finalHTML = renderHTML({ props, pageProps, store });
 
         // A redirection has been requested, let's do it.
         const { redirectTo } = store.getState();
