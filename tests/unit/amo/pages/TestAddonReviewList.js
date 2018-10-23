@@ -694,6 +694,18 @@ describe(__filename, () => {
     });
   });
 
+  it('renders a "description" meta tag', () => {
+    const addon = createInternalAddon(fakeAddon);
+    dispatchAddon(addon);
+
+    const root = render();
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`Reviews and ratings for ${addon.name}`),
+    );
+  });
+
   describe('extractId', () => {
     it('returns a unique ID based on the addon slug and page', () => {
       const ownProps = getProps({
