@@ -27,12 +27,6 @@ const pinoLogger = pino({
 if (config.get('enableRequestID')) {
   // eslint-disable-next-line global-require
   httpContext = require('express-http-context');
-
-  if (typeof httpContext.get !== 'function') {
-    // Set the `httpContext` to `null` so that it does not need an extra check
-    // on the browser.
-    httpContext = null;
-  }
 }
 
 export default ['debug', 'error', 'fatal', 'info', 'trace', 'warn'].reduce(

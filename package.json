@@ -372,8 +372,5 @@
       "maxSize": "25 kB"
     }
   ],
-  "snyk": true,
-  "browser": {
-    "express-http-context": false
-  }
+  "snyk": true
 }
