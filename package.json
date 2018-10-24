@@ -190,14 +190,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mozilla/addons-frontend.git"
+    "url": "git+https://github.com/mozillla/addons-frontend.git"
   },
   "author": "Mozilla Add-ons Team",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/mozilla/addons-frontend/issues"
+    "url": "https://github.com/mozillla/addons-frontend/issues"
   },
-  "homepage": "https://github.com/mozilla/addons-frontend#readme",
+  "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "base62": "1.2.8",
@@ -354,7 +354,7 @@
     "tmp": "^0.0.33",
     "tosource": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
-    "webpack": "^3.12.0",
+    "webpack": "^4.23.0",
     "webpack-dev-middleware": "^2.0.6",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"
