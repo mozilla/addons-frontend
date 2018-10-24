@@ -39,6 +39,13 @@ export class AboutBase extends React.Component<Props> {
             rel="canonical"
             href={getCanonicalURL({ locationPathname, _config })}
           />
+          <meta
+            name="description"
+            content={i18n.gettext(`The official Mozilla site for installing
+              extensions and themes on the Firefox browser. Add new features
+              and change the browser’s appearance to customize your web
+              experience.`)}
+          />
         </Helmet>
 
         <div className="StaticPageWrapper">

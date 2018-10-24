@@ -167,6 +167,13 @@ export class LanguageToolsBase extends React.Component<Props> {
             rel="canonical"
             href={getCanonicalURL({ locationPathname, _config })}
           />
+          <meta
+            name="description"
+            content={i18n.gettext(`Dictionaries and language pack extensions
+              for Firefox. Dictionaries add a new language option to your
+              browser spell-checker. Language packs change the browser's
+              interface language, including menu options and settings.`)}
+          />
         </Helmet>
 
         {errorHandler.renderErrorIfPresent()}
