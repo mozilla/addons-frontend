@@ -5151,10 +5151,10 @@ expect@^23.1.0:
     jest-message-util "^23.1.0"
     jest-regex-util "^23.0.0"
 
-express-http-context@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.1.0.tgz#ce79a03ecab45e0fbf3b342cf5a2d39c83e34cda"
-  integrity sha512-LS47HseitRIxzBHDEQrlVwZkEkMaViM+nhRCrlWYxPNIu7W8KUZyNUOxiD93OghHesl7y+DhBYuz3yfaNHDvVA==
+express-http-context@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.2.0.tgz#8e886838f9915b57a42870b8a0a9532a82511657"
+  integrity sha512-Nw7FECgPHx0p4xE3jOP1tGYnMp+aUDQemHnuJ29TYuuAA7H3dp9zlce453CoHt7dwWNKNQG1R3vFCLnMyilnDg==
   dependencies:
     cls-hooked "^4.2.2"
 
