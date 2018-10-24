@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -154,6 +155,18 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     return location.query.page || '1';
   }
 
+  getPageDescription() {
+    const { addon, i18n } = this.props;
+
+    invariant(addon, 'addon is required');
+
+    return i18n.sprintf(
+      i18n.gettext(`Reviews and ratings for %(addonName)s. Find out what other
+        users think about %(addonName)s and add it to your Firefox Browser.`),
+      { addonName: addon.name },
+    );
+  }
+
   render() {
     const {
       addon,
@@ -242,6 +255,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         {addon && (
           <Helmet>
             <title>{header}</title>
+            <meta name="description" content={this.getPageDescription()} />
             {reviewId && <meta name="robots" content="noindex, follow" />}
           </Helmet>
         )}
