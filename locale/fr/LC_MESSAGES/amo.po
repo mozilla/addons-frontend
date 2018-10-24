@@ -1449,9 +1449,8 @@ msgid "Log in to rate this add-on"
 msgstr "Connectez-vous pour noter ce module complémentaire"
 
 #: src/amo/components/RatingManager/index.js:288
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Souhaitez-vous vraiment supprimer cette évaluation ?"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:293
 #, fuzzy
