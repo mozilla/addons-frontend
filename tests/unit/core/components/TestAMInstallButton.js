@@ -510,14 +510,14 @@ describe(__filename, () => {
     expect(button.childAt(1)).toHaveText('Add to Firefox');
   });
 
-  it("renders a custom button label when it's passed in", () => {
-    const buttonLabel = 'Install here';
+  it("renders custom button text when it's passed in", () => {
+    const defaultButtonText = 'Install here';
 
-    const root = render({ buttonLabel });
+    const root = render({ defaultButtonText });
 
     const button = root.find(Button);
     expect(button).toHaveLength(1);
-    expect(button.childAt(1)).toHaveText(buttonLabel);
+    expect(button.childAt(1)).toHaveText(defaultButtonText);
   });
 
   it.each([DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING])(
