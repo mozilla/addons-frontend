@@ -5,15 +5,14 @@ import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import Helmet from 'react-helmet';
 import { oneLine } from 'common-tags';
 
 import { getLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
+import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { getCanonicalURL } from 'amo/utils';
 import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -49,7 +48,6 @@ export class CategoryBase extends React.Component {
     highlyRatedAddons: PropTypes.array,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
-    locationPathname: PropTypes.string.isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({
         slug: PropTypes.string,
@@ -151,7 +149,6 @@ export class CategoryBase extends React.Component {
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
-        title: i18n.gettext('Extensions'),
         featuredHeader: i18n.gettext('Featured extensions'),
         featuredFooterLink: {
           pathname: '/search/',
@@ -184,7 +181,6 @@ export class CategoryBase extends React.Component {
         highlyRatedFooterText: i18n.gettext('See more top rated extensions'),
       },
       [ADDON_TYPE_THEME]: {
-        title: i18n.gettext('Themes'),
         featuredHeader: i18n.gettext('Featured themes'),
         featuredFooterLink: {
           pathname: '/search/',
@@ -231,14 +227,12 @@ export class CategoryBase extends React.Component {
 
   render() {
     const {
-      _config,
       categories,
       clientApp,
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
       loading,
-      locationPathname,
       match: { params },
       trendingAddons,
     } = this.props;
@@ -272,15 +266,7 @@ export class CategoryBase extends React.Component {
           'Category--theme': isAddonTheme,
         })}
       >
-        {category && (
-          <Helmet>
-            <title>{`${category.name} – ${html.title}`}</title>
-            <link
-              rel="canonical"
-              href={getCanonicalURL({ locationPathname, _config })}
-            />
-          </Helmet>
-        )}
+        <CategoryHead category={category} type={addonType} />
 
         {errorHandler.renderErrorIfPresent()}
 
@@ -339,7 +325,6 @@ function mapStateToProps(state) {
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
     loading: state.categories.loading || state.landing.loading,
-    locationPathname: state.router.location.pathname,
     resultsLoaded: state.landing.resultsLoaded,
     trendingAddons: state.landing.trending.results,
   };

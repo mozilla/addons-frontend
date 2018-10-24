@@ -3,6 +3,7 @@ import * as React from 'react';
 import { getLanding, loadLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import Category, { CategoryBase } from 'amo/pages/Category';
+import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -27,8 +28,6 @@ import {
   fakeAddon,
   fakeCategory,
   fakeI18n,
-  getFakeConfig,
-  onLocationChanged,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -123,6 +122,12 @@ describe(__filename, () => {
   it('outputs a category page', () => {
     const root = render();
     expect(root).toHaveClassName('Category');
+  });
+
+  it('always renders a CategoryHead', () => {
+    const root = render();
+
+    expect(root.find(CategoryHead)).toHaveLength(1);
   });
 
   it('should render an error', () => {
@@ -607,36 +612,6 @@ describe(__filename, () => {
     expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 
-  it('renders an HTML title for a theme category', () => {
-    const wrapper = render();
-    expect(wrapper.find('title')).toHaveText('Testing category – Themes');
-  });
-
-  it('renders an HTML title for an extension category', () => {
-    _categoriesFetch();
-    _categoriesLoad({
-      results: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
-    });
-    _getLanding();
-    _loadLanding();
-
-    const wrapper = render(
-      {},
-      {
-        autoDispatchCategories: false,
-        paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
-        },
-      },
-    );
-    expect(wrapper.find('title')).toHaveText('Testing category – Extensions');
-  });
-
-  it('does not render an HTML title when there is no category', () => {
-    const wrapper = render({}, { autoDispatchCategories: false });
-    expect(wrapper.find('title')).toHaveLength(0);
-  });
-
   describe('category lookup', () => {
     const decoyCategory = {
       ...fakeCategory,
@@ -790,21 +765,5 @@ describe(__filename, () => {
 
       expect(root.find(NotFound)).toHaveLength(0);
     });
-  });
-
-  it('renders a canonical link tag', () => {
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
-
-    const pathname = '/some-category-pathname/';
-    store.dispatch(onLocationChanged({ pathname }));
-
-    const root = render({ _config });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
-    );
   });
 });
