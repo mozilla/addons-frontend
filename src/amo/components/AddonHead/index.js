@@ -58,36 +58,36 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     if (clientApp === CLIENT_APP_ANDROID) {
       switch (addon.type) {
         case ADDON_TYPE_DICT:
-          // translators: please keep the fox emoji next to "Android".
+          // translators: please keep the fox emoji next to "Firefox Android".
           localizedTitle = i18n.gettext(`%(addonName)s – Get this Dictionary
-            for 🦊 Android (%(locale)s)`);
+            for 🦊 Firefox Android (%(locale)s)`);
           break;
         case ADDON_TYPE_EXTENSION:
-          // translators: please keep the fox emoji next to "Android".
+          // translators: please keep the fox emoji next to "Firefox Android".
           localizedTitle = i18n.gettext(`%(addonName)s – Get this Extension for
-            🦊 Android (%(locale)s)`);
+            🦊 Firefox Android (%(locale)s)`);
           break;
         case ADDON_TYPE_LANG:
-          // translators: please keep the fox emoji next to "Android".
+          // translators: please keep the fox emoji next to "Firefox Android".
           localizedTitle = i18n.gettext(`%(addonName)s – Get this Language Pack
-            for 🦊 Android (%(locale)s)`);
+            for 🦊 Firefox Android (%(locale)s)`);
           break;
         case ADDON_TYPE_STATIC_THEME:
         case ADDON_TYPE_THEME:
-          // translators: please keep the fox emoji next to "Android".
+          // translators: please keep the fox emoji next to "Firefox Android".
           localizedTitle = i18n.gettext(
-            `%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)`,
+            `%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)`,
           );
           break;
         case ADDON_TYPE_OPENSEARCH:
-          // translators: please keep the fox emoji next to "Android".
+          // translators: please keep the fox emoji next to "Firefox Android".
           localizedTitle = i18n.gettext(`%(addonName)s – Get this Search Tool
-            for 🦊 Android (%(locale)s)`);
+            for 🦊 Firefox Android (%(locale)s)`);
           break;
         default:
-          // translators: please keep the fox emoji next to "Android".
+          // translators: please keep the fox emoji next to "Firefox Android".
           localizedTitle = i18n.gettext(`%(addonName)s – Get this Add-on for 🦊
-            Android (%(locale)s)`);
+            Firefox Android (%(locale)s)`);
       }
     } else {
       switch (addon.type) {
