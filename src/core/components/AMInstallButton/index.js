@@ -220,6 +220,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
         if (defaultButtonText) {
           return defaultButtonText;
         }
+
         return isTheme(addon.type)
           ? i18n.gettext('Install Theme')
           : i18n.gettext('Add to Firefox');
