@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:55+0000\n"
-"PO-Revision-Date: 2018-08-24 09:53+0000\n"
+"PO-Revision-Date: 2018-10-24 07:02+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -38,15 +38,11 @@ msgstr "Telepítés"
 msgid "Uninstalling"
 msgstr "Eltávolítás"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:220 src/core/components/InstallButton/index.js:235 src/core/components/InstallButton/index.js:281
 msgid "Install Theme"
 msgstr "Téma telepítése"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:266 src/core/components/InstallButton/index.js:282
 msgid "Add to Firefox"
 msgstr "Hozzáadás a Firefoxhoz"
 
@@ -55,15 +51,10 @@ msgid "Server Error"
 msgstr "Kiszolgálóhiba"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk "
-"ezt a hibát, és ki fogjuk vizsgálni."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk ezt a hibát, és ki fogjuk vizsgálni."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Hibakód: %(status)s."
 
@@ -97,8 +88,7 @@ msgstr "%(name)s telepítése."
 
 #: src/core/components/InstallSwitch/index.js:75
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"A(z) %(name)s telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
+msgstr "A(z) %(name)s telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
@@ -118,23 +108,23 @@ msgstr "A(z) %(name)s telepítési állapota ismeretlen."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s kB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
@@ -190,20 +180,13 @@ msgstr "A Firefox testreszabása"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő "
-"fejlesztőktől,\n"
-"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól "
-"kezdve,\n"
-"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá "
-"teszik,\n"
-"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, "
-"itt van néhány,\n"
+"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő fejlesztőktől,\n"
+"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól kezdve,\n"
+"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá teszik,\n"
+"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, itt van néhány,\n"
 "amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
 #: src/ui/components/ErrorList/index.js:44
@@ -239,9 +222,7 @@ msgstr "%(title)s előnézete"
 #~ msgstr "Most már elérheti ezt az eszköztáron: %(name)s."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
-#~ "telepítéséhez"
+#~ msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Az előnézethez vigye a kép fölé az egeret"
