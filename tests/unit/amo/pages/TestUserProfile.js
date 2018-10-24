@@ -530,19 +530,11 @@ describe(__filename, () => {
     );
   });
 
-  it('renders AddonsByAuthorsCard without a user', () => {
+  it('does not render AddonsByAuthorsCards without a user', () => {
     const username = 'not-loaded';
     const root = renderUserProfile({ params: { username } });
 
-    expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
-    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
-      'authorDisplayName',
-      username,
-    );
-    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
-      'authorDisplayName',
-      username,
-    );
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(0);
   });
 
   it('renders AddonsByAuthorsCard for extensions', () => {
@@ -954,15 +946,15 @@ describe(__filename, () => {
     expect(root.find('.UserProfile')).toHaveLength(1);
     expect(header.find('.UserProfile-name')).toHaveText(user.name);
 
-    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorUsernames', [
-      user.username,
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorIds', [
+      user.id,
     ]);
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
       'pathname',
       `/user/${user.username}/`,
     );
-    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('authorUsernames', [
-      user.username,
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('authorIds', [
+      user.id,
     ]);
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
       'pathname',

@@ -377,7 +377,7 @@ export class AddonBase extends React.Component {
         <AddonsByAuthorsCard
           addonType={addon.type}
           authorDisplayName={addon.authors[0].name}
-          authorUsernames={addon.authors.map((author) => author.username)}
+          authorIds={addon.authors.map((author) => author.id)}
           className="Addon-MoreAddonsCard"
           forAddonSlug={addon.slug}
           numberOfAddons={6}
