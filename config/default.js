@@ -108,7 +108,6 @@ module.exports = {
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
     'enableDevTools',
-    'enableFeatureAMInstallButton',
     'enableFeatureExperienceSurvey',
     'enableFeatureInlineAddonReview',
     'enableRequestID',
@@ -347,9 +346,6 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
-
-  // Enable new InstallButton with mozAddonManager.
-  enableFeatureAMInstallButton: false,
 
   enableFeatureInlineAddonReview: true,
 

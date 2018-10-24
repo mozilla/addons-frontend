@@ -22,7 +22,6 @@ module.exports = {
     'defaultLang',
     'discoParamsToUse',
     'enableDevTools',
-    'enableFeatureAMInstallButton',
     'enableRequestID',
     'hctEnabled',
     'hrefLangsMap',
