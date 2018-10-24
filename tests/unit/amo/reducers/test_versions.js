@@ -206,7 +206,7 @@ describe(__filename, () => {
       } = {}) => {
         return loadAddonsByAuthors({
           addons,
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           count: addons.length,
           pageSize: DEFAULT_API_PAGE_SIZE,
         });
