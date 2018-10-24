@@ -14,6 +14,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
+  as?: string,
   addon: AddonType | null,
   linkToAddon?: boolean,
 |};
@@ -25,6 +26,7 @@ type InternalProps = {|
 |};
 
 export const AddonTitleBase = ({
+  as: Component = 'h1',
   addon,
   i18n,
   isRTL,
@@ -57,7 +59,7 @@ export const AddonTitleBase = ({
   }
 
   return (
-    <h1 className="AddonTitle">
+    <Component className="AddonTitle">
       {addon ? (
         <React.Fragment>
           {linkToAddon ? (
@@ -84,7 +86,7 @@ export const AddonTitleBase = ({
       ) : (
         <LoadingText width={70} />
       )}
-    </h1>
+    </Component>
   );
 };
 
