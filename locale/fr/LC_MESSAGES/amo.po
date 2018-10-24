@@ -1453,9 +1453,8 @@ msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Souhaitez-vous vraiment supprimer votre évaluation de %(addonName)s ?"
 
 #: src/amo/components/RatingManager/index.js:293
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Souhaitez-vous vraiment supprimer cette note ?"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:298
 msgid "How are you enjoying %(addonName)s?"
