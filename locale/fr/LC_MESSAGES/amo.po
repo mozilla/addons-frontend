@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-22 20:10+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2018-10-24 10:40+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -553,12 +553,12 @@ msgstr "%(averageRating)s étoiles en moyenne"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:39
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:74 src/amo/components/AddonTitle/index.js:78
 msgid "by"
-msgstr ""
+msgstr "par"
 
 #: src/amo/components/App/index.js:219
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -1450,7 +1450,7 @@ msgstr "Connectez-vous pour noter ce module complémentaire"
 
 #: src/amo/components/RatingManager/index.js:288
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr ""
+msgstr "Souhaitez-vous vraiment supprimer votre évaluation de %(addonName)s ?"
 
 #: src/amo/components/RatingManager/index.js:293
 #, fuzzy
