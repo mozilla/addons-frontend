@@ -23,6 +23,7 @@ import './styles.scss';
 type Props = {|
   addon: AddonType | null,
   reviewId: number,
+  siteUserCanReply: ?boolean,
 |};
 
 type InternalProps = {|
@@ -71,7 +72,13 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { addon, errorHandler, featuredReview, i18n } = this.props;
+    const {
+      addon,
+      errorHandler,
+      featuredReview,
+      i18n,
+      siteUserCanReply,
+    } = this.props;
 
     const featuredReviewHeader = featuredReview
       ? i18n.sprintf(
@@ -93,7 +100,11 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
           </div>
         </NestedStatus>
       ) : (
-        <AddonReviewCard addon={addon} review={featuredReview} />
+        <AddonReviewCard
+          addon={addon}
+          review={featuredReview}
+          siteUserCanReply={siteUserCanReply}
+        />
       );
 
     return (

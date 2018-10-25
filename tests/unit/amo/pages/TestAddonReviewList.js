@@ -1,7 +1,12 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
+import {
+  fetchReviews,
+  fetchReviewPermissions,
+  setAddonReviews,
+  setReviewPermissions,
+} from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
@@ -9,6 +14,7 @@ import AddonReviewList, {
 } from 'amo/pages/AddonReviewList';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
+import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
@@ -30,6 +36,7 @@ import {
   createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
+  dispatchSignInActions,
   fakeAddon,
   fakeI18n,
   fakeReview,
@@ -89,6 +96,21 @@ describe(__filename, () => {
       reviews,
     });
     store.dispatch(action);
+  };
+
+  const dispatchUserReviewPermissions = ({
+    addonId = fakeAddon.id,
+    userId = 12345,
+    ...permissions
+  } = {}) => {
+    dispatchSignInActions({ store, userId });
+    store.dispatch(
+      setReviewPermissions({
+        addonId,
+        userId,
+        ...permissions,
+      }),
+    );
   };
 
   describe('<AddonReviewList/>', () => {
@@ -691,6 +713,129 @@ describe(__filename, () => {
         'content',
         'noindex, follow',
       );
+    });
+
+    it('renders FeaturedAddonReview', () => {
+      const reviewId = 8765;
+      const addon = { ...fakeAddon };
+      dispatchAddon(addon);
+      dispatchAddonReviews({ reviews: [{ ...fakeReview }] });
+
+      const root = render({ params: { reviewId } });
+
+      const featured = root.find(FeaturedAddonReview);
+      expect(featured).toHaveProp('addon', createInternalAddon(addon));
+      expect(featured).toHaveProp('reviewId', reviewId);
+    });
+
+    it('dispatches fetchReviewPermissions on mount', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      dispatchAddon(addon);
+      dispatchSignInActions({ store, userId });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const root = render();
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchReviewPermissions({
+          addonId: addon.id,
+          errorHandlerId: root.instance().props.errorHandler.id,
+          userId,
+        }),
+      );
+    });
+
+    it('does not fetchReviewPermissions if they are already loading', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      dispatchAddon(addon);
+      dispatchSignInActions({ store, userId });
+
+      const fetchAction = fetchReviewPermissions({
+        addonId: addon.id,
+        errorHandlerId: 'any-error-handler',
+        userId,
+      });
+      store.dispatch(fetchAction);
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render();
+
+      sinon.assert.neverCalledWithMatch(dispatchSpy, {
+        type: fetchAction.type,
+      });
+    });
+
+    it('does not fetchReviewPermissions if they are already loaded', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      dispatchAddon(addon);
+      dispatchUserReviewPermissions({
+        addonId: addon.id,
+        userId,
+        canReplyToReviews: true,
+      });
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render();
+
+      const fetchAction = fetchReviewPermissions({
+        addonId: addon.id,
+        errorHandlerId: 'any-error-handler',
+        userId,
+      });
+      sinon.assert.neverCalledWithMatch(dispatchSpy, {
+        type: fetchAction.type,
+      });
+    });
+
+    it('sets siteUserCanReply when siteUser has permissions', () => {
+      const addon = { ...fakeAddon };
+      const reviews = [
+        { ...fakeReview, id: 1, score: 1 },
+        { ...fakeReview, id: 2, score: 2 },
+      ];
+      const userId = 99654;
+
+      dispatchAddon(addon);
+      dispatchAddonReviews({ reviews });
+      dispatchUserReviewPermissions({
+        addonId: addon.id,
+        userId,
+        canReplyToReviews: true,
+      });
+
+      const root = render();
+
+      const items = root.find(AddonReviewCard);
+      expect(items).toHaveLength(2);
+
+      expect(items.at(0)).toHaveProp('siteUserCanReply', true);
+      expect(items.at(1)).toHaveProp('siteUserCanReply', true);
+    });
+
+    it('passes siteUserCanReply to FeaturedAddonReview', () => {
+      const reviewId = 8765;
+      const addon = { ...fakeAddon };
+      dispatchAddon(addon);
+      dispatchAddonReviews({ reviews: [{ ...fakeReview }] });
+      dispatchUserReviewPermissions({
+        addonId: addon.id,
+        userId: 6745,
+        canReplyToReviews: true,
+      });
+
+      const root = render({ params: { reviewId } });
+
+      const featured = root.find(FeaturedAddonReview);
+      expect(featured).toHaveProp('siteUserCanReply', true);
     });
   });
 

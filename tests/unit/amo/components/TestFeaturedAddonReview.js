@@ -35,6 +35,7 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       location,
+      siteUserCanReply: false,
       store,
       ...customProps,
     };
@@ -174,6 +175,17 @@ describe(__filename, () => {
     const card = root.find(AddonReviewCard);
     expect(card).toHaveLength(1);
     expect(card.prop('review').id).toEqual(reviewId);
+  });
+
+  it('passes siteUserCanReply to AddonReviewCard', () => {
+    const reviewId = 123;
+    store.dispatch(setReview({ ...fakeReview, id: reviewId }));
+
+    const siteUserCanReply = true;
+    const root = render({ reviewId, siteUserCanReply });
+
+    const card = root.find(AddonReviewCard);
+    expect(card).toHaveProp('siteUserCanReply', siteUserCanReply);
   });
 
   it('displays the correct header for a review', () => {
