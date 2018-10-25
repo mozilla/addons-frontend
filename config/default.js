@@ -110,7 +110,7 @@ module.exports = {
     'enableDevTools',
     'enableFeatureExperienceSurvey',
     'enableFeatureInlineAddonReview',
-    'enableFeatureNewHomeHero',
+    'enableFeatureHomeHeroGuides',
     'enableRequestID',
     'experiments',
     'fxaConfig',
@@ -350,7 +350,7 @@ module.exports = {
 
   enableFeatureInlineAddonReview: true,
 
-  enableFeatureNewHomeHero: false,
+  enableFeatureHomeHeroGuides: false,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.

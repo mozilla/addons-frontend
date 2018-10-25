@@ -1,14 +1,11 @@
 @import '~amo/css/styles';
 
-.HomeHero-header {
-  color: $black;
-  padding: 0 12px 12px;
-  text-align: center;
+$icon-size: 40px;
 
-  @include respond-to(medium) {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+.HomeHeroGuides-header {
+  color: $black;
+  padding: 0 0 12px;
+  text-align: center;
 
   @include respond-to(large) {
     padding-left: 30px;
@@ -16,20 +13,28 @@
   }
 }
 
-.HomeHero-title {
-  font-size: $font-size-xl;
+.HomeHeroGuides-header-title {
+  font-size: $font-size-l;
   line-height: 1;
   margin: 24px 0 20px;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
 }
 
-.HomeHero-subtitle {
-  font-size: $font-size-l;
+.HomeHeroGuides-header-subtitle {
+  font-size: 20px;
   font-weight: normal;
   line-height: 1;
   margin: 12px 0 24px;
+
+  @include respond-to(medium) {
+    font-size: $font-size-l;
+  }
 }
 
-.HomeHero-cards {
+.HomeHeroGuides-cards {
   .Card-contents {
     background: none;
     padding: 0;
@@ -40,12 +45,7 @@
     grid-template-areas: none;
     grid-template-columns: none;
     margin-bottom: 8px;
-    padding: 0 12px;
-
-    @include respond-to(medium) {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
+    padding: 0;
 
     @include respond-to(large) {
       grid-gap: 30px;
@@ -56,7 +56,7 @@
     }
   }
 
-  h4 {
+  .HomeHeroGuides-title {
     font-size: $font-size-m;
     font-weight: normal;
     margin: 12px 0;
@@ -64,7 +64,7 @@
   }
 }
 
-.HomeHero-card {
+.HomeHeroGuides-card {
   .Card-contents {
     align-items: center;
     background-color: $white;
@@ -83,16 +83,16 @@
   }
 }
 
-.HomeHero-link {
+.HomeHeroGuides-link {
   &:link {
     color: $black;
     text-decoration: none;
   }
 }
 
-.HomeHero-icon {
+.HomeHeroGuides-icon {
   &.Icon {
-    height: 40px;
-    width: 40px;
+    height: $icon-size;
+    width: $icon-size;
   }
 }

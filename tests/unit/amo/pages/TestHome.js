@@ -8,7 +8,7 @@ import Home, {
   isFeaturedCollection,
 } from 'amo/pages/Home';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
-import HomeHero from 'amo/components/HomeHero';
+import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
@@ -440,17 +440,17 @@ describe(__filename, () => {
     );
   });
 
-  it('renders HomeHeroBanner if the enableFeatureNewHomeHero config flag is false', () => {
-    const _config = getFakeConfig({ enableFeatureNewHomeHero: false });
-
+  it('renders HomeHeroBanner if the enableFeatureHomeHeroGuides config flag is false', () => {
+    const _config = getFakeConfig({ enableFeatureHomeHeroGuides: false });
     const root = render({ _config });
+
     expect(root.find(HomeHeroBanner)).toHaveLength(1);
   });
 
-  it('renders HomeHero if the enableFeatureNewHomeHero config flag is true', () => {
-    const _config = getFakeConfig({ enableFeatureNewHomeHero: true });
-
+  it('renders HomeHero if the enableFeatureHomeHeroGuides config flag is true', () => {
+    const _config = getFakeConfig({ enableFeatureHomeHeroGuides: true });
     const root = render({ _config });
-    expect(root.find(HomeHero)).toHaveLength(1);
+
+    expect(root.find(HomeHeroGuides)).toHaveLength(1);
   });
 });

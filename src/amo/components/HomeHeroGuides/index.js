@@ -11,30 +11,34 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-type InternalProps = {|
-  i18n: I18nType,
-|};
+type Props = {};
 
-export class HomeHeroBase extends React.Component<InternalProps> {
+type InternalProps = {
+  ...Props,
+  i18n: I18nType,
+};
+
+export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
   getHeroes() {
     const { i18n } = this.props;
 
-    // TODO: get urls
+    // TODO: Get finalized guide urls.
+    // See https://github.com/mozilla/addons-frontend/issues/6751.
     return [
       {
         title: i18n.gettext('Stay Safe Online'),
         icon: 'stop-hand',
-        url: '/guides/stay-safe',
+        url: '/guides/stay-safe-online/',
       },
       {
         title: i18n.gettext('Organize Your Tabs'),
         icon: 'browser',
-        url: '/guides/organize-your-tabs',
+        url: '/guides/organize-your-tabs/',
       },
       {
         title: i18n.gettext('Enhance Your Media Experience'),
         icon: 'video',
-        url: '/guides/elevate-your-media',
+        url: '/guides/enhance-your-media-experience/',
       },
     ];
   }
@@ -43,11 +47,11 @@ export class HomeHeroBase extends React.Component<InternalProps> {
     const { i18n } = this.props;
 
     return (
-      <div className="HomeHero-header">
-        <h2 className="HomeHero-title">
+      <div className="HomeHeroGuides-header">
+        <h2 className="HomeHeroGuides-header-title">
           {i18n.gettext('Extensions are like apps for your browsers.')}
         </h2>
-        <h3 className="HomeHero-subtitle">
+        <h3 className="HomeHeroGuides-header-subtitle">
           {i18n.gettext(
             'They add features to Firefox to make browsing faster, smarter, or just plain fun.',
           )}
@@ -61,12 +65,10 @@ export class HomeHeroBase extends React.Component<InternalProps> {
       const { title, icon, url } = hero;
 
       return (
-        <Link key={url} to={url} className="HomeHero-link">
-          <Card className="HomeHero-card">
-            <Icon className="HomeHero-icon" name={icon} />
-            <h4>
-              <span>{title}</span>
-            </h4>
+        <Link key={url} to={url} className="HomeHeroGuides-link">
+          <Card className="HomeHeroGuides-card">
+            <Icon className="HomeHeroGuides-icon" name={icon} />
+            <h4 className="HomeHeroGuides-title">{title}</h4>
           </Card>
         </Link>
       );
@@ -75,10 +77,10 @@ export class HomeHeroBase extends React.Component<InternalProps> {
 
   render() {
     return (
-      <div className="HomeHero">
+      <div className="HomeHeroGuides">
         {this.getHeroHeader()}
 
-        <div className="HomeHero-cards">
+        <div className="HomeHeroGuides-cards">
           <Hero name="Home" sections={this.getHeroSections()} />
         </div>
       </div>
@@ -86,8 +88,8 @@ export class HomeHeroBase extends React.Component<InternalProps> {
   }
 }
 
-const HomeHero: React.ComponentType<InternalProps> = compose(translate())(
-  HomeHeroBase,
+const HomeHeroGuides: React.ComponentType<Props> = compose(translate())(
+  HomeHeroGuidesBase,
 );
 
-export default HomeHero;
+export default HomeHeroGuides;
