@@ -266,7 +266,7 @@ export class CategoryBase extends React.Component {
           'Category--theme': isAddonTheme,
         })}
       >
-        <CategoryHead category={category} type={addonType} />
+        <CategoryHead category={category} />
 
         {errorHandler.renderErrorIfPresent()}
 

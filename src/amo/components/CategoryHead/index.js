@@ -15,7 +15,6 @@ import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
   category: CategoryType | null,
-  type: 'extension' | 'theme',
 |};
 
 type InternalProps = {|
@@ -27,12 +26,12 @@ type InternalProps = {|
 
 export class CategoryHeadBase extends React.PureComponent<InternalProps> {
   getPageTitle() {
-    const { category, i18n, type } = this.props;
+    const { category, i18n } = this.props;
 
     invariant(category, 'category is required');
 
     let title;
-    switch (type) {
+    switch (category.type) {
       case ADDON_TYPE_EXTENSION:
         title = i18n.gettext('%(categoryName)s – Extensions');
         break;

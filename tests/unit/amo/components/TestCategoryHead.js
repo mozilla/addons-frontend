@@ -22,14 +22,6 @@ describe(__filename, () => {
     );
   };
 
-  const renderWithCategory = ({
-    category = fakeCategory,
-    type = ADDON_TYPE_EXTENSION,
-    ...others
-  } = {}) => {
-    return render({ category, type, ...others });
-  };
-
   it('renders nothing when there is no category', () => {
     const root = render();
 
@@ -44,7 +36,7 @@ describe(__filename, () => {
     const pathname = '/some-category-pathname/';
     store.dispatch(onLocationChanged({ pathname }));
 
-    const root = renderWithCategory({ _config, store });
+    const root = render({ _config, category: fakeCategory, store });
 
     expect(root.find('link[rel="canonical"]')).toHaveLength(1);
     expect(root.find('link[rel="canonical"]')).toHaveProp(
@@ -54,22 +46,22 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title for a theme category', () => {
-    const category = { ...fakeCategory };
-    const root = renderWithCategory({ category, type: ADDON_TYPE_THEME });
+    const category = { ...fakeCategory, type: ADDON_TYPE_THEME };
+    const root = render({ category });
 
     expect(root.find('title')).toHaveText(`${category.name} – Themes`);
   });
 
   it('renders an HTML title for an extension category', () => {
-    const category = { ...fakeCategory };
-    const root = renderWithCategory({ category, type: ADDON_TYPE_EXTENSION });
+    const category = { ...fakeCategory, type: ADDON_TYPE_EXTENSION };
+    const root = render({ category });
 
     expect(root.find('title')).toHaveText(`${category.name} – Extensions`);
   });
 
   it('renders a generic HTML title for an unknown type', () => {
-    const category = { ...fakeCategory };
-    const root = renderWithCategory({ category, type: 'unknown' });
+    const category = { ...fakeCategory, type: 'unknown' };
+    const root = render({ category });
 
     expect(root.find('title')).toHaveText(category.name);
   });
