@@ -47,6 +47,18 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
     return i18n.sprintf(title, { categoryName: category.name });
   }
 
+  renderMetaDescription() {
+    const { category } = this.props;
+
+    invariant(category, 'category is required');
+
+    if (!category.description) {
+      return null;
+    }
+
+    return <meta name="description" content={category.description} />;
+  }
+
   render() {
     const { _config, category, locationPathname } = this.props;
 
@@ -61,6 +73,7 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
           rel="canonical"
           href={getCanonicalURL({ locationPathname, _config })}
         />
+        {this.renderMetaDescription()}
       </Helmet>
     );
   }
