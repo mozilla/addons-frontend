@@ -202,7 +202,7 @@ function baseServer(
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  const noScriptStyles = middleware.getNoScriptStyles(appName);
+  const noScriptStyles = null;
   app.use(middleware.csp({ noScriptStyles }));
 
   // Serve assets locally from node ap (no-op by default).

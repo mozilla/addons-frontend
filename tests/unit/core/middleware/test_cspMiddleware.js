@@ -18,7 +18,7 @@ describe(__filename, () => {
     });
 
     it('provides the expected csp output for amo with noScriptStyles', () => {
-      process.env.NODE_ENV = 'production';
+      process.env.NODE_ENV = 'prod';
       process.env.NODE_APP_INSTANCE = 'amo';
       jest.resetModules();
       // eslint-disable-next-line global-require
@@ -26,7 +26,7 @@ describe(__filename, () => {
       const middleware = csp({
         _config: config,
         appName: 'amo',
-        noScriptStyles: getNoScriptStyles('amo'),
+        noScriptStyles: 'some noscript styles',
       });
       const nextSpy = sinon.stub();
       const req = new MockExpressRequest();
@@ -62,13 +62,13 @@ describe(__filename, () => {
       ]);
       expect(policy['style-src']).toEqual([
         cdnHost,
-        "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='",
+        "'sha256-a5vd3gguXZHEm0yGkv9BxXTsgPUo0VVq1ci1EZvX9gg='",
       ]);
       sinon.assert.calledOnce(nextSpy);
     });
 
     it('provides the expected style-src directive when noScriptStyles is false', () => {
-      process.env.NODE_ENV = 'production';
+      process.env.NODE_ENV = 'prod';
       process.env.NODE_APP_INSTANCE = 'amo';
       jest.resetModules();
       // eslint-disable-next-line global-require
@@ -90,15 +90,15 @@ describe(__filename, () => {
     });
 
     it('provides the expected csp output for the disco app', () => {
-      process.env.NODE_ENV = 'production';
+      process.env.NODE_ENV = 'prod';
       process.env.NODE_APP_INSTANCE = 'disco';
       jest.resetModules();
       // eslint-disable-next-line global-require
       const config = require('config');
       const middleware = csp({
         _config: config,
-        appName: 'amo',
-        noScriptStyles: getNoScriptStyles('disco'),
+        appName: 'disco',
+        noScriptStyles: 'some noscript styles',
       });
       const nextSpy = sinon.stub();
       const req = new MockExpressRequest();
@@ -133,7 +133,7 @@ describe(__filename, () => {
       ]);
       expect(policy['style-src']).toEqual([
         cdnHost,
-        "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='",
+        "'sha256-a5vd3gguXZHEm0yGkv9BxXTsgPUo0VVq1ci1EZvX9gg='",
       ]);
       expect(policy['media-src']).toEqual([cdnHost]);
       sinon.assert.calledOnce(nextSpy);
@@ -204,7 +204,7 @@ describe(__filename, () => {
       csp({
         _config,
         _log,
-        noScriptStyles: getNoScriptStyles('amo'),
+        noScriptStyles: 'some noscript styles',
       })(req, res, sinon.stub());
 
       const cspHeader = res.get('content-security-policy');
@@ -217,6 +217,18 @@ describe(__filename, () => {
   });
 
   describe('noScriptStyles', () => {
+    // The "noscript styles" have been added for the old
+    // `InstallButton`/`InstallSwitch` components, which have been removed and
+    // replaced with the `AMInstallButton`. We don't use the `noScriptStyles`
+    // feature anymore, but we kept the code because it could still be handy.
+    // See: https://github.com/mozilla/addons-frontend/issues/6540
+    it.each(['amo', 'disco'])(
+      'ensures there is no %s noscript style',
+      (app) => {
+        expect(getNoScriptStyles(app)).not.toBeDefined();
+      },
+    );
+
     it('should log on ENOENT', () => {
       const logStub = sinon.stub(log, 'debug');
       sinon.stub(fs, 'readFileSync').throws({
