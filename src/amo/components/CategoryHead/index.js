@@ -10,28 +10,12 @@ import { getCanonicalURL } from 'amo/utils';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import type { AppState } from 'amo/store';
+import type { CategoryType } from 'amo/types/categories';
 import type { I18nType } from 'core/types/i18n';
-
-type CategoryType = {|
-  application: string,
-  description: string,
-  id: number,
-  misc: boolean,
-  name: string,
-  slug: string,
-  type:
-    | 'extension'
-    | 'theme'
-    | 'dictionary'
-    | 'search'
-    | 'language'
-    | 'persona',
-  weight: number,
-|};
 
 type Props = {|
   category: CategoryType | null,
-  type: 'extension' | 'theme' | null,
+  type: 'extension' | 'theme',
 |};
 
 type InternalProps = {|
