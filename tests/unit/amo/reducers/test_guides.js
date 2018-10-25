@@ -1,15 +1,15 @@
 import guideReducer, {
   initialState,
-  loadGuideAddons,
-} from 'amo/reducers/guide';
+  loadGuidesAddons,
+} from 'amo/reducers/guides';
 import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {
-    const _loadGuideAddons = ({ store, addons = [] }) => {
+    const _loadGuidesAddons = ({ store, addons = [] }) => {
       store.dispatch(
-        loadGuideAddons({
+        loadGuidesAddons({
           addons,
         }),
       );
@@ -24,14 +24,14 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
       const results = Array(5).fill(createInternalAddon(fakeAddon));
 
-      _loadGuideAddons({
+      _loadGuidesAddons({
         store,
         addons: results,
       });
 
-      const { guide } = store.getState();
+      const { guides } = store.getState();
 
-      expect(guide).toEqual({ addons: results });
+      expect(guides).toEqual({ addons: results });
     });
   });
 });

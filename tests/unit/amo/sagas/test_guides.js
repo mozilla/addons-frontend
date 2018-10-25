@@ -1,11 +1,11 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as searchApi from 'core/api/search';
-import guideReducer, {
-  fetchGuideAddons,
-  loadGuideAddons,
-} from 'amo/reducers/guide';
-import guideSaga from 'amo/sagas/guide';
+import guidesReducer, {
+  fetchGuidesAddons,
+  loadGuidesAddons,
+} from 'amo/reducers/guides';
+import guidesSaga from 'amo/sagas/guides';
 import apiReducer from 'core/reducers/api';
 import {
   dispatchClientMetadata,
@@ -28,16 +28,16 @@ describe(__filename, () => {
       initialState,
       reducers: {
         api: apiReducer,
-        guide: guideReducer,
+        guide: guidesReducer,
       },
     });
-    sagaTester.start(guideSaga);
+    sagaTester.start(guidesSaga);
   });
 
-  describe('fetchGuideAddons', () => {
-    function _fetchGuideAddons(params) {
+  describe('fetchGuidesAddons', () => {
+    function _fetchGuidesAddons(params) {
       sagaTester.dispatch(
-        fetchGuideAddons({
+        fetchGuidesAddons({
           errorHandlerId: errorHandler.id,
           ...params,
         }),
@@ -59,11 +59,11 @@ describe(__filename, () => {
         .once()
         .resolves(guideAddons);
 
-      _fetchGuideAddons({ guid });
+      _fetchGuidesAddons({ guid });
 
       const { results } = guideAddons;
 
-      const expectedAction = loadGuideAddons({ addons: results });
+      const expectedAction = loadGuidesAddons({ addons: results });
 
       const loadAction = await sagaTester.waitFor(expectedAction.type);
       expect(loadAction).toEqual(expectedAction);
@@ -71,7 +71,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchGuideAddons({ guid });
+      _fetchGuidesAddons({ guid });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -87,7 +87,7 @@ describe(__filename, () => {
         .once()
         .rejects(error);
 
-      _fetchGuideAddons({ guid });
+      _fetchGuidesAddons({ guid });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

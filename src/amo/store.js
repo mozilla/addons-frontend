@@ -21,7 +21,7 @@ import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
 import formOverlay from 'core/reducers/formOverlay';
-import guide from 'amo/reducers/guide';
+import guides from 'amo/reducers/guides';
 import heroBanners from 'core/reducers/heroBanners';
 import languageTools from 'core/reducers/languageTools';
 import infoDialog from 'core/reducers/infoDialog';
@@ -67,7 +67,7 @@ type InternalAppState = {|
   errorPage: ErrorPageState,
   errors: Object,
   formOverlay: FormOverlayState,
-  guide: Object,
+  guides: Object,
   heroBanners: Object,
   home: HomeState,
   infoDialog: InfoDialogState,
@@ -123,7 +123,7 @@ export const reducers: AppReducersType = {
   formOverlay,
   heroBanners,
   home,
-  guide,
+  guides,
   infoDialog,
   installations,
   landing,
