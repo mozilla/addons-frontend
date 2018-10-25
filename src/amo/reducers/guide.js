@@ -8,7 +8,7 @@ export const FETCH_GUIDE_ADDONS: 'FETCH_GUIDE_ADDONS' = 'FETCH_GUIDE_ADDONS';
 export const LOAD_GUIDE_ADDONS: 'LOAD_GUIDE_ADDONS' = 'LOAD_GUIDE_ADDONS';
 
 export type GuideType = {|
-  addons: Array<AddonType>,
+  addons: Array<AddonType> | void,
 |};
 export type FetchGuideParams = {|
   errorHandlerId: string,
@@ -23,7 +23,7 @@ export type LoadGuideAction = {|
   payload: GuideType,
 |};
 export const initialState: GuideType = {
-  addons: [],
+  addons: undefined,
 };
 export const loadGuideAddons = ({ addons }: GuideType): LoadGuideAction => {
   invariant(addons, 'addons is required');
