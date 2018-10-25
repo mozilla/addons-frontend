@@ -56,6 +56,11 @@ $icon-size: 40px;
     }
   }
 
+  .HomeHeroGuides-link {
+    color: $black;
+    text-decoration: none;
+  }
+
   .HomeHeroGuides-title {
     font-size: $font-size-m;
     font-weight: normal;
@@ -65,28 +70,16 @@ $icon-size: 40px;
 }
 
 .HomeHeroGuides-card {
+  height: 100%;
+
   .Card-contents {
     align-items: center;
     background-color: $white;
     display: flex;
     flex-direction: column;
+    height: 100%;
     justify-content: center;
     padding: 24px 0 12px;
-
-    @include respond-to(large) {
-      min-height: 138px;
-    }
-
-    @include respond-to(extraLarge) {
-      min-height: 0;
-    }
-  }
-}
-
-.HomeHeroGuides-link {
-  &:link {
-    color: $black;
-    text-decoration: none;
   }
 }
 
