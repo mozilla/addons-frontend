@@ -36,16 +36,16 @@ export class CategoryHeaderBase extends React.PureComponent<Props> {
       >
         <div className="CategoryHeader-wrapper">
           {icon && (
-            <div className="CategoryHeader-icon">
-              <CategoryIcon name={icon} color={getCategoryColor(category)} />
-            </div>
+            <CategoryIcon
+              className="CategoryHeader-icon"
+              color={getCategoryColor(category)}
+              name={icon}
+            />
           )}
 
-          <div className="CategoryHeader-contents">
-            <h1 className="CategoryHeader-name">
-              {category ? category.name : <LoadingText />}
-            </h1>
-          </div>
+          <h1 className="CategoryHeader-name">
+            {category ? category.name : <LoadingText />}
+          </h1>
         </div>
       </Card>
     );

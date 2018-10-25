@@ -1,55 +1,45 @@
 @import '~amo/css/styles';
 
+$title-font-size: 20px;
+
 .CategoryHeader {
   border-radius: $border-radius-default;
   margin-bottom: $padding-page;
   width: 100%;
-
-  @include respond-to(large) {
-    margin-bottom: 30px;
-  }
 }
 
 .CategoryHeader-wrapper {
   align-items: center;
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
-  margin: 10px;
-}
+  justify-content: center;
+  margin: 12px 0;
 
-.CategoryHeader-contents {
-  flex: 2;
-
-  .CategoryHeader--loading & {
-    width: 50%;
+  @include respond-to(medium) {
+    margin: 24px 0;
   }
 }
 
 .CategoryHeader-name {
   @include font-regular();
-  @include text-align-end();
 
-  font-size: $font-size-l;
-  margin: 10px 0;
+  font-size: $title-font-size;
+
+  .CategoryHeader--loading & {
+    width: 100%;
+  }
 
   @include respond-to(medium) {
     @include font-medium();
-    @include text-align-start();
 
     font-size: $font-size-xl;
   }
 }
 
 .CategoryHeader-icon {
-  display: block;
-  flex: 1;
+  @include margin-end(8px);
 
   @include respond-to(medium) {
-    @include text-align-end();
-
-    .Icon {
-      @include margin-end(24px);
-    }
+    @include margin-end(24px);
   }
 }
