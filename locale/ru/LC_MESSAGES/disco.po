@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:55+0000\n"
-"PO-Revision-Date: 2018-10-23 19:15+0000\n"
+"PO-Revision-Date: 2018-10-23 19:16+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -108,7 +108,7 @@ msgstr "Состояние установки %(name)s неизвестно."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s байт(а)"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
