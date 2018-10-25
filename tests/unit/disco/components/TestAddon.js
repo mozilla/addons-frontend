@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { oneLine } from 'common-tags';
-import { shallow } from 'enzyme';
 
 import Addon, { AddonBase } from 'disco/components/Addon';
 import { setInstallError, setInstallState } from 'core/actions/installations';
-import InstallButton from 'core/components/InstallButton';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
@@ -21,11 +19,7 @@ import {
   UNINSTALLED,
 } from 'core/constants';
 import { getErrorMessage } from 'core/utils/addons';
-import {
-  createInternalAddon,
-  getAddonByID,
-  getGuid,
-} from 'core/reducers/addons';
+import { getGuid } from 'core/reducers/addons';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import createStore from 'disco/store';
 import {
@@ -33,7 +27,6 @@ import {
   createFakeEvent,
   createFakeTracking,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -99,26 +92,6 @@ describe(__filename, () => {
     });
 
     expect(root.find(LoadingText)).toHaveLength(1);
-  });
-
-  it('passes install helper functions to the install button', () => {
-    const enable = sinon.stub();
-    const install = sinon.stub();
-    const installTheme = sinon.stub();
-    const uninstall = sinon.stub();
-
-    const root = render({
-      enable,
-      install,
-      installTheme,
-      uninstall,
-    });
-
-    const installButton = root.find(InstallButton);
-    expect(installButton).toHaveProp('enable', enable);
-    expect(installButton).toHaveProp('install', install);
-    expect(installButton).toHaveProp('installTheme', installTheme);
-    expect(installButton).toHaveProp('uninstall', uninstall);
   });
 
   describe('<Addon type="extension"/>', () => {
@@ -438,29 +411,6 @@ describe(__filename, () => {
       });
     });
 
-    it('passes some props to the install button', () => {
-      const { addonId, i18n, ...otherProps } = getProps();
-      const defaultInstallSource = 'fake-discopane-source';
-
-      const addon = getAddonByID(store.getState(), addonId);
-      const allProps = {
-        ...otherProps,
-        addon,
-        defaultInstallSource,
-        i18n,
-      };
-
-      // We use shallow to be able to inject `defaultInstallSource` here.
-      const root = shallow(<AddonBase {...allProps} />, { context: { i18n } });
-
-      const button = root.find(InstallButton);
-
-      expect(button).toHaveLength(1);
-      expect(button).toHaveProp('addon', createInternalAddon(addon));
-      expect(button).toHaveProp('className', 'Addon-install-button');
-      expect(button).toHaveProp('defaultInstallSource', defaultInstallSource);
-    });
-
     it('disables incompatible add-ons', () => {
       const reason = 'WHATEVER';
 
@@ -673,16 +623,14 @@ describe(__filename, () => {
   describe('AMInstallButton', () => {
     const renderWithAMInstallButton = (props = {}) => {
       return render({
-        _config: getFakeConfig({ enableFeatureAMInstallButton: true }),
         hasAddonManager: true,
         ...props,
       });
     };
 
-    it('renders the AMInstallButton when config allows it', () => {
+    it('renders the AMInstallButton', () => {
       const root = renderWithAMInstallButton();
 
-      expect(root.find(InstallButton)).toHaveLength(0);
       expect(root.find(AMInstallButton)).toHaveLength(1);
       expect(root.find(AMInstallButton)).toHaveProp('puffy', false);
       expect(root.find(AMInstallButton)).toHaveProp('hasAddonManager', true);

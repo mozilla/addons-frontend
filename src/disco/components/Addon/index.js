@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -8,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
-import InstallButton from 'core/components/InstallButton';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
@@ -51,7 +49,6 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   ...WithInstallHelpersInjectedProps,
-  _config: typeof config,
   _getClientCompatibility: typeof getClientCompatibility,
   _tracking: typeof tracking,
   addon: AddonType,
@@ -65,7 +62,6 @@ type InternalProps = {|
 
 export class AddonBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _config: config,
     _tracking: tracking,
     _getClientCompatibility: getClientCompatibility,
   };
@@ -211,7 +207,6 @@ export class AddonBase extends React.Component<InternalProps> {
 
   render() {
     const {
-      _config,
       _getClientCompatibility,
       addon,
       clientApp,
@@ -285,31 +280,21 @@ export class AddonBase extends React.Component<InternalProps> {
             {this.getDescription()}
           </div>
 
-          {_config.get('enableFeatureAMInstallButton') ? (
-            <AMInstallButton
-              addon={addon}
-              className="Addon-install-button"
-              defaultInstallSource={defaultInstallSource}
-              disabled={!compatible}
-              enable={enable}
-              hasAddonManager={hasAddonManager}
-              install={install}
-              installTheme={installTheme}
-              isAddonEnabled={isAddonEnabled}
-              puffy={false}
-              setCurrentStatus={setCurrentStatus}
-              status={status || UNKNOWN}
-              uninstall={uninstall}
-            />
-          ) : (
-            <InstallButton
-              {...this.props.addon}
-              {...this.props}
-              className="Addon-install-button"
-              defaultInstallSource={defaultInstallSource}
-              size="small"
-            />
-          )}
+          <AMInstallButton
+            addon={addon}
+            className="Addon-install-button"
+            defaultInstallSource={defaultInstallSource}
+            disabled={!compatible}
+            enable={enable}
+            hasAddonManager={hasAddonManager}
+            install={install}
+            installTheme={installTheme}
+            isAddonEnabled={isAddonEnabled}
+            puffy={false}
+            setCurrentStatus={setCurrentStatus}
+            status={status || UNKNOWN}
+            uninstall={uninstall}
+          />
         </div>
 
         {!compatible ? <AddonCompatibilityError reason={reason} /> : null}
