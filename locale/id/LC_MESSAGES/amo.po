@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-24 01:17+0000\n"
+"PO-Revision-Date: 2018-10-26 12:41+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -161,38 +161,32 @@ msgstr "Unduh %(addonName)s untuk Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Kamus ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Kamus ini untuk 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Ekstensi ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Ekstensi ini untuk 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Paket Bahasa ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Paket Bahasa ini untuk 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Tema ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Tema ini untuk 🦊 Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:84
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Alat Pencarian untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Alat Pencarian ini untuk 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Pengaya ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Pengaya ini untuk 🦊 Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -343,9 +337,8 @@ msgid "Submit review"
 msgstr "Kirim ulasan"
 
 #: src/amo/components/AddonReviewCard/index.js:217
-#, fuzzy
 msgid "Edit reply"
-msgstr "Sunting balasan saya"
+msgstr "Sunting balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:220
 msgid "Edit review"
@@ -356,9 +349,8 @@ msgid "Delete reply"
 msgstr "Hapus balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:231 src/amo/components/AddonReviewCard/index.js:263
-#, fuzzy
 msgid "Delete rating"
-msgstr "Hapus ulasan saya"
+msgstr "Hapus penilaian"
 
 #: src/amo/components/AddonReviewCard/index.js:234 src/amo/components/AddonReviewCard/index.js:266
 msgid "Delete review"
@@ -386,9 +378,8 @@ msgid "Cancel"
 msgstr "Batalkan"
 
 #: src/amo/components/AddonReviewCard/index.js:277
-#, fuzzy
 msgid "Keep reply"
-msgstr "Hapus balasan saya"
+msgstr "Biarkan balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:281
 #, fuzzy
