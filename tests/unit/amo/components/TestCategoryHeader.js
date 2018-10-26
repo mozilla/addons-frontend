@@ -30,22 +30,6 @@ describe(__filename, () => {
     expect(root.find('.CategoryHeader-name')).toIncludeText('Testing category');
   });
 
-  it('renders the category addonType', () => {
-    const root = render();
-
-    expect(root).toHaveClassName(`CategoryHeader--type-${ADDON_TYPE_THEME}`);
-  });
-
-  it('omits addonType if there is no category', () => {
-    const root = render({ category: null });
-
-    // We use an exact className because we're making sure
-    // `CategoryHeader--type-${type}` is omitted.
-    expect(root.prop('className')).toEqual(
-      'CategoryHeader CategoryHeader--loading',
-    );
-  });
-
   it('omits color if there is no category', () => {
     const root = render({ category: null });
 

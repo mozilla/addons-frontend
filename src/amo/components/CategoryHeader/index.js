@@ -21,16 +21,13 @@ export class CategoryHeaderBase extends React.PureComponent<Props> {
     const addonType = category && category.type ? category.type : null;
 
     let icon = null;
-    let className = null;
-
     if (category && addonType) {
       icon = category.slug === 'other' ? `other-${addonType}` : category.slug;
-      className = `CategoryHeader--type-${addonType}`;
     }
 
     return (
       <Card
-        className={makeClassName('CategoryHeader', className, {
+        className={makeClassName('CategoryHeader', {
           'CategoryHeader--loading': !category,
         })}
       >
