@@ -1356,9 +1356,10 @@ babel-generator@^6.18.0, babel-generator@^6.26.0:
     source-map "^0.5.7"
     trim-right "^1.0.1"
 
-"babel-gettext-extractor@git+https://github.com/muffinresearch/babel-gettext-extractor.git#0d39d3882bc846e7dcb6c9ff6463896c96920ce6":
-  version "1.0.2"
-  resolved "git+https://github.com/muffinresearch/babel-gettext-extractor.git#0d39d3882bc846e7dcb6c9ff6463896c96920ce6"
+babel-gettext-extractor@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/babel-gettext-extractor/-/babel-gettext-extractor-3.0.0.tgz#6ce4a501feaf7e52777d8c373e29e3ee271793b5"
+  integrity sha512-CRUGczXp1oKjghE9iSGhIoWJqYe8UFY5W1bNqP7mZ9BAfSv0ywmcXgV7HRCD02JtQpOI3AoLRnBAR5Ruw/NKGw==
   dependencies:
     babel-core "^6.0.0"
     gettext-parser "^1.1.2"

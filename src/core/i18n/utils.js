@@ -223,8 +223,8 @@ export function makeMomentLocale(locale: string) {
 }
 
 // Functionality based on oneLine form declandewet/common-tags https://goo.gl/4PzaJI
-// If this function is changed https://github.com/muffinresearch/babel-gettext-extractor/
-// also needs to be updated.
+// If this function is changed, `babel-gettext-extractor` also needs to be
+// updated.
 function oneLineTranslationString(translationKey) {
   if (translationKey && translationKey.replace && translationKey.trim) {
     return translationKey.replace(/(?:\n(?:\s*))+/g, ' ').trim();
