@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-13 21:12+0000\n"
+"PO-Revision-Date: 2018-10-26 20:24+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1442,14 +1442,12 @@ msgid "Log in to rate this add-on"
 msgstr "Ak chcete ohodnotiť tento doplnok, musíte sa prihlásiť"
 
 #: src/amo/components/RatingManager/index.js:288
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Naozaj chcete odstrániť túto recenziu?"
+msgstr "Naozaj chcete odstrániť túto recenziu doplnku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:293
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Naozaj chcete odstrániť toto hodnotenie?"
+msgstr "Naozaj chcete odstrániť hodnotenie doplnku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:298
 msgid "How are you enjoying %(addonName)s?"
