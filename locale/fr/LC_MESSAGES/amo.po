@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-24 11:54+0000\n"
+"PO-Revision-Date: 2018-10-24 22:47+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1454,7 +1454,7 @@ msgstr "Souhaitez-vous vraiment supprimer votre évaluation de %(addonName)s ?"
 
 #: src/amo/components/RatingManager/index.js:293
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
+msgstr "Voulez-vous vraiment supprimer votre note pour %(addonName)s ?"
 
 #: src/amo/components/RatingManager/index.js:298
 msgid "How are you enjoying %(addonName)s?"
