@@ -113,7 +113,7 @@ type FetchUserAccountParams = {|
   username: string,
 |};
 
-type FetchUserAccountAction = {|
+export type FetchUserAccountAction = {|
   type: typeof FETCH_USER_ACCOUNT,
   payload: FetchUserAccountParams,
 |};
@@ -157,7 +157,7 @@ type UpdateUserAccountParams = {|
   userId: UserId,
 |};
 
-type UpdateUserAccountAction = {|
+export type UpdateUserAccountAction = {|
   type: typeof UPDATE_USER_ACCOUNT,
   payload: UpdateUserAccountParams,
 |};
@@ -239,7 +239,7 @@ export type DeleteUserAccountParams = {|
   userId: UserId,
 |};
 
-type DeleteUserAccountAction = {|
+export type DeleteUserAccountAction = {|
   type: typeof DELETE_USER_ACCOUNT,
   payload: DeleteUserAccountParams,
 |};
@@ -297,7 +297,7 @@ export type DeleteUserPictureParams = {|
   userId: UserId,
 |};
 
-type DeleteUserPictureAction = {|
+export type DeleteUserPictureAction = {|
   type: typeof DELETE_USER_PICTURE,
   payload: DeleteUserPictureParams,
 |};
@@ -320,7 +320,7 @@ type FetchUserNotificationsParams = {|
   username: string,
 |};
 
-type FetchUserNotificationsAction = {|
+export type FetchUserNotificationsAction = {|
   type: typeof FETCH_USER_NOTIFICATIONS,
   payload: FetchUserNotificationsParams,
 |};

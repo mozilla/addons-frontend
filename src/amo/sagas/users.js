@@ -1,3 +1,4 @@
+/* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   DELETE_USER_ACCOUNT,
@@ -15,21 +16,41 @@ import * as api from 'amo/api/users';
 import { SET_AUTH_TOKEN } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type {
+  CurrentUserAccountParams,
+  UpdateUserAccountParams,
+  UpdateUserNotificationsParams,
+  UserApiParams,
+  UserApiParamsWithUsername,
+} from 'amo/api/users';
+import type {
+  DeleteUserAccountAction,
+  DeleteUserPictureAction,
+  FetchUserAccountAction,
+  FetchUserNotificationsAction,
+  UpdateUserAccountAction,
+} from 'amo/reducers/users';
+import type { SetAuthTokenAction } from 'core/actions';
+import type { Saga } from 'core/types/sagas';
 
 // This saga is not triggered by the UI but on the server side, hence do not
 // have a `errorHandler`. We do not want to miss any error because it would
 // mean no ways for the users to log in, so we let the errors bubble up.
-export function* fetchCurrentUserAccount({ payload }) {
+export function* fetchCurrentUserAccount({
+  payload,
+}: SetAuthTokenAction): Saga {
   const { token } = payload;
 
   const state = yield select(getState);
 
-  const response = yield call(api.currentUserAccount, {
+  const params: CurrentUserAccountParams = {
     api: {
       ...state.api,
       token,
     },
-  });
+  };
+
+  const response = yield call(api.currentUserAccount, params);
 
   yield put(loadCurrentUserAccount({ user: response }));
 }
@@ -43,7 +64,7 @@ export function* updateUserAccount({
     userFields,
     userId,
   },
-}) {
+}: UpdateUserAccountAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -51,12 +72,14 @@ export function* updateUserAccount({
   try {
     const state = yield select(getState);
 
-    const user = yield call(api.updateUserAccount, {
+    const userAccountParams: UpdateUserAccountParams = {
       api: state.api,
       picture,
       userId,
       ...userFields,
-    });
+    };
+
+    const user = yield call(api.updateUserAccount, userAccountParams);
 
     if (picture) {
       // The post-upload task (resize, etc.) is asynchronous so we set the
@@ -69,11 +92,12 @@ export function* updateUserAccount({
     yield put(loadUserAccount({ user }));
 
     if (Object.keys(notifications).length) {
-      const allNotifications = yield call(api.updateUserNotifications, {
+      const params: UpdateUserNotificationsParams = {
         api: state.api,
         notifications,
         userId,
-      });
+      };
+      const allNotifications = yield call(api.updateUserNotifications, params);
 
       if (typeof notifications.announcements !== 'undefined') {
         // The Salesforce integration is asynchronous and takes a lot of time
@@ -106,7 +130,9 @@ export function* updateUserAccount({
   }
 }
 
-export function* fetchUserAccount({ payload: { errorHandlerId, username } }) {
+export function* fetchUserAccount({
+  payload: { errorHandlerId, username },
+}: FetchUserAccountAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -114,10 +140,12 @@ export function* fetchUserAccount({ payload: { errorHandlerId, username } }) {
   try {
     const state = yield select(getState);
 
-    const user = yield call(api.userAccount, {
+    const params: UserApiParamsWithUsername = {
       api: state.api,
       username,
-    });
+    };
+
+    const user = yield call(api.userAccount, params);
 
     yield put(loadUserAccount({ user }));
   } catch (error) {
@@ -128,7 +156,7 @@ export function* fetchUserAccount({ payload: { errorHandlerId, username } }) {
 
 export function* fetchUserNotifications({
   payload: { errorHandlerId, username },
-}) {
+}: FetchUserNotificationsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -148,7 +176,9 @@ export function* fetchUserNotifications({
   }
 }
 
-export function* deleteUserPicture({ payload: { errorHandlerId, userId } }) {
+export function* deleteUserPicture({
+  payload: { errorHandlerId, userId },
+}: DeleteUserPictureAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -156,10 +186,12 @@ export function* deleteUserPicture({ payload: { errorHandlerId, userId } }) {
   try {
     const state = yield select(getState);
 
-    const user = yield call(api.deleteUserPicture, {
+    const params: UserApiParams = {
       api: state.api,
       userId,
-    });
+    };
+
+    const user = yield call(api.deleteUserPicture, params);
 
     yield put(loadUserAccount({ user }));
   } catch (error) {
@@ -168,7 +200,9 @@ export function* deleteUserPicture({ payload: { errorHandlerId, userId } }) {
   }
 }
 
-export function* deleteUserAccount({ payload: { errorHandlerId, userId } }) {
+export function* deleteUserAccount({
+  payload: { errorHandlerId, userId },
+}: DeleteUserAccountAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -176,10 +210,12 @@ export function* deleteUserAccount({ payload: { errorHandlerId, userId } }) {
   try {
     const state = yield select(getState);
 
-    yield call(api.deleteUserAccount, {
+    const params: UserApiParams = {
       api: state.api,
       userId,
-    });
+    };
+
+    yield call(api.deleteUserAccount, params);
 
     yield put(unloadUserAccount({ userId }));
   } catch (error) {
@@ -188,7 +224,7 @@ export function* deleteUserAccount({ payload: { errorHandlerId, userId } }) {
   }
 }
 
-export default function* usersSaga() {
+export default function* usersSaga(): Saga {
   yield takeLatest(DELETE_USER_ACCOUNT, deleteUserAccount);
   yield takeLatest(DELETE_USER_PICTURE, deleteUserPicture);
   yield takeLatest(UPDATE_USER_ACCOUNT, updateUserAccount);
