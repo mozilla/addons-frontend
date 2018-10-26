@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-26 12:41+0000\n"
+"PO-Revision-Date: 2018-10-26 12:57+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -379,12 +379,11 @@ msgstr "Batalkan"
 
 #: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep reply"
-msgstr "Biarkan balasan"
+msgstr "Jaga balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:281
-#, fuzzy
 msgid "Keep rating"
-msgstr "Hapus ulasan saya"
+msgstr "Jaga penilaian"
 
 #: src/amo/components/AddonReviewCard/index.js:284
 msgid "Keep review"
@@ -1444,19 +1443,16 @@ msgid "Log in to rate this add-on"
 msgstr "Masuk untuk menilai pengaya ini"
 
 #: src/amo/components/RatingManager/index.js:288
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Anda benar-benar ingin menghapus ulasan ini?"
+msgstr "Anda benar-benar ingin menghapus tinjauan untuk %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:293
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Anda benar-benar ingin menghapus ulasan ini?"
+msgstr "Anda benar-benar ingin menghapus penilaian untuk %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:298
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Bagaimana pengalaman Anda menggunakan %(addonName)s?"
+msgstr "Bagaimana Anda menikmati %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:341
 msgid "Saving star rating"
@@ -2071,9 +2067,8 @@ msgid "Privacy & security"
 msgstr "Privasi & keamanan"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more parental controls"
-msgstr "Lihat lebih banyak alat penerjemahan"
+msgstr "Lihat lebih banyak kendali orang tua"
 
 #: src/amo/pages/Home/index.js:58
 msgid "Parental controls"
