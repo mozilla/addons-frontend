@@ -3,6 +3,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import makeClassName from 'classnames';
 
+import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
@@ -293,7 +294,11 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
       const { description, title, url } = hero;
 
       return (
-        <HeroSection key={url} linkTo={url}>
+        <HeroSection
+          key={url}
+          linkTo={url}
+          linkSource={INSTALL_SOURCE_HERO_PROMO}
+        >
           <h3>{title}</h3>
           <p>{description}</p>
         </HeroSection>

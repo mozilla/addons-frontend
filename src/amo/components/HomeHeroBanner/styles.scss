@@ -42,33 +42,35 @@ $colors-third-item: ('cyan', #15aabf, #1098ad) ('teal', #12b886, #0ca678);
 }
 
 .HeroSection {
-  &:nth-child(1) {
-    $color: nth($colors-first-item, 1);
-    $bg-color: nth($color, 2);
-    $fg-color: nth($color, 3);
+  &.HeroSection-styleName--default {
+    &:nth-child(1) {
+      $color: nth($colors-first-item, 1);
+      $bg-color: nth($color, 2);
+      $fg-color: nth($color, 3);
 
-    @include hover($bg-color);
+      @include hover($bg-color);
 
-    @include bubbles($fg-color, $bg-color);
-  }
+      @include bubbles($fg-color, $bg-color);
+    }
 
-  &:nth-child(2) {
-    $color: nth($colors-second-item, 1);
-    $bg-color: nth($color, 2);
-    $fg-color: nth($color, 3);
+    &:nth-child(2) {
+      $color: nth($colors-second-item, 1);
+      $bg-color: nth($color, 2);
+      $fg-color: nth($color, 3);
 
-    @include hover($bg-color);
+      @include hover($bg-color);
 
-    @include polka-dots($fg-color, $bg-color);
-  }
+      @include polka-dots($fg-color, $bg-color);
+    }
 
-  &:nth-child(3) {
-    $color: nth($colors-third-item, 1);
-    $bg-color: nth($color, 2);
-    $fg-color: nth($color, 3);
+    &:nth-child(3) {
+      $color: nth($colors-third-item, 1);
+      $bg-color: nth($color, 2);
+      $fg-color: nth($color, 3);
 
-    @include hover($bg-color);
+      @include hover($bg-color);
 
-    @include floor-tile($fg-color, $bg-color);
+      @include floor-tile($fg-color, $bg-color);
+    }
   }
 }

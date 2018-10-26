@@ -34,31 +34,47 @@ $icon-size: 40px;
   }
 }
 
-.HomeHeroGuides-cards {
+.HomeHeroGuides-sections {
   .Card-contents {
     background: none;
     padding: 0;
   }
 
   .Hero-contents {
+    display: block;
     grid-template: none;
     grid-template-areas: none;
     grid-template-columns: none;
-    margin-bottom: 8px;
     padding: 0;
 
     @include respond-to(large) {
-      grid-gap: 30px;
+      display: grid;
+      grid-gap: 0 30px;
       grid-template-columns: 1fr 1fr 1fr;
       margin-bottom: 30px;
       padding-left: 30px;
       padding-right: 30px;
     }
-  }
 
-  .HomeHeroGuides-link {
-    color: $black;
-    text-decoration: none;
+    .HeroSection-link-wrapper {
+      color: $black;
+      display: block;
+      min-height: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .HeroSection {
+      margin-bottom: 8px;
+
+      @include respond-to(large) {
+        margin-bottom: 0;
+      }
+    }
+
+    .HeroSection-content {
+      height: 100%;
+    }
   }
 
   .HomeHeroGuides-title {

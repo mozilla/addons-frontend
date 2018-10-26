@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
 import HomeHeroGuides, {
   HomeHeroGuidesBase,
@@ -20,14 +21,24 @@ describe(__filename, () => {
     expect(root).toHaveClassName('HomeHeroGuides');
     expect(root.find('.HomeHeroGuides-header-title')).toHaveLength(1);
     expect(root.find('.HomeHeroGuides-header-subtitle')).toHaveLength(1);
+    expect(root.find('.HomeHeroGuides-header-title').text()).toMatch(
+      /Extensions are/,
+    );
+    expect(root.find('.HomeHeroGuides-header-subtitle').text()).toMatch(
+      /They add features/,
+    );
   });
 
   it('renders the hero sections', () => {
     const root = render();
-    const heroSections = root.find(Hero);
+    const hero = root.find(Hero);
 
-    expect(heroSections).toHaveLength(1);
-    expect(heroSections).toHaveProp('sections');
-    expect(heroSections.props().sections).toHaveLength(3);
+    expect(hero).toHaveLength(1);
+    expect(hero).toHaveProp('sections');
+    expect(hero.prop('sections')).toHaveLength(3);
+
+    const firstSection = shallow(hero.prop('sections')[0]);
+
+    expect(firstSection.find('.HeroSection-link-wrapper')).toHaveLength(1);
   });
 });

@@ -28,15 +28,26 @@ describe(__filename, () => {
     expect(root).toHaveClassName('HeroSection-styleName--default');
   });
 
-  it('renders a Link if linkTo prop is supplied', () => {
-    const root = shallowRender({ linkTo: '/whatever/' });
+  it('renders link with src param when linkSource is provided', () => {
+    const linkTo = '/somewhere/';
+    const root = shallowRender({
+      linkTo,
+      linkSource: INSTALL_SOURCE_HERO_PROMO,
+    });
+
     const link = root.find(Link);
 
-    expect(link).toHaveProp('className', 'HeroSection-link-wrapper');
-    expect(link).toHaveProp(
-      'to',
-      `/whatever/?src=${INSTALL_SOURCE_HERO_PROMO}`,
-    );
+    expect(link).toHaveProp('to', `${linkTo}?src=${INSTALL_SOURCE_HERO_PROMO}`);
+    expect(root.find('.HeroSection-wrapper')).toHaveLength(0);
+  });
+
+  it('renders link without a src param when linkSource is not provided', () => {
+    const linkTo = '/somewhere/';
+    const root = shallowRender({ linkTo });
+
+    const link = root.find(Link);
+
+    expect(link).toHaveProp('to', linkTo);
     expect(root.find('.HeroSection-wrapper')).toHaveLength(0);
   });
 

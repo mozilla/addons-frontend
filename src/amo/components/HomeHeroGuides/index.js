@@ -2,21 +2,21 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import Hero from 'ui/components/Hero';
 import type { I18nType } from 'core/types/i18n';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import Hero from 'ui/components/Hero';
+import HeroSection from 'ui/components/HeroSection';
 
 import './styles.scss';
 
-type Props = {};
+type Props = {||};
 
-type InternalProps = {
+type InternalProps = {|
   ...Props,
   i18n: I18nType,
-};
+|};
 
 export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
   getHeroes() {
@@ -65,12 +65,12 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
       const { title, icon, url } = hero;
 
       return (
-        <Link key={url} to={url} className="HomeHeroGuides-link">
+        <HeroSection key={url} linkTo={url} styleName="HomeHeroGuides">
           <Card className="HomeHeroGuides-card">
             <Icon className="HomeHeroGuides-icon" name={icon} />
             <h4 className="HomeHeroGuides-title">{title}</h4>
           </Card>
-        </Link>
+        </HeroSection>
       );
     });
   }
@@ -80,8 +80,8 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
       <div className="HomeHeroGuides">
         {this.getHeroHeader()}
 
-        <div className="HomeHeroGuides-cards">
-          <Hero name="Home" sections={this.getHeroSections()} />
+        <div className="HomeHeroGuides-sections">
+          <Hero name="HomeHeroGuides" sections={this.getHeroSections()} />
         </div>
       </div>
     );

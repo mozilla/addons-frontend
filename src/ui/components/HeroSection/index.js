@@ -3,7 +3,6 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import { addQueryParams } from 'core/utils';
 
 import './styles.scss';
@@ -13,7 +12,18 @@ type Props = {|
   linkTo?: Object | string,
   onClick?: () => void,
   styleName?: string,
+  linkSource?: string,
 |};
+
+const createToLink = (url, linkSource) => {
+  return {
+    to: linkSource
+      ? addQueryParams(url, {
+          src: linkSource,
+        })
+      : url,
+  };
+};
 
 export default class HeroSection extends React.Component<Props> {
   static defaultProps = {
@@ -21,7 +31,7 @@ export default class HeroSection extends React.Component<Props> {
   };
 
   render() {
-    const { children, linkTo, styleName } = this.props;
+    const { children, linkTo, linkSource, styleName } = this.props;
 
     return (
       <div
@@ -34,7 +44,7 @@ export default class HeroSection extends React.Component<Props> {
           <Link
             className="HeroSection-link-wrapper"
             onClick={this.props.onClick}
-            to={addQueryParams(linkTo, { src: INSTALL_SOURCE_HERO_PROMO })}
+            {...createToLink(linkTo, linkSource)}
           >
             <div className="HeroSection-content">{children}</div>
           </Link>
