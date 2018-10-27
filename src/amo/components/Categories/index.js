@@ -107,16 +107,6 @@ export class CategoriesBase extends React.Component<InternalProps> {
     }
     const classNameProp = classnames('Categories', className);
 
-    if (!errorHandler.hasError() && !loading && !categories.length) {
-      return (
-        <Card className={classNameProp}>
-          <p className="Categories-none-loaded-message">
-            {i18n.gettext('No categories found.')}
-          </p>
-        </Card>
-      );
-    }
-
     return (
       <Card className={classNameProp} header={i18n.gettext('Categories')}>
         {errorHandler.renderErrorIfPresent()}

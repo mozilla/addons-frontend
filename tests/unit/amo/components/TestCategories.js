@@ -255,16 +255,6 @@ describe(__filename, () => {
     ).toHaveProp('children', 'Travel');
   });
 
-  it('renders a no categories found message', () => {
-    const categoriesResponse = { results: [] };
-    store.dispatch(categoriesLoad(categoriesResponse));
-    const root = render();
-
-    expect(root.find('.Categories-none-loaded-message')).toIncludeText(
-      'No categories found.',
-    );
-  });
-
   it('reports errors', () => {
     const errorHandler = createStubErrorHandler(
       new Error('example of an error'),
