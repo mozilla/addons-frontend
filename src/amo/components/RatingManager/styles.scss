@@ -9,12 +9,12 @@
 
 .RatingManager-log-in-to-rate-button {
   font-size: $font-size-s;
+  left: 50%;
   padding: 2px 16px;
   position: absolute;
-  width: 100%;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 .RatingManager {
