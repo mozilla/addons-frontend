@@ -72,7 +72,7 @@ type InternalProps = {|
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
   siteUser: UserType | null,
-  siteUserCanReplyToReviews: ?boolean,
+  siteUserCanReplyToReviews: boolean | void,
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {

@@ -104,7 +104,7 @@ export type ReviewsState = {|
   permissions: {
     [addonIdAndUserId: string]: ?{|
       loading: boolean,
-      canReplyToReviews: ?boolean,
+      canReplyToReviews: boolean | void,
     |},
   },
   byAddon: ReviewsByAddon,
