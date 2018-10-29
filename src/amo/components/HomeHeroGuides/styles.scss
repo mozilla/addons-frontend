@@ -41,12 +41,6 @@ $icon-size: 40px;
   }
 
   .Hero-contents {
-    display: block;
-    grid-template: none;
-    grid-template-areas: none;
-    grid-template-columns: none;
-    padding: 0;
-
     @include respond-to(large) {
       display: grid;
       grid-gap: 0 30px;
@@ -77,7 +71,7 @@ $icon-size: 40px;
     }
   }
 
-  .HomeHeroGuides-title {
+  .HomeHeroGuides-section-title {
     font-size: $font-size-m;
     font-weight: normal;
     margin: 12px 0;
@@ -85,7 +79,7 @@ $icon-size: 40px;
   }
 }
 
-.HomeHeroGuides-card {
+.HomeHeroGuides-section {
   height: 100%;
 
   .Card-contents {
@@ -99,7 +93,7 @@ $icon-size: 40px;
   }
 }
 
-.HomeHeroGuides-icon {
+.HomeHeroGuides-section-icon {
   &.Icon {
     height: $icon-size;
     width: $icon-size;

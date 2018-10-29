@@ -41,36 +41,85 @@ $colors-third-item: ('cyan', #15aabf, #1098ad) ('teal', #12b886, #0ca678);
   }
 }
 
-.HeroSection {
-  &.HeroSection-styleName--default {
-    &:nth-child(1) {
-      $color: nth($colors-first-item, 1);
-      $bg-color: nth($color, 2);
-      $fg-color: nth($color, 3);
+.HeroSection-styleName--random-color {
+  &:nth-child(1) {
+    $color: nth($colors-first-item, 1);
+    $bg-color: nth($color, 2);
+    $fg-color: nth($color, 3);
 
-      @include hover($bg-color);
+    @include hover($bg-color);
 
-      @include bubbles($fg-color, $bg-color);
+    @include bubbles($fg-color, $bg-color);
+  }
+
+  &:nth-child(2) {
+    $color: nth($colors-second-item, 1);
+    $bg-color: nth($color, 2);
+    $fg-color: nth($color, 3);
+
+    @include hover($bg-color);
+
+    @include polka-dots($fg-color, $bg-color);
+  }
+
+  &:nth-child(3) {
+    $color: nth($colors-third-item, 1);
+    $bg-color: nth($color, 2);
+    $fg-color: nth($color, 3);
+
+    @include hover($bg-color);
+
+    @include floor-tile($fg-color, $bg-color);
+  }
+
+  &:first-of-type {
+    grid-area: first;
+  }
+
+  &:nth-of-type(2) {
+    grid-area: second;
+  }
+
+  &:nth-of-type(3) {
+    grid-area: third;
+  }
+
+  @include respond-to(medium) {
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      .HeroSection-content h3 {
+        font-size: $hero-subtitle-font-size;
+      }
+
+      .HeroSection-content p {
+        display: none;
+      }
+    }
+  }
+}
+
+.Hero-name-Home {
+  .Hero-contents {
+    display: grid;
+    grid-gap: 12px;
+    grid-template: 1fr;
+    grid-template-areas:
+      'first'
+      'second'
+      'third';
+    padding-bottom: 10px;
+
+    @include respond-to(medium) {
+      grid-template: 1fr 1fr / 60% 1fr;
+      grid-template-areas:
+        'first second'
+        'first third';
+      height: auto;
+      margin-bottom: -12px;
     }
 
-    &:nth-child(2) {
-      $color: nth($colors-second-item, 1);
-      $bg-color: nth($color, 2);
-      $fg-color: nth($color, 3);
-
-      @include hover($bg-color);
-
-      @include polka-dots($fg-color, $bg-color);
-    }
-
-    &:nth-child(3) {
-      $color: nth($colors-third-item, 1);
-      $bg-color: nth($color, 2);
-      $fg-color: nth($color, 3);
-
-      @include hover($bg-color);
-
-      @include floor-tile($fg-color, $bg-color);
+    @include respond-to(large) {
+      grid-gap: $padding-page-l;
     }
   }
 }

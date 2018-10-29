@@ -6,10 +6,11 @@ import makeClassName from 'classnames';
 import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
+import { addQueryParams } from 'core/utils';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
-import type { I18nType } from 'core/types/i18n';
 import { withExperiment } from 'core/withExperiment';
+import type { I18nType } from 'core/types/i18n';
 import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
@@ -296,8 +297,8 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
       return (
         <HeroSection
           key={url}
-          linkTo={url}
-          linkSource={INSTALL_SOURCE_HERO_PROMO}
+          linkTo={addQueryParams(url, { src: INSTALL_SOURCE_HERO_PROMO })}
+          styleName="random-color"
         >
           <h3>{title}</h3>
           <p>{description}</p>

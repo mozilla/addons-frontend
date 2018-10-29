@@ -3,11 +3,11 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import type { I18nType } from 'core/types/i18n';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -65,10 +65,10 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
       const { title, icon, url } = hero;
 
       return (
-        <HeroSection key={url} linkTo={url} styleName="HomeHeroGuides">
-          <Card className="HomeHeroGuides-card">
-            <Icon className="HomeHeroGuides-icon" name={icon} />
-            <h4 className="HomeHeroGuides-title">{title}</h4>
+        <HeroSection key={url} linkTo={url}>
+          <Card className="HomeHeroGuides-section">
+            <Icon className="HomeHeroGuides-section-icon" name={icon} />
+            <h4 className="HomeHeroGuides-section-title">{title}</h4>
           </Card>
         </HeroSection>
       );

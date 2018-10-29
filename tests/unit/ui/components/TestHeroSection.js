@@ -2,7 +2,6 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import HeroSection from 'ui/components/HeroSection';
 
 describe(__filename, () => {
@@ -28,25 +27,12 @@ describe(__filename, () => {
     expect(root).toHaveClassName('HeroSection-styleName--default');
   });
 
-  it('renders link with src param when linkSource is provided', () => {
-    const linkTo = '/somewhere/';
-    const root = shallowRender({
-      linkTo,
-      linkSource: INSTALL_SOURCE_HERO_PROMO,
-    });
-
-    const link = root.find(Link);
-
-    expect(link).toHaveProp('to', `${linkTo}?src=${INSTALL_SOURCE_HERO_PROMO}`);
-    expect(root.find('.HeroSection-wrapper')).toHaveLength(0);
-  });
-
-  it('renders link without a src param when linkSource is not provided', () => {
+  it('renders a Link if linkTo prop is supplied', () => {
     const linkTo = '/somewhere/';
     const root = shallowRender({ linkTo });
-
     const link = root.find(Link);
 
+    expect(link).toHaveProp('className', 'HeroSection-link-wrapper');
     expect(link).toHaveProp('to', linkTo);
     expect(root.find('.HeroSection-wrapper')).toHaveLength(0);
   });
