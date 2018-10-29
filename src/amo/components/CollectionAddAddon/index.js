@@ -69,24 +69,27 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
         : () => {},
   };
 
-  componentWillReceiveProps(props: InternalProps) {
+  componentDidUpdate(prevProps: InternalProps) {
+    const { hasAddonBeenAdded, hasAddonBeenRemoved } = prevProps;
     const {
+      errorHandler,
       hasAddonBeenAdded: hasAddonBeenAddedNew,
       hasAddonBeenRemoved: hasAddonBeenRemovedNew,
-    } = props;
-    const { errorHandler, hasAddonBeenAdded, hasAddonBeenRemoved } = this.props;
+      setTimeout,
+      setUIState,
+    } = this.props;
 
     const addStatusChanged = hasAddonBeenAdded !== hasAddonBeenAddedNew;
     const removeStatusChanged = hasAddonBeenRemoved !== hasAddonBeenRemovedNew;
 
     if (addStatusChanged) {
-      this.props.setUIState({
+      setUIState({
         addonAction: hasAddonBeenAddedNew ? addonAddedAction : null,
       });
     }
 
     if (removeStatusChanged) {
-      this.props.setUIState({
+      setUIState({
         addonAction: hasAddonBeenRemovedNew ? addonRemovedAction : null,
       });
     }
@@ -96,10 +99,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
       (hasAddonBeenAddedNew || hasAddonBeenRemovedNew)
     ) {
       errorHandler.clear();
-      this.timeout = this.props.setTimeout(
-        this.resetMessages,
-        MESSAGE_RESET_TIME,
-      );
+      this.timeout = setTimeout(this.resetMessages, MESSAGE_RESET_TIME);
     }
   }
 
