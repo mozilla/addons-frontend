@@ -2,6 +2,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 
 import AddonHead, { AddonHeadBase } from 'amo/components/AddonHead';
+import HrefLang from 'amo/components/HrefLang';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
@@ -208,92 +209,12 @@ describe(__filename, () => {
     expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
   });
 
-  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-    'renders alternate links with hreflang for %s',
-    (clientApp) => {
-      const addon = createInternalAddon(fakeAddon);
-      const baseURL = 'https://example.org';
-
-      const _hrefLangs = ['fr', 'en-US'];
-      const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({ clientApp });
-
-      const root = render({ _config, _hrefLangs, addon, store });
-
-      expect(root.find('link[rel="alternate"]')).toHaveLength(
-        _hrefLangs.length,
-      );
-      _hrefLangs.forEach((locale, index) => {
-        expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
-          'hrefLang',
-          locale,
-        );
-        expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
-          'href',
-          `${baseURL}/${locale}/${clientApp}/addon/${addon.slug}/`,
-        );
-      });
-    },
-  );
-
-  it('renders alternate links for aliased locales', () => {
+  it('renders a HrefLang component', () => {
     const addon = createInternalAddon(fakeAddon);
-    const baseURL = 'https://example.org';
-    const clientApp = CLIENT_APP_FIREFOX;
 
-    const _hrefLangs = ['x-default'];
-    const aliasKey = 'x-default';
-    const aliasValue = 'en-US';
-    const hrefLangsMap = {
-      [aliasKey]: aliasValue,
-    };
+    const root = render({ addon });
 
-    const _config = getFakeConfig({ baseURL, hrefLangsMap });
-    const { store } = dispatchClientMetadata({ clientApp });
-
-    const root = render({ _config, _hrefLangs, addon, store });
-
-    expect(root.find('link[rel="alternate"]')).toHaveLength(_hrefLangs.length);
-    expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
-      'hrefLang',
-      aliasKey,
-    );
-    expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
-      'href',
-      `${baseURL}/${aliasValue}/${clientApp}/addon/${addon.slug}/`,
-    );
+    expect(root.find(HrefLang)).toHaveLength(1);
+    expect(root.find(HrefLang)).toHaveProp('to', `/addon/${addon.slug}/`);
   });
-
-  it('does not render any links for unsupported alternate link locales', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const lang = 'fr';
-
-    const _hrefLangs = [lang, 'en-US'];
-    // We mark the current locale as excluded.
-    const _config = getFakeConfig({ unsupportedHrefLangs: [lang] });
-    const { store } = dispatchClientMetadata({ lang });
-
-    const root = render({ _config, _hrefLangs, addon, store });
-
-    expect(root.find('link[rel="alternate"]')).toHaveLength(0);
-  });
-
-  // This test case ensures the production configuration is taken into account.
-  it.each([['x-default', 'en-US'], ['pt', 'pt-PT'], ['en', 'en-US']])(
-    'renders a "%s" alternate link',
-    (hrefLang, locale) => {
-      const addon = createInternalAddon(fakeAddon);
-      const baseURL = 'https://example.org';
-      const clientApp = CLIENT_APP_FIREFOX;
-      const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({ clientApp });
-
-      const root = render({ _config, addon, store });
-
-      expect(root.find(`link[hrefLang="${hrefLang}"]`)).toHaveProp(
-        'href',
-        `${baseURL}/${locale}/${clientApp}/addon/${addon.slug}/`,
-      );
-    },
-  );
 });

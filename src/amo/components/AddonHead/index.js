@@ -6,6 +6,7 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import HrefLang from 'amo/components/HrefLang';
 import { getCanonicalURL } from 'amo/utils';
 import {
   ADDON_TYPE_DICT,
@@ -18,7 +19,6 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
-import { hrefLangs } from 'core/languages';
 import { getAddonJsonLinkedData } from 'core/utils/addons';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
@@ -31,7 +31,6 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
-  _hrefLangs: typeof hrefLangs,
   clientApp: string,
   i18n: I18nType,
   lang: string,
@@ -41,7 +40,6 @@ type InternalProps = {|
 export class AddonHeadBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
-    _hrefLangs: hrefLangs,
   };
 
   getPageTitle() {
@@ -169,34 +167,6 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     return tags;
   }
 
-  renderAlternateLinks() {
-    const { _config, _hrefLangs, addon, clientApp, lang } = this.props;
-
-    invariant(addon, 'addon is required');
-
-    if (_config.get('unsupportedHrefLangs').includes(lang)) {
-      return null;
-    }
-
-    const hrefLangsMap = _config.get('hrefLangsMap');
-
-    return _hrefLangs.map((hrefLang) => {
-      const locale = hrefLangsMap[hrefLang] || hrefLang;
-
-      return (
-        <link
-          href={getCanonicalURL({
-            _config,
-            locationPathname: `/${locale}/${clientApp}/addon/${addon.slug}/`,
-          })}
-          hrefLang={hrefLang}
-          key={hrefLang}
-          rel="alternate"
-        />
-      );
-    });
-  }
-
   render() {
     const { _config, addon, locationPathname } = this.props;
 
@@ -205,26 +175,29 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     }
 
     return (
-      <Helmet titleTemplate={null}>
-        <title>{this.getPageTitle()}</title>
+      <React.Fragment>
+        <Helmet titleTemplate={null}>
+          <title>{this.getPageTitle()}</title>
 
-        <link
-          rel="canonical"
-          href={getCanonicalURL({ locationPathname, _config })}
-        />
-        {this.renderAlternateLinks()}
+          <link
+            rel="canonical"
+            href={getCanonicalURL({ locationPathname, _config })}
+          />
 
-        <meta name="description" content={this.getPageDescription()} />
-        <meta name="date" content={addon.created} />
-        {addon.last_updated && (
-          <meta name="last-modified" content={addon.last_updated} />
-        )}
-        {this.renderMetaOpenGraph()}
+          <meta name="description" content={this.getPageDescription()} />
+          <meta name="date" content={addon.created} />
+          {addon.last_updated && (
+            <meta name="last-modified" content={addon.last_updated} />
+          )}
+          {this.renderMetaOpenGraph()}
 
-        <script type="application/ld+json">
-          {JSON.stringify(getAddonJsonLinkedData({ addon }))}
-        </script>
-      </Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(getAddonJsonLinkedData({ addon }))}
+          </script>
+        </Helmet>
+
+        <HrefLang to={`/addon/${addon.slug}/`} />
+      </React.Fragment>
     );
   }
 }
