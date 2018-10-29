@@ -66,14 +66,6 @@ export class LandingPageBase extends React.Component {
   constructor(props) {
     super(props);
 
-    const { params } = props.match;
-
-    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping constructor() because visibleAddonType
-        is invalid: ${params.visibleAddonType}`);
-      return;
-    }
-
     this.getLandingDataIfNeeded();
     this.setViewContextType();
   }
@@ -234,12 +226,6 @@ export class LandingPageBase extends React.Component {
       i18n,
     } = this.props;
     const { visibleAddonType } = this.props.match.params;
-
-    if (!apiAddonTypeIsValid(visibleAddonType)) {
-      log.warn(oneLine`Rendering 404 because visibleAddonType
-        is invalid: ${visibleAddonType}`);
-      return <NotFound />;
-    }
 
     const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {

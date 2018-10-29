@@ -90,12 +90,6 @@ export class CategoryBase extends React.Component {
       return;
     }
 
-    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping loadDataIfNeeded() because visibleAddonType
-        is invalid: ${params.visibleAddonType}`);
-      return;
-    }
-
     if (loading) {
       return;
     }
