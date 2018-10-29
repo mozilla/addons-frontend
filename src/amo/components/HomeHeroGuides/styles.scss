@@ -59,7 +59,11 @@ $icon-size: 40px;
     }
 
     .HeroSection {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       @include respond-to(large) {
         margin-bottom: 0;
