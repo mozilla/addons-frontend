@@ -841,7 +841,7 @@ describe(__filename, () => {
 
   it('renders a "description" meta tag', () => {
     const addon = createInternalAddon(fakeAddon);
-    dispatchAddon(addon);
+    loadAddon(addon);
 
     const root = render();
 
