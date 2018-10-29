@@ -83,27 +83,24 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: InternalProps) {
-    this.loadDataIfNeeded(nextProps);
+  componentDidUpdate(prevProps: InternalProps) {
+    this.loadDataIfNeeded(prevProps);
   }
 
-  loadDataIfNeeded(nextProps?: InternalProps) {
-    const lastAddon = this.props.addon;
-    const nextAddon = nextProps && nextProps.addon;
+  loadDataIfNeeded(prevProps?: InternalProps) {
+    const lastAddon = prevProps && prevProps.addon;
     const {
       addon,
       addonIsLoading,
       areReviewsLoading,
       dispatch,
       errorHandler,
+      location,
       match: {
         params: { addonSlug },
       },
       reviews,
-    } = {
-      ...this.props,
-      ...nextProps,
-    };
+    } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error');
@@ -116,20 +113,18 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       }
     } else if (
       // This is the first time rendering the component.
-      !nextProps ||
+      !prevProps ||
       // The component is getting updated with a new addon type.
-      (nextAddon && lastAddon && nextAddon.type !== lastAddon.type)
+      (addon && lastAddon && addon.type !== lastAddon.type)
     ) {
       dispatch(setViewContext(addon.type));
     }
 
-    let { location } = this.props;
     let locationChanged = false;
-    if (nextProps && nextProps.location) {
-      if (nextProps.location !== location) {
+    if (prevProps && prevProps.location) {
+      if (prevProps.location !== location) {
         locationChanged = true;
       }
-      location = nextProps.location;
     }
 
     if (!areReviewsLoading && (!reviews || locationChanged)) {
@@ -137,11 +132,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         fetchReviews({
           addonSlug,
           errorHandlerId: errorHandler.id,
-          // TODO: so, there is a test case (`it dispatches fetchReviews with
-          // an invalid page variable`) that conflicts with `fetchReviews()`
-          // requiring a page of type `number`. We should decide whether `page`
-          // can be anything OR restrict to integer values.
-          // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
           page: this.getCurrentPage(location),
         }),
       );
