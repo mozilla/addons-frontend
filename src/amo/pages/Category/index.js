@@ -68,11 +68,11 @@ export class CategoryBase extends React.Component {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.loadDataIfNeeded(nextProps);
+  componentDidUpdate() {
+    this.loadDataIfNeeded();
   }
 
-  loadDataIfNeeded(nextProps = {}) {
+  loadDataIfNeeded() {
     const {
       addonTypeOfResults,
       categoryOfResults,
@@ -83,10 +83,7 @@ export class CategoryBase extends React.Component {
       loading,
       match: { params },
       resultsLoaded,
-    } = {
-      ...this.props,
-      ...nextProps,
-    };
+    } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
