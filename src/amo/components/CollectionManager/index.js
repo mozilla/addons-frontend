@@ -61,6 +61,19 @@ type State = {|
   slug: string,
 |};
 
+const propsToState = (props: InternalProps): State => {
+  // Decode HTML entities so the user sees real symbols in the form.
+  return {
+    collectionId: props.collection ? props.collection.id : null,
+    customSlug: false,
+    description: props.collection
+      ? decodeHtmlEntities(props.collection.description)
+      : '',
+    name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
+    slug: props.collection ? props.collection.slug : '',
+  };
+};
+
 export class CollectionManagerBase extends React.Component<
   InternalProps,
   State,
@@ -70,17 +83,7 @@ export class CollectionManagerBase extends React.Component<
       // Only reset the form when receiving a collection that the user is not
       // already editing. This prevents clearing the form in a few scenarios
       // such as pressing the submit button.
-
-      // Decode HTML entities so the user sees real symbols in the form.
-      return {
-        collectionId: props.collection.id,
-        customSlug: false,
-        description: props.collection
-          ? decodeHtmlEntities(props.collection.description)
-          : '',
-        name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
-        slug: props.collection ? props.collection.slug : '',
-      };
+      return propsToState(props);
     }
 
     return null;
@@ -89,18 +92,7 @@ export class CollectionManagerBase extends React.Component<
   constructor(props: InternalProps) {
     super(props);
 
-    this.state = {
-      // This state property is used in `getDerivedStateFromProps()`, see:
-      // https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#alternative-1-reset-uncontrolled-component-with-an-id-prop
-      // eslint-disable-next-line react/no-unused-state
-      collectionId: props.collection ? props.collection.id : null,
-      customSlug: false,
-      description: props.collection
-        ? decodeHtmlEntities(props.collection.description)
-        : '',
-      name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
-      slug: props.collection ? props.collection.slug : '',
-    };
+    this.state = propsToState(props);
   }
 
   onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {

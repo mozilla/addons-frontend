@@ -78,10 +78,10 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     debounce: defaultDebounce,
   };
 
-  static getDerivedStateFromProps(props: InternalProps) {
+  static getDerivedStateFromProps(props: InternalProps, state: State) {
     const { review } = props;
 
-    if (review) {
+    if (review && state.reviewBody !== review.body) {
       return {
         reviewBody: review.body,
       };

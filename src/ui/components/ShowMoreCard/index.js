@@ -48,30 +48,30 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     const { children: prevChildren } = prevProps;
     const { children, uiState } = this.props;
 
-    let html =
+    let oldHtml =
       prevChildren.props &&
       prevChildren.props.dangerouslySetInnerHTML &&
       prevChildren.props.dangerouslySetInnerHTML.__html;
 
-    let newHtml =
+    let html =
       children.props &&
       children.props.dangerouslySetInnerHTML &&
       children.props.dangerouslySetInnerHTML.__html;
 
     // If it's not html, check for plain text.
-    if (!html && prevChildren && !prevChildren.props) {
-      html = prevChildren;
+    if (!oldHtml && prevChildren && !prevChildren.props) {
+      oldHtml = prevChildren;
     }
 
-    if (!newHtml && children && !children.props) {
-      newHtml = children;
+    if (!html && children && !children.props) {
+      html = children;
     }
 
     // Reset UIState if component html has changed.
     // This is needed because if you return to an addon that you've already
     // visited the component doesn't hit unmount again and the store keeps the
     // last component's UIState which isn't what we want.
-    if (newHtml && html !== newHtml) {
+    if (html && oldHtml !== html) {
       this.resetUIState();
     }
 
