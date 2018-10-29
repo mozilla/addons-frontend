@@ -47,6 +47,13 @@ import './styles.scss';
 
 type Props = {|
   location: ReactRouterLocationType,
+  match: {|
+    ...ReactRouterMatchType,
+    params: {
+      addonSlug: string,
+      reviewId?: number,
+    },
+  |},
 |};
 
 type InternalProps = {|
@@ -55,24 +62,17 @@ type InternalProps = {|
   addonIsLoading: boolean,
   areReviewsLoading: boolean,
   checkingIfSiteUserCanReply: boolean,
-  clientApp: string,
+  clientApp: ?string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
   i18n: I18nType,
-  lang: string,
-  match: {|
-    ...ReactRouterMatchType,
-    params: {
-      addonSlug: string,
-      reviewId?: number,
-    },
-  |},
+  lang: ?string,
   pageSize: number | null,
-  reviewCount?: number,
-  reviews?: Array<UserReviewType>,
+  reviewCount: ?number,
+  reviews: ?Array<UserReviewType>,
   siteUser: UserType | null,
-  siteUserCanReplyToReviews: boolean | void,
+  siteUserCanReplyToReviews: boolean | null,
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
@@ -160,7 +160,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     if (
       addon &&
       siteUser &&
-      siteUserCanReplyToReviews === undefined &&
+      siteUserCanReplyToReviews === null &&
       !checkingIfSiteUserCanReply
     ) {
       // Permissions are fetched in componentDidMount because siteUser
@@ -324,14 +324,17 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(
+  state: AppState,
+  ownProps: Props,
+): $Shape<InternalProps> {
   const { addonSlug } = ownProps.match.params;
   const addon = getAddonBySlug(state, addonSlug);
   const reviewData = state.reviews.byAddon[addonSlug];
 
   const siteUser = getCurrentUser(state.users);
   let checkingIfSiteUserCanReply = false;
-  let siteUserCanReplyToReviews;
+  let siteUserCanReplyToReviews = null;
   if (addon && siteUser) {
     const permissions = selectReviewPermissions({
       reviewsState: state.reviews,

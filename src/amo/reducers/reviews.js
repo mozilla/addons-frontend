@@ -102,10 +102,10 @@ type ViewStateByReviewId = {|
 
 export type ReviewsState = {|
   permissions: {
-    [addonIdAndUserId: string]: ?{|
+    [addonIdAndUserId: string]: {|
       loading: boolean,
-      canReplyToReviews: boolean | void,
-    |},
+      canReplyToReviews: boolean | null,
+    |} | void,
   },
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
@@ -668,7 +668,7 @@ export default function reviewsReducer(
           ...state.permissions,
           [makePermissionsKey({ addonId, userId })]: {
             loading: true,
-            canReplyToReviews: undefined,
+            canReplyToReviews: null,
           },
         },
       };

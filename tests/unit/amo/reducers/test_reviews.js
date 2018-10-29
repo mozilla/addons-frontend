@@ -1543,7 +1543,7 @@ describe(__filename, () => {
         userId,
       });
       expect(permissions.loading).toEqual(true);
-      expect(permissions.canReplyToReviews).toEqual(undefined);
+      expect(permissions.canReplyToReviews).toEqual(null);
     });
   });
 
@@ -1602,7 +1602,7 @@ describe(__filename, () => {
       });
       expect(permissions).toEqual({
         loading: true,
-        canReplyToReviews: undefined,
+        canReplyToReviews: null,
       });
     });
 
