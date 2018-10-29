@@ -41,7 +41,7 @@ describe(__filename, () => {
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      /Firefox extensions that customize the way you search/,
+      /Download Firefox extensions to customize/,
     );
   });
 });

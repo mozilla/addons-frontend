@@ -435,7 +435,7 @@ describe(__filename, () => {
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      /Customize Firefox with extensions/,
+      /Download Firefox extensions and themes/,
     );
   });
 });

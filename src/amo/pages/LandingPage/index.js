@@ -219,15 +219,14 @@ export class LandingPageBase extends React.Component {
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (isTheme(addonType)) {
-      return i18n.gettext(`Change how Firefox looks with themes. Tailor your
-        experience to your tastes. Cute critters, evil robots, beautiful
-        landscapes...choose from thousands of options.`);
+      return i18n.gettext(`Download themes to change how Firefox looks. Tailor
+        your experience to your tastes. Cute critters, evil robots, beautiful
+        landscapes—thousands of options.`);
     }
 
-    return i18n.gettext(`Extensions add features to Firefox so you can
-      customize your browsing experience. Protect passwords, download videos,
-      find deals, block annoying ads, and more with these apps for your
-      browser.`);
+    return i18n.gettext(`Download Firefox Extensions to add features that
+      customize browsing. Protect passwords, find deals, enhance video, and
+      block annoying ads with browser apps.`);
   }
 
   render() {

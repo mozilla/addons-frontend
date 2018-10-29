@@ -230,10 +230,9 @@ export class HomeBase extends React.Component {
           />
           <meta
             name="description"
-            content={i18n.gettext(`Customize Firefox with extensions and
-              themes. They’re like apps for your browser, and they can block
-              annoying ads, protect passwords, change browser appearance, and
-              more.`)}
+            content={i18n.gettext(`Download Firefox extensions and themes.
+              They’re like apps for your browser. They can block annoying ads,
+              protect passwords, change browser appearance, and more.`)}
           />
         </Helmet>
 

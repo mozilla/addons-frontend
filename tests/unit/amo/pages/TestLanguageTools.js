@@ -326,7 +326,7 @@ describe(__filename, () => {
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      /Dictionaries and language pack extensions/,
+      /Download Firefox dictionaries and language/,
     );
   });
 });
