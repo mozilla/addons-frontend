@@ -110,6 +110,7 @@ module.exports = {
     'enableDevTools',
     'enableFeatureExperienceSurvey',
     'enableFeatureInlineAddonReview',
+    'enableFeatureHomeHeroGuides',
     'enableRequestID',
     'experiments',
     'fxaConfig',
@@ -348,6 +349,8 @@ module.exports = {
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   enableFeatureInlineAddonReview: true,
+
+  enableFeatureHomeHeroGuides: false,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
