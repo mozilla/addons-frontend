@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-23 19:15+0000\n"
+"PO-Revision-Date: 2018-10-23 19:17+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -556,12 +556,12 @@ msgstr "средняя оценка - %(averageRating)s звёзд"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:39
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:74 src/amo/components/AddonTitle/index.js:78
 msgid "by"
-msgstr ""
+msgstr "от"
 
 #: src/amo/components/App/index.js:219
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -1452,14 +1452,12 @@ msgid "Log in to rate this add-on"
 msgstr "Войдите, чтобы оценить это дополнение"
 
 #: src/amo/components/RatingManager/index.js:288
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Вы действительно хотите удалить этот отзыв?"
+msgstr "Вы действительно хотите удалить ваш отзыв на %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:293
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Вы действительно хотите удалить эту оценку?"
+msgstr "Вы действительно хотите удалить вашу оценку %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:298
 msgid "How are you enjoying %(addonName)s?"
@@ -2690,7 +2688,7 @@ msgstr "Спасибо, что посетили этот сайт! Пожалу�
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s байт(а)"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"

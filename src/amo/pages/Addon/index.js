@@ -32,7 +32,6 @@ import {
 } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withFixedErrorHandler } from 'core/errorHandler';
-import InstallButton from 'core/components/InstallButton';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_DICT,
@@ -377,7 +376,7 @@ export class AddonBase extends React.Component {
         <AddonsByAuthorsCard
           addonType={addon.type}
           authorDisplayName={addon.authors[0].name}
-          authorUsernames={addon.authors.map((author) => author.username)}
+          authorIds={addon.authors.map((author) => author.id)}
           className="Addon-MoreAddonsCard"
           forAddonSlug={addon.slug}
           numberOfAddons={6}
@@ -405,7 +404,6 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
-      config,
       defaultInstallSource,
       enable,
       errorHandler,
@@ -530,32 +528,21 @@ export class AddonBase extends React.Component {
                   <p className="Addon-summary" {...summaryProps} />
                 ) : null}
 
-                {showInstallButton &&
-                  config.get('enableFeatureAMInstallButton') && (
-                    <AMInstallButton
-                      addon={addon}
-                      defaultInstallSource={defaultInstallSource}
-                      disabled={!isCompatible}
-                      enable={enable}
-                      hasAddonManager={hasAddonManager}
-                      install={install}
-                      installTheme={installTheme}
-                      setCurrentStatus={setCurrentStatus}
-                      status={installStatus}
-                      uninstall={uninstall}
-                      isAddonEnabled={isAddonEnabled}
-                    />
-                  )}
-                {showInstallButton &&
-                  config.get('enableFeatureAMInstallButton') === false && (
-                    <InstallButton
-                      {...this.props}
-                      disabled={!isCompatible}
-                      defaultInstallSource={defaultInstallSource}
-                      status={installStatus}
-                      useButton
-                    />
-                  )}
+                {showInstallButton && (
+                  <AMInstallButton
+                    addon={addon}
+                    defaultInstallSource={defaultInstallSource}
+                    disabled={!isCompatible}
+                    enable={enable}
+                    hasAddonManager={hasAddonManager}
+                    install={install}
+                    installTheme={installTheme}
+                    setCurrentStatus={setCurrentStatus}
+                    status={installStatus}
+                    uninstall={uninstall}
+                    isAddonEnabled={isAddonEnabled}
+                  />
+                )}
                 {showGetFirefoxButton && (
                   <Button
                     buttonType="confirm"

@@ -3,14 +3,18 @@ import * as React from 'react';
 import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import Search from 'amo/components/Search';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
-import { dispatchClientMetadata, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
 
   function render({ ...props } = {}) {
     return shallowUntilTarget(
-      <SearchTools store={store} {...props} />,
+      <SearchTools store={store} i18n={fakeI18n()} {...props} />,
       SearchToolsBase,
     );
   }
@@ -30,5 +34,14 @@ describe(__filename, () => {
       addonType: ADDON_TYPE_OPENSEARCH,
       sort: SEARCH_SORT_RELEVANCE,
     });
+  });
+
+  it('renders a "description" meta tag', () => {
+    const root = render();
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      /Firefox extensions that customize the way you search/,
+    );
   });
 });

@@ -189,10 +189,11 @@ export class CollectionManagerBase extends React.Component<
     // Decode HTML entities so the user sees real symbols in the form.
     return {
       customSlug: false,
-      description:
-        props.collection && decodeHtmlEntities(props.collection.description),
-      name: props.collection && decodeHtmlEntities(props.collection.name),
-      slug: props.collection && props.collection.slug,
+      description: props.collection
+        ? decodeHtmlEntities(props.collection.description)
+        : '',
+      name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
+      slug: props.collection ? props.collection.slug : '',
     };
   }
 

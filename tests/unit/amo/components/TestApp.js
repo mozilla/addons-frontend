@@ -164,7 +164,7 @@ describe(__filename, () => {
     const root = render({ store });
     expect(root.find(Helmet)).toHaveProp(
       'defaultTitle',
-      `Add-ons for Android (${lang})`,
+      `Add-ons for Firefox Android (${lang})`,
     );
   });
 
@@ -190,7 +190,7 @@ describe(__filename, () => {
     const root = render({ store });
     expect(root.find(Helmet)).toHaveProp(
       'titleTemplate',
-      `%s – Add-ons for Android (${lang})`,
+      `%s – Add-ons for Firefox Android (${lang})`,
     );
   });
 

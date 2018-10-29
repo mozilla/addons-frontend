@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-23 20:43+0000\n"
+"PO-Revision-Date: 2018-10-23 21:59+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -559,12 +559,12 @@ msgstr "Povprečna ocena %(averageRating)s"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:39
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:74 src/amo/components/AddonTitle/index.js:78
 msgid "by"
-msgstr ""
+msgstr "—"
 
 #: src/amo/components/App/index.js:219
 msgid "Add-ons for Firefox (%(locale)s)"

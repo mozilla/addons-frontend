@@ -8,28 +8,37 @@ import reducer, {
   THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   getAddonsForSlug,
-  getAddonsForUsernames,
-  getCountForAuthorNames,
-  getLoadingForAuthorNames,
+  getAddonsForAuthorIds,
+  getCountForAuthorIds,
+  getLoadingForAuthorIds,
   initialState,
-  joinAuthorNamesAndAddonType,
+  joinAuthorIdsAndAddonType,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon, fakeAuthor, fakeTheme } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const randomAuthorId1 = 123;
+  const randomAuthorId2 = 456;
+
   const fakeAuthorOne = { ...fakeAuthor, username: 'test', id: 51 };
   const fakeAuthorTwo = { ...fakeAuthor, username: 'test2', id: 61 };
   const fakeAuthorThree = { ...fakeAuthor, username: 'test3', id: 71 };
 
-  function fakeAddons({ type = ADDON_TYPE_EXTENSION } = {}) {
+  const fakeExternalAddons = ({
+    type = ADDON_TYPE_EXTENSION,
+    firstAddonProps = {},
+    secondAddonProps = {},
+    thirdAddonProps = {},
+  } = {}) => {
     const firstAddon = {
       ...fakeAddon,
       type,
       slug: 'first-addon',
       id: 6,
       authors: [fakeAuthorOne, fakeAuthorTwo],
+      ...firstAddonProps,
     };
     const secondAddon = {
       ...fakeAddon,
@@ -37,16 +46,28 @@ describe(__filename, () => {
       slug: 'second-addon',
       id: 7,
       authors: [fakeAuthorTwo],
+      ...secondAddonProps,
     };
     const thirdAddon = {
       ...fakeAddon,
       slug: 'third-addon',
       id: 8,
       authors: [fakeAuthorThree],
+      ...thirdAddonProps,
     };
 
     return { firstAddon, secondAddon, thirdAddon };
-  }
+  };
+
+  const _loadAddonsByAuthors = ({ addons = [], ...others } = {}) => {
+    return loadAddonsByAuthors({
+      addons,
+      authorIds: addons.map((addon) => addon.authors[0].id),
+      count: addons.length,
+      pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+      ...others,
+    });
+  };
 
   describe('reducer', () => {
     it('initializes properly', () => {
@@ -62,7 +83,7 @@ describe(__filename, () => {
         undefined,
         loadAddonsByAuthors({
           addons: [fakeAddon],
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           count: 1,
           forAddonSlug: fakeAddon.slug,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -78,7 +99,7 @@ describe(__filename, () => {
         undefined,
         loadAddonsByAuthors({
           addons: [],
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           count: 0,
           forAddonSlug: 'addon-slug',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -95,7 +116,7 @@ describe(__filename, () => {
         undefined,
         loadAddonsByAuthors({
           addons: [fakeAddon],
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           count: 1,
           forAddonSlug: 'addon-slug',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -115,7 +136,7 @@ describe(__filename, () => {
           forAddonSlug,
           // This is the case where there are more add-ons loaded than needed.
           addons: Array(EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 2,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -134,7 +155,7 @@ describe(__filename, () => {
           forAddonSlug,
           // This is the case where there are more add-ons loaded than needed.
           addons: Array(THEMES_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           addonType: ADDON_TYPE_THEME,
           count: THEMES_BY_AUTHORS_PAGE_SIZE + 2,
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -152,7 +173,7 @@ describe(__filename, () => {
         undefined,
         loadAddonsByAuthors({
           addons: [fakeAddon],
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           count: 1,
           forAddonSlug,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -166,7 +187,7 @@ describe(__filename, () => {
       const state = reducer(
         previousState,
         fetchAddonsByAuthors({
-          authorUsernames: ['author2'],
+          authorIds: [randomAuthorId2],
           addonType: ADDON_TYPE_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -183,7 +204,7 @@ describe(__filename, () => {
         undefined,
         loadAddonsByAuthors({
           addons: [fakeAddon],
-          authorUsernames: [fakeAddon.authors[0].username],
+          authorIds: [fakeAddon.authors[0].id],
           count: 1,
           forAddonSlug,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -196,7 +217,7 @@ describe(__filename, () => {
         firstState,
         fetchAddonsByAuthors({
           addonType: ADDON_TYPE_THEME,
-          authorUsernames: ['author1'],
+          authorIds: [fakeAddon.authors[0].id],
           errorHandlerId: 'error-handler-id',
           forAddonSlug,
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -204,20 +225,17 @@ describe(__filename, () => {
       );
 
       expect(state.byAddonSlug).toMatchObject({ 'addon-slug': undefined });
-      // It should keep the add-ons by username so they can be added to
-      // as is done on the UserProfile page.
-      expect(state.byUsername).toMatchObject(firstState.byUsername);
     });
 
-    it('does not remove the previously loaded add-ons for authorUsernames when type is different', () => {
-      const { id: userId, username } = fakeTheme.authors[0];
+    it('does not remove the previously loaded add-ons for authorIds when type is different', () => {
+      const { id: userId } = fakeTheme.authors[0];
 
       const prevState = reducer(
         undefined,
         loadAddonsByAuthors({
           addonType: ADDON_TYPE_THEME,
           addons: [fakeTheme],
-          authorUsernames: [username],
+          authorIds: [userId],
           count: 1,
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -231,7 +249,7 @@ describe(__filename, () => {
         prevState,
         fetchAddonsByAuthors({
           addonType: ADDON_TYPE_EXTENSION,
-          authorUsernames: [username],
+          authorIds: [userId],
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -240,23 +258,20 @@ describe(__filename, () => {
       expect(state.byAddonId).toEqual({
         [fakeTheme.id]: createInternalAddon(fakeTheme),
       });
-      expect(state.byUsername).toEqual({
-        [username]: [fakeTheme.id],
-      });
-      expect(state.byUserId).toEqual({
+      expect(state.byAuthorId).toEqual({
         [userId]: [fakeTheme.id],
       });
     });
 
-    it('removes the previously loaded add-ons for authorUsernames', () => {
-      const { id: userId, username } = fakeAddon.authors[0];
+    it('removes the previously loaded add-ons for authorIds', () => {
+      const { id: userId } = fakeAddon.authors[0];
 
       const prevState = reducer(
         undefined,
         loadAddonsByAuthors({
           addonType: ADDON_TYPE_EXTENSION,
           addons: [fakeAddon],
-          authorUsernames: [username],
+          authorIds: [userId],
           count: 1,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -265,18 +280,15 @@ describe(__filename, () => {
       expect(prevState.byAddonId).toEqual({
         [fakeAddon.id]: createInternalAddon(fakeAddon),
       });
-      expect(prevState.byUserId).toEqual({
+      expect(prevState.byAuthorId).toEqual({
         [userId]: [fakeAddon.id],
-      });
-      expect(prevState.byUsername).toEqual({
-        [username]: [fakeAddon.id],
       });
 
       const state = reducer(
         prevState,
         fetchAddonsByAuthors({
           addonType: ADDON_TYPE_EXTENSION,
-          authorUsernames: [username],
+          authorIds: [userId],
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -285,34 +297,31 @@ describe(__filename, () => {
       expect(prevState.byAddonId).toEqual({
         [fakeAddon.id]: createInternalAddon(fakeAddon),
       });
-      expect(state.byUserId).toEqual({
+      expect(state.byAuthorId).toEqual({
         [userId]: [],
-      });
-      expect(state.byUsername).toEqual({
-        [username]: [],
       });
     });
 
-    it('sets the loading state for authorUsernames on fetch', () => {
+    it('sets the loading state for authorIds on fetch', () => {
       const state = reducer(
         undefined,
         fetchAddonsByAuthors({
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'])]: true,
+        [joinAuthorIdsAndAddonType([randomAuthorId1])]: true,
       });
     });
 
-    it('sets the loading state for authorUsernames + addonType on fetch', () => {
+    it('sets the loading state for authorIds + addonType on fetch', () => {
       const state = reducer(
         undefined,
         fetchAddonsByAuthors({
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           addonType: ADDON_TYPE_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -320,7 +329,7 @@ describe(__filename, () => {
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME)]: true,
+        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME)]: true,
       });
     });
   });
@@ -329,7 +338,7 @@ describe(__filename, () => {
     const getParams = (extra = {}) => {
       return {
         addons: [],
-        authorUsernames: ['fakeUsername'],
+        authorIds: [randomAuthorId1],
         count: 0,
         forAddonSlug: fakeAddon.slug,
         pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -340,29 +349,29 @@ describe(__filename, () => {
     it('adds each add-on to each author array', () => {
       const firstAuthor = { ...fakeAuthor, id: 50, username: 'first' };
       const secondAuthor = { ...fakeAuthor, id: 60, username: 'second' };
-      const authorUsernames = [firstAuthor.username, secondAuthor.username];
+      const authorIds = [firstAuthor.username, secondAuthor.username];
       const multiAuthorAddon = {
         ...fakeAddon,
         authors: [firstAuthor, secondAuthor],
       };
       const params = getParams({
         addons: [multiAuthorAddon],
-        authorUsernames,
+        authorIds,
       });
 
       const newState = reducer(undefined, loadAddonsByAuthors(params));
 
-      expect(newState.byUserId).toEqual({
+      expect(newState.byAuthorId).toEqual({
         [firstAuthor.id]: [multiAuthorAddon.id],
         [secondAuthor.id]: [multiAuthorAddon.id],
       });
     });
 
     it('adds each different add-on to the byAddonId dictionary', () => {
-      const addons = fakeAddons();
+      const addons = fakeExternalAddons();
       const params = getParams({
         addons: Object.values(addons),
-        authorUsernames: ['fakeUsername'],
+        authorIds: [randomAuthorId1],
         forAddonSlug: undefined,
       });
 
@@ -376,20 +385,20 @@ describe(__filename, () => {
     });
 
     it('adds each different add-on to each author array', () => {
-      // See fakeAddons() output, above.
-      const firstAuthorId = 51;
-      const secondAuthorId = 61;
-      const thirdAuthorId = 71;
-      const addons = fakeAddons();
+      // See fakeExternalAddons() output, above.
+      const firstAuthorId = fakeAuthorOne.id;
+      const secondAuthorId = fakeAuthorTwo.id;
+      const thirdAuthorId = fakeAuthorThree.id;
+      const addons = fakeExternalAddons();
       const params = getParams({
         addons: Object.values(addons),
-        authorUsernames: ['test', 'test2', 'test3'],
+        authorIds: [fakeAuthorOne.id, fakeAuthorTwo.id, fakeAuthorThree.id],
         forAddonSlug: undefined,
       });
 
       const newState = reducer(undefined, loadAddonsByAuthors(params));
 
-      expect(newState.byUserId).toEqual({
+      expect(newState.byAuthorId).toEqual({
         [firstAuthorId]: [addons.firstAddon.id],
         [secondAuthorId]: [addons.firstAddon.id, addons.secondAddon.id],
         [thirdAuthorId]: [addons.thirdAddon.id],
@@ -419,8 +428,8 @@ describe(__filename, () => {
       });
     });
 
-    it('does not reset the byUserId dictionary when adding add-ons', () => {
-      const addons = fakeAddons();
+    it('does not reset the byAuthorId dictionary when adding add-ons', () => {
+      const addons = fakeExternalAddons();
 
       const firstParams = getParams({
         addons: [addons.firstAddon, addons.secondAddon],
@@ -436,76 +445,47 @@ describe(__filename, () => {
 
       state = reducer(state, loadAddonsByAuthors(secondParams));
 
-      expect(state.byUserId).toEqual({
+      expect(state.byAuthorId).toEqual({
         [fakeAuthorOne.id]: [addons.firstAddon.id],
         [fakeAuthorTwo.id]: [addons.firstAddon.id, addons.secondAddon.id],
         [fakeAuthorThree.id]: [addons.thirdAddon.id],
       });
     });
 
-    it('does not reset the byUsername dictionary when adding add-ons', () => {
-      const addons = fakeAddons();
-
-      const firstParams = getParams({
-        addons: [addons.firstAddon, addons.secondAddon],
-        forAddonSlug: undefined,
-      });
-
-      let state = reducer(undefined, loadAddonsByAuthors(firstParams));
-
-      expect(state.byUsername).toEqual({
-        [fakeAuthorOne.username]: [addons.firstAddon.id],
-        [fakeAuthorTwo.username]: [addons.firstAddon.id, addons.secondAddon.id],
-      });
-
-      const secondParams = getParams({
-        addons: [addons.thirdAddon],
-        forAddonSlug: undefined,
-      });
-
-      state = reducer(state, loadAddonsByAuthors(secondParams));
-
-      expect(state.byUsername).toEqual({
-        [fakeAuthorOne.username]: [addons.firstAddon.id],
-        [fakeAuthorTwo.username]: [addons.firstAddon.id, addons.secondAddon.id],
-        [fakeAuthorThree.username]: [addons.thirdAddon.id],
-      });
-    });
-
-    it('sets the loading state for authorUsernames once loaded', () => {
+    it('sets the loading state for authorIds once loaded', () => {
       let state = reducer(
         undefined,
         fetchAddonsByAuthors({
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'])]: true,
+        [joinAuthorIdsAndAddonType([randomAuthorId1])]: true,
       });
 
       state = reducer(
         state,
         loadAddonsByAuthors({
           addons: [fakeAddon],
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           count: 1,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'])]: false,
+        [joinAuthorIdsAndAddonType([randomAuthorId1])]: false,
       });
     });
 
-    it('sets the loading state for authorUsernames + addonType once loaded', () => {
+    it('sets the loading state for authorIds + addonType once loaded', () => {
       let state = reducer(
         undefined,
         fetchAddonsByAuthors({
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           addonType: ADDON_TYPE_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -517,55 +497,55 @@ describe(__filename, () => {
         loadAddonsByAuthors({
           addonType: ADDON_TYPE_THEME,
           addons: [fakeAddon],
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           count: 1,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME)]: false,
+        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME)]: false,
       });
     });
 
-    it('sets the count for authorUsernames once loaded', () => {
+    it('sets the count for authorIds once loaded', () => {
       const count = 1;
 
       let state = reducer(
         undefined,
         fetchAddonsByAuthors({
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.countFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'])]: null,
+        [joinAuthorIdsAndAddonType([randomAuthorId1])]: null,
       });
 
       state = reducer(
         state,
         loadAddonsByAuthors({
           addons: [fakeAddon],
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           count,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.countFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'])]: count,
+        [joinAuthorIdsAndAddonType([randomAuthorId1])]: count,
       });
     });
 
-    it('sets the count for authorUsernames + addonType once loaded', () => {
+    it('sets the count for authorIds + addonType once loaded', () => {
       const count = 1;
 
       let state = reducer(
         undefined,
         fetchAddonsByAuthors({
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           addonType: ADDON_TYPE_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -577,26 +557,26 @@ describe(__filename, () => {
         loadAddonsByAuthors({
           addonType: ADDON_TYPE_THEME,
           addons: [fakeAddon],
-          authorUsernames: ['author1'],
+          authorIds: [randomAuthorId1],
           count,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.countFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME)]: count,
+        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME)]: count,
       });
     });
   });
 
   describe('getAddonsForSlug', () => {
     it('returns addons', () => {
-      const addons = fakeAddons();
+      const addons = fakeExternalAddons();
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
-          authorUsernames: ['fakeUsername'],
+          authorIds: [randomAuthorId1],
           count: Object.values(addons).length,
           forAddonSlug: 'test',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -611,12 +591,12 @@ describe(__filename, () => {
     });
 
     it('returns nothing if no add-ons are found', () => {
-      const addons = fakeAddons();
+      const addons = fakeExternalAddons();
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
-          authorUsernames: ['fakeUsername'],
+          authorIds: [randomAuthorId1],
           count: Object.values(addons).length,
           forAddonSlug: 'test',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -627,78 +607,94 @@ describe(__filename, () => {
     });
   });
 
-  describe('getAddonsForUsernames selector', () => {
+  describe('getAddonsForAuthorIds selector', () => {
     it('returns addons for a single author', () => {
-      const addons = fakeAddons();
+      const addons = fakeExternalAddons();
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
-          authorUsernames: ['fakeUsername'],
+          authorIds: [randomAuthorId1],
           count: Object.values(addons).length,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
-      expect(getAddonsForUsernames(state, ['test2'])).toEqual([
+      expect(getAddonsForAuthorIds(state, [fakeAuthorTwo.id])).toEqual([
         createInternalAddon(addons.firstAddon),
         createInternalAddon(addons.secondAddon),
       ]);
     });
 
     it('returns addons for multiple authors when only one has a loaded add-on', () => {
-      const addons = fakeAddons();
-      const state = reducer(
-        undefined,
-        loadAddonsByAuthors({
-          addons: Object.values(addons),
-          authorUsernames: ['fakeUsername'],
-          count: Object.values(addons).length,
-          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
-        }),
-      );
+      const addonsMap = fakeExternalAddons({
+        firstAddonProps: {
+          authors: [fakeAuthorOne, fakeAuthorTwo],
+        },
+        secondAddonProps: {
+          authors: [fakeAuthorTwo],
+        },
+        thirdAddonProps: {
+          authors: [fakeAuthorThree],
+        },
+      });
+      const addons = Object.values(addonsMap);
 
-      expect(getAddonsForUsernames(state, ['test2', 'no-addons-user'])).toEqual(
-        [
-          createInternalAddon(addons.firstAddon),
-          createInternalAddon(addons.secondAddon),
-        ],
-      );
+      const state = reducer(undefined, _loadAddonsByAuthors({ addons }));
+
+      expect(
+        getAddonsForAuthorIds(state, [fakeAuthorTwo.id, randomAuthorId2]),
+      ).toEqual([
+        createInternalAddon(addonsMap.firstAddon),
+        createInternalAddon(addonsMap.secondAddon),
+      ]);
     });
 
     it('returns addons for multiple authors of different add-ons', () => {
-      const addons = fakeAddons();
-      const state = reducer(
-        undefined,
-        loadAddonsByAuthors({
-          addons: Object.values(addons),
-          authorUsernames: ['fakeUsername'],
-          count: Object.values(addons).length,
-          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
-        }),
-      );
+      const addonsMap = fakeExternalAddons({
+        firstAddonProps: {
+          authors: [fakeAuthorOne, fakeAuthorTwo],
+        },
+        secondAddonProps: {
+          authors: [fakeAuthorTwo],
+        },
+        thirdAddonProps: {
+          authors: [fakeAuthorThree],
+        },
+      });
+      const addons = Object.values(addonsMap);
 
-      expect(getAddonsForUsernames(state, ['test', 'test3'])).toEqual([
-        createInternalAddon(addons.firstAddon),
-        createInternalAddon(addons.thirdAddon),
+      const state = reducer(undefined, _loadAddonsByAuthors({ addons }));
+
+      expect(
+        getAddonsForAuthorIds(state, [fakeAuthorOne.id, fakeAuthorThree.id]),
+      ).toEqual([
+        createInternalAddon(addonsMap.firstAddon),
+        createInternalAddon(addonsMap.thirdAddon),
       ]);
     });
 
     it('returns addons for multiple authors that share add-ons', () => {
-      const addons = fakeAddons();
-      const state = reducer(
-        undefined,
-        loadAddonsByAuthors({
-          addons: Object.values(addons),
-          authorUsernames: ['test', 'test2'],
-          count: Object.values(addons).length,
-          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
-        }),
-      );
+      const addonsMap = fakeExternalAddons({
+        firstAddonProps: {
+          authors: [fakeAuthorOne, fakeAuthorTwo],
+        },
+        secondAddonProps: {
+          authors: [fakeAuthorTwo],
+        },
+        thirdAddonProps: {
+          authors: [fakeAuthorThree],
+        },
+      });
+      const addons = Object.values(addonsMap);
 
-      expect(getAddonsForUsernames(state, ['test', 'test2'])).toEqual([
-        createInternalAddon(addons.firstAddon),
-        createInternalAddon(addons.secondAddon),
+      const state = reducer(undefined, _loadAddonsByAuthors({ addons }));
+
+      expect(
+        getAddonsForAuthorIds(state, [fakeAuthorOne.id, fakeAuthorTwo.id]),
+      ).toEqual([
+        createInternalAddon(addonsMap.firstAddon),
+        createInternalAddon(addonsMap.secondAddon),
       ]);
     });
 
@@ -710,23 +706,27 @@ describe(__filename, () => {
       // we end up looking through the entire reducer, so we have this filter
       // to prevent an add-on from appearing in its own "by this author"
       // list.
-      const addons = fakeAddons();
-      const authorUsernames = ['test', 'test2', 'test3'];
+      const addons = fakeExternalAddons();
+      const authorIds = [
+        fakeAuthorOne.id,
+        fakeAuthorTwo.id,
+        fakeAuthorThree.id,
+      ];
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           addonType: ADDON_TYPE_EXTENSION,
-          authorUsernames,
+          authorIds,
           count: Object.values(addons).length,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(
-        getAddonsForUsernames(
+        getAddonsForAuthorIds(
           state,
-          authorUsernames,
+          authorIds,
           ADDON_TYPE_EXTENSION,
           addons.firstAddon.slug,
         ),
@@ -737,45 +737,53 @@ describe(__filename, () => {
     });
 
     it("returns lightweight themes when filtering for authors' themes", () => {
-      const addons = fakeAddons({ type: ADDON_TYPE_THEME });
+      const addons = fakeExternalAddons({ type: ADDON_TYPE_THEME });
 
-      const authorUsernames = ['test', 'test2', 'test3'];
+      const authorIds = [
+        fakeAuthorOne.id,
+        fakeAuthorTwo.id,
+        fakeAuthorThree.id,
+      ];
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           addonType: ADDON_TYPE_THEME,
-          authorUsernames,
+          authorIds,
           count: Object.values(addons).length,
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
-      expect(
-        getAddonsForUsernames(state, authorUsernames, ADDON_TYPE_THEME),
-      ).toEqual([
-        createInternalAddon(addons.firstAddon),
-        createInternalAddon(addons.secondAddon),
-      ]);
+      expect(getAddonsForAuthorIds(state, authorIds, ADDON_TYPE_THEME)).toEqual(
+        [
+          createInternalAddon(addons.firstAddon),
+          createInternalAddon(addons.secondAddon),
+        ],
+      );
     });
 
     it("returns static themes when filtering for authors' themes ", () => {
-      const addons = fakeAddons({ type: ADDON_TYPE_STATIC_THEME });
+      const addons = fakeExternalAddons({ type: ADDON_TYPE_STATIC_THEME });
 
-      const authorUsernames = ['test', 'test2', 'test3'];
+      const authorIds = [
+        fakeAuthorOne.id,
+        fakeAuthorTwo.id,
+        fakeAuthorThree.id,
+      ];
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           addonType: ADDON_TYPE_STATIC_THEME,
-          authorUsernames,
+          authorIds,
           count: Object.values(addons).length,
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(
-        getAddonsForUsernames(state, authorUsernames, ADDON_TYPE_STATIC_THEME),
+        getAddonsForAuthorIds(state, authorIds, ADDON_TYPE_STATIC_THEME),
       ).toEqual([
         createInternalAddon(addons.firstAddon),
         createInternalAddon(addons.secondAddon),
@@ -783,22 +791,26 @@ describe(__filename, () => {
     });
 
     it("returns extensions when filtering for authors' extensions", () => {
-      const addons = fakeAddons();
+      const addons = fakeExternalAddons();
 
-      const authorUsernames = ['test', 'test2', 'test3'];
+      const authorIds = [
+        fakeAuthorOne.id,
+        fakeAuthorTwo.id,
+        fakeAuthorThree.id,
+      ];
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           addonType: ADDON_TYPE_EXTENSION,
-          authorUsernames,
+          authorIds,
           count: Object.values(addons).length,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(
-        getAddonsForUsernames(state, authorUsernames, ADDON_TYPE_EXTENSION),
+        getAddonsForAuthorIds(state, authorIds, ADDON_TYPE_EXTENSION),
       ).toEqual([
         createInternalAddon(addons.firstAddon),
         createInternalAddon(addons.secondAddon),
@@ -807,35 +819,35 @@ describe(__filename, () => {
     });
 
     it('returns nothing if no add-ons are found', () => {
-      const addons = fakeAddons();
+      const addons = fakeExternalAddons();
       const state = reducer(
         undefined,
         loadAddonsByAuthors({
           addons: Object.values(addons),
-          authorUsernames: ['fakeUsername'],
+          authorIds: [randomAuthorId1],
           count: Object.values(addons).length,
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
-      expect(getAddonsForUsernames(state, ['nobody'])).toBeNull();
+      expect(getAddonsForAuthorIds(state, [randomAuthorId1 + 2])).toBeNull();
     });
   });
 
-  describe('getLoadingForAuthorNames', () => {
+  describe('getLoadingForAuthorIds', () => {
     const params = {
-      authorUsernames: ['author1'],
+      authorIds: [randomAuthorId1],
       errorHandlerId: 'error-handler-id',
       pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
     };
 
-    it('returns loading for just authorUsernames', () => {
+    it('returns loading for just authorIds', () => {
       const state = reducer(undefined, fetchAddonsByAuthors(params));
 
-      expect(getLoadingForAuthorNames(state, ['author1'])).toEqual(true);
+      expect(getLoadingForAuthorIds(state, [randomAuthorId1])).toEqual(true);
     });
 
-    it('returns loading for authorUsernames + addonType', () => {
+    it('returns loading for authorIds + addonType', () => {
       const state = reducer(
         undefined,
         fetchAddonsByAuthors({
@@ -845,7 +857,7 @@ describe(__filename, () => {
       );
 
       expect(
-        getLoadingForAuthorNames(state, ['author1'], ADDON_TYPE_THEME),
+        getLoadingForAuthorIds(state, [randomAuthorId1], ADDON_TYPE_THEME),
       ).toEqual(true);
     });
 
@@ -854,30 +866,30 @@ describe(__filename, () => {
         undefined,
         fetchAddonsByAuthors({
           ...params,
-          authorUsernames: ['someOtherAuthor'],
+          authorIds: [randomAuthorId1],
         }),
       );
 
-      expect(getLoadingForAuthorNames(state, ['author2'])).toEqual(null);
+      expect(getLoadingForAuthorIds(state, [randomAuthorId2])).toEqual(null);
     });
 
-    it('returns null when no authorUsernames provided', () => {
+    it('returns null when no authorIds provided', () => {
       const state = reducer(undefined, fetchAddonsByAuthors(params));
 
-      expect(getLoadingForAuthorNames(state, [])).toEqual(null);
+      expect(getLoadingForAuthorIds(state, [])).toEqual(null);
     });
   });
 
-  describe('getCountForAuthorNames', () => {
+  describe('getCountForAuthorIds', () => {
     const params = {
       addons: [],
-      authorUsernames: ['author1'],
+      authorIds: [randomAuthorId1],
       count: 0,
       errorHandlerId: 'error-handler-id',
       pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
     };
 
-    it('returns count for just authorUsernames', () => {
+    it('returns count for just authorIds', () => {
       const count = 123;
 
       const state = reducer(
@@ -888,10 +900,10 @@ describe(__filename, () => {
         }),
       );
 
-      expect(getCountForAuthorNames(state, ['author1'])).toEqual(count);
+      expect(getCountForAuthorIds(state, [randomAuthorId1])).toEqual(count);
     });
 
-    it('returns count for authorUsernames + addonType', () => {
+    it('returns count for authorIds + addonType', () => {
       const count = 123;
 
       const state = reducer(
@@ -904,20 +916,20 @@ describe(__filename, () => {
       );
 
       expect(
-        getCountForAuthorNames(state, ['author1'], ADDON_TYPE_THEME),
+        getCountForAuthorIds(state, [randomAuthorId1], ADDON_TYPE_THEME),
       ).toEqual(count);
     });
 
     it('returns null when there is no match', () => {
       const state = reducer(undefined, loadAddonsByAuthors(params));
 
-      expect(getCountForAuthorNames(state, ['author2'])).toEqual(null);
+      expect(getCountForAuthorIds(state, [randomAuthorId2])).toEqual(null);
     });
 
-    it('returns null when no authorUsernames provided', () => {
+    it('returns null when no authorIds provided', () => {
       const state = reducer(undefined, loadAddonsByAuthors(params));
 
-      expect(getCountForAuthorNames(state, [])).toEqual(null);
+      expect(getCountForAuthorIds(state, [])).toEqual(null);
     });
 
     it('resets count when fetching add-ons by authors', () => {
@@ -931,7 +943,7 @@ describe(__filename, () => {
         }),
       );
 
-      expect(getCountForAuthorNames(prevState, ['author1'])).toEqual(count);
+      expect(getCountForAuthorIds(prevState, [randomAuthorId1])).toEqual(count);
 
       const fetchParams = { ...params };
       delete fetchParams.addons;
@@ -939,27 +951,30 @@ describe(__filename, () => {
 
       const state = reducer(prevState, fetchAddonsByAuthors(fetchParams));
 
-      expect(getCountForAuthorNames(state, ['author1'])).toEqual(null);
+      expect(getCountForAuthorIds(state, [randomAuthorId1])).toEqual(null);
     });
   });
 
-  describe('joinAuthorNamesAndAddonType', () => {
-    it('returns authorUsernames', () => {
-      expect(joinAuthorNamesAndAddonType(['author1', 'author2'])).toEqual(
-        'author1-author2',
-      );
+  describe('joinAuthorIdsAndAddonType', () => {
+    it('returns authorIds', () => {
+      expect(
+        joinAuthorIdsAndAddonType([randomAuthorId1, randomAuthorId2]),
+      ).toEqual(`${randomAuthorId1}-${randomAuthorId2}`);
     });
 
-    it('returns authorUsernames + addonType', () => {
+    it('returns authorIds + addonType', () => {
       expect(
-        joinAuthorNamesAndAddonType(['author1', 'author2'], ADDON_TYPE_THEME),
-      ).toEqual(`author1-author2-${ADDON_TYPE_THEME}`);
+        joinAuthorIdsAndAddonType(
+          [randomAuthorId1, randomAuthorId2],
+          ADDON_TYPE_THEME,
+        ),
+      ).toEqual(`${randomAuthorId1}-${randomAuthorId2}-${ADDON_TYPE_THEME}`);
     });
 
-    it('handles a single authorName', () => {
+    it('handles a single author ID', () => {
       expect(
-        joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME),
-      ).toEqual(`author1-${ADDON_TYPE_THEME}`);
+        joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME),
+      ).toEqual(`${randomAuthorId1}-${ADDON_TYPE_THEME}`);
     });
   });
 });

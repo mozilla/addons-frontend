@@ -184,4 +184,17 @@ describe(__filename, () => {
     expect(root.find(Link).at(0)).toHaveProp('children', addon.name);
     expect(root.find(Link).at(0)).toHaveProp('to', `/addon/${addon.slug}/`);
   });
+
+  it('renders with a h1 tag by default', () => {
+    const root = render();
+
+    expect(root.find('h1.AddonTitle')).toHaveLength(1);
+  });
+
+  it("renders the element tag that is specified by the 'as' prop", () => {
+    const root = render({ as: 'span' });
+
+    expect(root.find('h1')).toHaveLength(0);
+    expect(root.find('span.AddonTitle')).toHaveLength(1);
+  });
 });

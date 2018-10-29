@@ -7,8 +7,9 @@ import type { Props as IconProps } from 'ui/components/Icon';
 
 import './styles.scss';
 
-type Props = IconProps & {|
-  color: string,
+type Props = {|
+  ...IconProps,
+  color: number,
 |};
 
 const CategoryIcon = ({ alt, className, color, name }: Props) => {

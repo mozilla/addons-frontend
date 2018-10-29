@@ -1,71 +1,45 @@
 @import '~amo/css/styles';
 
+$title-font-size: 20px;
+
 .CategoryHeader {
   border-radius: $border-radius-default;
-  margin-bottom: 10px;
+  margin-bottom: $padding-page;
   width: 100%;
-
-  @include respond-to(large) {
-    margin-bottom: 30px;
-  }
 }
 
 .CategoryHeader-wrapper {
   align-items: center;
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
-  margin: 10px;
-}
+  justify-content: center;
+  margin: 12px 0;
 
-.CategoryHeader-contents {
-  @include text-align-start();
-
-  flex: 2;
-
-  .CategoryHeader--loading & {
-    width: 50%;
+  @include respond-to(medium) {
+    margin: 24px 0;
   }
 }
 
 .CategoryHeader-name {
-  @include font-light();
+  @include font-regular();
 
-  font-size: $font-size-l;
-  margin: 10px 0;
+  font-size: $title-font-size;
+
+  .CategoryHeader--loading & {
+    width: 100%;
+  }
 
   @include respond-to(medium) {
+    @include font-medium();
+
     font-size: $font-size-xl;
   }
 }
 
-.CategoryHeader-description {
-  display: none;
-  margin-top: 5px;
-
-  @include respond-to(medium) {
-    display: block;
-  }
-
-  .CategoryHeader--loading & {
-    @include text-align-start();
-  }
-}
-
-.CategoryHeader-paragraph {
-  font-size: $font-size-m;
-  margin: 0;
-}
-
 .CategoryHeader-icon {
-  @include text-align-end();
-
-  display: block;
-  flex: 1;
+  @include margin-end(8px);
 
   @include respond-to(medium) {
-    .Icon {
-      margin: 10px;
-    }
+    @include margin-end(24px);
   }
 }

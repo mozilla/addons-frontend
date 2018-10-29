@@ -46,10 +46,8 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INSTALLED,
   INSTALLING,
-  INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
-import InstallButton from 'core/components/InstallButton';
 import AMInstallButton from 'core/components/AMInstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
@@ -65,7 +63,6 @@ import {
   fakeI18n,
   fakeInstalledAddon,
   fakeTheme,
-  getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -157,7 +154,7 @@ describe(__filename, () => {
   const _loadAddonResultsByAuthors = ({ addon, addonsByAuthors }) => {
     return loadAddonsByAuthors({
       addons: addonsByAuthors,
-      authorUsernames: ['foo'],
+      authorIds: [123],
       count: addonsByAuthors.length,
       forAddonSlug: addon.slug,
       pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -261,7 +258,7 @@ describe(__filename, () => {
     });
 
     // These should be empty:
-    expect(root.find(InstallButton)).toHaveLength(0);
+    expect(root.find(AMInstallButton)).toHaveLength(0);
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
     expect(root.find(RatingManager)).toHaveLength(0);
 
@@ -641,16 +638,6 @@ describe(__filename, () => {
     expect(root.find('.AddonDescription-contents').html()).toEqual(
       '<div class="AddonDescription-contents"></div>',
     );
-  });
-
-  it('configures the install button', () => {
-    const root = shallowRender().find(InstallButton);
-    expect(root.prop('slug')).toEqual(fakeAddon.slug);
-  });
-
-  it('always uses a button and not a switch for the InstallButton', () => {
-    const root = shallowRender().find(InstallButton);
-    expect(root.prop('useButton')).toEqual(true);
   });
 
   it('sets a title for the description of an extension', () => {
@@ -1039,15 +1026,6 @@ describe(__filename, () => {
     expect(root.find('.Addon-theme')).toHaveLength(1);
   });
 
-  it('disables install button for incompatibility with firefox version', () => {
-    const root = shallowRender({
-      getClientCompatibility: () => ({
-        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
-      }),
-    });
-    expect(root.find(InstallButton).prop('disabled')).toBe(true);
-  });
-
   it('passes the downloadUrl from getClientCompatibility', () => {
     const root = shallowRender({
       getClientCompatibility: () => ({
@@ -1067,34 +1045,6 @@ describe(__filename, () => {
     });
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
     expect(root.find(Button)).toHaveLength(1);
-  });
-
-  it('passes installStatus to InstallButton, not add-on status', () => {
-    const root = shallowRender({
-      addon: createInternalAddon(fakeAddon),
-      installStatus: UNKNOWN,
-    });
-
-    const button = root.find(InstallButton);
-    expect(button.prop('status')).not.toEqual(fakeAddon.status);
-    expect(button.prop('status')).toEqual(UNKNOWN);
-  });
-
-  it('sets an install source', () => {
-    const addon = fakeAddon;
-    const { store } = dispatchClientMetadata();
-    store.dispatch(_loadAddonResults({ addon }));
-    const root = renderComponent({
-      params: { slug: addon.slug },
-      store,
-    });
-
-    const button = root.find(InstallButton);
-    // This value is passed to <Addon/> by the withInstallHelpers() HOC.
-    expect(button).toHaveProp(
-      'defaultInstallSource',
-      INSTALL_SOURCE_DETAIL_PAGE,
-    );
   });
 
   it('renders a ThemeImage in the header', () => {
@@ -1394,8 +1344,8 @@ describe(__filename, () => {
 
       expect(root).toHaveClassName('.Addon-MoreAddonsCard');
       expect(root).toHaveProp(
-        'authorUsernames',
-        addon.authors.map((author) => author.username),
+        'authorIds',
+        addon.authors.map((author) => author.id),
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
@@ -1417,8 +1367,8 @@ describe(__filename, () => {
 
       expect(root).toHaveClassName('.Addon-MoreAddonsCard');
       expect(root).toHaveProp(
-        'authorUsernames',
-        addon.authors.map((author) => author.username),
+        'authorIds',
+        addon.authors.map((author) => author.id),
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
@@ -1565,16 +1515,14 @@ describe(__filename, () => {
   describe('AMInstallButton', () => {
     const renderWithAMInstallButton = (props = {}) => {
       return shallowRender({
-        config: getFakeConfig({ enableFeatureAMInstallButton: true }),
         hasAddonManager: true,
         ...props,
       });
     };
 
-    it('renders the AMInstallButton when config allows it', () => {
+    it('renders the AMInstallButton', () => {
       const root = renderWithAMInstallButton();
 
-      expect(root.find(InstallButton)).toHaveLength(0);
       expect(root.find(AMInstallButton)).toHaveLength(1);
     });
 

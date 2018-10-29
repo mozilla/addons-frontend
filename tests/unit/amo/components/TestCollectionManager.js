@@ -147,9 +147,9 @@ describe(__filename, () => {
     });
 
     const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
-    expect(root.find('#collectionName')).toHaveProp('value', null);
-    expect(root.find('#collectionDescription')).toHaveProp('value', null);
-    expect(root.find('#collectionSlug')).toHaveProp('value', null);
+    expect(root.find('#collectionName')).toHaveProp('value', '');
+    expect(root.find('#collectionDescription')).toHaveProp('value', '');
+    expect(root.find('#collectionSlug')).toHaveProp('value', '');
     expect(root.find('#collectionUrlPrefix')).toHaveProp(
       'title',
       expectedUrlPrefix,

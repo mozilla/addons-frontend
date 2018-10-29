@@ -52,7 +52,7 @@ describe(__filename, () => {
 
   it('calls the API with addonType if set', async () => {
     const addons = [fakeAddon];
-    const authorUsernames = ['mozilla'];
+    const authorIds = [123];
     const pageSize = THEMES_BY_AUTHORS_PAGE_SIZE;
 
     const state = sagaTester.getState();
@@ -63,7 +63,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-          author: authorUsernames.sort().join(','),
+          author: authorIds.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
           page: '1',
           page_size: pageSize,
@@ -74,7 +74,7 @@ describe(__filename, () => {
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
     _fetchAddonsByAuthors({
-      authorUsernames,
+      authorIds,
       addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       pageSize,
     });
@@ -82,7 +82,7 @@ describe(__filename, () => {
     const expectedLoadAction = loadAddonsByAuthors({
       addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       addons,
-      authorUsernames,
+      authorIds,
       count: addons.length,
       forAddonSlug: undefined,
       pageSize,
@@ -96,7 +96,7 @@ describe(__filename, () => {
 
   it('sends `exclude_addons` param if `forAddonSlug` is set', async () => {
     const addons = [fakeAddon];
-    const authorUsernames = ['mozilla', 'johnedoe'];
+    const authorIds = [123, 456];
     const { slug } = fakeAddon;
     const pageSize = EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
@@ -108,7 +108,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: undefined,
-          author: authorUsernames.sort().join(','),
+          author: authorIds.sort().join(','),
           exclude_addons: slug,
           page: '1',
           page_size: pageSize,
@@ -119,14 +119,14 @@ describe(__filename, () => {
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
     _fetchAddonsByAuthors({
-      authorUsernames,
+      authorIds,
       forAddonSlug: slug,
       pageSize,
     });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
-      authorUsernames,
+      authorIds,
       count: addons.length,
       forAddonSlug: slug,
       pageSize,
@@ -140,7 +140,7 @@ describe(__filename, () => {
 
   it('clears the error handler', async () => {
     _fetchAddonsByAuthors({
-      authorUsernames: [],
+      authorIds: [],
       forAddonSlug: fakeAddon.slug,
     });
 
@@ -159,7 +159,7 @@ describe(__filename, () => {
       .returns(Promise.reject(error));
 
     _fetchAddonsByAuthors({
-      authorUsernames: [],
+      authorIds: [],
       forAddonSlug: fakeAddon.slug,
     });
 
@@ -171,7 +171,7 @@ describe(__filename, () => {
 
   it('handles no API results', async () => {
     const addons = [];
-    const authorUsernames = ['mozilla', 'johnedoe'];
+    const authorIds = [123, 456];
     const { slug } = fakeAddon;
     const pageSize = EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
@@ -183,7 +183,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: undefined,
-          author: authorUsernames.sort().join(','),
+          author: authorIds.sort().join(','),
           exclude_addons: slug,
           page: '1',
           page_size: pageSize,
@@ -194,14 +194,14 @@ describe(__filename, () => {
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
     _fetchAddonsByAuthors({
-      authorUsernames,
+      authorIds,
       forAddonSlug: slug,
       pageSize,
     });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
-      authorUsernames,
+      authorIds,
       count: addons.length,
       forAddonSlug: slug,
       pageSize,
@@ -215,7 +215,7 @@ describe(__filename, () => {
 
   it('sends a different `page` value if supplied', async () => {
     const addons = [fakeAddon];
-    const authorUsernames = ['mozilla', 'johnedoe'];
+    const authorIds = [123, 456];
     const pageSize = EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
     const page = 123;
 
@@ -227,7 +227,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: undefined,
-          author: authorUsernames.sort().join(','),
+          author: authorIds.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
           page,
           page_size: pageSize,
@@ -238,14 +238,14 @@ describe(__filename, () => {
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
     _fetchAddonsByAuthors({
-      authorUsernames,
+      authorIds,
       page,
       pageSize,
     });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
-      authorUsernames,
+      authorIds,
       count: addons.length,
       pageSize,
     });
@@ -258,7 +258,7 @@ describe(__filename, () => {
 
   it('sends a different `sort` value if supplied', async () => {
     const addons = [fakeAddon];
-    const authorUsernames = ['mozilla', 'johnedoe'];
+    const authorIds = [123, 456];
     const pageSize = EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
     const sort = SEARCH_SORT_POPULAR;
 
@@ -270,7 +270,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: undefined,
-          author: authorUsernames.sort().join(','),
+          author: authorIds.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
           page: '1',
           page_size: pageSize,
@@ -281,14 +281,14 @@ describe(__filename, () => {
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
     _fetchAddonsByAuthors({
-      authorUsernames,
+      authorIds,
       pageSize,
       sort,
     });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
-      authorUsernames,
+      authorIds,
       count: addons.length,
       pageSize,
     });

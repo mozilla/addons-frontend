@@ -55,8 +55,12 @@ class DiscoveryPane(Page):
     class Addon(Region):
         """Contains all locators and functions for extensions and themes."""
 
-        _install_button_locator = (By.CLASS_NAME, 'InstallButton-switch')
-        _success_switch_locator = (By.CLASS_NAME, 'Switch--success')
+        _install_button_locator = (By.CLASS_NAME, 'AMInstallButton')
+        # When an add-on is installed/enabled, the AMInstallButton shows an
+        # "uninstall" button. If we see it, it means the add-on has been
+        # successfully installed.
+        _uninstall_button_locator = (By.CLASS_NAME,
+                                     'AMInstallButton-button--uninstall')
 
         def install(self):
             """Install the theme or extension."""
@@ -65,4 +69,4 @@ class DiscoveryPane(Page):
         @property
         def is_installed(self):
             """Check if theme or extensions is installed."""
-            return self.is_element_displayed(*self._success_switch_locator)
+            return self.is_element_displayed(*self._uninstall_button_locator)
