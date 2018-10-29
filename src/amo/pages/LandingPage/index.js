@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 import { getLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import Categories from 'amo/components/Categories';
 import { getCanonicalURL } from 'amo/utils';
 import {

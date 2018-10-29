@@ -28,7 +28,6 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import {
   apiAddonType,
-  apiAddonTypeIsValid,
   getAddonTypeFilter,
   isTheme,
 } from 'core/utils';
