@@ -102,19 +102,20 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     });
   }
 
-  componentWillReceiveProps({
-    addonType: newAddonType,
-    authorIds: newAuthorIds,
-    forAddonSlug: newForAddonSlug,
-    location: newLocation,
-    pageParam,
-    paginate,
-  }: InternalProps) {
+  componentDidUpdate(prevProps: InternalProps) {
     const {
       addonType: oldAddonType,
       authorIds: oldAuthorIds,
       forAddonSlug: oldForAddonSlug,
       location: oldLocation,
+    } = prevProps;
+    const {
+      addonType: newAddonType,
+      authorIds: newAuthorIds,
+      forAddonSlug: newForAddonSlug,
+      location: newLocation,
+      pageParam,
+      paginate,
     } = this.props;
 
     const newPage = paginate
