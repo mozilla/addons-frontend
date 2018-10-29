@@ -78,20 +78,28 @@ export class AddonReviewBase extends React.Component<InternalProps, State> {
     debounce: defaultDebounce,
   };
 
+  static getDerivedStateFromProps(props: InternalProps, state: State) {
+    const { review } = props;
+
+    if (review) {
+      return {
+        reviewBody: review.body,
+      };
+    }
+
+    // No state update necessary
+    return null;
+  }
+
   constructor(props: InternalProps) {
     super(props);
+
     this.state = {
       reviewBody: props.review.body,
     };
+
     this.localState = props.createLocalState(`AddonReview:${props.review.id}`);
     this.checkForStoredState();
-  }
-
-  componentWillReceiveProps(nextProps: InternalProps) {
-    const { review } = nextProps;
-    if (review) {
-      this.setState({ reviewBody: review.body });
-    }
   }
 
   componentDidMount() {
