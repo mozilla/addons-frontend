@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
 import {
@@ -412,21 +411,6 @@ describe(__filename, () => {
       'footerText',
       'See more featured themes',
     );
-  });
-
-  it('renders not found if add-on type is not supported', () => {
-    const root = render({ match: { params: { visibleAddonType: 'XUL' } } });
-    expect(root.find(NotFound)).toHaveLength(1);
-  });
-
-  it('renders not found if updated add-on type is not supported', () => {
-    const root = render({
-      match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
-      },
-    });
-    root.setProps({ match: { params: { visibleAddonType: 'XUL' } } });
-    expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('dispatches getLanding when category filter is set', () => {

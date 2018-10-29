@@ -26,11 +26,7 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import {
-  apiAddonType,
-  getAddonTypeFilter,
-  isTheme,
-} from 'core/utils';
+import { apiAddonType, getAddonTypeFilter, isTheme } from 'core/utils';
 
 import './styles.scss';
 
