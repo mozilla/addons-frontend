@@ -73,19 +73,18 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: InternalProps) {
-    this.loadDataIfNeeded(nextProps);
+  componentDidUpdate() {
+    this.loadDataIfNeeded();
   }
 
-  loadDataIfNeeded(nextProps?: InternalProps) {
-    const combinedProps = { ...this.props, ...nextProps };
+  loadDataIfNeeded() {
     const {
       currentUsername,
       dispatch,
       errorHandler,
       loadingUserCollections,
       userCollections,
-    } = combinedProps;
+    } = this.props;
 
     if (errorHandler.hasError()) {
       // Abort loading data so that the error can be rendered.

@@ -153,12 +153,9 @@ export class CollectionBase extends React.Component<InternalProps> {
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: InternalProps) {
+    this.loadDataIfNeeded(prevProps);
     this.maybeResetAddonPlaceholderCount();
-  }
-
-  componentWillReceiveProps(nextProps: InternalProps) {
-    this.loadDataIfNeeded(nextProps);
   }
 
   onDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
@@ -182,17 +179,16 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   };
 
-  loadDataIfNeeded(nextProps?: InternalProps) {
+  loadDataIfNeeded(prevProps?: InternalProps) {
     const {
       collection,
       creating,
       errorHandler,
+      filters,
       loading,
+      location,
       match: { params },
-    } = {
-      ...this.props,
-      ...nextProps,
-    };
+    } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
@@ -205,24 +201,15 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     let collectionChanged = false;
     let addonsPageChanged = false;
-    let { filters, location } = this.props;
 
-    if (nextProps && nextProps.location) {
-      const nextLocation = nextProps.location;
-
-      if (location.pathname !== nextLocation.pathname) {
+    if (prevProps && prevProps.location && location) {
+      if (prevProps.location.pathname !== location.pathname) {
         collectionChanged = true;
-        location = nextLocation;
       }
     }
 
-    if (nextProps && nextProps.filters) {
-      const nextFilters = nextProps.filters;
-
-      if (!deepEqual(filters, nextFilters)) {
-        addonsPageChanged = true;
-        filters = nextFilters;
-      }
+    if (prevProps && !deepEqual(prevProps.filters, filters)) {
+      addonsPageChanged = true;
     }
 
     if (

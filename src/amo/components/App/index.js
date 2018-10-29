@@ -116,8 +116,9 @@ export class AppBase extends React.Component<Props> {
     }
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    const { authToken } = nextProps;
+  componentDidUpdate() {
+    const { authToken } = this.props;
+
     if (authToken) {
       this.setLogOutTimer(authToken);
     }

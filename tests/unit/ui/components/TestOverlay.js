@@ -96,7 +96,7 @@ describe(__filename, () => {
 
     const root = render({ visibleOnLoad: true, store });
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     // keydown.event will be set when "Esc" is hit.
     root.setProps({
       keydown: {

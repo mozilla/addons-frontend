@@ -92,7 +92,7 @@ describe(__filename, () => {
 
     dispatch.resetHistory();
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     root.setProps({
       reviewId: secondReviewId,
     });

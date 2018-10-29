@@ -39,9 +39,6 @@ import './styles.scss';
 export class LandingPageBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
-    // This is a bug; addonTypeOfResults is used in
-    // `componentWillReceiveProps()`.
-    // eslint-disable-next-line react/no-unused-prop-types
     addonTypeOfResults: PropTypes.string,
     // This is a bug; context is used in `setViewContextType()`.
     // eslint-disable-next-line react/no-unused-prop-types
@@ -59,8 +56,6 @@ export class LandingPageBase extends React.Component {
         visibleAddonType: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
-    // This is a bug; resultsLoaded is used in `componentWillReceiveProps()`.
-    // eslint-disable-next-line react/no-unused-prop-types
     resultsLoaded: PropTypes.bool.isRequired,
   };
 
@@ -83,20 +78,20 @@ export class LandingPageBase extends React.Component {
     this.setViewContextType();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { params } = nextProps.match;
+  componentDidUpdate() {
+    const { params } = this.props.match;
 
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping componentWillReceiveProps() because
-        visibleAddonType is invalid: ${params.visibleAddonType}`);
+      log.warn(oneLine`Skipping componentDidUpdate() because visibleAddonType
+        is invalid: ${params.visibleAddonType}`);
       return;
     }
 
-    this.getLandingDataIfNeeded(nextProps);
-    this.setViewContextType(nextProps);
+    this.getLandingDataIfNeeded();
+    this.setViewContextType();
   }
 
-  getLandingDataIfNeeded(nextProps = {}) {
+  getLandingDataIfNeeded() {
     const {
       addonTypeOfResults,
       dispatch,
@@ -104,10 +99,7 @@ export class LandingPageBase extends React.Component {
       loading,
       match: { params },
       resultsLoaded,
-    } = {
-      ...this.props,
-      ...nextProps,
-    };
+    } = this.props;
 
     const requestedAddonType = apiAddonType(params.visibleAddonType);
 
@@ -125,11 +117,11 @@ export class LandingPageBase extends React.Component {
     }
   }
 
-  setViewContextType(nextProps = {}) {
+  setViewContextType() {
     const {
       context,
       match: { params },
-    } = { ...this.props, ...nextProps };
+    } = this.props;
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (context !== addonType) {

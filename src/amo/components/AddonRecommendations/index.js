@@ -65,13 +65,11 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     }
   }
 
-  componentWillReceiveProps({
-    addon: newAddon,
-    recommendations: newRecommendations,
-  }: Props) {
+  componentDidUpdate(prevProps: Props) {
+    const { addon: oldAddon, recommendations: oldRecommendations } = prevProps;
     const {
-      addon: oldAddon,
-      recommendations: oldRecommendations,
+      addon: newAddon,
+      recommendations: newRecommendations,
       tracking,
     } = this.props;
 
