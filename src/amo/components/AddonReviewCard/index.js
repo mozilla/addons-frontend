@@ -71,6 +71,7 @@ type InternalProps = {|
   i18n: I18nType,
   replyingToReview: boolean,
   siteUser: UserType | null,
+  siteUserCanManageReplies: boolean,
   siteUserHasReplyPerm: boolean,
   submittingReply: boolean,
 |};
@@ -283,11 +284,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Keep review');
   }
 
-  siteUserCanManageReplies() {
-    const { siteUserCanReply, siteUserHasReplyPerm } = this.props;
-    return siteUserCanReply || siteUserHasReplyPerm;
-  }
-
   renderReply() {
     const {
       addon,
@@ -354,6 +350,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       showControls,
       showRating,
       siteUser,
+      siteUserCanManageReplies,
       slim,
     } = this.props;
 
@@ -408,7 +405,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       review &&
       siteUser &&
       (review.userId === siteUser.id ||
-        (this.isReply() && this.siteUserCanManageReplies()));
+        (this.isReply() && siteUserCanManageReplies));
 
     const controls = controlsAreVisible ? (
       <div className="AddonReviewCard-allControls">
@@ -455,7 +452,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         !replyingToReview &&
         !review.reply &&
         !this.isReply() &&
-        this.siteUserCanManageReplies() &&
+        siteUserCanManageReplies &&
         siteUser &&
         review.userId !== siteUser.id ? (
           <a
@@ -559,13 +556,16 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     }
   }
 
+  const siteUserHasReplyPerm = hasPermission(state, ADDONS_EDIT);
+
   return {
     beginningToDeleteReview,
     deletingReview,
     editingReview,
     replyingToReview,
     siteUser: getCurrentUser(state.users),
-    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
+    siteUserCanManageReplies: ownProps.siteUserCanReply || siteUserHasReplyPerm,
+    siteUserHasReplyPerm,
     submittingReply,
   };
 }

@@ -1389,7 +1389,7 @@ describe(__filename, () => {
       dispatchSignInActions({ store });
       const root = render({ siteUserCanReply: false });
 
-      expect(root.instance().siteUserCanManageReplies()).toEqual(false);
+      expect(root.instance().props.siteUserCanManageReplies).toEqual(false);
     });
 
     it('lets any admin reply', () => {
@@ -1401,14 +1401,14 @@ describe(__filename, () => {
       // Admin super powers should override siteUserCanReply.
       const root = render({ siteUserCanReply: false });
 
-      expect(root.instance().siteUserCanManageReplies()).toEqual(true);
+      expect(root.instance().props.siteUserCanManageReplies).toEqual(true);
     });
 
     it('lets you reply when siteUserCanReply is true', () => {
       dispatchSignInActions({ store });
       const root = render({ siteUserCanReply: true });
 
-      expect(root.instance().siteUserCanManageReplies()).toEqual(true);
+      expect(root.instance().props.siteUserCanManageReplies).toEqual(true);
     });
   });
 });
