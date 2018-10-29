@@ -365,6 +365,7 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             shortByLine
             showControls={!this.isMessageVisible()}
             showRating={false}
+            siteUserCanReply={false}
             slim
           />
         )}

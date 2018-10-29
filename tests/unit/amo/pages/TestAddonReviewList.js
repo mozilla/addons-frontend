@@ -1,7 +1,12 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
+import {
+  fetchReviews,
+  fetchReviewPermissions,
+  setAddonReviews,
+  setReviewPermissions,
+} from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
@@ -9,6 +14,7 @@ import AddonReviewList, {
 } from 'amo/pages/AddonReviewList';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
+import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
@@ -30,6 +36,7 @@ import {
   createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
+  dispatchSignInActions,
   fakeAddon,
   fakeI18n,
   fakeReview,
@@ -74,11 +81,11 @@ describe(__filename, () => {
     );
   };
 
-  const dispatchAddon = (addon = fakeAddon) => {
+  const loadAddon = (addon = fakeAddon) => {
     store.dispatch(loadAddonResults({ addons: [addon] }));
   };
 
-  const dispatchAddonReviews = ({
+  const _setAddonReviews = ({
     addon = fakeAddon,
     reviews = [{ ...fakeReview, id: 1 }],
   } = {}) => {
@@ -89,6 +96,21 @@ describe(__filename, () => {
       reviews,
     });
     store.dispatch(action);
+  };
+
+  const signInAndSetReviewPermissions = ({
+    addonId = fakeAddon.id,
+    userId = 12345,
+    ...permissions
+  } = {}) => {
+    dispatchSignInActions({ store, userId });
+    store.dispatch(
+      setReviewPermissions({
+        addonId,
+        userId,
+        ...permissions,
+      }),
+    );
   };
 
   describe('<AddonReviewList/>', () => {
@@ -104,7 +126,7 @@ describe(__filename, () => {
 
     it('renders an AddonSummaryCard with an addon', () => {
       const addon = fakeAddon;
-      dispatchAddon(addon);
+      loadAddon(addon);
       const root = render();
 
       const summary = root.find(AddonSummaryCard);
@@ -121,7 +143,7 @@ describe(__filename, () => {
     });
 
     it('does not paginate before reviews have loaded', () => {
-      dispatchAddon(fakeAddon);
+      loadAddon(fakeAddon);
       const root = render({ reviews: null });
 
       expect(root.find(Paginate)).toHaveLength(0);
@@ -171,7 +193,7 @@ describe(__filename, () => {
     });
 
     it('ignores other add-ons', () => {
-      dispatchAddon();
+      loadAddon();
       const root = render({
         params: { addonSlug: 'other-slug' },
       });
@@ -180,7 +202,7 @@ describe(__filename, () => {
 
     it('fetches reviews if needed', () => {
       const addon = { ...fakeAddon, slug: 'some-other-slug' };
-      dispatchAddon(addon);
+      loadAddon(addon);
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
 
@@ -202,7 +224,7 @@ describe(__filename, () => {
     it('does not fetch reviews if they are already loading', () => {
       const addon = { ...fakeAddon, slug: 'some-other-slug' };
       const errorHandler = createStubErrorHandler();
-      dispatchAddon(addon);
+      loadAddon(addon);
       store.dispatch(
         fetchReviews({
           addonSlug: addon.slug,
@@ -353,7 +375,7 @@ describe(__filename, () => {
 
     it('dispatches a view context for the add-on', () => {
       const addon = fakeAddon;
-      dispatchAddon(addon);
+      loadAddon(addon);
       const dispatch = sinon.stub(store, 'dispatch');
       render();
 
@@ -373,8 +395,8 @@ describe(__filename, () => {
 
     it('does not dispatch a view context for similar add-ons', () => {
       const addon1 = fakeAddon;
-      dispatchAddon(addon1);
-      dispatchAddonReviews();
+      loadAddon(addon1);
+      _setAddonReviews();
       const dispatch = sinon.stub(store, 'dispatch');
       const root = render();
 
@@ -391,7 +413,7 @@ describe(__filename, () => {
       const addon1 = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
       const addon2 = { ...addon1, type: ADDON_TYPE_THEME };
 
-      dispatchAddon(addon1);
+      loadAddon(addon1);
       const dispatch = sinon.stub(store, 'dispatch');
       const root = render();
 
@@ -472,8 +494,8 @@ describe(__filename, () => {
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      dispatchAddon(addon);
-      dispatchAddonReviews({ reviews });
+      loadAddon(addon);
+      _setAddonReviews({ reviews });
 
       const tree = render();
 
@@ -504,7 +526,7 @@ describe(__filename, () => {
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      dispatchAddonReviews({ reviews });
+      _setAddonReviews({ reviews });
 
       const root = render({
         params: { reviewId: reviews[0].id.toString() },
@@ -523,7 +545,7 @@ describe(__filename, () => {
     it('does not display a listing if the only review is also featured', () => {
       const reviewId = 1;
       const reviews = [{ ...fakeReview, id: reviewId }];
-      dispatchAddonReviews({ reviews });
+      _setAddonReviews({ reviews });
 
       const root = render({
         params: { reviewId: reviewId.toString() },
@@ -533,7 +555,7 @@ describe(__filename, () => {
     });
 
     it('renders a class name with its type', () => {
-      dispatchAddon({
+      loadAddon({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
       });
@@ -546,7 +568,7 @@ describe(__filename, () => {
 
     it('produces an addon URL', () => {
       const addon = fakeAddon;
-      dispatchAddon(addon);
+      loadAddon(addon);
       expect(
         render()
           .instance()
@@ -556,7 +578,7 @@ describe(__filename, () => {
 
     it('produces a URL to itself', () => {
       const addon = fakeAddon;
-      dispatchAddon(addon);
+      loadAddon(addon);
       expect(
         render()
           .instance()
@@ -573,7 +595,7 @@ describe(__filename, () => {
     });
 
     it('configures CardList with a count of text reviews', () => {
-      dispatchAddon({
+      loadAddon({
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
@@ -583,7 +605,7 @@ describe(__filename, () => {
           text_count: 1,
         },
       });
-      dispatchAddonReviews();
+      _setAddonReviews();
       const root = render();
 
       const cardList = root.find('.AddonReviewList-reviews-listing');
@@ -596,8 +618,8 @@ describe(__filename, () => {
         reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview),
         ...otherProps
       } = {}) => {
-        dispatchAddon();
-        dispatchAddonReviews({ reviews });
+        loadAddon();
+        _setAddonReviews({ reviews });
 
         return render(otherProps);
       };
@@ -651,7 +673,7 @@ describe(__filename, () => {
 
     it('renders an HTML title', () => {
       const addon = fakeAddon;
-      dispatchAddon(addon);
+      loadAddon(addon);
       const root = render();
       expect(root.find('title')).toHaveText(`Reviews for ${addon.name}`);
     });
@@ -666,8 +688,8 @@ describe(__filename, () => {
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      dispatchAddon(createInternalAddon(fakeAddon));
-      dispatchAddonReviews({ reviews });
+      loadAddon(createInternalAddon(fakeAddon));
+      _setAddonReviews({ reviews });
 
       const root = render();
 
@@ -679,8 +701,8 @@ describe(__filename, () => {
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      dispatchAddon(createInternalAddon(fakeAddon));
-      dispatchAddonReviews({ reviews });
+      loadAddon(createInternalAddon(fakeAddon));
+      _setAddonReviews({ reviews });
 
       const root = render({
         params: { reviewId: reviews[0].id.toString() },
@@ -692,11 +714,134 @@ describe(__filename, () => {
         'noindex, follow',
       );
     });
+
+    it('renders FeaturedAddonReview', () => {
+      const reviewId = 8765;
+      const addon = { ...fakeAddon };
+      loadAddon(addon);
+      _setAddonReviews({ reviews: [{ ...fakeReview }] });
+
+      const root = render({ params: { reviewId } });
+
+      const featured = root.find(FeaturedAddonReview);
+      expect(featured).toHaveProp('addon', createInternalAddon(addon));
+      expect(featured).toHaveProp('reviewId', reviewId);
+    });
+
+    it('dispatches fetchReviewPermissions on mount', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      loadAddon(addon);
+      dispatchSignInActions({ store, userId });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const root = render();
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchReviewPermissions({
+          addonId: addon.id,
+          errorHandlerId: root.instance().props.errorHandler.id,
+          userId,
+        }),
+      );
+    });
+
+    it('does not fetchReviewPermissions if they are already loading', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      loadAddon(addon);
+      dispatchSignInActions({ store, userId });
+
+      const fetchAction = fetchReviewPermissions({
+        addonId: addon.id,
+        errorHandlerId: 'any-error-handler',
+        userId,
+      });
+      store.dispatch(fetchAction);
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render();
+
+      sinon.assert.neverCalledWithMatch(dispatchSpy, {
+        type: fetchAction.type,
+      });
+    });
+
+    it('does not fetchReviewPermissions if they are already loaded', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      loadAddon(addon);
+      signInAndSetReviewPermissions({
+        addonId: addon.id,
+        userId,
+        canReplyToReviews: true,
+      });
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render();
+
+      const fetchAction = fetchReviewPermissions({
+        addonId: addon.id,
+        errorHandlerId: 'any-error-handler',
+        userId,
+      });
+      sinon.assert.neverCalledWithMatch(dispatchSpy, {
+        type: fetchAction.type,
+      });
+    });
+
+    it('sets siteUserCanReply when siteUser has permissions', () => {
+      const addon = { ...fakeAddon };
+      const reviews = [
+        { ...fakeReview, id: 1, score: 1 },
+        { ...fakeReview, id: 2, score: 2 },
+      ];
+      const userId = 99654;
+
+      loadAddon(addon);
+      _setAddonReviews({ reviews });
+      signInAndSetReviewPermissions({
+        addonId: addon.id,
+        userId,
+        canReplyToReviews: true,
+      });
+
+      const root = render();
+
+      const items = root.find(AddonReviewCard);
+      expect(items).toHaveLength(2);
+
+      expect(items.at(0)).toHaveProp('siteUserCanReply', true);
+      expect(items.at(1)).toHaveProp('siteUserCanReply', true);
+    });
+
+    it('passes siteUserCanReply to FeaturedAddonReview', () => {
+      const reviewId = 8765;
+      const addon = { ...fakeAddon };
+      loadAddon(addon);
+      _setAddonReviews({ reviews: [{ ...fakeReview }] });
+      signInAndSetReviewPermissions({
+        addonId: addon.id,
+        userId: 6745,
+        canReplyToReviews: true,
+      });
+
+      const root = render({ params: { reviewId } });
+
+      const featured = root.find(FeaturedAddonReview);
+      expect(featured).toHaveProp('siteUserCanReply', true);
+    });
   });
 
   it('renders a "description" meta tag', () => {
     const addon = createInternalAddon(fakeAddon);
-    dispatchAddon(addon);
+    loadAddon(addon);
 
     const root = render();
 

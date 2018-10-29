@@ -15,7 +15,6 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
-import { isAddonAuthor } from 'core/utils';
 import {
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
@@ -52,6 +51,7 @@ type Props = {|
   shortByLine?: boolean,
   showControls?: boolean,
   showRating?: boolean,
+  siteUserCanReply: ?boolean,
   // When true, this renders things *bigger* because the container is
   // more slim than usual, like the Rate Your Experience card.
   //
@@ -63,7 +63,6 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
-  _siteUserCanManageReplies?: () => boolean,
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
   dispatch: DispatchFunc,
@@ -72,6 +71,7 @@ type InternalProps = {|
   i18n: I18nType,
   replyingToReview: boolean,
   siteUser: UserType | null,
+  siteUserCanManageReplies: boolean,
   siteUserHasReplyPerm: boolean,
   submittingReply: boolean,
 |};
@@ -284,25 +284,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Keep review');
   }
 
-  siteUserCanManageReplies() {
-    const {
-      addon,
-      siteUser,
-      siteUserHasReplyPerm,
-      _siteUserCanManageReplies,
-    } = this.props;
-    if (_siteUserCanManageReplies) {
-      // Return a stub implementation for testing.
-      return _siteUserCanManageReplies();
-    }
-    if (!siteUser) {
-      return false;
-    }
-    return (
-      isAddonAuthor({ addon, userId: siteUser.id }) || siteUserHasReplyPerm
-    );
-  }
-
   renderReply() {
     const {
       addon,
@@ -311,6 +292,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       replyingToReview,
       review,
       slim,
+      siteUserCanReply,
       submittingReply,
     } = this.props;
 
@@ -345,6 +327,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             isReplyToReviewId={review.id}
             review={review.reply}
             slim={slim}
+            siteUserCanReply={siteUserCanReply}
           />
         )}
       </div>
@@ -367,6 +350,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       showControls,
       showRating,
       siteUser,
+      siteUserCanManageReplies,
       slim,
     } = this.props;
 
@@ -421,7 +405,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       review &&
       siteUser &&
       (review.userId === siteUser.id ||
-        (this.isReply() && this.siteUserCanManageReplies()));
+        (this.isReply() && siteUserCanManageReplies));
 
     const controls = controlsAreVisible ? (
       <div className="AddonReviewCard-allControls">
@@ -468,7 +452,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         !replyingToReview &&
         !review.reply &&
         !this.isReply() &&
-        this.siteUserCanManageReplies() &&
+        siteUserCanManageReplies &&
         siteUser &&
         review.userId !== siteUser.id ? (
           <a
@@ -571,13 +555,17 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
       submittingReply = view.submittingReply;
     }
   }
+
+  const siteUserHasReplyPerm = hasPermission(state, ADDONS_EDIT);
+
   return {
     beginningToDeleteReview,
     deletingReview,
     editingReview,
     replyingToReview,
     siteUser: getCurrentUser(state.users),
-    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
+    siteUserCanManageReplies: ownProps.siteUserCanReply || siteUserHasReplyPerm,
+    siteUserHasReplyPerm,
     submittingReply,
   };
 }
