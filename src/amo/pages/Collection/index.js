@@ -506,6 +506,25 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
+  getPageDescription() {
+    const { collection, i18n } = this.props;
+
+    invariant(collection, 'collection is required');
+
+    return i18n.sprintf(
+      collection.description
+        ? i18n.gettext(`Download and create Firefox collections to keep track
+          of favorite extensions and themes. Explore the
+          %(collectionName)s—%(collectionDescription)s.`)
+        : i18n.gettext(`Download and create Firefox collections to keep track
+          of favorite extensions and themes. Explore the %(collectionName)s.`),
+      {
+        collectionName: collection.name,
+        collectionDescription: collection.description,
+      },
+    );
+  }
+
   render() {
     const { collection, errorHandler } = this.props;
 
@@ -522,6 +541,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         {collection && (
           <Helmet>
             <title>{collection.name}</title>
+            <meta name="description" content={this.getPageDescription()} />
           </Helmet>
         )}
 
