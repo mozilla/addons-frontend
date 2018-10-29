@@ -54,8 +54,11 @@
 
 .Rating-star {
   background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
-  outline: none;
   padding: 0;
+
+  &:not(.focus-visible) {
+    outline: none;
+  }
 
   .Rating--small & {
     min-width: 13px;
