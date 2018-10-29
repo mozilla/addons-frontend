@@ -209,7 +209,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({}, { autoDispatchCategories: false });
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     root.setProps();
 
     sinon.assert.notCalled(fakeDispatch);
