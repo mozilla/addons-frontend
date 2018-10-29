@@ -965,6 +965,88 @@ describe(__filename, () => {
     expect(paginator).toHaveProp('pathname', `/user/${user.username}/`);
   });
 
+  it('renders a "description" meta tag when user is a developer', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: true,
+        is_artist: false,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`The profile of ${displayName}, an extension author`),
+    );
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`by ${displayName}`),
+    );
+  });
+
+  it('renders a "description" meta tag when user is an artist', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: false,
+        is_artist: true,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`The profile of ${displayName}, a theme author`),
+    );
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`by ${displayName}`),
+    );
+  });
+
+  it('renders a "description" meta tag when user is a developer and an artist', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: true,
+        is_artist: true,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(
+        `The profile of ${displayName}, an extension and theme author`,
+      ),
+    );
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`by ${displayName}`),
+    );
+  });
+
+  it('does not render a "description" meta tag when user is neither a developer nor an artist', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: false,
+        is_artist: false,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(0);
+  });
+
+  it('does not render a "description" meta tag when there is no user loaded', () => {
+    const root = renderUserProfile({ params: { username: 'not-ready' } });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(0);
+  });
+
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on match.params', () => {
       const username = 'foo';
