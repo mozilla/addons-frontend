@@ -199,14 +199,18 @@ export class AddonBase extends React.Component {
   }
 
   renderRatingsCard() {
-    const { RatingManager, addon, i18n, location, version } = this.props;
+    const { RatingManager, addon, i18n, location, currentVersion } = this.props;
     let content;
     let footerPropName = 'footerText';
 
     let ratingManager;
-    if (addon && version) {
+    if (addon && currentVersion) {
       ratingManager = (
-        <RatingManager addon={addon} location={location} version={version} />
+        <RatingManager
+          addon={addon}
+          location={location}
+          version={currentVersion}
+        />
       );
     } else {
       ratingManager = (
@@ -318,20 +322,20 @@ export class AddonBase extends React.Component {
   }
 
   renderVersionReleaseNotes() {
-    const { addon, i18n, version } = this.props;
+    const { addon, i18n, currentVersion } = this.props;
     if (!addon) {
       return null;
     }
 
-    if (!version || !version.releaseNotes) {
+    if (!currentVersion || !currentVersion.releaseNotes) {
       return null;
     }
 
     const header = i18n.sprintf(
       i18n.gettext('Release notes for %(addonVersion)s'),
-      { addonVersion: version.version },
+      { addonVersion: currentVersion.version },
     );
-    const releaseNotes = sanitizeUserHTML(version.releaseNotes);
+    const releaseNotes = sanitizeUserHTML(currentVersion.releaseNotes);
 
     const showMoreCardNotesName = 'AddonDescription-version-notes';
 
@@ -618,12 +622,12 @@ export function mapStateToProps(state, ownProps) {
 
   let addonsByAuthors;
   let installedAddon = {};
-  let version = null;
+  let currentVersion = null;
 
   if (addon) {
     addonsByAuthors = getAddonsForSlug(state.addonsByAuthors, addon.slug);
     installedAddon = state.installations[addon.guid] || {};
-    version = getVersionById({
+    currentVersion = getVersionById({
       id: addon.currentVersionId,
       state: state.versions,
     });
@@ -640,7 +644,7 @@ export function mapStateToProps(state, ownProps) {
     // `withInstallHelpers()` HOC.
     addon,
     userAgentInfo: state.api.userAgentInfo,
-    version,
+    currentVersion,
   };
 }
 
