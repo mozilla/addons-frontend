@@ -978,7 +978,7 @@ describe(__filename, () => {
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      new RegExp(`The profile of ${displayName}, an extension author`),
+      new RegExp(`The profile of ${displayName}, Firefox extension author.`),
     );
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       new RegExp(`by ${displayName}`),
@@ -998,7 +998,7 @@ describe(__filename, () => {
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      new RegExp(`The profile of ${displayName}, a theme author`),
+      new RegExp(`The profile of ${displayName}, Firefox theme author.`),
     );
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       new RegExp(`by ${displayName}`),
@@ -1019,7 +1019,7 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       new RegExp(
-        `The profile of ${displayName}, an extension and theme author`,
+        `The profile of ${displayName}, a Firefox extension and theme author`,
       ),
     );
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
