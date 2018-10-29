@@ -76,8 +76,9 @@ export class CategoriesBase extends React.Component<InternalProps> {
     dispatch(setViewContext(addonType));
   }
 
-  componentWillReceiveProps({ addonType: newAddonType }: InternalProps) {
-    const { addonType: oldAddonType, dispatch } = this.props;
+  componentDidUpdate({ addonType: oldAddonType }: InternalProps) {
+    const { addonType: newAddonType, dispatch } = this.props;
+
     if (newAddonType && oldAddonType !== newAddonType) {
       dispatch(setViewContext(newAddonType));
     }
