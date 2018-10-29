@@ -257,16 +257,16 @@ export class WithInstallHelpers extends React.Component<
   };
 
   componentDidMount() {
-    this.setCurrentStatus(this.props);
+    this.setCurrentStatus();
   }
 
-  componentWillReceiveProps(nextProps: WithInstallHelpersInternalProps) {
-    const oldGuid = this.props.addon ? this.props.addon.guid : null;
-    const newGuid = nextProps.addon ? nextProps.addon.guid : null;
+  componentDidUpdate(prevProps: WithInstallHelpersInternalProps) {
+    const oldGuid = prevProps.addon ? prevProps.addon.guid : null;
+    const newGuid = this.props.addon ? this.props.addon.guid : null;
 
     if (newGuid && newGuid !== oldGuid) {
       log.info('Updating add-on status');
-      this.setCurrentStatus(nextProps);
+      this.setCurrentStatus();
     }
   }
 
@@ -286,7 +286,7 @@ export class WithInstallHelpers extends React.Component<
     return false;
   }
 
-  setCurrentStatus(newProps: WithInstallHelpersInternalProps = this.props) {
+  setCurrentStatus() {
     const {
       _addonManager,
       addon,
@@ -294,10 +294,7 @@ export class WithInstallHelpers extends React.Component<
       dispatch,
       location,
       userAgentInfo,
-    } = {
-      ...this.props,
-      ...newProps,
-    };
+    } = this.props;
 
     if (!_addonManager.hasAddonManager()) {
       log.info('No addon manager, cannot set add-on status');
