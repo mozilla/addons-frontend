@@ -205,6 +205,12 @@ describe(__filename, () => {
     expect(link.children()).toIncludeText('justText');
   });
 
+  it('does not render any license info if the license is null', () => {
+    store.dispatch(_loadVersions({ license: null }));
+    const root = render({});
+    expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
+  });
+
   it('does not prefix a license link with the add-ons URL', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3339
     store.dispatch(

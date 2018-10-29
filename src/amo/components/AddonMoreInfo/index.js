@@ -31,12 +31,18 @@ type InternalProps = {|
   hasStatsPermission: boolean,
   i18n: I18nType,
   userId: number | null,
-  version: AddonVersionType | null,
+  currentVersion: AddonVersionType | null,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
   listContent() {
-    const { addon, hasStatsPermission, i18n, userId, version } = this.props;
+    const {
+      addon,
+      hasStatsPermission,
+      i18n,
+      userId,
+      currentVersion,
+    } = this.props;
 
     if (!addon) {
       return this.renderDefinitions({
@@ -100,7 +106,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     }
 
     const lastUpdated = addon.last_updated;
-    const license = version && version.license;
+    const license = currentVersion && currentVersion.license;
     let versionLicenseLink = null;
 
     if (license) {
@@ -124,7 +130,9 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       supportEmail,
       statsLink,
       version:
-        version && addonHasVersionHistory(addon) ? version.version : null,
+        currentVersion && addonHasVersionHistory(addon)
+          ? currentVersion.version
+          : null,
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
             // translators: This will output, in English:
@@ -274,7 +282,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   return {
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
-    version:
+    currentVersion:
       addon && addon.currentVersionId
         ? getVersionById({ id: addon.currentVersionId, state: state.versions })
         : null,
