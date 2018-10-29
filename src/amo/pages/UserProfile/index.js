@@ -114,18 +114,19 @@ export class UserProfileBase extends React.Component<InternalProps> {
     }
   }
 
-  componentWillReceiveProps({
-    isOwner,
-    location: newLocation,
-    match: { params: newParams },
-    reviews,
-    user,
-  }: InternalProps) {
+  componentDidUpdate(prevProps: InternalProps) {
+    const {
+      location: oldLocation,
+      match: { params: oldParams },
+    } = prevProps;
     const {
       dispatch,
       errorHandler,
-      location: oldLocation,
-      match: { params: oldParams },
+      isOwner,
+      location: newLocation,
+      match: { params: newParams },
+      reviews,
+      user,
     } = this.props;
 
     if (oldParams.username !== newParams.username) {
