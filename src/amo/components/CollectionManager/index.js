@@ -54,29 +54,53 @@ type InternalProps = {|
 |};
 
 type State = {|
-  customSlug?: boolean,
-  description?: string | null,
-  name?: string | null,
-  slug?: string | null,
+  collectionId: number | null,
+  customSlug: boolean,
+  description: string,
+  name: string,
+  slug: string,
 |};
 
 export class CollectionManagerBase extends React.Component<
   InternalProps,
   State,
 > {
-  constructor(props: InternalProps) {
-    super(props);
-    this.state = this.propsToState(props);
+  static getDerivedStateFromProps(props: InternalProps, state: State) {
+    if (props.collection && props.collection.id !== state.collectionId) {
+      // Only reset the form when receiving a collection that the user is not
+      // already editing. This prevents clearing the form in a few scenarios
+      // such as pressing the submit button.
+
+      // Decode HTML entities so the user sees real symbols in the form.
+      return {
+        collectionId: props.collection.id,
+        customSlug: false,
+        description: props.collection
+          ? decodeHtmlEntities(props.collection.description)
+          : '',
+        name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
+        slug: props.collection ? props.collection.slug : '',
+      };
+    }
+
+    return null;
   }
 
-  componentWillReceiveProps(props: InternalProps) {
-    const existingId = this.props.collection && this.props.collection.id;
-    if (props.collection && props.collection.id !== existingId) {
-      // Only reset the form when receiving a collection that the
-      // user is not already editing. This prevents clearing the form
-      // in a few scenarios such as pressing the submit button.
-      this.setState(this.propsToState(props));
-    }
+  constructor(props: InternalProps) {
+    super(props);
+
+    this.state = {
+      // This state property is used in `getDerivedStateFromProps()`, see:
+      // https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#alternative-1-reset-uncontrolled-component-with-an-id-prop
+      // eslint-disable-next-line react/no-unused-state
+      collectionId: props.collection ? props.collection.id : null,
+      customSlug: false,
+      description: props.collection
+        ? decodeHtmlEntities(props.collection.description)
+        : '',
+      name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
+      slug: props.collection ? props.collection.slug : '',
+    };
   }
 
   onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
@@ -184,18 +208,6 @@ export class CollectionManagerBase extends React.Component<
       this.setState({ [name]: value });
     }
   };
-
-  propsToState(props: InternalProps) {
-    // Decode HTML entities so the user sees real symbols in the form.
-    return {
-      customSlug: false,
-      description: props.collection
-        ? decodeHtmlEntities(props.collection.description)
-        : '',
-      name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
-      slug: props.collection ? props.collection.slug : '',
-    };
-  }
 
   render() {
     const {
