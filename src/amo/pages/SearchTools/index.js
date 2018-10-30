@@ -29,8 +29,8 @@ export class SearchToolsBase extends React.Component<InternalProps> {
         <Helmet>
           <meta
             name="description"
-            content={i18n.gettext(`Firefox extensions that customize the way
-              you search—everything from privacy-enhanced searching to
+            content={i18n.gettext(`Download Firefox extensions to customize the
+              way you search—everything from privacy-enhanced searching to
               website-specific searches, image searching, and more.`)}
           />
         </Helmet>

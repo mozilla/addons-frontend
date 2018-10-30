@@ -624,8 +624,8 @@ describe(__filename, () => {
   });
 
   it.each([
-    [ADDON_TYPE_EXTENSION, /Extensions add/],
-    [ADDON_TYPE_THEME, /Change how Firefox looks/],
+    [ADDON_TYPE_EXTENSION, /Download Firefox Extensions to add features/],
+    [ADDON_TYPE_THEME, /Download themes to change/],
   ])('renders a "description" meta tag for %s', (addonType, partialContent) => {
     const root = render({
       match: {

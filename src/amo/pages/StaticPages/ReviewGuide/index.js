@@ -36,6 +36,12 @@ export class ReviewGuideBase extends React.Component<Props> {
             rel="canonical"
             href={getCanonicalURL({ locationPathname, _config })}
           />
+          <meta
+            name="description"
+            content={i18n.gettext(`Guidelines, tips, and Frequently Asked
+              Questions to leave a review for the extensions and themes you’ve
+              downloaded and used on Firefox.`)}
+          />
         </Helmet>
 
         <div className="StaticPageWrapper">

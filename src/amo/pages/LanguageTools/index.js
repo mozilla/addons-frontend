@@ -169,10 +169,9 @@ export class LanguageToolsBase extends React.Component<Props> {
           />
           <meta
             name="description"
-            content={i18n.gettext(`Dictionaries and language pack extensions
-              for Firefox. Dictionaries add a new language option to your
-              browser spell-checker. Language packs change the browser's
-              interface language, including menu options and settings.`)}
+            content={i18n.gettext(`Download Firefox dictionaries and language
+              pack extensions. Add a new language option to your browser
+              spell-checker, or change the browser's interface language.`)}
           />
         </Helmet>
 

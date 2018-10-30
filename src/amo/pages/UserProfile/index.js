@@ -230,6 +230,38 @@ export class UserProfileBase extends React.Component<InternalProps> {
     );
   }
 
+  renderMetaDescription() {
+    const { i18n, user } = this.props;
+
+    if (!user) {
+      return null;
+    }
+
+    let description;
+    if (user.is_addon_developer && user.is_artist) {
+      description = i18n.gettext(`The profile of %(user)s, a Firefox extension
+        and theme author. Find other apps by %(user)s, including average
+        ratings, tenure, and the option to report issues.`);
+    } else if (user.is_addon_developer) {
+      description = i18n.gettext(`The profile of %(user)s, Firefox extension
+        author. Find other extensions by %(user)s, including average ratings,
+        tenure, and the option to report issues.`);
+    } else if (user.is_artist) {
+      description = i18n.gettext(`The profile of %(user)s, Firefox theme
+        author. Find other themes by %(user)s, including average ratings,
+        tenure, and the option to report issues.`);
+    } else {
+      return null;
+    }
+
+    return (
+      <meta
+        name="description"
+        content={i18n.sprintf(description, { user: user.display_name })}
+      />
+    );
+  }
+
   render() {
     const {
       canEditProfile,
@@ -290,6 +322,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       <div className="UserProfile">
         <Helmet>
           <title>{userProfileTitle}</title>
+          {this.renderMetaDescription()}
         </Helmet>
 
         {errorMessage}
