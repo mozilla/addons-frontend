@@ -8,6 +8,7 @@ import Icon from 'ui/components/Icon';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
+import type { HeroSectionsType } from 'ui/components/Hero';
 
 import './styles.scss';
 
@@ -60,7 +61,7 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
     );
   }
 
-  getHeroSections() {
+  getHeroSections(): HeroSectionsType {
     return this.getHeroes().map((hero) => {
       const { title, icon, url } = hero;
 

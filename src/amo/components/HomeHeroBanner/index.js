@@ -12,6 +12,7 @@ import HeroSection from 'ui/components/HeroSection';
 import { withExperiment } from 'core/withExperiment';
 import type { I18nType } from 'core/types/i18n';
 import type { WithExperimentInjectedProps } from 'core/withExperiment';
+import type { HeroSectionsType } from 'ui/components/Hero';
 
 import './styles.scss';
 
@@ -290,7 +291,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     ];
   }
 
-  sections() {
+  sections(): HeroSectionsType {
     return this.getHeroes().map((hero) => {
       const { description, title, url } = hero;
 

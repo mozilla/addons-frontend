@@ -120,7 +120,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     this._setState({ hoveringOverStar: null });
   };
 
-  renderRatings() {
+  renderRatings(): Array<React.Node> {
     const { readOnly } = this.props;
     const { hoveringOverStar } = this.state;
     // Accept falsey values as if they are zeroes.
