@@ -25,6 +25,7 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
+import LoadingText from 'ui/components/LoadingText';
 import {
   createContextWithFakeRouter,
   createStubErrorHandler,
@@ -254,14 +255,14 @@ describe(__filename, () => {
     expect(root.html()).toBeNull();
   });
 
-  it('should render nothing if add-ons are null', () => {
+  it('should render a loading state on first instantiation', () => {
     const root = render({
       addons: null,
       authorIds: [randomAuthorId2],
     });
 
-    expect(root).not.toHaveClassName('AddonsByAuthorsCard');
-    expect(root.html()).toBeNull();
+    expect(root).toHaveClassName('AddonsByAuthorsCard');
+    expect(root).toHaveProp('loading', true);
   });
 
   it('should render a card with loading state if loading', () => {
@@ -997,5 +998,32 @@ describe(__filename, () => {
     });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('renders a LoadingText header when authorIds is null', () => {
+    const root = render({ authorIds: null });
+
+    expect(root.find(AddonsCard)).toHaveProp('header', <LoadingText />);
+  });
+
+  it('does not dispatch an action if authorIds is null', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ authorIds: null, store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not dispatch an action if authorIds is null on update', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({ store });
+    dispatchSpy.resetHistory();
+
+    root.setProps({ authorIds: null });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 });
