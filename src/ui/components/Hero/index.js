@@ -12,10 +12,12 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
+export type HeroSectionsType = Array<React.Element<typeof HeroSection>>;
+
 type Props = {|
   name: string,
   random?: boolean,
-  sections: Array<React.Element<typeof HeroSection>>,
+  sections: HeroSectionsType,
 |};
 
 type InternalProps = {|

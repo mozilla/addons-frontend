@@ -12,18 +12,13 @@ import HeroSection from 'ui/components/HeroSection';
 import { withExperiment } from 'core/withExperiment';
 import type { I18nType } from 'core/types/i18n';
 import type { WithExperimentInjectedProps } from 'core/withExperiment';
+import type { HeroSectionsType } from 'ui/components/Hero';
 
 import './styles.scss';
 
 type InternalProps = {|
   ...WithExperimentInjectedProps,
   i18n: I18nType,
-|};
-
-type HeroType = {|
-  title: string,
-  description: string,
-  url: string,
 |};
 
 export const AB_HOME_HERO_EXPERIMENT = 'home_hero';
@@ -44,7 +39,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     log.info('[HomeHeroBanner.componentDidMount] variant is:', variant);
   }
 
-  getHeroes(): Array<HeroType> {
+  getHeroes() {
     const { i18n } = this.props;
 
     return [
@@ -296,8 +291,8 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     ];
   }
 
-  sections() {
-    return this.getHeroes().map((hero: HeroType) => {
+  sections(): HeroSectionsType {
+    return this.getHeroes().map((hero) => {
       const { description, title, url } = hero;
 
       return (
