@@ -475,9 +475,15 @@ describe(__filename, () => {
 
       it('does not overwrite license and releaseNotes', () => {
         const slug = 'some-slug';
+        const testVersion = {
+          ...version,
+          license: { name: 'test name', url: 'https://addons.mozilla.org/' },
+          release_notes: 'some release notes',
+        };
+
         let state = versionsReducer(
           undefined,
-          loadVersions({ slug, versions: [version] }),
+          loadVersions({ slug, versions: [testVersion] }),
         );
 
         state = versionsReducer(
@@ -499,7 +505,7 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersion(testVersion));
       });
     });
 

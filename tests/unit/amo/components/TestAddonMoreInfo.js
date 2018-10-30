@@ -164,30 +164,30 @@ describe(__filename, () => {
   });
 
   const _loadVersions = (versionProps = {}) => {
-    return loadVersions({
-      slug: fakeAddon.slug,
-      versions: [
-        {
-          ...fakeVersion,
-          ...versionProps,
-        },
-      ],
-    });
+    store.dispatch(
+      loadVersions({
+        slug: fakeAddon.slug,
+        versions: [
+          {
+            ...fakeVersion,
+            ...versionProps,
+          },
+        ],
+      }),
+    );
   };
 
   it('renders the version number of an add-on', () => {
-    store.dispatch(_loadVersions({ version: '2.0.1' }));
+    _loadVersions({ version: '2.0.1' });
     const root = render({});
 
     expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
   });
 
   it('renders the license and link', () => {
-    store.dispatch(
-      _loadVersions({
-        license: { name: 'tofulicense', url: 'http://license.com/' },
-      }),
-    );
+    _loadVersions({
+      license: { name: 'tofulicense', url: 'http://license.com/' },
+    });
     const root = render({});
     const link = root.find('.AddonMoreInfo-license-link');
 
@@ -197,7 +197,7 @@ describe(__filename, () => {
   });
 
   it('renders the license info without a link if the url is null', () => {
-    store.dispatch(_loadVersions({ license: { name: 'justText', url: null } }));
+    _loadVersions({ license: { name: 'justText', url: null } });
     const root = render({});
     expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
 
@@ -206,18 +206,16 @@ describe(__filename, () => {
   });
 
   it('does not render any license info if the license is null', () => {
-    store.dispatch(_loadVersions({ license: null }));
+    _loadVersions({ license: null });
     const root = render({});
     expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
   });
 
   it('does not prefix a license link with the add-ons URL', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3339
-    store.dispatch(
-      _loadVersions({
-        license: { name: 'tofulicense', url: 'www.license.com/' },
-      }),
-    );
+    _loadVersions({
+      license: { name: 'tofulicense', url: 'www.license.com/' },
+    });
     const root = render({});
     const link = root.find('.AddonMoreInfo-license-link');
 
