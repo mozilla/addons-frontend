@@ -473,8 +473,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       >
         <div className="AddonReviewCard-container">
           {errorHandler.renderErrorIfPresent()}
-          {review &&
-          editingReview ? (
+          {review && editingReview ? (
             <AddonReviewManager
               onCancel={this.onCancelEditReview}
               puffyButtons={slim}
