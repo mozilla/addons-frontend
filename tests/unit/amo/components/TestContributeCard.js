@@ -48,7 +48,7 @@ describe(__filename, () => {
   });
 
   it('does not render anything if add-on has no contributions URL', () => {
-    const root = render({ addon: createAddon({ contributions_url: null }) });
+    const root = render({ addon: createAddon({ contributions_url: '' }) });
     expect(root.find(Card)).toHaveLength(0);
   });
 
