@@ -23,6 +23,7 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
+import { getVersionById } from 'amo/reducers/versions';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   fetchAddon,
@@ -198,17 +199,17 @@ export class AddonBase extends React.Component {
   }
 
   renderRatingsCard() {
-    const { RatingManager, addon, i18n, location } = this.props;
+    const { RatingManager, addon, i18n, location, currentVersion } = this.props;
     let content;
     let footerPropName = 'footerText';
 
     let ratingManager;
-    if (addon && addon.current_version) {
+    if (addon && currentVersion) {
       ratingManager = (
         <RatingManager
           addon={addon}
           location={location}
-          version={addon.current_version}
+          version={currentVersion}
         />
       );
     } else {
@@ -321,13 +322,12 @@ export class AddonBase extends React.Component {
   }
 
   renderVersionReleaseNotes() {
-    const { addon, i18n } = this.props;
+    const { addon, i18n, currentVersion } = this.props;
     if (!addon) {
       return null;
     }
 
-    const currentVersion = addon.current_version;
-    if (!currentVersion || !currentVersion.release_notes) {
+    if (!currentVersion || !currentVersion.releaseNotes) {
       return null;
     }
 
@@ -335,7 +335,7 @@ export class AddonBase extends React.Component {
       i18n.gettext('Release notes for %(addonVersion)s'),
       { addonVersion: currentVersion.version },
     );
-    const releaseNotes = sanitizeUserHTML(currentVersion.release_notes);
+    const releaseNotes = sanitizeUserHTML(currentVersion.releaseNotes);
 
     const showMoreCardNotesName = 'AddonDescription-version-notes';
 
@@ -622,10 +622,15 @@ export function mapStateToProps(state, ownProps) {
 
   let addonsByAuthors;
   let installedAddon = {};
+  let currentVersion = null;
 
   if (addon) {
     addonsByAuthors = getAddonsForSlug(state.addonsByAuthors, addon.slug);
     installedAddon = state.installations[addon.guid] || {};
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
   }
 
   return {
@@ -639,6 +644,7 @@ export function mapStateToProps(state, ownProps) {
     // `withInstallHelpers()` HOC.
     addon,
     userAgentInfo: state.api.userAgentInfo,
+    currentVersion,
   };
 }
 
