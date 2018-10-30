@@ -2,11 +2,7 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import type {
-  AddonType,
-  ExternalAddonType,
-  PartialExternalAddonType,
-} from 'core/types/addons';
+import type { AddonType, PartialExternalAddonType } from 'core/types/addons';
 
 export const ABORT_FETCH_RECOMMENDATIONS: 'ABORT_FETCH_RECOMMENDATIONS' =
   'ABORT_FETCH_RECOMMENDATIONS';
