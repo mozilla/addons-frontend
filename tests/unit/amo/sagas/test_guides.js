@@ -1,6 +1,9 @@
 import SagaTester from 'redux-saga-tester';
 
-import { fetchGuidesAddons } from 'amo/reducers/guides';
+import {
+  fetchGuidesAddons,
+  updateGuideAddonsLoadedStatus,
+} from 'amo/reducers/guides';
 import * as searchApi from 'core/api/search';
 import addonsReducer, { loadAddonResults } from 'core/reducers/addons';
 import guidesSaga from 'amo/sagas/guides';
@@ -26,7 +29,7 @@ describe(__filename, () => {
       initialState,
       reducers: {
         api: apiReducer,
-        guide: addonsReducer,
+        guides: addonsReducer,
       },
     });
     sagaTester.start(guidesSaga);
@@ -62,9 +65,14 @@ describe(__filename, () => {
       const { results } = guideAddons;
 
       const expectedAction = loadAddonResults({ addons: results });
-
       const loadAction = await sagaTester.waitFor(expectedAction.type);
       expect(loadAction).toEqual(expectedAction);
+
+      const expectedUpdateAction = updateGuideAddonsLoadedStatus({
+        loaded: true,
+      });
+      const updateAction = await sagaTester.waitFor(expectedUpdateAction.type);
+      expect(updateAction).toEqual(expectedUpdateAction);
       mockApi.verify();
     });
 
@@ -72,7 +80,6 @@ describe(__filename, () => {
       _fetchGuidesAddons({ guid });
 
       const expectedAction = errorHandler.createClearingAction();
-
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
     });
@@ -90,6 +97,23 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
+    });
+
+    it('sets loaded flag to false when there is an error', async () => {
+      const error = new Error('some API error');
+
+      mockApi
+        .expects('search')
+        .once()
+        .rejects(error);
+
+      _fetchGuidesAddons({ guid });
+
+      const expectedUpdateAction = updateGuideAddonsLoadedStatus({
+        loaded: false,
+      });
+      const updateAction = await sagaTester.waitFor(expectedUpdateAction.type);
+      expect(updateAction).toEqual(expectedUpdateAction);
     });
   });
 });

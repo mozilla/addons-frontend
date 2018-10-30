@@ -1,7 +1,10 @@
 /* @flow */
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { search as searchApi } from 'core/api/search';
-import { FETCH_GUIDES_ADDONS } from 'amo/reducers/guides';
+import {
+  FETCH_GUIDES_ADDONS,
+  updateGuideAddonsLoadedStatus,
+} from 'amo/reducers/guides';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { loadAddonResults } from 'core/reducers/addons';
@@ -29,8 +32,10 @@ export function* fetchGuidesAddons({
     const { results } = guideAddons;
 
     yield put(loadAddonResults({ addons: results }));
+    yield put(updateGuideAddonsLoadedStatus({ loaded: true }));
   } catch (error) {
     log.warn('Search for guide addons failed:', error);
+    yield put(updateGuideAddonsLoadedStatus({ loaded: false }));
     yield put(errorHandler.createErrorAction(error));
   }
 }
