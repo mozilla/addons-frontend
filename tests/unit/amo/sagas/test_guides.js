@@ -1,10 +1,8 @@
 import SagaTester from 'redux-saga-tester';
 
+import { fetchGuidesAddons } from 'amo/reducers/guides';
 import * as searchApi from 'core/api/search';
-import guidesReducer, {
-  fetchGuidesAddons,
-  loadGuidesAddons,
-} from 'amo/reducers/guides';
+import addonsReducer, { loadAddonResults } from 'core/reducers/addons';
 import guidesSaga from 'amo/sagas/guides';
 import apiReducer from 'core/reducers/api';
 import {
@@ -28,7 +26,7 @@ describe(__filename, () => {
       initialState,
       reducers: {
         api: apiReducer,
-        guide: guidesReducer,
+        guide: addonsReducer,
       },
     });
     sagaTester.start(guidesSaga);
@@ -63,7 +61,7 @@ describe(__filename, () => {
 
       const { results } = guideAddons;
 
-      const expectedAction = loadGuidesAddons({ addons: results });
+      const expectedAction = loadAddonResults({ addons: results });
 
       const loadAction = await sagaTester.waitFor(expectedAction.type);
       expect(loadAction).toEqual(expectedAction);
