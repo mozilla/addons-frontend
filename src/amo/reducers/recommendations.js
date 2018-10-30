@@ -2,7 +2,11 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import type {
+  AddonType,
+  ExternalAddonType,
+  PartialExternalAddonType,
+} from 'core/types/addons';
 
 export const ABORT_FETCH_RECOMMENDATIONS: 'ABORT_FETCH_RECOMMENDATIONS' =
   'ABORT_FETCH_RECOMMENDATIONS';
@@ -83,7 +87,7 @@ export const fetchRecommendations = ({
 };
 
 export type LoadRecommendationsParams = {|
-  addons: Array<ExternalAddonType>,
+  addons: Array<PartialExternalAddonType>,
   fallbackReason?: FallbackReasonType,
   guid: string,
   outcome: OutcomeType,

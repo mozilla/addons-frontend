@@ -22,6 +22,8 @@ import type {
   ExternalAddonType,
   ExternalAddonVersionType,
   PlatformFilesType,
+  PartialExternalAddonType,
+  PartialExternalAddonVersionType,
   ThemeData,
 } from 'core/types/addons';
 import type { AppState as DiscoAppState } from 'disco/store';
@@ -156,7 +158,9 @@ export const loadAddonInfo = ({
   };
 };
 
-export function getGuid(addon: ExternalAddonType): string {
+export function getGuid(
+  addon: ExternalAddonType | PartialExternalAddonType,
+): string {
   if (addon.type === ADDON_TYPE_THEME) {
     // This mimics how Firefox appends @personas.mozilla.org internally.
     // It's needed to look up themes in mozAddonManager.
@@ -166,7 +170,7 @@ export function getGuid(addon: ExternalAddonType): string {
 }
 
 export function createInternalThemeData(
-  apiAddon: ExternalAddonType,
+  apiAddon: ExternalAddonType | PartialExternalAddonType,
 ): ThemeData | null {
   if (!apiAddon.theme_data) {
     return null;
@@ -201,7 +205,7 @@ export const defaultPlatformFiles: PlatformFilesType = Object.freeze({
 });
 
 export const createPlatformFiles = (
-  version?: ExternalAddonVersionType,
+  version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
 ): PlatformFilesType => {
   const platformFiles = { ...defaultPlatformFiles };
 
@@ -220,7 +224,9 @@ export const createPlatformFiles = (
   return platformFiles;
 };
 
-export function createInternalAddon(apiAddon: ExternalAddonType): AddonType {
+export function createInternalAddon(
+  apiAddon: ExternalAddonType | PartialExternalAddonType,
+): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,

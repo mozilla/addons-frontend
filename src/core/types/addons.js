@@ -36,7 +36,7 @@ export type AddonCompatibilityType = {|
   |},
 |};
 
-type PartialExternalAddonVersionType = {|
+export type PartialExternalAddonVersionType = {|
   channel: string,
   compatibility?: AddonCompatibilityType,
   edit_url: string,
@@ -53,7 +53,7 @@ type PartialExternalAddonVersionType = {|
 export type ExternalAddonVersionType = {|
   ...PartialExternalAddonVersionType,
   // The `text` property is omitted from addon.current_version.license.
-  license?: { name: string, url: string },
+  license: { name: string, url: string },
   release_notes?: string,
 |};
 
@@ -117,7 +117,7 @@ export type ExternalAddonType = {|
   created: Date,
   // If you make an API request as an admin for an incomplete
   // add-on (status=0) then the current_version could be null.
-  current_version?: ExternalAddonVersionType,
+  current_version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
   default_locale: string,
   description?: string,
   edit_url?: string,
@@ -156,6 +156,11 @@ export type ExternalAddonType = {|
   type: AddonTypeType,
   url: string,
   weekly_downloads: number,
+|};
+
+export type PartialExternalAddonType = {|
+  ...ExternalAddonType,
+  current_version?: PartialExternalAddonVersionType,
 |};
 
 export type PlatformFilesType = {|
