@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 19:51+0000\n"
+"PO-Revision-Date: 2018-10-30 19:55+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2042,11 +2042,11 @@ msgstr "Pytajće rozšěrjenja a drasty, zo byšće je swojej zběrce přidał."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Sćehńće a wutworće zběrki Firefox, zo byšće přehlad wo najlubše rozšěrjenja a draty wobchował. Wuslědźće %(collectionName)s — %(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Sćehńće a wutworće zběrki Firefox, zo byšće přehlad wo najlubše rozšěrjenja a draty wobchował. Wuslědźće %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
