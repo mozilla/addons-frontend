@@ -148,15 +148,14 @@ export class AddonBase extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
+    const {
+      addon: oldAddon,
+      match: { params: oldParams },
+    } = prevProps;
     const {
       addon: newAddon,
       addonIsLoading,
-      match: { params: newParams },
-    } = nextProps;
-
-    const {
-      addon: oldAddon,
       dispatch,
       errorHandler,
       match: { params },
@@ -167,8 +166,8 @@ export class AddonBase extends React.Component {
       dispatch(setViewContext(newAddon.type));
     }
 
-    if (!addonIsLoading && (!newAddon || params.slug !== newParams.slug)) {
-      dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
+    if (!addonIsLoading && (!newAddon || oldParams.slug !== params.slug)) {
+      dispatch(fetchAddon({ slug: params.slug, errorHandler }));
     }
   }
 
