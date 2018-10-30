@@ -403,6 +403,7 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
+      currentVersion,
       defaultInstallSource,
       enable,
       errorHandler,
@@ -597,7 +598,7 @@ export class AddonBase extends React.Component {
 
           <AddonMoreInfo addon={addon} />
 
-          <PermissionsCard addon={addon} />
+          <PermissionsCard version={currentVersion} />
 
           {this.renderVersionReleaseNotes()}
 

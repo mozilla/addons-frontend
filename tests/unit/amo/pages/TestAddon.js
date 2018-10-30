@@ -1072,14 +1072,14 @@ describe(__filename, () => {
   });
 
   it('renders permissions for the add-on', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = shallowRender({ addon });
-    expect(root.find(PermissionsCard)).toHaveProp('addon', addon);
+    const currentVersion = createInternalVersion(fakeVersion);
+    const root = shallowRender({ currentVersion });
+    expect(root.find(PermissionsCard)).toHaveProp('version', currentVersion);
   });
 
-  it('renders permissions with no add-on', () => {
-    const root = shallowRender({ addon: null });
-    expect(root.find(PermissionsCard)).toHaveProp('addon', null);
+  it('renders permissions with no version', () => {
+    const root = shallowRender({ currentVersion: null });
+    expect(root.find(PermissionsCard)).toHaveProp('version', null);
   });
 
   it('renders recommendations for an extension', () => {

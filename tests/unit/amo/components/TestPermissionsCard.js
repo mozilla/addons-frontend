@@ -3,13 +3,12 @@ import * as React from 'react';
 import PermissionsCard, {
   PermissionsCardBase,
 } from 'amo/components/PermissionsCard';
-import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalVersion } from 'amo/reducers/versions';
 import {
-  createFakeAddon,
   dispatchClientMetadata,
-  fakeAddon,
   fakeI18n,
   fakePlatformFile,
+  fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
@@ -22,23 +21,22 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  const createAddonWithPermissions = (permissions) => {
-    return createInternalAddon(
-      createFakeAddon({
-        files: [
-          {
-            ...fakePlatformFile,
-            permissions,
-          },
-        ],
-      }),
-    );
+  const createVersionWithPermissions = (permissions) => {
+    return createInternalVersion({
+      ...fakeVersion,
+      files: [
+        {
+          ...fakePlatformFile,
+          permissions,
+        },
+      ],
+    });
   };
 
   function render(props = {}) {
     return shallowUntilTarget(
       <PermissionsCard
-        addon={props.addon || createInternalAddon(fakeAddon)}
+        version={props.version || createInternalVersion(fakeVersion)}
         i18n={fakeI18n()}
         store={store}
         {...props}
@@ -48,19 +46,19 @@ describe(__filename, () => {
   }
 
   describe('no permissions', () => {
-    it('renders nothing without an addon', () => {
-      const root = render({ addon: null });
+    it('renders nothing without a version', () => {
+      const root = render({ version: null });
       expect(root).not.toHaveClassName('PermissionsCard');
     });
 
-    it('renders nothing for an addon with no permissions', () => {
-      const root = render({ addon: createAddonWithPermissions([]) });
+    it('renders nothing for a version with no permissions', () => {
+      const root = render({ version: createVersionWithPermissions([]) });
       expect(root).not.toHaveClassName('PermissionsCard');
     });
 
-    it('renders nothing for an addon with no displayable permissions', () => {
+    it('renders nothing for a version with no displayable permissions', () => {
       const root = render({
-        addon: createAddonWithPermissions(['activeTab']),
+        version: createVersionWithPermissions(['activeTab']),
       });
       expect(root).not.toHaveClassName('PermissionsCard');
     });
@@ -70,7 +68,7 @@ describe(__filename, () => {
     it('renders itself', () => {
       const permission = 'bookmarks';
       const root = render({
-        addon: createAddonWithPermissions([permission]),
+        version: createVersionWithPermissions([permission]),
       });
       expect(root).toHaveClassName('PermissionsCard');
       expect(root.find('p')).toHaveClassName('PermissionsCard-subhead');

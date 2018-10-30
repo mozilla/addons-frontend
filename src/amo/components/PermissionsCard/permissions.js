@@ -5,9 +5,15 @@ import log from 'core/logger';
 import { findFileForPlatform } from 'core/utils';
 import HostPermissions from 'ui/components/HostPermissions';
 import Permission from 'ui/components/Permission';
-import type { AddonType } from 'core/types/addons';
+import type { PlatformFilesType } from 'core/types/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
+
+export type GetCurrentPermissionsParams = {|
+  platformFiles: PlatformFilesType,
+  userAgentInfo: UserAgentInfoType,
+  _findFileForPlatform?: typeof findFileForPlatform,
+|};
 
 /* eslint-disable no-continue */
 export class PermissionUtils {
@@ -60,20 +66,20 @@ export class PermissionUtils {
   }
 
   // Get a list of permissions from the correct platform file.
-  getCurrentPermissions(
-    addon: AddonType,
-    userAgentInfo: UserAgentInfoType,
-    _findFileForPlatform: typeof findFileForPlatform = findFileForPlatform,
-  ): Array<string> {
+  getCurrentPermissions({
+    platformFiles,
+    userAgentInfo,
+    _findFileForPlatform = findFileForPlatform,
+  }: GetCurrentPermissionsParams): Array<string> {
     const file = _findFileForPlatform({
       userAgentInfo,
-      platformFiles: addon.platformFiles,
+      platformFiles,
     });
 
     if (!file) {
       log.debug(
         `No file exists for os "${userAgentInfo.os.toString()}"; platform files:`,
-        addon.platformFiles,
+        platformFiles,
       );
       return [];
     }
