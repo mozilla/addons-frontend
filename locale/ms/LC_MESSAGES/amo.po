@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 22:50+0000\n"
+"PO-Revision-Date: 2018-10-30 22:55+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1349,7 +1349,7 @@ msgstr "Ekstensi adalah seperti aplikasi untuk pelayar anda."
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Ekstensi menambah ciri ke Firefox untuk membuatkan pelayaran lebih cepat, lebih bijak atau untuk keseronokan."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1958,7 +1958,7 @@ msgstr "Skrinsyot"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Ulasan dan penilaian untuk %(addonName)s. Ketahui pendapat pengguna lain mengenai %(addonName)s dan tambahkannya ke Pelayar Firefox anda."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
@@ -2019,7 +2019,7 @@ msgstr "Cari ekstensi dan tema untuk ditambah dalam koleksi anda."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Muat turun dan buat koleksi Firefox untuk mengikuti ekstensi dan tema kegemaran anda. Terokai %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
