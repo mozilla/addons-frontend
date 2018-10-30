@@ -444,6 +444,12 @@ describe(__filename, () => {
     });
 
     describe('LOAD_RECOMMENDATIONS', () => {
+      const versionForRecommendations = {
+        ...version,
+        license: undefined,
+        release_notes: undefined,
+      };
+
       it('loads versions', () => {
         const state = versionsReducer(
           undefined,
@@ -451,7 +457,7 @@ describe(__filename, () => {
             addons: [
               {
                 ...fakeAddon,
-                current_version: version,
+                current_version: versionForRecommendations,
               },
             ],
             guid: fakeAddon.guid,
@@ -464,7 +470,42 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersion(versionForRecommendations));
+      });
+
+      it('does not overwrite license and releaseNotes', () => {
+        const slug = 'some-slug';
+        const testVersion = {
+          ...version,
+          license: { name: 'test name', url: 'https://addons.mozilla.org/' },
+          release_notes: 'some release notes',
+        };
+
+        let state = versionsReducer(
+          undefined,
+          loadVersions({ slug, versions: [testVersion] }),
+        );
+
+        state = versionsReducer(
+          state,
+          loadRecommendations({
+            addons: [
+              {
+                ...fakeAddon,
+                current_version: versionForRecommendations,
+              },
+            ],
+            guid: fakeAddon.guid,
+            outcome: OUTCOME_RECOMMENDED,
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(testVersion));
       });
     });
 

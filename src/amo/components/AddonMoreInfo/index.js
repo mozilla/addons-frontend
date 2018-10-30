@@ -5,6 +5,7 @@ import { compose } from 'redux';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import Link from 'amo/components/Link';
+import { getVersionById } from 'amo/reducers/versions';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
@@ -17,8 +18,9 @@ import {
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
-import type { I18nType } from 'core/types/i18n';
+import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
+import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
   addon: AddonType | null,
@@ -26,14 +28,21 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  hasStatsPermission: boolean,
   i18n: I18nType,
   userId: number | null,
-  hasStatsPermission: boolean,
+  currentVersion: AddonVersionType | null,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
   listContent() {
-    const { addon, i18n, userId, hasStatsPermission } = this.props;
+    const {
+      addon,
+      hasStatsPermission,
+      i18n,
+      userId,
+      currentVersion,
+    } = this.props;
 
     if (!addon) {
       return this.renderDefinitions({
@@ -96,7 +105,6 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    const currentVersion = addon.current_version;
     const lastUpdated = addon.last_updated;
     const license = currentVersion && currentVersion.license;
     let versionLicenseLink = null;
@@ -269,10 +277,15 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
+  const { addon } = ownProps;
   return {
-    userId: state.users.currentUserID,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
+    userId: state.users.currentUserID,
+    currentVersion:
+      addon && addon.currentVersionId
+        ? getVersionById({ id: addon.currentVersionId, state: state.versions })
+        : null,
   };
 };
 
