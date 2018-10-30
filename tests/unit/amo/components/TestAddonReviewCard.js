@@ -13,7 +13,6 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
-import AddonReview from 'amo/components/AddonReview';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AddonReviewCard, {
   AddonReviewCardBase,
@@ -32,7 +31,6 @@ import {
   fakeAddon,
   fakeI18n,
   fakeReview,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -55,7 +53,6 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
-      _config: getFakeConfig({ enableFeatureInlineAddonReview: true }),
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
       siteUserCanReply: false,
@@ -67,13 +64,6 @@ describe(__filename, () => {
       AddonReviewCardBase,
     );
   };
-
-  function renderWithoutInline(otherProps = {}) {
-    const _config = getFakeConfig({
-      enableFeatureInlineAddonReview: false,
-    });
-    return render({ _config, ...otherProps });
-  }
 
   const renderControls = (root) => {
     return shallow(root.find(UserReview).prop('controls'));
@@ -536,17 +526,6 @@ describe(__filename, () => {
     expect(root).not.toHaveClassName('.AddonReviewCard-ratingOnly');
   });
 
-  it('configures the edit-review form', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-
-    const root = renderWithoutInline({ review });
-
-    const reviewComponent = renderControls(root).find(AddonReview);
-    expect(reviewComponent).toHaveLength(1);
-    expect(reviewComponent).toHaveProp('review', review);
-  });
-
   it('shows FlagReviewMenu when signed out', () => {
     const review = _setReview(fakeReview);
     const root = render({ review });
@@ -879,27 +858,6 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
-  it('hides AddonReview when the overlay is escaped', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderWithoutInline({ review });
-
-    const reviewComponent = renderControls(root).find(AddonReview);
-    expect(reviewComponent).toHaveProp('onEscapeOverlay');
-
-    const onEscapeOverlay = reviewComponent.prop('onEscapeOverlay');
-    // Simulate escaping the review.
-    onEscapeOverlay();
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      hideEditReviewForm({
-        reviewId: review.id,
-      }),
-    );
-  });
-
   it('cannot escape a review edit form without a review', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ review: null });
@@ -909,27 +867,6 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('hides AddonReview when edit review form is submitted', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderWithoutInline({ review });
-
-    const reviewComponent = renderControls(root).find(AddonReview);
-    expect(reviewComponent).toHaveProp('onReviewSubmitted');
-
-    const onReviewSubmitted = reviewComponent.prop('onReviewSubmitted');
-    // Simulate submitting the review.
-    onReviewSubmitted();
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      hideEditReviewForm({
-        reviewId: review.id,
-      }),
-    );
-  });
-
   it('cannot handle submitting a review form without a review', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ review: null });
@@ -937,15 +874,6 @@ describe(__filename, () => {
     root.instance().onReviewSubmitted();
 
     sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('hides AddonReview after the hide action is dispatched', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-    store.dispatch(hideEditReviewForm({ reviewId: review.id }));
-    const root = render({ review });
-
-    expect(renderControls(root).find(AddonReview)).toHaveLength(0);
   });
 
   it('renders errors', () => {
@@ -959,7 +887,7 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  describe('enableFeatureInlineAddonReview', () => {
+  describe('AddonReviewManager integration', () => {
     it('shows UserReview by default', () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ review });

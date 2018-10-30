@@ -109,7 +109,6 @@ module.exports = {
     'dismissedExperienceSurveyCookieName',
     'enableDevTools',
     'enableFeatureExperienceSurvey',
-    'enableFeatureInlineAddonReview',
     'enableFeatureHomeHeroGuides',
     'enableRequestID',
     'experiments',
@@ -347,8 +346,6 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
-
-  enableFeatureInlineAddonReview: true,
 
   enableFeatureHomeHeroGuides: false,
 
