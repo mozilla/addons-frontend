@@ -67,13 +67,17 @@ describe(__filename, () => {
       const expectedAction = loadAddonResults({ addons: results });
       const loadAction = await sagaTester.waitFor(expectedAction.type);
       expect(loadAction).toEqual(expectedAction);
+      mockApi.verify();
+    });
+
+    it('dispatches the update loading flag status action', async () => {
+      _fetchGuidesAddons({ guid });
 
       const expectedUpdateAction = updateGuideAddonsLoadedStatus({
-        loaded: true,
+        loading: false,
       });
       const updateAction = await sagaTester.waitFor(expectedUpdateAction.type);
       expect(updateAction).toEqual(expectedUpdateAction);
-      mockApi.verify();
     });
 
     it('clears the error handler', async () => {
@@ -97,23 +101,6 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
-    });
-
-    it('sets loaded flag to false when there is an error', async () => {
-      const error = new Error('some API error');
-
-      mockApi
-        .expects('search')
-        .once()
-        .rejects(error);
-
-      _fetchGuidesAddons({ guid });
-
-      const expectedUpdateAction = updateGuideAddonsLoadedStatus({
-        loaded: false,
-      });
-      const updateAction = await sagaTester.waitFor(expectedUpdateAction.type);
-      expect(updateAction).toEqual(expectedUpdateAction);
     });
   });
 });

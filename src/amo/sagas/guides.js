@@ -32,12 +32,12 @@ export function* fetchGuidesAddons({
     const { results } = guideAddons;
 
     yield put(loadAddonResults({ addons: results }));
-    yield put(updateGuideAddonsLoadedStatus({ loaded: true }));
   } catch (error) {
     log.warn('Search for guide addons failed:', error);
-    yield put(updateGuideAddonsLoadedStatus({ loaded: false }));
     yield put(errorHandler.createErrorAction(error));
   }
+
+  yield put(updateGuideAddonsLoadedStatus({ loading: false }));
 }
 
 export default function* guideAddonsSaga(): Generator<any, any, any> {

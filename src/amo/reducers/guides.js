@@ -6,15 +6,15 @@ export const UPDATE_GUIDES_ADDONS_LOADED_STATUS: 'UPDATE_GUIDES_ADDONS_LOADED_ST
   'UPDATE_GUIDES_ADDONS_LOADED_STATUS';
 
 export type GuidesState = {|
-  loaded: boolean,
+  loading: boolean,
 |};
 
 export const initialState: GuidesState = {
-  loaded: false,
+  loading: false,
 };
 
 export type updateGuideAddonsLoadedStatusParams = {|
-  loaded: boolean,
+  loading: boolean,
 |};
 
 export type updateGuideAddonsLoadedStatusAction = {|
@@ -23,11 +23,11 @@ export type updateGuideAddonsLoadedStatusAction = {|
 |};
 
 export const updateGuideAddonsLoadedStatus = ({
-  loaded,
+  loading,
 }: updateGuideAddonsLoadedStatusParams): updateGuideAddonsLoadedStatusAction => {
   return {
     type: UPDATE_GUIDES_ADDONS_LOADED_STATUS,
-    payload: { loaded },
+    payload: { loading },
   };
 };
 
@@ -54,15 +54,22 @@ export const fetchGuidesAddons = ({
   };
 };
 
+type ActionType = updateGuideAddonsLoadedStatusAction | FetchGuidesAction;
+
 const reducer = (
   state: GuidesState = initialState,
-  action: updateGuideAddonsLoadedStatusAction,
+  action: ActionType,
 ): GuidesState => {
   switch (action.type) {
+    case FETCH_GUIDES_ADDONS:
+      return {
+        ...state,
+        loading: true,
+      };
     case UPDATE_GUIDES_ADDONS_LOADED_STATUS:
       return {
         ...state,
-        loaded: action.payload.loaded,
+        loading: action.payload.loading,
       };
     default:
       return state;
