@@ -188,9 +188,3 @@ export type CollectionAddonType = {|
   ...AddonType,
   notes: string | null,
 |};
-
-export type SearchResultAddonType = {|
-  ...AddonType,
-  authors?: Array<PartialAddonAuthorType>,
-  current_version?: PartialExternalAddonVersionType,
-|};

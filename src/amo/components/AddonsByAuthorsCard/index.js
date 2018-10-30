@@ -59,11 +59,11 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  addons?: Array<AddonType>,
+  addons: Array<AddonType> | null,
   count: number | null,
   dispatch: DispatchFunc,
   i18n: I18nType,
-  loading?: boolean,
+  loading: boolean | null,
   location: ReactRouterLocationType,
 |};
 
@@ -225,7 +225,9 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       return errorHandler.renderError();
     }
 
-    if (!loading && (!addons || !addons.length)) {
+    const inLoadingState = loading === true || loading === null;
+
+    if (!inLoadingState && (!addons || !addons.length)) {
       return null;
     }
 
@@ -360,7 +362,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
         className={classnames}
         footer={paginator}
         header={header}
-        loading={loading}
+        loading={inLoadingState}
         placeholderCount={numberOfAddons}
         showMetadata
         showSummary={showSummary}
@@ -370,11 +372,14 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): $Shape<InternalProps> => {
   const { addonType, authorIds, forAddonSlug, numberOfAddons } = ownProps;
 
-  let addons = [];
-  let loading = true;
+  let addons = null;
+  let loading = null;
 
   if (authorIds) {
     addons = getAddonsForAuthorIds(
@@ -390,7 +395,6 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
       authorIds,
       addonType,
     );
-    loading = loading === null ? true : loading;
   }
 
   const count = authorIds
