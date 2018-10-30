@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-23 17:52+0000\n"
-"PO-Revision-Date: 2018-10-24 22:47+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2018-10-13 12:22+0000\n"
+"Last-Translator: YD <ygda+fx@free.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Ajouter à la collection"
 
 #: src/amo/components/AddonAdminLinks/index.js:102
 msgid "Admin add-on"
-msgstr ""
+msgstr "Gérer le module"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Content review add-on"
@@ -61,7 +61,7 @@ msgstr "Revue du code de l’extension"
 
 #: src/amo/components/AddonAdminLinks/index.js:147
 msgid "Admin Links"
-msgstr ""
+msgstr "Gérer les liens"
 
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
@@ -69,7 +69,7 @@ msgstr "Modifier le module"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
 msgid "Admin add-on status"
-msgstr ""
+msgstr "Gérer le statut du module"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
