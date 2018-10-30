@@ -48,7 +48,7 @@ export const createHistory = ({ req }) => {
   });
 };
 
-export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
+export function getPageProps({ store, req, res, config }) {
   const appName = config.get('appName');
   const isDeployed = config.get('isDeployed');
 
@@ -85,7 +85,6 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
     htmlLang: lang,
     htmlDir: dir,
     includeSri: isDeployed,
-    noScriptStyles,
     sriData,
     // A DNT header set to "1" means Do Not Track
     trackingEnabled:
@@ -202,8 +201,7 @@ function baseServer(
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  const noScriptStyles = null;
-  app.use(middleware.csp({ noScriptStyles }));
+  app.use(middleware.csp());
 
   // Serve assets locally from node ap (no-op by default).
   if (config.get('enableNodeStatics')) {
@@ -321,7 +319,7 @@ function baseServer(
           store.dispatch(dismissSurvey());
         }
 
-        pageProps = getPageProps({ noScriptStyles, store, req, res, config });
+        pageProps = getPageProps({ store, req, res, config });
 
         if (config.get('disableSSR') === true) {
           // This stops all running sagas.
