@@ -1,8 +1,12 @@
 import UAParser from 'ua-parser-js';
 
 import { PermissionUtils } from 'amo/components/PermissionsCard/permissions';
-import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeI18n, userAgentsByPlatform } from 'tests/unit/helpers';
+import { createPlatformFiles } from 'core/reducers/addons';
+import {
+  fakeI18n,
+  fakeVersion,
+  userAgentsByPlatform,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let permissionUtils;
@@ -18,41 +22,35 @@ describe(__filename, () => {
       findFileForPlatformStub = sinon.stub();
     });
 
+    const _getCurrentPermissions = ({
+      platformFiles = createPlatformFiles(fakeVersion),
+      userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox57),
+      _findFileForPlatform = findFileForPlatformStub,
+    } = {}) => {
+      return permissionUtils.getCurrentPermissions({
+        platformFiles,
+        userAgentInfo,
+        _findFileForPlatform,
+      });
+    };
+
     it('returns permissions from a found file', () => {
       const permissions = ['bookmarks'];
       findFileForPlatformStub.returns({ permissions });
 
-      const returnedPermissions = permissionUtils.getCurrentPermissions(
-        createInternalAddon(fakeAddon),
-        UAParser(userAgentsByPlatform.mac.firefox57),
-        findFileForPlatformStub,
-      );
-
-      expect(returnedPermissions).toEqual(permissions);
+      expect(_getCurrentPermissions()).toEqual(permissions);
     });
 
     it('returns an empty array if no file was found', () => {
       findFileForPlatformStub.returns(undefined);
 
-      const returnedPermissions = permissionUtils.getCurrentPermissions(
-        createInternalAddon(fakeAddon),
-        UAParser(userAgentsByPlatform.mac.firefox57),
-        findFileForPlatformStub,
-      );
-
-      expect(returnedPermissions).toEqual([]);
+      expect(_getCurrentPermissions()).toEqual([]);
     });
 
     it('returns an empty array if no permissions were found', () => {
       findFileForPlatformStub.returns({ permissions: undefined });
 
-      const returnedPermissions = permissionUtils.getCurrentPermissions(
-        createInternalAddon(fakeAddon),
-        UAParser(userAgentsByPlatform.mac.firefox57),
-        findFileForPlatformStub,
-      );
-
-      expect(returnedPermissions).toEqual([]);
+      expect(_getCurrentPermissions()).toEqual([]);
     });
   });
 
