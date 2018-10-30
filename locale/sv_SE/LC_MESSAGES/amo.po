@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 21:30+0000\n"
+"PO-Revision-Date: 2018-10-30 21:37+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -2427,15 +2427,15 @@ msgstr "Mina recensioner"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profilen för %(user)s, en Firefox tillägg- och temaförfattare. Hitta andra appar av %(user)s, inklusive genomsnittliga betyg, medlemskapsperiod och alternativet att rapportera problem."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profilen för %(user)s, Firefox tilläggsförfattare. Hitta andra tillägg av %(user)s, inklusive genomsnittliga betyg, medlemskapsperiod och alternativet att rapportera problem."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profilen för %(user)s, Firefox temaförfattare. Hitta andra teman av %(user)s, inklusive genomsnittliga betyg, medlemskapsperiod och alternativet att rapportera problem."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
