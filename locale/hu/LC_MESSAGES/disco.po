@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-10-30 19:07+0000\n"
 "PO-Revision-Date: 2018-10-24 07:02+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Engedélyezés"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Engedélyezés"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Letöltés"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Telepítés"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Eltávolítás"
 
-#: src/core/components/AMInstallButton/index.js:220 src/core/components/InstallButton/index.js:235 src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:225
 msgid "Install Theme"
 msgstr "Téma telepítése"
 
-#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:266 src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:226
 msgid "Add to Firefox"
 msgstr "Hozzáadás a Firefoxhoz"
 
@@ -51,10 +51,15 @@ msgid "Server Error"
 msgstr "Kiszolgálóhiba"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk ezt a hibát, és ki fogjuk vizsgálni."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk "
+"ezt a hibát, és ki fogjuk vizsgálni."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Hibakód: %(status)s."
 
@@ -77,34 +82,6 @@ msgstr "Kezelje kiegészítőit a Kiegészítőkre kattintva a menüben."
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "%(name)s letöltése."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "%(name)s telepítése."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "A(z) %(name)s telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "A(z) %(name)s le van tiltva. Kattintson az engedélyezéshez."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "%(name)s eltávolítása."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "A(z) %(name)s el lett távolítva. Kattintson a telepítéshez."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "A(z) %(name)s telepítési állapota ismeretlen."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -146,7 +123,7 @@ msgstr "Váratlan hiba történt az eltávolítás során."
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Bezárás"
 
@@ -180,13 +157,20 @@ msgstr "A Firefox testreszabása"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő fejlesztőktől,\n"
-"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól kezdve,\n"
-"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá teszik,\n"
-"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, itt van néhány,\n"
+"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő "
+"fejlesztőktől,\n"
+"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól "
+"kezdve,\n"
+"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá "
+"teszik,\n"
+"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, "
+"itt van néhány,\n"
 "amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
 #: src/ui/components/ErrorList/index.js:44
@@ -209,6 +193,29 @@ msgstr "Értesítés elvetése"
 msgid "Preview of %(title)s"
 msgstr "%(title)s előnézete"
 
+#~ msgid "Downloading %(name)s."
+#~ msgstr "%(name)s letöltése."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "%(name)s telepítése."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr ""
+#~ "A(z) %(name)s telepítve van, és engedélyezett. Kattintson az "
+#~ "eltávolításhoz."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "A(z) %(name)s le van tiltva. Kattintson az engedélyezéshez."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "%(name)s eltávolítása."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "A(z) %(name)s el lett távolítva. Kattintson a telepítéshez."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "A(z) %(name)s telepítési állapota ismeretlen."
+
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
 
@@ -222,7 +229,9 @@ msgstr "%(title)s előnézete"
 #~ msgstr "Most már elérheti ezt az eszköztáron: %(name)s."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
+#~ msgstr ""
+#~ "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
+#~ "telepítéséhez"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Az előnézethez vigye a kép fölé az egeret"

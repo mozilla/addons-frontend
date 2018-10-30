@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-10-30 19:07+0000\n"
 "PO-Revision-Date: 2018-10-26 12:01+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Povoliť"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Odstrániť"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Povoľuje sa"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Preberá sa"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Inštaluje sa"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Odinštalovanie"
 
-#: src/core/components/AMInstallButton/index.js:220 src/core/components/InstallButton/index.js:235 src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:225
 msgid "Install Theme"
 msgstr "Nainštalovať tému vzhľadu"
 
-#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:266 src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:226
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
 
@@ -51,10 +51,15 @@ msgid "Server Error"
 msgstr "Chyba servera"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. Chybu sme zaznamenali a budeme sa jej venovať."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. "
+"Chybu sme zaznamenali a budeme sa jej venovať."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
@@ -77,34 +82,6 @@ msgstr "Spravujte svoje doplnky kliknutím na Doplnky v ponuke."
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Preberanie doplnku %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Inštalovanie doplnku %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "Doplnok %(name)s je zakázaný. Kliknutím ho povolíte."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Odinštalovanie doplnku %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "Doplnok %(name)s bol odinštalovaný. Kliknutím ho nainštalujete."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Stav inštalácie doplnku %(name)s nie je známy."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -146,7 +123,7 @@ msgstr "Počas odinštalovania nastala neočakávaná chyba."
 msgid "An unexpected error occurred."
 msgstr "Nastala neočakávaná chyba."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Zavrieť"
 
@@ -180,12 +157,17 @@ msgstr "Prispôsobte si svoj Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
 "Existujú tisíce doplnkov, ktoré vytvárajú tisíce vývojárov po celom svete.\n"
-"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od zábavných tém \n"
-"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a bezpečnejšie.\n"
+"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od "
+"zábavných tém \n"
+"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a "
+"bezpečnejšie.\n"
 "Tu je niekoľko velikánov, čo stoja za vyskúšanie."
 
 #: src/ui/components/ErrorList/index.js:44
@@ -208,6 +190,28 @@ msgstr "Zavrieť toto oznámenie"
 msgid "Preview of %(title)s"
 msgstr "Náhľad témy %(title)s"
 
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Preberanie doplnku %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Inštalovanie doplnku %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr ""
+#~ "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "Doplnok %(name)s je zakázaný. Kliknutím ho povolíte."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Odinštalovanie doplnku %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "Doplnok %(name)s bol odinštalovaný. Kliknutím ho nainštalujete."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Stav inštalácie doplnku %(name)s nie je známy."
+
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Tento doplnok bude odinštalovaný po reštarte Firefoxu."
 
@@ -221,7 +225,8 @@ msgstr "Náhľad témy %(title)s"
 #~ msgstr "Teraz môžete pristupovať k %(name)s z panela nástrojov."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
+#~ msgstr ""
+#~ "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Pre náhľad prejdite na obrázok myšou"

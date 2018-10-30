@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-10-30 19:07+0000\n"
 "PO-Revision-Date: 2018-10-28 11:26+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Aktivizoje"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Hiqe"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Po aktivizohet"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Po shkarkohet"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Po instalohet"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Po çinstalohet"
 
-#: src/core/components/AMInstallButton/index.js:220 src/core/components/InstallButton/index.js:235 src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:225
 msgid "Install Theme"
 msgstr "Instaloje Temën"
 
-#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:266 src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:226
 msgid "Add to Firefox"
 msgstr "Shtoje te Firefox-i"
 
@@ -51,10 +51,15 @@ msgid "Server Error"
 msgstr "Gabim Shërbyesi"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E "
+"kemi regjistruar këtë gabim dhe do ta hetojmë."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kod gabimi: %(status)s."
 
@@ -77,34 +82,6 @@ msgstr "Administroni shtesat tuaj duke klikuar mbi Shtesa te menuja."
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Po shkarkohet %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Po instalohet %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s është instaluar dhe aktivizuar. Klikoni që të çinstalohet."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s është i çaktivizuar. Klikoni që të aktivizohet."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Po çinstalohet %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s është çinstaluar. Klikoni që të instalohet."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Gjendja e instalimit për %(name)s është e panjohur."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -146,7 +123,7 @@ msgstr "Ndodhi një gabim i papritur gjatë çinstalimit."
 msgid "An unexpected error occurred."
 msgstr "Ndodhi një gabim i papritur."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Mbylle"
 
@@ -180,11 +157,18 @@ msgstr "Personalizoni Firefox-in Tuaj"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Ka me mijëra shtesa, të krijuara nga programues anembanë botës, që mund t’i instaloni për të personalizuar Firefox-in tuaj. Nga temat pamore zbavitëse e deri te mjete të fuqishme që e bëjnë shfletimin tuaj më të shpejtë dhe më të sigurt, shtesat jua bëjnë shfletuesin tuajin.\n"
-"Për t’ju ndihmuar t’ia filloni, ja disa që i këshillojmë për shkak të punës së shkëlqyer që bëjnë dhe funksionimit të tyre."
+"Ka me mijëra shtesa, të krijuara nga programues anembanë botës, që mund t’i "
+"instaloni për të personalizuar Firefox-in tuaj. Nga temat pamore zbavitëse e "
+"deri te mjete të fuqishme që e bëjnë shfletimin tuaj më të shpejtë dhe më të "
+"sigurt, shtesat jua bëjnë shfletuesin tuajin.\n"
+"Për t’ju ndihmuar t’ia filloni, ja disa që i këshillojmë për shkak të punës "
+"së shkëlqyer që bëjnë dhe funksionimit të tyre."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -206,6 +190,27 @@ msgstr "Shpërfille këtë shënim"
 msgid "Preview of %(title)s"
 msgstr "Paraparje e %(title)s"
 
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Po shkarkohet %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Po instalohet %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s është instaluar dhe aktivizuar. Klikoni që të çinstalohet."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s është i çaktivizuar. Klikoni që të aktivizohet."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Po çinstalohet %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s është çinstaluar. Klikoni që të instalohet."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Gjendja e instalimit për %(name)s është e panjohur."
+
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Kjo shtesë do të çinstalohet pasi të rinisni Firefox-in."
 
@@ -219,7 +224,9 @@ msgstr "Paraparje e %(title)s"
 #~ msgstr "Tani mund të hyni te %(name)s që nga paneli."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet %(name)s"
+#~ msgstr ""
+#~ "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet "
+#~ "%(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Kalojeni kursorin përsipër figurës që ta parashihni"

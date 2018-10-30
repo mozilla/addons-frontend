@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-10-30 19:07+0000\n"
 "PO-Revision-Date: 2018-09-13 06:38+0000\n"
 "Last-Translator: Ruba <ruba.awayes@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,42 +15,38 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "فعّل"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "أزِل"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "يُفعّل"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 #, fuzzy
 msgid "Downloading"
 msgstr "يُنزّل %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 #, fuzzy
 msgid "Installing"
 msgstr "يُثبّت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 #, fuzzy
 msgid "Uninstalling"
 msgstr "يُلغي تثبيت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:225
 msgid "Install Theme"
 msgstr "ثبّت السمة"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:226
 msgid "Add to Firefox"
 msgstr "أضِف إلى فَيَرفُكس"
 
@@ -89,34 +85,6 @@ msgstr "أدِر إضافاتك بنقر زر ”الإضافات“ في الق
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "حسنًا"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "يُنزّل %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "يُثبّت %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "ثُبّت %(name)s وفُعّل. انقر لإزالة تثبيته."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "عُطّل %(name)s. انقر لتفعيله."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "يُلغي تثبيت %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "أُلغي تثبيت %(name)s. انقر لتثبيته."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "حالة تثبيت %(name)s مجهولة."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -158,7 +126,7 @@ msgstr "حدث عطل غير متوقع أثناء إلغاء التثبيت."
 msgid "An unexpected error occurred."
 msgstr "حدث عطل غير متوقع."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "أغلق"
 
@@ -219,6 +187,27 @@ msgstr ""
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "يُنزّل %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "يُثبّت %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "ثُبّت %(name)s وفُعّل. انقر لإزالة تثبيته."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "عُطّل %(name)s. انقر لتفعيله."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "يُلغي تثبيت %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "أُلغي تثبيت %(name)s. انقر لتثبيته."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "حالة تثبيت %(name)s مجهولة."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "سيُلغى تثبيت هذه الإضافة بعد أن تعيد تشغيل فَيَرفُكس."
