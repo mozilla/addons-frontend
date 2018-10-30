@@ -53,7 +53,7 @@ type PartialExternalAddonVersionType = {|
 export type ExternalAddonVersionType = {|
   ...PartialExternalAddonVersionType,
   // The `text` property is omitted from addon.current_version.license.
-  license: { name: string, url: string },
+  license?: { name: string, url: string },
   release_notes?: string,
 |};
 

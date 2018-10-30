@@ -261,7 +261,24 @@ const reducer = (
         // For collection related actions, the addon is available in addon.addon.
         const addonToUse = addon.addon || addon;
         if (addonToUse.current_version) {
-          const version = createInternalVersion(addonToUse.current_version);
+          const apiVersion = addonToUse.current_version;
+
+          // Do not overwrite licence and release_notes data with nulls, which
+          // are omitted from some API responses.
+          if (!apiVersion.license || !apiVersion.release_notes) {
+            const existingVersion = getVersionById({
+              id: apiVersion.id,
+              state,
+            });
+            if (existingVersion) {
+              apiVersion.license =
+                apiVersion.license || existingVersion.license;
+              apiVersion.release_notes =
+                apiVersion.release_notes || existingVersion.releaseNotes;
+            }
+          }
+
+          const version = createInternalVersion(apiVersion);
           newVersions[version.id] = version;
         }
       }

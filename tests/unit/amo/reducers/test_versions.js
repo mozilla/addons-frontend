@@ -444,6 +444,12 @@ describe(__filename, () => {
     });
 
     describe('LOAD_RECOMMENDATIONS', () => {
+      const versionForRecommendations = {
+        ...version,
+        license: undefined,
+        release_notes: undefined,
+      };
+
       it('loads versions', () => {
         const state = versionsReducer(
           undefined,
@@ -451,7 +457,36 @@ describe(__filename, () => {
             addons: [
               {
                 ...fakeAddon,
-                current_version: version,
+                current_version: versionForRecommendations,
+              },
+            ],
+            guid: fakeAddon.guid,
+            outcome: OUTCOME_RECOMMENDED,
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(versionForRecommendations));
+      });
+
+      it('does not overwrite license and releaseNotes', () => {
+        const slug = 'some-slug';
+        let state = versionsReducer(
+          undefined,
+          loadVersions({ slug, versions: [version] }),
+        );
+
+        state = versionsReducer(
+          state,
+          loadRecommendations({
+            addons: [
+              {
+                ...fakeAddon,
+                current_version: versionForRecommendations,
               },
             ],
             guid: fakeAddon.guid,
