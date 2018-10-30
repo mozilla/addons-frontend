@@ -126,7 +126,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
-    return [1, 2, 3, 4, 5].map((thisRating) => {
+    return [1, 2, 3, 4, 5].map((thisRating): React.Node => {
       let isSelected = thisRating - rating <= 0.25;
       if (hoveringOverStar !== null) {
         isSelected = thisRating <= hoveringOverStar;

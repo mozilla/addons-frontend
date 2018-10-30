@@ -20,6 +20,12 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
+type HeroType = {|
+  title: string,
+  description: string,
+  url: string,
+|};
+
 export const AB_HOME_HERO_EXPERIMENT = 'home_hero';
 export const AB_HOME_HERO_VARIANT_A = 'small';
 export const AB_HOME_HERO_VARIANT_B = 'large';
@@ -38,7 +44,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
     log.info('[HomeHeroBanner.componentDidMount] variant is:', variant);
   }
 
-  getHeroes() {
+  getHeroes(): Array<HeroType> {
     const { i18n } = this.props;
 
     return [
@@ -291,7 +297,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   }
 
   sections() {
-    return this.getHeroes().map((hero) => {
+    return this.getHeroes().map((hero: HeroType) => {
       const { description, title, url } = hero;
 
       return (
